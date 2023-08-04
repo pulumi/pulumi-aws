@@ -17,31 +17,32 @@ __all__ = ['AssessmentArgs', 'Assessment']
 class AssessmentArgs:
     def __init__(__self__, *,
                  framework_id: pulumi.Input[str],
-                 name: pulumi.Input[str],
                  roles: pulumi.Input[Sequence[pulumi.Input['AssessmentRoleArgs']]],
                  assessment_reports_destination: Optional[pulumi.Input['AssessmentAssessmentReportsDestinationArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input['AssessmentScopeArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Assessment resource.
         :param pulumi.Input[str] framework_id: Unique identifier of the framework the assessment will be created from.
-        :param pulumi.Input[str] name: Name of the assessment.
         :param pulumi.Input[Sequence[pulumi.Input['AssessmentRoleArgs']]] roles: List of roles for the assessment. See `roles` below.
         :param pulumi.Input['AssessmentAssessmentReportsDestinationArgs'] assessment_reports_destination: Assessment report storage destination configuration. See `assessment_reports_destination` below.
         :param pulumi.Input[str] description: Description of the assessment.
+        :param pulumi.Input[str] name: Name of the assessment.
         :param pulumi.Input['AssessmentScopeArgs'] scope: Amazon Web Services accounts and services that are in scope for the assessment. See `scope` below.
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the assessment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "framework_id", framework_id)
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "roles", roles)
         if assessment_reports_destination is not None:
             pulumi.set(__self__, "assessment_reports_destination", assessment_reports_destination)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if scope is not None:
             pulumi.set(__self__, "scope", scope)
         if tags is not None:
@@ -58,18 +59,6 @@ class AssessmentArgs:
     @framework_id.setter
     def framework_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "framework_id", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        Name of the assessment.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -106,6 +95,18 @@ class AssessmentArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the assessment.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -342,7 +343,6 @@ class Assessment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.auditmanager.Assessment("test",
-            name="example",
             assessment_reports_destination=aws.auditmanager.AssessmentAssessmentReportsDestinationArgs(
                 destination=f"s3://{aws_s3_bucket['test']['id']}",
                 destination_type="S3",
@@ -399,7 +399,6 @@ class Assessment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.auditmanager.Assessment("test",
-            name="example",
             assessment_reports_destination=aws.auditmanager.AssessmentAssessmentReportsDestinationArgs(
                 destination=f"s3://{aws_s3_bucket['test']['id']}",
                 destination_type="S3",
@@ -463,8 +462,6 @@ class Assessment(pulumi.CustomResource):
             if framework_id is None and not opts.urn:
                 raise TypeError("Missing required property 'framework_id'")
             __props__.__dict__["framework_id"] = framework_id
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if roles is None and not opts.urn:
                 raise TypeError("Missing required property 'roles'")

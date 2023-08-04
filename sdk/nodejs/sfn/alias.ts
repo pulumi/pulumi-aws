@@ -17,26 +17,20 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const sfnAlias = new aws.sfn.Alias("sfnAlias", {
- *     name: "my_sfn_alias",
- *     routingConfigurations: [{
- *         stateMachineVersionArn: aws_sfn_state_machine.sfn_test.state_machine_version_arn,
- *         weight: 100,
- *     }],
- * });
- * const mySfnAlias = new aws.sfn.Alias("mySfnAlias", {
- *     name: "my_sfn_alias",
- *     routingConfigurations: [
- *         {
- *             stateMachineVersionArn: "arn:aws:states:us-east-1:12345:stateMachine:demo:3",
- *             weight: 50,
- *         },
- *         {
- *             stateMachineVersionArn: "arn:aws:states:us-east-1:12345:stateMachine:demo:2",
- *             weight: 50,
- *         },
- *     ],
- * });
+ * const sfnAlias = new aws.sfn.Alias("sfnAlias", {routingConfigurations: [{
+ *     stateMachineVersionArn: aws_sfn_state_machine.sfn_test.state_machine_version_arn,
+ *     weight: 100,
+ * }]});
+ * const mySfnAlias = new aws.sfn.Alias("mySfnAlias", {routingConfigurations: [
+ *     {
+ *         stateMachineVersionArn: "arn:aws:states:us-east-1:12345:stateMachine:demo:3",
+ *         weight: 50,
+ *     },
+ *     {
+ *         stateMachineVersionArn: "arn:aws:states:us-east-1:12345:stateMachine:demo:2",
+ *         weight: 50,
+ *     },
+ * ]});
  * ```
  *
  * ## Import
@@ -116,9 +110,6 @@ export class Alias extends pulumi.CustomResource {
             resourceInputs["routingConfigurations"] = state ? state.routingConfigurations : undefined;
         } else {
             const args = argsOrState as AliasArgs | undefined;
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.routingConfigurations === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'routingConfigurations'");
             }
@@ -170,7 +161,7 @@ export interface AliasArgs {
     /**
      * Name for the alias you are creating.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The StateMachine alias' route configuration settings. Fields documented below
      */

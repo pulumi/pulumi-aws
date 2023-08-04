@@ -18,7 +18,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.opensearch.ServerlessVpcEndpoint("example", {
- *     name: "myendpoint",
  *     subnetIds: [aws_subnet.example.id],
  *     vpcId: aws_vpc.example.id,
  * });
@@ -100,9 +99,6 @@ export class ServerlessVpcEndpoint extends pulumi.CustomResource {
             resourceInputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as ServerlessVpcEndpointArgs | undefined;
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.subnetIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetIds'");
             }
@@ -152,7 +148,7 @@ export interface ServerlessVpcEndpointArgs {
     /**
      * Name of the interface endpoint.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * One or more security groups that define the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint. Up to 5 security groups can be provided.
      */

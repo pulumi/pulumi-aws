@@ -26,7 +26,6 @@ namespace Pulumi.Aws.OpenSearch
     /// {
     ///     var exampleServerlessSecurityPolicy = new Aws.OpenSearch.ServerlessSecurityPolicy("exampleServerlessSecurityPolicy", new()
     ///     {
-    ///         Name = "example",
     ///         Type = "encryption",
     ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
@@ -47,7 +46,6 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     ///     var exampleServerlessCollection = new Aws.OpenSearch.ServerlessCollection("exampleServerlessCollection", new()
     ///     {
-    ///         Name = "example",
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn = new[]
@@ -131,7 +129,7 @@ namespace Pulumi.Aws.OpenSearch
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public ServerlessCollection(string name, ServerlessCollectionArgs args, CustomResourceOptions? options = null)
+        public ServerlessCollection(string name, ServerlessCollectionArgs? args = null, CustomResourceOptions? options = null)
             : base("aws:opensearch/serverlessCollection:ServerlessCollection", name, args ?? new ServerlessCollectionArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -180,8 +178,8 @@ namespace Pulumi.Aws.OpenSearch
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

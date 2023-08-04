@@ -56,7 +56,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new KxCluster(&#34;example&#34;, KxClusterArgs.builder()        
- *             .name(&#34;my-tf-kx-cluster&#34;)
  *             .environmentId(aws_finspace_kx_environment.example().id())
  *             .type(&#34;HDB&#34;)
  *             .releaseLabel(&#34;1.0&#34;)

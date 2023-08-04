@@ -16,39 +16,28 @@ __all__ = ['DataQualityRulesetArgs', 'DataQualityRuleset']
 @pulumi.input_type
 class DataQualityRulesetArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
                  ruleset: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_table: Optional[pulumi.Input['DataQualityRulesetTargetTableArgs']] = None):
         """
         The set of arguments for constructing a DataQualityRuleset resource.
-        :param pulumi.Input[str] name: Name of the data quality ruleset.
         :param pulumi.Input[str] ruleset: A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
         :param pulumi.Input[str] description: Description of the data quality ruleset.
+        :param pulumi.Input[str] name: Name of the data quality ruleset.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['DataQualityRulesetTargetTableArgs'] target_table: A Configuration block specifying a target table associated with the data quality ruleset. See `target_table` below.
         """
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "ruleset", ruleset)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if target_table is not None:
             pulumi.set(__self__, "target_table", target_table)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        Name of the data quality ruleset.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -73,6 +62,18 @@ class DataQualityRulesetArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the data quality ruleset.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -288,9 +289,7 @@ class DataQualityRuleset(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.glue.DataQualityRuleset("example",
-            name="example",
-            ruleset="Rules = [Completeness \\"colA\\" between 0.4 and 0.8]")
+        example = aws.glue.DataQualityRuleset("example", ruleset="Rules = [Completeness \\"colA\\" between 0.4 and 0.8]")
         ```
         ### With description
 
@@ -300,7 +299,6 @@ class DataQualityRuleset(pulumi.CustomResource):
 
         example = aws.glue.DataQualityRuleset("example",
             description="example",
-            name="example",
             ruleset="Rules = [Completeness \\"colA\\" between 0.4 and 0.8]")
         ```
         ### With tags
@@ -310,7 +308,6 @@ class DataQualityRuleset(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.DataQualityRuleset("example",
-            name="example",
             ruleset="Rules = [Completeness \\"colA\\" between 0.4 and 0.8]",
             tags={
                 "hello": "world",
@@ -323,7 +320,6 @@ class DataQualityRuleset(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.DataQualityRuleset("example",
-            name="example",
             ruleset="Rules = [Completeness \\"colA\\" between 0.4 and 0.8]",
             target_table=aws.glue.DataQualityRulesetTargetTableArgs(
                 database_name=aws_glue_catalog_database["example"]["name"],
@@ -363,9 +359,7 @@ class DataQualityRuleset(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.glue.DataQualityRuleset("example",
-            name="example",
-            ruleset="Rules = [Completeness \\"colA\\" between 0.4 and 0.8]")
+        example = aws.glue.DataQualityRuleset("example", ruleset="Rules = [Completeness \\"colA\\" between 0.4 and 0.8]")
         ```
         ### With description
 
@@ -375,7 +369,6 @@ class DataQualityRuleset(pulumi.CustomResource):
 
         example = aws.glue.DataQualityRuleset("example",
             description="example",
-            name="example",
             ruleset="Rules = [Completeness \\"colA\\" between 0.4 and 0.8]")
         ```
         ### With tags
@@ -385,7 +378,6 @@ class DataQualityRuleset(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.DataQualityRuleset("example",
-            name="example",
             ruleset="Rules = [Completeness \\"colA\\" between 0.4 and 0.8]",
             tags={
                 "hello": "world",
@@ -398,7 +390,6 @@ class DataQualityRuleset(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.DataQualityRuleset("example",
-            name="example",
             ruleset="Rules = [Completeness \\"colA\\" between 0.4 and 0.8]",
             target_table=aws.glue.DataQualityRulesetTargetTableArgs(
                 database_name=aws_glue_catalog_database["example"]["name"],
@@ -444,8 +435,6 @@ class DataQualityRuleset(pulumi.CustomResource):
             __props__ = DataQualityRulesetArgs.__new__(DataQualityRulesetArgs)
 
             __props__.__dict__["description"] = description
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if ruleset is None and not opts.urn:
                 raise TypeError("Missing required property 'ruleset'")

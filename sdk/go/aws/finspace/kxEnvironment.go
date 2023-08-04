@@ -38,7 +38,6 @@ import (
 //				return err
 //			}
 //			_, err = finspace.NewKxEnvironment(ctx, "exampleKxEnvironment", &finspace.KxEnvironmentArgs{
-//				Name:     pulumi.String("my-tf-kx-environment"),
 //				KmsKeyId: exampleKey.Arn,
 //			})
 //			if err != nil {
@@ -79,7 +78,6 @@ import (
 //				return err
 //			}
 //			_, err = finspace.NewKxEnvironment(ctx, "exampleEnv", &finspace.KxEnvironmentArgs{
-//				Name:        pulumi.String("my-tf-kx-environment"),
 //				Description: pulumi.String("Environment description"),
 //				KmsKeyId:    exampleKey.Arn,
 //				TransitGatewayConfiguration: &finspace.KxEnvironmentTransitGatewayConfigurationArgs{
@@ -151,9 +149,6 @@ func NewKxEnvironment(ctx *pulumi.Context,
 
 	if args.KmsKeyId == nil {
 		return nil, errors.New("invalid value for required argument 'KmsKeyId'")
-	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource KxEnvironment
@@ -253,7 +248,7 @@ type kxEnvironmentArgs struct {
 	// The following arguments are optional:
 	KmsKeyId string `pulumi:"kmsKeyId"`
 	// Name of the KX environment that you want to create.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Transit gateway and network configuration that is used to connect the KX environment to an internal network. Defined below.
@@ -271,7 +266,7 @@ type KxEnvironmentArgs struct {
 	// The following arguments are optional:
 	KmsKeyId pulumi.StringInput
 	// Name of the KX environment that you want to create.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Transit gateway and network configuration that is used to connect the KX environment to an internal network. Defined below.

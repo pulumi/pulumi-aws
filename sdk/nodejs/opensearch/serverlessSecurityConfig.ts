@@ -91,9 +91,6 @@ export class ServerlessSecurityConfig extends pulumi.CustomResource {
             resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as ServerlessSecurityConfigArgs | undefined;
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
@@ -147,7 +144,7 @@ export interface ServerlessSecurityConfigArgs {
     /**
      * Name of the policy.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Configuration block for SAML options.
      */

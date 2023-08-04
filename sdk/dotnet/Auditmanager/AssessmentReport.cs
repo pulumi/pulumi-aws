@@ -25,7 +25,6 @@ namespace Pulumi.Aws.Auditmanager
     /// {
     ///     var test = new Aws.Auditmanager.AssessmentReport("test", new()
     ///     {
-    ///         Name = "example",
     ///         AssessmentId = aws_auditmanager_assessment.Test.Id,
     ///     });
     /// 
@@ -138,8 +137,8 @@ namespace Pulumi.Aws.Auditmanager
         /// <summary>
         /// Name of the assessment report.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         public AssessmentReportArgs()
         {

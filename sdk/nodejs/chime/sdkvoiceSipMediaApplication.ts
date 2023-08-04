@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.chime.SdkvoiceSipMediaApplication("example", {
  *     awsRegion: "us-east-1",
- *     name: "example-sip-media-application",
  *     endpoints: {
  *         lambdaArn: aws_lambda_function.test.arn,
  *     },
@@ -116,9 +115,6 @@ export class SdkvoiceSipMediaApplication extends pulumi.CustomResource {
             if ((!args || args.endpoints === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'endpoints'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             resourceInputs["awsRegion"] = args ? args.awsRegion : undefined;
             resourceInputs["endpoints"] = args ? args.endpoints : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -180,7 +176,7 @@ export interface SdkvoiceSipMediaApplicationArgs {
      *
      * The following arguments are optional:
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

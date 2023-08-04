@@ -18,7 +18,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.chime.SdkvoiceSipRule("example", {
- *     name: "example-sip-rule",
  *     triggerType: "RequestUriHostname",
  *     triggerValue: aws_chime_voice_connector["example-voice-connector"].outbound_host_name,
  *     targetApplications: [{
@@ -108,9 +107,6 @@ export class SdkvoiceSipRule extends pulumi.CustomResource {
             resourceInputs["triggerValue"] = state ? state.triggerValue : undefined;
         } else {
             const args = argsOrState as SdkvoiceSipRuleArgs | undefined;
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.targetApplications === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetApplications'");
             }
@@ -170,7 +166,7 @@ export interface SdkvoiceSipRuleArgs {
     /**
      * The name of the SIP rule.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * List of SIP media applications with priority and AWS Region. Only one SIP application per AWS Region can be used. See `targetApplications`.
      */

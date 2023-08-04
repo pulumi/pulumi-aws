@@ -16,42 +16,31 @@ __all__ = ['FrameworkArgs', 'Framework']
 @pulumi.input_type
 class FrameworkArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
                  compliance_type: Optional[pulumi.Input[str]] = None,
                  control_sets: Optional[pulumi.Input[Sequence[pulumi.Input['FrameworkControlSetArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Framework resource.
-        :param pulumi.Input[str] name: Name of the framework.
         :param pulumi.Input[str] compliance_type: Compliance type that the new custom framework supports, such as `CIS` or `HIPAA`.
         :param pulumi.Input[Sequence[pulumi.Input['FrameworkControlSetArgs']]] control_sets: Control sets that are associated with the framework. See `control_sets` below.
                
                The following arguments are optional:
         :param pulumi.Input[str] description: Description of the framework.
+        :param pulumi.Input[str] name: Name of the framework.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the framework. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "name", name)
         if compliance_type is not None:
             pulumi.set(__self__, "compliance_type", compliance_type)
         if control_sets is not None:
             pulumi.set(__self__, "control_sets", control_sets)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        Name of the framework.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="complianceType")
@@ -90,6 +79,18 @@ class FrameworkArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the framework.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -263,14 +264,12 @@ class Framework(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.auditmanager.Framework("test",
+        test = aws.auditmanager.Framework("test", control_sets=[aws.auditmanager.FrameworkControlSetArgs(
             name="example",
-            control_sets=[aws.auditmanager.FrameworkControlSetArgs(
-                name="example",
-                controls=[aws.auditmanager.FrameworkControlSetControlArgs(
-                    id=aws_auditmanager_control["test"]["id"],
-                )],
-            )])
+            controls=[aws.auditmanager.FrameworkControlSetControlArgs(
+                id=aws_auditmanager_control["test"]["id"],
+            )],
+        )])
         ```
 
         ## Import
@@ -295,7 +294,7 @@ class Framework(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: FrameworkArgs,
+                 args: Optional[FrameworkArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS Audit Manager Framework.
@@ -307,14 +306,12 @@ class Framework(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.auditmanager.Framework("test",
+        test = aws.auditmanager.Framework("test", control_sets=[aws.auditmanager.FrameworkControlSetArgs(
             name="example",
-            control_sets=[aws.auditmanager.FrameworkControlSetArgs(
-                name="example",
-                controls=[aws.auditmanager.FrameworkControlSetControlArgs(
-                    id=aws_auditmanager_control["test"]["id"],
-                )],
-            )])
+            controls=[aws.auditmanager.FrameworkControlSetControlArgs(
+                id=aws_auditmanager_control["test"]["id"],
+            )],
+        )])
         ```
 
         ## Import
@@ -357,8 +354,6 @@ class Framework(pulumi.CustomResource):
             __props__.__dict__["compliance_type"] = compliance_type
             __props__.__dict__["control_sets"] = control_sets
             __props__.__dict__["description"] = description
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None

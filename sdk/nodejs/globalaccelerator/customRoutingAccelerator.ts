@@ -25,7 +25,6 @@ import * as utilities from "../utilities";
  *     enabled: true,
  *     ipAddressType: "IPV4",
  *     ipAddresses: ["1.2.3.4"],
- *     name: "Example",
  * });
  * ```
  *
@@ -115,7 +114,7 @@ export class CustomRoutingAccelerator extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: CustomRoutingAcceleratorArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args?: CustomRoutingAcceleratorArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CustomRoutingAcceleratorArgs | CustomRoutingAcceleratorState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -133,9 +132,6 @@ export class CustomRoutingAccelerator extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as CustomRoutingAcceleratorArgs | undefined;
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             resourceInputs["attributes"] = args ? args.attributes : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["ipAddressType"] = args ? args.ipAddressType : undefined;
@@ -223,7 +219,7 @@ export interface CustomRoutingAcceleratorArgs {
     /**
      * The name of a custom routing accelerator.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

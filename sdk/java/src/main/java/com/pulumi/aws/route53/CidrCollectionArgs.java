@@ -7,6 +7,8 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class CidrCollectionArgs extends com.pulumi.resources.ResourceArgs {
@@ -17,15 +19,15 @@ public final class CidrCollectionArgs extends com.pulumi.resources.ResourceArgs 
      * Unique name for the CIDR collection.
      * 
      */
-    @Import(name="name", required=true)
-    private Output<String> name;
+    @Import(name="name")
+    private @Nullable Output<String> name;
 
     /**
      * @return Unique name for the CIDR collection.
      * 
      */
-    public Output<String> name() {
-        return this.name;
+    public Optional<Output<String>> name() {
+        return Optional.ofNullable(this.name);
     }
 
     private CidrCollectionArgs() {}
@@ -58,7 +60,7 @@ public final class CidrCollectionArgs extends com.pulumi.resources.ResourceArgs 
          * @return builder
          * 
          */
-        public Builder name(Output<String> name) {
+        public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
@@ -74,7 +76,6 @@ public final class CidrCollectionArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public CidrCollectionArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
             return $;
         }
     }

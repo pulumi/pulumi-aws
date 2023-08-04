@@ -31,7 +31,6 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := chime.NewSdkvoiceSipMediaApplication(ctx, "example", &chime.SdkvoiceSipMediaApplicationArgs{
 //				AwsRegion: pulumi.String("us-east-1"),
-//				Name:      pulumi.String("example-sip-media-application"),
 //				Endpoints: &chime.SdkvoiceSipMediaApplicationEndpointsArgs{
 //					LambdaArn: pulumi.Any(aws_lambda_function.Test.Arn),
 //				},
@@ -83,9 +82,6 @@ func NewSdkvoiceSipMediaApplication(ctx *pulumi.Context,
 	}
 	if args.Endpoints == nil {
 		return nil, errors.New("invalid value for required argument 'Endpoints'")
-	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SdkvoiceSipMediaApplication
@@ -155,7 +151,7 @@ type sdkvoiceSipMediaApplicationArgs struct {
 	// The name of the AWS Chime SDK Voice Sip Media Application.
 	//
 	// The following arguments are optional:
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -169,7 +165,7 @@ type SdkvoiceSipMediaApplicationArgs struct {
 	// The name of the AWS Chime SDK Voice Sip Media Application.
 	//
 	// The following arguments are optional:
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }

@@ -18,7 +18,6 @@ import * as utilities from "../utilities";
  *
  * const exampleIndex = new aws.resourceexplorer.Index("exampleIndex", {type: "LOCAL"});
  * const exampleView = new aws.resourceexplorer.View("exampleView", {
- *     name: "exampleview",
  *     filters: {
  *         filterString: "resourcetype:ec2:instance",
  *     },
@@ -102,7 +101,7 @@ export class View extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ViewArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args?: ViewArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ViewArgs | ViewState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -117,9 +116,6 @@ export class View extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as ViewArgs | undefined;
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             resourceInputs["defaultView"] = args ? args.defaultView : undefined;
             resourceInputs["filters"] = args ? args.filters : undefined;
             resourceInputs["includedProperties"] = args ? args.includedProperties : undefined;
@@ -186,7 +182,7 @@ export interface ViewArgs {
     /**
      * The name of the view. The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its AWS Region.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

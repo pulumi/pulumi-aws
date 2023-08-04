@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class CidrLocationArgs extends com.pulumi.resources.ResourceArgs {
@@ -48,15 +50,15 @@ public final class CidrLocationArgs extends com.pulumi.resources.ResourceArgs {
      * Name for the CIDR location.
      * 
      */
-    @Import(name="name", required=true)
-    private Output<String> name;
+    @Import(name="name")
+    private @Nullable Output<String> name;
 
     /**
      * @return Name for the CIDR location.
      * 
      */
-    public Output<String> name() {
-        return this.name;
+    public Optional<Output<String>> name() {
+        return Optional.ofNullable(this.name);
     }
 
     private CidrLocationArgs() {}
@@ -143,7 +145,7 @@ public final class CidrLocationArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder name(Output<String> name) {
+        public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
@@ -161,7 +163,6 @@ public final class CidrLocationArgs extends com.pulumi.resources.ResourceArgs {
         public CidrLocationArgs build() {
             $.cidrBlocks = Objects.requireNonNull($.cidrBlocks, "expected parameter 'cidrBlocks' to be non-null");
             $.cidrCollectionId = Objects.requireNonNull($.cidrCollectionId, "expected parameter 'cidrCollectionId' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
             return $;
         }
     }

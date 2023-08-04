@@ -97,9 +97,6 @@ func NewKxCluster(ctx *pulumi.Context,
 	if args.EnvironmentId == nil {
 		return nil, errors.New("invalid value for required argument 'EnvironmentId'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.ReleaseLabel == nil {
 		return nil, errors.New("invalid value for required argument 'ReleaseLabel'")
 	}
@@ -275,7 +272,7 @@ type kxClusterArgs struct {
 	// Path to Q program that will be run at launch of a cluster. This is a relative path within .zip file that contains the custom code, which will be loaded on the cluster. It must include the file name itself. For example, somedir/init.q.
 	InitializationScript *string `pulumi:"initializationScript"`
 	// Unique name for the cluster that you want to create.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Version of FinSpace Managed kdb to run.
 	ReleaseLabel string `pulumi:"releaseLabel"`
 	// Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
@@ -322,7 +319,7 @@ type KxClusterArgs struct {
 	// Path to Q program that will be run at launch of a cluster. This is a relative path within .zip file that contains the custom code, which will be loaded on the cluster. It must include the file name itself. For example, somedir/init.q.
 	InitializationScript pulumi.StringPtrInput
 	// Unique name for the cluster that you want to create.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// Version of FinSpace Managed kdb to run.
 	ReleaseLabel pulumi.StringInput
 	// Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.

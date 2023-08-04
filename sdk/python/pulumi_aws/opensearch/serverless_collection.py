@@ -16,43 +16,30 @@ __all__ = ['ServerlessCollectionArgs', 'ServerlessCollection']
 @pulumi.input_type
 class ServerlessCollectionArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeouts: Optional[pulumi.Input['ServerlessCollectionTimeoutsArgs']] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ServerlessCollection resource.
+        :param pulumi.Input[str] description: Description of the collection.
         :param pulumi.Input[str] name: Name of the collection.
                
                The following arguments are optional:
-        :param pulumi.Input[str] description: Description of the collection.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] type: Type of collection. One of `SEARCH` or `TIMESERIES`.
         """
-        pulumi.set(__self__, "name", name)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
         if type is not None:
             pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        Name of the collection.
-
-        The following arguments are optional:
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -65,6 +52,20 @@ class ServerlessCollectionArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the collection.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -283,7 +284,6 @@ class ServerlessCollection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_serverless_security_policy = aws.opensearch.ServerlessSecurityPolicy("exampleServerlessSecurityPolicy",
-            name="example",
             type="encryption",
             policy=json.dumps({
                 "Rules": [{
@@ -292,8 +292,7 @@ class ServerlessCollection(pulumi.CustomResource):
                 }],
                 "AWSOwnedKey": True,
             }))
-        example_serverless_collection = aws.opensearch.ServerlessCollection("exampleServerlessCollection", name="example",
-        opts=pulumi.ResourceOptions(depends_on=[example_serverless_security_policy]))
+        example_serverless_collection = aws.opensearch.ServerlessCollection("exampleServerlessCollection", opts=pulumi.ResourceOptions(depends_on=[example_serverless_security_policy]))
         ```
 
         ## Import
@@ -317,7 +316,7 @@ class ServerlessCollection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ServerlessCollectionArgs,
+                 args: Optional[ServerlessCollectionArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS OpenSearch Serverless Collection.
@@ -331,7 +330,6 @@ class ServerlessCollection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_serverless_security_policy = aws.opensearch.ServerlessSecurityPolicy("exampleServerlessSecurityPolicy",
-            name="example",
             type="encryption",
             policy=json.dumps({
                 "Rules": [{
@@ -340,8 +338,7 @@ class ServerlessCollection(pulumi.CustomResource):
                 }],
                 "AWSOwnedKey": True,
             }))
-        example_serverless_collection = aws.opensearch.ServerlessCollection("exampleServerlessCollection", name="example",
-        opts=pulumi.ResourceOptions(depends_on=[example_serverless_security_policy]))
+        example_serverless_collection = aws.opensearch.ServerlessCollection("exampleServerlessCollection", opts=pulumi.ResourceOptions(depends_on=[example_serverless_security_policy]))
         ```
 
         ## Import
@@ -382,8 +379,6 @@ class ServerlessCollection(pulumi.CustomResource):
             __props__ = ServerlessCollectionArgs.__new__(ServerlessCollectionArgs)
 
             __props__.__dict__["description"] = description
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeouts"] = timeouts

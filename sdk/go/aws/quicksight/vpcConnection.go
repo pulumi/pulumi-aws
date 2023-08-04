@@ -84,7 +84,6 @@ import (
 //			}
 //			_, err = quicksight.NewVpcConnection(ctx, "example", &quicksight.VpcConnectionArgs{
 //				VpcConnectionId: pulumi.String("example-connection-id"),
-//				Name:            pulumi.String("Example Connection"),
 //				RoleArn:         vpcConnectionRole.Arn,
 //				SecurityGroupIds: pulumi.StringArray{
 //					pulumi.String("sg-00000000000000000"),
@@ -147,9 +146,6 @@ func NewVpcConnection(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
@@ -250,7 +246,7 @@ type vpcConnectionArgs struct {
 	// A list of IP addresses of DNS resolver endpoints for the VPC connection.
 	DnsResolvers []string `pulumi:"dnsResolvers"`
 	// The display name for the VPC connection.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// The IAM role to associate with the VPC connection.
 	RoleArn string `pulumi:"roleArn"`
 	// A list of security group IDs for the VPC connection.
@@ -273,7 +269,7 @@ type VpcConnectionArgs struct {
 	// A list of IP addresses of DNS resolver endpoints for the VPC connection.
 	DnsResolvers pulumi.StringArrayInput
 	// The display name for the VPC connection.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// The IAM role to associate with the VPC connection.
 	RoleArn pulumi.StringInput
 	// A list of security group IDs for the VPC connection.

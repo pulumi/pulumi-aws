@@ -45,7 +45,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Framework(&#34;test&#34;, FrameworkArgs.builder()        
- *             .name(&#34;example&#34;)
  *             .controlSets(FrameworkControlSetArgs.builder()
  *                 .name(&#34;example&#34;)
  *                 .controls(FrameworkControlSetControlArgs.builder()
@@ -192,7 +191,7 @@ public class Framework extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Framework(String name, FrameworkArgs args) {
+    public Framework(String name, @Nullable FrameworkArgs args) {
         this(name, args, null);
     }
     /**
@@ -201,7 +200,7 @@ public class Framework extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Framework(String name, FrameworkArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public Framework(String name, @Nullable FrameworkArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:auditmanager/framework:Framework", name, args == null ? FrameworkArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
     }
 

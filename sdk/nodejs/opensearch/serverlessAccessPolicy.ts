@@ -17,7 +17,6 @@ import * as utilities from "../utilities";
  * const currentCallerIdentity = aws.getCallerIdentity({});
  * const currentPartition = aws.getPartition({});
  * const test = new aws.opensearch.ServerlessAccessPolicy("test", {
- *     name: "example",
  *     type: "data",
  *     policy: Promise.all([currentPartition, currentCallerIdentity]).then(([currentPartition, currentCallerIdentity]) => JSON.stringify([{
  *         Rules: [{
@@ -115,9 +114,6 @@ export class ServerlessAccessPolicy extends pulumi.CustomResource {
             resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as ServerlessAccessPolicyArgs | undefined;
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.policy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
@@ -174,7 +170,7 @@ export interface ServerlessAccessPolicyArgs {
     /**
      * Name of the policy.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * JSON policy document to use as the content for the new policy
      */

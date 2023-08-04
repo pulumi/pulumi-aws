@@ -16,7 +16,7 @@ class KxUserArgs:
     def __init__(__self__, *,
                  environment_id: pulumi.Input[str],
                  iam_role: pulumi.Input[str],
-                 name: pulumi.Input[str],
+                 name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a KxUser resource.
@@ -29,7 +29,8 @@ class KxUserArgs:
         """
         pulumi.set(__self__, "environment_id", environment_id)
         pulumi.set(__self__, "iam_role", iam_role)
-        pulumi.set(__self__, "name", name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -61,14 +62,14 @@ class KxUserArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> Optional[pulumi.Input[str]]:
         """
         A unique identifier for the user.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
     @property
@@ -216,9 +217,7 @@ class KxUser(pulumi.CustomResource):
         example_key = aws.kms.Key("exampleKey",
             description="Example KMS Key",
             deletion_window_in_days=7)
-        example_kx_environment = aws.finspace.KxEnvironment("exampleKxEnvironment",
-            name="my-tf-kx-environment",
-            kms_key_id=example_key.arn)
+        example_kx_environment = aws.finspace.KxEnvironment("exampleKxEnvironment", kms_key_id=example_key.arn)
         example_role = aws.iam.Role("exampleRole", assume_role_policy=json.dumps({
             "Version": "2012-10-17",
             "Statement": [{
@@ -231,7 +230,6 @@ class KxUser(pulumi.CustomResource):
             }],
         }))
         example_kx_user = aws.finspace.KxUser("exampleKxUser",
-            name="my-tf-kx-user",
             environment_id=example_kx_environment.id,
             iam_role=example_role.arn)
         ```
@@ -273,9 +271,7 @@ class KxUser(pulumi.CustomResource):
         example_key = aws.kms.Key("exampleKey",
             description="Example KMS Key",
             deletion_window_in_days=7)
-        example_kx_environment = aws.finspace.KxEnvironment("exampleKxEnvironment",
-            name="my-tf-kx-environment",
-            kms_key_id=example_key.arn)
+        example_kx_environment = aws.finspace.KxEnvironment("exampleKxEnvironment", kms_key_id=example_key.arn)
         example_role = aws.iam.Role("exampleRole", assume_role_policy=json.dumps({
             "Version": "2012-10-17",
             "Statement": [{
@@ -288,7 +284,6 @@ class KxUser(pulumi.CustomResource):
             }],
         }))
         example_kx_user = aws.finspace.KxUser("exampleKxUser",
-            name="my-tf-kx-user",
             environment_id=example_kx_environment.id,
             iam_role=example_role.arn)
         ```
@@ -335,8 +330,6 @@ class KxUser(pulumi.CustomResource):
             if iam_role is None and not opts.urn:
                 raise TypeError("Missing required property 'iam_role'")
             __props__.__dict__["iam_role"] = iam_role
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None

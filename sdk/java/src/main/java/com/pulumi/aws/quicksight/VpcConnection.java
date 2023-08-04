@@ -81,7 +81,6 @@ import javax.annotation.Nullable;
  * 
  *         var example = new VpcConnection(&#34;example&#34;, VpcConnectionArgs.builder()        
  *             .vpcConnectionId(&#34;example-connection-id&#34;)
- *             .name(&#34;Example Connection&#34;)
  *             .roleArn(vpcConnectionRole.arn())
  *             .securityGroupIds(&#34;sg-00000000000000000&#34;)
  *             .subnetIds(            

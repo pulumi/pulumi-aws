@@ -48,7 +48,6 @@ import * as utilities from "../utilities";
  * });
  * const example = new aws.quicksight.VpcConnection("example", {
  *     vpcConnectionId: "example-connection-id",
- *     name: "Example Connection",
  *     roleArn: vpcConnectionRole.arn,
  *     securityGroupIds: ["sg-00000000000000000"],
  *     subnetIds: [
@@ -169,9 +168,6 @@ export class VpcConnection extends pulumi.CustomResource {
             resourceInputs["vpcConnectionId"] = state ? state.vpcConnectionId : undefined;
         } else {
             const args = argsOrState as VpcConnectionArgs | undefined;
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
@@ -270,7 +266,7 @@ export interface VpcConnectionArgs {
     /**
      * The display name for the VPC connection.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The IAM role to associate with the VPC connection.
      */

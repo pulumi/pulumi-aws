@@ -16,26 +16,25 @@ __all__ = ['ControlArgs', 'Control']
 @pulumi.input_type
 class ControlArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
                  action_plan_instructions: Optional[pulumi.Input[str]] = None,
                  action_plan_title: Optional[pulumi.Input[str]] = None,
                  control_mapping_sources: Optional[pulumi.Input[Sequence[pulumi.Input['ControlControlMappingSourceArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  testing_information: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Control resource.
-        :param pulumi.Input[str] name: Name of the control.
         :param pulumi.Input[str] action_plan_instructions: Recommended actions to carry out if the control isn't fulfilled.
         :param pulumi.Input[str] action_plan_title: Title of the action plan for remediating the control.
         :param pulumi.Input[Sequence[pulumi.Input['ControlControlMappingSourceArgs']]] control_mapping_sources: Data mapping sources. See `control_mapping_sources` below.
                
                The following arguments are optional:
         :param pulumi.Input[str] description: Description of the control.
+        :param pulumi.Input[str] name: Name of the control.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the control. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] testing_information: Steps to follow to determine if the control is satisfied.
         """
-        pulumi.set(__self__, "name", name)
         if action_plan_instructions is not None:
             pulumi.set(__self__, "action_plan_instructions", action_plan_instructions)
         if action_plan_title is not None:
@@ -44,22 +43,12 @@ class ControlArgs:
             pulumi.set(__self__, "control_mapping_sources", control_mapping_sources)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if testing_information is not None:
             pulumi.set(__self__, "testing_information", testing_information)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        Name of the control.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="actionPlanInstructions")
@@ -110,6 +99,18 @@ class ControlArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the control.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -329,13 +330,11 @@ class Control(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.auditmanager.Control("example",
-            control_mapping_sources=[aws.auditmanager.ControlControlMappingSourceArgs(
-                source_name="example",
-                source_set_up_option="Procedural_Controls_Mapping",
-                source_type="MANUAL",
-            )],
-            name="example")
+        example = aws.auditmanager.Control("example", control_mapping_sources=[aws.auditmanager.ControlControlMappingSourceArgs(
+            source_name="example",
+            source_set_up_option="Procedural_Controls_Mapping",
+            source_type="MANUAL",
+        )])
         ```
 
         ## Import
@@ -362,7 +361,7 @@ class Control(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ControlArgs,
+                 args: Optional[ControlArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS Audit Manager Control.
@@ -374,13 +373,11 @@ class Control(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.auditmanager.Control("example",
-            control_mapping_sources=[aws.auditmanager.ControlControlMappingSourceArgs(
-                source_name="example",
-                source_set_up_option="Procedural_Controls_Mapping",
-                source_type="MANUAL",
-            )],
-            name="example")
+        example = aws.auditmanager.Control("example", control_mapping_sources=[aws.auditmanager.ControlControlMappingSourceArgs(
+            source_name="example",
+            source_set_up_option="Procedural_Controls_Mapping",
+            source_type="MANUAL",
+        )])
         ```
 
         ## Import
@@ -426,8 +423,6 @@ class Control(pulumi.CustomResource):
             __props__.__dict__["action_plan_title"] = action_plan_title
             __props__.__dict__["control_mapping_sources"] = control_mapping_sources
             __props__.__dict__["description"] = description
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["testing_information"] = testing_information

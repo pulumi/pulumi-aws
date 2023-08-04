@@ -41,7 +41,6 @@ import (
 //				return err
 //			}
 //			exampleKxEnvironment, err := finspace.NewKxEnvironment(ctx, "exampleKxEnvironment", &finspace.KxEnvironmentArgs{
-//				Name:     pulumi.String("my-tf-kx-environment"),
 //				KmsKeyId: exampleKey.Arn,
 //			})
 //			if err != nil {
@@ -71,7 +70,6 @@ import (
 //				return err
 //			}
 //			_, err = finspace.NewKxUser(ctx, "exampleKxUser", &finspace.KxUserArgs{
-//				Name:          pulumi.String("my-tf-kx-user"),
 //				EnvironmentId: exampleKxEnvironment.ID(),
 //				IamRole:       exampleRole.Arn,
 //			})
@@ -122,9 +120,6 @@ func NewKxUser(ctx *pulumi.Context,
 	}
 	if args.IamRole == nil {
 		return nil, errors.New("invalid value for required argument 'IamRole'")
-	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource KxUser
@@ -194,7 +189,7 @@ type kxUserArgs struct {
 	// The following arguments are optional:
 	IamRole string `pulumi:"iamRole"`
 	// A unique identifier for the user.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -208,7 +203,7 @@ type KxUserArgs struct {
 	// The following arguments are optional:
 	IamRole pulumi.StringInput
 	// A unique identifier for the user.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }

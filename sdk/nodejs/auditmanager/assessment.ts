@@ -18,7 +18,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.auditmanager.Assessment("test", {
- *     name: "example",
  *     assessmentReportsDestination: {
  *         destination: `s3://${aws_s3_bucket.test.id}`,
  *         destinationType: "S3",
@@ -148,9 +147,6 @@ export class Assessment extends pulumi.CustomResource {
             if ((!args || args.frameworkId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'frameworkId'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.roles === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roles'");
             }
@@ -239,7 +235,7 @@ export interface AssessmentArgs {
     /**
      * Name of the assessment.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * List of roles for the assessment. See `roles` below.
      */

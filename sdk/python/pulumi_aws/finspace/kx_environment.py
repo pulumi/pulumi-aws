@@ -17,9 +17,9 @@ __all__ = ['KxEnvironmentArgs', 'KxEnvironment']
 class KxEnvironmentArgs:
     def __init__(__self__, *,
                  kms_key_id: pulumi.Input[str],
-                 name: pulumi.Input[str],
                  custom_dns_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['KxEnvironmentCustomDnsConfigurationArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transit_gateway_configuration: Optional[pulumi.Input['KxEnvironmentTransitGatewayConfigurationArgs']] = None):
         """
@@ -27,18 +27,19 @@ class KxEnvironmentArgs:
         :param pulumi.Input[str] kms_key_id: KMS key ID to encrypt your data in the FinSpace environment.
                
                The following arguments are optional:
-        :param pulumi.Input[str] name: Name of the KX environment that you want to create.
         :param pulumi.Input[Sequence[pulumi.Input['KxEnvironmentCustomDnsConfigurationArgs']]] custom_dns_configurations: List of DNS server name and server IP. This is used to set up Route-53 outbound resolvers. Defined below.
         :param pulumi.Input[str] description: Description for the KX environment.
+        :param pulumi.Input[str] name: Name of the KX environment that you want to create.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['KxEnvironmentTransitGatewayConfigurationArgs'] transit_gateway_configuration: Transit gateway and network configuration that is used to connect the KX environment to an internal network. Defined below.
         """
         pulumi.set(__self__, "kms_key_id", kms_key_id)
-        pulumi.set(__self__, "name", name)
         if custom_dns_configurations is not None:
             pulumi.set(__self__, "custom_dns_configurations", custom_dns_configurations)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if transit_gateway_configuration is not None:
@@ -57,18 +58,6 @@ class KxEnvironmentArgs:
     @kms_key_id.setter
     def kms_key_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "kms_key_id", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        Name of the KX environment that you want to create.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="customDnsConfigurations")
@@ -93,6 +82,18 @@ class KxEnvironmentArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the KX environment that you want to create.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -364,9 +365,7 @@ class KxEnvironment(pulumi.CustomResource):
         example_key = aws.kms.Key("exampleKey",
             description="Sample KMS Key",
             deletion_window_in_days=7)
-        example_kx_environment = aws.finspace.KxEnvironment("exampleKxEnvironment",
-            name="my-tf-kx-environment",
-            kms_key_id=example_key.arn)
+        example_kx_environment = aws.finspace.KxEnvironment("exampleKxEnvironment", kms_key_id=example_key.arn)
         ```
         ### With Network Setup
 
@@ -379,7 +378,6 @@ class KxEnvironment(pulumi.CustomResource):
             deletion_window_in_days=7)
         example_transit_gateway = aws.ec2transitgateway.TransitGateway("exampleTransitGateway", description="example")
         example_env = aws.finspace.KxEnvironment("exampleEnv",
-            name="my-tf-kx-environment",
             description="Environment description",
             kms_key_id=example_key.arn,
             transit_gateway_configuration=aws.finspace.KxEnvironmentTransitGatewayConfigurationArgs(
@@ -430,9 +428,7 @@ class KxEnvironment(pulumi.CustomResource):
         example_key = aws.kms.Key("exampleKey",
             description="Sample KMS Key",
             deletion_window_in_days=7)
-        example_kx_environment = aws.finspace.KxEnvironment("exampleKxEnvironment",
-            name="my-tf-kx-environment",
-            kms_key_id=example_key.arn)
+        example_kx_environment = aws.finspace.KxEnvironment("exampleKxEnvironment", kms_key_id=example_key.arn)
         ```
         ### With Network Setup
 
@@ -445,7 +441,6 @@ class KxEnvironment(pulumi.CustomResource):
             deletion_window_in_days=7)
         example_transit_gateway = aws.ec2transitgateway.TransitGateway("exampleTransitGateway", description="example")
         example_env = aws.finspace.KxEnvironment("exampleEnv",
-            name="my-tf-kx-environment",
             description="Environment description",
             kms_key_id=example_key.arn,
             transit_gateway_configuration=aws.finspace.KxEnvironmentTransitGatewayConfigurationArgs(
@@ -501,8 +496,6 @@ class KxEnvironment(pulumi.CustomResource):
             if kms_key_id is None and not opts.urn:
                 raise TypeError("Missing required property 'kms_key_id'")
             __props__.__dict__["kms_key_id"] = kms_key_id
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["transit_gateway_configuration"] = transit_gateway_configuration

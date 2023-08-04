@@ -16,39 +16,28 @@ __all__ = ['SdkvoiceSipRuleArgs', 'SdkvoiceSipRule']
 @pulumi.input_type
 class SdkvoiceSipRuleArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
                  target_applications: pulumi.Input[Sequence[pulumi.Input['SdkvoiceSipRuleTargetApplicationArgs']]],
                  trigger_type: pulumi.Input[str],
                  trigger_value: pulumi.Input[str],
-                 disabled: Optional[pulumi.Input[bool]] = None):
+                 disabled: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SdkvoiceSipRule resource.
-        :param pulumi.Input[str] name: The name of the SIP rule.
         :param pulumi.Input[Sequence[pulumi.Input['SdkvoiceSipRuleTargetApplicationArgs']]] target_applications: List of SIP media applications with priority and AWS Region. Only one SIP application per AWS Region can be used. See `target_applications`.
         :param pulumi.Input[str] trigger_type: The type of trigger assigned to the SIP rule in `trigger_value`. Valid values are `RequestUriHostname` or `ToPhoneNumber`.
         :param pulumi.Input[str] trigger_value: If `trigger_type` is `RequestUriHostname`, the value can be the outbound host name of an Amazon Chime Voice Connector. If `trigger_type` is `ToPhoneNumber`, the value can be a customer-owned phone number in the E164 format. The Sip Media Application specified in the Sip Rule is triggered if the request URI in an incoming SIP request matches the `RequestUriHostname`, or if the "To" header in the incoming SIP request matches the `ToPhoneNumber` value.
                
                The following arguments are optional:
         :param pulumi.Input[bool] disabled: Enables or disables a rule. You must disable rules before you can delete them.
+        :param pulumi.Input[str] name: The name of the SIP rule.
         """
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "target_applications", target_applications)
         pulumi.set(__self__, "trigger_type", trigger_type)
         pulumi.set(__self__, "trigger_value", trigger_value)
         if disabled is not None:
             pulumi.set(__self__, "disabled", disabled)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The name of the SIP rule.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="targetApplications")
@@ -99,6 +88,18 @@ class SdkvoiceSipRuleArgs:
     @disabled.setter
     def disabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "disabled", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the SIP rule.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
@@ -215,7 +216,6 @@ class SdkvoiceSipRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.chime.SdkvoiceSipRule("example",
-            name="example-sip-rule",
             trigger_type="RequestUriHostname",
             trigger_value=aws_chime_voice_connector["example-voice-connector"]["outbound_host_name"],
             target_applications=[aws.chime.SdkvoiceSipRuleTargetApplicationArgs(
@@ -260,7 +260,6 @@ class SdkvoiceSipRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.chime.SdkvoiceSipRule("example",
-            name="example-sip-rule",
             trigger_type="RequestUriHostname",
             trigger_value=aws_chime_voice_connector["example-voice-connector"]["outbound_host_name"],
             target_applications=[aws.chime.SdkvoiceSipRuleTargetApplicationArgs(
@@ -308,8 +307,6 @@ class SdkvoiceSipRule(pulumi.CustomResource):
             __props__ = SdkvoiceSipRuleArgs.__new__(SdkvoiceSipRuleArgs)
 
             __props__.__dict__["disabled"] = disabled
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if target_applications is None and not opts.urn:
                 raise TypeError("Missing required property 'target_applications'")

@@ -32,7 +32,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := auditmanager.NewAssessment(ctx, "test", &auditmanager.AssessmentArgs{
-//				Name: pulumi.String("example"),
 //				AssessmentReportsDestination: &auditmanager.AssessmentAssessmentReportsDestinationArgs{
 //					Destination:     pulumi.String(fmt.Sprintf("s3://%v", aws_s3_bucket.Test.Id)),
 //					DestinationType: pulumi.String("S3"),
@@ -110,9 +109,6 @@ func NewAssessment(ctx *pulumi.Context,
 
 	if args.FrameworkId == nil {
 		return nil, errors.New("invalid value for required argument 'FrameworkId'")
-	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	if args.Roles == nil {
 		return nil, errors.New("invalid value for required argument 'Roles'")
@@ -203,7 +199,7 @@ type assessmentArgs struct {
 	// Unique identifier of the framework the assessment will be created from.
 	FrameworkId string `pulumi:"frameworkId"`
 	// Name of the assessment.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// List of roles for the assessment. See `roles` below.
 	Roles []AssessmentRole `pulumi:"roles"`
 	// Amazon Web Services accounts and services that are in scope for the assessment. See `scope` below.
@@ -223,7 +219,7 @@ type AssessmentArgs struct {
 	// Unique identifier of the framework the assessment will be created from.
 	FrameworkId pulumi.StringInput
 	// Name of the assessment.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// List of roles for the assessment. See `roles` below.
 	Roles AssessmentRoleArrayInput
 	// Amazon Web Services accounts and services that are in scope for the assessment. See `scope` below.

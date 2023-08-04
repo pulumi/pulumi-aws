@@ -45,7 +45,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleCustomRoutingAccelerator = new CustomRoutingAccelerator(&#34;exampleCustomRoutingAccelerator&#34;, CustomRoutingAcceleratorArgs.builder()        
- *             .name(&#34;Example&#34;)
  *             .ipAddressType(&#34;IPV4&#34;)
  *             .enabled(true)
  *             .attributes(CustomRoutingAcceleratorAttributesArgs.builder()

@@ -16,37 +16,26 @@ __all__ = ['ServerlessSecurityConfigArgs', 'ServerlessSecurityConfig']
 @pulumi.input_type
 class ServerlessSecurityConfigArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
                  type: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  saml_options: Optional[pulumi.Input['ServerlessSecurityConfigSamlOptionsArgs']] = None):
         """
         The set of arguments for constructing a ServerlessSecurityConfig resource.
-        :param pulumi.Input[str] name: Name of the policy.
         :param pulumi.Input[str] type: Type of configuration. Must be `saml`.
                
                The following arguments are optional:
         :param pulumi.Input[str] description: Description of the security configuration.
+        :param pulumi.Input[str] name: Name of the policy.
         :param pulumi.Input['ServerlessSecurityConfigSamlOptionsArgs'] saml_options: Configuration block for SAML options.
         """
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if saml_options is not None:
             pulumi.set(__self__, "saml_options", saml_options)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        Name of the policy.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -73,6 +62,18 @@ class ServerlessSecurityConfigArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the policy.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="samlOptions")
@@ -259,8 +260,6 @@ class ServerlessSecurityConfig(pulumi.CustomResource):
             __props__ = ServerlessSecurityConfigArgs.__new__(ServerlessSecurityConfigArgs)
 
             __props__.__dict__["description"] = description
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["saml_options"] = saml_options
             if type is None and not opts.urn:

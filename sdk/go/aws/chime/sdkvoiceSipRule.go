@@ -30,7 +30,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := chime.NewSdkvoiceSipRule(ctx, "example", &chime.SdkvoiceSipRuleArgs{
-//				Name:         pulumi.String("example-sip-rule"),
 //				TriggerType:  pulumi.String("RequestUriHostname"),
 //				TriggerValue: pulumi.Any(aws_chime_voice_connector.ExampleVoiceConnector.Outbound_host_name),
 //				TargetApplications: chime.SdkvoiceSipRuleTargetApplicationArray{
@@ -81,9 +80,6 @@ func NewSdkvoiceSipRule(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.TargetApplications == nil {
 		return nil, errors.New("invalid value for required argument 'TargetApplications'")
 	}
@@ -153,7 +149,7 @@ type sdkvoiceSipRuleArgs struct {
 	// Enables or disables a rule. You must disable rules before you can delete them.
 	Disabled *bool `pulumi:"disabled"`
 	// The name of the SIP rule.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// List of SIP media applications with priority and AWS Region. Only one SIP application per AWS Region can be used. See `targetApplications`.
 	TargetApplications []SdkvoiceSipRuleTargetApplication `pulumi:"targetApplications"`
 	// The type of trigger assigned to the SIP rule in `triggerValue`. Valid values are `RequestUriHostname` or `ToPhoneNumber`.
@@ -169,7 +165,7 @@ type SdkvoiceSipRuleArgs struct {
 	// Enables or disables a rule. You must disable rules before you can delete them.
 	Disabled pulumi.BoolPtrInput
 	// The name of the SIP rule.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// List of SIP media applications with priority and AWS Region. Only one SIP application per AWS Region can be used. See `targetApplications`.
 	TargetApplications SdkvoiceSipRuleTargetApplicationArrayInput
 	// The type of trigger assigned to the SIP rule in `triggerValue`. Valid values are `RequestUriHostname` or `ToPhoneNumber`.

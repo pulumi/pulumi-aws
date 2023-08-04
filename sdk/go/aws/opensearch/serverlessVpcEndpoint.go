@@ -30,7 +30,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := opensearch.NewServerlessVpcEndpoint(ctx, "example", &opensearch.ServerlessVpcEndpointArgs{
-//				Name: pulumi.String("myendpoint"),
 //				SubnetIds: pulumi.StringArray{
 //					aws_subnet.Example.Id,
 //				},
@@ -75,9 +74,6 @@ func NewServerlessVpcEndpoint(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.SubnetIds == nil {
 		return nil, errors.New("invalid value for required argument 'SubnetIds'")
 	}
@@ -140,7 +136,7 @@ func (ServerlessVpcEndpointState) ElementType() reflect.Type {
 
 type serverlessVpcEndpointArgs struct {
 	// Name of the interface endpoint.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// One or more security groups that define the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint. Up to 5 security groups can be provided.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// One or more subnet IDs from which you'll access OpenSearch Serverless. Up to 6 subnets can be provided.
@@ -155,7 +151,7 @@ type serverlessVpcEndpointArgs struct {
 // The set of arguments for constructing a ServerlessVpcEndpoint resource.
 type ServerlessVpcEndpointArgs struct {
 	// Name of the interface endpoint.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// One or more security groups that define the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint. Up to 5 security groups can be provided.
 	SecurityGroupIds pulumi.StringArrayInput
 	// One or more subnet IDs from which you'll access OpenSearch Serverless. Up to 6 subnets can be provided.

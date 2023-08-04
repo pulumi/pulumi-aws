@@ -25,7 +25,6 @@ namespace Pulumi.Aws.Auditmanager
     /// {
     ///     var test = new Aws.Auditmanager.Framework("test", new()
     ///     {
-    ///         Name = "example",
     ///         ControlSets = new[]
     ///         {
     ///             new Aws.Auditmanager.Inputs.FrameworkControlSetArgs
@@ -112,7 +111,7 @@ namespace Pulumi.Aws.Auditmanager
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Framework(string name, FrameworkArgs args, CustomResourceOptions? options = null)
+        public Framework(string name, FrameworkArgs? args = null, CustomResourceOptions? options = null)
             : base("aws:auditmanager/framework:Framework", name, args ?? new FrameworkArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -179,8 +178,8 @@ namespace Pulumi.Aws.Auditmanager
         /// <summary>
         /// Name of the framework.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

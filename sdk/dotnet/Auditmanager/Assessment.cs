@@ -25,7 +25,6 @@ namespace Pulumi.Aws.Auditmanager
     /// {
     ///     var test = new Aws.Auditmanager.Assessment("test", new()
     ///     {
-    ///         Name = "example",
     ///         AssessmentReportsDestination = new Aws.Auditmanager.Inputs.AssessmentAssessmentReportsDestinationArgs
     ///         {
     ///             Destination = $"s3://{aws_s3_bucket.Test.Id}",
@@ -205,8 +204,8 @@ namespace Pulumi.Aws.Auditmanager
         /// <summary>
         /// Name of the assessment.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("roles", required: true)]
         private InputList<Inputs.AssessmentRoleArgs>? _roles;

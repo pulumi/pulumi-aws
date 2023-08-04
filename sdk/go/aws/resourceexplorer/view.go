@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -35,7 +34,6 @@ import (
 //				return err
 //			}
 //			_, err = resourceexplorer.NewView(ctx, "exampleView", &resourceexplorer.ViewArgs{
-//				Name: pulumi.String("exampleview"),
 //				Filters: &resourceexplorer.ViewFiltersArgs{
 //					FilterString: pulumi.String("resourcetype:ec2:instance"),
 //				},
@@ -86,12 +84,9 @@ type View struct {
 func NewView(ctx *pulumi.Context,
 	name string, args *ViewArgs, opts ...pulumi.ResourceOption) (*View, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &ViewArgs{}
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource View
 	err := ctx.RegisterResource("aws:resourceexplorer/view:View", name, args, &resource, opts...)
@@ -160,7 +155,7 @@ type viewArgs struct {
 	// Optional fields to be included in search results from this view. See Included Properties below for more details.
 	IncludedProperties []ViewIncludedProperty `pulumi:"includedProperties"`
 	// The name of the view. The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its AWS Region.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -174,7 +169,7 @@ type ViewArgs struct {
 	// Optional fields to be included in search results from this view. See Included Properties below for more details.
 	IncludedProperties ViewIncludedPropertyArrayInput
 	// The name of the view. The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its AWS Region.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }

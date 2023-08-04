@@ -17,33 +17,34 @@ __all__ = ['ThemeArgs', 'Theme']
 class ThemeArgs:
     def __init__(__self__, *,
                  base_theme_id: pulumi.Input[str],
-                 name: pulumi.Input[str],
                  theme_id: pulumi.Input[str],
                  aws_account_id: Optional[pulumi.Input[str]] = None,
                  configuration: Optional[pulumi.Input['ThemeConfigurationArgs']] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input['ThemePermissionArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version_description: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Theme resource.
         :param pulumi.Input[str] base_theme_id: The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
-        :param pulumi.Input[str] name: Display name of the theme.
         :param pulumi.Input[str] theme_id: Identifier of the theme.
         :param pulumi.Input[str] aws_account_id: AWS account ID.
         :param pulumi.Input['ThemeConfigurationArgs'] configuration: The theme configuration, which contains the theme display properties. See configuration.
                
                The following arguments are optional:
+        :param pulumi.Input[str] name: Display name of the theme.
         :param pulumi.Input[Sequence[pulumi.Input['ThemePermissionArgs']]] permissions: A set of resource permissions on the theme. Maximum of 64 items. See permissions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] version_description: A description of the current theme version being created/updated.
         """
         pulumi.set(__self__, "base_theme_id", base_theme_id)
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "theme_id", theme_id)
         if aws_account_id is not None:
             pulumi.set(__self__, "aws_account_id", aws_account_id)
         if configuration is not None:
             pulumi.set(__self__, "configuration", configuration)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if permissions is not None:
             pulumi.set(__self__, "permissions", permissions)
         if tags is not None:
@@ -62,18 +63,6 @@ class ThemeArgs:
     @base_theme_id.setter
     def base_theme_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "base_theme_id", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        Display name of the theme.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="themeId")
@@ -112,6 +101,18 @@ class ThemeArgs:
     @configuration.setter
     def configuration(self, value: Optional[pulumi.Input['ThemeConfigurationArgs']]):
         pulumi.set(self, "configuration", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Display name of the theme.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -482,8 +483,6 @@ class Theme(pulumi.CustomResource):
                 raise TypeError("Missing required property 'base_theme_id'")
             __props__.__dict__["base_theme_id"] = base_theme_id
             __props__.__dict__["configuration"] = configuration
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["permissions"] = permissions
             __props__.__dict__["tags"] = tags

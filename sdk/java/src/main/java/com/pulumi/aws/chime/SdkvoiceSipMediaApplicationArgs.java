@@ -53,8 +53,8 @@ public final class SdkvoiceSipMediaApplicationArgs extends com.pulumi.resources.
      * The following arguments are optional:
      * 
      */
-    @Import(name="name", required=true)
-    private Output<String> name;
+    @Import(name="name")
+    private @Nullable Output<String> name;
 
     /**
      * @return The name of the AWS Chime SDK Voice Sip Media Application.
@@ -62,8 +62,8 @@ public final class SdkvoiceSipMediaApplicationArgs extends com.pulumi.resources.
      * The following arguments are optional:
      * 
      */
-    public Output<String> name() {
-        return this.name;
+    public Optional<Output<String>> name() {
+        return Optional.ofNullable(this.name);
     }
 
     /**
@@ -158,7 +158,7 @@ public final class SdkvoiceSipMediaApplicationArgs extends com.pulumi.resources.
          * @return builder
          * 
          */
-        public Builder name(Output<String> name) {
+        public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
@@ -199,7 +199,6 @@ public final class SdkvoiceSipMediaApplicationArgs extends com.pulumi.resources.
         public SdkvoiceSipMediaApplicationArgs build() {
             $.awsRegion = Objects.requireNonNull($.awsRegion, "expected parameter 'awsRegion' to be non-null");
             $.endpoints = Objects.requireNonNull($.endpoints, "expected parameter 'endpoints' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
             return $;
         }
     }

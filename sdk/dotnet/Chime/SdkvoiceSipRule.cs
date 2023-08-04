@@ -25,7 +25,6 @@ namespace Pulumi.Aws.Chime
     /// {
     ///     var example = new Aws.Chime.SdkvoiceSipRule("example", new()
     ///     {
-    ///         Name = "example-sip-rule",
     ///         TriggerType = "RequestUriHostname",
     ///         TriggerValue = aws_chime_voice_connector.Example_voice_connector.Outbound_host_name,
     ///         TargetApplications = new[]
@@ -140,8 +139,8 @@ namespace Pulumi.Aws.Chime
         /// <summary>
         /// The name of the SIP rule.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("targetApplications", required: true)]
         private InputList<Inputs.SdkvoiceSipRuleTargetApplicationArgs>? _targetApplications;

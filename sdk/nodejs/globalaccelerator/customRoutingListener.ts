@@ -17,7 +17,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const exampleCustomRoutingAccelerator = new aws.globalaccelerator.CustomRoutingAccelerator("exampleCustomRoutingAccelerator", {
- *     name: "Example",
  *     ipAddressType: "IPV4",
  *     enabled: true,
  *     attributes: {

@@ -14,36 +14,25 @@ __all__ = ['ServerlessAccessPolicyArgs', 'ServerlessAccessPolicy']
 @pulumi.input_type
 class ServerlessAccessPolicyArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
                  policy: pulumi.Input[str],
                  type: pulumi.Input[str],
-                 description: Optional[pulumi.Input[str]] = None):
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ServerlessAccessPolicy resource.
-        :param pulumi.Input[str] name: Name of the policy.
         :param pulumi.Input[str] policy: JSON policy document to use as the content for the new policy
         :param pulumi.Input[str] type: Type of access policy. Must be `data`.
                
                The following arguments are optional:
         :param pulumi.Input[str] description: Description of the policy. Typically used to store information about the permissions defined in the policy.
+        :param pulumi.Input[str] name: Name of the policy.
         """
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "policy", policy)
         pulumi.set(__self__, "type", type)
         if description is not None:
             pulumi.set(__self__, "description", description)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        Name of the policy.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -82,6 +71,18 @@ class ServerlessAccessPolicyArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the policy.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
@@ -200,7 +201,6 @@ class ServerlessAccessPolicy(pulumi.CustomResource):
         current_caller_identity = aws.get_caller_identity()
         current_partition = aws.get_partition()
         test = aws.opensearch.ServerlessAccessPolicy("test",
-            name="example",
             type="data",
             policy=json.dumps([{
                 "Rules": [{
@@ -255,7 +255,6 @@ class ServerlessAccessPolicy(pulumi.CustomResource):
         current_caller_identity = aws.get_caller_identity()
         current_partition = aws.get_partition()
         test = aws.opensearch.ServerlessAccessPolicy("test",
-            name="example",
             type="data",
             policy=json.dumps([{
                 "Rules": [{
@@ -310,8 +309,6 @@ class ServerlessAccessPolicy(pulumi.CustomResource):
             __props__ = ServerlessAccessPolicyArgs.__new__(ServerlessAccessPolicyArgs)
 
             __props__.__dict__["description"] = description
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if policy is None and not opts.urn:
                 raise TypeError("Missing required property 'policy'")

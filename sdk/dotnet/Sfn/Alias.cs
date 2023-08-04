@@ -25,7 +25,6 @@ namespace Pulumi.Aws.Sfn
     /// {
     ///     var sfnAlias = new Aws.Sfn.Alias("sfnAlias", new()
     ///     {
-    ///         Name = "my_sfn_alias",
     ///         RoutingConfigurations = new[]
     ///         {
     ///             new Aws.Sfn.Inputs.AliasRoutingConfigurationArgs
@@ -38,7 +37,6 @@ namespace Pulumi.Aws.Sfn
     /// 
     ///     var mySfnAlias = new Aws.Sfn.Alias("mySfnAlias", new()
     ///     {
-    ///         Name = "my_sfn_alias",
     ///         RoutingConfigurations = new[]
     ///         {
     ///             new Aws.Sfn.Inputs.AliasRoutingConfigurationArgs
@@ -153,8 +151,8 @@ namespace Pulumi.Aws.Sfn
         /// <summary>
         /// Name for the alias you are creating.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("routingConfigurations", required: true)]
         private InputList<Inputs.AliasRoutingConfigurationArgs>? _routingConfigurations;

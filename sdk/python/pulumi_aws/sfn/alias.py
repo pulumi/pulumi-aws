@@ -16,31 +16,20 @@ __all__ = ['AliasArgs', 'Alias']
 @pulumi.input_type
 class AliasArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
                  routing_configurations: pulumi.Input[Sequence[pulumi.Input['AliasRoutingConfigurationArgs']]],
-                 description: Optional[pulumi.Input[str]] = None):
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Alias resource.
-        :param pulumi.Input[str] name: Name for the alias you are creating.
         :param pulumi.Input[Sequence[pulumi.Input['AliasRoutingConfigurationArgs']]] routing_configurations: The StateMachine alias' route configuration settings. Fields documented below
         :param pulumi.Input[str] description: Description of the alias.
+        :param pulumi.Input[str] name: Name for the alias you are creating.
         """
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "routing_configurations", routing_configurations)
         if description is not None:
             pulumi.set(__self__, "description", description)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        Name for the alias you are creating.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="routingConfigurations")
@@ -65,6 +54,18 @@ class AliasArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name for the alias you are creating.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
@@ -174,24 +175,20 @@ class Alias(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        sfn_alias = aws.sfn.Alias("sfnAlias",
-            name="my_sfn_alias",
-            routing_configurations=[aws.sfn.AliasRoutingConfigurationArgs(
-                state_machine_version_arn=aws_sfn_state_machine["sfn_test"]["state_machine_version_arn"],
-                weight=100,
-            )])
-        my_sfn_alias = aws.sfn.Alias("mySfnAlias",
-            name="my_sfn_alias",
-            routing_configurations=[
-                aws.sfn.AliasRoutingConfigurationArgs(
-                    state_machine_version_arn="arn:aws:states:us-east-1:12345:stateMachine:demo:3",
-                    weight=50,
-                ),
-                aws.sfn.AliasRoutingConfigurationArgs(
-                    state_machine_version_arn="arn:aws:states:us-east-1:12345:stateMachine:demo:2",
-                    weight=50,
-                ),
-            ])
+        sfn_alias = aws.sfn.Alias("sfnAlias", routing_configurations=[aws.sfn.AliasRoutingConfigurationArgs(
+            state_machine_version_arn=aws_sfn_state_machine["sfn_test"]["state_machine_version_arn"],
+            weight=100,
+        )])
+        my_sfn_alias = aws.sfn.Alias("mySfnAlias", routing_configurations=[
+            aws.sfn.AliasRoutingConfigurationArgs(
+                state_machine_version_arn="arn:aws:states:us-east-1:12345:stateMachine:demo:3",
+                weight=50,
+            ),
+            aws.sfn.AliasRoutingConfigurationArgs(
+                state_machine_version_arn="arn:aws:states:us-east-1:12345:stateMachine:demo:2",
+                weight=50,
+            ),
+        ])
         ```
 
         ## Import
@@ -224,24 +221,20 @@ class Alias(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        sfn_alias = aws.sfn.Alias("sfnAlias",
-            name="my_sfn_alias",
-            routing_configurations=[aws.sfn.AliasRoutingConfigurationArgs(
-                state_machine_version_arn=aws_sfn_state_machine["sfn_test"]["state_machine_version_arn"],
-                weight=100,
-            )])
-        my_sfn_alias = aws.sfn.Alias("mySfnAlias",
-            name="my_sfn_alias",
-            routing_configurations=[
-                aws.sfn.AliasRoutingConfigurationArgs(
-                    state_machine_version_arn="arn:aws:states:us-east-1:12345:stateMachine:demo:3",
-                    weight=50,
-                ),
-                aws.sfn.AliasRoutingConfigurationArgs(
-                    state_machine_version_arn="arn:aws:states:us-east-1:12345:stateMachine:demo:2",
-                    weight=50,
-                ),
-            ])
+        sfn_alias = aws.sfn.Alias("sfnAlias", routing_configurations=[aws.sfn.AliasRoutingConfigurationArgs(
+            state_machine_version_arn=aws_sfn_state_machine["sfn_test"]["state_machine_version_arn"],
+            weight=100,
+        )])
+        my_sfn_alias = aws.sfn.Alias("mySfnAlias", routing_configurations=[
+            aws.sfn.AliasRoutingConfigurationArgs(
+                state_machine_version_arn="arn:aws:states:us-east-1:12345:stateMachine:demo:3",
+                weight=50,
+            ),
+            aws.sfn.AliasRoutingConfigurationArgs(
+                state_machine_version_arn="arn:aws:states:us-east-1:12345:stateMachine:demo:2",
+                weight=50,
+            ),
+        ])
         ```
 
         ## Import
@@ -280,8 +273,6 @@ class Alias(pulumi.CustomResource):
             __props__ = AliasArgs.__new__(AliasArgs)
 
             __props__.__dict__["description"] = description
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if routing_configurations is None and not opts.urn:
                 raise TypeError("Missing required property 'routing_configurations'")

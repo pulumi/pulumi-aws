@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.route53.CidrCollection("example", {name: "collection-1"});
+ * const example = new aws.route53.CidrCollection("example", {});
  * ```
  *
  * ## Import
@@ -72,7 +72,7 @@ export class CidrCollection extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: CidrCollectionArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args?: CidrCollectionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CidrCollectionArgs | CidrCollectionState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -83,9 +83,6 @@ export class CidrCollection extends pulumi.CustomResource {
             resourceInputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as CidrCollectionArgs | undefined;
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
@@ -120,5 +117,5 @@ export interface CidrCollectionArgs {
     /**
      * Unique name for the CIDR collection.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }

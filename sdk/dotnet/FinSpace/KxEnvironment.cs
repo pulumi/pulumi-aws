@@ -31,7 +31,6 @@ namespace Pulumi.Aws.FinSpace
     /// 
     ///     var exampleKxEnvironment = new Aws.FinSpace.KxEnvironment("exampleKxEnvironment", new()
     ///     {
-    ///         Name = "my-tf-kx-environment",
     ///         KmsKeyId = exampleKey.Arn,
     ///     });
     /// 
@@ -60,7 +59,6 @@ namespace Pulumi.Aws.FinSpace
     /// 
     ///     var exampleEnv = new Aws.FinSpace.KxEnvironment("exampleEnv", new()
     ///     {
-    ///         Name = "my-tf-kx-environment",
     ///         Description = "Environment description",
     ///         KmsKeyId = exampleKey.Arn,
     ///         TransitGatewayConfiguration = new Aws.FinSpace.Inputs.KxEnvironmentTransitGatewayConfigurationArgs
@@ -247,8 +245,8 @@ namespace Pulumi.Aws.FinSpace
         /// <summary>
         /// Name of the KX environment that you want to create.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

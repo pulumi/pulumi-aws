@@ -29,7 +29,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			exampleCustomRoutingAccelerator, err := globalaccelerator.NewCustomRoutingAccelerator(ctx, "exampleCustomRoutingAccelerator", &globalaccelerator.CustomRoutingAcceleratorArgs{
-//				Name:          pulumi.String("Example"),
 //				IpAddressType: pulumi.String("IPV4"),
 //				Enabled:       pulumi.Bool(true),
 //				Attributes: &globalaccelerator.CustomRoutingAcceleratorAttributesArgs{

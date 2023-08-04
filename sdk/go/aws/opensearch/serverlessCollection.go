@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -47,16 +46,13 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			exampleServerlessSecurityPolicy, err := opensearch.NewServerlessSecurityPolicy(ctx, "exampleServerlessSecurityPolicy", &opensearch.ServerlessSecurityPolicyArgs{
-//				Name:   pulumi.String("example"),
 //				Type:   pulumi.String("encryption"),
 //				Policy: pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = opensearch.NewServerlessCollection(ctx, "exampleServerlessCollection", &opensearch.ServerlessCollectionArgs{
-//				Name: pulumi.String("example"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
+//			_, err = opensearch.NewServerlessCollection(ctx, "exampleServerlessCollection", nil, pulumi.DependsOn([]pulumi.Resource{
 //				exampleServerlessSecurityPolicy,
 //			}))
 //			if err != nil {
@@ -103,12 +99,9 @@ type ServerlessCollection struct {
 func NewServerlessCollection(ctx *pulumi.Context,
 	name string, args *ServerlessCollectionArgs, opts ...pulumi.ResourceOption) (*ServerlessCollection, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &ServerlessCollectionArgs{}
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ServerlessCollection
 	err := ctx.RegisterResource("aws:opensearch/serverlessCollection:ServerlessCollection", name, args, &resource, opts...)
@@ -185,7 +178,7 @@ type serverlessCollectionArgs struct {
 	// Name of the collection.
 	//
 	// The following arguments are optional:
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     map[string]string             `pulumi:"tags"`
 	Timeouts *ServerlessCollectionTimeouts `pulumi:"timeouts"`
@@ -200,7 +193,7 @@ type ServerlessCollectionArgs struct {
 	// Name of the collection.
 	//
 	// The following arguments are optional:
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapInput
 	Timeouts ServerlessCollectionTimeoutsPtrInput

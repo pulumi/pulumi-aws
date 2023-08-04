@@ -14,36 +14,25 @@ __all__ = ['ServerlessSecurityPolicyArgs', 'ServerlessSecurityPolicy']
 @pulumi.input_type
 class ServerlessSecurityPolicyArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
                  policy: pulumi.Input[str],
                  type: pulumi.Input[str],
-                 description: Optional[pulumi.Input[str]] = None):
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ServerlessSecurityPolicy resource.
-        :param pulumi.Input[str] name: Name of the policy.
         :param pulumi.Input[str] policy: JSON policy document to use as the content for the new policy
         :param pulumi.Input[str] type: Type of security policy. One of `encryption` or `network`.
                
                The following arguments are optional:
         :param pulumi.Input[str] description: Description of the policy. Typically used to store information about the permissions defined in the policy.
+        :param pulumi.Input[str] name: Name of the policy.
         """
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "policy", policy)
         pulumi.set(__self__, "type", type)
         if description is not None:
             pulumi.set(__self__, "description", description)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        Name of the policy.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -82,6 +71,18 @@ class ServerlessSecurityPolicyArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the policy.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
@@ -200,7 +201,6 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.opensearch.ServerlessSecurityPolicy("example",
-            name="example",
             type="encryption",
             description="encryption security policy for example-collection",
             policy=json.dumps({
@@ -219,7 +219,6 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.opensearch.ServerlessSecurityPolicy("example",
-            name="example",
             type="encryption",
             description="encryption security policy for collections that begin with \\"example\\"",
             policy=json.dumps({
@@ -238,7 +237,6 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.opensearch.ServerlessSecurityPolicy("example",
-            name="example",
             type="encryption",
             description="encryption security policy using customer KMS key",
             policy=json.dumps({
@@ -259,7 +257,6 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.opensearch.ServerlessSecurityPolicy("example",
-            name="example",
             type="network",
             description="Public access",
             policy=json.dumps([{
@@ -285,7 +282,6 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.opensearch.ServerlessSecurityPolicy("example",
-            name="example",
             type="network",
             description="VPC access",
             policy=json.dumps([{
@@ -312,7 +308,6 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.opensearch.ServerlessSecurityPolicy("example",
-            name="example",
             type="network",
             description="Mixed access for marketing and sales",
             policy=json.dumps([
@@ -379,7 +374,6 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.opensearch.ServerlessSecurityPolicy("example",
-            name="example",
             type="encryption",
             description="encryption security policy for example-collection",
             policy=json.dumps({
@@ -398,7 +392,6 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.opensearch.ServerlessSecurityPolicy("example",
-            name="example",
             type="encryption",
             description="encryption security policy for collections that begin with \\"example\\"",
             policy=json.dumps({
@@ -417,7 +410,6 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.opensearch.ServerlessSecurityPolicy("example",
-            name="example",
             type="encryption",
             description="encryption security policy using customer KMS key",
             policy=json.dumps({
@@ -438,7 +430,6 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.opensearch.ServerlessSecurityPolicy("example",
-            name="example",
             type="network",
             description="Public access",
             policy=json.dumps([{
@@ -464,7 +455,6 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.opensearch.ServerlessSecurityPolicy("example",
-            name="example",
             type="network",
             description="VPC access",
             policy=json.dumps([{
@@ -491,7 +481,6 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.opensearch.ServerlessSecurityPolicy("example",
-            name="example",
             type="network",
             description="Mixed access for marketing and sales",
             policy=json.dumps([
@@ -558,8 +547,6 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
             __props__ = ServerlessSecurityPolicyArgs.__new__(ServerlessSecurityPolicyArgs)
 
             __props__.__dict__["description"] = description
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if policy is None and not opts.urn:
                 raise TypeError("Missing required property 'policy'")

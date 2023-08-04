@@ -151,22 +151,20 @@ def get_control(control_mapping_sources: Optional[Sequence[pulumi.InputType['Get
         type="Standard")
     example2 = aws.auditmanager.get_control(name="2. Personnel",
         type="Standard")
-    example_framework = aws.auditmanager.Framework("exampleFramework",
-        name="example",
-        control_sets=[
-            aws.auditmanager.FrameworkControlSetArgs(
-                name="example",
-                controls=[aws.auditmanager.FrameworkControlSetControlArgs(
-                    id=example_control.id,
-                )],
-            ),
-            aws.auditmanager.FrameworkControlSetArgs(
-                name="example2",
-                controls=[aws.auditmanager.FrameworkControlSetControlArgs(
-                    id=example2.id,
-                )],
-            ),
-        ])
+    example_framework = aws.auditmanager.Framework("exampleFramework", control_sets=[
+        aws.auditmanager.FrameworkControlSetArgs(
+            name="example",
+            controls=[aws.auditmanager.FrameworkControlSetControlArgs(
+                id=example_control.id,
+            )],
+        ),
+        aws.auditmanager.FrameworkControlSetArgs(
+            name="example2",
+            controls=[aws.auditmanager.FrameworkControlSetControlArgs(
+                id=example2.id,
+            )],
+        ),
+    ])
     ```
 
 
@@ -221,22 +219,20 @@ def get_control_output(control_mapping_sources: Optional[pulumi.Input[Optional[S
         type="Standard")
     example2 = aws.auditmanager.get_control(name="2. Personnel",
         type="Standard")
-    example_framework = aws.auditmanager.Framework("exampleFramework",
-        name="example",
-        control_sets=[
-            aws.auditmanager.FrameworkControlSetArgs(
-                name="example",
-                controls=[aws.auditmanager.FrameworkControlSetControlArgs(
-                    id=example_control.id,
-                )],
-            ),
-            aws.auditmanager.FrameworkControlSetArgs(
-                name="example2",
-                controls=[aws.auditmanager.FrameworkControlSetControlArgs(
-                    id=example2.id,
-                )],
-            ),
-        ])
+    example_framework = aws.auditmanager.Framework("exampleFramework", control_sets=[
+        aws.auditmanager.FrameworkControlSetArgs(
+            name="example",
+            controls=[aws.auditmanager.FrameworkControlSetControlArgs(
+                id=example_control.id,
+            )],
+        ),
+        aws.auditmanager.FrameworkControlSetArgs(
+            name="example2",
+            controls=[aws.auditmanager.FrameworkControlSetControlArgs(
+                id=example2.id,
+            )],
+        ),
+    ])
     ```
 
 

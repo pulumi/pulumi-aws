@@ -39,7 +39,6 @@ import (
 //						},
 //					},
 //				},
-//				Name: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
@@ -83,9 +82,6 @@ func NewJobTemplate(ctx *pulumi.Context,
 
 	if args.JobTemplateData == nil {
 		return nil, errors.New("invalid value for required argument 'JobTemplateData'")
-	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource JobTemplate
@@ -149,7 +145,7 @@ type jobTemplateArgs struct {
 	// The KMS key ARN used to encrypt the job template.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// The specified name of the job template.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -161,7 +157,7 @@ type JobTemplateArgs struct {
 	// The KMS key ARN used to encrypt the job template.
 	KmsKeyArn pulumi.StringPtrInput
 	// The specified name of the job template.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }

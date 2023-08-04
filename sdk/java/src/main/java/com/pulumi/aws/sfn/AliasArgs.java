@@ -36,15 +36,15 @@ public final class AliasArgs extends com.pulumi.resources.ResourceArgs {
      * Name for the alias you are creating.
      * 
      */
-    @Import(name="name", required=true)
-    private Output<String> name;
+    @Import(name="name")
+    private @Nullable Output<String> name;
 
     /**
      * @return Name for the alias you are creating.
      * 
      */
-    public Output<String> name() {
-        return this.name;
+    public Optional<Output<String>> name() {
+        return Optional.ofNullable(this.name);
     }
 
     /**
@@ -115,7 +115,7 @@ public final class AliasArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder name(Output<String> name) {
+        public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
@@ -162,7 +162,6 @@ public final class AliasArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public AliasArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
             $.routingConfigurations = Objects.requireNonNull($.routingConfigurations, "expected parameter 'routingConfigurations' to be non-null");
             return $;
         }

@@ -15,22 +15,23 @@ __all__ = ['KxDatabaseArgs', 'KxDatabase']
 class KxDatabaseArgs:
     def __init__(__self__, *,
                  environment_id: pulumi.Input[str],
-                 name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a KxDatabase resource.
         :param pulumi.Input[str] environment_id: Unique identifier for the KX environment.
+        :param pulumi.Input[str] description: Description of the KX database.
         :param pulumi.Input[str] name: Name of the KX database.
                
                The following arguments are optional:
-        :param pulumi.Input[str] description: Description of the KX database.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "environment_id", environment_id)
-        pulumi.set(__self__, "name", name)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -48,20 +49,6 @@ class KxDatabaseArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        Name of the KX database.
-
-        The following arguments are optional:
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
         Description of the KX database.
@@ -71,6 +58,20 @@ class KxDatabaseArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the KX database.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -248,12 +249,9 @@ class KxDatabase(pulumi.CustomResource):
         example_key = aws.kms.Key("exampleKey",
             description="Example KMS Key",
             deletion_window_in_days=7)
-        example_kx_environment = aws.finspace.KxEnvironment("exampleKxEnvironment",
-            name="my-tf-kx-environment",
-            kms_key_id=example_key.arn)
+        example_kx_environment = aws.finspace.KxEnvironment("exampleKxEnvironment", kms_key_id=example_key.arn)
         example_kx_database = aws.finspace.KxDatabase("exampleKxDatabase",
             environment_id=example_kx_environment.id,
-            name="my-tf-kx-database",
             description="Example database description")
         ```
 
@@ -293,12 +291,9 @@ class KxDatabase(pulumi.CustomResource):
         example_key = aws.kms.Key("exampleKey",
             description="Example KMS Key",
             deletion_window_in_days=7)
-        example_kx_environment = aws.finspace.KxEnvironment("exampleKxEnvironment",
-            name="my-tf-kx-environment",
-            kms_key_id=example_key.arn)
+        example_kx_environment = aws.finspace.KxEnvironment("exampleKxEnvironment", kms_key_id=example_key.arn)
         example_kx_database = aws.finspace.KxDatabase("exampleKxDatabase",
             environment_id=example_kx_environment.id,
-            name="my-tf-kx-database",
             description="Example database description")
         ```
 
@@ -342,8 +337,6 @@ class KxDatabase(pulumi.CustomResource):
             if environment_id is None and not opts.urn:
                 raise TypeError("Missing required property 'environment_id'")
             __props__.__dict__["environment_id"] = environment_id
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None

@@ -13,10 +13,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleCidrCollection = new aws.route53.CidrCollection("exampleCidrCollection", {name: "collection-1"});
+ * const exampleCidrCollection = new aws.route53.CidrCollection("exampleCidrCollection", {});
  * const exampleCidrLocation = new aws.route53.CidrLocation("exampleCidrLocation", {
  *     cidrCollectionId: exampleCidrCollection.id,
- *     name: "office",
  *     cidrBlocks: [
  *         "200.5.3.0/24",
  *         "200.6.3.0/24",
@@ -97,9 +96,6 @@ export class CidrLocation extends pulumi.CustomResource {
             if ((!args || args.cidrCollectionId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'cidrCollectionId'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             resourceInputs["cidrBlocks"] = args ? args.cidrBlocks : undefined;
             resourceInputs["cidrCollectionId"] = args ? args.cidrCollectionId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -142,5 +138,5 @@ export interface CidrLocationArgs {
     /**
      * Name for the CIDR location.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }

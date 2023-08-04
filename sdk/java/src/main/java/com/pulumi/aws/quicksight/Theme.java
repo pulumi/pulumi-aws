@@ -69,7 +69,6 @@ import javax.annotation.Nullable;
  *                         &#34;#111111&#34;)
  *                     .build())
  *                 .build())
- *             .name(&#34;example&#34;)
  *             .themeId(&#34;example&#34;)
  *             .build());
  * 

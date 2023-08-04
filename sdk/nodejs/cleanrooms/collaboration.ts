@@ -36,7 +36,6 @@ import * as utilities from "../utilities";
  *         displayName: "Other member",
  *         memberAbilities: [],
  *     }],
- *     name: "pulumi-example-collaboration",
  *     queryLogStatus: "DISABLED",
  *     tags: {
  *         Project: "Pulumi",
@@ -170,9 +169,6 @@ export class Collaboration extends pulumi.CustomResource {
             if ((!args || args.description === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.queryLogStatus === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'queryLogStatus'");
             }
@@ -303,7 +299,7 @@ export interface CollaborationArgs {
     /**
      * The name of the collaboration.  Collaboration names do not need to be unique.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Determines if members of the collaboration can enable query logs within their own
      * emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-Cr

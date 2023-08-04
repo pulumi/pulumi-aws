@@ -25,7 +25,6 @@ namespace Pulumi.Aws.OpenSearch
     /// {
     ///     var example = new Aws.OpenSearch.ServerlessVpcEndpoint("example", new()
     ///     {
-    ///         Name = "myendpoint",
     ///         SubnetIds = new[]
     ///         {
     ///             aws_subnet.Example.Id,
@@ -125,8 +124,8 @@ namespace Pulumi.Aws.OpenSearch
         /// <summary>
         /// Name of the interface endpoint.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;

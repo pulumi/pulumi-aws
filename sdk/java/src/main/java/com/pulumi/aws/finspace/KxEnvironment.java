@@ -52,7 +52,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleKxEnvironment = new KxEnvironment(&#34;exampleKxEnvironment&#34;, KxEnvironmentArgs.builder()        
- *             .name(&#34;my-tf-kx-environment&#34;)
  *             .kmsKeyId(exampleKey.arn())
  *             .build());
  * 
@@ -97,7 +96,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleEnv = new KxEnvironment(&#34;exampleEnv&#34;, KxEnvironmentArgs.builder()        
- *             .name(&#34;my-tf-kx-environment&#34;)
  *             .description(&#34;Environment description&#34;)
  *             .kmsKeyId(exampleKey.arn())
  *             .transitGatewayConfiguration(KxEnvironmentTransitGatewayConfigurationArgs.builder()

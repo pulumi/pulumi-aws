@@ -21,10 +21,7 @@ import * as utilities from "../utilities";
  *     description: "Sample KMS Key",
  *     deletionWindowInDays: 7,
  * });
- * const exampleKxEnvironment = new aws.finspace.KxEnvironment("exampleKxEnvironment", {
- *     name: "my-tf-kx-environment",
- *     kmsKeyId: exampleKey.arn,
- * });
+ * const exampleKxEnvironment = new aws.finspace.KxEnvironment("exampleKxEnvironment", {kmsKeyId: exampleKey.arn});
  * ```
  * ### With Network Setup
  *
@@ -38,7 +35,6 @@ import * as utilities from "../utilities";
  * });
  * const exampleTransitGateway = new aws.ec2transitgateway.TransitGateway("exampleTransitGateway", {description: "example"});
  * const exampleEnv = new aws.finspace.KxEnvironment("exampleEnv", {
- *     name: "my-tf-kx-environment",
  *     description: "Environment description",
  *     kmsKeyId: exampleKey.arn,
  *     transitGatewayConfiguration: {
@@ -174,9 +170,6 @@ export class KxEnvironment extends pulumi.CustomResource {
             if ((!args || args.kmsKeyId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'kmsKeyId'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             resourceInputs["customDnsConfigurations"] = args ? args.customDnsConfigurations : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
@@ -277,7 +270,7 @@ export interface KxEnvironmentArgs {
     /**
      * Name of the KX environment that you want to create.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

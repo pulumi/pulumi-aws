@@ -54,7 +54,6 @@ import javax.annotation.Nullable;
  *             .enabled(true)
  *             .ipAddressType(&#34;IPV4&#34;)
  *             .ipAddresses(&#34;1.2.3.4&#34;)
- *             .name(&#34;Example&#34;)
  *             .build());
  * 
  *     }
@@ -229,7 +228,7 @@ public class CustomRoutingAccelerator extends com.pulumi.resources.CustomResourc
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public CustomRoutingAccelerator(String name, CustomRoutingAcceleratorArgs args) {
+    public CustomRoutingAccelerator(String name, @Nullable CustomRoutingAcceleratorArgs args) {
         this(name, args, null);
     }
     /**
@@ -238,7 +237,7 @@ public class CustomRoutingAccelerator extends com.pulumi.resources.CustomResourc
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public CustomRoutingAccelerator(String name, CustomRoutingAcceleratorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public CustomRoutingAccelerator(String name, @Nullable CustomRoutingAcceleratorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:globalaccelerator/customRoutingAccelerator:CustomRoutingAccelerator", name, args == null ? CustomRoutingAcceleratorArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
     }
 

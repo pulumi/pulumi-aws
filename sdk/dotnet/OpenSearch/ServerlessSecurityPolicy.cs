@@ -28,7 +28,6 @@ namespace Pulumi.Aws.OpenSearch
     /// {
     ///     var example = new Aws.OpenSearch.ServerlessSecurityPolicy("example", new()
     ///     {
-    ///         Name = "example",
     ///         Type = "encryption",
     ///         Description = "encryption security policy for example-collection",
     ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
@@ -63,7 +62,6 @@ namespace Pulumi.Aws.OpenSearch
     /// {
     ///     var example = new Aws.OpenSearch.ServerlessSecurityPolicy("example", new()
     ///     {
-    ///         Name = "example",
     ///         Type = "encryption",
     ///         Description = "encryption security policy for collections that begin with \"example\"",
     ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
@@ -98,7 +96,6 @@ namespace Pulumi.Aws.OpenSearch
     /// {
     ///     var example = new Aws.OpenSearch.ServerlessSecurityPolicy("example", new()
     ///     {
-    ///         Name = "example",
     ///         Type = "encryption",
     ///         Description = "encryption security policy using customer KMS key",
     ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
@@ -135,7 +132,6 @@ namespace Pulumi.Aws.OpenSearch
     /// {
     ///     var example = new Aws.OpenSearch.ServerlessSecurityPolicy("example", new()
     ///     {
-    ///         Name = "example",
     ///         Type = "network",
     ///         Description = "Public access",
     ///         Policy = JsonSerializer.Serialize(new[]
@@ -182,7 +178,6 @@ namespace Pulumi.Aws.OpenSearch
     /// {
     ///     var example = new Aws.OpenSearch.ServerlessSecurityPolicy("example", new()
     ///     {
-    ///         Name = "example",
     ///         Type = "network",
     ///         Description = "VPC access",
     ///         Policy = JsonSerializer.Serialize(new[]
@@ -233,7 +228,6 @@ namespace Pulumi.Aws.OpenSearch
     /// {
     ///     var example = new Aws.OpenSearch.ServerlessSecurityPolicy("example", new()
     ///     {
-    ///         Name = "example",
     ///         Type = "network",
     ///         Description = "Mixed access for marketing and sales",
     ///         Policy = JsonSerializer.Serialize(new[]
@@ -386,8 +380,8 @@ namespace Pulumi.Aws.OpenSearch
         /// <summary>
         /// Name of the policy.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// JSON policy document to use as the content for the new policy

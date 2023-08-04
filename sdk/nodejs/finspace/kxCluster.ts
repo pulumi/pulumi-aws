@@ -194,9 +194,6 @@ export class KxCluster extends pulumi.CustomResource {
             if ((!args || args.environmentId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'environmentId'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.releaseLabel === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'releaseLabel'");
             }
@@ -396,7 +393,7 @@ export interface KxClusterArgs {
     /**
      * Unique name for the cluster that you want to create.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Version of FinSpace Managed kdb to run.
      */

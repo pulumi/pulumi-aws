@@ -49,7 +49,6 @@ import javax.annotation.Nullable;
  *         final var currentPartition = AwsFunctions.getPartition();
  * 
  *         var test = new ServerlessAccessPolicy(&#34;test&#34;, ServerlessAccessPolicyArgs.builder()        
- *             .name(&#34;example&#34;)
  *             .type(&#34;data&#34;)
  *             .policy(serializeJson(
  *                 jsonArray(jsonObject(
