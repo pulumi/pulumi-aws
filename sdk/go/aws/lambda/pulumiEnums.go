@@ -26,6 +26,7 @@ const (
 	// Deprecated: This runtime is now deprecated
 	RuntimeRuby2d5 = Runtime("ruby2.5")
 	RuntimeRuby2d7 = Runtime("ruby2.7")
+	RuntimeRuby3d2 = Runtime("ruby3.2")
 	// Deprecated: This runtime is now deprecated
 	RuntimeNodeJS10dX = Runtime("nodejs10.x")
 	RuntimeNodeJS12dX = Runtime("nodejs12.x")
@@ -40,6 +41,7 @@ const (
 	RuntimePython3d8  = Runtime("python3.8")
 	RuntimePython3d9  = Runtime("python3.9")
 	RuntimePython3d10 = Runtime("python3.10")
+	RuntimePython3d11 = Runtime("python3.11")
 	RuntimeCustom     = Runtime("provided")
 	RuntimeCustomAL2  = Runtime("provided.al2")
 )
