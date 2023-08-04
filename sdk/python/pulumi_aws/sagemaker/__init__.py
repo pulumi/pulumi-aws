@@ -26,6 +26,7 @@ from .model_package_group_policy import *
 from .monitoring_schedule import *
 from .notebook_instance import *
 from .notebook_instance_lifecycle_configuration import *
+from .pipeline import *
 from .project import *
 from .servicecatalog_portfolio_status import *
 from .space import *

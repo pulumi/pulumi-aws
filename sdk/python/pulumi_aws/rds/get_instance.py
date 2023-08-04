@@ -559,7 +559,8 @@ def get_instance(db_instance_identifier: Optional[str] = None,
     ```
 
 
-    :param str db_instance_identifier: Name of the RDS instance
+    :param str db_instance_identifier: Name of the RDS instance.
+    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match a pair on the desired instance.
     """
     __args__ = dict()
     __args__['dbInstanceIdentifier'] = db_instance_identifier
@@ -614,7 +615,7 @@ def get_instance(db_instance_identifier: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_instance)
-def get_instance_output(db_instance_identifier: Optional[pulumi.Input[str]] = None,
+def get_instance_output(db_instance_identifier: Optional[pulumi.Input[Optional[str]]] = None,
                         tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstanceResult]:
     """
@@ -630,6 +631,7 @@ def get_instance_output(db_instance_identifier: Optional[pulumi.Input[str]] = No
     ```
 
 
-    :param str db_instance_identifier: Name of the RDS instance
+    :param str db_instance_identifier: Name of the RDS instance.
+    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match a pair on the desired instance.
     """
     ...

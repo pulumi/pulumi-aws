@@ -135,14 +135,14 @@ public final class AssociationArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
+     * The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.
      * 
      */
     @Import(name="maxErrors")
     private @Nullable Output<String> maxErrors;
 
     /**
-     * @return The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
+     * @return The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.
      * 
      */
     public Optional<Output<String>> maxErrors() {
@@ -436,7 +436,7 @@ public final class AssociationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxErrors The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
+         * @param maxErrors The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.
          * 
          * @return builder
          * 
@@ -447,7 +447,7 @@ public final class AssociationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxErrors The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
+         * @param maxErrors The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.
          * 
          * @return builder
          * 

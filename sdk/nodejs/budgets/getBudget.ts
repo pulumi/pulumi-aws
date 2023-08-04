@@ -62,9 +62,12 @@ export interface GetBudgetResult {
      * Object containing [AutoAdjustData] which determines the budget amount for an auto-adjusting budget.
      */
     readonly autoAdjustDatas: outputs.budgets.GetBudgetAutoAdjustData[];
+    /**
+     * Boolean indicating whether this budget has been exceeded.
+     */
     readonly budgetExceeded: boolean;
     /**
-     * The total amount of cost, usage, RI utilization, RI coverage, Savings Plans utilization, or Savings Plans coverage that you want to track with your budget. Contains object Spend
+     * The total amount of cost, usage, RI utilization, RI coverage, Savings Plans utilization, or Savings Plans coverage that you want to track with your budget. Contains object Spend.
      */
     readonly budgetLimits: outputs.budgets.GetBudgetBudgetLimit[];
     /**

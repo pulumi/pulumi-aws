@@ -45,6 +45,28 @@ namespace Pulumi.Aws.Rds
         /// });
         /// ```
         /// {{% /example %}}
+        /// {{% example %}}
+        /// ### Using tags
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Rds.GetInstances.Invoke(new()
+        ///     {
+        ///         Tags = 
+        ///         {
+        ///             { "Env", "test" },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetInstancesResult> InvokeAsync(GetInstancesArgs? args = null, InvokeOptions? options = null)
@@ -84,6 +106,28 @@ namespace Pulumi.Aws.Rds
         /// });
         /// ```
         /// {{% /example %}}
+        /// {{% example %}}
+        /// ### Using tags
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Rds.GetInstances.Invoke(new()
+        ///     {
+        ///         Tags = 
+        ///         {
+        ///             { "Env", "test" },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetInstancesResult> Invoke(GetInstancesInvokeArgs? args = null, InvokeOptions? options = null)
@@ -97,12 +141,24 @@ namespace Pulumi.Aws.Rds
         private List<Inputs.GetInstancesFilterArgs>? _filters;
 
         /// <summary>
-        /// Configuration block(s) for filtering. Detailed below.
+        /// Configuration block(s) used to filter instances with AWS supported attributes, such as `engine`, `db-cluster-id` or `db-instance-id` for example. Detailed below.
         /// </summary>
         public List<Inputs.GetInstancesFilterArgs> Filters
         {
             get => _filters ?? (_filters = new List<Inputs.GetInstancesFilterArgs>());
             set => _filters = value;
+        }
+
+        [Input("tags")]
+        private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// Map of tags, each pair of which must exactly match a pair on the desired instances.
+        /// </summary>
+        public Dictionary<string, string> Tags
+        {
+            get => _tags ?? (_tags = new Dictionary<string, string>());
+            set => _tags = value;
         }
 
         public GetInstancesArgs()
@@ -117,12 +173,24 @@ namespace Pulumi.Aws.Rds
         private InputList<Inputs.GetInstancesFilterInputArgs>? _filters;
 
         /// <summary>
-        /// Configuration block(s) for filtering. Detailed below.
+        /// Configuration block(s) used to filter instances with AWS supported attributes, such as `engine`, `db-cluster-id` or `db-instance-id` for example. Detailed below.
         /// </summary>
         public InputList<Inputs.GetInstancesFilterInputArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetInstancesFilterInputArgs>());
             set => _filters = value;
+        }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Map of tags, each pair of which must exactly match a pair on the desired instances.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
         }
 
         public GetInstancesInvokeArgs()
@@ -148,6 +216,7 @@ namespace Pulumi.Aws.Rds
         /// Identifiers of the matched RDS instances.
         /// </summary>
         public readonly ImmutableArray<string> InstanceIdentifiers;
+        public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]
         private GetInstancesResult(
@@ -157,12 +226,15 @@ namespace Pulumi.Aws.Rds
 
             ImmutableArray<string> instanceArns,
 
-            ImmutableArray<string> instanceIdentifiers)
+            ImmutableArray<string> instanceIdentifiers,
+
+            ImmutableDictionary<string, string> tags)
         {
             Filters = filters;
             Id = id;
             InstanceArns = instanceArns;
             InstanceIdentifiers = instanceIdentifiers;
+            Tags = tags;
         }
     }
 }

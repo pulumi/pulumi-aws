@@ -10,6 +10,10 @@ import * as utilities from "../utilities";
 /**
  * Resource for managing an AWS OpenSearch Serverless Collection.
  *
+ * > **NOTE:** An `aws.opensearch.ServerlessCollection` cannot be created without having an applicable encryption security policy. Use the `dependsOn` meta-argument to define this dependency.
+ *
+ * > **NOTE:** An `aws.opensearch.ServerlessCollection` is not accessible without configuring an applicable network security policy. Data cannot be accessed without configuring an applicable data access policy.
+ *
  * ## Example Usage
  * ### Basic Usage
  *
@@ -98,7 +102,7 @@ export class ServerlessCollection extends pulumi.CustomResource {
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public readonly timeouts!: pulumi.Output<outputs.opensearch.ServerlessCollectionTimeouts | undefined>;
     /**
-     * Type of collection. One of `SEARCH` or `TIMESERIES`.
+     * Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
      */
     public readonly type!: pulumi.Output<string>;
 
@@ -177,7 +181,7 @@ export interface ServerlessCollectionState {
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.opensearch.ServerlessCollectionTimeouts>;
     /**
-     * Type of collection. One of `SEARCH` or `TIMESERIES`.
+     * Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
      */
     type?: pulumi.Input<string>;
 }
@@ -202,7 +206,7 @@ export interface ServerlessCollectionArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.opensearch.ServerlessCollectionTimeouts>;
     /**
-     * Type of collection. One of `SEARCH` or `TIMESERIES`.
+     * Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
      */
     type?: pulumi.Input<string>;
 }

@@ -87,7 +87,8 @@ type LookupClusterSnapshotArgs struct {
 	// value, then both automated and manual DB cluster snapshots are returned. Shared and public DB Cluster Snapshots are not
 	// included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
 	SnapshotType *string `pulumi:"snapshotType"`
-	// Map of tags for the resource.
+	// Mapping of tags, each pair of which must exactly match
+	// a pair on the desired DB cluster snapshot.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -163,7 +164,8 @@ type LookupClusterSnapshotOutputArgs struct {
 	// value, then both automated and manual DB cluster snapshots are returned. Shared and public DB Cluster Snapshots are not
 	// included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
 	SnapshotType pulumi.StringPtrInput `pulumi:"snapshotType"`
-	// Map of tags for the resource.
+	// Mapping of tags, each pair of which must exactly match
+	// a pair on the desired DB cluster snapshot.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 

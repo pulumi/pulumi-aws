@@ -17,14 +17,14 @@ public final class LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs extends co
     public static final LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs Empty = new LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs();
 
     /**
-     * The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year.
+     * The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year. Conflicts with `interval`, `interval_unit`, and `times`.
      * 
      */
     @Import(name="cronExpression")
     private @Nullable Output<String> cronExpression;
 
     /**
-     * @return The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year.
+     * @return The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year. Conflicts with `interval`, `interval_unit`, and `times`.
      * 
      */
     public Optional<Output<String>> cronExpression() {
@@ -32,14 +32,14 @@ public final class LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs extends co
     }
 
     /**
-     * How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+     * How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cron_expression`. If set, `interval_unit` and `times` must also be set.
      * 
      */
     @Import(name="interval")
     private @Nullable Output<Integer> interval;
 
     /**
-     * @return How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+     * @return How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cron_expression`. If set, `interval_unit` and `times` must also be set.
      * 
      */
     public Optional<Output<Integer>> interval() {
@@ -47,14 +47,14 @@ public final class LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs extends co
     }
 
     /**
-     * The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+     * The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cron_expression`. Must be set if `interval` is set.
      * 
      */
     @Import(name="intervalUnit")
     private @Nullable Output<String> intervalUnit;
 
     /**
-     * @return The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+     * @return The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cron_expression`. Must be set if `interval` is set.
      * 
      */
     public Optional<Output<String>> intervalUnit() {
@@ -77,14 +77,14 @@ public final class LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs extends co
     }
 
     /**
-     * A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1.
+     * A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1. Conflicts with `cron_expression`. Must be set if `interval` is set.
      * 
      */
     @Import(name="times")
     private @Nullable Output<String> times;
 
     /**
-     * @return A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1.
+     * @return A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1. Conflicts with `cron_expression`. Must be set if `interval` is set.
      * 
      */
     public Optional<Output<String>> times() {
@@ -120,7 +120,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs extends co
         }
 
         /**
-         * @param cronExpression The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year.
+         * @param cronExpression The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year. Conflicts with `interval`, `interval_unit`, and `times`.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs extends co
         }
 
         /**
-         * @param cronExpression The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year.
+         * @param cronExpression The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year. Conflicts with `interval`, `interval_unit`, and `times`.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs extends co
         }
 
         /**
-         * @param interval How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+         * @param interval How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cron_expression`. If set, `interval_unit` and `times` must also be set.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs extends co
         }
 
         /**
-         * @param interval How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+         * @param interval How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cron_expression`. If set, `interval_unit` and `times` must also be set.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs extends co
         }
 
         /**
-         * @param intervalUnit The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+         * @param intervalUnit The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cron_expression`. Must be set if `interval` is set.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs extends co
         }
 
         /**
-         * @param intervalUnit The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+         * @param intervalUnit The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cron_expression`. Must be set if `interval` is set.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs extends co
         }
 
         /**
-         * @param times A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1.
+         * @param times A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1. Conflicts with `cron_expression`. Must be set if `interval` is set.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs extends co
         }
 
         /**
-         * @param times A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1.
+         * @param times A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1. Conflicts with `cron_expression`. Must be set if `interval` is set.
          * 
          * @return builder
          * 

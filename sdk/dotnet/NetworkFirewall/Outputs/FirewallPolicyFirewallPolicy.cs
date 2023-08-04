@@ -14,6 +14,10 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
     public sealed class FirewallPolicyFirewallPolicy
     {
         /// <summary>
+        /// . Contains variables that you can use to override default Suricata settings in your firewall policy. See Rule Variables for details.
+        /// </summary>
+        public readonly Outputs.FirewallPolicyFirewallPolicyPolicyVariables? PolicyVariables;
+        /// <summary>
         /// Set of actions to take on a packet if it does not match any stateful rules in the policy. This can only be specified if the policy has a `stateful_engine_options` block with a `rule_order` value of `STRICT_ORDER`. You can specify one of either or neither values of `aws:drop_strict` or `aws:drop_established`, as well as any combination of `aws:alert_strict` and `aws:alert_established`.
         /// </summary>
         public readonly ImmutableArray<string> StatefulDefaultActions;
@@ -46,6 +50,8 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
 
         [OutputConstructor]
         private FirewallPolicyFirewallPolicy(
+            Outputs.FirewallPolicyFirewallPolicyPolicyVariables? policyVariables,
+
             ImmutableArray<string> statefulDefaultActions,
 
             Outputs.FirewallPolicyFirewallPolicyStatefulEngineOptions? statefulEngineOptions,
@@ -60,6 +66,7 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
 
             ImmutableArray<Outputs.FirewallPolicyFirewallPolicyStatelessRuleGroupReference> statelessRuleGroupReferences)
         {
+            PolicyVariables = policyVariables;
             StatefulDefaultActions = statefulDefaultActions;
             StatefulEngineOptions = statefulEngineOptions;
             StatefulRuleGroupReferences = statefulRuleGroupReferences;

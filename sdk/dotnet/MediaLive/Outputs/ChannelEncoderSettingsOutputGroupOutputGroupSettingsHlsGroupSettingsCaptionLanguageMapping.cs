@@ -18,6 +18,9 @@ namespace Pulumi.Aws.MediaLive.Outputs
         /// When specified this field indicates the three letter language code of the caption track to extract from the source.
         /// </summary>
         public readonly string LanguageCode;
+        /// <summary>
+        /// Human readable information to indicate captions available for players (eg. English, or Spanish).
+        /// </summary>
         public readonly string LanguageDescription;
 
         [OutputConstructor]

@@ -81,7 +81,7 @@ class GetServiceNetworkResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        ID of the service network.
+        The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
 

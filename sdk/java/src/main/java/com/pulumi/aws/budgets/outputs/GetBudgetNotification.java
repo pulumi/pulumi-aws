@@ -17,7 +17,7 @@ public final class GetBudgetNotification {
      */
     private String comparisonOperator;
     /**
-     * @return (Required) What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`
+     * @return (Required) What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`.
      * 
      */
     private String notificationType;
@@ -51,7 +51,7 @@ public final class GetBudgetNotification {
         return this.comparisonOperator;
     }
     /**
-     * @return (Required) What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`
+     * @return (Required) What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`.
      * 
      */
     public String notificationType() {

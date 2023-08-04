@@ -291,10 +291,10 @@ class KxClusterDatabase(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "cacheConfigurations":
-            suggest = "cache_configurations"
-        elif key == "databaseName":
+        if key == "databaseName":
             suggest = "database_name"
+        elif key == "cacheConfigurations":
+            suggest = "cache_configurations"
         elif key == "changesetId":
             suggest = "changeset_id"
 
@@ -310,26 +310,19 @@ class KxClusterDatabase(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 cache_configurations: Sequence['outputs.KxClusterDatabaseCacheConfiguration'],
                  database_name: str,
+                 cache_configurations: Optional[Sequence['outputs.KxClusterDatabaseCacheConfiguration']] = None,
                  changeset_id: Optional[str] = None):
         """
-        :param Sequence['KxClusterDatabaseCacheConfigurationArgs'] cache_configurations: Configuration details for the disk cache to increase performance reading from a KX database mounted to the cluster. See cache_configurations.
         :param str database_name: Name of the KX database.
+        :param Sequence['KxClusterDatabaseCacheConfigurationArgs'] cache_configurations: Configuration details for the disk cache to increase performance reading from a KX database mounted to the cluster. See cache_configurations.
         :param str changeset_id: A unique identifier of the changeset that is associated with the cluster.
         """
-        pulumi.set(__self__, "cache_configurations", cache_configurations)
         pulumi.set(__self__, "database_name", database_name)
+        if cache_configurations is not None:
+            pulumi.set(__self__, "cache_configurations", cache_configurations)
         if changeset_id is not None:
             pulumi.set(__self__, "changeset_id", changeset_id)
-
-    @property
-    @pulumi.getter(name="cacheConfigurations")
-    def cache_configurations(self) -> Sequence['outputs.KxClusterDatabaseCacheConfiguration']:
-        """
-        Configuration details for the disk cache to increase performance reading from a KX database mounted to the cluster. See cache_configurations.
-        """
-        return pulumi.get(self, "cache_configurations")
 
     @property
     @pulumi.getter(name="databaseName")
@@ -338,6 +331,14 @@ class KxClusterDatabase(dict):
         Name of the KX database.
         """
         return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter(name="cacheConfigurations")
+    def cache_configurations(self) -> Optional[Sequence['outputs.KxClusterDatabaseCacheConfiguration']]:
+        """
+        Configuration details for the disk cache to increase performance reading from a KX database mounted to the cluster. See cache_configurations.
+        """
+        return pulumi.get(self, "cache_configurations")
 
     @property
     @pulumi.getter(name="changesetId")
@@ -371,13 +372,14 @@ class KxClusterDatabaseCacheConfiguration(dict):
 
     def __init__(__self__, *,
                  cache_type: str,
-                 db_paths: Sequence[str]):
+                 db_paths: Optional[Sequence[str]] = None):
         """
         :param str cache_type: Type of disk cache.
         :param Sequence[str] db_paths: Paths within the database to cache.
         """
         pulumi.set(__self__, "cache_type", cache_type)
-        pulumi.set(__self__, "db_paths", db_paths)
+        if db_paths is not None:
+            pulumi.set(__self__, "db_paths", db_paths)
 
     @property
     @pulumi.getter(name="cacheType")
@@ -389,7 +391,7 @@ class KxClusterDatabaseCacheConfiguration(dict):
 
     @property
     @pulumi.getter(name="dbPaths")
-    def db_paths(self) -> Sequence[str]:
+    def db_paths(self) -> Optional[Sequence[str]]:
         """
         Paths within the database to cache.
         """
@@ -402,7 +404,7 @@ class KxClusterSavedownStorageConfiguration(dict):
                  size: int,
                  type: str):
         """
-        :param int size: Size of temporary storage in bytes.
+        :param int size: Size of temporary storage in gigabytes. Must be between 10 and 16000.
         :param str type: Type of writeable storage space for temporarily storing your savedown data. The valid values are:
                * SDS01 - This type represents 3000 IOPS and io2 ebs volume type.
         """
@@ -413,7 +415,7 @@ class KxClusterSavedownStorageConfiguration(dict):
     @pulumi.getter
     def size(self) -> int:
         """
-        Size of temporary storage in bytes.
+        Size of temporary storage in gigabytes. Must be between 10 and 16000.
         """
         return pulumi.get(self, "size")
 

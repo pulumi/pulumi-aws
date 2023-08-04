@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class KxClusterSavedownStorageConfiguration {
     /**
-     * @return Size of temporary storage in bytes.
+     * @return Size of temporary storage in gigabytes. Must be between 10 and 16000.
      * 
      */
     private Integer size;
@@ -24,7 +24,7 @@ public final class KxClusterSavedownStorageConfiguration {
 
     private KxClusterSavedownStorageConfiguration() {}
     /**
-     * @return Size of temporary storage in bytes.
+     * @return Size of temporary storage in gigabytes. Must be between 10 and 16000.
      * 
      */
     public Integer size() {

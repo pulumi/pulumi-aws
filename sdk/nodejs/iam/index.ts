@@ -167,6 +167,11 @@ export type SamlProvider = import("./samlProvider").SamlProvider;
 export const SamlProvider: typeof import("./samlProvider").SamlProvider = null as any;
 utilities.lazyLoad(exports, ["SamlProvider"], () => require("./samlProvider"));
 
+export { SecurityTokenServicePreferencesArgs, SecurityTokenServicePreferencesState } from "./securityTokenServicePreferences";
+export type SecurityTokenServicePreferences = import("./securityTokenServicePreferences").SecurityTokenServicePreferences;
+export const SecurityTokenServicePreferences: typeof import("./securityTokenServicePreferences").SecurityTokenServicePreferences = null as any;
+utilities.lazyLoad(exports, ["SecurityTokenServicePreferences"], () => require("./securityTokenServicePreferences"));
+
 export { ServerCertificateArgs, ServerCertificateState } from "./serverCertificate";
 export type ServerCertificate = import("./serverCertificate").ServerCertificate;
 export const ServerCertificate: typeof import("./serverCertificate").ServerCertificate = null as any;
@@ -260,6 +265,8 @@ const _module = {
                 return new RolePolicyAttachment(name, <any>undefined, { urn })
             case "aws:iam/samlProvider:SamlProvider":
                 return new SamlProvider(name, <any>undefined, { urn })
+            case "aws:iam/securityTokenServicePreferences:SecurityTokenServicePreferences":
+                return new SecurityTokenServicePreferences(name, <any>undefined, { urn })
             case "aws:iam/serverCertificate:ServerCertificate":
                 return new ServerCertificate(name, <any>undefined, { urn })
             case "aws:iam/serviceLinkedRole:ServiceLinkedRole":
@@ -302,6 +309,7 @@ pulumi.runtime.registerResourceModule("aws", "iam/role", _module)
 pulumi.runtime.registerResourceModule("aws", "iam/rolePolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "iam/rolePolicyAttachment", _module)
 pulumi.runtime.registerResourceModule("aws", "iam/samlProvider", _module)
+pulumi.runtime.registerResourceModule("aws", "iam/securityTokenServicePreferences", _module)
 pulumi.runtime.registerResourceModule("aws", "iam/serverCertificate", _module)
 pulumi.runtime.registerResourceModule("aws", "iam/serviceLinkedRole", _module)
 pulumi.runtime.registerResourceModule("aws", "iam/serviceSpecificCredential", _module)

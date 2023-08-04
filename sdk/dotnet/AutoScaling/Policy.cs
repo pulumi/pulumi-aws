@@ -52,7 +52,7 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// });
     /// ```
-    /// ### Create target tarcking scaling policy using metric math
+    /// ### Create target tracking scaling policy using metric math
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

@@ -12,7 +12,7 @@ namespace Pulumi.Aws.FinSpace.Inputs
 
     public sealed class KxClusterDatabaseArgs : global::Pulumi.ResourceArgs
     {
-        [Input("cacheConfigurations", required: true)]
+        [Input("cacheConfigurations")]
         private InputList<Inputs.KxClusterDatabaseCacheConfigurationArgs>? _cacheConfigurations;
 
         /// <summary>

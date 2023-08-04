@@ -16,6 +16,9 @@ __all__ = [
     'FirewallFirewallStatusSyncStateAttachmentArgs',
     'FirewallPolicyEncryptionConfigurationArgs',
     'FirewallPolicyFirewallPolicyArgs',
+    'FirewallPolicyFirewallPolicyPolicyVariablesArgs',
+    'FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs',
+    'FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgs',
     'FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs',
     'FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs',
     'FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArgs',
@@ -240,6 +243,7 @@ class FirewallPolicyFirewallPolicyArgs:
     def __init__(__self__, *,
                  stateless_default_actions: pulumi.Input[Sequence[pulumi.Input[str]]],
                  stateless_fragment_default_actions: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 policy_variables: Optional[pulumi.Input['FirewallPolicyFirewallPolicyPolicyVariablesArgs']] = None,
                  stateful_default_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  stateful_engine_options: Optional[pulumi.Input['FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs']] = None,
                  stateful_rule_group_references: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs']]]] = None,
@@ -250,6 +254,7 @@ class FirewallPolicyFirewallPolicyArgs:
                In addition, you can specify custom actions that are compatible with your standard action choice. If you want non-matching packets to be forwarded for stateful inspection, specify `aws:forward_to_sfe`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] stateless_fragment_default_actions: Set of actions to take on a fragmented packet if it does not match any of the stateless rules in the policy. You must specify one of the standard actions including: `aws:drop`, `aws:pass`, or `aws:forward_to_sfe`.
                In addition, you can specify custom actions that are compatible with your standard action choice. If you want non-matching packets to be forwarded for stateful inspection, specify `aws:forward_to_sfe`.
+        :param pulumi.Input['FirewallPolicyFirewallPolicyPolicyVariablesArgs'] policy_variables: . Contains variables that you can use to override default Suricata settings in your firewall policy. See Rule Variables for details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] stateful_default_actions: Set of actions to take on a packet if it does not match any stateful rules in the policy. This can only be specified if the policy has a `stateful_engine_options` block with a `rule_order` value of `STRICT_ORDER`. You can specify one of either or neither values of `aws:drop_strict` or `aws:drop_established`, as well as any combination of `aws:alert_strict` and `aws:alert_established`.
         :param pulumi.Input['FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs'] stateful_engine_options: A configuration block that defines options on how the policy handles stateful rules. See Stateful Engine Options below for details.
         :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs']]] stateful_rule_group_references: Set of configuration blocks containing references to the stateful rule groups that are used in the policy. See Stateful Rule Group Reference below for details.
@@ -258,6 +263,8 @@ class FirewallPolicyFirewallPolicyArgs:
         """
         pulumi.set(__self__, "stateless_default_actions", stateless_default_actions)
         pulumi.set(__self__, "stateless_fragment_default_actions", stateless_fragment_default_actions)
+        if policy_variables is not None:
+            pulumi.set(__self__, "policy_variables", policy_variables)
         if stateful_default_actions is not None:
             pulumi.set(__self__, "stateful_default_actions", stateful_default_actions)
         if stateful_engine_options is not None:
@@ -294,6 +301,18 @@ class FirewallPolicyFirewallPolicyArgs:
     @stateless_fragment_default_actions.setter
     def stateless_fragment_default_actions(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "stateless_fragment_default_actions", value)
+
+    @property
+    @pulumi.getter(name="policyVariables")
+    def policy_variables(self) -> Optional[pulumi.Input['FirewallPolicyFirewallPolicyPolicyVariablesArgs']]:
+        """
+        . Contains variables that you can use to override default Suricata settings in your firewall policy. See Rule Variables for details.
+        """
+        return pulumi.get(self, "policy_variables")
+
+    @policy_variables.setter
+    def policy_variables(self, value: Optional[pulumi.Input['FirewallPolicyFirewallPolicyPolicyVariablesArgs']]):
+        pulumi.set(self, "policy_variables", value)
 
     @property
     @pulumi.getter(name="statefulDefaultActions")
@@ -354,6 +373,82 @@ class FirewallPolicyFirewallPolicyArgs:
     @stateless_rule_group_references.setter
     def stateless_rule_group_references(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs']]]]):
         pulumi.set(self, "stateless_rule_group_references", value)
+
+
+@pulumi.input_type
+class FirewallPolicyFirewallPolicyPolicyVariablesArgs:
+    def __init__(__self__, *,
+                 rule_variables: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs']]]] = None):
+        if rule_variables is not None:
+            pulumi.set(__self__, "rule_variables", rule_variables)
+
+    @property
+    @pulumi.getter(name="ruleVariables")
+    def rule_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs']]]]:
+        return pulumi.get(self, "rule_variables")
+
+    @rule_variables.setter
+    def rule_variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs']]]]):
+        pulumi.set(self, "rule_variables", value)
+
+
+@pulumi.input_type
+class FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs:
+    def __init__(__self__, *,
+                 ip_set: pulumi.Input['FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgs'],
+                 key: pulumi.Input[str]):
+        """
+        :param pulumi.Input['FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgs'] ip_set: A configuration block that defines a set of IP addresses. See IP Set below for details.
+        :param pulumi.Input[str] key: An alphanumeric string to identify the `ip_set`. Valid values: `HOME_NET`
+        """
+        pulumi.set(__self__, "ip_set", ip_set)
+        pulumi.set(__self__, "key", key)
+
+    @property
+    @pulumi.getter(name="ipSet")
+    def ip_set(self) -> pulumi.Input['FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgs']:
+        """
+        A configuration block that defines a set of IP addresses. See IP Set below for details.
+        """
+        return pulumi.get(self, "ip_set")
+
+    @ip_set.setter
+    def ip_set(self, value: pulumi.Input['FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgs']):
+        pulumi.set(self, "ip_set", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        An alphanumeric string to identify the `ip_set`. Valid values: `HOME_NET`
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+
+@pulumi.input_type
+class FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgs:
+    def __init__(__self__, *,
+                 definitions: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] definitions: Set of IPv4 or IPv6 addresses in CIDR notation to use for the Suricata `HOME_NET` variable.
+        """
+        pulumi.set(__self__, "definitions", definitions)
+
+    @property
+    @pulumi.getter
+    def definitions(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Set of IPv4 or IPv6 addresses in CIDR notation to use for the Suricata `HOME_NET` variable.
+        """
+        return pulumi.get(self, "definitions")
+
+    @definitions.setter
+    def definitions(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "definitions", value)
 
 
 @pulumi.input_type
@@ -1201,7 +1296,7 @@ class RuleGroupRuleGroupRulesSourceStatefulRuleArgs:
                  header: pulumi.Input['RuleGroupRuleGroupRulesSourceStatefulRuleHeaderArgs'],
                  rule_options: pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionArgs']]]):
         """
-        :param pulumi.Input[str] action: Action to take with packets in a traffic flow when the flow matches the stateful rule criteria. For all actions, AWS Network Firewall performs the specified action and discontinues stateful inspection of the traffic flow. Valid values: `ALERT`, `DROP` or `PASS`.
+        :param pulumi.Input[str] action: Action to take with packets in a traffic flow when the flow matches the stateful rule criteria. For all actions, AWS Network Firewall performs the specified action and discontinues stateful inspection of the traffic flow. Valid values: `ALERT`, `DROP`, `PASS`, or `REJECT`.
         :param pulumi.Input['RuleGroupRuleGroupRulesSourceStatefulRuleHeaderArgs'] header: A configuration block containing the stateful 5-tuple inspection criteria for the rule, used to inspect traffic flows. See Header below for details.
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionArgs']]] rule_options: Set of configuration blocks containing additional settings for a stateful rule. See Rule Option below for details.
         """
@@ -1213,7 +1308,7 @@ class RuleGroupRuleGroupRulesSourceStatefulRuleArgs:
     @pulumi.getter
     def action(self) -> pulumi.Input[str]:
         """
-        Action to take with packets in a traffic flow when the flow matches the stateful rule criteria. For all actions, AWS Network Firewall performs the specified action and discontinues stateful inspection of the traffic flow. Valid values: `ALERT`, `DROP` or `PASS`.
+        Action to take with packets in a traffic flow when the flow matches the stateful rule criteria. For all actions, AWS Network Firewall performs the specified action and discontinues stateful inspection of the traffic flow. Valid values: `ALERT`, `DROP`, `PASS`, or `REJECT`.
         """
         return pulumi.get(self, "action")
 

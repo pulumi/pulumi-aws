@@ -96,13 +96,16 @@ class GetBudgetResult:
     @property
     @pulumi.getter(name="budgetExceeded")
     def budget_exceeded(self) -> bool:
+        """
+        Boolean indicating whether this budget has been exceeded.
+        """
         return pulumi.get(self, "budget_exceeded")
 
     @property
     @pulumi.getter(name="budgetLimits")
     def budget_limits(self) -> Sequence['outputs.GetBudgetBudgetLimitResult']:
         """
-        The total amount of cost, usage, RI utilization, RI coverage, Savings Plans utilization, or Savings Plans coverage that you want to track with your budget. Contains object Spend
+        The total amount of cost, usage, RI utilization, RI coverage, Savings Plans utilization, or Savings Plans coverage that you want to track with your budget. Contains object Spend.
         """
         return pulumi.get(self, "budget_limits")
 

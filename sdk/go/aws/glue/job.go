@@ -47,6 +47,41 @@ import (
 //	}
 //
 // ```
+// ### Ray Job
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := glue.NewJob(ctx, "example", &glue.JobArgs{
+//				RoleArn:     pulumi.Any(aws_iam_role.Example.Arn),
+//				GlueVersion: pulumi.String("4.0"),
+//				WorkerType:  pulumi.String("Z.2X"),
+//				Command: &glue.JobCommandArgs{
+//					Name:           pulumi.String("glueray"),
+//					PythonVersion:  pulumi.String("3.9"),
+//					Runtime:        pulumi.String("Ray2.4"),
+//					ScriptLocation: pulumi.String(fmt.Sprintf("s3://%v/example.py", aws_s3_bucket.Example.Bucket)),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 // ### Scala Job
 //
 // ```go
@@ -173,7 +208,7 @@ type Job struct {
 	ExecutionClass pulumi.StringPtrOutput `pulumi:"executionClass"`
 	// Execution property of the job. Defined below.
 	ExecutionProperty JobExecutionPropertyOutput `pulumi:"executionProperty"`
-	// The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
+	// The version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
 	GlueVersion pulumi.StringOutput `pulumi:"glueVersion"`
 	// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `numberOfWorkers` and `workerType` arguments instead with `glueVersion` `2.0` and above.
 	MaxCapacity pulumi.Float64Output `pulumi:"maxCapacity"`
@@ -197,7 +232,12 @@ type Job struct {
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimited) for `gluestreaming` jobs.
 	Timeout pulumi.IntOutput `pulumi:"timeout"`
-	// The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
+	// The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, G.2X, or G.025X for Spark jobs. Accepts the value Z.2X for Ray jobs.
+	// * For the Standard worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.
+	// * For the G.1X worker type, each worker maps to 1 DPU (4 vCPU, 16 GB of memory, 64 GB disk), and provides 1 executor per worker. Recommended for memory-intensive jobs.
+	// * For the G.2X worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of memory, 128 GB disk), and provides 1 executor per worker. Recommended for memory-intensive jobs.
+	// * For the G.025X worker type, each worker maps to 0.25 DPU (2 vCPU, 4GB of memory, 64 GB disk), and provides 1 executor per worker. Recommended for low volume streaming jobs. Only available for Glue version 3.0.
+	// * For the Z.2X worker type, each worker maps to 2 M-DPU (8vCPU, 64 GB of m emory, 128 GB disk), and provides up to 8 Ray workers based on the autoscaler.
 	WorkerType pulumi.StringPtrOutput `pulumi:"workerType"`
 }
 
@@ -251,7 +291,7 @@ type jobState struct {
 	ExecutionClass *string `pulumi:"executionClass"`
 	// Execution property of the job. Defined below.
 	ExecutionProperty *JobExecutionProperty `pulumi:"executionProperty"`
-	// The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
+	// The version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
 	GlueVersion *string `pulumi:"glueVersion"`
 	// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `numberOfWorkers` and `workerType` arguments instead with `glueVersion` `2.0` and above.
 	MaxCapacity *float64 `pulumi:"maxCapacity"`
@@ -275,7 +315,12 @@ type jobState struct {
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimited) for `gluestreaming` jobs.
 	Timeout *int `pulumi:"timeout"`
-	// The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
+	// The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, G.2X, or G.025X for Spark jobs. Accepts the value Z.2X for Ray jobs.
+	// * For the Standard worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.
+	// * For the G.1X worker type, each worker maps to 1 DPU (4 vCPU, 16 GB of memory, 64 GB disk), and provides 1 executor per worker. Recommended for memory-intensive jobs.
+	// * For the G.2X worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of memory, 128 GB disk), and provides 1 executor per worker. Recommended for memory-intensive jobs.
+	// * For the G.025X worker type, each worker maps to 0.25 DPU (2 vCPU, 4GB of memory, 64 GB disk), and provides 1 executor per worker. Recommended for low volume streaming jobs. Only available for Glue version 3.0.
+	// * For the Z.2X worker type, each worker maps to 2 M-DPU (8vCPU, 64 GB of m emory, 128 GB disk), and provides up to 8 Ray workers based on the autoscaler.
 	WorkerType *string `pulumi:"workerType"`
 }
 
@@ -294,7 +339,7 @@ type JobState struct {
 	ExecutionClass pulumi.StringPtrInput
 	// Execution property of the job. Defined below.
 	ExecutionProperty JobExecutionPropertyPtrInput
-	// The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
+	// The version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
 	GlueVersion pulumi.StringPtrInput
 	// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `numberOfWorkers` and `workerType` arguments instead with `glueVersion` `2.0` and above.
 	MaxCapacity pulumi.Float64PtrInput
@@ -318,7 +363,12 @@ type JobState struct {
 	TagsAll pulumi.StringMapInput
 	// The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimited) for `gluestreaming` jobs.
 	Timeout pulumi.IntPtrInput
-	// The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
+	// The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, G.2X, or G.025X for Spark jobs. Accepts the value Z.2X for Ray jobs.
+	// * For the Standard worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.
+	// * For the G.1X worker type, each worker maps to 1 DPU (4 vCPU, 16 GB of memory, 64 GB disk), and provides 1 executor per worker. Recommended for memory-intensive jobs.
+	// * For the G.2X worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of memory, 128 GB disk), and provides 1 executor per worker. Recommended for memory-intensive jobs.
+	// * For the G.025X worker type, each worker maps to 0.25 DPU (2 vCPU, 4GB of memory, 64 GB disk), and provides 1 executor per worker. Recommended for low volume streaming jobs. Only available for Glue version 3.0.
+	// * For the Z.2X worker type, each worker maps to 2 M-DPU (8vCPU, 64 GB of m emory, 128 GB disk), and provides up to 8 Ray workers based on the autoscaler.
 	WorkerType pulumi.StringPtrInput
 }
 
@@ -339,7 +389,7 @@ type jobArgs struct {
 	ExecutionClass *string `pulumi:"executionClass"`
 	// Execution property of the job. Defined below.
 	ExecutionProperty *JobExecutionProperty `pulumi:"executionProperty"`
-	// The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
+	// The version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
 	GlueVersion *string `pulumi:"glueVersion"`
 	// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `numberOfWorkers` and `workerType` arguments instead with `glueVersion` `2.0` and above.
 	MaxCapacity *float64 `pulumi:"maxCapacity"`
@@ -361,7 +411,12 @@ type jobArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimited) for `gluestreaming` jobs.
 	Timeout *int `pulumi:"timeout"`
-	// The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
+	// The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, G.2X, or G.025X for Spark jobs. Accepts the value Z.2X for Ray jobs.
+	// * For the Standard worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.
+	// * For the G.1X worker type, each worker maps to 1 DPU (4 vCPU, 16 GB of memory, 64 GB disk), and provides 1 executor per worker. Recommended for memory-intensive jobs.
+	// * For the G.2X worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of memory, 128 GB disk), and provides 1 executor per worker. Recommended for memory-intensive jobs.
+	// * For the G.025X worker type, each worker maps to 0.25 DPU (2 vCPU, 4GB of memory, 64 GB disk), and provides 1 executor per worker. Recommended for low volume streaming jobs. Only available for Glue version 3.0.
+	// * For the Z.2X worker type, each worker maps to 2 M-DPU (8vCPU, 64 GB of m emory, 128 GB disk), and provides up to 8 Ray workers based on the autoscaler.
 	WorkerType *string `pulumi:"workerType"`
 }
 
@@ -379,7 +434,7 @@ type JobArgs struct {
 	ExecutionClass pulumi.StringPtrInput
 	// Execution property of the job. Defined below.
 	ExecutionProperty JobExecutionPropertyPtrInput
-	// The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
+	// The version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
 	GlueVersion pulumi.StringPtrInput
 	// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `numberOfWorkers` and `workerType` arguments instead with `glueVersion` `2.0` and above.
 	MaxCapacity pulumi.Float64PtrInput
@@ -401,7 +456,12 @@ type JobArgs struct {
 	Tags pulumi.StringMapInput
 	// The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimited) for `gluestreaming` jobs.
 	Timeout pulumi.IntPtrInput
-	// The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
+	// The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, G.2X, or G.025X for Spark jobs. Accepts the value Z.2X for Ray jobs.
+	// * For the Standard worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.
+	// * For the G.1X worker type, each worker maps to 1 DPU (4 vCPU, 16 GB of memory, 64 GB disk), and provides 1 executor per worker. Recommended for memory-intensive jobs.
+	// * For the G.2X worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of memory, 128 GB disk), and provides 1 executor per worker. Recommended for memory-intensive jobs.
+	// * For the G.025X worker type, each worker maps to 0.25 DPU (2 vCPU, 4GB of memory, 64 GB disk), and provides 1 executor per worker. Recommended for low volume streaming jobs. Only available for Glue version 3.0.
+	// * For the Z.2X worker type, each worker maps to 2 M-DPU (8vCPU, 64 GB of m emory, 128 GB disk), and provides up to 8 Ray workers based on the autoscaler.
 	WorkerType pulumi.StringPtrInput
 }
 
@@ -527,7 +587,7 @@ func (o JobOutput) ExecutionProperty() JobExecutionPropertyOutput {
 	return o.ApplyT(func(v *Job) JobExecutionPropertyOutput { return v.ExecutionProperty }).(JobExecutionPropertyOutput)
 }
 
-// The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
+// The version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
 func (o JobOutput) GlueVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Job) pulumi.StringOutput { return v.GlueVersion }).(pulumi.StringOutput)
 }
@@ -587,7 +647,12 @@ func (o JobOutput) Timeout() pulumi.IntOutput {
 	return o.ApplyT(func(v *Job) pulumi.IntOutput { return v.Timeout }).(pulumi.IntOutput)
 }
 
-// The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
+// The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, G.2X, or G.025X for Spark jobs. Accepts the value Z.2X for Ray jobs.
+// * For the Standard worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.
+// * For the G.1X worker type, each worker maps to 1 DPU (4 vCPU, 16 GB of memory, 64 GB disk), and provides 1 executor per worker. Recommended for memory-intensive jobs.
+// * For the G.2X worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of memory, 128 GB disk), and provides 1 executor per worker. Recommended for memory-intensive jobs.
+// * For the G.025X worker type, each worker maps to 0.25 DPU (2 vCPU, 4GB of memory, 64 GB disk), and provides 1 executor per worker. Recommended for low volume streaming jobs. Only available for Glue version 3.0.
+// * For the Z.2X worker type, each worker maps to 2 M-DPU (8vCPU, 64 GB of m emory, 128 GB disk), and provides up to 8 Ray workers based on the autoscaler.
 func (o JobOutput) WorkerType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Job) pulumi.StringPtrOutput { return v.WorkerType }).(pulumi.StringPtrOutput)
 }

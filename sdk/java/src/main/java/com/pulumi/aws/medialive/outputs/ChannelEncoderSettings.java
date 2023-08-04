@@ -5,6 +5,10 @@ package com.pulumi.aws.medialive.outputs;
 
 import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsAudioDescription;
 import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsAvailBlanking;
+import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsCaptionDescription;
+import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsGlobalConfiguration;
+import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsMotionGraphicsConfiguration;
+import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsNielsenConfiguration;
 import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsOutputGroup;
 import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsTimecodeConfig;
 import com.pulumi.aws.medialive.outputs.ChannelEncoderSettingsVideoDescription;
@@ -26,6 +30,26 @@ public final class ChannelEncoderSettings {
      * 
      */
     private @Nullable ChannelEncoderSettingsAvailBlanking availBlanking;
+    /**
+     * @return Caption Descriptions. See Caption Descriptions for more details.
+     * 
+     */
+    private @Nullable List<ChannelEncoderSettingsCaptionDescription> captionDescriptions;
+    /**
+     * @return Configuration settings that apply to the event as a whole. See Global Configuration for more details.
+     * 
+     */
+    private @Nullable ChannelEncoderSettingsGlobalConfiguration globalConfiguration;
+    /**
+     * @return Settings for motion graphics. See Motion Graphics Configuration for more details.
+     * 
+     */
+    private @Nullable ChannelEncoderSettingsMotionGraphicsConfiguration motionGraphicsConfiguration;
+    /**
+     * @return Nielsen configuration settings. See Nielsen Configuration for more details.
+     * 
+     */
+    private @Nullable ChannelEncoderSettingsNielsenConfiguration nielsenConfiguration;
     /**
      * @return Output groups for the channel. See Output Groups for more details.
      * 
@@ -56,6 +80,34 @@ public final class ChannelEncoderSettings {
      */
     public Optional<ChannelEncoderSettingsAvailBlanking> availBlanking() {
         return Optional.ofNullable(this.availBlanking);
+    }
+    /**
+     * @return Caption Descriptions. See Caption Descriptions for more details.
+     * 
+     */
+    public List<ChannelEncoderSettingsCaptionDescription> captionDescriptions() {
+        return this.captionDescriptions == null ? List.of() : this.captionDescriptions;
+    }
+    /**
+     * @return Configuration settings that apply to the event as a whole. See Global Configuration for more details.
+     * 
+     */
+    public Optional<ChannelEncoderSettingsGlobalConfiguration> globalConfiguration() {
+        return Optional.ofNullable(this.globalConfiguration);
+    }
+    /**
+     * @return Settings for motion graphics. See Motion Graphics Configuration for more details.
+     * 
+     */
+    public Optional<ChannelEncoderSettingsMotionGraphicsConfiguration> motionGraphicsConfiguration() {
+        return Optional.ofNullable(this.motionGraphicsConfiguration);
+    }
+    /**
+     * @return Nielsen configuration settings. See Nielsen Configuration for more details.
+     * 
+     */
+    public Optional<ChannelEncoderSettingsNielsenConfiguration> nielsenConfiguration() {
+        return Optional.ofNullable(this.nielsenConfiguration);
     }
     /**
      * @return Output groups for the channel. See Output Groups for more details.
@@ -90,6 +142,10 @@ public final class ChannelEncoderSettings {
     public static final class Builder {
         private @Nullable List<ChannelEncoderSettingsAudioDescription> audioDescriptions;
         private @Nullable ChannelEncoderSettingsAvailBlanking availBlanking;
+        private @Nullable List<ChannelEncoderSettingsCaptionDescription> captionDescriptions;
+        private @Nullable ChannelEncoderSettingsGlobalConfiguration globalConfiguration;
+        private @Nullable ChannelEncoderSettingsMotionGraphicsConfiguration motionGraphicsConfiguration;
+        private @Nullable ChannelEncoderSettingsNielsenConfiguration nielsenConfiguration;
         private List<ChannelEncoderSettingsOutputGroup> outputGroups;
         private ChannelEncoderSettingsTimecodeConfig timecodeConfig;
         private @Nullable List<ChannelEncoderSettingsVideoDescription> videoDescriptions;
@@ -98,6 +154,10 @@ public final class ChannelEncoderSettings {
     	      Objects.requireNonNull(defaults);
     	      this.audioDescriptions = defaults.audioDescriptions;
     	      this.availBlanking = defaults.availBlanking;
+    	      this.captionDescriptions = defaults.captionDescriptions;
+    	      this.globalConfiguration = defaults.globalConfiguration;
+    	      this.motionGraphicsConfiguration = defaults.motionGraphicsConfiguration;
+    	      this.nielsenConfiguration = defaults.nielsenConfiguration;
     	      this.outputGroups = defaults.outputGroups;
     	      this.timecodeConfig = defaults.timecodeConfig;
     	      this.videoDescriptions = defaults.videoDescriptions;
@@ -114,6 +174,29 @@ public final class ChannelEncoderSettings {
         @CustomType.Setter
         public Builder availBlanking(@Nullable ChannelEncoderSettingsAvailBlanking availBlanking) {
             this.availBlanking = availBlanking;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder captionDescriptions(@Nullable List<ChannelEncoderSettingsCaptionDescription> captionDescriptions) {
+            this.captionDescriptions = captionDescriptions;
+            return this;
+        }
+        public Builder captionDescriptions(ChannelEncoderSettingsCaptionDescription... captionDescriptions) {
+            return captionDescriptions(List.of(captionDescriptions));
+        }
+        @CustomType.Setter
+        public Builder globalConfiguration(@Nullable ChannelEncoderSettingsGlobalConfiguration globalConfiguration) {
+            this.globalConfiguration = globalConfiguration;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder motionGraphicsConfiguration(@Nullable ChannelEncoderSettingsMotionGraphicsConfiguration motionGraphicsConfiguration) {
+            this.motionGraphicsConfiguration = motionGraphicsConfiguration;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder nielsenConfiguration(@Nullable ChannelEncoderSettingsNielsenConfiguration nielsenConfiguration) {
+            this.nielsenConfiguration = nielsenConfiguration;
             return this;
         }
         @CustomType.Setter
@@ -141,6 +224,10 @@ public final class ChannelEncoderSettings {
             final var o = new ChannelEncoderSettings();
             o.audioDescriptions = audioDescriptions;
             o.availBlanking = availBlanking;
+            o.captionDescriptions = captionDescriptions;
+            o.globalConfiguration = globalConfiguration;
+            o.motionGraphicsConfiguration = motionGraphicsConfiguration;
+            o.nielsenConfiguration = nielsenConfiguration;
             o.outputGroups = outputGroups;
             o.timecodeConfig = timecodeConfig;
             o.videoDescriptions = videoDescriptions;

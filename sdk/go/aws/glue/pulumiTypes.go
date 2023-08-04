@@ -5194,10 +5194,12 @@ func (o DataQualityRulesetTargetTablePtrOutput) TableName() pulumi.StringPtrOutp
 }
 
 type JobCommand struct {
-	// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, or `gluestreaming` for Streaming Job Type. `maxCapacity` needs to be set if `pythonshell` is chosen.
+	// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `glueray` for Ray Job Type, or `gluestreaming` for Streaming Job Type. `maxCapacity` needs to be set if `pythonshell` is chosen.
 	Name *string `pulumi:"name"`
 	// The Python version being used to execute a Python shell job. Allowed values are 2, 3 or 3.9. Version 3 refers to Python 3.6.
 	PythonVersion *string `pulumi:"pythonVersion"`
+	// In Ray jobs, runtime is used to specify the versions of Ray, Python and additional libraries available in your environment. This field is not used in other job types. For supported runtime environment values, see [Working with Ray jobs](https://docs.aws.amazon.com/glue/latest/dg/ray-jobs-section.html#author-job-ray-runtimes) in the Glue Developer Guide.
+	Runtime *string `pulumi:"runtime"`
 	// Specifies the S3 path to a script that executes a job.
 	ScriptLocation string `pulumi:"scriptLocation"`
 }
@@ -5214,10 +5216,12 @@ type JobCommandInput interface {
 }
 
 type JobCommandArgs struct {
-	// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, or `gluestreaming` for Streaming Job Type. `maxCapacity` needs to be set if `pythonshell` is chosen.
+	// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `glueray` for Ray Job Type, or `gluestreaming` for Streaming Job Type. `maxCapacity` needs to be set if `pythonshell` is chosen.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The Python version being used to execute a Python shell job. Allowed values are 2, 3 or 3.9. Version 3 refers to Python 3.6.
 	PythonVersion pulumi.StringPtrInput `pulumi:"pythonVersion"`
+	// In Ray jobs, runtime is used to specify the versions of Ray, Python and additional libraries available in your environment. This field is not used in other job types. For supported runtime environment values, see [Working with Ray jobs](https://docs.aws.amazon.com/glue/latest/dg/ray-jobs-section.html#author-job-ray-runtimes) in the Glue Developer Guide.
+	Runtime pulumi.StringPtrInput `pulumi:"runtime"`
 	// Specifies the S3 path to a script that executes a job.
 	ScriptLocation pulumi.StringInput `pulumi:"scriptLocation"`
 }
@@ -5299,7 +5303,7 @@ func (o JobCommandOutput) ToJobCommandPtrOutputWithContext(ctx context.Context) 
 	}).(JobCommandPtrOutput)
 }
 
-// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, or `gluestreaming` for Streaming Job Type. `maxCapacity` needs to be set if `pythonshell` is chosen.
+// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `glueray` for Ray Job Type, or `gluestreaming` for Streaming Job Type. `maxCapacity` needs to be set if `pythonshell` is chosen.
 func (o JobCommandOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobCommand) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -5307,6 +5311,11 @@ func (o JobCommandOutput) Name() pulumi.StringPtrOutput {
 // The Python version being used to execute a Python shell job. Allowed values are 2, 3 or 3.9. Version 3 refers to Python 3.6.
 func (o JobCommandOutput) PythonVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobCommand) *string { return v.PythonVersion }).(pulumi.StringPtrOutput)
+}
+
+// In Ray jobs, runtime is used to specify the versions of Ray, Python and additional libraries available in your environment. This field is not used in other job types. For supported runtime environment values, see [Working with Ray jobs](https://docs.aws.amazon.com/glue/latest/dg/ray-jobs-section.html#author-job-ray-runtimes) in the Glue Developer Guide.
+func (o JobCommandOutput) Runtime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobCommand) *string { return v.Runtime }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the S3 path to a script that executes a job.
@@ -5338,7 +5347,7 @@ func (o JobCommandPtrOutput) Elem() JobCommandOutput {
 	}).(JobCommandOutput)
 }
 
-// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, or `gluestreaming` for Streaming Job Type. `maxCapacity` needs to be set if `pythonshell` is chosen.
+// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `glueray` for Ray Job Type, or `gluestreaming` for Streaming Job Type. `maxCapacity` needs to be set if `pythonshell` is chosen.
 func (o JobCommandPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobCommand) *string {
 		if v == nil {
@@ -5355,6 +5364,16 @@ func (o JobCommandPtrOutput) PythonVersion() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.PythonVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// In Ray jobs, runtime is used to specify the versions of Ray, Python and additional libraries available in your environment. This field is not used in other job types. For supported runtime environment values, see [Working with Ray jobs](https://docs.aws.amazon.com/glue/latest/dg/ray-jobs-section.html#author-job-ray-runtimes) in the Glue Developer Guide.
+func (o JobCommandPtrOutput) Runtime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobCommand) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Runtime
 	}).(pulumi.StringPtrOutput)
 }
 

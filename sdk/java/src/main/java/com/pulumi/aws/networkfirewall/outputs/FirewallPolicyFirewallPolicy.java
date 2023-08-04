@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.networkfirewall.outputs;
 
+import com.pulumi.aws.networkfirewall.outputs.FirewallPolicyFirewallPolicyPolicyVariables;
 import com.pulumi.aws.networkfirewall.outputs.FirewallPolicyFirewallPolicyStatefulEngineOptions;
 import com.pulumi.aws.networkfirewall.outputs.FirewallPolicyFirewallPolicyStatefulRuleGroupReference;
 import com.pulumi.aws.networkfirewall.outputs.FirewallPolicyFirewallPolicyStatelessCustomAction;
@@ -16,6 +17,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FirewallPolicyFirewallPolicy {
+    /**
+     * @return . Contains variables that you can use to override default Suricata settings in your firewall policy. See Rule Variables for details.
+     * 
+     */
+    private @Nullable FirewallPolicyFirewallPolicyPolicyVariables policyVariables;
     /**
      * @return Set of actions to take on a packet if it does not match any stateful rules in the policy. This can only be specified if the policy has a `stateful_engine_options` block with a `rule_order` value of `STRICT_ORDER`. You can specify one of either or neither values of `aws:drop_strict` or `aws:drop_established`, as well as any combination of `aws:alert_strict` and `aws:alert_established`.
      * 
@@ -55,6 +61,13 @@ public final class FirewallPolicyFirewallPolicy {
     private @Nullable List<FirewallPolicyFirewallPolicyStatelessRuleGroupReference> statelessRuleGroupReferences;
 
     private FirewallPolicyFirewallPolicy() {}
+    /**
+     * @return . Contains variables that you can use to override default Suricata settings in your firewall policy. See Rule Variables for details.
+     * 
+     */
+    public Optional<FirewallPolicyFirewallPolicyPolicyVariables> policyVariables() {
+        return Optional.ofNullable(this.policyVariables);
+    }
     /**
      * @return Set of actions to take on a packet if it does not match any stateful rules in the policy. This can only be specified if the policy has a `stateful_engine_options` block with a `rule_order` value of `STRICT_ORDER`. You can specify one of either or neither values of `aws:drop_strict` or `aws:drop_established`, as well as any combination of `aws:alert_strict` and `aws:alert_established`.
      * 
@@ -116,6 +129,7 @@ public final class FirewallPolicyFirewallPolicy {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable FirewallPolicyFirewallPolicyPolicyVariables policyVariables;
         private @Nullable List<String> statefulDefaultActions;
         private @Nullable FirewallPolicyFirewallPolicyStatefulEngineOptions statefulEngineOptions;
         private @Nullable List<FirewallPolicyFirewallPolicyStatefulRuleGroupReference> statefulRuleGroupReferences;
@@ -126,6 +140,7 @@ public final class FirewallPolicyFirewallPolicy {
         public Builder() {}
         public Builder(FirewallPolicyFirewallPolicy defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.policyVariables = defaults.policyVariables;
     	      this.statefulDefaultActions = defaults.statefulDefaultActions;
     	      this.statefulEngineOptions = defaults.statefulEngineOptions;
     	      this.statefulRuleGroupReferences = defaults.statefulRuleGroupReferences;
@@ -135,6 +150,11 @@ public final class FirewallPolicyFirewallPolicy {
     	      this.statelessRuleGroupReferences = defaults.statelessRuleGroupReferences;
         }
 
+        @CustomType.Setter
+        public Builder policyVariables(@Nullable FirewallPolicyFirewallPolicyPolicyVariables policyVariables) {
+            this.policyVariables = policyVariables;
+            return this;
+        }
         @CustomType.Setter
         public Builder statefulDefaultActions(@Nullable List<String> statefulDefaultActions) {
             this.statefulDefaultActions = statefulDefaultActions;
@@ -190,6 +210,7 @@ public final class FirewallPolicyFirewallPolicy {
         }
         public FirewallPolicyFirewallPolicy build() {
             final var o = new FirewallPolicyFirewallPolicy();
+            o.policyVariables = policyVariables;
             o.statefulDefaultActions = statefulDefaultActions;
             o.statefulEngineOptions = statefulEngineOptions;
             o.statefulRuleGroupReferences = statefulRuleGroupReferences;

@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Provides an SSM Parameter resource.
  *
- * > **Note:** `overwrite` also makes it possible to overwrite an existing SSM Parameter that's not created by the provider before.
+ * > **Note:** `overwrite` also makes it possible to overwrite an existing SSM Parameter that's not created by the provider before. This argument has been deprecated and will be removed in v6.0.0 of the provider. For more information on how this affects the behavior of this resource, see this issue comment.
  *
  * ## Example Usage
  * ### Basic example
@@ -117,7 +117,7 @@ export class Parameter extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
+     * Overwrite an existing parameter. If not specified, defaults to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource, and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
      *
      * @deprecated this attribute has been deprecated
      */
@@ -238,7 +238,7 @@ export interface ParameterState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
+     * Overwrite an existing parameter. If not specified, defaults to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource, and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
      *
      * @deprecated this attribute has been deprecated
      */
@@ -306,7 +306,7 @@ export interface ParameterArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
+     * Overwrite an existing parameter. If not specified, defaults to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource, and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
      *
      * @deprecated this attribute has been deprecated
      */

@@ -7,6 +7,7 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class KxClusterDatabaseCacheConfiguration {
@@ -19,7 +20,7 @@ public final class KxClusterDatabaseCacheConfiguration {
      * @return Paths within the database to cache.
      * 
      */
-    private List<String> dbPaths;
+    private @Nullable List<String> dbPaths;
 
     private KxClusterDatabaseCacheConfiguration() {}
     /**
@@ -34,7 +35,7 @@ public final class KxClusterDatabaseCacheConfiguration {
      * 
      */
     public List<String> dbPaths() {
-        return this.dbPaths;
+        return this.dbPaths == null ? List.of() : this.dbPaths;
     }
 
     public static Builder builder() {
@@ -47,7 +48,7 @@ public final class KxClusterDatabaseCacheConfiguration {
     @CustomType.Builder
     public static final class Builder {
         private String cacheType;
-        private List<String> dbPaths;
+        private @Nullable List<String> dbPaths;
         public Builder() {}
         public Builder(KxClusterDatabaseCacheConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -61,8 +62,8 @@ public final class KxClusterDatabaseCacheConfiguration {
             return this;
         }
         @CustomType.Setter
-        public Builder dbPaths(List<String> dbPaths) {
-            this.dbPaths = Objects.requireNonNull(dbPaths);
+        public Builder dbPaths(@Nullable List<String> dbPaths) {
+            this.dbPaths = dbPaths;
             return this;
         }
         public Builder dbPaths(String... dbPaths) {

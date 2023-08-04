@@ -291,11 +291,9 @@ type Instance struct {
 	// Specifies whether mappings of AWS Identity and Access Management (IAM) accounts to database
 	// accounts is enabled.
 	IamDatabaseAuthenticationEnabled pulumi.BoolPtrOutput `pulumi:"iamDatabaseAuthenticationEnabled"`
-	// The name of the RDS instance,
-	// if omitted, this provider will assign a random, unique identifier. Required if `restoreToPointInTime` is specified.
+	// The name of the RDS instance, if omitted, this provider will assign a random, unique identifier. Required if `restoreToPointInTime` is specified.
 	Identifier pulumi.StringOutput `pulumi:"identifier"`
-	// Creates a unique
-	// identifier beginning with the specified prefix. Conflicts with `identifier`.
+	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
 	IdentifierPrefix pulumi.StringOutput `pulumi:"identifierPrefix"`
 	// The instance type of the RDS instance.
 	InstanceClass pulumi.StringOutput `pulumi:"instanceClass"`
@@ -559,11 +557,9 @@ type instanceState struct {
 	// Specifies whether mappings of AWS Identity and Access Management (IAM) accounts to database
 	// accounts is enabled.
 	IamDatabaseAuthenticationEnabled *bool `pulumi:"iamDatabaseAuthenticationEnabled"`
-	// The name of the RDS instance,
-	// if omitted, this provider will assign a random, unique identifier. Required if `restoreToPointInTime` is specified.
+	// The name of the RDS instance, if omitted, this provider will assign a random, unique identifier. Required if `restoreToPointInTime` is specified.
 	Identifier *string `pulumi:"identifier"`
-	// Creates a unique
-	// identifier beginning with the specified prefix. Conflicts with `identifier`.
+	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
 	IdentifierPrefix *string `pulumi:"identifierPrefix"`
 	// The instance type of the RDS instance.
 	InstanceClass *string `pulumi:"instanceClass"`
@@ -788,11 +784,9 @@ type InstanceState struct {
 	// Specifies whether mappings of AWS Identity and Access Management (IAM) accounts to database
 	// accounts is enabled.
 	IamDatabaseAuthenticationEnabled pulumi.BoolPtrInput
-	// The name of the RDS instance,
-	// if omitted, this provider will assign a random, unique identifier. Required if `restoreToPointInTime` is specified.
+	// The name of the RDS instance, if omitted, this provider will assign a random, unique identifier. Required if `restoreToPointInTime` is specified.
 	Identifier pulumi.StringPtrInput
-	// Creates a unique
-	// identifier beginning with the specified prefix. Conflicts with `identifier`.
+	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
 	IdentifierPrefix pulumi.StringPtrInput
 	// The instance type of the RDS instance.
 	InstanceClass pulumi.StringPtrInput
@@ -1011,11 +1005,9 @@ type instanceArgs struct {
 	// Specifies whether mappings of AWS Identity and Access Management (IAM) accounts to database
 	// accounts is enabled.
 	IamDatabaseAuthenticationEnabled *bool `pulumi:"iamDatabaseAuthenticationEnabled"`
-	// The name of the RDS instance,
-	// if omitted, this provider will assign a random, unique identifier. Required if `restoreToPointInTime` is specified.
+	// The name of the RDS instance, if omitted, this provider will assign a random, unique identifier. Required if `restoreToPointInTime` is specified.
 	Identifier *string `pulumi:"identifier"`
-	// Creates a unique
-	// identifier beginning with the specified prefix. Conflicts with `identifier`.
+	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
 	IdentifierPrefix *string `pulumi:"identifierPrefix"`
 	// The instance type of the RDS instance.
 	InstanceClass string `pulumi:"instanceClass"`
@@ -1218,11 +1210,9 @@ type InstanceArgs struct {
 	// Specifies whether mappings of AWS Identity and Access Management (IAM) accounts to database
 	// accounts is enabled.
 	IamDatabaseAuthenticationEnabled pulumi.BoolPtrInput
-	// The name of the RDS instance,
-	// if omitted, this provider will assign a random, unique identifier. Required if `restoreToPointInTime` is specified.
+	// The name of the RDS instance, if omitted, this provider will assign a random, unique identifier. Required if `restoreToPointInTime` is specified.
 	Identifier pulumi.StringPtrInput
-	// Creates a unique
-	// identifier beginning with the specified prefix. Conflicts with `identifier`.
+	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
 	IdentifierPrefix pulumi.StringPtrInput
 	// The instance type of the RDS instance.
 	InstanceClass pulumi.StringInput
@@ -1610,14 +1600,12 @@ func (o InstanceOutput) IamDatabaseAuthenticationEnabled() pulumi.BoolPtrOutput 
 	return o.ApplyT(func(v *Instance) pulumi.BoolPtrOutput { return v.IamDatabaseAuthenticationEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The name of the RDS instance,
-// if omitted, this provider will assign a random, unique identifier. Required if `restoreToPointInTime` is specified.
+// The name of the RDS instance, if omitted, this provider will assign a random, unique identifier. Required if `restoreToPointInTime` is specified.
 func (o InstanceOutput) Identifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.Identifier }).(pulumi.StringOutput)
 }
 
-// Creates a unique
-// identifier beginning with the specified prefix. Conflicts with `identifier`.
+// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
 func (o InstanceOutput) IdentifierPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.IdentifierPrefix }).(pulumi.StringOutput)
 }

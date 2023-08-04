@@ -183,14 +183,14 @@ public class Workspace extends com.pulumi.resources.CustomResource {
         return this.endpoint;
     }
     /**
-     * Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`. Upgrading the workspace version isn&#39;t supported, however it&#39;s possible to copy content from the old version to the new one using AWS official [migration tool](https://github.com/aws-observability/amazon-managed-grafana-migrator).
+     * Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`.
      * 
      */
     @Export(name="grafanaVersion", refs={String.class}, tree="[0]")
     private Output<String> grafanaVersion;
 
     /**
-     * @return Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`. Upgrading the workspace version isn&#39;t supported, however it&#39;s possible to copy content from the old version to the new one using AWS official [migration tool](https://github.com/aws-observability/amazon-managed-grafana-migrator).
+     * @return Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`.
      * 
      */
     public Output<String> grafanaVersion() {

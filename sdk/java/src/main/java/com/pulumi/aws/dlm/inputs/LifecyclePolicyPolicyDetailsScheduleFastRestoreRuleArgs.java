@@ -33,14 +33,14 @@ public final class LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs exten
     }
 
     /**
-     * Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`.
+     * Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`. Conflicts with `interval` and `interval_unit`.
      * 
      */
     @Import(name="count")
     private @Nullable Output<Integer> count;
 
     /**
-     * @return Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`.
+     * @return Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`. Conflicts with `interval` and `interval_unit`.
      * 
      */
     public Optional<Output<Integer>> count() {
@@ -48,14 +48,14 @@ public final class LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs exten
     }
 
     /**
-     * How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+     * How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cron_expression`. If set, `interval_unit` and `times` must also be set.
      * 
      */
     @Import(name="interval")
     private @Nullable Output<Integer> interval;
 
     /**
-     * @return How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+     * @return How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cron_expression`. If set, `interval_unit` and `times` must also be set.
      * 
      */
     public Optional<Output<Integer>> interval() {
@@ -63,14 +63,14 @@ public final class LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs exten
     }
 
     /**
-     * The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+     * The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cron_expression`. Must be set if `interval` is set.
      * 
      */
     @Import(name="intervalUnit")
     private @Nullable Output<String> intervalUnit;
 
     /**
-     * @return The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+     * @return The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cron_expression`. Must be set if `interval` is set.
      * 
      */
     public Optional<Output<String>> intervalUnit() {
@@ -136,7 +136,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs exten
         }
 
         /**
-         * @param count Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`.
+         * @param count Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`. Conflicts with `interval` and `interval_unit`.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs exten
         }
 
         /**
-         * @param count Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`.
+         * @param count Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`. Conflicts with `interval` and `interval_unit`.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs exten
         }
 
         /**
-         * @param interval How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+         * @param interval How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cron_expression`. If set, `interval_unit` and `times` must also be set.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs exten
         }
 
         /**
-         * @param interval How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+         * @param interval How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cron_expression`. If set, `interval_unit` and `times` must also be set.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs exten
         }
 
         /**
-         * @param intervalUnit The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+         * @param intervalUnit The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cron_expression`. Must be set if `interval` is set.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs exten
         }
 
         /**
-         * @param intervalUnit The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+         * @param intervalUnit The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cron_expression`. Must be set if `interval` is set.
          * 
          * @return builder
          * 

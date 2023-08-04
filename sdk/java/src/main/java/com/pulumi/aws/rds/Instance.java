@@ -789,32 +789,28 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.iamDatabaseAuthenticationEnabled);
     }
     /**
-     * The name of the RDS instance,
-     * if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
+     * The name of the RDS instance, if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
      * 
      */
     @Export(name="identifier", refs={String.class}, tree="[0]")
     private Output<String> identifier;
 
     /**
-     * @return The name of the RDS instance,
-     * if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
+     * @return The name of the RDS instance, if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
      * 
      */
     public Output<String> identifier() {
         return this.identifier;
     }
     /**
-     * Creates a unique
-     * identifier beginning with the specified prefix. Conflicts with `identifier`.
+     * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
      * 
      */
     @Export(name="identifierPrefix", refs={String.class}, tree="[0]")
     private Output<String> identifierPrefix;
 
     /**
-     * @return Creates a unique
-     * identifier beginning with the specified prefix. Conflicts with `identifier`.
+     * @return Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
      * 
      */
     public Output<String> identifierPrefix() {

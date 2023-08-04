@@ -17,7 +17,7 @@ public final class KxClusterDatabase {
      * @return Configuration details for the disk cache to increase performance reading from a KX database mounted to the cluster. See cache_configurations.
      * 
      */
-    private List<KxClusterDatabaseCacheConfiguration> cacheConfigurations;
+    private @Nullable List<KxClusterDatabaseCacheConfiguration> cacheConfigurations;
     /**
      * @return A unique identifier of the changeset that is associated with the cluster.
      * 
@@ -35,7 +35,7 @@ public final class KxClusterDatabase {
      * 
      */
     public List<KxClusterDatabaseCacheConfiguration> cacheConfigurations() {
-        return this.cacheConfigurations;
+        return this.cacheConfigurations == null ? List.of() : this.cacheConfigurations;
     }
     /**
      * @return A unique identifier of the changeset that is associated with the cluster.
@@ -61,7 +61,7 @@ public final class KxClusterDatabase {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<KxClusterDatabaseCacheConfiguration> cacheConfigurations;
+        private @Nullable List<KxClusterDatabaseCacheConfiguration> cacheConfigurations;
         private @Nullable String changesetId;
         private String databaseName;
         public Builder() {}
@@ -73,8 +73,8 @@ public final class KxClusterDatabase {
         }
 
         @CustomType.Setter
-        public Builder cacheConfigurations(List<KxClusterDatabaseCacheConfiguration> cacheConfigurations) {
-            this.cacheConfigurations = Objects.requireNonNull(cacheConfigurations);
+        public Builder cacheConfigurations(@Nullable List<KxClusterDatabaseCacheConfiguration> cacheConfigurations) {
+            this.cacheConfigurations = cacheConfigurations;
             return this;
         }
         public Builder cacheConfigurations(KxClusterDatabaseCacheConfiguration... cacheConfigurations) {

@@ -1438,7 +1438,7 @@ class GetInstancesFilterResult(dict):
                  name: str,
                  values: Sequence[str]):
         """
-        :param str name: Name of the filter field. Valid values can be found in the [RDS DescribeDBClusters API Reference](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusters.html).
+        :param str name: Name of the filter field. Valid values can be found in the [RDS DescribeDBClusters API Reference](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusters.html) or [RDS DescribeDBInstances API Reference](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstances.html).
         :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
         """
         pulumi.set(__self__, "name", name)
@@ -1448,7 +1448,7 @@ class GetInstancesFilterResult(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        Name of the filter field. Valid values can be found in the [RDS DescribeDBClusters API Reference](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusters.html).
+        Name of the filter field. Valid values can be found in the [RDS DescribeDBClusters API Reference](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusters.html) or [RDS DescribeDBInstances API Reference](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstances.html).
         """
         return pulumi.get(self, "name")
 

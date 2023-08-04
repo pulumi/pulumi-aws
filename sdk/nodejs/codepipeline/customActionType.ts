@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  *
  *  to = aws_codepipeline_custom_action_type.example
  *
- *  id = "Build:TODO:1" } Using `pulumi import`, import CodeDeploy CustomActionType using the `id`. For exampleconsole % pulumi import aws_codepipeline_custom_action_type.example Build:TODO:1
+ *  id = "Build:pulumi:1" } Using `pulumi import`, import CodeDeploy CustomActionType using the `id`. For exampleconsole % pulumi import aws_codepipeline_custom_action_type.example Build:pulumi:1
  */
 export class CustomActionType extends pulumi.CustomResource {
     /**

@@ -18,7 +18,7 @@ namespace Pulumi.Aws.FinSpace.Inputs
         [Input("cacheType", required: true)]
         public Input<string> CacheType { get; set; } = null!;
 
-        [Input("dbPaths", required: true)]
+        [Input("dbPaths")]
         private InputList<string>? _dbPaths;
 
         /// <summary>

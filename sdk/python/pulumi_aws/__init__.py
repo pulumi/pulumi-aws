@@ -5613,6 +5613,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "iam/securityTokenServicePreferences",
+  "fqn": "pulumi_aws.iam",
+  "classes": {
+   "aws:iam/securityTokenServicePreferences:SecurityTokenServicePreferences": "SecurityTokenServicePreferences"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "iam/serverCertificate",
   "fqn": "pulumi_aws.iam",
   "classes": {
@@ -8929,6 +8937,14 @@ _utilities.register(
   "fqn": "pulumi_aws.sagemaker",
   "classes": {
    "aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration": "NotebookInstanceLifecycleConfiguration"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "sagemaker/pipeline",
+  "fqn": "pulumi_aws.sagemaker",
+  "classes": {
+   "aws:sagemaker/pipeline:Pipeline": "Pipeline"
   }
  },
  {

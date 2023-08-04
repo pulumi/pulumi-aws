@@ -28,7 +28,7 @@ class ServerlessCollectionArgs:
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[str] type: Type of collection. One of `SEARCH` or `TIMESERIES`.
+        :param pulumi.Input[str] type: Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -92,7 +92,7 @@ class ServerlessCollectionArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        Type of collection. One of `SEARCH` or `TIMESERIES`.
+        Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
         """
         return pulumi.get(self, "type")
 
@@ -124,7 +124,7 @@ class _ServerlessCollectionState:
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[str] type: Type of collection. One of `SEARCH` or `TIMESERIES`.
+        :param pulumi.Input[str] type: Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -252,7 +252,7 @@ class _ServerlessCollectionState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        Type of collection. One of `SEARCH` or `TIMESERIES`.
+        Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
         """
         return pulumi.get(self, "type")
 
@@ -274,6 +274,10 @@ class ServerlessCollection(pulumi.CustomResource):
                  __props__=None):
         """
         Resource for managing an AWS OpenSearch Serverless Collection.
+
+        > **NOTE:** An `opensearch.ServerlessCollection` cannot be created without having an applicable encryption security policy. Use the `depends_on` meta-argument to define this dependency.
+
+        > **NOTE:** An `opensearch.ServerlessCollection` is not accessible without configuring an applicable network security policy. Data cannot be accessed without configuring an applicable data access policy.
 
         ## Example Usage
         ### Basic Usage
@@ -310,7 +314,7 @@ class ServerlessCollection(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[str] type: Type of collection. One of `SEARCH` or `TIMESERIES`.
+        :param pulumi.Input[str] type: Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
         """
         ...
     @overload
@@ -320,6 +324,10 @@ class ServerlessCollection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS OpenSearch Serverless Collection.
+
+        > **NOTE:** An `opensearch.ServerlessCollection` cannot be created without having an applicable encryption security policy. Use the `depends_on` meta-argument to define this dependency.
+
+        > **NOTE:** An `opensearch.ServerlessCollection` is not accessible without configuring an applicable network security policy. Data cannot be accessed without configuring an applicable data access policy.
 
         ## Example Usage
         ### Basic Usage
@@ -423,7 +431,7 @@ class ServerlessCollection(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[str] type: Type of collection. One of `SEARCH` or `TIMESERIES`.
+        :param pulumi.Input[str] type: Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -510,7 +518,7 @@ class ServerlessCollection(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Type of collection. One of `SEARCH` or `TIMESERIES`.
+        Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
         """
         return pulumi.get(self, "type")
 

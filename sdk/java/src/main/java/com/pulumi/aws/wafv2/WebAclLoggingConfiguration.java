@@ -132,14 +132,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:wafv2/webAclLoggingConfiguration:WebAclLoggingConfiguration")
 public class WebAclLoggingConfiguration extends com.pulumi.resources.CustomResource {
     /**
-     * Configuration block that allows you to associate Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket Amazon Resource Names (ARNs) with the web ACL.
+     * Configuration block that allows you to associate Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket Amazon Resource Names (ARNs) with the web ACL. **Note:** data firehose, log group, or bucket name **must** be prefixed with `aws-waf-logs-`, e.g. `aws-waf-logs-example-firehose`, `aws-waf-logs-example-log-group`, or `aws-waf-logs-example-bucket`.
      * 
      */
     @Export(name="logDestinationConfigs", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> logDestinationConfigs;
 
     /**
-     * @return Configuration block that allows you to associate Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket Amazon Resource Names (ARNs) with the web ACL.
+     * @return Configuration block that allows you to associate Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket Amazon Resource Names (ARNs) with the web ACL. **Note:** data firehose, log group, or bucket name **must** be prefixed with `aws-waf-logs-`, e.g. `aws-waf-logs-example-firehose`, `aws-waf-logs-example-log-group`, or `aws-waf-logs-example-bucket`.
      * 
      */
     public Output<List<String>> logDestinationConfigs() {

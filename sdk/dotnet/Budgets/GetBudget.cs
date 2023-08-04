@@ -137,9 +137,12 @@ namespace Pulumi.Aws.Budgets
         /// Object containing [AutoAdjustData] which determines the budget amount for an auto-adjusting budget.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBudgetAutoAdjustDataResult> AutoAdjustDatas;
+        /// <summary>
+        /// Boolean indicating whether this budget has been exceeded.
+        /// </summary>
         public readonly bool BudgetExceeded;
         /// <summary>
-        /// The total amount of cost, usage, RI utilization, RI coverage, Savings Plans utilization, or Savings Plans coverage that you want to track with your budget. Contains object Spend
+        /// The total amount of cost, usage, RI utilization, RI coverage, Savings Plans utilization, or Savings Plans coverage that you want to track with your budget. Contains object Spend.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBudgetBudgetLimitResult> BudgetLimits;
         /// <summary>

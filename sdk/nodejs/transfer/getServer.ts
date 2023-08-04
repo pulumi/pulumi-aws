@@ -86,6 +86,7 @@ export interface GetServerResult {
      */
     readonly securityPolicyName: string;
     readonly serverId: string;
+    readonly structuredLogDestinations: string[];
     /**
      * URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
      */

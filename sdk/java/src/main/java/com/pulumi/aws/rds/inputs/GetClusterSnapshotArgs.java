@@ -118,14 +118,16 @@ public final class GetClusterSnapshotArgs extends com.pulumi.resources.InvokeArg
     }
 
     /**
-     * Map of tags for the resource.
+     * Mapping of tags, each pair of which must exactly match
+     * a pair on the desired DB cluster snapshot.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Map of tags for the resource.
+     * @return Mapping of tags, each pair of which must exactly match
+     * a pair on the desired DB cluster snapshot.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -299,7 +301,8 @@ public final class GetClusterSnapshotArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param tags Map of tags for the resource.
+         * @param tags Mapping of tags, each pair of which must exactly match
+         * a pair on the desired DB cluster snapshot.
          * 
          * @return builder
          * 
@@ -310,7 +313,8 @@ public final class GetClusterSnapshotArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param tags Map of tags for the resource.
+         * @param tags Mapping of tags, each pair of which must exactly match
+         * a pair on the desired DB cluster snapshot.
          * 
          * @return builder
          * 

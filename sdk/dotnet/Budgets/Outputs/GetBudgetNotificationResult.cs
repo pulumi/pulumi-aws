@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Budgets.Outputs
         /// </summary>
         public readonly string ComparisonOperator;
         /// <summary>
-        /// (Required) What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`
+        /// (Required) What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`.
         /// </summary>
         public readonly string NotificationType;
         /// <summary>

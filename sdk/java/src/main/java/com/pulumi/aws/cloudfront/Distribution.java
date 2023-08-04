@@ -265,7 +265,6 @@ import javax.annotation.Nullable;
  * ```
  * 
  * CloudFront distribution using [managed policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) (ex: CachingDisabled):
- * 
  * ```java
  * package generated_program;
  * 
@@ -313,7 +312,6 @@ import javax.annotation.Nullable;
  *                     &#34;GET&#34;,
  *                     &#34;HEAD&#34;,
  *                     &#34;OPTIONS&#34;)
- *                 .pathPattern(&#34;/content/*&#34;)
  *                 .targetOriginId(s3OriginId)
  *                 .build())
  *             .restrictions(DistributionRestrictionsArgs.builder()

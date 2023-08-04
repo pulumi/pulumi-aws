@@ -51,6 +51,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RolePolicyAttachment{}
 	case "aws:iam/samlProvider:SamlProvider":
 		r = &SamlProvider{}
+	case "aws:iam/securityTokenServicePreferences:SecurityTokenServicePreferences":
+		r = &SecurityTokenServicePreferences{}
 	case "aws:iam/serverCertificate:ServerCertificate":
 		r = &ServerCertificate{}
 	case "aws:iam/serviceLinkedRole:ServiceLinkedRole":
@@ -159,6 +161,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"iam/samlProvider",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"iam/securityTokenServicePreferences",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

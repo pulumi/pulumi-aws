@@ -500,7 +500,85 @@ public final class VpclatticeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = VpclatticeFunctions.getService();
+     *         final var example = VpclatticeFunctions.getService(GetServiceArgs.builder()
+     *             .name(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetServiceResult> getService() {
+        return getService(GetServiceArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS VPC Lattice Service.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.vpclattice.VpclatticeFunctions;
+     * import com.pulumi.aws.vpclattice.inputs.GetServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = VpclatticeFunctions.getService(GetServiceArgs.builder()
+     *             .name(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetServiceResult> getServicePlain() {
+        return getServicePlain(GetServicePlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS VPC Lattice Service.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.vpclattice.VpclatticeFunctions;
+     * import com.pulumi.aws.vpclattice.inputs.GetServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = VpclatticeFunctions.getService(GetServiceArgs.builder()
+     *             .name(&#34;example&#34;)
+     *             .build());
      * 
      *     }
      * }
@@ -536,7 +614,9 @@ public final class VpclatticeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = VpclatticeFunctions.getService();
+     *         final var example = VpclatticeFunctions.getService(GetServiceArgs.builder()
+     *             .name(&#34;example&#34;)
+     *             .build());
      * 
      *     }
      * }
@@ -572,7 +652,9 @@ public final class VpclatticeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = VpclatticeFunctions.getService();
+     *         final var example = VpclatticeFunctions.getService(GetServiceArgs.builder()
+     *             .name(&#34;example&#34;)
+     *             .build());
      * 
      *     }
      * }
@@ -608,7 +690,9 @@ public final class VpclatticeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = VpclatticeFunctions.getService();
+     *         final var example = VpclatticeFunctions.getService(GetServiceArgs.builder()
+     *             .name(&#34;example&#34;)
+     *             .build());
      * 
      *     }
      * }

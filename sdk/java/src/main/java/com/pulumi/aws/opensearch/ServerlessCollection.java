@@ -19,6 +19,10 @@ import javax.annotation.Nullable;
 /**
  * Resource for managing an AWS OpenSearch Serverless Collection.
  * 
+ * &gt; **NOTE:** An `aws.opensearch.ServerlessCollection` cannot be created without having an applicable encryption security policy. Use the `depends_on` meta-argument to define this dependency.
+ * 
+ * &gt; **NOTE:** An `aws.opensearch.ServerlessCollection` is not accessible without configuring an applicable network security policy. Data cannot be accessed without configuring an applicable data access policy.
+ * 
  * ## Example Usage
  * ### Basic Usage
  * ```java
@@ -184,14 +188,14 @@ public class ServerlessCollection extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.timeouts);
     }
     /**
-     * Type of collection. One of `SEARCH` or `TIMESERIES`.
+     * Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return Type of collection. One of `SEARCH` or `TIMESERIES`.
+     * @return Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
      * 
      */
     public Output<String> type() {

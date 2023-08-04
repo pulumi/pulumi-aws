@@ -132,7 +132,7 @@ namespace Pulumi.Aws.VpcLattice
         /// </summary>
         public readonly string CreatedAt;
         /// <summary>
-        /// ID of the service network.
+        /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         /// <summary>

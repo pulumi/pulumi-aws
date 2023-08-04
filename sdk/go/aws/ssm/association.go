@@ -180,7 +180,7 @@ type Association struct {
 	InstanceId pulumi.StringPtrOutput `pulumi:"instanceId"`
 	// The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
 	MaxConcurrency pulumi.StringPtrOutput `pulumi:"maxConcurrency"`
-	// The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
+	// The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.
 	MaxErrors pulumi.StringPtrOutput `pulumi:"maxErrors"`
 	// The name of the SSM document to apply.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -248,7 +248,7 @@ type associationState struct {
 	InstanceId *string `pulumi:"instanceId"`
 	// The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
 	MaxConcurrency *string `pulumi:"maxConcurrency"`
-	// The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
+	// The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.
 	MaxErrors *string `pulumi:"maxErrors"`
 	// The name of the SSM document to apply.
 	Name *string `pulumi:"name"`
@@ -287,7 +287,7 @@ type AssociationState struct {
 	InstanceId pulumi.StringPtrInput
 	// The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
 	MaxConcurrency pulumi.StringPtrInput
-	// The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
+	// The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.
 	MaxErrors pulumi.StringPtrInput
 	// The name of the SSM document to apply.
 	Name pulumi.StringPtrInput
@@ -326,7 +326,7 @@ type associationArgs struct {
 	InstanceId *string `pulumi:"instanceId"`
 	// The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
 	MaxConcurrency *string `pulumi:"maxConcurrency"`
-	// The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
+	// The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.
 	MaxErrors *string `pulumi:"maxErrors"`
 	// The name of the SSM document to apply.
 	Name *string `pulumi:"name"`
@@ -362,7 +362,7 @@ type AssociationArgs struct {
 	InstanceId pulumi.StringPtrInput
 	// The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
 	MaxConcurrency pulumi.StringPtrInput
-	// The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
+	// The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.
 	MaxErrors pulumi.StringPtrInput
 	// The name of the SSM document to apply.
 	Name pulumi.StringPtrInput
@@ -514,7 +514,7 @@ func (o AssociationOutput) MaxConcurrency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Association) pulumi.StringPtrOutput { return v.MaxConcurrency }).(pulumi.StringPtrOutput)
 }
 
-// The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
+// The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.
 func (o AssociationOutput) MaxErrors() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Association) pulumi.StringPtrOutput { return v.MaxErrors }).(pulumi.StringPtrOutput)
 }

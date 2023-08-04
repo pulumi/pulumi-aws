@@ -108,7 +108,7 @@ export class WebAclLoggingConfiguration extends pulumi.CustomResource {
     }
 
     /**
-     * Configuration block that allows you to associate Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket Amazon Resource Names (ARNs) with the web ACL.
+     * Configuration block that allows you to associate Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket Amazon Resource Names (ARNs) with the web ACL. **Note:** data firehose, log group, or bucket name **must** be prefixed with `aws-waf-logs-`, e.g. `aws-waf-logs-example-firehose`, `aws-waf-logs-example-log-group`, or `aws-waf-logs-example-bucket`.
      */
     public readonly logDestinationConfigs!: pulumi.Output<string[]>;
     /**
@@ -164,7 +164,7 @@ export class WebAclLoggingConfiguration extends pulumi.CustomResource {
  */
 export interface WebAclLoggingConfigurationState {
     /**
-     * Configuration block that allows you to associate Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket Amazon Resource Names (ARNs) with the web ACL.
+     * Configuration block that allows you to associate Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket Amazon Resource Names (ARNs) with the web ACL. **Note:** data firehose, log group, or bucket name **must** be prefixed with `aws-waf-logs-`, e.g. `aws-waf-logs-example-firehose`, `aws-waf-logs-example-log-group`, or `aws-waf-logs-example-bucket`.
      */
     logDestinationConfigs?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -186,7 +186,7 @@ export interface WebAclLoggingConfigurationState {
  */
 export interface WebAclLoggingConfigurationArgs {
     /**
-     * Configuration block that allows you to associate Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket Amazon Resource Names (ARNs) with the web ACL.
+     * Configuration block that allows you to associate Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket Amazon Resource Names (ARNs) with the web ACL. **Note:** data firehose, log group, or bucket name **must** be prefixed with `aws-waf-logs-`, e.g. `aws-waf-logs-example-firehose`, `aws-waf-logs-example-log-group`, or `aws-waf-logs-example-bucket`.
      */
     logDestinationConfigs: pulumi.Input<pulumi.Input<string>[]>;
     /**

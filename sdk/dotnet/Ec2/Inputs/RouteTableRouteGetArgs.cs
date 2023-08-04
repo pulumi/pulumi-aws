@@ -45,7 +45,7 @@ namespace Pulumi.Aws.Ec2.Inputs
         public Input<string>? EgressOnlyGatewayId { get; set; }
 
         /// <summary>
-        /// Identifier of a VPC internet gateway or a virtual private gateway.
+        /// Identifier of a VPC internet gateway, virtual private gateway, or `local`. `local` routes cannot be created but can be adopted or imported. See the example above.
         /// </summary>
         [Input("gatewayId")]
         public Input<string>? GatewayId { get; set; }

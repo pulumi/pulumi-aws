@@ -64,7 +64,7 @@ type LookupServiceNetworkResult struct {
 	AuthType string `pulumi:"authType"`
 	// Date and time the service network was created.
 	CreatedAt string `pulumi:"createdAt"`
-	// ID of the service network.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Date and time the service network was last updated.
 	LastUpdatedAt string `pulumi:"lastUpdatedAt"`
@@ -132,7 +132,7 @@ func (o LookupServiceNetworkResultOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceNetworkResult) string { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// ID of the service network.
+// The provider-assigned unique ID for this managed resource.
 func (o LookupServiceNetworkResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceNetworkResult) string { return v.Id }).(pulumi.StringOutput)
 }

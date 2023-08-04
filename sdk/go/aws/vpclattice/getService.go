@@ -28,7 +28,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := vpclattice.LookupService(ctx, nil, nil)
+//			_, err := vpclattice.LookupService(ctx, &vpclattice.LookupServiceArgs{
+//				Name: pulumi.StringRef("example"),
+//			}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -49,8 +51,10 @@ func LookupService(ctx *pulumi.Context, args *LookupServiceArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getService.
 type LookupServiceArgs struct {
-	// ID or Amazon Resource Name (ARN) of the service network
-	ServiceIdentifier string `pulumi:"serviceIdentifier"`
+	// Service name.
+	Name *string `pulumi:"name"`
+	// ID or Amazon Resource Name (ARN) of the service network.
+	ServiceIdentifier *string `pulumi:"serviceIdentifier"`
 	// List of tags associated with the service.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -92,8 +96,10 @@ func LookupServiceOutput(ctx *pulumi.Context, args LookupServiceOutputArgs, opts
 
 // A collection of arguments for invoking getService.
 type LookupServiceOutputArgs struct {
-	// ID or Amazon Resource Name (ARN) of the service network
-	ServiceIdentifier pulumi.StringInput `pulumi:"serviceIdentifier"`
+	// Service name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// ID or Amazon Resource Name (ARN) of the service network.
+	ServiceIdentifier pulumi.StringPtrInput `pulumi:"serviceIdentifier"`
 	// List of tags associated with the service.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }

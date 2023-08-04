@@ -949,7 +949,7 @@ func (o KxClusterDatabaseCacheConfigurationArrayOutput) Index(i pulumi.IntInput)
 }
 
 type KxClusterSavedownStorageConfiguration struct {
-	// Size of temporary storage in bytes.
+	// Size of temporary storage in gigabytes. Must be between 10 and 16000.
 	Size int `pulumi:"size"`
 	// Type of writeable storage space for temporarily storing your savedown data. The valid values are:
 	// * SDS01 - This type represents 3000 IOPS and io2 ebs volume type.
@@ -968,7 +968,7 @@ type KxClusterSavedownStorageConfigurationInput interface {
 }
 
 type KxClusterSavedownStorageConfigurationArgs struct {
-	// Size of temporary storage in bytes.
+	// Size of temporary storage in gigabytes. Must be between 10 and 16000.
 	Size pulumi.IntInput `pulumi:"size"`
 	// Type of writeable storage space for temporarily storing your savedown data. The valid values are:
 	// * SDS01 - This type represents 3000 IOPS and io2 ebs volume type.
@@ -1052,7 +1052,7 @@ func (o KxClusterSavedownStorageConfigurationOutput) ToKxClusterSavedownStorageC
 	}).(KxClusterSavedownStorageConfigurationPtrOutput)
 }
 
-// Size of temporary storage in bytes.
+// Size of temporary storage in gigabytes. Must be between 10 and 16000.
 func (o KxClusterSavedownStorageConfigurationOutput) Size() pulumi.IntOutput {
 	return o.ApplyT(func(v KxClusterSavedownStorageConfiguration) int { return v.Size }).(pulumi.IntOutput)
 }
@@ -1087,7 +1087,7 @@ func (o KxClusterSavedownStorageConfigurationPtrOutput) Elem() KxClusterSavedown
 	}).(KxClusterSavedownStorageConfigurationOutput)
 }
 
-// Size of temporary storage in bytes.
+// Size of temporary storage in gigabytes. Must be between 10 and 16000.
 func (o KxClusterSavedownStorageConfigurationPtrOutput) Size() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KxClusterSavedownStorageConfiguration) *int {
 		if v == nil {

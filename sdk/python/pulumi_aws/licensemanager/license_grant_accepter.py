@@ -196,6 +196,15 @@ class LicenseGrantAccepter(pulumi.CustomResource):
         """
         Accepts a License Manager grant. This allows for sharing licenses with other aws accounts.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.licensemanager.LicenseGrantAccepter("test", grant_arn="arn:aws:license-manager::123456789012:grant:g-1cf9fba4ba2f42dcab11c686c4b4d329")
+        ```
+
         ## Import
 
         terraform import {
@@ -216,6 +225,15 @@ class LicenseGrantAccepter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Accepts a License Manager grant. This allows for sharing licenses with other aws accounts.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.licensemanager.LicenseGrantAccepter("test", grant_arn="arn:aws:license-manager::123456789012:grant:g-1cf9fba4ba2f42dcab11c686c4b4d329")
+        ```
 
         ## Import
 

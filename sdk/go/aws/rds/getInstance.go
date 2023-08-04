@@ -28,7 +28,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := rds.LookupInstance(ctx, &rds.LookupInstanceArgs{
-//				DbInstanceIdentifier: "my-test-database",
+//				DbInstanceIdentifier: pulumi.StringRef("my-test-database"),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -50,9 +50,10 @@ func LookupInstance(ctx *pulumi.Context, args *LookupInstanceArgs, opts ...pulum
 
 // A collection of arguments for invoking getInstance.
 type LookupInstanceArgs struct {
-	// Name of the RDS instance
-	DbInstanceIdentifier string            `pulumi:"dbInstanceIdentifier"`
-	Tags                 map[string]string `pulumi:"tags"`
+	// Name of the RDS instance.
+	DbInstanceIdentifier *string `pulumi:"dbInstanceIdentifier"`
+	// Map of tags, each pair of which must exactly match a pair on the desired instance.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getInstance.
@@ -158,9 +159,10 @@ func LookupInstanceOutput(ctx *pulumi.Context, args LookupInstanceOutputArgs, op
 
 // A collection of arguments for invoking getInstance.
 type LookupInstanceOutputArgs struct {
-	// Name of the RDS instance
-	DbInstanceIdentifier pulumi.StringInput    `pulumi:"dbInstanceIdentifier"`
-	Tags                 pulumi.StringMapInput `pulumi:"tags"`
+	// Name of the RDS instance.
+	DbInstanceIdentifier pulumi.StringPtrInput `pulumi:"dbInstanceIdentifier"`
+	// Map of tags, each pair of which must exactly match a pair on the desired instance.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupInstanceOutputArgs) ElementType() reflect.Type {

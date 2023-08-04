@@ -63,7 +63,7 @@ import (
 //	}
 //
 // ```
-// ### Create target tarcking scaling policy using metric math
+// ### Create target tracking scaling policy using metric math
 //
 // ```go
 // package main

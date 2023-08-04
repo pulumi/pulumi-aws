@@ -273,30 +273,19 @@ class KxClusterCodeArgs:
 @pulumi.input_type
 class KxClusterDatabaseArgs:
     def __init__(__self__, *,
-                 cache_configurations: pulumi.Input[Sequence[pulumi.Input['KxClusterDatabaseCacheConfigurationArgs']]],
                  database_name: pulumi.Input[str],
+                 cache_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterDatabaseCacheConfigurationArgs']]]] = None,
                  changeset_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['KxClusterDatabaseCacheConfigurationArgs']]] cache_configurations: Configuration details for the disk cache to increase performance reading from a KX database mounted to the cluster. See cache_configurations.
         :param pulumi.Input[str] database_name: Name of the KX database.
+        :param pulumi.Input[Sequence[pulumi.Input['KxClusterDatabaseCacheConfigurationArgs']]] cache_configurations: Configuration details for the disk cache to increase performance reading from a KX database mounted to the cluster. See cache_configurations.
         :param pulumi.Input[str] changeset_id: A unique identifier of the changeset that is associated with the cluster.
         """
-        pulumi.set(__self__, "cache_configurations", cache_configurations)
         pulumi.set(__self__, "database_name", database_name)
+        if cache_configurations is not None:
+            pulumi.set(__self__, "cache_configurations", cache_configurations)
         if changeset_id is not None:
             pulumi.set(__self__, "changeset_id", changeset_id)
-
-    @property
-    @pulumi.getter(name="cacheConfigurations")
-    def cache_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['KxClusterDatabaseCacheConfigurationArgs']]]:
-        """
-        Configuration details for the disk cache to increase performance reading from a KX database mounted to the cluster. See cache_configurations.
-        """
-        return pulumi.get(self, "cache_configurations")
-
-    @cache_configurations.setter
-    def cache_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['KxClusterDatabaseCacheConfigurationArgs']]]):
-        pulumi.set(self, "cache_configurations", value)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -309,6 +298,18 @@ class KxClusterDatabaseArgs:
     @database_name.setter
     def database_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter(name="cacheConfigurations")
+    def cache_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterDatabaseCacheConfigurationArgs']]]]:
+        """
+        Configuration details for the disk cache to increase performance reading from a KX database mounted to the cluster. See cache_configurations.
+        """
+        return pulumi.get(self, "cache_configurations")
+
+    @cache_configurations.setter
+    def cache_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterDatabaseCacheConfigurationArgs']]]]):
+        pulumi.set(self, "cache_configurations", value)
 
     @property
     @pulumi.getter(name="changesetId")
@@ -327,13 +328,14 @@ class KxClusterDatabaseArgs:
 class KxClusterDatabaseCacheConfigurationArgs:
     def __init__(__self__, *,
                  cache_type: pulumi.Input[str],
-                 db_paths: pulumi.Input[Sequence[pulumi.Input[str]]]):
+                 db_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] cache_type: Type of disk cache.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] db_paths: Paths within the database to cache.
         """
         pulumi.set(__self__, "cache_type", cache_type)
-        pulumi.set(__self__, "db_paths", db_paths)
+        if db_paths is not None:
+            pulumi.set(__self__, "db_paths", db_paths)
 
     @property
     @pulumi.getter(name="cacheType")
@@ -349,14 +351,14 @@ class KxClusterDatabaseCacheConfigurationArgs:
 
     @property
     @pulumi.getter(name="dbPaths")
-    def db_paths(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+    def db_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Paths within the database to cache.
         """
         return pulumi.get(self, "db_paths")
 
     @db_paths.setter
-    def db_paths(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+    def db_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "db_paths", value)
 
 
@@ -366,7 +368,7 @@ class KxClusterSavedownStorageConfigurationArgs:
                  size: pulumi.Input[int],
                  type: pulumi.Input[str]):
         """
-        :param pulumi.Input[int] size: Size of temporary storage in bytes.
+        :param pulumi.Input[int] size: Size of temporary storage in gigabytes. Must be between 10 and 16000.
         :param pulumi.Input[str] type: Type of writeable storage space for temporarily storing your savedown data. The valid values are:
                * SDS01 - This type represents 3000 IOPS and io2 ebs volume type.
         """
@@ -377,7 +379,7 @@ class KxClusterSavedownStorageConfigurationArgs:
     @pulumi.getter
     def size(self) -> pulumi.Input[int]:
         """
-        Size of temporary storage in bytes.
+        Size of temporary storage in gigabytes. Must be between 10 and 16000.
         """
         return pulumi.get(self, "size")
 

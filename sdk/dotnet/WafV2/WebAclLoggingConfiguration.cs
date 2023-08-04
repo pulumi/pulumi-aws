@@ -124,7 +124,7 @@ namespace Pulumi.Aws.WafV2
     public partial class WebAclLoggingConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Configuration block that allows you to associate Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket Amazon Resource Names (ARNs) with the web ACL.
+        /// Configuration block that allows you to associate Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket Amazon Resource Names (ARNs) with the web ACL. **Note:** data firehose, log group, or bucket name **must** be prefixed with `aws-waf-logs-`, e.g. `aws-waf-logs-example-firehose`, `aws-waf-logs-example-log-group`, or `aws-waf-logs-example-bucket`.
         /// </summary>
         [Output("logDestinationConfigs")]
         public Output<ImmutableArray<string>> LogDestinationConfigs { get; private set; } = null!;
@@ -197,7 +197,7 @@ namespace Pulumi.Aws.WafV2
         private InputList<string>? _logDestinationConfigs;
 
         /// <summary>
-        /// Configuration block that allows you to associate Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket Amazon Resource Names (ARNs) with the web ACL.
+        /// Configuration block that allows you to associate Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket Amazon Resource Names (ARNs) with the web ACL. **Note:** data firehose, log group, or bucket name **must** be prefixed with `aws-waf-logs-`, e.g. `aws-waf-logs-example-firehose`, `aws-waf-logs-example-log-group`, or `aws-waf-logs-example-bucket`.
         /// </summary>
         public InputList<string> LogDestinationConfigs
         {
@@ -241,7 +241,7 @@ namespace Pulumi.Aws.WafV2
         private InputList<string>? _logDestinationConfigs;
 
         /// <summary>
-        /// Configuration block that allows you to associate Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket Amazon Resource Names (ARNs) with the web ACL.
+        /// Configuration block that allows you to associate Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket Amazon Resource Names (ARNs) with the web ACL. **Note:** data firehose, log group, or bucket name **must** be prefixed with `aws-waf-logs-`, e.g. `aws-waf-logs-example-firehose`, `aws-waf-logs-example-log-group`, or `aws-waf-logs-example-bucket`.
         /// </summary>
         public InputList<string> LogDestinationConfigs
         {

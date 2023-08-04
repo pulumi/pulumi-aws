@@ -369,10 +369,10 @@ import javax.annotation.Nullable;
  *                             .field(&#34;eventName&#34;)
  *                             .build(),
  *                         TrailAdvancedEventSelectorFieldSelectorArgs.builder()
- *                             .equals(                            
+ *                             .field(&#34;resources.ARN&#34;)
+ *                             .startsWith(                            
  *                                 String.format(&#34;%s/&#34;, important_bucket_1.arn()),
  *                                 String.format(&#34;%s/&#34;, important_bucket_2.arn()))
- *                             .field(&#34;resources.ARN&#34;)
  *                             .build(),
  *                         TrailAdvancedEventSelectorFieldSelectorArgs.builder()
  *                             .equals(&#34;false&#34;)

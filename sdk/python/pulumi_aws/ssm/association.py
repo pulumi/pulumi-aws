@@ -39,7 +39,7 @@ class AssociationArgs:
         :param pulumi.Input[str] document_version: The document version you want to associate with the target(s). Can be a specific version or the default version.
         :param pulumi.Input[str] instance_id: The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
         :param pulumi.Input[str] max_concurrency: The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
-        :param pulumi.Input[str] max_errors: The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
+        :param pulumi.Input[str] max_errors: The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.
         :param pulumi.Input[str] name: The name of the SSM document to apply.
         :param pulumi.Input['AssociationOutputLocationArgs'] output_location: An output location block. Output Location is documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A block of arbitrary string parameters to pass to the SSM document.
@@ -172,7 +172,7 @@ class AssociationArgs:
     @pulumi.getter(name="maxErrors")
     def max_errors(self) -> Optional[pulumi.Input[str]]:
         """
-        The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
+        The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.
         """
         return pulumi.get(self, "max_errors")
 
@@ -285,7 +285,7 @@ class _AssociationState:
         :param pulumi.Input[str] document_version: The document version you want to associate with the target(s). Can be a specific version or the default version.
         :param pulumi.Input[str] instance_id: The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
         :param pulumi.Input[str] max_concurrency: The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
-        :param pulumi.Input[str] max_errors: The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
+        :param pulumi.Input[str] max_errors: The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.
         :param pulumi.Input[str] name: The name of the SSM document to apply.
         :param pulumi.Input['AssociationOutputLocationArgs'] output_location: An output location block. Output Location is documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A block of arbitrary string parameters to pass to the SSM document.
@@ -446,7 +446,7 @@ class _AssociationState:
     @pulumi.getter(name="maxErrors")
     def max_errors(self) -> Optional[pulumi.Input[str]]:
         """
-        The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
+        The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.
         """
         return pulumi.get(self, "max_errors")
 
@@ -623,7 +623,7 @@ class Association(pulumi.CustomResource):
         :param pulumi.Input[str] document_version: The document version you want to associate with the target(s). Can be a specific version or the default version.
         :param pulumi.Input[str] instance_id: The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
         :param pulumi.Input[str] max_concurrency: The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
-        :param pulumi.Input[str] max_errors: The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
+        :param pulumi.Input[str] max_errors: The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.
         :param pulumi.Input[str] name: The name of the SSM document to apply.
         :param pulumi.Input[pulumi.InputType['AssociationOutputLocationArgs']] output_location: An output location block. Output Location is documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A block of arbitrary string parameters to pass to the SSM document.
@@ -803,7 +803,7 @@ class Association(pulumi.CustomResource):
         :param pulumi.Input[str] document_version: The document version you want to associate with the target(s). Can be a specific version or the default version.
         :param pulumi.Input[str] instance_id: The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
         :param pulumi.Input[str] max_concurrency: The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
-        :param pulumi.Input[str] max_errors: The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
+        :param pulumi.Input[str] max_errors: The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.
         :param pulumi.Input[str] name: The name of the SSM document to apply.
         :param pulumi.Input[pulumi.InputType['AssociationOutputLocationArgs']] output_location: An output location block. Output Location is documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A block of arbitrary string parameters to pass to the SSM document.
@@ -914,7 +914,7 @@ class Association(pulumi.CustomResource):
     @pulumi.getter(name="maxErrors")
     def max_errors(self) -> pulumi.Output[Optional[str]]:
         """
-        The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
+        The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.
         """
         return pulumi.get(self, "max_errors")
 

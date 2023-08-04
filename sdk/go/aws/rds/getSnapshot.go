@@ -81,6 +81,8 @@ type LookupSnapshotArgs struct {
 	DbSnapshotIdentifier *string `pulumi:"dbSnapshotIdentifier"`
 	// Set this value to true to include manual DB snapshots that are public and can be
 	// copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
+	// `tags` - (Optional) Mapping of tags, each pair of which must exactly match
+	// a pair on the desired DB snapshot.
 	IncludePublic *bool `pulumi:"includePublic"`
 	// Set this value to true to include shared manual DB snapshots from other
 	// AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false.
@@ -92,7 +94,8 @@ type LookupSnapshotArgs struct {
 	// Type of snapshots to be returned. If you don't specify a SnapshotType
 	// value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not
 	// included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
-	SnapshotType *string `pulumi:"snapshotType"`
+	SnapshotType *string           `pulumi:"snapshotType"`
+	Tags         map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getSnapshot.
@@ -135,7 +138,8 @@ type LookupSnapshotResult struct {
 	// Status of this DB snapshot.
 	Status string `pulumi:"status"`
 	// Storage type associated with DB snapshot.
-	StorageType string `pulumi:"storageType"`
+	StorageType string            `pulumi:"storageType"`
+	Tags        map[string]string `pulumi:"tags"`
 	// ID of the VPC associated with the DB snapshot.
 	VpcId string `pulumi:"vpcId"`
 }
@@ -161,6 +165,8 @@ type LookupSnapshotOutputArgs struct {
 	DbSnapshotIdentifier pulumi.StringPtrInput `pulumi:"dbSnapshotIdentifier"`
 	// Set this value to true to include manual DB snapshots that are public and can be
 	// copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
+	// `tags` - (Optional) Mapping of tags, each pair of which must exactly match
+	// a pair on the desired DB snapshot.
 	IncludePublic pulumi.BoolPtrInput `pulumi:"includePublic"`
 	// Set this value to true to include shared manual DB snapshots from other
 	// AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false.
@@ -173,6 +179,7 @@ type LookupSnapshotOutputArgs struct {
 	// value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not
 	// included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
 	SnapshotType pulumi.StringPtrInput `pulumi:"snapshotType"`
+	Tags         pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupSnapshotOutputArgs) ElementType() reflect.Type {
@@ -300,6 +307,10 @@ func (o LookupSnapshotResultOutput) Status() pulumi.StringOutput {
 // Storage type associated with DB snapshot.
 func (o LookupSnapshotResultOutput) StorageType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSnapshotResult) string { return v.StorageType }).(pulumi.StringOutput)
+}
+
+func (o LookupSnapshotResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // ID of the VPC associated with the DB snapshot.

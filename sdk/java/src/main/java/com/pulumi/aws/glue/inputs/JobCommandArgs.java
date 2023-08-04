@@ -16,14 +16,14 @@ public final class JobCommandArgs extends com.pulumi.resources.ResourceArgs {
     public static final JobCommandArgs Empty = new JobCommandArgs();
 
     /**
-     * The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, or `gluestreaming` for Streaming Job Type. `max_capacity` needs to be set if `pythonshell` is chosen.
+     * The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `glueray` for Ray Job Type, or `gluestreaming` for Streaming Job Type. `max_capacity` needs to be set if `pythonshell` is chosen.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, or `gluestreaming` for Streaming Job Type. `max_capacity` needs to be set if `pythonshell` is chosen.
+     * @return The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `glueray` for Ray Job Type, or `gluestreaming` for Streaming Job Type. `max_capacity` needs to be set if `pythonshell` is chosen.
      * 
      */
     public Optional<Output<String>> name() {
@@ -46,6 +46,21 @@ public final class JobCommandArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * In Ray jobs, runtime is used to specify the versions of Ray, Python and additional libraries available in your environment. This field is not used in other job types. For supported runtime environment values, see [Working with Ray jobs](https://docs.aws.amazon.com/glue/latest/dg/ray-jobs-section.html#author-job-ray-runtimes) in the Glue Developer Guide.
+     * 
+     */
+    @Import(name="runtime")
+    private @Nullable Output<String> runtime;
+
+    /**
+     * @return In Ray jobs, runtime is used to specify the versions of Ray, Python and additional libraries available in your environment. This field is not used in other job types. For supported runtime environment values, see [Working with Ray jobs](https://docs.aws.amazon.com/glue/latest/dg/ray-jobs-section.html#author-job-ray-runtimes) in the Glue Developer Guide.
+     * 
+     */
+    public Optional<Output<String>> runtime() {
+        return Optional.ofNullable(this.runtime);
+    }
+
+    /**
      * Specifies the S3 path to a script that executes a job.
      * 
      */
@@ -65,6 +80,7 @@ public final class JobCommandArgs extends com.pulumi.resources.ResourceArgs {
     private JobCommandArgs(JobCommandArgs $) {
         this.name = $.name;
         this.pythonVersion = $.pythonVersion;
+        this.runtime = $.runtime;
         this.scriptLocation = $.scriptLocation;
     }
 
@@ -87,7 +103,7 @@ public final class JobCommandArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, or `gluestreaming` for Streaming Job Type. `max_capacity` needs to be set if `pythonshell` is chosen.
+         * @param name The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `glueray` for Ray Job Type, or `gluestreaming` for Streaming Job Type. `max_capacity` needs to be set if `pythonshell` is chosen.
          * 
          * @return builder
          * 
@@ -98,7 +114,7 @@ public final class JobCommandArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, or `gluestreaming` for Streaming Job Type. `max_capacity` needs to be set if `pythonshell` is chosen.
+         * @param name The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `glueray` for Ray Job Type, or `gluestreaming` for Streaming Job Type. `max_capacity` needs to be set if `pythonshell` is chosen.
          * 
          * @return builder
          * 
@@ -126,6 +142,27 @@ public final class JobCommandArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder pythonVersion(String pythonVersion) {
             return pythonVersion(Output.of(pythonVersion));
+        }
+
+        /**
+         * @param runtime In Ray jobs, runtime is used to specify the versions of Ray, Python and additional libraries available in your environment. This field is not used in other job types. For supported runtime environment values, see [Working with Ray jobs](https://docs.aws.amazon.com/glue/latest/dg/ray-jobs-section.html#author-job-ray-runtimes) in the Glue Developer Guide.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder runtime(@Nullable Output<String> runtime) {
+            $.runtime = runtime;
+            return this;
+        }
+
+        /**
+         * @param runtime In Ray jobs, runtime is used to specify the versions of Ray, Python and additional libraries available in your environment. This field is not used in other job types. For supported runtime environment values, see [Working with Ray jobs](https://docs.aws.amazon.com/glue/latest/dg/ray-jobs-section.html#author-job-ray-runtimes) in the Glue Developer Guide.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder runtime(String runtime) {
+            return runtime(Output.of(runtime));
         }
 
         /**

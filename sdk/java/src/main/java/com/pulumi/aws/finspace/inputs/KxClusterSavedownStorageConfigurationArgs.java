@@ -15,14 +15,14 @@ public final class KxClusterSavedownStorageConfigurationArgs extends com.pulumi.
     public static final KxClusterSavedownStorageConfigurationArgs Empty = new KxClusterSavedownStorageConfigurationArgs();
 
     /**
-     * Size of temporary storage in bytes.
+     * Size of temporary storage in gigabytes. Must be between 10 and 16000.
      * 
      */
     @Import(name="size", required=true)
     private Output<Integer> size;
 
     /**
-     * @return Size of temporary storage in bytes.
+     * @return Size of temporary storage in gigabytes. Must be between 10 and 16000.
      * 
      */
     public Output<Integer> size() {
@@ -72,7 +72,7 @@ public final class KxClusterSavedownStorageConfigurationArgs extends com.pulumi.
         }
 
         /**
-         * @param size Size of temporary storage in bytes.
+         * @param size Size of temporary storage in gigabytes. Must be between 10 and 16000.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class KxClusterSavedownStorageConfigurationArgs extends com.pulumi.
         }
 
         /**
-         * @param size Size of temporary storage in bytes.
+         * @param size Size of temporary storage in gigabytes. Must be between 10 and 16000.
          * 
          * @return builder
          * 

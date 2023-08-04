@@ -20,6 +20,9 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** We recommend using this resource in conjunction with the `aws.apigateway.Stage` resource instead of a stage managed by the `aws.apigateway.Deployment` resource optional `stage_name` argument. Stages managed by the `aws.apigateway.Deployment` resource are recreated on redeployment and this resource will require a second apply to recreate the method settings.
  * 
  * ## Example Usage
+ * 
+ * ### End-to-end
+ * ### Basic Usage
  * ```java
  * package generated_program;
  * 
@@ -101,6 +104,155 @@ import javax.annotation.Nullable;
  *             .settings(MethodSettingsSettingsArgs.builder()
  *                 .metricsEnabled(true)
  *                 .loggingLevel(&#34;INFO&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### CloudWatch Logging and Tracing
+ * 
+ * The AWS Console API Gateway Editor displays multiple options for CloudWatch Logs that don&#39;t directly map to the options in the AWS API and Pulumi. These examples show the `settings` blocks that are equivalent to the options the AWS Console gives for CloudWatch Logs.
+ * ### Off
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.apigateway.MethodSettings;
+ * import com.pulumi.aws.apigateway.MethodSettingsArgs;
+ * import com.pulumi.aws.apigateway.inputs.MethodSettingsSettingsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var pathSpecific = new MethodSettings(&#34;pathSpecific&#34;, MethodSettingsArgs.builder()        
+ *             .restApi(aws_api_gateway_rest_api.example().id())
+ *             .stageName(aws_api_gateway_stage.example().stage_name())
+ *             .methodPath(&#34;path1/GET&#34;)
+ *             .settings(MethodSettingsSettingsArgs.builder()
+ *                 .loggingLevel(&#34;OFF&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Errors Only
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.apigateway.MethodSettings;
+ * import com.pulumi.aws.apigateway.MethodSettingsArgs;
+ * import com.pulumi.aws.apigateway.inputs.MethodSettingsSettingsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var pathSpecific = new MethodSettings(&#34;pathSpecific&#34;, MethodSettingsArgs.builder()        
+ *             .restApi(aws_api_gateway_rest_api.example().id())
+ *             .stageName(aws_api_gateway_stage.example().stage_name())
+ *             .methodPath(&#34;path1/GET&#34;)
+ *             .settings(MethodSettingsSettingsArgs.builder()
+ *                 .loggingLevel(&#34;ERROR&#34;)
+ *                 .metricsEnabled(true)
+ *                 .dataTraceEnabled(false)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Errors and Info Logs
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.apigateway.MethodSettings;
+ * import com.pulumi.aws.apigateway.MethodSettingsArgs;
+ * import com.pulumi.aws.apigateway.inputs.MethodSettingsSettingsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var pathSpecific = new MethodSettings(&#34;pathSpecific&#34;, MethodSettingsArgs.builder()        
+ *             .restApi(aws_api_gateway_rest_api.example().id())
+ *             .stageName(aws_api_gateway_stage.example().stage_name())
+ *             .methodPath(&#34;path1/GET&#34;)
+ *             .settings(MethodSettingsSettingsArgs.builder()
+ *                 .loggingLevel(&#34;INFO&#34;)
+ *                 .metricsEnabled(true)
+ *                 .dataTraceEnabled(false)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Full Request and Response Logs
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.apigateway.MethodSettings;
+ * import com.pulumi.aws.apigateway.MethodSettingsArgs;
+ * import com.pulumi.aws.apigateway.inputs.MethodSettingsSettingsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var pathSpecific = new MethodSettings(&#34;pathSpecific&#34;, MethodSettingsArgs.builder()        
+ *             .restApi(aws_api_gateway_rest_api.example().id())
+ *             .stageName(aws_api_gateway_stage.example().stage_name())
+ *             .methodPath(&#34;path1/GET&#34;)
+ *             .settings(MethodSettingsSettingsArgs.builder()
+ *                 .loggingLevel(&#34;INFO&#34;)
+ *                 .metricsEnabled(true)
+ *                 .dataTraceEnabled(true)
  *                 .build())
  *             .build());
  * 

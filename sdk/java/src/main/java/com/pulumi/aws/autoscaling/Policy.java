@@ -73,7 +73,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ### Create target tarcking scaling policy using metric math
+ * ### Create target tracking scaling policy using metric math
  * ```java
  * package generated_program;
  * 

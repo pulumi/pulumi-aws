@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Rds.Inputs
     public sealed class GetInstancesFilterInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the filter field. Valid values can be found in the [RDS DescribeDBClusters API Reference](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusters.html).
+        /// Name of the filter field. Valid values can be found in the [RDS DescribeDBClusters API Reference](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusters.html) or [RDS DescribeDBInstances API Reference](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstances.html).
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

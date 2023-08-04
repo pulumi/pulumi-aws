@@ -1996,17 +1996,21 @@ class JobCommandArgs:
     def __init__(__self__, *,
                  script_location: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None,
-                 python_version: Optional[pulumi.Input[str]] = None):
+                 python_version: Optional[pulumi.Input[str]] = None,
+                 runtime: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] script_location: Specifies the S3 path to a script that executes a job.
-        :param pulumi.Input[str] name: The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, or `gluestreaming` for Streaming Job Type. `max_capacity` needs to be set if `pythonshell` is chosen.
+        :param pulumi.Input[str] name: The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `glueray` for Ray Job Type, or `gluestreaming` for Streaming Job Type. `max_capacity` needs to be set if `pythonshell` is chosen.
         :param pulumi.Input[str] python_version: The Python version being used to execute a Python shell job. Allowed values are 2, 3 or 3.9. Version 3 refers to Python 3.6.
+        :param pulumi.Input[str] runtime: In Ray jobs, runtime is used to specify the versions of Ray, Python and additional libraries available in your environment. This field is not used in other job types. For supported runtime environment values, see [Working with Ray jobs](https://docs.aws.amazon.com/glue/latest/dg/ray-jobs-section.html#author-job-ray-runtimes) in the Glue Developer Guide.
         """
         pulumi.set(__self__, "script_location", script_location)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if python_version is not None:
             pulumi.set(__self__, "python_version", python_version)
+        if runtime is not None:
+            pulumi.set(__self__, "runtime", runtime)
 
     @property
     @pulumi.getter(name="scriptLocation")
@@ -2024,7 +2028,7 @@ class JobCommandArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, or `gluestreaming` for Streaming Job Type. `max_capacity` needs to be set if `pythonshell` is chosen.
+        The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `glueray` for Ray Job Type, or `gluestreaming` for Streaming Job Type. `max_capacity` needs to be set if `pythonshell` is chosen.
         """
         return pulumi.get(self, "name")
 
@@ -2043,6 +2047,18 @@ class JobCommandArgs:
     @python_version.setter
     def python_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "python_version", value)
+
+    @property
+    @pulumi.getter
+    def runtime(self) -> Optional[pulumi.Input[str]]:
+        """
+        In Ray jobs, runtime is used to specify the versions of Ray, Python and additional libraries available in your environment. This field is not used in other job types. For supported runtime environment values, see [Working with Ray jobs](https://docs.aws.amazon.com/glue/latest/dg/ray-jobs-section.html#author-job-ray-runtimes) in the Glue Developer Guide.
+        """
+        return pulumi.get(self, "runtime")
+
+    @runtime.setter
+    def runtime(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "runtime", value)
 
 
 @pulumi.input_type

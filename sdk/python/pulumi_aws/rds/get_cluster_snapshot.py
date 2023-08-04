@@ -312,7 +312,8 @@ def get_cluster_snapshot(db_cluster_identifier: Optional[str] = None,
     :param str snapshot_type: Type of snapshots to be returned. If you don't specify a SnapshotType
            value, then both automated and manual DB cluster snapshots are returned. Shared and public DB Cluster Snapshots are not
            included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
-    :param Mapping[str, str] tags: Map of tags for the resource.
+    :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match
+           a pair on the desired DB cluster snapshot.
     """
     __args__ = dict()
     __args__['dbClusterIdentifier'] = db_cluster_identifier
@@ -396,6 +397,7 @@ def get_cluster_snapshot_output(db_cluster_identifier: Optional[pulumi.Input[Opt
     :param str snapshot_type: Type of snapshots to be returned. If you don't specify a SnapshotType
            value, then both automated and manual DB cluster snapshots are returned. Shared and public DB Cluster Snapshots are not
            included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
-    :param Mapping[str, str] tags: Map of tags for the resource.
+    :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match
+           a pair on the desired DB cluster snapshot.
     """
     ...

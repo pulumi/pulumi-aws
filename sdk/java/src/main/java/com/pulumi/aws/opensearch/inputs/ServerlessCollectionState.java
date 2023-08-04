@@ -133,14 +133,14 @@ public final class ServerlessCollectionState extends com.pulumi.resources.Resour
     }
 
     /**
-     * Type of collection. One of `SEARCH` or `TIMESERIES`.
+     * Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return Type of collection. One of `SEARCH` or `TIMESERIES`.
+     * @return Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -338,7 +338,7 @@ public final class ServerlessCollectionState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param type Type of collection. One of `SEARCH` or `TIMESERIES`.
+         * @param type Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
          * 
          * @return builder
          * 
@@ -349,7 +349,7 @@ public final class ServerlessCollectionState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param type Type of collection. One of `SEARCH` or `TIMESERIES`.
+         * @param type Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
          * 
          * @return builder
          * 

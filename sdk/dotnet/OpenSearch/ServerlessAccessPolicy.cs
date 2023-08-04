@@ -10,10 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.OpenSearch
 {
     /// <summary>
-    /// Resource for managing an AWS OpenSearch Serverless Access Policy.
+    /// Resource for managing an AWS OpenSearch Serverless Access Policy. See AWS documentation for [data access policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html) and [supported data access policy permissions](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html#serverless-data-supported-permissions).
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
+    /// ### Grant all collection and index permissions
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -24,46 +24,164 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var currentCallerIdentity = Aws.GetCallerIdentity.Invoke();
+    ///     var current = Aws.GetCallerIdentity.Invoke();
     /// 
-    ///     var currentPartition = Aws.GetPartition.Invoke();
-    /// 
-    ///     var test = new Aws.OpenSearch.ServerlessAccessPolicy("test", new()
+    ///     var example = new Aws.OpenSearch.ServerlessAccessPolicy("example", new()
     ///     {
     ///         Type = "data",
-    ///         Policy = Output.Tuple(currentPartition, currentCallerIdentity).Apply(values =&gt;
+    ///         Description = "read and write permissions",
+    ///         Policy = JsonSerializer.Serialize(new[]
     ///         {
-    ///             var currentPartition = values.Item1;
-    ///             var currentCallerIdentity = values.Item2;
-    ///             return JsonSerializer.Serialize(new[]
+    ///             new Dictionary&lt;string, object?&gt;
     ///             {
-    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 ["Rules"] = new[]
     ///                 {
-    ///                     ["Rules"] = new[]
+    ///                     new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         new Dictionary&lt;string, object?&gt;
+    ///                         ["ResourceType"] = "index",
+    ///                         ["Resource"] = new[]
     ///                         {
-    ///                             ["ResourceType"] = "index",
-    ///                             ["Resource"] = new[]
-    ///                             {
-    ///                                 "index/books/*",
-    ///                             },
-    ///                             ["Permission"] = new[]
-    ///                             {
-    ///                                 "aoss:CreateIndex",
-    ///                                 "aoss:ReadDocument",
-    ///                                 "aoss:UpdateIndex",
-    ///                                 "aoss:DeleteIndex",
-    ///                                 "aoss:WriteDocument",
-    ///                             },
+    ///                             "index/example-collection/*",
+    ///                         },
+    ///                         ["Permission"] = new[]
+    ///                         {
+    ///                             "aoss:*",
     ///                         },
     ///                     },
-    ///                     ["Principal"] = new[]
+    ///                     new Dictionary&lt;string, object?&gt;
     ///                     {
-    ///                         $"arn:{currentPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:iam::{currentCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:user/admin",
+    ///                         ["ResourceType"] = "collection",
+    ///                         ["Resource"] = new[]
+    ///                         {
+    ///                             "collection/example-collection",
+    ///                         },
+    ///                         ["Permission"] = new[]
+    ///                         {
+    ///                             "aoss:*",
+    ///                         },
     ///                     },
     ///                 },
-    ///             });
+    ///                 ["Principal"] = new[]
+    ///                 {
+    ///                     current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.Arn),
+    ///                 },
+    ///             },
+    ///         }),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Grant read-only collection and index permissions
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Aws.GetCallerIdentity.Invoke();
+    /// 
+    ///     var example = new Aws.OpenSearch.ServerlessAccessPolicy("example", new()
+    ///     {
+    ///         Type = "data",
+    ///         Description = "read-only permissions",
+    ///         Policy = JsonSerializer.Serialize(new[]
+    ///         {
+    ///             new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["Rules"] = new[]
+    ///                 {
+    ///                     new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["ResourceType"] = "index",
+    ///                         ["Resource"] = new[]
+    ///                         {
+    ///                             "index/example-collection/*",
+    ///                         },
+    ///                         ["Permission"] = new[]
+    ///                         {
+    ///                             "aoss:DescribeIndex",
+    ///                             "aoss:ReadDocument",
+    ///                         },
+    ///                     },
+    ///                     new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["ResourceType"] = "collection",
+    ///                         ["Resource"] = new[]
+    ///                         {
+    ///                             "collection/example-collection",
+    ///                         },
+    ///                         ["Permission"] = new[]
+    ///                         {
+    ///                             "aoss:DescribeCollectionItems",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 ["Principal"] = new[]
+    ///                 {
+    ///                     current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.Arn),
+    ///                 },
+    ///             },
+    ///         }),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Grant SAML identity permissions
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.OpenSearch.ServerlessAccessPolicy("example", new()
+    ///     {
+    ///         Type = "data",
+    ///         Description = "saml permissions",
+    ///         Policy = JsonSerializer.Serialize(new[]
+    ///         {
+    ///             new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["Rules"] = new[]
+    ///                 {
+    ///                     new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["ResourceType"] = "index",
+    ///                         ["Resource"] = new[]
+    ///                         {
+    ///                             "index/example-collection/*",
+    ///                         },
+    ///                         ["Permission"] = new[]
+    ///                         {
+    ///                             "aoss:*",
+    ///                         },
+    ///                     },
+    ///                     new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["ResourceType"] = "collection",
+    ///                         ["Resource"] = new[]
+    ///                         {
+    ///                             "collection/example-collection",
+    ///                         },
+    ///                         ["Permission"] = new[]
+    ///                         {
+    ///                             "aoss:*",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 ["Principal"] = new[]
+    ///                 {
+    ///                     "saml/123456789012/myprovider/user/Annie",
+    ///                     "saml/123456789012/anotherprovider/group/Accounting",
+    ///                 },
+    ///             },
     ///         }),
     ///     });
     /// 

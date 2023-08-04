@@ -308,13 +308,11 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly iamDatabaseAuthenticationEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * The name of the RDS instance,
-     * if omitted, this provider will assign a random, unique identifier. Required if `restoreToPointInTime` is specified.
+     * The name of the RDS instance, if omitted, this provider will assign a random, unique identifier. Required if `restoreToPointInTime` is specified.
      */
     public readonly identifier!: pulumi.Output<string>;
     /**
-     * Creates a unique
-     * identifier beginning with the specified prefix. Conflicts with `identifier`.
+     * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
      */
     public readonly identifierPrefix!: pulumi.Output<string>;
     /**
@@ -857,13 +855,11 @@ export interface InstanceState {
      */
     iamDatabaseAuthenticationEnabled?: pulumi.Input<boolean>;
     /**
-     * The name of the RDS instance,
-     * if omitted, this provider will assign a random, unique identifier. Required if `restoreToPointInTime` is specified.
+     * The name of the RDS instance, if omitted, this provider will assign a random, unique identifier. Required if `restoreToPointInTime` is specified.
      */
     identifier?: pulumi.Input<string>;
     /**
-     * Creates a unique
-     * identifier beginning with the specified prefix. Conflicts with `identifier`.
+     * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
      */
     identifierPrefix?: pulumi.Input<string>;
     /**
@@ -1213,13 +1209,11 @@ export interface InstanceArgs {
      */
     iamDatabaseAuthenticationEnabled?: pulumi.Input<boolean>;
     /**
-     * The name of the RDS instance,
-     * if omitted, this provider will assign a random, unique identifier. Required if `restoreToPointInTime` is specified.
+     * The name of the RDS instance, if omitted, this provider will assign a random, unique identifier. Required if `restoreToPointInTime` is specified.
      */
     identifier?: pulumi.Input<string>;
     /**
-     * Creates a unique
-     * identifier beginning with the specified prefix. Conflicts with `identifier`.
+     * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
      */
     identifierPrefix?: pulumi.Input<string>;
     /**

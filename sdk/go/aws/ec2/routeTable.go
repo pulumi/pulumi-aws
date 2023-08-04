@@ -34,6 +34,7 @@ import (
 // the separate resource.
 //
 // ## Example Usage
+// ### Basic example
 //
 // ```go
 // package main
@@ -101,6 +102,100 @@ import (
 //	}
 //
 // ```
+// ### Adopting an existing local route
+//
+// AWS creates certain routes that the AWS provider mostly ignores. You can manage them by importing or adopting them. See Import below for information on importing. This example shows adopting a route and then updating its target.
+//
+// First, adopt an existing AWS-created route:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testVpc, err := ec2.NewVpc(ctx, "testVpc", &ec2.VpcArgs{
+//				CidrBlock: pulumi.String("10.1.0.0/16"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewRouteTable(ctx, "testRouteTable", &ec2.RouteTableArgs{
+//				VpcId: testVpc.ID(),
+//				Routes: ec2.RouteTableRouteArray{
+//					&ec2.RouteTableRouteArgs{
+//						CidrBlock: pulumi.String("10.1.0.0/16"),
+//						GatewayId: pulumi.String("local"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// Next, update the target of the route:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			testVpc, err := ec2.NewVpc(ctx, "testVpc", &ec2.VpcArgs{
+//				CidrBlock: pulumi.String("10.1.0.0/16"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			testSubnet, err := ec2.NewSubnet(ctx, "testSubnet", &ec2.SubnetArgs{
+//				CidrBlock: pulumi.String("10.1.1.0/24"),
+//				VpcId:     testVpc.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			testNetworkInterface, err := ec2.NewNetworkInterface(ctx, "testNetworkInterface", &ec2.NetworkInterfaceArgs{
+//				SubnetId: testSubnet.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewRouteTable(ctx, "testRouteTable", &ec2.RouteTableArgs{
+//				VpcId: testVpc.ID(),
+//				Routes: ec2.RouteTableRouteArray{
+//					&ec2.RouteTableRouteArgs{
+//						CidrBlock:          testVpc.CidrBlock,
+//						NetworkInterfaceId: testNetworkInterface.ID(),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// The target could then be updated again back to `local`.
 //
 // ## Import
 //

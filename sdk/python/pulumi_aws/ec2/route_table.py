@@ -241,6 +241,7 @@ class RouteTable(pulumi.CustomResource):
         the separate resource.
 
         ## Example Usage
+        ### Basic example
 
         ```python
         import pulumi
@@ -276,6 +277,45 @@ class RouteTable(pulumi.CustomResource):
                 "Name": "example",
             })
         ```
+        ### Adopting an existing local route
+
+        AWS creates certain routes that the AWS provider mostly ignores. You can manage them by importing or adopting them. See Import below for information on importing. This example shows adopting a route and then updating its target.
+
+        First, adopt an existing AWS-created route:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test_vpc = aws.ec2.Vpc("testVpc", cidr_block="10.1.0.0/16")
+        test_route_table = aws.ec2.RouteTable("testRouteTable",
+            vpc_id=test_vpc.id,
+            routes=[aws.ec2.RouteTableRouteArgs(
+                cidr_block="10.1.0.0/16",
+                gateway_id="local",
+            )])
+        ```
+
+        Next, update the target of the route:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test_vpc = aws.ec2.Vpc("testVpc", cidr_block="10.1.0.0/16")
+        test_subnet = aws.ec2.Subnet("testSubnet",
+            cidr_block="10.1.1.0/24",
+            vpc_id=test_vpc.id)
+        test_network_interface = aws.ec2.NetworkInterface("testNetworkInterface", subnet_id=test_subnet.id)
+        test_route_table = aws.ec2.RouteTable("testRouteTable",
+            vpc_id=test_vpc.id,
+            routes=[aws.ec2.RouteTableRouteArgs(
+                cidr_block=test_vpc.cidr_block,
+                network_interface_id=test_network_interface.id,
+            )])
+        ```
+
+        The target could then be updated again back to `local`.
 
         ## Import
 
@@ -322,6 +362,7 @@ class RouteTable(pulumi.CustomResource):
         the separate resource.
 
         ## Example Usage
+        ### Basic example
 
         ```python
         import pulumi
@@ -357,6 +398,45 @@ class RouteTable(pulumi.CustomResource):
                 "Name": "example",
             })
         ```
+        ### Adopting an existing local route
+
+        AWS creates certain routes that the AWS provider mostly ignores. You can manage them by importing or adopting them. See Import below for information on importing. This example shows adopting a route and then updating its target.
+
+        First, adopt an existing AWS-created route:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test_vpc = aws.ec2.Vpc("testVpc", cidr_block="10.1.0.0/16")
+        test_route_table = aws.ec2.RouteTable("testRouteTable",
+            vpc_id=test_vpc.id,
+            routes=[aws.ec2.RouteTableRouteArgs(
+                cidr_block="10.1.0.0/16",
+                gateway_id="local",
+            )])
+        ```
+
+        Next, update the target of the route:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test_vpc = aws.ec2.Vpc("testVpc", cidr_block="10.1.0.0/16")
+        test_subnet = aws.ec2.Subnet("testSubnet",
+            cidr_block="10.1.1.0/24",
+            vpc_id=test_vpc.id)
+        test_network_interface = aws.ec2.NetworkInterface("testNetworkInterface", subnet_id=test_subnet.id)
+        test_route_table = aws.ec2.RouteTable("testRouteTable",
+            vpc_id=test_vpc.id,
+            routes=[aws.ec2.RouteTableRouteArgs(
+                cidr_block=test_vpc.cidr_block,
+                network_interface_id=test_network_interface.id,
+            )])
+        ```
+
+        The target could then be updated again back to `local`.
 
         ## Import
 
