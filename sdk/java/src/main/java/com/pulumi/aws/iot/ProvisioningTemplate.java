@@ -119,11 +119,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * IoT fleet provisioning templates can be imported using the `name`, e.g.
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:iot/provisioningTemplate:ProvisioningTemplate fleet FleetProvisioningTemplate
- * ```
+ *  to = aws_iot_provisioning_template.fleet
+ * 
+ *  id = &#34;FleetProvisioningTemplate&#34; } Using `pulumi import`, import IoT fleet provisioning templates using the `name`. For exampleconsole % pulumi import aws_iot_provisioning_template.fleet FleetProvisioningTemplate
  * 
  */
 @ResourceType(type="aws:iot/provisioningTemplate:ProvisioningTemplate")

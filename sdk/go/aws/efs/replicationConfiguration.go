@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/efs"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/efs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -57,7 +58,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/efs"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/efs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -86,13 +87,11 @@ import (
 //
 // ## Import
 //
-// EFS Replication Configurations can be imported using the file system ID of either the source or destination file system. When importing, the `availability_zone_name` and `kms_key_id` attributes must **not** be set in the configuration. The AWS API does not return these values when querying the replication configuration and their presence will therefore show as a diff in a subsequent plan.
+// terraform import {
 //
-// ```sh
+//	to = aws_efs_replication_configuration.example
 //
-//	$ pulumi import aws:efs/replicationConfiguration:ReplicationConfiguration example fs-id
-//
-// ```
+//	id = "fs-id" } Using `pulumi import`, import EFS Replication Configurations using the file system ID of either the source or destination file system. When importing, the `availability_zone_name` and `kms_key_id` attributes must **not** be set in the configuration. The AWS API does not return these values when querying the replication configuration and their presence will therefore show as a diff in a subsequent plan. For exampleconsole % pulumi import aws_efs_replication_configuration.example fs-id
 type ReplicationConfiguration struct {
 	pulumi.CustomResourceState
 
@@ -125,6 +124,7 @@ func NewReplicationConfiguration(ctx *pulumi.Context,
 	if args.SourceFileSystemId == nil {
 		return nil, errors.New("invalid value for required argument 'SourceFileSystemId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ReplicationConfiguration
 	err := ctx.RegisterResource("aws:efs/replicationConfiguration:ReplicationConfiguration", name, args, &resource, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,8 +26,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -77,9 +78,10 @@ import (
 //
 // import (
 //
-// "github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
@@ -139,9 +141,10 @@ import (
 //
 // import (
 //
-// "github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
@@ -215,13 +218,11 @@ import (
 //
 // ## Import
 //
-// EventBridge permissions can be imported using the `event_bus_name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_cloudwatch_event_bus_policy.DevAccountAccess
 //
-//	$ pulumi import aws:cloudwatch/eventBusPolicy:EventBusPolicy DevAccountAccess example-event-bus
-//
-// ```
+//	id = "example-event-bus" } Using `pulumi import`, import an EventBridge policy using the `event_bus_name`. For exampleconsole % pulumi import aws_cloudwatch_event_bus_policy.DevAccountAccess example-event-bus
 type EventBusPolicy struct {
 	pulumi.CustomResourceState
 
@@ -242,6 +243,7 @@ func NewEventBusPolicy(ctx *pulumi.Context,
 	if args.Policy == nil {
 		return nil, errors.New("invalid value for required argument 'Policy'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EventBusPolicy
 	err := ctx.RegisterResource("aws:cloudwatch/eventBusPolicy:EventBusPolicy", name, args, &resource, opts...)
 	if err != nil {

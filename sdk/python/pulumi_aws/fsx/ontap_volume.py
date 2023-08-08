@@ -16,52 +16,50 @@ __all__ = ['OntapVolumeArgs', 'OntapVolume']
 @pulumi.input_type
 class OntapVolumeArgs:
     def __init__(__self__, *,
-                 junction_path: pulumi.Input[str],
                  size_in_megabytes: pulumi.Input[int],
-                 storage_efficiency_enabled: pulumi.Input[bool],
                  storage_virtual_machine_id: pulumi.Input[str],
+                 junction_path: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 ontap_volume_type: Optional[pulumi.Input[str]] = None,
                  security_style: Optional[pulumi.Input[str]] = None,
+                 skip_final_backup: Optional[pulumi.Input[bool]] = None,
+                 storage_efficiency_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tiering_policy: Optional[pulumi.Input['OntapVolumeTieringPolicyArgs']] = None,
                  volume_type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a OntapVolume resource.
-        :param pulumi.Input[str] junction_path: Specifies the location in the storage virtual machine's namespace where the volume is mounted. The junction_path must have a leading forward slash, such as `/vol3`
         :param pulumi.Input[int] size_in_megabytes: Specifies the size of the volume, in megabytes (MB), that you are creating.
-        :param pulumi.Input[bool] storage_efficiency_enabled: Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
         :param pulumi.Input[str] storage_virtual_machine_id: Specifies the storage virtual machine in which to create the volume.
+        :param pulumi.Input[str] junction_path: Specifies the location in the storage virtual machine's namespace where the volume is mounted. The junction_path must have a leading forward slash, such as `/vol3`
         :param pulumi.Input[str] name: The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
-        :param pulumi.Input[str] security_style: Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. Default value is `UNIX`.
+        :param pulumi.Input[str] ontap_volume_type: Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
+        :param pulumi.Input[str] security_style: Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
+        :param pulumi.Input[bool] skip_final_backup: When enabled, will skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+        :param pulumi.Input[bool] storage_efficiency_enabled: Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the volume. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] volume_type: The type of volume, currently the only valid value is `ONTAP`.
         """
-        pulumi.set(__self__, "junction_path", junction_path)
         pulumi.set(__self__, "size_in_megabytes", size_in_megabytes)
-        pulumi.set(__self__, "storage_efficiency_enabled", storage_efficiency_enabled)
         pulumi.set(__self__, "storage_virtual_machine_id", storage_virtual_machine_id)
+        if junction_path is not None:
+            pulumi.set(__self__, "junction_path", junction_path)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if ontap_volume_type is not None:
+            pulumi.set(__self__, "ontap_volume_type", ontap_volume_type)
         if security_style is not None:
             pulumi.set(__self__, "security_style", security_style)
+        if skip_final_backup is not None:
+            pulumi.set(__self__, "skip_final_backup", skip_final_backup)
+        if storage_efficiency_enabled is not None:
+            pulumi.set(__self__, "storage_efficiency_enabled", storage_efficiency_enabled)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tiering_policy is not None:
             pulumi.set(__self__, "tiering_policy", tiering_policy)
         if volume_type is not None:
             pulumi.set(__self__, "volume_type", volume_type)
-
-    @property
-    @pulumi.getter(name="junctionPath")
-    def junction_path(self) -> pulumi.Input[str]:
-        """
-        Specifies the location in the storage virtual machine's namespace where the volume is mounted. The junction_path must have a leading forward slash, such as `/vol3`
-        """
-        return pulumi.get(self, "junction_path")
-
-    @junction_path.setter
-    def junction_path(self, value: pulumi.Input[str]):
-        pulumi.set(self, "junction_path", value)
 
     @property
     @pulumi.getter(name="sizeInMegabytes")
@@ -76,18 +74,6 @@ class OntapVolumeArgs:
         pulumi.set(self, "size_in_megabytes", value)
 
     @property
-    @pulumi.getter(name="storageEfficiencyEnabled")
-    def storage_efficiency_enabled(self) -> pulumi.Input[bool]:
-        """
-        Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
-        """
-        return pulumi.get(self, "storage_efficiency_enabled")
-
-    @storage_efficiency_enabled.setter
-    def storage_efficiency_enabled(self, value: pulumi.Input[bool]):
-        pulumi.set(self, "storage_efficiency_enabled", value)
-
-    @property
     @pulumi.getter(name="storageVirtualMachineId")
     def storage_virtual_machine_id(self) -> pulumi.Input[str]:
         """
@@ -98,6 +84,18 @@ class OntapVolumeArgs:
     @storage_virtual_machine_id.setter
     def storage_virtual_machine_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "storage_virtual_machine_id", value)
+
+    @property
+    @pulumi.getter(name="junctionPath")
+    def junction_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the location in the storage virtual machine's namespace where the volume is mounted. The junction_path must have a leading forward slash, such as `/vol3`
+        """
+        return pulumi.get(self, "junction_path")
+
+    @junction_path.setter
+    def junction_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "junction_path", value)
 
     @property
     @pulumi.getter
@@ -112,16 +110,52 @@ class OntapVolumeArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="ontapVolumeType")
+    def ontap_volume_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
+        """
+        return pulumi.get(self, "ontap_volume_type")
+
+    @ontap_volume_type.setter
+    def ontap_volume_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ontap_volume_type", value)
+
+    @property
     @pulumi.getter(name="securityStyle")
     def security_style(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. Default value is `UNIX`.
+        Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
         """
         return pulumi.get(self, "security_style")
 
     @security_style.setter
     def security_style(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "security_style", value)
+
+    @property
+    @pulumi.getter(name="skipFinalBackup")
+    def skip_final_backup(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When enabled, will skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+        """
+        return pulumi.get(self, "skip_final_backup")
+
+    @skip_final_backup.setter
+    def skip_final_backup(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_final_backup", value)
+
+    @property
+    @pulumi.getter(name="storageEfficiencyEnabled")
+    def storage_efficiency_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
+        """
+        return pulumi.get(self, "storage_efficiency_enabled")
+
+    @storage_efficiency_enabled.setter
+    def storage_efficiency_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "storage_efficiency_enabled", value)
 
     @property
     @pulumi.getter
@@ -168,6 +202,7 @@ class _OntapVolumeState:
                  ontap_volume_type: Optional[pulumi.Input[str]] = None,
                  security_style: Optional[pulumi.Input[str]] = None,
                  size_in_megabytes: Optional[pulumi.Input[int]] = None,
+                 skip_final_backup: Optional[pulumi.Input[bool]] = None,
                  storage_efficiency_enabled: Optional[pulumi.Input[bool]] = None,
                  storage_virtual_machine_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -182,9 +217,10 @@ class _OntapVolumeState:
         :param pulumi.Input[str] flexcache_endpoint_type: Specifies the FlexCache endpoint type of the volume, Valid values are `NONE`, `ORIGIN`, `CACHE`. Default value is `NONE`. These can be set by the ONTAP CLI or API and are use with FlexCache feature.
         :param pulumi.Input[str] junction_path: Specifies the location in the storage virtual machine's namespace where the volume is mounted. The junction_path must have a leading forward slash, such as `/vol3`
         :param pulumi.Input[str] name: The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
-        :param pulumi.Input[str] ontap_volume_type: Specifies the type of volume, Valid values are `RW`, `DP`,  and `LS`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
-        :param pulumi.Input[str] security_style: Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. Default value is `UNIX`.
+        :param pulumi.Input[str] ontap_volume_type: Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
+        :param pulumi.Input[str] security_style: Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
         :param pulumi.Input[int] size_in_megabytes: Specifies the size of the volume, in megabytes (MB), that you are creating.
+        :param pulumi.Input[bool] skip_final_backup: When enabled, will skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
         :param pulumi.Input[bool] storage_efficiency_enabled: Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
         :param pulumi.Input[str] storage_virtual_machine_id: Specifies the storage virtual machine in which to create the volume.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the volume. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -208,6 +244,8 @@ class _OntapVolumeState:
             pulumi.set(__self__, "security_style", security_style)
         if size_in_megabytes is not None:
             pulumi.set(__self__, "size_in_megabytes", size_in_megabytes)
+        if skip_final_backup is not None:
+            pulumi.set(__self__, "skip_final_backup", skip_final_backup)
         if storage_efficiency_enabled is not None:
             pulumi.set(__self__, "storage_efficiency_enabled", storage_efficiency_enabled)
         if storage_virtual_machine_id is not None:
@@ -287,7 +325,7 @@ class _OntapVolumeState:
     @pulumi.getter(name="ontapVolumeType")
     def ontap_volume_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the type of volume, Valid values are `RW`, `DP`,  and `LS`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
+        Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
         """
         return pulumi.get(self, "ontap_volume_type")
 
@@ -299,7 +337,7 @@ class _OntapVolumeState:
     @pulumi.getter(name="securityStyle")
     def security_style(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. Default value is `UNIX`.
+        Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
         """
         return pulumi.get(self, "security_style")
 
@@ -318,6 +356,18 @@ class _OntapVolumeState:
     @size_in_megabytes.setter
     def size_in_megabytes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "size_in_megabytes", value)
+
+    @property
+    @pulumi.getter(name="skipFinalBackup")
+    def skip_final_backup(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When enabled, will skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+        """
+        return pulumi.get(self, "skip_final_backup")
+
+    @skip_final_backup.setter
+    def skip_final_backup(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_final_backup", value)
 
     @property
     @pulumi.getter(name="storageEfficiencyEnabled")
@@ -408,8 +458,10 @@ class OntapVolume(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  junction_path: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 ontap_volume_type: Optional[pulumi.Input[str]] = None,
                  security_style: Optional[pulumi.Input[str]] = None,
                  size_in_megabytes: Optional[pulumi.Input[int]] = None,
+                 skip_final_backup: Optional[pulumi.Input[bool]] = None,
                  storage_efficiency_enabled: Optional[pulumi.Input[bool]] = None,
                  storage_virtual_machine_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -454,18 +506,20 @@ class OntapVolume(pulumi.CustomResource):
 
         ## Import
 
-        FSx ONTAP volume can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:fsx/ontapVolume:OntapVolume example fsvol-12345678abcdef123
-        ```
+         to = aws_fsx_ontap_volume.example
+
+         id = "fsvol-12345678abcdef123" } Using `pulumi import`, import FSx ONTAP volume using the `id`. For exampleconsole % pulumi import aws_fsx_ontap_volume.example fsvol-12345678abcdef123
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] junction_path: Specifies the location in the storage virtual machine's namespace where the volume is mounted. The junction_path must have a leading forward slash, such as `/vol3`
         :param pulumi.Input[str] name: The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
-        :param pulumi.Input[str] security_style: Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. Default value is `UNIX`.
+        :param pulumi.Input[str] ontap_volume_type: Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
+        :param pulumi.Input[str] security_style: Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
         :param pulumi.Input[int] size_in_megabytes: Specifies the size of the volume, in megabytes (MB), that you are creating.
+        :param pulumi.Input[bool] skip_final_backup: When enabled, will skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
         :param pulumi.Input[bool] storage_efficiency_enabled: Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
         :param pulumi.Input[str] storage_virtual_machine_id: Specifies the storage virtual machine in which to create the volume.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the volume. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -515,11 +569,11 @@ class OntapVolume(pulumi.CustomResource):
 
         ## Import
 
-        FSx ONTAP volume can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:fsx/ontapVolume:OntapVolume example fsvol-12345678abcdef123
-        ```
+         to = aws_fsx_ontap_volume.example
+
+         id = "fsvol-12345678abcdef123" } Using `pulumi import`, import FSx ONTAP volume using the `id`. For exampleconsole % pulumi import aws_fsx_ontap_volume.example fsvol-12345678abcdef123
 
         :param str resource_name: The name of the resource.
         :param OntapVolumeArgs args: The arguments to use to populate this resource's properties.
@@ -538,8 +592,10 @@ class OntapVolume(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  junction_path: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 ontap_volume_type: Optional[pulumi.Input[str]] = None,
                  security_style: Optional[pulumi.Input[str]] = None,
                  size_in_megabytes: Optional[pulumi.Input[int]] = None,
+                 skip_final_backup: Optional[pulumi.Input[bool]] = None,
                  storage_efficiency_enabled: Optional[pulumi.Input[bool]] = None,
                  storage_virtual_machine_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -554,16 +610,14 @@ class OntapVolume(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = OntapVolumeArgs.__new__(OntapVolumeArgs)
 
-            if junction_path is None and not opts.urn:
-                raise TypeError("Missing required property 'junction_path'")
             __props__.__dict__["junction_path"] = junction_path
             __props__.__dict__["name"] = name
+            __props__.__dict__["ontap_volume_type"] = ontap_volume_type
             __props__.__dict__["security_style"] = security_style
             if size_in_megabytes is None and not opts.urn:
                 raise TypeError("Missing required property 'size_in_megabytes'")
             __props__.__dict__["size_in_megabytes"] = size_in_megabytes
-            if storage_efficiency_enabled is None and not opts.urn:
-                raise TypeError("Missing required property 'storage_efficiency_enabled'")
+            __props__.__dict__["skip_final_backup"] = skip_final_backup
             __props__.__dict__["storage_efficiency_enabled"] = storage_efficiency_enabled
             if storage_virtual_machine_id is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_virtual_machine_id'")
@@ -574,7 +628,6 @@ class OntapVolume(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["file_system_id"] = None
             __props__.__dict__["flexcache_endpoint_type"] = None
-            __props__.__dict__["ontap_volume_type"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["uuid"] = None
         super(OntapVolume, __self__).__init__(
@@ -595,6 +648,7 @@ class OntapVolume(pulumi.CustomResource):
             ontap_volume_type: Optional[pulumi.Input[str]] = None,
             security_style: Optional[pulumi.Input[str]] = None,
             size_in_megabytes: Optional[pulumi.Input[int]] = None,
+            skip_final_backup: Optional[pulumi.Input[bool]] = None,
             storage_efficiency_enabled: Optional[pulumi.Input[bool]] = None,
             storage_virtual_machine_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -614,9 +668,10 @@ class OntapVolume(pulumi.CustomResource):
         :param pulumi.Input[str] flexcache_endpoint_type: Specifies the FlexCache endpoint type of the volume, Valid values are `NONE`, `ORIGIN`, `CACHE`. Default value is `NONE`. These can be set by the ONTAP CLI or API and are use with FlexCache feature.
         :param pulumi.Input[str] junction_path: Specifies the location in the storage virtual machine's namespace where the volume is mounted. The junction_path must have a leading forward slash, such as `/vol3`
         :param pulumi.Input[str] name: The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
-        :param pulumi.Input[str] ontap_volume_type: Specifies the type of volume, Valid values are `RW`, `DP`,  and `LS`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
-        :param pulumi.Input[str] security_style: Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. Default value is `UNIX`.
+        :param pulumi.Input[str] ontap_volume_type: Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
+        :param pulumi.Input[str] security_style: Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
         :param pulumi.Input[int] size_in_megabytes: Specifies the size of the volume, in megabytes (MB), that you are creating.
+        :param pulumi.Input[bool] skip_final_backup: When enabled, will skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
         :param pulumi.Input[bool] storage_efficiency_enabled: Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
         :param pulumi.Input[str] storage_virtual_machine_id: Specifies the storage virtual machine in which to create the volume.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the volume. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -636,6 +691,7 @@ class OntapVolume(pulumi.CustomResource):
         __props__.__dict__["ontap_volume_type"] = ontap_volume_type
         __props__.__dict__["security_style"] = security_style
         __props__.__dict__["size_in_megabytes"] = size_in_megabytes
+        __props__.__dict__["skip_final_backup"] = skip_final_backup
         __props__.__dict__["storage_efficiency_enabled"] = storage_efficiency_enabled
         __props__.__dict__["storage_virtual_machine_id"] = storage_virtual_machine_id
         __props__.__dict__["tags"] = tags
@@ -671,7 +727,7 @@ class OntapVolume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="junctionPath")
-    def junction_path(self) -> pulumi.Output[str]:
+    def junction_path(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the location in the storage virtual machine's namespace where the volume is mounted. The junction_path must have a leading forward slash, such as `/vol3`
         """
@@ -689,15 +745,15 @@ class OntapVolume(pulumi.CustomResource):
     @pulumi.getter(name="ontapVolumeType")
     def ontap_volume_type(self) -> pulumi.Output[str]:
         """
-        Specifies the type of volume, Valid values are `RW`, `DP`,  and `LS`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
+        Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
         """
         return pulumi.get(self, "ontap_volume_type")
 
     @property
     @pulumi.getter(name="securityStyle")
-    def security_style(self) -> pulumi.Output[Optional[str]]:
+    def security_style(self) -> pulumi.Output[str]:
         """
-        Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. Default value is `UNIX`.
+        Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
         """
         return pulumi.get(self, "security_style")
 
@@ -710,8 +766,16 @@ class OntapVolume(pulumi.CustomResource):
         return pulumi.get(self, "size_in_megabytes")
 
     @property
+    @pulumi.getter(name="skipFinalBackup")
+    def skip_final_backup(self) -> pulumi.Output[Optional[bool]]:
+        """
+        When enabled, will skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+        """
+        return pulumi.get(self, "skip_final_backup")
+
+    @property
     @pulumi.getter(name="storageEfficiencyEnabled")
-    def storage_efficiency_enabled(self) -> pulumi.Output[bool]:
+    def storage_efficiency_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
         """

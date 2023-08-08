@@ -299,11 +299,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * DB Instances can be imported using the `identifier`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:rds/instance:Instance default mydb-rds-instance
- * ```
+ *  to = aws_db_instance.default
+ * 
+ *  id = &#34;mydb-rds-instance&#34; } Using `pulumi import`, import DB Instances using the `identifier`. For exampleconsole % pulumi import aws_db_instance.default mydb-rds-instance
  * 
  */
 @ResourceType(type="aws:rds/instance:Instance")
@@ -443,6 +443,20 @@ public class Instance extends com.pulumi.resources.CustomResource {
      */
     public Output<Integer> backupRetentionPeriod() {
         return this.backupRetentionPeriod;
+    }
+    /**
+     * Specifies where automated backups and manual snapshots are stored. Possible values are `region` (default) and `outposts`. See [Working with Amazon RDS on AWS Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) for more information.
+     * 
+     */
+    @Export(name="backupTarget", refs={String.class}, tree="[0]")
+    private Output<String> backupTarget;
+
+    /**
+     * @return Specifies where automated backups and manual snapshots are stored. Possible values are `region` (default) and `outposts`. See [Working with Amazon RDS on AWS Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) for more information.
+     * 
+     */
+    public Output<String> backupTarget() {
+        return this.backupTarget;
     }
     /**
      * The daily time range (in UTC) during which automated backups are created if they are enabled.
@@ -699,14 +713,14 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return this.engine;
     }
     /**
-     * The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster&#39;s engine version&#39;.
+     * The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster&#39;s engine version&#39;.
      * 
      */
     @Export(name="engineVersion", refs={String.class}, tree="[0]")
     private Output<String> engineVersion;
 
     /**
-     * @return The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster&#39;s engine version&#39;.
+     * @return The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster&#39;s engine version&#39;.
      * 
      */
     public Output<String> engineVersion() {
@@ -775,32 +789,28 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.iamDatabaseAuthenticationEnabled);
     }
     /**
-     * The name of the RDS instance,
-     * if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
+     * The name of the RDS instance, if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
      * 
      */
     @Export(name="identifier", refs={String.class}, tree="[0]")
     private Output<String> identifier;
 
     /**
-     * @return The name of the RDS instance,
-     * if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
+     * @return The name of the RDS instance, if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
      * 
      */
     public Output<String> identifier() {
         return this.identifier;
     }
     /**
-     * Creates a unique
-     * identifier beginning with the specified prefix. Conflicts with `identifier`.
+     * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
      * 
      */
     @Export(name="identifierPrefix", refs={String.class}, tree="[0]")
     private Output<String> identifierPrefix;
 
     /**
-     * @return Creates a unique
-     * identifier beginning with the specified prefix. Conflicts with `identifier`.
+     * @return Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
      * 
      */
     public Output<String> identifierPrefix() {
@@ -1034,17 +1044,9 @@ public class Instance extends com.pulumi.resources.CustomResource {
     public Output<Boolean> multiAz() {
         return this.multiAz;
     }
-    /**
-     * The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -1291,28 +1293,6 @@ public class Instance extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<InstanceS3Import>> s3Import() {
         return Codegen.optional(this.s3Import);
-    }
-    /**
-     * List of DB Security Groups to
-     * associate. Only used for [DB Instances on the _EC2-Classic_
-     * Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
-     * 
-     * @deprecated
-     * With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
-     * 
-     */
-    @Deprecated /* With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version. */
-    @Export(name="securityGroupNames", refs={List.class,String.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<String>> securityGroupNames;
-
-    /**
-     * @return List of DB Security Groups to
-     * associate. Only used for [DB Instances on the _EC2-Classic_
-     * Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
-     * 
-     */
-    public Output<Optional<List<String>>> securityGroupNames() {
-        return Codegen.optional(this.securityGroupNames);
     }
     /**
      * Determines whether a final DB snapshot is

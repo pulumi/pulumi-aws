@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -55,13 +56,11 @@ import (
 //
 // ## Import
 //
-// IAM user policy attachments can be imported using the user name and policy arn separated by `/`.
+// terraform import {
 //
-// ```sh
+//	to = aws_iam_user_policy_attachment.test-attach
 //
-//	$ pulumi import aws:iam/userPolicyAttachment:UserPolicyAttachment test-attach test-user/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
-//
-// ```
+//	id = "test-user/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy" } Using `pulumi import`, import IAM user policy attachments using the user name and policy arn separated by `/`. For exampleconsole % pulumi import aws_iam_user_policy_attachment.test-attach test-user/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
 type UserPolicyAttachment struct {
 	pulumi.CustomResourceState
 
@@ -84,6 +83,7 @@ func NewUserPolicyAttachment(ctx *pulumi.Context,
 	if args.User == nil {
 		return nil, errors.New("invalid value for required argument 'User'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource UserPolicyAttachment
 	err := ctx.RegisterResource("aws:iam/userPolicyAttachment:UserPolicyAttachment", name, args, &resource, opts...)
 	if err != nil {

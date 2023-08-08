@@ -35,17 +35,15 @@ namespace Pulumi.Aws.S3
     /// 
     /// ## Import
     /// 
-    /// S3 bucket accelerate configuration can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, the S3 bucket accelerate configuration resource should be imported using the `bucket` e.g.,
+    /// If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2 example bucket-name
-    /// ```
+    ///  to = aws_s3_bucket_accelerate_configuration.example
     /// 
-    ///  If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, the S3 bucket accelerate configuration resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
+    ///  id = "bucket-name" } If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`)terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2 example bucket-name,123456789012
-    /// ```
+    ///  to = aws_s3_bucket_accelerate_configuration.example
+    /// 
+    ///  id = "bucket-name,123456789012" } **Using `pulumi import` to import.** For exampleIf the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`console % pulumi import aws_s3_bucket_accelerate_configuration.example bucket-name If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`)console % pulumi import aws_s3_bucket_accelerate_configuration.example bucket-name,123456789012
     /// </summary>
     [AwsResourceType("aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2")]
     public partial class BucketAccelerateConfigurationV2 : global::Pulumi.CustomResource

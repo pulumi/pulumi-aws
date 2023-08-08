@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -53,7 +54,7 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -90,13 +91,11 @@ import (
 //
 // ## Import
 //
-// # Event Archive can be imported using their name, for example console
+// terraform import {
 //
-// ```sh
+//	to = aws_cloudwatch_event_archive.imported_event_archive.test
 //
-//	$ pulumi import aws:cloudwatch/eventArchive:EventArchive imported_event_archive order-archive
-//
-// ```
+//	id = "order-archive" } Using `pulumi import`, import an EventBridge archive using the `name`. For exampleconsole % pulumi import aws_cloudwatch_event_archive.imported_event_archive order-archive
 type EventArchive struct {
 	pulumi.CustomResourceState
 
@@ -124,6 +123,7 @@ func NewEventArchive(ctx *pulumi.Context,
 	if args.EventSourceArn == nil {
 		return nil, errors.New("invalid value for required argument 'EventSourceArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EventArchive
 	err := ctx.RegisterResource("aws:cloudwatch/eventArchive:EventArchive", name, args, &resource, opts...)
 	if err != nil {

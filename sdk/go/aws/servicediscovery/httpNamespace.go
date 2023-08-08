@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -17,7 +18,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicediscovery"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicediscovery"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -38,13 +39,11 @@ import (
 //
 // ## Import
 //
-// Service Discovery HTTP Namespace can be imported using the namespace ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_service_discovery_http_namespace.example
 //
-//	$ pulumi import aws:servicediscovery/httpNamespace:HttpNamespace example ns-1234567890
-//
-// ```
+//	id = "ns-1234567890" } Using `pulumi import`, import Service Discovery HTTP Namespace using the namespace ID. For exampleconsole % pulumi import aws_service_discovery_http_namespace.example ns-1234567890
 type HttpNamespace struct {
 	pulumi.CustomResourceState
 
@@ -69,6 +68,7 @@ func NewHttpNamespace(ctx *pulumi.Context,
 		args = &HttpNamespaceArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource HttpNamespace
 	err := ctx.RegisterResource("aws:servicediscovery/httpNamespace:HttpNamespace", name, args, &resource, opts...)
 	if err != nil {

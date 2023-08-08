@@ -262,23 +262,23 @@ class TableReplica(pulumi.CustomResource):
                 name="BrodoBaggins",
                 type="S",
             )],
-            opts=pulumi.ResourceOptions(provider="aws.main"))
+            opts=pulumi.ResourceOptions(provider=aws["main"]))
         example_table_replica = aws.dynamodb.TableReplica("exampleTableReplica",
             global_table_arn=example_table.arn,
             tags={
                 "Name": "IZPAWS",
                 "Pozo": "Amargo",
             },
-            opts=pulumi.ResourceOptions(provider="aws.alt"))
+            opts=pulumi.ResourceOptions(provider=aws["alt"]))
         ```
 
         ## Import
 
-        DynamoDB table replicas can be imported using the `table-name:main-region`, _e.g._,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:dynamodb/tableReplica:TableReplica example TestTable:us-west-2
-        ```
+         to = aws_dynamodb_table_replica.example
+
+         id = "TestTable:us-west-2" } Using `pulumi import`, import DynamoDB table replicas using the `table-name:main-region`. For exampleconsole % pulumi import aws_dynamodb_table_replica.example TestTable:us-west-2
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -321,23 +321,23 @@ class TableReplica(pulumi.CustomResource):
                 name="BrodoBaggins",
                 type="S",
             )],
-            opts=pulumi.ResourceOptions(provider="aws.main"))
+            opts=pulumi.ResourceOptions(provider=aws["main"]))
         example_table_replica = aws.dynamodb.TableReplica("exampleTableReplica",
             global_table_arn=example_table.arn,
             tags={
                 "Name": "IZPAWS",
                 "Pozo": "Amargo",
             },
-            opts=pulumi.ResourceOptions(provider="aws.alt"))
+            opts=pulumi.ResourceOptions(provider=aws["alt"]))
         ```
 
         ## Import
 
-        DynamoDB table replicas can be imported using the `table-name:main-region`, _e.g._,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:dynamodb/tableReplica:TableReplica example TestTable:us-west-2
-        ```
+         to = aws_dynamodb_table_replica.example
+
+         id = "TestTable:us-west-2" } Using `pulumi import`, import DynamoDB table replicas using the `table-name:main-region`. For exampleconsole % pulumi import aws_dynamodb_table_replica.example TestTable:us-west-2
 
         :param str resource_name: The name of the resource.
         :param TableReplicaInitArgs args: The arguments to use to populate this resource's properties.

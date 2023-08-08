@@ -7,9 +7,13 @@ import * as pulumi from "@pulumi/pulumi";
 const config = new pulumi.Config("aws");
 const providerOpts = { provider: new aws.Provider("prov", { region: <aws.Region>config.require("envRegion") }) };
 
+const repository = new aws.ecr.Repository("repository", {
+    forceDelete: true,
+}, providerOpts);
+
 const image = awsx.ecr.buildAndPushImage("basic-container", {
     context: "./app",
-}, {}, providerOpts);
+}, { repository }, providerOpts);
 
 const role = new aws.iam.Role("demo-role", {
     assumeRolePolicy: aws.iam.assumeRolePolicyForPrincipal({

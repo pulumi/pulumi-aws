@@ -364,11 +364,11 @@ class Repository(pulumi.CustomResource):
 
         ## Import
 
-        CodeArtifact Repository can be imported using the CodeArtifact Repository ARN, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:codeartifact/repository:Repository example arn:aws:codeartifact:us-west-2:012345678912:repository/tf-acc-test-6968272603913957763/tf-acc-test-6968272603913957763
-        ```
+         to = aws_codeartifact_repository.example
+
+         id = "arn:aws:codeartifact:us-west-2:012345678912:repository/tf-acc-test-6968272603913957763/tf-acc-test-6968272603913957763" } Using `pulumi import`, import CodeArtifact Repository using the CodeArtifact Repository ARN. For exampleconsole % pulumi import aws_codeartifact_repository.example arn:aws:codeartifact:us-west-2:012345678912:repository/tf-acc-test-6968272603913957763/tf-acc-test-6968272603913957763
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -438,11 +438,11 @@ class Repository(pulumi.CustomResource):
 
         ## Import
 
-        CodeArtifact Repository can be imported using the CodeArtifact Repository ARN, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:codeartifact/repository:Repository example arn:aws:codeartifact:us-west-2:012345678912:repository/tf-acc-test-6968272603913957763/tf-acc-test-6968272603913957763
-        ```
+         to = aws_codeartifact_repository.example
+
+         id = "arn:aws:codeartifact:us-west-2:012345678912:repository/tf-acc-test-6968272603913957763/tf-acc-test-6968272603913957763" } Using `pulumi import`, import CodeArtifact Repository using the CodeArtifact Repository ARN. For exampleconsole % pulumi import aws_codeartifact_repository.example arn:aws:codeartifact:us-west-2:012345678912:repository/tf-acc-test-6968272603913957763/tf-acc-test-6968272603913957763
 
         :param str resource_name: The name of the resource.
         :param RepositoryArgs args: The arguments to use to populate this resource's properties.

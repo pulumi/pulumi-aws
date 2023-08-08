@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/keyspaces"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/keyspaces"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -40,13 +41,11 @@ import (
 //
 // ## Import
 //
-// Use the `name` to import a keyspace. For example
+// terraform import {
 //
-// ```sh
+//	to = aws_keyspaces_keyspace.example
 //
-//	$ pulumi import aws:keyspaces/keyspace:Keyspace example my_keyspace
-//
-// ```
+//	id = "my_keyspace" } Using `pulumi import`, import a keyspace using the `name`. For exampleconsole % pulumi import aws_keyspaces_keyspace.example my_keyspace
 type Keyspace struct {
 	pulumi.CustomResourceState
 
@@ -69,6 +68,7 @@ func NewKeyspace(ctx *pulumi.Context,
 		args = &KeyspaceArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Keyspace
 	err := ctx.RegisterResource("aws:keyspaces/keyspace:Keyspace", name, args, &resource, opts...)
 	if err != nil {

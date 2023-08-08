@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,8 +26,8 @@ import (
 //	"encoding/json"
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3control"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3control"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -84,13 +85,11 @@ import (
 //
 // ## Import
 //
-// Access Point policies can be imported using the `access_point_arn`, e.g.
+// terraform import {
 //
-// ```sh
+//	to = aws_s3control_access_point_policy.example
 //
-//	$ pulumi import aws:s3control/accessPointPolicy:AccessPointPolicy example arn:aws:s3:us-west-2:123456789012:accesspoint/example
-//
-// ```
+//	id = "arn:aws:s3:us-west-2:123456789012:accesspoint/example" } Using `pulumi import`, import Access Point policies using the `access_point_arn`. For exampleconsole % pulumi import aws_s3control_access_point_policy.example arn:aws:s3:us-west-2:123456789012:accesspoint/example
 type AccessPointPolicy struct {
 	pulumi.CustomResourceState
 
@@ -115,6 +114,7 @@ func NewAccessPointPolicy(ctx *pulumi.Context,
 	if args.Policy == nil {
 		return nil, errors.New("invalid value for required argument 'Policy'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AccessPointPolicy
 	err := ctx.RegisterResource("aws:s3control/accessPointPolicy:AccessPointPolicy", name, args, &resource, opts...)
 	if err != nil {

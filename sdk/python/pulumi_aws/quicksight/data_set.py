@@ -18,7 +18,6 @@ class DataSetArgs:
     def __init__(__self__, *,
                  data_set_id: pulumi.Input[str],
                  import_mode: pulumi.Input[str],
-                 physical_table_maps: pulumi.Input[Sequence[pulumi.Input['DataSetPhysicalTableMapArgs']]],
                  aws_account_id: Optional[pulumi.Input[str]] = None,
                  column_groups: Optional[pulumi.Input[Sequence[pulumi.Input['DataSetColumnGroupArgs']]]] = None,
                  column_level_permission_rules: Optional[pulumi.Input[Sequence[pulumi.Input['DataSetColumnLevelPermissionRuleArgs']]]] = None,
@@ -27,6 +26,7 @@ class DataSetArgs:
                  logical_table_maps: Optional[pulumi.Input[Sequence[pulumi.Input['DataSetLogicalTableMapArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input['DataSetPermissionArgs']]]] = None,
+                 physical_table_maps: Optional[pulumi.Input[Sequence[pulumi.Input['DataSetPhysicalTableMapArgs']]]] = None,
                  refresh_properties: Optional[pulumi.Input['DataSetRefreshPropertiesArgs']] = None,
                  row_level_permission_data_set: Optional[pulumi.Input['DataSetRowLevelPermissionDataSetArgs']] = None,
                  row_level_permission_tag_configuration: Optional[pulumi.Input['DataSetRowLevelPermissionTagConfigurationArgs']] = None,
@@ -35,9 +35,6 @@ class DataSetArgs:
         The set of arguments for constructing a DataSet resource.
         :param pulumi.Input[str] data_set_id: Identifier for the data set.
         :param pulumi.Input[str] import_mode: Indicates whether you want to import the data into SPICE. Valid values are `SPICE` and `DIRECT_QUERY`.
-        :param pulumi.Input[Sequence[pulumi.Input['DataSetPhysicalTableMapArgs']]] physical_table_maps: Declares the physical tables that are available in the underlying data sources. See physical_table_map.
-               
-               The following arguments are optional:
         :param pulumi.Input[str] aws_account_id: AWS account ID.
         :param pulumi.Input[Sequence[pulumi.Input['DataSetColumnGroupArgs']]] column_groups: Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See column_groups.
         :param pulumi.Input[Sequence[pulumi.Input['DataSetColumnLevelPermissionRuleArgs']]] column_level_permission_rules: A set of 1 or more definitions of a [ColumnLevelPermissionRule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html). See column_level_permission_rules.
@@ -46,6 +43,9 @@ class DataSetArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DataSetLogicalTableMapArgs']]] logical_table_maps: Configures the combination and transformation of the data from the physical tables. Maximum of 1 entry. See logical_table_map.
         :param pulumi.Input[str] name: Display name for the dataset.
         :param pulumi.Input[Sequence[pulumi.Input['DataSetPermissionArgs']]] permissions: A set of resource permissions on the data source. Maximum of 64 items. See permissions.
+        :param pulumi.Input[Sequence[pulumi.Input['DataSetPhysicalTableMapArgs']]] physical_table_maps: Declares the physical tables that are available in the underlying data sources. See physical_table_map.
+               
+               The following arguments are optional:
         :param pulumi.Input['DataSetRefreshPropertiesArgs'] refresh_properties: The refresh properties for the data set. **NOTE**: Only valid when `import_mode` is set to `SPICE`. See refresh_properties.
         :param pulumi.Input['DataSetRowLevelPermissionDataSetArgs'] row_level_permission_data_set: The row-level security configuration for the data that you want to create. See row_level_permission_data_set.
         :param pulumi.Input['DataSetRowLevelPermissionTagConfigurationArgs'] row_level_permission_tag_configuration: The configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only. See row_level_permission_tag_configuration.
@@ -53,7 +53,6 @@ class DataSetArgs:
         """
         pulumi.set(__self__, "data_set_id", data_set_id)
         pulumi.set(__self__, "import_mode", import_mode)
-        pulumi.set(__self__, "physical_table_maps", physical_table_maps)
         if aws_account_id is not None:
             pulumi.set(__self__, "aws_account_id", aws_account_id)
         if column_groups is not None:
@@ -70,6 +69,8 @@ class DataSetArgs:
             pulumi.set(__self__, "name", name)
         if permissions is not None:
             pulumi.set(__self__, "permissions", permissions)
+        if physical_table_maps is not None:
+            pulumi.set(__self__, "physical_table_maps", physical_table_maps)
         if refresh_properties is not None:
             pulumi.set(__self__, "refresh_properties", refresh_properties)
         if row_level_permission_data_set is not None:
@@ -102,20 +103,6 @@ class DataSetArgs:
     @import_mode.setter
     def import_mode(self, value: pulumi.Input[str]):
         pulumi.set(self, "import_mode", value)
-
-    @property
-    @pulumi.getter(name="physicalTableMaps")
-    def physical_table_maps(self) -> pulumi.Input[Sequence[pulumi.Input['DataSetPhysicalTableMapArgs']]]:
-        """
-        Declares the physical tables that are available in the underlying data sources. See physical_table_map.
-
-        The following arguments are optional:
-        """
-        return pulumi.get(self, "physical_table_maps")
-
-    @physical_table_maps.setter
-    def physical_table_maps(self, value: pulumi.Input[Sequence[pulumi.Input['DataSetPhysicalTableMapArgs']]]):
-        pulumi.set(self, "physical_table_maps", value)
 
     @property
     @pulumi.getter(name="awsAccountId")
@@ -212,6 +199,20 @@ class DataSetArgs:
     @permissions.setter
     def permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSetPermissionArgs']]]]):
         pulumi.set(self, "permissions", value)
+
+    @property
+    @pulumi.getter(name="physicalTableMaps")
+    def physical_table_maps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSetPhysicalTableMapArgs']]]]:
+        """
+        Declares the physical tables that are available in the underlying data sources. See physical_table_map.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "physical_table_maps")
+
+    @physical_table_maps.setter
+    def physical_table_maps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSetPhysicalTableMapArgs']]]]):
+        pulumi.set(self, "physical_table_maps", value)
 
     @property
     @pulumi.getter(name="refreshProperties")
@@ -729,11 +730,11 @@ class DataSet(pulumi.CustomResource):
 
         ## Import
 
-        A QuickSight Data Set can be imported using the AWS account ID and data set ID separated by a comma (`,`) e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:quicksight/dataSet:DataSet example 123456789012,example-id
-        ```
+         to = aws_quicksight_data_set.example
+
+         id = "123456789012,example-id" } Using `pulumi import`, import a QuickSight Data Set using the AWS account ID and data set ID separated by a comma (`,`). For exampleconsole % pulumi import aws_quicksight_data_set.example 123456789012,example-id
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -911,11 +912,11 @@ class DataSet(pulumi.CustomResource):
 
         ## Import
 
-        A QuickSight Data Set can be imported using the AWS account ID and data set ID separated by a comma (`,`) e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:quicksight/dataSet:DataSet example 123456789012,example-id
-        ```
+         to = aws_quicksight_data_set.example
+
+         id = "123456789012,example-id" } Using `pulumi import`, import a QuickSight Data Set using the AWS account ID and data set ID separated by a comma (`,`). For exampleconsole % pulumi import aws_quicksight_data_set.example 123456789012,example-id
 
         :param str resource_name: The name of the resource.
         :param DataSetArgs args: The arguments to use to populate this resource's properties.
@@ -970,8 +971,6 @@ class DataSet(pulumi.CustomResource):
             __props__.__dict__["logical_table_maps"] = logical_table_maps
             __props__.__dict__["name"] = name
             __props__.__dict__["permissions"] = permissions
-            if physical_table_maps is None and not opts.urn:
-                raise TypeError("Missing required property 'physical_table_maps'")
             __props__.__dict__["physical_table_maps"] = physical_table_maps
             __props__.__dict__["refresh_properties"] = refresh_properties
             __props__.__dict__["row_level_permission_data_set"] = row_level_permission_data_set
@@ -1154,7 +1153,7 @@ class DataSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="physicalTableMaps")
-    def physical_table_maps(self) -> pulumi.Output[Sequence['outputs.DataSetPhysicalTableMap']]:
+    def physical_table_maps(self) -> pulumi.Output[Optional[Sequence['outputs.DataSetPhysicalTableMap']]]:
         """
         Declares the physical tables that are available in the underlying data sources. See physical_table_map.
 

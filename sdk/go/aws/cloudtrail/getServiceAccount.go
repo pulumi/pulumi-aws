@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,12 +20,14 @@ import (
 // package main
 //
 // import (
-// "fmt"
 //
-// "github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudtrail"
-// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudtrail"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
@@ -96,6 +99,7 @@ import (
 // }
 // ```
 func GetServiceAccount(ctx *pulumi.Context, args *GetServiceAccountArgs, opts ...pulumi.InvokeOption) (*GetServiceAccountResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetServiceAccountResult
 	err := ctx.Invoke("aws:cloudtrail/getServiceAccount:getServiceAccount", args, &rv, opts...)
 	if err != nil {

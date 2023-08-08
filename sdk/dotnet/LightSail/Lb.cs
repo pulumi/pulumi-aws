@@ -37,11 +37,11 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// ## Import
     /// 
-    /// `aws_lightsail_lb` can be imported by using the name attribute, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:lightsail/lb:Lb test example-load-balancer
-    /// ```
+    ///  to = aws_lightsail_lb.test
+    /// 
+    ///  id = "example-load-balancer" } Using `pulumi import`, import `aws_lightsail_lb` using the name attribute. For exampleconsole % pulumi import aws_lightsail_lb.test example-load-balancer
     /// </summary>
     [AwsResourceType("aws:lightsail/lb:Lb")]
     public partial class Lb : global::Pulumi.CustomResource

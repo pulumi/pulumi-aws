@@ -50,11 +50,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * AutoScaling Lifecycle Hooks can be imported using the role autoscaling_group_name and name separated by `/`.
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:autoscaling/lifecycleHook:LifecycleHook test-lifecycle-hook asg-name/lifecycle-hook-name
- * ```
+ *  to = aws_autoscaling_lifecycle_hook.test-lifecycle-hook
+ *
+ *  id = "asg-name/lifecycle-hook-name" } Using `pulumi import`, import AutoScaling Lifecycle Hooks using the role autoscaling_group_name and name separated by `/`. For exampleconsole % pulumi import aws_autoscaling_lifecycle_hook.test-lifecycle-hook asg-name/lifecycle-hook-name
  */
 export class LifecycleHook extends pulumi.CustomResource {
     /**

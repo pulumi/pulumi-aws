@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cognito"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -46,19 +47,15 @@ import (
 //
 // ## Import
 //
-// Cognito Risk Configurations can be imported using the `id`, e.g.,
+// Import using the user pool IDterraform import {
 //
-// ```sh
+//	to = aws_cognito_risk_configuration.main
 //
-//	$ pulumi import aws:cognito/riskConfiguration:RiskConfiguration main example
+//	id = "example" } Import using the user pool ID and Client ID separated by a `:`terraform import {
 //
-// ```
+//	to = aws_cognito_risk_configuration.main
 //
-// ```sh
-//
-//	$ pulumi import aws:cognito/riskConfiguration:RiskConfiguration main example:example
-//
-// ```
+//	id = "example:example" } **Using `pulumi import` to import** Cognito Risk Configurations using the user pool ID or the user pool ID and Client Id separated by a `:`. For exampleImport using the user pool IDconsole % pulumi import aws_cognito_risk_configuration.main example Import using the user pool ID and Client ID separated by a `:`console % pulumi import aws_cognito_risk_configuration.main example:example
 type RiskConfiguration struct {
 	pulumi.CustomResourceState
 
@@ -84,6 +81,7 @@ func NewRiskConfiguration(ctx *pulumi.Context,
 	if args.UserPoolId == nil {
 		return nil, errors.New("invalid value for required argument 'UserPoolId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RiskConfiguration
 	err := ctx.RegisterResource("aws:cognito/riskConfiguration:RiskConfiguration", name, args, &resource, opts...)
 	if err != nil {

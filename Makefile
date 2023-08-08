@@ -3,13 +3,15 @@
 PACK := aws
 ORG := pulumi
 PROJECT := github.com/$(ORG)/pulumi-$(PACK)
-PROVIDER_PATH := provider/v5
+PROVIDER_PATH := provider/v6
 VERSION_PATH := $(PROVIDER_PATH)/pkg/version.Version
 TFGEN := pulumi-tfgen-$(PACK)
 PROVIDER := pulumi-resource-$(PACK)
+# We need to set VERSION_PREFIX before we set VERSION
+export VERSION_PREFIX := 6.0.0
 VERSION := $(shell pulumictl get version)
 JAVA_GEN := pulumi-java-gen
-JAVA_GEN_VERSION := v0.9.3
+JAVA_GEN_VERSION := v0.9.5
 TESTPARALLELISM := 10
 WORKING_DIR := $(shell pwd)
 SCHEMA_TOOLS_VERSION := $(shell cat .schema-tools.version)
@@ -115,6 +117,7 @@ install_plugins:
 	pulumi plugin install resource github 4.10.0
 	pulumi plugin install resource kubernetes 3.17.0
 	pulumi plugin install resource random 4.8.2
+	pulumi plugin install resource github 5.14.0
 
 lint_provider: provider
 	cd provider && golangci-lint run -c ../.golangci.yml

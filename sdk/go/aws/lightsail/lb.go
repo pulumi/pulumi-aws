@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lightsail"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -45,13 +46,11 @@ import (
 //
 // ## Import
 //
-// `aws_lightsail_lb` can be imported by using the name attribute, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_lightsail_lb.test
 //
-//	$ pulumi import aws:lightsail/lb:Lb test example-load-balancer
-//
-// ```
+//	id = "example-load-balancer" } Using `pulumi import`, import `aws_lightsail_lb` using the name attribute. For exampleconsole % pulumi import aws_lightsail_lb.test example-load-balancer
 type Lb struct {
 	pulumi.CustomResourceState
 
@@ -90,6 +89,7 @@ func NewLb(ctx *pulumi.Context,
 	if args.InstancePort == nil {
 		return nil, errors.New("invalid value for required argument 'InstancePort'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Lb
 	err := ctx.RegisterResource("aws:lightsail/lb:Lb", name, args, &resource, opts...)
 	if err != nil {

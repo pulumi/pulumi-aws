@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -143,8 +143,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &TrafficMirrorSession{}
 	case "aws:ec2/trafficMirrorTarget:TrafficMirrorTarget":
 		r = &TrafficMirrorTarget{}
-	case "aws:ec2/transitGatewayPeeringAttachmentAccepter:TransitGatewayPeeringAttachmentAccepter":
-		r = &TransitGatewayPeeringAttachmentAccepter{}
 	case "aws:ec2/volumeAttachment:VolumeAttachment":
 		r = &VolumeAttachment{}
 	case "aws:ec2/vpc:Vpc":
@@ -216,7 +214,7 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 }
 
 func init() {
-	version, err := aws.PkgVersion()
+	version, err := internal.PkgVersion()
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
@@ -523,11 +521,6 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"ec2/trafficMirrorTarget",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"aws",
-		"ec2/transitGatewayPeeringAttachmentAccepter",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

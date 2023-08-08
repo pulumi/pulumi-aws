@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,9 +22,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3control"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3control"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -74,13 +75,11 @@ import (
 //
 // ## Import
 //
-// Multi-Region Access Points can be imported using the `account_id` and `name` of the Multi-Region Access Point separated by a colon (`:`), e.g.
+// terraform import {
 //
-// ```sh
+//	to = aws_s3control_multi_region_access_point.example
 //
-//	$ pulumi import aws:s3control/multiRegionAccessPoint:MultiRegionAccessPoint example 123456789012:example
-//
-// ```
+//	id = "123456789012:example" } Using `pulumi import`, import Multi-Region Access Points using the `account_id` and `name` of the Multi-Region Access Point separated by a colon (`:`). For exampleconsole % pulumi import aws_s3control_multi_region_access_point.example 123456789012:example
 type MultiRegionAccessPoint struct {
 	pulumi.CustomResourceState
 
@@ -108,6 +107,7 @@ func NewMultiRegionAccessPoint(ctx *pulumi.Context,
 	if args.Details == nil {
 		return nil, errors.New("invalid value for required argument 'Details'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MultiRegionAccessPoint
 	err := ctx.RegisterResource("aws:s3control/multiRegionAccessPoint:MultiRegionAccessPoint", name, args, &resource, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -18,7 +19,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/redshift"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshift"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -60,13 +61,11 @@ import (
 //
 // ## Import
 //
-// Redshift Snapshot Schedule Association can be imported using the `<cluster-identifier>/<schedule-identifier>`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_redshift_snapshot_schedule_association.default
 //
-//	$ pulumi import aws:redshift/snapshotScheduleAssociation:SnapshotScheduleAssociation default tf-redshift-cluster/tf-redshift-snapshot-schedule
-//
-// ```
+//	id = "tf-redshift-cluster/tf-redshift-snapshot-schedule" } Using `pulumi import`, import Redshift Snapshot Schedule Association using the `<cluster-identifier>/<schedule-identifier>`. For exampleconsole % pulumi import aws_redshift_snapshot_schedule_association.default tf-redshift-cluster/tf-redshift-snapshot-schedule
 type SnapshotScheduleAssociation struct {
 	pulumi.CustomResourceState
 
@@ -89,6 +88,7 @@ func NewSnapshotScheduleAssociation(ctx *pulumi.Context,
 	if args.ScheduleIdentifier == nil {
 		return nil, errors.New("invalid value for required argument 'ScheduleIdentifier'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SnapshotScheduleAssociation
 	err := ctx.RegisterResource("aws:redshift/snapshotScheduleAssociation:SnapshotScheduleAssociation", name, args, &resource, opts...)
 	if err != nil {

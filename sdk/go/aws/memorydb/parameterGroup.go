@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/memorydb"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/memorydb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -49,13 +50,11 @@ import (
 //
 // ## Import
 //
-// Use the `name` to import a parameter group. For example
+// terraform import {
 //
-// ```sh
+//	to = aws_memorydb_parameter_group.example
 //
-//	$ pulumi import aws:memorydb/parameterGroup:ParameterGroup example my-parameter-group
-//
-// ```
+//	id = "my-parameter-group" } Using `pulumi import`, import a parameter group using the `name`. For exampleconsole % pulumi import aws_memorydb_parameter_group.example my-parameter-group
 type ParameterGroup struct {
 	pulumi.CustomResourceState
 
@@ -89,6 +88,7 @@ func NewParameterGroup(ctx *pulumi.Context,
 	if args.Family == nil {
 		return nil, errors.New("invalid value for required argument 'Family'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ParameterGroup
 	err := ctx.RegisterResource("aws:memorydb/parameterGroup:ParameterGroup", name, args, &resource, opts...)
 	if err != nil {

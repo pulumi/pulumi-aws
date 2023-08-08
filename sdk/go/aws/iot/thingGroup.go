@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iot"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iot"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -56,13 +57,11 @@ import (
 //
 // ## Import
 //
-// IoT Things Groups can be imported using the name, e.g.
+// terraform import {
 //
-// ```sh
+//	to = aws_iot_thing_group.example
 //
-//	$ pulumi import aws:iot/thingGroup:ThingGroup example example
-//
-// ```
+//	id = "example" } Using `pulumi import`, import IoT Things Groups using the name. For exampleconsole % pulumi import aws_iot_thing_group.example example
 type ThingGroup struct {
 	pulumi.CustomResourceState
 
@@ -89,6 +88,7 @@ func NewThingGroup(ctx *pulumi.Context,
 		args = &ThingGroupArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ThingGroup
 	err := ctx.RegisterResource("aws:iot/thingGroup:ThingGroup", name, args, &resource, opts...)
 	if err != nil {

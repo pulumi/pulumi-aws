@@ -152,11 +152,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * SageMaker Domains can be imported using the `id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:sagemaker/domain:Domain test_domain d-8jgsjtilstu8
- * ```
+ *  to = aws_sagemaker_domain.test_domain
+ * 
+ *  id = &#34;d-8jgsjtilstu8&#34; } Using `pulumi import`, import SageMaker Domains using the `id`. For exampleconsole % pulumi import aws_sagemaker_domain.test_domain d-8jgsjtilstu8
  * 
  */
 @ResourceType(type="aws:sagemaker/domain:Domain")

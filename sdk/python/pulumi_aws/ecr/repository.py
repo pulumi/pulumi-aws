@@ -319,11 +319,11 @@ class Repository(pulumi.CustomResource):
 
         ## Import
 
-        ECR Repositories can be imported using the `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ecr/repository:Repository service test-service
-        ```
+         to = aws_ecr_repository.service
+
+         id = "test-service" } Using `pulumi import`, import ECR Repositories using the `name`. For exampleconsole % pulumi import aws_ecr_repository.service test-service
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -359,11 +359,11 @@ class Repository(pulumi.CustomResource):
 
         ## Import
 
-        ECR Repositories can be imported using the `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ecr/repository:Repository service test-service
-        ```
+         to = aws_ecr_repository.service
+
+         id = "test-service" } Using `pulumi import`, import ECR Repositories using the `name`. For exampleconsole % pulumi import aws_ecr_repository.service test-service
 
         :param str resource_name: The name of the resource.
         :param RepositoryArgs args: The arguments to use to populate this resource's properties.

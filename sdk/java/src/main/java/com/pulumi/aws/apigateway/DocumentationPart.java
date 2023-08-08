@@ -59,11 +59,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * API Gateway documentation_parts can be imported using `REST-API-ID/DOC-PART-ID`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:apigateway/documentationPart:DocumentationPart example 5i4e1ko720/3oyy3t
- * ```
+ *  to = aws_api_gateway_documentation_part.example
+ * 
+ *  id = &#34;5i4e1ko720/3oyy3t&#34; } Using `pulumi import`, import API Gateway documentation_parts using `REST-API-ID/DOC-PART-ID`. For exampleconsole % pulumi import aws_api_gateway_documentation_part.example 5i4e1ko720/3oyy3t
  * 
  */
 @ResourceType(type="aws:apigateway/documentationPart:DocumentationPart")

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -81,8 +82,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -152,8 +153,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -257,13 +258,11 @@ import (
 //
 // ## Import
 //
-// Launch configurations can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_launch_configuration.as_conf
 //
-//	$ pulumi import aws:ec2/launchConfiguration:LaunchConfiguration as_conf lg-123456
-//
-// ```
+//	id = "TODO-lg-123456" } Using `pulumi import`, import launch configurations using the `name`. For exampleconsole % pulumi import aws_launch_configuration.as_conf TODO-lg-123456
 type LaunchConfiguration struct {
 	pulumi.CustomResourceState
 
@@ -307,14 +306,6 @@ type LaunchConfiguration struct {
 	UserData pulumi.StringPtrOutput `pulumi:"userData"`
 	// Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
 	UserDataBase64 pulumi.StringPtrOutput `pulumi:"userDataBase64"`
-	// The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
-	//
-	// Deprecated: With the retirement of EC2-Classic the vpc_classic_link_id attribute has been deprecated and will be removed in a future version.
-	VpcClassicLinkId pulumi.StringPtrOutput `pulumi:"vpcClassicLinkId"`
-	// The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
-	//
-	// Deprecated: With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version.
-	VpcClassicLinkSecurityGroups pulumi.StringArrayOutput `pulumi:"vpcClassicLinkSecurityGroups"`
 }
 
 // NewLaunchConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -330,6 +321,7 @@ func NewLaunchConfiguration(ctx *pulumi.Context,
 	if args.InstanceType == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceType'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LaunchConfiguration
 	err := ctx.RegisterResource("aws:ec2/launchConfiguration:LaunchConfiguration", name, args, &resource, opts...)
 	if err != nil {
@@ -392,14 +384,6 @@ type launchConfigurationState struct {
 	UserData *string `pulumi:"userData"`
 	// Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
 	UserDataBase64 *string `pulumi:"userDataBase64"`
-	// The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
-	//
-	// Deprecated: With the retirement of EC2-Classic the vpc_classic_link_id attribute has been deprecated and will be removed in a future version.
-	VpcClassicLinkId *string `pulumi:"vpcClassicLinkId"`
-	// The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
-	//
-	// Deprecated: With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version.
-	VpcClassicLinkSecurityGroups []string `pulumi:"vpcClassicLinkSecurityGroups"`
 }
 
 type LaunchConfigurationState struct {
@@ -443,14 +427,6 @@ type LaunchConfigurationState struct {
 	UserData pulumi.StringPtrInput
 	// Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
 	UserDataBase64 pulumi.StringPtrInput
-	// The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
-	//
-	// Deprecated: With the retirement of EC2-Classic the vpc_classic_link_id attribute has been deprecated and will be removed in a future version.
-	VpcClassicLinkId pulumi.StringPtrInput
-	// The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
-	//
-	// Deprecated: With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version.
-	VpcClassicLinkSecurityGroups pulumi.StringArrayInput
 }
 
 func (LaunchConfigurationState) ElementType() reflect.Type {
@@ -496,14 +472,6 @@ type launchConfigurationArgs struct {
 	UserData *string `pulumi:"userData"`
 	// Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
 	UserDataBase64 *string `pulumi:"userDataBase64"`
-	// The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
-	//
-	// Deprecated: With the retirement of EC2-Classic the vpc_classic_link_id attribute has been deprecated and will be removed in a future version.
-	VpcClassicLinkId *string `pulumi:"vpcClassicLinkId"`
-	// The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
-	//
-	// Deprecated: With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version.
-	VpcClassicLinkSecurityGroups []string `pulumi:"vpcClassicLinkSecurityGroups"`
 }
 
 // The set of arguments for constructing a LaunchConfiguration resource.
@@ -546,14 +514,6 @@ type LaunchConfigurationArgs struct {
 	UserData pulumi.StringPtrInput
 	// Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
 	UserDataBase64 pulumi.StringPtrInput
-	// The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
-	//
-	// Deprecated: With the retirement of EC2-Classic the vpc_classic_link_id attribute has been deprecated and will be removed in a future version.
-	VpcClassicLinkId pulumi.StringPtrInput
-	// The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
-	//
-	// Deprecated: With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version.
-	VpcClassicLinkSecurityGroups pulumi.StringArrayInput
 }
 
 func (LaunchConfigurationArgs) ElementType() reflect.Type {
@@ -740,20 +700,6 @@ func (o LaunchConfigurationOutput) UserData() pulumi.StringPtrOutput {
 // Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
 func (o LaunchConfigurationOutput) UserDataBase64() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchConfiguration) pulumi.StringPtrOutput { return v.UserDataBase64 }).(pulumi.StringPtrOutput)
-}
-
-// The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
-//
-// Deprecated: With the retirement of EC2-Classic the vpc_classic_link_id attribute has been deprecated and will be removed in a future version.
-func (o LaunchConfigurationOutput) VpcClassicLinkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LaunchConfiguration) pulumi.StringPtrOutput { return v.VpcClassicLinkId }).(pulumi.StringPtrOutput)
-}
-
-// The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
-//
-// Deprecated: With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version.
-func (o LaunchConfigurationOutput) VpcClassicLinkSecurityGroups() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *LaunchConfiguration) pulumi.StringArrayOutput { return v.VpcClassicLinkSecurityGroups }).(pulumi.StringArrayOutput)
 }
 
 type LaunchConfigurationArrayOutput struct{ *pulumi.OutputState }

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directoryservice"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directoryservice"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -53,13 +54,11 @@ import (
 //
 // ## Import
 //
-// Directory Service Shared Directories can be imported using the shared directory ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_directory_service_shared_directory_accepter.example
 //
-//	$ pulumi import aws:directoryservice/sharedDirectoryAccepter:SharedDirectoryAccepter example d-9267633ece
-//
-// ```
+//	id = "d-9267633ece" } Using `pulumi import`, import Directory Service Shared Directories using the shared directory ID. For exampleconsole % pulumi import aws_directory_service_shared_directory_accepter.example d-9267633ece
 type SharedDirectoryAccepter struct {
 	pulumi.CustomResourceState
 
@@ -85,6 +84,7 @@ func NewSharedDirectoryAccepter(ctx *pulumi.Context,
 	if args.SharedDirectoryId == nil {
 		return nil, errors.New("invalid value for required argument 'SharedDirectoryId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SharedDirectoryAccepter
 	err := ctx.RegisterResource("aws:directoryservice/sharedDirectoryAccepter:SharedDirectoryAccepter", name, args, &resource, opts...)
 	if err != nil {

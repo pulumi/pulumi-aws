@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,8 +23,8 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/securityhub"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/securityhub"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,13 +55,11 @@ import (
 //
 // ## Import
 //
-// Security Hub product subscriptions can be imported in the form `product_arn,arn`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_securityhub_product_subscription.example
 //
-//	$ pulumi import aws:securityhub/productSubscription:ProductSubscription example arn:aws:securityhub:eu-west-1:733251395267:product/alertlogic/althreatmanagement,arn:aws:securityhub:eu-west-1:123456789012:product-subscription/alertlogic/althreatmanagement
-//
-// ```
+//	id = "arn:aws:securityhub:eu-west-1:733251395267:product/alertlogic/althreatmanagement,arn:aws:securityhub:eu-west-1:123456789012:product-subscription/alertlogic/althreatmanagement" } Using `pulumi import`, import Security Hub product subscriptions using `product_arn,arn`. For exampleconsole % pulumi import aws_securityhub_product_subscription.example arn:aws:securityhub:eu-west-1:733251395267:product/alertlogic/althreatmanagement,arn:aws:securityhub:eu-west-1:123456789012:product-subscription/alertlogic/althreatmanagement
 type ProductSubscription struct {
 	pulumi.CustomResourceState
 
@@ -118,6 +117,7 @@ func NewProductSubscription(ctx *pulumi.Context,
 	if args.ProductArn == nil {
 		return nil, errors.New("invalid value for required argument 'ProductArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ProductSubscription
 	err := ctx.RegisterResource("aws:securityhub/productSubscription:ProductSubscription", name, args, &resource, opts...)
 	if err != nil {

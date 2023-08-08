@@ -93,8 +93,6 @@ import com.pulumi.aws.ec2.inputs.GetSecurityGroupsPlainArgs;
 import com.pulumi.aws.ec2.inputs.GetSpotPriceArgs;
 import com.pulumi.aws.ec2.inputs.GetSpotPricePlainArgs;
 import com.pulumi.aws.ec2.inputs.GetSubnetArgs;
-import com.pulumi.aws.ec2.inputs.GetSubnetIdsArgs;
-import com.pulumi.aws.ec2.inputs.GetSubnetIdsPlainArgs;
 import com.pulumi.aws.ec2.inputs.GetSubnetPlainArgs;
 import com.pulumi.aws.ec2.inputs.GetSubnetsArgs;
 import com.pulumi.aws.ec2.inputs.GetSubnetsPlainArgs;
@@ -167,7 +165,6 @@ import com.pulumi.aws.ec2.outputs.GetSecurityGroupResult;
 import com.pulumi.aws.ec2.outputs.GetSecurityGroupsResult;
 import com.pulumi.aws.ec2.outputs.GetSerialConsoleAccessResult;
 import com.pulumi.aws.ec2.outputs.GetSpotPriceResult;
-import com.pulumi.aws.ec2.outputs.GetSubnetIdsResult;
 import com.pulumi.aws.ec2.outputs.GetSubnetResult;
 import com.pulumi.aws.ec2.outputs.GetSubnetsResult;
 import com.pulumi.aws.ec2.outputs.GetTransitGatewayRouteTablesResult;
@@ -7513,7 +7510,7 @@ public final class Ec2Functions {
         return Deployment.getInstance().invokeAsync("aws:ec2/getManagedPrefixLists:getManagedPrefixLists", TypeShape.of(GetManagedPrefixListsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Provides details about a specific Nat Gateway.
+     * Provides details about a specific VPC NAT Gateway.
      * 
      * ## Example Usage
      * ```java
@@ -7544,8 +7541,7 @@ public final class Ec2Functions {
      *     }
      * }
      * ```
-     * 
-     * Usage with tags:
+     * ### With tags
      * ```java
      * package generated_program;
      * 
@@ -7581,7 +7577,7 @@ public final class Ec2Functions {
         return getNatGateway(GetNatGatewayArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Provides details about a specific Nat Gateway.
+     * Provides details about a specific VPC NAT Gateway.
      * 
      * ## Example Usage
      * ```java
@@ -7612,8 +7608,7 @@ public final class Ec2Functions {
      *     }
      * }
      * ```
-     * 
-     * Usage with tags:
+     * ### With tags
      * ```java
      * package generated_program;
      * 
@@ -7649,7 +7644,7 @@ public final class Ec2Functions {
         return getNatGatewayPlain(GetNatGatewayPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Provides details about a specific Nat Gateway.
+     * Provides details about a specific VPC NAT Gateway.
      * 
      * ## Example Usage
      * ```java
@@ -7680,8 +7675,7 @@ public final class Ec2Functions {
      *     }
      * }
      * ```
-     * 
-     * Usage with tags:
+     * ### With tags
      * ```java
      * package generated_program;
      * 
@@ -7717,7 +7711,7 @@ public final class Ec2Functions {
         return getNatGateway(args, InvokeOptions.Empty);
     }
     /**
-     * Provides details about a specific Nat Gateway.
+     * Provides details about a specific VPC NAT Gateway.
      * 
      * ## Example Usage
      * ```java
@@ -7748,8 +7742,7 @@ public final class Ec2Functions {
      *     }
      * }
      * ```
-     * 
-     * Usage with tags:
+     * ### With tags
      * ```java
      * package generated_program;
      * 
@@ -7785,7 +7778,7 @@ public final class Ec2Functions {
         return getNatGatewayPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Provides details about a specific Nat Gateway.
+     * Provides details about a specific VPC NAT Gateway.
      * 
      * ## Example Usage
      * ```java
@@ -7816,8 +7809,7 @@ public final class Ec2Functions {
      *     }
      * }
      * ```
-     * 
-     * Usage with tags:
+     * ### With tags
      * ```java
      * package generated_program;
      * 
@@ -7853,7 +7845,7 @@ public final class Ec2Functions {
         return Deployment.getInstance().invoke("aws:ec2/getNatGateway:getNatGateway", TypeShape.of(GetNatGatewayResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Provides details about a specific Nat Gateway.
+     * Provides details about a specific VPC NAT Gateway.
      * 
      * ## Example Usage
      * ```java
@@ -7884,8 +7876,7 @@ public final class Ec2Functions {
      *     }
      * }
      * ```
-     * 
-     * Usage with tags:
+     * ### With tags
      * ```java
      * package generated_program;
      * 
@@ -13383,270 +13374,6 @@ public final class Ec2Functions {
         return Deployment.getInstance().invokeAsync("aws:ec2/getSubnet:getSubnet", TypeShape.of(GetSubnetResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * `aws.ec2.getSubnetIds` provides a set of ids for a vpc_id
-     * 
-     * This resource can be useful for getting back a set of subnet ids for a vpc.
-     * 
-     * &gt; **NOTE:** The `aws.ec2.getSubnetIds` data source has been deprecated and will be removed in a future version. Use the `aws.ec2.getSubnets` data source instead.
-     * 
-     * ## Example Usage
-     * 
-     * The following shows outputting all cidr blocks for every subnet id in a vpc.
-     * 
-     * The following example retrieves a set of all subnets in a VPC with a custom
-     * tag of `Tier` set to a value of &#34;Private&#34; so that the `aws.ec2.Instance` resource
-     * can loop through the subnets, putting instances across availability zones.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetSubnetIdsArgs;
-     * import com.pulumi.aws.ec2.Instance;
-     * import com.pulumi.aws.ec2.InstanceArgs;
-     * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var private = Ec2Functions.getSubnetIds(GetSubnetIdsArgs.builder()
-     *             .vpcId(var_.vpc_id())
-     *             .tags(Map.of(&#34;Tier&#34;, &#34;Private&#34;))
-     *             .build());
-     * 
-     *         final var app = private.applyValue(getSubnetIdsResult -&gt; {
-     *             final var resources = new ArrayList&lt;Instance&gt;();
-     *             for (var range : KeyedValue.of(getSubnetIdsResult.ids()) {
-     *                 var resource = new Instance(&#34;app-&#34; + range.key(), InstanceArgs.builder()                
-     *                     .ami(var_.ami())
-     *                     .instanceType(&#34;t2.micro&#34;)
-     *                     .subnetId(range.value())
-     *                     .build());
-     * 
-     *                 resources.add(resource);
-     *             }
-     * 
-     *             return resources;
-     *         });
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     */
-    public static Output<GetSubnetIdsResult> getSubnetIds(GetSubnetIdsArgs args) {
-        return getSubnetIds(args, InvokeOptions.Empty);
-    }
-    /**
-     * `aws.ec2.getSubnetIds` provides a set of ids for a vpc_id
-     * 
-     * This resource can be useful for getting back a set of subnet ids for a vpc.
-     * 
-     * &gt; **NOTE:** The `aws.ec2.getSubnetIds` data source has been deprecated and will be removed in a future version. Use the `aws.ec2.getSubnets` data source instead.
-     * 
-     * ## Example Usage
-     * 
-     * The following shows outputting all cidr blocks for every subnet id in a vpc.
-     * 
-     * The following example retrieves a set of all subnets in a VPC with a custom
-     * tag of `Tier` set to a value of &#34;Private&#34; so that the `aws.ec2.Instance` resource
-     * can loop through the subnets, putting instances across availability zones.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetSubnetIdsArgs;
-     * import com.pulumi.aws.ec2.Instance;
-     * import com.pulumi.aws.ec2.InstanceArgs;
-     * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var private = Ec2Functions.getSubnetIds(GetSubnetIdsArgs.builder()
-     *             .vpcId(var_.vpc_id())
-     *             .tags(Map.of(&#34;Tier&#34;, &#34;Private&#34;))
-     *             .build());
-     * 
-     *         final var app = private.applyValue(getSubnetIdsResult -&gt; {
-     *             final var resources = new ArrayList&lt;Instance&gt;();
-     *             for (var range : KeyedValue.of(getSubnetIdsResult.ids()) {
-     *                 var resource = new Instance(&#34;app-&#34; + range.key(), InstanceArgs.builder()                
-     *                     .ami(var_.ami())
-     *                     .instanceType(&#34;t2.micro&#34;)
-     *                     .subnetId(range.value())
-     *                     .build());
-     * 
-     *                 resources.add(resource);
-     *             }
-     * 
-     *             return resources;
-     *         });
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     */
-    public static CompletableFuture<GetSubnetIdsResult> getSubnetIdsPlain(GetSubnetIdsPlainArgs args) {
-        return getSubnetIdsPlain(args, InvokeOptions.Empty);
-    }
-    /**
-     * `aws.ec2.getSubnetIds` provides a set of ids for a vpc_id
-     * 
-     * This resource can be useful for getting back a set of subnet ids for a vpc.
-     * 
-     * &gt; **NOTE:** The `aws.ec2.getSubnetIds` data source has been deprecated and will be removed in a future version. Use the `aws.ec2.getSubnets` data source instead.
-     * 
-     * ## Example Usage
-     * 
-     * The following shows outputting all cidr blocks for every subnet id in a vpc.
-     * 
-     * The following example retrieves a set of all subnets in a VPC with a custom
-     * tag of `Tier` set to a value of &#34;Private&#34; so that the `aws.ec2.Instance` resource
-     * can loop through the subnets, putting instances across availability zones.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetSubnetIdsArgs;
-     * import com.pulumi.aws.ec2.Instance;
-     * import com.pulumi.aws.ec2.InstanceArgs;
-     * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var private = Ec2Functions.getSubnetIds(GetSubnetIdsArgs.builder()
-     *             .vpcId(var_.vpc_id())
-     *             .tags(Map.of(&#34;Tier&#34;, &#34;Private&#34;))
-     *             .build());
-     * 
-     *         final var app = private.applyValue(getSubnetIdsResult -&gt; {
-     *             final var resources = new ArrayList&lt;Instance&gt;();
-     *             for (var range : KeyedValue.of(getSubnetIdsResult.ids()) {
-     *                 var resource = new Instance(&#34;app-&#34; + range.key(), InstanceArgs.builder()                
-     *                     .ami(var_.ami())
-     *                     .instanceType(&#34;t2.micro&#34;)
-     *                     .subnetId(range.value())
-     *                     .build());
-     * 
-     *                 resources.add(resource);
-     *             }
-     * 
-     *             return resources;
-     *         });
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     */
-    public static Output<GetSubnetIdsResult> getSubnetIds(GetSubnetIdsArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:ec2/getSubnetIds:getSubnetIds", TypeShape.of(GetSubnetIdsResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * `aws.ec2.getSubnetIds` provides a set of ids for a vpc_id
-     * 
-     * This resource can be useful for getting back a set of subnet ids for a vpc.
-     * 
-     * &gt; **NOTE:** The `aws.ec2.getSubnetIds` data source has been deprecated and will be removed in a future version. Use the `aws.ec2.getSubnets` data source instead.
-     * 
-     * ## Example Usage
-     * 
-     * The following shows outputting all cidr blocks for every subnet id in a vpc.
-     * 
-     * The following example retrieves a set of all subnets in a VPC with a custom
-     * tag of `Tier` set to a value of &#34;Private&#34; so that the `aws.ec2.Instance` resource
-     * can loop through the subnets, putting instances across availability zones.
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.ec2.Ec2Functions;
-     * import com.pulumi.aws.ec2.inputs.GetSubnetIdsArgs;
-     * import com.pulumi.aws.ec2.Instance;
-     * import com.pulumi.aws.ec2.InstanceArgs;
-     * import com.pulumi.codegen.internal.KeyedValue;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var private = Ec2Functions.getSubnetIds(GetSubnetIdsArgs.builder()
-     *             .vpcId(var_.vpc_id())
-     *             .tags(Map.of(&#34;Tier&#34;, &#34;Private&#34;))
-     *             .build());
-     * 
-     *         final var app = private.applyValue(getSubnetIdsResult -&gt; {
-     *             final var resources = new ArrayList&lt;Instance&gt;();
-     *             for (var range : KeyedValue.of(getSubnetIdsResult.ids()) {
-     *                 var resource = new Instance(&#34;app-&#34; + range.key(), InstanceArgs.builder()                
-     *                     .ami(var_.ami())
-     *                     .instanceType(&#34;t2.micro&#34;)
-     *                     .subnetId(range.value())
-     *                     .build());
-     * 
-     *                 resources.add(resource);
-     *             }
-     * 
-     *             return resources;
-     *         });
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     */
-    public static CompletableFuture<GetSubnetIdsResult> getSubnetIdsPlain(GetSubnetIdsPlainArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invokeAsync("aws:ec2/getSubnetIds:getSubnetIds", TypeShape.of(GetSubnetIdsResult.class), args, Utilities.withVersion(options));
-    }
-    /**
      * This resource can be useful for getting back a set of subnet IDs.
      * 
      */
@@ -13717,7 +13444,7 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var exampleTransitGatewayRouteTables = Ec2Functions.getTransitGatewayRouteTables();
      * 
-     *         ctx.export(&#34;example&#34;, data.aws_ec2_transit_gateway_route_table().example().ids());
+     *         ctx.export(&#34;example&#34;, exampleTransitGatewayRouteTables.applyValue(getTransitGatewayRouteTablesResult -&gt; getTransitGatewayRouteTablesResult.ids()));
      *     }
      * }
      * ```
@@ -13755,7 +13482,7 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var exampleTransitGatewayRouteTables = Ec2Functions.getTransitGatewayRouteTables();
      * 
-     *         ctx.export(&#34;example&#34;, data.aws_ec2_transit_gateway_route_table().example().ids());
+     *         ctx.export(&#34;example&#34;, exampleTransitGatewayRouteTables.applyValue(getTransitGatewayRouteTablesResult -&gt; getTransitGatewayRouteTablesResult.ids()));
      *     }
      * }
      * ```
@@ -13793,7 +13520,7 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var exampleTransitGatewayRouteTables = Ec2Functions.getTransitGatewayRouteTables();
      * 
-     *         ctx.export(&#34;example&#34;, data.aws_ec2_transit_gateway_route_table().example().ids());
+     *         ctx.export(&#34;example&#34;, exampleTransitGatewayRouteTables.applyValue(getTransitGatewayRouteTablesResult -&gt; getTransitGatewayRouteTablesResult.ids()));
      *     }
      * }
      * ```
@@ -13831,7 +13558,7 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var exampleTransitGatewayRouteTables = Ec2Functions.getTransitGatewayRouteTables();
      * 
-     *         ctx.export(&#34;example&#34;, data.aws_ec2_transit_gateway_route_table().example().ids());
+     *         ctx.export(&#34;example&#34;, exampleTransitGatewayRouteTables.applyValue(getTransitGatewayRouteTablesResult -&gt; getTransitGatewayRouteTablesResult.ids()));
      *     }
      * }
      * ```
@@ -13869,7 +13596,7 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var exampleTransitGatewayRouteTables = Ec2Functions.getTransitGatewayRouteTables();
      * 
-     *         ctx.export(&#34;example&#34;, data.aws_ec2_transit_gateway_route_table().example().ids());
+     *         ctx.export(&#34;example&#34;, exampleTransitGatewayRouteTables.applyValue(getTransitGatewayRouteTablesResult -&gt; getTransitGatewayRouteTablesResult.ids()));
      *     }
      * }
      * ```
@@ -13907,7 +13634,7 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var exampleTransitGatewayRouteTables = Ec2Functions.getTransitGatewayRouteTables();
      * 
-     *         ctx.export(&#34;example&#34;, data.aws_ec2_transit_gateway_route_table().example().ids());
+     *         ctx.export(&#34;example&#34;, exampleTransitGatewayRouteTables.applyValue(getTransitGatewayRouteTablesResult -&gt; getTransitGatewayRouteTablesResult.ids()));
      *     }
      * }
      * ```

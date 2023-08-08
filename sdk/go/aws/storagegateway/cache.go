@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/storagegateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/storagegateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -44,13 +45,11 @@ import (
 //
 // ## Import
 //
-// `aws_storagegateway_cache` can be imported by using the gateway Amazon Resource Name (ARN) and local disk identifier separated with a colon (`:`), e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_storagegateway_cache.example
 //
-//	$ pulumi import aws:storagegateway/cache:Cache example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678:pci-0000:03:00.0-scsi-0:0:0:0
-//
-// ```
+//	id = "arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678:pci-0000:03:00.0-scsi-0:0:0:0" } Using `pulumi import`, import `aws_storagegateway_cache` using the gateway Amazon Resource Name (ARN) and local disk identifier separated with a colon (`:`). For exampleconsole % pulumi import aws_storagegateway_cache.example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678:pci-0000:03:00.0-scsi-0:0:0:0
 type Cache struct {
 	pulumi.CustomResourceState
 
@@ -73,6 +72,7 @@ func NewCache(ctx *pulumi.Context,
 	if args.GatewayArn == nil {
 		return nil, errors.New("invalid value for required argument 'GatewayArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Cache
 	err := ctx.RegisterResource("aws:storagegateway/cache:Cache", name, args, &resource, opts...)
 	if err != nil {

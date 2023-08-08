@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lightsail"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -75,13 +76,11 @@ import (
 //
 // ## Import
 //
-// `aws_lightsail_lb_attachment` can be imported by using the name attribute, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_lightsail_lb_attachment.test
 //
-//	$ pulumi import aws:lightsail/lbAttachment:LbAttachment test example-load-balancer,example-instance
-//
-// ```
+//	id = "example-load-balancer,example-instance" } Using `pulumi import`, import `aws_lightsail_lb_attachment` using the name attribute. For exampleconsole % pulumi import aws_lightsail_lb_attachment.test example-load-balancer,example-instance
 type LbAttachment struct {
 	pulumi.CustomResourceState
 
@@ -104,6 +103,7 @@ func NewLbAttachment(ctx *pulumi.Context,
 	if args.LbName == nil {
 		return nil, errors.New("invalid value for required argument 'LbName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LbAttachment
 	err := ctx.RegisterResource("aws:lightsail/lbAttachment:LbAttachment", name, args, &resource, opts...)
 	if err != nil {

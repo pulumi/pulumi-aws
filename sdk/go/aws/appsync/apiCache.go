@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appsync"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appsync"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -50,13 +51,11 @@ import (
 //
 // ## Import
 //
-// `aws_appsync_api_cache` can be imported using the AppSync API ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_appsync_api_cache.example
 //
-//	$ pulumi import aws:appsync/apiCache:ApiCache example xxxxx
-//
-// ```
+//	id = "xxxxx" } Using `pulumi import`, import `aws_appsync_api_cache` using the AppSync API ID. For exampleconsole % pulumi import aws_appsync_api_cache.example xxxxx
 type ApiCache struct {
 	pulumi.CustomResourceState
 
@@ -93,6 +92,7 @@ func NewApiCache(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ApiCache
 	err := ctx.RegisterResource("aws:appsync/apiCache:ApiCache", name, args, &resource, opts...)
 	if err != nil {

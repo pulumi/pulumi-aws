@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -45,6 +46,7 @@ import (
 //
 // ```
 func GetMaintenanceWindows(ctx *pulumi.Context, args *GetMaintenanceWindowsArgs, opts ...pulumi.InvokeOption) (*GetMaintenanceWindowsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetMaintenanceWindowsResult
 	err := ctx.Invoke("aws:ssm/getMaintenanceWindows:getMaintenanceWindows", args, &rv, opts...)
 	if err != nil {

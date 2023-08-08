@@ -61,11 +61,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Location Tracker Association can be imported using the `tracker_name|consumer_arn`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:location/trackerAssociation:TrackerAssociation example &#34;tracker_name|consumer_arn&#34;
- * ```
+ *  to = aws_location_tracker_association.example
+ * 
+ *  id = &#34;tracker_name|consumer_arn&#34; } Using `pulumi import`, import Location Tracker Association using the `tracker_name|consumer_arn`. For exampleconsole % pulumi import aws_location_tracker_association.example &#34;tracker_name|consumer_arn&#34;
  * 
  */
 @ResourceType(type="aws:location/trackerAssociation:TrackerAssociation")

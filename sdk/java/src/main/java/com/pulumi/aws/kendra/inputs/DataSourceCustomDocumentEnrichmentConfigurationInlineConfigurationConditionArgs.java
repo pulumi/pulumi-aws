@@ -32,14 +32,14 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigur
     }
 
     /**
-     * The value used by the operator. For example, you can specify the value &#39;financial&#39; for strings in the `_source_uri` field that partially match or contain this value. See Document Attribute Value.
+     * The value used by the operator. For example, you can specify the value &#39;financial&#39; for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
      * 
      */
     @Import(name="conditionOnValue")
     private @Nullable Output<DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueArgs> conditionOnValue;
 
     /**
-     * @return The value used by the operator. For example, you can specify the value &#39;financial&#39; for strings in the `_source_uri` field that partially match or contain this value. See Document Attribute Value.
+     * @return The value used by the operator. For example, you can specify the value &#39;financial&#39; for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
      * 
      */
     public Optional<Output<DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueArgs>> conditionOnValue() {
@@ -109,7 +109,7 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigur
         }
 
         /**
-         * @param conditionOnValue The value used by the operator. For example, you can specify the value &#39;financial&#39; for strings in the `_source_uri` field that partially match or contain this value. See Document Attribute Value.
+         * @param conditionOnValue The value used by the operator. For example, you can specify the value &#39;financial&#39; for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigur
         }
 
         /**
-         * @param conditionOnValue The value used by the operator. For example, you can specify the value &#39;financial&#39; for strings in the `_source_uri` field that partially match or contain this value. See Document Attribute Value.
+         * @param conditionOnValue The value used by the operator. For example, you can specify the value &#39;financial&#39; for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
          * 
          * @return builder
          * 

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,13 +43,11 @@ import (
 //
 // ## Import
 //
-// IAM Groups can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_iam_group.developers
 //
-//	$ pulumi import aws:iam/group:Group developers developers
-//
-// ```
+//	id = "developers" } Using `pulumi import`, import IAM Groups using the `name`. For exampleconsole % pulumi import aws_iam_group.developers developers
 type Group struct {
 	pulumi.CustomResourceState
 
@@ -69,6 +68,7 @@ func NewGroup(ctx *pulumi.Context,
 		args = &GroupArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Group
 	err := ctx.RegisterResource("aws:iam/group:Group", name, args, &resource, opts...)
 	if err != nil {

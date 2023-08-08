@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3control"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3control"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -84,13 +85,11 @@ import (
 //
 // ## Import
 //
-// S3 Storage Lens configurations can be imported using the `account_id` and `config_id`, separated by a colon (`:`), e.g.
+// terraform import {
 //
-// ```sh
+//	to = aws_s3control_storage_lens_configuration.example
 //
-//	$ pulumi import aws:s3control/storageLensConfiguration:StorageLensConfiguration example 123456789012:example-1
-//
-// ```
+//	id = "123456789012:example-1" } Using `pulumi import`, import S3 Storage Lens configurations using the `account_id` and `config_id`, separated by a colon (`:`). For exampleconsole % pulumi import aws_s3control_storage_lens_configuration.example 123456789012:example-1
 type StorageLensConfiguration struct {
 	pulumi.CustomResourceState
 
@@ -121,6 +120,7 @@ func NewStorageLensConfiguration(ctx *pulumi.Context,
 	if args.StorageLensConfiguration == nil {
 		return nil, errors.New("invalid value for required argument 'StorageLensConfiguration'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource StorageLensConfiguration
 	err := ctx.RegisterResource("aws:s3control/storageLensConfiguration:StorageLensConfiguration", name, args, &resource, opts...)
 	if err != nil {

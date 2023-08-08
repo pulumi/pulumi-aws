@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/location"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/location"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -41,13 +42,11 @@ import (
 //
 // ## Import
 //
-// `aws_location_tracker` resources can be imported using the tracker name, e.g.
+// terraform import {
 //
-// ```sh
+//	to = aws_location_tracker.example
 //
-//	$ pulumi import aws:location/tracker:Tracker example example
-//
-// ```
+//	id = "example" } Using `pulumi import`, import `aws_location_tracker` resources using the tracker name. For exampleconsole % pulumi import aws_location_tracker.example example
 type Tracker struct {
 	pulumi.CustomResourceState
 
@@ -83,6 +82,7 @@ func NewTracker(ctx *pulumi.Context,
 	if args.TrackerName == nil {
 		return nil, errors.New("invalid value for required argument 'TrackerName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Tracker
 	err := ctx.RegisterResource("aws:location/tracker:Tracker", name, args, &resource, opts...)
 	if err != nil {

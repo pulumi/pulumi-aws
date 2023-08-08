@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,7 +25,7 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -85,13 +86,11 @@ import (
 //
 // ## Import
 //
-// IAM Role Policies can be imported using the `role_name:role_policy_name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_iam_role_policy.mypolicy
 //
-//	$ pulumi import aws:iam/rolePolicy:RolePolicy mypolicy role_of_mypolicy_name:mypolicy_name
-//
-// ```
+//	id = "role_of_mypolicy_name:mypolicy_name" } Using `pulumi import`, import IAM Role Policies using the `role_name:role_policy_name`. For exampleconsole % pulumi import aws_iam_role_policy.mypolicy role_of_mypolicy_name:mypolicy_name
 type RolePolicy struct {
 	pulumi.CustomResourceState
 
@@ -120,6 +119,7 @@ func NewRolePolicy(ctx *pulumi.Context,
 	if args.Role == nil {
 		return nil, errors.New("invalid value for required argument 'Role'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RolePolicy
 	err := ctx.RegisterResource("aws:iam/rolePolicy:RolePolicy", name, args, &resource, opts...)
 	if err != nil {

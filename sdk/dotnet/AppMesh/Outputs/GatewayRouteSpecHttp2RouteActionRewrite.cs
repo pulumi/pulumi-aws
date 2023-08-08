@@ -18,6 +18,10 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// </summary>
         public readonly Outputs.GatewayRouteSpecHttp2RouteActionRewriteHostname? Hostname;
         /// <summary>
+        /// Exact path to rewrite.
+        /// </summary>
+        public readonly Outputs.GatewayRouteSpecHttp2RouteActionRewritePath? Path;
+        /// <summary>
         /// Specified beginning characters to rewrite.
         /// </summary>
         public readonly Outputs.GatewayRouteSpecHttp2RouteActionRewritePrefix? Prefix;
@@ -26,9 +30,12 @@ namespace Pulumi.Aws.AppMesh.Outputs
         private GatewayRouteSpecHttp2RouteActionRewrite(
             Outputs.GatewayRouteSpecHttp2RouteActionRewriteHostname? hostname,
 
+            Outputs.GatewayRouteSpecHttp2RouteActionRewritePath? path,
+
             Outputs.GatewayRouteSpecHttp2RouteActionRewritePrefix? prefix)
         {
             Hostname = hostname;
+            Path = path;
             Prefix = prefix;
         }
     }

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -26,7 +27,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -53,7 +54,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -146,7 +147,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -211,7 +212,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -262,13 +263,11 @@ import (
 //
 // ## Import
 //
-// SSM Patch Baselines can be imported by their baseline ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_ssm_patch_baseline.example
 //
-//	$ pulumi import aws:ssm/patchBaseline:PatchBaseline example pb-12345678
-//
-// ```
+//	id = "pb-12345678" } Using `pulumi import`, import SSM Patch Baselines using their baseline ID. For exampleconsole % pulumi import aws_ssm_patch_baseline.example pb-12345678
 type PatchBaseline struct {
 	pulumi.CustomResourceState
 
@@ -299,9 +298,11 @@ type PatchBaseline struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The operating system the patch baseline applies to.
 	// Valid values are
+	// `ALMA_LINUX`,
 	// `AMAZON_LINUX`,
 	// `AMAZON_LINUX_2`,
 	// `AMAZON_LINUX_2022`,
+	// `AMAZON_LINUX_2023`,
 	// `CENTOS`,
 	// `DEBIAN`,
 	// `MACOS`,
@@ -336,6 +337,7 @@ func NewPatchBaseline(ctx *pulumi.Context,
 		args = &PatchBaselineArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PatchBaseline
 	err := ctx.RegisterResource("aws:ssm/patchBaseline:PatchBaseline", name, args, &resource, opts...)
 	if err != nil {
@@ -385,9 +387,11 @@ type patchBaselineState struct {
 	Name *string `pulumi:"name"`
 	// The operating system the patch baseline applies to.
 	// Valid values are
+	// `ALMA_LINUX`,
 	// `AMAZON_LINUX`,
 	// `AMAZON_LINUX_2`,
 	// `AMAZON_LINUX_2022`,
+	// `AMAZON_LINUX_2023`,
 	// `CENTOS`,
 	// `DEBIAN`,
 	// `MACOS`,
@@ -443,9 +447,11 @@ type PatchBaselineState struct {
 	Name pulumi.StringPtrInput
 	// The operating system the patch baseline applies to.
 	// Valid values are
+	// `ALMA_LINUX`,
 	// `AMAZON_LINUX`,
 	// `AMAZON_LINUX_2`,
 	// `AMAZON_LINUX_2022`,
+	// `AMAZON_LINUX_2023`,
 	// `CENTOS`,
 	// `DEBIAN`,
 	// `MACOS`,
@@ -503,9 +509,11 @@ type patchBaselineArgs struct {
 	Name *string `pulumi:"name"`
 	// The operating system the patch baseline applies to.
 	// Valid values are
+	// `ALMA_LINUX`,
 	// `AMAZON_LINUX`,
 	// `AMAZON_LINUX_2`,
 	// `AMAZON_LINUX_2022`,
+	// `AMAZON_LINUX_2023`,
 	// `CENTOS`,
 	// `DEBIAN`,
 	// `MACOS`,
@@ -558,9 +566,11 @@ type PatchBaselineArgs struct {
 	Name pulumi.StringPtrInput
 	// The operating system the patch baseline applies to.
 	// Valid values are
+	// `ALMA_LINUX`,
 	// `AMAZON_LINUX`,
 	// `AMAZON_LINUX_2`,
 	// `AMAZON_LINUX_2022`,
+	// `AMAZON_LINUX_2023`,
 	// `CENTOS`,
 	// `DEBIAN`,
 	// `MACOS`,
@@ -724,9 +734,11 @@ func (o PatchBaselineOutput) Name() pulumi.StringOutput {
 
 // The operating system the patch baseline applies to.
 // Valid values are
+// `ALMA_LINUX`,
 // `AMAZON_LINUX`,
 // `AMAZON_LINUX_2`,
 // `AMAZON_LINUX_2022`,
+// `AMAZON_LINUX_2023`,
 // `CENTOS`,
 // `DEBIAN`,
 // `MACOS`,

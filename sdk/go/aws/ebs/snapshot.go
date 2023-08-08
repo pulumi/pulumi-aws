@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ebs"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ebs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,13 +55,11 @@ import (
 //
 // ## Import
 //
-// EBS Snapshot can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_ebs_snapshot.id
 //
-//	$ pulumi import aws:ebs/snapshot:Snapshot id snap-049df61146c4d7901
-//
-// ```
+//	id = "snap-049df61146c4d7901" } Using `pulumi import`, import EBS Snapshot using the `id`. For exampleconsole % pulumi import aws_ebs_snapshot.id snap-049df61146c4d7901
 type Snapshot struct {
 	pulumi.CustomResourceState
 
@@ -106,6 +105,7 @@ func NewSnapshot(ctx *pulumi.Context,
 	if args.VolumeId == nil {
 		return nil, errors.New("invalid value for required argument 'VolumeId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Snapshot
 	err := ctx.RegisterResource("aws:ebs/snapshot:Snapshot", name, args, &resource, opts...)
 	if err != nil {

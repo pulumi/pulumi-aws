@@ -34,6 +34,10 @@ namespace Pulumi.Aws.DataSync.Outputs
         /// </summary>
         public readonly string? Mtime;
         /// <summary>
+        /// Specifies whether object tags are maintained when transferring between object storage systems. If you want your DataSync task to ignore object tags, specify the NONE value. Valid values: `PRESERVE`, `NONE`. Default value: `PRESERVE`.
+        /// </summary>
+        public readonly string? ObjectTags;
+        /// <summary>
         /// Determines whether files at the destination should be overwritten or preserved when copying files. Valid values: `ALWAYS`, `NEVER`. Default: `ALWAYS`.
         /// </summary>
         public readonly string? OverwriteMode;
@@ -50,7 +54,7 @@ namespace Pulumi.Aws.DataSync.Outputs
         /// </summary>
         public readonly string? PreserveDevices;
         /// <summary>
-        /// Determines which components of the SMB security descriptor are copied from source to destination objects. This value is only used for transfers between SMB and Amazon FSx for Windows File Server locations, or between two Amazon FSx for Windows File Server locations. Valid values: `NONE`, `OWNER_DACL`, `OWNER_DACL_SACL`.
+        /// Determines which components of the SMB security descriptor are copied from source to destination objects. This value is only used for transfers between SMB and Amazon FSx for Windows File Server locations, or between two Amazon FSx for Windows File Server locations. Valid values: `NONE`, `OWNER_DACL`, `OWNER_DACL_SACL`. Default: `OWNER_DACL`.
         /// </summary>
         public readonly string? SecurityDescriptorCopyFlags;
         /// <summary>
@@ -82,6 +86,8 @@ namespace Pulumi.Aws.DataSync.Outputs
 
             string? mtime,
 
+            string? objectTags,
+
             string? overwriteMode,
 
             string? posixPermissions,
@@ -105,6 +111,7 @@ namespace Pulumi.Aws.DataSync.Outputs
             Gid = gid;
             LogLevel = logLevel;
             Mtime = mtime;
+            ObjectTags = objectTags;
             OverwriteMode = overwriteMode;
             PosixPermissions = posixPermissions;
             PreserveDeletedFiles = preserveDeletedFiles;

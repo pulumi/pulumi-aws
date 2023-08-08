@@ -192,11 +192,11 @@ class PeeringAttachmentAccepter(pulumi.CustomResource):
 
         ## Import
 
-        `aws_ec2_transit_gateway_peering_attachment_accepter` can be imported by using the EC2 Transit Gateway Attachment identifier, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ec2transitgateway/peeringAttachmentAccepter:PeeringAttachmentAccepter example tgw-attach-12345678
-        ```
+         to = aws_ec2_transit_gateway_peering_attachment_accepter.example
+
+         id = "tgw-attach-12345678" } Using `pulumi import`, import `aws_ec2_transit_gateway_peering_attachment_accepter` using the EC2 Transit Gateway Attachment identifier. For exampleconsole % pulumi import aws_ec2_transit_gateway_peering_attachment_accepter.example tgw-attach-12345678
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -227,11 +227,11 @@ class PeeringAttachmentAccepter(pulumi.CustomResource):
 
         ## Import
 
-        `aws_ec2_transit_gateway_peering_attachment_accepter` can be imported by using the EC2 Transit Gateway Attachment identifier, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ec2transitgateway/peeringAttachmentAccepter:PeeringAttachmentAccepter example tgw-attach-12345678
-        ```
+         to = aws_ec2_transit_gateway_peering_attachment_accepter.example
+
+         id = "tgw-attach-12345678" } Using `pulumi import`, import `aws_ec2_transit_gateway_peering_attachment_accepter` using the EC2 Transit Gateway Attachment identifier. For exampleconsole % pulumi import aws_ec2_transit_gateway_peering_attachment_accepter.example tgw-attach-12345678
 
         :param str resource_name: The name of the resource.
         :param PeeringAttachmentAccepterArgs args: The arguments to use to populate this resource's properties.

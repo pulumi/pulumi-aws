@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apprunner"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apprunner"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -47,13 +48,11 @@ import (
 //
 // ## Import
 //
-// App Runner Observability Configuration can be imported by using the `arn`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_apprunner_observability_configuration.example
 //
-//	$ pulumi import aws:apprunner/observabilityConfiguration:ObservabilityConfiguration example "arn:aws:apprunner:us-east-1:1234567890:observabilityconfiguration/example/1/d75bc7ea55b71e724fe5c23452fe22a1
-//
-// ```
+//	id = "arn:aws:apprunner:us-east-1:1234567890:observabilityconfiguration/example/1/d75bc7ea55b71e724fe5c23452fe22a1" } Using `pulumi import`, import App Runner Observability Configuration using the `arn`. For exampleconsole % pulumi import aws_apprunner_observability_configuration.example arn:aws:apprunner:us-east-1:1234567890:observabilityconfiguration/example/1/d75bc7ea55b71e724fe5c23452fe22a1
 type ObservabilityConfiguration struct {
 	pulumi.CustomResourceState
 
@@ -85,6 +84,7 @@ func NewObservabilityConfiguration(ctx *pulumi.Context,
 	if args.ObservabilityConfigurationName == nil {
 		return nil, errors.New("invalid value for required argument 'ObservabilityConfigurationName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ObservabilityConfiguration
 	err := ctx.RegisterResource("aws:apprunner/observabilityConfiguration:ObservabilityConfiguration", name, args, &resource, opts...)
 	if err != nil {

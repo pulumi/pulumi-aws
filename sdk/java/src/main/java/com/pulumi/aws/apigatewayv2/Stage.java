@@ -57,11 +57,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_apigatewayv2_stage` can be imported by using the API identifier and stage name, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:apigatewayv2/stage:Stage example aabbccddee/example-stage
- * ```
+ *  to = aws_apigatewayv2_stage.example
+ * 
+ *  id = &#34;aabbccddee/example-stage&#34; } Using `pulumi import`, import `aws_apigatewayv2_stage` using the API identifier and stage name. For exampleconsole % pulumi import aws_apigatewayv2_stage.example aabbccddee/example-stage
  * 
  */
 @ResourceType(type="aws:apigatewayv2/stage:Stage")

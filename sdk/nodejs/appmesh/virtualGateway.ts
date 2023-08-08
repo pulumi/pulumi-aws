@@ -11,6 +11,27 @@ import * as utilities from "../utilities";
  * Provides an AWS App Mesh virtual gateway resource.
  *
  * ## Example Usage
+ * ### Basic
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.appmesh.VirtualGateway("example", {
+ *     meshName: "example-service-mesh",
+ *     spec: {
+ *         listeners: [{
+ *             portMapping: {
+ *                 port: 8080,
+ *                 protocol: "http",
+ *             },
+ *         }],
+ *     },
+ *     tags: {
+ *         Environment: "test",
+ *     },
+ * });
+ * ```
  * ### Access Logs and TLS
  *
  * ```typescript
@@ -20,7 +41,7 @@ import * as utilities from "../utilities";
  * const example = new aws.appmesh.VirtualGateway("example", {
  *     meshName: "example-service-mesh",
  *     spec: {
- *         listener: {
+ *         listeners: [{
  *             portMapping: {
  *                 port: 8080,
  *                 protocol: "http",
@@ -33,7 +54,7 @@ import * as utilities from "../utilities";
  *                 },
  *                 mode: "STRICT",
  *             },
- *         },
+ *         }],
  *         logging: {
  *             accessLog: {
  *                 file: {
@@ -47,11 +68,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * App Mesh virtual gateway can be imported using `mesh_name` together with the virtual gateway's `name`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:appmesh/virtualGateway:VirtualGateway example mesh/gw1
- * ```
+ *  to = aws_appmesh_virtual_gateway.example
+ *
+ *  id = "mesh/gw1" } Using `pulumi import`, import App Mesh virtual gateway using `mesh_name` together with the virtual gateway's `name`. For exampleconsole % pulumi import aws_appmesh_virtual_gateway.example mesh/gw1
  */
 export class VirtualGateway extends pulumi.CustomResource {
     /**

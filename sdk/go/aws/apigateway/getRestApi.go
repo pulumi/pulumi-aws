@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -41,6 +42,7 @@ import (
 //
 // ```
 func LookupRestApi(ctx *pulumi.Context, args *LookupRestApiArgs, opts ...pulumi.InvokeOption) (*LookupRestApiResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRestApiResult
 	err := ctx.Invoke("aws:apigateway/getRestApi:getRestApi", args, &rv, opts...)
 	if err != nil {
@@ -74,7 +76,7 @@ type LookupRestApiResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Minimum response size to compress for the REST API.
-	MinimumCompressionSize int    `pulumi:"minimumCompressionSize"`
+	MinimumCompressionSize string `pulumi:"minimumCompressionSize"`
 	Name                   string `pulumi:"name"`
 	// JSON formatted policy document that controls access to the API Gateway.
 	Policy string `pulumi:"policy"`
@@ -160,8 +162,8 @@ func (o LookupRestApiResultOutput) Id() pulumi.StringOutput {
 }
 
 // Minimum response size to compress for the REST API.
-func (o LookupRestApiResultOutput) MinimumCompressionSize() pulumi.IntOutput {
-	return o.ApplyT(func(v LookupRestApiResult) int { return v.MinimumCompressionSize }).(pulumi.IntOutput)
+func (o LookupRestApiResultOutput) MinimumCompressionSize() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRestApiResult) string { return v.MinimumCompressionSize }).(pulumi.StringOutput)
 }
 
 func (o LookupRestApiResultOutput) Name() pulumi.StringOutput {

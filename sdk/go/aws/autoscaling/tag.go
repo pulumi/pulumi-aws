@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,13 +20,11 @@ import (
 //
 // ## Import
 //
-// `aws_autoscaling_group_tag` can be imported by using the ASG name and key, separated by a comma (`,`), e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_autoscaling_group_tag.example
 //
-//	$ pulumi import aws:autoscaling/tag:Tag example asg-example,k8s.io/cluster-autoscaler/node-template/label/eks.amazonaws.com/capacityType
-//
-// ```
+//	id = "asg-example,k8s.io/cluster-autoscaler/node-template/label/eks.amazonaws.com/capacityType" } Using `pulumi import`, import `aws_autoscaling_group_tag` using the ASG name and key, separated by a comma (`,`). For exampleconsole % pulumi import aws_autoscaling_group_tag.example asg-example,k8s.io/cluster-autoscaler/node-template/label/eks.amazonaws.com/capacityType
 type Tag struct {
 	pulumi.CustomResourceState
 
@@ -48,6 +47,7 @@ func NewTag(ctx *pulumi.Context,
 	if args.Tag == nil {
 		return nil, errors.New("invalid value for required argument 'Tag'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Tag
 	err := ctx.RegisterResource("aws:autoscaling/tag:Tag", name, args, &resource, opts...)
 	if err != nil {

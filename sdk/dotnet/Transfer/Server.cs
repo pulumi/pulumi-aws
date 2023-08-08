@@ -152,16 +152,81 @@ namespace Pulumi.Aws.Transfer
     /// 
     /// });
     /// ```
+    /// ### Using Structured Logging Destinations
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var transferLogGroup = new Aws.CloudWatch.LogGroup("transferLogGroup", new()
+    ///     {
+    ///         NamePrefix = "transfer_test_",
+    ///     });
+    /// 
+    ///     var transferAssumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "transfer.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var iamForTransfer = new Aws.Iam.Role("iamForTransfer", new()
+    ///     {
+    ///         NamePrefix = "iam_for_transfer_",
+    ///         AssumeRolePolicy = transferAssumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         ManagedPolicyArns = new[]
+    ///         {
+    ///             "arn:aws:iam::aws:policy/service-role/AWSTransferLoggingAccess",
+    ///         },
+    ///     });
+    /// 
+    ///     var transferServer = new Aws.Transfer.Server("transferServer", new()
+    ///     {
+    ///         EndpointType = "PUBLIC",
+    ///         LoggingRole = iamForTransfer.Arn,
+    ///         Protocols = new[]
+    ///         {
+    ///             "SFTP",
+    ///         },
+    ///         StructuredLogDestinations = new[]
+    ///         {
+    ///             transferLogGroup.Arn.Apply(arn =&gt; $"{arn}:*"),
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 
-    /// Transfer Servers can be imported using the `server id`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:transfer/server:Server example s-12345678
-    /// ```
+    ///  to = aws_transfer_server.example
     /// 
-    ///  Certain resource arguments, such as `host_key`, cannot be read via the API and imported into the provider. This provider will display a difference for these arguments the first run after import if declared in the provider configuration for an imported resource.
+    ///  id = "s-12345678" } Using `pulumi import`, import Transfer Servers using the server `id`. For exampleconsole % pulumi import aws_transfer_server.example s-12345678 Certain resource arguments, such as `host_key`, cannot be read via the API and imported into the provider. This provider will display a difference for these arguments the first run after import if declared in the provider configuration for an imported resource.
     /// </summary>
     [AwsResourceType("aws:transfer/server:Server")]
     public partial class Server : global::Pulumi.CustomResource
@@ -275,10 +340,16 @@ namespace Pulumi.Aws.Transfer
         public Output<ImmutableArray<string>> Protocols { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06` and `TransferSecurityPolicy-2022-03`. Default value is: `TransferSecurityPolicy-2018-11`.
+        /// Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-2022-03` and `TransferSecurityPolicy-2023-05`. Default value is: `TransferSecurityPolicy-2018-11`.
         /// </summary>
         [Output("securityPolicyName")]
         public Output<string?> SecurityPolicyName { get; private set; } = null!;
+
+        /// <summary>
+        /// This is a set of arns of destinations that will receive structured logs from the transfer server
+        /// </summary>
+        [Output("structuredLogDestinations")]
+        public Output<ImmutableArray<string>> StructuredLogDestinations { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -483,10 +554,22 @@ namespace Pulumi.Aws.Transfer
         }
 
         /// <summary>
-        /// Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06` and `TransferSecurityPolicy-2022-03`. Default value is: `TransferSecurityPolicy-2018-11`.
+        /// Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-2022-03` and `TransferSecurityPolicy-2023-05`. Default value is: `TransferSecurityPolicy-2018-11`.
         /// </summary>
         [Input("securityPolicyName")]
         public Input<string>? SecurityPolicyName { get; set; }
+
+        [Input("structuredLogDestinations")]
+        private InputList<string>? _structuredLogDestinations;
+
+        /// <summary>
+        /// This is a set of arns of destinations that will receive structured logs from the transfer server
+        /// </summary>
+        public InputList<string> StructuredLogDestinations
+        {
+            get => _structuredLogDestinations ?? (_structuredLogDestinations = new InputList<string>());
+            set => _structuredLogDestinations = value;
+        }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -665,10 +748,22 @@ namespace Pulumi.Aws.Transfer
         }
 
         /// <summary>
-        /// Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06` and `TransferSecurityPolicy-2022-03`. Default value is: `TransferSecurityPolicy-2018-11`.
+        /// Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-2022-03` and `TransferSecurityPolicy-2023-05`. Default value is: `TransferSecurityPolicy-2018-11`.
         /// </summary>
         [Input("securityPolicyName")]
         public Input<string>? SecurityPolicyName { get; set; }
+
+        [Input("structuredLogDestinations")]
+        private InputList<string>? _structuredLogDestinations;
+
+        /// <summary>
+        /// This is a set of arns of destinations that will receive structured logs from the transfer server
+        /// </summary>
+        public InputList<string> StructuredLogDestinations
+        {
+            get => _structuredLogDestinations ?? (_structuredLogDestinations = new InputList<string>());
+            set => _structuredLogDestinations = value;
+        }
 
         [Input("tags")]
         private InputMap<string>? _tags;

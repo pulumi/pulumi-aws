@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,9 +21,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -55,7 +56,7 @@ import (
 //				CidrBlock:          pulumi.String("10.7.0.0/16"),
 //				EnableDnsHostnames: pulumi.Bool(true),
 //				EnableDnsSupport:   pulumi.Bool(true),
-//			}, pulumi.Provider("aws.alternate"))
+//			}, pulumi.Provider(aws.Alternate))
 //			if err != nil {
 //				return err
 //			}
@@ -69,7 +70,7 @@ import (
 //			_, err = route53.NewZoneAssociation(ctx, "exampleZoneAssociation", &route53.ZoneAssociationArgs{
 //				VpcId:  exampleVpcAssociationAuthorization.VpcId,
 //				ZoneId: exampleVpcAssociationAuthorization.ZoneId,
-//			}, pulumi.Provider("aws.alternate"))
+//			}, pulumi.Provider(aws.Alternate))
 //			if err != nil {
 //				return err
 //			}
@@ -81,13 +82,11 @@ import (
 //
 // ## Import
 //
-// Route 53 VPC Association Authorizations can be imported via the Hosted Zone ID and VPC ID, separated by a colon (`:`), e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_route53_vpc_association_authorization.example
 //
-//	$ pulumi import aws:route53/vpcAssociationAuthorization:VpcAssociationAuthorization example Z123456ABCDEFG:vpc-12345678
-//
-// ```
+//	id = "Z123456ABCDEFG:vpc-12345678" } Using `pulumi import`, import Route 53 VPC Association Authorizations using the Hosted Zone ID and VPC ID, separated by a colon (`:`). For exampleconsole % pulumi import aws_route53_vpc_association_authorization.example Z123456ABCDEFG:vpc-12345678
 type VpcAssociationAuthorization struct {
 	pulumi.CustomResourceState
 
@@ -112,6 +111,7 @@ func NewVpcAssociationAuthorization(ctx *pulumi.Context,
 	if args.ZoneId == nil {
 		return nil, errors.New("invalid value for required argument 'ZoneId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcAssociationAuthorization
 	err := ctx.RegisterResource("aws:route53/vpcAssociationAuthorization:VpcAssociationAuthorization", name, args, &resource, opts...)
 	if err != nil {

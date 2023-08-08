@@ -29,6 +29,7 @@ export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): P
         "name": args.name,
         "namespaceId": args.namespaceId,
         "tags": args.tags,
+        "tagsAll": args.tagsAll,
     }, opts);
 }
 
@@ -48,6 +49,12 @@ export interface GetServiceArgs {
      * Map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: {[key: string]: string};
+    /**
+     * (**Deprecated**) Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     *
+     * @deprecated this attribute has been deprecated
+     */
+    tagsAll?: {[key: string]: string};
 }
 
 /**
@@ -88,7 +95,9 @@ export interface GetServiceResult {
      */
     readonly tags?: {[key: string]: string};
     /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * (**Deprecated**) Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     *
+     * @deprecated this attribute has been deprecated
      */
     readonly tagsAll: {[key: string]: string};
 }
@@ -127,4 +136,10 @@ export interface GetServiceOutputArgs {
      * Map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * (**Deprecated**) Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     *
+     * @deprecated this attribute has been deprecated
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

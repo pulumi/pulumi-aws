@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -16,13 +17,11 @@ import (
 //
 // ## Import
 //
-// # DeviceFarm Test Grid Projects can be imported by their arn
+// terraform import {
 //
-// ```sh
+//	to = aws_devicefarm_test_grid_project.example
 //
-//	$ pulumi import aws:devicefarm/testGridProject:TestGridProject example arn:aws:devicefarm:us-west-2:123456789012:testgrid-project:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
-//
-// ```
+//	id = "arn:aws:devicefarm:us-west-2:123456789012:testgrid-project:4fa784c7-ccb4-4dbf-ba4f-02198320daa1" } Using `pulumi import`, import DeviceFarm Test Grid Projects using their ARN. For exampleconsole % pulumi import aws_devicefarm_test_grid_project.example arn:aws:devicefarm:us-west-2:123456789012:testgrid-project:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
 type TestGridProject struct {
 	pulumi.CustomResourceState
 
@@ -47,6 +46,7 @@ func NewTestGridProject(ctx *pulumi.Context,
 		args = &TestGridProjectArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TestGridProject
 	err := ctx.RegisterResource("aws:devicefarm/testGridProject:TestGridProject", name, args, &resource, opts...)
 	if err != nil {

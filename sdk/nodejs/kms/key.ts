@@ -25,11 +25,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * KMS Keys can be imported using the `id`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:kms/key:Key a 1234abcd-12ab-34cd-56ef-1234567890ab
- * ```
+ *  to = aws_kms_key.a
+ *
+ *  id = "1234abcd-12ab-34cd-56ef-1234567890ab" } Using `pulumi import`, import KMS Keys using the `id`. For exampleconsole % pulumi import aws_kms_key.a 1234abcd-12ab-34cd-56ef-1234567890ab
  */
 export class Key extends pulumi.CustomResource {
     /**

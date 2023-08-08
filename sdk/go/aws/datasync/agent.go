@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/datasync"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/datasync"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,13 +43,11 @@ import (
 //
 // ## Import
 //
-// `aws_datasync_agent` can be imported by using the DataSync Agent Amazon Resource Name (ARN), e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_datasync_agent.example
 //
-//	$ pulumi import aws:datasync/agent:Agent example arn:aws:datasync:us-east-1:123456789012:agent/agent-12345678901234567
-//
-// ```
+//	id = "arn:aws:datasync:us-east-1:123456789012:agent/agent-12345678901234567" } Using `pulumi import`, import `aws_datasync_agent` using the DataSync Agent Amazon Resource Name (ARN). For exampleconsole % pulumi import aws_datasync_agent.example arn:aws:datasync:us-east-1:123456789012:agent/agent-12345678901234567
 type Agent struct {
 	pulumi.CustomResourceState
 
@@ -61,7 +60,7 @@ type Agent struct {
 	// Name of the DataSync Agent.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The IP address of the VPC endpoint the agent should connect to when retrieving an activation key during resource creation. Conflicts with `activationKey`.
-	PrivateLinkEndpoint pulumi.StringPtrOutput `pulumi:"privateLinkEndpoint"`
+	PrivateLinkEndpoint pulumi.StringOutput `pulumi:"privateLinkEndpoint"`
 	// The ARNs of the security groups used to protect your data transfer task subnets.
 	SecurityGroupArns pulumi.StringArrayOutput `pulumi:"securityGroupArns"`
 	// The Amazon Resource Names (ARNs) of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
@@ -81,6 +80,7 @@ func NewAgent(ctx *pulumi.Context,
 		args = &AgentArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Agent
 	err := ctx.RegisterResource("aws:datasync/agent:Agent", name, args, &resource, opts...)
 	if err != nil {
@@ -299,8 +299,8 @@ func (o AgentOutput) Name() pulumi.StringOutput {
 }
 
 // The IP address of the VPC endpoint the agent should connect to when retrieving an activation key during resource creation. Conflicts with `activationKey`.
-func (o AgentOutput) PrivateLinkEndpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Agent) pulumi.StringPtrOutput { return v.PrivateLinkEndpoint }).(pulumi.StringPtrOutput)
+func (o AgentOutput) PrivateLinkEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *Agent) pulumi.StringOutput { return v.PrivateLinkEndpoint }).(pulumi.StringOutput)
 }
 
 // The ARNs of the security groups used to protect your data transfer task subnets.

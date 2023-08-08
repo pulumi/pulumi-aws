@@ -39,11 +39,11 @@ namespace Pulumi.Aws.DataSync
     /// 
     /// ## Import
     /// 
-    /// `aws_datasync_location_object_storage` can be imported by using the Amazon Resource Name (ARN), e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:datasync/locationObjectStorage:LocationObjectStorage example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
-    /// ```
+    ///  to = aws_datasync_location_object_storage.example
+    /// 
+    ///  id = "arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567" } Using `pulumi import`, import `aws_datasync_location_object_storage` using the Amazon Resource Name (ARN). For exampleconsole % pulumi import aws_datasync_location_object_storage.example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
     /// </summary>
     [AwsResourceType("aws:datasync/locationObjectStorage:LocationObjectStorage")]
     public partial class LocationObjectStorage : global::Pulumi.CustomResource
@@ -79,7 +79,7 @@ namespace Pulumi.Aws.DataSync
         public Output<string?> SecretKey { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a certificate to authenticate with an object storage system that uses a private or self-signed certificate authority (CA). You must specify a Base64-encoded .pem file (for example, file:///home/user/.ssh/storage_sys_certificate.pem). The certificate can be up to 32768 bytes (before Base64 encoding).
+        /// Specifies a certificate to authenticate with an object storage system that uses a private or self-signed certificate authority (CA). You must specify a Base64-encoded .pem string. The certificate can be up to 32768 bytes (before Base64 encoding).
         /// </summary>
         [Output("serverCertificate")]
         public Output<string?> ServerCertificate { get; private set; } = null!;
@@ -217,7 +217,7 @@ namespace Pulumi.Aws.DataSync
         }
 
         /// <summary>
-        /// Specifies a certificate to authenticate with an object storage system that uses a private or self-signed certificate authority (CA). You must specify a Base64-encoded .pem file (for example, file:///home/user/.ssh/storage_sys_certificate.pem). The certificate can be up to 32768 bytes (before Base64 encoding).
+        /// Specifies a certificate to authenticate with an object storage system that uses a private or self-signed certificate authority (CA). You must specify a Base64-encoded .pem string. The certificate can be up to 32768 bytes (before Base64 encoding).
         /// </summary>
         [Input("serverCertificate")]
         public Input<string>? ServerCertificate { get; set; }
@@ -313,7 +313,7 @@ namespace Pulumi.Aws.DataSync
         }
 
         /// <summary>
-        /// Specifies a certificate to authenticate with an object storage system that uses a private or self-signed certificate authority (CA). You must specify a Base64-encoded .pem file (for example, file:///home/user/.ssh/storage_sys_certificate.pem). The certificate can be up to 32768 bytes (before Base64 encoding).
+        /// Specifies a certificate to authenticate with an object storage system that uses a private or self-signed certificate authority (CA). You must specify a Base64-encoded .pem string. The certificate can be up to 32768 bytes (before Base64 encoding).
         /// </summary>
         [Input("serverCertificate")]
         public Input<string>? ServerCertificate { get; set; }

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/backup"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/backup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,13 +55,11 @@ import (
 //
 // ## Import
 //
-// Backup Report Plan can be imported using the `id` which corresponds to the name of the Backup Report Plan, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_backup_report_plan.test
 //
-//	$ pulumi import aws:backup/reportPlan:ReportPlan test <id>
-//
-// ```
+//	id = "<id>" } Using `pulumi import`, import Backup Report Plan using the `id` which corresponds to the name of the Backup Report Plan. For exampleconsole % pulumi import aws_backup_report_plan.test <id>
 type ReportPlan struct {
 	pulumi.CustomResourceState
 
@@ -97,6 +96,7 @@ func NewReportPlan(ctx *pulumi.Context,
 	if args.ReportSetting == nil {
 		return nil, errors.New("invalid value for required argument 'ReportSetting'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ReportPlan
 	err := ctx.RegisterResource("aws:backup/reportPlan:ReportPlan", name, args, &resource, opts...)
 	if err != nil {

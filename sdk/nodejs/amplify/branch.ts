@@ -96,11 +96,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Amplify branch can be imported using `app_id` and `branch_name`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:amplify/branch:Branch master d2ypk4k47z8u6/master
- * ```
+ *  to = aws_amplify_branch.master
+ *
+ *  id = "d2ypk4k47z8u6/master" } Using `pulumi import`, import Amplify branch using `app_id` and `branch_name`. For exampleconsole % pulumi import aws_amplify_branch.master d2ypk4k47z8u6/master
  */
 export class Branch extends pulumi.CustomResource {
     /**

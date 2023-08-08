@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,9 +23,9 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directoryservice"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directoryservice"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -85,13 +86,11 @@ import (
 //
 // ## Import
 //
-// Directory Service Log Subscriptions can be imported using the directory id, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_directory_service_log_subscription.msad
 //
-//	$ pulumi import aws:directoryservice/logService:LogService msad d-1234567890
-//
-// ```
+//	id = "d-1234567890" } Using `pulumi import`, import Directory Service Log Subscriptions using the directory id. For exampleconsole % pulumi import aws_directory_service_log_subscription.msad d-1234567890
 type LogService struct {
 	pulumi.CustomResourceState
 
@@ -114,6 +113,7 @@ func NewLogService(ctx *pulumi.Context,
 	if args.LogGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'LogGroupName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LogService
 	err := ctx.RegisterResource("aws:directoryservice/logService:LogService", name, args, &resource, opts...)
 	if err != nil {

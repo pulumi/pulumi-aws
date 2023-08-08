@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,7 +28,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cfg"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cfg"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -77,8 +78,8 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cfg"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cfg"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -127,13 +128,11 @@ import (
 //
 // ## Import
 //
-// Config Conformance Packs can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_config_conformance_pack.example
 //
-//	$ pulumi import aws:cfg/conformancePack:ConformancePack example example
-//
-// ```
+//	id = "example" } Using `pulumi import`, import Config Conformance Packs using the `name`. For exampleconsole % pulumi import aws_config_conformance_pack.example example
 type ConformancePack struct {
 	pulumi.CustomResourceState
 
@@ -160,6 +159,7 @@ func NewConformancePack(ctx *pulumi.Context,
 		args = &ConformancePackArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ConformancePack
 	err := ctx.RegisterResource("aws:cfg/conformancePack:ConformancePack", name, args, &resource, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/redshift"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshift"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -46,13 +47,11 @@ import (
 //
 // ## Import
 //
-// Redshift Cluster IAM Roless can be imported using the `cluster_identifier`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_redshift_cluster_iam_roles.examplegroup1
 //
-//	$ pulumi import aws:redshift/clusterIamRoles:ClusterIamRoles examplegroup1 example
-//
-// ```
+//	id = "example" } Using `pulumi import`, import Redshift Cluster IAM Roless using the `cluster_identifier`. For exampleconsole % pulumi import aws_redshift_cluster_iam_roles.examplegroup1 example
 type ClusterIamRoles struct {
 	pulumi.CustomResourceState
 
@@ -74,6 +73,7 @@ func NewClusterIamRoles(ctx *pulumi.Context,
 	if args.ClusterIdentifier == nil {
 		return nil, errors.New("invalid value for required argument 'ClusterIdentifier'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ClusterIamRoles
 	err := ctx.RegisterResource("aws:redshift/clusterIamRoles:ClusterIamRoles", name, args, &resource, opts...)
 	if err != nil {

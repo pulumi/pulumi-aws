@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/vpclattice"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/vpclattice"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -80,7 +81,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/vpclattice"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/vpclattice"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -118,13 +119,11 @@ import (
 //
 // ## Import
 //
-// VPC Lattice Listener Rule can be imported using the `example_id_arg`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_vpclattice_listener_rule.example
 //
-//	$ pulumi import aws:vpclattice/listenerRule:ListenerRule example rft-8012925589
-//
-// ```
+//	id = "rft-8012925589" } Using `pulumi import`, import VPC Lattice Listener Rule using the `example_id_arg`. For exampleconsole % pulumi import aws_vpclattice_listener_rule.example rft-8012925589
 type ListenerRule struct {
 	pulumi.CustomResourceState
 
@@ -174,6 +173,7 @@ func NewListenerRule(ctx *pulumi.Context,
 	if args.ServiceIdentifier == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceIdentifier'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ListenerRule
 	err := ctx.RegisterResource("aws:vpclattice/listenerRule:ListenerRule", name, args, &resource, opts...)
 	if err != nil {

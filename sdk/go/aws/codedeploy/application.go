@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codedeploy"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codedeploy"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -45,7 +46,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codedeploy"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codedeploy"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -70,7 +71,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codedeploy"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codedeploy"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -91,13 +92,11 @@ import (
 //
 // ## Import
 //
-// CodeDeploy Applications can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_codedeploy_app.example
 //
-//	$ pulumi import aws:codedeploy/application:Application example my-application
-//
-// ```
+//	id = "my-application" } Using `pulumi import`, import CodeDeploy Applications using the `name`. For exampleconsole % pulumi import aws_codedeploy_app.example my-application
 type Application struct {
 	pulumi.CustomResourceState
 
@@ -126,6 +125,7 @@ func NewApplication(ctx *pulumi.Context,
 		args = &ApplicationArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Application
 	err := ctx.RegisterResource("aws:codedeploy/application:Application", name, args, &resource, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,13 +53,11 @@ import (
 //
 // ## Import
 //
-// Glue Security Configurations can be imported using `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_glue_security_configuration.example
 //
-//	$ pulumi import aws:glue/securityConfiguration:SecurityConfiguration example example
-//
-// ```
+//	id = "example" } Using `pulumi import`, import Glue Security Configurations using `name`. For exampleconsole % pulumi import aws_glue_security_configuration.example example
 type SecurityConfiguration struct {
 	pulumi.CustomResourceState
 
@@ -78,6 +77,7 @@ func NewSecurityConfiguration(ctx *pulumi.Context,
 	if args.EncryptionConfiguration == nil {
 		return nil, errors.New("invalid value for required argument 'EncryptionConfiguration'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SecurityConfiguration
 	err := ctx.RegisterResource("aws:glue/securityConfiguration:SecurityConfiguration", name, args, &resource, opts...)
 	if err != nil {

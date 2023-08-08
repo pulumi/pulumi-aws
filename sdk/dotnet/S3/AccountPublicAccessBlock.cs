@@ -37,11 +37,11 @@ namespace Pulumi.Aws.S3
     /// 
     /// ## Import
     /// 
-    /// `aws_s3_account_public_access_block` can be imported by using the AWS account ID, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:s3/accountPublicAccessBlock:AccountPublicAccessBlock example 123456789012
-    /// ```
+    ///  to = aws_s3_account_public_access_block.example
+    /// 
+    ///  id = "123456789012" } Using `pulumi import`, import `aws_s3_account_public_access_block` using the AWS account ID. For exampleconsole % pulumi import aws_s3_account_public_access_block.example 123456789012
     /// </summary>
     [AwsResourceType("aws:s3/accountPublicAccessBlock:AccountPublicAccessBlock")]
     public partial class AccountPublicAccessBlock : global::Pulumi.CustomResource

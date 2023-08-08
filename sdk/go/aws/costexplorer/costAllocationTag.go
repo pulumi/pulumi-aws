@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/costexplorer"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/costexplorer"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,13 +43,11 @@ import (
 //
 // ## Import
 //
-// `aws_ce_cost_allocation_tag` can be imported using the `id`, e.g.
+// terraform import {
 //
-// ```sh
+//	to = aws_ce_cost_allocation_tag.example
 //
-//	$ pulumi import aws:costexplorer/costAllocationTag:CostAllocationTag example key
-//
-// ```
+//	id = "key" } Using `pulumi import`, import `aws_ce_cost_allocation_tag` using the `id`. For exampleconsole % pulumi import aws_ce_cost_allocation_tag.example key
 type CostAllocationTag struct {
 	pulumi.CustomResourceState
 
@@ -73,6 +72,7 @@ func NewCostAllocationTag(ctx *pulumi.Context,
 	if args.TagKey == nil {
 		return nil, errors.New("invalid value for required argument 'TagKey'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CostAllocationTag
 	err := ctx.RegisterResource("aws:costexplorer/costAllocationTag:CostAllocationTag", name, args, &resource, opts...)
 	if err != nil {

@@ -243,11 +243,11 @@ class EndpointAuthorization(pulumi.CustomResource):
 
         ## Import
 
-        Redshift endpoint authorization can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:redshift/endpointAuthorization:EndpointAuthorization example 01234567910:cluster-example-id
-        ```
+         to = aws_redshift_endpoint_authorization.example
+
+         id = "01234567910:cluster-example-id" } Using `pulumi import`, import Redshift endpoint authorization using the `id`. For exampleconsole % pulumi import aws_redshift_endpoint_authorization.example 01234567910:cluster-example-id
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -278,11 +278,11 @@ class EndpointAuthorization(pulumi.CustomResource):
 
         ## Import
 
-        Redshift endpoint authorization can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:redshift/endpointAuthorization:EndpointAuthorization example 01234567910:cluster-example-id
-        ```
+         to = aws_redshift_endpoint_authorization.example
+
+         id = "01234567910:cluster-example-id" } Using `pulumi import`, import Redshift endpoint authorization using the `id`. For exampleconsole % pulumi import aws_redshift_endpoint_authorization.example 01234567910:cluster-example-id
 
         :param str resource_name: The name of the resource.
         :param EndpointAuthorizationArgs args: The arguments to use to populate this resource's properties.

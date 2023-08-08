@@ -123,11 +123,11 @@ class DataCatalogEncryptionSettings(pulumi.CustomResource):
 
         ## Import
 
-        Glue Data Catalog Encryption Settings can be imported using `CATALOG-ID` (AWS account ID if not custom), e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:glue/dataCatalogEncryptionSettings:DataCatalogEncryptionSettings example 123456789012
-        ```
+         to = aws_glue_data_catalog_encryption_settings.example
+
+         id = "123456789012" } Using `pulumi import`, import Glue Data Catalog Encryption Settings using `CATALOG-ID` (AWS account ID if not custom). For exampleconsole % pulumi import aws_glue_data_catalog_encryption_settings.example 123456789012
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -163,11 +163,11 @@ class DataCatalogEncryptionSettings(pulumi.CustomResource):
 
         ## Import
 
-        Glue Data Catalog Encryption Settings can be imported using `CATALOG-ID` (AWS account ID if not custom), e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:glue/dataCatalogEncryptionSettings:DataCatalogEncryptionSettings example 123456789012
-        ```
+         to = aws_glue_data_catalog_encryption_settings.example
+
+         id = "123456789012" } Using `pulumi import`, import Glue Data Catalog Encryption Settings using `CATALOG-ID` (AWS account ID if not custom). For exampleconsole % pulumi import aws_glue_data_catalog_encryption_settings.example 123456789012
 
         :param str resource_name: The name of the resource.
         :param DataCatalogEncryptionSettingsArgs args: The arguments to use to populate this resource's properties.

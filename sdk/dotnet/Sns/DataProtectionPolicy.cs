@@ -63,11 +63,11 @@ namespace Pulumi.Aws.Sns
     /// 
     /// ## Import
     /// 
-    /// SNS Data Protection Topic Policy can be imported using the topic ARN, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:sns/dataProtectionPolicy:DataProtectionPolicy example arn:aws:sns:us-west-2:0123456789012:example
-    /// ```
+    ///  to = aws_sns_topic_data_protection_policy.example
+    /// 
+    ///  id = "arn:aws:sns:us-west-2:0123456789012:example" } Using `pulumi import`, import SNS Data Protection Topic Policy using the topic ARN. For exampleconsole % pulumi import aws_sns_topic_data_protection_policy.example arn:aws:sns:us-west-2:0123456789012:example
     /// </summary>
     [AwsResourceType("aws:sns/dataProtectionPolicy:DataProtectionPolicy")]
     public partial class DataProtectionPolicy : global::Pulumi.CustomResource

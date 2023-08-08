@@ -7,8 +7,11 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type AccountThrottleSetting struct {
 	// Absolute maximum number of times API Gateway allows the API to be called per second (RPS).
@@ -1387,7 +1390,7 @@ type StageCanarySettings struct {
 	// Percent `0.0` - `100.0` of traffic to divert to the canary deployment.
 	PercentTraffic *float64 `pulumi:"percentTraffic"`
 	// Map of overridden stage `variables` (including new variables) for the canary deployment.
-	StageVariableOverrides map[string]interface{} `pulumi:"stageVariableOverrides"`
+	StageVariableOverrides map[string]string `pulumi:"stageVariableOverrides"`
 	// Whether the canary deployment uses the stage cache. Defaults to false.
 	UseStageCache *bool `pulumi:"useStageCache"`
 }
@@ -1407,7 +1410,7 @@ type StageCanarySettingsArgs struct {
 	// Percent `0.0` - `100.0` of traffic to divert to the canary deployment.
 	PercentTraffic pulumi.Float64PtrInput `pulumi:"percentTraffic"`
 	// Map of overridden stage `variables` (including new variables) for the canary deployment.
-	StageVariableOverrides pulumi.MapInput `pulumi:"stageVariableOverrides"`
+	StageVariableOverrides pulumi.StringMapInput `pulumi:"stageVariableOverrides"`
 	// Whether the canary deployment uses the stage cache. Defaults to false.
 	UseStageCache pulumi.BoolPtrInput `pulumi:"useStageCache"`
 }
@@ -1495,8 +1498,8 @@ func (o StageCanarySettingsOutput) PercentTraffic() pulumi.Float64PtrOutput {
 }
 
 // Map of overridden stage `variables` (including new variables) for the canary deployment.
-func (o StageCanarySettingsOutput) StageVariableOverrides() pulumi.MapOutput {
-	return o.ApplyT(func(v StageCanarySettings) map[string]interface{} { return v.StageVariableOverrides }).(pulumi.MapOutput)
+func (o StageCanarySettingsOutput) StageVariableOverrides() pulumi.StringMapOutput {
+	return o.ApplyT(func(v StageCanarySettings) map[string]string { return v.StageVariableOverrides }).(pulumi.StringMapOutput)
 }
 
 // Whether the canary deployment uses the stage cache. Defaults to false.
@@ -1539,13 +1542,13 @@ func (o StageCanarySettingsPtrOutput) PercentTraffic() pulumi.Float64PtrOutput {
 }
 
 // Map of overridden stage `variables` (including new variables) for the canary deployment.
-func (o StageCanarySettingsPtrOutput) StageVariableOverrides() pulumi.MapOutput {
-	return o.ApplyT(func(v *StageCanarySettings) map[string]interface{} {
+func (o StageCanarySettingsPtrOutput) StageVariableOverrides() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *StageCanarySettings) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.StageVariableOverrides
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // Whether the canary deployment uses the stage cache. Defaults to false.

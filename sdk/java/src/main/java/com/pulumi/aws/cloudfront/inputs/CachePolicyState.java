@@ -18,14 +18,14 @@ public final class CachePolicyState extends com.pulumi.resources.ResourceArgs {
     public static final CachePolicyState Empty = new CachePolicyState();
 
     /**
-     * A comment to describe the cache policy.
+     * Description for the cache policy.
      * 
      */
     @Import(name="comment")
     private @Nullable Output<String> comment;
 
     /**
-     * @return A comment to describe the cache policy.
+     * @return Description for the cache policy.
      * 
      */
     public Optional<Output<String>> comment() {
@@ -33,14 +33,14 @@ public final class CachePolicyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The default amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
+     * Amount of time, in seconds, that objects are allowed to remain in the CloudFront cache before CloudFront sends a new request to the origin server to check if the object has been updated.
      * 
      */
     @Import(name="defaultTtl")
     private @Nullable Output<Integer> defaultTtl;
 
     /**
-     * @return The default amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
+     * @return Amount of time, in seconds, that objects are allowed to remain in the CloudFront cache before CloudFront sends a new request to the origin server to check if the object has been updated.
      * 
      */
     public Optional<Output<Integer>> defaultTtl() {
@@ -48,14 +48,14 @@ public final class CachePolicyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The current version of the cache policy.
+     * Current version of the cache policy.
      * 
      */
     @Import(name="etag")
     private @Nullable Output<String> etag;
 
     /**
-     * @return The current version of the cache policy.
+     * @return Current version of the cache policy.
      * 
      */
     public Optional<Output<String>> etag() {
@@ -63,14 +63,14 @@ public final class CachePolicyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
+     * Maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
      * 
      */
     @Import(name="maxTtl")
     private @Nullable Output<Integer> maxTtl;
 
     /**
-     * @return The maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
+     * @return Maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
      * 
      */
     public Optional<Output<Integer>> maxTtl() {
@@ -78,14 +78,14 @@ public final class CachePolicyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The minimum amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
+     * Minimum amount of time, in seconds, that objects should remain in the CloudFront cache before a new request is sent to the origin to check for updates.
      * 
      */
     @Import(name="minTtl")
     private @Nullable Output<Integer> minTtl;
 
     /**
-     * @return The minimum amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
+     * @return Minimum amount of time, in seconds, that objects should remain in the CloudFront cache before a new request is sent to the origin to check for updates.
      * 
      */
     public Optional<Output<Integer>> minTtl() {
@@ -93,14 +93,14 @@ public final class CachePolicyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A unique name to identify the cache policy.
+     * Unique name used to identify the cache policy.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return A unique name to identify the cache policy.
+     * @return Unique name used to identify the cache policy.
      * 
      */
     public Optional<Output<String>> name() {
@@ -108,14 +108,14 @@ public final class CachePolicyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The HTTP headers, cookies, and URL query strings to include in the cache key. See Parameters In Cache Key And Forwarded To Origin for more information.
+     * Configuration for including HTTP headers, cookies, and URL query strings in the cache key. For more information, refer to the Parameters In Cache Key And Forwarded To Origin section.
      * 
      */
     @Import(name="parametersInCacheKeyAndForwardedToOrigin")
     private @Nullable Output<CachePolicyParametersInCacheKeyAndForwardedToOriginArgs> parametersInCacheKeyAndForwardedToOrigin;
 
     /**
-     * @return The HTTP headers, cookies, and URL query strings to include in the cache key. See Parameters In Cache Key And Forwarded To Origin for more information.
+     * @return Configuration for including HTTP headers, cookies, and URL query strings in the cache key. For more information, refer to the Parameters In Cache Key And Forwarded To Origin section.
      * 
      */
     public Optional<Output<CachePolicyParametersInCacheKeyAndForwardedToOriginArgs>> parametersInCacheKeyAndForwardedToOrigin() {
@@ -153,7 +153,7 @@ public final class CachePolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param comment A comment to describe the cache policy.
+         * @param comment Description for the cache policy.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class CachePolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param comment A comment to describe the cache policy.
+         * @param comment Description for the cache policy.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class CachePolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultTtl The default amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
+         * @param defaultTtl Amount of time, in seconds, that objects are allowed to remain in the CloudFront cache before CloudFront sends a new request to the origin server to check if the object has been updated.
          * 
          * @return builder
          * 
@@ -185,7 +185,7 @@ public final class CachePolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultTtl The default amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
+         * @param defaultTtl Amount of time, in seconds, that objects are allowed to remain in the CloudFront cache before CloudFront sends a new request to the origin server to check if the object has been updated.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class CachePolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param etag The current version of the cache policy.
+         * @param etag Current version of the cache policy.
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class CachePolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param etag The current version of the cache policy.
+         * @param etag Current version of the cache policy.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class CachePolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxTtl The maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
+         * @param maxTtl Maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
          * 
          * @return builder
          * 
@@ -227,7 +227,7 @@ public final class CachePolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxTtl The maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
+         * @param maxTtl Maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
          * 
          * @return builder
          * 
@@ -237,7 +237,7 @@ public final class CachePolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param minTtl The minimum amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
+         * @param minTtl Minimum amount of time, in seconds, that objects should remain in the CloudFront cache before a new request is sent to the origin to check for updates.
          * 
          * @return builder
          * 
@@ -248,7 +248,7 @@ public final class CachePolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param minTtl The minimum amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
+         * @param minTtl Minimum amount of time, in seconds, that objects should remain in the CloudFront cache before a new request is sent to the origin to check for updates.
          * 
          * @return builder
          * 
@@ -258,7 +258,7 @@ public final class CachePolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name A unique name to identify the cache policy.
+         * @param name Unique name used to identify the cache policy.
          * 
          * @return builder
          * 
@@ -269,7 +269,7 @@ public final class CachePolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name A unique name to identify the cache policy.
+         * @param name Unique name used to identify the cache policy.
          * 
          * @return builder
          * 
@@ -279,7 +279,7 @@ public final class CachePolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param parametersInCacheKeyAndForwardedToOrigin The HTTP headers, cookies, and URL query strings to include in the cache key. See Parameters In Cache Key And Forwarded To Origin for more information.
+         * @param parametersInCacheKeyAndForwardedToOrigin Configuration for including HTTP headers, cookies, and URL query strings in the cache key. For more information, refer to the Parameters In Cache Key And Forwarded To Origin section.
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class CachePolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param parametersInCacheKeyAndForwardedToOrigin The HTTP headers, cookies, and URL query strings to include in the cache key. See Parameters In Cache Key And Forwarded To Origin for more information.
+         * @param parametersInCacheKeyAndForwardedToOrigin Configuration for including HTTP headers, cookies, and URL query strings in the cache key. For more information, refer to the Parameters In Cache Key And Forwarded To Origin section.
          * 
          * @return builder
          * 

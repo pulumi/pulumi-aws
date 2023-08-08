@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/neptune"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/neptune"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -47,13 +48,11 @@ import (
 //
 // ## Import
 //
-// Neptune Parameter Groups can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_neptune_parameter_group.some_pg
 //
-//	$ pulumi import aws:neptune/parameterGroup:ParameterGroup some_pg some-pg
-//
-// ```
+//	id = "some-pg" } Using `pulumi import`, import Neptune Parameter Groups using the `name`. For exampleconsole % pulumi import aws_neptune_parameter_group.some_pg some-pg
 type ParameterGroup struct {
 	pulumi.CustomResourceState
 
@@ -83,6 +82,7 @@ func NewParameterGroup(ctx *pulumi.Context,
 	if args.Family == nil {
 		return nil, errors.New("invalid value for required argument 'Family'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ParameterGroup
 	err := ctx.RegisterResource("aws:neptune/parameterGroup:ParameterGroup", name, args, &resource, opts...)
 	if err != nil {

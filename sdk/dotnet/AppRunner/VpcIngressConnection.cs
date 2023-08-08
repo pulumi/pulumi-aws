@@ -41,11 +41,11 @@ namespace Pulumi.Aws.AppRunner
     /// 
     /// ## Import
     /// 
-    /// App Runner VPC Ingress Connection can be imported by using the `arn`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:apprunner/vpcIngressConnection:VpcIngressConnection example "arn:aws:apprunner:us-west-2:837424938642:vpcingressconnection/example/b379f86381d74825832c2e82080342fa"
-    /// ```
+    ///  to = aws_apprunner_vpc_ingress_connection.example
+    /// 
+    ///  id = "arn:aws:apprunner:us-west-2:837424938642:vpcingressconnection/example/b379f86381d74825832c2e82080342fa" } Using `pulumi import`, import App Runner VPC Ingress Connection using the `arn`. For exampleconsole % pulumi import aws_apprunner_vpc_ingress_connection.example "arn:aws:apprunner:us-west-2:837424938642:vpcingressconnection/example/b379f86381d74825832c2e82080342fa"
     /// </summary>
     [AwsResourceType("aws:apprunner/vpcIngressConnection:VpcIngressConnection")]
     public partial class VpcIngressConnection : global::Pulumi.CustomResource

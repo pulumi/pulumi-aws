@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/organizations"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/organizations"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -48,13 +49,11 @@ import (
 //
 // ## Import
 //
-// The AWS organization can be imported by using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_organizations_organization.my_org
 //
-//	$ pulumi import aws:organizations/organization:Organization my_org o-1234567
-//
-// ```
+//	id = "o-1234567" } Using `pulumi import`, import the AWS organization using the `id`. For exampleconsole % pulumi import aws_organizations_organization.my_org o-1234567
 type Organization struct {
 	pulumi.CustomResourceState
 
@@ -87,6 +86,7 @@ func NewOrganization(ctx *pulumi.Context,
 		args = &OrganizationArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Organization
 	err := ctx.RegisterResource("aws:organizations/organization:Organization", name, args, &resource, opts...)
 	if err != nil {

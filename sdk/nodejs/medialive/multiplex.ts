@@ -40,11 +40,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * MediaLive Multiplex can be imported using the `id`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:medialive/multiplex:Multiplex example 12345678
- * ```
+ *  to = aws_medialive_multiplex.example
+ *
+ *  id = "12345678" } Using `pulumi import`, import MediaLive Multiplex using the `id`. For exampleconsole % pulumi import aws_medialive_multiplex.example 12345678
  */
 export class Multiplex extends pulumi.CustomResource {
     /**

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,7 +28,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -44,6 +45,7 @@ import (
 //
 // ```
 func GetRegion(ctx *pulumi.Context, args *GetRegionArgs, opts ...pulumi.InvokeOption) (*GetRegionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRegionResult
 	err := ctx.Invoke("aws:index/getRegion:getRegion", args, &rv, opts...)
 	if err != nil {
@@ -56,6 +58,7 @@ func GetRegion(ctx *pulumi.Context, args *GetRegionArgs, opts ...pulumi.InvokeOp
 type GetRegionArgs struct {
 	// EC2 endpoint of the region to select.
 	Endpoint *string `pulumi:"endpoint"`
+	Id       *string `pulumi:"id"`
 	// Full name of the region to select.
 	Name *string `pulumi:"name"`
 }
@@ -66,8 +69,7 @@ type GetRegionResult struct {
 	Description string `pulumi:"description"`
 	// EC2 endpoint for the selected region.
 	Endpoint string `pulumi:"endpoint"`
-	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id       string `pulumi:"id"`
 	// Name of the selected region.
 	Name string `pulumi:"name"`
 }
@@ -89,6 +91,7 @@ func GetRegionOutput(ctx *pulumi.Context, args GetRegionOutputArgs, opts ...pulu
 type GetRegionOutputArgs struct {
 	// EC2 endpoint of the region to select.
 	Endpoint pulumi.StringPtrInput `pulumi:"endpoint"`
+	Id       pulumi.StringPtrInput `pulumi:"id"`
 	// Full name of the region to select.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
@@ -122,7 +125,6 @@ func (o GetRegionResultOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRegionResult) string { return v.Endpoint }).(pulumi.StringOutput)
 }
 
-// The provider-assigned unique ID for this managed resource.
 func (o GetRegionResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRegionResult) string { return v.Id }).(pulumi.StringOutput)
 }

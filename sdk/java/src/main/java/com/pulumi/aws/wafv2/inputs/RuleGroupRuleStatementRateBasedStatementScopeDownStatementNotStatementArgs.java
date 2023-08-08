@@ -3,7 +3,7 @@
 
 package com.pulumi.aws.wafv2.inputs;
 
-import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementArgs;
+import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.util.List;
@@ -15,17 +15,17 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementNot
     public static final RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatementArgs Empty = new RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatementArgs();
 
     /**
-     * The statement to negate. You can use any statement that can be nested. See Statement above for details.
+     * The statements to combine.
      * 
      */
     @Import(name="statements", required=true)
-    private Output<List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementArgs>> statements;
+    private Output<List<RuleGroupRuleStatementArgs>> statements;
 
     /**
-     * @return The statement to negate. You can use any statement that can be nested. See Statement above for details.
+     * @return The statements to combine.
      * 
      */
-    public Output<List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementArgs>> statements() {
+    public Output<List<RuleGroupRuleStatementArgs>> statements() {
         return this.statements;
     }
 
@@ -54,33 +54,33 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementNot
         }
 
         /**
-         * @param statements The statement to negate. You can use any statement that can be nested. See Statement above for details.
+         * @param statements The statements to combine.
          * 
          * @return builder
          * 
          */
-        public Builder statements(Output<List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementArgs>> statements) {
+        public Builder statements(Output<List<RuleGroupRuleStatementArgs>> statements) {
             $.statements = statements;
             return this;
         }
 
         /**
-         * @param statements The statement to negate. You can use any statement that can be nested. See Statement above for details.
+         * @param statements The statements to combine.
          * 
          * @return builder
          * 
          */
-        public Builder statements(List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementArgs> statements) {
+        public Builder statements(List<RuleGroupRuleStatementArgs> statements) {
             return statements(Output.of(statements));
         }
 
         /**
-         * @param statements The statement to negate. You can use any statement that can be nested. See Statement above for details.
+         * @param statements The statements to combine.
          * 
          * @return builder
          * 
          */
-        public Builder statements(RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementArgs... statements) {
+        public Builder statements(RuleGroupRuleStatementArgs... statements) {
             return statements(List.of(statements));
         }
 

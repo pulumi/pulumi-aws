@@ -114,10 +114,6 @@ namespace Pulumi.Aws.Dms.Outputs
         /// </summary>
         public readonly int? IgnoreHeaderRows;
         /// <summary>
-        /// Deprecated. This setting has no effect. Will be removed in a future version.
-        /// </summary>
-        public readonly int? IgnoreHeadersRow;
-        /// <summary>
         /// Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
         /// </summary>
         public readonly bool? IncludeOpForFullLoad;
@@ -218,8 +214,6 @@ namespace Pulumi.Aws.Dms.Outputs
 
             int? ignoreHeaderRows,
 
-            int? ignoreHeadersRow,
-
             bool? includeOpForFullLoad,
 
             int? maxFileSize,
@@ -269,7 +263,6 @@ namespace Pulumi.Aws.Dms.Outputs
             EncryptionMode = encryptionMode;
             ExternalTableDefinition = externalTableDefinition;
             IgnoreHeaderRows = ignoreHeaderRows;
-            IgnoreHeadersRow = ignoreHeadersRow;
             IncludeOpForFullLoad = includeOpForFullLoad;
             MaxFileSize = maxFileSize;
             ParquetTimestampInMillisecond = parquetTimestampInMillisecond;

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -17,13 +18,11 @@ import (
 //
 // ## Import
 //
-// An Identity Store Group can be imported using the combination `identity_store_id/group_id`. For example
+// terraform import {
 //
-// ```sh
+//	to = aws_identitystore_group.example
 //
-//	$ pulumi import aws:identitystore/group:Group example d-9c6705e95c/b8a1c340-8031-7071-a2fb-7dc540320c30
-//
-// ```
+//	id = "d-9c6705e95c/b8a1c340-8031-7071-a2fb-7dc540320c30" } Using `pulumi import`, import an Identity Store Group using the combination `identity_store_id/group_id`. For exampleconsole % pulumi import aws_identitystore_group.example d-9c6705e95c/b8a1c340-8031-7071-a2fb-7dc540320c30
 type Group struct {
 	pulumi.CustomResourceState
 
@@ -54,6 +53,7 @@ func NewGroup(ctx *pulumi.Context,
 	if args.IdentityStoreId == nil {
 		return nil, errors.New("invalid value for required argument 'IdentityStoreId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Group
 	err := ctx.RegisterResource("aws:identitystore/group:Group", name, args, &resource, opts...)
 	if err != nil {

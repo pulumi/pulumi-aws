@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -68,13 +69,11 @@ import (
 //
 // ## Import
 //
-// Instance Profiles can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_iam_instance_profile.test_profile
 //
-//	$ pulumi import aws:iam/instanceProfile:InstanceProfile test_profile app-instance-profile-1
-//
-// ```
+//	id = "app-instance-profile-1" } Using `pulumi import`, import Instance Profiles using the `name`. For exampleconsole % pulumi import aws_iam_instance_profile.test_profile app-instance-profile-1
 type InstanceProfile struct {
 	pulumi.CustomResourceState
 
@@ -105,6 +104,7 @@ func NewInstanceProfile(ctx *pulumi.Context,
 		args = &InstanceProfileArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource InstanceProfile
 	err := ctx.RegisterResource("aws:iam/instanceProfile:InstanceProfile", name, args, &resource, opts...)
 	if err != nil {

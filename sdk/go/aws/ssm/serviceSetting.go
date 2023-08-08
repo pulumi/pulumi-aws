@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,13 +43,11 @@ import (
 //
 // ## Import
 //
-// AWS SSM Service Setting can be imported using the `setting_id`, e.g.
+// terraform import {
 //
-// ```sh
+//	to = aws_ssm_service_setting.example
 //
-//	$ pulumi import aws:ssm/serviceSetting:ServiceSetting example arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled
-//
-// ```
+//	id = "arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled" } Using `pulumi import`, import AWS SSM Service Setting using the `setting_id`. For exampleconsole % pulumi import aws_ssm_service_setting.example arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled
 type ServiceSetting struct {
 	pulumi.CustomResourceState
 
@@ -75,6 +74,7 @@ func NewServiceSetting(ctx *pulumi.Context,
 	if args.SettingValue == nil {
 		return nil, errors.New("invalid value for required argument 'SettingValue'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ServiceSetting
 	err := ctx.RegisterResource("aws:ssm/serviceSetting:ServiceSetting", name, args, &resource, opts...)
 	if err != nil {

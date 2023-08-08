@@ -77,11 +77,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * DocumentDB Cluster Instances can be imported using the `identifier`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:docdb/clusterInstance:ClusterInstance prod_instance_1 aurora-cluster-instance-1
- * ```
+ *  to = aws_docdb_cluster_instance.prod_instance_1
+ * 
+ *  id = &#34;aurora-cluster-instance-1&#34; } Using `pulumi import`, import DocumentDB Cluster Instances using the `identifier`. For exampleconsole % pulumi import aws_docdb_cluster_instance.prod_instance_1 aurora-cluster-instance-1
  * 
  */
 @ResourceType(type="aws:docdb/clusterInstance:ClusterInstance")

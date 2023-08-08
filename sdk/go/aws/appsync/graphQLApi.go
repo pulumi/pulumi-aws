@@ -8,296 +8,10 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an AppSync GraphQL API.
-//
-// ## Example Usage
-// ### API Key Authentication
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appsync"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
-//				AuthenticationType: pulumi.String("API_KEY"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### AWS IAM Authentication
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appsync"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
-//				AuthenticationType: pulumi.String("AWS_IAM"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### AWS Cognito User Pool Authentication
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appsync"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
-//				AuthenticationType: pulumi.String("AMAZON_COGNITO_USER_POOLS"),
-//				UserPoolConfig: &appsync.GraphQLApiUserPoolConfigArgs{
-//					AwsRegion:     pulumi.Any(data.Aws_region.Current.Name),
-//					DefaultAction: pulumi.String("DENY"),
-//					UserPoolId:    pulumi.Any(aws_cognito_user_pool.Example.Id),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### OpenID Connect Authentication
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appsync"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
-//				AuthenticationType: pulumi.String("OPENID_CONNECT"),
-//				OpenidConnectConfig: &appsync.GraphQLApiOpenidConnectConfigArgs{
-//					Issuer: pulumi.String("https://example.com"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### AWS Lambda Authorizer Authentication
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appsync"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
-//				AuthenticationType: pulumi.String("AWS_LAMBDA"),
-//				LambdaAuthorizerConfig: &appsync.GraphQLApiLambdaAuthorizerConfigArgs{
-//					AuthorizerUri: pulumi.String("arn:aws:lambda:us-east-1:123456789012:function:custom_lambda_authorizer"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lambda.NewPermission(ctx, "appsyncLambdaAuthorizer", &lambda.PermissionArgs{
-//				Action:    pulumi.String("lambda:InvokeFunction"),
-//				Function:  pulumi.Any("custom_lambda_authorizer"),
-//				Principal: pulumi.String("appsync.amazonaws.com"),
-//				SourceArn: example.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### With Multiple Authentication Providers
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appsync"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
-//				AdditionalAuthenticationProviders: appsync.GraphQLApiAdditionalAuthenticationProviderArray{
-//					&appsync.GraphQLApiAdditionalAuthenticationProviderArgs{
-//						AuthenticationType: pulumi.String("AWS_IAM"),
-//					},
-//				},
-//				AuthenticationType: pulumi.String("API_KEY"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### With Schema
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appsync"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
-//				AuthenticationType: pulumi.String("AWS_IAM"),
-//				Schema: pulumi.String(`schema {
-//		query: Query
-//	}
-//
-//	type Query {
-//	  test: Int
-//	}
-//
-// `),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Enabling Logging
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appsync"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Effect: pulumi.StringRef("Allow"),
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "Service",
-//								Identifiers: []string{
-//									"appsync.amazonaws.com",
-//								},
-//							},
-//						},
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
-//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iam.NewRolePolicyAttachment(ctx, "exampleRolePolicyAttachment", &iam.RolePolicyAttachmentArgs{
-//				PolicyArn: pulumi.String("arn:aws:iam::aws:policy/service-role/AWSAppSyncPushToCloudWatchLogs"),
-//				Role:      exampleRole.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appsync.NewGraphQLApi(ctx, "exampleGraphQLApi", &appsync.GraphQLApiArgs{
-//				LogConfig: &appsync.GraphQLApiLogConfigArgs{
-//					CloudwatchLogsRoleArn: exampleRole.Arn,
-//					FieldLogLevel:         pulumi.String("ERROR"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// AppSync GraphQL API can be imported using the GraphQL API ID, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:appsync/graphQLApi:GraphQLApi example 0123456789
-//
-// ```
 type GraphQLApi struct {
 	pulumi.CustomResourceState
 
@@ -325,6 +39,8 @@ type GraphQLApi struct {
 	Uris pulumi.StringMapOutput `pulumi:"uris"`
 	// Amazon Cognito User Pool configuration. Defined below.
 	UserPoolConfig GraphQLApiUserPoolConfigPtrOutput `pulumi:"userPoolConfig"`
+	// Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
+	Visibility pulumi.StringPtrOutput `pulumi:"visibility"`
 	// Whether tracing with X-ray is enabled. Defaults to false.
 	XrayEnabled pulumi.BoolPtrOutput `pulumi:"xrayEnabled"`
 }
@@ -339,6 +55,7 @@ func NewGraphQLApi(ctx *pulumi.Context,
 	if args.AuthenticationType == nil {
 		return nil, errors.New("invalid value for required argument 'AuthenticationType'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource GraphQLApi
 	err := ctx.RegisterResource("aws:appsync/graphQLApi:GraphQLApi", name, args, &resource, opts...)
 	if err != nil {
@@ -385,6 +102,8 @@ type graphQLApiState struct {
 	Uris map[string]string `pulumi:"uris"`
 	// Amazon Cognito User Pool configuration. Defined below.
 	UserPoolConfig *GraphQLApiUserPoolConfig `pulumi:"userPoolConfig"`
+	// Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
+	Visibility *string `pulumi:"visibility"`
 	// Whether tracing with X-ray is enabled. Defaults to false.
 	XrayEnabled *bool `pulumi:"xrayEnabled"`
 }
@@ -414,6 +133,8 @@ type GraphQLApiState struct {
 	Uris pulumi.StringMapInput
 	// Amazon Cognito User Pool configuration. Defined below.
 	UserPoolConfig GraphQLApiUserPoolConfigPtrInput
+	// Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
+	Visibility pulumi.StringPtrInput
 	// Whether tracing with X-ray is enabled. Defaults to false.
 	XrayEnabled pulumi.BoolPtrInput
 }
@@ -441,6 +162,8 @@ type graphQLApiArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Amazon Cognito User Pool configuration. Defined below.
 	UserPoolConfig *GraphQLApiUserPoolConfig `pulumi:"userPoolConfig"`
+	// Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
+	Visibility *string `pulumi:"visibility"`
 	// Whether tracing with X-ray is enabled. Defaults to false.
 	XrayEnabled *bool `pulumi:"xrayEnabled"`
 }
@@ -465,6 +188,8 @@ type GraphQLApiArgs struct {
 	Tags pulumi.StringMapInput
 	// Amazon Cognito User Pool configuration. Defined below.
 	UserPoolConfig GraphQLApiUserPoolConfigPtrInput
+	// Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
+	Visibility pulumi.StringPtrInput
 	// Whether tracing with X-ray is enabled. Defaults to false.
 	XrayEnabled pulumi.BoolPtrInput
 }
@@ -616,6 +341,11 @@ func (o GraphQLApiOutput) Uris() pulumi.StringMapOutput {
 // Amazon Cognito User Pool configuration. Defined below.
 func (o GraphQLApiOutput) UserPoolConfig() GraphQLApiUserPoolConfigPtrOutput {
 	return o.ApplyT(func(v *GraphQLApi) GraphQLApiUserPoolConfigPtrOutput { return v.UserPoolConfig }).(GraphQLApiUserPoolConfigPtrOutput)
+}
+
+// Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
+func (o GraphQLApiOutput) Visibility() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GraphQLApi) pulumi.StringPtrOutput { return v.Visibility }).(pulumi.StringPtrOutput)
 }
 
 // Whether tracing with X-ray is enabled. Defaults to false.

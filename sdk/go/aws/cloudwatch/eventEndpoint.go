@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -64,13 +65,11 @@ import (
 //
 // ## Import
 //
-// EventBridge Global Endpoints can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_cloudwatch_event_endpoint.imported_endpoint
 //
-//	$ pulumi import aws:cloudwatch/eventEndpoint:EventEndpoint imported_endpoint example-endpoint
-//
-// ```
+//	id = "example-endpoint" } Using `pulumi import`, import EventBridge Global Endpoints using the `name`. For exampleconsole % pulumi import aws_cloudwatch_event_endpoint.imported_endpoint example-endpoint
 type EventEndpoint struct {
 	pulumi.CustomResourceState
 
@@ -105,6 +104,7 @@ func NewEventEndpoint(ctx *pulumi.Context,
 	if args.RoutingConfig == nil {
 		return nil, errors.New("invalid value for required argument 'RoutingConfig'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EventEndpoint
 	err := ctx.RegisterResource("aws:cloudwatch/eventEndpoint:EventEndpoint", name, args, &resource, opts...)
 	if err != nil {

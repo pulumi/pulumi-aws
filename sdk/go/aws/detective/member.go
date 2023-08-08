@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/detective"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/detective"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -49,13 +50,11 @@ import (
 //
 // ## Import
 //
-// `aws_detective_member` can be imported using the ARN of the graph followed by the account ID of the member account, e.g.
+// terraform import {
 //
-// ```sh
+//	to = aws_detective_member.example
 //
-//	$ pulumi import aws:detective/member:Member example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d/123456789012
-//
-// ```
+//	id = "arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d/123456789012" } Using `pulumi import`, import `aws_detective_member` using the ARN of the graph followed by the account ID of the member account. For exampleconsole % pulumi import aws_detective_member.example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d/123456789012
 type Member struct {
 	pulumi.CustomResourceState
 
@@ -98,6 +97,7 @@ func NewMember(ctx *pulumi.Context,
 	if args.GraphArn == nil {
 		return nil, errors.New("invalid value for required argument 'GraphArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Member
 	err := ctx.RegisterResource("aws:detective/member:Member", name, args, &resource, opts...)
 	if err != nil {

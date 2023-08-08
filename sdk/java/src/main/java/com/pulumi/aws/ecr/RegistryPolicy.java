@@ -24,7 +24,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
  * import com.pulumi.aws.inputs.GetRegionArgs;
+ * import com.pulumi.aws.inputs.GetPartitionArgs;
  * import com.pulumi.aws.ecr.RegistryPolicy;
  * import com.pulumi.aws.ecr.RegistryPolicyArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
@@ -69,11 +71,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * ECR Registry Policy can be imported using the registry id, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:ecr/registryPolicy:RegistryPolicy example 123456789012
- * ```
+ *  to = aws_ecr_registry_policy.example
+ * 
+ *  id = &#34;123456789012&#34; } Using `pulumi import`, import ECR Registry Policy using the registry id. For exampleconsole % pulumi import aws_ecr_registry_policy.example 123456789012
  * 
  */
 @ResourceType(type="aws:ecr/registryPolicy:RegistryPolicy")

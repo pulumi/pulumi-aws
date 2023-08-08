@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -40,13 +41,11 @@ import (
 //
 // ## Import
 //
-// `aws_ec2_transit_gateway` can be imported by using the EC2 Transit Gateway identifier, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_ec2_transit_gateway.example
 //
-//	$ pulumi import aws:ec2transitgateway/transitGateway:TransitGateway example tgw-12345678
-//
-// ```
+//	id = "tgw-12345678" } Using `pulumi import`, import `aws_ec2_transit_gateway` using the EC2 Transit Gateway identifier. For exampleconsole % pulumi import aws_ec2_transit_gateway.example tgw-12345678
 type TransitGateway struct {
 	pulumi.CustomResourceState
 
@@ -91,6 +90,7 @@ func NewTransitGateway(ctx *pulumi.Context,
 		args = &TransitGatewayArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TransitGateway
 	err := ctx.RegisterResource("aws:ec2transitgateway/transitGateway:TransitGateway", name, args, &resource, opts...)
 	if err != nil {

@@ -145,11 +145,11 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// 
     /// ## Import
     /// 
-    /// `aws_apigatewayv2_integration` can be imported by using the API identifier and integration identifier, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:apigatewayv2/integration:Integration example aabbccddee/1122334
-    /// ```
+    ///  to = aws_apigatewayv2_integration.example
+    /// 
+    ///  id = "aabbccddee/1122334" } Using `pulumi import`, import `aws_apigatewayv2_integration` using the API identifier and integration identifier. For exampleconsole % pulumi import aws_apigatewayv2_integration.example aabbccddee/1122334
     /// </summary>
     [AwsResourceType("aws:apigatewayv2/integration:Integration")]
     public partial class Integration : global::Pulumi.CustomResource

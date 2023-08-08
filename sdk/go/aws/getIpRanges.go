@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,8 +20,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -63,6 +64,7 @@ import (
 //
 // ```
 func GetIpRanges(ctx *pulumi.Context, args *GetIpRangesArgs, opts ...pulumi.InvokeOption) (*GetIpRangesResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetIpRangesResult
 	err := ctx.Invoke("aws:index/getIpRanges:getIpRanges", args, &rv, opts...)
 	if err != nil {
@@ -73,6 +75,7 @@ func GetIpRanges(ctx *pulumi.Context, args *GetIpRangesArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getIpRanges.
 type GetIpRangesArgs struct {
+	Id *string `pulumi:"id"`
 	// Filter IP ranges by regions (or include all regions, if
 	// omitted). Valid items are `global` (for `cloudfront`) as well as all AWS regions
 	// (e.g., `eu-central-1`)
@@ -96,8 +99,7 @@ type GetIpRangesResult struct {
 	CidrBlocks []string `pulumi:"cidrBlocks"`
 	// Publication time of the IP ranges (e.g., `2016-08-03-23-46-05`).
 	CreateDate string `pulumi:"createDate"`
-	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id         string `pulumi:"id"`
 	// Lexically ordered list of IPv6 CIDR blocks.
 	Ipv6CidrBlocks []string `pulumi:"ipv6CidrBlocks"`
 	Regions        []string `pulumi:"regions"`
@@ -123,6 +125,7 @@ func GetIpRangesOutput(ctx *pulumi.Context, args GetIpRangesOutputArgs, opts ...
 
 // A collection of arguments for invoking getIpRanges.
 type GetIpRangesOutputArgs struct {
+	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Filter IP ranges by regions (or include all regions, if
 	// omitted). Valid items are `global` (for `cloudfront`) as well as all AWS regions
 	// (e.g., `eu-central-1`)
@@ -169,7 +172,6 @@ func (o GetIpRangesResultOutput) CreateDate() pulumi.StringOutput {
 	return o.ApplyT(func(v GetIpRangesResult) string { return v.CreateDate }).(pulumi.StringOutput)
 }
 
-// The provider-assigned unique ID for this managed resource.
 func (o GetIpRangesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetIpRangesResult) string { return v.Id }).(pulumi.StringOutput)
 }

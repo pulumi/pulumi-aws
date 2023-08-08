@@ -13,112 +13,12 @@ namespace Pulumi.Aws.RedShift
     {
         /// <summary>
         /// Provides details about a specific redshift cluster.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.RedShift.GetCluster.Invoke(new()
-        ///     {
-        ///         ClusterIdentifier = "example-cluster",
-        ///     });
-        /// 
-        ///     var exampleStream = new Aws.Kinesis.FirehoseDeliveryStream("exampleStream", new()
-        ///     {
-        ///         Destination = "redshift",
-        ///         S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamS3ConfigurationArgs
-        ///         {
-        ///             RoleArn = aws_iam_role.Firehose_role.Arn,
-        ///             BucketArn = aws_s3_bucket.Bucket.Arn,
-        ///             BufferSize = 10,
-        ///             BufferInterval = 400,
-        ///             CompressionFormat = "GZIP",
-        ///         },
-        ///         RedshiftConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs
-        ///         {
-        ///             RoleArn = aws_iam_role.Firehose_role.Arn,
-        ///             ClusterJdbcurl = Output.Tuple(example, example).Apply(values =&gt;
-        ///             {
-        ///                 var example = values.Item1;
-        ///                 var example1 = values.Item2;
-        ///                 return $"jdbc:redshift://{example.Apply(getClusterResult =&gt; getClusterResult.Endpoint)}/{example1.DatabaseName}";
-        ///             }),
-        ///             Username = "exampleuser",
-        ///             Password = "Exampl3Pass",
-        ///             DataTableName = "example-table",
-        ///             CopyOptions = "delimiter '|'",
-        ///             DataTableColumns = "example-col",
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("aws:redshift/getCluster:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides details about a specific redshift cluster.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.RedShift.GetCluster.Invoke(new()
-        ///     {
-        ///         ClusterIdentifier = "example-cluster",
-        ///     });
-        /// 
-        ///     var exampleStream = new Aws.Kinesis.FirehoseDeliveryStream("exampleStream", new()
-        ///     {
-        ///         Destination = "redshift",
-        ///         S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamS3ConfigurationArgs
-        ///         {
-        ///             RoleArn = aws_iam_role.Firehose_role.Arn,
-        ///             BucketArn = aws_s3_bucket.Bucket.Arn,
-        ///             BufferSize = 10,
-        ///             BufferInterval = 400,
-        ///             CompressionFormat = "GZIP",
-        ///         },
-        ///         RedshiftConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs
-        ///         {
-        ///             RoleArn = aws_iam_role.Firehose_role.Arn,
-        ///             ClusterJdbcurl = Output.Tuple(example, example).Apply(values =&gt;
-        ///             {
-        ///                 var example = values.Item1;
-        ///                 var example1 = values.Item2;
-        ///                 return $"jdbc:redshift://{example.Apply(getClusterResult =&gt; getClusterResult.Endpoint)}/{example1.DatabaseName}";
-        ///             }),
-        ///             Username = "exampleuser",
-        ///             Password = "Exampl3Pass",
-        ///             DataTableName = "example-table",
-        ///             CopyOptions = "delimiter '|'",
-        ///             DataTableColumns = "example-col",
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("aws:redshift/getCluster:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
@@ -214,6 +114,10 @@ namespace Pulumi.Aws.RedShift
         /// </summary>
         public readonly string ClusterIdentifier;
         /// <summary>
+        /// The namespace Amazon Resource Name (ARN) of the cluster
+        /// </summary>
+        public readonly string ClusterNamespaceArn;
+        /// <summary>
         /// Nodes in the cluster. Cluster node blocks are documented below
         /// </summary>
         public readonly ImmutableArray<Outputs.GetClusterClusterNodeResult> ClusterNodes;
@@ -230,10 +134,6 @@ namespace Pulumi.Aws.RedShift
         /// </summary>
         public readonly string ClusterRevisionNumber;
         /// <summary>
-        /// The security groups associated with the cluster
-        /// </summary>
-        public readonly ImmutableArray<string> ClusterSecurityGroups;
-        /// <summary>
         /// The name of a cluster subnet group to be associated with this cluster
         /// </summary>
         public readonly string ClusterSubnetGroupName;
@@ -247,7 +147,7 @@ namespace Pulumi.Aws.RedShift
         /// </summary>
         public readonly string DatabaseName;
         /// <summary>
-        /// ∂The ARN for the IAM role that was set as default for the cluster when the cluster was created.
+        /// The ARN for the IAM role that was set as default for the cluster when the cluster was created.
         /// </summary>
         public readonly string DefaultIamRoleArn;
         /// <summary>
@@ -357,6 +257,8 @@ namespace Pulumi.Aws.RedShift
 
             string clusterIdentifier,
 
+            string clusterNamespaceArn,
+
             ImmutableArray<Outputs.GetClusterClusterNodeResult> clusterNodes,
 
             string clusterParameterGroupName,
@@ -364,8 +266,6 @@ namespace Pulumi.Aws.RedShift
             string clusterPublicKey,
 
             string clusterRevisionNumber,
-
-            ImmutableArray<string> clusterSecurityGroups,
 
             string clusterSubnetGroupName,
 
@@ -429,11 +329,11 @@ namespace Pulumi.Aws.RedShift
             AvailabilityZoneRelocationEnabled = availabilityZoneRelocationEnabled;
             BucketName = bucketName;
             ClusterIdentifier = clusterIdentifier;
+            ClusterNamespaceArn = clusterNamespaceArn;
             ClusterNodes = clusterNodes;
             ClusterParameterGroupName = clusterParameterGroupName;
             ClusterPublicKey = clusterPublicKey;
             ClusterRevisionNumber = clusterRevisionNumber;
-            ClusterSecurityGroups = clusterSecurityGroups;
             ClusterSubnetGroupName = clusterSubnetGroupName;
             ClusterType = clusterType;
             ClusterVersion = clusterVersion;

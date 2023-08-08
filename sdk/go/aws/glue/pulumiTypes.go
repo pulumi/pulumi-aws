@@ -7,8 +7,11 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type CatalogDatabaseCreateTableDefaultPermission struct {
 	// The permissions that are granted to the principal.
@@ -262,6 +265,8 @@ type CatalogDatabaseTargetDatabase struct {
 	CatalogId string `pulumi:"catalogId"`
 	// Name of the catalog database.
 	DatabaseName string `pulumi:"databaseName"`
+	// Region of the target database.
+	Region *string `pulumi:"region"`
 }
 
 // CatalogDatabaseTargetDatabaseInput is an input type that accepts CatalogDatabaseTargetDatabaseArgs and CatalogDatabaseTargetDatabaseOutput values.
@@ -280,6 +285,8 @@ type CatalogDatabaseTargetDatabaseArgs struct {
 	CatalogId pulumi.StringInput `pulumi:"catalogId"`
 	// Name of the catalog database.
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// Region of the target database.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (CatalogDatabaseTargetDatabaseArgs) ElementType() reflect.Type {
@@ -369,6 +376,11 @@ func (o CatalogDatabaseTargetDatabaseOutput) DatabaseName() pulumi.StringOutput 
 	return o.ApplyT(func(v CatalogDatabaseTargetDatabase) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
+// Region of the target database.
+func (o CatalogDatabaseTargetDatabaseOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogDatabaseTargetDatabase) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
 type CatalogDatabaseTargetDatabasePtrOutput struct{ *pulumi.OutputState }
 
 func (CatalogDatabaseTargetDatabasePtrOutput) ElementType() reflect.Type {
@@ -410,6 +422,16 @@ func (o CatalogDatabaseTargetDatabasePtrOutput) DatabaseName() pulumi.StringPtrO
 			return nil
 		}
 		return &v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Region of the target database.
+func (o CatalogDatabaseTargetDatabasePtrOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogDatabaseTargetDatabase) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Region
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -3413,6 +3435,130 @@ func (o CrawlerDynamodbTargetArrayOutput) Index(i pulumi.IntInput) CrawlerDynamo
 	}).(CrawlerDynamodbTargetOutput)
 }
 
+type CrawlerIcebergTarget struct {
+	// The name of the connection to use to connect to the Iceberg target.
+	ConnectionName *string `pulumi:"connectionName"`
+	// A list of glob patterns used to exclude from the crawl.
+	Exclusions []string `pulumi:"exclusions"`
+	// The maximum depth of Amazon S3 paths that the crawler can traverse to discover the Iceberg metadata folder in your Amazon S3 path. Used to limit the crawler run time. Valid values are between `1` and `20`.
+	MaximumTraversalDepth int `pulumi:"maximumTraversalDepth"`
+	// One or more Amazon S3 paths that contains Iceberg metadata folders as s3://bucket/prefix.
+	Paths []string `pulumi:"paths"`
+}
+
+// CrawlerIcebergTargetInput is an input type that accepts CrawlerIcebergTargetArgs and CrawlerIcebergTargetOutput values.
+// You can construct a concrete instance of `CrawlerIcebergTargetInput` via:
+//
+//	CrawlerIcebergTargetArgs{...}
+type CrawlerIcebergTargetInput interface {
+	pulumi.Input
+
+	ToCrawlerIcebergTargetOutput() CrawlerIcebergTargetOutput
+	ToCrawlerIcebergTargetOutputWithContext(context.Context) CrawlerIcebergTargetOutput
+}
+
+type CrawlerIcebergTargetArgs struct {
+	// The name of the connection to use to connect to the Iceberg target.
+	ConnectionName pulumi.StringPtrInput `pulumi:"connectionName"`
+	// A list of glob patterns used to exclude from the crawl.
+	Exclusions pulumi.StringArrayInput `pulumi:"exclusions"`
+	// The maximum depth of Amazon S3 paths that the crawler can traverse to discover the Iceberg metadata folder in your Amazon S3 path. Used to limit the crawler run time. Valid values are between `1` and `20`.
+	MaximumTraversalDepth pulumi.IntInput `pulumi:"maximumTraversalDepth"`
+	// One or more Amazon S3 paths that contains Iceberg metadata folders as s3://bucket/prefix.
+	Paths pulumi.StringArrayInput `pulumi:"paths"`
+}
+
+func (CrawlerIcebergTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerIcebergTarget)(nil)).Elem()
+}
+
+func (i CrawlerIcebergTargetArgs) ToCrawlerIcebergTargetOutput() CrawlerIcebergTargetOutput {
+	return i.ToCrawlerIcebergTargetOutputWithContext(context.Background())
+}
+
+func (i CrawlerIcebergTargetArgs) ToCrawlerIcebergTargetOutputWithContext(ctx context.Context) CrawlerIcebergTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerIcebergTargetOutput)
+}
+
+// CrawlerIcebergTargetArrayInput is an input type that accepts CrawlerIcebergTargetArray and CrawlerIcebergTargetArrayOutput values.
+// You can construct a concrete instance of `CrawlerIcebergTargetArrayInput` via:
+//
+//	CrawlerIcebergTargetArray{ CrawlerIcebergTargetArgs{...} }
+type CrawlerIcebergTargetArrayInput interface {
+	pulumi.Input
+
+	ToCrawlerIcebergTargetArrayOutput() CrawlerIcebergTargetArrayOutput
+	ToCrawlerIcebergTargetArrayOutputWithContext(context.Context) CrawlerIcebergTargetArrayOutput
+}
+
+type CrawlerIcebergTargetArray []CrawlerIcebergTargetInput
+
+func (CrawlerIcebergTargetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CrawlerIcebergTarget)(nil)).Elem()
+}
+
+func (i CrawlerIcebergTargetArray) ToCrawlerIcebergTargetArrayOutput() CrawlerIcebergTargetArrayOutput {
+	return i.ToCrawlerIcebergTargetArrayOutputWithContext(context.Background())
+}
+
+func (i CrawlerIcebergTargetArray) ToCrawlerIcebergTargetArrayOutputWithContext(ctx context.Context) CrawlerIcebergTargetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerIcebergTargetArrayOutput)
+}
+
+type CrawlerIcebergTargetOutput struct{ *pulumi.OutputState }
+
+func (CrawlerIcebergTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerIcebergTarget)(nil)).Elem()
+}
+
+func (o CrawlerIcebergTargetOutput) ToCrawlerIcebergTargetOutput() CrawlerIcebergTargetOutput {
+	return o
+}
+
+func (o CrawlerIcebergTargetOutput) ToCrawlerIcebergTargetOutputWithContext(ctx context.Context) CrawlerIcebergTargetOutput {
+	return o
+}
+
+// The name of the connection to use to connect to the Iceberg target.
+func (o CrawlerIcebergTargetOutput) ConnectionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrawlerIcebergTarget) *string { return v.ConnectionName }).(pulumi.StringPtrOutput)
+}
+
+// A list of glob patterns used to exclude from the crawl.
+func (o CrawlerIcebergTargetOutput) Exclusions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CrawlerIcebergTarget) []string { return v.Exclusions }).(pulumi.StringArrayOutput)
+}
+
+// The maximum depth of Amazon S3 paths that the crawler can traverse to discover the Iceberg metadata folder in your Amazon S3 path. Used to limit the crawler run time. Valid values are between `1` and `20`.
+func (o CrawlerIcebergTargetOutput) MaximumTraversalDepth() pulumi.IntOutput {
+	return o.ApplyT(func(v CrawlerIcebergTarget) int { return v.MaximumTraversalDepth }).(pulumi.IntOutput)
+}
+
+// One or more Amazon S3 paths that contains Iceberg metadata folders as s3://bucket/prefix.
+func (o CrawlerIcebergTargetOutput) Paths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CrawlerIcebergTarget) []string { return v.Paths }).(pulumi.StringArrayOutput)
+}
+
+type CrawlerIcebergTargetArrayOutput struct{ *pulumi.OutputState }
+
+func (CrawlerIcebergTargetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CrawlerIcebergTarget)(nil)).Elem()
+}
+
+func (o CrawlerIcebergTargetArrayOutput) ToCrawlerIcebergTargetArrayOutput() CrawlerIcebergTargetArrayOutput {
+	return o
+}
+
+func (o CrawlerIcebergTargetArrayOutput) ToCrawlerIcebergTargetArrayOutputWithContext(ctx context.Context) CrawlerIcebergTargetArrayOutput {
+	return o
+}
+
+func (o CrawlerIcebergTargetArrayOutput) Index(i pulumi.IntInput) CrawlerIcebergTargetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CrawlerIcebergTarget {
+		return vs[0].([]CrawlerIcebergTarget)[vs[1].(int)]
+	}).(CrawlerIcebergTargetOutput)
+}
+
 type CrawlerJdbcTarget struct {
 	// The name of the connection to use to connect to the JDBC target.
 	ConnectionName string `pulumi:"connectionName"`
@@ -3694,7 +3840,7 @@ func (o CrawlerLakeFormationConfigurationPtrOutput) UseLakeFormationCredentials(
 }
 
 type CrawlerLineageConfiguration struct {
-	// Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `Disable`.
+	// Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `DISABLE`.
 	CrawlerLineageSettings *string `pulumi:"crawlerLineageSettings"`
 }
 
@@ -3710,7 +3856,7 @@ type CrawlerLineageConfigurationInput interface {
 }
 
 type CrawlerLineageConfigurationArgs struct {
-	// Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `Disable`.
+	// Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `DISABLE`.
 	CrawlerLineageSettings pulumi.StringPtrInput `pulumi:"crawlerLineageSettings"`
 }
 
@@ -3791,7 +3937,7 @@ func (o CrawlerLineageConfigurationOutput) ToCrawlerLineageConfigurationPtrOutpu
 	}).(CrawlerLineageConfigurationPtrOutput)
 }
 
-// Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `Disable`.
+// Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `DISABLE`.
 func (o CrawlerLineageConfigurationOutput) CrawlerLineageSettings() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CrawlerLineageConfiguration) *string { return v.CrawlerLineageSettings }).(pulumi.StringPtrOutput)
 }
@@ -3820,7 +3966,7 @@ func (o CrawlerLineageConfigurationPtrOutput) Elem() CrawlerLineageConfiguration
 	}).(CrawlerLineageConfigurationOutput)
 }
 
-// Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `Disable`.
+// Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `DISABLE`.
 func (o CrawlerLineageConfigurationPtrOutput) CrawlerLineageSettings() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CrawlerLineageConfiguration) *string {
 		if v == nil {
@@ -4872,11 +5018,188 @@ func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRe
 	}).(pulumi.StringPtrOutput)
 }
 
+type DataQualityRulesetTargetTable struct {
+	// The catalog id where the AWS Glue table exists.
+	CatalogId *string `pulumi:"catalogId"`
+	// Name of the database where the AWS Glue table exists.
+	DatabaseName string `pulumi:"databaseName"`
+	// Name of the AWS Glue table.
+	TableName string `pulumi:"tableName"`
+}
+
+// DataQualityRulesetTargetTableInput is an input type that accepts DataQualityRulesetTargetTableArgs and DataQualityRulesetTargetTableOutput values.
+// You can construct a concrete instance of `DataQualityRulesetTargetTableInput` via:
+//
+//	DataQualityRulesetTargetTableArgs{...}
+type DataQualityRulesetTargetTableInput interface {
+	pulumi.Input
+
+	ToDataQualityRulesetTargetTableOutput() DataQualityRulesetTargetTableOutput
+	ToDataQualityRulesetTargetTableOutputWithContext(context.Context) DataQualityRulesetTargetTableOutput
+}
+
+type DataQualityRulesetTargetTableArgs struct {
+	// The catalog id where the AWS Glue table exists.
+	CatalogId pulumi.StringPtrInput `pulumi:"catalogId"`
+	// Name of the database where the AWS Glue table exists.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// Name of the AWS Glue table.
+	TableName pulumi.StringInput `pulumi:"tableName"`
+}
+
+func (DataQualityRulesetTargetTableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataQualityRulesetTargetTable)(nil)).Elem()
+}
+
+func (i DataQualityRulesetTargetTableArgs) ToDataQualityRulesetTargetTableOutput() DataQualityRulesetTargetTableOutput {
+	return i.ToDataQualityRulesetTargetTableOutputWithContext(context.Background())
+}
+
+func (i DataQualityRulesetTargetTableArgs) ToDataQualityRulesetTargetTableOutputWithContext(ctx context.Context) DataQualityRulesetTargetTableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataQualityRulesetTargetTableOutput)
+}
+
+func (i DataQualityRulesetTargetTableArgs) ToDataQualityRulesetTargetTablePtrOutput() DataQualityRulesetTargetTablePtrOutput {
+	return i.ToDataQualityRulesetTargetTablePtrOutputWithContext(context.Background())
+}
+
+func (i DataQualityRulesetTargetTableArgs) ToDataQualityRulesetTargetTablePtrOutputWithContext(ctx context.Context) DataQualityRulesetTargetTablePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataQualityRulesetTargetTableOutput).ToDataQualityRulesetTargetTablePtrOutputWithContext(ctx)
+}
+
+// DataQualityRulesetTargetTablePtrInput is an input type that accepts DataQualityRulesetTargetTableArgs, DataQualityRulesetTargetTablePtr and DataQualityRulesetTargetTablePtrOutput values.
+// You can construct a concrete instance of `DataQualityRulesetTargetTablePtrInput` via:
+//
+//	        DataQualityRulesetTargetTableArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataQualityRulesetTargetTablePtrInput interface {
+	pulumi.Input
+
+	ToDataQualityRulesetTargetTablePtrOutput() DataQualityRulesetTargetTablePtrOutput
+	ToDataQualityRulesetTargetTablePtrOutputWithContext(context.Context) DataQualityRulesetTargetTablePtrOutput
+}
+
+type dataQualityRulesetTargetTablePtrType DataQualityRulesetTargetTableArgs
+
+func DataQualityRulesetTargetTablePtr(v *DataQualityRulesetTargetTableArgs) DataQualityRulesetTargetTablePtrInput {
+	return (*dataQualityRulesetTargetTablePtrType)(v)
+}
+
+func (*dataQualityRulesetTargetTablePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataQualityRulesetTargetTable)(nil)).Elem()
+}
+
+func (i *dataQualityRulesetTargetTablePtrType) ToDataQualityRulesetTargetTablePtrOutput() DataQualityRulesetTargetTablePtrOutput {
+	return i.ToDataQualityRulesetTargetTablePtrOutputWithContext(context.Background())
+}
+
+func (i *dataQualityRulesetTargetTablePtrType) ToDataQualityRulesetTargetTablePtrOutputWithContext(ctx context.Context) DataQualityRulesetTargetTablePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataQualityRulesetTargetTablePtrOutput)
+}
+
+type DataQualityRulesetTargetTableOutput struct{ *pulumi.OutputState }
+
+func (DataQualityRulesetTargetTableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataQualityRulesetTargetTable)(nil)).Elem()
+}
+
+func (o DataQualityRulesetTargetTableOutput) ToDataQualityRulesetTargetTableOutput() DataQualityRulesetTargetTableOutput {
+	return o
+}
+
+func (o DataQualityRulesetTargetTableOutput) ToDataQualityRulesetTargetTableOutputWithContext(ctx context.Context) DataQualityRulesetTargetTableOutput {
+	return o
+}
+
+func (o DataQualityRulesetTargetTableOutput) ToDataQualityRulesetTargetTablePtrOutput() DataQualityRulesetTargetTablePtrOutput {
+	return o.ToDataQualityRulesetTargetTablePtrOutputWithContext(context.Background())
+}
+
+func (o DataQualityRulesetTargetTableOutput) ToDataQualityRulesetTargetTablePtrOutputWithContext(ctx context.Context) DataQualityRulesetTargetTablePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataQualityRulesetTargetTable) *DataQualityRulesetTargetTable {
+		return &v
+	}).(DataQualityRulesetTargetTablePtrOutput)
+}
+
+// The catalog id where the AWS Glue table exists.
+func (o DataQualityRulesetTargetTableOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataQualityRulesetTargetTable) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
+}
+
+// Name of the database where the AWS Glue table exists.
+func (o DataQualityRulesetTargetTableOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v DataQualityRulesetTargetTable) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+// Name of the AWS Glue table.
+func (o DataQualityRulesetTargetTableOutput) TableName() pulumi.StringOutput {
+	return o.ApplyT(func(v DataQualityRulesetTargetTable) string { return v.TableName }).(pulumi.StringOutput)
+}
+
+type DataQualityRulesetTargetTablePtrOutput struct{ *pulumi.OutputState }
+
+func (DataQualityRulesetTargetTablePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataQualityRulesetTargetTable)(nil)).Elem()
+}
+
+func (o DataQualityRulesetTargetTablePtrOutput) ToDataQualityRulesetTargetTablePtrOutput() DataQualityRulesetTargetTablePtrOutput {
+	return o
+}
+
+func (o DataQualityRulesetTargetTablePtrOutput) ToDataQualityRulesetTargetTablePtrOutputWithContext(ctx context.Context) DataQualityRulesetTargetTablePtrOutput {
+	return o
+}
+
+func (o DataQualityRulesetTargetTablePtrOutput) Elem() DataQualityRulesetTargetTableOutput {
+	return o.ApplyT(func(v *DataQualityRulesetTargetTable) DataQualityRulesetTargetTable {
+		if v != nil {
+			return *v
+		}
+		var ret DataQualityRulesetTargetTable
+		return ret
+	}).(DataQualityRulesetTargetTableOutput)
+}
+
+// The catalog id where the AWS Glue table exists.
+func (o DataQualityRulesetTargetTablePtrOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataQualityRulesetTargetTable) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CatalogId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the database where the AWS Glue table exists.
+func (o DataQualityRulesetTargetTablePtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataQualityRulesetTargetTable) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the AWS Glue table.
+func (o DataQualityRulesetTargetTablePtrOutput) TableName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataQualityRulesetTargetTable) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TableName
+	}).(pulumi.StringPtrOutput)
+}
+
 type JobCommand struct {
-	// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, or `gluestreaming` for Streaming Job Type. `maxCapacity` needs to be set if `pythonshell` is chosen.
+	// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `glueray` for Ray Job Type, or `gluestreaming` for Streaming Job Type. `maxCapacity` needs to be set if `pythonshell` is chosen.
 	Name *string `pulumi:"name"`
 	// The Python version being used to execute a Python shell job. Allowed values are 2, 3 or 3.9. Version 3 refers to Python 3.6.
 	PythonVersion *string `pulumi:"pythonVersion"`
+	// In Ray jobs, runtime is used to specify the versions of Ray, Python and additional libraries available in your environment. This field is not used in other job types. For supported runtime environment values, see [Working with Ray jobs](https://docs.aws.amazon.com/glue/latest/dg/ray-jobs-section.html#author-job-ray-runtimes) in the Glue Developer Guide.
+	Runtime *string `pulumi:"runtime"`
 	// Specifies the S3 path to a script that executes a job.
 	ScriptLocation string `pulumi:"scriptLocation"`
 }
@@ -4893,10 +5216,12 @@ type JobCommandInput interface {
 }
 
 type JobCommandArgs struct {
-	// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, or `gluestreaming` for Streaming Job Type. `maxCapacity` needs to be set if `pythonshell` is chosen.
+	// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `glueray` for Ray Job Type, or `gluestreaming` for Streaming Job Type. `maxCapacity` needs to be set if `pythonshell` is chosen.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The Python version being used to execute a Python shell job. Allowed values are 2, 3 or 3.9. Version 3 refers to Python 3.6.
 	PythonVersion pulumi.StringPtrInput `pulumi:"pythonVersion"`
+	// In Ray jobs, runtime is used to specify the versions of Ray, Python and additional libraries available in your environment. This field is not used in other job types. For supported runtime environment values, see [Working with Ray jobs](https://docs.aws.amazon.com/glue/latest/dg/ray-jobs-section.html#author-job-ray-runtimes) in the Glue Developer Guide.
+	Runtime pulumi.StringPtrInput `pulumi:"runtime"`
 	// Specifies the S3 path to a script that executes a job.
 	ScriptLocation pulumi.StringInput `pulumi:"scriptLocation"`
 }
@@ -4978,7 +5303,7 @@ func (o JobCommandOutput) ToJobCommandPtrOutputWithContext(ctx context.Context) 
 	}).(JobCommandPtrOutput)
 }
 
-// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, or `gluestreaming` for Streaming Job Type. `maxCapacity` needs to be set if `pythonshell` is chosen.
+// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `glueray` for Ray Job Type, or `gluestreaming` for Streaming Job Type. `maxCapacity` needs to be set if `pythonshell` is chosen.
 func (o JobCommandOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobCommand) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -4986,6 +5311,11 @@ func (o JobCommandOutput) Name() pulumi.StringPtrOutput {
 // The Python version being used to execute a Python shell job. Allowed values are 2, 3 or 3.9. Version 3 refers to Python 3.6.
 func (o JobCommandOutput) PythonVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobCommand) *string { return v.PythonVersion }).(pulumi.StringPtrOutput)
+}
+
+// In Ray jobs, runtime is used to specify the versions of Ray, Python and additional libraries available in your environment. This field is not used in other job types. For supported runtime environment values, see [Working with Ray jobs](https://docs.aws.amazon.com/glue/latest/dg/ray-jobs-section.html#author-job-ray-runtimes) in the Glue Developer Guide.
+func (o JobCommandOutput) Runtime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobCommand) *string { return v.Runtime }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the S3 path to a script that executes a job.
@@ -5017,7 +5347,7 @@ func (o JobCommandPtrOutput) Elem() JobCommandOutput {
 	}).(JobCommandOutput)
 }
 
-// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, or `gluestreaming` for Streaming Job Type. `maxCapacity` needs to be set if `pythonshell` is chosen.
+// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `glueray` for Ray Job Type, or `gluestreaming` for Streaming Job Type. `maxCapacity` needs to be set if `pythonshell` is chosen.
 func (o JobCommandPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobCommand) *string {
 		if v == nil {
@@ -5034,6 +5364,16 @@ func (o JobCommandPtrOutput) PythonVersion() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.PythonVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// In Ray jobs, runtime is used to specify the versions of Ray, Python and additional libraries available in your environment. This field is not used in other job types. For supported runtime environment values, see [Working with Ray jobs](https://docs.aws.amazon.com/glue/latest/dg/ray-jobs-section.html#author-job-ray-runtimes) in the Glue Developer Guide.
+func (o JobCommandPtrOutput) Runtime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobCommand) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Runtime
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -10498,6 +10838,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerDeltaTargetArrayInput)(nil)).Elem(), CrawlerDeltaTargetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerDynamodbTargetInput)(nil)).Elem(), CrawlerDynamodbTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerDynamodbTargetArrayInput)(nil)).Elem(), CrawlerDynamodbTargetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerIcebergTargetInput)(nil)).Elem(), CrawlerIcebergTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerIcebergTargetArrayInput)(nil)).Elem(), CrawlerIcebergTargetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerJdbcTargetInput)(nil)).Elem(), CrawlerJdbcTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerJdbcTargetArrayInput)(nil)).Elem(), CrawlerJdbcTargetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerLakeFormationConfigurationInput)(nil)).Elem(), CrawlerLakeFormationConfigurationArgs{})
@@ -10518,6 +10860,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrInput)(nil)).Elem(), DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestInput)(nil)).Elem(), DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrInput)(nil)).Elem(), DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityRulesetTargetTableInput)(nil)).Elem(), DataQualityRulesetTargetTableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityRulesetTargetTablePtrInput)(nil)).Elem(), DataQualityRulesetTargetTableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobCommandInput)(nil)).Elem(), JobCommandArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobCommandPtrInput)(nil)).Elem(), JobCommandArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobExecutionPropertyInput)(nil)).Elem(), JobExecutionPropertyArgs{})
@@ -10640,6 +10984,8 @@ func init() {
 	pulumi.RegisterOutputType(CrawlerDeltaTargetArrayOutput{})
 	pulumi.RegisterOutputType(CrawlerDynamodbTargetOutput{})
 	pulumi.RegisterOutputType(CrawlerDynamodbTargetArrayOutput{})
+	pulumi.RegisterOutputType(CrawlerIcebergTargetOutput{})
+	pulumi.RegisterOutputType(CrawlerIcebergTargetArrayOutput{})
 	pulumi.RegisterOutputType(CrawlerJdbcTargetOutput{})
 	pulumi.RegisterOutputType(CrawlerJdbcTargetArrayOutput{})
 	pulumi.RegisterOutputType(CrawlerLakeFormationConfigurationOutput{})
@@ -10660,6 +11006,8 @@ func init() {
 	pulumi.RegisterOutputType(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestOutput{})
 	pulumi.RegisterOutputType(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput{})
+	pulumi.RegisterOutputType(DataQualityRulesetTargetTableOutput{})
+	pulumi.RegisterOutputType(DataQualityRulesetTargetTablePtrOutput{})
 	pulumi.RegisterOutputType(JobCommandOutput{})
 	pulumi.RegisterOutputType(JobCommandPtrOutput{})
 	pulumi.RegisterOutputType(JobExecutionPropertyOutput{})

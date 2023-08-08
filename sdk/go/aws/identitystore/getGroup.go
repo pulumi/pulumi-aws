@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Use this data source to get an Identity Store Group.
 func LookupGroup(ctx *pulumi.Context, args *LookupGroupArgs, opts ...pulumi.InvokeOption) (*LookupGroupResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupGroupResult
 	err := ctx.Invoke("aws:identitystore/getGroup:getGroup", args, &rv, opts...)
 	if err != nil {
@@ -22,15 +24,11 @@ func LookupGroup(ctx *pulumi.Context, args *LookupGroupArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getGroup.
 type LookupGroupArgs struct {
-	// A unique identifier for the group that is not the primary identifier. Conflicts with `groupId` and `filter`. Detailed below.
+	// A unique identifier for the group that is not the primary identifier. Conflicts with `groupId`. Detailed below.
 	AlternateIdentifier *GetGroupAlternateIdentifier `pulumi:"alternateIdentifier"`
-	// Configuration block for filtering by a unique attribute of the group. Detailed below.
-	//
-	// Deprecated: Use the alternate_identifier attribute instead.
-	Filter *GetGroupFilter `pulumi:"filter"`
 	// The identifier for a group in the Identity Store.
 	//
-	// > Exactly one of the above arguments must be provided. Passing both `filter` and `groupId` is allowed for backwards compatibility.
+	// > Exactly one of the above arguments must be provided.
 	GroupId *string `pulumi:"groupId"`
 	// Identity Store ID associated with the Single Sign-On Instance.
 	//
@@ -47,9 +45,7 @@ type LookupGroupResult struct {
 	DisplayName string `pulumi:"displayName"`
 	// List of identifiers issued to this resource by an external identity provider.
 	ExternalIds []GetGroupExternalId `pulumi:"externalIds"`
-	// Deprecated: Use the alternate_identifier attribute instead.
-	Filter  *GetGroupFilter `pulumi:"filter"`
-	GroupId string          `pulumi:"groupId"`
+	GroupId     string               `pulumi:"groupId"`
 	// The provider-assigned unique ID for this managed resource.
 	Id              string `pulumi:"id"`
 	IdentityStoreId string `pulumi:"identityStoreId"`
@@ -70,15 +66,11 @@ func LookupGroupOutput(ctx *pulumi.Context, args LookupGroupOutputArgs, opts ...
 
 // A collection of arguments for invoking getGroup.
 type LookupGroupOutputArgs struct {
-	// A unique identifier for the group that is not the primary identifier. Conflicts with `groupId` and `filter`. Detailed below.
+	// A unique identifier for the group that is not the primary identifier. Conflicts with `groupId`. Detailed below.
 	AlternateIdentifier GetGroupAlternateIdentifierPtrInput `pulumi:"alternateIdentifier"`
-	// Configuration block for filtering by a unique attribute of the group. Detailed below.
-	//
-	// Deprecated: Use the alternate_identifier attribute instead.
-	Filter GetGroupFilterPtrInput `pulumi:"filter"`
 	// The identifier for a group in the Identity Store.
 	//
-	// > Exactly one of the above arguments must be provided. Passing both `filter` and `groupId` is allowed for backwards compatibility.
+	// > Exactly one of the above arguments must be provided.
 	GroupId pulumi.StringPtrInput `pulumi:"groupId"`
 	// Identity Store ID associated with the Single Sign-On Instance.
 	//
@@ -122,11 +114,6 @@ func (o LookupGroupResultOutput) DisplayName() pulumi.StringOutput {
 // List of identifiers issued to this resource by an external identity provider.
 func (o LookupGroupResultOutput) ExternalIds() GetGroupExternalIdArrayOutput {
 	return o.ApplyT(func(v LookupGroupResult) []GetGroupExternalId { return v.ExternalIds }).(GetGroupExternalIdArrayOutput)
-}
-
-// Deprecated: Use the alternate_identifier attribute instead.
-func (o LookupGroupResultOutput) Filter() GetGroupFilterPtrOutput {
-	return o.ApplyT(func(v LookupGroupResult) *GetGroupFilter { return v.Filter }).(GetGroupFilterPtrOutput)
 }
 
 func (o LookupGroupResultOutput) GroupId() pulumi.StringOutput {

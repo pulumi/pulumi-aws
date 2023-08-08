@@ -131,11 +131,11 @@ class UserGroupAssociation(pulumi.CustomResource):
 
         ## Import
 
-        ElastiCache user group associations can be imported using the `user_group_id` and `user_id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:elasticache/userGroupAssociation:UserGroupAssociation example userGoupId1,userId
-        ```
+         to = aws_elasticache_user_group_association.example
+
+         id = "userGoupId1,userId" } Using `pulumi import`, import ElastiCache user group associations using the `user_group_id` and `user_id`. For exampleconsole % pulumi import aws_elasticache_user_group_association.example userGoupId1,userId
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -182,11 +182,11 @@ class UserGroupAssociation(pulumi.CustomResource):
 
         ## Import
 
-        ElastiCache user group associations can be imported using the `user_group_id` and `user_id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:elasticache/userGroupAssociation:UserGroupAssociation example userGoupId1,userId
-        ```
+         to = aws_elasticache_user_group_association.example
+
+         id = "userGoupId1,userId" } Using `pulumi import`, import ElastiCache user group associations using the `user_group_id` and `user_id`. For exampleconsole % pulumi import aws_elasticache_user_group_association.example userGoupId1,userId
 
         :param str resource_name: The name of the resource.
         :param UserGroupAssociationArgs args: The arguments to use to populate this resource's properties.

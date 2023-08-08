@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecs"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -45,13 +46,11 @@ import (
 //
 // ## Import
 //
-// ECS Account Setting defaults can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_ecs_account_setting_default.example
 //
-//	$ pulumi import aws:ecs/accountSettingDefault:AccountSettingDefault example taskLongArnFormat
-//
-// ```
+//	id = "taskLongArnFormat" } Using `pulumi import`, import ECS Account Setting defaults using the `name`. For exampleconsole % pulumi import aws_ecs_account_setting_default.example taskLongArnFormat
 type AccountSettingDefault struct {
 	pulumi.CustomResourceState
 
@@ -72,6 +71,7 @@ func NewAccountSettingDefault(ctx *pulumi.Context,
 	if args.Value == nil {
 		return nil, errors.New("invalid value for required argument 'Value'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AccountSettingDefault
 	err := ctx.RegisterResource("aws:ecs/accountSettingDefault:AccountSettingDefault", name, args, &resource, opts...)
 	if err != nil {

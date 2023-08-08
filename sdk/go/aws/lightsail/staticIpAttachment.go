@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lightsail"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -78,6 +79,7 @@ func NewStaticIpAttachment(ctx *pulumi.Context,
 	if args.StaticIpName == nil {
 		return nil, errors.New("invalid value for required argument 'StaticIpName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource StaticIpAttachment
 	err := ctx.RegisterResource("aws:lightsail/staticIpAttachment:StaticIpAttachment", name, args, &resource, opts...)
 	if err != nil {

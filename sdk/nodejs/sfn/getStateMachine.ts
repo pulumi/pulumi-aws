@@ -54,11 +54,16 @@ export interface GetStateMachineResult {
      * Set to the state machine definition.
      */
     readonly definition: string;
+    readonly description: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
     readonly name: string;
+    /**
+     * The revision identifier for the state machine.
+     */
+    readonly revisionId: string;
     /**
      * Set to the roleArn used by the state function.
      */

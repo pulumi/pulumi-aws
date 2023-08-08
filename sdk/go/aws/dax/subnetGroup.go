@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/dax"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dax"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -44,13 +45,11 @@ import (
 //
 // ## Import
 //
-// DAX Subnet Group can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_dax_subnet_group.example
 //
-//	$ pulumi import aws:dax/subnetGroup:SubnetGroup example my_dax_sg
-//
-// ```
+//	id = "my_dax_sg" } Using `pulumi import`, import DAX Subnet Group using the `name`. For exampleconsole % pulumi import aws_dax_subnet_group.example my_dax_sg
 type SubnetGroup struct {
 	pulumi.CustomResourceState
 
@@ -74,6 +73,7 @@ func NewSubnetGroup(ctx *pulumi.Context,
 	if args.SubnetIds == nil {
 		return nil, errors.New("invalid value for required argument 'SubnetIds'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SubnetGroup
 	err := ctx.RegisterResource("aws:dax/subnetGroup:SubnetGroup", name, args, &resource, opts...)
 	if err != nil {

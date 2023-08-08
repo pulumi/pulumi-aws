@@ -28,7 +28,7 @@ builds:
   - linux
   ignore: []
   ldflags:
-  - -X github.com/pulumi/pulumi-aws/provider/v5/pkg/version.Version={{.Tag}}
+  - -X github.com/pulumi/pulumi-aws/provider/v6/pkg/version.Version={{.Tag}}
   - -X
     github.com/hashicorp/terraform-provider-aws/version.ProviderVersion={{.Tag}}
   main: ./cmd/pulumi-resource-aws/

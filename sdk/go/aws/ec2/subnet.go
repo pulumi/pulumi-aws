@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -55,7 +56,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -84,13 +85,11 @@ import (
 //
 // ## Import
 //
-// Subnets can be imported using the `subnet id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_subnet.public_subnet
 //
-//	$ pulumi import aws:ec2/subnet:Subnet public_subnet subnet-9d4a7b6c
-//
-// ```
+//	id = "subnet-9d4a7b6c" } Using `pulumi import`, import subnets using the subnet `id`. For exampleconsole % pulumi import aws_subnet.public_subnet subnet-9d4a7b6c
 type Subnet struct {
 	pulumi.CustomResourceState
 
@@ -153,6 +152,7 @@ func NewSubnet(ctx *pulumi.Context,
 	if args.VpcId == nil {
 		return nil, errors.New("invalid value for required argument 'VpcId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Subnet
 	err := ctx.RegisterResource("aws:ec2/subnet:Subnet", name, args, &resource, opts...)
 	if err != nil {

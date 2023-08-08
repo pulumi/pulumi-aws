@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,8 +20,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicediscovery"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicediscovery"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -71,7 +72,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicediscovery"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicediscovery"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -111,13 +112,11 @@ import (
 //
 // ## Import
 //
-// Service Discovery Service can be imported using the service ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_service_discovery_service.example
 //
-//	$ pulumi import aws:servicediscovery/service:Service example 0123456789
-//
-// ```
+//	id = "0123456789" } Using `pulumi import`, import Service Discovery Service using the service ID. For exampleconsole % pulumi import aws_service_discovery_service.example 0123456789
 type Service struct {
 	pulumi.CustomResourceState
 
@@ -152,6 +151,7 @@ func NewService(ctx *pulumi.Context,
 		args = &ServiceArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Service
 	err := ctx.RegisterResource("aws:servicediscovery/service:Service", name, args, &resource, opts...)
 	if err != nil {

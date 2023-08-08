@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -51,13 +52,11 @@ import (
 //
 // ## Import
 //
-// CloudWatch Log Metric Filter can be imported using the `log_group_name:name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_cloudwatch_log_metric_filter.test
 //
-//	$ pulumi import aws:cloudwatch/logMetricFilter:LogMetricFilter test /aws/lambda/function:test
-//
-// ```
+//	id = "/aws/lambda/function:test" } Using `pulumi import`, import CloudWatch Log Metric Filter using the `log_group_name:name`. For exampleconsole % pulumi import aws_cloudwatch_log_metric_filter.test /aws/lambda/function:test
 type LogMetricFilter struct {
 	pulumi.CustomResourceState
 
@@ -88,6 +87,7 @@ func NewLogMetricFilter(ctx *pulumi.Context,
 	if args.Pattern == nil {
 		return nil, errors.New("invalid value for required argument 'Pattern'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LogMetricFilter
 	err := ctx.RegisterResource("aws:cloudwatch/logMetricFilter:LogMetricFilter", name, args, &resource, opts...)
 	if err != nil {

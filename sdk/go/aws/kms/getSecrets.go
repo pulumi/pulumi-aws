@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Decrypt multiple secrets from data encrypted with the AWS KMS service.
 func GetSecrets(ctx *pulumi.Context, args *GetSecretsArgs, opts ...pulumi.InvokeOption) (*GetSecretsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSecretsResult
 	err := ctx.Invoke("aws:kms/getSecrets:getSecrets", args, &rv, opts...)
 	if err != nil {

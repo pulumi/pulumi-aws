@@ -7,8 +7,11 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type ProductProvisioningArtifactParameters struct {
 	// Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.

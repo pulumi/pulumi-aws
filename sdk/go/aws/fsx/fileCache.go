@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/fsx"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/fsx"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -78,13 +79,11 @@ import (
 //
 // ## Import
 //
-// Amazon File Cache cache can be imported using the resource `id`.
+// terraform import {
 //
-// ```sh
+//	to = aws_fsx_file_cache.example
 //
-//	$ pulumi import aws:fsx/fileCache:FileCache example fc-8012925589
-//
-// ```
+//	id = "fc-8012925589" } Using `pulumi import`, import Amazon File Cache cache using the resource `id`. For exampleconsole % pulumi import aws_fsx_file_cache.example fc-8012925589
 type FileCache struct {
 	pulumi.CustomResourceState
 
@@ -146,6 +145,7 @@ func NewFileCache(ctx *pulumi.Context,
 	if args.SubnetIds == nil {
 		return nil, errors.New("invalid value for required argument 'SubnetIds'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FileCache
 	err := ctx.RegisterResource("aws:fsx/fileCache:FileCache", name, args, &resource, opts...)
 	if err != nil {

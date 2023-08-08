@@ -22,11 +22,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * ECS Account Setting defaults can be imported using the `name`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:ecs/accountSettingDefault:AccountSettingDefault example taskLongArnFormat
- * ```
+ *  to = aws_ecs_account_setting_default.example
+ *
+ *  id = "taskLongArnFormat" } Using `pulumi import`, import ECS Account Setting defaults using the `name`. For exampleconsole % pulumi import aws_ecs_account_setting_default.example taskLongArnFormat
  */
 export class AccountSettingDefault extends pulumi.CustomResource {
     /**

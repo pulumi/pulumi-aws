@@ -51,11 +51,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Codecommit repository can be imported using repository name, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:codecommit/repository:Repository imported ExistingRepo
- * ```
+ *  to = aws_codecommit_repository.imported
+ * 
+ *  id = &#34;ExistingRepo&#34; } Using `pulumi import`, import Codecommit repository using repository name. For exampleconsole % pulumi import aws_codecommit_repository.imported ExistingRepo
  * 
  */
 @ResourceType(type="aws:codecommit/repository:Repository")

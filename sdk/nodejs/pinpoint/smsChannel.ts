@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Provides a Pinpoint SMS Channel resource.
+ * Use the `aws.pinpoint.SmsChannel` resource to manage Pinpoint SMS Channels.
  *
  * ## Example Usage
  *
@@ -19,11 +19,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Pinpoint SMS Channel can be imported using the `application-id`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:pinpoint/smsChannel:SmsChannel sms application-id
- * ```
+ *  to = aws_pinpoint_sms_channel.sms
+ *
+ *  id = "application-id" } Using `pulumi import`, import the Pinpoint SMS Channel using the `application_id`. For exampleconsole % pulumi import aws_pinpoint_sms_channel.sms application-id
  */
 export class SmsChannel extends pulumi.CustomResource {
     /**
@@ -54,27 +54,27 @@ export class SmsChannel extends pulumi.CustomResource {
     }
 
     /**
-     * The application ID.
+     * ID of the application.
      */
     public readonly applicationId!: pulumi.Output<string>;
     /**
-     * Whether the channel is enabled or disabled. Defaults to `true`.
+     * Whether the channel is enabled or disabled. By default, it is set to `true`.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Promotional messages per second that can be sent.
+     * Maximum number of promotional messages that can be sent per second.
      */
     public /*out*/ readonly promotionalMessagesPerSecond!: pulumi.Output<number>;
     /**
-     * Sender identifier of your messages.
+     * Identifier of the sender for your messages.
      */
     public readonly senderId!: pulumi.Output<string | undefined>;
     /**
-     * The Short Code registered with the phone provider.
+     * Short Code registered with the phone provider.
      */
     public readonly shortCode!: pulumi.Output<string | undefined>;
     /**
-     * Transactional messages per second that can be sent.
+     * Maximum number of transactional messages per second that can be sent.
      */
     public /*out*/ readonly transactionalMessagesPerSecond!: pulumi.Output<number>;
 
@@ -119,27 +119,27 @@ export class SmsChannel extends pulumi.CustomResource {
  */
 export interface SmsChannelState {
     /**
-     * The application ID.
+     * ID of the application.
      */
     applicationId?: pulumi.Input<string>;
     /**
-     * Whether the channel is enabled or disabled. Defaults to `true`.
+     * Whether the channel is enabled or disabled. By default, it is set to `true`.
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * Promotional messages per second that can be sent.
+     * Maximum number of promotional messages that can be sent per second.
      */
     promotionalMessagesPerSecond?: pulumi.Input<number>;
     /**
-     * Sender identifier of your messages.
+     * Identifier of the sender for your messages.
      */
     senderId?: pulumi.Input<string>;
     /**
-     * The Short Code registered with the phone provider.
+     * Short Code registered with the phone provider.
      */
     shortCode?: pulumi.Input<string>;
     /**
-     * Transactional messages per second that can be sent.
+     * Maximum number of transactional messages per second that can be sent.
      */
     transactionalMessagesPerSecond?: pulumi.Input<number>;
 }
@@ -149,19 +149,19 @@ export interface SmsChannelState {
  */
 export interface SmsChannelArgs {
     /**
-     * The application ID.
+     * ID of the application.
      */
     applicationId: pulumi.Input<string>;
     /**
-     * Whether the channel is enabled or disabled. Defaults to `true`.
+     * Whether the channel is enabled or disabled. By default, it is set to `true`.
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * Sender identifier of your messages.
+     * Identifier of the sender for your messages.
      */
     senderId?: pulumi.Input<string>;
     /**
-     * The Short Code registered with the phone provider.
+     * Short Code registered with the phone provider.
      */
     shortCode?: pulumi.Input<string>;
 }

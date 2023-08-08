@@ -50,11 +50,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var primary = new ReplicationGroup(&#34;primary&#34;, ReplicationGroupArgs.builder()        
- *             .replicationGroupDescription(&#34;primary replication group&#34;)
+ *             .description(&#34;primary replication group&#34;)
  *             .engine(&#34;redis&#34;)
  *             .engineVersion(&#34;5.0.6&#34;)
  *             .nodeType(&#34;cache.m5.large&#34;)
- *             .numberCacheClusters(1)
+ *             .numCacheClusters(1)
  *             .build());
  * 
  *         var example = new GlobalReplicationGroup(&#34;example&#34;, GlobalReplicationGroupArgs.builder()        
@@ -63,9 +63,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var secondary = new ReplicationGroup(&#34;secondary&#34;, ReplicationGroupArgs.builder()        
- *             .replicationGroupDescription(&#34;secondary replication group&#34;)
+ *             .description(&#34;secondary replication group&#34;)
  *             .globalReplicationGroupId(example.globalReplicationGroupId())
- *             .numberCacheClusters(1)
+ *             .numCacheClusters(1)
  *             .build(), CustomResourceOptions.builder()
  *                 .provider(aws.other_region())
  *                 .build());
@@ -111,11 +111,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var primary = new ReplicationGroup(&#34;primary&#34;, ReplicationGroupArgs.builder()        
- *             .replicationGroupDescription(&#34;primary replication group&#34;)
+ *             .description(&#34;primary replication group&#34;)
  *             .engine(&#34;redis&#34;)
  *             .engineVersion(&#34;6.0&#34;)
  *             .nodeType(&#34;cache.m5.large&#34;)
- *             .numberCacheClusters(1)
+ *             .numCacheClusters(1)
  *             .build());
  * 
  *         var example = new GlobalReplicationGroup(&#34;example&#34;, GlobalReplicationGroupArgs.builder()        
@@ -125,9 +125,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var secondary = new ReplicationGroup(&#34;secondary&#34;, ReplicationGroupArgs.builder()        
- *             .replicationGroupDescription(&#34;secondary replication group&#34;)
+ *             .description(&#34;secondary replication group&#34;)
  *             .globalReplicationGroupId(example.globalReplicationGroupId())
- *             .numberCacheClusters(1)
+ *             .numCacheClusters(1)
  *             .build(), CustomResourceOptions.builder()
  *                 .provider(aws.other_region())
  *                 .build());
@@ -138,11 +138,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * ElastiCache Global Replication Groups can be imported using the `global_replication_group_id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:elasticache/globalReplicationGroup:GlobalReplicationGroup my_global_replication_group okuqm-global-replication-group-1
- * ```
+ *  to = aws_elasticache_global_replication_group.my_global_replication_group
+ * 
+ *  id = &#34;okuqm-global-replication-group-1&#34; } Using `pulumi import`, import ElastiCache Global Replication Groups using the `global_replication_group_id`. For exampleconsole % pulumi import aws_elasticache_global_replication_group.my_global_replication_group okuqm-global-replication-group-1
  * 
  */
 @ResourceType(type="aws:elasticache/globalReplicationGroup:GlobalReplicationGroup")
@@ -258,9 +258,10 @@ public class GlobalReplicationGroup extends com.pulumi.resources.CustomResource 
      * When creating, by default the Global Replication Group inherits the version of the primary replication group.
      * If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
      * Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
-     * If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+     * When the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+     * When the version is 6, the major and minor version can be set, e.g., `6.2`,
      * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
-     * The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
+     * The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
      * 
      */
     @Export(name="engineVersion", refs={String.class}, tree="[0]")
@@ -271,9 +272,10 @@ public class GlobalReplicationGroup extends com.pulumi.resources.CustomResource 
      * When creating, by default the Global Replication Group inherits the version of the primary replication group.
      * If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
      * Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
-     * If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+     * When the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+     * When the version is 6, the major and minor version can be set, e.g., `6.2`,
      * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
-     * The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
+     * The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
      * 
      */
     public Output<String> engineVersion() {

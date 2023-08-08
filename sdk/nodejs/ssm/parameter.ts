@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Provides an SSM Parameter resource.
  *
- * > **Note:** `overwrite` also makes it possible to overwrite an existing SSM Parameter that's not created by the provider before.
+ * > **Note:** `overwrite` also makes it possible to overwrite an existing SSM Parameter that's not created by the provider before. This argument has been deprecated and will be removed in v6.0.0 of the provider. For more information on how this affects the behavior of this resource, see this issue comment.
  *
  * ## Example Usage
  * ### Basic example
@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  *     engine: "mysql",
  *     engineVersion: "5.7.16",
  *     instanceClass: "db.t2.micro",
- *     name: "mydb",
+ *     dbName: "mydb",
  *     username: "foo",
  *     password: _var.database_master_password,
  *     dbSubnetGroupName: "my_database_subnet_group",
@@ -54,11 +54,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * SSM Parameters can be imported using the `parameter store name`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:ssm/parameter:Parameter my_param /my_path/my_paramname
- * ```
+ *  to = aws_ssm_parameter.my_param
+ *
+ *  id = "/my_path/my_paramname" } Using `pulumi import`, import SSM Parameters using the parameter store `name`. For exampleconsole % pulumi import aws_ssm_parameter.my_param /my_path/my_paramname
  */
 export class Parameter extends pulumi.CustomResource {
     /**
@@ -117,7 +117,9 @@ export class Parameter extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise.
+     * Overwrite an existing parameter. If not specified, defaults to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource, and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
+     *
+     * @deprecated this attribute has been deprecated
      */
     public readonly overwrite!: pulumi.Output<boolean | undefined>;
     /**
@@ -236,7 +238,9 @@ export interface ParameterState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise.
+     * Overwrite an existing parameter. If not specified, defaults to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource, and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
+     *
+     * @deprecated this attribute has been deprecated
      */
     overwrite?: pulumi.Input<boolean>;
     /**
@@ -302,7 +306,9 @@ export interface ParameterArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise.
+     * Overwrite an existing parameter. If not specified, defaults to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource, and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
+     *
+     * @deprecated this attribute has been deprecated
      */
     overwrite?: pulumi.Input<boolean>;
     /**

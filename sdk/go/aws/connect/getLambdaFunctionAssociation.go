@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -39,6 +40,7 @@ import (
 //
 // ```
 func LookupLambdaFunctionAssociation(ctx *pulumi.Context, args *LookupLambdaFunctionAssociationArgs, opts ...pulumi.InvokeOption) (*LookupLambdaFunctionAssociationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLambdaFunctionAssociationResult
 	err := ctx.Invoke("aws:connect/getLambdaFunctionAssociation:getLambdaFunctionAssociation", args, &rv, opts...)
 	if err != nil {

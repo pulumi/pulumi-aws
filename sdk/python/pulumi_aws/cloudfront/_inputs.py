@@ -91,11 +91,11 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginArgs:
                  enable_accept_encoding_brotli: Optional[pulumi.Input[bool]] = None,
                  enable_accept_encoding_gzip: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input['CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs'] cookies_config: Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
-        :param pulumi.Input['CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs'] headers_config: Object that determines whether any HTTP headers (and if so, which headers) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
-        :param pulumi.Input['CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs'] query_strings_config: Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
-        :param pulumi.Input[bool] enable_accept_encoding_brotli: A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
-        :param pulumi.Input[bool] enable_accept_encoding_gzip: A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
+        :param pulumi.Input['CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs'] cookies_config: Whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
+        :param pulumi.Input['CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs'] headers_config: Whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
+        :param pulumi.Input['CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs'] query_strings_config: Whether any URL query strings in viewer requests are included in the cache key. It also automatically includes these query strings in requests that CloudFront sends to the origin. Please refer to the Query String Config for more information.
+        :param pulumi.Input[bool] enable_accept_encoding_brotli: Flag determines whether the Accept-Encoding HTTP header is included in the cache key and in requests that CloudFront sends to the origin.
+        :param pulumi.Input[bool] enable_accept_encoding_gzip: Whether the Accept-Encoding HTTP header is included in the cache key and in requests sent to the origin by CloudFront.
         """
         pulumi.set(__self__, "cookies_config", cookies_config)
         pulumi.set(__self__, "headers_config", headers_config)
@@ -109,7 +109,7 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginArgs:
     @pulumi.getter(name="cookiesConfig")
     def cookies_config(self) -> pulumi.Input['CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs']:
         """
-        Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
+        Whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
         """
         return pulumi.get(self, "cookies_config")
 
@@ -121,7 +121,7 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginArgs:
     @pulumi.getter(name="headersConfig")
     def headers_config(self) -> pulumi.Input['CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs']:
         """
-        Object that determines whether any HTTP headers (and if so, which headers) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
+        Whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
         """
         return pulumi.get(self, "headers_config")
 
@@ -133,7 +133,7 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginArgs:
     @pulumi.getter(name="queryStringsConfig")
     def query_strings_config(self) -> pulumi.Input['CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs']:
         """
-        Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
+        Whether any URL query strings in viewer requests are included in the cache key. It also automatically includes these query strings in requests that CloudFront sends to the origin. Please refer to the Query String Config for more information.
         """
         return pulumi.get(self, "query_strings_config")
 
@@ -145,7 +145,7 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginArgs:
     @pulumi.getter(name="enableAcceptEncodingBrotli")
     def enable_accept_encoding_brotli(self) -> Optional[pulumi.Input[bool]]:
         """
-        A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
+        Flag determines whether the Accept-Encoding HTTP header is included in the cache key and in requests that CloudFront sends to the origin.
         """
         return pulumi.get(self, "enable_accept_encoding_brotli")
 
@@ -157,7 +157,7 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginArgs:
     @pulumi.getter(name="enableAcceptEncodingGzip")
     def enable_accept_encoding_gzip(self) -> Optional[pulumi.Input[bool]]:
         """
-        A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
+        Whether the Accept-Encoding HTTP header is included in the cache key and in requests sent to the origin by CloudFront.
         """
         return pulumi.get(self, "enable_accept_encoding_gzip")
 
@@ -172,7 +172,7 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs:
                  cookie_behavior: pulumi.Input[str],
                  cookies: Optional[pulumi.Input['CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesArgs']] = None):
         """
-        :param pulumi.Input[str] cookie_behavior: Determines whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
+        :param pulumi.Input[str] cookie_behavior: Whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `cookie_behavior` are `none`, `whitelist`, `allExcept`, and `all`.
         :param pulumi.Input['CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesArgs'] cookies: Object that contains a list of cookie names. See Items for more information.
         """
         pulumi.set(__self__, "cookie_behavior", cookie_behavior)
@@ -183,7 +183,7 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs:
     @pulumi.getter(name="cookieBehavior")
     def cookie_behavior(self) -> pulumi.Input[str]:
         """
-        Determines whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
+        Whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `cookie_behavior` are `none`, `whitelist`, `allExcept`, and `all`.
         """
         return pulumi.get(self, "cookie_behavior")
 
@@ -227,8 +227,8 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs:
                  header_behavior: Optional[pulumi.Input[str]] = None,
                  headers: Optional[pulumi.Input['CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArgs']] = None):
         """
-        :param pulumi.Input[str] header_behavior: Determines whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`.
-        :param pulumi.Input['CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArgs'] headers: Object that contains a list of header names. See Items for more information.
+        :param pulumi.Input[str] header_behavior: Whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `header_behavior` are `none` and `whitelist`.
+        :param pulumi.Input['CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArgs'] headers: Object contains a list of header names. See Items for more information.
         """
         if header_behavior is not None:
             pulumi.set(__self__, "header_behavior", header_behavior)
@@ -239,7 +239,7 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs:
     @pulumi.getter(name="headerBehavior")
     def header_behavior(self) -> Optional[pulumi.Input[str]]:
         """
-        Determines whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`.
+        Whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `header_behavior` are `none` and `whitelist`.
         """
         return pulumi.get(self, "header_behavior")
 
@@ -251,7 +251,7 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs:
     @pulumi.getter
     def headers(self) -> Optional[pulumi.Input['CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArgs']]:
         """
-        Object that contains a list of header names. See Items for more information.
+        Object contains a list of header names. See Items for more information.
         """
         return pulumi.get(self, "headers")
 
@@ -283,8 +283,8 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs:
                  query_string_behavior: pulumi.Input[str],
                  query_strings: Optional[pulumi.Input['CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgs']] = None):
         """
-        :param pulumi.Input[str] query_string_behavior: Determines whether any URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
-        :param pulumi.Input['CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgs'] query_strings: Object that contains a list of query string names. See Items for more information.
+        :param pulumi.Input[str] query_string_behavior: Whether URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `query_string_behavior` are `none`, `whitelist`, `allExcept`, and `all`.
+        :param pulumi.Input['CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgs'] query_strings: Configuration parameter that contains a list of query string names. See Items for more information.
         """
         pulumi.set(__self__, "query_string_behavior", query_string_behavior)
         if query_strings is not None:
@@ -294,7 +294,7 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs:
     @pulumi.getter(name="queryStringBehavior")
     def query_string_behavior(self) -> pulumi.Input[str]:
         """
-        Determines whether any URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
+        Whether URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `query_string_behavior` are `none`, `whitelist`, `allExcept`, and `all`.
         """
         return pulumi.get(self, "query_string_behavior")
 
@@ -306,7 +306,7 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs:
     @pulumi.getter(name="queryStrings")
     def query_strings(self) -> Optional[pulumi.Input['CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgs']]:
         """
-        Object that contains a list of query string names. See Items for more information.
+        Configuration parameter that contains a list of query string names. See Items for more information.
         """
         return pulumi.get(self, "query_strings")
 
@@ -1685,8 +1685,8 @@ class DistributionOriginCustomOriginConfigArgs:
         :param pulumi.Input[int] https_port: HTTPS port the custom origin listens on.
         :param pulumi.Input[str] origin_protocol_policy: Origin protocol policy to apply to your origin. One of `http-only`, `https-only`, or `match-viewer`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] origin_ssl_protocols: SSL/TLS protocols that you want CloudFront to use when communicating with your origin over HTTPS. A list of one or more of `SSLv3`, `TLSv1`, `TLSv1.1`, and `TLSv1.2`.
-        :param pulumi.Input[int] origin_keepalive_timeout: The Custom KeepAlive timeout, in seconds. By default, AWS enforces a limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout).
-        :param pulumi.Input[int] origin_read_timeout: The Custom Read timeout, in seconds. By default, AWS enforces a limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout).
+        :param pulumi.Input[int] origin_keepalive_timeout: The Custom KeepAlive timeout, in seconds. By default, AWS enforces an upper limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout). Defaults to `5`.
+        :param pulumi.Input[int] origin_read_timeout: The Custom Read timeout, in seconds. By default, AWS enforces an upper limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout). Defaults to `30`.
         """
         pulumi.set(__self__, "http_port", http_port)
         pulumi.set(__self__, "https_port", https_port)
@@ -1749,7 +1749,7 @@ class DistributionOriginCustomOriginConfigArgs:
     @pulumi.getter(name="originKeepaliveTimeout")
     def origin_keepalive_timeout(self) -> Optional[pulumi.Input[int]]:
         """
-        The Custom KeepAlive timeout, in seconds. By default, AWS enforces a limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout).
+        The Custom KeepAlive timeout, in seconds. By default, AWS enforces an upper limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout). Defaults to `5`.
         """
         return pulumi.get(self, "origin_keepalive_timeout")
 
@@ -1761,7 +1761,7 @@ class DistributionOriginCustomOriginConfigArgs:
     @pulumi.getter(name="originReadTimeout")
     def origin_read_timeout(self) -> Optional[pulumi.Input[int]]:
         """
-        The Custom Read timeout, in seconds. By default, AWS enforces a limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout).
+        The Custom Read timeout, in seconds. By default, AWS enforces an upper limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout). Defaults to `30`.
         """
         return pulumi.get(self, "origin_read_timeout")
 

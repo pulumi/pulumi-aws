@@ -24,12 +24,15 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var example = new Aws.Ec2.Fleet("example", new()
     ///     {
-    ///         LaunchTemplateConfig = new Aws.Ec2.Inputs.FleetLaunchTemplateConfigArgs
+    ///         LaunchTemplateConfigs = new[]
     ///         {
-    ///             LaunchTemplateSpecification = new Aws.Ec2.Inputs.FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs
+    ///             new Aws.Ec2.Inputs.FleetLaunchTemplateConfigArgs
     ///             {
-    ///                 LaunchTemplateId = aws_launch_template.Example.Id,
-    ///                 Version = aws_launch_template.Example.Latest_version,
+    ///                 LaunchTemplateSpecification = new Aws.Ec2.Inputs.FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs
+    ///                 {
+    ///                     LaunchTemplateId = aws_launch_template.Example.Id,
+    ///                     Version = aws_launch_template.Example.Latest_version,
+    ///                 },
     ///             },
     ///         },
     ///         TargetCapacitySpecification = new Aws.Ec2.Inputs.FleetTargetCapacitySpecificationArgs
@@ -44,11 +47,11 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// `aws_ec2_fleet` can be imported by using the Fleet identifier, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:ec2/fleet:Fleet example fleet-b9b55d27-c5fc-41ac-a6f3-48fcc91f080c
-    /// ```
+    ///  to = aws_ec2_fleet.example
+    /// 
+    ///  id = "fleet-b9b55d27-c5fc-41ac-a6f3-48fcc91f080c" } Using `pulumi import`, import `aws_ec2_fleet` using the Fleet identifier. For exampleconsole % pulumi import aws_ec2_fleet.example fleet-b9b55d27-c5fc-41ac-a6f3-48fcc91f080c
     /// </summary>
     [AwsResourceType("aws:ec2/fleet:Fleet")]
     public partial class Fleet : global::Pulumi.CustomResource
@@ -98,8 +101,8 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Nested argument containing EC2 Launch Template configurations. Defined below.
         /// </summary>
-        [Output("launchTemplateConfig")]
-        public Output<Outputs.FleetLaunchTemplateConfig> LaunchTemplateConfig { get; private set; } = null!;
+        [Output("launchTemplateConfigs")]
+        public Output<ImmutableArray<Outputs.FleetLaunchTemplateConfig>> LaunchTemplateConfigs { get; private set; } = null!;
 
         /// <summary>
         /// Nested argument containing On-Demand configurations. Defined below.
@@ -255,11 +258,17 @@ namespace Pulumi.Aws.Ec2
         [Input("fulfilledOnDemandCapacity")]
         public Input<double>? FulfilledOnDemandCapacity { get; set; }
 
+        [Input("launchTemplateConfigs", required: true)]
+        private InputList<Inputs.FleetLaunchTemplateConfigArgs>? _launchTemplateConfigs;
+
         /// <summary>
         /// Nested argument containing EC2 Launch Template configurations. Defined below.
         /// </summary>
-        [Input("launchTemplateConfig", required: true)]
-        public Input<Inputs.FleetLaunchTemplateConfigArgs> LaunchTemplateConfig { get; set; } = null!;
+        public InputList<Inputs.FleetLaunchTemplateConfigArgs> LaunchTemplateConfigs
+        {
+            get => _launchTemplateConfigs ?? (_launchTemplateConfigs = new InputList<Inputs.FleetLaunchTemplateConfigArgs>());
+            set => _launchTemplateConfigs = value;
+        }
 
         /// <summary>
         /// Nested argument containing On-Demand configurations. Defined below.
@@ -383,11 +392,17 @@ namespace Pulumi.Aws.Ec2
         [Input("fulfilledOnDemandCapacity")]
         public Input<double>? FulfilledOnDemandCapacity { get; set; }
 
+        [Input("launchTemplateConfigs")]
+        private InputList<Inputs.FleetLaunchTemplateConfigGetArgs>? _launchTemplateConfigs;
+
         /// <summary>
         /// Nested argument containing EC2 Launch Template configurations. Defined below.
         /// </summary>
-        [Input("launchTemplateConfig")]
-        public Input<Inputs.FleetLaunchTemplateConfigGetArgs>? LaunchTemplateConfig { get; set; }
+        public InputList<Inputs.FleetLaunchTemplateConfigGetArgs> LaunchTemplateConfigs
+        {
+            get => _launchTemplateConfigs ?? (_launchTemplateConfigs = new InputList<Inputs.FleetLaunchTemplateConfigGetArgs>());
+            set => _launchTemplateConfigs = value;
+        }
 
         /// <summary>
         /// Nested argument containing On-Demand configurations. Defined below.

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigatewayv2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigatewayv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -45,13 +46,11 @@ import (
 //
 // ## Import
 //
-// `aws_apigatewayv2_api_mapping` can be imported by using the API mapping identifier and domain name, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_apigatewayv2_api_mapping.example
 //
-//	$ pulumi import aws:apigatewayv2/apiMapping:ApiMapping example 1122334/ws-api.example.com
-//
-// ```
+//	id = "1122334/ws-api.example.com" } Using `pulumi import`, import `aws_apigatewayv2_api_mapping` using the API mapping identifier and domain name. For exampleconsole % pulumi import aws_apigatewayv2_api_mapping.example 1122334/ws-api.example.com
 type ApiMapping struct {
 	pulumi.CustomResourceState
 
@@ -81,6 +80,7 @@ func NewApiMapping(ctx *pulumi.Context,
 	if args.Stage == nil {
 		return nil, errors.New("invalid value for required argument 'Stage'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ApiMapping
 	err := ctx.RegisterResource("aws:apigatewayv2/apiMapping:ApiMapping", name, args, &resource, opts...)
 	if err != nil {

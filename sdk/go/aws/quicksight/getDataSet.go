@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/quicksight"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -39,6 +40,7 @@ import (
 //
 // ```
 func LookupDataSet(ctx *pulumi.Context, args *LookupDataSetArgs, opts ...pulumi.InvokeOption) (*LookupDataSetResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDataSetResult
 	err := ctx.Invoke("aws:quicksight/getDataSet:getDataSet", args, &rv, opts...)
 	if err != nil {
@@ -57,6 +59,8 @@ type LookupDataSetArgs struct {
 	// The following arguments are optional:
 	DataSetId string            `pulumi:"dataSetId"`
 	Tags      map[string]string `pulumi:"tags"`
+	// Deprecated: this attribute has been deprecated
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // A collection of values returned by getDataSet.
@@ -78,7 +82,8 @@ type LookupDataSetResult struct {
 	RowLevelPermissionDataSets          []GetDataSetRowLevelPermissionDataSet          `pulumi:"rowLevelPermissionDataSets"`
 	RowLevelPermissionTagConfigurations []GetDataSetRowLevelPermissionTagConfiguration `pulumi:"rowLevelPermissionTagConfigurations"`
 	Tags                                map[string]string                              `pulumi:"tags"`
-	TagsAll                             map[string]string                              `pulumi:"tagsAll"`
+	// Deprecated: this attribute has been deprecated
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 func LookupDataSetOutput(ctx *pulumi.Context, args LookupDataSetOutputArgs, opts ...pulumi.InvokeOption) LookupDataSetResultOutput {
@@ -104,6 +109,8 @@ type LookupDataSetOutputArgs struct {
 	// The following arguments are optional:
 	DataSetId pulumi.StringInput    `pulumi:"dataSetId"`
 	Tags      pulumi.StringMapInput `pulumi:"tags"`
+	// Deprecated: this attribute has been deprecated
+	TagsAll pulumi.StringMapInput `pulumi:"tagsAll"`
 }
 
 func (LookupDataSetOutputArgs) ElementType() reflect.Type {
@@ -192,6 +199,7 @@ func (o LookupDataSetResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupDataSetResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Deprecated: this attribute has been deprecated
 func (o LookupDataSetResultOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupDataSetResult) map[string]string { return v.TagsAll }).(pulumi.StringMapOutput)
 }

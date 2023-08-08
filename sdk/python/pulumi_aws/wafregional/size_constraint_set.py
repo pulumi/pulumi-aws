@@ -134,11 +134,11 @@ class SizeConstraintSet(pulumi.CustomResource):
 
         ## Import
 
-        WAF Size Constraint Set can be imported using the id, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:wafregional/sizeConstraintSet:SizeConstraintSet size_constraint_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
-        ```
+         to = aws_wafregional_size_constraint_set.size_constraint_set
+
+         id = "a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc" } Using `pulumi import`, import WAF Size Constraint Set using the id. For exampleconsole % pulumi import aws_wafregional_size_constraint_set.size_constraint_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -172,11 +172,11 @@ class SizeConstraintSet(pulumi.CustomResource):
 
         ## Import
 
-        WAF Size Constraint Set can be imported using the id, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:wafregional/sizeConstraintSet:SizeConstraintSet size_constraint_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
-        ```
+         to = aws_wafregional_size_constraint_set.size_constraint_set
+
+         id = "a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc" } Using `pulumi import`, import WAF Size Constraint Set using the id. For exampleconsole % pulumi import aws_wafregional_size_constraint_set.size_constraint_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
 
         :param str resource_name: The name of the resource.
         :param SizeConstraintSetArgs args: The arguments to use to populate this resource's properties.

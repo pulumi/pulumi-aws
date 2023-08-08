@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/wafregional"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/wafregional"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func GetIpset(ctx *pulumi.Context, args *GetIpsetArgs, opts ...pulumi.InvokeOption) (*GetIpsetResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetIpsetResult
 	err := ctx.Invoke("aws:wafregional/getIpset:getIpset", args, &rv, opts...)
 	if err != nil {

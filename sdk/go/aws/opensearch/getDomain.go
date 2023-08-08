@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/opensearch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opensearch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func LookupDomain(ctx *pulumi.Context, args *LookupDomainArgs, opts ...pulumi.InvokeOption) (*LookupDomainResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDomainResult
 	err := ctx.Invoke("aws:opensearch/getDomain:getDomain", args, &rv, opts...)
 	if err != nil {
@@ -50,6 +52,8 @@ func LookupDomain(ctx *pulumi.Context, args *LookupDomainArgs, opts ...pulumi.In
 type LookupDomainArgs struct {
 	// Name of the domain.
 	DomainName string `pulumi:"domainName"`
+	// Off Peak update options
+	OffPeakWindowOptions *GetDomainOffPeakWindowOptions `pulumi:"offPeakWindowOptions"`
 	// Tags assigned to the domain.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -89,12 +93,16 @@ type LookupDomainResult struct {
 	EngineVersion string `pulumi:"engineVersion"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// Domain-specific endpoint used to access the Kibana application. OpenSearch Dashboards do not use Kibana, so this attribute will be **DEPRECATED** in a future version.
+	// (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboardEndpoint` attribute instead.
+	//
+	// Deprecated: use 'dashboard_endpoint' attribute instead
 	KibanaEndpoint string `pulumi:"kibanaEndpoint"`
 	// Domain log publishing related options.
 	LogPublishingOptions []GetDomainLogPublishingOption `pulumi:"logPublishingOptions"`
 	// Domain in transit encryption related options.
 	NodeToNodeEncryptions []GetDomainNodeToNodeEncryption `pulumi:"nodeToNodeEncryptions"`
+	// Off Peak update options
+	OffPeakWindowOptions *GetDomainOffPeakWindowOptions `pulumi:"offPeakWindowOptions"`
 	// Status of a configuration change in the domain.
 	Processing bool `pulumi:"processing"`
 	// Domain snapshot related options.
@@ -122,6 +130,8 @@ func LookupDomainOutput(ctx *pulumi.Context, args LookupDomainOutputArgs, opts .
 type LookupDomainOutputArgs struct {
 	// Name of the domain.
 	DomainName pulumi.StringInput `pulumi:"domainName"`
+	// Off Peak update options
+	OffPeakWindowOptions GetDomainOffPeakWindowOptionsPtrInput `pulumi:"offPeakWindowOptions"`
 	// Tags assigned to the domain.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -229,7 +239,9 @@ func (o LookupDomainResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDomainResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Domain-specific endpoint used to access the Kibana application. OpenSearch Dashboards do not use Kibana, so this attribute will be **DEPRECATED** in a future version.
+// (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboardEndpoint` attribute instead.
+//
+// Deprecated: use 'dashboard_endpoint' attribute instead
 func (o LookupDomainResultOutput) KibanaEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDomainResult) string { return v.KibanaEndpoint }).(pulumi.StringOutput)
 }
@@ -242,6 +254,11 @@ func (o LookupDomainResultOutput) LogPublishingOptions() GetDomainLogPublishingO
 // Domain in transit encryption related options.
 func (o LookupDomainResultOutput) NodeToNodeEncryptions() GetDomainNodeToNodeEncryptionArrayOutput {
 	return o.ApplyT(func(v LookupDomainResult) []GetDomainNodeToNodeEncryption { return v.NodeToNodeEncryptions }).(GetDomainNodeToNodeEncryptionArrayOutput)
+}
+
+// Off Peak update options
+func (o LookupDomainResultOutput) OffPeakWindowOptions() GetDomainOffPeakWindowOptionsPtrOutput {
+	return o.ApplyT(func(v LookupDomainResult) *GetDomainOffPeakWindowOptions { return v.OffPeakWindowOptions }).(GetDomainOffPeakWindowOptionsPtrOutput)
 }
 
 // Status of a configuration change in the domain.

@@ -21,7 +21,7 @@ class GetDistributionResult:
     """
     A collection of values returned by getDistribution.
     """
-    def __init__(__self__, aliases=None, arn=None, domain_name=None, enabled=None, etag=None, hosted_zone_id=None, id=None, in_progress_validation_batches=None, last_modified_time=None, status=None, tags=None):
+    def __init__(__self__, aliases=None, arn=None, domain_name=None, enabled=None, etag=None, hosted_zone_id=None, id=None, in_progress_validation_batches=None, last_modified_time=None, status=None, tags=None, web_acl_id=None):
         if aliases and not isinstance(aliases, list):
             raise TypeError("Expected argument 'aliases' to be a list")
         pulumi.set(__self__, "aliases", aliases)
@@ -55,6 +55,9 @@ class GetDistributionResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if web_acl_id and not isinstance(web_acl_id, str):
+            raise TypeError("Expected argument 'web_acl_id' to be a str")
+        pulumi.set(__self__, "web_acl_id", web_acl_id)
 
     @property
     @pulumi.getter
@@ -145,6 +148,14 @@ class GetDistributionResult:
     def tags(self) -> Optional[Mapping[str, str]]:
         return pulumi.get(self, "tags")
 
+    @property
+    @pulumi.getter(name="webAclId")
+    def web_acl_id(self) -> str:
+        """
+        AWS WAF web ACL associated with this distribution.
+        """
+        return pulumi.get(self, "web_acl_id")
+
 
 class AwaitableGetDistributionResult(GetDistributionResult):
     # pylint: disable=using-constant-test
@@ -162,7 +173,8 @@ class AwaitableGetDistributionResult(GetDistributionResult):
             in_progress_validation_batches=self.in_progress_validation_batches,
             last_modified_time=self.last_modified_time,
             status=self.status,
-            tags=self.tags)
+            tags=self.tags,
+            web_acl_id=self.web_acl_id)
 
 
 def get_distribution(id: Optional[str] = None,
@@ -200,7 +212,8 @@ def get_distribution(id: Optional[str] = None,
         in_progress_validation_batches=pulumi.get(__ret__, 'in_progress_validation_batches'),
         last_modified_time=pulumi.get(__ret__, 'last_modified_time'),
         status=pulumi.get(__ret__, 'status'),
-        tags=pulumi.get(__ret__, 'tags'))
+        tags=pulumi.get(__ret__, 'tags'),
+        web_acl_id=pulumi.get(__ret__, 'web_acl_id'))
 
 
 @_utilities.lift_output_func(get_distribution)

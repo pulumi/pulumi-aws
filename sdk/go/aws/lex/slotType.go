@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lex"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lex"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -61,13 +62,11 @@ import (
 //
 // ## Import
 //
-// Slot types can be imported using their name.
+// terraform import {
 //
-// ```sh
+//	to = aws_lex_slot_type.flower_types
 //
-//	$ pulumi import aws:lex/slotType:SlotType flower_types FlowerTypes
-//
-// ```
+//	id = "FlowerTypes" } Using `pulumi import`, import slot types using their name. For exampleconsole % pulumi import aws_lex_slot_type.flower_types FlowerTypes
 type SlotType struct {
 	pulumi.CustomResourceState
 
@@ -109,6 +108,7 @@ func NewSlotType(ctx *pulumi.Context,
 	if args.EnumerationValues == nil {
 		return nil, errors.New("invalid value for required argument 'EnumerationValues'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SlotType
 	err := ctx.RegisterResource("aws:lex/slotType:SlotType", name, args, &resource, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/dynamodb"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dynamodb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -41,13 +42,11 @@ import (
 //
 // ## Import
 //
-// `aws_dynamodb_contributor_insights` can be imported using the format `name:table_name/index:index_name`, followed by the account number, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_dynamodb_contributor_insights.test
 //
-//	$ pulumi import aws:dynamodb/contributorInsights:ContributorInsights test name:ExampleTableName/index:ExampleIndexName/123456789012
-//
-// ```
+//	id = "name:ExampleTableName/index:ExampleIndexName/123456789012" } Using `pulumi import`, import `aws_dynamodb_contributor_insights` using the format `name:table_name/index:index_name`, followed by the account number. For exampleconsole % pulumi import aws_dynamodb_contributor_insights.test name:ExampleTableName/index:ExampleIndexName/123456789012
 type ContributorInsights struct {
 	pulumi.CustomResourceState
 
@@ -67,6 +66,7 @@ func NewContributorInsights(ctx *pulumi.Context,
 	if args.TableName == nil {
 		return nil, errors.New("invalid value for required argument 'TableName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ContributorInsights
 	err := ctx.RegisterResource("aws:dynamodb/contributorInsights:ContributorInsights", name, args, &resource, opts...)
 	if err != nil {

@@ -74,11 +74,11 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// 
     /// ## Import
     /// 
-    /// `aws_ec2_transit_gateway_peering_attachment` can be imported by using the EC2 Transit Gateway Attachment identifier, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:ec2transitgateway/peeringAttachment:PeeringAttachment example tgw-attach-12345678
-    /// ```
+    ///  to = aws_ec2_transit_gateway_peering_attachment.example
+    /// 
+    ///  id = "tgw-attach-12345678" } Using `pulumi import`, import `aws_ec2_transit_gateway_peering_attachment` using the EC2 Transit Gateway Attachment identifier. For exampleconsole % pulumi import aws_ec2_transit_gateway_peering_attachment.example tgw-attach-12345678
     /// </summary>
     [AwsResourceType("aws:ec2transitgateway/peeringAttachment:PeeringAttachment")]
     public partial class PeeringAttachment : global::Pulumi.CustomResource

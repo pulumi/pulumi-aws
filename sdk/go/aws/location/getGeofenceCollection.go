@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/location"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/location"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -39,6 +40,7 @@ import (
 //
 // ```
 func LookupGeofenceCollection(ctx *pulumi.Context, args *LookupGeofenceCollectionArgs, opts ...pulumi.InvokeOption) (*LookupGeofenceCollectionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupGeofenceCollectionResult
 	err := ctx.Invoke("aws:location/getGeofenceCollection:getGeofenceCollection", args, &rv, opts...)
 	if err != nil {

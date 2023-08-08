@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codecommit"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codecommit"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,13 +43,11 @@ import (
 //
 // ## Import
 //
-// CodeCommit approval rule template associations can be imported using the `approval_rule_template_name` and `repository_name` separated by a comma (`,`), e.g.
+// terraform import {
 //
-// ```sh
+//	to = aws_codecommit_approval_rule_template_association.example
 //
-//	$ pulumi import aws:codecommit/approvalRuleTemplateAssociation:ApprovalRuleTemplateAssociation example approver-rule-for-example,MyExampleRepo
-//
-// ```
+//	id = "approver-rule-for-example,MyExampleRepo" } Using `pulumi import`, import CodeCommit approval rule template associations using the `approval_rule_template_name` and `repository_name` separated by a comma (`,`). For exampleconsole % pulumi import aws_codecommit_approval_rule_template_association.example approver-rule-for-example,MyExampleRepo
 type ApprovalRuleTemplateAssociation struct {
 	pulumi.CustomResourceState
 
@@ -71,6 +70,7 @@ func NewApprovalRuleTemplateAssociation(ctx *pulumi.Context,
 	if args.RepositoryName == nil {
 		return nil, errors.New("invalid value for required argument 'RepositoryName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ApprovalRuleTemplateAssociation
 	err := ctx.RegisterResource("aws:codecommit/approvalRuleTemplateAssociation:ApprovalRuleTemplateAssociation", name, args, &resource, opts...)
 	if err != nil {

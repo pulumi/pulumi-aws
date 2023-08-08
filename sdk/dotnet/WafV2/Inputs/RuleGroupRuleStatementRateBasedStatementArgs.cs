@@ -13,7 +13,7 @@ namespace Pulumi.Aws.WafV2.Inputs
     public sealed class RuleGroupRuleStatementRateBasedStatementArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Setting that indicates how to aggregate the request counts. Valid values include: `FORWARDED_IP` or `IP`. Default: `IP`.
+        /// Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `FORWARDED_IP` or `IP`. Default: `IP`.
         /// </summary>
         [Input("aggregateKeyType")]
         public Input<string>? AggregateKeyType { get; set; }
@@ -31,7 +31,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         public Input<int> Limit { get; set; } = null!;
 
         /// <summary>
-        /// An optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details.
+        /// An optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details. If `aggregate_key_type` is set to `CONSTANT`, this block is required.
         /// </summary>
         [Input("scopeDownStatement")]
         public Input<Inputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementArgs>? ScopeDownStatement { get; set; }

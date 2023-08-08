@@ -20,7 +20,7 @@ public final class GetCallerIdentityResult {
      */
     private String arn;
     /**
-     * @return The provider-assigned unique ID for this managed resource.
+     * @return Account ID number of the account that owns or contains the calling entity.
      * 
      */
     private String id;
@@ -46,7 +46,7 @@ public final class GetCallerIdentityResult {
         return this.arn;
     }
     /**
-     * @return The provider-assigned unique ID for this managed resource.
+     * @return Account ID number of the account that owns or contains the calling entity.
      * 
      */
     public String id() {

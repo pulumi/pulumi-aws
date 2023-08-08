@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -43,13 +44,11 @@ import (
 //
 // ## Import
 //
-// SageMaker User Profiles can be imported using the `arn`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_sagemaker_user_profile.test_user_profile
 //
-//	$ pulumi import aws:sagemaker/userProfile:UserProfile test_user_profile arn:aws:sagemaker:us-west-2:123456789012:user-profile/domain-id/profile-name
-//
-// ```
+//	id = "arn:aws:sagemaker:us-west-2:123456789012:user-profile/domain-id/profile-name" } Using `pulumi import`, import SageMaker User Profiles using the `arn`. For exampleconsole % pulumi import aws_sagemaker_user_profile.test_user_profile arn:aws:sagemaker:us-west-2:123456789012:user-profile/domain-id/profile-name
 type UserProfile struct {
 	pulumi.CustomResourceState
 
@@ -86,6 +85,7 @@ func NewUserProfile(ctx *pulumi.Context,
 	if args.UserProfileName == nil {
 		return nil, errors.New("invalid value for required argument 'UserProfileName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource UserProfile
 	err := ctx.RegisterResource("aws:sagemaker/userProfile:UserProfile", name, args, &resource, opts...)
 	if err != nil {

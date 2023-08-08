@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -46,8 +47,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -91,8 +92,8 @@ import (
 //	"fmt"
 //	"os"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -140,13 +141,11 @@ import (
 //
 // ## Import
 //
-// API Gateway domain names can be imported using their `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_api_gateway_domain_name.example
 //
-//	$ pulumi import aws:apigateway/domainName:DomainName example dev.example.com
-//
-// ```
+//	id = "dev.example.com" } Using `pulumi import`, import API Gateway domain names using their `name`. For exampleconsole % pulumi import aws_api_gateway_domain_name.example dev.example.com
 type DomainName struct {
 	pulumi.CustomResourceState
 
@@ -213,6 +212,7 @@ func NewDomainName(ctx *pulumi.Context,
 		"certificatePrivateKey",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DomainName
 	err := ctx.RegisterResource("aws:apigateway/domainName:DomainName", name, args, &resource, opts...)
 	if err != nil {

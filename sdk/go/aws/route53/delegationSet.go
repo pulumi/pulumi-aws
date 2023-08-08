@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,13 +53,11 @@ import (
 //
 // ## Import
 //
-// Route53 Delegation Sets can be imported using the `delegation set id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_route53_delegation_set.set1
 //
-//	$ pulumi import aws:route53/delegationSet:DelegationSet set1 N1PA6795SAMPLE
-//
-// ```
+//	id = "N1PA6795SAMPLE" } Using `pulumi import`, import Route53 Delegation Sets using the delegation set `id`. For exampleconsole % pulumi import aws_route53_delegation_set.set1 N1PA6795SAMPLE
 type DelegationSet struct {
 	pulumi.CustomResourceState
 
@@ -79,6 +78,7 @@ func NewDelegationSet(ctx *pulumi.Context,
 		args = &DelegationSetArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DelegationSet
 	err := ctx.RegisterResource("aws:route53/delegationSet:DelegationSet", name, args, &resource, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +22,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/inspector2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/inspector2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -47,13 +48,11 @@ import (
 //
 // ## Import
 //
-// Inspector Delegated Admin Account can be imported using the `account_id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_inspector2_delegated_admin_account.example
 //
-//	$ pulumi import aws:inspector2/delegatedAdminAccount:DelegatedAdminAccount example 012345678901
-//
-// ```
+//	id = "012345678901" } Using `pulumi import`, import Inspector Delegated Admin Account using the `account_id`. For exampleconsole % pulumi import aws_inspector2_delegated_admin_account.example 012345678901
 type DelegatedAdminAccount struct {
 	pulumi.CustomResourceState
 
@@ -73,6 +72,7 @@ func NewDelegatedAdminAccount(ctx *pulumi.Context,
 	if args.AccountId == nil {
 		return nil, errors.New("invalid value for required argument 'AccountId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DelegatedAdminAccount
 	err := ctx.RegisterResource("aws:inspector2/delegatedAdminAccount:DelegatedAdminAccount", name, args, &resource, opts...)
 	if err != nil {

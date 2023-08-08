@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appmesh"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appmesh"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -43,7 +44,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appmesh"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appmesh"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -68,13 +69,11 @@ import (
 //
 // ## Import
 //
-// App Mesh service meshes can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_appmesh_mesh.simple
 //
-//	$ pulumi import aws:appmesh/mesh:Mesh simple simpleapp
-//
-// ```
+//	id = "simpleapp" } Using `pulumi import`, import App Mesh service meshes using the `name`. For exampleconsole % pulumi import aws_appmesh_mesh.simple simpleapp
 type Mesh struct {
 	pulumi.CustomResourceState
 
@@ -105,6 +104,7 @@ func NewMesh(ctx *pulumi.Context,
 		args = &MeshArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Mesh
 	err := ctx.RegisterResource("aws:appmesh/mesh:Mesh", name, args, &resource, opts...)
 	if err != nil {

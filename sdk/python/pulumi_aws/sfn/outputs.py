@@ -10,9 +10,61 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'AliasRoutingConfiguration',
     'StateMachineLoggingConfiguration',
     'StateMachineTracingConfiguration',
+    'GetAliasRoutingConfigurationResult',
 ]
+
+@pulumi.output_type
+class AliasRoutingConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "stateMachineVersionArn":
+            suggest = "state_machine_version_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AliasRoutingConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AliasRoutingConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AliasRoutingConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 state_machine_version_arn: str,
+                 weight: int):
+        """
+        :param str state_machine_version_arn: A version of the state machine.
+        :param int weight: Percentage of traffic routed to the state machine version.
+               
+               The following arguments are optional:
+        """
+        pulumi.set(__self__, "state_machine_version_arn", state_machine_version_arn)
+        pulumi.set(__self__, "weight", weight)
+
+    @property
+    @pulumi.getter(name="stateMachineVersionArn")
+    def state_machine_version_arn(self) -> str:
+        """
+        A version of the state machine.
+        """
+        return pulumi.get(self, "state_machine_version_arn")
+
+    @property
+    @pulumi.getter
+    def weight(self) -> int:
+        """
+        Percentage of traffic routed to the state machine version.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "weight")
+
 
 @pulumi.output_type
 class StateMachineLoggingConfiguration(dict):
@@ -93,5 +145,24 @@ class StateMachineTracingConfiguration(dict):
         When set to `true`, AWS X-Ray tracing is enabled. Make sure the State Machine has the correct IAM policies for logging. See the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/xray-iam.html) for details.
         """
         return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class GetAliasRoutingConfigurationResult(dict):
+    def __init__(__self__, *,
+                 state_machine_version_arn: str,
+                 weight: int):
+        pulumi.set(__self__, "state_machine_version_arn", state_machine_version_arn)
+        pulumi.set(__self__, "weight", weight)
+
+    @property
+    @pulumi.getter(name="stateMachineVersionArn")
+    def state_machine_version_arn(self) -> str:
+        return pulumi.get(self, "state_machine_version_arn")
+
+    @property
+    @pulumi.getter
+    def weight(self) -> int:
+        return pulumi.get(self, "weight")
 
 

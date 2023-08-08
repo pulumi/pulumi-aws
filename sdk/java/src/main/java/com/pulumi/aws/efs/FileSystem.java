@@ -89,11 +89,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * The EFS file systems can be imported using the `id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:efs/fileSystem:FileSystem foo fs-6fa144c6
- * ```
+ *  to = aws_efs_file_system.foo
+ * 
+ *  id = &#34;fs-6fa144c6&#34; } Using `pulumi import`, import the EFS file systems using the `id`. For exampleconsole % pulumi import aws_efs_file_system.foo fs-6fa144c6
  * 
  */
 @ResourceType(type="aws:efs/fileSystem:FileSystem")

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -43,13 +44,11 @@ import (
 //
 // ## Import
 //
-// `aws_connect_lambda_function_association` can be imported using the `instance_id` and `function_arn` separated by a comma (`,`) e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_connect_lambda_function_association.example
 //
-//	$ pulumi import aws:connect/lambdaFunctionAssociation:LambdaFunctionAssociation example aaaaaaaa-bbbb-cccc-dddd-111111111111,arn:aws:lambda:us-west-2:123456789123:function:example
-//
-// ```
+//	id = "aaaaaaaa-bbbb-cccc-dddd-111111111111,arn:aws:lambda:us-west-2:123456789123:function:example" } Using `pulumi import`, import `aws_connect_lambda_function_association` using the `instance_id` and `function_arn` separated by a comma (`,`). For exampleconsole % pulumi import aws_connect_lambda_function_association.example aaaaaaaa-bbbb-cccc-dddd-111111111111,arn:aws:lambda:us-west-2:123456789123:function:example
 type LambdaFunctionAssociation struct {
 	pulumi.CustomResourceState
 
@@ -72,6 +71,7 @@ func NewLambdaFunctionAssociation(ctx *pulumi.Context,
 	if args.InstanceId == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LambdaFunctionAssociation
 	err := ctx.RegisterResource("aws:connect/lambdaFunctionAssociation:LambdaFunctionAssociation", name, args, &resource, opts...)
 	if err != nil {

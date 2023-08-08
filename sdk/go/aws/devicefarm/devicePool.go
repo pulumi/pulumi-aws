@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/devicefarm"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/devicefarm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -48,13 +49,11 @@ import (
 //
 // ## Import
 //
-// # DeviceFarm Device Pools can be imported by their arn
+// terraform import {
 //
-// ```sh
+//	to = aws_devicefarm_device_pool.example
 //
-//	$ pulumi import aws:devicefarm/devicePool:DevicePool example arn:aws:devicefarm:us-west-2:123456789012:devicepool:4fa784c7-ccb4-4dbf-ba4f-02198320daa1/4fa784c7-ccb4-4dbf-ba4f-02198320daa1
-//
-// ```
+//	id = "arn:aws:devicefarm:us-west-2:123456789012:devicepool:4fa784c7-ccb4-4dbf-ba4f-02198320daa1/4fa784c7-ccb4-4dbf-ba4f-02198320daa1" } Using `pulumi import`, import DeviceFarm Device Pools using their ARN. For exampleconsole % pulumi import aws_devicefarm_device_pool.example arn:aws:devicefarm:us-west-2:123456789012:devicepool:4fa784c7-ccb4-4dbf-ba4f-02198320daa1/4fa784c7-ccb4-4dbf-ba4f-02198320daa1
 type DevicePool struct {
 	pulumi.CustomResourceState
 
@@ -90,6 +89,7 @@ func NewDevicePool(ctx *pulumi.Context,
 	if args.Rules == nil {
 		return nil, errors.New("invalid value for required argument 'Rules'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DevicePool
 	err := ctx.RegisterResource("aws:devicefarm/devicePool:DevicePool", name, args, &resource, opts...)
 	if err != nil {

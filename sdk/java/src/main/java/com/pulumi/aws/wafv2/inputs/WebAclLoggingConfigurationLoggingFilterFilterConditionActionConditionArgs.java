@@ -14,14 +14,14 @@ public final class WebAclLoggingConfigurationLoggingFilterFilterConditionActionC
     public static final WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArgs Empty = new WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArgs();
 
     /**
-     * The action setting that a log record must contain in order to meet the condition. Valid values: `ALLOW`, `BLOCK`, `COUNT`.
+     * Action setting that a log record must contain in order to meet the condition. Valid values for `action` are `ALLOW`, `BLOCK`, and `COUNT`.
      * 
      */
     @Import(name="action", required=true)
     private Output<String> action;
 
     /**
-     * @return The action setting that a log record must contain in order to meet the condition. Valid values: `ALLOW`, `BLOCK`, `COUNT`.
+     * @return Action setting that a log record must contain in order to meet the condition. Valid values for `action` are `ALLOW`, `BLOCK`, and `COUNT`.
      * 
      */
     public Output<String> action() {
@@ -53,7 +53,7 @@ public final class WebAclLoggingConfigurationLoggingFilterFilterConditionActionC
         }
 
         /**
-         * @param action The action setting that a log record must contain in order to meet the condition. Valid values: `ALLOW`, `BLOCK`, `COUNT`.
+         * @param action Action setting that a log record must contain in order to meet the condition. Valid values for `action` are `ALLOW`, `BLOCK`, and `COUNT`.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class WebAclLoggingConfigurationLoggingFilterFilterConditionActionC
         }
 
         /**
-         * @param action The action setting that a log record must contain in order to meet the condition. Valid values: `ALLOW`, `BLOCK`, `COUNT`.
+         * @param action Action setting that a log record must contain in order to meet the condition. Valid values for `action` are `ALLOW`, `BLOCK`, and `COUNT`.
          * 
          * @return builder
          * 

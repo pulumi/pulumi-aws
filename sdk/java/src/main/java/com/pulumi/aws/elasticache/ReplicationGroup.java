@@ -6,7 +6,6 @@ package com.pulumi.aws.elasticache;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.elasticache.ReplicationGroupArgs;
 import com.pulumi.aws.elasticache.inputs.ReplicationGroupState;
-import com.pulumi.aws.elasticache.outputs.ReplicationGroupClusterMode;
 import com.pulumi.aws.elasticache.outputs.ReplicationGroupLogDeliveryConfiguration;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -281,11 +280,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * ElastiCache Replication Groups can be imported using the `replication_group_id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:elasticache/replicationGroup:ReplicationGroup my_replication_group replication-group-1
- * ```
+ *  to = aws_elasticache_replication_group.my_replication_group
+ * 
+ *  id = &#34;replication-group-1&#34; } Using `pulumi import`, import ElastiCache Replication Groups using the `replication_group_id`. For exampleconsole % pulumi import aws_elasticache_replication_group.my_replication_group replication-group-1
  * 
  */
 @ResourceType(type="aws:elasticache/replicationGroup:ReplicationGroup")
@@ -379,20 +378,6 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.automaticFailoverEnabled);
     }
     /**
-     * List of EC2 availability zones in which the replication group&#39;s cache clusters will be created. The order of the availability zones in the list is not considered.
-     * 
-     */
-    @Export(name="availabilityZones", refs={List.class,String.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<String>> availabilityZones;
-
-    /**
-     * @return List of EC2 availability zones in which the replication group&#39;s cache clusters will be created. The order of the availability zones in the list is not considered.
-     * 
-     */
-    public Output<Optional<List<String>>> availabilityZones() {
-        return Codegen.optional(this.availabilityZones);
-    }
-    /**
      * Indicates if cluster mode is enabled.
      * 
      */
@@ -405,24 +390,6 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
      */
     public Output<Boolean> clusterEnabled() {
         return this.clusterEnabled;
-    }
-    /**
-     * Create a native Redis cluster. `automatic_failover_enabled` must be set to true. Cluster Mode documented below. Only 1 `cluster_mode` block is allowed. Note that configuring this block does not enable cluster mode, i.e., data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
-     * 
-     * @deprecated
-     * Use num_node_groups and replicas_per_node_group instead
-     * 
-     */
-    @Deprecated /* Use num_node_groups and replicas_per_node_group instead */
-    @Export(name="clusterMode", refs={ReplicationGroupClusterMode.class}, tree="[0]")
-    private Output<ReplicationGroupClusterMode> clusterMode;
-
-    /**
-     * @return Create a native Redis cluster. `automatic_failover_enabled` must be set to true. Cluster Mode documented below. Only 1 `cluster_mode` block is allowed. Note that configuring this block does not enable cluster mode, i.e., data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
-     * 
-     */
-    public Output<ReplicationGroupClusterMode> clusterMode() {
-        return this.clusterMode;
     }
     /**
      * Address of the replication group configuration endpoint when cluster mode is enabled.
@@ -482,10 +449,11 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
     }
     /**
      * Version number of the cache engine to be used for the cache clusters in this replication group.
-     * If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+     * If the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+     * If the version is 6, the major and minor version can be set, e.g., `6.2`,
      * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
      * Otherwise, specify the full version desired, e.g., `5.0.6`.
-     * The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
+     * The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
      * 
      */
     @Export(name="engineVersion", refs={String.class}, tree="[0]")
@@ -493,10 +461,11 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Version number of the cache engine to be used for the cache clusters in this replication group.
-     * If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+     * If the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+     * If the version is 6, the major and minor version can be set, e.g., `6.2`,
      * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
      * Otherwise, specify the full version desired, e.g., `5.0.6`.
-     * The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
+     * The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
      * 
      */
     public Output<String> engineVersion() {
@@ -531,14 +500,14 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.finalSnapshotIdentifier);
     }
     /**
-     * The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `global_replication_group_id` is set, the `num_node_groups` parameter (or the `num_node_groups` parameter of the deprecated `cluster_mode` block) cannot be set.
+     * The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `global_replication_group_id` is set, the `num_node_groups` parameter cannot be set.
      * 
      */
     @Export(name="globalReplicationGroupId", refs={String.class}, tree="[0]")
     private Output<String> globalReplicationGroupId;
 
     /**
-     * @return The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `global_replication_group_id` is set, the `num_node_groups` parameter (or the `num_node_groups` parameter of the deprecated `cluster_mode` block) cannot be set.
+     * @return The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `global_replication_group_id` is set, the `num_node_groups` parameter cannot be set.
      * 
      */
     public Output<String> globalReplicationGroupId() {
@@ -643,14 +612,14 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.notificationTopicArn);
     }
     /**
-     * Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `num_node_groups`, the deprecated`number_cache_clusters`, or the deprecated `cluster_mode`. Defaults to `1`.
+     * Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `num_node_groups`. Defaults to `1`.
      * 
      */
     @Export(name="numCacheClusters", refs={Integer.class}, tree="[0]")
     private Output<Integer> numCacheClusters;
 
     /**
-     * @return Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `num_node_groups`, the deprecated`number_cache_clusters`, or the deprecated `cluster_mode`. Defaults to `1`.
+     * @return Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `num_node_groups`. Defaults to `1`.
      * 
      */
     public Output<Integer> numCacheClusters() {
@@ -671,24 +640,6 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
      */
     public Output<Integer> numNodeGroups() {
         return this.numNodeGroups;
-    }
-    /**
-     * Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `num_cache_clusters`, `num_node_groups`, or the deprecated `cluster_mode`. Defaults to `1`.
-     * 
-     * @deprecated
-     * Use num_cache_clusters instead
-     * 
-     */
-    @Deprecated /* Use num_cache_clusters instead */
-    @Export(name="numberCacheClusters", refs={Integer.class}, tree="[0]")
-    private Output<Integer> numberCacheClusters;
-
-    /**
-     * @return Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `num_cache_clusters`, `num_node_groups`, or the deprecated `cluster_mode`. Defaults to `1`.
-     * 
-     */
-    public Output<Integer> numberCacheClusters() {
-        return this.numberCacheClusters;
     }
     /**
      * Name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable &#34;cluster mode&#34;, i.e., data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
@@ -779,29 +730,9 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
         return this.replicasPerNodeGroup;
     }
     /**
-     * User-created description for the replication group. Must not be empty.
-     * 
-     * The following arguments are optional:
-     * 
-     * @deprecated
-     * Use description instead
-     * 
-     */
-    @Deprecated /* Use description instead */
-    @Export(name="replicationGroupDescription", refs={String.class}, tree="[0]")
-    private Output<String> replicationGroupDescription;
-
-    /**
-     * @return User-created description for the replication group. Must not be empty.
-     * 
-     * The following arguments are optional:
-     * 
-     */
-    public Output<String> replicationGroupDescription() {
-        return this.replicationGroupDescription;
-    }
-    /**
      * Replication group identifier. This parameter is stored as a lowercase string.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Export(name="replicationGroupId", refs={String.class}, tree="[0]")
@@ -809,6 +740,8 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Replication group identifier. This parameter is stored as a lowercase string.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> replicationGroupId() {

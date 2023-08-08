@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -44,13 +45,11 @@ import (
 //
 // ## Import
 //
-// `aws_ec2_transit_gateway_policy_table` can be imported by using the EC2 Transit Gateway Policy Table identifier, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_ec2_transit_gateway_policy_table.example
 //
-//	$ pulumi import aws:ec2transitgateway/policyTable:PolicyTable example tgw-rtb-12345678
-//
-// ```
+//	id = "tgw-rtb-12345678" } Using `pulumi import`, import `aws_ec2_transit_gateway_policy_table` using the EC2 Transit Gateway Policy Table identifier. For exampleconsole % pulumi import aws_ec2_transit_gateway_policy_table.example tgw-rtb-12345678
 type PolicyTable struct {
 	pulumi.CustomResourceState
 
@@ -76,6 +75,7 @@ func NewPolicyTable(ctx *pulumi.Context,
 	if args.TransitGatewayId == nil {
 		return nil, errors.New("invalid value for required argument 'TransitGatewayId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PolicyTable
 	err := ctx.RegisterResource("aws:ec2transitgateway/policyTable:PolicyTable", name, args, &resource, opts...)
 	if err != nil {

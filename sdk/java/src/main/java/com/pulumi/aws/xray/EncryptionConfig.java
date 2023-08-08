@@ -56,6 +56,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.kms.Key;
@@ -107,11 +108,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * XRay Encryption Config can be imported using the region name, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:xray/encryptionConfig:EncryptionConfig example us-west-2
- * ```
+ *  to = aws_xray_encryption_config.example
+ * 
+ *  id = &#34;us-west-2&#34; } Using `pulumi import`, import XRay Encryption Config using the region name. For exampleconsole % pulumi import aws_xray_encryption_config.example us-west-2
  * 
  */
 @ResourceType(type="aws:xray/encryptionConfig:EncryptionConfig")

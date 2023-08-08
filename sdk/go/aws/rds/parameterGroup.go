@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -33,7 +34,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -74,7 +75,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -108,13 +109,11 @@ import (
 //
 // ## Import
 //
-// DB Parameter groups can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_db_parameter_group.rds_pg
 //
-//	$ pulumi import aws:rds/parameterGroup:ParameterGroup rds_pg rds-pg
-//
-// ```
+//	id = "rds-pg" } Using `pulumi import`, import DB Parameter groups using the `name`. For exampleconsole % pulumi import aws_db_parameter_group.rds_pg rds-pg
 type ParameterGroup struct {
 	pulumi.CustomResourceState
 
@@ -149,6 +148,7 @@ func NewParameterGroup(ctx *pulumi.Context,
 	if args.Description == nil {
 		args.Description = pulumi.StringPtr("Managed by Pulumi")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ParameterGroup
 	err := ctx.RegisterResource("aws:rds/parameterGroup:ParameterGroup", name, args, &resource, opts...)
 	if err != nil {

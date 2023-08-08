@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssmcontacts"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssmcontacts"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -39,6 +40,7 @@ import (
 //
 // ```
 func LookupContact(ctx *pulumi.Context, args *LookupContactArgs, opts ...pulumi.InvokeOption) (*LookupContactResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupContactResult
 	err := ctx.Invoke("aws:ssmcontacts/getContact:getContact", args, &rv, opts...)
 	if err != nil {

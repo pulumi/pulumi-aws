@@ -126,6 +126,7 @@ namespace Pulumi.Aws.Ssm
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string InsecureValue;
         public readonly string Name;
         public readonly string Type;
         public readonly string Value;
@@ -137,6 +138,8 @@ namespace Pulumi.Aws.Ssm
             string arn,
 
             string id,
+
+            string insecureValue,
 
             string name,
 
@@ -150,6 +153,7 @@ namespace Pulumi.Aws.Ssm
         {
             Arn = arn;
             Id = id;
+            InsecureValue = insecureValue;
             Name = name;
             Type = type;
             Value = value;

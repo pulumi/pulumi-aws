@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,7 +26,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssmincidents"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssmincidents"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -58,7 +59,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssmincidents"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssmincidents"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -91,7 +92,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssmincidents"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssmincidents"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -122,8 +123,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssmincidents"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssmincidents"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -156,13 +157,11 @@ import (
 //
 // ## Import
 //
-// # Use the following command to import an Incident Manager replication set
+// terraform import {
 //
-// ```sh
+//	to = aws_ssmincidents_replication_set.replicationSetName
 //
-//	$ pulumi import aws:ssmincidents/replicationSet:ReplicationSet replicationSetName import
-//
-// ```
+//	id = "import" } Using `pulumi import`, import an Incident Manager replication. For exampleconsole % pulumi import aws_ssmincidents_replication_set.replicationSetName import
 type ReplicationSet struct {
 	pulumi.CustomResourceState
 
@@ -196,6 +195,7 @@ func NewReplicationSet(ctx *pulumi.Context,
 	if args.Regions == nil {
 		return nil, errors.New("invalid value for required argument 'Regions'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ReplicationSet
 	err := ctx.RegisterResource("aws:ssmincidents/replicationSet:ReplicationSet", name, args, &resource, opts...)
 	if err != nil {

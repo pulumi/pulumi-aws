@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ebs"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ebs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,13 +43,11 @@ import (
 //
 // ## Import
 //
-// Default EBS encryption state can be imported, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_ebs_encryption_by_default.example
 //
-//	$ pulumi import aws:ebs/encryptionByDefault:EncryptionByDefault example default
-//
-// ```
+//	id = "default" } Using `pulumi import`, import the default EBS encryption state. For exampleconsole % pulumi import aws_ebs_encryption_by_default.example default
 type EncryptionByDefault struct {
 	pulumi.CustomResourceState
 
@@ -63,6 +62,7 @@ func NewEncryptionByDefault(ctx *pulumi.Context,
 		args = &EncryptionByDefaultArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EncryptionByDefault
 	err := ctx.RegisterResource("aws:ebs/encryptionByDefault:EncryptionByDefault", name, args, &resource, opts...)
 	if err != nil {

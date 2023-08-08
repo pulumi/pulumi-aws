@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,8 +20,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/redshift"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshift"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -109,7 +110,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/redshift"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshift"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -139,13 +140,11 @@ import (
 //
 // ## Import
 //
-// Redshift Scheduled Action can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_redshift_scheduled_action.example
 //
-//	$ pulumi import aws:redshift/scheduledAction:ScheduledAction example tf-redshift-scheduled-action
-//
-// ```
+//	id = "tf-redshift-scheduled-action" } Using `pulumi import`, import Redshift Scheduled Action using the `name`. For exampleconsole % pulumi import aws_redshift_scheduled_action.example tf-redshift-scheduled-action
 type ScheduledAction struct {
 	pulumi.CustomResourceState
 
@@ -183,6 +182,7 @@ func NewScheduledAction(ctx *pulumi.Context,
 	if args.TargetAction == nil {
 		return nil, errors.New("invalid value for required argument 'TargetAction'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ScheduledAction
 	err := ctx.RegisterResource("aws:redshift/scheduledAction:ScheduledAction", name, args, &resource, opts...)
 	if err != nil {

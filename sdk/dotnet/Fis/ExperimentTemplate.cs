@@ -74,11 +74,11 @@ namespace Pulumi.Aws.Fis
     /// 
     /// ## Import
     /// 
-    /// FIS Experiment Templates can be imported using the `id`, e.g.
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:fis/experimentTemplate:ExperimentTemplate template EXT123AbCdEfGhIjK
-    /// ```
+    ///  to = aws_fis_experiment_template.template
+    /// 
+    ///  id = "EXT123AbCdEfGhIjK" } Using `pulumi import`, import FIS Experiment Templates using the `id`. For exampleconsole % pulumi import aws_fis_experiment_template.template EXT123AbCdEfGhIjK
     /// </summary>
     [AwsResourceType("aws:fis/experimentTemplate:ExperimentTemplate")]
     public partial class ExperimentTemplate : global::Pulumi.CustomResource
@@ -94,6 +94,12 @@ namespace Pulumi.Aws.Fis
         /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// The configuration for experiment logging. See below.
+        /// </summary>
+        [Output("logConfiguration")]
+        public Output<Outputs.ExperimentTemplateLogConfiguration?> LogConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
@@ -189,6 +195,12 @@ namespace Pulumi.Aws.Fis
         public Input<string> Description { get; set; } = null!;
 
         /// <summary>
+        /// The configuration for experiment logging. See below.
+        /// </summary>
+        [Input("logConfiguration")]
+        public Input<Inputs.ExperimentTemplateLogConfigurationArgs>? LogConfiguration { get; set; }
+
+        /// <summary>
         /// ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
         /// </summary>
         [Input("roleArn", required: true)]
@@ -257,6 +269,12 @@ namespace Pulumi.Aws.Fis
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// The configuration for experiment logging. See below.
+        /// </summary>
+        [Input("logConfiguration")]
+        public Input<Inputs.ExperimentTemplateLogConfigurationGetArgs>? LogConfiguration { get; set; }
 
         /// <summary>
         /// ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.

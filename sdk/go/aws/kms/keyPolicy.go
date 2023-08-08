@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -69,13 +70,11 @@ import (
 //
 // ## Import
 //
-// KMS Key Policies can be imported using the `key_id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_kms_key_policy.a
 //
-//	$ pulumi import aws:kms/keyPolicy:KeyPolicy a 1234abcd-12ab-34cd-56ef-1234567890ab
-//
-// ```
+//	id = "1234abcd-12ab-34cd-56ef-1234567890ab" } Using `pulumi import`, import KMS Key Policies using the `key_id`. For exampleconsole % pulumi import aws_kms_key_policy.a 1234abcd-12ab-34cd-56ef-1234567890ab
 type KeyPolicy struct {
 	pulumi.CustomResourceState
 
@@ -104,6 +103,7 @@ func NewKeyPolicy(ctx *pulumi.Context,
 	if args.Policy == nil {
 		return nil, errors.New("invalid value for required argument 'Policy'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource KeyPolicy
 	err := ctx.RegisterResource("aws:kms/keyPolicy:KeyPolicy", name, args, &resource, opts...)
 	if err != nil {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -41,6 +42,7 @@ import (
 // > **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
 // **Note:** The data source is currently following the behavior of the [SSM API](https://docs.aws.amazon.com/sdk-for-go/api/service/ssm/#Parameter) to return a string value, regardless of parameter type. For type `StringList`, we can use the built-in split() function to get values in a list. Example: `split(",", data.aws_ssm_parameter.subnets.value)`
 func GetParametersByPath(ctx *pulumi.Context, args *GetParametersByPathArgs, opts ...pulumi.InvokeOption) (*GetParametersByPathResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetParametersByPathResult
 	err := ctx.Invoke("aws:ssm/getParametersByPath:getParametersByPath", args, &rv, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -49,13 +50,11 @@ import (
 //
 // ## Import
 //
-// `aws_api_gateway_resource` can be imported using `REST-API-ID/RESOURCE-ID`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_api_gateway_resource.example
 //
-//	$ pulumi import aws:apigateway/resource:Resource example 12345abcde/67890fghij
-//
-// ```
+//	id = "12345abcde/67890fghij" } Using `pulumi import`, import `aws_api_gateway_resource` using `REST-API-ID/RESOURCE-ID`. For exampleconsole % pulumi import aws_api_gateway_resource.example 12345abcde/67890fghij
 type Resource struct {
 	pulumi.CustomResourceState
 
@@ -85,6 +84,7 @@ func NewResource(ctx *pulumi.Context,
 	if args.RestApi == nil {
 		return nil, errors.New("invalid value for required argument 'RestApi'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Resource
 	err := ctx.RegisterResource("aws:apigateway/resource:Resource", name, args, &resource, opts...)
 	if err != nil {

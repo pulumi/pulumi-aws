@@ -72,7 +72,7 @@ def get_service_account(region: Optional[str] = None,
     in a given region for the purpose of allowing Redshift to store audit data in S3.
 
     > **Note:** AWS documentation [states that](https://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-bucket-permissions) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
-    The `redshift_get_service_account` data source should now be considered deprecated and will be removed in a future version.
+    The `redshift_get_service_account` data source has been deprecated and will be removed in a future version.
 
 
     :param str region: Name of the region whose AWS Redshift account ID is desired.
@@ -97,7 +97,7 @@ def get_service_account_output(region: Optional[pulumi.Input[Optional[str]]] = N
     in a given region for the purpose of allowing Redshift to store audit data in S3.
 
     > **Note:** AWS documentation [states that](https://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-bucket-permissions) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
-    The `redshift_get_service_account` data source should now be considered deprecated and will be removed in a future version.
+    The `redshift_get_service_account` data source has been deprecated and will be removed in a future version.
 
 
     :param str region: Name of the region whose AWS Redshift account ID is desired.

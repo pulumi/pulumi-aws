@@ -148,11 +148,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * VPCs can be imported using the `vpc id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:ec2/vpc:Vpc test_vpc vpc-a01106c2
- * ```
+ *  to = aws_vpc.test_vpc
+ * 
+ *  id = &#34;vpc-a01106c2&#34; } Using `pulumi import`, import VPCs using the VPC `id`. For exampleconsole % pulumi import aws_vpc.test_vpc vpc-a01106c2
  * 
  */
 @ResourceType(type="aws:ec2/vpc:Vpc")
@@ -246,48 +246,6 @@ public class Vpc extends com.pulumi.resources.CustomResource {
 
     public Output<String> dhcpOptionsId() {
         return this.dhcpOptionsId;
-    }
-    /**
-     * A boolean flag to enable/disable ClassicLink
-     * for the VPC. Only valid in regions and accounts that support EC2 Classic.
-     * See the [ClassicLink documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html) for more information. Defaults false.
-     * 
-     * @deprecated
-     * With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version.
-     * 
-     */
-    @Deprecated /* With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version. */
-    @Export(name="enableClassiclink", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> enableClassiclink;
-
-    /**
-     * @return A boolean flag to enable/disable ClassicLink
-     * for the VPC. Only valid in regions and accounts that support EC2 Classic.
-     * See the [ClassicLink documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html) for more information. Defaults false.
-     * 
-     */
-    public Output<Boolean> enableClassiclink() {
-        return this.enableClassiclink;
-    }
-    /**
-     * A boolean flag to enable/disable ClassicLink DNS Support for the VPC.
-     * Only valid in regions and accounts that support EC2 Classic.
-     * 
-     * @deprecated
-     * With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version.
-     * 
-     */
-    @Deprecated /* With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version. */
-    @Export(name="enableClassiclinkDnsSupport", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> enableClassiclinkDnsSupport;
-
-    /**
-     * @return A boolean flag to enable/disable ClassicLink DNS Support for the VPC.
-     * Only valid in regions and accounts that support EC2 Classic.
-     * 
-     */
-    public Output<Boolean> enableClassiclinkDnsSupport() {
-        return this.enableClassiclinkDnsSupport;
     }
     /**
      * A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.

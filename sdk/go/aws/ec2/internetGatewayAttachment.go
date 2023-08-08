@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,13 +53,11 @@ import (
 //
 // ## Import
 //
-// Internet Gateway Attachments can be imported using the `id`, e.g.
+// terraform import {
 //
-// ```sh
+//	to = aws_internet_gateway_attachment.example
 //
-//	$ pulumi import aws:ec2/internetGatewayAttachment:InternetGatewayAttachment example igw-c0a643a9:vpc-123456
-//
-// ```
+//	id = "igw-c0a643a9:vpc-123456" } Using `pulumi import`, import Internet Gateway Attachments using the `id`. For exampleconsole % pulumi import aws_internet_gateway_attachment.example igw-c0a643a9:vpc-123456
 type InternetGatewayAttachment struct {
 	pulumi.CustomResourceState
 
@@ -81,6 +80,7 @@ func NewInternetGatewayAttachment(ctx *pulumi.Context,
 	if args.VpcId == nil {
 		return nil, errors.New("invalid value for required argument 'VpcId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource InternetGatewayAttachment
 	err := ctx.RegisterResource("aws:ec2/internetGatewayAttachment:InternetGatewayAttachment", name, args, &resource, opts...)
 	if err != nil {

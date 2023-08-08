@@ -57,11 +57,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Monitoring schedules can be imported using the `name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:sagemaker/monitoringSchedule:MonitoringSchedule test_monitoring_schedule monitoring-schedule-foo
- * ```
+ *  to = aws_sagemaker_monitoring_schedule.test_monitoring_schedule
+ * 
+ *  id = &#34;monitoring-schedule-foo&#34; } Using `pulumi import`, import monitoring schedules using the `name`. For exampleconsole % pulumi import aws_sagemaker_monitoring_schedule.test_monitoring_schedule monitoring-schedule-foo
  * 
  */
 @ResourceType(type="aws:sagemaker/monitoringSchedule:MonitoringSchedule")

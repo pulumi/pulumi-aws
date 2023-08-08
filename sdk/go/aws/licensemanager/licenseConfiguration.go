@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/licensemanager"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/licensemanager"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -63,13 +64,11 @@ import (
 //
 // ## Import
 //
-// License configurations can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_licensemanager_license_configuration.example
 //
-//	$ pulumi import aws:licensemanager/licenseConfiguration:LicenseConfiguration example arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
-//
-// ```
+//	id = "arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef" } Using `pulumi import`, import license configurations using the `id`. For exampleconsole % pulumi import aws_licensemanager_license_configuration.example arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
 type LicenseConfiguration struct {
 	pulumi.CustomResourceState
 
@@ -105,6 +104,7 @@ func NewLicenseConfiguration(ctx *pulumi.Context,
 	if args.LicenseCountingType == nil {
 		return nil, errors.New("invalid value for required argument 'LicenseCountingType'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LicenseConfiguration
 	err := ctx.RegisterResource("aws:licensemanager/licenseConfiguration:LicenseConfiguration", name, args, &resource, opts...)
 	if err != nil {

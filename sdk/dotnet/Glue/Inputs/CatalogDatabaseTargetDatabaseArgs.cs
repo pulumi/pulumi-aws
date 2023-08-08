@@ -24,6 +24,12 @@ namespace Pulumi.Aws.Glue.Inputs
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
 
+        /// <summary>
+        /// Region of the target database.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public CatalogDatabaseTargetDatabaseArgs()
         {
         }

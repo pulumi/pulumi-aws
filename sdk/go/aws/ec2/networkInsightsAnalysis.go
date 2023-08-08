@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -49,13 +50,11 @@ import (
 //
 // ## Import
 //
-// Network Insights Analyses can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_ec2_network_insights_analysis.test
 //
-//	$ pulumi import aws:ec2/networkInsightsAnalysis:NetworkInsightsAnalysis test nia-0462085c957f11a55
-//
-// ```
+//	id = "nia-0462085c957f11a55" } Using `pulumi import`, import Network Insights Analyses using the `id`. For exampleconsole % pulumi import aws_ec2_network_insights_analysis.test nia-0462085c957f11a55
 type NetworkInsightsAnalysis struct {
 	pulumi.CustomResourceState
 
@@ -103,6 +102,7 @@ func NewNetworkInsightsAnalysis(ctx *pulumi.Context,
 	if args.NetworkInsightsPathId == nil {
 		return nil, errors.New("invalid value for required argument 'NetworkInsightsPathId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NetworkInsightsAnalysis
 	err := ctx.RegisterResource("aws:ec2/networkInsightsAnalysis:NetworkInsightsAnalysis", name, args, &resource, opts...)
 	if err != nil {

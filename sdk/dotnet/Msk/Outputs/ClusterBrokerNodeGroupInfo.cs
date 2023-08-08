@@ -26,10 +26,6 @@ namespace Pulumi.Aws.Msk.Outputs
         /// </summary>
         public readonly Outputs.ClusterBrokerNodeGroupInfoConnectivityInfo? ConnectivityInfo;
         /// <summary>
-        /// The size in GiB of the EBS volume for the data drive on each broker node.
-        /// </summary>
-        public readonly int? EbsVolumeSize;
-        /// <summary>
         /// Specify the instance type to use for the kafka brokersE.g., kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
         /// </summary>
         public readonly string InstanceType;
@@ -50,8 +46,6 @@ namespace Pulumi.Aws.Msk.Outputs
 
             Outputs.ClusterBrokerNodeGroupInfoConnectivityInfo? connectivityInfo,
 
-            int? ebsVolumeSize,
-
             string instanceType,
 
             ImmutableArray<string> securityGroups,
@@ -61,7 +55,6 @@ namespace Pulumi.Aws.Msk.Outputs
             AzDistribution = azDistribution;
             ClientSubnets = clientSubnets;
             ConnectivityInfo = connectivityInfo;
-            EbsVolumeSize = ebsVolumeSize;
             InstanceType = instanceType;
             SecurityGroups = securityGroups;
             StorageInfo = storageInfo;

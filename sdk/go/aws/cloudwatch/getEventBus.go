@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -40,6 +41,7 @@ import (
 //
 // ```
 func LookupEventBus(ctx *pulumi.Context, args *LookupEventBusArgs, opts ...pulumi.InvokeOption) (*LookupEventBusResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEventBusResult
 	err := ctx.Invoke("aws:cloudwatch/getEventBus:getEventBus", args, &rv, opts...)
 	if err != nil {

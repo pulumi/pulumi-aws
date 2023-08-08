@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/dms"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dms"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -60,8 +61,8 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/dms"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dms"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -122,13 +123,11 @@ import (
 //
 // ## Import
 //
-// Replication subnet groups can be imported using the `replication_subnet_group_id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_dms_replication_subnet_group.test
 //
-//	$ pulumi import aws:dms/replicationSubnetGroup:ReplicationSubnetGroup test test-dms-replication-subnet-group-tf
-//
-// ```
+//	id = "test-dms-replication-subnet-group-tf" } Using `pulumi import`, import replication subnet groups using the `replication_subnet_group_id`. For exampleconsole % pulumi import aws_dms_replication_subnet_group.test test-dms-replication-subnet-group-tf
 type ReplicationSubnetGroup struct {
 	pulumi.CustomResourceState
 
@@ -163,6 +162,7 @@ func NewReplicationSubnetGroup(ctx *pulumi.Context,
 	if args.SubnetIds == nil {
 		return nil, errors.New("invalid value for required argument 'SubnetIds'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ReplicationSubnetGroup
 	err := ctx.RegisterResource("aws:dms/replicationSubnetGroup:ReplicationSubnetGroup", name, args, &resource, opts...)
 	if err != nil {

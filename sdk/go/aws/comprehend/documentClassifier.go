@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,8 +24,8 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/comprehend"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/comprehend"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -61,13 +62,11 @@ import (
 //
 // ## Import
 //
-// Comprehend Document Classifier can be imported using the ARN, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_comprehend_document_classifier.example
 //
-//	$ pulumi import aws:comprehend/documentClassifier:DocumentClassifier example arn:aws:comprehend:us-west-2:123456789012:document_classifier/example
-//
-// ```
+//	id = "arn:aws:comprehend:us-west-2:123456789012:document_classifier/example" } Using `pulumi import`, import Comprehend Document Classifier using the ARN. For exampleconsole % pulumi import aws_comprehend_document_classifier.example arn:aws:comprehend:us-west-2:123456789012:document_classifier/example
 type DocumentClassifier struct {
 	pulumi.CustomResourceState
 
@@ -138,6 +137,7 @@ func NewDocumentClassifier(ctx *pulumi.Context,
 	if args.LanguageCode == nil {
 		return nil, errors.New("invalid value for required argument 'LanguageCode'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DocumentClassifier
 	err := ctx.RegisterResource("aws:comprehend/documentClassifier:DocumentClassifier", name, args, &resource, opts...)
 	if err != nil {

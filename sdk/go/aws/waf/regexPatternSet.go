@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/waf"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/waf"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -43,13 +44,11 @@ import (
 //
 // ## Import
 //
-// AWS WAF Regex Pattern Set can be imported using their ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_waf_regex_pattern_set.example
 //
-//	$ pulumi import aws:waf/regexPatternSet:RegexPatternSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
-//
-// ```
+//	id = "a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc" } Using `pulumi import`, import AWS WAF Regex Pattern Set using their ID. For exampleconsole % pulumi import aws_waf_regex_pattern_set.example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
 type RegexPatternSet struct {
 	pulumi.CustomResourceState
 
@@ -68,6 +67,7 @@ func NewRegexPatternSet(ctx *pulumi.Context,
 		args = &RegexPatternSetArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RegexPatternSet
 	err := ctx.RegisterResource("aws:waf/regexPatternSet:RegexPatternSet", name, args, &resource, opts...)
 	if err != nil {

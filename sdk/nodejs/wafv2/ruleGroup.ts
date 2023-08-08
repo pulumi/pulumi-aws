@@ -7,55 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Creates a WAFv2 Rule Group resource.
- *
- * ## Example Usage
- * ### Simple
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.wafv2.RuleGroup("example", {
- *     capacity: 2,
- *     rules: [{
- *         action: {
- *             allow: {},
- *         },
- *         name: "rule-1",
- *         priority: 1,
- *         statement: {
- *             geoMatchStatement: {
- *                 countryCodes: [
- *                     "US",
- *                     "NL",
- *                 ],
- *             },
- *         },
- *         visibilityConfig: {
- *             cloudwatchMetricsEnabled: false,
- *             metricName: "friendly-rule-metric-name",
- *             sampledRequestsEnabled: false,
- *         },
- *     }],
- *     scope: "REGIONAL",
- *     visibilityConfig: {
- *         cloudwatchMetricsEnabled: false,
- *         metricName: "friendly-metric-name",
- *         sampledRequestsEnabled: false,
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * WAFv2 Rule Group can be imported using `ID/name/scope` e.g.,
- *
- * ```sh
- *  $ pulumi import aws:wafv2/ruleGroup:RuleGroup example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
- * ```
- */
 export class RuleGroup extends pulumi.CustomResource {
     /**
      * Get an existing RuleGroup resource's state with the given name, ID, and optional extra

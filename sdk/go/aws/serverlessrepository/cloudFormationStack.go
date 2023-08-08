@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,8 +23,8 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/serverlessrepository"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/serverlessrepository"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -60,13 +61,11 @@ import (
 //
 // ## Import
 //
-// Serverless Application Repository Stack can be imported using the CloudFormation Stack name (with or without the `serverlessrepo-` prefix) or the CloudFormation Stack ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_serverlessapplicationrepository_cloudformation_stack.example
 //
-//	$ pulumi import aws:serverlessrepository/cloudFormationStack:CloudFormationStack example serverlessrepo-postgres-rotator
-//
-// ```
+//	id = "serverlessrepo-postgres-rotator" } Using `pulumi import`, import Serverless Application Repository Stack using the CloudFormation Stack name (with or without the `serverlessrepo-` prefix) or the CloudFormation Stack ID. For exampleconsole % pulumi import aws_serverlessapplicationrepository_cloudformation_stack.example serverlessrepo-postgres-rotator
 type CloudFormationStack struct {
 	pulumi.CustomResourceState
 
@@ -101,6 +100,7 @@ func NewCloudFormationStack(ctx *pulumi.Context,
 	if args.Capabilities == nil {
 		return nil, errors.New("invalid value for required argument 'Capabilities'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CloudFormationStack
 	err := ctx.RegisterResource("aws:serverlessrepository/cloudFormationStack:CloudFormationStack", name, args, &resource, opts...)
 	if err != nil {

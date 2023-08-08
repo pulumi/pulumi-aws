@@ -266,11 +266,11 @@ class KeyPair(pulumi.CustomResource):
 
         ## Import
 
-        Key Pairs can be imported using the `key_name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ec2/keyPair:KeyPair deployer deployer-key
-        ```
+         to = aws_key_pair.deployer
+
+         id = "deployer-key" } Using `pulumi import`, import Key Pairs using the `key_name`. For exampleconsole % pulumi import aws_key_pair.deployer deployer-key
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -307,11 +307,11 @@ class KeyPair(pulumi.CustomResource):
 
         ## Import
 
-        Key Pairs can be imported using the `key_name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ec2/keyPair:KeyPair deployer deployer-key
-        ```
+         to = aws_key_pair.deployer
+
+         id = "deployer-key" } Using `pulumi import`, import Key Pairs using the `key_name`. For exampleconsole % pulumi import aws_key_pair.deployer deployer-key
 
         :param str resource_name: The name of the resource.
         :param KeyPairArgs args: The arguments to use to populate this resource's properties.

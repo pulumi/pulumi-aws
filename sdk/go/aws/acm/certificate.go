@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -56,7 +57,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/acm"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/acm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -85,7 +86,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/acm"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/acm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -117,7 +118,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/acm"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/acm"
 //	"github.com/pulumi/pulumi-tls/sdk/v4/go/tls"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -169,7 +170,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -201,13 +202,11 @@ import (
 //
 // ## Import
 //
-// Certificates can be imported using their ARN, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_acm_certificate.cert
 //
-//	$ pulumi import aws:acm/certificate:Certificate cert arn:aws:acm:eu-central-1:123456789012:certificate/7e7a28d2-163f-4b8f-b9cd-822f96c08d6a
-//
-// ```
+//	id = "arn:aws:acm:eu-central-1:123456789012:certificate/7e7a28d2-163f-4b8f-b9cd-822f96c08d6a" } Using `pulumi import`, import certificates using their ARN. For exampleconsole % pulumi import aws_acm_certificate.cert arn:aws:acm:eu-central-1:123456789012:certificate/7e7a28d2-163f-4b8f-b9cd-822f96c08d6a
 type Certificate struct {
 	pulumi.CustomResourceState
 
@@ -261,7 +260,7 @@ type Certificate struct {
 	Type pulumi.StringOutput `pulumi:"type"`
 	// List of addresses that received a validation email. Only set if `EMAIL` validation was used.
 	ValidationEmails pulumi.StringArrayOutput `pulumi:"validationEmails"`
-	// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
+	// Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
 	ValidationMethod pulumi.StringOutput `pulumi:"validationMethod"`
 	// Configuration block used to specify information about the initial validation of each domain name. Detailed below.
 	// * Importing an existing certificate
@@ -282,6 +281,7 @@ func NewCertificate(ctx *pulumi.Context,
 		"privateKey",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Certificate
 	err := ctx.RegisterResource("aws:acm/certificate:Certificate", name, args, &resource, opts...)
 	if err != nil {
@@ -354,7 +354,7 @@ type certificateState struct {
 	Type *string `pulumi:"type"`
 	// List of addresses that received a validation email. Only set if `EMAIL` validation was used.
 	ValidationEmails []string `pulumi:"validationEmails"`
-	// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
+	// Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
 	ValidationMethod *string `pulumi:"validationMethod"`
 	// Configuration block used to specify information about the initial validation of each domain name. Detailed below.
 	// * Importing an existing certificate
@@ -412,7 +412,7 @@ type CertificateState struct {
 	Type pulumi.StringPtrInput
 	// List of addresses that received a validation email. Only set if `EMAIL` validation was used.
 	ValidationEmails pulumi.StringArrayInput
-	// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
+	// Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
 	ValidationMethod pulumi.StringPtrInput
 	// Configuration block used to specify information about the initial validation of each domain name. Detailed below.
 	// * Importing an existing certificate
@@ -450,7 +450,7 @@ type certificateArgs struct {
 	SubjectAlternativeNames []string `pulumi:"subjectAlternativeNames"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
+	// Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
 	ValidationMethod *string `pulumi:"validationMethod"`
 	// Configuration block used to specify information about the initial validation of each domain name. Detailed below.
 	// * Importing an existing certificate
@@ -485,7 +485,7 @@ type CertificateArgs struct {
 	SubjectAlternativeNames pulumi.StringArrayInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
+	// Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
 	ValidationMethod pulumi.StringPtrInput
 	// Configuration block used to specify information about the initial validation of each domain name. Detailed below.
 	// * Importing an existing certificate
@@ -692,7 +692,7 @@ func (o CertificateOutput) ValidationEmails() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringArrayOutput { return v.ValidationEmails }).(pulumi.StringArrayOutput)
 }
 
-// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
+// Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
 func (o CertificateOutput) ValidationMethod() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.ValidationMethod }).(pulumi.StringOutput)
 }

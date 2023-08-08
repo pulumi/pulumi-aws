@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +22,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/chime"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/chime"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -56,13 +57,11 @@ import (
 //
 // ## Import
 //
-// AWS Chime SDK Voice Profile Domain can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_chimesdkvoice_voice_profile_domain.example
 //
-//	$ pulumi import aws:chime/sdkvoiceVoiceProfileDomain:SdkvoiceVoiceProfileDomain example abcdef123456
-//
-// ```
+//	id = "abcdef123456" } Using `pulumi import`, import AWS Chime SDK Voice Profile Domain using the `id`. For exampleconsole % pulumi import aws_chimesdkvoice_voice_profile_domain.example abcdef123456
 type SdkvoiceVoiceProfileDomain struct {
 	pulumi.CustomResourceState
 
@@ -88,6 +87,7 @@ func NewSdkvoiceVoiceProfileDomain(ctx *pulumi.Context,
 	if args.ServerSideEncryptionConfiguration == nil {
 		return nil, errors.New("invalid value for required argument 'ServerSideEncryptionConfiguration'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SdkvoiceVoiceProfileDomain
 	err := ctx.RegisterResource("aws:chime/sdkvoiceVoiceProfileDomain:SdkvoiceVoiceProfileDomain", name, args, &resource, opts...)
 	if err != nil {

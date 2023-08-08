@@ -85,11 +85,11 @@ namespace Pulumi.Aws.S3
     /// 
     /// ## Import
     /// 
-    /// S3 bucket can be imported using the `bucket`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:s3/bucketV2:BucketV2 bucket bucket-name
-    /// ```
+    ///  to = aws_s3_bucket.bucket
+    /// 
+    ///  id = "bucket-name" } Using `pulumi import`, import S3 bucket using the `bucket`. For exampleconsole % pulumi import aws_s3_bucket.bucket bucket-name
     /// </summary>
     [AwsResourceType("aws:s3/bucketV2:BucketV2")]
     public partial class BucketV2 : global::Pulumi.CustomResource
@@ -132,7 +132,7 @@ namespace Pulumi.Aws.S3
         public Output<string> BucketPrefix { get; private set; } = null!;
 
         /// <summary>
-        /// Bucket region-specific domain name. The bucket domain name including the region name, please refer [here](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for format. Note: The AWS CloudFront allows specifying S3 region-specific endpoint when creating S3 origin, it will prevent [redirect issues](https://forums.aws.amazon.com/thread.jspa?threadID=216814) from CloudFront to S3 Origin URL.
+        /// The bucket region-specific domain name. The bucket domain name including the region name. Please refer to the [S3 endpoints reference](https://docs.aws.amazon.com/general/latest/gr/s3.html#s3_region) for format. Note: AWS CloudFront allows specifying an S3 region-specific endpoint when creating an S3 origin. This will prevent redirect issues from CloudFront to the S3 Origin URL. For more information, see the [Virtual Hosted-Style Requests for Other Regions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html#deprecated-global-endpoint) section in the AWS S3 User Guide.
         /// </summary>
         [Output("bucketRegionalDomainName")]
         public Output<string> BucketRegionalDomainName { get; private set; } = null!;
@@ -550,7 +550,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? BucketPrefix { get; set; }
 
         /// <summary>
-        /// Bucket region-specific domain name. The bucket domain name including the region name, please refer [here](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for format. Note: The AWS CloudFront allows specifying S3 region-specific endpoint when creating S3 origin, it will prevent [redirect issues](https://forums.aws.amazon.com/thread.jspa?threadID=216814) from CloudFront to S3 Origin URL.
+        /// The bucket region-specific domain name. The bucket domain name including the region name. Please refer to the [S3 endpoints reference](https://docs.aws.amazon.com/general/latest/gr/s3.html#s3_region) for format. Note: AWS CloudFront allows specifying an S3 region-specific endpoint when creating an S3 origin. This will prevent redirect issues from CloudFront to the S3 Origin URL. For more information, see the [Virtual Hosted-Style Requests for Other Regions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html#deprecated-global-endpoint) section in the AWS S3 User Guide.
         /// </summary>
         [Input("bucketRegionalDomainName")]
         public Input<string>? BucketRegionalDomainName { get; set; }

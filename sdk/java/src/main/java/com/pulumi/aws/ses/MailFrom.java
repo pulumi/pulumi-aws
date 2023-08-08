@@ -113,11 +113,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * MAIL FROM domain can be imported using the `domain` attribute, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:ses/mailFrom:MailFrom example example.com
- * ```
+ *  to = aws_ses_domain_mail_from.example
+ * 
+ *  id = &#34;example.com&#34; } Using `pulumi import`, import MAIL FROM domain using the `domain` attribute. For exampleconsole % pulumi import aws_ses_domain_mail_from.example example.com
  * 
  */
 @ResourceType(type="aws:ses/mailFrom:MailFrom")

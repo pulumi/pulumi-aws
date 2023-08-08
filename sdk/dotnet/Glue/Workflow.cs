@@ -68,11 +68,11 @@ namespace Pulumi.Aws.Glue
     /// 
     /// ## Import
     /// 
-    /// Glue Workflows can be imported using `name`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:glue/workflow:Workflow MyWorkflow MyWorkflow
-    /// ```
+    ///  to = aws_glue_workflow.MyWorkflow
+    /// 
+    ///  id = "MyWorkflow" } Using `pulumi import`, import Glue Workflows using `name`. For exampleconsole % pulumi import aws_glue_workflow.MyWorkflow MyWorkflow
     /// </summary>
     [AwsResourceType("aws:glue/workflow:Workflow")]
     public partial class Workflow : global::Pulumi.CustomResource
@@ -87,7 +87,7 @@ namespace Pulumi.Aws.Glue
         /// A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
         /// </summary>
         [Output("defaultRunProperties")]
-        public Output<ImmutableDictionary<string, object>?> DefaultRunProperties { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> DefaultRunProperties { get; private set; } = null!;
 
         /// <summary>
         /// Description of the workflow.
@@ -166,14 +166,14 @@ namespace Pulumi.Aws.Glue
     public sealed class WorkflowArgs : global::Pulumi.ResourceArgs
     {
         [Input("defaultRunProperties")]
-        private InputMap<object>? _defaultRunProperties;
+        private InputMap<string>? _defaultRunProperties;
 
         /// <summary>
         /// A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
         /// </summary>
-        public InputMap<object> DefaultRunProperties
+        public InputMap<string> DefaultRunProperties
         {
-            get => _defaultRunProperties ?? (_defaultRunProperties = new InputMap<object>());
+            get => _defaultRunProperties ?? (_defaultRunProperties = new InputMap<string>());
             set => _defaultRunProperties = value;
         }
 
@@ -222,14 +222,14 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Arn { get; set; }
 
         [Input("defaultRunProperties")]
-        private InputMap<object>? _defaultRunProperties;
+        private InputMap<string>? _defaultRunProperties;
 
         /// <summary>
         /// A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
         /// </summary>
-        public InputMap<object> DefaultRunProperties
+        public InputMap<string> DefaultRunProperties
         {
-            get => _defaultRunProperties ?? (_defaultRunProperties = new InputMap<object>());
+            get => _defaultRunProperties ?? (_defaultRunProperties = new InputMap<string>());
             set => _defaultRunProperties = value;
         }
 

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -32,7 +33,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -60,8 +61,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sqs"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sqs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -96,14 +97,16 @@ import (
 // package main
 //
 // import (
-// "fmt"
 //
-// "github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
-// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sqs"
-// "github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sqs"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
+//
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
@@ -265,13 +268,13 @@ import (
 // _, err = sns.NewTopic(ctx, "sns-topicTopic", &sns.TopicArgs{
 // DisplayName: *pulumi.String(sns.Display_name),
 // Policy: *pulumi.String(sns_topic_policy.Json),
-// }, pulumi.Provider("aws.sns"))
+// }, pulumi.Provider(aws.Sns))
 // if err != nil {
 // return err
 // }
 // _, err = sqs.NewQueue(ctx, "sqs-queue", &sqs.QueueArgs{
 // Policy: *pulumi.String(sqs_queue_policy.Json),
-// }, pulumi.Provider("aws.sqs"))
+// }, pulumi.Provider(aws.Sqs))
 // if err != nil {
 // return err
 // }
@@ -279,7 +282,7 @@ import (
 // Topic: sns_topicTopic.Arn,
 // Protocol: pulumi.String("sqs"),
 // Endpoint: sqs_queue.Arn,
-// }, pulumi.Provider("aws.sns2sqs"))
+// }, pulumi.Provider(aws.Sns2sqs))
 // if err != nil {
 // return err
 // }
@@ -290,13 +293,11 @@ import (
 //
 // ## Import
 //
-// SNS Topic Subscriptions can be imported using the `subscription arn`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_sns_topic_subscription.user_updates_sqs_target
 //
-//	$ pulumi import aws:sns/topicSubscription:TopicSubscription user_updates_sqs_target arn:aws:sns:us-west-2:0123456789012:my-topic:8a21d249-4329-4871-acc6-7be709c6ea7f
-//
-// ```
+//	id = "arn:aws:sns:us-west-2:0123456789012:my-topic:8a21d249-4329-4871-acc6-7be709c6ea7f" } Using `pulumi import`, import SNS Topic Subscriptions using the subscription `arn`. For exampleconsole % pulumi import aws_sns_topic_subscription.user_updates_sqs_target arn:aws:sns:us-west-2:0123456789012:my-topic:8a21d249-4329-4871-acc6-7be709c6ea7f
 type TopicSubscription struct {
 	pulumi.CustomResourceState
 
@@ -350,6 +351,7 @@ func NewTopicSubscription(ctx *pulumi.Context,
 	if args.Topic == nil {
 		return nil, errors.New("invalid value for required argument 'Topic'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TopicSubscription
 	err := ctx.RegisterResource("aws:sns/topicSubscription:TopicSubscription", name, args, &resource, opts...)
 	if err != nil {

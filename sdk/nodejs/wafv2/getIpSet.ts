@@ -47,7 +47,7 @@ export interface GetIpSetArgs {
  */
 export interface GetIpSetResult {
     /**
-     * An array of strings that specify one or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation.
+     * An array of strings that specifies zero or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation.
      */
     readonly addresses: string[];
     /**

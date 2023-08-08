@@ -7,8 +7,11 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type ConfigurationAggregatorAccountAggregationSource struct {
 	// List of 12-digit account IDs of the account(s) being aggregated.
@@ -728,8 +731,12 @@ func (o OrganizationConformancePackInputParameterArrayOutput) Index(i pulumi.Int
 type RecorderRecordingGroup struct {
 	// Specifies whether AWS Config records configuration changes for every supported type of regional resource (which includes any new type that will become supported in the future). Conflicts with `resourceTypes`. Defaults to `true`.
 	AllSupported *bool `pulumi:"allSupported"`
+	// An object that specifies how AWS Config excludes resource types from being recorded by the configuration recorder.To use this option, you must set the useOnly field of RecordingStrategy to `EXCLUSION_BY_RESOURCE_TYPES` Requires `allSupported = false`. Conflicts with `resourceTypes`.
+	ExclusionByResourceTypes []RecorderRecordingGroupExclusionByResourceType `pulumi:"exclusionByResourceTypes"`
 	// Specifies whether AWS Config includes all supported types of _global resources_ with the resources that it records. Requires `allSupported = true`. Conflicts with `resourceTypes`.
 	IncludeGlobalResourceTypes *bool `pulumi:"includeGlobalResourceTypes"`
+	// Recording Strategy - see below..
+	RecordingStrategies []RecorderRecordingGroupRecordingStrategy `pulumi:"recordingStrategies"`
 	// A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types. In order to use this attribute, `allSupported` must be set to false.
 	ResourceTypes []string `pulumi:"resourceTypes"`
 }
@@ -748,8 +755,12 @@ type RecorderRecordingGroupInput interface {
 type RecorderRecordingGroupArgs struct {
 	// Specifies whether AWS Config records configuration changes for every supported type of regional resource (which includes any new type that will become supported in the future). Conflicts with `resourceTypes`. Defaults to `true`.
 	AllSupported pulumi.BoolPtrInput `pulumi:"allSupported"`
+	// An object that specifies how AWS Config excludes resource types from being recorded by the configuration recorder.To use this option, you must set the useOnly field of RecordingStrategy to `EXCLUSION_BY_RESOURCE_TYPES` Requires `allSupported = false`. Conflicts with `resourceTypes`.
+	ExclusionByResourceTypes RecorderRecordingGroupExclusionByResourceTypeArrayInput `pulumi:"exclusionByResourceTypes"`
 	// Specifies whether AWS Config includes all supported types of _global resources_ with the resources that it records. Requires `allSupported = true`. Conflicts with `resourceTypes`.
 	IncludeGlobalResourceTypes pulumi.BoolPtrInput `pulumi:"includeGlobalResourceTypes"`
+	// Recording Strategy - see below..
+	RecordingStrategies RecorderRecordingGroupRecordingStrategyArrayInput `pulumi:"recordingStrategies"`
 	// A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types. In order to use this attribute, `allSupported` must be set to false.
 	ResourceTypes pulumi.StringArrayInput `pulumi:"resourceTypes"`
 }
@@ -836,9 +847,21 @@ func (o RecorderRecordingGroupOutput) AllSupported() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RecorderRecordingGroup) *bool { return v.AllSupported }).(pulumi.BoolPtrOutput)
 }
 
+// An object that specifies how AWS Config excludes resource types from being recorded by the configuration recorder.To use this option, you must set the useOnly field of RecordingStrategy to `EXCLUSION_BY_RESOURCE_TYPES` Requires `allSupported = false`. Conflicts with `resourceTypes`.
+func (o RecorderRecordingGroupOutput) ExclusionByResourceTypes() RecorderRecordingGroupExclusionByResourceTypeArrayOutput {
+	return o.ApplyT(func(v RecorderRecordingGroup) []RecorderRecordingGroupExclusionByResourceType {
+		return v.ExclusionByResourceTypes
+	}).(RecorderRecordingGroupExclusionByResourceTypeArrayOutput)
+}
+
 // Specifies whether AWS Config includes all supported types of _global resources_ with the resources that it records. Requires `allSupported = true`. Conflicts with `resourceTypes`.
 func (o RecorderRecordingGroupOutput) IncludeGlobalResourceTypes() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RecorderRecordingGroup) *bool { return v.IncludeGlobalResourceTypes }).(pulumi.BoolPtrOutput)
+}
+
+// Recording Strategy - see below..
+func (o RecorderRecordingGroupOutput) RecordingStrategies() RecorderRecordingGroupRecordingStrategyArrayOutput {
+	return o.ApplyT(func(v RecorderRecordingGroup) []RecorderRecordingGroupRecordingStrategy { return v.RecordingStrategies }).(RecorderRecordingGroupRecordingStrategyArrayOutput)
 }
 
 // A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types. In order to use this attribute, `allSupported` must be set to false.
@@ -880,6 +903,16 @@ func (o RecorderRecordingGroupPtrOutput) AllSupported() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// An object that specifies how AWS Config excludes resource types from being recorded by the configuration recorder.To use this option, you must set the useOnly field of RecordingStrategy to `EXCLUSION_BY_RESOURCE_TYPES` Requires `allSupported = false`. Conflicts with `resourceTypes`.
+func (o RecorderRecordingGroupPtrOutput) ExclusionByResourceTypes() RecorderRecordingGroupExclusionByResourceTypeArrayOutput {
+	return o.ApplyT(func(v *RecorderRecordingGroup) []RecorderRecordingGroupExclusionByResourceType {
+		if v == nil {
+			return nil
+		}
+		return v.ExclusionByResourceTypes
+	}).(RecorderRecordingGroupExclusionByResourceTypeArrayOutput)
+}
+
 // Specifies whether AWS Config includes all supported types of _global resources_ with the resources that it records. Requires `allSupported = true`. Conflicts with `resourceTypes`.
 func (o RecorderRecordingGroupPtrOutput) IncludeGlobalResourceTypes() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RecorderRecordingGroup) *bool {
@@ -890,6 +923,16 @@ func (o RecorderRecordingGroupPtrOutput) IncludeGlobalResourceTypes() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Recording Strategy - see below..
+func (o RecorderRecordingGroupPtrOutput) RecordingStrategies() RecorderRecordingGroupRecordingStrategyArrayOutput {
+	return o.ApplyT(func(v *RecorderRecordingGroup) []RecorderRecordingGroupRecordingStrategy {
+		if v == nil {
+			return nil
+		}
+		return v.RecordingStrategies
+	}).(RecorderRecordingGroupRecordingStrategyArrayOutput)
+}
+
 // A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types. In order to use this attribute, `allSupported` must be set to false.
 func (o RecorderRecordingGroupPtrOutput) ResourceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RecorderRecordingGroup) []string {
@@ -898,6 +941,197 @@ func (o RecorderRecordingGroupPtrOutput) ResourceTypes() pulumi.StringArrayOutpu
 		}
 		return v.ResourceTypes
 	}).(pulumi.StringArrayOutput)
+}
+
+type RecorderRecordingGroupExclusionByResourceType struct {
+	// A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types. In order to use this attribute, `allSupported` must be set to false.
+	ResourceTypes []string `pulumi:"resourceTypes"`
+}
+
+// RecorderRecordingGroupExclusionByResourceTypeInput is an input type that accepts RecorderRecordingGroupExclusionByResourceTypeArgs and RecorderRecordingGroupExclusionByResourceTypeOutput values.
+// You can construct a concrete instance of `RecorderRecordingGroupExclusionByResourceTypeInput` via:
+//
+//	RecorderRecordingGroupExclusionByResourceTypeArgs{...}
+type RecorderRecordingGroupExclusionByResourceTypeInput interface {
+	pulumi.Input
+
+	ToRecorderRecordingGroupExclusionByResourceTypeOutput() RecorderRecordingGroupExclusionByResourceTypeOutput
+	ToRecorderRecordingGroupExclusionByResourceTypeOutputWithContext(context.Context) RecorderRecordingGroupExclusionByResourceTypeOutput
+}
+
+type RecorderRecordingGroupExclusionByResourceTypeArgs struct {
+	// A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types. In order to use this attribute, `allSupported` must be set to false.
+	ResourceTypes pulumi.StringArrayInput `pulumi:"resourceTypes"`
+}
+
+func (RecorderRecordingGroupExclusionByResourceTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecorderRecordingGroupExclusionByResourceType)(nil)).Elem()
+}
+
+func (i RecorderRecordingGroupExclusionByResourceTypeArgs) ToRecorderRecordingGroupExclusionByResourceTypeOutput() RecorderRecordingGroupExclusionByResourceTypeOutput {
+	return i.ToRecorderRecordingGroupExclusionByResourceTypeOutputWithContext(context.Background())
+}
+
+func (i RecorderRecordingGroupExclusionByResourceTypeArgs) ToRecorderRecordingGroupExclusionByResourceTypeOutputWithContext(ctx context.Context) RecorderRecordingGroupExclusionByResourceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecorderRecordingGroupExclusionByResourceTypeOutput)
+}
+
+// RecorderRecordingGroupExclusionByResourceTypeArrayInput is an input type that accepts RecorderRecordingGroupExclusionByResourceTypeArray and RecorderRecordingGroupExclusionByResourceTypeArrayOutput values.
+// You can construct a concrete instance of `RecorderRecordingGroupExclusionByResourceTypeArrayInput` via:
+//
+//	RecorderRecordingGroupExclusionByResourceTypeArray{ RecorderRecordingGroupExclusionByResourceTypeArgs{...} }
+type RecorderRecordingGroupExclusionByResourceTypeArrayInput interface {
+	pulumi.Input
+
+	ToRecorderRecordingGroupExclusionByResourceTypeArrayOutput() RecorderRecordingGroupExclusionByResourceTypeArrayOutput
+	ToRecorderRecordingGroupExclusionByResourceTypeArrayOutputWithContext(context.Context) RecorderRecordingGroupExclusionByResourceTypeArrayOutput
+}
+
+type RecorderRecordingGroupExclusionByResourceTypeArray []RecorderRecordingGroupExclusionByResourceTypeInput
+
+func (RecorderRecordingGroupExclusionByResourceTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RecorderRecordingGroupExclusionByResourceType)(nil)).Elem()
+}
+
+func (i RecorderRecordingGroupExclusionByResourceTypeArray) ToRecorderRecordingGroupExclusionByResourceTypeArrayOutput() RecorderRecordingGroupExclusionByResourceTypeArrayOutput {
+	return i.ToRecorderRecordingGroupExclusionByResourceTypeArrayOutputWithContext(context.Background())
+}
+
+func (i RecorderRecordingGroupExclusionByResourceTypeArray) ToRecorderRecordingGroupExclusionByResourceTypeArrayOutputWithContext(ctx context.Context) RecorderRecordingGroupExclusionByResourceTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecorderRecordingGroupExclusionByResourceTypeArrayOutput)
+}
+
+type RecorderRecordingGroupExclusionByResourceTypeOutput struct{ *pulumi.OutputState }
+
+func (RecorderRecordingGroupExclusionByResourceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecorderRecordingGroupExclusionByResourceType)(nil)).Elem()
+}
+
+func (o RecorderRecordingGroupExclusionByResourceTypeOutput) ToRecorderRecordingGroupExclusionByResourceTypeOutput() RecorderRecordingGroupExclusionByResourceTypeOutput {
+	return o
+}
+
+func (o RecorderRecordingGroupExclusionByResourceTypeOutput) ToRecorderRecordingGroupExclusionByResourceTypeOutputWithContext(ctx context.Context) RecorderRecordingGroupExclusionByResourceTypeOutput {
+	return o
+}
+
+// A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types. In order to use this attribute, `allSupported` must be set to false.
+func (o RecorderRecordingGroupExclusionByResourceTypeOutput) ResourceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RecorderRecordingGroupExclusionByResourceType) []string { return v.ResourceTypes }).(pulumi.StringArrayOutput)
+}
+
+type RecorderRecordingGroupExclusionByResourceTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (RecorderRecordingGroupExclusionByResourceTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RecorderRecordingGroupExclusionByResourceType)(nil)).Elem()
+}
+
+func (o RecorderRecordingGroupExclusionByResourceTypeArrayOutput) ToRecorderRecordingGroupExclusionByResourceTypeArrayOutput() RecorderRecordingGroupExclusionByResourceTypeArrayOutput {
+	return o
+}
+
+func (o RecorderRecordingGroupExclusionByResourceTypeArrayOutput) ToRecorderRecordingGroupExclusionByResourceTypeArrayOutputWithContext(ctx context.Context) RecorderRecordingGroupExclusionByResourceTypeArrayOutput {
+	return o
+}
+
+func (o RecorderRecordingGroupExclusionByResourceTypeArrayOutput) Index(i pulumi.IntInput) RecorderRecordingGroupExclusionByResourceTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RecorderRecordingGroupExclusionByResourceType {
+		return vs[0].([]RecorderRecordingGroupExclusionByResourceType)[vs[1].(int)]
+	}).(RecorderRecordingGroupExclusionByResourceTypeOutput)
+}
+
+type RecorderRecordingGroupRecordingStrategy struct {
+	UseOnly *string `pulumi:"useOnly"`
+}
+
+// RecorderRecordingGroupRecordingStrategyInput is an input type that accepts RecorderRecordingGroupRecordingStrategyArgs and RecorderRecordingGroupRecordingStrategyOutput values.
+// You can construct a concrete instance of `RecorderRecordingGroupRecordingStrategyInput` via:
+//
+//	RecorderRecordingGroupRecordingStrategyArgs{...}
+type RecorderRecordingGroupRecordingStrategyInput interface {
+	pulumi.Input
+
+	ToRecorderRecordingGroupRecordingStrategyOutput() RecorderRecordingGroupRecordingStrategyOutput
+	ToRecorderRecordingGroupRecordingStrategyOutputWithContext(context.Context) RecorderRecordingGroupRecordingStrategyOutput
+}
+
+type RecorderRecordingGroupRecordingStrategyArgs struct {
+	UseOnly pulumi.StringPtrInput `pulumi:"useOnly"`
+}
+
+func (RecorderRecordingGroupRecordingStrategyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecorderRecordingGroupRecordingStrategy)(nil)).Elem()
+}
+
+func (i RecorderRecordingGroupRecordingStrategyArgs) ToRecorderRecordingGroupRecordingStrategyOutput() RecorderRecordingGroupRecordingStrategyOutput {
+	return i.ToRecorderRecordingGroupRecordingStrategyOutputWithContext(context.Background())
+}
+
+func (i RecorderRecordingGroupRecordingStrategyArgs) ToRecorderRecordingGroupRecordingStrategyOutputWithContext(ctx context.Context) RecorderRecordingGroupRecordingStrategyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecorderRecordingGroupRecordingStrategyOutput)
+}
+
+// RecorderRecordingGroupRecordingStrategyArrayInput is an input type that accepts RecorderRecordingGroupRecordingStrategyArray and RecorderRecordingGroupRecordingStrategyArrayOutput values.
+// You can construct a concrete instance of `RecorderRecordingGroupRecordingStrategyArrayInput` via:
+//
+//	RecorderRecordingGroupRecordingStrategyArray{ RecorderRecordingGroupRecordingStrategyArgs{...} }
+type RecorderRecordingGroupRecordingStrategyArrayInput interface {
+	pulumi.Input
+
+	ToRecorderRecordingGroupRecordingStrategyArrayOutput() RecorderRecordingGroupRecordingStrategyArrayOutput
+	ToRecorderRecordingGroupRecordingStrategyArrayOutputWithContext(context.Context) RecorderRecordingGroupRecordingStrategyArrayOutput
+}
+
+type RecorderRecordingGroupRecordingStrategyArray []RecorderRecordingGroupRecordingStrategyInput
+
+func (RecorderRecordingGroupRecordingStrategyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RecorderRecordingGroupRecordingStrategy)(nil)).Elem()
+}
+
+func (i RecorderRecordingGroupRecordingStrategyArray) ToRecorderRecordingGroupRecordingStrategyArrayOutput() RecorderRecordingGroupRecordingStrategyArrayOutput {
+	return i.ToRecorderRecordingGroupRecordingStrategyArrayOutputWithContext(context.Background())
+}
+
+func (i RecorderRecordingGroupRecordingStrategyArray) ToRecorderRecordingGroupRecordingStrategyArrayOutputWithContext(ctx context.Context) RecorderRecordingGroupRecordingStrategyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecorderRecordingGroupRecordingStrategyArrayOutput)
+}
+
+type RecorderRecordingGroupRecordingStrategyOutput struct{ *pulumi.OutputState }
+
+func (RecorderRecordingGroupRecordingStrategyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecorderRecordingGroupRecordingStrategy)(nil)).Elem()
+}
+
+func (o RecorderRecordingGroupRecordingStrategyOutput) ToRecorderRecordingGroupRecordingStrategyOutput() RecorderRecordingGroupRecordingStrategyOutput {
+	return o
+}
+
+func (o RecorderRecordingGroupRecordingStrategyOutput) ToRecorderRecordingGroupRecordingStrategyOutputWithContext(ctx context.Context) RecorderRecordingGroupRecordingStrategyOutput {
+	return o
+}
+
+func (o RecorderRecordingGroupRecordingStrategyOutput) UseOnly() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecorderRecordingGroupRecordingStrategy) *string { return v.UseOnly }).(pulumi.StringPtrOutput)
+}
+
+type RecorderRecordingGroupRecordingStrategyArrayOutput struct{ *pulumi.OutputState }
+
+func (RecorderRecordingGroupRecordingStrategyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RecorderRecordingGroupRecordingStrategy)(nil)).Elem()
+}
+
+func (o RecorderRecordingGroupRecordingStrategyArrayOutput) ToRecorderRecordingGroupRecordingStrategyArrayOutput() RecorderRecordingGroupRecordingStrategyArrayOutput {
+	return o
+}
+
+func (o RecorderRecordingGroupRecordingStrategyArrayOutput) ToRecorderRecordingGroupRecordingStrategyArrayOutputWithContext(ctx context.Context) RecorderRecordingGroupRecordingStrategyArrayOutput {
+	return o
+}
+
+func (o RecorderRecordingGroupRecordingStrategyArrayOutput) Index(i pulumi.IntInput) RecorderRecordingGroupRecordingStrategyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RecorderRecordingGroupRecordingStrategy {
+		return vs[0].([]RecorderRecordingGroupRecordingStrategy)[vs[1].(int)]
+	}).(RecorderRecordingGroupRecordingStrategyOutput)
 }
 
 type RemediationConfigurationExecutionControls struct {
@@ -2012,6 +2246,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConformancePackInputParameterArrayInput)(nil)).Elem(), OrganizationConformancePackInputParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecorderRecordingGroupInput)(nil)).Elem(), RecorderRecordingGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecorderRecordingGroupPtrInput)(nil)).Elem(), RecorderRecordingGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecorderRecordingGroupExclusionByResourceTypeInput)(nil)).Elem(), RecorderRecordingGroupExclusionByResourceTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecorderRecordingGroupExclusionByResourceTypeArrayInput)(nil)).Elem(), RecorderRecordingGroupExclusionByResourceTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecorderRecordingGroupRecordingStrategyInput)(nil)).Elem(), RecorderRecordingGroupRecordingStrategyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecorderRecordingGroupRecordingStrategyArrayInput)(nil)).Elem(), RecorderRecordingGroupRecordingStrategyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemediationConfigurationExecutionControlsInput)(nil)).Elem(), RemediationConfigurationExecutionControlsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemediationConfigurationExecutionControlsPtrInput)(nil)).Elem(), RemediationConfigurationExecutionControlsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemediationConfigurationExecutionControlsSsmControlsInput)(nil)).Elem(), RemediationConfigurationExecutionControlsSsmControlsArgs{})
@@ -2038,6 +2276,10 @@ func init() {
 	pulumi.RegisterOutputType(OrganizationConformancePackInputParameterArrayOutput{})
 	pulumi.RegisterOutputType(RecorderRecordingGroupOutput{})
 	pulumi.RegisterOutputType(RecorderRecordingGroupPtrOutput{})
+	pulumi.RegisterOutputType(RecorderRecordingGroupExclusionByResourceTypeOutput{})
+	pulumi.RegisterOutputType(RecorderRecordingGroupExclusionByResourceTypeArrayOutput{})
+	pulumi.RegisterOutputType(RecorderRecordingGroupRecordingStrategyOutput{})
+	pulumi.RegisterOutputType(RecorderRecordingGroupRecordingStrategyArrayOutput{})
 	pulumi.RegisterOutputType(RemediationConfigurationExecutionControlsOutput{})
 	pulumi.RegisterOutputType(RemediationConfigurationExecutionControlsPtrOutput{})
 	pulumi.RegisterOutputType(RemediationConfigurationExecutionControlsSsmControlsOutput{})

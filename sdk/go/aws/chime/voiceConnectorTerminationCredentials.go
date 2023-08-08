@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/chime"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/chime"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -72,13 +73,11 @@ import (
 //
 // ## Import
 //
-// Chime Voice Connector Termination Credentials can be imported using the `voice_connector_id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_chime_voice_connector_termination_credentials.default
 //
-//	$ pulumi import aws:chime/voiceConnectorTerminationCredentials:VoiceConnectorTerminationCredentials default abcdef1ghij2klmno3pqr4
-//
-// ```
+//	id = "abcdef1ghij2klmno3pqr4" } Using `pulumi import`, import Chime Voice Connector Termination Credentials using the `voice_connector_id`. For exampleconsole % pulumi import aws_chime_voice_connector_termination_credentials.default abcdef1ghij2klmno3pqr4
 type VoiceConnectorTerminationCredentials struct {
 	pulumi.CustomResourceState
 
@@ -101,6 +100,7 @@ func NewVoiceConnectorTerminationCredentials(ctx *pulumi.Context,
 	if args.VoiceConnectorId == nil {
 		return nil, errors.New("invalid value for required argument 'VoiceConnectorId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VoiceConnectorTerminationCredentials
 	err := ctx.RegisterResource("aws:chime/voiceConnectorTerminationCredentials:VoiceConnectorTerminationCredentials", name, args, &resource, opts...)
 	if err != nil {

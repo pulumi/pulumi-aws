@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -72,13 +73,11 @@ import (
 //
 // ## Import
 //
-// SNS Data Protection Topic Policy can be imported using the topic ARN, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_sns_topic_data_protection_policy.example
 //
-//	$ pulumi import aws:sns/dataProtectionPolicy:DataProtectionPolicy example arn:aws:sns:us-west-2:0123456789012:example
-//
-// ```
+//	id = "arn:aws:sns:us-west-2:0123456789012:example" } Using `pulumi import`, import SNS Data Protection Topic Policy using the topic ARN. For exampleconsole % pulumi import aws_sns_topic_data_protection_policy.example arn:aws:sns:us-west-2:0123456789012:example
 type DataProtectionPolicy struct {
 	pulumi.CustomResourceState
 
@@ -101,6 +100,7 @@ func NewDataProtectionPolicy(ctx *pulumi.Context,
 	if args.Policy == nil {
 		return nil, errors.New("invalid value for required argument 'Policy'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DataProtectionPolicy
 	err := ctx.RegisterResource("aws:sns/dataProtectionPolicy:DataProtectionPolicy", name, args, &resource, opts...)
 	if err != nil {

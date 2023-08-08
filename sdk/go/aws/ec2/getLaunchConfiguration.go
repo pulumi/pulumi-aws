@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func LookupLaunchConfiguration(ctx *pulumi.Context, args *LookupLaunchConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupLaunchConfigurationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLaunchConfigurationResult
 	err := ctx.Invoke("aws:ec2/getLaunchConfiguration:getLaunchConfiguration", args, &rv, opts...)
 	if err != nil {
@@ -90,14 +92,6 @@ type LookupLaunchConfigurationResult struct {
 	SpotPrice string `pulumi:"spotPrice"`
 	// User Data of the instance.
 	UserData string `pulumi:"userData"`
-	// ID of a ClassicLink-enabled VPC.
-	//
-	// Deprecated: With the retirement of EC2-Classic the vpc_classic_link_id attribute has been deprecated and will be removed in a future version.
-	VpcClassicLinkId string `pulumi:"vpcClassicLinkId"`
-	// The IDs of one or more Security Groups for the specified ClassicLink-enabled VPC.
-	//
-	// Deprecated: With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version.
-	VpcClassicLinkSecurityGroups []string `pulumi:"vpcClassicLinkSecurityGroups"`
 }
 
 func LookupLaunchConfigurationOutput(ctx *pulumi.Context, args LookupLaunchConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupLaunchConfigurationResultOutput {
@@ -234,20 +228,6 @@ func (o LookupLaunchConfigurationResultOutput) SpotPrice() pulumi.StringOutput {
 // User Data of the instance.
 func (o LookupLaunchConfigurationResultOutput) UserData() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLaunchConfigurationResult) string { return v.UserData }).(pulumi.StringOutput)
-}
-
-// ID of a ClassicLink-enabled VPC.
-//
-// Deprecated: With the retirement of EC2-Classic the vpc_classic_link_id attribute has been deprecated and will be removed in a future version.
-func (o LookupLaunchConfigurationResultOutput) VpcClassicLinkId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupLaunchConfigurationResult) string { return v.VpcClassicLinkId }).(pulumi.StringOutput)
-}
-
-// The IDs of one or more Security Groups for the specified ClassicLink-enabled VPC.
-//
-// Deprecated: With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version.
-func (o LookupLaunchConfigurationResultOutput) VpcClassicLinkSecurityGroups() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v LookupLaunchConfigurationResult) []string { return v.VpcClassicLinkSecurityGroups }).(pulumi.StringArrayOutput)
 }
 
 func init() {

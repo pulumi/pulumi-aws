@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigatewayv2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigatewayv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -57,7 +58,7 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigatewayv2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigatewayv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -97,13 +98,11 @@ import (
 //
 // ## Import
 //
-// `aws_apigatewayv2_route` can be imported by using the API identifier and route identifier, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_apigatewayv2_route.example
 //
-//	$ pulumi import aws:apigatewayv2/route:Route example aabbccddee/1122334
-//
-// ```
+//	id = "aabbccddee/1122334" } Using `pulumi import`, import `aws_apigatewayv2_route` using the API identifier and route identifier. For exampleconsole % pulumi import aws_apigatewayv2_route.example aabbccddee/1122334
 type Route struct {
 	pulumi.CustomResourceState
 
@@ -149,6 +148,7 @@ func NewRoute(ctx *pulumi.Context,
 	if args.RouteKey == nil {
 		return nil, errors.New("invalid value for required argument 'RouteKey'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Route
 	err := ctx.RegisterResource("aws:apigatewayv2/route:Route", name, args, &resource, opts...)
 	if err != nil {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/scheduler"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/scheduler"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,13 +43,11 @@ import (
 //
 // ## Import
 //
-// Schedule groups can be imported using the `name`. For example
+// terraform import {
 //
-// ```sh
+//	to = aws_scheduler_schedule_group.example
 //
-//	$ pulumi import aws:scheduler/scheduleGroup:ScheduleGroup example my-schedule-group
-//
-// ```
+//	id = "my-schedule-group" } Using `pulumi import`, import schedule groups using the `name`. For exampleconsole % pulumi import aws_scheduler_schedule_group.example my-schedule-group
 type ScheduleGroup struct {
 	pulumi.CustomResourceState
 
@@ -77,6 +76,7 @@ func NewScheduleGroup(ctx *pulumi.Context,
 		args = &ScheduleGroupArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ScheduleGroup
 	err := ctx.RegisterResource("aws:scheduler/scheduleGroup:ScheduleGroup", name, args, &resource, opts...)
 	if err != nil {

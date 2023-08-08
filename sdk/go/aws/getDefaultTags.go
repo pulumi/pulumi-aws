@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -39,6 +40,7 @@ import (
 //
 // ```
 func GetDefaultTags(ctx *pulumi.Context, args *GetDefaultTagsArgs, opts ...pulumi.InvokeOption) (*GetDefaultTagsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetDefaultTagsResult
 	err := ctx.Invoke("aws:index/getDefaultTags:getDefaultTags", args, &rv, opts...)
 	if err != nil {
@@ -49,13 +51,11 @@ func GetDefaultTags(ctx *pulumi.Context, args *GetDefaultTagsArgs, opts ...pulum
 
 // A collection of arguments for invoking getDefaultTags.
 type GetDefaultTagsArgs struct {
-	// Blocks of default tags set on the provider. See details below.
-	Tags map[string]string `pulumi:"tags"`
+	Id *string `pulumi:"id"`
 }
 
 // A collection of values returned by getDefaultTags.
 type GetDefaultTagsResult struct {
-	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Blocks of default tags set on the provider. See details below.
 	Tags map[string]string `pulumi:"tags"`
@@ -76,8 +76,7 @@ func GetDefaultTagsOutput(ctx *pulumi.Context, args GetDefaultTagsOutputArgs, op
 
 // A collection of arguments for invoking getDefaultTags.
 type GetDefaultTagsOutputArgs struct {
-	// Blocks of default tags set on the provider. See details below.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
 func (GetDefaultTagsOutputArgs) ElementType() reflect.Type {
@@ -99,7 +98,6 @@ func (o GetDefaultTagsResultOutput) ToGetDefaultTagsResultOutputWithContext(ctx 
 	return o
 }
 
-// The provider-assigned unique ID for this managed resource.
 func (o GetDefaultTagsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDefaultTagsResult) string { return v.Id }).(pulumi.StringOutput)
 }

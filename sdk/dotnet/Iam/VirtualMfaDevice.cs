@@ -13,6 +13,10 @@ namespace Pulumi.Aws.Iam
     /// Provides an IAM Virtual MFA Device.
     /// 
     /// &gt; **Note:** All attributes will be stored in the raw state as plain-text.
+    /// **Note:** A virtual MFA device cannot be directly associated with an IAM User from the provider.
+    ///   To associate the virtual MFA device with a user and enable it, use the code returned in either `base_32_string_seed` or `qr_code_png` to generate TOTP authentication codes.
+    ///   The authentication codes can then be used with the AWS CLI command [`aws iam enable-mfa-device`](https://docs.aws.amazon.com/cli/latest/reference/iam/enable-mfa-device.html) or the AWS API call [`EnableMFADevice`](https://docs.aws.amazon.com/IAM/latest/APIReference/API_EnableMFADevice.html).
+    /// 
     /// ## Example Usage
     /// 
     /// **Using certs on file:**
@@ -35,11 +39,11 @@ namespace Pulumi.Aws.Iam
     /// 
     /// ## Import
     /// 
-    /// IAM Virtual MFA Devices can be imported using the `arn`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:iam/virtualMfaDevice:VirtualMfaDevice example arn:aws:iam::123456789012:mfa/example
-    /// ```
+    ///  to = aws_iam_virtual_mfa_device.example
+    /// 
+    ///  id = "arn:aws:iam::123456789012:mfa/example" } Using `pulumi import`, import IAM Virtual MFA Devices using the `arn`. For exampleconsole % pulumi import aws_iam_virtual_mfa_device.example arn:aws:iam::123456789012:mfa/example
     /// </summary>
     [AwsResourceType("aws:iam/virtualMfaDevice:VirtualMfaDevice")]
     public partial class VirtualMfaDevice : global::Pulumi.CustomResource
@@ -57,13 +61,19 @@ namespace Pulumi.Aws.Iam
         public Output<string> Base32StringSeed { get; private set; } = null!;
 
         /// <summary>
+        /// The date and time when the virtual MFA device was enabled.
+        /// </summary>
+        [Output("enableDate")]
+        public Output<string> EnableDate { get; private set; } = null!;
+
+        /// <summary>
         /// The path for the virtual MFA device.
         /// </summary>
         [Output("path")]
         public Output<string?> Path { get; private set; } = null!;
 
         /// <summary>
-        /// A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID otherwise), and Base32String is the seed in base32 format.
+        /// A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID), and Base32String is the seed in base32 format.
         /// </summary>
         [Output("qrCodePng")]
         public Output<string> QrCodePng { get; private set; } = null!;
@@ -79,6 +89,12 @@ namespace Pulumi.Aws.Iam
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
+
+        /// <summary>
+        /// The associated IAM User name if the virtual MFA device is enabled.
+        /// </summary>
+        [Output("userName")]
+        public Output<string> UserName { get; private set; } = null!;
 
         /// <summary>
         /// The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
@@ -177,13 +193,19 @@ namespace Pulumi.Aws.Iam
         public Input<string>? Base32StringSeed { get; set; }
 
         /// <summary>
+        /// The date and time when the virtual MFA device was enabled.
+        /// </summary>
+        [Input("enableDate")]
+        public Input<string>? EnableDate { get; set; }
+
+        /// <summary>
         /// The path for the virtual MFA device.
         /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }
 
         /// <summary>
-        /// A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID otherwise), and Base32String is the seed in base32 format.
+        /// A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID), and Base32String is the seed in base32 format.
         /// </summary>
         [Input("qrCodePng")]
         public Input<string>? QrCodePng { get; set; }
@@ -211,6 +233,12 @@ namespace Pulumi.Aws.Iam
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
+
+        /// <summary>
+        /// The associated IAM User name if the virtual MFA device is enabled.
+        /// </summary>
+        [Input("userName")]
+        public Input<string>? UserName { get; set; }
 
         /// <summary>
         /// The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.

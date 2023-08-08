@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,8 +23,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudsearch"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudsearch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -81,13 +82,11 @@ import (
 //
 // ## Import
 //
-// CloudSearch domain service access policies can be imported using the domain name, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_cloudsearch_domain_service_access_policy.example
 //
-//	$ pulumi import aws:cloudsearch/domainServiceAccessPolicy:DomainServiceAccessPolicy example example-domain
-//
-// ```
+//	id = "example-domain" } Using `pulumi import`, import CloudSearch domain service access policies using the domain name. For exampleconsole % pulumi import aws_cloudsearch_domain_service_access_policy.example example-domain
 type DomainServiceAccessPolicy struct {
 	pulumi.CustomResourceState
 
@@ -110,6 +109,7 @@ func NewDomainServiceAccessPolicy(ctx *pulumi.Context,
 	if args.DomainName == nil {
 		return nil, errors.New("invalid value for required argument 'DomainName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DomainServiceAccessPolicy
 	err := ctx.RegisterResource("aws:cloudsearch/domainServiceAccessPolicy:DomainServiceAccessPolicy", name, args, &resource, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,8 +21,9 @@ import (
 //
 // import (
 //
-// "github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directoryservice"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directoryservice"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
@@ -55,13 +57,11 @@ import (
 //
 // ## Import
 //
-// Directory Service Shared Directories can be imported using the owner directory ID/shared directory ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_directory_service_shared_directory.example
 //
-//	$ pulumi import aws:directoryservice/sharedDirectory:SharedDirectory example d-1234567890/d-9267633ece
-//
-// ```
+//	id = "d-1234567890/d-9267633ece" } Using `pulumi import`, import Directory Service Shared Directories using the owner directory ID/shared directory ID. For exampleconsole % pulumi import aws_directory_service_shared_directory.example d-1234567890/d-9267633ece
 type SharedDirectory struct {
 	pulumi.CustomResourceState
 
@@ -99,6 +99,7 @@ func NewSharedDirectory(ctx *pulumi.Context,
 		"notes",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SharedDirectory
 	err := ctx.RegisterResource("aws:directoryservice/sharedDirectory:SharedDirectory", name, args, &resource, opts...)
 	if err != nil {

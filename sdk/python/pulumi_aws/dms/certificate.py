@@ -224,11 +224,11 @@ class Certificate(pulumi.CustomResource):
 
         ## Import
 
-        Certificates can be imported using the `certificate_id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:dms/certificate:Certificate test test-dms-certificate-tf
-        ```
+         to = aws_dms_certificate.test
+
+         id = "test-dms-certificate-tf" } Using `pulumi import`, import certificates using the `certificate_id`. For exampleconsole % pulumi import aws_dms_certificate.test test-dms-certificate-tf
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -265,11 +265,11 @@ class Certificate(pulumi.CustomResource):
 
         ## Import
 
-        Certificates can be imported using the `certificate_id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:dms/certificate:Certificate test test-dms-certificate-tf
-        ```
+         to = aws_dms_certificate.test
+
+         id = "test-dms-certificate-tf" } Using `pulumi import`, import certificates using the `certificate_id`. For exampleconsole % pulumi import aws_dms_certificate.test test-dms-certificate-tf
 
         :param str resource_name: The name of the resource.
         :param CertificateArgs args: The arguments to use to populate this resource's properties.

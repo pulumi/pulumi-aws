@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/storagegateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/storagegateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -51,10 +52,10 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/fsx"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/storagegateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/fsx"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssm"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/storagegateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -132,13 +133,11 @@ import (
 //
 // ## Import
 //
-// `aws_storagegateway_file_system_association` can be imported by using the FSx file system association Amazon Resource Name (ARN), e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_storagegateway_file_system_association.example
 //
-//	$ pulumi import aws:storagegateway/fileSystemAssociation:FileSystemAssociation example arn:aws:storagegateway:us-east-1:123456789012:fs-association/fsa-0DA347732FDB40125
-//
-// ```
+//	id = "arn:aws:storagegateway:us-east-1:123456789012:fs-association/fsa-0DA347732FDB40125" } Using `pulumi import`, import `aws_storagegateway_file_system_association` using the FSx file system association Amazon Resource Name (ARN). For exampleconsole % pulumi import aws_storagegateway_file_system_association.example arn:aws:storagegateway:us-east-1:123456789012:fs-association/fsa-0DA347732FDB40125
 type FileSystemAssociation struct {
 	pulumi.CustomResourceState
 
@@ -188,6 +187,7 @@ func NewFileSystemAssociation(ctx *pulumi.Context,
 		"password",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FileSystemAssociation
 	err := ctx.RegisterResource("aws:storagegateway/fileSystemAssociation:FileSystemAssociation", name, args, &resource, opts...)
 	if err != nil {

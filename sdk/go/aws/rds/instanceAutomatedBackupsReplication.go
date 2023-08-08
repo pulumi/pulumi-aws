@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -50,7 +51,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -77,9 +78,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -98,7 +99,7 @@ import (
 //				Engine:                pulumi.String("postgres"),
 //				EngineVersion:         pulumi.String("13.4"),
 //				InstanceClass:         pulumi.String("db.t3.micro"),
-//				Name:                  pulumi.String("mydb"),
+//				DbName:                pulumi.String("mydb"),
 //				Username:              pulumi.String("masterusername"),
 //				Password:              pulumi.String("mustbeeightcharacters"),
 //				BackupRetentionPeriod: pulumi.Int(7),
@@ -110,14 +111,14 @@ import (
 //			}
 //			defaultKey, err := kms.NewKey(ctx, "defaultKey", &kms.KeyArgs{
 //				Description: pulumi.String("Encryption key for automated backups"),
-//			}, pulumi.Provider("aws.replica"))
+//			}, pulumi.Provider(aws.Replica))
 //			if err != nil {
 //				return err
 //			}
 //			_, err = rds.NewInstanceAutomatedBackupsReplication(ctx, "defaultInstanceAutomatedBackupsReplication", &rds.InstanceAutomatedBackupsReplicationArgs{
 //				SourceDbInstanceArn: defaultInstance.Arn,
 //				KmsKeyId:            defaultKey.Arn,
-//			}, pulumi.Provider("aws.replica"))
+//			}, pulumi.Provider(aws.Replica))
 //			if err != nil {
 //				return err
 //			}
@@ -129,13 +130,11 @@ import (
 //
 // ## Import
 //
-// RDS instance automated backups replication can be imported using the `arn`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_db_instance_automated_backups_replication.default
 //
-//	$ pulumi import aws:rds/instanceAutomatedBackupsReplication:InstanceAutomatedBackupsReplication default arn:aws:rds:us-east-1:123456789012:auto-backup:ab-faaa2mgdj1vmp4xflr7yhsrmtbtob7ltrzzz2my
-//
-// ```
+//	id = "arn:aws:rds:us-east-1:123456789012:auto-backup:ab-faaa2mgdj1vmp4xflr7yhsrmtbtob7ltrzzz2my" } Using `pulumi import`, import RDS instance automated backups replication using the `arn`. For exampleconsole % pulumi import aws_db_instance_automated_backups_replication.default arn:aws:rds:us-east-1:123456789012:auto-backup:ab-faaa2mgdj1vmp4xflr7yhsrmtbtob7ltrzzz2my
 type InstanceAutomatedBackupsReplication struct {
 	pulumi.CustomResourceState
 
@@ -159,6 +158,7 @@ func NewInstanceAutomatedBackupsReplication(ctx *pulumi.Context,
 	if args.SourceDbInstanceArn == nil {
 		return nil, errors.New("invalid value for required argument 'SourceDbInstanceArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource InstanceAutomatedBackupsReplication
 	err := ctx.RegisterResource("aws:rds/instanceAutomatedBackupsReplication:InstanceAutomatedBackupsReplication", name, args, &resource, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,13 +43,11 @@ import (
 //
 // ## Import
 //
-// Route53 Resolver rule associations can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_route53_resolver_rule_association.example
 //
-//	$ pulumi import aws:route53/resolverRuleAssociation:ResolverRuleAssociation example rslvr-rrassoc-97242eaf88example
-//
-// ```
+//	id = "rslvr-rrassoc-97242eaf88example" } Using `pulumi import`, import Route53 Resolver rule associations using the `id`. For exampleconsole % pulumi import aws_route53_resolver_rule_association.example rslvr-rrassoc-97242eaf88example
 type ResolverRuleAssociation struct {
 	pulumi.CustomResourceState
 
@@ -73,6 +72,7 @@ func NewResolverRuleAssociation(ctx *pulumi.Context,
 	if args.VpcId == nil {
 		return nil, errors.New("invalid value for required argument 'VpcId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResolverRuleAssociation
 	err := ctx.RegisterResource("aws:route53/resolverRuleAssociation:ResolverRuleAssociation", name, args, &resource, opts...)
 	if err != nil {

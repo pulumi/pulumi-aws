@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
 import java.util.Optional;
@@ -118,11 +119,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Direct Connect connections can be imported using the `connection id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:directconnect/connection:Connection test_connection dxcon-ffre0ec3
- * ```
+ *  to = aws_dx_connection.test_connection
+ * 
+ *  id = &#34;dxcon-ffre0ec3&#34; } Using `pulumi import`, import Direct Connect connections using the connection `id`. For exampleconsole % pulumi import aws_dx_connection.test_connection dxcon-ffre0ec3
  * 
  */
 @ResourceType(type="aws:directconnect/connection:Connection")
@@ -373,14 +374,14 @@ public class Connection extends com.pulumi.resources.CustomResource {
      * The VLAN ID.
      * 
      */
-    @Export(name="vlanId", refs={String.class}, tree="[0]")
-    private Output<String> vlanId;
+    @Export(name="vlanId", refs={Integer.class}, tree="[0]")
+    private Output<Integer> vlanId;
 
     /**
      * @return The VLAN ID.
      * 
      */
-    public Output<String> vlanId() {
+    public Output<Integer> vlanId() {
         return this.vlanId;
     }
 

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,11 +23,11 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codepipeline"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codestarconnections"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codepipeline"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codestarconnections"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -220,13 +221,11 @@ import (
 //
 // ## Import
 //
-// CodePipelines can be imported using the name, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_codepipeline.foo
 //
-//	$ pulumi import aws:codepipeline/pipeline:Pipeline foo example
-//
-// ```
+//	id = "example" } Using `pulumi import`, import CodePipelines using the name. For exampleconsole % pulumi import aws_codepipeline.foo example
 type Pipeline struct {
 	pulumi.CustomResourceState
 
@@ -262,6 +261,7 @@ func NewPipeline(ctx *pulumi.Context,
 	if args.Stages == nil {
 		return nil, errors.New("invalid value for required argument 'Stages'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Pipeline
 	err := ctx.RegisterResource("aws:codepipeline/pipeline:Pipeline", name, args, &resource, opts...)
 	if err != nil {

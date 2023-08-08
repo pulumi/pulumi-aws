@@ -7,6 +7,7 @@ import com.pulumi.aws.sfn.inputs.StateMachineLoggingConfigurationArgs;
 import com.pulumi.aws.sfn.inputs.StateMachineTracingConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -79,6 +80,21 @@ public final class StateMachineArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Set to true to publish a version of the state machine during creation. Default: false.
+     * 
+     */
+    @Import(name="publish")
+    private @Nullable Output<Boolean> publish;
+
+    /**
+     * @return Set to true to publish a version of the state machine during creation. Default: false.
+     * 
+     */
+    public Optional<Output<Boolean>> publish() {
+        return Optional.ofNullable(this.publish);
+    }
+
+    /**
      * The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
      * 
      */
@@ -145,6 +161,7 @@ public final class StateMachineArgs extends com.pulumi.resources.ResourceArgs {
         this.loggingConfiguration = $.loggingConfiguration;
         this.name = $.name;
         this.namePrefix = $.namePrefix;
+        this.publish = $.publish;
         this.roleArn = $.roleArn;
         this.tags = $.tags;
         this.tracingConfiguration = $.tracingConfiguration;
@@ -251,6 +268,27 @@ public final class StateMachineArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder namePrefix(String namePrefix) {
             return namePrefix(Output.of(namePrefix));
+        }
+
+        /**
+         * @param publish Set to true to publish a version of the state machine during creation. Default: false.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publish(@Nullable Output<Boolean> publish) {
+            $.publish = publish;
+            return this;
+        }
+
+        /**
+         * @param publish Set to true to publish a version of the state machine during creation. Default: false.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publish(Boolean publish) {
+            return publish(Output.of(publish));
         }
 
         /**

@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.RoleArgs;
  * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
  * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
- * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamS3ConfigurationArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs;
  * import com.pulumi.aws.msk.Cluster;
  * import com.pulumi.aws.msk.ClusterArgs;
  * import com.pulumi.aws.msk.inputs.ClusterBrokerNodeGroupInfoArgs;
@@ -143,8 +143,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testStream = new FirehoseDeliveryStream(&#34;testStream&#34;, FirehoseDeliveryStreamArgs.builder()        
- *             .destination(&#34;s3&#34;)
- *             .s3Configuration(FirehoseDeliveryStreamS3ConfigurationArgs.builder()
+ *             .destination(&#34;extended_s3&#34;)
+ *             .extendedS3Configuration(FirehoseDeliveryStreamExtendedS3ConfigurationArgs.builder()
  *                 .roleArn(firehoseRole.arn())
  *                 .bucketArn(bucket.arn())
  *                 .build())
@@ -259,11 +259,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * MSK clusters can be imported using the cluster `arn`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:msk/cluster:Cluster example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
- * ```
+ *  to = aws_msk_cluster.example
+ * 
+ *  id = &#34;arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3&#34; } Using `pulumi import`, import MSK clusters using the cluster `arn`. For exampleconsole % pulumi import aws_msk_cluster.example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
  * 
  */
 @ResourceType(type="aws:msk/cluster:Cluster")

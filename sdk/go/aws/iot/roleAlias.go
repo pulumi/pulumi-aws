@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -15,13 +16,11 @@ import (
 //
 // ## Import
 //
-// IOT Role Alias can be imported via the alias, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_iot_role_alias.example
 //
-//	$ pulumi import aws:iot/roleAlias:RoleAlias example myalias
-//
-// ```
+//	id = "myalias" } Using `pulumi import`, import IOT Role Alias using the alias. For exampleconsole % pulumi import aws_iot_role_alias.example myalias
 type RoleAlias struct {
 	pulumi.CustomResourceState
 
@@ -48,6 +47,7 @@ func NewRoleAlias(ctx *pulumi.Context,
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RoleAlias
 	err := ctx.RegisterResource("aws:iot/roleAlias:RoleAlias", name, args, &resource, opts...)
 	if err != nil {

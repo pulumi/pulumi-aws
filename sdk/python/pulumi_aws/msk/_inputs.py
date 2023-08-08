@@ -45,7 +45,6 @@ class ClusterBrokerNodeGroupInfoArgs:
                  security_groups: pulumi.Input[Sequence[pulumi.Input[str]]],
                  az_distribution: Optional[pulumi.Input[str]] = None,
                  connectivity_info: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoArgs']] = None,
-                 ebs_volume_size: Optional[pulumi.Input[int]] = None,
                  storage_info: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoStorageInfoArgs']] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] client_subnets: A list of subnets to connect to in client VPC ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-prop-brokernodegroupinfo-clientsubnets)).
@@ -53,7 +52,6 @@ class ClusterBrokerNodeGroupInfoArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: A list of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
         :param pulumi.Input[str] az_distribution: The distribution of broker nodes across availability zones ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-model-brokerazdistribution)). Currently the only valid value is `DEFAULT`.
         :param pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoArgs'] connectivity_info: Information about the cluster access configuration. See below. For security reasons, you can't turn on public access while creating an MSK cluster. However, you can update an existing cluster to make it publicly accessible. You can also create a new cluster and then update it to make it publicly accessible ([documentation](https://docs.aws.amazon.com/msk/latest/developerguide/public-access.html)).
-        :param pulumi.Input[int] ebs_volume_size: The size in GiB of the EBS volume for the data drive on each broker node.
         :param pulumi.Input['ClusterBrokerNodeGroupInfoStorageInfoArgs'] storage_info: A block that contains information about storage volumes attached to MSK broker nodes. See below.
         """
         pulumi.set(__self__, "client_subnets", client_subnets)
@@ -63,11 +61,6 @@ class ClusterBrokerNodeGroupInfoArgs:
             pulumi.set(__self__, "az_distribution", az_distribution)
         if connectivity_info is not None:
             pulumi.set(__self__, "connectivity_info", connectivity_info)
-        if ebs_volume_size is not None:
-            warnings.warn("""use 'storage_info' argument instead""", DeprecationWarning)
-            pulumi.log.warn("""ebs_volume_size is deprecated: use 'storage_info' argument instead""")
-        if ebs_volume_size is not None:
-            pulumi.set(__self__, "ebs_volume_size", ebs_volume_size)
         if storage_info is not None:
             pulumi.set(__self__, "storage_info", storage_info)
 
@@ -130,21 +123,6 @@ class ClusterBrokerNodeGroupInfoArgs:
     @connectivity_info.setter
     def connectivity_info(self, value: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoArgs']]):
         pulumi.set(self, "connectivity_info", value)
-
-    @property
-    @pulumi.getter(name="ebsVolumeSize")
-    def ebs_volume_size(self) -> Optional[pulumi.Input[int]]:
-        """
-        The size in GiB of the EBS volume for the data drive on each broker node.
-        """
-        warnings.warn("""use 'storage_info' argument instead""", DeprecationWarning)
-        pulumi.log.warn("""ebs_volume_size is deprecated: use 'storage_info' argument instead""")
-
-        return pulumi.get(self, "ebs_volume_size")
-
-    @ebs_volume_size.setter
-    def ebs_volume_size(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "ebs_volume_size", value)
 
     @property
     @pulumi.getter(name="storageInfo")

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3control"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3control"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -65,13 +66,11 @@ import (
 //
 // ## Import
 //
-// S3 Control Bucket Lifecycle Configurations can be imported using the Amazon Resource Name (ARN), e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_s3control_bucket_lifecycle_configuration.example
 //
-//	$ pulumi import aws:s3control/bucketLifecycleConfiguration:BucketLifecycleConfiguration example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
-//
-// ```
+//	id = "arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example" } Using `pulumi import`, import S3 Control Bucket Lifecycle Configurations using the Amazon Resource Name (ARN). For exampleconsole % pulumi import aws_s3control_bucket_lifecycle_configuration.example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
 type BucketLifecycleConfiguration struct {
 	pulumi.CustomResourceState
 
@@ -94,6 +93,7 @@ func NewBucketLifecycleConfiguration(ctx *pulumi.Context,
 	if args.Rules == nil {
 		return nil, errors.New("invalid value for required argument 'Rules'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BucketLifecycleConfiguration
 	err := ctx.RegisterResource("aws:s3control/bucketLifecycleConfiguration:BucketLifecycleConfiguration", name, args, &resource, opts...)
 	if err != nil {

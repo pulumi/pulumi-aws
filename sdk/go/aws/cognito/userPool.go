@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cognito"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -43,7 +44,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cognito"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -77,7 +78,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cognito"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -109,13 +110,11 @@ import (
 //
 // ## Import
 //
-// Cognito User Pools can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_cognito_user_pool.pool
 //
-//	$ pulumi import aws:cognito/userPool:UserPool pool us-west-2_abc123
-//
-// ```
+//	id = "us-west-2_abc123" } Using `pulumi import`, import Cognito User Pools using the `id`. For exampleconsole % pulumi import aws_cognito_user_pool.pool us-west-2_abc123
 type UserPool struct {
 	pulumi.CustomResourceState
 
@@ -159,7 +158,7 @@ type UserPool struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Configuration blocked for information about the user pool password policy. Detailed below.
+	// Configuration block for information about the user pool password policy. Detailed below.
 	PasswordPolicy UserPoolPasswordPolicyOutput `pulumi:"passwordPolicy"`
 	// Configuration block for the schema attributes of a user pool. Detailed below. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Attributes can be added, but not modified or removed. Maximum of 50 attributes.
 	Schemas UserPoolSchemaArrayOutput `pulumi:"schemas"`
@@ -194,6 +193,7 @@ func NewUserPool(ctx *pulumi.Context,
 		args = &UserPoolArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource UserPool
 	err := ctx.RegisterResource("aws:cognito/userPool:UserPool", name, args, &resource, opts...)
 	if err != nil {
@@ -256,7 +256,7 @@ type userPoolState struct {
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
-	// Configuration blocked for information about the user pool password policy. Detailed below.
+	// Configuration block for information about the user pool password policy. Detailed below.
 	PasswordPolicy *UserPoolPasswordPolicy `pulumi:"passwordPolicy"`
 	// Configuration block for the schema attributes of a user pool. Detailed below. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Attributes can be added, but not modified or removed. Maximum of 50 attributes.
 	Schemas []UserPoolSchema `pulumi:"schemas"`
@@ -325,7 +325,7 @@ type UserPoolState struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
-	// Configuration blocked for information about the user pool password policy. Detailed below.
+	// Configuration block for information about the user pool password policy. Detailed below.
 	PasswordPolicy UserPoolPasswordPolicyPtrInput
 	// Configuration block for the schema attributes of a user pool. Detailed below. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Attributes can be added, but not modified or removed. Maximum of 50 attributes.
 	Schemas UserPoolSchemaArrayInput
@@ -384,7 +384,7 @@ type userPoolArgs struct {
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
-	// Configuration blocked for information about the user pool password policy. Detailed below.
+	// Configuration block for information about the user pool password policy. Detailed below.
 	PasswordPolicy *UserPoolPasswordPolicy `pulumi:"passwordPolicy"`
 	// Configuration block for the schema attributes of a user pool. Detailed below. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Attributes can be added, but not modified or removed. Maximum of 50 attributes.
 	Schemas []UserPoolSchema `pulumi:"schemas"`
@@ -438,7 +438,7 @@ type UserPoolArgs struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
-	// Configuration blocked for information about the user pool password policy. Detailed below.
+	// Configuration block for information about the user pool password policy. Detailed below.
 	PasswordPolicy UserPoolPasswordPolicyPtrInput
 	// Configuration block for the schema attributes of a user pool. Detailed below. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Attributes can be added, but not modified or removed. Maximum of 50 attributes.
 	Schemas UserPoolSchemaArrayInput
@@ -648,7 +648,7 @@ func (o UserPoolOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserPool) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Configuration blocked for information about the user pool password policy. Detailed below.
+// Configuration block for information about the user pool password policy. Detailed below.
 func (o UserPoolOutput) PasswordPolicy() UserPoolPasswordPolicyOutput {
 	return o.ApplyT(func(v *UserPool) UserPoolPasswordPolicyOutput { return v.PasswordPolicy }).(UserPoolPasswordPolicyOutput)
 }

@@ -6,7 +6,6 @@ package com.pulumi.aws.ec2clientvpn.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -47,52 +46,6 @@ public final class NetworkAssociationState extends com.pulumi.resources.Resource
     }
 
     /**
-     * A list of up to five custom security groups to apply to the target network. If not specified, the VPC&#39;s default security group is assigned.
-     * 
-     * @deprecated
-     * Use the `security_group_ids` attribute of the `aws_ec2_client_vpn_endpoint` resource instead.
-     * 
-     */
-    @Deprecated /* Use the `security_group_ids` attribute of the `aws_ec2_client_vpn_endpoint` resource instead. */
-    @Import(name="securityGroups")
-    private @Nullable Output<List<String>> securityGroups;
-
-    /**
-     * @return A list of up to five custom security groups to apply to the target network. If not specified, the VPC&#39;s default security group is assigned.
-     * 
-     * @deprecated
-     * Use the `security_group_ids` attribute of the `aws_ec2_client_vpn_endpoint` resource instead.
-     * 
-     */
-    @Deprecated /* Use the `security_group_ids` attribute of the `aws_ec2_client_vpn_endpoint` resource instead. */
-    public Optional<Output<List<String>>> securityGroups() {
-        return Optional.ofNullable(this.securityGroups);
-    }
-
-    /**
-     * **Deprecated** The current state of the target network association.
-     * 
-     * @deprecated
-     * This attribute has been deprecated.
-     * 
-     */
-    @Deprecated /* This attribute has been deprecated. */
-    @Import(name="status")
-    private @Nullable Output<String> status;
-
-    /**
-     * @return **Deprecated** The current state of the target network association.
-     * 
-     * @deprecated
-     * This attribute has been deprecated.
-     * 
-     */
-    @Deprecated /* This attribute has been deprecated. */
-    public Optional<Output<String>> status() {
-        return Optional.ofNullable(this.status);
-    }
-
-    /**
      * The ID of the subnet to associate with the Client VPN endpoint.
      * 
      */
@@ -127,8 +80,6 @@ public final class NetworkAssociationState extends com.pulumi.resources.Resource
     private NetworkAssociationState(NetworkAssociationState $) {
         this.associationId = $.associationId;
         this.clientVpnEndpointId = $.clientVpnEndpointId;
-        this.securityGroups = $.securityGroups;
-        this.status = $.status;
         this.subnetId = $.subnetId;
         this.vpcId = $.vpcId;
     }
@@ -191,78 +142,6 @@ public final class NetworkAssociationState extends com.pulumi.resources.Resource
          */
         public Builder clientVpnEndpointId(String clientVpnEndpointId) {
             return clientVpnEndpointId(Output.of(clientVpnEndpointId));
-        }
-
-        /**
-         * @param securityGroups A list of up to five custom security groups to apply to the target network. If not specified, the VPC&#39;s default security group is assigned.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use the `security_group_ids` attribute of the `aws_ec2_client_vpn_endpoint` resource instead.
-         * 
-         */
-        @Deprecated /* Use the `security_group_ids` attribute of the `aws_ec2_client_vpn_endpoint` resource instead. */
-        public Builder securityGroups(@Nullable Output<List<String>> securityGroups) {
-            $.securityGroups = securityGroups;
-            return this;
-        }
-
-        /**
-         * @param securityGroups A list of up to five custom security groups to apply to the target network. If not specified, the VPC&#39;s default security group is assigned.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use the `security_group_ids` attribute of the `aws_ec2_client_vpn_endpoint` resource instead.
-         * 
-         */
-        @Deprecated /* Use the `security_group_ids` attribute of the `aws_ec2_client_vpn_endpoint` resource instead. */
-        public Builder securityGroups(List<String> securityGroups) {
-            return securityGroups(Output.of(securityGroups));
-        }
-
-        /**
-         * @param securityGroups A list of up to five custom security groups to apply to the target network. If not specified, the VPC&#39;s default security group is assigned.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use the `security_group_ids` attribute of the `aws_ec2_client_vpn_endpoint` resource instead.
-         * 
-         */
-        @Deprecated /* Use the `security_group_ids` attribute of the `aws_ec2_client_vpn_endpoint` resource instead. */
-        public Builder securityGroups(String... securityGroups) {
-            return securityGroups(List.of(securityGroups));
-        }
-
-        /**
-         * @param status **Deprecated** The current state of the target network association.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * This attribute has been deprecated.
-         * 
-         */
-        @Deprecated /* This attribute has been deprecated. */
-        public Builder status(@Nullable Output<String> status) {
-            $.status = status;
-            return this;
-        }
-
-        /**
-         * @param status **Deprecated** The current state of the target network association.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * This attribute has been deprecated.
-         * 
-         */
-        @Deprecated /* This attribute has been deprecated. */
-        public Builder status(String status) {
-            return status(Output.of(status));
         }
 
         /**

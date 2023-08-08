@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,9 +21,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codeartifact"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codeartifact"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -62,10 +63,10 @@ import (
 //							},
 //						},
 //						Actions: pulumi.StringArray{
-//							pulumi.String("codeartifact:CreateRepository"),
+//							pulumi.String("codeartifact:ReadFromRepository"),
 //						},
 //						Resources: pulumi.StringArray{
-//							exampleDomain.Arn,
+//							exampleRepository.Arn,
 //						},
 //					},
 //				},
@@ -88,13 +89,11 @@ import (
 //
 // ## Import
 //
-// CodeArtifact Repository Permissions Policies can be imported using the CodeArtifact Repository ARN, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_codeartifact_repository_permissions_policy.example
 //
-//	$ pulumi import aws:codeartifact/repositoryPermissionsPolicy:RepositoryPermissionsPolicy example arn:aws:codeartifact:us-west-2:012345678912:repository/tf-acc-test-6968272603913957763/tf-acc-test-6968272603913957763
-//
-// ```
+//	id = "arn:aws:codeartifact:us-west-2:012345678912:repository/tf-acc-test-6968272603913957763/tf-acc-test-6968272603913957763" } Using `pulumi import`, import CodeArtifact Repository Permissions Policies using the CodeArtifact Repository ARN. For exampleconsole % pulumi import aws_codeartifact_repository_permissions_policy.example arn:aws:codeartifact:us-west-2:012345678912:repository/tf-acc-test-6968272603913957763/tf-acc-test-6968272603913957763
 type RepositoryPermissionsPolicy struct {
 	pulumi.CustomResourceState
 
@@ -128,6 +127,7 @@ func NewRepositoryPermissionsPolicy(ctx *pulumi.Context,
 	if args.Repository == nil {
 		return nil, errors.New("invalid value for required argument 'Repository'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RepositoryPermissionsPolicy
 	err := ctx.RegisterResource("aws:codeartifact/repositoryPermissionsPolicy:RepositoryPermissionsPolicy", name, args, &resource, opts...)
 	if err != nil {

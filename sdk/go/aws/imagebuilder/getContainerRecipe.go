@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/imagebuilder"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/imagebuilder"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func LookupContainerRecipe(ctx *pulumi.Context, args *LookupContainerRecipeArgs, opts ...pulumi.InvokeOption) (*LookupContainerRecipeResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupContainerRecipeResult
 	err := ctx.Invoke("aws:imagebuilder/getContainerRecipe:getContainerRecipe", args, &rv, opts...)
 	if err != nil {

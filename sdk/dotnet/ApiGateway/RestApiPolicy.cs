@@ -80,11 +80,11 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ## Import
     /// 
-    /// `aws_api_gateway_rest_api_policy` can be imported by using the REST API ID, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:apigateway/restApiPolicy:RestApiPolicy example 12345abcde
-    /// ```
+    ///  to = aws_api_gateway_rest_api_policy.example
+    /// 
+    ///  id = "12345abcde" } Using `pulumi import`, import `aws_api_gateway_rest_api_policy` using the REST API ID. For exampleconsole % pulumi import aws_api_gateway_rest_api_policy.example 12345abcde
     /// </summary>
     [AwsResourceType("aws:apigateway/restApiPolicy:RestApiPolicy")]
     public partial class RestApiPolicy : global::Pulumi.CustomResource

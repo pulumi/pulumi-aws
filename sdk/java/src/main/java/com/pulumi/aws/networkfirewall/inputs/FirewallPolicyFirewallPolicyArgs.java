@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.networkfirewall.inputs;
 
+import com.pulumi.aws.networkfirewall.inputs.FirewallPolicyFirewallPolicyPolicyVariablesArgs;
 import com.pulumi.aws.networkfirewall.inputs.FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs;
 import com.pulumi.aws.networkfirewall.inputs.FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs;
 import com.pulumi.aws.networkfirewall.inputs.FirewallPolicyFirewallPolicyStatelessCustomActionArgs;
@@ -19,6 +20,21 @@ import javax.annotation.Nullable;
 public final class FirewallPolicyFirewallPolicyArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final FirewallPolicyFirewallPolicyArgs Empty = new FirewallPolicyFirewallPolicyArgs();
+
+    /**
+     * . Contains variables that you can use to override default Suricata settings in your firewall policy. See Rule Variables for details.
+     * 
+     */
+    @Import(name="policyVariables")
+    private @Nullable Output<FirewallPolicyFirewallPolicyPolicyVariablesArgs> policyVariables;
+
+    /**
+     * @return . Contains variables that you can use to override default Suricata settings in your firewall policy. See Rule Variables for details.
+     * 
+     */
+    public Optional<Output<FirewallPolicyFirewallPolicyPolicyVariablesArgs>> policyVariables() {
+        return Optional.ofNullable(this.policyVariables);
+    }
 
     /**
      * Set of actions to take on a packet if it does not match any stateful rules in the policy. This can only be specified if the policy has a `stateful_engine_options` block with a `rule_order` value of `STRICT_ORDER`. You can specify one of either or neither values of `aws:drop_strict` or `aws:drop_established`, as well as any combination of `aws:alert_strict` and `aws:alert_established`.
@@ -132,6 +148,7 @@ public final class FirewallPolicyFirewallPolicyArgs extends com.pulumi.resources
     private FirewallPolicyFirewallPolicyArgs() {}
 
     private FirewallPolicyFirewallPolicyArgs(FirewallPolicyFirewallPolicyArgs $) {
+        this.policyVariables = $.policyVariables;
         this.statefulDefaultActions = $.statefulDefaultActions;
         this.statefulEngineOptions = $.statefulEngineOptions;
         this.statefulRuleGroupReferences = $.statefulRuleGroupReferences;
@@ -157,6 +174,27 @@ public final class FirewallPolicyFirewallPolicyArgs extends com.pulumi.resources
 
         public Builder(FirewallPolicyFirewallPolicyArgs defaults) {
             $ = new FirewallPolicyFirewallPolicyArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param policyVariables . Contains variables that you can use to override default Suricata settings in your firewall policy. See Rule Variables for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder policyVariables(@Nullable Output<FirewallPolicyFirewallPolicyPolicyVariablesArgs> policyVariables) {
+            $.policyVariables = policyVariables;
+            return this;
+        }
+
+        /**
+         * @param policyVariables . Contains variables that you can use to override default Suricata settings in your firewall policy. See Rule Variables for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder policyVariables(FirewallPolicyFirewallPolicyPolicyVariablesArgs policyVariables) {
+            return policyVariables(Output.of(policyVariables));
         }
 
         /**

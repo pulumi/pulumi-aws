@@ -66,24 +66,24 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Backup Region Settings can be imported using the `region`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:backup/regionSettings:RegionSettings test us-west-2
- * ```
+ *  to = aws_backup_region_settings.test
+ * 
+ *  id = &#34;us-west-2&#34; } Using `pulumi import`, import Backup Region Settings using the `region`. For exampleconsole % pulumi import aws_backup_region_settings.test us-west-2
  * 
  */
 @ResourceType(type="aws:backup/regionSettings:RegionSettings")
 public class RegionSettings extends com.pulumi.resources.CustomResource {
     /**
-     * A map of services along with the management preferences for the Region.
+     * A map of services along with the management preferences for the Region. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateRegionSettings.html#API_UpdateRegionSettings_RequestSyntax).
      * 
      */
     @Export(name="resourceTypeManagementPreference", refs={Map.class,String.class,Boolean.class}, tree="[0,1,2]")
     private Output<Map<String,Boolean>> resourceTypeManagementPreference;
 
     /**
-     * @return A map of services along with the management preferences for the Region.
+     * @return A map of services along with the management preferences for the Region. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateRegionSettings.html#API_UpdateRegionSettings_RequestSyntax).
      * 
      */
     public Output<Map<String,Boolean>> resourceTypeManagementPreference() {

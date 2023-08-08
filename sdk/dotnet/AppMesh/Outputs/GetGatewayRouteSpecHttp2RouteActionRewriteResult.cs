@@ -14,15 +14,19 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class GetGatewayRouteSpecHttp2RouteActionRewriteResult
     {
         public readonly ImmutableArray<Outputs.GetGatewayRouteSpecHttp2RouteActionRewriteHostnameResult> Hostnames;
+        public readonly ImmutableArray<Outputs.GetGatewayRouteSpecHttp2RouteActionRewritePathResult> Paths;
         public readonly ImmutableArray<Outputs.GetGatewayRouteSpecHttp2RouteActionRewritePrefixResult> Prefixes;
 
         [OutputConstructor]
         private GetGatewayRouteSpecHttp2RouteActionRewriteResult(
             ImmutableArray<Outputs.GetGatewayRouteSpecHttp2RouteActionRewriteHostnameResult> hostnames,
 
+            ImmutableArray<Outputs.GetGatewayRouteSpecHttp2RouteActionRewritePathResult> paths,
+
             ImmutableArray<Outputs.GetGatewayRouteSpecHttp2RouteActionRewritePrefixResult> prefixes)
         {
             Hostnames = hostnames;
+            Paths = paths;
             Prefixes = prefixes;
         }
     }

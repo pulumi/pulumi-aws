@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -70,13 +71,11 @@ import (
 //
 // ## Import
 //
-// Lambda function URLs can be imported using the `function_name` or `function_name/qualifier`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_lambda_function_url.test_lambda_url
 //
-//	$ pulumi import aws:lambda/functionUrl:FunctionUrl test_lambda_url my_test_lambda_function
-//
-// ```
+//	id = "my_test_lambda_function" } Using `pulumi import`, import Lambda function URLs using the `function_name` or `function_name/qualifier`. For exampleconsole % pulumi import aws_lambda_function_url.test_lambda_url my_test_lambda_function
 type FunctionUrl struct {
 	pulumi.CustomResourceState
 
@@ -111,6 +110,7 @@ func NewFunctionUrl(ctx *pulumi.Context,
 	if args.FunctionName == nil {
 		return nil, errors.New("invalid value for required argument 'FunctionName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FunctionUrl
 	err := ctx.RegisterResource("aws:lambda/functionUrl:FunctionUrl", name, args, &resource, opts...)
 	if err != nil {

@@ -50,17 +50,17 @@ namespace Pulumi.Aws.Backup
     /// 
     /// ## Import
     /// 
-    /// Backup Region Settings can be imported using the `region`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:backup/regionSettings:RegionSettings test us-west-2
-    /// ```
+    ///  to = aws_backup_region_settings.test
+    /// 
+    ///  id = "us-west-2" } Using `pulumi import`, import Backup Region Settings using the `region`. For exampleconsole % pulumi import aws_backup_region_settings.test us-west-2
     /// </summary>
     [AwsResourceType("aws:backup/regionSettings:RegionSettings")]
     public partial class RegionSettings : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A map of services along with the management preferences for the Region.
+        /// A map of services along with the management preferences for the Region. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateRegionSettings.html#API_UpdateRegionSettings_RequestSyntax).
         /// </summary>
         [Output("resourceTypeManagementPreference")]
         public Output<ImmutableDictionary<string, bool>> ResourceTypeManagementPreference { get; private set; } = null!;
@@ -121,7 +121,7 @@ namespace Pulumi.Aws.Backup
         private InputMap<bool>? _resourceTypeManagementPreference;
 
         /// <summary>
-        /// A map of services along with the management preferences for the Region.
+        /// A map of services along with the management preferences for the Region. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateRegionSettings.html#API_UpdateRegionSettings_RequestSyntax).
         /// </summary>
         public InputMap<bool> ResourceTypeManagementPreference
         {
@@ -153,7 +153,7 @@ namespace Pulumi.Aws.Backup
         private InputMap<bool>? _resourceTypeManagementPreference;
 
         /// <summary>
-        /// A map of services along with the management preferences for the Region.
+        /// A map of services along with the management preferences for the Region. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateRegionSettings.html#API_UpdateRegionSettings_RequestSyntax).
         /// </summary>
         public InputMap<bool> ResourceTypeManagementPreference
         {

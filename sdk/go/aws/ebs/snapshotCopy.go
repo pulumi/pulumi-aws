@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ebs"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ebs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -111,6 +112,7 @@ func NewSnapshotCopy(ctx *pulumi.Context,
 	if args.SourceSnapshotId == nil {
 		return nil, errors.New("invalid value for required argument 'SourceSnapshotId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SnapshotCopy
 	err := ctx.RegisterResource("aws:ebs/snapshotCopy:SnapshotCopy", name, args, &resource, opts...)
 	if err != nil {

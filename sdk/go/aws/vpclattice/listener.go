@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/vpclattice"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/vpclattice"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -73,7 +74,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/vpclattice"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/vpclattice"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -137,13 +138,11 @@ import (
 //
 // ## Import
 //
-// VPC Lattice Listener can be imported by using the `listener_id` of the listener and the `id` of the VPC Lattice service combined with a `/` character, e.g.
+// terraform import {
 //
-// ```sh
+//	to = aws_vpclattice_listener.example
 //
-//	$ pulumi import aws:vpclattice/listener:Listener example svc-1a2b3c4d/listener-987654321
-//
-// ```
+//	id = "svc-1a2b3c4d/listener-987654321" } Using `pulumi import`, import VPC Lattice Listener using the `listener_id` of the listener and the `id` of the VPC Lattice service combined with a `/` character. For exampleconsole % pulumi import aws_vpclattice_listener.example svc-1a2b3c4d/listener-987654321
 type Listener struct {
 	pulumi.CustomResourceState
 
@@ -185,6 +184,7 @@ func NewListener(ctx *pulumi.Context,
 	if args.Protocol == nil {
 		return nil, errors.New("invalid value for required argument 'Protocol'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Listener
 	err := ctx.RegisterResource("aws:vpclattice/listener:Listener", name, args, &resource, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,15 +20,11 @@ import (
 //
 // ## Import
 //
-// AppFlow Connector Profile can be imported using the connector profile `arn`, e.g.
+// terraform import {
 //
-// ```sh
+//	to = aws_appflow_connector_profile.profile
 //
-//	$ pulumi import aws:appflow/connectorProfile:ConnectorProfile profile arn:aws:appflow:us-west-2:123456789012:connectorprofile/example-profile
-//
-// ```
-//
-//	[1]https://docs.aws.amazon.com/appflow/1.0/APIReference/Welcome.html [2]https://docs.aws.amazon.com/appflow/1.0/APIReference/API_CreateConnectorProfile.html
+//	id = "arn:aws:appflow:us-west-2:123456789012:connectorprofile/example-profile" } Using `pulumi import`, import AppFlow Connector Profile using the connector profile `arn`. For exampleconsole % pulumi import aws_appflow_connector_profile.profile arn:aws:appflow:us-west-2:123456789012:connectorprofile/example-profile [1]https://docs.aws.amazon.com/appflow/1.0/APIReference/Welcome.html [2]https://docs.aws.amazon.com/appflow/1.0/APIReference/API_CreateConnectorProfile.html
 type ConnectorProfile struct {
 	pulumi.CustomResourceState
 
@@ -64,6 +61,7 @@ func NewConnectorProfile(ctx *pulumi.Context,
 	if args.ConnectorType == nil {
 		return nil, errors.New("invalid value for required argument 'ConnectorType'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ConnectorProfile
 	err := ctx.RegisterResource("aws:appflow/connectorProfile:ConnectorProfile", name, args, &resource, opts...)
 	if err != nil {

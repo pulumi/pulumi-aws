@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,9 +22,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -109,8 +110,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -142,8 +143,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -175,13 +176,11 @@ import (
 //
 // ## Import
 //
-// Flow Logs can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_flow_log.test_flow_log
 //
-//	$ pulumi import aws:ec2/flowLog:FlowLog test_flow_log fl-1a2b3c4d
-//
-// ```
+//	id = "fl-1a2b3c4d" } Using `pulumi import`, import Flow Logs using the `id`. For exampleconsole % pulumi import aws_flow_log.test_flow_log fl-1a2b3c4d
 type FlowLog struct {
 	pulumi.CustomResourceState
 
@@ -201,7 +200,7 @@ type FlowLog struct {
 	LogDestinationType pulumi.StringPtrOutput `pulumi:"logDestinationType"`
 	// The fields to include in the flow log record, in the order in which they should appear.
 	LogFormat pulumi.StringOutput `pulumi:"logFormat"`
-	// *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group. Either `logGroupName` or `logDestination` must be set.
+	// **Deprecated:** Use `logDestination` instead. The name of the CloudWatch log group. Either `logGroupName` or `logDestination` must be set.
 	//
 	// Deprecated: use 'log_destination' argument instead
 	LogGroupName pulumi.StringOutput `pulumi:"logGroupName"`
@@ -233,6 +232,7 @@ func NewFlowLog(ctx *pulumi.Context,
 		args = &FlowLogArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FlowLog
 	err := ctx.RegisterResource("aws:ec2/flowLog:FlowLog", name, args, &resource, opts...)
 	if err != nil {
@@ -271,7 +271,7 @@ type flowLogState struct {
 	LogDestinationType *string `pulumi:"logDestinationType"`
 	// The fields to include in the flow log record, in the order in which they should appear.
 	LogFormat *string `pulumi:"logFormat"`
-	// *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group. Either `logGroupName` or `logDestination` must be set.
+	// **Deprecated:** Use `logDestination` instead. The name of the CloudWatch log group. Either `logGroupName` or `logDestination` must be set.
 	//
 	// Deprecated: use 'log_destination' argument instead
 	LogGroupName *string `pulumi:"logGroupName"`
@@ -313,7 +313,7 @@ type FlowLogState struct {
 	LogDestinationType pulumi.StringPtrInput
 	// The fields to include in the flow log record, in the order in which they should appear.
 	LogFormat pulumi.StringPtrInput
-	// *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group. Either `logGroupName` or `logDestination` must be set.
+	// **Deprecated:** Use `logDestination` instead. The name of the CloudWatch log group. Either `logGroupName` or `logDestination` must be set.
 	//
 	// Deprecated: use 'log_destination' argument instead
 	LogGroupName pulumi.StringPtrInput
@@ -357,7 +357,7 @@ type flowLogArgs struct {
 	LogDestinationType *string `pulumi:"logDestinationType"`
 	// The fields to include in the flow log record, in the order in which they should appear.
 	LogFormat *string `pulumi:"logFormat"`
-	// *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group. Either `logGroupName` or `logDestination` must be set.
+	// **Deprecated:** Use `logDestination` instead. The name of the CloudWatch log group. Either `logGroupName` or `logDestination` must be set.
 	//
 	// Deprecated: use 'log_destination' argument instead
 	LogGroupName *string `pulumi:"logGroupName"`
@@ -396,7 +396,7 @@ type FlowLogArgs struct {
 	LogDestinationType pulumi.StringPtrInput
 	// The fields to include in the flow log record, in the order in which they should appear.
 	LogFormat pulumi.StringPtrInput
-	// *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group. Either `logGroupName` or `logDestination` must be set.
+	// **Deprecated:** Use `logDestination` instead. The name of the CloudWatch log group. Either `logGroupName` or `logDestination` must be set.
 	//
 	// Deprecated: use 'log_destination' argument instead
 	LogGroupName pulumi.StringPtrInput
@@ -546,7 +546,7 @@ func (o FlowLogOutput) LogFormat() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlowLog) pulumi.StringOutput { return v.LogFormat }).(pulumi.StringOutput)
 }
 
-// *Deprecated:* Use `logDestination` instead. The name of the CloudWatch log group. Either `logGroupName` or `logDestination` must be set.
+// **Deprecated:** Use `logDestination` instead. The name of the CloudWatch log group. Either `logGroupName` or `logDestination` must be set.
 //
 // Deprecated: use 'log_destination' argument instead
 func (o FlowLogOutput) LogGroupName() pulumi.StringOutput {

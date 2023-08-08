@@ -52,11 +52,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Glacier Vault Locks can be imported using the Glacier Vault name, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:glacier/vaultLock:VaultLock example example-vault
- * ```
+ *  to = aws_glacier_vault_lock.example
+ *
+ *  id = "example-vault" } Using `pulumi import`, import Glacier Vault Locks using the Glacier Vault name. For exampleconsole % pulumi import aws_glacier_vault_lock.example example-vault
  */
 export class VaultLock extends pulumi.CustomResource {
     /**

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,8 +23,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -66,13 +67,11 @@ import (
 //
 // ## Import
 //
-// `aws_ec2_tag` can be imported by using the EC2 resource identifier and key, separated by a comma (`,`), e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_ec2_tag.example
 //
-//	$ pulumi import aws:ec2/tag:Tag example tgw-attach-1234567890abcdef,Name
-//
-// ```
+//	id = "tgw-attach-1234567890abcdef,Name" } Using `pulumi import`, import `aws_ec2_tag` using the EC2 resource identifier and key, separated by a comma (`,`). For exampleconsole % pulumi import aws_ec2_tag.example tgw-attach-1234567890abcdef,Name
 type Tag struct {
 	pulumi.CustomResourceState
 
@@ -100,6 +99,7 @@ func NewTag(ctx *pulumi.Context,
 	if args.Value == nil {
 		return nil, errors.New("invalid value for required argument 'Value'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Tag
 	err := ctx.RegisterResource("aws:ec2/tag:Tag", name, args, &resource, opts...)
 	if err != nil {

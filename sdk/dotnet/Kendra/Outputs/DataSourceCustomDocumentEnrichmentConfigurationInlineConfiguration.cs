@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Kendra.Outputs
     public sealed class DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration
     {
         /// <summary>
-        /// Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. See Document Attribute Condition.
+        /// Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. See condition.
         /// </summary>
         public readonly Outputs.DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition? Condition;
         /// <summary>

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 //	"os"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,13 +55,11 @@ import (
 //
 // ## Import
 //
-// SageMaker Human Task UIs can be imported using the `human_task_ui_name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_sagemaker_human_task_ui.example
 //
-//	$ pulumi import aws:sagemaker/humanTaskUI:HumanTaskUI example example
-//
-// ```
+//	id = "example" } Using `pulumi import`, import SageMaker Human Task UIs using the `human_task_ui_name`. For exampleconsole % pulumi import aws_sagemaker_human_task_ui.example example
 type HumanTaskUI struct {
 	pulumi.CustomResourceState
 
@@ -89,6 +88,7 @@ func NewHumanTaskUI(ctx *pulumi.Context,
 	if args.UiTemplate == nil {
 		return nil, errors.New("invalid value for required argument 'UiTemplate'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource HumanTaskUI
 	err := ctx.RegisterResource("aws:sagemaker/humanTaskUI:HumanTaskUI", name, args, &resource, opts...)
 	if err != nil {

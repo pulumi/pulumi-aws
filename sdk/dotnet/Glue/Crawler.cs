@@ -201,11 +201,11 @@ namespace Pulumi.Aws.Glue
     /// 
     /// ## Import
     /// 
-    /// Glue Crawlers can be imported using `name`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:glue/crawler:Crawler MyJob MyJob
-    /// ```
+    ///  to = aws_glue_crawler.MyJob
+    /// 
+    ///  id = "MyJob" } Using `pulumi import`, import Glue Crawlers using `name`. For exampleconsole % pulumi import aws_glue_crawler.MyJob MyJob
     /// </summary>
     [AwsResourceType("aws:glue/crawler:Crawler")]
     public partial class Crawler : global::Pulumi.CustomResource
@@ -237,6 +237,9 @@ namespace Pulumi.Aws.Glue
         [Output("databaseName")]
         public Output<string> DatabaseName { get; private set; } = null!;
 
+        /// <summary>
+        /// List of nested Delta Lake target arguments. See Delta Target below.
+        /// </summary>
         [Output("deltaTargets")]
         public Output<ImmutableArray<Outputs.CrawlerDeltaTarget>> DeltaTargets { get; private set; } = null!;
 
@@ -251,6 +254,12 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         [Output("dynamodbTargets")]
         public Output<ImmutableArray<Outputs.CrawlerDynamodbTarget>> DynamodbTargets { get; private set; } = null!;
+
+        /// <summary>
+        /// List nested Iceberg target arguments. See Iceberg Target below.
+        /// </summary>
+        [Output("icebergTargets")]
+        public Output<ImmutableArray<Outputs.CrawlerIcebergTarget>> IcebergTargets { get; private set; } = null!;
 
         /// <summary>
         /// List of nested JBDC target arguments. See JDBC Target below.
@@ -416,6 +425,10 @@ namespace Pulumi.Aws.Glue
 
         [Input("deltaTargets")]
         private InputList<Inputs.CrawlerDeltaTargetArgs>? _deltaTargets;
+
+        /// <summary>
+        /// List of nested Delta Lake target arguments. See Delta Target below.
+        /// </summary>
         public InputList<Inputs.CrawlerDeltaTargetArgs> DeltaTargets
         {
             get => _deltaTargets ?? (_deltaTargets = new InputList<Inputs.CrawlerDeltaTargetArgs>());
@@ -438,6 +451,18 @@ namespace Pulumi.Aws.Glue
         {
             get => _dynamodbTargets ?? (_dynamodbTargets = new InputList<Inputs.CrawlerDynamodbTargetArgs>());
             set => _dynamodbTargets = value;
+        }
+
+        [Input("icebergTargets")]
+        private InputList<Inputs.CrawlerIcebergTargetArgs>? _icebergTargets;
+
+        /// <summary>
+        /// List nested Iceberg target arguments. See Iceberg Target below.
+        /// </summary>
+        public InputList<Inputs.CrawlerIcebergTargetArgs> IcebergTargets
+        {
+            get => _icebergTargets ?? (_icebergTargets = new InputList<Inputs.CrawlerIcebergTargetArgs>());
+            set => _icebergTargets = value;
         }
 
         [Input("jdbcTargets")]
@@ -590,6 +615,10 @@ namespace Pulumi.Aws.Glue
 
         [Input("deltaTargets")]
         private InputList<Inputs.CrawlerDeltaTargetGetArgs>? _deltaTargets;
+
+        /// <summary>
+        /// List of nested Delta Lake target arguments. See Delta Target below.
+        /// </summary>
         public InputList<Inputs.CrawlerDeltaTargetGetArgs> DeltaTargets
         {
             get => _deltaTargets ?? (_deltaTargets = new InputList<Inputs.CrawlerDeltaTargetGetArgs>());
@@ -612,6 +641,18 @@ namespace Pulumi.Aws.Glue
         {
             get => _dynamodbTargets ?? (_dynamodbTargets = new InputList<Inputs.CrawlerDynamodbTargetGetArgs>());
             set => _dynamodbTargets = value;
+        }
+
+        [Input("icebergTargets")]
+        private InputList<Inputs.CrawlerIcebergTargetGetArgs>? _icebergTargets;
+
+        /// <summary>
+        /// List nested Iceberg target arguments. See Iceberg Target below.
+        /// </summary>
+        public InputList<Inputs.CrawlerIcebergTargetGetArgs> IcebergTargets
+        {
+            get => _icebergTargets ?? (_icebergTargets = new InputList<Inputs.CrawlerIcebergTargetGetArgs>());
+            set => _icebergTargets = value;
         }
 
         [Input("jdbcTargets")]

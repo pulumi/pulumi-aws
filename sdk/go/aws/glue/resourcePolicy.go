@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,9 +23,9 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -80,13 +81,11 @@ import (
 //
 // ## Import
 //
-// # Glue Resource Policy can be imported using the account ID
+// terraform import {
 //
-// ```sh
+//	to = aws_glue_resource_policy.Test
 //
-//	$ pulumi import aws:glue/resourcePolicy:ResourcePolicy Test 12356789012
-//
-// ```
+//	id = "12356789012" } Using `pulumi import`, import Glue Resource Policy using the account ID. For exampleconsole % pulumi import aws_glue_resource_policy.Test 12356789012
 type ResourcePolicy struct {
 	pulumi.CustomResourceState
 
@@ -106,6 +105,7 @@ func NewResourcePolicy(ctx *pulumi.Context,
 	if args.Policy == nil {
 		return nil, errors.New("invalid value for required argument 'Policy'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResourcePolicy
 	err := ctx.RegisterResource("aws:glue/resourcePolicy:ResourcePolicy", name, args, &resource, opts...)
 	if err != nil {

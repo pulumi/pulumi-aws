@@ -56,6 +56,11 @@ public final class GetClusterResult {
      */
     private String clusterIdentifier;
     /**
+     * @return The namespace Amazon Resource Name (ARN) of the cluster
+     * 
+     */
+    private String clusterNamespaceArn;
+    /**
      * @return Nodes in the cluster. Cluster node blocks are documented below
      * 
      */
@@ -76,15 +81,6 @@ public final class GetClusterResult {
      */
     private String clusterRevisionNumber;
     /**
-     * @return The security groups associated with the cluster
-     * 
-     * @deprecated
-     * With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.
-     * 
-     */
-    @Deprecated /* With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version. */
-    private List<String> clusterSecurityGroups;
-    /**
      * @return The name of a cluster subnet group to be associated with this cluster
      * 
      */
@@ -101,7 +97,7 @@ public final class GetClusterResult {
      */
     private String databaseName;
     /**
-     * @return ∂The ARN for the IAM role that was set as default for the cluster when the cluster was created.
+     * @return The ARN for the IAM role that was set as default for the cluster when the cluster was created.
      * 
      */
     private String defaultIamRoleArn;
@@ -274,6 +270,13 @@ public final class GetClusterResult {
         return this.clusterIdentifier;
     }
     /**
+     * @return The namespace Amazon Resource Name (ARN) of the cluster
+     * 
+     */
+    public String clusterNamespaceArn() {
+        return this.clusterNamespaceArn;
+    }
+    /**
      * @return Nodes in the cluster. Cluster node blocks are documented below
      * 
      */
@@ -302,17 +305,6 @@ public final class GetClusterResult {
         return this.clusterRevisionNumber;
     }
     /**
-     * @return The security groups associated with the cluster
-     * 
-     * @deprecated
-     * With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.
-     * 
-     */
-    @Deprecated /* With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version. */
-    public List<String> clusterSecurityGroups() {
-        return this.clusterSecurityGroups;
-    }
-    /**
      * @return The name of a cluster subnet group to be associated with this cluster
      * 
      */
@@ -337,7 +329,7 @@ public final class GetClusterResult {
         return this.databaseName;
     }
     /**
-     * @return ∂The ARN for the IAM role that was set as default for the cluster when the cluster was created.
+     * @return The ARN for the IAM role that was set as default for the cluster when the cluster was created.
      * 
      */
     public String defaultIamRoleArn() {
@@ -515,11 +507,11 @@ public final class GetClusterResult {
         private Boolean availabilityZoneRelocationEnabled;
         private String bucketName;
         private String clusterIdentifier;
+        private String clusterNamespaceArn;
         private List<GetClusterClusterNode> clusterNodes;
         private String clusterParameterGroupName;
         private String clusterPublicKey;
         private String clusterRevisionNumber;
-        private List<String> clusterSecurityGroups;
         private String clusterSubnetGroupName;
         private String clusterType;
         private String clusterVersion;
@@ -558,11 +550,11 @@ public final class GetClusterResult {
     	      this.availabilityZoneRelocationEnabled = defaults.availabilityZoneRelocationEnabled;
     	      this.bucketName = defaults.bucketName;
     	      this.clusterIdentifier = defaults.clusterIdentifier;
+    	      this.clusterNamespaceArn = defaults.clusterNamespaceArn;
     	      this.clusterNodes = defaults.clusterNodes;
     	      this.clusterParameterGroupName = defaults.clusterParameterGroupName;
     	      this.clusterPublicKey = defaults.clusterPublicKey;
     	      this.clusterRevisionNumber = defaults.clusterRevisionNumber;
-    	      this.clusterSecurityGroups = defaults.clusterSecurityGroups;
     	      this.clusterSubnetGroupName = defaults.clusterSubnetGroupName;
     	      this.clusterType = defaults.clusterType;
     	      this.clusterVersion = defaults.clusterVersion;
@@ -633,6 +625,11 @@ public final class GetClusterResult {
             return this;
         }
         @CustomType.Setter
+        public Builder clusterNamespaceArn(String clusterNamespaceArn) {
+            this.clusterNamespaceArn = Objects.requireNonNull(clusterNamespaceArn);
+            return this;
+        }
+        @CustomType.Setter
         public Builder clusterNodes(List<GetClusterClusterNode> clusterNodes) {
             this.clusterNodes = Objects.requireNonNull(clusterNodes);
             return this;
@@ -654,14 +651,6 @@ public final class GetClusterResult {
         public Builder clusterRevisionNumber(String clusterRevisionNumber) {
             this.clusterRevisionNumber = Objects.requireNonNull(clusterRevisionNumber);
             return this;
-        }
-        @CustomType.Setter
-        public Builder clusterSecurityGroups(List<String> clusterSecurityGroups) {
-            this.clusterSecurityGroups = Objects.requireNonNull(clusterSecurityGroups);
-            return this;
-        }
-        public Builder clusterSecurityGroups(String... clusterSecurityGroups) {
-            return clusterSecurityGroups(List.of(clusterSecurityGroups));
         }
         @CustomType.Setter
         public Builder clusterSubnetGroupName(String clusterSubnetGroupName) {
@@ -817,11 +806,11 @@ public final class GetClusterResult {
             o.availabilityZoneRelocationEnabled = availabilityZoneRelocationEnabled;
             o.bucketName = bucketName;
             o.clusterIdentifier = clusterIdentifier;
+            o.clusterNamespaceArn = clusterNamespaceArn;
             o.clusterNodes = clusterNodes;
             o.clusterParameterGroupName = clusterParameterGroupName;
             o.clusterPublicKey = clusterPublicKey;
             o.clusterRevisionNumber = clusterRevisionNumber;
-            o.clusterSecurityGroups = clusterSecurityGroups;
             o.clusterSubnetGroupName = clusterSubnetGroupName;
             o.clusterType = clusterType;
             o.clusterVersion = clusterVersion;

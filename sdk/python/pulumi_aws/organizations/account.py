@@ -406,13 +406,11 @@ class Account(pulumi.CustomResource):
 
         ## Import
 
-        The AWS member account can be imported by using the `account_id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:organizations/account:Account my_account 111111111111
-        ```
+         to = aws_organizations_account.my_account
 
-         Certain resource arguments, like `role_name`, do not have an Organizations API method for reading the information after account creation. If the argument is set in the this provider configuration on an imported resource, this provider will always show a difference. To workaround this behavior, either omit the argument from the this provider configuration or use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to hide the difference, e.g. terraform resource "aws_organizations_account" "account" {
+         id = "111111111111" } Using `pulumi import`, import the AWS member account using the `account_id`. For exampleconsole % pulumi import aws_organizations_account.my_account 111111111111 Certain resource arguments, like `role_name`, do not have an Organizations API method for reading the information after account creation. If the argument is set in the TODO configuration on an imported resource, TODO will always show a difference. To workaround this behavior, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For exampleterraform resource "aws_organizations_account" "account" {
 
          name
 
@@ -469,13 +467,11 @@ class Account(pulumi.CustomResource):
 
         ## Import
 
-        The AWS member account can be imported by using the `account_id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:organizations/account:Account my_account 111111111111
-        ```
+         to = aws_organizations_account.my_account
 
-         Certain resource arguments, like `role_name`, do not have an Organizations API method for reading the information after account creation. If the argument is set in the this provider configuration on an imported resource, this provider will always show a difference. To workaround this behavior, either omit the argument from the this provider configuration or use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to hide the difference, e.g. terraform resource "aws_organizations_account" "account" {
+         id = "111111111111" } Using `pulumi import`, import the AWS member account using the `account_id`. For exampleconsole % pulumi import aws_organizations_account.my_account 111111111111 Certain resource arguments, like `role_name`, do not have an Organizations API method for reading the information after account creation. If the argument is set in the TODO configuration on an imported resource, TODO will always show a difference. To workaround this behavior, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For exampleterraform resource "aws_organizations_account" "account" {
 
          name
 

@@ -8,75 +8,10 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates a WAFv2 Rule Group resource.
-//
-// ## Example Usage
-// ### Simple
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/wafv2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := wafv2.NewRuleGroup(ctx, "example", &wafv2.RuleGroupArgs{
-//				Capacity: pulumi.Int(2),
-//				Rules: wafv2.RuleGroupRuleArray{
-//					&wafv2.RuleGroupRuleArgs{
-//						Action: &wafv2.RuleGroupRuleActionArgs{
-//							Allow: nil,
-//						},
-//						Name:     pulumi.String("rule-1"),
-//						Priority: pulumi.Int(1),
-//						Statement: &wafv2.RuleGroupRuleStatementArgs{
-//							GeoMatchStatement: &wafv2.RuleGroupRuleStatementGeoMatchStatementArgs{
-//								CountryCodes: pulumi.StringArray{
-//									pulumi.String("US"),
-//									pulumi.String("NL"),
-//								},
-//							},
-//						},
-//						VisibilityConfig: &wafv2.RuleGroupRuleVisibilityConfigArgs{
-//							CloudwatchMetricsEnabled: pulumi.Bool(false),
-//							MetricName:               pulumi.String("friendly-rule-metric-name"),
-//							SampledRequestsEnabled:   pulumi.Bool(false),
-//						},
-//					},
-//				},
-//				Scope: pulumi.String("REGIONAL"),
-//				VisibilityConfig: &wafv2.RuleGroupVisibilityConfigArgs{
-//					CloudwatchMetricsEnabled: pulumi.Bool(false),
-//					MetricName:               pulumi.String("friendly-metric-name"),
-//					SampledRequestsEnabled:   pulumi.Bool(false),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// WAFv2 Rule Group can be imported using `ID/name/scope` e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:wafv2/ruleGroup:RuleGroup example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
-//
-// ```
 type RuleGroup struct {
 	pulumi.CustomResourceState
 
@@ -119,6 +54,7 @@ func NewRuleGroup(ctx *pulumi.Context,
 	if args.VisibilityConfig == nil {
 		return nil, errors.New("invalid value for required argument 'VisibilityConfig'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RuleGroup
 	err := ctx.RegisterResource("aws:wafv2/ruleGroup:RuleGroup", name, args, &resource, opts...)
 	if err != nil {

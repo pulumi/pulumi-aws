@@ -16,18 +16,33 @@ public final class GetServicePlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetServicePlainArgs Empty = new GetServicePlainArgs();
 
     /**
-     * ID or Amazon Resource Name (ARN) of the service network
+     * Service name.
      * 
      */
-    @Import(name="serviceIdentifier", required=true)
-    private String serviceIdentifier;
+    @Import(name="name")
+    private @Nullable String name;
 
     /**
-     * @return ID or Amazon Resource Name (ARN) of the service network
+     * @return Service name.
      * 
      */
-    public String serviceIdentifier() {
-        return this.serviceIdentifier;
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
+    }
+
+    /**
+     * ID or Amazon Resource Name (ARN) of the service network.
+     * 
+     */
+    @Import(name="serviceIdentifier")
+    private @Nullable String serviceIdentifier;
+
+    /**
+     * @return ID or Amazon Resource Name (ARN) of the service network.
+     * 
+     */
+    public Optional<String> serviceIdentifier() {
+        return Optional.ofNullable(this.serviceIdentifier);
     }
 
     /**
@@ -48,6 +63,7 @@ public final class GetServicePlainArgs extends com.pulumi.resources.InvokeArgs {
     private GetServicePlainArgs() {}
 
     private GetServicePlainArgs(GetServicePlainArgs $) {
+        this.name = $.name;
         this.serviceIdentifier = $.serviceIdentifier;
         this.tags = $.tags;
     }
@@ -71,12 +87,23 @@ public final class GetServicePlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param serviceIdentifier ID or Amazon Resource Name (ARN) of the service network
+         * @param name Service name.
          * 
          * @return builder
          * 
          */
-        public Builder serviceIdentifier(String serviceIdentifier) {
+        public Builder name(@Nullable String name) {
+            $.name = name;
+            return this;
+        }
+
+        /**
+         * @param serviceIdentifier ID or Amazon Resource Name (ARN) of the service network.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serviceIdentifier(@Nullable String serviceIdentifier) {
             $.serviceIdentifier = serviceIdentifier;
             return this;
         }
@@ -93,7 +120,6 @@ public final class GetServicePlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetServicePlainArgs build() {
-            $.serviceIdentifier = Objects.requireNonNull($.serviceIdentifier, "expected parameter 'serviceIdentifier' to be non-null");
             return $;
         }
     }

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,7 +28,7 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appautoscaling"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appautoscaling"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -58,7 +59,7 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appautoscaling"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appautoscaling"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -89,7 +90,7 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appautoscaling"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appautoscaling"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -120,7 +121,7 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appautoscaling"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appautoscaling"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -151,7 +152,7 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appautoscaling"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appautoscaling"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -180,7 +181,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appautoscaling"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appautoscaling"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -205,13 +206,11 @@ import (
 //
 // ## Import
 //
-// Application AutoScaling Target can be imported using the `service-namespace` , `resource-id` and `scalable-dimension` separated by `/`.
+// terraform import {
 //
-// ```sh
+//	to = aws_appautoscaling_target.test-target
 //
-//	$ pulumi import aws:appautoscaling/target:Target test-target service-namespace/resource-id/scalable-dimension
-//
-// ```
+//	id = "service-namespace/resource-id/scalable-dimension" } Using `pulumi import`, import Application AutoScaling Target using the `service-namespace` , `resource-id` and `scalable-dimension` separated by `/`. For exampleconsole % pulumi import aws_appautoscaling_target.test-target service-namespace/resource-id/scalable-dimension
 type Target struct {
 	pulumi.CustomResourceState
 
@@ -257,6 +256,7 @@ func NewTarget(ctx *pulumi.Context,
 	if args.ServiceNamespace == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceNamespace'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Target
 	err := ctx.RegisterResource("aws:appautoscaling/target:Target", name, args, &resource, opts...)
 	if err != nil {

@@ -8,13 +8,12 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Provides an Amazon Connect Queue resource. For more information see
 // [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
-//
-// > **NOTE:** Due to The behaviour of Amazon Connect you cannot delete queues.
 //
 // ## Example Usage
 // ### Basic
@@ -24,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,7 +53,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -87,7 +86,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -118,13 +117,11 @@ import (
 //
 // ## Import
 //
-// Amazon Connect Queues can be imported using the `instance_id` and `queue_id` separated by a colon (`:`), e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_connect_queue.example
 //
-//	$ pulumi import aws:connect/queue:Queue example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
-//
-// ```
+//	id = "f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5" } Using `pulumi import`, import Amazon Connect Queues using the `instance_id` and `queue_id` separated by a colon (`:`). For exampleconsole % pulumi import aws_connect_queue.example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
 type Queue struct {
 	pulumi.CustomResourceState
 
@@ -146,8 +143,6 @@ type Queue struct {
 	QueueId pulumi.StringOutput `pulumi:"queueId"`
 	// Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
 	QuickConnectIds pulumi.StringArrayOutput `pulumi:"quickConnectIds"`
-	// Deprecated: Use the quick_connect_ids instead
-	QuickConnectIdsAssociateds pulumi.StringArrayOutput `pulumi:"quickConnectIdsAssociateds"`
 	// Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Tags to apply to the Queue. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -169,6 +164,7 @@ func NewQueue(ctx *pulumi.Context,
 	if args.InstanceId == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Queue
 	err := ctx.RegisterResource("aws:connect/queue:Queue", name, args, &resource, opts...)
 	if err != nil {
@@ -209,8 +205,6 @@ type queueState struct {
 	QueueId *string `pulumi:"queueId"`
 	// Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
 	QuickConnectIds []string `pulumi:"quickConnectIds"`
-	// Deprecated: Use the quick_connect_ids instead
-	QuickConnectIdsAssociateds []string `pulumi:"quickConnectIdsAssociateds"`
 	// Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
 	Status *string `pulumi:"status"`
 	// Tags to apply to the Queue. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -238,8 +232,6 @@ type QueueState struct {
 	QueueId pulumi.StringPtrInput
 	// Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
 	QuickConnectIds pulumi.StringArrayInput
-	// Deprecated: Use the quick_connect_ids instead
-	QuickConnectIdsAssociateds pulumi.StringArrayInput
 	// Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
 	Status pulumi.StringPtrInput
 	// Tags to apply to the Queue. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -425,11 +417,6 @@ func (o QueueOutput) QueueId() pulumi.StringOutput {
 // Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
 func (o QueueOutput) QuickConnectIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringArrayOutput { return v.QuickConnectIds }).(pulumi.StringArrayOutput)
-}
-
-// Deprecated: Use the quick_connect_ids instead
-func (o QueueOutput) QuickConnectIdsAssociateds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *Queue) pulumi.StringArrayOutput { return v.QuickConnectIdsAssociateds }).(pulumi.StringArrayOutput)
 }
 
 // Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.

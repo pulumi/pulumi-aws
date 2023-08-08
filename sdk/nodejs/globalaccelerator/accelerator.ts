@@ -30,11 +30,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Global Accelerator accelerators can be imported using the `arn`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:globalaccelerator/accelerator:Accelerator example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
- * ```
+ *  to = aws_globalaccelerator_accelerator.example
+ *
+ *  id = "arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" } Using `pulumi import`, import Global Accelerator accelerators using the `arn`. For exampleconsole % pulumi import aws_globalaccelerator_accelerator.example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
  */
 export class Accelerator extends pulumi.CustomResource {
     /**
@@ -104,8 +104,6 @@ export class Accelerator extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     *
-     * **attributes** supports the following attributes:
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -200,8 +198,6 @@ export interface AcceleratorState {
     name?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     *
-     * **attributes** supports the following attributes:
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -236,8 +232,6 @@ export interface AcceleratorArgs {
     name?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     *
-     * **attributes** supports the following attributes:
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

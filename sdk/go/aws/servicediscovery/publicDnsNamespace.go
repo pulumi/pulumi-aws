@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicediscovery"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicediscovery"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -40,13 +41,11 @@ import (
 //
 // ## Import
 //
-// Service Discovery Public DNS Namespace can be imported using the namespace ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_service_discovery_public_dns_namespace.example
 //
-//	$ pulumi import aws:servicediscovery/publicDnsNamespace:PublicDnsNamespace example 0123456789
-//
-// ```
+//	id = "0123456789" } Using `pulumi import`, import Service Discovery Public DNS Namespace using the namespace ID. For exampleconsole % pulumi import aws_service_discovery_public_dns_namespace.example 0123456789
 type PublicDnsNamespace struct {
 	pulumi.CustomResourceState
 
@@ -71,6 +70,7 @@ func NewPublicDnsNamespace(ctx *pulumi.Context,
 		args = &PublicDnsNamespaceArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PublicDnsNamespace
 	err := ctx.RegisterResource("aws:servicediscovery/publicDnsNamespace:PublicDnsNamespace", name, args, &resource, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/waf"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/waf"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -91,7 +92,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/waf"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/waf"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -125,13 +126,11 @@ import (
 //
 // ## Import
 //
-// WAF Web ACL can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_waf_web_acl.main
 //
-//	$ pulumi import aws:waf/webAcl:WebAcl main 0c8e583e-18f3-4c13-9e2a-67c4805d2f94
-//
-// ```
+//	id = "0c8e583e-18f3-4c13-9e2a-67c4805d2f94" } Using `pulumi import`, import WAF Web ACL using the `id`. For exampleconsole % pulumi import aws_waf_web_acl.main 0c8e583e-18f3-4c13-9e2a-67c4805d2f94
 type WebAcl struct {
 	pulumi.CustomResourceState
 
@@ -166,6 +165,7 @@ func NewWebAcl(ctx *pulumi.Context,
 	if args.MetricName == nil {
 		return nil, errors.New("invalid value for required argument 'MetricName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource WebAcl
 	err := ctx.RegisterResource("aws:waf/webAcl:WebAcl", name, args, &resource, opts...)
 	if err != nil {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 //
@@ -43,6 +44,7 @@ import (
 //
 // ```
 func GetLocalGateway(ctx *pulumi.Context, args *GetLocalGatewayArgs, opts ...pulumi.InvokeOption) (*GetLocalGatewayResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLocalGatewayResult
 	err := ctx.Invoke("aws:ec2/getLocalGateway:getLocalGateway", args, &rv, opts...)
 	if err != nil {

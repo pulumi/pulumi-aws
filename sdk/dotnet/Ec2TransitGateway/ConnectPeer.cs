@@ -43,11 +43,11 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// 
     /// ## Import
     /// 
-    /// `aws_ec2_transit_gateway_connect_peer` can be imported by using the EC2 Transit Gateway Connect Peer identifier, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:ec2transitgateway/connectPeer:ConnectPeer example tgw-connect-peer-12345678
-    /// ```
+    ///  to = aws_ec2_transit_gateway_connect_peer.example
+    /// 
+    ///  id = "tgw-connect-peer-12345678" } Using `pulumi import`, import `aws_ec2_transit_gateway_connect_peer` using the EC2 Transit Gateway Connect Peer identifier. For exampleconsole % pulumi import aws_ec2_transit_gateway_connect_peer.example tgw-connect-peer-12345678
     /// </summary>
     [AwsResourceType("aws:ec2transitgateway/connectPeer:ConnectPeer")]
     public partial class ConnectPeer : global::Pulumi.CustomResource
@@ -63,6 +63,18 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// </summary>
         [Output("bgpAsn")]
         public Output<string> BgpAsn { get; private set; } = null!;
+
+        /// <summary>
+        /// The IP address assigned to customer device, which is used as BGP IP address.
+        /// </summary>
+        [Output("bgpPeerAddress")]
+        public Output<string> BgpPeerAddress { get; private set; } = null!;
+
+        /// <summary>
+        /// The IP addresses assigned to Transit Gateway, which are used as BGP IP addresses.
+        /// </summary>
+        [Output("bgpTransitGatewayAddresses")]
+        public Output<ImmutableArray<string>> BgpTransitGatewayAddresses { get; private set; } = null!;
 
         /// <summary>
         /// The CIDR block that will be used for addressing within the tunnel. It must contain exactly one IPv4 CIDR block and up to one IPv6 CIDR block. The IPv4 CIDR block must be /29 size and must be within 169.254.0.0/16 range, with exception of: 169.254.0.0/29, 169.254.1.0/29, 169.254.2.0/29, 169.254.3.0/29, 169.254.4.0/29, 169.254.5.0/29, 169.254.169.248/29. The IPv6 CIDR block must be /125 size and must be within fd00::/8. The first IP from each CIDR block is assigned for customer gateway, the second and third is for Transit Gateway (An example: from range 169.254.100.0/29, .1 is assigned to customer gateway and .2 and .3 are assigned to Transit Gateway)
@@ -213,6 +225,24 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// </summary>
         [Input("bgpAsn")]
         public Input<string>? BgpAsn { get; set; }
+
+        /// <summary>
+        /// The IP address assigned to customer device, which is used as BGP IP address.
+        /// </summary>
+        [Input("bgpPeerAddress")]
+        public Input<string>? BgpPeerAddress { get; set; }
+
+        [Input("bgpTransitGatewayAddresses")]
+        private InputList<string>? _bgpTransitGatewayAddresses;
+
+        /// <summary>
+        /// The IP addresses assigned to Transit Gateway, which are used as BGP IP addresses.
+        /// </summary>
+        public InputList<string> BgpTransitGatewayAddresses
+        {
+            get => _bgpTransitGatewayAddresses ?? (_bgpTransitGatewayAddresses = new InputList<string>());
+            set => _bgpTransitGatewayAddresses = value;
+        }
 
         [Input("insideCidrBlocks")]
         private InputList<string>? _insideCidrBlocks;

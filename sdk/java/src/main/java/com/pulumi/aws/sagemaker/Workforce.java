@@ -116,11 +116,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * SageMaker Workforces can be imported using the `workforce_name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:sagemaker/workforce:Workforce example example
- * ```
+ *  to = aws_sagemaker_workforce.example
+ * 
+ *  id = &#34;example&#34; } Using `pulumi import`, import SageMaker Workforces using the `workforce_name`. For exampleconsole % pulumi import aws_sagemaker_workforce.example example
  * 
  */
 @ResourceType(type="aws:sagemaker/workforce:Workforce")

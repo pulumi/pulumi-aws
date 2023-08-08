@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/redshift"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshift"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -76,13 +77,11 @@ import (
 //
 // ## Import
 //
-// Redshift subnet groups can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_redshift_subnet_group.testgroup1
 //
-//	$ pulumi import aws:redshift/subnetGroup:SubnetGroup testgroup1 test-cluster-subnet-group
-//
-// ```
+//	id = "test-cluster-subnet-group" } Using `pulumi import`, import Redshift subnet groups using the `name`. For exampleconsole % pulumi import aws_redshift_subnet_group.testgroup1 test-cluster-subnet-group
 type SubnetGroup struct {
 	pulumi.CustomResourceState
 
@@ -113,6 +112,7 @@ func NewSubnetGroup(ctx *pulumi.Context,
 	if args.Description == nil {
 		args.Description = pulumi.StringPtr("Managed by Pulumi")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SubnetGroup
 	err := ctx.RegisterResource("aws:redshift/subnetGroup:SubnetGroup", name, args, &resource, opts...)
 	if err != nil {

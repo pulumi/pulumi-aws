@@ -1018,6 +1018,9 @@ class SpotFleetRequest(pulumi.CustomResource):
         Provides an EC2 Spot Fleet Request resource. This allows a fleet of Spot
         instances to be requested on the Spot market.
 
+        > **NOTE [AWS strongly discourages](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html#which-spot-request-method-to-use) the use of the legacy APIs called by this resource.
+        We recommend using the EC2 Fleet or Auto Scaling Group resources instead.
+
         ## Example Usage
         ### Using launch specifications
 
@@ -1091,7 +1094,10 @@ class SpotFleetRequest(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2.get_subnet_ids(vpc_id=var["vpc_id"])
+        example = aws.ec2.get_subnets(filters=[aws.ec2.GetSubnetsFilterArgs(
+            name="vpc-id",
+            values=[var["vpc_id"]],
+        )])
         foo_launch_template = aws.ec2.LaunchTemplate("fooLaunchTemplate",
             image_id="ami-516b9131",
             instance_type="m1.small",
@@ -1108,13 +1114,13 @@ class SpotFleetRequest(pulumi.CustomResource):
                 ),
                 overrides=[
                     aws.ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs(
-                        subnet_id=data["aws_subnets"]["example"]["ids"],
+                        subnet_id=example.ids[0],
                     ),
                     aws.ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs(
-                        subnet_id=data["aws_subnets"]["example"]["ids"],
+                        subnet_id=example.ids[1],
                     ),
                     aws.ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs(
-                        subnet_id=data["aws_subnets"]["example"]["ids"],
+                        subnet_id=example.ids[2],
                     ),
                 ],
             )],
@@ -1123,11 +1129,11 @@ class SpotFleetRequest(pulumi.CustomResource):
 
         ## Import
 
-        Spot Fleet Requests can be imported using `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ec2/spotFleetRequest:SpotFleetRequest fleet sfr-005e9ec8-5546-4c31-b317-31a62325411e
-        ```
+         to = aws_spot_fleet_request.fleet
+
+         id = "sfr-005e9ec8-5546-4c31-b317-31a62325411e" } Using `pulumi import`, import Spot Fleet Requests using `id`. For exampleconsole % pulumi import aws_spot_fleet_request.fleet sfr-005e9ec8-5546-4c31-b317-31a62325411e
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1195,6 +1201,9 @@ class SpotFleetRequest(pulumi.CustomResource):
         Provides an EC2 Spot Fleet Request resource. This allows a fleet of Spot
         instances to be requested on the Spot market.
 
+        > **NOTE [AWS strongly discourages](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html#which-spot-request-method-to-use) the use of the legacy APIs called by this resource.
+        We recommend using the EC2 Fleet or Auto Scaling Group resources instead.
+
         ## Example Usage
         ### Using launch specifications
 
@@ -1268,7 +1277,10 @@ class SpotFleetRequest(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2.get_subnet_ids(vpc_id=var["vpc_id"])
+        example = aws.ec2.get_subnets(filters=[aws.ec2.GetSubnetsFilterArgs(
+            name="vpc-id",
+            values=[var["vpc_id"]],
+        )])
         foo_launch_template = aws.ec2.LaunchTemplate("fooLaunchTemplate",
             image_id="ami-516b9131",
             instance_type="m1.small",
@@ -1285,13 +1297,13 @@ class SpotFleetRequest(pulumi.CustomResource):
                 ),
                 overrides=[
                     aws.ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs(
-                        subnet_id=data["aws_subnets"]["example"]["ids"],
+                        subnet_id=example.ids[0],
                     ),
                     aws.ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs(
-                        subnet_id=data["aws_subnets"]["example"]["ids"],
+                        subnet_id=example.ids[1],
                     ),
                     aws.ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs(
-                        subnet_id=data["aws_subnets"]["example"]["ids"],
+                        subnet_id=example.ids[2],
                     ),
                 ],
             )],
@@ -1300,11 +1312,11 @@ class SpotFleetRequest(pulumi.CustomResource):
 
         ## Import
 
-        Spot Fleet Requests can be imported using `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ec2/spotFleetRequest:SpotFleetRequest fleet sfr-005e9ec8-5546-4c31-b317-31a62325411e
-        ```
+         to = aws_spot_fleet_request.fleet
+
+         id = "sfr-005e9ec8-5546-4c31-b317-31a62325411e" } Using `pulumi import`, import Spot Fleet Requests using `id`. For exampleconsole % pulumi import aws_spot_fleet_request.fleet sfr-005e9ec8-5546-4c31-b317-31a62325411e
 
         :param str resource_name: The name of the resource.
         :param SpotFleetRequestArgs args: The arguments to use to populate this resource's properties.

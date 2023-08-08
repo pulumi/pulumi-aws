@@ -27,11 +27,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * IOT Authorizers can be imported using the name, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:iot/authorizer:Authorizer example example
- * ```
+ *  to = aws_iot_authorizer.example
+ *
+ *  id = "example" } Using `pulumi import`, import IOT Authorizers using the name. For exampleconsole % pulumi import aws_iot_authorizer.example example
  */
 export class Authorizer extends pulumi.CustomResource {
     /**

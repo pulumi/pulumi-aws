@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/storagegateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/storagegateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,13 +43,11 @@ import (
 //
 // ## Import
 //
-// `aws_storagegateway_tape_pool` can be imported by using the volume Amazon Resource Name (ARN), e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_storagegateway_tape_pool.example
 //
-//	$ pulumi import aws:storagegateway/tapePool:TapePool example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678
-//
-// ```
+//	id = "arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678" } Using `pulumi import`, import `aws_storagegateway_tape_pool` using the volume Amazon Resource Name (ARN). For exampleconsole % pulumi import aws_storagegateway_tape_pool.example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678
 type TapePool struct {
 	pulumi.CustomResourceState
 
@@ -81,6 +80,7 @@ func NewTapePool(ctx *pulumi.Context,
 	if args.StorageClass == nil {
 		return nil, errors.New("invalid value for required argument 'StorageClass'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TapePool
 	err := ctx.RegisterResource("aws:storagegateway/tapePool:TapePool", name, args, &resource, opts...)
 	if err != nil {

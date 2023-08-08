@@ -70,11 +70,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * S3 bucket policies can be imported using the bucket name, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:s3/bucketPolicy:BucketPolicy allow_access_from_another_account my-tf-test-bucket
- * ```
+ *  to = aws_s3_bucket_policy.allow_access_from_another_account
+ * 
+ *  id = &#34;my-tf-test-bucket&#34; } Using `pulumi import`, import S3 bucket policies using the bucket name. For exampleconsole % pulumi import aws_s3_bucket_policy.allow_access_from_another_account my-tf-test-bucket
  * 
  */
 @ResourceType(type="aws:s3/bucketPolicy:BucketPolicy")

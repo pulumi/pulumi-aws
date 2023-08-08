@@ -24,11 +24,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * MSK configurations can be imported using the configuration ARN, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:msk/configuration:Configuration example arn:aws:kafka:us-west-2:123456789012:configuration/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
- * ```
+ *  to = aws_msk_configuration.example
+ *
+ *  id = "arn:aws:kafka:us-west-2:123456789012:configuration/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3" } Using `pulumi import`, import MSK configurations using the configuration ARN. For exampleconsole % pulumi import aws_msk_configuration.example arn:aws:kafka:us-west-2:123456789012:configuration/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
  */
 export class Configuration extends pulumi.CustomResource {
     /**

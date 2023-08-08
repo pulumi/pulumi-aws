@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/qldb"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/qldb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func LookupLedger(ctx *pulumi.Context, args *LookupLedgerArgs, opts ...pulumi.InvokeOption) (*LookupLedgerResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLedgerResult
 	err := ctx.Invoke("aws:qldb/getLedger:getLedger", args, &rv, opts...)
 	if err != nil {

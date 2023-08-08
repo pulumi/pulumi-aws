@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/redshift"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshift"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -53,13 +54,11 @@ import (
 //
 // ## Import
 //
-// Redshift Authentication Profiles support import by `authentication_profile_name`, e.g., console
+// terraform import {
 //
-// ```sh
+//	to = aws_redshift_authentication_profile.test
 //
-//	$ pulumi import aws:redshift/authenticationProfile:AuthenticationProfile test example
-//
-// ```
+//	id = "example" } Using `pulumi import`, import Redshift Authentication by `authentication_profile_name`. For exampleconsole % pulumi import aws_redshift_authentication_profile.test example
 type AuthenticationProfile struct {
 	pulumi.CustomResourceState
 
@@ -82,6 +81,7 @@ func NewAuthenticationProfile(ctx *pulumi.Context,
 	if args.AuthenticationProfileName == nil {
 		return nil, errors.New("invalid value for required argument 'AuthenticationProfileName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AuthenticationProfile
 	err := ctx.RegisterResource("aws:redshift/authenticationProfile:AuthenticationProfile", name, args, &resource, opts...)
 	if err != nil {

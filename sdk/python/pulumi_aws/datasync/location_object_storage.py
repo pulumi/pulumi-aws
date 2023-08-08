@@ -31,7 +31,7 @@ class LocationObjectStorageArgs:
         :param pulumi.Input[str] server_hostname: The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server. An agent uses this host name to mount the object storage server in a network.
         :param pulumi.Input[str] access_key: The access key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `access_key` and `secret_key` to provide the user name and password, respectively.
         :param pulumi.Input[str] secret_key: The secret key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `access_key` and `secret_key` to provide the user name and password, respectively.
-        :param pulumi.Input[str] server_certificate: Specifies a certificate to authenticate with an object storage system that uses a private or self-signed certificate authority (CA). You must specify a Base64-encoded .pem file (for example, file:///home/user/.ssh/storage_sys_certificate.pem). The certificate can be up to 32768 bytes (before Base64 encoding).
+        :param pulumi.Input[str] server_certificate: Specifies a certificate to authenticate with an object storage system that uses a private or self-signed certificate authority (CA). You must specify a Base64-encoded .pem string. The certificate can be up to 32768 bytes (before Base64 encoding).
         :param pulumi.Input[int] server_port: The port that your self-managed object storage server accepts inbound network traffic on. The server port is set by default to TCP 80 (`HTTP`) or TCP 443 (`HTTPS`). You can specify a custom port if your self-managed object storage server requires one.
         :param pulumi.Input[str] server_protocol: The protocol that the object storage server uses to communicate. Valid values are `HTTP` or `HTTPS`.
         :param pulumi.Input[str] subdirectory: A subdirectory in the HDFS cluster. This subdirectory is used to read data from or write data to the HDFS cluster. If the subdirectory isn't specified, it will default to /.
@@ -119,7 +119,7 @@ class LocationObjectStorageArgs:
     @pulumi.getter(name="serverCertificate")
     def server_certificate(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies a certificate to authenticate with an object storage system that uses a private or self-signed certificate authority (CA). You must specify a Base64-encoded .pem file (for example, file:///home/user/.ssh/storage_sys_certificate.pem). The certificate can be up to 32768 bytes (before Base64 encoding).
+        Specifies a certificate to authenticate with an object storage system that uses a private or self-signed certificate authority (CA). You must specify a Base64-encoded .pem string. The certificate can be up to 32768 bytes (before Base64 encoding).
         """
         return pulumi.get(self, "server_certificate")
 
@@ -199,7 +199,7 @@ class _LocationObjectStorageState:
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the DataSync Location.
         :param pulumi.Input[str] bucket_name: The bucket on the self-managed object storage server that is used to read data from.
         :param pulumi.Input[str] secret_key: The secret key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `access_key` and `secret_key` to provide the user name and password, respectively.
-        :param pulumi.Input[str] server_certificate: Specifies a certificate to authenticate with an object storage system that uses a private or self-signed certificate authority (CA). You must specify a Base64-encoded .pem file (for example, file:///home/user/.ssh/storage_sys_certificate.pem). The certificate can be up to 32768 bytes (before Base64 encoding).
+        :param pulumi.Input[str] server_certificate: Specifies a certificate to authenticate with an object storage system that uses a private or self-signed certificate authority (CA). You must specify a Base64-encoded .pem string. The certificate can be up to 32768 bytes (before Base64 encoding).
         :param pulumi.Input[str] server_hostname: The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server. An agent uses this host name to mount the object storage server in a network.
         :param pulumi.Input[int] server_port: The port that your self-managed object storage server accepts inbound network traffic on. The server port is set by default to TCP 80 (`HTTP`) or TCP 443 (`HTTPS`). You can specify a custom port if your self-managed object storage server requires one.
         :param pulumi.Input[str] server_protocol: The protocol that the object storage server uses to communicate. Valid values are `HTTP` or `HTTPS`.
@@ -299,7 +299,7 @@ class _LocationObjectStorageState:
     @pulumi.getter(name="serverCertificate")
     def server_certificate(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies a certificate to authenticate with an object storage system that uses a private or self-signed certificate authority (CA). You must specify a Base64-encoded .pem file (for example, file:///home/user/.ssh/storage_sys_certificate.pem). The certificate can be up to 32768 bytes (before Base64 encoding).
+        Specifies a certificate to authenticate with an object storage system that uses a private or self-signed certificate authority (CA). You must specify a Base64-encoded .pem string. The certificate can be up to 32768 bytes (before Base64 encoding).
         """
         return pulumi.get(self, "server_certificate")
 
@@ -427,11 +427,11 @@ class LocationObjectStorage(pulumi.CustomResource):
 
         ## Import
 
-        `aws_datasync_location_object_storage` can be imported by using the Amazon Resource Name (ARN), e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:datasync/locationObjectStorage:LocationObjectStorage example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
-        ```
+         to = aws_datasync_location_object_storage.example
+
+         id = "arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567" } Using `pulumi import`, import `aws_datasync_location_object_storage` using the Amazon Resource Name (ARN). For exampleconsole % pulumi import aws_datasync_location_object_storage.example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -439,7 +439,7 @@ class LocationObjectStorage(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] agent_arns: A list of DataSync Agent ARNs with which this location will be associated.
         :param pulumi.Input[str] bucket_name: The bucket on the self-managed object storage server that is used to read data from.
         :param pulumi.Input[str] secret_key: The secret key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `access_key` and `secret_key` to provide the user name and password, respectively.
-        :param pulumi.Input[str] server_certificate: Specifies a certificate to authenticate with an object storage system that uses a private or self-signed certificate authority (CA). You must specify a Base64-encoded .pem file (for example, file:///home/user/.ssh/storage_sys_certificate.pem). The certificate can be up to 32768 bytes (before Base64 encoding).
+        :param pulumi.Input[str] server_certificate: Specifies a certificate to authenticate with an object storage system that uses a private or self-signed certificate authority (CA). You must specify a Base64-encoded .pem string. The certificate can be up to 32768 bytes (before Base64 encoding).
         :param pulumi.Input[str] server_hostname: The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server. An agent uses this host name to mount the object storage server in a network.
         :param pulumi.Input[int] server_port: The port that your self-managed object storage server accepts inbound network traffic on. The server port is set by default to TCP 80 (`HTTP`) or TCP 443 (`HTTPS`). You can specify a custom port if your self-managed object storage server requires one.
         :param pulumi.Input[str] server_protocol: The protocol that the object storage server uses to communicate. Valid values are `HTTP` or `HTTPS`.
@@ -471,11 +471,11 @@ class LocationObjectStorage(pulumi.CustomResource):
 
         ## Import
 
-        `aws_datasync_location_object_storage` can be imported by using the Amazon Resource Name (ARN), e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:datasync/locationObjectStorage:LocationObjectStorage example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
-        ```
+         to = aws_datasync_location_object_storage.example
+
+         id = "arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567" } Using `pulumi import`, import `aws_datasync_location_object_storage` using the Amazon Resource Name (ARN). For exampleconsole % pulumi import aws_datasync_location_object_storage.example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
 
         :param str resource_name: The name of the resource.
         :param LocationObjectStorageArgs args: The arguments to use to populate this resource's properties.
@@ -567,7 +567,7 @@ class LocationObjectStorage(pulumi.CustomResource):
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the DataSync Location.
         :param pulumi.Input[str] bucket_name: The bucket on the self-managed object storage server that is used to read data from.
         :param pulumi.Input[str] secret_key: The secret key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `access_key` and `secret_key` to provide the user name and password, respectively.
-        :param pulumi.Input[str] server_certificate: Specifies a certificate to authenticate with an object storage system that uses a private or self-signed certificate authority (CA). You must specify a Base64-encoded .pem file (for example, file:///home/user/.ssh/storage_sys_certificate.pem). The certificate can be up to 32768 bytes (before Base64 encoding).
+        :param pulumi.Input[str] server_certificate: Specifies a certificate to authenticate with an object storage system that uses a private or self-signed certificate authority (CA). You must specify a Base64-encoded .pem string. The certificate can be up to 32768 bytes (before Base64 encoding).
         :param pulumi.Input[str] server_hostname: The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server. An agent uses this host name to mount the object storage server in a network.
         :param pulumi.Input[int] server_port: The port that your self-managed object storage server accepts inbound network traffic on. The server port is set by default to TCP 80 (`HTTP`) or TCP 443 (`HTTPS`). You can specify a custom port if your self-managed object storage server requires one.
         :param pulumi.Input[str] server_protocol: The protocol that the object storage server uses to communicate. Valid values are `HTTP` or `HTTPS`.
@@ -639,7 +639,7 @@ class LocationObjectStorage(pulumi.CustomResource):
     @pulumi.getter(name="serverCertificate")
     def server_certificate(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies a certificate to authenticate with an object storage system that uses a private or self-signed certificate authority (CA). You must specify a Base64-encoded .pem file (for example, file:///home/user/.ssh/storage_sys_certificate.pem). The certificate can be up to 32768 bytes (before Base64 encoding).
+        Specifies a certificate to authenticate with an object storage system that uses a private or self-signed certificate authority (CA). You must specify a Base64-encoded .pem string. The certificate can be up to 32768 bytes (before Base64 encoding).
         """
         return pulumi.get(self, "server_certificate")
 

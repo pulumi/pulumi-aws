@@ -68,6 +68,11 @@ public final class GetDistributionResult {
      */
     private String status;
     private @Nullable Map<String,String> tags;
+    /**
+     * @return AWS WAF web ACL associated with this distribution.
+     * 
+     */
+    private String webAclId;
 
     private GetDistributionResult() {}
     /**
@@ -146,6 +151,13 @@ public final class GetDistributionResult {
     public Map<String,String> tags() {
         return this.tags == null ? Map.of() : this.tags;
     }
+    /**
+     * @return AWS WAF web ACL associated with this distribution.
+     * 
+     */
+    public String webAclId() {
+        return this.webAclId;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -167,6 +179,7 @@ public final class GetDistributionResult {
         private String lastModifiedTime;
         private String status;
         private @Nullable Map<String,String> tags;
+        private String webAclId;
         public Builder() {}
         public Builder(GetDistributionResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -181,6 +194,7 @@ public final class GetDistributionResult {
     	      this.lastModifiedTime = defaults.lastModifiedTime;
     	      this.status = defaults.status;
     	      this.tags = defaults.tags;
+    	      this.webAclId = defaults.webAclId;
         }
 
         @CustomType.Setter
@@ -241,6 +255,11 @@ public final class GetDistributionResult {
             this.tags = tags;
             return this;
         }
+        @CustomType.Setter
+        public Builder webAclId(String webAclId) {
+            this.webAclId = Objects.requireNonNull(webAclId);
+            return this;
+        }
         public GetDistributionResult build() {
             final var o = new GetDistributionResult();
             o.aliases = aliases;
@@ -254,6 +273,7 @@ public final class GetDistributionResult {
             o.lastModifiedTime = lastModifiedTime;
             o.status = status;
             o.tags = tags;
+            o.webAclId = webAclId;
             return o;
         }
     }

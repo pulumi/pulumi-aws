@@ -4,16 +4,37 @@
 package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 
 @CustomType
 public final class GetVpcEndpointDnsOption {
+    /**
+     * @return The DNS records created for the endpoint.
+     * 
+     */
     private String dnsRecordIpType;
+    /**
+     * @return Indicates whether to enable private DNS only for inbound endpoints.
+     * 
+     */
+    private Boolean privateDnsOnlyForInboundResolverEndpoint;
 
     private GetVpcEndpointDnsOption() {}
+    /**
+     * @return The DNS records created for the endpoint.
+     * 
+     */
     public String dnsRecordIpType() {
         return this.dnsRecordIpType;
+    }
+    /**
+     * @return Indicates whether to enable private DNS only for inbound endpoints.
+     * 
+     */
+    public Boolean privateDnsOnlyForInboundResolverEndpoint() {
+        return this.privateDnsOnlyForInboundResolverEndpoint;
     }
 
     public static Builder builder() {
@@ -26,10 +47,12 @@ public final class GetVpcEndpointDnsOption {
     @CustomType.Builder
     public static final class Builder {
         private String dnsRecordIpType;
+        private Boolean privateDnsOnlyForInboundResolverEndpoint;
         public Builder() {}
         public Builder(GetVpcEndpointDnsOption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dnsRecordIpType = defaults.dnsRecordIpType;
+    	      this.privateDnsOnlyForInboundResolverEndpoint = defaults.privateDnsOnlyForInboundResolverEndpoint;
         }
 
         @CustomType.Setter
@@ -37,9 +60,15 @@ public final class GetVpcEndpointDnsOption {
             this.dnsRecordIpType = Objects.requireNonNull(dnsRecordIpType);
             return this;
         }
+        @CustomType.Setter
+        public Builder privateDnsOnlyForInboundResolverEndpoint(Boolean privateDnsOnlyForInboundResolverEndpoint) {
+            this.privateDnsOnlyForInboundResolverEndpoint = Objects.requireNonNull(privateDnsOnlyForInboundResolverEndpoint);
+            return this;
+        }
         public GetVpcEndpointDnsOption build() {
             final var o = new GetVpcEndpointDnsOption();
             o.dnsRecordIpType = dnsRecordIpType;
+            o.privateDnsOnlyForInboundResolverEndpoint = privateDnsOnlyForInboundResolverEndpoint;
             return o;
         }
     }

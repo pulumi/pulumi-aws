@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,7 +26,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -44,7 +45,7 @@ import (
 //				return err
 //			}
 //			example, err := ec2.NewEip(ctx, "example", &ec2.EipArgs{
-//				Vpc: pulumi.Bool(true),
+//				Domain: pulumi.String("vpc"),
 //			})
 //			if err != nil {
 //				return err
@@ -64,13 +65,11 @@ import (
 //
 // ## Import
 //
-// EIP Assocations can be imported using their association ID.
+// terraform import {
 //
-// ```sh
+//	to = aws_eip_association.test
 //
-//	$ pulumi import aws:ec2/eipAssociation:EipAssociation test eipassoc-ab12c345
-//
-// ```
+//	id = "eipassoc-ab12c345" } Using `pulumi import`, import EIP Assocations using their association IDs. For exampleconsole % pulumi import aws_eip_association.test eipassoc-ab12c345
 type EipAssociation struct {
 	pulumi.CustomResourceState
 
@@ -104,6 +103,7 @@ func NewEipAssociation(ctx *pulumi.Context,
 		args = &EipAssociationArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EipAssociation
 	err := ctx.RegisterResource("aws:ec2/eipAssociation:EipAssociation", name, args, &resource, opts...)
 	if err != nil {

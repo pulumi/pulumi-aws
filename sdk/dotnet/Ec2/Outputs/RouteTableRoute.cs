@@ -36,13 +36,9 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly string? EgressOnlyGatewayId;
         /// <summary>
-        /// Identifier of a VPC internet gateway or a virtual private gateway.
+        /// Identifier of a VPC internet gateway, virtual private gateway, or `local`. `local` routes cannot be created but can be adopted or imported. See the example above.
         /// </summary>
         public readonly string? GatewayId;
-        /// <summary>
-        /// Identifier of an EC2 instance.
-        /// </summary>
-        public readonly string? InstanceId;
         /// <summary>
         /// The Ipv6 CIDR block of the route.
         /// </summary>
@@ -88,8 +84,6 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             string? gatewayId,
 
-            string? instanceId,
-
             string? ipv6CidrBlock,
 
             string? localGatewayId,
@@ -110,7 +104,6 @@ namespace Pulumi.Aws.Ec2.Outputs
             DestinationPrefixListId = destinationPrefixListId;
             EgressOnlyGatewayId = egressOnlyGatewayId;
             GatewayId = gatewayId;
-            InstanceId = instanceId;
             Ipv6CidrBlock = ipv6CidrBlock;
             LocalGatewayId = localGatewayId;
             NatGatewayId = natGatewayId;

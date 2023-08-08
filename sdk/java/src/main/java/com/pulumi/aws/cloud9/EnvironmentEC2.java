@@ -130,7 +130,7 @@ import javax.annotation.Nullable;
  * 
  *         var cloud9Eip = new Eip(&#34;cloud9Eip&#34;, EipArgs.builder()        
  *             .instance(cloud9Instance.applyValue(getInstanceResult -&gt; getInstanceResult).applyValue(cloud9Instance -&gt; cloud9Instance.applyValue(getInstanceResult -&gt; getInstanceResult.id())))
- *             .vpc(true)
+ *             .domain(&#34;vpc&#34;)
  *             .build());
  * 
  *         ctx.export(&#34;cloud9PublicIp&#34;, cloud9Eip.publicIp());

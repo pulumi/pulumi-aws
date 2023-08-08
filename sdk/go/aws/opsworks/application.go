@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 //	"os"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/opsworks"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opsworks"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -82,13 +83,11 @@ import (
 //
 // ## Import
 //
-// Opsworks Application can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_opsworks_application.test
 //
-//	$ pulumi import aws:opsworks/application:Application test <id>
-//
-// ```
+//	id = "<id>" } Using `pulumi import`, import Opsworks Application using the `id`. For exampleconsole % pulumi import aws_opsworks_application.test <id>
 type Application struct {
 	pulumi.CustomResourceState
 
@@ -141,6 +140,7 @@ func NewApplication(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Application
 	err := ctx.RegisterResource("aws:opsworks/application:Application", name, args, &resource, opts...)
 	if err != nil {

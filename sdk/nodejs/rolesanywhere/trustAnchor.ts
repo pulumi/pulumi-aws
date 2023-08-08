@@ -55,11 +55,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_rolesanywhere_trust_anchor` can be imported using its `id`, e.g.
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:rolesanywhere/trustAnchor:TrustAnchor example 92b2fbbb-984d-41a3-a765-e3cbdb69ebb1
- * ```
+ *  to = aws_rolesanywhere_trust_anchor.example
+ *
+ *  id = "92b2fbbb-984d-41a3-a765-e3cbdb69ebb1" } Using `pulumi import`, import `aws_rolesanywhere_trust_anchor` using its `id`. For exampleconsole % pulumi import aws_rolesanywhere_trust_anchor.example 92b2fbbb-984d-41a3-a765-e3cbdb69ebb1
  */
 export class TrustAnchor extends pulumi.CustomResource {
     /**

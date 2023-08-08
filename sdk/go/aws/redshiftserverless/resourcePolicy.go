@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/redshiftserverless"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshiftserverless"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -65,13 +66,11 @@ import (
 //
 // ## Import
 //
-// Redshift Serverless Resource Policies can be imported using the `resource_arn`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_redshiftserverless_resource_policy.example
 //
-//	$ pulumi import aws:redshiftserverless/resourcePolicy:ResourcePolicy example example
-//
-// ```
+//	id = "example" } Using `pulumi import`, import Redshift Serverless Resource Policies using the `resource_arn`. For exampleconsole % pulumi import aws_redshiftserverless_resource_policy.example example
 type ResourcePolicy struct {
 	pulumi.CustomResourceState
 
@@ -94,6 +93,7 @@ func NewResourcePolicy(ctx *pulumi.Context,
 	if args.ResourceArn == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResourcePolicy
 	err := ctx.RegisterResource("aws:redshiftserverless/resourcePolicy:ResourcePolicy", name, args, &resource, opts...)
 	if err != nil {

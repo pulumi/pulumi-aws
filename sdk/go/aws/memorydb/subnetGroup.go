@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,8 +23,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/memorydb"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/memorydb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -60,13 +61,11 @@ import (
 //
 // ## Import
 //
-// Use the `name` to import a subnet group. For example
+// terraform import {
 //
-// ```sh
+//	to = aws_memorydb_subnet_group.example
 //
-//	$ pulumi import aws:memorydb/subnetGroup:SubnetGroup example my-subnet-group
-//
-// ```
+//	id = "my-subnet-group" } Using `pulumi import`, import a subnet group using its `name`. For exampleconsole % pulumi import aws_memorydb_subnet_group.example my-subnet-group
 type SubnetGroup struct {
 	pulumi.CustomResourceState
 
@@ -100,6 +99,7 @@ func NewSubnetGroup(ctx *pulumi.Context,
 	if args.SubnetIds == nil {
 		return nil, errors.New("invalid value for required argument 'SubnetIds'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SubnetGroup
 	err := ctx.RegisterResource("aws:memorydb/subnetGroup:SubnetGroup", name, args, &resource, opts...)
 	if err != nil {

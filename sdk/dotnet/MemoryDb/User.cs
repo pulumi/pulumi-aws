@@ -50,13 +50,11 @@ namespace Pulumi.Aws.MemoryDb
     /// 
     /// ## Import
     /// 
-    /// Use the `user_name` to import a user. For example
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:memorydb/user:User example my-user
-    /// ```
+    ///  to = aws_memorydb_user.example
     /// 
-    ///  The `passwords` are not available for imported resources, as this information cannot be read back from the MemoryDB API.
+    ///  id = "my-user" } Using `pulumi import`, import a user using the `user_name`. For exampleconsole % pulumi import aws_memorydb_user.example my-user The `passwords` are not available for imported resources, as this information cannot be read back from the MemoryDB API.
     /// </summary>
     [AwsResourceType("aws:memorydb/user:User")]
     public partial class User : global::Pulumi.CustomResource

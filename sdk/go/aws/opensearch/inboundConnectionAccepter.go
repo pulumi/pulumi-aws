@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +22,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/opensearch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opensearch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -67,13 +68,11 @@ import (
 //
 // ## Import
 //
-// AWS Opensearch Inbound Connection Accepters can be imported by using the Inbound Connection ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_opensearch_inbound_connection_accepter.foo
 //
-//	$ pulumi import aws:opensearch/inboundConnectionAccepter:InboundConnectionAccepter foo connection-id
-//
-// ```
+//	id = "connection-id" } Using `pulumi import`, import AWS Opensearch Inbound Connection Accepters using the Inbound Connection ID. For exampleconsole % pulumi import aws_opensearch_inbound_connection_accepter.foo connection-id
 type InboundConnectionAccepter struct {
 	pulumi.CustomResourceState
 
@@ -93,6 +92,7 @@ func NewInboundConnectionAccepter(ctx *pulumi.Context,
 	if args.ConnectionId == nil {
 		return nil, errors.New("invalid value for required argument 'ConnectionId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource InboundConnectionAccepter
 	err := ctx.RegisterResource("aws:opensearch/inboundConnectionAccepter:InboundConnectionAccepter", name, args, &resource, opts...)
 	if err != nil {

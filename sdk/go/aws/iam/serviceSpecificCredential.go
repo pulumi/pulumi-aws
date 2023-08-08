@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -46,13 +47,11 @@ import (
 //
 // ## Import
 //
-// IAM Service Specific Credentials can be imported using the `service_name:user_name:service_specific_credential_id`, e.g.
+// terraform import {
 //
-// ```sh
+//	to = aws_iam_service_specific_credential.default
 //
-//	$ pulumi import aws:iam/serviceSpecificCredential:ServiceSpecificCredential default `codecommit.amazonaws.com:example:some-id`
-//
-// ```
+//	id = "`codecommit.amazonaws.com:example:some-id`" } Using `pulumi import`, import IAM Service Specific Credentials using the `service_name:user_name:service_specific_credential_id`. For exampleconsole % pulumi import aws_iam_service_specific_credential.default `codecommit.amazonaws.com:example:some-id`
 type ServiceSpecificCredential struct {
 	pulumi.CustomResourceState
 
@@ -87,6 +86,7 @@ func NewServiceSpecificCredential(ctx *pulumi.Context,
 		"servicePassword",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ServiceSpecificCredential
 	err := ctx.RegisterResource("aws:iam/serviceSpecificCredential:ServiceSpecificCredential", name, args, &resource, opts...)
 	if err != nil {

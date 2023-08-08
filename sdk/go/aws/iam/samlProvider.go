@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 //	"os"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -51,13 +52,11 @@ import (
 //
 // ## Import
 //
-// IAM SAML Providers can be imported using the `arn`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_iam_saml_provider.default
 //
-//	$ pulumi import aws:iam/samlProvider:SamlProvider default arn:aws:iam::123456789012:saml-provider/SAMLADFS
-//
-// ```
+//	id = "arn:aws:iam::123456789012:saml-provider/SAMLADFS" } Using `pulumi import`, import IAM SAML Providers using the `arn`. For exampleconsole % pulumi import aws_iam_saml_provider.default arn:aws:iam::123456789012:saml-provider/SAMLADFS
 type SamlProvider struct {
 	pulumi.CustomResourceState
 
@@ -85,6 +84,7 @@ func NewSamlProvider(ctx *pulumi.Context,
 	if args.SamlMetadataDocument == nil {
 		return nil, errors.New("invalid value for required argument 'SamlMetadataDocument'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SamlProvider
 	err := ctx.RegisterResource("aws:iam/samlProvider:SamlProvider", name, args, &resource, opts...)
 	if err != nil {

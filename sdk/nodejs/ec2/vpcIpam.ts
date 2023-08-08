@@ -12,11 +12,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * IPAMs can be imported using the `ipam id`, e.g.
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:ec2/vpcIpam:VpcIpam example ipam-0178368ad2146a492
- * ```
+ *  to = aws_vpc_ipam.example
+ *
+ *  id = "ipam-0178368ad2146a492" } Using `pulumi import`, import IPAMs using the IPAM `id`. For exampleconsole % pulumi import aws_vpc_ipam.example ipam-0178368ad2146a492
  */
 export class VpcIpam extends pulumi.CustomResource {
     /**

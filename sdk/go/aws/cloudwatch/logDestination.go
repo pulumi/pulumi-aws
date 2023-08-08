@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,13 +43,11 @@ import (
 //
 // ## Import
 //
-// CloudWatch Logs destinations can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_cloudwatch_log_destination.test_destination
 //
-//	$ pulumi import aws:cloudwatch/logDestination:LogDestination test_destination test_destination
-//
-// ```
+//	id = "test_destination" } Using `pulumi import`, import CloudWatch Logs destinations using the `name`. For exampleconsole % pulumi import aws_cloudwatch_log_destination.test_destination test_destination
 type LogDestination struct {
 	pulumi.CustomResourceState
 
@@ -79,6 +78,7 @@ func NewLogDestination(ctx *pulumi.Context,
 	if args.TargetArn == nil {
 		return nil, errors.New("invalid value for required argument 'TargetArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LogDestination
 	err := ctx.RegisterResource("aws:cloudwatch/logDestination:LogDestination", name, args, &resource, opts...)
 	if err != nil {

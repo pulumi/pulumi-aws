@@ -57,11 +57,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * VPC Endpoint Subnet Associations can be imported using `vpc_endpoint_id` together with `subnet_id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:ec2/vpcEndpointSubnetAssociation:VpcEndpointSubnetAssociation example vpce-aaaaaaaa/subnet-bbbbbbbbbbbbbbbbb
- * ```
+ *  to = aws_vpc_endpoint_subnet_association.example
+ * 
+ *  id = &#34;vpce-aaaaaaaa/subnet-bbbbbbbbbbbbbbbbb&#34; } Using `pulumi import`, import VPC Endpoint Subnet Associations using `vpc_endpoint_id` together with `subnet_id`. For exampleconsole % pulumi import aws_vpc_endpoint_subnet_association.example vpce-aaaaaaaa/subnet-bbbbbbbbbbbbbbbbb
  * 
  */
 @ResourceType(type="aws:ec2/vpcEndpointSubnetAssociation:VpcEndpointSubnetAssociation")

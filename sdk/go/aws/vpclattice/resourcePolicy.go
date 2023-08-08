@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,8 +25,8 @@ import (
 //	"encoding/json"
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/vpclattice"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/vpclattice"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -84,13 +85,11 @@ import (
 //
 // ## Import
 //
-// VPC Lattice Resource Policy can be imported using the `resource_arn`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_vpclattice_resource_policy.example
 //
-//	$ pulumi import aws:vpclattice/resourcePolicy:ResourcePolicy example rft-8012925589
-//
-// ```
+//	id = "rft-8012925589" } Using `pulumi import`, import VPC Lattice Resource Policy using the `resource_arn`. For exampleconsole % pulumi import aws_vpclattice_resource_policy.example rft-8012925589
 type ResourcePolicy struct {
 	pulumi.CustomResourceState
 
@@ -113,6 +112,7 @@ func NewResourcePolicy(ctx *pulumi.Context,
 	if args.ResourceArn == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResourcePolicy
 	err := ctx.RegisterResource("aws:vpclattice/resourcePolicy:ResourcePolicy", name, args, &resource, opts...)
 	if err != nil {

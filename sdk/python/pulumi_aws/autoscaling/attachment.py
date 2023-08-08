@@ -15,22 +15,15 @@ __all__ = ['AttachmentArgs', 'Attachment']
 class AttachmentArgs:
     def __init__(__self__, *,
                  autoscaling_group_name: pulumi.Input[str],
-                 alb_target_group_arn: Optional[pulumi.Input[str]] = None,
                  elb: Optional[pulumi.Input[str]] = None,
                  lb_target_group_arn: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Attachment resource.
         :param pulumi.Input[str] autoscaling_group_name: Name of ASG to associate with the ELB.
-        :param pulumi.Input[str] alb_target_group_arn: ARN of an ALB Target Group.
         :param pulumi.Input[str] elb: Name of the ELB.
         :param pulumi.Input[str] lb_target_group_arn: ARN of a load balancer target group.
         """
         pulumi.set(__self__, "autoscaling_group_name", autoscaling_group_name)
-        if alb_target_group_arn is not None:
-            warnings.warn("""Use lb_target_group_arn instead""", DeprecationWarning)
-            pulumi.log.warn("""alb_target_group_arn is deprecated: Use lb_target_group_arn instead""")
-        if alb_target_group_arn is not None:
-            pulumi.set(__self__, "alb_target_group_arn", alb_target_group_arn)
         if elb is not None:
             pulumi.set(__self__, "elb", elb)
         if lb_target_group_arn is not None:
@@ -47,21 +40,6 @@ class AttachmentArgs:
     @autoscaling_group_name.setter
     def autoscaling_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "autoscaling_group_name", value)
-
-    @property
-    @pulumi.getter(name="albTargetGroupArn")
-    def alb_target_group_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        ARN of an ALB Target Group.
-        """
-        warnings.warn("""Use lb_target_group_arn instead""", DeprecationWarning)
-        pulumi.log.warn("""alb_target_group_arn is deprecated: Use lb_target_group_arn instead""")
-
-        return pulumi.get(self, "alb_target_group_arn")
-
-    @alb_target_group_arn.setter
-    def alb_target_group_arn(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "alb_target_group_arn", value)
 
     @property
     @pulumi.getter
@@ -91,43 +69,21 @@ class AttachmentArgs:
 @pulumi.input_type
 class _AttachmentState:
     def __init__(__self__, *,
-                 alb_target_group_arn: Optional[pulumi.Input[str]] = None,
                  autoscaling_group_name: Optional[pulumi.Input[str]] = None,
                  elb: Optional[pulumi.Input[str]] = None,
                  lb_target_group_arn: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Attachment resources.
-        :param pulumi.Input[str] alb_target_group_arn: ARN of an ALB Target Group.
         :param pulumi.Input[str] autoscaling_group_name: Name of ASG to associate with the ELB.
         :param pulumi.Input[str] elb: Name of the ELB.
         :param pulumi.Input[str] lb_target_group_arn: ARN of a load balancer target group.
         """
-        if alb_target_group_arn is not None:
-            warnings.warn("""Use lb_target_group_arn instead""", DeprecationWarning)
-            pulumi.log.warn("""alb_target_group_arn is deprecated: Use lb_target_group_arn instead""")
-        if alb_target_group_arn is not None:
-            pulumi.set(__self__, "alb_target_group_arn", alb_target_group_arn)
         if autoscaling_group_name is not None:
             pulumi.set(__self__, "autoscaling_group_name", autoscaling_group_name)
         if elb is not None:
             pulumi.set(__self__, "elb", elb)
         if lb_target_group_arn is not None:
             pulumi.set(__self__, "lb_target_group_arn", lb_target_group_arn)
-
-    @property
-    @pulumi.getter(name="albTargetGroupArn")
-    def alb_target_group_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        ARN of an ALB Target Group.
-        """
-        warnings.warn("""Use lb_target_group_arn instead""", DeprecationWarning)
-        pulumi.log.warn("""alb_target_group_arn is deprecated: Use lb_target_group_arn instead""")
-
-        return pulumi.get(self, "alb_target_group_arn")
-
-    @alb_target_group_arn.setter
-    def alb_target_group_arn(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "alb_target_group_arn", value)
 
     @property
     @pulumi.getter(name="autoscalingGroupName")
@@ -171,21 +127,14 @@ class Attachment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alb_target_group_arn: Optional[pulumi.Input[str]] = None,
                  autoscaling_group_name: Optional[pulumi.Input[str]] = None,
                  elb: Optional[pulumi.Input[str]] = None,
                  lb_target_group_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides an Auto Scaling Attachment resource.
+        Attaches a load balancer to an Auto Scaling group.
 
-        > **NOTE on Auto Scaling Groups and ASG Attachments:** This provider currently provides
-        both a standalone `autoscaling.Attachment` resource
-        (describing an ASG attached to an ELB or ALB), and an `autoscaling.Group`
-        with `load_balancers` and `target_group_arns` defined in-line. These two methods are not
-        mutually-exclusive. If `autoscaling.Attachment` resources are used, either alone or with inline
-        `load_balancers` or `target_group_arns`, the `autoscaling.Group` resource must be configured
-        to ignore changes to the `load_balancers` and `target_group_arns` arguments.
+        > **NOTE on Auto Scaling Groups, Attachments and Traffic Source Attachments:** Pulumi provides standalone Attachment (for attaching Classic Load Balancers and Application Load Balancer, Gateway Load Balancer, or Network Load Balancer target groups) and Traffic Source Attachment (for attaching Load Balancers and VPC Lattice target groups) resources and an Auto Scaling Group resource with `load_balancers`, `target_group_arns` and `traffic_source` attributes. Do not use the same traffic source in more than one of these resources. Doing so will cause a conflict of attachments. A `lifecycle` configuration block can be used to suppress differences if necessary.
 
         ## Example Usage
 
@@ -194,9 +143,9 @@ class Attachment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         # Create a new load balancer attachment
-        asg_attachment_bar = aws.autoscaling.Attachment("asgAttachmentBar",
-            autoscaling_group_name=aws_autoscaling_group["asg"]["id"],
-            elb=aws_elb["bar"]["id"])
+        example = aws.autoscaling.Attachment("example",
+            autoscaling_group_name=aws_autoscaling_group["example"]["id"],
+            elb=aws_elb["example"]["id"])
         ```
 
         ```python
@@ -204,26 +153,13 @@ class Attachment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         # Create a new ALB Target Group attachment
-        asg_attachment_bar = aws.autoscaling.Attachment("asgAttachmentBar",
-            autoscaling_group_name=aws_autoscaling_group["asg"]["id"],
-            lb_target_group_arn=aws_lb_target_group["test"]["arn"])
-        ```
-        ## With An AutoScaling Group Resource
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        # ... other configuration ...
-        asg = aws.autoscaling.Group("asg")
-        asg_attachment_bar = aws.autoscaling.Attachment("asgAttachmentBar",
-            autoscaling_group_name=asg.id,
-            elb=aws_elb["test"]["id"])
+        example = aws.autoscaling.Attachment("example",
+            autoscaling_group_name=aws_autoscaling_group["example"]["id"],
+            lb_target_group_arn=aws_lb_target_group["example"]["arn"])
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] alb_target_group_arn: ARN of an ALB Target Group.
         :param pulumi.Input[str] autoscaling_group_name: Name of ASG to associate with the ELB.
         :param pulumi.Input[str] elb: Name of the ELB.
         :param pulumi.Input[str] lb_target_group_arn: ARN of a load balancer target group.
@@ -235,15 +171,9 @@ class Attachment(pulumi.CustomResource):
                  args: AttachmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an Auto Scaling Attachment resource.
+        Attaches a load balancer to an Auto Scaling group.
 
-        > **NOTE on Auto Scaling Groups and ASG Attachments:** This provider currently provides
-        both a standalone `autoscaling.Attachment` resource
-        (describing an ASG attached to an ELB or ALB), and an `autoscaling.Group`
-        with `load_balancers` and `target_group_arns` defined in-line. These two methods are not
-        mutually-exclusive. If `autoscaling.Attachment` resources are used, either alone or with inline
-        `load_balancers` or `target_group_arns`, the `autoscaling.Group` resource must be configured
-        to ignore changes to the `load_balancers` and `target_group_arns` arguments.
+        > **NOTE on Auto Scaling Groups, Attachments and Traffic Source Attachments:** Pulumi provides standalone Attachment (for attaching Classic Load Balancers and Application Load Balancer, Gateway Load Balancer, or Network Load Balancer target groups) and Traffic Source Attachment (for attaching Load Balancers and VPC Lattice target groups) resources and an Auto Scaling Group resource with `load_balancers`, `target_group_arns` and `traffic_source` attributes. Do not use the same traffic source in more than one of these resources. Doing so will cause a conflict of attachments. A `lifecycle` configuration block can be used to suppress differences if necessary.
 
         ## Example Usage
 
@@ -252,9 +182,9 @@ class Attachment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         # Create a new load balancer attachment
-        asg_attachment_bar = aws.autoscaling.Attachment("asgAttachmentBar",
-            autoscaling_group_name=aws_autoscaling_group["asg"]["id"],
-            elb=aws_elb["bar"]["id"])
+        example = aws.autoscaling.Attachment("example",
+            autoscaling_group_name=aws_autoscaling_group["example"]["id"],
+            elb=aws_elb["example"]["id"])
         ```
 
         ```python
@@ -262,21 +192,9 @@ class Attachment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         # Create a new ALB Target Group attachment
-        asg_attachment_bar = aws.autoscaling.Attachment("asgAttachmentBar",
-            autoscaling_group_name=aws_autoscaling_group["asg"]["id"],
-            lb_target_group_arn=aws_lb_target_group["test"]["arn"])
-        ```
-        ## With An AutoScaling Group Resource
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        # ... other configuration ...
-        asg = aws.autoscaling.Group("asg")
-        asg_attachment_bar = aws.autoscaling.Attachment("asgAttachmentBar",
-            autoscaling_group_name=asg.id,
-            elb=aws_elb["test"]["id"])
+        example = aws.autoscaling.Attachment("example",
+            autoscaling_group_name=aws_autoscaling_group["example"]["id"],
+            lb_target_group_arn=aws_lb_target_group["example"]["arn"])
         ```
 
         :param str resource_name: The name of the resource.
@@ -294,7 +212,6 @@ class Attachment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alb_target_group_arn: Optional[pulumi.Input[str]] = None,
                  autoscaling_group_name: Optional[pulumi.Input[str]] = None,
                  elb: Optional[pulumi.Input[str]] = None,
                  lb_target_group_arn: Optional[pulumi.Input[str]] = None,
@@ -307,10 +224,6 @@ class Attachment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AttachmentArgs.__new__(AttachmentArgs)
 
-            if alb_target_group_arn is not None and not opts.urn:
-                warnings.warn("""Use lb_target_group_arn instead""", DeprecationWarning)
-                pulumi.log.warn("""alb_target_group_arn is deprecated: Use lb_target_group_arn instead""")
-            __props__.__dict__["alb_target_group_arn"] = alb_target_group_arn
             if autoscaling_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'autoscaling_group_name'")
             __props__.__dict__["autoscaling_group_name"] = autoscaling_group_name
@@ -326,7 +239,6 @@ class Attachment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            alb_target_group_arn: Optional[pulumi.Input[str]] = None,
             autoscaling_group_name: Optional[pulumi.Input[str]] = None,
             elb: Optional[pulumi.Input[str]] = None,
             lb_target_group_arn: Optional[pulumi.Input[str]] = None) -> 'Attachment':
@@ -337,7 +249,6 @@ class Attachment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] alb_target_group_arn: ARN of an ALB Target Group.
         :param pulumi.Input[str] autoscaling_group_name: Name of ASG to associate with the ELB.
         :param pulumi.Input[str] elb: Name of the ELB.
         :param pulumi.Input[str] lb_target_group_arn: ARN of a load balancer target group.
@@ -346,22 +257,10 @@ class Attachment(pulumi.CustomResource):
 
         __props__ = _AttachmentState.__new__(_AttachmentState)
 
-        __props__.__dict__["alb_target_group_arn"] = alb_target_group_arn
         __props__.__dict__["autoscaling_group_name"] = autoscaling_group_name
         __props__.__dict__["elb"] = elb
         __props__.__dict__["lb_target_group_arn"] = lb_target_group_arn
         return Attachment(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="albTargetGroupArn")
-    def alb_target_group_arn(self) -> pulumi.Output[Optional[str]]:
-        """
-        ARN of an ALB Target Group.
-        """
-        warnings.warn("""Use lb_target_group_arn instead""", DeprecationWarning)
-        pulumi.log.warn("""alb_target_group_arn is deprecated: Use lb_target_group_arn instead""")
-
-        return pulumi.get(self, "alb_target_group_arn")
 
     @property
     @pulumi.getter(name="autoscalingGroupName")

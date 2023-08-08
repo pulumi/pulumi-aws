@@ -38,7 +38,6 @@ class ClusterArgs:
                  preferred_outpost_arn: Optional[pulumi.Input[str]] = None,
                  replication_group_id: Optional[pulumi.Input[str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  snapshot_arns: Optional[pulumi.Input[str]] = None,
                  snapshot_name: Optional[pulumi.Input[str]] = None,
                  snapshot_retention_limit: Optional[pulumi.Input[int]] = None,
@@ -58,10 +57,11 @@ class ClusterArgs:
         :param pulumi.Input[str] engine_version: Version number of the cache engine to be used.
                If not set, defaults to the latest version.
                See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
-               When `engine` is `redis` and the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+               When `engine` is `redis` and the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+               When the version is 6, the major and minor version can be set, e.g., `6.2`,
                or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
                Otherwise, specify the full version desired, e.g., `5.0.6`.
-               The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
+               The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
         :param pulumi.Input[str] final_snapshot_identifier: Name of your final cluster snapshot. If omitted, no final snapshot will be made.
         :param pulumi.Input[str] ip_discovery: The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterLogDeliveryConfigurationArgs']]] log_delivery_configurations: Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html). See Log Delivery Configuration below for more details.
@@ -81,7 +81,6 @@ class ClusterArgs:
         :param pulumi.Input[str] preferred_outpost_arn: The outpost ARN in which the cache cluster will be created.
         :param pulumi.Input[str] replication_group_id: ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: One or more VPC security groups associated with the cache cluster
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_names: List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
         :param pulumi.Input[str] snapshot_arns: Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshot_arns` forces a new resource.
         :param pulumi.Input[str] snapshot_name: Name of a snapshot from which to restore data into the new node group. Changing `snapshot_name` forces a new resource.
         :param pulumi.Input[int] snapshot_retention_limit: Number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off. Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
@@ -133,11 +132,6 @@ class ClusterArgs:
             pulumi.set(__self__, "replication_group_id", replication_group_id)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
-        if security_group_names is not None:
-            warnings.warn("""With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-            pulumi.log.warn("""security_group_names is deprecated: With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.""")
-        if security_group_names is not None:
-            pulumi.set(__self__, "security_group_names", security_group_names)
         if snapshot_arns is not None:
             pulumi.set(__self__, "snapshot_arns", snapshot_arns)
         if snapshot_name is not None:
@@ -232,10 +226,11 @@ class ClusterArgs:
         Version number of the cache engine to be used.
         If not set, defaults to the latest version.
         See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
-        When `engine` is `redis` and the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+        When `engine` is `redis` and the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+        When the version is 6, the major and minor version can be set, e.g., `6.2`,
         or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
         Otherwise, specify the full version desired, e.g., `5.0.6`.
-        The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
+        The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
         """
         return pulumi.get(self, "engine_version")
 
@@ -428,21 +423,6 @@ class ClusterArgs:
         pulumi.set(self, "security_group_ids", value)
 
     @property
-    @pulumi.getter(name="securityGroupNames")
-    def security_group_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
-        """
-        warnings.warn("""With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-        pulumi.log.warn("""security_group_names is deprecated: With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.""")
-
-        return pulumi.get(self, "security_group_names")
-
-    @security_group_names.setter
-    def security_group_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "security_group_names", value)
-
-    @property
     @pulumi.getter(name="snapshotArns")
     def snapshot_arns(self) -> Optional[pulumi.Input[str]]:
         """
@@ -545,7 +525,6 @@ class _ClusterState:
                  preferred_outpost_arn: Optional[pulumi.Input[str]] = None,
                  replication_group_id: Optional[pulumi.Input[str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  snapshot_arns: Optional[pulumi.Input[str]] = None,
                  snapshot_name: Optional[pulumi.Input[str]] = None,
                  snapshot_retention_limit: Optional[pulumi.Input[int]] = None,
@@ -570,10 +549,11 @@ class _ClusterState:
         :param pulumi.Input[str] engine_version: Version number of the cache engine to be used.
                If not set, defaults to the latest version.
                See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
-               When `engine` is `redis` and the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+               When `engine` is `redis` and the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+               When the version is 6, the major and minor version can be set, e.g., `6.2`,
                or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
                Otherwise, specify the full version desired, e.g., `5.0.6`.
-               The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
+               The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
         :param pulumi.Input[str] engine_version_actual: Because ElastiCache pulls the latest minor or patch for a version, this attribute returns the running version of the cache engine.
         :param pulumi.Input[str] final_snapshot_identifier: Name of your final cluster snapshot. If omitted, no final snapshot will be made.
         :param pulumi.Input[str] ip_discovery: The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
@@ -594,7 +574,6 @@ class _ClusterState:
         :param pulumi.Input[str] preferred_outpost_arn: The outpost ARN in which the cache cluster will be created.
         :param pulumi.Input[str] replication_group_id: ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: One or more VPC security groups associated with the cache cluster
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_names: List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
         :param pulumi.Input[str] snapshot_arns: Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshot_arns` forces a new resource.
         :param pulumi.Input[str] snapshot_name: Name of a snapshot from which to restore data into the new node group. Changing `snapshot_name` forces a new resource.
         :param pulumi.Input[int] snapshot_retention_limit: Number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off. Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
@@ -657,11 +636,6 @@ class _ClusterState:
             pulumi.set(__self__, "replication_group_id", replication_group_id)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
-        if security_group_names is not None:
-            warnings.warn("""With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-            pulumi.log.warn("""security_group_names is deprecated: With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.""")
-        if security_group_names is not None:
-            pulumi.set(__self__, "security_group_names", security_group_names)
         if snapshot_arns is not None:
             pulumi.set(__self__, "snapshot_arns", snapshot_arns)
         if snapshot_name is not None:
@@ -806,10 +780,11 @@ class _ClusterState:
         Version number of the cache engine to be used.
         If not set, defaults to the latest version.
         See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
-        When `engine` is `redis` and the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+        When `engine` is `redis` and the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+        When the version is 6, the major and minor version can be set, e.g., `6.2`,
         or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
         Otherwise, specify the full version desired, e.g., `5.0.6`.
-        The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
+        The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
         """
         return pulumi.get(self, "engine_version")
 
@@ -1014,21 +989,6 @@ class _ClusterState:
         pulumi.set(self, "security_group_ids", value)
 
     @property
-    @pulumi.getter(name="securityGroupNames")
-    def security_group_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
-        """
-        warnings.warn("""With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-        pulumi.log.warn("""security_group_names is deprecated: With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.""")
-
-        return pulumi.get(self, "security_group_names")
-
-    @security_group_names.setter
-    def security_group_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "security_group_names", value)
-
-    @property
     @pulumi.getter(name="snapshotArns")
     def snapshot_arns(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1140,7 +1100,6 @@ class Cluster(pulumi.CustomResource):
                  preferred_outpost_arn: Optional[pulumi.Input[str]] = None,
                  replication_group_id: Optional[pulumi.Input[str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  snapshot_arns: Optional[pulumi.Input[str]] = None,
                  snapshot_name: Optional[pulumi.Input[str]] = None,
                  snapshot_retention_limit: Optional[pulumi.Input[int]] = None,
@@ -1237,11 +1196,11 @@ class Cluster(pulumi.CustomResource):
 
         ## Import
 
-        ElastiCache Clusters can be imported using the `cluster_id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:elasticache/cluster:Cluster my_cluster my_cluster
-        ```
+         to = aws_elasticache_cluster.my_cluster
+
+         id = "my_cluster" } Using `pulumi import`, import ElastiCache Clusters using the `cluster_id`. For exampleconsole % pulumi import aws_elasticache_cluster.my_cluster my_cluster
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1256,10 +1215,11 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] engine_version: Version number of the cache engine to be used.
                If not set, defaults to the latest version.
                See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
-               When `engine` is `redis` and the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+               When `engine` is `redis` and the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+               When the version is 6, the major and minor version can be set, e.g., `6.2`,
                or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
                Otherwise, specify the full version desired, e.g., `5.0.6`.
-               The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
+               The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
         :param pulumi.Input[str] final_snapshot_identifier: Name of your final cluster snapshot. If omitted, no final snapshot will be made.
         :param pulumi.Input[str] ip_discovery: The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterLogDeliveryConfigurationArgs']]]] log_delivery_configurations: Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html). See Log Delivery Configuration below for more details.
@@ -1279,7 +1239,6 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] preferred_outpost_arn: The outpost ARN in which the cache cluster will be created.
         :param pulumi.Input[str] replication_group_id: ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: One or more VPC security groups associated with the cache cluster
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_names: List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
         :param pulumi.Input[str] snapshot_arns: Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshot_arns` forces a new resource.
         :param pulumi.Input[str] snapshot_name: Name of a snapshot from which to restore data into the new node group. Changing `snapshot_name` forces a new resource.
         :param pulumi.Input[int] snapshot_retention_limit: Number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off. Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
@@ -1382,11 +1341,11 @@ class Cluster(pulumi.CustomResource):
 
         ## Import
 
-        ElastiCache Clusters can be imported using the `cluster_id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:elasticache/cluster:Cluster my_cluster my_cluster
-        ```
+         to = aws_elasticache_cluster.my_cluster
+
+         id = "my_cluster" } Using `pulumi import`, import ElastiCache Clusters using the `cluster_id`. For exampleconsole % pulumi import aws_elasticache_cluster.my_cluster my_cluster
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.
@@ -1425,7 +1384,6 @@ class Cluster(pulumi.CustomResource):
                  preferred_outpost_arn: Optional[pulumi.Input[str]] = None,
                  replication_group_id: Optional[pulumi.Input[str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  snapshot_arns: Optional[pulumi.Input[str]] = None,
                  snapshot_name: Optional[pulumi.Input[str]] = None,
                  snapshot_retention_limit: Optional[pulumi.Input[int]] = None,
@@ -1463,10 +1421,6 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["preferred_outpost_arn"] = preferred_outpost_arn
             __props__.__dict__["replication_group_id"] = replication_group_id
             __props__.__dict__["security_group_ids"] = security_group_ids
-            if security_group_names is not None and not opts.urn:
-                warnings.warn("""With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-                pulumi.log.warn("""security_group_names is deprecated: With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.""")
-            __props__.__dict__["security_group_names"] = security_group_names
             __props__.__dict__["snapshot_arns"] = snapshot_arns
             __props__.__dict__["snapshot_name"] = snapshot_name
             __props__.__dict__["snapshot_retention_limit"] = snapshot_retention_limit
@@ -1516,7 +1470,6 @@ class Cluster(pulumi.CustomResource):
             preferred_outpost_arn: Optional[pulumi.Input[str]] = None,
             replication_group_id: Optional[pulumi.Input[str]] = None,
             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             snapshot_arns: Optional[pulumi.Input[str]] = None,
             snapshot_name: Optional[pulumi.Input[str]] = None,
             snapshot_retention_limit: Optional[pulumi.Input[int]] = None,
@@ -1546,10 +1499,11 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] engine_version: Version number of the cache engine to be used.
                If not set, defaults to the latest version.
                See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
-               When `engine` is `redis` and the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+               When `engine` is `redis` and the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+               When the version is 6, the major and minor version can be set, e.g., `6.2`,
                or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
                Otherwise, specify the full version desired, e.g., `5.0.6`.
-               The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
+               The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
         :param pulumi.Input[str] engine_version_actual: Because ElastiCache pulls the latest minor or patch for a version, this attribute returns the running version of the cache engine.
         :param pulumi.Input[str] final_snapshot_identifier: Name of your final cluster snapshot. If omitted, no final snapshot will be made.
         :param pulumi.Input[str] ip_discovery: The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
@@ -1570,7 +1524,6 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] preferred_outpost_arn: The outpost ARN in which the cache cluster will be created.
         :param pulumi.Input[str] replication_group_id: ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: One or more VPC security groups associated with the cache cluster
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_names: List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
         :param pulumi.Input[str] snapshot_arns: Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshot_arns` forces a new resource.
         :param pulumi.Input[str] snapshot_name: Name of a snapshot from which to restore data into the new node group. Changing `snapshot_name` forces a new resource.
         :param pulumi.Input[int] snapshot_retention_limit: Number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off. Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
@@ -1610,7 +1563,6 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["preferred_outpost_arn"] = preferred_outpost_arn
         __props__.__dict__["replication_group_id"] = replication_group_id
         __props__.__dict__["security_group_ids"] = security_group_ids
-        __props__.__dict__["security_group_names"] = security_group_names
         __props__.__dict__["snapshot_arns"] = snapshot_arns
         __props__.__dict__["snapshot_name"] = snapshot_name
         __props__.__dict__["snapshot_retention_limit"] = snapshot_retention_limit
@@ -1709,10 +1661,11 @@ class Cluster(pulumi.CustomResource):
         Version number of the cache engine to be used.
         If not set, defaults to the latest version.
         See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
-        When `engine` is `redis` and the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+        When `engine` is `redis` and the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+        When the version is 6, the major and minor version can be set, e.g., `6.2`,
         or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
         Otherwise, specify the full version desired, e.g., `5.0.6`.
-        The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
+        The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
         """
         return pulumi.get(self, "engine_version")
 
@@ -1847,17 +1800,6 @@ class Cluster(pulumi.CustomResource):
         One or more VPC security groups associated with the cache cluster
         """
         return pulumi.get(self, "security_group_ids")
-
-    @property
-    @pulumi.getter(name="securityGroupNames")
-    def security_group_names(self) -> pulumi.Output[Sequence[str]]:
-        """
-        List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
-        """
-        warnings.warn("""With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-        pulumi.log.warn("""security_group_names is deprecated: With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.""")
-
-        return pulumi.get(self, "security_group_names")
 
     @property
     @pulumi.getter(name="snapshotArns")

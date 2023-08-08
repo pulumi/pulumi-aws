@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -43,13 +44,11 @@ import (
 //
 // ## Import
 //
-// `aws_api_gateway_request_validator` can be imported using `REST-API-ID/REQUEST-VALIDATOR-ID`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_api_gateway_request_validator.example
 //
-//	$ pulumi import aws:apigateway/requestValidator:RequestValidator example 12345abcde/67890fghij
-//
-// ```
+//	id = "12345abcde/67890fghij" } Using `pulumi import`, import `aws_api_gateway_request_validator` using `REST-API-ID/REQUEST-VALIDATOR-ID`. For exampleconsole % pulumi import aws_api_gateway_request_validator.example 12345abcde/67890fghij
 type RequestValidator struct {
 	pulumi.CustomResourceState
 
@@ -73,6 +72,7 @@ func NewRequestValidator(ctx *pulumi.Context,
 	if args.RestApi == nil {
 		return nil, errors.New("invalid value for required argument 'RestApi'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RequestValidator
 	err := ctx.RegisterResource("aws:apigateway/requestValidator:RequestValidator", name, args, &resource, opts...)
 	if err != nil {

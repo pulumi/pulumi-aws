@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,8 +23,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecs"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -65,13 +66,11 @@ import (
 //
 // ## Import
 //
-// ECS Capacity Providers can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_ecs_capacity_provider.example
 //
-//	$ pulumi import aws:ecs/capacityProvider:CapacityProvider example example
-//
-// ```
+//	id = "example" } Using `pulumi import`, import ECS Capacity Providers using the `name`. For exampleconsole % pulumi import aws_ecs_capacity_provider.example example
 type CapacityProvider struct {
 	pulumi.CustomResourceState
 
@@ -97,6 +96,7 @@ func NewCapacityProvider(ctx *pulumi.Context,
 	if args.AutoScalingGroupProvider == nil {
 		return nil, errors.New("invalid value for required argument 'AutoScalingGroupProvider'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CapacityProvider
 	err := ctx.RegisterResource("aws:ecs/capacityProvider:CapacityProvider", name, args, &resource, opts...)
 	if err != nil {

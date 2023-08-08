@@ -952,7 +952,7 @@ class Project(pulumi.CustomResource):
             ),
             environment=aws.codebuild.ProjectEnvironmentArgs(
                 compute_type="BUILD_GENERAL1_SMALL",
-                image="aws/codebuild/standard:1.0",
+                image="aws/codebuild/amazonlinux2-x86_64-standard:4.0",
                 type="LINUX_CONTAINER",
                 image_pull_credentials_type="CODEBUILD",
                 environment_variables=[
@@ -1017,7 +1017,7 @@ class Project(pulumi.CustomResource):
             ),
             environment=aws.codebuild.ProjectEnvironmentArgs(
                 compute_type="BUILD_GENERAL1_SMALL",
-                image="aws/codebuild/standard:1.0",
+                image="aws/codebuild/amazonlinux2-x86_64-standard:4.0",
                 type="LINUX_CONTAINER",
                 image_pull_credentials_type="CODEBUILD",
                 environment_variables=[aws.codebuild.ProjectEnvironmentEnvironmentVariableArgs(
@@ -1037,11 +1037,11 @@ class Project(pulumi.CustomResource):
 
         ## Import
 
-        CodeBuild Project can be imported using the `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:codebuild/project:Project name project-name
-        ```
+         to = aws_codebuild_project.name
+
+         id = "project-name" } Using `pulumi import`, import CodeBuild Project using the `name`. For exampleconsole % pulumi import aws_codebuild_project.name project-name
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1167,7 +1167,7 @@ class Project(pulumi.CustomResource):
             ),
             environment=aws.codebuild.ProjectEnvironmentArgs(
                 compute_type="BUILD_GENERAL1_SMALL",
-                image="aws/codebuild/standard:1.0",
+                image="aws/codebuild/amazonlinux2-x86_64-standard:4.0",
                 type="LINUX_CONTAINER",
                 image_pull_credentials_type="CODEBUILD",
                 environment_variables=[
@@ -1232,7 +1232,7 @@ class Project(pulumi.CustomResource):
             ),
             environment=aws.codebuild.ProjectEnvironmentArgs(
                 compute_type="BUILD_GENERAL1_SMALL",
-                image="aws/codebuild/standard:1.0",
+                image="aws/codebuild/amazonlinux2-x86_64-standard:4.0",
                 type="LINUX_CONTAINER",
                 image_pull_credentials_type="CODEBUILD",
                 environment_variables=[aws.codebuild.ProjectEnvironmentEnvironmentVariableArgs(
@@ -1252,11 +1252,11 @@ class Project(pulumi.CustomResource):
 
         ## Import
 
-        CodeBuild Project can be imported using the `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:codebuild/project:Project name project-name
-        ```
+         to = aws_codebuild_project.name
+
+         id = "project-name" } Using `pulumi import`, import CodeBuild Project using the `name`. For exampleconsole % pulumi import aws_codebuild_project.name project-name
 
         :param str resource_name: The name of the resource.
         :param ProjectArgs args: The arguments to use to populate this resource's properties.

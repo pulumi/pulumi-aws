@@ -22,13 +22,13 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * SSM
+ * terraform import {
  *
- * Maintenance Windows can be imported using the `maintenance window id`, e.g.,
+ *  to = aws_ssm_maintenance_window.imported-window
  *
- * ```sh
- *  $ pulumi import aws:ssm/maintenanceWindow:MaintenanceWindow imported-window mw-0123456789
- * ```
+ *  id = "mw-0123456789" } Using `pulumi import`, import SSM
+ *
+ * Maintenance Windows using the maintenance window `id`. For exampleconsole % pulumi import aws_ssm_maintenance_window.imported-window mw-0123456789
  */
 export class MaintenanceWindow extends pulumi.CustomResource {
     /**

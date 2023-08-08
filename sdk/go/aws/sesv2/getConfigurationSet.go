@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sesv2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sesv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -39,6 +40,7 @@ import (
 //
 // ```
 func LookupConfigurationSet(ctx *pulumi.Context, args *LookupConfigurationSetArgs, opts ...pulumi.InvokeOption) (*LookupConfigurationSetResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupConfigurationSetResult
 	err := ctx.Invoke("aws:sesv2/getConfigurationSet:getConfigurationSet", args, &rv, opts...)
 	if err != nil {

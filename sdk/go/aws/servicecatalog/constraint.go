@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,7 +26,7 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicecatalog"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicecatalog"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -57,13 +58,11 @@ import (
 //
 // ## Import
 //
-// `aws_servicecatalog_constraint` can be imported using the constraint ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_servicecatalog_constraint.example
 //
-//	$ pulumi import aws:servicecatalog/constraint:Constraint example cons-nmdkb6cgxfcrs
-//
-// ```
+//	id = "cons-nmdkb6cgxfcrs" } Using `pulumi import`, import `aws_servicecatalog_constraint` using the constraint ID. For exampleconsole % pulumi import aws_servicecatalog_constraint.example cons-nmdkb6cgxfcrs
 type Constraint struct {
 	pulumi.CustomResourceState
 
@@ -105,6 +104,7 @@ func NewConstraint(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Constraint
 	err := ctx.RegisterResource("aws:servicecatalog/constraint:Constraint", name, args, &resource, opts...)
 	if err != nil {

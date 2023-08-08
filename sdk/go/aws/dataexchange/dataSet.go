@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/dataexchange"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dataexchange"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,13 +43,11 @@ import (
 //
 // ## Import
 //
-// # DataExchange DataSets can be imported by their arn
+// terraform import {
 //
-// ```sh
+//	to = aws_dataexchange_data_set.example
 //
-//	$ pulumi import aws:dataexchange/dataSet:DataSet example arn:aws:dataexchange:us-west-2:123456789012:data-sets/4fa784c7-ccb4-4dbf-ba4f-02198320daa1
-//
-// ```
+//	id = "arn:aws:dataexchange:us-west-2:123456789012:data-sets/4fa784c7-ccb4-4dbf-ba4f-02198320daa1" } Using `pulumi import`, import DataExchange DataSets using their ARN. For exampleconsole % pulumi import aws_dataexchange_data_set.example arn:aws:dataexchange:us-west-2:123456789012:data-sets/4fa784c7-ccb4-4dbf-ba4f-02198320daa1
 type DataSet struct {
 	pulumi.CustomResourceState
 
@@ -79,6 +78,7 @@ func NewDataSet(ctx *pulumi.Context,
 	if args.Description == nil {
 		return nil, errors.New("invalid value for required argument 'Description'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DataSet
 	err := ctx.RegisterResource("aws:dataexchange/dataSet:DataSet", name, args, &resource, opts...)
 	if err != nil {

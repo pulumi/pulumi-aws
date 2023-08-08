@@ -97,7 +97,7 @@ public final class AssociationArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above.
+     * The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
      * 
      * @deprecated
      * use &#39;targets&#39; argument instead. https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateAssociation.html#systemsmanager-CreateAssociation-request-InstanceId
@@ -108,7 +108,7 @@ public final class AssociationArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> instanceId;
 
     /**
-     * @return The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above.
+     * @return The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
      * 
      * @deprecated
      * use &#39;targets&#39; argument instead. https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateAssociation.html#systemsmanager-CreateAssociation-request-InstanceId
@@ -135,14 +135,14 @@ public final class AssociationArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
+     * The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.
      * 
      */
     @Import(name="maxErrors")
     private @Nullable Output<String> maxErrors;
 
     /**
-     * @return The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
+     * @return The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.
      * 
      */
     public Optional<Output<String>> maxErrors() {
@@ -386,7 +386,7 @@ public final class AssociationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instanceId The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above.
+         * @param instanceId The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
          * 
          * @return builder
          * 
@@ -401,7 +401,7 @@ public final class AssociationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instanceId The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above.
+         * @param instanceId The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
          * 
          * @return builder
          * 
@@ -436,7 +436,7 @@ public final class AssociationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxErrors The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
+         * @param maxErrors The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.
          * 
          * @return builder
          * 
@@ -447,7 +447,7 @@ public final class AssociationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxErrors The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
+         * @param maxErrors The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.
          * 
          * @return builder
          * 

@@ -18,11 +18,9 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Creates a WAFv2 Web ACL Logging Configuration resource.
+ * This resource creates a WAFv2 Web ACL Logging Configuration.
  * 
- * &gt; **Note:** To start logging from a WAFv2 Web ACL, an Amazon Kinesis Data Firehose (e.g., `aws.kinesis.FirehoseDeliveryStream` resource must also be created with a PUT source (not a stream) and in the region that you are operating.
- * If you are capturing logs for Amazon CloudFront, always create the firehose in US East (N. Virginia).
- * Be sure to give the data firehose, cloudwatch log group, and/or s3 bucket a name that starts with the prefix `aws-waf-logs-`.
+ * !&gt; **WARNING:** When logging from a WAFv2 Web ACL to a CloudWatch Log Group, the WAFv2 service tries to create or update a generic Log Resource Policy named `AWSWAF-LOGS`. However, if there are a large number of Web ACLs or if the account frequently creates and deletes Web ACLs, this policy may exceed the maximum policy size. As a result, this resource type will fail to be created. More details about this issue can be found in this issue. To prevent this issue, you can manage a specific resource policy. Please refer to the example below for managing a CloudWatch Log Group with a managed CloudWatch Log Resource Policy.
  * 
  * ## Example Usage
  * ### With Redacted Fields
@@ -124,66 +122,66 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * WAFv2 Web ACL Logging Configurations can be imported using the WAFv2 Web ACL ARN e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:wafv2/webAclLoggingConfiguration:WebAclLoggingConfiguration example arn:aws:wafv2:us-west-2:123456789012:regional/webacl/test-logs/a1b2c3d4-5678-90ab-cdef
- * ```
+ *  to = aws_wafv2_web_acl_logging_configuration.example
+ * 
+ *  id = &#34;arn:aws:wafv2:us-west-2:123456789012:regional/webacl/test-logs/a1b2c3d4-5678-90ab-cdef&#34; } Using `pulumi import`, import WAFv2 Web ACL Logging Configurations using the ARN of the WAFv2 Web ACL. For exampleconsole % pulumi import aws_wafv2_web_acl_logging_configuration.example arn:aws:wafv2:us-west-2:123456789012:regional/webacl/test-logs/a1b2c3d4-5678-90ab-cdef
  * 
  */
 @ResourceType(type="aws:wafv2/webAclLoggingConfiguration:WebAclLoggingConfiguration")
 public class WebAclLoggingConfiguration extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket Amazon Resource Names (ARNs) that you want to associate with the web ACL.
+     * Configuration block that allows you to associate Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket Amazon Resource Names (ARNs) with the web ACL. **Note:** data firehose, log group, or bucket name **must** be prefixed with `aws-waf-logs-`, e.g. `aws-waf-logs-example-firehose`, `aws-waf-logs-example-log-group`, or `aws-waf-logs-example-bucket`.
      * 
      */
     @Export(name="logDestinationConfigs", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> logDestinationConfigs;
 
     /**
-     * @return The Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket Amazon Resource Names (ARNs) that you want to associate with the web ACL.
+     * @return Configuration block that allows you to associate Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket Amazon Resource Names (ARNs) with the web ACL. **Note:** data firehose, log group, or bucket name **must** be prefixed with `aws-waf-logs-`, e.g. `aws-waf-logs-example-firehose`, `aws-waf-logs-example-log-group`, or `aws-waf-logs-example-bucket`.
      * 
      */
     public Output<List<String>> logDestinationConfigs() {
         return this.logDestinationConfigs;
     }
     /**
-     * A configuration block that specifies which web requests are kept in the logs and which are dropped. You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation. See Logging Filter below for more details.
+     * Configuration block that specifies which web requests are kept in the logs and which are dropped. It allows filtering based on the rule action and the web request labels applied by matching rules during web ACL evaluation. For more details, refer to the Logging Filter section below.
      * 
      */
     @Export(name="loggingFilter", refs={WebAclLoggingConfigurationLoggingFilter.class}, tree="[0]")
     private Output</* @Nullable */ WebAclLoggingConfigurationLoggingFilter> loggingFilter;
 
     /**
-     * @return A configuration block that specifies which web requests are kept in the logs and which are dropped. You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation. See Logging Filter below for more details.
+     * @return Configuration block that specifies which web requests are kept in the logs and which are dropped. It allows filtering based on the rule action and the web request labels applied by matching rules during web ACL evaluation. For more details, refer to the Logging Filter section below.
      * 
      */
     public Output<Optional<WebAclLoggingConfigurationLoggingFilter>> loggingFilter() {
         return Codegen.optional(this.loggingFilter);
     }
     /**
-     * The parts of the request that you want to keep out of the logs. Up to 100 `redacted_fields` blocks are supported. See Redacted Fields below for more details.
+     * Configuration for parts of the request that you want to keep out of the logs. Up to 100 `redacted_fields` blocks are supported. See Redacted Fields below for more details.
      * 
      */
     @Export(name="redactedFields", refs={List.class,WebAclLoggingConfigurationRedactedField.class}, tree="[0,1]")
     private Output</* @Nullable */ List<WebAclLoggingConfigurationRedactedField>> redactedFields;
 
     /**
-     * @return The parts of the request that you want to keep out of the logs. Up to 100 `redacted_fields` blocks are supported. See Redacted Fields below for more details.
+     * @return Configuration for parts of the request that you want to keep out of the logs. Up to 100 `redacted_fields` blocks are supported. See Redacted Fields below for more details.
      * 
      */
     public Output<Optional<List<WebAclLoggingConfigurationRedactedField>>> redactedFields() {
         return Codegen.optional(this.redactedFields);
     }
     /**
-     * The Amazon Resource Name (ARN) of the web ACL that you want to associate with `log_destination_configs`.
+     * Amazon Resource Name (ARN) of the web ACL that you want to associate with `log_destination_configs`.
      * 
      */
     @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the web ACL that you want to associate with `log_destination_configs`.
+     * @return Amazon Resource Name (ARN) of the web ACL that you want to associate with `log_destination_configs`.
      * 
      */
     public Output<String> resourceArn() {

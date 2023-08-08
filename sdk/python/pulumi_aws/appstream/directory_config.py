@@ -167,11 +167,11 @@ class DirectoryConfig(pulumi.CustomResource):
 
         ## Import
 
-        `aws_appstream_directory_config` can be imported using the id, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:appstream/directoryConfig:DirectoryConfig example directoryNameExample
-        ```
+         to = aws_appstream_directory_config.example
+
+         id = "directoryNameExample" } Using `pulumi import`, import `aws_appstream_directory_config` using the id. For exampleconsole % pulumi import aws_appstream_directory_config.example directoryNameExample
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -205,11 +205,11 @@ class DirectoryConfig(pulumi.CustomResource):
 
         ## Import
 
-        `aws_appstream_directory_config` can be imported using the id, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:appstream/directoryConfig:DirectoryConfig example directoryNameExample
-        ```
+         to = aws_appstream_directory_config.example
+
+         id = "directoryNameExample" } Using `pulumi import`, import `aws_appstream_directory_config` using the id. For exampleconsole % pulumi import aws_appstream_directory_config.example directoryNameExample
 
         :param str resource_name: The name of the resource.
         :param DirectoryConfigArgs args: The arguments to use to populate this resource's properties.

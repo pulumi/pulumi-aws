@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/swf"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/swf"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -44,13 +45,11 @@ import (
 //
 // ## Import
 //
-// SWF Domains can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_swf_domain.foo
 //
-//	$ pulumi import aws:swf/domain:Domain foo test-domain
-//
-// ```
+//	id = "test-domain" } Using `pulumi import`, import SWF Domains using the `name`. For exampleconsole % pulumi import aws_swf_domain.foo test-domain
 type Domain struct {
 	pulumi.CustomResourceState
 
@@ -80,6 +79,7 @@ func NewDomain(ctx *pulumi.Context,
 	if args.WorkflowExecutionRetentionPeriodInDays == nil {
 		return nil, errors.New("invalid value for required argument 'WorkflowExecutionRetentionPeriodInDays'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Domain
 	err := ctx.RegisterResource("aws:swf/domain:Domain", name, args, &resource, opts...)
 	if err != nil {

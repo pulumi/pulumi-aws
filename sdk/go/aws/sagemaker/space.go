@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -43,13 +44,11 @@ import (
 //
 // ## Import
 //
-// SageMaker Spaces can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_sagemaker_space.test_space
 //
-//	$ pulumi import aws:sagemaker/space:Space test_space arn:aws:sagemaker:us-west-2:123456789012:space/domain-id/space-name
-//
-// ```
+//	id = "arn:aws:sagemaker:us-west-2:123456789012:space/domain-id/space-name" } Using `pulumi import`, import SageMaker Spaces using the `id`. For exampleconsole % pulumi import aws_sagemaker_space.test_space arn:aws:sagemaker:us-west-2:123456789012:space/domain-id/space-name
 type Space struct {
 	pulumi.CustomResourceState
 
@@ -82,6 +81,7 @@ func NewSpace(ctx *pulumi.Context,
 	if args.SpaceName == nil {
 		return nil, errors.New("invalid value for required argument 'SpaceName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Space
 	err := ctx.RegisterResource("aws:sagemaker/space:Space", name, args, &resource, opts...)
 	if err != nil {

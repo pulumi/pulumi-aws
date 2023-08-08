@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -43,13 +44,11 @@ import (
 //
 // ## Import
 //
-// SageMaker Image Versions can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_sagemaker_image_version.test_image
 //
-//	$ pulumi import aws:sagemaker/imageVersion:ImageVersion test_image my-code-repo
-//
-// ```
+//	id = "my-code-repo" } Using `pulumi import`, import SageMaker Image Versions using the `name`. For exampleconsole % pulumi import aws_sagemaker_image_version.test_image my-code-repo
 type ImageVersion struct {
 	pulumi.CustomResourceState
 
@@ -79,6 +78,7 @@ func NewImageVersion(ctx *pulumi.Context,
 	if args.ImageName == nil {
 		return nil, errors.New("invalid value for required argument 'ImageName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ImageVersion
 	err := ctx.RegisterResource("aws:sagemaker/imageVersion:ImageVersion", name, args, &resource, opts...)
 	if err != nil {

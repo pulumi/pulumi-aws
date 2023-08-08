@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/organizations"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/organizations"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,6 +43,7 @@ import (
 //
 // ```
 func GetOrganizationalUnits(ctx *pulumi.Context, args *GetOrganizationalUnitsArgs, opts ...pulumi.InvokeOption) (*GetOrganizationalUnitsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetOrganizationalUnitsResult
 	err := ctx.Invoke("aws:organizations/getOrganizationalUnits:getOrganizationalUnits", args, &rv, opts...)
 	if err != nil {
@@ -59,7 +61,7 @@ type GetOrganizationalUnitsArgs struct {
 // A collection of values returned by getOrganizationalUnits.
 type GetOrganizationalUnitsResult struct {
 	// List of child organizational units, which have the following attributes:
-	Childrens []GetOrganizationalUnitsChildren `pulumi:"childrens"`
+	Children []GetOrganizationalUnitsChild `pulumi:"children"`
 	// The provider-assigned unique ID for this managed resource.
 	Id       string `pulumi:"id"`
 	ParentId string `pulumi:"parentId"`
@@ -104,8 +106,8 @@ func (o GetOrganizationalUnitsResultOutput) ToGetOrganizationalUnitsResultOutput
 }
 
 // List of child organizational units, which have the following attributes:
-func (o GetOrganizationalUnitsResultOutput) Childrens() GetOrganizationalUnitsChildrenArrayOutput {
-	return o.ApplyT(func(v GetOrganizationalUnitsResult) []GetOrganizationalUnitsChildren { return v.Childrens }).(GetOrganizationalUnitsChildrenArrayOutput)
+func (o GetOrganizationalUnitsResultOutput) Children() GetOrganizationalUnitsChildArrayOutput {
+	return o.ApplyT(func(v GetOrganizationalUnitsResult) []GetOrganizationalUnitsChild { return v.Children }).(GetOrganizationalUnitsChildArrayOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

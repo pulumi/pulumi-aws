@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/backup"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/backup"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -77,13 +78,11 @@ import (
 //
 // ## Import
 //
-// Backup vault policy can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_backup_vault_policy.test
 //
-//	$ pulumi import aws:backup/vaultPolicy:VaultPolicy test TestVault
-//
-// ```
+//	id = "TestVault" } Using `pulumi import`, import Backup vault policy using the `name`. For exampleconsole % pulumi import aws_backup_vault_policy.test TestVault
 type VaultPolicy struct {
 	pulumi.CustomResourceState
 
@@ -108,6 +107,7 @@ func NewVaultPolicy(ctx *pulumi.Context,
 	if args.Policy == nil {
 		return nil, errors.New("invalid value for required argument 'Policy'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VaultPolicy
 	err := ctx.RegisterResource("aws:backup/vaultPolicy:VaultPolicy", name, args, &resource, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -34,7 +35,7 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -87,13 +88,11 @@ import (
 //
 // ## Import
 //
-// AutoScaling Lifecycle Hooks can be imported using the role autoscaling_group_name and name separated by `/`.
+// terraform import {
 //
-// ```sh
+//	to = aws_autoscaling_lifecycle_hook.test-lifecycle-hook
 //
-//	$ pulumi import aws:autoscaling/lifecycleHook:LifecycleHook test-lifecycle-hook asg-name/lifecycle-hook-name
-//
-// ```
+//	id = "asg-name/lifecycle-hook-name" } Using `pulumi import`, import AutoScaling Lifecycle Hooks using the role autoscaling_group_name and name separated by `/`. For exampleconsole % pulumi import aws_autoscaling_lifecycle_hook.test-lifecycle-hook asg-name/lifecycle-hook-name
 type LifecycleHook struct {
 	pulumi.CustomResourceState
 
@@ -128,6 +127,7 @@ func NewLifecycleHook(ctx *pulumi.Context,
 	if args.LifecycleTransition == nil {
 		return nil, errors.New("invalid value for required argument 'LifecycleTransition'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LifecycleHook
 	err := ctx.RegisterResource("aws:autoscaling/lifecycleHook:LifecycleHook", name, args, &resource, opts...)
 	if err != nil {

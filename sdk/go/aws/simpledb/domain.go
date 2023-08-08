@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/simpledb"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/simpledb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -38,13 +39,11 @@ import (
 //
 // ## Import
 //
-// SimpleDB Domains can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_simpledb_domain.users
 //
-//	$ pulumi import aws:simpledb/domain:Domain users users
-//
-// ```
+//	id = "users" } Using `pulumi import`, import SimpleDB Domains using the `name`. For exampleconsole % pulumi import aws_simpledb_domain.users users
 type Domain struct {
 	pulumi.CustomResourceState
 
@@ -59,6 +58,7 @@ func NewDomain(ctx *pulumi.Context,
 		args = &DomainArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Domain
 	err := ctx.RegisterResource("aws:simpledb/domain:Domain", name, args, &resource, opts...)
 	if err != nil {

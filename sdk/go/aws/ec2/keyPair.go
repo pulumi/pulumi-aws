@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -28,7 +29,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -49,13 +50,11 @@ import (
 //
 // ## Import
 //
-// Key Pairs can be imported using the `key_name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_key_pair.deployer
 //
-//	$ pulumi import aws:ec2/keyPair:KeyPair deployer deployer-key
-//
-// ```
+//	id = "deployer-key" } Using `pulumi import`, import Key Pairs using the `key_name`. For exampleconsole % pulumi import aws_key_pair.deployer deployer-key
 type KeyPair struct {
 	pulumi.CustomResourceState
 
@@ -89,6 +88,7 @@ func NewKeyPair(ctx *pulumi.Context,
 	if args.PublicKey == nil {
 		return nil, errors.New("invalid value for required argument 'PublicKey'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource KeyPair
 	err := ctx.RegisterResource("aws:ec2/keyPair:KeyPair", name, args, &resource, opts...)
 	if err != nil {

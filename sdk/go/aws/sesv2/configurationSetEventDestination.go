@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sesv2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sesv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -68,7 +69,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sesv2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sesv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -110,7 +111,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sesv2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sesv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -151,7 +152,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sesv2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sesv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -188,13 +189,11 @@ import (
 //
 // ## Import
 //
-// SESv2 (Simple Email V2) Configuration Set Event Destination can be imported using the `id` (`configuration_set_name|event_destination_name`), e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_sesv2_configuration_set_event_destination.example
 //
-//	$ pulumi import aws:sesv2/configurationSetEventDestination:ConfigurationSetEventDestination example example_configuration_set|example_event_destination
-//
-// ```
+//	id = "example_configuration_set|example_event_destination" } Using `pulumi import`, import SESv2 (Simple Email V2) Configuration Set Event Destination using the `id` (`configuration_set_name|event_destination_name`). For exampleconsole % pulumi import aws_sesv2_configuration_set_event_destination.example example_configuration_set|example_event_destination
 type ConfigurationSetEventDestination struct {
 	pulumi.CustomResourceState
 
@@ -222,6 +221,7 @@ func NewConfigurationSetEventDestination(ctx *pulumi.Context,
 	if args.EventDestinationName == nil {
 		return nil, errors.New("invalid value for required argument 'EventDestinationName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ConfigurationSetEventDestination
 	err := ctx.RegisterResource("aws:sesv2/configurationSetEventDestination:ConfigurationSetEventDestination", name, args, &resource, opts...)
 	if err != nil {

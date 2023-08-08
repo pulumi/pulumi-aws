@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +22,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -68,7 +69,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -107,7 +108,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -146,7 +147,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -197,21 +198,15 @@ import (
 //
 // ## Import
 //
-// Objects can be imported using the `id`. The `id` is the bucket name and the key together e.g.,
+// Import using the `id`, which is the bucket name and the key togetherterraform import {
 //
-// ```sh
+//	to = aws_s3_bucket_object.example
 //
-//	$ pulumi import aws:s3/bucketObject:BucketObject object some-bucket-name/some/key.txt
+//	id = "some-bucket-name/some/key.txt" } Import using S3 URL syntaxterraform import {
 //
-// ```
+//	to = aws_s3_bucket_object.example
 //
-//	Additionally, s3 url syntax can be used, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:s3/bucketObject:BucketObject object s3://some-bucket-name/some/key.txt
-//
-// ```
+//	id = "s3://some-bucket-name/some/key.txt" } **Using `pulumi import` to import** objects using the `id` or S3 URL. For exampleImport using the `id`, which is the bucket name and the key togetherconsole % pulumi import aws_s3_bucket_object.example some-bucket-name/some/key.txt Import using S3 URL syntaxconsole % pulumi import aws_s3_bucket_object.example s3://some-bucket-name/some/key.txt
 type BucketObject struct {
 	pulumi.CustomResourceState
 
@@ -283,6 +278,7 @@ func NewBucketObject(ctx *pulumi.Context,
 	if args.Bucket == nil {
 		return nil, errors.New("invalid value for required argument 'Bucket'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BucketObject
 	err := ctx.RegisterResource("aws:s3/bucketObject:BucketObject", name, args, &resource, opts...)
 	if err != nil {

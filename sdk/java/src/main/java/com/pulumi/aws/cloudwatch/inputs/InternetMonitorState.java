@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.cloudwatch.inputs;
 
+import com.pulumi.aws.cloudwatch.inputs.InternetMonitorHealthEventsConfigArgs;
 import com.pulumi.aws.cloudwatch.inputs.InternetMonitorInternetMeasurementsLogDeliveryArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -32,6 +33,21 @@ public final class InternetMonitorState extends com.pulumi.resources.ResourceArg
      */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
+    }
+
+    /**
+     * Health event thresholds. A health event threshold percentage, for performance and availability, determines when Internet Monitor creates a health event when there&#39;s an internet issue that affects your application end users. See Health Events Config below.
+     * 
+     */
+    @Import(name="healthEventsConfig")
+    private @Nullable Output<InternetMonitorHealthEventsConfigArgs> healthEventsConfig;
+
+    /**
+     * @return Health event thresholds. A health event threshold percentage, for performance and availability, determines when Internet Monitor creates a health event when there&#39;s an internet issue that affects your application end users. See Health Events Config below.
+     * 
+     */
+    public Optional<Output<InternetMonitorHealthEventsConfigArgs>> healthEventsConfig() {
+        return Optional.ofNullable(this.healthEventsConfig);
     }
 
     /**
@@ -162,6 +178,7 @@ public final class InternetMonitorState extends com.pulumi.resources.ResourceArg
 
     private InternetMonitorState(InternetMonitorState $) {
         this.arn = $.arn;
+        this.healthEventsConfig = $.healthEventsConfig;
         this.internetMeasurementsLogDelivery = $.internetMeasurementsLogDelivery;
         this.maxCityNetworksToMonitor = $.maxCityNetworksToMonitor;
         this.monitorName = $.monitorName;
@@ -209,6 +226,27 @@ public final class InternetMonitorState extends com.pulumi.resources.ResourceArg
          */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
+        }
+
+        /**
+         * @param healthEventsConfig Health event thresholds. A health event threshold percentage, for performance and availability, determines when Internet Monitor creates a health event when there&#39;s an internet issue that affects your application end users. See Health Events Config below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder healthEventsConfig(@Nullable Output<InternetMonitorHealthEventsConfigArgs> healthEventsConfig) {
+            $.healthEventsConfig = healthEventsConfig;
+            return this;
+        }
+
+        /**
+         * @param healthEventsConfig Health event thresholds. A health event threshold percentage, for performance and availability, determines when Internet Monitor creates a health event when there&#39;s an internet issue that affects your application end users. See Health Events Config below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder healthEventsConfig(InternetMonitorHealthEventsConfigArgs healthEventsConfig) {
+            return healthEventsConfig(Output.of(healthEventsConfig));
         }
 
         /**

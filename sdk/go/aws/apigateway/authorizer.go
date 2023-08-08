@@ -8,20 +8,138 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Provides an API Gateway Authorizer.
 //
-// ## Import
+// ## Example Usage
 //
-// AWS API Gateway Authorizer can be imported using the `REST-API-ID/AUTHORIZER-ID`, e.g.,
+// ```go
+// package main
 //
-// ```sh
+// import (
 //
-//	$ pulumi import aws:apigateway/authorizer:Authorizer authorizer 12345abcde/example
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			demoRestApi, err := apigateway.NewRestApi(ctx, "demoRestApi", nil)
+//			if err != nil {
+//				return err
+//			}
+//			invocationAssumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Effect: pulumi.StringRef("Allow"),
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "Service",
+//								Identifiers: []string{
+//									"apigateway.amazonaws.com",
+//								},
+//							},
+//						},
+//						Actions: []string{
+//							"sts:AssumeRole",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			invocationRole, err := iam.NewRole(ctx, "invocationRole", &iam.RoleArgs{
+//				Path:             pulumi.String("/"),
+//				AssumeRolePolicy: *pulumi.String(invocationAssumeRole.Json),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			lambdaAssumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Effect: pulumi.StringRef("Allow"),
+//						Actions: []string{
+//							"sts:AssumeRole",
+//						},
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "Service",
+//								Identifiers: []string{
+//									"lambda.amazonaws.com",
+//								},
+//							},
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			lambda, err := iam.NewRole(ctx, "lambda", &iam.RoleArgs{
+//				AssumeRolePolicy: *pulumi.String(lambdaAssumeRole.Json),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			authorizer, err := lambda.NewFunction(ctx, "authorizer", &lambda.FunctionArgs{
+//				Code:    pulumi.NewFileArchive("lambda-function.zip"),
+//				Role:    lambda.Arn,
+//				Handler: pulumi.String("exports.example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apigateway.NewAuthorizer(ctx, "demoAuthorizer", &apigateway.AuthorizerArgs{
+//				RestApi:               demoRestApi.ID(),
+//				AuthorizerUri:         authorizer.InvokeArn,
+//				AuthorizerCredentials: invocationRole.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			invocationPolicyPolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//				Statements: iam.GetPolicyDocumentStatementArray{
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Effect: pulumi.String("Allow"),
+//						Actions: pulumi.StringArray{
+//							pulumi.String("lambda:InvokeFunction"),
+//						},
+//						Resources: pulumi.StringArray{
+//							authorizer.Arn,
+//						},
+//					},
+//				},
+//			}, nil)
+//			_, err = iam.NewRolePolicy(ctx, "invocationPolicyRolePolicy", &iam.RolePolicyArgs{
+//				Role: invocationRole.ID(),
+//				Policy: invocationPolicyPolicyDocument.ApplyT(func(invocationPolicyPolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
+//					return &invocationPolicyPolicyDocument.Json, nil
+//				}).(pulumi.StringPtrOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
+//
+// ## Import
+//
+// terraform import {
+//
+//	to = aws_api_gateway_authorizer.authorizer
+//
+//	id = "12345abcde/example" } Using `pulumi import`, import AWS API Gateway Authorizer using the `REST-API-ID/AUTHORIZER-ID`. For exampleconsole % pulumi import aws_api_gateway_authorizer.authorizer 12345abcde/example
 type Authorizer struct {
 	pulumi.CustomResourceState
 
@@ -58,6 +176,7 @@ func NewAuthorizer(ctx *pulumi.Context,
 	if args.RestApi == nil {
 		return nil, errors.New("invalid value for required argument 'RestApi'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Authorizer
 	err := ctx.RegisterResource("aws:apigateway/authorizer:Authorizer", name, args, &resource, opts...)
 	if err != nil {

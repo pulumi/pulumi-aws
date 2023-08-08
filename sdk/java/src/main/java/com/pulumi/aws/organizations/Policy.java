@@ -61,11 +61,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_organizations_policy` can be imported by using the policy ID, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:organizations/policy:Policy example p-12345678
- * ```
+ *  to = aws_organizations_policy.example
+ * 
+ *  id = &#34;p-12345678&#34; } Using `pulumi import`, import `aws_organizations_policy` using the policy ID. For exampleconsole % pulumi import aws_organizations_policy.example p-12345678
  * 
  */
 @ResourceType(type="aws:organizations/policy:Policy")

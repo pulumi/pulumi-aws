@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -53,13 +54,11 @@ import (
 //
 // ## Import
 //
-// `aws_api_gateway_gateway_response` can be imported using `REST-API-ID/RESPONSE-TYPE`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_api_gateway_gateway_response.example
 //
-//	$ pulumi import aws:apigateway/response:Response example 12345abcde/UNAUTHORIZED
-//
-// ```
+//	id = "12345abcde/UNAUTHORIZED" } Using `pulumi import`, import `aws_api_gateway_gateway_response` using `REST-API-ID/RESPONSE-TYPE`. For exampleconsole % pulumi import aws_api_gateway_gateway_response.example 12345abcde/UNAUTHORIZED
 type Response struct {
 	pulumi.CustomResourceState
 
@@ -88,6 +87,7 @@ func NewResponse(ctx *pulumi.Context,
 	if args.RestApiId == nil {
 		return nil, errors.New("invalid value for required argument 'RestApiId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Response
 	err := ctx.RegisterResource("aws:apigateway/response:Response", name, args, &resource, opts...)
 	if err != nil {

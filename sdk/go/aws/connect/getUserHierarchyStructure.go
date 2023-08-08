@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func LookupUserHierarchyStructure(ctx *pulumi.Context, args *LookupUserHierarchyStructureArgs, opts ...pulumi.InvokeOption) (*LookupUserHierarchyStructureResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupUserHierarchyStructureResult
 	err := ctx.Invoke("aws:connect/getUserHierarchyStructure:getUserHierarchyStructure", args, &rv, opts...)
 	if err != nil {

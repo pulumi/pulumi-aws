@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appstream"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appstream"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -59,13 +60,11 @@ import (
 //
 // ## Import
 //
-// `aws_appstream_fleet` can be imported using the id, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_appstream_fleet.example
 //
-//	$ pulumi import aws:appstream/fleet:Fleet example fleetNameExample
-//
-// ```
+//	id = "fleetNameExample" } Using `pulumi import`, import `aws_appstream_fleet` using the id. For exampleconsole % pulumi import aws_appstream_fleet.example fleetNameExample
 type Fleet struct {
 	pulumi.CustomResourceState
 
@@ -127,6 +126,7 @@ func NewFleet(ctx *pulumi.Context,
 	if args.InstanceType == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceType'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Fleet
 	err := ctx.RegisterResource("aws:appstream/fleet:Fleet", name, args, &resource, opts...)
 	if err != nil {

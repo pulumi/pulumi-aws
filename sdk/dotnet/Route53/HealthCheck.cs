@@ -123,11 +123,11 @@ namespace Pulumi.Aws.Route53
     /// 
     /// ## Import
     /// 
-    /// Route53 Health Checks can be imported using the `health check id`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:route53/healthCheck:HealthCheck http_check abcdef11-2222-3333-4444-555555fedcba
-    /// ```
+    ///  to = aws_route53_health_check.http_check
+    /// 
+    ///  id = "abcdef11-2222-3333-4444-555555fedcba" } Using `pulumi import`, import Route53 Health Checks using the health check `id`. For exampleconsole % pulumi import aws_route53_health_check.http_check abcdef11-2222-3333-4444-555555fedcba
     /// </summary>
     [AwsResourceType("aws:route53/healthCheck:HealthCheck")]
     public partial class HealthCheck : global::Pulumi.CustomResource
@@ -186,7 +186,7 @@ namespace Pulumi.Aws.Route53
         public Output<int> FailureThreshold { get; private set; } = null!;
 
         /// <summary>
-        /// The fully qualified domain name of the endpoint to be checked.
+        /// The fully qualified domain name of the endpoint to be checked. If a value is set for `ip_address`, the value set for `fqdn` will be passed in the `Host` header.
         /// </summary>
         [Output("fqdn")]
         public Output<string?> Fqdn { get; private set; } = null!;
@@ -376,7 +376,7 @@ namespace Pulumi.Aws.Route53
         public Input<int>? FailureThreshold { get; set; }
 
         /// <summary>
-        /// The fully qualified domain name of the endpoint to be checked.
+        /// The fully qualified domain name of the endpoint to be checked. If a value is set for `ip_address`, the value set for `fqdn` will be passed in the `Host` header.
         /// </summary>
         [Input("fqdn")]
         public Input<string>? Fqdn { get; set; }
@@ -540,7 +540,7 @@ namespace Pulumi.Aws.Route53
         public Input<int>? FailureThreshold { get; set; }
 
         /// <summary>
-        /// The fully qualified domain name of the endpoint to be checked.
+        /// The fully qualified domain name of the endpoint to be checked. If a value is set for `ip_address`, the value set for `fqdn` will be passed in the `Host` header.
         /// </summary>
         [Input("fqdn")]
         public Input<string>? Fqdn { get; set; }

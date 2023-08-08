@@ -247,11 +247,11 @@ class StorageLensConfiguration(pulumi.CustomResource):
 
         ## Import
 
-        S3 Storage Lens configurations can be imported using the `account_id` and `config_id`, separated by a colon (`:`), e.g.
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:s3control/storageLensConfiguration:StorageLensConfiguration example 123456789012:example-1
-        ```
+         to = aws_s3control_storage_lens_configuration.example
+
+         id = "123456789012:example-1" } Using `pulumi import`, import S3 Storage Lens configurations using the `account_id` and `config_id`, separated by a colon (`:`). For exampleconsole % pulumi import aws_s3control_storage_lens_configuration.example 123456789012:example-1
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -316,11 +316,11 @@ class StorageLensConfiguration(pulumi.CustomResource):
 
         ## Import
 
-        S3 Storage Lens configurations can be imported using the `account_id` and `config_id`, separated by a colon (`:`), e.g.
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:s3control/storageLensConfiguration:StorageLensConfiguration example 123456789012:example-1
-        ```
+         to = aws_s3control_storage_lens_configuration.example
+
+         id = "123456789012:example-1" } Using `pulumi import`, import S3 Storage Lens configurations using the `account_id` and `config_id`, separated by a colon (`:`). For exampleconsole % pulumi import aws_s3control_storage_lens_configuration.example 123456789012:example-1
 
         :param str resource_name: The name of the resource.
         :param StorageLensConfigurationArgs args: The arguments to use to populate this resource's properties.

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkfirewall"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkfirewall"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -66,7 +67,7 @@ import (
 //
 //	"os"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkfirewall"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkfirewall"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -107,7 +108,7 @@ import (
 //
 //	"os"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkfirewall"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkfirewall"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -183,7 +184,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkfirewall"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkfirewall"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -234,13 +235,11 @@ import (
 //
 // ## Import
 //
-// Network Firewall Rule Groups can be imported using their `ARN`.
+// terraform import {
 //
-// ```sh
+//	to = aws_networkfirewall_rule_group.example
 //
-//	$ pulumi import aws:networkfirewall/ruleGroup:RuleGroup example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example
-//
-// ```
+//	id = "arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example" } Using `pulumi import`, import Network Firewall Rule Groups using their `arn`. For exampleconsole % pulumi import aws_networkfirewall_rule_group.example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example
 type RuleGroup struct {
 	pulumi.CustomResourceState
 
@@ -281,6 +280,7 @@ func NewRuleGroup(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RuleGroup
 	err := ctx.RegisterResource("aws:networkfirewall/ruleGroup:RuleGroup", name, args, &resource, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apprunner"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apprunner"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -49,13 +50,11 @@ import (
 //
 // ## Import
 //
-// App Runner vpc connector can be imported by using the `arn`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_apprunner_vpc_connector.example
 //
-//	$ pulumi import aws:apprunner/vpcConnector:VpcConnector example arn:aws:apprunner:us-east-1:1234567890:vpcconnector/example/1/0a03292a89764e5882c41d8f991c82fe
-//
-// ```
+//	id = "arn:aws:apprunner:us-east-1:1234567890:vpcconnector/example/1/0a03292a89764e5882c41d8f991c82fe" } Using `pulumi import`, import App Runner vpc connector using the `arn`. For exampleconsole % pulumi import aws_apprunner_vpc_connector.example arn:aws:apprunner:us-east-1:1234567890:vpcconnector/example/1/0a03292a89764e5882c41d8f991c82fe
 type VpcConnector struct {
 	pulumi.CustomResourceState
 
@@ -93,6 +92,7 @@ func NewVpcConnector(ctx *pulumi.Context,
 	if args.VpcConnectorName == nil {
 		return nil, errors.New("invalid value for required argument 'VpcConnectorName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcConnector
 	err := ctx.RegisterResource("aws:apprunner/vpcConnector:VpcConnector", name, args, &resource, opts...)
 	if err != nil {

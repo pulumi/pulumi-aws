@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/dax"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dax"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -44,15 +45,11 @@ import (
 //
 // ## Import
 //
-// DAX Clusters can be imported using the `cluster_name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_dax_cluster.my_cluster
 //
-//	$ pulumi import aws:dax/cluster:Cluster my_cluster my_cluster
-//
-// ```
-//
-//	[1]http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes
+//	id = "my_cluster" } Using `pulumi import`, import DAX Clusters using the `cluster_name`. For exampleconsole % pulumi import aws_dax_cluster.my_cluster my_cluster [1]http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes
 type Cluster struct {
 	pulumi.CustomResourceState
 
@@ -137,6 +134,7 @@ func NewCluster(ctx *pulumi.Context,
 	if args.ReplicationFactor == nil {
 		return nil, errors.New("invalid value for required argument 'ReplicationFactor'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Cluster
 	err := ctx.RegisterResource("aws:dax/cluster:Cluster", name, args, &resource, opts...)
 	if err != nil {

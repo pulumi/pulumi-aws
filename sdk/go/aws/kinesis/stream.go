@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kinesis"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kinesis"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,15 +55,11 @@ import (
 //
 // ## Import
 //
-// Kinesis Streams can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_kinesis_stream.test_stream
 //
-//	$ pulumi import aws:kinesis/stream:Stream test_stream kinesis-test
-//
-// ```
-//
-//	[1]https://aws.amazon.com/documentation/kinesis/ [2]https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html [3]https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html
+//	id = "TODO-kinesis-test" } Using `pulumi import`, import Kinesis Streams using the `name`. For exampleconsole % pulumi import aws_kinesis_stream.test_stream TODO-kinesis-test [1]https://aws.amazon.com/documentation/kinesis/ [2]https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html [3]https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html
 type Stream struct {
 	pulumi.CustomResourceState
 
@@ -98,6 +95,7 @@ func NewStream(ctx *pulumi.Context,
 		args = &StreamArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Stream
 	err := ctx.RegisterResource("aws:kinesis/stream:Stream", name, args, &resource, opts...)
 	if err != nil {

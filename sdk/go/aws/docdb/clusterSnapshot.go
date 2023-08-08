@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/docdb"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/docdb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,13 +43,11 @@ import (
 //
 // ## Import
 //
-// `aws_docdb_cluster_snapshot` can be imported by using the cluster snapshot identifier, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_docdb_cluster_snapshot.example
 //
-//	$ pulumi import aws:docdb/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
-//
-// ```
+//	id = "my-cluster-snapshot" } Using `pulumi import`, import `aws_docdb_cluster_snapshot` using the cluster snapshot identifier. For exampleconsole % pulumi import aws_docdb_cluster_snapshot.example my-cluster-snapshot
 type ClusterSnapshot struct {
 	pulumi.CustomResourceState
 
@@ -91,6 +90,7 @@ func NewClusterSnapshot(ctx *pulumi.Context,
 	if args.DbClusterSnapshotIdentifier == nil {
 		return nil, errors.New("invalid value for required argument 'DbClusterSnapshotIdentifier'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ClusterSnapshot
 	err := ctx.RegisterResource("aws:docdb/clusterSnapshot:ClusterSnapshot", name, args, &resource, opts...)
 	if err != nil {

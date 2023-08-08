@@ -41,6 +41,32 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// ### Public NAT with Secondary Private IP Addresses
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Ec2.NatGateway("example", new()
+    ///     {
+    ///         AllocationId = aws_eip.Example.Id,
+    ///         SubnetId = aws_subnet.Example.Id,
+    ///         SecondaryAllocationIds = new[]
+    ///         {
+    ///             aws_eip.Secondary.Id,
+    ///         },
+    ///         SecondaryPrivateIpAddresses = new[]
+    ///         {
+    ///             "10.0.1.5",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ### Private NAT
     /// 
     /// ```csharp
@@ -59,56 +85,93 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// ### Private NAT with Secondary Private IP Addresses
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Ec2.NatGateway("example", new()
+    ///     {
+    ///         ConnectivityType = "private",
+    ///         SubnetId = aws_subnet.Example.Id,
+    ///         SecondaryPrivateIpAddressCount = 7,
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 
-    /// NAT Gateways can be imported using the `id`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:ec2/natGateway:NatGateway private_gw nat-05dba92075d71c408
-    /// ```
+    ///  to = aws_nat_gateway.private_gw
+    /// 
+    ///  id = "nat-05dba92075d71c408" } Using `pulumi import`, import NAT Gateways using the `id`. For exampleconsole % pulumi import aws_nat_gateway.private_gw nat-05dba92075d71c408
     /// </summary>
     [AwsResourceType("aws:ec2/natGateway:NatGateway")]
     public partial class NatGateway : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Allocation ID of the Elastic IP address for the gateway. Required for `connectivity_type` of `public`.
+        /// The Allocation ID of the Elastic IP address for the NAT Gateway. Required for `connectivity_type` of `public`.
         /// </summary>
         [Output("allocationId")]
         public Output<string?> AllocationId { get; private set; } = null!;
 
         /// <summary>
-        /// The association ID of the Elastic IP address that's associated with the NAT gateway. Only available when `connectivity_type` is `public`.
+        /// The association ID of the Elastic IP address that's associated with the NAT Gateway. Only available when `connectivity_type` is `public`.
         /// </summary>
         [Output("associationId")]
         public Output<string> AssociationId { get; private set; } = null!;
 
         /// <summary>
-        /// Connectivity type for the gateway. Valid values are `private` and `public`. Defaults to `public`.
+        /// Connectivity type for the NAT Gateway. Valid values are `private` and `public`. Defaults to `public`.
         /// </summary>
         [Output("connectivityType")]
         public Output<string?> ConnectivityType { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the network interface associated with the NAT gateway.
+        /// The ID of the network interface associated with the NAT Gateway.
         /// </summary>
         [Output("networkInterfaceId")]
         public Output<string> NetworkInterfaceId { get; private set; } = null!;
 
         /// <summary>
-        /// The private IPv4 address to assign to the NAT gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
+        /// The private IPv4 address to assign to the NAT Gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
         /// </summary>
         [Output("privateIp")]
         public Output<string> PrivateIp { get; private set; } = null!;
 
         /// <summary>
-        /// The Elastic IP address associated with the NAT gateway.
+        /// The Elastic IP address associated with the NAT Gateway.
         /// </summary>
         [Output("publicIp")]
         public Output<string> PublicIp { get; private set; } = null!;
 
         /// <summary>
-        /// The Subnet ID of the subnet in which to place the gateway.
+        /// A list of secondary allocation EIP IDs for this NAT Gateway.
+        /// </summary>
+        [Output("secondaryAllocationIds")]
+        public Output<ImmutableArray<string>> SecondaryAllocationIds { get; private set; } = null!;
+
+        /// <summary>
+        /// [Private NAT Gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
+        /// </summary>
+        [Output("secondaryPrivateIpAddressCount")]
+        public Output<int> SecondaryPrivateIpAddressCount { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of secondary private IPv4 addresses to assign to the NAT Gateway.
+        /// </summary>
+        [Output("secondaryPrivateIpAddresses")]
+        public Output<ImmutableArray<string>> SecondaryPrivateIpAddresses { get; private set; } = null!;
+
+        /// <summary>
+        /// The Subnet ID of the subnet in which to place the NAT Gateway.
         /// </summary>
         [Output("subnetId")]
         public Output<string> SubnetId { get; private set; } = null!;
@@ -172,25 +235,55 @@ namespace Pulumi.Aws.Ec2
     public sealed class NatGatewayArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Allocation ID of the Elastic IP address for the gateway. Required for `connectivity_type` of `public`.
+        /// The Allocation ID of the Elastic IP address for the NAT Gateway. Required for `connectivity_type` of `public`.
         /// </summary>
         [Input("allocationId")]
         public Input<string>? AllocationId { get; set; }
 
         /// <summary>
-        /// Connectivity type for the gateway. Valid values are `private` and `public`. Defaults to `public`.
+        /// Connectivity type for the NAT Gateway. Valid values are `private` and `public`. Defaults to `public`.
         /// </summary>
         [Input("connectivityType")]
         public Input<string>? ConnectivityType { get; set; }
 
         /// <summary>
-        /// The private IPv4 address to assign to the NAT gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
+        /// The private IPv4 address to assign to the NAT Gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
         /// </summary>
         [Input("privateIp")]
         public Input<string>? PrivateIp { get; set; }
 
+        [Input("secondaryAllocationIds")]
+        private InputList<string>? _secondaryAllocationIds;
+
         /// <summary>
-        /// The Subnet ID of the subnet in which to place the gateway.
+        /// A list of secondary allocation EIP IDs for this NAT Gateway.
+        /// </summary>
+        public InputList<string> SecondaryAllocationIds
+        {
+            get => _secondaryAllocationIds ?? (_secondaryAllocationIds = new InputList<string>());
+            set => _secondaryAllocationIds = value;
+        }
+
+        /// <summary>
+        /// [Private NAT Gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
+        /// </summary>
+        [Input("secondaryPrivateIpAddressCount")]
+        public Input<int>? SecondaryPrivateIpAddressCount { get; set; }
+
+        [Input("secondaryPrivateIpAddresses")]
+        private InputList<string>? _secondaryPrivateIpAddresses;
+
+        /// <summary>
+        /// A list of secondary private IPv4 addresses to assign to the NAT Gateway.
+        /// </summary>
+        public InputList<string> SecondaryPrivateIpAddresses
+        {
+            get => _secondaryPrivateIpAddresses ?? (_secondaryPrivateIpAddresses = new InputList<string>());
+            set => _secondaryPrivateIpAddresses = value;
+        }
+
+        /// <summary>
+        /// The Subnet ID of the subnet in which to place the NAT Gateway.
         /// </summary>
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;
@@ -216,43 +309,73 @@ namespace Pulumi.Aws.Ec2
     public sealed class NatGatewayState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Allocation ID of the Elastic IP address for the gateway. Required for `connectivity_type` of `public`.
+        /// The Allocation ID of the Elastic IP address for the NAT Gateway. Required for `connectivity_type` of `public`.
         /// </summary>
         [Input("allocationId")]
         public Input<string>? AllocationId { get; set; }
 
         /// <summary>
-        /// The association ID of the Elastic IP address that's associated with the NAT gateway. Only available when `connectivity_type` is `public`.
+        /// The association ID of the Elastic IP address that's associated with the NAT Gateway. Only available when `connectivity_type` is `public`.
         /// </summary>
         [Input("associationId")]
         public Input<string>? AssociationId { get; set; }
 
         /// <summary>
-        /// Connectivity type for the gateway. Valid values are `private` and `public`. Defaults to `public`.
+        /// Connectivity type for the NAT Gateway. Valid values are `private` and `public`. Defaults to `public`.
         /// </summary>
         [Input("connectivityType")]
         public Input<string>? ConnectivityType { get; set; }
 
         /// <summary>
-        /// The ID of the network interface associated with the NAT gateway.
+        /// The ID of the network interface associated with the NAT Gateway.
         /// </summary>
         [Input("networkInterfaceId")]
         public Input<string>? NetworkInterfaceId { get; set; }
 
         /// <summary>
-        /// The private IPv4 address to assign to the NAT gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
+        /// The private IPv4 address to assign to the NAT Gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
         /// </summary>
         [Input("privateIp")]
         public Input<string>? PrivateIp { get; set; }
 
         /// <summary>
-        /// The Elastic IP address associated with the NAT gateway.
+        /// The Elastic IP address associated with the NAT Gateway.
         /// </summary>
         [Input("publicIp")]
         public Input<string>? PublicIp { get; set; }
 
+        [Input("secondaryAllocationIds")]
+        private InputList<string>? _secondaryAllocationIds;
+
         /// <summary>
-        /// The Subnet ID of the subnet in which to place the gateway.
+        /// A list of secondary allocation EIP IDs for this NAT Gateway.
+        /// </summary>
+        public InputList<string> SecondaryAllocationIds
+        {
+            get => _secondaryAllocationIds ?? (_secondaryAllocationIds = new InputList<string>());
+            set => _secondaryAllocationIds = value;
+        }
+
+        /// <summary>
+        /// [Private NAT Gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
+        /// </summary>
+        [Input("secondaryPrivateIpAddressCount")]
+        public Input<int>? SecondaryPrivateIpAddressCount { get; set; }
+
+        [Input("secondaryPrivateIpAddresses")]
+        private InputList<string>? _secondaryPrivateIpAddresses;
+
+        /// <summary>
+        /// A list of secondary private IPv4 addresses to assign to the NAT Gateway.
+        /// </summary>
+        public InputList<string> SecondaryPrivateIpAddresses
+        {
+            get => _secondaryPrivateIpAddresses ?? (_secondaryPrivateIpAddresses = new InputList<string>());
+            set => _secondaryPrivateIpAddresses = value;
+        }
+
+        /// <summary>
+        /// The Subnet ID of the subnet in which to place the NAT Gateway.
         /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }

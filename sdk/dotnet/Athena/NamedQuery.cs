@@ -63,11 +63,11 @@ namespace Pulumi.Aws.Athena
     /// 
     /// ## Import
     /// 
-    /// Athena Named Query can be imported using the query ID, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:athena/namedQuery:NamedQuery example 0123456789
-    /// ```
+    ///  to = aws_athena_named_query.example
+    /// 
+    ///  id = "0123456789" } Using `pulumi import`, import Athena Named Query using the query ID. For exampleconsole % pulumi import aws_athena_named_query.example 0123456789
     /// </summary>
     [AwsResourceType("aws:athena/namedQuery:NamedQuery")]
     public partial class NamedQuery : global::Pulumi.CustomResource

@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *     flexibleTimeWindow: {
  *         mode: "OFF",
  *     },
- *     scheduleExpression: "rate(1 hour)",
+ *     scheduleExpression: "rate(1 hours)",
  *     target: {
  *         arn: aws_sqs_queue.example.arn,
  *         roleArn: aws_iam_role.example.arn,
@@ -44,7 +44,7 @@ import * as utilities from "../utilities";
  *     flexibleTimeWindow: {
  *         mode: "OFF",
  *     },
- *     scheduleExpression: "rate(1 hour)",
+ *     scheduleExpression: "rate(1 hours)",
  *     target: {
  *         arn: "arn:aws:scheduler:::aws-sdk:sqs:sendMessage",
  *         roleArn: aws_iam_role.example.arn,
@@ -58,11 +58,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Schedules can be imported using the combination `group_name/name`. For example
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:scheduler/schedule:Schedule example my-schedule-group/my-schedule
- * ```
+ *  to = aws_scheduler_schedule.example
+ *
+ *  id = "my-schedule-group/my-schedule" } Using `pulumi import`, import schedules using the combination `group_name/name`. For exampleconsole % pulumi import aws_scheduler_schedule.example my-schedule-group/my-schedule
  */
 export class Schedule extends pulumi.CustomResource {
     /**

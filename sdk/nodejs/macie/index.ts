@@ -15,16 +15,6 @@ export type FindingsFilter = import("./findingsFilter").FindingsFilter;
 export const FindingsFilter: typeof import("./findingsFilter").FindingsFilter = null as any;
 utilities.lazyLoad(exports, ["FindingsFilter"], () => require("./findingsFilter"));
 
-export { MemberAccountAssociationArgs, MemberAccountAssociationState } from "./memberAccountAssociation";
-export type MemberAccountAssociation = import("./memberAccountAssociation").MemberAccountAssociation;
-export const MemberAccountAssociation: typeof import("./memberAccountAssociation").MemberAccountAssociation = null as any;
-utilities.lazyLoad(exports, ["MemberAccountAssociation"], () => require("./memberAccountAssociation"));
-
-export { S3BucketAssociationArgs, S3BucketAssociationState } from "./s3bucketAssociation";
-export type S3BucketAssociation = import("./s3bucketAssociation").S3BucketAssociation;
-export const S3BucketAssociation: typeof import("./s3bucketAssociation").S3BucketAssociation = null as any;
-utilities.lazyLoad(exports, ["S3BucketAssociation"], () => require("./s3bucketAssociation"));
-
 
 const _module = {
     version: utilities.getVersion(),
@@ -34,10 +24,6 @@ const _module = {
                 return new CustomDataIdentifier(name, <any>undefined, { urn })
             case "aws:macie/findingsFilter:FindingsFilter":
                 return new FindingsFilter(name, <any>undefined, { urn })
-            case "aws:macie/memberAccountAssociation:MemberAccountAssociation":
-                return new MemberAccountAssociation(name, <any>undefined, { urn })
-            case "aws:macie/s3BucketAssociation:S3BucketAssociation":
-                return new S3BucketAssociation(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -45,5 +31,3 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "macie/customDataIdentifier", _module)
 pulumi.runtime.registerResourceModule("aws", "macie/findingsFilter", _module)
-pulumi.runtime.registerResourceModule("aws", "macie/memberAccountAssociation", _module)
-pulumi.runtime.registerResourceModule("aws", "macie/s3BucketAssociation", _module)

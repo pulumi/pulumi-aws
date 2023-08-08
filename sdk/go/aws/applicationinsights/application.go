@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,8 +23,8 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/applicationinsights"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/resourcegroups"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/applicationinsights"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/resourcegroups"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -69,13 +70,11 @@ import (
 //
 // ## Import
 //
-// ApplicationInsights Applications can be imported using the `resource_group_name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_applicationinsights_application.some
 //
-//	$ pulumi import aws:applicationinsights/application:Application some some-application
-//
-// ```
+//	id = "some-application" } Using `pulumi import`, import ApplicationInsights Applications using the `resource_group_name`. For exampleconsole % pulumi import aws_applicationinsights_application.some some-application
 type Application struct {
 	pulumi.CustomResourceState
 
@@ -113,6 +112,7 @@ func NewApplication(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Application
 	err := ctx.RegisterResource("aws:applicationinsights/application:Application", name, args, &resource, opts...)
 	if err != nil {

@@ -61,11 +61,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Egress-only Internet gateways can be imported using the `id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:ec2/egressOnlyInternetGateway:EgressOnlyInternetGateway example eigw-015e0e244e24dfe8a
- * ```
+ *  to = aws_egress_only_internet_gateway.example
+ * 
+ *  id = &#34;eigw-015e0e244e24dfe8a&#34; } Using `pulumi import`, import Egress-only Internet gateways using the `id`. For exampleconsole % pulumi import aws_egress_only_internet_gateway.example eigw-015e0e244e24dfe8a
  * 
  */
 @ResourceType(type="aws:ec2/egressOnlyInternetGateway:EgressOnlyInternetGateway")

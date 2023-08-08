@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -15,13 +16,11 @@ import (
 //
 // ## Import
 //
-// `aws_lightsail_bucket_resource_access` can be imported by using the `id` attribute, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_lightsail_bucket_resource_access.test
 //
-//	$ pulumi import aws:lightsail/bucketResourceAccess:BucketResourceAccess test example-bucket,example-instance
-//
-// ```
+//	id = "example-bucket,example-instance" } Using `pulumi import`, import `aws_lightsail_bucket_resource_access` using the `id` attribute. For exampleconsole % pulumi import aws_lightsail_bucket_resource_access.test example-bucket,example-instance
 type BucketResourceAccess struct {
 	pulumi.CustomResourceState
 
@@ -44,6 +43,7 @@ func NewBucketResourceAccess(ctx *pulumi.Context,
 	if args.ResourceName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BucketResourceAccess
 	err := ctx.RegisterResource("aws:lightsail/bucketResourceAccess:BucketResourceAccess", name, args, &resource, opts...)
 	if err != nil {

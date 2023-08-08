@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,9 +26,9 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -189,7 +190,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -274,13 +275,11 @@ import (
 //
 // ## Import
 //
-// S3 bucket replication configuration can be imported using the `bucket`, e.g.
+// terraform import {
 //
-// ```sh
+//	to = aws_s3_bucket_replication_configuration.replication
 //
-//	$ pulumi import aws:s3/bucketReplicationConfig:BucketReplicationConfig replication bucket-name
-//
-// ```
+//	id = "bucket-name" } Using `pulumi import`, import S3 bucket replication configuration using the `bucket`. For exampleconsole % pulumi import aws_s3_bucket_replication_configuration.replication bucket-name
 type BucketReplicationConfig struct {
 	pulumi.CustomResourceState
 
@@ -318,6 +317,7 @@ func NewBucketReplicationConfig(ctx *pulumi.Context,
 		"token",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BucketReplicationConfig
 	err := ctx.RegisterResource("aws:s3/bucketReplicationConfig:BucketReplicationConfig", name, args, &resource, opts...)
 	if err != nil {

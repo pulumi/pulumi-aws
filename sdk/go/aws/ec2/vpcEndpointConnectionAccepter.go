@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -45,7 +46,7 @@ import (
 //				SecurityGroupIds: pulumi.StringArray{
 //					aws_security_group.Test.Id,
 //				},
-//			}, pulumi.Provider("aws.alternate"))
+//			}, pulumi.Provider(aws.Alternate))
 //			if err != nil {
 //				return err
 //			}
@@ -64,13 +65,11 @@ import (
 //
 // ## Import
 //
-// VPC Endpoint Services can be imported using ID of the connection, which is the `VPC Endpoint Service ID` and `VPC Endpoint ID` separated by underscore (`_`). e.g.
+// terraform import {
 //
-// ```sh
+//	to = aws_vpc_endpoint_connection_accepter.foo
 //
-//	$ pulumi import aws:ec2/vpcEndpointConnectionAccepter:VpcEndpointConnectionAccepter foo vpce-svc-0f97a19d3fa8220bc_vpce-010601a6db371e263
-//
-// ```
+//	id = "vpce-svc-0f97a19d3fa8220bc_vpce-010601a6db371e263" } Using `pulumi import`, import VPC Endpoint Services using ID of the connection, which is the `VPC Endpoint Service ID` and `VPC Endpoint ID` separated by underscore (`_`).. For exampleconsole % pulumi import aws_vpc_endpoint_connection_accepter.foo vpce-svc-0f97a19d3fa8220bc_vpce-010601a6db371e263
 type VpcEndpointConnectionAccepter struct {
 	pulumi.CustomResourceState
 
@@ -95,6 +94,7 @@ func NewVpcEndpointConnectionAccepter(ctx *pulumi.Context,
 	if args.VpcEndpointServiceId == nil {
 		return nil, errors.New("invalid value for required argument 'VpcEndpointServiceId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcEndpointConnectionAccepter
 	err := ctx.RegisterResource("aws:ec2/vpcEndpointConnectionAccepter:VpcEndpointConnectionAccepter", name, args, &resource, opts...)
 	if err != nil {

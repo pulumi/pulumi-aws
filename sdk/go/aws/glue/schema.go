@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -45,13 +46,11 @@ import (
 //
 // ## Import
 //
-// Glue Registries can be imported using `arn`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_glue_schema.example
 //
-//	$ pulumi import aws:glue/schema:Schema example arn:aws:glue:us-west-2:123456789012:schema/example/example
-//
-// ```
+//	id = "arn:aws:glue:us-west-2:123456789012:schema/example/example" } Using `pulumi import`, import Glue Registries using `arn`. For exampleconsole % pulumi import aws_glue_schema.example arn:aws:glue:us-west-2:123456789012:schema/example/example
 type Schema struct {
 	pulumi.CustomResourceState
 
@@ -102,6 +101,7 @@ func NewSchema(ctx *pulumi.Context,
 	if args.SchemaName == nil {
 		return nil, errors.New("invalid value for required argument 'SchemaName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Schema
 	err := ctx.RegisterResource("aws:glue/schema:Schema", name, args, &resource, opts...)
 	if err != nil {

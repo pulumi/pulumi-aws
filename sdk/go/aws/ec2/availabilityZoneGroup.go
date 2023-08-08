@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -44,13 +45,11 @@ import (
 //
 // ## Import
 //
-// EC2 Availability Zone Groups can be imported using the group name, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_ec2_availability_zone_group.example
 //
-//	$ pulumi import aws:ec2/availabilityZoneGroup:AvailabilityZoneGroup example us-west-2-lax-1
-//
-// ```
+//	id = "us-west-2-lax-1" } Using `pulumi import`, import EC2 Availability Zone Groups using the group name. For exampleconsole % pulumi import aws_ec2_availability_zone_group.example us-west-2-lax-1
 type AvailabilityZoneGroup struct {
 	pulumi.CustomResourceState
 
@@ -73,6 +72,7 @@ func NewAvailabilityZoneGroup(ctx *pulumi.Context,
 	if args.OptInStatus == nil {
 		return nil, errors.New("invalid value for required argument 'OptInStatus'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AvailabilityZoneGroup
 	err := ctx.RegisterResource("aws:ec2/availabilityZoneGroup:AvailabilityZoneGroup", name, args, &resource, opts...)
 	if err != nil {

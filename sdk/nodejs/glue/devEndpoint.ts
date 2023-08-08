@@ -34,11 +34,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * A Glue Development Endpoint can be imported using the `name`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:glue/devEndpoint:DevEndpoint example foo
- * ```
+ *  to = aws_glue_dev_endpoint.example
+ *
+ *  id = "foo" } Using `pulumi import`, import a Glue Development Endpoint using the `name`. For exampleconsole % pulumi import aws_glue_dev_endpoint.example foo
  */
 export class DevEndpoint extends pulumi.CustomResource {
     /**
@@ -71,7 +71,7 @@ export class DevEndpoint extends pulumi.CustomResource {
     /**
      * A map of arguments used to configure the endpoint.
      */
-    public readonly arguments!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly arguments!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The ARN of the endpoint.
      */
@@ -250,7 +250,7 @@ export interface DevEndpointState {
     /**
      * A map of arguments used to configure the endpoint.
      */
-    arguments?: pulumi.Input<{[key: string]: any}>;
+    arguments?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ARN of the endpoint.
      */
@@ -356,7 +356,7 @@ export interface DevEndpointArgs {
     /**
      * A map of arguments used to configure the endpoint.
      */
-    arguments?: pulumi.Input<{[key: string]: any}>;
+    arguments?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Path to one or more Java Jars in an S3 bucket that should be loaded in this endpoint.
      */

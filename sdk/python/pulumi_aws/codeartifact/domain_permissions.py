@@ -208,11 +208,11 @@ class DomainPermissions(pulumi.CustomResource):
 
         ## Import
 
-        CodeArtifact Domain Permissions Policies can be imported using the CodeArtifact Domain ARN, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:codeartifact/domainPermissions:DomainPermissions example arn:aws:codeartifact:us-west-2:012345678912:domain/tf-acc-test-1928056699409417367
-        ```
+         to = aws_codeartifact_domain_permissions_policy.example
+
+         id = "arn:aws:codeartifact:us-west-2:012345678912:domain/tf-acc-test-1928056699409417367" } Using `pulumi import`, import CodeArtifact Domain Permissions Policies using the CodeArtifact Domain ARN. For exampleconsole % pulumi import aws_codeartifact_domain_permissions_policy.example arn:aws:codeartifact:us-west-2:012345678912:domain/tf-acc-test-1928056699409417367
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -256,11 +256,11 @@ class DomainPermissions(pulumi.CustomResource):
 
         ## Import
 
-        CodeArtifact Domain Permissions Policies can be imported using the CodeArtifact Domain ARN, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:codeartifact/domainPermissions:DomainPermissions example arn:aws:codeartifact:us-west-2:012345678912:domain/tf-acc-test-1928056699409417367
-        ```
+         to = aws_codeartifact_domain_permissions_policy.example
+
+         id = "arn:aws:codeartifact:us-west-2:012345678912:domain/tf-acc-test-1928056699409417367" } Using `pulumi import`, import CodeArtifact Domain Permissions Policies using the CodeArtifact Domain ARN. For exampleconsole % pulumi import aws_codeartifact_domain_permissions_policy.example arn:aws:codeartifact:us-west-2:012345678912:domain/tf-acc-test-1928056699409417367
 
         :param str resource_name: The name of the resource.
         :param DomainPermissionsArgs args: The arguments to use to populate this resource's properties.

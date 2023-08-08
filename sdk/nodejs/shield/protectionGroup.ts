@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *
  * const currentRegion = aws.getRegion({});
  * const currentCallerIdentity = aws.getCallerIdentity({});
- * const exampleEip = new aws.ec2.Eip("exampleEip", {vpc: true});
+ * const exampleEip = new aws.ec2.Eip("exampleEip", {domain: "vpc"});
  * const exampleProtection = new aws.shield.Protection("exampleProtection", {resourceArn: pulumi.all([currentRegion, currentCallerIdentity, exampleEip.id]).apply(([currentRegion, currentCallerIdentity, id]) => `arn:aws:ec2:${currentRegion.name}:${currentCallerIdentity.accountId}:eip-allocation/${id}`)});
  * const exampleProtectionGroup = new aws.shield.ProtectionGroup("exampleProtectionGroup", {
  *     protectionGroupId: "example",
@@ -57,11 +57,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Shield protection group resources can be imported by specifying their protection group id.
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:shield/protectionGroup:ProtectionGroup example example
- * ```
+ *  to = aws_shield_protection_group.example
+ *
+ *  id = "example" } Using `pulumi import`, import Shield protection group resources using their protection group id. For exampleconsole % pulumi import aws_shield_protection_group.example example
  */
 export class ProtectionGroup extends pulumi.CustomResource {
     /**

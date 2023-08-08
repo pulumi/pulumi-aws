@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecr"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecr"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -57,7 +58,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecr"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecr"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -98,13 +99,11 @@ import (
 //
 // ## Import
 //
-// ECR Scanning Configurations can be imported using the `registry_id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_ecr_registry_scanning_configuration.example
 //
-//	$ pulumi import aws:ecr/registryScanningConfiguration:RegistryScanningConfiguration example 012345678901
-//
-// ```
+//	id = "012345678901" } Using `pulumi import`, import ECR Scanning Configurations using the `registry_id`. For exampleconsole % pulumi import aws_ecr_registry_scanning_configuration.example 012345678901
 type RegistryScanningConfiguration struct {
 	pulumi.CustomResourceState
 
@@ -126,6 +125,7 @@ func NewRegistryScanningConfiguration(ctx *pulumi.Context,
 	if args.ScanType == nil {
 		return nil, errors.New("invalid value for required argument 'ScanType'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RegistryScanningConfiguration
 	err := ctx.RegisterResource("aws:ecr/registryScanningConfiguration:RegistryScanningConfiguration", name, args, &resource, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/qldb"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/qldb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -93,6 +94,7 @@ func NewStream(ctx *pulumi.Context,
 	if args.StreamName == nil {
 		return nil, errors.New("invalid value for required argument 'StreamName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Stream
 	err := ctx.RegisterResource("aws:qldb/stream:Stream", name, args, &resource, opts...)
 	if err != nil {

@@ -42,11 +42,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_imagebuilder_infrastructure_configuration` can be imported using the Amazon Resource Name (ARN), e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:imagebuilder/infrastructureConfiguration:InfrastructureConfiguration example arn:aws:imagebuilder:us-east-1:123456789012:infrastructure-configuration/example
- * ```
+ *  to = aws_imagebuilder_infrastructure_configuration.example
+ *
+ *  id = "arn:aws:imagebuilder:us-east-1:123456789012:infrastructure-configuration/example" } Using `pulumi import`, import `aws_imagebuilder_infrastructure_configuration` using the Amazon Resource Name (ARN). For exampleconsole % pulumi import aws_imagebuilder_infrastructure_configuration.example arn:aws:imagebuilder:us-east-1:123456789012:infrastructure-configuration/example
  */
 export class InfrastructureConfiguration extends pulumi.CustomResource {
     /**

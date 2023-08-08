@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/medialive"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/medialive"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -49,13 +50,11 @@ import (
 //
 // ## Import
 //
-// MediaLive InputSecurityGroup can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_medialive_input_security_group.example
 //
-//	$ pulumi import aws:medialive/inputSecurityGroup:InputSecurityGroup example 123456
-//
-// ```
+//	id = "123456" } Using `pulumi import`, import MediaLive InputSecurityGroup using the `id`. For exampleconsole % pulumi import aws_medialive_input_security_group.example 123456
 type InputSecurityGroup struct {
 	pulumi.CustomResourceState
 
@@ -82,6 +81,7 @@ func NewInputSecurityGroup(ctx *pulumi.Context,
 	if args.WhitelistRules == nil {
 		return nil, errors.New("invalid value for required argument 'WhitelistRules'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource InputSecurityGroup
 	err := ctx.RegisterResource("aws:medialive/inputSecurityGroup:InputSecurityGroup", name, args, &resource, opts...)
 	if err != nil {

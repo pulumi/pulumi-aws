@@ -211,11 +211,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * MWAA Environment can be imported using `Name` e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:mwaa/environment:Environment example MyAirflowEnvironment
- * ```
+ *  to = aws_mwaa_environment.example
+ * 
+ *  id = &#34;MyAirflowEnvironment&#34; } Using `pulumi import`, import MWAA Environment using `Name`. For exampleconsole % pulumi import aws_mwaa_environment.example MyAirflowEnvironment
  * 
  */
 @ResourceType(type="aws:mwaa/environment:Environment")

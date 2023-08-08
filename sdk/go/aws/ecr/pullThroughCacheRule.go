@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecr"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecr"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -45,13 +46,11 @@ import (
 //
 // ## Import
 //
-// Use the `ecr_repository_prefix` to import a Pull Through Cache Rule. For example
+// terraform import {
 //
-// ```sh
+//	to = aws_ecr_pull_through_cache_rule.example
 //
-//	$ pulumi import aws:ecr/pullThroughCacheRule:PullThroughCacheRule example ecr-public
-//
-// ```
+//	id = "ecr-public" } Using `pulumi import`, import a pull-through cache rule using the `ecr_repository_prefix`. For exampleconsole % pulumi import aws_ecr_pull_through_cache_rule.example ecr-public
 type PullThroughCacheRule struct {
 	pulumi.CustomResourceState
 
@@ -76,6 +75,7 @@ func NewPullThroughCacheRule(ctx *pulumi.Context,
 	if args.UpstreamRegistryUrl == nil {
 		return nil, errors.New("invalid value for required argument 'UpstreamRegistryUrl'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PullThroughCacheRule
 	err := ctx.RegisterResource("aws:ecr/pullThroughCacheRule:PullThroughCacheRule", name, args, &resource, opts...)
 	if err != nil {

@@ -12,38 +12,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClusterMasterUserSecret {
     /**
-     * @return The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
+     * @return ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
      * 
      */
     private @Nullable String kmsKeyId;
     /**
-     * @return The Amazon Resource Name (ARN) of the secret.
+     * @return Amazon Resource Name (ARN) of the secret.
      * 
      */
     private @Nullable String secretArn;
     /**
-     * @return The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
+     * @return Status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
      * 
      */
     private @Nullable String secretStatus;
 
     private ClusterMasterUserSecret() {}
     /**
-     * @return The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
+     * @return ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
      * 
      */
     public Optional<String> kmsKeyId() {
         return Optional.ofNullable(this.kmsKeyId);
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the secret.
+     * @return Amazon Resource Name (ARN) of the secret.
      * 
      */
     public Optional<String> secretArn() {
         return Optional.ofNullable(this.secretArn);
     }
     /**
-     * @return The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
+     * @return Status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
      * 
      */
     public Optional<String> secretStatus() {

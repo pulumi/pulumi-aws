@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Use this data source to get an Identity Store User.
 func LookupUser(ctx *pulumi.Context, args *LookupUserArgs, opts ...pulumi.InvokeOption) (*LookupUserResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupUserResult
 	err := ctx.Invoke("aws:identitystore/getUser:getUser", args, &rv, opts...)
 	if err != nil {
@@ -22,19 +24,15 @@ func LookupUser(ctx *pulumi.Context, args *LookupUserArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getUser.
 type LookupUserArgs struct {
-	// A unique identifier for a user or group that is not the primary identifier. Conflicts with `userId` and `filter`. Detailed below.
+	// A unique identifier for a user or group that is not the primary identifier. Conflicts with `userId`. Detailed below.
 	AlternateIdentifier *GetUserAlternateIdentifier `pulumi:"alternateIdentifier"`
-	// Configuration block for filtering by a unique attribute of the user. Detailed below.
-	//
-	// Deprecated: Use the alternate_identifier attribute instead.
-	Filter *GetUserFilter `pulumi:"filter"`
 	// Identity Store ID associated with the Single Sign-On Instance.
 	//
 	// The following arguments are optional:
 	IdentityStoreId string `pulumi:"identityStoreId"`
 	// The identifier for a user in the Identity Store.
 	//
-	// > Exactly one of the above arguments must be provided. Passing both `filter` and `userId` is allowed for backwards compatibility.
+	// > Exactly one of the above arguments must be provided.
 	UserId *string `pulumi:"userId"`
 }
 
@@ -49,8 +47,6 @@ type LookupUserResult struct {
 	Emails []GetUserEmail `pulumi:"emails"`
 	// List of identifiers issued to this resource by an external identity provider.
 	ExternalIds []GetUserExternalId `pulumi:"externalIds"`
-	// Deprecated: Use the alternate_identifier attribute instead.
-	Filter *GetUserFilter `pulumi:"filter"`
 	// The provider-assigned unique ID for this managed resource.
 	Id              string `pulumi:"id"`
 	IdentityStoreId string `pulumi:"identityStoreId"`
@@ -92,19 +88,15 @@ func LookupUserOutput(ctx *pulumi.Context, args LookupUserOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getUser.
 type LookupUserOutputArgs struct {
-	// A unique identifier for a user or group that is not the primary identifier. Conflicts with `userId` and `filter`. Detailed below.
+	// A unique identifier for a user or group that is not the primary identifier. Conflicts with `userId`. Detailed below.
 	AlternateIdentifier GetUserAlternateIdentifierPtrInput `pulumi:"alternateIdentifier"`
-	// Configuration block for filtering by a unique attribute of the user. Detailed below.
-	//
-	// Deprecated: Use the alternate_identifier attribute instead.
-	Filter GetUserFilterPtrInput `pulumi:"filter"`
 	// Identity Store ID associated with the Single Sign-On Instance.
 	//
 	// The following arguments are optional:
 	IdentityStoreId pulumi.StringInput `pulumi:"identityStoreId"`
 	// The identifier for a user in the Identity Store.
 	//
-	// > Exactly one of the above arguments must be provided. Passing both `filter` and `userId` is allowed for backwards compatibility.
+	// > Exactly one of the above arguments must be provided.
 	UserId pulumi.StringPtrInput `pulumi:"userId"`
 }
 
@@ -149,11 +141,6 @@ func (o LookupUserResultOutput) Emails() GetUserEmailArrayOutput {
 // List of identifiers issued to this resource by an external identity provider.
 func (o LookupUserResultOutput) ExternalIds() GetUserExternalIdArrayOutput {
 	return o.ApplyT(func(v LookupUserResult) []GetUserExternalId { return v.ExternalIds }).(GetUserExternalIdArrayOutput)
-}
-
-// Deprecated: Use the alternate_identifier attribute instead.
-func (o LookupUserResultOutput) Filter() GetUserFilterPtrOutput {
-	return o.ApplyT(func(v LookupUserResult) *GetUserFilter { return v.Filter }).(GetUserFilterPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

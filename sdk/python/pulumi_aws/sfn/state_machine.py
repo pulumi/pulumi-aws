@@ -21,6 +21,7 @@ class StateMachineArgs:
                  logging_configuration: Optional[pulumi.Input['StateMachineLoggingConfigurationArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
+                 publish: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tracing_configuration: Optional[pulumi.Input['StateMachineTracingConfigurationArgs']] = None,
                  type: Optional[pulumi.Input[str]] = None):
@@ -31,6 +32,7 @@ class StateMachineArgs:
         :param pulumi.Input['StateMachineLoggingConfigurationArgs'] logging_configuration: Defines what execution history events are logged and where they are logged. The `logging_configuration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
         :param pulumi.Input[str] name: The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        :param pulumi.Input[bool] publish: Set to true to publish a version of the state machine during creation. Default: false.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['StateMachineTracingConfigurationArgs'] tracing_configuration: Selects whether AWS X-Ray tracing is enabled.
         :param pulumi.Input[str] type: Determines whether a Standard or Express state machine is created. The default is `STANDARD`. You cannot update the type of a state machine once it has been created. Valid values: `STANDARD`, `EXPRESS`.
@@ -43,6 +45,8 @@ class StateMachineArgs:
             pulumi.set(__self__, "name", name)
         if name_prefix is not None:
             pulumi.set(__self__, "name_prefix", name_prefix)
+        if publish is not None:
+            pulumi.set(__self__, "publish", publish)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tracing_configuration is not None:
@@ -112,6 +116,18 @@ class StateMachineArgs:
 
     @property
     @pulumi.getter
+    def publish(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Set to true to publish a version of the state machine during creation. Default: false.
+        """
+        return pulumi.get(self, "publish")
+
+    @publish.setter
+    def publish(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "publish", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -153,15 +169,20 @@ class _StateMachineState:
                  arn: Optional[pulumi.Input[str]] = None,
                  creation_date: Optional[pulumi.Input[str]] = None,
                  definition: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
                  logging_configuration: Optional[pulumi.Input['StateMachineLoggingConfigurationArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
+                 publish: Optional[pulumi.Input[bool]] = None,
+                 revision_id: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
+                 state_machine_version_arn: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tracing_configuration: Optional[pulumi.Input['StateMachineTracingConfigurationArgs']] = None,
-                 type: Optional[pulumi.Input[str]] = None):
+                 type: Optional[pulumi.Input[str]] = None,
+                 version_description: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering StateMachine resources.
         :param pulumi.Input[str] arn: The ARN of the state machine.
@@ -170,6 +191,7 @@ class _StateMachineState:
         :param pulumi.Input['StateMachineLoggingConfigurationArgs'] logging_configuration: Defines what execution history events are logged and where they are logged. The `logging_configuration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
         :param pulumi.Input[str] name: The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        :param pulumi.Input[bool] publish: Set to true to publish a version of the state machine during creation. Default: false.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
         :param pulumi.Input[str] status: The current status of the state machine. Either `ACTIVE` or `DELETING`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -183,14 +205,22 @@ class _StateMachineState:
             pulumi.set(__self__, "creation_date", creation_date)
         if definition is not None:
             pulumi.set(__self__, "definition", definition)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if logging_configuration is not None:
             pulumi.set(__self__, "logging_configuration", logging_configuration)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if name_prefix is not None:
             pulumi.set(__self__, "name_prefix", name_prefix)
+        if publish is not None:
+            pulumi.set(__self__, "publish", publish)
+        if revision_id is not None:
+            pulumi.set(__self__, "revision_id", revision_id)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
+        if state_machine_version_arn is not None:
+            pulumi.set(__self__, "state_machine_version_arn", state_machine_version_arn)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if tags is not None:
@@ -201,6 +231,8 @@ class _StateMachineState:
             pulumi.set(__self__, "tracing_configuration", tracing_configuration)
         if type is not None:
             pulumi.set(__self__, "type", type)
+        if version_description is not None:
+            pulumi.set(__self__, "version_description", version_description)
 
     @property
     @pulumi.getter
@@ -239,6 +271,15 @@ class _StateMachineState:
         pulumi.set(self, "definition", value)
 
     @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
     @pulumi.getter(name="loggingConfiguration")
     def logging_configuration(self) -> Optional[pulumi.Input['StateMachineLoggingConfigurationArgs']]:
         """
@@ -275,6 +316,27 @@ class _StateMachineState:
         pulumi.set(self, "name_prefix", value)
 
     @property
+    @pulumi.getter
+    def publish(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Set to true to publish a version of the state machine during creation. Default: false.
+        """
+        return pulumi.get(self, "publish")
+
+    @publish.setter
+    def publish(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "publish", value)
+
+    @property
+    @pulumi.getter(name="revisionId")
+    def revision_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "revision_id")
+
+    @revision_id.setter
+    def revision_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "revision_id", value)
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[str]]:
         """
@@ -285,6 +347,15 @@ class _StateMachineState:
     @role_arn.setter
     def role_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="stateMachineVersionArn")
+    def state_machine_version_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "state_machine_version_arn")
+
+    @state_machine_version_arn.setter
+    def state_machine_version_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "state_machine_version_arn", value)
 
     @property
     @pulumi.getter
@@ -346,6 +417,15 @@ class _StateMachineState:
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
 
+    @property
+    @pulumi.getter(name="versionDescription")
+    def version_description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "version_description")
+
+    @version_description.setter
+    def version_description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version_description", value)
+
 
 class StateMachine(pulumi.CustomResource):
     @overload
@@ -356,6 +436,7 @@ class StateMachine(pulumi.CustomResource):
                  logging_configuration: Optional[pulumi.Input[pulumi.InputType['StateMachineLoggingConfigurationArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
+                 publish: Optional[pulumi.Input[bool]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tracing_configuration: Optional[pulumi.Input[pulumi.InputType['StateMachineTracingConfigurationArgs']]] = None,
@@ -410,6 +491,30 @@ class StateMachine(pulumi.CustomResource):
         }}
         \"\"\")
         ```
+        ### Publish (Publish SFN version)
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        # ...
+        sfn_state_machine = aws.sfn.StateMachine("sfnStateMachine",
+            role_arn=aws_iam_role["iam_for_sfn"]["arn"],
+            publish=True,
+            type="EXPRESS",
+            definition=f\"\"\"{{
+          "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
+          "StartAt": "HelloWorld",
+          "States": {{
+            "HelloWorld": {{
+              "Type": "Task",
+              "Resource": "{aws_lambda_function["lambda"]["arn"]}",
+              "End": true
+            }}
+          }}
+        }}
+        \"\"\")
+        ```
         ### Logging
 
         > *NOTE:* See the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html) for more information about enabling Step Function logging.
@@ -442,11 +547,11 @@ class StateMachine(pulumi.CustomResource):
 
         ## Import
 
-        State Machines can be imported using the `arn`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:sfn/stateMachine:StateMachine foo arn:aws:states:eu-west-1:123456789098:stateMachine:bar
-        ```
+         to = aws_sfn_state_machine.foo
+
+         id = "arn:aws:states:eu-west-1:123456789098:stateMachine:bar" } Using `pulumi import`, import State Machines using the `arn`. For exampleconsole % pulumi import aws_sfn_state_machine.foo arn:aws:states:eu-west-1:123456789098:stateMachine:bar
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -454,6 +559,7 @@ class StateMachine(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['StateMachineLoggingConfigurationArgs']] logging_configuration: Defines what execution history events are logged and where they are logged. The `logging_configuration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
         :param pulumi.Input[str] name: The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        :param pulumi.Input[bool] publish: Set to true to publish a version of the state machine during creation. Default: false.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[pulumi.InputType['StateMachineTracingConfigurationArgs']] tracing_configuration: Selects whether AWS X-Ray tracing is enabled.
@@ -514,6 +620,30 @@ class StateMachine(pulumi.CustomResource):
         }}
         \"\"\")
         ```
+        ### Publish (Publish SFN version)
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        # ...
+        sfn_state_machine = aws.sfn.StateMachine("sfnStateMachine",
+            role_arn=aws_iam_role["iam_for_sfn"]["arn"],
+            publish=True,
+            type="EXPRESS",
+            definition=f\"\"\"{{
+          "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
+          "StartAt": "HelloWorld",
+          "States": {{
+            "HelloWorld": {{
+              "Type": "Task",
+              "Resource": "{aws_lambda_function["lambda"]["arn"]}",
+              "End": true
+            }}
+          }}
+        }}
+        \"\"\")
+        ```
         ### Logging
 
         > *NOTE:* See the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html) for more information about enabling Step Function logging.
@@ -546,11 +676,11 @@ class StateMachine(pulumi.CustomResource):
 
         ## Import
 
-        State Machines can be imported using the `arn`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:sfn/stateMachine:StateMachine foo arn:aws:states:eu-west-1:123456789098:stateMachine:bar
-        ```
+         to = aws_sfn_state_machine.foo
+
+         id = "arn:aws:states:eu-west-1:123456789098:stateMachine:bar" } Using `pulumi import`, import State Machines using the `arn`. For exampleconsole % pulumi import aws_sfn_state_machine.foo arn:aws:states:eu-west-1:123456789098:stateMachine:bar
 
         :param str resource_name: The name of the resource.
         :param StateMachineArgs args: The arguments to use to populate this resource's properties.
@@ -571,6 +701,7 @@ class StateMachine(pulumi.CustomResource):
                  logging_configuration: Optional[pulumi.Input[pulumi.InputType['StateMachineLoggingConfigurationArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
+                 publish: Optional[pulumi.Input[bool]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tracing_configuration: Optional[pulumi.Input[pulumi.InputType['StateMachineTracingConfigurationArgs']]] = None,
@@ -590,6 +721,7 @@ class StateMachine(pulumi.CustomResource):
             __props__.__dict__["logging_configuration"] = logging_configuration
             __props__.__dict__["name"] = name
             __props__.__dict__["name_prefix"] = name_prefix
+            __props__.__dict__["publish"] = publish
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
@@ -598,8 +730,12 @@ class StateMachine(pulumi.CustomResource):
             __props__.__dict__["type"] = type
             __props__.__dict__["arn"] = None
             __props__.__dict__["creation_date"] = None
+            __props__.__dict__["description"] = None
+            __props__.__dict__["revision_id"] = None
+            __props__.__dict__["state_machine_version_arn"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["tags_all"] = None
+            __props__.__dict__["version_description"] = None
         super(StateMachine, __self__).__init__(
             'aws:sfn/stateMachine:StateMachine',
             resource_name,
@@ -613,15 +749,20 @@ class StateMachine(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             creation_date: Optional[pulumi.Input[str]] = None,
             definition: Optional[pulumi.Input[str]] = None,
+            description: Optional[pulumi.Input[str]] = None,
             logging_configuration: Optional[pulumi.Input[pulumi.InputType['StateMachineLoggingConfigurationArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             name_prefix: Optional[pulumi.Input[str]] = None,
+            publish: Optional[pulumi.Input[bool]] = None,
+            revision_id: Optional[pulumi.Input[str]] = None,
             role_arn: Optional[pulumi.Input[str]] = None,
+            state_machine_version_arn: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tracing_configuration: Optional[pulumi.Input[pulumi.InputType['StateMachineTracingConfigurationArgs']]] = None,
-            type: Optional[pulumi.Input[str]] = None) -> 'StateMachine':
+            type: Optional[pulumi.Input[str]] = None,
+            version_description: Optional[pulumi.Input[str]] = None) -> 'StateMachine':
         """
         Get an existing StateMachine resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -635,6 +776,7 @@ class StateMachine(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['StateMachineLoggingConfigurationArgs']] logging_configuration: Defines what execution history events are logged and where they are logged. The `logging_configuration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
         :param pulumi.Input[str] name: The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+        :param pulumi.Input[bool] publish: Set to true to publish a version of the state machine during creation. Default: false.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
         :param pulumi.Input[str] status: The current status of the state machine. Either `ACTIVE` or `DELETING`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -649,15 +791,20 @@ class StateMachine(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["creation_date"] = creation_date
         __props__.__dict__["definition"] = definition
+        __props__.__dict__["description"] = description
         __props__.__dict__["logging_configuration"] = logging_configuration
         __props__.__dict__["name"] = name
         __props__.__dict__["name_prefix"] = name_prefix
+        __props__.__dict__["publish"] = publish
+        __props__.__dict__["revision_id"] = revision_id
         __props__.__dict__["role_arn"] = role_arn
+        __props__.__dict__["state_machine_version_arn"] = state_machine_version_arn
         __props__.__dict__["status"] = status
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["tracing_configuration"] = tracing_configuration
         __props__.__dict__["type"] = type
+        __props__.__dict__["version_description"] = version_description
         return StateMachine(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -685,6 +832,11 @@ class StateMachine(pulumi.CustomResource):
         return pulumi.get(self, "definition")
 
     @property
+    @pulumi.getter
+    def description(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "description")
+
+    @property
     @pulumi.getter(name="loggingConfiguration")
     def logging_configuration(self) -> pulumi.Output['outputs.StateMachineLoggingConfiguration']:
         """
@@ -709,12 +861,30 @@ class StateMachine(pulumi.CustomResource):
         return pulumi.get(self, "name_prefix")
 
     @property
+    @pulumi.getter
+    def publish(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Set to true to publish a version of the state machine during creation. Default: false.
+        """
+        return pulumi.get(self, "publish")
+
+    @property
+    @pulumi.getter(name="revisionId")
+    def revision_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "revision_id")
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[str]:
         """
         The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
         """
         return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="stateMachineVersionArn")
+    def state_machine_version_arn(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "state_machine_version_arn")
 
     @property
     @pulumi.getter
@@ -755,4 +925,9 @@ class StateMachine(pulumi.CustomResource):
         Determines whether a Standard or Express state machine is created. The default is `STANDARD`. You cannot update the type of a state machine once it has been created. Valid values: `STANDARD`, `EXPRESS`.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="versionDescription")
+    def version_description(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "version_description")
 

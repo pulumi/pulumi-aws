@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -26,7 +27,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -62,21 +63,15 @@ import (
 //
 // ## Import
 //
-// Individual rules can be imported using `NETWORK_ACL_ID:RULE_NUMBER:PROTOCOL:EGRESS`, where `PROTOCOL` can be a decimal (e.g., 6) or string (e.g., tcp) value. If importing a rule previously provisioned by the provider, the `PROTOCOL` must be the input value used at creation time. For more information on protocol numbers and keywords, see herehttps://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml For example, import a network ACL Rule with an argument like thisconsole
+// Using the procotol's string valueterraform import {
 //
-// ```sh
+//	to = aws_network_acl_rule.my_rule
 //
-//	$ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:tcp:false
+//	id = "acl-7aaabd18:100:tcp:false" } Using the procotol's decimal valueterraform import {
 //
-// ```
+//	to = aws_network_acl_rule.my_rule
 //
-//	Or by the procotol's decimal valueconsole
-//
-// ```sh
-//
-//	$ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:6:false
-//
-// ```
+//	id = "acl-7aaabd18:100:6:false" } **Using `pulumi import` to import** individual rules using `NETWORK_ACL_ID:RULE_NUMBER:PROTOCOL:EGRESS`, where `PROTOCOL` can be a decimal (such as "6") or string (such as "tcp") value. For exampleUsing the procotol's string valueconsole % pulumi import aws_network_acl_rule.my_rule acl-7aaabd18:100:tcp:false Using the procotol's decimal valueconsole % pulumi import aws_network_acl_rule.my_rule acl-7aaabd18:100:6:false
 type NetworkAclRule struct {
 	pulumi.CustomResourceState
 
@@ -129,6 +124,7 @@ func NewNetworkAclRule(ctx *pulumi.Context,
 	if args.RuleNumber == nil {
 		return nil, errors.New("invalid value for required argument 'RuleNumber'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NetworkAclRule
 	err := ctx.RegisterResource("aws:ec2/networkAclRule:NetworkAclRule", name, args, &resource, opts...)
 	if err != nil {

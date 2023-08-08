@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -30,35 +31,43 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudtrail"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudtrail"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := aws.GetCallerIdentity(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			fooBucketV2, err := s3.NewBucketV2(ctx, "fooBucketV2", &s3.BucketV2Args{
+//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", &s3.BucketV2Args{
 //				ForceDestroy: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cloudtrail.NewTrail(ctx, "foobar", &cloudtrail.TrailArgs{
-//				S3BucketName:               fooBucketV2.ID(),
+//			_, err = cloudtrail.NewTrail(ctx, "exampleTrail", &cloudtrail.TrailArgs{
+//				S3BucketName:               exampleBucketV2.ID(),
 //				S3KeyPrefix:                pulumi.String("prefix"),
 //				IncludeGlobalServiceEvents: pulumi.Bool(false),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			fooPolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//			currentCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			currentPartition, err := aws.GetPartition(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			currentRegion, err := aws.GetRegion(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			examplePolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
 //						Sid:    pulumi.String("AWSCloudTrailAclCheck"),
@@ -75,7 +84,16 @@ import (
 //							pulumi.String("s3:GetBucketAcl"),
 //						},
 //						Resources: pulumi.StringArray{
-//							fooBucketV2.Arn,
+//							exampleBucketV2.Arn,
+//						},
+//						Conditions: iam.GetPolicyDocumentStatementConditionArray{
+//							&iam.GetPolicyDocumentStatementConditionArgs{
+//								Test:     pulumi.String("StringEquals"),
+//								Variable: pulumi.String("aws:SourceArn"),
+//								Values: pulumi.StringArray{
+//									pulumi.String(fmt.Sprintf("arn:%v:cloudtrail:%v:%v:trail/example", currentPartition.Partition, currentRegion.Name, currentCallerIdentity.AccountId)),
+//								},
+//							},
 //						},
 //					},
 //					&iam.GetPolicyDocumentStatementArgs{
@@ -93,8 +111,8 @@ import (
 //							pulumi.String("s3:PutObject"),
 //						},
 //						Resources: pulumi.StringArray{
-//							fooBucketV2.Arn.ApplyT(func(arn string) (string, error) {
-//								return fmt.Sprintf("%v/prefix/AWSLogs/%v/*", arn, current.AccountId), nil
+//							exampleBucketV2.Arn.ApplyT(func(arn string) (string, error) {
+//								return fmt.Sprintf("%v/prefix/AWSLogs/%v/*", arn, currentCallerIdentity.AccountId), nil
 //							}).(pulumi.StringOutput),
 //						},
 //						Conditions: iam.GetPolicyDocumentStatementConditionArray{
@@ -105,14 +123,21 @@ import (
 //									pulumi.String("bucket-owner-full-control"),
 //								},
 //							},
+//							&iam.GetPolicyDocumentStatementConditionArgs{
+//								Test:     pulumi.String("StringEquals"),
+//								Variable: pulumi.String("aws:SourceArn"),
+//								Values: pulumi.StringArray{
+//									pulumi.String(fmt.Sprintf("arn:%v:cloudtrail:%v:%v:trail/example", currentPartition.Partition, currentRegion.Name, currentCallerIdentity.AccountId)),
+//								},
+//							},
 //						},
 //					},
 //				},
 //			}, nil)
-//			_, err = s3.NewBucketPolicy(ctx, "fooBucketPolicy", &s3.BucketPolicyArgs{
-//				Bucket: fooBucketV2.ID(),
-//				Policy: fooPolicyDocument.ApplyT(func(fooPolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
-//					return &fooPolicyDocument.Json, nil
+//			_, err = s3.NewBucketPolicy(ctx, "exampleBucketPolicy", &s3.BucketPolicyArgs{
+//				Bucket: exampleBucketV2.ID(),
+//				Policy: examplePolicyDocument.ApplyT(func(examplePolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
+//					return &examplePolicyDocument.Json, nil
 //				}).(pulumi.StringPtrOutput),
 //			})
 //			if err != nil {
@@ -136,7 +161,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudtrail"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudtrail"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -174,7 +199,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudtrail"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudtrail"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -214,8 +239,8 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudtrail"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudtrail"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -261,8 +286,8 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudtrail"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudtrail"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -289,13 +314,11 @@ import (
 //
 // ## Import
 //
-// Cloudtrails can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_cloudtrail.sample
 //
-//	$ pulumi import aws:cloudtrail/trail:Trail sample my-sample-trail
-//
-// ```
+//	id = "my-sample-trail" } Using `pulumi import`, import Cloudtrails using the `name`. For exampleconsole % pulumi import aws_cloudtrail.sample my-sample-trail
 type Trail struct {
 	pulumi.CustomResourceState
 
@@ -351,6 +374,7 @@ func NewTrail(ctx *pulumi.Context,
 	if args.S3BucketName == nil {
 		return nil, errors.New("invalid value for required argument 'S3BucketName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Trail
 	err := ctx.RegisterResource("aws:cloudtrail/trail:Trail", name, args, &resource, opts...)
 	if err != nil {

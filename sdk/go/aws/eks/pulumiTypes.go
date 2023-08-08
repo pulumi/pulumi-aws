@@ -7,8 +7,11 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type ClusterCertificateAuthority struct {
 	// Base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
@@ -886,7 +889,7 @@ type ClusterOutpostConfig struct {
 	// For a list of the available Amazon EC2 instance types, see Compute and storage in AWS Outposts rack features  The control plane is not automatically scaled by Amazon EKS.
 	ControlPlaneInstanceType string `pulumi:"controlPlaneInstanceType"`
 	// An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
-	// The following arguments are supported in the `controlPlanePlacement` configuration block:
+	// The `controlPlanePlacement` configuration block supports the following arguments:
 	ControlPlanePlacement *ClusterOutpostConfigControlPlanePlacement `pulumi:"controlPlanePlacement"`
 	// The ARN of the Outpost that you want to use for your local Amazon EKS cluster on Outposts. This argument is a list of arns, but only a single Outpost ARN is supported currently.
 	OutpostArns []string `pulumi:"outpostArns"`
@@ -915,7 +918,7 @@ type ClusterOutpostConfigArgs struct {
 	// For a list of the available Amazon EC2 instance types, see Compute and storage in AWS Outposts rack features  The control plane is not automatically scaled by Amazon EKS.
 	ControlPlaneInstanceType pulumi.StringInput `pulumi:"controlPlaneInstanceType"`
 	// An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
-	// The following arguments are supported in the `controlPlanePlacement` configuration block:
+	// The `controlPlanePlacement` configuration block supports the following arguments:
 	ControlPlanePlacement ClusterOutpostConfigControlPlanePlacementPtrInput `pulumi:"controlPlanePlacement"`
 	// The ARN of the Outpost that you want to use for your local Amazon EKS cluster on Outposts. This argument is a list of arns, but only a single Outpost ARN is supported currently.
 	OutpostArns pulumi.StringArrayInput `pulumi:"outpostArns"`
@@ -1012,7 +1015,7 @@ func (o ClusterOutpostConfigOutput) ControlPlaneInstanceType() pulumi.StringOutp
 }
 
 // An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
-// The following arguments are supported in the `controlPlanePlacement` configuration block:
+// The `controlPlanePlacement` configuration block supports the following arguments:
 func (o ClusterOutpostConfigOutput) ControlPlanePlacement() ClusterOutpostConfigControlPlanePlacementPtrOutput {
 	return o.ApplyT(func(v ClusterOutpostConfig) *ClusterOutpostConfigControlPlanePlacement {
 		return v.ControlPlanePlacement
@@ -1067,7 +1070,7 @@ func (o ClusterOutpostConfigPtrOutput) ControlPlaneInstanceType() pulumi.StringP
 }
 
 // An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
-// The following arguments are supported in the `controlPlanePlacement` configuration block:
+// The `controlPlanePlacement` configuration block supports the following arguments:
 func (o ClusterOutpostConfigPtrOutput) ControlPlanePlacement() ClusterOutpostConfigControlPlanePlacementPtrOutput {
 	return o.ApplyT(func(v *ClusterOutpostConfig) *ClusterOutpostConfigControlPlanePlacement {
 		if v == nil {

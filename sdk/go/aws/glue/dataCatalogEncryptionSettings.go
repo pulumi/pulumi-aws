@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -50,13 +51,11 @@ import (
 //
 // ## Import
 //
-// Glue Data Catalog Encryption Settings can be imported using `CATALOG-ID` (AWS account ID if not custom), e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_glue_data_catalog_encryption_settings.example
 //
-//	$ pulumi import aws:glue/dataCatalogEncryptionSettings:DataCatalogEncryptionSettings example 123456789012
-//
-// ```
+//	id = "123456789012" } Using `pulumi import`, import Glue Data Catalog Encryption Settings using `CATALOG-ID` (AWS account ID if not custom). For exampleconsole % pulumi import aws_glue_data_catalog_encryption_settings.example 123456789012
 type DataCatalogEncryptionSettings struct {
 	pulumi.CustomResourceState
 
@@ -76,6 +75,7 @@ func NewDataCatalogEncryptionSettings(ctx *pulumi.Context,
 	if args.DataCatalogEncryptionSettings == nil {
 		return nil, errors.New("invalid value for required argument 'DataCatalogEncryptionSettings'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DataCatalogEncryptionSettings
 	err := ctx.RegisterResource("aws:glue/dataCatalogEncryptionSettings:DataCatalogEncryptionSettings", name, args, &resource, opts...)
 	if err != nil {

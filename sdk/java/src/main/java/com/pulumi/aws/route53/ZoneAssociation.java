@@ -76,17 +76,15 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Route 53 Hosted Zone Associations can be imported via the Hosted Zone ID and VPC ID, separated by a colon (`:`), e.g.,
+ * The VPC is in the same region where you have configured the TODO AWS Providerterraform import {
  * 
- * ```sh
- *  $ pulumi import aws:route53/zoneAssociation:ZoneAssociation example Z123456ABCDEFG:vpc-12345678
- * ```
+ *  to = aws_route53_zone_association.example
  * 
- *  If the VPC is in a different region than the provider region configuration, the VPC Region can be added to the end. e.g.
+ *  id = &#34;Z123456ABCDEFG:vpc-12345678&#34; } The VPC is _not_ in the same region where you have configured the TODO AWS Providerterraform import {
  * 
- * ```sh
- *  $ pulumi import aws:route53/zoneAssociation:ZoneAssociation example Z123456ABCDEFG:vpc-12345678:us-east-2
- * ```
+ *  to = aws_route53_zone_association.example
+ * 
+ *  id = &#34;Z123456ABCDEFG:vpc-12345678:us-east-2&#34; } **Using `pulumi import` to import** Route 53 Hosted Zone Associations using the Hosted Zone ID and VPC ID, separated by a colon (`:`). For exampleThe VPC is in the same region where you have configured the TODO AWS Providerconsole % pulumi import aws_route53_zone_association.example Z123456ABCDEFG:vpc-12345678 The VPC is _not_ in the same region where you have configured the TODO AWS Providerconsole % pulumi import aws_route53_zone_association.example Z123456ABCDEFG:vpc-12345678:us-east-2
  * 
  */
 @ResourceType(type="aws:route53/zoneAssociation:ZoneAssociation")

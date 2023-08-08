@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,13 +43,11 @@ import (
 //
 // ## Import
 //
-// VPC Endpoint Route Table Associations can be imported using `vpc_endpoint_id` together with `route_table_id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_vpc_endpoint_route_table_association.example
 //
-//	$ pulumi import aws:ec2/vpcEndpointRouteTableAssociation:VpcEndpointRouteTableAssociation example vpce-aaaaaaaa/rtb-bbbbbbbb
-//
-// ```
+//	id = "vpce-aaaaaaaa/rtb-bbbbbbbb" } Using `pulumi import`, import VPC Endpoint Route Table Associations using `vpc_endpoint_id` together with `route_table_id`. For exampleconsole % pulumi import aws_vpc_endpoint_route_table_association.example vpce-aaaaaaaa/rtb-bbbbbbbb
 type VpcEndpointRouteTableAssociation struct {
 	pulumi.CustomResourceState
 
@@ -71,6 +70,7 @@ func NewVpcEndpointRouteTableAssociation(ctx *pulumi.Context,
 	if args.VpcEndpointId == nil {
 		return nil, errors.New("invalid value for required argument 'VpcEndpointId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcEndpointRouteTableAssociation
 	err := ctx.RegisterResource("aws:ec2/vpcEndpointRouteTableAssociation:VpcEndpointRouteTableAssociation", name, args, &resource, opts...)
 	if err != nil {

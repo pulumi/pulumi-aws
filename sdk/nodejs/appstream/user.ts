@@ -23,11 +23,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_appstream_user` can be imported using the `user_name` and `authentication_type` separated by a slash (`/`), e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:appstream/user:User example UserName/AuthenticationType
- * ```
+ *  to = aws_appstream_user.example
+ *
+ *  id = "UserName/AuthenticationType" } Using `pulumi import`, import `aws_appstream_user` using the `user_name` and `authentication_type` separated by a slash (`/`). For exampleconsole % pulumi import aws_appstream_user.example UserName/AuthenticationType
  */
 export class User extends pulumi.CustomResource {
     /**

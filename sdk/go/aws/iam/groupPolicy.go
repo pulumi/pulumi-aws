@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -66,13 +67,11 @@ import (
 //
 // ## Import
 //
-// IAM Group Policies can be imported using the `group_name:group_policy_name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_iam_group_policy.mypolicy
 //
-//	$ pulumi import aws:iam/groupPolicy:GroupPolicy mypolicy group_of_mypolicy_name:mypolicy_name
-//
-// ```
+//	id = "group_of_mypolicy_name:mypolicy_name" } Using `pulumi import`, import IAM Group Policies using the `group_name:group_policy_name`. For exampleconsole % pulumi import aws_iam_group_policy.mypolicy group_of_mypolicy_name:mypolicy_name
 type GroupPolicy struct {
 	pulumi.CustomResourceState
 
@@ -101,6 +100,7 @@ func NewGroupPolicy(ctx *pulumi.Context,
 	if args.Policy == nil {
 		return nil, errors.New("invalid value for required argument 'Policy'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource GroupPolicy
 	err := ctx.RegisterResource("aws:iam/groupPolicy:GroupPolicy", name, args, &resource, opts...)
 	if err != nil {

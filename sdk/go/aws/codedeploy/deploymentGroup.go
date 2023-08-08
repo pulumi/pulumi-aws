@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,9 +23,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codedeploy"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codedeploy"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -130,7 +131,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codedeploy"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codedeploy"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -204,7 +205,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codedeploy"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codedeploy"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -254,15 +255,11 @@ import (
 //
 // ## Import
 //
-// CodeDeploy Deployment Groups can be imported by their `app_name`, a colon, and `deployment_group_name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_codedeploy_deployment_group.example
 //
-//	$ pulumi import aws:codedeploy/deploymentGroup:DeploymentGroup example my-application:my-deployment-group
-//
-// ```
-//
-//	[1]http://docs.aws.amazon.com/codedeploy/latest/userguide/monitoring-sns-event-notifications-create-trigger.html
+//	id = "my-application:my-deployment-group" } Using `pulumi import`, import CodeDeploy Deployment Groups using `app_name`, a colon, and `deployment_group_name`. For exampleconsole % pulumi import aws_codedeploy_deployment_group.example my-application:my-deployment-group [1]http://docs.aws.amazon.com/codedeploy/latest/userguide/monitoring-sns-event-notifications-create-trigger.html
 type DeploymentGroup struct {
 	pulumi.CustomResourceState
 
@@ -324,6 +321,7 @@ func NewDeploymentGroup(ctx *pulumi.Context,
 	if args.ServiceRoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceRoleArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DeploymentGroup
 	err := ctx.RegisterResource("aws:codedeploy/deploymentGroup:DeploymentGroup", name, args, &resource, opts...)
 	if err != nil {

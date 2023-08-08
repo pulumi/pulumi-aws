@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -67,13 +68,11 @@ import (
 //
 // ## Import
 //
-// Lightsail Databases can be imported using their name, e.g.
+// terraform import {
 //
-// ```sh
+//	to = aws_lightsail_database.foo
 //
-//	$ pulumi import aws:lightsail/database:Database foo 'bar'
-//
-// ```
+//	id = "bar" } Using `pulumi import`, import Lightsail Databases using their name. For exampleconsole % pulumi import aws_lightsail_database.foo 'bar'
 type Database struct {
 	pulumi.CustomResourceState
 
@@ -166,6 +165,7 @@ func NewDatabase(ctx *pulumi.Context,
 		"masterPassword",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Database
 	err := ctx.RegisterResource("aws:lightsail/database:Database", name, args, &resource, opts...)
 	if err != nil {

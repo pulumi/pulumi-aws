@@ -166,11 +166,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * SSM associations can be imported using the `association_id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:ssm/association:Association test-association 10abcdef-0abc-1234-5678-90abcdef123456
- * ```
+ *  to = aws_ssm_association.test-association
+ * 
+ *  id = &#34;10abcdef-0abc-1234-5678-90abcdef123456&#34; } Using `pulumi import`, import SSM associations using the `association_id`. For exampleconsole % pulumi import aws_ssm_association.test-association 10abcdef-0abc-1234-5678-90abcdef123456
  * 
  */
 @ResourceType(type="aws:ssm/association:Association")
@@ -274,7 +274,7 @@ public class Association extends com.pulumi.resources.CustomResource {
         return this.documentVersion;
     }
     /**
-     * The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above.
+     * The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
      * 
      * @deprecated
      * use &#39;targets&#39; argument instead. https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateAssociation.html#systemsmanager-CreateAssociation-request-InstanceId
@@ -285,7 +285,7 @@ public class Association extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> instanceId;
 
     /**
-     * @return The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above.
+     * @return The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
      * 
      */
     public Output<Optional<String>> instanceId() {
@@ -306,14 +306,14 @@ public class Association extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.maxConcurrency);
     }
     /**
-     * The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
+     * The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.
      * 
      */
     @Export(name="maxErrors", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> maxErrors;
 
     /**
-     * @return The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
+     * @return The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.
      * 
      */
     public Output<Optional<String>> maxErrors() {

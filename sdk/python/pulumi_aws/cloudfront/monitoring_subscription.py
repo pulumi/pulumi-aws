@@ -119,11 +119,11 @@ class MonitoringSubscription(pulumi.CustomResource):
 
         ## Import
 
-        CloudFront monitoring subscription can be imported using the id, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:cloudfront/monitoringSubscription:MonitoringSubscription example E3QYSUHO4VYRGB
-        ```
+         to = aws_cloudfront_monitoring_subscription.example
+
+         id = "E3QYSUHO4VYRGB" } Using `pulumi import`, import CloudFront monitoring subscription using the id. For exampleconsole % pulumi import aws_cloudfront_monitoring_subscription.example E3QYSUHO4VYRGB
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -156,11 +156,11 @@ class MonitoringSubscription(pulumi.CustomResource):
 
         ## Import
 
-        CloudFront monitoring subscription can be imported using the id, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:cloudfront/monitoringSubscription:MonitoringSubscription example E3QYSUHO4VYRGB
-        ```
+         to = aws_cloudfront_monitoring_subscription.example
+
+         id = "E3QYSUHO4VYRGB" } Using `pulumi import`, import CloudFront monitoring subscription using the id. For exampleconsole % pulumi import aws_cloudfront_monitoring_subscription.example E3QYSUHO4VYRGB
 
         :param str resource_name: The name of the resource.
         :param MonitoringSubscriptionArgs args: The arguments to use to populate this resource's properties.

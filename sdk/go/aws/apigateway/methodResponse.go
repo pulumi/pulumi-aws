@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -76,13 +77,11 @@ import (
 //
 // ## Import
 //
-// `aws_api_gateway_method_response` can be imported using `REST-API-ID/RESOURCE-ID/HTTP-METHOD/STATUS-CODE`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_api_gateway_method_response.example
 //
-//	$ pulumi import aws:apigateway/methodResponse:MethodResponse example 12345abcde/67890fghij/GET/200
-//
-// ```
+//	id = "12345abcde/67890fghij/GET/200" } Using `pulumi import`, import `aws_api_gateway_method_response` using `REST-API-ID/RESOURCE-ID/HTTP-METHOD/STATUS-CODE`. For exampleconsole % pulumi import aws_api_gateway_method_response.example 12345abcde/67890fghij/GET/200
 type MethodResponse struct {
 	pulumi.CustomResourceState
 
@@ -121,6 +120,7 @@ func NewMethodResponse(ctx *pulumi.Context,
 	if args.StatusCode == nil {
 		return nil, errors.New("invalid value for required argument 'StatusCode'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MethodResponse
 	err := ctx.RegisterResource("aws:apigateway/methodResponse:MethodResponse", name, args, &resource, opts...)
 	if err != nil {

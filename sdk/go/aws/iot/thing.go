@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iot"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iot"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,13 +43,11 @@ import (
 //
 // ## Import
 //
-// IOT Things can be imported using the name, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_iot_thing.example
 //
-//	$ pulumi import aws:iot/thing:Thing example example
-//
-// ```
+//	id = "example" } Using `pulumi import`, import IOT Things using the name. For exampleconsole % pulumi import aws_iot_thing.example example
 type Thing struct {
 	pulumi.CustomResourceState
 
@@ -73,6 +72,7 @@ func NewThing(ctx *pulumi.Context,
 		args = &ThingArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Thing
 	err := ctx.RegisterResource("aws:iot/thing:Thing", name, args, &resource, opts...)
 	if err != nil {

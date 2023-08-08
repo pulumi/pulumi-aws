@@ -29,6 +29,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.AwsFunctions;
  * import com.pulumi.aws.inputs.GetRegionArgs;
+ * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
+ * import com.pulumi.aws.inputs.GetPartitionArgs;
  * import com.pulumi.aws.ec2.Eip;
  * import com.pulumi.aws.ec2.EipArgs;
  * import com.pulumi.aws.shield.Protection;
@@ -57,7 +59,7 @@ import javax.annotation.Nullable;
  *         final var currentPartition = AwsFunctions.getPartition();
  * 
  *         var exampleEip = new Eip(&#34;exampleEip&#34;, EipArgs.builder()        
- *             .vpc(true)
+ *             .domain(&#34;vpc&#34;)
  *             .tags(Map.of(&#34;Name&#34;, &#34;example&#34;))
  *             .build());
  * 
@@ -86,11 +88,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Shield protection health check association resources can be imported by specifying the `shield_protection_id` and `health_check_arn` e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:shield/protectionHealthCheckAssociation:ProtectionHealthCheckAssociation example ff9592dc-22f3-4e88-afa1-7b29fde9669a+arn:aws:route53:::healthcheck/3742b175-edb9-46bc-9359-f53e3b794b1b
- * ```
+ *  to = aws_shield_protection_health_check_association.example
+ * 
+ *  id = &#34;ff9592dc-22f3-4e88-afa1-7b29fde9669a+arn:aws:route53:::healthcheck/3742b175-edb9-46bc-9359-f53e3b794b1b&#34; } Using `pulumi import`, import Shield protection health check association resources using the `shield_protection_id` and `health_check_arn`. For exampleconsole % pulumi import aws_shield_protection_health_check_association.example ff9592dc-22f3-4e88-afa1-7b29fde9669a+arn:aws:route53:::healthcheck/3742b175-edb9-46bc-9359-f53e3b794b1b
  * 
  */
 @ResourceType(type="aws:shield/protectionHealthCheckAssociation:ProtectionHealthCheckAssociation")

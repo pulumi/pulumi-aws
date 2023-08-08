@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/amp"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/amp"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -46,7 +47,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/amp"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/amp"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -65,6 +66,7 @@ import (
 //
 // ```
 func GetWorkspaces(ctx *pulumi.Context, args *GetWorkspacesArgs, opts ...pulumi.InvokeOption) (*GetWorkspacesResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetWorkspacesResult
 	err := ctx.Invoke("aws:amp/getWorkspaces:getWorkspaces", args, &rv, opts...)
 	if err != nil {

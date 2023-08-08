@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appconfig"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appconfig"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -49,13 +50,11 @@ import (
 //
 // ## Import
 //
-// AppConfig Deployment Strategies can be imported by using their deployment strategy ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_appconfig_deployment_strategy.example
 //
-//	$ pulumi import aws:appconfig/deploymentStrategy:DeploymentStrategy example 11xxxxx
-//
-// ```
+//	id = "11xxxxx" } Using `pulumi import`, import AppConfig Deployment Strategies using their deployment strategy ID. For exampleconsole % pulumi import aws_appconfig_deployment_strategy.example 11xxxxx
 type DeploymentStrategy struct {
 	pulumi.CustomResourceState
 
@@ -97,6 +96,7 @@ func NewDeploymentStrategy(ctx *pulumi.Context,
 	if args.ReplicateTo == nil {
 		return nil, errors.New("invalid value for required argument 'ReplicateTo'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DeploymentStrategy
 	err := ctx.RegisterResource("aws:appconfig/deploymentStrategy:DeploymentStrategy", name, args, &resource, opts...)
 	if err != nil {

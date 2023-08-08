@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +24,7 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/vpclattice"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/vpclattice"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -72,13 +73,11 @@ import (
 //
 // ## Import
 //
-// VPC Lattice Auth Policy can be imported using the `example_id_arg`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_vpclattice_auth_policy.example
 //
-//	$ pulumi import aws:vpclattice/authPolicy:AuthPolicy example rft-8012925589
-//
-// ```
+//	id = "rft-8012925589" } Using `pulumi import`, import VPC Lattice Auth Policy using the `example_id_arg`. For exampleconsole % pulumi import aws_vpclattice_auth_policy.example rft-8012925589
 type AuthPolicy struct {
 	pulumi.CustomResourceState
 
@@ -103,6 +102,7 @@ func NewAuthPolicy(ctx *pulumi.Context,
 	if args.ResourceIdentifier == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceIdentifier'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AuthPolicy
 	err := ctx.RegisterResource("aws:vpclattice/authPolicy:AuthPolicy", name, args, &resource, opts...)
 	if err != nil {

@@ -223,11 +223,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * RDS Clusters can be imported using the `cluster_identifier`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:rds/cluster:Cluster aurora_cluster aurora-prod-cluster
- * ```
+ *  to = aws_rds_cluster.aurora_cluster
+ *
+ *  id = "aurora-prod-cluster" } Using `pulumi import`, import RDS Clusters using the `cluster_identifier`. For exampleconsole % pulumi import aws_rds_cluster.aurora_cluster aurora-prod-cluster
  */
 export class Cluster extends pulumi.CustomResource {
     /**
@@ -278,11 +278,11 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly availabilityZones!: pulumi.Output<string[]>;
     /**
-     * The target backtrack window, in seconds. Only available for `aurora` and `aurora-mysql` engines currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
+     * Target backtrack window, in seconds. Only available for `aurora` and `aurora-mysql` engines currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
      */
     public readonly backtrackWindow!: pulumi.Output<number | undefined>;
     /**
-     * The days to retain backups for. Default `1`
+     * Days to retain backups for. Default `1`
      */
     public readonly backupRetentionPeriod!: pulumi.Output<number | undefined>;
     /**
@@ -298,7 +298,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly clusterMembers!: pulumi.Output<string[]>;
     /**
-     * The RDS Cluster Resource ID
+     * RDS Cluster Resource ID
      */
     public /*out*/ readonly clusterResourceId!: pulumi.Output<string>;
     /**
@@ -313,16 +313,13 @@ export class Cluster extends pulumi.CustomResource {
      * (Required for Multi-AZ DB cluster) The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the Amazon RDS User Guide.
      */
     public readonly dbClusterInstanceClass!: pulumi.Output<string | undefined>;
-    /**
-     * A cluster parameter group to associate with the cluster.
-     */
     public readonly dbClusterParameterGroupName!: pulumi.Output<string>;
     /**
      * Instance parameter group to associate with all instances of the DB cluster. The `dbInstanceParameterGroupName` parameter is only valid in combination with the `allowMajorVersionUpgrade` parameter.
      */
     public readonly dbInstanceParameterGroupName!: pulumi.Output<string | undefined>;
     /**
-     * A DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` specified on every `aws.rds.ClusterInstance` in the cluster.
+     * DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` specified on every `aws.rds.ClusterInstance` in the cluster.
      */
     public readonly dbSubnetGroupName!: pulumi.Output<string>;
     /**
@@ -342,35 +339,35 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly enabledCloudwatchLogsExports!: pulumi.Output<string[] | undefined>;
     /**
-     * The DNS address of the RDS instance
+     * DNS address of the RDS instance
      */
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
     /**
-     * The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
+     * Name of the database engine to be used for this DB cluster. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
      */
-    public readonly engine!: pulumi.Output<string | undefined>;
+    public readonly engine!: pulumi.Output<string>;
     /**
-     * The database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+     * Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
      */
     public readonly engineMode!: pulumi.Output<string | undefined>;
     /**
-     * The database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value, or by running `aws rds describe-db-engine-versions`. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`. The value can contain a partial version where supported by the API. The actual engine version used is returned in the attribute `engineVersionActual`, , see Attributes Reference below.
+     * Database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value, or by running `aws rds describe-db-engine-versions`. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`. The value can contain a partial version where supported by the API. The actual engine version used is returned in the attribute `engineVersionActual`, , see Attribute Reference below.
      */
     public readonly engineVersion!: pulumi.Output<string>;
     /**
-     * The running version of the database.
+     * Running version of the database.
      */
     public /*out*/ readonly engineVersionActual!: pulumi.Output<string>;
     /**
-     * The name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
+     * Name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
      */
     public readonly finalSnapshotIdentifier!: pulumi.Output<string | undefined>;
     /**
-     * The global cluster identifier specified on `aws.rds.GlobalCluster`.
+     * Global cluster identifier specified on `aws.rds.GlobalCluster`.
      */
     public readonly globalClusterIdentifier!: pulumi.Output<string | undefined>;
     /**
-     * The Route53 Hosted Zone ID of the endpoint
+     * Route53 Hosted Zone ID of the endpoint
      */
     public /*out*/ readonly hostedZoneId!: pulumi.Output<string>;
     /**
@@ -378,15 +375,15 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly iamDatabaseAuthenticationEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * A List of ARNs for the IAM roles to associate to the RDS Cluster.
+     * List of ARNs for the IAM roles to associate to the RDS Cluster.
      */
     public readonly iamRoles!: pulumi.Output<string[]>;
     /**
-     * (Required for Multi-AZ DB cluster) The amount of Provisioned IOPS (input/output operations per second) to be initially allocated for each DB instance in the Multi-AZ DB cluster. For information about valid Iops values, see [Amazon RDS Provisioned IOPS storage to improve performance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS) in the Amazon RDS User Guide. Must be a multiple between .5 and 50 of the storage amount for the DB cluster.
+     * Amount of Provisioned IOPS (input/output operations per second) to be initially allocated for each DB instance in the Multi-AZ DB cluster. For information about valid Iops values, see [Amazon RDS Provisioned IOPS storage to improve performance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS) in the Amazon RDS User Guide. (This setting is required to create a Multi-AZ DB cluster). Must be a multiple between .5 and 50 of the storage amount for the DB cluster.
      */
     public readonly iops!: pulumi.Output<number | undefined>;
     /**
-     * The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
+     * ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
      */
     public readonly kmsKeyId!: pulumi.Output<string>;
     /**
@@ -398,11 +395,11 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly masterPassword!: pulumi.Output<string | undefined>;
     /**
-     * The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
+     * Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
      */
     public readonly masterUserSecretKmsKeyId!: pulumi.Output<string>;
     /**
-     * A block that specifies the master user secret. Only available when `manageMasterUserPassword` is set to true. Documented below.
+     * Block that specifies the master user secret. Only available when `manageMasterUserPassword` is set to true. Documented below.
      */
     public /*out*/ readonly masterUserSecrets!: pulumi.Output<outputs.rds.ClusterMasterUserSecret[]>;
     /**
@@ -410,23 +407,23 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly masterUsername!: pulumi.Output<string>;
     /**
-     * The network type of the cluster. Valid values: `IPV4`, `DUAL`.
+     * Network type of the cluster. Valid values: `IPV4`, `DUAL`.
      */
     public readonly networkType!: pulumi.Output<string>;
     /**
-     * The port on which the DB accepts connections
+     * Port on which the DB accepts connections
      */
     public readonly port!: pulumi.Output<number>;
     /**
-     * The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
+     * Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
      */
     public readonly preferredBackupWindow!: pulumi.Output<string>;
     /**
-     * The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
+     * Weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
      */
     public readonly preferredMaintenanceWindow!: pulumi.Output<string>;
     /**
-     * A read-only endpoint for the Aurora cluster, automatically
+     * Read-only endpoint for the Aurora cluster, automatically
      * load-balanced across replicas
      */
     public /*out*/ readonly readerEndpoint!: pulumi.Output<string>;
@@ -472,7 +469,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -487,7 +484,7 @@ export class Cluster extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ClusterArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: ClusterArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ClusterArgs | ClusterState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -551,6 +548,9 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["vpcSecurityGroupIds"] = state ? state.vpcSecurityGroupIds : undefined;
         } else {
             const args = argsOrState as ClusterArgs | undefined;
+            if ((!args || args.engine === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'engine'");
+            }
             resourceInputs["allocatedStorage"] = args ? args.allocatedStorage : undefined;
             resourceInputs["allowMajorVersionUpgrade"] = args ? args.allowMajorVersionUpgrade : undefined;
             resourceInputs["applyImmediately"] = args ? args.applyImmediately : undefined;
@@ -640,11 +640,11 @@ export interface ClusterState {
      */
     availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The target backtrack window, in seconds. Only available for `aurora` and `aurora-mysql` engines currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
+     * Target backtrack window, in seconds. Only available for `aurora` and `aurora-mysql` engines currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
      */
     backtrackWindow?: pulumi.Input<number>;
     /**
-     * The days to retain backups for. Default `1`
+     * Days to retain backups for. Default `1`
      */
     backupRetentionPeriod?: pulumi.Input<number>;
     /**
@@ -660,7 +660,7 @@ export interface ClusterState {
      */
     clusterMembers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The RDS Cluster Resource ID
+     * RDS Cluster Resource ID
      */
     clusterResourceId?: pulumi.Input<string>;
     /**
@@ -675,16 +675,13 @@ export interface ClusterState {
      * (Required for Multi-AZ DB cluster) The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the Amazon RDS User Guide.
      */
     dbClusterInstanceClass?: pulumi.Input<string>;
-    /**
-     * A cluster parameter group to associate with the cluster.
-     */
     dbClusterParameterGroupName?: pulumi.Input<string>;
     /**
      * Instance parameter group to associate with all instances of the DB cluster. The `dbInstanceParameterGroupName` parameter is only valid in combination with the `allowMajorVersionUpgrade` parameter.
      */
     dbInstanceParameterGroupName?: pulumi.Input<string>;
     /**
-     * A DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` specified on every `aws.rds.ClusterInstance` in the cluster.
+     * DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` specified on every `aws.rds.ClusterInstance` in the cluster.
      */
     dbSubnetGroupName?: pulumi.Input<string>;
     /**
@@ -704,35 +701,35 @@ export interface ClusterState {
      */
     enabledCloudwatchLogsExports?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The DNS address of the RDS instance
+     * DNS address of the RDS instance
      */
     endpoint?: pulumi.Input<string>;
     /**
-     * The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
+     * Name of the database engine to be used for this DB cluster. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
      */
     engine?: pulumi.Input<string | enums.rds.EngineType>;
     /**
-     * The database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+     * Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
      */
     engineMode?: pulumi.Input<string | enums.rds.EngineMode>;
     /**
-     * The database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value, or by running `aws rds describe-db-engine-versions`. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`. The value can contain a partial version where supported by the API. The actual engine version used is returned in the attribute `engineVersionActual`, , see Attributes Reference below.
+     * Database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value, or by running `aws rds describe-db-engine-versions`. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`. The value can contain a partial version where supported by the API. The actual engine version used is returned in the attribute `engineVersionActual`, , see Attribute Reference below.
      */
     engineVersion?: pulumi.Input<string>;
     /**
-     * The running version of the database.
+     * Running version of the database.
      */
     engineVersionActual?: pulumi.Input<string>;
     /**
-     * The name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
+     * Name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
      */
     finalSnapshotIdentifier?: pulumi.Input<string>;
     /**
-     * The global cluster identifier specified on `aws.rds.GlobalCluster`.
+     * Global cluster identifier specified on `aws.rds.GlobalCluster`.
      */
     globalClusterIdentifier?: pulumi.Input<string>;
     /**
-     * The Route53 Hosted Zone ID of the endpoint
+     * Route53 Hosted Zone ID of the endpoint
      */
     hostedZoneId?: pulumi.Input<string>;
     /**
@@ -740,15 +737,15 @@ export interface ClusterState {
      */
     iamDatabaseAuthenticationEnabled?: pulumi.Input<boolean>;
     /**
-     * A List of ARNs for the IAM roles to associate to the RDS Cluster.
+     * List of ARNs for the IAM roles to associate to the RDS Cluster.
      */
     iamRoles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * (Required for Multi-AZ DB cluster) The amount of Provisioned IOPS (input/output operations per second) to be initially allocated for each DB instance in the Multi-AZ DB cluster. For information about valid Iops values, see [Amazon RDS Provisioned IOPS storage to improve performance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS) in the Amazon RDS User Guide. Must be a multiple between .5 and 50 of the storage amount for the DB cluster.
+     * Amount of Provisioned IOPS (input/output operations per second) to be initially allocated for each DB instance in the Multi-AZ DB cluster. For information about valid Iops values, see [Amazon RDS Provisioned IOPS storage to improve performance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS) in the Amazon RDS User Guide. (This setting is required to create a Multi-AZ DB cluster). Must be a multiple between .5 and 50 of the storage amount for the DB cluster.
      */
     iops?: pulumi.Input<number>;
     /**
-     * The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
+     * ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
      */
     kmsKeyId?: pulumi.Input<string>;
     /**
@@ -760,11 +757,11 @@ export interface ClusterState {
      */
     masterPassword?: pulumi.Input<string>;
     /**
-     * The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
+     * Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
      */
     masterUserSecretKmsKeyId?: pulumi.Input<string>;
     /**
-     * A block that specifies the master user secret. Only available when `manageMasterUserPassword` is set to true. Documented below.
+     * Block that specifies the master user secret. Only available when `manageMasterUserPassword` is set to true. Documented below.
      */
     masterUserSecrets?: pulumi.Input<pulumi.Input<inputs.rds.ClusterMasterUserSecret>[]>;
     /**
@@ -772,23 +769,23 @@ export interface ClusterState {
      */
     masterUsername?: pulumi.Input<string>;
     /**
-     * The network type of the cluster. Valid values: `IPV4`, `DUAL`.
+     * Network type of the cluster. Valid values: `IPV4`, `DUAL`.
      */
     networkType?: pulumi.Input<string>;
     /**
-     * The port on which the DB accepts connections
+     * Port on which the DB accepts connections
      */
     port?: pulumi.Input<number>;
     /**
-     * The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
+     * Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
      */
     preferredBackupWindow?: pulumi.Input<string>;
     /**
-     * The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
+     * Weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
      */
     preferredMaintenanceWindow?: pulumi.Input<string>;
     /**
-     * A read-only endpoint for the Aurora cluster, automatically
+     * Read-only endpoint for the Aurora cluster, automatically
      * load-balanced across replicas
      */
     readerEndpoint?: pulumi.Input<string>;
@@ -834,7 +831,7 @@ export interface ClusterState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -864,11 +861,11 @@ export interface ClusterArgs {
      */
     availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The target backtrack window, in seconds. Only available for `aurora` and `aurora-mysql` engines currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
+     * Target backtrack window, in seconds. Only available for `aurora` and `aurora-mysql` engines currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
      */
     backtrackWindow?: pulumi.Input<number>;
     /**
-     * The days to retain backups for. Default `1`
+     * Days to retain backups for. Default `1`
      */
     backupRetentionPeriod?: pulumi.Input<number>;
     /**
@@ -895,16 +892,13 @@ export interface ClusterArgs {
      * (Required for Multi-AZ DB cluster) The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the Amazon RDS User Guide.
      */
     dbClusterInstanceClass?: pulumi.Input<string>;
-    /**
-     * A cluster parameter group to associate with the cluster.
-     */
     dbClusterParameterGroupName?: pulumi.Input<string>;
     /**
      * Instance parameter group to associate with all instances of the DB cluster. The `dbInstanceParameterGroupName` parameter is only valid in combination with the `allowMajorVersionUpgrade` parameter.
      */
     dbInstanceParameterGroupName?: pulumi.Input<string>;
     /**
-     * A DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` specified on every `aws.rds.ClusterInstance` in the cluster.
+     * DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` specified on every `aws.rds.ClusterInstance` in the cluster.
      */
     dbSubnetGroupName?: pulumi.Input<string>;
     /**
@@ -924,23 +918,23 @@ export interface ClusterArgs {
      */
     enabledCloudwatchLogsExports?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
+     * Name of the database engine to be used for this DB cluster. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
      */
-    engine?: pulumi.Input<string | enums.rds.EngineType>;
+    engine: pulumi.Input<string | enums.rds.EngineType>;
     /**
-     * The database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
+     * Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `multimaster`, `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-serverless.html) for limitations when using `serverless`.
      */
     engineMode?: pulumi.Input<string | enums.rds.EngineMode>;
     /**
-     * The database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value, or by running `aws rds describe-db-engine-versions`. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`. The value can contain a partial version where supported by the API. The actual engine version used is returned in the attribute `engineVersionActual`, , see Attributes Reference below.
+     * Database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value, or by running `aws rds describe-db-engine-versions`. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`. The value can contain a partial version where supported by the API. The actual engine version used is returned in the attribute `engineVersionActual`, , see Attribute Reference below.
      */
     engineVersion?: pulumi.Input<string>;
     /**
-     * The name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
+     * Name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
      */
     finalSnapshotIdentifier?: pulumi.Input<string>;
     /**
-     * The global cluster identifier specified on `aws.rds.GlobalCluster`.
+     * Global cluster identifier specified on `aws.rds.GlobalCluster`.
      */
     globalClusterIdentifier?: pulumi.Input<string>;
     /**
@@ -948,15 +942,15 @@ export interface ClusterArgs {
      */
     iamDatabaseAuthenticationEnabled?: pulumi.Input<boolean>;
     /**
-     * A List of ARNs for the IAM roles to associate to the RDS Cluster.
+     * List of ARNs for the IAM roles to associate to the RDS Cluster.
      */
     iamRoles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * (Required for Multi-AZ DB cluster) The amount of Provisioned IOPS (input/output operations per second) to be initially allocated for each DB instance in the Multi-AZ DB cluster. For information about valid Iops values, see [Amazon RDS Provisioned IOPS storage to improve performance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS) in the Amazon RDS User Guide. Must be a multiple between .5 and 50 of the storage amount for the DB cluster.
+     * Amount of Provisioned IOPS (input/output operations per second) to be initially allocated for each DB instance in the Multi-AZ DB cluster. For information about valid Iops values, see [Amazon RDS Provisioned IOPS storage to improve performance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS) in the Amazon RDS User Guide. (This setting is required to create a Multi-AZ DB cluster). Must be a multiple between .5 and 50 of the storage amount for the DB cluster.
      */
     iops?: pulumi.Input<number>;
     /**
-     * The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
+     * ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
      */
     kmsKeyId?: pulumi.Input<string>;
     /**
@@ -968,7 +962,7 @@ export interface ClusterArgs {
      */
     masterPassword?: pulumi.Input<string>;
     /**
-     * The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
+     * Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
      */
     masterUserSecretKmsKeyId?: pulumi.Input<string>;
     /**
@@ -976,19 +970,19 @@ export interface ClusterArgs {
      */
     masterUsername?: pulumi.Input<string>;
     /**
-     * The network type of the cluster. Valid values: `IPV4`, `DUAL`.
+     * Network type of the cluster. Valid values: `IPV4`, `DUAL`.
      */
     networkType?: pulumi.Input<string>;
     /**
-     * The port on which the DB accepts connections
+     * Port on which the DB accepts connections
      */
     port?: pulumi.Input<number>;
     /**
-     * The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
+     * Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
      */
     preferredBackupWindow?: pulumi.Input<string>;
     /**
-     * The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
+     * Weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
      */
     preferredMaintenanceWindow?: pulumi.Input<string>;
     /**

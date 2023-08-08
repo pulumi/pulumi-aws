@@ -5,6 +5,7 @@ package com.pulumi.aws.kinesis.outputs;
 
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions;
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration;
+import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamElasticsearchConfigurationS3Configuration;
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
@@ -70,6 +71,11 @@ public final class FirehoseDeliveryStreamElasticsearchConfiguration {
      * 
      */
     private @Nullable String s3BackupMode;
+    /**
+     * @return The S3 Configuration. See s3_configuration for more details.
+     * 
+     */
+    private FirehoseDeliveryStreamElasticsearchConfigurationS3Configuration s3Configuration;
     /**
      * @return The Elasticsearch type name with maximum length of 100 characters.
      * 
@@ -160,6 +166,13 @@ public final class FirehoseDeliveryStreamElasticsearchConfiguration {
         return Optional.ofNullable(this.s3BackupMode);
     }
     /**
+     * @return The S3 Configuration. See s3_configuration for more details.
+     * 
+     */
+    public FirehoseDeliveryStreamElasticsearchConfigurationS3Configuration s3Configuration() {
+        return this.s3Configuration;
+    }
+    /**
      * @return The Elasticsearch type name with maximum length of 100 characters.
      * 
      */
@@ -194,6 +207,7 @@ public final class FirehoseDeliveryStreamElasticsearchConfiguration {
         private @Nullable Integer retryDuration;
         private String roleArn;
         private @Nullable String s3BackupMode;
+        private FirehoseDeliveryStreamElasticsearchConfigurationS3Configuration s3Configuration;
         private @Nullable String typeName;
         private @Nullable FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig vpcConfig;
         public Builder() {}
@@ -210,6 +224,7 @@ public final class FirehoseDeliveryStreamElasticsearchConfiguration {
     	      this.retryDuration = defaults.retryDuration;
     	      this.roleArn = defaults.roleArn;
     	      this.s3BackupMode = defaults.s3BackupMode;
+    	      this.s3Configuration = defaults.s3Configuration;
     	      this.typeName = defaults.typeName;
     	      this.vpcConfig = defaults.vpcConfig;
         }
@@ -270,6 +285,11 @@ public final class FirehoseDeliveryStreamElasticsearchConfiguration {
             return this;
         }
         @CustomType.Setter
+        public Builder s3Configuration(FirehoseDeliveryStreamElasticsearchConfigurationS3Configuration s3Configuration) {
+            this.s3Configuration = Objects.requireNonNull(s3Configuration);
+            return this;
+        }
+        @CustomType.Setter
         public Builder typeName(@Nullable String typeName) {
             this.typeName = typeName;
             return this;
@@ -292,6 +312,7 @@ public final class FirehoseDeliveryStreamElasticsearchConfiguration {
             o.retryDuration = retryDuration;
             o.roleArn = roleArn;
             o.s3BackupMode = s3BackupMode;
+            o.s3Configuration = s3Configuration;
             o.typeName = typeName;
             o.vpcConfig = vpcConfig;
             return o;

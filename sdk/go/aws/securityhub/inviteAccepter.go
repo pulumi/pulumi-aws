@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/securityhub"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/securityhub"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -61,13 +62,11 @@ import (
 //
 // ## Import
 //
-// Security Hub invite acceptance can be imported using the account ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_securityhub_invite_accepter.example
 //
-//	$ pulumi import aws:securityhub/inviteAccepter:InviteAccepter example 123456789012
-//
-// ```
+//	id = "123456789012" } Using `pulumi import`, import Security Hub invite acceptance using the account ID. For exampleconsole % pulumi import aws_securityhub_invite_accepter.example 123456789012
 type InviteAccepter struct {
 	pulumi.CustomResourceState
 
@@ -87,6 +86,7 @@ func NewInviteAccepter(ctx *pulumi.Context,
 	if args.MasterId == nil {
 		return nil, errors.New("invalid value for required argument 'MasterId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource InviteAccepter
 	err := ctx.RegisterResource("aws:securityhub/inviteAccepter:InviteAccepter", name, args, &resource, opts...)
 	if err != nil {

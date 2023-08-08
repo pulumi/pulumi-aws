@@ -54,8 +54,6 @@ class ClusterBrokerNodeGroupInfo(dict):
             suggest = "az_distribution"
         elif key == "connectivityInfo":
             suggest = "connectivity_info"
-        elif key == "ebsVolumeSize":
-            suggest = "ebs_volume_size"
         elif key == "storageInfo":
             suggest = "storage_info"
 
@@ -76,7 +74,6 @@ class ClusterBrokerNodeGroupInfo(dict):
                  security_groups: Sequence[str],
                  az_distribution: Optional[str] = None,
                  connectivity_info: Optional['outputs.ClusterBrokerNodeGroupInfoConnectivityInfo'] = None,
-                 ebs_volume_size: Optional[int] = None,
                  storage_info: Optional['outputs.ClusterBrokerNodeGroupInfoStorageInfo'] = None):
         """
         :param Sequence[str] client_subnets: A list of subnets to connect to in client VPC ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-prop-brokernodegroupinfo-clientsubnets)).
@@ -84,7 +81,6 @@ class ClusterBrokerNodeGroupInfo(dict):
         :param Sequence[str] security_groups: A list of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
         :param str az_distribution: The distribution of broker nodes across availability zones ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-model-brokerazdistribution)). Currently the only valid value is `DEFAULT`.
         :param 'ClusterBrokerNodeGroupInfoConnectivityInfoArgs' connectivity_info: Information about the cluster access configuration. See below. For security reasons, you can't turn on public access while creating an MSK cluster. However, you can update an existing cluster to make it publicly accessible. You can also create a new cluster and then update it to make it publicly accessible ([documentation](https://docs.aws.amazon.com/msk/latest/developerguide/public-access.html)).
-        :param int ebs_volume_size: The size in GiB of the EBS volume for the data drive on each broker node.
         :param 'ClusterBrokerNodeGroupInfoStorageInfoArgs' storage_info: A block that contains information about storage volumes attached to MSK broker nodes. See below.
         """
         pulumi.set(__self__, "client_subnets", client_subnets)
@@ -94,8 +90,6 @@ class ClusterBrokerNodeGroupInfo(dict):
             pulumi.set(__self__, "az_distribution", az_distribution)
         if connectivity_info is not None:
             pulumi.set(__self__, "connectivity_info", connectivity_info)
-        if ebs_volume_size is not None:
-            pulumi.set(__self__, "ebs_volume_size", ebs_volume_size)
         if storage_info is not None:
             pulumi.set(__self__, "storage_info", storage_info)
 
@@ -138,17 +132,6 @@ class ClusterBrokerNodeGroupInfo(dict):
         Information about the cluster access configuration. See below. For security reasons, you can't turn on public access while creating an MSK cluster. However, you can update an existing cluster to make it publicly accessible. You can also create a new cluster and then update it to make it publicly accessible ([documentation](https://docs.aws.amazon.com/msk/latest/developerguide/public-access.html)).
         """
         return pulumi.get(self, "connectivity_info")
-
-    @property
-    @pulumi.getter(name="ebsVolumeSize")
-    def ebs_volume_size(self) -> Optional[int]:
-        """
-        The size in GiB of the EBS volume for the data drive on each broker node.
-        """
-        warnings.warn("""use 'storage_info' argument instead""", DeprecationWarning)
-        pulumi.log.warn("""ebs_volume_size is deprecated: use 'storage_info' argument instead""")
-
-        return pulumi.get(self, "ebs_volume_size")
 
     @property
     @pulumi.getter(name="storageInfo")

@@ -62,6 +62,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.AwsFunctions;
  * import com.pulumi.aws.inputs.GetRegionArgs;
+ * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
  * import com.pulumi.aws.ec2.Eip;
  * import com.pulumi.aws.ec2.EipArgs;
  * import com.pulumi.aws.shield.Protection;
@@ -87,7 +88,7 @@ import javax.annotation.Nullable;
  *         final var currentCallerIdentity = AwsFunctions.getCallerIdentity();
  * 
  *         var exampleEip = new Eip(&#34;exampleEip&#34;, EipArgs.builder()        
- *             .vpc(true)
+ *             .domain(&#34;vpc&#34;)
  *             .build());
  * 
  *         var exampleProtection = new Protection(&#34;exampleProtection&#34;, ProtectionArgs.builder()        
@@ -141,11 +142,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Shield protection group resources can be imported by specifying their protection group id.
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:shield/protectionGroup:ProtectionGroup example example
- * ```
+ *  to = aws_shield_protection_group.example
+ * 
+ *  id = &#34;example&#34; } Using `pulumi import`, import Shield protection group resources using their protection group id. For exampleconsole % pulumi import aws_shield_protection_group.example example
  * 
  */
 @ResourceType(type="aws:shield/protectionGroup:ProtectionGroup")

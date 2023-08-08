@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/gamelift"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/gamelift"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -51,13 +52,11 @@ import (
 //
 // ## Import
 //
-// GameLift Fleets can be imported using the ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_gamelift_fleet.example
 //
-//	$ pulumi import aws:gamelift/fleet:Fleet example <fleet-id>
-//
-// ```
+//	id = "<fleet-id>" } Using `pulumi import`, import GameLift Fleets using the ID. For exampleconsole % pulumi import aws_gamelift_fleet.example <fleet-id>
 type Fleet struct {
 	pulumi.CustomResourceState
 
@@ -112,6 +111,7 @@ func NewFleet(ctx *pulumi.Context,
 	if args.Ec2InstanceType == nil {
 		return nil, errors.New("invalid value for required argument 'Ec2InstanceType'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Fleet
 	err := ctx.RegisterResource("aws:gamelift/fleet:Fleet", name, args, &resource, opts...)
 	if err != nil {

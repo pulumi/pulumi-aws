@@ -52,16 +52,28 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored. Possible values are `enabled`, `disabled`, and `auto`. Requires Cluster reboot.
+     * The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored.
+     * No longer supported by the AWS API.
+     * Always returns `auto`.
+     * 
+     * @deprecated
+     * This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.
      * 
      */
+    @Deprecated /* This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider. */
     @Import(name="aquaConfigurationStatus")
     private @Nullable Output<String> aquaConfigurationStatus;
 
     /**
-     * @return The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored. Possible values are `enabled`, `disabled`, and `auto`. Requires Cluster reboot.
+     * @return The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored.
+     * No longer supported by the AWS API.
+     * Always returns `auto`.
+     * 
+     * @deprecated
+     * This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.
      * 
      */
+    @Deprecated /* This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider. */
     public Optional<Output<String>> aquaConfigurationStatus() {
         return Optional.ofNullable(this.aquaConfigurationStatus);
     }
@@ -169,29 +181,6 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> clusterRevisionNumber() {
         return Optional.ofNullable(this.clusterRevisionNumber);
-    }
-
-    /**
-     * A list of security groups to be associated with this cluster.
-     * 
-     * @deprecated
-     * With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.
-     * 
-     */
-    @Deprecated /* With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version. */
-    @Import(name="clusterSecurityGroups")
-    private @Nullable Output<List<String>> clusterSecurityGroups;
-
-    /**
-     * @return A list of security groups to be associated with this cluster.
-     * 
-     * @deprecated
-     * With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.
-     * 
-     */
-    @Deprecated /* With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version. */
-    public Optional<Output<List<String>>> clusterSecurityGroups() {
-        return Optional.ofNullable(this.clusterSecurityGroups);
     }
 
     /**
@@ -658,7 +647,6 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         this.clusterParameterGroupName = $.clusterParameterGroupName;
         this.clusterPublicKey = $.clusterPublicKey;
         this.clusterRevisionNumber = $.clusterRevisionNumber;
-        this.clusterSecurityGroups = $.clusterSecurityGroups;
         this.clusterSubnetGroupName = $.clusterSubnetGroupName;
         this.clusterType = $.clusterType;
         this.clusterVersion = $.clusterVersion;
@@ -751,22 +739,34 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param aquaConfigurationStatus The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored. Possible values are `enabled`, `disabled`, and `auto`. Requires Cluster reboot.
+         * @param aquaConfigurationStatus The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored.
+         * No longer supported by the AWS API.
+         * Always returns `auto`.
          * 
          * @return builder
          * 
+         * @deprecated
+         * This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.
+         * 
          */
+        @Deprecated /* This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider. */
         public Builder aquaConfigurationStatus(@Nullable Output<String> aquaConfigurationStatus) {
             $.aquaConfigurationStatus = aquaConfigurationStatus;
             return this;
         }
 
         /**
-         * @param aquaConfigurationStatus The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored. Possible values are `enabled`, `disabled`, and `auto`. Requires Cluster reboot.
+         * @param aquaConfigurationStatus The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored.
+         * No longer supported by the AWS API.
+         * Always returns `auto`.
          * 
          * @return builder
          * 
+         * @deprecated
+         * This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.
+         * 
          */
+        @Deprecated /* This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider. */
         public Builder aquaConfigurationStatus(String aquaConfigurationStatus) {
             return aquaConfigurationStatus(Output.of(aquaConfigurationStatus));
         }
@@ -916,49 +916,6 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder clusterRevisionNumber(String clusterRevisionNumber) {
             return clusterRevisionNumber(Output.of(clusterRevisionNumber));
-        }
-
-        /**
-         * @param clusterSecurityGroups A list of security groups to be associated with this cluster.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.
-         * 
-         */
-        @Deprecated /* With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version. */
-        public Builder clusterSecurityGroups(@Nullable Output<List<String>> clusterSecurityGroups) {
-            $.clusterSecurityGroups = clusterSecurityGroups;
-            return this;
-        }
-
-        /**
-         * @param clusterSecurityGroups A list of security groups to be associated with this cluster.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.
-         * 
-         */
-        @Deprecated /* With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version. */
-        public Builder clusterSecurityGroups(List<String> clusterSecurityGroups) {
-            return clusterSecurityGroups(Output.of(clusterSecurityGroups));
-        }
-
-        /**
-         * @param clusterSecurityGroups A list of security groups to be associated with this cluster.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.
-         * 
-         */
-        @Deprecated /* With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version. */
-        public Builder clusterSecurityGroups(String... clusterSecurityGroups) {
-            return clusterSecurityGroups(List.of(clusterSecurityGroups));
         }
 
         /**

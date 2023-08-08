@@ -91,16 +91,43 @@ import * as utilities from "../utilities";
  *     url: `${aws_api_gateway_deployment.example.invoke_url}${aws_api_gateway_resource.example.path}`,
  * });
  * ```
+ * ### Using Structured Logging Destinations
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const transferLogGroup = new aws.cloudwatch.LogGroup("transferLogGroup", {namePrefix: "transfer_test_"});
+ * const transferAssumeRole = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: ["transfer.amazonaws.com"],
+ *         }],
+ *         actions: ["sts:AssumeRole"],
+ *     }],
+ * });
+ * const iamForTransfer = new aws.iam.Role("iamForTransfer", {
+ *     namePrefix: "iam_for_transfer_",
+ *     assumeRolePolicy: transferAssumeRole.then(transferAssumeRole => transferAssumeRole.json),
+ *     managedPolicyArns: ["arn:aws:iam::aws:policy/service-role/AWSTransferLoggingAccess"],
+ * });
+ * const transferServer = new aws.transfer.Server("transferServer", {
+ *     endpointType: "PUBLIC",
+ *     loggingRole: iamForTransfer.arn,
+ *     protocols: ["SFTP"],
+ *     structuredLogDestinations: [pulumi.interpolate`${transferLogGroup.arn}:*`],
+ * });
+ * ```
  *
  * ## Import
  *
- * Transfer Servers can be imported using the `server id`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:transfer/server:Server example s-12345678
- * ```
+ *  to = aws_transfer_server.example
  *
- *  Certain resource arguments, such as `host_key`, cannot be read via the API and imported into the provider. This provider will display a difference for these arguments the first run after import if declared in the provider configuration for an imported resource.
+ *  id = "s-12345678" } Using `pulumi import`, import Transfer Servers using the server `id`. For exampleconsole % pulumi import aws_transfer_server.example s-12345678 Certain resource arguments, such as `host_key`, cannot be read via the API and imported into the provider. This provider will display a difference for these arguments the first run after import if declared in the provider configuration for an imported resource.
  */
 export class Server extends pulumi.CustomResource {
     /**
@@ -203,9 +230,13 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly protocols!: pulumi.Output<string[]>;
     /**
-     * Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06` and `TransferSecurityPolicy-2022-03`. Default value is: `TransferSecurityPolicy-2018-11`.
+     * Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-2022-03` and `TransferSecurityPolicy-2023-05`. Default value is: `TransferSecurityPolicy-2018-11`.
      */
     public readonly securityPolicyName!: pulumi.Output<string | undefined>;
+    /**
+     * This is a set of arns of destinations that will receive structured logs from the transfer server
+     */
+    public readonly structuredLogDestinations!: pulumi.Output<string[] | undefined>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -255,6 +286,7 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["protocolDetails"] = state ? state.protocolDetails : undefined;
             resourceInputs["protocols"] = state ? state.protocols : undefined;
             resourceInputs["securityPolicyName"] = state ? state.securityPolicyName : undefined;
+            resourceInputs["structuredLogDestinations"] = state ? state.structuredLogDestinations : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["url"] = state ? state.url : undefined;
@@ -277,6 +309,7 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["protocolDetails"] = args ? args.protocolDetails : undefined;
             resourceInputs["protocols"] = args ? args.protocols : undefined;
             resourceInputs["securityPolicyName"] = args ? args.securityPolicyName : undefined;
+            resourceInputs["structuredLogDestinations"] = args ? args.structuredLogDestinations : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["url"] = args ? args.url : undefined;
             resourceInputs["workflowDetails"] = args ? args.workflowDetails : undefined;
@@ -369,9 +402,13 @@ export interface ServerState {
      */
     protocols?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06` and `TransferSecurityPolicy-2022-03`. Default value is: `TransferSecurityPolicy-2018-11`.
+     * Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-2022-03` and `TransferSecurityPolicy-2023-05`. Default value is: `TransferSecurityPolicy-2018-11`.
      */
     securityPolicyName?: pulumi.Input<string>;
+    /**
+     * This is a set of arns of destinations that will receive structured logs from the transfer server
+     */
+    structuredLogDestinations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -455,9 +492,13 @@ export interface ServerArgs {
      */
     protocols?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06` and `TransferSecurityPolicy-2022-03`. Default value is: `TransferSecurityPolicy-2018-11`.
+     * Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-2022-03` and `TransferSecurityPolicy-2023-05`. Default value is: `TransferSecurityPolicy-2018-11`.
      */
     securityPolicyName?: pulumi.Input<string>;
+    /**
+     * This is a set of arns of destinations that will receive structured logs from the transfer server
+     */
+    structuredLogDestinations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

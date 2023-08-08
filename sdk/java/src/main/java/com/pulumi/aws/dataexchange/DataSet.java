@@ -51,11 +51,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * DataExchange DataSets can be imported by their arn
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:dataexchange/dataSet:DataSet example arn:aws:dataexchange:us-west-2:123456789012:data-sets/4fa784c7-ccb4-4dbf-ba4f-02198320daa1
- * ```
+ *  to = aws_dataexchange_data_set.example
+ * 
+ *  id = &#34;arn:aws:dataexchange:us-west-2:123456789012:data-sets/4fa784c7-ccb4-4dbf-ba4f-02198320daa1&#34; } Using `pulumi import`, import DataExchange DataSets using their ARN. For exampleconsole % pulumi import aws_dataexchange_data_set.example arn:aws:dataexchange:us-west-2:123456789012:data-sets/4fa784c7-ccb4-4dbf-ba4f-02198320daa1
  * 
  */
 @ResourceType(type="aws:dataexchange/dataSet:DataSet")

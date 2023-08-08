@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 //	"os"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/pinpoint"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/pinpoint"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -57,13 +58,11 @@ import (
 //
 // ## Import
 //
-// Pinpoint APNs VoIP Sandbox Channel can be imported using the `application-id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_pinpoint_apns_voip_sandbox_channel.apns_voip_sandbox
 //
-//	$ pulumi import aws:pinpoint/apnsVoipSandboxChannel:ApnsVoipSandboxChannel apns_voip_sandbox application-id
-//
-// ```
+//	id = "application-id" } Using `pulumi import`, import Pinpoint APNs VoIP Sandbox Channel using the `application-id`. For exampleconsole % pulumi import aws_pinpoint_apns_voip_sandbox_channel.apns_voip_sandbox application-id
 type ApnsVoipSandboxChannel struct {
 	pulumi.CustomResourceState
 
@@ -133,6 +132,7 @@ func NewApnsVoipSandboxChannel(ctx *pulumi.Context,
 		"tokenKeyId",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ApnsVoipSandboxChannel
 	err := ctx.RegisterResource("aws:pinpoint/apnsVoipSandboxChannel:ApnsVoipSandboxChannel", name, args, &resource, opts...)
 	if err != nil {

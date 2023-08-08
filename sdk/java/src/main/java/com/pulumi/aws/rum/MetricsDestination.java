@@ -50,11 +50,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Cloudwatch RUM Metrics Destination can be imported using the `id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:rum/metricsDestination:MetricsDestination example example
- * ```
+ *  to = aws_rum_metrics_destination.example
+ * 
+ *  id = &#34;example&#34; } Using `pulumi import`, import Cloudwatch RUM Metrics Destination using the `id`. For exampleconsole % pulumi import aws_rum_metrics_destination.example example
  * 
  */
 @ResourceType(type="aws:rum/metricsDestination:MetricsDestination")

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,8 +25,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ram"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ram"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -72,13 +73,11 @@ import (
 //
 // ## Import
 //
-// Resource share accepters can be imported using the resource share ARN, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_ram_resource_share_accepter.example
 //
-//	$ pulumi import aws:ram/resourceShareAccepter:ResourceShareAccepter example arn:aws:ram:us-east-1:123456789012:resource-share/c4b56393-e8d9-89d9-6dc9-883752de4767
-//
-// ```
+//	id = "arn:aws:ram:us-east-1:123456789012:resource-share/c4b56393-e8d9-89d9-6dc9-883752de4767" } Using `pulumi import`, import resource share accepters using the resource share ARN. For exampleconsole % pulumi import aws_ram_resource_share_accepter.example arn:aws:ram:us-east-1:123456789012:resource-share/c4b56393-e8d9-89d9-6dc9-883752de4767
 type ResourceShareAccepter struct {
 	pulumi.CustomResourceState
 
@@ -110,6 +109,7 @@ func NewResourceShareAccepter(ctx *pulumi.Context,
 	if args.ShareArn == nil {
 		return nil, errors.New("invalid value for required argument 'ShareArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResourceShareAccepter
 	err := ctx.RegisterResource("aws:ram/resourceShareAccepter:ResourceShareAccepter", name, args, &resource, opts...)
 	if err != nil {

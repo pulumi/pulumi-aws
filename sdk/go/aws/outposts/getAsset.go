@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Information about a specific hardware asset in an Outpost.
 func GetAsset(ctx *pulumi.Context, args *GetAssetArgs, opts ...pulumi.InvokeOption) (*GetAssetResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAssetResult
 	err := ctx.Invoke("aws:outposts/getAsset:getAsset", args, &rv, opts...)
 	if err != nil {

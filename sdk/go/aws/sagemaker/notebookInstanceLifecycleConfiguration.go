@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -14,13 +15,11 @@ import (
 //
 // ## Import
 //
-// Models can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_sagemaker_notebook_instance_lifecycle_configuration.lc
 //
-//	$ pulumi import aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration lc foo
-//
-// ```
+//	id = "foo" } Using `pulumi import`, import models using the `name`. For exampleconsole % pulumi import aws_sagemaker_notebook_instance_lifecycle_configuration.lc foo
 type NotebookInstanceLifecycleConfiguration struct {
 	pulumi.CustomResourceState
 
@@ -41,6 +40,7 @@ func NewNotebookInstanceLifecycleConfiguration(ctx *pulumi.Context,
 		args = &NotebookInstanceLifecycleConfigurationArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NotebookInstanceLifecycleConfiguration
 	err := ctx.RegisterResource("aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration", name, args, &resource, opts...)
 	if err != nil {

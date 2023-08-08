@@ -15,6 +15,13 @@ public final class GetIpRangesPlainArgs extends com.pulumi.resources.InvokeArgs 
 
     public static final GetIpRangesPlainArgs Empty = new GetIpRangesPlainArgs();
 
+    @Import(name="id")
+    private @Nullable String id;
+
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
+    }
+
     /**
      * Filter IP ranges by regions (or include all regions, if
      * omitted). Valid items are `global` (for `cloudfront`) as well as all AWS regions
@@ -81,6 +88,7 @@ public final class GetIpRangesPlainArgs extends com.pulumi.resources.InvokeArgs 
     private GetIpRangesPlainArgs() {}
 
     private GetIpRangesPlainArgs(GetIpRangesPlainArgs $) {
+        this.id = $.id;
         this.regions = $.regions;
         this.services = $.services;
         this.url = $.url;
@@ -102,6 +110,11 @@ public final class GetIpRangesPlainArgs extends com.pulumi.resources.InvokeArgs 
 
         public Builder(GetIpRangesPlainArgs defaults) {
             $ = new GetIpRangesPlainArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder id(@Nullable String id) {
+            $.id = id;
+            return this;
         }
 
         /**

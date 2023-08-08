@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +22,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cognito"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -69,7 +70,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -100,13 +101,11 @@ import (
 //
 // ## Import
 //
-// SageMaker Workforces can be imported using the `workforce_name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_sagemaker_workforce.example
 //
-//	$ pulumi import aws:sagemaker/workforce:Workforce example example
-//
-// ```
+//	id = "example" } Using `pulumi import`, import SageMaker Workforces using the `workforce_name`. For exampleconsole % pulumi import aws_sagemaker_workforce.example example
 type Workforce struct {
 	pulumi.CustomResourceState
 
@@ -137,6 +136,7 @@ func NewWorkforce(ctx *pulumi.Context,
 	if args.WorkforceName == nil {
 		return nil, errors.New("invalid value for required argument 'WorkforceName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Workforce
 	err := ctx.RegisterResource("aws:sagemaker/workforce:Workforce", name, args, &resource, opts...)
 	if err != nil {

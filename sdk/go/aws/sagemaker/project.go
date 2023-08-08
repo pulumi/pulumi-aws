@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -46,13 +47,11 @@ import (
 //
 // ## Import
 //
-// SageMaker Projects can be imported using the `project_name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_sagemaker_project.example
 //
-//	$ pulumi import aws:sagemaker/project:Project example example
-//
-// ```
+//	id = "example" } Using `pulumi import`, import SageMaker Projects using the `project_name`. For exampleconsole % pulumi import aws_sagemaker_project.example example
 type Project struct {
 	pulumi.CustomResourceState
 
@@ -85,6 +84,7 @@ func NewProject(ctx *pulumi.Context,
 	if args.ServiceCatalogProvisioningDetails == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceCatalogProvisioningDetails'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Project
 	err := ctx.RegisterResource("aws:sagemaker/project:Project", name, args, &resource, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/securityhub"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/securityhub"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -49,13 +50,11 @@ import (
 //
 // ## Import
 //
-// Security Hub members can be imported using their account ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_securityhub_member.example
 //
-//	$ pulumi import aws:securityhub/member:Member example 123456789012
-//
-// ```
+//	id = "123456789012" } Using `pulumi import`, import Security Hub members using their account ID. For exampleconsole % pulumi import aws_securityhub_member.example 123456789012
 type Member struct {
 	pulumi.CustomResourceState
 
@@ -81,6 +80,7 @@ func NewMember(ctx *pulumi.Context,
 	if args.AccountId == nil {
 		return nil, errors.New("invalid value for required argument 'AccountId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Member
 	err := ctx.RegisterResource("aws:securityhub/member:Member", name, args, &resource, opts...)
 	if err != nil {

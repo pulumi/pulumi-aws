@@ -36,6 +36,32 @@ namespace Pulumi.Aws.Glue
     /// 
     /// });
     /// ```
+    /// ### Ray Job
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Glue.Job("example", new()
+    ///     {
+    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///         GlueVersion = "4.0",
+    ///         WorkerType = "Z.2X",
+    ///         Command = new Aws.Glue.Inputs.JobCommandArgs
+    ///         {
+    ///             Name = "glueray",
+    ///             PythonVersion = "3.9",
+    ///             Runtime = "Ray2.4",
+    ///             ScriptLocation = $"s3://{aws_s3_bucket.Example.Bucket}/example.py",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ### Scala Job
     /// 
     /// ```csharp
@@ -115,11 +141,11 @@ namespace Pulumi.Aws.Glue
     /// 
     /// ## Import
     /// 
-    /// Glue Jobs can be imported using `name`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:glue/job:Job MyJob MyJob
-    /// ```
+    ///  to = aws_glue_job.MyJob
+    /// 
+    ///  id = "MyJob" } Using `pulumi import`, import Glue Jobs using `name`. For exampleconsole % pulumi import aws_glue_job.MyJob MyJob
     /// </summary>
     [AwsResourceType("aws:glue/job:Job")]
     public partial class Job : global::Pulumi.CustomResource
@@ -167,7 +193,7 @@ namespace Pulumi.Aws.Glue
         public Output<Outputs.JobExecutionProperty> ExecutionProperty { get; private set; } = null!;
 
         /// <summary>
-        /// The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
+        /// The version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
         /// </summary>
         [Output("glueVersion")]
         public Output<string> GlueVersion { get; private set; } = null!;
@@ -239,7 +265,12 @@ namespace Pulumi.Aws.Glue
         public Output<int> Timeout { get; private set; } = null!;
 
         /// <summary>
-        /// The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
+        /// The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, G.2X, or G.025X for Spark jobs. Accepts the value Z.2X for Ray jobs.
+        /// * For the Standard worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.
+        /// * For the G.1X worker type, each worker maps to 1 DPU (4 vCPU, 16 GB of memory, 64 GB disk), and provides 1 executor per worker. Recommended for memory-intensive jobs.
+        /// * For the G.2X worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of memory, 128 GB disk), and provides 1 executor per worker. Recommended for memory-intensive jobs.
+        /// * For the G.025X worker type, each worker maps to 0.25 DPU (2 vCPU, 4GB of memory, 64 GB disk), and provides 1 executor per worker. Recommended for low volume streaming jobs. Only available for Glue version 3.0.
+        /// * For the Z.2X worker type, each worker maps to 2 M-DPU (8vCPU, 64 GB of m emory, 128 GB disk), and provides up to 8 Ray workers based on the autoscaler.
         /// </summary>
         [Output("workerType")]
         public Output<string?> WorkerType { get; private set; } = null!;
@@ -339,7 +370,7 @@ namespace Pulumi.Aws.Glue
         public Input<Inputs.JobExecutionPropertyArgs>? ExecutionProperty { get; set; }
 
         /// <summary>
-        /// The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
+        /// The version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
         /// </summary>
         [Input("glueVersion")]
         public Input<string>? GlueVersion { get; set; }
@@ -417,7 +448,12 @@ namespace Pulumi.Aws.Glue
         public Input<int>? Timeout { get; set; }
 
         /// <summary>
-        /// The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
+        /// The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, G.2X, or G.025X for Spark jobs. Accepts the value Z.2X for Ray jobs.
+        /// * For the Standard worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.
+        /// * For the G.1X worker type, each worker maps to 1 DPU (4 vCPU, 16 GB of memory, 64 GB disk), and provides 1 executor per worker. Recommended for memory-intensive jobs.
+        /// * For the G.2X worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of memory, 128 GB disk), and provides 1 executor per worker. Recommended for memory-intensive jobs.
+        /// * For the G.025X worker type, each worker maps to 0.25 DPU (2 vCPU, 4GB of memory, 64 GB disk), and provides 1 executor per worker. Recommended for low volume streaming jobs. Only available for Glue version 3.0.
+        /// * For the Z.2X worker type, each worker maps to 2 M-DPU (8vCPU, 64 GB of m emory, 128 GB disk), and provides up to 8 Ray workers based on the autoscaler.
         /// </summary>
         [Input("workerType")]
         public Input<string>? WorkerType { get; set; }
@@ -485,7 +521,7 @@ namespace Pulumi.Aws.Glue
         public Input<Inputs.JobExecutionPropertyGetArgs>? ExecutionProperty { get; set; }
 
         /// <summary>
-        /// The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
+        /// The version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
         /// </summary>
         [Input("glueVersion")]
         public Input<string>? GlueVersion { get; set; }
@@ -575,7 +611,12 @@ namespace Pulumi.Aws.Glue
         public Input<int>? Timeout { get; set; }
 
         /// <summary>
-        /// The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
+        /// The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, G.2X, or G.025X for Spark jobs. Accepts the value Z.2X for Ray jobs.
+        /// * For the Standard worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.
+        /// * For the G.1X worker type, each worker maps to 1 DPU (4 vCPU, 16 GB of memory, 64 GB disk), and provides 1 executor per worker. Recommended for memory-intensive jobs.
+        /// * For the G.2X worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of memory, 128 GB disk), and provides 1 executor per worker. Recommended for memory-intensive jobs.
+        /// * For the G.025X worker type, each worker maps to 0.25 DPU (2 vCPU, 4GB of memory, 64 GB disk), and provides 1 executor per worker. Recommended for low volume streaming jobs. Only available for Glue version 3.0.
+        /// * For the Z.2X worker type, each worker maps to 2 M-DPU (8vCPU, 64 GB of m emory, 128 GB disk), and provides up to 8 Ray workers based on the autoscaler.
         /// </summary>
         [Input("workerType")]
         public Input<string>? WorkerType { get; set; }

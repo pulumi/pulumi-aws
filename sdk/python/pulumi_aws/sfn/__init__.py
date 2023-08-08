@@ -6,8 +6,11 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .activity import *
+from .alias import *
 from .get_activity import *
+from .get_alias import *
 from .get_state_machine import *
+from .get_state_machine_versions import *
 from .state_machine import *
 from ._inputs import *
 from . import outputs

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/dms"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dms"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -53,13 +54,11 @@ import (
 //
 // ## Import
 //
-// Replication tasks can be imported using the `replication_task_id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_dms_replication_task.test
 //
-//	$ pulumi import aws:dms/replicationTask:ReplicationTask test test-dms-replication-task-tf
-//
-// ```
+//	id = "test-dms-replication-task-tf" } Using `pulumi import`, import replication tasks using the `replication_task_id`. For exampleconsole % pulumi import aws_dms_replication_task.test test-dms-replication-task-tf
 type ReplicationTask struct {
 	pulumi.CustomResourceState
 
@@ -123,6 +122,7 @@ func NewReplicationTask(ctx *pulumi.Context,
 	if args.TargetEndpointArn == nil {
 		return nil, errors.New("invalid value for required argument 'TargetEndpointArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ReplicationTask
 	err := ctx.RegisterResource("aws:dms/replicationTask:ReplicationTask", name, args, &resource, opts...)
 	if err != nil {

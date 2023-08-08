@@ -382,6 +382,7 @@ class TaskOptionsArgs:
                  gid: Optional[pulumi.Input[str]] = None,
                  log_level: Optional[pulumi.Input[str]] = None,
                  mtime: Optional[pulumi.Input[str]] = None,
+                 object_tags: Optional[pulumi.Input[str]] = None,
                  overwrite_mode: Optional[pulumi.Input[str]] = None,
                  posix_permissions: Optional[pulumi.Input[str]] = None,
                  preserve_deleted_files: Optional[pulumi.Input[str]] = None,
@@ -397,11 +398,12 @@ class TaskOptionsArgs:
         :param pulumi.Input[str] gid: Group identifier of the file's owners. Valid values: `BOTH`, `INT_VALUE`, `NAME`, `NONE`. Default: `INT_VALUE` (preserve integer value of the ID).
         :param pulumi.Input[str] log_level: Determines the type of logs that DataSync publishes to a log stream in the Amazon CloudWatch log group that you provide. Valid values: `OFF`, `BASIC`, `TRANSFER`. Default: `OFF`.
         :param pulumi.Input[str] mtime: A file metadata that indicates the last time a file was modified (written to) before the sync `PREPARING` phase. Value values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
+        :param pulumi.Input[str] object_tags: Specifies whether object tags are maintained when transferring between object storage systems. If you want your DataSync task to ignore object tags, specify the NONE value. Valid values: `PRESERVE`, `NONE`. Default value: `PRESERVE`.
         :param pulumi.Input[str] overwrite_mode: Determines whether files at the destination should be overwritten or preserved when copying files. Valid values: `ALWAYS`, `NEVER`. Default: `ALWAYS`.
         :param pulumi.Input[str] posix_permissions: Determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file. Valid values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
         :param pulumi.Input[str] preserve_deleted_files: Whether files deleted in the source should be removed or preserved in the destination file system. Valid values: `PRESERVE`, `REMOVE`. Default: `PRESERVE`.
         :param pulumi.Input[str] preserve_devices: Whether the DataSync Task should preserve the metadata of block and character devices in the source files system, and recreate the files with that device name and metadata on the destination. The DataSync Task can’t sync the actual contents of such devices, because many of the devices are non-terminal and don’t return an end of file (EOF) marker. Valid values: `NONE`, `PRESERVE`. Default: `NONE` (ignore special devices).
-        :param pulumi.Input[str] security_descriptor_copy_flags: Determines which components of the SMB security descriptor are copied from source to destination objects. This value is only used for transfers between SMB and Amazon FSx for Windows File Server locations, or between two Amazon FSx for Windows File Server locations. Valid values: `NONE`, `OWNER_DACL`, `OWNER_DACL_SACL`.
+        :param pulumi.Input[str] security_descriptor_copy_flags: Determines which components of the SMB security descriptor are copied from source to destination objects. This value is only used for transfers between SMB and Amazon FSx for Windows File Server locations, or between two Amazon FSx for Windows File Server locations. Valid values: `NONE`, `OWNER_DACL`, `OWNER_DACL_SACL`. Default: `OWNER_DACL`.
         :param pulumi.Input[str] task_queueing: Determines whether tasks should be queued before executing the tasks. Valid values: `ENABLED`, `DISABLED`. Default `ENABLED`.
         :param pulumi.Input[str] transfer_mode: Determines whether DataSync transfers only the data and metadata that differ between the source and the destination location, or whether DataSync transfers all the content from the source, without comparing to the destination location. Valid values: `CHANGED`, `ALL`. Default: `CHANGED`
         :param pulumi.Input[str] uid: User identifier of the file's owners. Valid values: `BOTH`, `INT_VALUE`, `NAME`, `NONE`. Default: `INT_VALUE` (preserve integer value of the ID).
@@ -417,6 +419,8 @@ class TaskOptionsArgs:
             pulumi.set(__self__, "log_level", log_level)
         if mtime is not None:
             pulumi.set(__self__, "mtime", mtime)
+        if object_tags is not None:
+            pulumi.set(__self__, "object_tags", object_tags)
         if overwrite_mode is not None:
             pulumi.set(__self__, "overwrite_mode", overwrite_mode)
         if posix_permissions is not None:
@@ -497,6 +501,18 @@ class TaskOptionsArgs:
         pulumi.set(self, "mtime", value)
 
     @property
+    @pulumi.getter(name="objectTags")
+    def object_tags(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies whether object tags are maintained when transferring between object storage systems. If you want your DataSync task to ignore object tags, specify the NONE value. Valid values: `PRESERVE`, `NONE`. Default value: `PRESERVE`.
+        """
+        return pulumi.get(self, "object_tags")
+
+    @object_tags.setter
+    def object_tags(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "object_tags", value)
+
+    @property
     @pulumi.getter(name="overwriteMode")
     def overwrite_mode(self) -> Optional[pulumi.Input[str]]:
         """
@@ -548,7 +564,7 @@ class TaskOptionsArgs:
     @pulumi.getter(name="securityDescriptorCopyFlags")
     def security_descriptor_copy_flags(self) -> Optional[pulumi.Input[str]]:
         """
-        Determines which components of the SMB security descriptor are copied from source to destination objects. This value is only used for transfers between SMB and Amazon FSx for Windows File Server locations, or between two Amazon FSx for Windows File Server locations. Valid values: `NONE`, `OWNER_DACL`, `OWNER_DACL_SACL`.
+        Determines which components of the SMB security descriptor are copied from source to destination objects. This value is only used for transfers between SMB and Amazon FSx for Windows File Server locations, or between two Amazon FSx for Windows File Server locations. Valid values: `NONE`, `OWNER_DACL`, `OWNER_DACL_SACL`. Default: `OWNER_DACL`.
         """
         return pulumi.get(self, "security_descriptor_copy_flags")
 

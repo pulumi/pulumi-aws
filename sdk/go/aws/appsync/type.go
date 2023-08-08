@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appsync"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appsync"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -56,13 +57,11 @@ import (
 //
 // ## Import
 //
-// Appsync Types can be imported using the `id` e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_appsync_type.example
 //
-//	$ pulumi import aws:appsync/type:Type example api-id:format:name
-//
-// ```
+//	id = "api-id:format:name" } Using `pulumi import`, import Appsync Types using the `id`. For exampleconsole % pulumi import aws_appsync_type.example api-id:format:name
 type Type struct {
 	pulumi.CustomResourceState
 
@@ -96,6 +95,7 @@ func NewType(ctx *pulumi.Context,
 	if args.Format == nil {
 		return nil, errors.New("invalid value for required argument 'Format'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Type
 	err := ctx.RegisterResource("aws:appsync/type:Type", name, args, &resource, opts...)
 	if err != nil {

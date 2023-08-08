@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,9 +21,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codeartifact"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codeartifact"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -80,13 +81,11 @@ import (
 //
 // ## Import
 //
-// CodeArtifact Domain Permissions Policies can be imported using the CodeArtifact Domain ARN, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_codeartifact_domain_permissions_policy.example
 //
-//	$ pulumi import aws:codeartifact/domainPermissions:DomainPermissions example arn:aws:codeartifact:us-west-2:012345678912:domain/tf-acc-test-1928056699409417367
-//
-// ```
+//	id = "arn:aws:codeartifact:us-west-2:012345678912:domain/tf-acc-test-1928056699409417367" } Using `pulumi import`, import CodeArtifact Domain Permissions Policies using the CodeArtifact Domain ARN. For exampleconsole % pulumi import aws_codeartifact_domain_permissions_policy.example arn:aws:codeartifact:us-west-2:012345678912:domain/tf-acc-test-1928056699409417367
 type DomainPermissions struct {
 	pulumi.CustomResourceState
 
@@ -115,6 +114,7 @@ func NewDomainPermissions(ctx *pulumi.Context,
 	if args.PolicyDocument == nil {
 		return nil, errors.New("invalid value for required argument 'PolicyDocument'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DomainPermissions
 	err := ctx.RegisterResource("aws:codeartifact/domainPermissions:DomainPermissions", name, args, &resource, opts...)
 	if err != nil {

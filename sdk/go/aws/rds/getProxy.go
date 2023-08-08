@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func LookupProxy(ctx *pulumi.Context, args *LookupProxyArgs, opts ...pulumi.InvokeOption) (*LookupProxyResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupProxyResult
 	err := ctx.Invoke("aws:rds/getProxy:getProxy", args, &rv, opts...)
 	if err != nil {

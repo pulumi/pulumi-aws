@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/inspector"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/inspector"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -49,13 +50,11 @@ import (
 //
 // ## Import
 //
-// Inspector Classic Assessment Targets can be imported via their Amazon Resource Name (ARN), e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_inspector_assessment_target.example
 //
-//	$ pulumi import aws:inspector/assessmentTarget:AssessmentTarget example arn:aws:inspector:us-east-1:123456789012:target/0-xxxxxxx
-//
-// ```
+//	id = "arn:aws:inspector:us-east-1:123456789012:target/0-xxxxxxx" } Using `pulumi import`, import Inspector Classic Assessment Targets using their Amazon Resource Name (ARN). For exampleconsole % pulumi import aws_inspector_assessment_target.example arn:aws:inspector:us-east-1:123456789012:target/0-xxxxxxx
 type AssessmentTarget struct {
 	pulumi.CustomResourceState
 
@@ -74,6 +73,7 @@ func NewAssessmentTarget(ctx *pulumi.Context,
 		args = &AssessmentTargetArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AssessmentTarget
 	err := ctx.RegisterResource("aws:inspector/assessmentTarget:AssessmentTarget", name, args, &resource, opts...)
 	if err != nil {

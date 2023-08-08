@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/transfer"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/transfer"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -115,13 +116,11 @@ import (
 //
 // ## Import
 //
-// Transfer SSH Public Key can be imported using the `server_id` and `user_name` and `ssh_public_key_id` separated by `/`.
+// terraform import {
 //
-// ```sh
+//	to = aws_transfer_ssh_key.bar
 //
-//	$ pulumi import aws:transfer/sshKey:SshKey bar s-12345678/test-username/key-12345
-//
-// ```
+//	id = "s-12345678/test-username/key-12345" } Using `pulumi import`, import Transfer SSH Public Key using the `server_id` and `user_name` and `ssh_public_key_id` separated by `/`. For exampleconsole % pulumi import aws_transfer_ssh_key.bar s-12345678/test-username/key-12345
 type SshKey struct {
 	pulumi.CustomResourceState
 
@@ -149,6 +148,7 @@ func NewSshKey(ctx *pulumi.Context,
 	if args.UserName == nil {
 		return nil, errors.New("invalid value for required argument 'UserName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SshKey
 	err := ctx.RegisterResource("aws:transfer/sshKey:SshKey", name, args, &resource, opts...)
 	if err != nil {

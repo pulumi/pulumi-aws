@@ -27,6 +27,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
  * import com.pulumi.aws.s3control.StorageLensConfiguration;
  * import com.pulumi.aws.s3control.StorageLensConfigurationArgs;
  * import com.pulumi.aws.s3control.inputs.StorageLensConfigurationStorageLensConfigurationArgs;
@@ -97,11 +98,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * S3 Storage Lens configurations can be imported using the `account_id` and `config_id`, separated by a colon (`:`), e.g.
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:s3control/storageLensConfiguration:StorageLensConfiguration example 123456789012:example-1
- * ```
+ *  to = aws_s3control_storage_lens_configuration.example
+ * 
+ *  id = &#34;123456789012:example-1&#34; } Using `pulumi import`, import S3 Storage Lens configurations using the `account_id` and `config_id`, separated by a colon (`:`). For exampleconsole % pulumi import aws_s3control_storage_lens_configuration.example 123456789012:example-1
  * 
  */
 @ResourceType(type="aws:s3control/storageLensConfiguration:StorageLensConfiguration")

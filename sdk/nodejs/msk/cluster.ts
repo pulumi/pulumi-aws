@@ -58,8 +58,8 @@ import * as utilities from "../utilities";
  * });
  * const firehoseRole = new aws.iam.Role("firehoseRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
  * const testStream = new aws.kinesis.FirehoseDeliveryStream("testStream", {
- *     destination: "s3",
- *     s3Configuration: {
+ *     destination: "extended_s3",
+ *     extendedS3Configuration: {
  *         roleArn: firehoseRole.arn,
  *         bucketArn: bucket.arn,
  *     },
@@ -153,11 +153,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * MSK clusters can be imported using the cluster `arn`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:msk/cluster:Cluster example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
- * ```
+ *  to = aws_msk_cluster.example
+ *
+ *  id = "arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3" } Using `pulumi import`, import MSK clusters using the cluster `arn`. For exampleconsole % pulumi import aws_msk_cluster.example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
  */
 export class Cluster extends pulumi.CustomResource {
     /**

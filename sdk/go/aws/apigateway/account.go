@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +22,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -99,13 +100,11 @@ import (
 //
 // ## Import
 //
-// API Gateway Accounts can be imported using the word `api-gateway-account`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_api_gateway_account.demo
 //
-//	$ pulumi import aws:apigateway/account:Account demo api-gateway-account
-//
-// ```
+//	id = "api-gateway-account" } Using `pulumi import`, import API Gateway Accounts using the word `api-gateway-account`. For exampleconsole % pulumi import aws_api_gateway_account.demo api-gateway-account
 type Account struct {
 	pulumi.CustomResourceState
 
@@ -122,6 +121,7 @@ func NewAccount(ctx *pulumi.Context,
 		args = &AccountArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Account
 	err := ctx.RegisterResource("aws:apigateway/account:Account", name, args, &resource, opts...)
 	if err != nil {

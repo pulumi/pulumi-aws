@@ -13,11 +13,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Intents can be imported using their name.
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:lex/intent:Intent order_flowers_intent OrderFlowers
- * ```
+ *  to = aws_lex_intent.order_flowers_intent
+ *
+ *  id = "OrderFlowers" } Using `pulumi import`, import intents using their name. For exampleconsole % pulumi import aws_lex_intent.order_flowers_intent OrderFlowers
  */
 export class Intent extends pulumi.CustomResource {
     /**

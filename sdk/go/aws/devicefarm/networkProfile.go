@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/devicefarm"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/devicefarm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -47,13 +48,11 @@ import (
 //
 // ## Import
 //
-// # DeviceFarm Network Profiles can be imported by their arn
+// terraform import {
 //
-// ```sh
+//	to = aws_devicefarm_network_profile.example
 //
-//	$ pulumi import aws:devicefarm/networkProfile:NetworkProfile example arn:aws:devicefarm:us-west-2:123456789012:networkprofile:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
-//
-// ```
+//	id = "arn:aws:devicefarm:us-west-2:123456789012:networkprofile:4fa784c7-ccb4-4dbf-ba4f-02198320daa1" } Using `pulumi import`, import DeviceFarm Network Profiles using their ARN. For exampleconsole % pulumi import aws_devicefarm_network_profile.example arn:aws:devicefarm:us-west-2:123456789012:networkprofile:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
 type NetworkProfile struct {
 	pulumi.CustomResourceState
 
@@ -99,6 +98,7 @@ func NewNetworkProfile(ctx *pulumi.Context,
 	if args.ProjectArn == nil {
 		return nil, errors.New("invalid value for required argument 'ProjectArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NetworkProfile
 	err := ctx.RegisterResource("aws:devicefarm/networkProfile:NetworkProfile", name, args, &resource, opts...)
 	if err != nil {

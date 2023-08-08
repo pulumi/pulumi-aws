@@ -64,11 +64,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Network Firewall Firewalls can be imported using their `ARN`.
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:networkfirewall/firewall:Firewall example arn:aws:network-firewall:us-west-1:123456789012:firewall/example
- * ```
+ *  to = aws_networkfirewall_firewall.example
+ * 
+ *  id = &#34;arn:aws:network-firewall:us-west-1:123456789012:firewall/example&#34; } Using `pulumi import`, import Network Firewall Firewalls using their `arn`. For exampleconsole % pulumi import aws_networkfirewall_firewall.example arn:aws:network-firewall:us-west-1:123456789012:firewall/example
  * 
  */
 @ResourceType(type="aws:networkfirewall/firewall:Firewall")

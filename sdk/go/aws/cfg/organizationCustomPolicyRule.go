@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cfg"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cfg"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -63,13 +64,11 @@ import (
 //
 // ## Import
 //
-// A Config Organization Custom Policy Rule can be imported using the `name` argument, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_config_organization_custom_policy_rule.example
 //
-//	$ pulumi import aws:cfg/organizationCustomPolicyRule:OrganizationCustomPolicyRule example example_rule_name
-//
-// ```
+//	id = "example_rule_name" } Using `pulumi import`, import a Config Organization Custom Policy Rule using the `name` argument. For exampleconsole % pulumi import aws_config_organization_custom_policy_rule.example example_rule_name
 type OrganizationCustomPolicyRule struct {
 	pulumi.CustomResourceState
 
@@ -121,6 +120,7 @@ func NewOrganizationCustomPolicyRule(ctx *pulumi.Context,
 	if args.TriggerTypes == nil {
 		return nil, errors.New("invalid value for required argument 'TriggerTypes'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OrganizationCustomPolicyRule
 	err := ctx.RegisterResource("aws:cfg/organizationCustomPolicyRule:OrganizationCustomPolicyRule", name, args, &resource, opts...)
 	if err != nil {

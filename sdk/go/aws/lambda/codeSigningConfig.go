@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,13 +53,11 @@ import (
 //
 // ## Import
 //
-// Code Signing Configs can be imported using their ARN, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_lambda_code_signing_config.imported_csc
 //
-//	$ pulumi import aws:lambda/codeSigningConfig:CodeSigningConfig imported_csc arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-0f6c334abcdea4d8b
-//
-// ```
+//	id = "arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-0f6c334abcdea4d8b" } Using `pulumi import`, import Code Signing Configs using their ARN. For exampleconsole % pulumi import aws_lambda_code_signing_config.imported_csc arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-0f6c334abcdea4d8b
 type CodeSigningConfig struct {
 	pulumi.CustomResourceState
 
@@ -86,6 +85,7 @@ func NewCodeSigningConfig(ctx *pulumi.Context,
 	if args.AllowedPublishers == nil {
 		return nil, errors.New("invalid value for required argument 'AllowedPublishers'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CodeSigningConfig
 	err := ctx.RegisterResource("aws:lambda/codeSigningConfig:CodeSigningConfig", name, args, &resource, opts...)
 	if err != nil {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/macie2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/macie2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -41,13 +42,11 @@ import (
 //
 // ## Import
 //
-// `aws_macie2_account` can be imported using the id, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_macie2_account.example
 //
-//	$ pulumi import aws:macie2/account:Account example abcd1
-//
-// ```
+//	id = "abcd1" } Using `pulumi import`, import `aws_macie2_account` using the id. For exampleconsole % pulumi import aws_macie2_account.example abcd1
 type Account struct {
 	pulumi.CustomResourceState
 
@@ -70,6 +69,7 @@ func NewAccount(ctx *pulumi.Context,
 		args = &AccountArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Account
 	err := ctx.RegisterResource("aws:macie2/account:Account", name, args, &resource, opts...)
 	if err != nil {

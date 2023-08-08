@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/quicksight"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -41,13 +42,11 @@ import (
 //
 // ## Import
 //
-// QuickSight Group can be imported using the aws account id, namespace and group name separated by `/`.
+// terraform import {
 //
-// ```sh
+//	to = aws_quicksight_group.example
 //
-//	$ pulumi import aws:quicksight/group:Group example 123456789123/default/tf-example
-//
-// ```
+//	id = "123456789123/default/tf-example" } Using `pulumi import`, import QuickSight Group using the aws account id, namespace and group name separated by `/`. For exampleconsole % pulumi import aws_quicksight_group.example 123456789123/default/tf-example
 type Group struct {
 	pulumi.CustomResourceState
 
@@ -73,6 +72,7 @@ func NewGroup(ctx *pulumi.Context,
 	if args.GroupName == nil {
 		return nil, errors.New("invalid value for required argument 'GroupName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Group
 	err := ctx.RegisterResource("aws:quicksight/group:Group", name, args, &resource, opts...)
 	if err != nil {

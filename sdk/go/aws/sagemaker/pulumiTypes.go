@@ -7,8 +7,11 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type AppImageConfigKernelGatewayImageConfig struct {
 	// The URL where the Git repository is located. See File System Config details below.
@@ -5619,6 +5622,8 @@ type DomainDefaultUserSettingsCanvasAppSettings struct {
 	ModelRegisterSettings *DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings `pulumi:"modelRegisterSettings"`
 	// Time series forecast settings for the Canvas app. See Time Series Forecasting Settings below.
 	TimeSeriesForecastingSettings *DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings `pulumi:"timeSeriesForecastingSettings"`
+	// The workspace settings for the SageMaker Canvas application. See Workspace Settings below.
+	WorkspaceSettings *DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettings `pulumi:"workspaceSettings"`
 }
 
 // DomainDefaultUserSettingsCanvasAppSettingsInput is an input type that accepts DomainDefaultUserSettingsCanvasAppSettingsArgs and DomainDefaultUserSettingsCanvasAppSettingsOutput values.
@@ -5637,6 +5642,8 @@ type DomainDefaultUserSettingsCanvasAppSettingsArgs struct {
 	ModelRegisterSettings DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrInput `pulumi:"modelRegisterSettings"`
 	// Time series forecast settings for the Canvas app. See Time Series Forecasting Settings below.
 	TimeSeriesForecastingSettings DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrInput `pulumi:"timeSeriesForecastingSettings"`
+	// The workspace settings for the SageMaker Canvas application. See Workspace Settings below.
+	WorkspaceSettings DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrInput `pulumi:"workspaceSettings"`
 }
 
 func (DomainDefaultUserSettingsCanvasAppSettingsArgs) ElementType() reflect.Type {
@@ -5730,6 +5737,13 @@ func (o DomainDefaultUserSettingsCanvasAppSettingsOutput) TimeSeriesForecastingS
 	}).(DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput)
 }
 
+// The workspace settings for the SageMaker Canvas application. See Workspace Settings below.
+func (o DomainDefaultUserSettingsCanvasAppSettingsOutput) WorkspaceSettings() DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsCanvasAppSettings) *DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettings {
+		return v.WorkspaceSettings
+	}).(DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput)
+}
+
 type DomainDefaultUserSettingsCanvasAppSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (DomainDefaultUserSettingsCanvasAppSettingsPtrOutput) ElementType() reflect.Type {
@@ -5774,10 +5788,20 @@ func (o DomainDefaultUserSettingsCanvasAppSettingsPtrOutput) TimeSeriesForecasti
 	}).(DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput)
 }
 
+// The workspace settings for the SageMaker Canvas application. See Workspace Settings below.
+func (o DomainDefaultUserSettingsCanvasAppSettingsPtrOutput) WorkspaceSettings() DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsCanvasAppSettings) *DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettings {
+		if v == nil {
+			return nil
+		}
+		return v.WorkspaceSettings
+	}).(DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput)
+}
+
 type DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings struct {
 	// The Amazon Resource Name (ARN) of the SageMaker model registry account. Required only to register model versions created by a different SageMaker Canvas AWS account than the AWS account in which SageMaker model registry is set up.
 	CrossAccountModelRegisterRoleArn *string `pulumi:"crossAccountModelRegisterRoleArn"`
-	// Describes whether the integration to the model registry is enabled or disabled in the Canvas application.. Valid values are `ENABLED` and `DISABLED`.
+	// Describes whether the integration to the model registry is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
 	Status *string `pulumi:"status"`
 }
 
@@ -5795,7 +5819,7 @@ type DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsInput interf
 type DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArgs struct {
 	// The Amazon Resource Name (ARN) of the SageMaker model registry account. Required only to register model versions created by a different SageMaker Canvas AWS account than the AWS account in which SageMaker model registry is set up.
 	CrossAccountModelRegisterRoleArn pulumi.StringPtrInput `pulumi:"crossAccountModelRegisterRoleArn"`
-	// Describes whether the integration to the model registry is enabled or disabled in the Canvas application.. Valid values are `ENABLED` and `DISABLED`.
+	// Describes whether the integration to the model registry is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
 	Status pulumi.StringPtrInput `pulumi:"status"`
 }
 
@@ -5883,7 +5907,7 @@ func (o DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsOutput) C
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes whether the integration to the model registry is enabled or disabled in the Canvas application.. Valid values are `ENABLED` and `DISABLED`.
+// Describes whether the integration to the model registry is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
 func (o DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -5922,7 +5946,7 @@ func (o DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes whether the integration to the model registry is enabled or disabled in the Canvas application.. Valid values are `ENABLED` and `DISABLED`.
+// Describes whether the integration to the model registry is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
 func (o DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings) *string {
 		if v == nil {
@@ -6089,6 +6113,162 @@ func (o DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsP
 			return nil
 		}
 		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettings struct {
+	// The Amazon S3 bucket used to store artifacts generated by Canvas. Updating the Amazon S3 location impacts existing configuration settings, and Canvas users no longer have access to their artifacts. Canvas users must log out and log back in to apply the new location.
+	S3ArtifactPath *string `pulumi:"s3ArtifactPath"`
+	// The Amazon Web Services Key Management Service (KMS) encryption key ID that is used to encrypt artifacts generated by Canvas in the Amazon S3 bucket.
+	S3KmsKeyId *string `pulumi:"s3KmsKeyId"`
+}
+
+// DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsInput is an input type that accepts DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsArgs and DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsInput` via:
+//
+//	DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsArgs{...}
+type DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsOutput() DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsOutput
+	ToDomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsOutputWithContext(context.Context) DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsOutput
+}
+
+type DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsArgs struct {
+	// The Amazon S3 bucket used to store artifacts generated by Canvas. Updating the Amazon S3 location impacts existing configuration settings, and Canvas users no longer have access to their artifacts. Canvas users must log out and log back in to apply the new location.
+	S3ArtifactPath pulumi.StringPtrInput `pulumi:"s3ArtifactPath"`
+	// The Amazon Web Services Key Management Service (KMS) encryption key ID that is used to encrypt artifacts generated by Canvas in the Amazon S3 bucket.
+	S3KmsKeyId pulumi.StringPtrInput `pulumi:"s3KmsKeyId"`
+}
+
+func (DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettings)(nil)).Elem()
+}
+
+func (i DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsArgs) ToDomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsOutput() DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsOutput {
+	return i.ToDomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsArgs) ToDomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsOutput)
+}
+
+func (i DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsArgs) ToDomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput() DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput {
+	return i.ToDomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsArgs) ToDomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsOutput).ToDomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutputWithContext(ctx)
+}
+
+// DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrInput is an input type that accepts DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsArgs, DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtr and DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrInput` via:
+//
+//	        DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput() DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput
+	ToDomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutputWithContext(context.Context) DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput
+}
+
+type domainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrType DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsArgs
+
+func DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtr(v *DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsArgs) DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrInput {
+	return (*domainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrType)(v)
+}
+
+func (*domainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettings)(nil)).Elem()
+}
+
+func (i *domainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrType) ToDomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput() DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput {
+	return i.ToDomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrType) ToDomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput)
+}
+
+type DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettings)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsOutput) ToDomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsOutput() DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsOutput) ToDomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsOutput) ToDomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput() DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput {
+	return o.ToDomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsOutput) ToDomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettings) *DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettings {
+		return &v
+	}).(DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput)
+}
+
+// The Amazon S3 bucket used to store artifacts generated by Canvas. Updating the Amazon S3 location impacts existing configuration settings, and Canvas users no longer have access to their artifacts. Canvas users must log out and log back in to apply the new location.
+func (o DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsOutput) S3ArtifactPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettings) *string { return v.S3ArtifactPath }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Web Services Key Management Service (KMS) encryption key ID that is used to encrypt artifacts generated by Canvas in the Amazon S3 bucket.
+func (o DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsOutput) S3KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettings) *string { return v.S3KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+type DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettings)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput) ToDomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput() DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput) ToDomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput) Elem() DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettings) DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettings {
+		if v != nil {
+			return *v
+		}
+		var ret DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettings
+		return ret
+	}).(DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsOutput)
+}
+
+// The Amazon S3 bucket used to store artifacts generated by Canvas. Updating the Amazon S3 location impacts existing configuration settings, and Canvas users no longer have access to their artifacts. Canvas users must log out and log back in to apply the new location.
+func (o DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput) S3ArtifactPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3ArtifactPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Web Services Key Management Service (KMS) encryption key ID that is used to encrypt artifacts generated by Canvas in the Amazon S3 bucket.
+func (o DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput) S3KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3KmsKeyId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -10459,6 +10639,8 @@ type EndpointConfigurationProductionVariantServerlessConfig struct {
 	MaxConcurrency int `pulumi:"maxConcurrency"`
 	// The memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
 	MemorySizeInMb int `pulumi:"memorySizeInMb"`
+	// The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `maxConcurrency`. Valid values are between `1` and `200`.
+	ProvisionedConcurrency *int `pulumi:"provisionedConcurrency"`
 }
 
 // EndpointConfigurationProductionVariantServerlessConfigInput is an input type that accepts EndpointConfigurationProductionVariantServerlessConfigArgs and EndpointConfigurationProductionVariantServerlessConfigOutput values.
@@ -10477,6 +10659,8 @@ type EndpointConfigurationProductionVariantServerlessConfigArgs struct {
 	MaxConcurrency pulumi.IntInput `pulumi:"maxConcurrency"`
 	// The memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
 	MemorySizeInMb pulumi.IntInput `pulumi:"memorySizeInMb"`
+	// The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `maxConcurrency`. Valid values are between `1` and `200`.
+	ProvisionedConcurrency pulumi.IntPtrInput `pulumi:"provisionedConcurrency"`
 }
 
 func (EndpointConfigurationProductionVariantServerlessConfigArgs) ElementType() reflect.Type {
@@ -10566,6 +10750,11 @@ func (o EndpointConfigurationProductionVariantServerlessConfigOutput) MemorySize
 	return o.ApplyT(func(v EndpointConfigurationProductionVariantServerlessConfig) int { return v.MemorySizeInMb }).(pulumi.IntOutput)
 }
 
+// The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `maxConcurrency`. Valid values are between `1` and `200`.
+func (o EndpointConfigurationProductionVariantServerlessConfigOutput) ProvisionedConcurrency() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointConfigurationProductionVariantServerlessConfig) *int { return v.ProvisionedConcurrency }).(pulumi.IntPtrOutput)
+}
+
 type EndpointConfigurationProductionVariantServerlessConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (EndpointConfigurationProductionVariantServerlessConfigPtrOutput) ElementType() reflect.Type {
@@ -10607,6 +10796,16 @@ func (o EndpointConfigurationProductionVariantServerlessConfigPtrOutput) MemoryS
 			return nil
 		}
 		return &v.MemorySizeInMb
+	}).(pulumi.IntPtrOutput)
+}
+
+// The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `maxConcurrency`. Valid values are between `1` and `200`.
+func (o EndpointConfigurationProductionVariantServerlessConfigPtrOutput) ProvisionedConcurrency() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigurationProductionVariantServerlessConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ProvisionedConcurrency
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -10973,6 +11172,8 @@ type EndpointConfigurationShadowProductionVariantServerlessConfig struct {
 	MaxConcurrency int `pulumi:"maxConcurrency"`
 	// The memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
 	MemorySizeInMb int `pulumi:"memorySizeInMb"`
+	// The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `maxConcurrency`. Valid values are between `1` and `200`.
+	ProvisionedConcurrency *int `pulumi:"provisionedConcurrency"`
 }
 
 // EndpointConfigurationShadowProductionVariantServerlessConfigInput is an input type that accepts EndpointConfigurationShadowProductionVariantServerlessConfigArgs and EndpointConfigurationShadowProductionVariantServerlessConfigOutput values.
@@ -10991,6 +11192,8 @@ type EndpointConfigurationShadowProductionVariantServerlessConfigArgs struct {
 	MaxConcurrency pulumi.IntInput `pulumi:"maxConcurrency"`
 	// The memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
 	MemorySizeInMb pulumi.IntInput `pulumi:"memorySizeInMb"`
+	// The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `maxConcurrency`. Valid values are between `1` and `200`.
+	ProvisionedConcurrency pulumi.IntPtrInput `pulumi:"provisionedConcurrency"`
 }
 
 func (EndpointConfigurationShadowProductionVariantServerlessConfigArgs) ElementType() reflect.Type {
@@ -11080,6 +11283,13 @@ func (o EndpointConfigurationShadowProductionVariantServerlessConfigOutput) Memo
 	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariantServerlessConfig) int { return v.MemorySizeInMb }).(pulumi.IntOutput)
 }
 
+// The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `maxConcurrency`. Valid values are between `1` and `200`.
+func (o EndpointConfigurationShadowProductionVariantServerlessConfigOutput) ProvisionedConcurrency() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariantServerlessConfig) *int {
+		return v.ProvisionedConcurrency
+	}).(pulumi.IntPtrOutput)
+}
+
 type EndpointConfigurationShadowProductionVariantServerlessConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (EndpointConfigurationShadowProductionVariantServerlessConfigPtrOutput) ElementType() reflect.Type {
@@ -11124,11 +11334,23 @@ func (o EndpointConfigurationShadowProductionVariantServerlessConfigPtrOutput) M
 	}).(pulumi.IntPtrOutput)
 }
 
+// The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `maxConcurrency`. Valid values are between `1` and `200`.
+func (o EndpointConfigurationShadowProductionVariantServerlessConfigPtrOutput) ProvisionedConcurrency() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigurationShadowProductionVariantServerlessConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ProvisionedConcurrency
+	}).(pulumi.IntPtrOutput)
+}
+
 type EndpointDeploymentConfig struct {
 	// Automatic rollback configuration for handling endpoint deployment failures and recovery. See Auto Rollback Configuration.
 	AutoRollbackConfiguration *EndpointDeploymentConfigAutoRollbackConfiguration `pulumi:"autoRollbackConfiguration"`
-	// Update policy for a blue/green deployment. If this update policy is specified, SageMaker creates a new fleet during the deployment while maintaining the old fleet. See Blue Green Update Config.
-	BlueGreenUpdatePolicy EndpointDeploymentConfigBlueGreenUpdatePolicy `pulumi:"blueGreenUpdatePolicy"`
+	// Update policy for a blue/green deployment. If this update policy is specified, SageMaker creates a new fleet during the deployment while maintaining the old fleet. SageMaker flips traffic to the new fleet according to the specified traffic routing configuration. Only one update policy should be used in the deployment configuration. If no update policy is specified, SageMaker uses a blue/green deployment strategy with all at once traffic shifting by default. See Blue Green Update Config.
+	BlueGreenUpdatePolicy *EndpointDeploymentConfigBlueGreenUpdatePolicy `pulumi:"blueGreenUpdatePolicy"`
+	// Specifies a rolling deployment strategy for updating a SageMaker endpoint. See Rolling Update Policy.
+	RollingUpdatePolicy *EndpointDeploymentConfigRollingUpdatePolicy `pulumi:"rollingUpdatePolicy"`
 }
 
 // EndpointDeploymentConfigInput is an input type that accepts EndpointDeploymentConfigArgs and EndpointDeploymentConfigOutput values.
@@ -11145,8 +11367,10 @@ type EndpointDeploymentConfigInput interface {
 type EndpointDeploymentConfigArgs struct {
 	// Automatic rollback configuration for handling endpoint deployment failures and recovery. See Auto Rollback Configuration.
 	AutoRollbackConfiguration EndpointDeploymentConfigAutoRollbackConfigurationPtrInput `pulumi:"autoRollbackConfiguration"`
-	// Update policy for a blue/green deployment. If this update policy is specified, SageMaker creates a new fleet during the deployment while maintaining the old fleet. See Blue Green Update Config.
-	BlueGreenUpdatePolicy EndpointDeploymentConfigBlueGreenUpdatePolicyInput `pulumi:"blueGreenUpdatePolicy"`
+	// Update policy for a blue/green deployment. If this update policy is specified, SageMaker creates a new fleet during the deployment while maintaining the old fleet. SageMaker flips traffic to the new fleet according to the specified traffic routing configuration. Only one update policy should be used in the deployment configuration. If no update policy is specified, SageMaker uses a blue/green deployment strategy with all at once traffic shifting by default. See Blue Green Update Config.
+	BlueGreenUpdatePolicy EndpointDeploymentConfigBlueGreenUpdatePolicyPtrInput `pulumi:"blueGreenUpdatePolicy"`
+	// Specifies a rolling deployment strategy for updating a SageMaker endpoint. See Rolling Update Policy.
+	RollingUpdatePolicy EndpointDeploymentConfigRollingUpdatePolicyPtrInput `pulumi:"rollingUpdatePolicy"`
 }
 
 func (EndpointDeploymentConfigArgs) ElementType() reflect.Type {
@@ -11233,11 +11457,18 @@ func (o EndpointDeploymentConfigOutput) AutoRollbackConfiguration() EndpointDepl
 	}).(EndpointDeploymentConfigAutoRollbackConfigurationPtrOutput)
 }
 
-// Update policy for a blue/green deployment. If this update policy is specified, SageMaker creates a new fleet during the deployment while maintaining the old fleet. See Blue Green Update Config.
-func (o EndpointDeploymentConfigOutput) BlueGreenUpdatePolicy() EndpointDeploymentConfigBlueGreenUpdatePolicyOutput {
-	return o.ApplyT(func(v EndpointDeploymentConfig) EndpointDeploymentConfigBlueGreenUpdatePolicy {
+// Update policy for a blue/green deployment. If this update policy is specified, SageMaker creates a new fleet during the deployment while maintaining the old fleet. SageMaker flips traffic to the new fleet according to the specified traffic routing configuration. Only one update policy should be used in the deployment configuration. If no update policy is specified, SageMaker uses a blue/green deployment strategy with all at once traffic shifting by default. See Blue Green Update Config.
+func (o EndpointDeploymentConfigOutput) BlueGreenUpdatePolicy() EndpointDeploymentConfigBlueGreenUpdatePolicyPtrOutput {
+	return o.ApplyT(func(v EndpointDeploymentConfig) *EndpointDeploymentConfigBlueGreenUpdatePolicy {
 		return v.BlueGreenUpdatePolicy
-	}).(EndpointDeploymentConfigBlueGreenUpdatePolicyOutput)
+	}).(EndpointDeploymentConfigBlueGreenUpdatePolicyPtrOutput)
+}
+
+// Specifies a rolling deployment strategy for updating a SageMaker endpoint. See Rolling Update Policy.
+func (o EndpointDeploymentConfigOutput) RollingUpdatePolicy() EndpointDeploymentConfigRollingUpdatePolicyPtrOutput {
+	return o.ApplyT(func(v EndpointDeploymentConfig) *EndpointDeploymentConfigRollingUpdatePolicy {
+		return v.RollingUpdatePolicy
+	}).(EndpointDeploymentConfigRollingUpdatePolicyPtrOutput)
 }
 
 type EndpointDeploymentConfigPtrOutput struct{ *pulumi.OutputState }
@@ -11274,14 +11505,24 @@ func (o EndpointDeploymentConfigPtrOutput) AutoRollbackConfiguration() EndpointD
 	}).(EndpointDeploymentConfigAutoRollbackConfigurationPtrOutput)
 }
 
-// Update policy for a blue/green deployment. If this update policy is specified, SageMaker creates a new fleet during the deployment while maintaining the old fleet. See Blue Green Update Config.
+// Update policy for a blue/green deployment. If this update policy is specified, SageMaker creates a new fleet during the deployment while maintaining the old fleet. SageMaker flips traffic to the new fleet according to the specified traffic routing configuration. Only one update policy should be used in the deployment configuration. If no update policy is specified, SageMaker uses a blue/green deployment strategy with all at once traffic shifting by default. See Blue Green Update Config.
 func (o EndpointDeploymentConfigPtrOutput) BlueGreenUpdatePolicy() EndpointDeploymentConfigBlueGreenUpdatePolicyPtrOutput {
 	return o.ApplyT(func(v *EndpointDeploymentConfig) *EndpointDeploymentConfigBlueGreenUpdatePolicy {
 		if v == nil {
 			return nil
 		}
-		return &v.BlueGreenUpdatePolicy
+		return v.BlueGreenUpdatePolicy
 	}).(EndpointDeploymentConfigBlueGreenUpdatePolicyPtrOutput)
+}
+
+// Specifies a rolling deployment strategy for updating a SageMaker endpoint. See Rolling Update Policy.
+func (o EndpointDeploymentConfigPtrOutput) RollingUpdatePolicy() EndpointDeploymentConfigRollingUpdatePolicyPtrOutput {
+	return o.ApplyT(func(v *EndpointDeploymentConfig) *EndpointDeploymentConfigRollingUpdatePolicy {
+		if v == nil {
+			return nil
+		}
+		return v.RollingUpdatePolicy
+	}).(EndpointDeploymentConfigRollingUpdatePolicyPtrOutput)
 }
 
 type EndpointDeploymentConfigAutoRollbackConfiguration struct {
@@ -12210,6 +12451,516 @@ func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration
 // Defines the capacity size, either as a number of instances or a capacity percentage.
 func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrOutput) Value() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSize) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.IntPtrOutput)
+}
+
+type EndpointDeploymentConfigRollingUpdatePolicy struct {
+	// Batch size for each rolling step to provision capacity and turn on traffic on the new endpoint fleet, and terminate capacity on the old endpoint fleet. Value must be between 5% to 50% of the variant's total instance count. See Maximum Batch Size.
+	MaximumBatchSize EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSize `pulumi:"maximumBatchSize"`
+	// The time limit for the total deployment. Exceeding this limit causes a timeout. Valid values are between `600` and `14400`.
+	MaximumExecutionTimeoutInSeconds *int `pulumi:"maximumExecutionTimeoutInSeconds"`
+	// Batch size for rollback to the old endpoint fleet. Each rolling step to provision capacity and turn on traffic on the old endpoint fleet, and terminate capacity on the new endpoint fleet. If this field is absent, the default value will be set to 100% of total capacity which means to bring up the whole capacity of the old fleet at once during rollback. See Rollback Maximum Batch Size.
+	RollbackMaximumBatchSize *EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize `pulumi:"rollbackMaximumBatchSize"`
+	// The length of the baking period, during which SageMaker monitors alarms for each batch on the new fleet. Valid values are between `0` and `3600`.
+	WaitIntervalInSeconds int `pulumi:"waitIntervalInSeconds"`
+}
+
+// EndpointDeploymentConfigRollingUpdatePolicyInput is an input type that accepts EndpointDeploymentConfigRollingUpdatePolicyArgs and EndpointDeploymentConfigRollingUpdatePolicyOutput values.
+// You can construct a concrete instance of `EndpointDeploymentConfigRollingUpdatePolicyInput` via:
+//
+//	EndpointDeploymentConfigRollingUpdatePolicyArgs{...}
+type EndpointDeploymentConfigRollingUpdatePolicyInput interface {
+	pulumi.Input
+
+	ToEndpointDeploymentConfigRollingUpdatePolicyOutput() EndpointDeploymentConfigRollingUpdatePolicyOutput
+	ToEndpointDeploymentConfigRollingUpdatePolicyOutputWithContext(context.Context) EndpointDeploymentConfigRollingUpdatePolicyOutput
+}
+
+type EndpointDeploymentConfigRollingUpdatePolicyArgs struct {
+	// Batch size for each rolling step to provision capacity and turn on traffic on the new endpoint fleet, and terminate capacity on the old endpoint fleet. Value must be between 5% to 50% of the variant's total instance count. See Maximum Batch Size.
+	MaximumBatchSize EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeInput `pulumi:"maximumBatchSize"`
+	// The time limit for the total deployment. Exceeding this limit causes a timeout. Valid values are between `600` and `14400`.
+	MaximumExecutionTimeoutInSeconds pulumi.IntPtrInput `pulumi:"maximumExecutionTimeoutInSeconds"`
+	// Batch size for rollback to the old endpoint fleet. Each rolling step to provision capacity and turn on traffic on the old endpoint fleet, and terminate capacity on the new endpoint fleet. If this field is absent, the default value will be set to 100% of total capacity which means to bring up the whole capacity of the old fleet at once during rollback. See Rollback Maximum Batch Size.
+	RollbackMaximumBatchSize EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrInput `pulumi:"rollbackMaximumBatchSize"`
+	// The length of the baking period, during which SageMaker monitors alarms for each batch on the new fleet. Valid values are between `0` and `3600`.
+	WaitIntervalInSeconds pulumi.IntInput `pulumi:"waitIntervalInSeconds"`
+}
+
+func (EndpointDeploymentConfigRollingUpdatePolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointDeploymentConfigRollingUpdatePolicy)(nil)).Elem()
+}
+
+func (i EndpointDeploymentConfigRollingUpdatePolicyArgs) ToEndpointDeploymentConfigRollingUpdatePolicyOutput() EndpointDeploymentConfigRollingUpdatePolicyOutput {
+	return i.ToEndpointDeploymentConfigRollingUpdatePolicyOutputWithContext(context.Background())
+}
+
+func (i EndpointDeploymentConfigRollingUpdatePolicyArgs) ToEndpointDeploymentConfigRollingUpdatePolicyOutputWithContext(ctx context.Context) EndpointDeploymentConfigRollingUpdatePolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeploymentConfigRollingUpdatePolicyOutput)
+}
+
+func (i EndpointDeploymentConfigRollingUpdatePolicyArgs) ToEndpointDeploymentConfigRollingUpdatePolicyPtrOutput() EndpointDeploymentConfigRollingUpdatePolicyPtrOutput {
+	return i.ToEndpointDeploymentConfigRollingUpdatePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointDeploymentConfigRollingUpdatePolicyArgs) ToEndpointDeploymentConfigRollingUpdatePolicyPtrOutputWithContext(ctx context.Context) EndpointDeploymentConfigRollingUpdatePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeploymentConfigRollingUpdatePolicyOutput).ToEndpointDeploymentConfigRollingUpdatePolicyPtrOutputWithContext(ctx)
+}
+
+// EndpointDeploymentConfigRollingUpdatePolicyPtrInput is an input type that accepts EndpointDeploymentConfigRollingUpdatePolicyArgs, EndpointDeploymentConfigRollingUpdatePolicyPtr and EndpointDeploymentConfigRollingUpdatePolicyPtrOutput values.
+// You can construct a concrete instance of `EndpointDeploymentConfigRollingUpdatePolicyPtrInput` via:
+//
+//	        EndpointDeploymentConfigRollingUpdatePolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type EndpointDeploymentConfigRollingUpdatePolicyPtrInput interface {
+	pulumi.Input
+
+	ToEndpointDeploymentConfigRollingUpdatePolicyPtrOutput() EndpointDeploymentConfigRollingUpdatePolicyPtrOutput
+	ToEndpointDeploymentConfigRollingUpdatePolicyPtrOutputWithContext(context.Context) EndpointDeploymentConfigRollingUpdatePolicyPtrOutput
+}
+
+type endpointDeploymentConfigRollingUpdatePolicyPtrType EndpointDeploymentConfigRollingUpdatePolicyArgs
+
+func EndpointDeploymentConfigRollingUpdatePolicyPtr(v *EndpointDeploymentConfigRollingUpdatePolicyArgs) EndpointDeploymentConfigRollingUpdatePolicyPtrInput {
+	return (*endpointDeploymentConfigRollingUpdatePolicyPtrType)(v)
+}
+
+func (*endpointDeploymentConfigRollingUpdatePolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointDeploymentConfigRollingUpdatePolicy)(nil)).Elem()
+}
+
+func (i *endpointDeploymentConfigRollingUpdatePolicyPtrType) ToEndpointDeploymentConfigRollingUpdatePolicyPtrOutput() EndpointDeploymentConfigRollingUpdatePolicyPtrOutput {
+	return i.ToEndpointDeploymentConfigRollingUpdatePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointDeploymentConfigRollingUpdatePolicyPtrType) ToEndpointDeploymentConfigRollingUpdatePolicyPtrOutputWithContext(ctx context.Context) EndpointDeploymentConfigRollingUpdatePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeploymentConfigRollingUpdatePolicyPtrOutput)
+}
+
+type EndpointDeploymentConfigRollingUpdatePolicyOutput struct{ *pulumi.OutputState }
+
+func (EndpointDeploymentConfigRollingUpdatePolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointDeploymentConfigRollingUpdatePolicy)(nil)).Elem()
+}
+
+func (o EndpointDeploymentConfigRollingUpdatePolicyOutput) ToEndpointDeploymentConfigRollingUpdatePolicyOutput() EndpointDeploymentConfigRollingUpdatePolicyOutput {
+	return o
+}
+
+func (o EndpointDeploymentConfigRollingUpdatePolicyOutput) ToEndpointDeploymentConfigRollingUpdatePolicyOutputWithContext(ctx context.Context) EndpointDeploymentConfigRollingUpdatePolicyOutput {
+	return o
+}
+
+func (o EndpointDeploymentConfigRollingUpdatePolicyOutput) ToEndpointDeploymentConfigRollingUpdatePolicyPtrOutput() EndpointDeploymentConfigRollingUpdatePolicyPtrOutput {
+	return o.ToEndpointDeploymentConfigRollingUpdatePolicyPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointDeploymentConfigRollingUpdatePolicyOutput) ToEndpointDeploymentConfigRollingUpdatePolicyPtrOutputWithContext(ctx context.Context) EndpointDeploymentConfigRollingUpdatePolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointDeploymentConfigRollingUpdatePolicy) *EndpointDeploymentConfigRollingUpdatePolicy {
+		return &v
+	}).(EndpointDeploymentConfigRollingUpdatePolicyPtrOutput)
+}
+
+// Batch size for each rolling step to provision capacity and turn on traffic on the new endpoint fleet, and terminate capacity on the old endpoint fleet. Value must be between 5% to 50% of the variant's total instance count. See Maximum Batch Size.
+func (o EndpointDeploymentConfigRollingUpdatePolicyOutput) MaximumBatchSize() EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeOutput {
+	return o.ApplyT(func(v EndpointDeploymentConfigRollingUpdatePolicy) EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSize {
+		return v.MaximumBatchSize
+	}).(EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeOutput)
+}
+
+// The time limit for the total deployment. Exceeding this limit causes a timeout. Valid values are between `600` and `14400`.
+func (o EndpointDeploymentConfigRollingUpdatePolicyOutput) MaximumExecutionTimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointDeploymentConfigRollingUpdatePolicy) *int { return v.MaximumExecutionTimeoutInSeconds }).(pulumi.IntPtrOutput)
+}
+
+// Batch size for rollback to the old endpoint fleet. Each rolling step to provision capacity and turn on traffic on the old endpoint fleet, and terminate capacity on the new endpoint fleet. If this field is absent, the default value will be set to 100% of total capacity which means to bring up the whole capacity of the old fleet at once during rollback. See Rollback Maximum Batch Size.
+func (o EndpointDeploymentConfigRollingUpdatePolicyOutput) RollbackMaximumBatchSize() EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutput {
+	return o.ApplyT(func(v EndpointDeploymentConfigRollingUpdatePolicy) *EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize {
+		return v.RollbackMaximumBatchSize
+	}).(EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutput)
+}
+
+// The length of the baking period, during which SageMaker monitors alarms for each batch on the new fleet. Valid values are between `0` and `3600`.
+func (o EndpointDeploymentConfigRollingUpdatePolicyOutput) WaitIntervalInSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v EndpointDeploymentConfigRollingUpdatePolicy) int { return v.WaitIntervalInSeconds }).(pulumi.IntOutput)
+}
+
+type EndpointDeploymentConfigRollingUpdatePolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointDeploymentConfigRollingUpdatePolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointDeploymentConfigRollingUpdatePolicy)(nil)).Elem()
+}
+
+func (o EndpointDeploymentConfigRollingUpdatePolicyPtrOutput) ToEndpointDeploymentConfigRollingUpdatePolicyPtrOutput() EndpointDeploymentConfigRollingUpdatePolicyPtrOutput {
+	return o
+}
+
+func (o EndpointDeploymentConfigRollingUpdatePolicyPtrOutput) ToEndpointDeploymentConfigRollingUpdatePolicyPtrOutputWithContext(ctx context.Context) EndpointDeploymentConfigRollingUpdatePolicyPtrOutput {
+	return o
+}
+
+func (o EndpointDeploymentConfigRollingUpdatePolicyPtrOutput) Elem() EndpointDeploymentConfigRollingUpdatePolicyOutput {
+	return o.ApplyT(func(v *EndpointDeploymentConfigRollingUpdatePolicy) EndpointDeploymentConfigRollingUpdatePolicy {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointDeploymentConfigRollingUpdatePolicy
+		return ret
+	}).(EndpointDeploymentConfigRollingUpdatePolicyOutput)
+}
+
+// Batch size for each rolling step to provision capacity and turn on traffic on the new endpoint fleet, and terminate capacity on the old endpoint fleet. Value must be between 5% to 50% of the variant's total instance count. See Maximum Batch Size.
+func (o EndpointDeploymentConfigRollingUpdatePolicyPtrOutput) MaximumBatchSize() EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutput {
+	return o.ApplyT(func(v *EndpointDeploymentConfigRollingUpdatePolicy) *EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSize {
+		if v == nil {
+			return nil
+		}
+		return &v.MaximumBatchSize
+	}).(EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutput)
+}
+
+// The time limit for the total deployment. Exceeding this limit causes a timeout. Valid values are between `600` and `14400`.
+func (o EndpointDeploymentConfigRollingUpdatePolicyPtrOutput) MaximumExecutionTimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointDeploymentConfigRollingUpdatePolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaximumExecutionTimeoutInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// Batch size for rollback to the old endpoint fleet. Each rolling step to provision capacity and turn on traffic on the old endpoint fleet, and terminate capacity on the new endpoint fleet. If this field is absent, the default value will be set to 100% of total capacity which means to bring up the whole capacity of the old fleet at once during rollback. See Rollback Maximum Batch Size.
+func (o EndpointDeploymentConfigRollingUpdatePolicyPtrOutput) RollbackMaximumBatchSize() EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutput {
+	return o.ApplyT(func(v *EndpointDeploymentConfigRollingUpdatePolicy) *EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize {
+		if v == nil {
+			return nil
+		}
+		return v.RollbackMaximumBatchSize
+	}).(EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutput)
+}
+
+// The length of the baking period, during which SageMaker monitors alarms for each batch on the new fleet. Valid values are between `0` and `3600`.
+func (o EndpointDeploymentConfigRollingUpdatePolicyPtrOutput) WaitIntervalInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointDeploymentConfigRollingUpdatePolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.WaitIntervalInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+type EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSize struct {
+	// Specifies the endpoint capacity type. Valid values are: `INSTANCE_COUNT`, or `CAPACITY_PERCENT`.
+	Type string `pulumi:"type"`
+	// Defines the capacity size, either as a number of instances or a capacity percentage.
+	Value int `pulumi:"value"`
+}
+
+// EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeInput is an input type that accepts EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeArgs and EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeOutput values.
+// You can construct a concrete instance of `EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeInput` via:
+//
+//	EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeArgs{...}
+type EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeInput interface {
+	pulumi.Input
+
+	ToEndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeOutput() EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeOutput
+	ToEndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeOutputWithContext(context.Context) EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeOutput
+}
+
+type EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeArgs struct {
+	// Specifies the endpoint capacity type. Valid values are: `INSTANCE_COUNT`, or `CAPACITY_PERCENT`.
+	Type pulumi.StringInput `pulumi:"type"`
+	// Defines the capacity size, either as a number of instances or a capacity percentage.
+	Value pulumi.IntInput `pulumi:"value"`
+}
+
+func (EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSize)(nil)).Elem()
+}
+
+func (i EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeArgs) ToEndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeOutput() EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeOutput {
+	return i.ToEndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeOutputWithContext(context.Background())
+}
+
+func (i EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeArgs) ToEndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeOutputWithContext(ctx context.Context) EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeOutput)
+}
+
+func (i EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeArgs) ToEndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutput() EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutput {
+	return i.ToEndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutputWithContext(context.Background())
+}
+
+func (i EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeArgs) ToEndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutputWithContext(ctx context.Context) EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeOutput).ToEndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutputWithContext(ctx)
+}
+
+// EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrInput is an input type that accepts EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeArgs, EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtr and EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutput values.
+// You can construct a concrete instance of `EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrInput` via:
+//
+//	        EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeArgs{...}
+//
+//	or:
+//
+//	        nil
+type EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrInput interface {
+	pulumi.Input
+
+	ToEndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutput() EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutput
+	ToEndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutputWithContext(context.Context) EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutput
+}
+
+type endpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrType EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeArgs
+
+func EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtr(v *EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeArgs) EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrInput {
+	return (*endpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrType)(v)
+}
+
+func (*endpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSize)(nil)).Elem()
+}
+
+func (i *endpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrType) ToEndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutput() EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutput {
+	return i.ToEndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutputWithContext(context.Background())
+}
+
+func (i *endpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrType) ToEndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutputWithContext(ctx context.Context) EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutput)
+}
+
+type EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeOutput struct{ *pulumi.OutputState }
+
+func (EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSize)(nil)).Elem()
+}
+
+func (o EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeOutput) ToEndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeOutput() EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeOutput {
+	return o
+}
+
+func (o EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeOutput) ToEndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeOutputWithContext(ctx context.Context) EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeOutput {
+	return o
+}
+
+func (o EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeOutput) ToEndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutput() EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutput {
+	return o.ToEndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutputWithContext(context.Background())
+}
+
+func (o EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeOutput) ToEndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutputWithContext(ctx context.Context) EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSize) *EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSize {
+		return &v
+	}).(EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutput)
+}
+
+// Specifies the endpoint capacity type. Valid values are: `INSTANCE_COUNT`, or `CAPACITY_PERCENT`.
+func (o EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSize) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Defines the capacity size, either as a number of instances or a capacity percentage.
+func (o EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSize) int { return v.Value }).(pulumi.IntOutput)
+}
+
+type EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSize)(nil)).Elem()
+}
+
+func (o EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutput) ToEndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutput() EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutput {
+	return o
+}
+
+func (o EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutput) ToEndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutputWithContext(ctx context.Context) EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutput {
+	return o
+}
+
+func (o EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutput) Elem() EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeOutput {
+	return o.ApplyT(func(v *EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSize) EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSize {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSize
+		return ret
+	}).(EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeOutput)
+}
+
+// Specifies the endpoint capacity type. Valid values are: `INSTANCE_COUNT`, or `CAPACITY_PERCENT`.
+func (o EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSize) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Defines the capacity size, either as a number of instances or a capacity percentage.
+func (o EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSize) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.IntPtrOutput)
+}
+
+type EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize struct {
+	// Specifies the endpoint capacity type. Valid values are: `INSTANCE_COUNT`, or `CAPACITY_PERCENT`.
+	Type string `pulumi:"type"`
+	// Defines the capacity size, either as a number of instances or a capacity percentage.
+	Value int `pulumi:"value"`
+}
+
+// EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeInput is an input type that accepts EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs and EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeOutput values.
+// You can construct a concrete instance of `EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeInput` via:
+//
+//	EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs{...}
+type EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeInput interface {
+	pulumi.Input
+
+	ToEndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeOutput() EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeOutput
+	ToEndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeOutputWithContext(context.Context) EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeOutput
+}
+
+type EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs struct {
+	// Specifies the endpoint capacity type. Valid values are: `INSTANCE_COUNT`, or `CAPACITY_PERCENT`.
+	Type pulumi.StringInput `pulumi:"type"`
+	// Defines the capacity size, either as a number of instances or a capacity percentage.
+	Value pulumi.IntInput `pulumi:"value"`
+}
+
+func (EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize)(nil)).Elem()
+}
+
+func (i EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs) ToEndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeOutput() EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeOutput {
+	return i.ToEndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeOutputWithContext(context.Background())
+}
+
+func (i EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs) ToEndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeOutputWithContext(ctx context.Context) EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeOutput)
+}
+
+func (i EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs) ToEndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutput() EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutput {
+	return i.ToEndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutputWithContext(context.Background())
+}
+
+func (i EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs) ToEndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutputWithContext(ctx context.Context) EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeOutput).ToEndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutputWithContext(ctx)
+}
+
+// EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrInput is an input type that accepts EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs, EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtr and EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutput values.
+// You can construct a concrete instance of `EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrInput` via:
+//
+//	        EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs{...}
+//
+//	or:
+//
+//	        nil
+type EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrInput interface {
+	pulumi.Input
+
+	ToEndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutput() EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutput
+	ToEndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutputWithContext(context.Context) EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutput
+}
+
+type endpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrType EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs
+
+func EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtr(v *EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs) EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrInput {
+	return (*endpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrType)(v)
+}
+
+func (*endpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize)(nil)).Elem()
+}
+
+func (i *endpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrType) ToEndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutput() EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutput {
+	return i.ToEndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutputWithContext(context.Background())
+}
+
+func (i *endpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrType) ToEndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutputWithContext(ctx context.Context) EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutput)
+}
+
+type EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeOutput struct{ *pulumi.OutputState }
+
+func (EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize)(nil)).Elem()
+}
+
+func (o EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeOutput) ToEndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeOutput() EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeOutput {
+	return o
+}
+
+func (o EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeOutput) ToEndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeOutputWithContext(ctx context.Context) EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeOutput {
+	return o
+}
+
+func (o EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeOutput) ToEndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutput() EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutput {
+	return o.ToEndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutputWithContext(context.Background())
+}
+
+func (o EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeOutput) ToEndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutputWithContext(ctx context.Context) EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize) *EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize {
+		return &v
+	}).(EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutput)
+}
+
+// Specifies the endpoint capacity type. Valid values are: `INSTANCE_COUNT`, or `CAPACITY_PERCENT`.
+func (o EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Defines the capacity size, either as a number of instances or a capacity percentage.
+func (o EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize) int { return v.Value }).(pulumi.IntOutput)
+}
+
+type EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize)(nil)).Elem()
+}
+
+func (o EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutput) ToEndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutput() EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutput {
+	return o
+}
+
+func (o EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutput) ToEndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutputWithContext(ctx context.Context) EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutput {
+	return o
+}
+
+func (o EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutput) Elem() EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeOutput {
+	return o.ApplyT(func(v *EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize) EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize
+		return ret
+	}).(EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeOutput)
+}
+
+// Specifies the endpoint capacity type. Valid values are: `INSTANCE_COUNT`, or `CAPACITY_PERCENT`.
+func (o EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Defines the capacity size, either as a number of instances or a capacity percentage.
+func (o EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize) *int {
 		if v == nil {
 			return nil
 		}
@@ -14507,13 +15258,15 @@ type ModelContainer struct {
 	// A list of key value pairs.
 	Environment map[string]string `pulumi:"environment"`
 	// The registry path where the inference code image is stored in Amazon ECR.
-	Image string `pulumi:"image"`
+	Image *string `pulumi:"image"`
 	// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
 	ImageConfig *ModelContainerImageConfig `pulumi:"imageConfig"`
 	// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
 	Mode *string `pulumi:"mode"`
 	// The URL for the S3 location where model artifacts are stored.
 	ModelDataUrl *string `pulumi:"modelDataUrl"`
+	// The Amazon Resource Name (ARN) of the model package to use to create the model.
+	ModelPackageName *string `pulumi:"modelPackageName"`
 }
 
 // ModelContainerInput is an input type that accepts ModelContainerArgs and ModelContainerOutput values.
@@ -14534,13 +15287,15 @@ type ModelContainerArgs struct {
 	// A list of key value pairs.
 	Environment pulumi.StringMapInput `pulumi:"environment"`
 	// The registry path where the inference code image is stored in Amazon ECR.
-	Image pulumi.StringInput `pulumi:"image"`
+	Image pulumi.StringPtrInput `pulumi:"image"`
 	// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
 	ImageConfig ModelContainerImageConfigPtrInput `pulumi:"imageConfig"`
 	// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
 	Mode pulumi.StringPtrInput `pulumi:"mode"`
 	// The URL for the S3 location where model artifacts are stored.
 	ModelDataUrl pulumi.StringPtrInput `pulumi:"modelDataUrl"`
+	// The Amazon Resource Name (ARN) of the model package to use to create the model.
+	ModelPackageName pulumi.StringPtrInput `pulumi:"modelPackageName"`
 }
 
 func (ModelContainerArgs) ElementType() reflect.Type {
@@ -14606,8 +15361,8 @@ func (o ModelContainerOutput) Environment() pulumi.StringMapOutput {
 }
 
 // The registry path where the inference code image is stored in Amazon ECR.
-func (o ModelContainerOutput) Image() pulumi.StringOutput {
-	return o.ApplyT(func(v ModelContainer) string { return v.Image }).(pulumi.StringOutput)
+func (o ModelContainerOutput) Image() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelContainer) *string { return v.Image }).(pulumi.StringPtrOutput)
 }
 
 // Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
@@ -14623,6 +15378,11 @@ func (o ModelContainerOutput) Mode() pulumi.StringPtrOutput {
 // The URL for the S3 location where model artifacts are stored.
 func (o ModelContainerOutput) ModelDataUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelContainer) *string { return v.ModelDataUrl }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the model package to use to create the model.
+func (o ModelContainerOutput) ModelPackageName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelContainer) *string { return v.ModelPackageName }).(pulumi.StringPtrOutput)
 }
 
 type ModelContainerArrayOutput struct{ *pulumi.OutputState }
@@ -15086,13 +15846,15 @@ type ModelPrimaryContainer struct {
 	// A list of key value pairs.
 	Environment map[string]string `pulumi:"environment"`
 	// The registry path where the inference code image is stored in Amazon ECR.
-	Image string `pulumi:"image"`
+	Image *string `pulumi:"image"`
 	// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
 	ImageConfig *ModelPrimaryContainerImageConfig `pulumi:"imageConfig"`
 	// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
 	Mode *string `pulumi:"mode"`
 	// The URL for the S3 location where model artifacts are stored.
 	ModelDataUrl *string `pulumi:"modelDataUrl"`
+	// The Amazon Resource Name (ARN) of the model package to use to create the model.
+	ModelPackageName *string `pulumi:"modelPackageName"`
 }
 
 // ModelPrimaryContainerInput is an input type that accepts ModelPrimaryContainerArgs and ModelPrimaryContainerOutput values.
@@ -15113,13 +15875,15 @@ type ModelPrimaryContainerArgs struct {
 	// A list of key value pairs.
 	Environment pulumi.StringMapInput `pulumi:"environment"`
 	// The registry path where the inference code image is stored in Amazon ECR.
-	Image pulumi.StringInput `pulumi:"image"`
+	Image pulumi.StringPtrInput `pulumi:"image"`
 	// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
 	ImageConfig ModelPrimaryContainerImageConfigPtrInput `pulumi:"imageConfig"`
 	// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
 	Mode pulumi.StringPtrInput `pulumi:"mode"`
 	// The URL for the S3 location where model artifacts are stored.
 	ModelDataUrl pulumi.StringPtrInput `pulumi:"modelDataUrl"`
+	// The Amazon Resource Name (ARN) of the model package to use to create the model.
+	ModelPackageName pulumi.StringPtrInput `pulumi:"modelPackageName"`
 }
 
 func (ModelPrimaryContainerArgs) ElementType() reflect.Type {
@@ -15211,8 +15975,8 @@ func (o ModelPrimaryContainerOutput) Environment() pulumi.StringMapOutput {
 }
 
 // The registry path where the inference code image is stored in Amazon ECR.
-func (o ModelPrimaryContainerOutput) Image() pulumi.StringOutput {
-	return o.ApplyT(func(v ModelPrimaryContainer) string { return v.Image }).(pulumi.StringOutput)
+func (o ModelPrimaryContainerOutput) Image() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelPrimaryContainer) *string { return v.Image }).(pulumi.StringPtrOutput)
 }
 
 // Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
@@ -15228,6 +15992,11 @@ func (o ModelPrimaryContainerOutput) Mode() pulumi.StringPtrOutput {
 // The URL for the S3 location where model artifacts are stored.
 func (o ModelPrimaryContainerOutput) ModelDataUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelPrimaryContainer) *string { return v.ModelDataUrl }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the model package to use to create the model.
+func (o ModelPrimaryContainerOutput) ModelPackageName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelPrimaryContainer) *string { return v.ModelPackageName }).(pulumi.StringPtrOutput)
 }
 
 type ModelPrimaryContainerPtrOutput struct{ *pulumi.OutputState }
@@ -15281,7 +16050,7 @@ func (o ModelPrimaryContainerPtrOutput) Image() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.Image
+		return v.Image
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -15312,6 +16081,16 @@ func (o ModelPrimaryContainerPtrOutput) ModelDataUrl() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.ModelDataUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the model package to use to create the model.
+func (o ModelPrimaryContainerPtrOutput) ModelPackageName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelPrimaryContainer) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ModelPackageName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -16210,6 +16989,318 @@ func (o NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput) MinimumIn
 			return nil
 		}
 		return v.MinimumInstanceMetadataServiceVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+type PipelineParallelismConfiguration struct {
+	// The max number of steps that can be executed in parallel.
+	MaxParallelExecutionSteps int `pulumi:"maxParallelExecutionSteps"`
+}
+
+// PipelineParallelismConfigurationInput is an input type that accepts PipelineParallelismConfigurationArgs and PipelineParallelismConfigurationOutput values.
+// You can construct a concrete instance of `PipelineParallelismConfigurationInput` via:
+//
+//	PipelineParallelismConfigurationArgs{...}
+type PipelineParallelismConfigurationInput interface {
+	pulumi.Input
+
+	ToPipelineParallelismConfigurationOutput() PipelineParallelismConfigurationOutput
+	ToPipelineParallelismConfigurationOutputWithContext(context.Context) PipelineParallelismConfigurationOutput
+}
+
+type PipelineParallelismConfigurationArgs struct {
+	// The max number of steps that can be executed in parallel.
+	MaxParallelExecutionSteps pulumi.IntInput `pulumi:"maxParallelExecutionSteps"`
+}
+
+func (PipelineParallelismConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineParallelismConfiguration)(nil)).Elem()
+}
+
+func (i PipelineParallelismConfigurationArgs) ToPipelineParallelismConfigurationOutput() PipelineParallelismConfigurationOutput {
+	return i.ToPipelineParallelismConfigurationOutputWithContext(context.Background())
+}
+
+func (i PipelineParallelismConfigurationArgs) ToPipelineParallelismConfigurationOutputWithContext(ctx context.Context) PipelineParallelismConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineParallelismConfigurationOutput)
+}
+
+func (i PipelineParallelismConfigurationArgs) ToPipelineParallelismConfigurationPtrOutput() PipelineParallelismConfigurationPtrOutput {
+	return i.ToPipelineParallelismConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i PipelineParallelismConfigurationArgs) ToPipelineParallelismConfigurationPtrOutputWithContext(ctx context.Context) PipelineParallelismConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineParallelismConfigurationOutput).ToPipelineParallelismConfigurationPtrOutputWithContext(ctx)
+}
+
+// PipelineParallelismConfigurationPtrInput is an input type that accepts PipelineParallelismConfigurationArgs, PipelineParallelismConfigurationPtr and PipelineParallelismConfigurationPtrOutput values.
+// You can construct a concrete instance of `PipelineParallelismConfigurationPtrInput` via:
+//
+//	        PipelineParallelismConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type PipelineParallelismConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToPipelineParallelismConfigurationPtrOutput() PipelineParallelismConfigurationPtrOutput
+	ToPipelineParallelismConfigurationPtrOutputWithContext(context.Context) PipelineParallelismConfigurationPtrOutput
+}
+
+type pipelineParallelismConfigurationPtrType PipelineParallelismConfigurationArgs
+
+func PipelineParallelismConfigurationPtr(v *PipelineParallelismConfigurationArgs) PipelineParallelismConfigurationPtrInput {
+	return (*pipelineParallelismConfigurationPtrType)(v)
+}
+
+func (*pipelineParallelismConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineParallelismConfiguration)(nil)).Elem()
+}
+
+func (i *pipelineParallelismConfigurationPtrType) ToPipelineParallelismConfigurationPtrOutput() PipelineParallelismConfigurationPtrOutput {
+	return i.ToPipelineParallelismConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *pipelineParallelismConfigurationPtrType) ToPipelineParallelismConfigurationPtrOutputWithContext(ctx context.Context) PipelineParallelismConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineParallelismConfigurationPtrOutput)
+}
+
+type PipelineParallelismConfigurationOutput struct{ *pulumi.OutputState }
+
+func (PipelineParallelismConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineParallelismConfiguration)(nil)).Elem()
+}
+
+func (o PipelineParallelismConfigurationOutput) ToPipelineParallelismConfigurationOutput() PipelineParallelismConfigurationOutput {
+	return o
+}
+
+func (o PipelineParallelismConfigurationOutput) ToPipelineParallelismConfigurationOutputWithContext(ctx context.Context) PipelineParallelismConfigurationOutput {
+	return o
+}
+
+func (o PipelineParallelismConfigurationOutput) ToPipelineParallelismConfigurationPtrOutput() PipelineParallelismConfigurationPtrOutput {
+	return o.ToPipelineParallelismConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o PipelineParallelismConfigurationOutput) ToPipelineParallelismConfigurationPtrOutputWithContext(ctx context.Context) PipelineParallelismConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipelineParallelismConfiguration) *PipelineParallelismConfiguration {
+		return &v
+	}).(PipelineParallelismConfigurationPtrOutput)
+}
+
+// The max number of steps that can be executed in parallel.
+func (o PipelineParallelismConfigurationOutput) MaxParallelExecutionSteps() pulumi.IntOutput {
+	return o.ApplyT(func(v PipelineParallelismConfiguration) int { return v.MaxParallelExecutionSteps }).(pulumi.IntOutput)
+}
+
+type PipelineParallelismConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (PipelineParallelismConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineParallelismConfiguration)(nil)).Elem()
+}
+
+func (o PipelineParallelismConfigurationPtrOutput) ToPipelineParallelismConfigurationPtrOutput() PipelineParallelismConfigurationPtrOutput {
+	return o
+}
+
+func (o PipelineParallelismConfigurationPtrOutput) ToPipelineParallelismConfigurationPtrOutputWithContext(ctx context.Context) PipelineParallelismConfigurationPtrOutput {
+	return o
+}
+
+func (o PipelineParallelismConfigurationPtrOutput) Elem() PipelineParallelismConfigurationOutput {
+	return o.ApplyT(func(v *PipelineParallelismConfiguration) PipelineParallelismConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret PipelineParallelismConfiguration
+		return ret
+	}).(PipelineParallelismConfigurationOutput)
+}
+
+// The max number of steps that can be executed in parallel.
+func (o PipelineParallelismConfigurationPtrOutput) MaxParallelExecutionSteps() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PipelineParallelismConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxParallelExecutionSteps
+	}).(pulumi.IntPtrOutput)
+}
+
+type PipelinePipelineDefinitionS3Location struct {
+	// Name of the S3 bucket.
+	Bucket string `pulumi:"bucket"`
+	// The object key (or key name) uniquely identifies the object in an S3 bucket.
+	ObjectKey string `pulumi:"objectKey"`
+	// Version Id of the pipeline definition file. If not specified, Amazon SageMaker will retrieve the latest version.
+	VersionId *string `pulumi:"versionId"`
+}
+
+// PipelinePipelineDefinitionS3LocationInput is an input type that accepts PipelinePipelineDefinitionS3LocationArgs and PipelinePipelineDefinitionS3LocationOutput values.
+// You can construct a concrete instance of `PipelinePipelineDefinitionS3LocationInput` via:
+//
+//	PipelinePipelineDefinitionS3LocationArgs{...}
+type PipelinePipelineDefinitionS3LocationInput interface {
+	pulumi.Input
+
+	ToPipelinePipelineDefinitionS3LocationOutput() PipelinePipelineDefinitionS3LocationOutput
+	ToPipelinePipelineDefinitionS3LocationOutputWithContext(context.Context) PipelinePipelineDefinitionS3LocationOutput
+}
+
+type PipelinePipelineDefinitionS3LocationArgs struct {
+	// Name of the S3 bucket.
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// The object key (or key name) uniquely identifies the object in an S3 bucket.
+	ObjectKey pulumi.StringInput `pulumi:"objectKey"`
+	// Version Id of the pipeline definition file. If not specified, Amazon SageMaker will retrieve the latest version.
+	VersionId pulumi.StringPtrInput `pulumi:"versionId"`
+}
+
+func (PipelinePipelineDefinitionS3LocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelinePipelineDefinitionS3Location)(nil)).Elem()
+}
+
+func (i PipelinePipelineDefinitionS3LocationArgs) ToPipelinePipelineDefinitionS3LocationOutput() PipelinePipelineDefinitionS3LocationOutput {
+	return i.ToPipelinePipelineDefinitionS3LocationOutputWithContext(context.Background())
+}
+
+func (i PipelinePipelineDefinitionS3LocationArgs) ToPipelinePipelineDefinitionS3LocationOutputWithContext(ctx context.Context) PipelinePipelineDefinitionS3LocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelinePipelineDefinitionS3LocationOutput)
+}
+
+func (i PipelinePipelineDefinitionS3LocationArgs) ToPipelinePipelineDefinitionS3LocationPtrOutput() PipelinePipelineDefinitionS3LocationPtrOutput {
+	return i.ToPipelinePipelineDefinitionS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (i PipelinePipelineDefinitionS3LocationArgs) ToPipelinePipelineDefinitionS3LocationPtrOutputWithContext(ctx context.Context) PipelinePipelineDefinitionS3LocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelinePipelineDefinitionS3LocationOutput).ToPipelinePipelineDefinitionS3LocationPtrOutputWithContext(ctx)
+}
+
+// PipelinePipelineDefinitionS3LocationPtrInput is an input type that accepts PipelinePipelineDefinitionS3LocationArgs, PipelinePipelineDefinitionS3LocationPtr and PipelinePipelineDefinitionS3LocationPtrOutput values.
+// You can construct a concrete instance of `PipelinePipelineDefinitionS3LocationPtrInput` via:
+//
+//	        PipelinePipelineDefinitionS3LocationArgs{...}
+//
+//	or:
+//
+//	        nil
+type PipelinePipelineDefinitionS3LocationPtrInput interface {
+	pulumi.Input
+
+	ToPipelinePipelineDefinitionS3LocationPtrOutput() PipelinePipelineDefinitionS3LocationPtrOutput
+	ToPipelinePipelineDefinitionS3LocationPtrOutputWithContext(context.Context) PipelinePipelineDefinitionS3LocationPtrOutput
+}
+
+type pipelinePipelineDefinitionS3LocationPtrType PipelinePipelineDefinitionS3LocationArgs
+
+func PipelinePipelineDefinitionS3LocationPtr(v *PipelinePipelineDefinitionS3LocationArgs) PipelinePipelineDefinitionS3LocationPtrInput {
+	return (*pipelinePipelineDefinitionS3LocationPtrType)(v)
+}
+
+func (*pipelinePipelineDefinitionS3LocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelinePipelineDefinitionS3Location)(nil)).Elem()
+}
+
+func (i *pipelinePipelineDefinitionS3LocationPtrType) ToPipelinePipelineDefinitionS3LocationPtrOutput() PipelinePipelineDefinitionS3LocationPtrOutput {
+	return i.ToPipelinePipelineDefinitionS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (i *pipelinePipelineDefinitionS3LocationPtrType) ToPipelinePipelineDefinitionS3LocationPtrOutputWithContext(ctx context.Context) PipelinePipelineDefinitionS3LocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelinePipelineDefinitionS3LocationPtrOutput)
+}
+
+type PipelinePipelineDefinitionS3LocationOutput struct{ *pulumi.OutputState }
+
+func (PipelinePipelineDefinitionS3LocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelinePipelineDefinitionS3Location)(nil)).Elem()
+}
+
+func (o PipelinePipelineDefinitionS3LocationOutput) ToPipelinePipelineDefinitionS3LocationOutput() PipelinePipelineDefinitionS3LocationOutput {
+	return o
+}
+
+func (o PipelinePipelineDefinitionS3LocationOutput) ToPipelinePipelineDefinitionS3LocationOutputWithContext(ctx context.Context) PipelinePipelineDefinitionS3LocationOutput {
+	return o
+}
+
+func (o PipelinePipelineDefinitionS3LocationOutput) ToPipelinePipelineDefinitionS3LocationPtrOutput() PipelinePipelineDefinitionS3LocationPtrOutput {
+	return o.ToPipelinePipelineDefinitionS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (o PipelinePipelineDefinitionS3LocationOutput) ToPipelinePipelineDefinitionS3LocationPtrOutputWithContext(ctx context.Context) PipelinePipelineDefinitionS3LocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipelinePipelineDefinitionS3Location) *PipelinePipelineDefinitionS3Location {
+		return &v
+	}).(PipelinePipelineDefinitionS3LocationPtrOutput)
+}
+
+// Name of the S3 bucket.
+func (o PipelinePipelineDefinitionS3LocationOutput) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v PipelinePipelineDefinitionS3Location) string { return v.Bucket }).(pulumi.StringOutput)
+}
+
+// The object key (or key name) uniquely identifies the object in an S3 bucket.
+func (o PipelinePipelineDefinitionS3LocationOutput) ObjectKey() pulumi.StringOutput {
+	return o.ApplyT(func(v PipelinePipelineDefinitionS3Location) string { return v.ObjectKey }).(pulumi.StringOutput)
+}
+
+// Version Id of the pipeline definition file. If not specified, Amazon SageMaker will retrieve the latest version.
+func (o PipelinePipelineDefinitionS3LocationOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipelinePipelineDefinitionS3Location) *string { return v.VersionId }).(pulumi.StringPtrOutput)
+}
+
+type PipelinePipelineDefinitionS3LocationPtrOutput struct{ *pulumi.OutputState }
+
+func (PipelinePipelineDefinitionS3LocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelinePipelineDefinitionS3Location)(nil)).Elem()
+}
+
+func (o PipelinePipelineDefinitionS3LocationPtrOutput) ToPipelinePipelineDefinitionS3LocationPtrOutput() PipelinePipelineDefinitionS3LocationPtrOutput {
+	return o
+}
+
+func (o PipelinePipelineDefinitionS3LocationPtrOutput) ToPipelinePipelineDefinitionS3LocationPtrOutputWithContext(ctx context.Context) PipelinePipelineDefinitionS3LocationPtrOutput {
+	return o
+}
+
+func (o PipelinePipelineDefinitionS3LocationPtrOutput) Elem() PipelinePipelineDefinitionS3LocationOutput {
+	return o.ApplyT(func(v *PipelinePipelineDefinitionS3Location) PipelinePipelineDefinitionS3Location {
+		if v != nil {
+			return *v
+		}
+		var ret PipelinePipelineDefinitionS3Location
+		return ret
+	}).(PipelinePipelineDefinitionS3LocationOutput)
+}
+
+// Name of the S3 bucket.
+func (o PipelinePipelineDefinitionS3LocationPtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PipelinePipelineDefinitionS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+// The object key (or key name) uniquely identifies the object in an S3 bucket.
+func (o PipelinePipelineDefinitionS3LocationPtrOutput) ObjectKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PipelinePipelineDefinitionS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ObjectKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// Version Id of the pipeline definition file. If not specified, Amazon SageMaker will retrieve the latest version.
+func (o PipelinePipelineDefinitionS3LocationPtrOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PipelinePipelineDefinitionS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -17949,6 +19040,8 @@ type UserProfileUserSettingsCanvasAppSettings struct {
 	ModelRegisterSettings *UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings `pulumi:"modelRegisterSettings"`
 	// Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
 	TimeSeriesForecastingSettings *UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings `pulumi:"timeSeriesForecastingSettings"`
+	// The workspace settings for the SageMaker Canvas application. See Workspace Settings below.
+	WorkspaceSettings *UserProfileUserSettingsCanvasAppSettingsWorkspaceSettings `pulumi:"workspaceSettings"`
 }
 
 // UserProfileUserSettingsCanvasAppSettingsInput is an input type that accepts UserProfileUserSettingsCanvasAppSettingsArgs and UserProfileUserSettingsCanvasAppSettingsOutput values.
@@ -17967,6 +19060,8 @@ type UserProfileUserSettingsCanvasAppSettingsArgs struct {
 	ModelRegisterSettings UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrInput `pulumi:"modelRegisterSettings"`
 	// Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
 	TimeSeriesForecastingSettings UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrInput `pulumi:"timeSeriesForecastingSettings"`
+	// The workspace settings for the SageMaker Canvas application. See Workspace Settings below.
+	WorkspaceSettings UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsPtrInput `pulumi:"workspaceSettings"`
 }
 
 func (UserProfileUserSettingsCanvasAppSettingsArgs) ElementType() reflect.Type {
@@ -18060,6 +19155,13 @@ func (o UserProfileUserSettingsCanvasAppSettingsOutput) TimeSeriesForecastingSet
 	}).(UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput)
 }
 
+// The workspace settings for the SageMaker Canvas application. See Workspace Settings below.
+func (o UserProfileUserSettingsCanvasAppSettingsOutput) WorkspaceSettings() UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsCanvasAppSettings) *UserProfileUserSettingsCanvasAppSettingsWorkspaceSettings {
+		return v.WorkspaceSettings
+	}).(UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput)
+}
+
 type UserProfileUserSettingsCanvasAppSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (UserProfileUserSettingsCanvasAppSettingsPtrOutput) ElementType() reflect.Type {
@@ -18104,10 +19206,20 @@ func (o UserProfileUserSettingsCanvasAppSettingsPtrOutput) TimeSeriesForecasting
 	}).(UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput)
 }
 
+// The workspace settings for the SageMaker Canvas application. See Workspace Settings below.
+func (o UserProfileUserSettingsCanvasAppSettingsPtrOutput) WorkspaceSettings() UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsCanvasAppSettings) *UserProfileUserSettingsCanvasAppSettingsWorkspaceSettings {
+		if v == nil {
+			return nil
+		}
+		return v.WorkspaceSettings
+	}).(UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput)
+}
+
 type UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings struct {
 	// The Amazon Resource Name (ARN) of the SageMaker model registry account. Required only to register model versions created by a different SageMaker Canvas AWS account than the AWS account in which SageMaker model registry is set up.
 	CrossAccountModelRegisterRoleArn *string `pulumi:"crossAccountModelRegisterRoleArn"`
-	// Describes whether the integration to the model registry is enabled or disabled in the Canvas application.. Valid values are `ENABLED` and `DISABLED`.
+	// Describes whether the integration to the model registry is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
 	Status *string `pulumi:"status"`
 }
 
@@ -18125,7 +19237,7 @@ type UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsInput interfac
 type UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgs struct {
 	// The Amazon Resource Name (ARN) of the SageMaker model registry account. Required only to register model versions created by a different SageMaker Canvas AWS account than the AWS account in which SageMaker model registry is set up.
 	CrossAccountModelRegisterRoleArn pulumi.StringPtrInput `pulumi:"crossAccountModelRegisterRoleArn"`
-	// Describes whether the integration to the model registry is enabled or disabled in the Canvas application.. Valid values are `ENABLED` and `DISABLED`.
+	// Describes whether the integration to the model registry is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
 	Status pulumi.StringPtrInput `pulumi:"status"`
 }
 
@@ -18213,7 +19325,7 @@ func (o UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsOutput) Cro
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes whether the integration to the model registry is enabled or disabled in the Canvas application.. Valid values are `ENABLED` and `DISABLED`.
+// Describes whether the integration to the model registry is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
 func (o UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -18252,7 +19364,7 @@ func (o UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes whether the integration to the model registry is enabled or disabled in the Canvas application.. Valid values are `ENABLED` and `DISABLED`.
+// Describes whether the integration to the model registry is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
 func (o UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings) *string {
 		if v == nil {
@@ -18417,6 +19529,162 @@ func (o UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtr
 			return nil
 		}
 		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserProfileUserSettingsCanvasAppSettingsWorkspaceSettings struct {
+	// The Amazon S3 bucket used to store artifacts generated by Canvas. Updating the Amazon S3 location impacts existing configuration settings, and Canvas users no longer have access to their artifacts. Canvas users must log out and log back in to apply the new location.
+	S3ArtifactPath *string `pulumi:"s3ArtifactPath"`
+	// The Amazon Web Services Key Management Service (KMS) encryption key ID that is used to encrypt artifacts generated by Canvas in the Amazon S3 bucket.
+	S3KmsKeyId *string `pulumi:"s3KmsKeyId"`
+}
+
+// UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsInput is an input type that accepts UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsArgs and UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsInput` via:
+//
+//	UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsArgs{...}
+type UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsOutput() UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsOutput
+	ToUserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsOutputWithContext(context.Context) UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsOutput
+}
+
+type UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsArgs struct {
+	// The Amazon S3 bucket used to store artifacts generated by Canvas. Updating the Amazon S3 location impacts existing configuration settings, and Canvas users no longer have access to their artifacts. Canvas users must log out and log back in to apply the new location.
+	S3ArtifactPath pulumi.StringPtrInput `pulumi:"s3ArtifactPath"`
+	// The Amazon Web Services Key Management Service (KMS) encryption key ID that is used to encrypt artifacts generated by Canvas in the Amazon S3 bucket.
+	S3KmsKeyId pulumi.StringPtrInput `pulumi:"s3KmsKeyId"`
+}
+
+func (UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettingsWorkspaceSettings)(nil)).Elem()
+}
+
+func (i UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsArgs) ToUserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsOutput() UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsOutput {
+	return i.ToUserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsArgs) ToUserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsOutputWithContext(ctx context.Context) UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsOutput)
+}
+
+func (i UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsArgs) ToUserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput() UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput {
+	return i.ToUserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsArgs) ToUserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsOutput).ToUserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutputWithContext(ctx)
+}
+
+// UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsPtrInput is an input type that accepts UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsArgs, UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsPtr and UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsPtrInput` via:
+//
+//	        UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsPtrInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput() UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput
+	ToUserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutputWithContext(context.Context) UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput
+}
+
+type userProfileUserSettingsCanvasAppSettingsWorkspaceSettingsPtrType UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsArgs
+
+func UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsPtr(v *UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsArgs) UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsPtrInput {
+	return (*userProfileUserSettingsCanvasAppSettingsWorkspaceSettingsPtrType)(v)
+}
+
+func (*userProfileUserSettingsCanvasAppSettingsWorkspaceSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettingsCanvasAppSettingsWorkspaceSettings)(nil)).Elem()
+}
+
+func (i *userProfileUserSettingsCanvasAppSettingsWorkspaceSettingsPtrType) ToUserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput() UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput {
+	return i.ToUserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *userProfileUserSettingsCanvasAppSettingsWorkspaceSettingsPtrType) ToUserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput)
+}
+
+type UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettingsWorkspaceSettings)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsOutput) ToUserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsOutput() UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsOutput) ToUserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsOutputWithContext(ctx context.Context) UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsOutput) ToUserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput() UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput {
+	return o.ToUserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsOutput) ToUserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserProfileUserSettingsCanvasAppSettingsWorkspaceSettings) *UserProfileUserSettingsCanvasAppSettingsWorkspaceSettings {
+		return &v
+	}).(UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput)
+}
+
+// The Amazon S3 bucket used to store artifacts generated by Canvas. Updating the Amazon S3 location impacts existing configuration settings, and Canvas users no longer have access to their artifacts. Canvas users must log out and log back in to apply the new location.
+func (o UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsOutput) S3ArtifactPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsCanvasAppSettingsWorkspaceSettings) *string { return v.S3ArtifactPath }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Web Services Key Management Service (KMS) encryption key ID that is used to encrypt artifacts generated by Canvas in the Amazon S3 bucket.
+func (o UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsOutput) S3KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsCanvasAppSettingsWorkspaceSettings) *string { return v.S3KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+type UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettingsCanvasAppSettingsWorkspaceSettings)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput) ToUserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput() UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput) ToUserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput) Elem() UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsCanvasAppSettingsWorkspaceSettings) UserProfileUserSettingsCanvasAppSettingsWorkspaceSettings {
+		if v != nil {
+			return *v
+		}
+		var ret UserProfileUserSettingsCanvasAppSettingsWorkspaceSettings
+		return ret
+	}).(UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsOutput)
+}
+
+// The Amazon S3 bucket used to store artifacts generated by Canvas. Updating the Amazon S3 location impacts existing configuration settings, and Canvas users no longer have access to their artifacts. Canvas users must log out and log back in to apply the new location.
+func (o UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput) S3ArtifactPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsCanvasAppSettingsWorkspaceSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3ArtifactPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Web Services Key Management Service (KMS) encryption key ID that is used to encrypt artifacts generated by Canvas in the Amazon S3 bucket.
+func (o UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput) S3KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsCanvasAppSettingsWorkspaceSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3KmsKeyId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -21926,6 +23194,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrInput)(nil)).Elem(), DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsInput)(nil)).Elem(), DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrInput)(nil)).Elem(), DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsInput)(nil)).Elem(), DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrInput)(nil)).Elem(), DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsJupyterServerAppSettingsInput)(nil)).Elem(), DomainDefaultUserSettingsJupyterServerAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsJupyterServerAppSettingsPtrInput)(nil)).Elem(), DomainDefaultUserSettingsJupyterServerAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryInput)(nil)).Elem(), DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryArgs{})
@@ -22000,6 +23270,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrInput)(nil)).Elem(), EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeInput)(nil)).Elem(), EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrInput)(nil)).Elem(), EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointDeploymentConfigRollingUpdatePolicyInput)(nil)).Elem(), EndpointDeploymentConfigRollingUpdatePolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointDeploymentConfigRollingUpdatePolicyPtrInput)(nil)).Elem(), EndpointDeploymentConfigRollingUpdatePolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeInput)(nil)).Elem(), EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrInput)(nil)).Elem(), EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeInput)(nil)).Elem(), EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrInput)(nil)).Elem(), EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupFeatureDefinitionInput)(nil)).Elem(), FeatureGroupFeatureDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupFeatureDefinitionArrayInput)(nil)).Elem(), FeatureGroupFeatureDefinitionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupOfflineStoreConfigInput)(nil)).Elem(), FeatureGroupOfflineStoreConfigArgs{})
@@ -22050,6 +23326,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigScheduleConfigPtrInput)(nil)).Elem(), MonitoringScheduleMonitoringScheduleConfigScheduleConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NotebookInstanceInstanceMetadataServiceConfigurationInput)(nil)).Elem(), NotebookInstanceInstanceMetadataServiceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NotebookInstanceInstanceMetadataServiceConfigurationPtrInput)(nil)).Elem(), NotebookInstanceInstanceMetadataServiceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineParallelismConfigurationInput)(nil)).Elem(), PipelineParallelismConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineParallelismConfigurationPtrInput)(nil)).Elem(), PipelineParallelismConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelinePipelineDefinitionS3LocationInput)(nil)).Elem(), PipelinePipelineDefinitionS3LocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelinePipelineDefinitionS3LocationPtrInput)(nil)).Elem(), PipelinePipelineDefinitionS3LocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectServiceCatalogProvisioningDetailsInput)(nil)).Elem(), ProjectServiceCatalogProvisioningDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectServiceCatalogProvisioningDetailsPtrInput)(nil)).Elem(), ProjectServiceCatalogProvisioningDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectServiceCatalogProvisioningDetailsProvisioningParameterInput)(nil)).Elem(), ProjectServiceCatalogProvisioningDetailsProvisioningParameterArgs{})
@@ -22076,6 +23356,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrInput)(nil)).Elem(), UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsInput)(nil)).Elem(), UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrInput)(nil)).Elem(), UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsInput)(nil)).Elem(), UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsPtrInput)(nil)).Elem(), UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsJupyterServerAppSettingsInput)(nil)).Elem(), UserProfileUserSettingsJupyterServerAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsJupyterServerAppSettingsPtrInput)(nil)).Elem(), UserProfileUserSettingsJupyterServerAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsJupyterServerAppSettingsCodeRepositoryInput)(nil)).Elem(), UserProfileUserSettingsJupyterServerAppSettingsCodeRepositoryArgs{})
@@ -22190,6 +23472,8 @@ func init() {
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsJupyterServerAppSettingsOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryOutput{})
@@ -22264,6 +23548,12 @@ func init() {
 	pulumi.RegisterOutputType(EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrOutput{})
 	pulumi.RegisterOutputType(EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeOutput{})
 	pulumi.RegisterOutputType(EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrOutput{})
+	pulumi.RegisterOutputType(EndpointDeploymentConfigRollingUpdatePolicyOutput{})
+	pulumi.RegisterOutputType(EndpointDeploymentConfigRollingUpdatePolicyPtrOutput{})
+	pulumi.RegisterOutputType(EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeOutput{})
+	pulumi.RegisterOutputType(EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutput{})
+	pulumi.RegisterOutputType(EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeOutput{})
+	pulumi.RegisterOutputType(EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutput{})
 	pulumi.RegisterOutputType(FeatureGroupFeatureDefinitionOutput{})
 	pulumi.RegisterOutputType(FeatureGroupFeatureDefinitionArrayOutput{})
 	pulumi.RegisterOutputType(FeatureGroupOfflineStoreConfigOutput{})
@@ -22314,6 +23604,10 @@ func init() {
 	pulumi.RegisterOutputType(MonitoringScheduleMonitoringScheduleConfigScheduleConfigPtrOutput{})
 	pulumi.RegisterOutputType(NotebookInstanceInstanceMetadataServiceConfigurationOutput{})
 	pulumi.RegisterOutputType(NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(PipelineParallelismConfigurationOutput{})
+	pulumi.RegisterOutputType(PipelineParallelismConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(PipelinePipelineDefinitionS3LocationOutput{})
+	pulumi.RegisterOutputType(PipelinePipelineDefinitionS3LocationPtrOutput{})
 	pulumi.RegisterOutputType(ProjectServiceCatalogProvisioningDetailsOutput{})
 	pulumi.RegisterOutputType(ProjectServiceCatalogProvisioningDetailsPtrOutput{})
 	pulumi.RegisterOutputType(ProjectServiceCatalogProvisioningDetailsProvisioningParameterOutput{})
@@ -22340,6 +23634,8 @@ func init() {
 	pulumi.RegisterOutputType(UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsPtrOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsJupyterServerAppSettingsOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsJupyterServerAppSettingsPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsJupyterServerAppSettingsCodeRepositoryOutput{})

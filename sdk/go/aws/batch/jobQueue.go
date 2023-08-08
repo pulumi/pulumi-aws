@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/batch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/batch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -51,7 +52,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/batch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/batch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -93,13 +94,11 @@ import (
 //
 // ## Import
 //
-// Batch Job Queue can be imported using the `arn`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_batch_job_queue.test_queue
 //
-//	$ pulumi import aws:batch/jobQueue:JobQueue test_queue arn:aws:batch:us-east-1:123456789012:job-queue/sample
-//
-// ```
+//	id = "arn:aws:batch:us-east-1:123456789012:job-queue/sample" } Using `pulumi import`, import Batch Job Queue using the `arn`. For exampleconsole % pulumi import aws_batch_job_queue.test_queue arn:aws:batch:us-east-1:123456789012:job-queue/sample
 type JobQueue struct {
 	pulumi.CustomResourceState
 
@@ -140,6 +139,7 @@ func NewJobQueue(ctx *pulumi.Context,
 	if args.State == nil {
 		return nil, errors.New("invalid value for required argument 'State'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource JobQueue
 	err := ctx.RegisterResource("aws:batch/jobQueue:JobQueue", name, args, &resource, opts...)
 	if err != nil {

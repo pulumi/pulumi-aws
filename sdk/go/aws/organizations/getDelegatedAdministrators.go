@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/organizations"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/organizations"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func GetDelegatedAdministrators(ctx *pulumi.Context, args *GetDelegatedAdministratorsArgs, opts ...pulumi.InvokeOption) (*GetDelegatedAdministratorsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetDelegatedAdministratorsResult
 	err := ctx.Invoke("aws:organizations/getDelegatedAdministrators:getDelegatedAdministrators", args, &rv, opts...)
 	if err != nil {

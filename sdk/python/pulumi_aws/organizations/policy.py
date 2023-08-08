@@ -281,11 +281,11 @@ class Policy(pulumi.CustomResource):
 
         ## Import
 
-        `aws_organizations_policy` can be imported by using the policy ID, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:organizations/policy:Policy example p-12345678
-        ```
+         to = aws_organizations_policy.example
+
+         id = "p-12345678" } Using `pulumi import`, import `aws_organizations_policy` using the policy ID. For exampleconsole % pulumi import aws_organizations_policy.example p-12345678
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -321,11 +321,11 @@ class Policy(pulumi.CustomResource):
 
         ## Import
 
-        `aws_organizations_policy` can be imported by using the policy ID, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:organizations/policy:Policy example p-12345678
-        ```
+         to = aws_organizations_policy.example
+
+         id = "p-12345678" } Using `pulumi import`, import `aws_organizations_policy` using the policy ID. For exampleconsole % pulumi import aws_organizations_policy.example p-12345678
 
         :param str resource_name: The name of the resource.
         :param PolicyArgs args: The arguments to use to populate this resource's properties.

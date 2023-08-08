@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class CrawlerLineageConfiguration {
     /**
-     * @return Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `Disable`.
+     * @return Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `DISABLE`.
      * 
      */
     private @Nullable String crawlerLineageSettings;
 
     private CrawlerLineageConfiguration() {}
     /**
-     * @return Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `Disable`.
+     * @return Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `DISABLE`.
      * 
      */
     public Optional<String> crawlerLineageSettings() {

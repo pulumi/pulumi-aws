@@ -108,11 +108,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_datapipeline_pipeline_definition` can be imported using the id, e.g.
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:datapipeline/pipelineDefinition:PipelineDefinition example df-1234567890
- * ```
+ *  to = aws_datapipeline_pipeline_definition.example
+ * 
+ *  id = &#34;df-1234567890&#34; } Using `pulumi import`, import `aws_datapipeline_pipeline_definition` using the id. For exampleconsole % pulumi import aws_datapipeline_pipeline_definition.example df-1234567890
  * 
  */
 @ResourceType(type="aws:datapipeline/pipelineDefinition:PipelineDefinition")

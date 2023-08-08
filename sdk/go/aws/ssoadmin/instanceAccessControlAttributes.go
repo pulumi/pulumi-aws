@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -15,13 +16,11 @@ import (
 //
 // ## Import
 //
-// SSO Account Assignments can be imported using the `instance_arn`
+// terraform import {
 //
-// ```sh
+//	to = aws_ssoadmin_instance_access_control_attributes.example
 //
-//	$ pulumi import aws:ssoadmin/instanceAccessControlAttributes:InstanceAccessControlAttributes example arn:aws:sso:::instance/ssoins-0123456789abcdef
-//
-// ```
+//	id = "arn:aws:sso:::instance/ssoins-0123456789abcdef" } Using `pulumi import`, import SSO Account Assignments using the `instance_arn`. For exampleconsole % pulumi import aws_ssoadmin_instance_access_control_attributes.example arn:aws:sso:::instance/ssoins-0123456789abcdef
 type InstanceAccessControlAttributes struct {
 	pulumi.CustomResourceState
 
@@ -46,6 +45,7 @@ func NewInstanceAccessControlAttributes(ctx *pulumi.Context,
 	if args.InstanceArn == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource InstanceAccessControlAttributes
 	err := ctx.RegisterResource("aws:ssoadmin/instanceAccessControlAttributes:InstanceAccessControlAttributes", name, args, &resource, opts...)
 	if err != nil {

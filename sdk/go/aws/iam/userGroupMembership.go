@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,7 +26,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -75,13 +76,11 @@ import (
 //
 // ## Import
 //
-// IAM user group membership can be imported using the user name and group names separated by `/`.
+// terraform import {
 //
-// ```sh
+//	to = aws_iam_user_group_membership.example1
 //
-//	$ pulumi import aws:iam/userGroupMembership:UserGroupMembership example1 user1/group1/group2
-//
-// ```
+//	id = "user1/group1/group2" } Using `pulumi import`, import IAM user group membership using the user name and group names separated by `/`. For exampleconsole % pulumi import aws_iam_user_group_membership.example1 user1/group1/group2
 type UserGroupMembership struct {
 	pulumi.CustomResourceState
 
@@ -104,6 +103,7 @@ func NewUserGroupMembership(ctx *pulumi.Context,
 	if args.User == nil {
 		return nil, errors.New("invalid value for required argument 'User'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource UserGroupMembership
 	err := ctx.RegisterResource("aws:iam/userGroupMembership:UserGroupMembership", name, args, &resource, opts...)
 	if err != nil {

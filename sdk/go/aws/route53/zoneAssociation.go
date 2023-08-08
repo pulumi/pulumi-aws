@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,8 +25,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -73,21 +74,15 @@ import (
 //
 // ## Import
 //
-// Route 53 Hosted Zone Associations can be imported via the Hosted Zone ID and VPC ID, separated by a colon (`:`), e.g.,
+// The VPC is in the same region where you have configured the TODO AWS Providerterraform import {
 //
-// ```sh
+//	to = aws_route53_zone_association.example
 //
-//	$ pulumi import aws:route53/zoneAssociation:ZoneAssociation example Z123456ABCDEFG:vpc-12345678
+//	id = "Z123456ABCDEFG:vpc-12345678" } The VPC is _not_ in the same region where you have configured the TODO AWS Providerterraform import {
 //
-// ```
+//	to = aws_route53_zone_association.example
 //
-//	If the VPC is in a different region than the provider region configuration, the VPC Region can be added to the end. e.g.
-//
-// ```sh
-//
-//	$ pulumi import aws:route53/zoneAssociation:ZoneAssociation example Z123456ABCDEFG:vpc-12345678:us-east-2
-//
-// ```
+//	id = "Z123456ABCDEFG:vpc-12345678:us-east-2" } **Using `pulumi import` to import** Route 53 Hosted Zone Associations using the Hosted Zone ID and VPC ID, separated by a colon (`:`). For exampleThe VPC is in the same region where you have configured the TODO AWS Providerconsole % pulumi import aws_route53_zone_association.example Z123456ABCDEFG:vpc-12345678 The VPC is _not_ in the same region where you have configured the TODO AWS Providerconsole % pulumi import aws_route53_zone_association.example Z123456ABCDEFG:vpc-12345678:us-east-2
 type ZoneAssociation struct {
 	pulumi.CustomResourceState
 
@@ -114,6 +109,7 @@ func NewZoneAssociation(ctx *pulumi.Context,
 	if args.ZoneId == nil {
 		return nil, errors.New("invalid value for required argument 'ZoneId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ZoneAssociation
 	err := ctx.RegisterResource("aws:route53/zoneAssociation:ZoneAssociation", name, args, &resource, opts...)
 	if err != nil {

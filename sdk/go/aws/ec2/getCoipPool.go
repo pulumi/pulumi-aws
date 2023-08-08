@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -16,6 +17,7 @@ import (
 // an input variable and needs to, for example, determine the CIDR block of that
 // COIP Pool.
 func GetCoipPool(ctx *pulumi.Context, args *GetCoipPoolArgs, opts ...pulumi.InvokeOption) (*GetCoipPoolResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetCoipPoolResult
 	err := ctx.Invoke("aws:ec2/getCoipPool:getCoipPool", args, &rv, opts...)
 	if err != nil {

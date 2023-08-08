@@ -209,11 +209,11 @@ class InternetGateway(pulumi.CustomResource):
 
         ## Import
 
-        Internet Gateways can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ec2/internetGateway:InternetGateway gw igw-c0a643a9
-        ```
+         to = aws_internet_gateway.gw
+
+         id = "igw-c0a643a9" } Using `pulumi import`, import Internet Gateways using the `id`. For exampleconsole % pulumi import aws_internet_gateway.gw igw-c0a643a9
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -255,11 +255,11 @@ class InternetGateway(pulumi.CustomResource):
 
         ## Import
 
-        Internet Gateways can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ec2/internetGateway:InternetGateway gw igw-c0a643a9
-        ```
+         to = aws_internet_gateway.gw
+
+         id = "igw-c0a643a9" } Using `pulumi import`, import Internet Gateways using the `id`. For exampleconsole % pulumi import aws_internet_gateway.gw igw-c0a643a9
 
         :param str resource_name: The name of the resource.
         :param InternetGatewayArgs args: The arguments to use to populate this resource's properties.

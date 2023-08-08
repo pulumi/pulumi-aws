@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -53,7 +54,7 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -85,13 +86,11 @@ import (
 //
 // ## Import
 //
-// Glue Connections can be imported using the `CATALOG-ID` (AWS account ID if not custom) and `NAME`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_glue_connection.MyConnection
 //
-//	$ pulumi import aws:glue/connection:Connection MyConnection 123456789012:MyConnection
-//
-// ```
+//	id = "123456789012:MyConnection" } Using `pulumi import`, import Glue Connections using the `CATALOG-ID` (AWS account ID if not custom) and `NAME`. For exampleconsole % pulumi import aws_glue_connection.MyConnection 123456789012:MyConnection
 type Connection struct {
 	pulumi.CustomResourceState
 
@@ -131,6 +130,7 @@ func NewConnection(ctx *pulumi.Context,
 		"connectionProperties",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Connection
 	err := ctx.RegisterResource("aws:glue/connection:Connection", name, args, &resource, opts...)
 	if err != nil {

@@ -403,11 +403,11 @@ class IdentityPool(pulumi.CustomResource):
 
         ## Import
 
-        Cognito Identity Pool can be imported using its ID, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:cognito/identityPool:IdentityPool mypool us-west-2_abc123
-        ```
+         to = aws_cognito_identity_pool.mypool
+
+         id = "us-west-2:1a234567-8901-234b-5cde-f6789g01h2i3" } Using `pulumi import`, import Cognito Identity Pool using its ID. For exampleconsole % pulumi import aws_cognito_identity_pool.mypool us-west-2:1a234567-8901-234b-5cde-f6789g01h2i3
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -464,11 +464,11 @@ class IdentityPool(pulumi.CustomResource):
 
         ## Import
 
-        Cognito Identity Pool can be imported using its ID, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:cognito/identityPool:IdentityPool mypool us-west-2_abc123
-        ```
+         to = aws_cognito_identity_pool.mypool
+
+         id = "us-west-2:1a234567-8901-234b-5cde-f6789g01h2i3" } Using `pulumi import`, import Cognito Identity Pool using its ID. For exampleconsole % pulumi import aws_cognito_identity_pool.mypool us-west-2:1a234567-8901-234b-5cde-f6789g01h2i3
 
         :param str resource_name: The name of the resource.
         :param IdentityPoolArgs args: The arguments to use to populate this resource's properties.

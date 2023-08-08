@@ -56,14 +56,14 @@ import {Topic} from "./index";
  * import * as aws from "@pulumi/aws";
  *
  * const config = new pulumi.Config();
- * const sns = config.getObject("sns") || {
+ * const sns = config.getObject<{account-id?: string, display_name?: string, name?: string, region?: string, role-name?: string}>("sns") || {
  *     "account-id": "111111111111",
  *     "role-name": "service/service",
  *     name: "example-sns-topic",
  *     display_name: "example",
  *     region: "us-west-1",
  * };
- * const sqs = config.getObject("sqs") || {
+ * const sqs = config.getObject<{account-id?: string, name?: string, region?: string, role-name?: string}>("sqs") || {
  *     "account-id": "222222222222",
  *     "role-name": "service/service",
  *     name: "example-sqs-queue",
@@ -162,27 +162,27 @@ import {Topic} from "./index";
  *     displayName: sns.display_name,
  *     policy: sns_topic_policy.then(sns_topic_policy => sns_topic_policy.json),
  * }, {
- *     provider: "aws.sns",
+ *     provider: aws.sns,
  * });
  * const sqs_queue = new aws.sqs.Queue("sqs-queue", {policy: sqs_queue_policy.then(sqs_queue_policy => sqs_queue_policy.json)}, {
- *     provider: "aws.sqs",
+ *     provider: aws.sqs,
  * });
  * const sns_topicTopicSubscription = new aws.sns.TopicSubscription("sns-topicTopicSubscription", {
  *     topic: sns_topicTopic.arn,
  *     protocol: "sqs",
  *     endpoint: sqs_queue.arn,
  * }, {
- *     provider: "aws.sns2sqs",
+ *     provider: aws.sns2sqs,
  * });
  * ```
  *
  * ## Import
  *
- * SNS Topic Subscriptions can be imported using the `subscription arn`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:sns/topicSubscription:TopicSubscription user_updates_sqs_target arn:aws:sns:us-west-2:0123456789012:my-topic:8a21d249-4329-4871-acc6-7be709c6ea7f
- * ```
+ *  to = aws_sns_topic_subscription.user_updates_sqs_target
+ *
+ *  id = "arn:aws:sns:us-west-2:0123456789012:my-topic:8a21d249-4329-4871-acc6-7be709c6ea7f" } Using `pulumi import`, import SNS Topic Subscriptions using the subscription `arn`. For exampleconsole % pulumi import aws_sns_topic_subscription.user_updates_sqs_target arn:aws:sns:us-west-2:0123456789012:my-topic:8a21d249-4329-4871-acc6-7be709c6ea7f
  */
 export class TopicSubscription extends pulumi.CustomResource {
     /**

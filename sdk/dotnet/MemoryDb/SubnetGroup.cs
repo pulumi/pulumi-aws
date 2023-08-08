@@ -49,11 +49,11 @@ namespace Pulumi.Aws.MemoryDb
     /// 
     /// ## Import
     /// 
-    /// Use the `name` to import a subnet group. For example
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:memorydb/subnetGroup:SubnetGroup example my-subnet-group
-    /// ```
+    ///  to = aws_memorydb_subnet_group.example
+    /// 
+    ///  id = "my-subnet-group" } Using `pulumi import`, import a subnet group using its `name`. For exampleconsole % pulumi import aws_memorydb_subnet_group.example my-subnet-group
     /// </summary>
     [AwsResourceType("aws:memorydb/subnetGroup:SubnetGroup")]
     public partial class SubnetGroup : global::Pulumi.CustomResource

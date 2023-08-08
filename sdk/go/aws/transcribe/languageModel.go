@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -26,9 +27,9 @@ import (
 //	"encoding/json"
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/transcribe"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/transcribe"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -126,13 +127,11 @@ import (
 //
 // ## Import
 //
-// Transcribe LanguageModel can be imported using the `model_name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_transcribe_language_model.example
 //
-//	$ pulumi import aws:transcribe/languageModel:LanguageModel example example-name
-//
-// ```
+//	id = "example-name" } Using `pulumi import`, import Transcribe LanguageModel using the `model_name`. For exampleconsole % pulumi import aws_transcribe_language_model.example example-name
 type LanguageModel struct {
 	pulumi.CustomResourceState
 
@@ -170,6 +169,7 @@ func NewLanguageModel(ctx *pulumi.Context,
 	if args.ModelName == nil {
 		return nil, errors.New("invalid value for required argument 'ModelName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LanguageModel
 	err := ctx.RegisterResource("aws:transcribe/languageModel:LanguageModel", name, args, &resource, opts...)
 	if err != nil {

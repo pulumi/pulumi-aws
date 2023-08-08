@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -73,13 +74,11 @@ import (
 //
 // ## Import
 //
-// CloudWatch Logs destination policies can be imported using the `destination_name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_cloudwatch_log_destination_policy.test_destination_policy
 //
-//	$ pulumi import aws:cloudwatch/logDestinationPolicy:LogDestinationPolicy test_destination_policy test_destination
-//
-// ```
+//	id = "test_destination" } Using `pulumi import`, import CloudWatch Logs destination policies using the `destination_name`. For exampleconsole % pulumi import aws_cloudwatch_log_destination_policy.test_destination_policy test_destination
 type LogDestinationPolicy struct {
 	pulumi.CustomResourceState
 
@@ -104,6 +103,7 @@ func NewLogDestinationPolicy(ctx *pulumi.Context,
 	if args.DestinationName == nil {
 		return nil, errors.New("invalid value for required argument 'DestinationName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LogDestinationPolicy
 	err := ctx.RegisterResource("aws:cloudwatch/logDestinationPolicy:LogDestinationPolicy", name, args, &resource, opts...)
 	if err != nil {

@@ -53,11 +53,11 @@ namespace Pulumi.Aws.Keyspaces
     /// 
     /// ## Import
     /// 
-    /// Use the `keyspace_name` and `table_name` separated by `/` to import a table. For example
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:keyspaces/table:Table example my_keyspace/my_table
-    /// ```
+    ///  to = aws_keyspaces_table.example
+    /// 
+    ///  id = "my_keyspace/my_table" } Using `pulumi import`, import a table using the `keyspace_name` and `table_name` separated by `/`. For exampleconsole % pulumi import aws_keyspaces_table.example my_keyspace/my_table
     /// </summary>
     [AwsResourceType("aws:keyspaces/table:Table")]
     public partial class Table : global::Pulumi.CustomResource
@@ -73,6 +73,12 @@ namespace Pulumi.Aws.Keyspaces
         /// </summary>
         [Output("capacitySpecification")]
         public Output<Outputs.TableCapacitySpecification> CapacitySpecification { get; private set; } = null!;
+
+        /// <summary>
+        /// Enables client-side timestamps for the table. By default, the setting is disabled.
+        /// </summary>
+        [Output("clientSideTimestamps")]
+        public Output<Outputs.TableClientSideTimestamps?> ClientSideTimestamps { get; private set; } = null!;
 
         /// <summary>
         /// A description of the table.
@@ -189,6 +195,12 @@ namespace Pulumi.Aws.Keyspaces
         public Input<Inputs.TableCapacitySpecificationArgs>? CapacitySpecification { get; set; }
 
         /// <summary>
+        /// Enables client-side timestamps for the table. By default, the setting is disabled.
+        /// </summary>
+        [Input("clientSideTimestamps")]
+        public Input<Inputs.TableClientSideTimestampsArgs>? ClientSideTimestamps { get; set; }
+
+        /// <summary>
         /// A description of the table.
         /// </summary>
         [Input("comment")]
@@ -269,6 +281,12 @@ namespace Pulumi.Aws.Keyspaces
         /// </summary>
         [Input("capacitySpecification")]
         public Input<Inputs.TableCapacitySpecificationGetArgs>? CapacitySpecification { get; set; }
+
+        /// <summary>
+        /// Enables client-side timestamps for the table. By default, the setting is disabled.
+        /// </summary>
+        [Input("clientSideTimestamps")]
+        public Input<Inputs.TableClientSideTimestampsGetArgs>? ClientSideTimestamps { get; set; }
 
         /// <summary>
         /// A description of the table.

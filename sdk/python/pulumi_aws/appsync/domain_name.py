@@ -178,11 +178,11 @@ class DomainName(pulumi.CustomResource):
 
         ## Import
 
-        `aws_appsync_domain_name` can be imported using the AppSync domain name, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:appsync/domainName:DomainName example example.com
-        ```
+         to = aws_appsync_domain_name.example
+
+         id = "example.com" } Using `pulumi import`, import `aws_appsync_domain_name` using the AppSync domain name. For exampleconsole % pulumi import aws_appsync_domain_name.example example.com
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -212,11 +212,11 @@ class DomainName(pulumi.CustomResource):
 
         ## Import
 
-        `aws_appsync_domain_name` can be imported using the AppSync domain name, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:appsync/domainName:DomainName example example.com
-        ```
+         to = aws_appsync_domain_name.example
+
+         id = "example.com" } Using `pulumi import`, import `aws_appsync_domain_name` using the AppSync domain name. For exampleconsole % pulumi import aws_appsync_domain_name.example example.com
 
         :param str resource_name: The name of the resource.
         :param DomainNameArgs args: The arguments to use to populate this resource's properties.

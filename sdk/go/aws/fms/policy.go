@@ -8,10 +8,13 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Provides a resource to create an AWS Firewall Manager policy. You need to be using AWS organizations and have enabled the Firewall Manager administrator account.
+//
+// > **NOTE:** Due to limitations with testing, we provide it as best effort. If you find it useful, and have the ability to help test or notice issues, consider reaching out to us on GitHub.
 //
 // ## Example Usage
 //
@@ -22,8 +25,8 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/fms"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/wafregional"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/fms"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/wafregional"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -81,13 +84,11 @@ import (
 //
 // ## Import
 //
-// Firewall Manager policies can be imported using the policy ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_fms_policy.example
 //
-//	$ pulumi import aws:fms/policy:Policy example 5be49585-a7e3-4c49-dde1-a179fe4a619a
-//
-// ```
+//	id = "5be49585-a7e3-4c49-dde1-a179fe4a619a" } Using `pulumi import`, import Firewall Manager policies using the policy ID. For exampleconsole % pulumi import aws_fms_policy.example 5be49585-a7e3-4c49-dde1-a179fe4a619a
 type Policy struct {
 	pulumi.CustomResourceState
 
@@ -137,6 +138,7 @@ func NewPolicy(ctx *pulumi.Context,
 	if args.SecurityServicePolicyData == nil {
 		return nil, errors.New("invalid value for required argument 'SecurityServicePolicyData'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Policy
 	err := ctx.RegisterResource("aws:fms/policy:Policy", name, args, &resource, opts...)
 	if err != nil {

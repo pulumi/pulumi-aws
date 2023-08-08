@@ -17,6 +17,7 @@ class EipArgs:
                  address: Optional[pulumi.Input[str]] = None,
                  associate_with_private_ip: Optional[pulumi.Input[str]] = None,
                  customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
+                 domain: Optional[pulumi.Input[str]] = None,
                  instance: Optional[pulumi.Input[str]] = None,
                  network_border_group: Optional[pulumi.Input[str]] = None,
                  network_interface: Optional[pulumi.Input[str]] = None,
@@ -28,13 +29,14 @@ class EipArgs:
         :param pulumi.Input[str] address: IP address from an EC2 BYOIP pool. This option is only available for VPC EIPs.
         :param pulumi.Input[str] associate_with_private_ip: User-specified primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
         :param pulumi.Input[str] customer_owned_ipv4_pool: ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing).
+        :param pulumi.Input[str] domain: Indicates if this EIP is for use in VPC (`vpc`).
         :param pulumi.Input[str] instance: EC2 instance ID.
         :param pulumi.Input[str] network_border_group: Location from which the IP address is advertised. Use this parameter to limit the address to this location.
         :param pulumi.Input[str] network_interface: Network interface ID to associate with.
         :param pulumi.Input[str] public_ipv4_pool: EC2 IPv4 address pool identifier or `amazon`.
                This option is only available for VPC EIPs.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[bool] vpc: Boolean if the EIP is in a VPC or not.
+        :param pulumi.Input[bool] vpc: Boolean if the EIP is in a VPC or not. Use `domain` instead.
                Defaults to `true` unless the region supports EC2-Classic.
                
                > **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both. Including both will **not** return an error from the AWS API, but will have undefined behavior. See the relevant [AssociateAddress API Call][1] for more information.
@@ -48,6 +50,8 @@ class EipArgs:
             pulumi.set(__self__, "associate_with_private_ip", associate_with_private_ip)
         if customer_owned_ipv4_pool is not None:
             pulumi.set(__self__, "customer_owned_ipv4_pool", customer_owned_ipv4_pool)
+        if domain is not None:
+            pulumi.set(__self__, "domain", domain)
         if instance is not None:
             pulumi.set(__self__, "instance", instance)
         if network_border_group is not None:
@@ -58,6 +62,9 @@ class EipArgs:
             pulumi.set(__self__, "public_ipv4_pool", public_ipv4_pool)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if vpc is not None:
+            warnings.warn("""use domain attribute instead""", DeprecationWarning)
+            pulumi.log.warn("""vpc is deprecated: use domain attribute instead""")
         if vpc is not None:
             pulumi.set(__self__, "vpc", vpc)
 
@@ -96,6 +103,18 @@ class EipArgs:
     @customer_owned_ipv4_pool.setter
     def customer_owned_ipv4_pool(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "customer_owned_ipv4_pool", value)
+
+    @property
+    @pulumi.getter
+    def domain(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates if this EIP is for use in VPC (`vpc`).
+        """
+        return pulumi.get(self, "domain")
+
+    @domain.setter
+    def domain(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain", value)
 
     @property
     @pulumi.getter
@@ -162,7 +181,7 @@ class EipArgs:
     @pulumi.getter
     def vpc(self) -> Optional[pulumi.Input[bool]]:
         """
-        Boolean if the EIP is in a VPC or not.
+        Boolean if the EIP is in a VPC or not. Use `domain` instead.
         Defaults to `true` unless the region supports EC2-Classic.
 
         > **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both. Including both will **not** return an error from the AWS API, but will have undefined behavior. See the relevant [AssociateAddress API Call][1] for more information.
@@ -170,6 +189,9 @@ class EipArgs:
         > **NOTE:** Specifying both `public_ipv4_pool` and `address` won't cause an error but `address` will be used in the
         case both options are defined as the api only requires one or the other.
         """
+        warnings.warn("""use domain attribute instead""", DeprecationWarning)
+        pulumi.log.warn("""vpc is deprecated: use domain attribute instead""")
+
         return pulumi.get(self, "vpc")
 
     @vpc.setter
@@ -208,7 +230,7 @@ class _EipState:
         :param pulumi.Input[str] carrier_ip: Carrier IP address.
         :param pulumi.Input[str] customer_owned_ip: Customer owned IP.
         :param pulumi.Input[str] customer_owned_ipv4_pool: ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing).
-        :param pulumi.Input[str] domain: Indicates if this EIP is for use in VPC (`vpc`) or EC2-Classic (`standard`).
+        :param pulumi.Input[str] domain: Indicates if this EIP is for use in VPC (`vpc`).
         :param pulumi.Input[str] instance: EC2 instance ID.
         :param pulumi.Input[str] network_border_group: Location from which the IP address is advertised. Use this parameter to limit the address to this location.
         :param pulumi.Input[str] network_interface: Network interface ID to associate with.
@@ -220,7 +242,7 @@ class _EipState:
                This option is only available for VPC EIPs.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[bool] vpc: Boolean if the EIP is in a VPC or not.
+        :param pulumi.Input[bool] vpc: Boolean if the EIP is in a VPC or not. Use `domain` instead.
                Defaults to `true` unless the region supports EC2-Classic.
                
                > **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both. Including both will **not** return an error from the AWS API, but will have undefined behavior. See the relevant [AssociateAddress API Call][1] for more information.
@@ -264,6 +286,9 @@ class _EipState:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
+        if vpc is not None:
+            warnings.warn("""use domain attribute instead""", DeprecationWarning)
+            pulumi.log.warn("""vpc is deprecated: use domain attribute instead""")
         if vpc is not None:
             pulumi.set(__self__, "vpc", vpc)
 
@@ -355,7 +380,7 @@ class _EipState:
     @pulumi.getter
     def domain(self) -> Optional[pulumi.Input[str]]:
         """
-        Indicates if this EIP is for use in VPC (`vpc`) or EC2-Classic (`standard`).
+        Indicates if this EIP is for use in VPC (`vpc`).
         """
         return pulumi.get(self, "domain")
 
@@ -488,7 +513,7 @@ class _EipState:
     @pulumi.getter
     def vpc(self) -> Optional[pulumi.Input[bool]]:
         """
-        Boolean if the EIP is in a VPC or not.
+        Boolean if the EIP is in a VPC or not. Use `domain` instead.
         Defaults to `true` unless the region supports EC2-Classic.
 
         > **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both. Including both will **not** return an error from the AWS API, but will have undefined behavior. See the relevant [AssociateAddress API Call][1] for more information.
@@ -496,6 +521,9 @@ class _EipState:
         > **NOTE:** Specifying both `public_ipv4_pool` and `address` won't cause an error but `address` will be used in the
         case both options are defined as the api only requires one or the other.
         """
+        warnings.warn("""use domain attribute instead""", DeprecationWarning)
+        pulumi.log.warn("""vpc is deprecated: use domain attribute instead""")
+
         return pulumi.get(self, "vpc")
 
     @vpc.setter
@@ -511,6 +539,7 @@ class Eip(pulumi.CustomResource):
                  address: Optional[pulumi.Input[str]] = None,
                  associate_with_private_ip: Optional[pulumi.Input[str]] = None,
                  customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
+                 domain: Optional[pulumi.Input[str]] = None,
                  instance: Optional[pulumi.Input[str]] = None,
                  network_border_group: Optional[pulumi.Input[str]] = None,
                  network_interface: Optional[pulumi.Input[str]] = None,
@@ -534,7 +563,7 @@ class Eip(pulumi.CustomResource):
 
         lb = aws.ec2.Eip("lb",
             instance=aws_instance["web"]["id"],
-            vpc=True)
+            domain="vpc")
         ```
         ### Multiple EIPs associated with a single network interface
 
@@ -549,11 +578,11 @@ class Eip(pulumi.CustomResource):
                 "10.0.0.11",
             ])
         one = aws.ec2.Eip("one",
-            vpc=True,
+            domain="vpc",
             network_interface=multi_ip.id,
             associate_with_private_ip="10.0.0.10")
         two = aws.ec2.Eip("two",
-            vpc=True,
+            domain="vpc",
             network_interface=multi_ip.id,
             associate_with_private_ip="10.0.0.11")
         ```
@@ -578,7 +607,7 @@ class Eip(pulumi.CustomResource):
             private_ip="10.0.0.12",
             subnet_id=my_test_subnet.id)
         bar = aws.ec2.Eip("bar",
-            vpc=True,
+            domain="vpc",
             instance=foo.id,
             associate_with_private_ip="10.0.0.12",
             opts=pulumi.ResourceOptions(depends_on=[gw]))
@@ -590,36 +619,31 @@ class Eip(pulumi.CustomResource):
         import pulumi_aws as aws
 
         byoip_ip = aws.ec2.Eip("byoip-ip",
-            public_ipv4_pool="ipv4pool-ec2-012345",
-            vpc=True)
+            domain="vpc",
+            public_ipv4_pool="ipv4pool-ec2-012345")
         ```
 
         ## Import
 
-        EIPs in a VPC can be imported using their Allocation ID, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ec2/eip:Eip bar eipalloc-00a10e96
-        ```
+         to = aws_eip.bar
 
-         EIPs in EC2-Classic can be imported using their Public IP, e.g.,
-
-        ```sh
-         $ pulumi import aws:ec2/eip:Eip bar 52.0.0.0
-        ```
+         id = "eipalloc-00a10e96" } Using `pulumi import`, import EIPs in a VPC using their Allocation ID. For exampleconsole % pulumi import aws_eip.bar eipalloc-00a10e96
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address: IP address from an EC2 BYOIP pool. This option is only available for VPC EIPs.
         :param pulumi.Input[str] associate_with_private_ip: User-specified primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
         :param pulumi.Input[str] customer_owned_ipv4_pool: ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing).
+        :param pulumi.Input[str] domain: Indicates if this EIP is for use in VPC (`vpc`).
         :param pulumi.Input[str] instance: EC2 instance ID.
         :param pulumi.Input[str] network_border_group: Location from which the IP address is advertised. Use this parameter to limit the address to this location.
         :param pulumi.Input[str] network_interface: Network interface ID to associate with.
         :param pulumi.Input[str] public_ipv4_pool: EC2 IPv4 address pool identifier or `amazon`.
                This option is only available for VPC EIPs.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[bool] vpc: Boolean if the EIP is in a VPC or not.
+        :param pulumi.Input[bool] vpc: Boolean if the EIP is in a VPC or not. Use `domain` instead.
                Defaults to `true` unless the region supports EC2-Classic.
                
                > **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both. Including both will **not** return an error from the AWS API, but will have undefined behavior. See the relevant [AssociateAddress API Call][1] for more information.
@@ -649,7 +673,7 @@ class Eip(pulumi.CustomResource):
 
         lb = aws.ec2.Eip("lb",
             instance=aws_instance["web"]["id"],
-            vpc=True)
+            domain="vpc")
         ```
         ### Multiple EIPs associated with a single network interface
 
@@ -664,11 +688,11 @@ class Eip(pulumi.CustomResource):
                 "10.0.0.11",
             ])
         one = aws.ec2.Eip("one",
-            vpc=True,
+            domain="vpc",
             network_interface=multi_ip.id,
             associate_with_private_ip="10.0.0.10")
         two = aws.ec2.Eip("two",
-            vpc=True,
+            domain="vpc",
             network_interface=multi_ip.id,
             associate_with_private_ip="10.0.0.11")
         ```
@@ -693,7 +717,7 @@ class Eip(pulumi.CustomResource):
             private_ip="10.0.0.12",
             subnet_id=my_test_subnet.id)
         bar = aws.ec2.Eip("bar",
-            vpc=True,
+            domain="vpc",
             instance=foo.id,
             associate_with_private_ip="10.0.0.12",
             opts=pulumi.ResourceOptions(depends_on=[gw]))
@@ -705,23 +729,17 @@ class Eip(pulumi.CustomResource):
         import pulumi_aws as aws
 
         byoip_ip = aws.ec2.Eip("byoip-ip",
-            public_ipv4_pool="ipv4pool-ec2-012345",
-            vpc=True)
+            domain="vpc",
+            public_ipv4_pool="ipv4pool-ec2-012345")
         ```
 
         ## Import
 
-        EIPs in a VPC can be imported using their Allocation ID, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ec2/eip:Eip bar eipalloc-00a10e96
-        ```
+         to = aws_eip.bar
 
-         EIPs in EC2-Classic can be imported using their Public IP, e.g.,
-
-        ```sh
-         $ pulumi import aws:ec2/eip:Eip bar 52.0.0.0
-        ```
+         id = "eipalloc-00a10e96" } Using `pulumi import`, import EIPs in a VPC using their Allocation ID. For exampleconsole % pulumi import aws_eip.bar eipalloc-00a10e96
 
         :param str resource_name: The name of the resource.
         :param EipArgs args: The arguments to use to populate this resource's properties.
@@ -741,6 +759,7 @@ class Eip(pulumi.CustomResource):
                  address: Optional[pulumi.Input[str]] = None,
                  associate_with_private_ip: Optional[pulumi.Input[str]] = None,
                  customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
+                 domain: Optional[pulumi.Input[str]] = None,
                  instance: Optional[pulumi.Input[str]] = None,
                  network_border_group: Optional[pulumi.Input[str]] = None,
                  network_interface: Optional[pulumi.Input[str]] = None,
@@ -759,17 +778,20 @@ class Eip(pulumi.CustomResource):
             __props__.__dict__["address"] = address
             __props__.__dict__["associate_with_private_ip"] = associate_with_private_ip
             __props__.__dict__["customer_owned_ipv4_pool"] = customer_owned_ipv4_pool
+            __props__.__dict__["domain"] = domain
             __props__.__dict__["instance"] = instance
             __props__.__dict__["network_border_group"] = network_border_group
             __props__.__dict__["network_interface"] = network_interface
             __props__.__dict__["public_ipv4_pool"] = public_ipv4_pool
             __props__.__dict__["tags"] = tags
+            if vpc is not None and not opts.urn:
+                warnings.warn("""use domain attribute instead""", DeprecationWarning)
+                pulumi.log.warn("""vpc is deprecated: use domain attribute instead""")
             __props__.__dict__["vpc"] = vpc
             __props__.__dict__["allocation_id"] = None
             __props__.__dict__["association_id"] = None
             __props__.__dict__["carrier_ip"] = None
             __props__.__dict__["customer_owned_ip"] = None
-            __props__.__dict__["domain"] = None
             __props__.__dict__["private_dns"] = None
             __props__.__dict__["private_ip"] = None
             __props__.__dict__["public_dns"] = None
@@ -818,7 +840,7 @@ class Eip(pulumi.CustomResource):
         :param pulumi.Input[str] carrier_ip: Carrier IP address.
         :param pulumi.Input[str] customer_owned_ip: Customer owned IP.
         :param pulumi.Input[str] customer_owned_ipv4_pool: ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing).
-        :param pulumi.Input[str] domain: Indicates if this EIP is for use in VPC (`vpc`) or EC2-Classic (`standard`).
+        :param pulumi.Input[str] domain: Indicates if this EIP is for use in VPC (`vpc`).
         :param pulumi.Input[str] instance: EC2 instance ID.
         :param pulumi.Input[str] network_border_group: Location from which the IP address is advertised. Use this parameter to limit the address to this location.
         :param pulumi.Input[str] network_interface: Network interface ID to associate with.
@@ -830,7 +852,7 @@ class Eip(pulumi.CustomResource):
                This option is only available for VPC EIPs.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[bool] vpc: Boolean if the EIP is in a VPC or not.
+        :param pulumi.Input[bool] vpc: Boolean if the EIP is in a VPC or not. Use `domain` instead.
                Defaults to `true` unless the region supports EC2-Classic.
                
                > **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both. Including both will **not** return an error from the AWS API, but will have undefined behavior. See the relevant [AssociateAddress API Call][1] for more information.
@@ -923,7 +945,7 @@ class Eip(pulumi.CustomResource):
     @pulumi.getter
     def domain(self) -> pulumi.Output[str]:
         """
-        Indicates if this EIP is for use in VPC (`vpc`) or EC2-Classic (`standard`).
+        Indicates if this EIP is for use in VPC (`vpc`).
         """
         return pulumi.get(self, "domain")
 
@@ -1012,7 +1034,7 @@ class Eip(pulumi.CustomResource):
     @pulumi.getter
     def vpc(self) -> pulumi.Output[bool]:
         """
-        Boolean if the EIP is in a VPC or not.
+        Boolean if the EIP is in a VPC or not. Use `domain` instead.
         Defaults to `true` unless the region supports EC2-Classic.
 
         > **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both. Including both will **not** return an error from the AWS API, but will have undefined behavior. See the relevant [AssociateAddress API Call][1] for more information.
@@ -1020,5 +1042,8 @@ class Eip(pulumi.CustomResource):
         > **NOTE:** Specifying both `public_ipv4_pool` and `address` won't cause an error but `address` will be used in the
         case both options are defined as the api only requires one or the other.
         """
+        warnings.warn("""use domain attribute instead""", DeprecationWarning)
+        pulumi.log.warn("""vpc is deprecated: use domain attribute instead""")
+
         return pulumi.get(self, "vpc")
 

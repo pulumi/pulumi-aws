@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudhsmv2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudhsmv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -50,13 +51,11 @@ import (
 //
 // ## Import
 //
-// HSM modules can be imported using their HSM ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_cloudhsm_v2_hsm.bar
 //
-//	$ pulumi import aws:cloudhsmv2/hsm:Hsm bar hsm-quo8dahtaca
-//
-// ```
+//	id = "hsm-quo8dahtaca" } Using `pulumi import`, import HSM modules using their HSM ID. For exampleconsole % pulumi import aws_cloudhsm_v2_hsm.bar hsm-quo8dahtaca
 type Hsm struct {
 	pulumi.CustomResourceState
 
@@ -86,6 +85,7 @@ func NewHsm(ctx *pulumi.Context,
 	if args.ClusterId == nil {
 		return nil, errors.New("invalid value for required argument 'ClusterId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Hsm
 	err := ctx.RegisterResource("aws:cloudhsmv2/hsm:Hsm", name, args, &resource, opts...)
 	if err != nil {

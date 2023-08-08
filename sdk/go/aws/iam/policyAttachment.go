@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -26,7 +27,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -136,6 +137,7 @@ func NewPolicyAttachment(ctx *pulumi.Context,
 	if args.PolicyArn == nil {
 		return nil, errors.New("invalid value for required argument 'PolicyArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PolicyAttachment
 	err := ctx.RegisterResource("aws:iam/policyAttachment:PolicyAttachment", name, args, &resource, opts...)
 	if err != nil {

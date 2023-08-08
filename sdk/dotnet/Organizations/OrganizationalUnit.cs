@@ -32,11 +32,11 @@ namespace Pulumi.Aws.Organizations
     /// 
     /// ## Import
     /// 
-    /// AWS Organizations Organizational Units can be imported by using the `id`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:organizations/organizationalUnit:OrganizationalUnit example ou-1234567
-    /// ```
+    ///  to = aws_organizations_organizational_unit.example
+    /// 
+    ///  id = "ou-1234567" } Using `pulumi import`, import AWS Organizations Organizational Units using the `id`. For exampleconsole % pulumi import aws_organizations_organizational_unit.example ou-1234567
     /// </summary>
     [AwsResourceType("aws:organizations/organizationalUnit:OrganizationalUnit")]
     public partial class OrganizationalUnit : global::Pulumi.CustomResource

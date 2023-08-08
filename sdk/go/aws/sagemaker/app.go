@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -45,13 +46,11 @@ import (
 //
 // ## Import
 //
-// SageMaker Apps can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_sagemaker_app.example
 //
-//	$ pulumi import aws:sagemaker/app:App example arn:aws:sagemaker:us-west-2:012345678912:app/domain-id/user-profile-name/app-type/app-name
-//
-// ```
+//	id = "arn:aws:sagemaker:us-west-2:012345678912:app/domain-id/user-profile-name/app-type/app-name" } Using `pulumi import`, import SageMaker Apps using the `id`. For exampleconsole % pulumi import aws_sagemaker_app.example arn:aws:sagemaker:us-west-2:012345678912:app/domain-id/user-profile-name/app-type/app-name
 type App struct {
 	pulumi.CustomResourceState
 
@@ -91,6 +90,7 @@ func NewApp(ctx *pulumi.Context,
 	if args.DomainId == nil {
 		return nil, errors.New("invalid value for required argument 'DomainId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource App
 	err := ctx.RegisterResource("aws:sagemaker/app:App", name, args, &resource, opts...)
 	if err != nil {

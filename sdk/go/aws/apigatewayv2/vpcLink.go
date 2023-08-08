@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigatewayv2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigatewayv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -34,7 +35,7 @@ import (
 //				SecurityGroupIds: pulumi.StringArray{
 //					data.Aws_security_group.Example.Id,
 //				},
-//				SubnetIds: pulumi.Any(data.Aws_subnet_ids.Example.Ids),
+//				SubnetIds: pulumi.Any(data.Aws_subnets.Example.Ids),
 //				Tags: pulumi.StringMap{
 //					"Usage": pulumi.String("example"),
 //				},
@@ -50,13 +51,11 @@ import (
 //
 // ## Import
 //
-// `aws_apigatewayv2_vpc_link` can be imported by using the VPC Link identifier, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_apigatewayv2_vpc_link.example
 //
-//	$ pulumi import aws:apigatewayv2/vpcLink:VpcLink example aabbccddee
-//
-// ```
+//	id = "aabbccddee" } Using `pulumi import`, import `aws_apigatewayv2_vpc_link` using the VPC Link identifier. For exampleconsole % pulumi import aws_apigatewayv2_vpc_link.example aabbccddee
 type VpcLink struct {
 	pulumi.CustomResourceState
 
@@ -87,6 +86,7 @@ func NewVpcLink(ctx *pulumi.Context,
 	if args.SubnetIds == nil {
 		return nil, errors.New("invalid value for required argument 'SubnetIds'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcLink
 	err := ctx.RegisterResource("aws:apigatewayv2/vpcLink:VpcLink", name, args, &resource, opts...)
 	if err != nil {

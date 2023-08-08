@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicecatalog"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicecatalog"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -43,13 +44,11 @@ import (
 //
 // ## Import
 //
-// `aws_servicecatalog_tag_option` can be imported using the tag option ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_servicecatalog_tag_option.example
 //
-//	$ pulumi import aws:servicecatalog/tagOption:TagOption example tag-pjtvagohlyo3m
-//
-// ```
+//	id = "tag-pjtvagohlyo3m" } Using `pulumi import`, import `aws_servicecatalog_tag_option` using the tag option ID. For exampleconsole % pulumi import aws_servicecatalog_tag_option.example tag-pjtvagohlyo3m
 type TagOption struct {
 	pulumi.CustomResourceState
 
@@ -77,6 +76,7 @@ func NewTagOption(ctx *pulumi.Context,
 	if args.Value == nil {
 		return nil, errors.New("invalid value for required argument 'Value'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TagOption
 	err := ctx.RegisterResource("aws:servicecatalog/tagOption:TagOption", name, args, &resource, opts...)
 	if err != nil {

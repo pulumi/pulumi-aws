@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ses"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,13 +43,11 @@ import (
 //
 // ## Import
 //
-// SES Receipt Filter can be imported using their `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_ses_receipt_filter.test
 //
-//	$ pulumi import aws:ses/receiptFilter:ReceiptFilter test some-filter
-//
-// ```
+//	id = "some-filter" } Using `pulumi import`, import SES Receipt Filter using their `name`. For exampleconsole % pulumi import aws_ses_receipt_filter.test some-filter
 type ReceiptFilter struct {
 	pulumi.CustomResourceState
 
@@ -75,6 +74,7 @@ func NewReceiptFilter(ctx *pulumi.Context,
 	if args.Policy == nil {
 		return nil, errors.New("invalid value for required argument 'Policy'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ReceiptFilter
 	err := ctx.RegisterResource("aws:ses/receiptFilter:ReceiptFilter", name, args, &resource, opts...)
 	if err != nil {

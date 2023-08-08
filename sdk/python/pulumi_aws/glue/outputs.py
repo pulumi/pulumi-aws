@@ -32,6 +32,7 @@ __all__ = [
     'CrawlerCatalogTarget',
     'CrawlerDeltaTarget',
     'CrawlerDynamodbTarget',
+    'CrawlerIcebergTarget',
     'CrawlerJdbcTarget',
     'CrawlerLakeFormationConfiguration',
     'CrawlerLineageConfiguration',
@@ -42,6 +43,7 @@ __all__ = [
     'DataCatalogEncryptionSettingsDataCatalogEncryptionSettings',
     'DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption',
     'DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest',
+    'DataQualityRulesetTargetTable',
     'JobCommand',
     'JobExecutionProperty',
     'JobNotificationProperty',
@@ -174,13 +176,17 @@ class CatalogDatabaseTargetDatabase(dict):
 
     def __init__(__self__, *,
                  catalog_id: str,
-                 database_name: str):
+                 database_name: str,
+                 region: Optional[str] = None):
         """
         :param str catalog_id: ID of the Data Catalog in which the database resides.
         :param str database_name: Name of the catalog database.
+        :param str region: Region of the target database.
         """
         pulumi.set(__self__, "catalog_id", catalog_id)
         pulumi.set(__self__, "database_name", database_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="catalogId")
@@ -197,6 +203,14 @@ class CatalogDatabaseTargetDatabase(dict):
         Name of the catalog database.
         """
         return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[str]:
+        """
+        Region of the target database.
+        """
+        return pulumi.get(self, "region")
 
 
 @pulumi.output_type
@@ -1472,6 +1486,78 @@ class CrawlerDynamodbTarget(dict):
 
 
 @pulumi.output_type
+class CrawlerIcebergTarget(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maximumTraversalDepth":
+            suggest = "maximum_traversal_depth"
+        elif key == "connectionName":
+            suggest = "connection_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CrawlerIcebergTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CrawlerIcebergTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CrawlerIcebergTarget.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 maximum_traversal_depth: int,
+                 paths: Sequence[str],
+                 connection_name: Optional[str] = None,
+                 exclusions: Optional[Sequence[str]] = None):
+        """
+        :param int maximum_traversal_depth: The maximum depth of Amazon S3 paths that the crawler can traverse to discover the Iceberg metadata folder in your Amazon S3 path. Used to limit the crawler run time. Valid values are between `1` and `20`.
+        :param Sequence[str] paths: One or more Amazon S3 paths that contains Iceberg metadata folders as s3://bucket/prefix.
+        :param str connection_name: The name of the connection to use to connect to the Iceberg target.
+        :param Sequence[str] exclusions: A list of glob patterns used to exclude from the crawl.
+        """
+        pulumi.set(__self__, "maximum_traversal_depth", maximum_traversal_depth)
+        pulumi.set(__self__, "paths", paths)
+        if connection_name is not None:
+            pulumi.set(__self__, "connection_name", connection_name)
+        if exclusions is not None:
+            pulumi.set(__self__, "exclusions", exclusions)
+
+    @property
+    @pulumi.getter(name="maximumTraversalDepth")
+    def maximum_traversal_depth(self) -> int:
+        """
+        The maximum depth of Amazon S3 paths that the crawler can traverse to discover the Iceberg metadata folder in your Amazon S3 path. Used to limit the crawler run time. Valid values are between `1` and `20`.
+        """
+        return pulumi.get(self, "maximum_traversal_depth")
+
+    @property
+    @pulumi.getter
+    def paths(self) -> Sequence[str]:
+        """
+        One or more Amazon S3 paths that contains Iceberg metadata folders as s3://bucket/prefix.
+        """
+        return pulumi.get(self, "paths")
+
+    @property
+    @pulumi.getter(name="connectionName")
+    def connection_name(self) -> Optional[str]:
+        """
+        The name of the connection to use to connect to the Iceberg target.
+        """
+        return pulumi.get(self, "connection_name")
+
+    @property
+    @pulumi.getter
+    def exclusions(self) -> Optional[Sequence[str]]:
+        """
+        A list of glob patterns used to exclude from the crawl.
+        """
+        return pulumi.get(self, "exclusions")
+
+
+@pulumi.output_type
 class CrawlerJdbcTarget(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1615,7 +1701,7 @@ class CrawlerLineageConfiguration(dict):
     def __init__(__self__, *,
                  crawler_lineage_settings: Optional[str] = None):
         """
-        :param str crawler_lineage_settings: Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `Disable`.
+        :param str crawler_lineage_settings: Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `DISABLE`.
         """
         if crawler_lineage_settings is not None:
             pulumi.set(__self__, "crawler_lineage_settings", crawler_lineage_settings)
@@ -1624,7 +1710,7 @@ class CrawlerLineageConfiguration(dict):
     @pulumi.getter(name="crawlerLineageSettings")
     def crawler_lineage_settings(self) -> Optional[str]:
         """
-        Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `Disable`.
+        Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `DISABLE`.
         """
         return pulumi.get(self, "crawler_lineage_settings")
 
@@ -2031,6 +2117,68 @@ class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest
 
 
 @pulumi.output_type
+class DataQualityRulesetTargetTable(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "databaseName":
+            suggest = "database_name"
+        elif key == "tableName":
+            suggest = "table_name"
+        elif key == "catalogId":
+            suggest = "catalog_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataQualityRulesetTargetTable. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataQualityRulesetTargetTable.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataQualityRulesetTargetTable.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 database_name: str,
+                 table_name: str,
+                 catalog_id: Optional[str] = None):
+        """
+        :param str database_name: Name of the database where the AWS Glue table exists.
+        :param str table_name: Name of the AWS Glue table.
+        :param str catalog_id: The catalog id where the AWS Glue table exists.
+        """
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "table_name", table_name)
+        if catalog_id is not None:
+            pulumi.set(__self__, "catalog_id", catalog_id)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> str:
+        """
+        Name of the database where the AWS Glue table exists.
+        """
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> str:
+        """
+        Name of the AWS Glue table.
+        """
+        return pulumi.get(self, "table_name")
+
+    @property
+    @pulumi.getter(name="catalogId")
+    def catalog_id(self) -> Optional[str]:
+        """
+        The catalog id where the AWS Glue table exists.
+        """
+        return pulumi.get(self, "catalog_id")
+
+
+@pulumi.output_type
 class JobCommand(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2054,17 +2202,21 @@ class JobCommand(dict):
     def __init__(__self__, *,
                  script_location: str,
                  name: Optional[str] = None,
-                 python_version: Optional[str] = None):
+                 python_version: Optional[str] = None,
+                 runtime: Optional[str] = None):
         """
         :param str script_location: Specifies the S3 path to a script that executes a job.
-        :param str name: The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, or `gluestreaming` for Streaming Job Type. `max_capacity` needs to be set if `pythonshell` is chosen.
+        :param str name: The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `glueray` for Ray Job Type, or `gluestreaming` for Streaming Job Type. `max_capacity` needs to be set if `pythonshell` is chosen.
         :param str python_version: The Python version being used to execute a Python shell job. Allowed values are 2, 3 or 3.9. Version 3 refers to Python 3.6.
+        :param str runtime: In Ray jobs, runtime is used to specify the versions of Ray, Python and additional libraries available in your environment. This field is not used in other job types. For supported runtime environment values, see [Working with Ray jobs](https://docs.aws.amazon.com/glue/latest/dg/ray-jobs-section.html#author-job-ray-runtimes) in the Glue Developer Guide.
         """
         pulumi.set(__self__, "script_location", script_location)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if python_version is not None:
             pulumi.set(__self__, "python_version", python_version)
+        if runtime is not None:
+            pulumi.set(__self__, "runtime", runtime)
 
     @property
     @pulumi.getter(name="scriptLocation")
@@ -2078,7 +2230,7 @@ class JobCommand(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, or `gluestreaming` for Streaming Job Type. `max_capacity` needs to be set if `pythonshell` is chosen.
+        The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `glueray` for Ray Job Type, or `gluestreaming` for Streaming Job Type. `max_capacity` needs to be set if `pythonshell` is chosen.
         """
         return pulumi.get(self, "name")
 
@@ -2089,6 +2241,14 @@ class JobCommand(dict):
         The Python version being used to execute a Python shell job. Allowed values are 2, 3 or 3.9. Version 3 refers to Python 3.6.
         """
         return pulumi.get(self, "python_version")
+
+    @property
+    @pulumi.getter
+    def runtime(self) -> Optional[str]:
+        """
+        In Ray jobs, runtime is used to specify the versions of Ray, Python and additional libraries available in your environment. This field is not used in other job types. For supported runtime environment values, see [Working with Ray jobs](https://docs.aws.amazon.com/glue/latest/dg/ray-jobs-section.html#author-job-ray-runtimes) in the Glue Developer Guide.
+        """
+        return pulumi.get(self, "runtime")
 
 
 @pulumi.output_type

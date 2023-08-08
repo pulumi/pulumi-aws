@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/budgets"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/budgets"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -70,7 +71,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/budgets"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/budgets"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -98,7 +99,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/budgets"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/budgets"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -135,7 +136,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/budgets"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/budgets"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -163,7 +164,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/budgets"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/budgets"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -203,7 +204,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/budgets"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/budgets"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -251,7 +252,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/budgets"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/budgets"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -284,7 +285,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/budgets"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/budgets"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -312,13 +313,11 @@ import (
 //
 // ## Import
 //
-// Budgets can be imported using `AccountID:BudgetName`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_budgets_budget.myBudget
 //
-//	$ pulumi import aws:budgets/budget:Budget myBudget 123456789012:myBudget`
-//
-// ```
+//	id = "123456789012:myBudget" } Using `pulumi import`, import budgets using `AccountID:ActionID:BudgetName`. For exampleconsole % pulumi import aws_budgets_budget.myBudget 123456789012:myBudget
 type Budget struct {
 	pulumi.CustomResourceState
 
@@ -330,10 +329,6 @@ type Budget struct {
 	AutoAdjustData BudgetAutoAdjustDataPtrOutput `pulumi:"autoAdjustData"`
 	// Whether this budget tracks monetary cost or usage.
 	BudgetType pulumi.StringOutput `pulumi:"budgetType"`
-	// Map of CostFilters key/value pairs to apply to the budget.
-	//
-	// Deprecated: Use the attribute "cost_filter" instead.
-	CostFilterLegacy pulumi.StringMapOutput `pulumi:"costFilterLegacy"`
 	// A list of CostFilter name/values pair to apply to budget.
 	CostFilters BudgetCostFilterArrayOutput `pulumi:"costFilters"`
 	// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
@@ -371,6 +366,7 @@ func NewBudget(ctx *pulumi.Context,
 	if args.TimeUnit == nil {
 		return nil, errors.New("invalid value for required argument 'TimeUnit'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Budget
 	err := ctx.RegisterResource("aws:budgets/budget:Budget", name, args, &resource, opts...)
 	if err != nil {
@@ -401,10 +397,6 @@ type budgetState struct {
 	AutoAdjustData *BudgetAutoAdjustData `pulumi:"autoAdjustData"`
 	// Whether this budget tracks monetary cost or usage.
 	BudgetType *string `pulumi:"budgetType"`
-	// Map of CostFilters key/value pairs to apply to the budget.
-	//
-	// Deprecated: Use the attribute "cost_filter" instead.
-	CostFilterLegacy map[string]string `pulumi:"costFilterLegacy"`
 	// A list of CostFilter name/values pair to apply to budget.
 	CostFilters []BudgetCostFilter `pulumi:"costFilters"`
 	// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
@@ -438,10 +430,6 @@ type BudgetState struct {
 	AutoAdjustData BudgetAutoAdjustDataPtrInput
 	// Whether this budget tracks monetary cost or usage.
 	BudgetType pulumi.StringPtrInput
-	// Map of CostFilters key/value pairs to apply to the budget.
-	//
-	// Deprecated: Use the attribute "cost_filter" instead.
-	CostFilterLegacy pulumi.StringMapInput
 	// A list of CostFilter name/values pair to apply to budget.
 	CostFilters BudgetCostFilterArrayInput
 	// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
@@ -477,10 +465,6 @@ type budgetArgs struct {
 	AutoAdjustData *BudgetAutoAdjustData `pulumi:"autoAdjustData"`
 	// Whether this budget tracks monetary cost or usage.
 	BudgetType string `pulumi:"budgetType"`
-	// Map of CostFilters key/value pairs to apply to the budget.
-	//
-	// Deprecated: Use the attribute "cost_filter" instead.
-	CostFilterLegacy map[string]string `pulumi:"costFilterLegacy"`
 	// A list of CostFilter name/values pair to apply to budget.
 	CostFilters []BudgetCostFilter `pulumi:"costFilters"`
 	// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
@@ -513,10 +497,6 @@ type BudgetArgs struct {
 	AutoAdjustData BudgetAutoAdjustDataPtrInput
 	// Whether this budget tracks monetary cost or usage.
 	BudgetType pulumi.StringInput
-	// Map of CostFilters key/value pairs to apply to the budget.
-	//
-	// Deprecated: Use the attribute "cost_filter" instead.
-	CostFilterLegacy pulumi.StringMapInput
 	// A list of CostFilter name/values pair to apply to budget.
 	CostFilters BudgetCostFilterArrayInput
 	// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
@@ -646,13 +626,6 @@ func (o BudgetOutput) AutoAdjustData() BudgetAutoAdjustDataPtrOutput {
 // Whether this budget tracks monetary cost or usage.
 func (o BudgetOutput) BudgetType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Budget) pulumi.StringOutput { return v.BudgetType }).(pulumi.StringOutput)
-}
-
-// Map of CostFilters key/value pairs to apply to the budget.
-//
-// Deprecated: Use the attribute "cost_filter" instead.
-func (o BudgetOutput) CostFilterLegacy() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *Budget) pulumi.StringMapOutput { return v.CostFilterLegacy }).(pulumi.StringMapOutput)
 }
 
 // A list of CostFilter name/values pair to apply to budget.

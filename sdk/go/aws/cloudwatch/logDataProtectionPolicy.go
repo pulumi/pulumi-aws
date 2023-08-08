@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,8 +25,8 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -94,13 +95,11 @@ import (
 //
 // ## Import
 //
-// This resource can be imported using the `log_group_name`. For example
+// terraform import {
 //
-// ```sh
+//	to = aws_cloudwatch_log_data_protection_policy.example
 //
-//	$ pulumi import aws:cloudwatch/logDataProtectionPolicy:LogDataProtectionPolicy example my-log-group
-//
-// ```
+//	id = "my-log-group" } Using `pulumi import`, import this resource using the `log_group_name`. For exampleconsole % pulumi import aws_cloudwatch_log_data_protection_policy.example my-log-group
 type LogDataProtectionPolicy struct {
 	pulumi.CustomResourceState
 
@@ -123,6 +122,7 @@ func NewLogDataProtectionPolicy(ctx *pulumi.Context,
 	if args.PolicyDocument == nil {
 		return nil, errors.New("invalid value for required argument 'PolicyDocument'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LogDataProtectionPolicy
 	err := ctx.RegisterResource("aws:cloudwatch/logDataProtectionPolicy:LogDataProtectionPolicy", name, args, &resource, opts...)
 	if err != nil {

@@ -33,11 +33,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_macie2_invitation_accepter` can be imported using the admin account ID, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:macie2/invitationAccepter:InvitationAccepter example 123456789012
- * ```
+ *  to = aws_macie2_invitation_accepter.example
+ *
+ *  id = "123456789012" } Using `pulumi import`, import `aws_macie2_invitation_accepter` using the admin account ID. For exampleconsole % pulumi import aws_macie2_invitation_accepter.example 123456789012
  */
 export class InvitationAccepter extends pulumi.CustomResource {
     /**

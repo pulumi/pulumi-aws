@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -31,7 +32,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,28 +55,22 @@ import (
 //
 // ## Import
 //
-// Default VPCs can be imported using the `vpc id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_default_vpc.default
 //
-//	$ pulumi import aws:ec2/defaultVpc:DefaultVpc default vpc-a01106c2
-//
-// ```
+//	id = "vpc-a01106c2" } Using `pulumi import`, import Default VPCs using the VPC `id`. For exampleconsole % pulumi import aws_default_vpc.default vpc-a01106c2
 type DefaultVpc struct {
 	pulumi.CustomResourceState
 
 	Arn                          pulumi.StringOutput  `pulumi:"arn"`
 	AssignGeneratedIpv6CidrBlock pulumi.BoolPtrOutput `pulumi:"assignGeneratedIpv6CidrBlock"`
 	// The primary IPv4 CIDR block for the VPC
-	CidrBlock              pulumi.StringOutput `pulumi:"cidrBlock"`
-	DefaultNetworkAclId    pulumi.StringOutput `pulumi:"defaultNetworkAclId"`
-	DefaultRouteTableId    pulumi.StringOutput `pulumi:"defaultRouteTableId"`
-	DefaultSecurityGroupId pulumi.StringOutput `pulumi:"defaultSecurityGroupId"`
-	DhcpOptionsId          pulumi.StringOutput `pulumi:"dhcpOptionsId"`
-	// Deprecated: With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version.
-	EnableClassiclink pulumi.BoolOutput `pulumi:"enableClassiclink"`
-	// Deprecated: With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version.
-	EnableClassiclinkDnsSupport      pulumi.BoolOutput    `pulumi:"enableClassiclinkDnsSupport"`
+	CidrBlock                        pulumi.StringOutput  `pulumi:"cidrBlock"`
+	DefaultNetworkAclId              pulumi.StringOutput  `pulumi:"defaultNetworkAclId"`
+	DefaultRouteTableId              pulumi.StringOutput  `pulumi:"defaultRouteTableId"`
+	DefaultSecurityGroupId           pulumi.StringOutput  `pulumi:"defaultSecurityGroupId"`
+	DhcpOptionsId                    pulumi.StringOutput  `pulumi:"dhcpOptionsId"`
 	EnableDnsHostnames               pulumi.BoolPtrOutput `pulumi:"enableDnsHostnames"`
 	EnableDnsSupport                 pulumi.BoolPtrOutput `pulumi:"enableDnsSupport"`
 	EnableNetworkAddressUsageMetrics pulumi.BoolOutput    `pulumi:"enableNetworkAddressUsageMetrics"`
@@ -102,6 +97,7 @@ func NewDefaultVpc(ctx *pulumi.Context,
 		args = &DefaultVpcArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DefaultVpc
 	err := ctx.RegisterResource("aws:ec2/defaultVpc:DefaultVpc", name, args, &resource, opts...)
 	if err != nil {
@@ -127,19 +123,15 @@ type defaultVpcState struct {
 	Arn                          *string `pulumi:"arn"`
 	AssignGeneratedIpv6CidrBlock *bool   `pulumi:"assignGeneratedIpv6CidrBlock"`
 	// The primary IPv4 CIDR block for the VPC
-	CidrBlock              *string `pulumi:"cidrBlock"`
-	DefaultNetworkAclId    *string `pulumi:"defaultNetworkAclId"`
-	DefaultRouteTableId    *string `pulumi:"defaultRouteTableId"`
-	DefaultSecurityGroupId *string `pulumi:"defaultSecurityGroupId"`
-	DhcpOptionsId          *string `pulumi:"dhcpOptionsId"`
-	// Deprecated: With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version.
-	EnableClassiclink *bool `pulumi:"enableClassiclink"`
-	// Deprecated: With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version.
-	EnableClassiclinkDnsSupport      *bool `pulumi:"enableClassiclinkDnsSupport"`
-	EnableDnsHostnames               *bool `pulumi:"enableDnsHostnames"`
-	EnableDnsSupport                 *bool `pulumi:"enableDnsSupport"`
-	EnableNetworkAddressUsageMetrics *bool `pulumi:"enableNetworkAddressUsageMetrics"`
-	ExistingDefaultVpc               *bool `pulumi:"existingDefaultVpc"`
+	CidrBlock                        *string `pulumi:"cidrBlock"`
+	DefaultNetworkAclId              *string `pulumi:"defaultNetworkAclId"`
+	DefaultRouteTableId              *string `pulumi:"defaultRouteTableId"`
+	DefaultSecurityGroupId           *string `pulumi:"defaultSecurityGroupId"`
+	DhcpOptionsId                    *string `pulumi:"dhcpOptionsId"`
+	EnableDnsHostnames               *bool   `pulumi:"enableDnsHostnames"`
+	EnableDnsSupport                 *bool   `pulumi:"enableDnsSupport"`
+	EnableNetworkAddressUsageMetrics *bool   `pulumi:"enableNetworkAddressUsageMetrics"`
+	ExistingDefaultVpc               *bool   `pulumi:"existingDefaultVpc"`
 	// Whether destroying the resource deletes the default VPC. Default: `false`
 	ForceDestroy *bool `pulumi:"forceDestroy"`
 	// The allowed tenancy of instances launched into the VPC
@@ -159,15 +151,11 @@ type DefaultVpcState struct {
 	Arn                          pulumi.StringPtrInput
 	AssignGeneratedIpv6CidrBlock pulumi.BoolPtrInput
 	// The primary IPv4 CIDR block for the VPC
-	CidrBlock              pulumi.StringPtrInput
-	DefaultNetworkAclId    pulumi.StringPtrInput
-	DefaultRouteTableId    pulumi.StringPtrInput
-	DefaultSecurityGroupId pulumi.StringPtrInput
-	DhcpOptionsId          pulumi.StringPtrInput
-	// Deprecated: With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version.
-	EnableClassiclink pulumi.BoolPtrInput
-	// Deprecated: With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version.
-	EnableClassiclinkDnsSupport      pulumi.BoolPtrInput
+	CidrBlock                        pulumi.StringPtrInput
+	DefaultNetworkAclId              pulumi.StringPtrInput
+	DefaultRouteTableId              pulumi.StringPtrInput
+	DefaultSecurityGroupId           pulumi.StringPtrInput
+	DhcpOptionsId                    pulumi.StringPtrInput
 	EnableDnsHostnames               pulumi.BoolPtrInput
 	EnableDnsSupport                 pulumi.BoolPtrInput
 	EnableNetworkAddressUsageMetrics pulumi.BoolPtrInput
@@ -192,11 +180,7 @@ func (DefaultVpcState) ElementType() reflect.Type {
 }
 
 type defaultVpcArgs struct {
-	AssignGeneratedIpv6CidrBlock *bool `pulumi:"assignGeneratedIpv6CidrBlock"`
-	// Deprecated: With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version.
-	EnableClassiclink *bool `pulumi:"enableClassiclink"`
-	// Deprecated: With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version.
-	EnableClassiclinkDnsSupport      *bool `pulumi:"enableClassiclinkDnsSupport"`
+	AssignGeneratedIpv6CidrBlock     *bool `pulumi:"assignGeneratedIpv6CidrBlock"`
 	EnableDnsHostnames               *bool `pulumi:"enableDnsHostnames"`
 	EnableDnsSupport                 *bool `pulumi:"enableDnsSupport"`
 	EnableNetworkAddressUsageMetrics *bool `pulumi:"enableNetworkAddressUsageMetrics"`
@@ -211,11 +195,7 @@ type defaultVpcArgs struct {
 
 // The set of arguments for constructing a DefaultVpc resource.
 type DefaultVpcArgs struct {
-	AssignGeneratedIpv6CidrBlock pulumi.BoolPtrInput
-	// Deprecated: With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version.
-	EnableClassiclink pulumi.BoolPtrInput
-	// Deprecated: With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version.
-	EnableClassiclinkDnsSupport      pulumi.BoolPtrInput
+	AssignGeneratedIpv6CidrBlock     pulumi.BoolPtrInput
 	EnableDnsHostnames               pulumi.BoolPtrInput
 	EnableDnsSupport                 pulumi.BoolPtrInput
 	EnableNetworkAddressUsageMetrics pulumi.BoolPtrInput
@@ -342,16 +322,6 @@ func (o DefaultVpcOutput) DefaultSecurityGroupId() pulumi.StringOutput {
 
 func (o DefaultVpcOutput) DhcpOptionsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DefaultVpc) pulumi.StringOutput { return v.DhcpOptionsId }).(pulumi.StringOutput)
-}
-
-// Deprecated: With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version.
-func (o DefaultVpcOutput) EnableClassiclink() pulumi.BoolOutput {
-	return o.ApplyT(func(v *DefaultVpc) pulumi.BoolOutput { return v.EnableClassiclink }).(pulumi.BoolOutput)
-}
-
-// Deprecated: With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version.
-func (o DefaultVpcOutput) EnableClassiclinkDnsSupport() pulumi.BoolOutput {
-	return o.ApplyT(func(v *DefaultVpc) pulumi.BoolOutput { return v.EnableClassiclinkDnsSupport }).(pulumi.BoolOutput)
 }
 
 func (o DefaultVpcOutput) EnableDnsHostnames() pulumi.BoolPtrOutput {

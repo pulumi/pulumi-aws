@@ -33,15 +33,21 @@ namespace Pulumi.Aws.Chime
     /// 
     /// ## Import
     /// 
-    /// Configuration Recorder can be imported using the name, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:chime/voiceConnector:VoiceConnector test example
-    /// ```
+    ///  to = aws_chime_voice_connector.test
+    /// 
+    ///  id = "example" } Using `pulumi import`, import Configuration Recorder using the name. For exampleconsole % pulumi import aws_chime_voice_connector.test example
     /// </summary>
     [AwsResourceType("aws:chime/voiceConnector:VoiceConnector")]
     public partial class VoiceConnector : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// ARN (Amazon Resource Name) of the Amazon Chime Voice Connector.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
         /// <summary>
         /// The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
         /// </summary>
@@ -62,9 +68,23 @@ namespace Pulumi.Aws.Chime
 
         /// <summary>
         /// When enabled, requires encryption for the Amazon Chime Voice Connector.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("requireEncryption")]
         public Output<bool> RequireEncryption { get; private set; } = null!;
+
+        /// <summary>
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
+        [Output("tagsAll")]
+        public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
 
         /// <summary>
@@ -126,9 +146,23 @@ namespace Pulumi.Aws.Chime
 
         /// <summary>
         /// When enabled, requires encryption for the Amazon Chime Voice Connector.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("requireEncryption", required: true)]
         public Input<bool> RequireEncryption { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public VoiceConnectorArgs()
         {
@@ -138,6 +172,12 @@ namespace Pulumi.Aws.Chime
 
     public sealed class VoiceConnectorState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// ARN (Amazon Resource Name) of the Amazon Chime Voice Connector.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         /// <summary>
         /// The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
         /// </summary>
@@ -158,9 +198,35 @@ namespace Pulumi.Aws.Chime
 
         /// <summary>
         /// When enabled, requires encryption for the Amazon Chime Voice Connector.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("requireEncryption")]
         public Input<bool>? RequireEncryption { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
+        }
 
         public VoiceConnectorState()
         {

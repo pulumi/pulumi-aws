@@ -499,11 +499,11 @@ class Stage(pulumi.CustomResource):
 
         ## Import
 
-        `aws_apigatewayv2_stage` can be imported by using the API identifier and stage name, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:apigatewayv2/stage:Stage example aabbccddee/example-stage
-        ```
+         to = aws_apigatewayv2_stage.example
+
+         id = "aabbccddee/example-stage" } Using `pulumi import`, import `aws_apigatewayv2_stage` using the API identifier and stage name. For exampleconsole % pulumi import aws_apigatewayv2_stage.example aabbccddee/example-stage
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -545,11 +545,11 @@ class Stage(pulumi.CustomResource):
 
         ## Import
 
-        `aws_apigatewayv2_stage` can be imported by using the API identifier and stage name, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:apigatewayv2/stage:Stage example aabbccddee/example-stage
-        ```
+         to = aws_apigatewayv2_stage.example
+
+         id = "aabbccddee/example-stage" } Using `pulumi import`, import `aws_apigatewayv2_stage` using the API identifier and stage name. For exampleconsole % pulumi import aws_apigatewayv2_stage.example aabbccddee/example-stage
 
         :param str resource_name: The name of the resource.
         :param StageArgs args: The arguments to use to populate this resource's properties.

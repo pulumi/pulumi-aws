@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/backup"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/backup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -44,13 +45,11 @@ import (
 //
 // ## Import
 //
-// Backup vault lock configuration can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_backup_vault_lock_configuration.test
 //
-//	$ pulumi import aws:backup/vaultLockConfiguration:VaultLockConfiguration test TestVault
-//
-// ```
+//	id = "TestVault" } Using `pulumi import`, import Backup vault lock configuration using the `name`. For exampleconsole % pulumi import aws_backup_vault_lock_configuration.test TestVault
 type VaultLockConfiguration struct {
 	pulumi.CustomResourceState
 
@@ -76,6 +75,7 @@ func NewVaultLockConfiguration(ctx *pulumi.Context,
 	if args.BackupVaultName == nil {
 		return nil, errors.New("invalid value for required argument 'BackupVaultName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VaultLockConfiguration
 	err := ctx.RegisterResource("aws:backup/vaultLockConfiguration:VaultLockConfiguration", name, args, &resource, opts...)
 	if err != nil {

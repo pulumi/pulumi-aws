@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -45,13 +46,11 @@ import (
 //
 // ## Import
 //
-// CloudWatch Logs subscription filter can be imported using the log group name and subscription filter name separated by `|`.
+// terraform import {
 //
-// ```sh
+//	to = aws_cloudwatch_log_subscription_filter.test_lambdafunction_logfilter
 //
-//	$ pulumi import aws:cloudwatch/logSubscriptionFilter:LogSubscriptionFilter test_lambdafunction_logfilter /aws/lambda/example_lambda_name|test_lambdafunction_logfilter
-//
-// ```
+//	id = "/aws/lambda/example_lambda_name|test_lambdafunction_logfilter" } Using `pulumi import`, import CloudWatch Logs subscription filter using the log group name and subscription filter name separated by `|`. For exampleconsole % pulumi import aws_cloudwatch_log_subscription_filter.test_lambdafunction_logfilter /aws/lambda/example_lambda_name|test_lambdafunction_logfilter
 type LogSubscriptionFilter struct {
 	pulumi.CustomResourceState
 
@@ -85,6 +84,7 @@ func NewLogSubscriptionFilter(ctx *pulumi.Context,
 	if args.LogGroup == nil {
 		return nil, errors.New("invalid value for required argument 'LogGroup'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LogSubscriptionFilter
 	err := ctx.RegisterResource("aws:cloudwatch/logSubscriptionFilter:LogSubscriptionFilter", name, args, &resource, opts...)
 	if err != nil {

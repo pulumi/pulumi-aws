@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,8 +25,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cfg"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/organizations"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cfg"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/organizations"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -57,13 +58,11 @@ import (
 //
 // ## Import
 //
-// Config Organization Managed Rules can be imported using the name, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_config_organization_managed_rule.example
 //
-//	$ pulumi import aws:cfg/organizationManagedRule:OrganizationManagedRule example example
-//
-// ```
+//	id = "example" } Using `pulumi import`, import Config Organization Managed Rules using the name. For exampleconsole % pulumi import aws_config_organization_managed_rule.example example
 type OrganizationManagedRule struct {
 	pulumi.CustomResourceState
 
@@ -101,6 +100,7 @@ func NewOrganizationManagedRule(ctx *pulumi.Context,
 	if args.RuleIdentifier == nil {
 		return nil, errors.New("invalid value for required argument 'RuleIdentifier'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OrganizationManagedRule
 	err := ctx.RegisterResource("aws:cfg/organizationManagedRule:OrganizationManagedRule", name, args, &resource, opts...)
 	if err != nil {

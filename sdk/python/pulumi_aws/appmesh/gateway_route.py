@@ -343,11 +343,11 @@ class GatewayRoute(pulumi.CustomResource):
 
         ## Import
 
-        App Mesh gateway routes can be imported using `mesh_name` and `virtual_gateway_name` together with the gateway route's `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:appmesh/gatewayRoute:GatewayRoute example mesh/gw1/example-gateway-route
-        ```
+         to = aws_appmesh_gateway_route.example
+
+         id = "mesh/gw1/example-gateway-route" } Using `pulumi import`, import App Mesh gateway routes using `mesh_name` and `virtual_gateway_name` together with the gateway route's `name`. For exampleconsole % pulumi import aws_appmesh_gateway_route.example mesh/gw1/example-gateway-route
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -397,11 +397,11 @@ class GatewayRoute(pulumi.CustomResource):
 
         ## Import
 
-        App Mesh gateway routes can be imported using `mesh_name` and `virtual_gateway_name` together with the gateway route's `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:appmesh/gatewayRoute:GatewayRoute example mesh/gw1/example-gateway-route
-        ```
+         to = aws_appmesh_gateway_route.example
+
+         id = "mesh/gw1/example-gateway-route" } Using `pulumi import`, import App Mesh gateway routes using `mesh_name` and `virtual_gateway_name` together with the gateway route's `name`. For exampleconsole % pulumi import aws_appmesh_gateway_route.example mesh/gw1/example-gateway-route
 
         :param str resource_name: The name of the resource.
         :param GatewayRouteArgs args: The arguments to use to populate this resource's properties.

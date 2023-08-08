@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/location"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/location"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func LookupTracker(ctx *pulumi.Context, args *LookupTrackerArgs, opts ...pulumi.InvokeOption) (*LookupTrackerResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTrackerResult
 	err := ctx.Invoke("aws:location/getTracker:getTracker", args, &rv, opts...)
 	if err != nil {

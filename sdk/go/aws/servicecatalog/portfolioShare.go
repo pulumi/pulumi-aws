@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -29,7 +30,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicecatalog"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicecatalog"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,13 +53,11 @@ import (
 //
 // ## Import
 //
-// `aws_servicecatalog_portfolio_share` can be imported using the portfolio share ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_servicecatalog_portfolio_share.example
 //
-//	$ pulumi import aws:servicecatalog/portfolioShare:PortfolioShare example port-12344321:ACCOUNT:123456789012
-//
-// ```
+//	id = "port-12344321:ACCOUNT:123456789012" } Using `pulumi import`, import `aws_servicecatalog_portfolio_share` using the portfolio share ID. For exampleconsole % pulumi import aws_servicecatalog_portfolio_share.example port-12344321:ACCOUNT:123456789012
 type PortfolioShare struct {
 	pulumi.CustomResourceState
 
@@ -98,6 +97,7 @@ func NewPortfolioShare(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PortfolioShare
 	err := ctx.RegisterResource("aws:servicecatalog/portfolioShare:PortfolioShare", name, args, &resource, opts...)
 	if err != nil {

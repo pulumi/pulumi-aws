@@ -7,8 +7,11 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type ClusterCacheNode struct {
 	Address *string `pulumi:"address"`
@@ -468,178 +471,6 @@ func (o ParameterGroupParameterArrayOutput) Index(i pulumi.IntInput) ParameterGr
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ParameterGroupParameter {
 		return vs[0].([]ParameterGroupParameter)[vs[1].(int)]
 	}).(ParameterGroupParameterOutput)
-}
-
-type ReplicationGroupClusterMode struct {
-	// Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `globalReplicationGroupId` is set.
-	//
-	// Deprecated: Use root-level num_node_groups instead
-	NumNodeGroups *int `pulumi:"numNodeGroups"`
-	// Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
-	//
-	// Deprecated: Use root-level replicas_per_node_group instead
-	ReplicasPerNodeGroup *int `pulumi:"replicasPerNodeGroup"`
-}
-
-// ReplicationGroupClusterModeInput is an input type that accepts ReplicationGroupClusterModeArgs and ReplicationGroupClusterModeOutput values.
-// You can construct a concrete instance of `ReplicationGroupClusterModeInput` via:
-//
-//	ReplicationGroupClusterModeArgs{...}
-type ReplicationGroupClusterModeInput interface {
-	pulumi.Input
-
-	ToReplicationGroupClusterModeOutput() ReplicationGroupClusterModeOutput
-	ToReplicationGroupClusterModeOutputWithContext(context.Context) ReplicationGroupClusterModeOutput
-}
-
-type ReplicationGroupClusterModeArgs struct {
-	// Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `globalReplicationGroupId` is set.
-	//
-	// Deprecated: Use root-level num_node_groups instead
-	NumNodeGroups pulumi.IntPtrInput `pulumi:"numNodeGroups"`
-	// Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
-	//
-	// Deprecated: Use root-level replicas_per_node_group instead
-	ReplicasPerNodeGroup pulumi.IntPtrInput `pulumi:"replicasPerNodeGroup"`
-}
-
-func (ReplicationGroupClusterModeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationGroupClusterMode)(nil)).Elem()
-}
-
-func (i ReplicationGroupClusterModeArgs) ToReplicationGroupClusterModeOutput() ReplicationGroupClusterModeOutput {
-	return i.ToReplicationGroupClusterModeOutputWithContext(context.Background())
-}
-
-func (i ReplicationGroupClusterModeArgs) ToReplicationGroupClusterModeOutputWithContext(ctx context.Context) ReplicationGroupClusterModeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReplicationGroupClusterModeOutput)
-}
-
-func (i ReplicationGroupClusterModeArgs) ToReplicationGroupClusterModePtrOutput() ReplicationGroupClusterModePtrOutput {
-	return i.ToReplicationGroupClusterModePtrOutputWithContext(context.Background())
-}
-
-func (i ReplicationGroupClusterModeArgs) ToReplicationGroupClusterModePtrOutputWithContext(ctx context.Context) ReplicationGroupClusterModePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReplicationGroupClusterModeOutput).ToReplicationGroupClusterModePtrOutputWithContext(ctx)
-}
-
-// ReplicationGroupClusterModePtrInput is an input type that accepts ReplicationGroupClusterModeArgs, ReplicationGroupClusterModePtr and ReplicationGroupClusterModePtrOutput values.
-// You can construct a concrete instance of `ReplicationGroupClusterModePtrInput` via:
-//
-//	        ReplicationGroupClusterModeArgs{...}
-//
-//	or:
-//
-//	        nil
-type ReplicationGroupClusterModePtrInput interface {
-	pulumi.Input
-
-	ToReplicationGroupClusterModePtrOutput() ReplicationGroupClusterModePtrOutput
-	ToReplicationGroupClusterModePtrOutputWithContext(context.Context) ReplicationGroupClusterModePtrOutput
-}
-
-type replicationGroupClusterModePtrType ReplicationGroupClusterModeArgs
-
-func ReplicationGroupClusterModePtr(v *ReplicationGroupClusterModeArgs) ReplicationGroupClusterModePtrInput {
-	return (*replicationGroupClusterModePtrType)(v)
-}
-
-func (*replicationGroupClusterModePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReplicationGroupClusterMode)(nil)).Elem()
-}
-
-func (i *replicationGroupClusterModePtrType) ToReplicationGroupClusterModePtrOutput() ReplicationGroupClusterModePtrOutput {
-	return i.ToReplicationGroupClusterModePtrOutputWithContext(context.Background())
-}
-
-func (i *replicationGroupClusterModePtrType) ToReplicationGroupClusterModePtrOutputWithContext(ctx context.Context) ReplicationGroupClusterModePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReplicationGroupClusterModePtrOutput)
-}
-
-type ReplicationGroupClusterModeOutput struct{ *pulumi.OutputState }
-
-func (ReplicationGroupClusterModeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationGroupClusterMode)(nil)).Elem()
-}
-
-func (o ReplicationGroupClusterModeOutput) ToReplicationGroupClusterModeOutput() ReplicationGroupClusterModeOutput {
-	return o
-}
-
-func (o ReplicationGroupClusterModeOutput) ToReplicationGroupClusterModeOutputWithContext(ctx context.Context) ReplicationGroupClusterModeOutput {
-	return o
-}
-
-func (o ReplicationGroupClusterModeOutput) ToReplicationGroupClusterModePtrOutput() ReplicationGroupClusterModePtrOutput {
-	return o.ToReplicationGroupClusterModePtrOutputWithContext(context.Background())
-}
-
-func (o ReplicationGroupClusterModeOutput) ToReplicationGroupClusterModePtrOutputWithContext(ctx context.Context) ReplicationGroupClusterModePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicationGroupClusterMode) *ReplicationGroupClusterMode {
-		return &v
-	}).(ReplicationGroupClusterModePtrOutput)
-}
-
-// Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `globalReplicationGroupId` is set.
-//
-// Deprecated: Use root-level num_node_groups instead
-func (o ReplicationGroupClusterModeOutput) NumNodeGroups() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ReplicationGroupClusterMode) *int { return v.NumNodeGroups }).(pulumi.IntPtrOutput)
-}
-
-// Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
-//
-// Deprecated: Use root-level replicas_per_node_group instead
-func (o ReplicationGroupClusterModeOutput) ReplicasPerNodeGroup() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ReplicationGroupClusterMode) *int { return v.ReplicasPerNodeGroup }).(pulumi.IntPtrOutput)
-}
-
-type ReplicationGroupClusterModePtrOutput struct{ *pulumi.OutputState }
-
-func (ReplicationGroupClusterModePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReplicationGroupClusterMode)(nil)).Elem()
-}
-
-func (o ReplicationGroupClusterModePtrOutput) ToReplicationGroupClusterModePtrOutput() ReplicationGroupClusterModePtrOutput {
-	return o
-}
-
-func (o ReplicationGroupClusterModePtrOutput) ToReplicationGroupClusterModePtrOutputWithContext(ctx context.Context) ReplicationGroupClusterModePtrOutput {
-	return o
-}
-
-func (o ReplicationGroupClusterModePtrOutput) Elem() ReplicationGroupClusterModeOutput {
-	return o.ApplyT(func(v *ReplicationGroupClusterMode) ReplicationGroupClusterMode {
-		if v != nil {
-			return *v
-		}
-		var ret ReplicationGroupClusterMode
-		return ret
-	}).(ReplicationGroupClusterModeOutput)
-}
-
-// Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `globalReplicationGroupId` is set.
-//
-// Deprecated: Use root-level num_node_groups instead
-func (o ReplicationGroupClusterModePtrOutput) NumNodeGroups() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ReplicationGroupClusterMode) *int {
-		if v == nil {
-			return nil
-		}
-		return v.NumNodeGroups
-	}).(pulumi.IntPtrOutput)
-}
-
-// Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
-//
-// Deprecated: Use root-level replicas_per_node_group instead
-func (o ReplicationGroupClusterModePtrOutput) ReplicasPerNodeGroup() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ReplicationGroupClusterMode) *int {
-		if v == nil {
-			return nil
-		}
-		return v.ReplicasPerNodeGroup
-	}).(pulumi.IntPtrOutput)
 }
 
 type ReplicationGroupLogDeliveryConfiguration struct {
@@ -1397,8 +1228,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalReplicationGroupGlobalNodeGroupArrayInput)(nil)).Elem(), GlobalReplicationGroupGlobalNodeGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ParameterGroupParameterInput)(nil)).Elem(), ParameterGroupParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ParameterGroupParameterArrayInput)(nil)).Elem(), ParameterGroupParameterArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationGroupClusterModeInput)(nil)).Elem(), ReplicationGroupClusterModeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationGroupClusterModePtrInput)(nil)).Elem(), ReplicationGroupClusterModeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationGroupLogDeliveryConfigurationInput)(nil)).Elem(), ReplicationGroupLogDeliveryConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationGroupLogDeliveryConfigurationArrayInput)(nil)).Elem(), ReplicationGroupLogDeliveryConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserAuthenticationModeInput)(nil)).Elem(), UserAuthenticationModeArgs{})
@@ -1419,8 +1248,6 @@ func init() {
 	pulumi.RegisterOutputType(GlobalReplicationGroupGlobalNodeGroupArrayOutput{})
 	pulumi.RegisterOutputType(ParameterGroupParameterOutput{})
 	pulumi.RegisterOutputType(ParameterGroupParameterArrayOutput{})
-	pulumi.RegisterOutputType(ReplicationGroupClusterModeOutput{})
-	pulumi.RegisterOutputType(ReplicationGroupClusterModePtrOutput{})
 	pulumi.RegisterOutputType(ReplicationGroupLogDeliveryConfigurationOutput{})
 	pulumi.RegisterOutputType(ReplicationGroupLogDeliveryConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(UserAuthenticationModeOutput{})

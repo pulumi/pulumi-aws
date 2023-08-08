@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -57,13 +58,11 @@ import (
 //
 // ## Import
 //
-// RDS DB Instance Reservations can be imported using the `instance_id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_rds_reserved_instance.reservation_instance
 //
-//	$ pulumi import aws:rds/reservedInstance:ReservedInstance reservation_instance CustomReservationID
-//
-// ```
+//	id = "CustomReservationID" } Using `pulumi import`, import RDS DB Instance Reservations using the `instance_id`. For exampleconsole % pulumi import aws_rds_reserved_instance.reservation_instance CustomReservationID
 type ReservedInstance struct {
 	pulumi.CustomResourceState
 
@@ -117,6 +116,7 @@ func NewReservedInstance(ctx *pulumi.Context,
 	if args.OfferingId == nil {
 		return nil, errors.New("invalid value for required argument 'OfferingId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ReservedInstance
 	err := ctx.RegisterResource("aws:rds/reservedInstance:ReservedInstance", name, args, &resource, opts...)
 	if err != nil {

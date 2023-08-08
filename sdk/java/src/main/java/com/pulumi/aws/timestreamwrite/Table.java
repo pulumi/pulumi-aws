@@ -8,6 +8,7 @@ import com.pulumi.aws.timestreamwrite.TableArgs;
 import com.pulumi.aws.timestreamwrite.inputs.TableState;
 import com.pulumi.aws.timestreamwrite.outputs.TableMagneticStoreWriteProperties;
 import com.pulumi.aws.timestreamwrite.outputs.TableRetentionProperties;
+import com.pulumi.aws.timestreamwrite.outputs.TableSchema;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -87,14 +88,53 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ### Customer-defined Partition Key
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.timestreamwrite.Table;
+ * import com.pulumi.aws.timestreamwrite.TableArgs;
+ * import com.pulumi.aws.timestreamwrite.inputs.TableSchemaArgs;
+ * import com.pulumi.aws.timestreamwrite.inputs.TableSchemaCompositePartitionKeyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Table(&#34;example&#34;, TableArgs.builder()        
+ *             .databaseName(aws_timestreamwrite_database.example().database_name())
+ *             .tableName(&#34;example&#34;)
+ *             .schema(TableSchemaArgs.builder()
+ *                 .compositePartitionKey(TableSchemaCompositePartitionKeyArgs.builder()
+ *                     .enforcementInRecord(&#34;REQUIRED&#34;)
+ *                     .name(&#34;attr1&#34;)
+ *                     .type(&#34;DIMENSION&#34;)
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * ## Import
  * 
- * Timestream tables can be imported using the `table_name` and `database_name` separate by a colon (`:`), e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:timestreamwrite/table:Table example ExampleTable:ExampleDatabase
- * ```
+ *  to = aws_timestreamwrite_table.example
+ * 
+ *  id = &#34;ExampleTable:ExampleDatabase&#34; } Using `pulumi import`, import Timestream tables using the `table_name` and `database_name` separate by a colon (`:`). For exampleconsole % pulumi import aws_timestreamwrite_table.example ExampleTable:ExampleDatabase
  * 
  */
 @ResourceType(type="aws:timestreamwrite/table:Table")
@@ -154,6 +194,20 @@ public class Table extends com.pulumi.resources.CustomResource {
      */
     public Output<TableRetentionProperties> retentionProperties() {
         return this.retentionProperties;
+    }
+    /**
+     * The schema of the table. See Schema below for more details.
+     * 
+     */
+    @Export(name="schema", refs={TableSchema.class}, tree="[0]")
+    private Output<TableSchema> schema;
+
+    /**
+     * @return The schema of the table. See Schema below for more details.
+     * 
+     */
+    public Output<TableSchema> schema() {
+        return this.schema;
     }
     /**
      * The name of the Timestream table.

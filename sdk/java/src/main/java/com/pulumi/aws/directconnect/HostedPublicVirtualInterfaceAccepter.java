@@ -28,6 +28,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.Provider;
  * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
  * import com.pulumi.aws.directconnect.HostedPublicVirtualInterface;
  * import com.pulumi.aws.directconnect.HostedPublicVirtualInterfaceArgs;
  * import com.pulumi.aws.directconnect.HostedPublicVirtualInterfaceAccepter;
@@ -76,11 +77,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Direct Connect hosted public virtual interfaces can be imported using the `vif id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:directconnect/hostedPublicVirtualInterfaceAccepter:HostedPublicVirtualInterfaceAccepter test dxvif-33cc44dd
- * ```
+ *  to = aws_dx_hosted_public_virtual_interface_accepter.test
+ * 
+ *  id = &#34;dxvif-33cc44dd&#34; } Using `pulumi import`, import Direct Connect hosted public virtual interfaces using the VIF `id`. For exampleconsole % pulumi import aws_dx_hosted_public_virtual_interface_accepter.test dxvif-33cc44dd
  * 
  */
 @ResourceType(type="aws:directconnect/hostedPublicVirtualInterfaceAccepter:HostedPublicVirtualInterfaceAccepter")

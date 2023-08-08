@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -46,13 +47,11 @@ import (
 //
 // ## Import
 //
-// Monitoring schedules can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_sagemaker_monitoring_schedule.test_monitoring_schedule
 //
-//	$ pulumi import aws:sagemaker/monitoringSchedule:MonitoringSchedule test_monitoring_schedule monitoring-schedule-foo
-//
-// ```
+//	id = "monitoring-schedule-foo" } Using `pulumi import`, import monitoring schedules using the `name`. For exampleconsole % pulumi import aws_sagemaker_monitoring_schedule.test_monitoring_schedule monitoring-schedule-foo
 type MonitoringSchedule struct {
 	pulumi.CustomResourceState
 
@@ -78,6 +77,7 @@ func NewMonitoringSchedule(ctx *pulumi.Context,
 	if args.MonitoringScheduleConfig == nil {
 		return nil, errors.New("invalid value for required argument 'MonitoringScheduleConfig'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MonitoringSchedule
 	err := ctx.RegisterResource("aws:sagemaker/monitoringSchedule:MonitoringSchedule", name, args, &resource, opts...)
 	if err != nil {

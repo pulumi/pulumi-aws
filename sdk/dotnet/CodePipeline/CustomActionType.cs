@@ -44,11 +44,11 @@ namespace Pulumi.Aws.CodePipeline
     /// 
     /// ## Import
     /// 
-    /// CodeDeploy CustomActionType can be imported using the `id`, e.g.
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:codepipeline/customActionType:CustomActionType example Build:terraform:1
-    /// ```
+    ///  to = aws_codepipeline_custom_action_type.example
+    /// 
+    ///  id = "Build:pulumi:1" } Using `pulumi import`, import CodeDeploy CustomActionType using the `id`. For exampleconsole % pulumi import aws_codepipeline_custom_action_type.example Build:pulumi:1
     /// </summary>
     [AwsResourceType("aws:codepipeline/customActionType:CustomActionType")]
     public partial class CustomActionType : global::Pulumi.CustomResource

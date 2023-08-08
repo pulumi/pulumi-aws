@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/transfer"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/transfer"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,7 +55,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/transfer"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/transfer"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -98,13 +99,11 @@ import (
 //
 // ## Import
 //
-// Transfer Workflows can be imported using the `worflow_id`.
+// terraform import {
 //
-// ```sh
+//	to = aws_transfer_workflow.example
 //
-//	$ pulumi import aws:transfer/workflow:Workflow example example
-//
-// ```
+//	id = "example" } Using `pulumi import`, import Transfer Workflows using the `worflow_id`. For exampleconsole % pulumi import aws_transfer_workflow.example example
 type Workflow struct {
 	pulumi.CustomResourceState
 
@@ -132,6 +131,7 @@ func NewWorkflow(ctx *pulumi.Context,
 	if args.Steps == nil {
 		return nil, errors.New("invalid value for required argument 'Steps'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Workflow
 	err := ctx.RegisterResource("aws:transfer/workflow:Workflow", name, args, &resource, opts...)
 	if err != nil {

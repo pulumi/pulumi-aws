@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,10 +23,10 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directoryservice"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/workspaces"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directoryservice"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/workspaces"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -177,7 +178,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/workspaces"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/workspaces"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -205,13 +206,11 @@ import (
 //
 // ## Import
 //
-// Workspaces directory can be imported using the directory ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_workspaces_directory.main
 //
-//	$ pulumi import aws:workspaces/directory:Directory main d-4444444444
-//
-// ```
+//	id = "d-4444444444" } Using `pulumi import`, import Workspaces directory using the directory ID. For exampleconsole % pulumi import aws_workspaces_directory.main d-4444444444
 type Directory struct {
 	pulumi.CustomResourceState
 
@@ -259,6 +258,7 @@ func NewDirectory(ctx *pulumi.Context,
 	if args.DirectoryId == nil {
 		return nil, errors.New("invalid value for required argument 'DirectoryId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Directory
 	err := ctx.RegisterResource("aws:workspaces/directory:Directory", name, args, &resource, opts...)
 	if err != nil {

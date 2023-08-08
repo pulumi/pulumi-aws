@@ -16,14 +16,14 @@ public final class WebAclLoggingConfigurationLoggingFilterFilterArgs extends com
     public static final WebAclLoggingConfigurationLoggingFilterFilterArgs Empty = new WebAclLoggingConfigurationLoggingFilterFilterArgs();
 
     /**
-     * How to handle logs that satisfy the filter&#39;s conditions and requirement. Valid values: `KEEP` or `DROP`.
+     * Parameter that determines how to handle logs that meet the conditions and requirements of the filter. The valid values for `behavior` are `KEEP` or `DROP`.
      * 
      */
     @Import(name="behavior", required=true)
     private Output<String> behavior;
 
     /**
-     * @return How to handle logs that satisfy the filter&#39;s conditions and requirement. Valid values: `KEEP` or `DROP`.
+     * @return Parameter that determines how to handle logs that meet the conditions and requirements of the filter. The valid values for `behavior` are `KEEP` or `DROP`.
      * 
      */
     public Output<String> behavior() {
@@ -46,14 +46,14 @@ public final class WebAclLoggingConfigurationLoggingFilterFilterArgs extends com
     }
 
     /**
-     * Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition. Valid values: `MEETS_ALL` or `MEETS_ANY`.
+     * Logic to apply to the filtering conditions. You can specify that a log must match all conditions or at least one condition in order to satisfy the filter. Valid values for `requirement` are `MEETS_ALL` or `MEETS_ANY`.
      * 
      */
     @Import(name="requirement", required=true)
     private Output<String> requirement;
 
     /**
-     * @return Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition. Valid values: `MEETS_ALL` or `MEETS_ANY`.
+     * @return Logic to apply to the filtering conditions. You can specify that a log must match all conditions or at least one condition in order to satisfy the filter. Valid values for `requirement` are `MEETS_ALL` or `MEETS_ANY`.
      * 
      */
     public Output<String> requirement() {
@@ -87,7 +87,7 @@ public final class WebAclLoggingConfigurationLoggingFilterFilterArgs extends com
         }
 
         /**
-         * @param behavior How to handle logs that satisfy the filter&#39;s conditions and requirement. Valid values: `KEEP` or `DROP`.
+         * @param behavior Parameter that determines how to handle logs that meet the conditions and requirements of the filter. The valid values for `behavior` are `KEEP` or `DROP`.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class WebAclLoggingConfigurationLoggingFilterFilterArgs extends com
         }
 
         /**
-         * @param behavior How to handle logs that satisfy the filter&#39;s conditions and requirement. Valid values: `KEEP` or `DROP`.
+         * @param behavior Parameter that determines how to handle logs that meet the conditions and requirements of the filter. The valid values for `behavior` are `KEEP` or `DROP`.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class WebAclLoggingConfigurationLoggingFilterFilterArgs extends com
         }
 
         /**
-         * @param requirement Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition. Valid values: `MEETS_ALL` or `MEETS_ANY`.
+         * @param requirement Logic to apply to the filtering conditions. You can specify that a log must match all conditions or at least one condition in order to satisfy the filter. Valid values for `requirement` are `MEETS_ALL` or `MEETS_ANY`.
          * 
          * @return builder
          * 
@@ -150,7 +150,7 @@ public final class WebAclLoggingConfigurationLoggingFilterFilterArgs extends com
         }
 
         /**
-         * @param requirement Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition. Valid values: `MEETS_ALL` or `MEETS_ANY`.
+         * @param requirement Logic to apply to the filtering conditions. You can specify that a log must match all conditions or at least one condition in order to satisfy the filter. Valid values for `requirement` are `MEETS_ALL` or `MEETS_ANY`.
          * 
          * @return builder
          * 

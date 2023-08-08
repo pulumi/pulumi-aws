@@ -41,7 +41,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * DynamoDB table items cannot be imported.
+ * You cannot import DynamoDB table items.
  */
 export class TableItem extends pulumi.CustomResource {
     /**

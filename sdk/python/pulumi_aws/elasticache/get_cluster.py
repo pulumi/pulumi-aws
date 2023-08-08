@@ -22,7 +22,7 @@ class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, arn=None, availability_zone=None, cache_nodes=None, cluster_address=None, cluster_id=None, configuration_endpoint=None, engine=None, engine_version=None, id=None, ip_discovery=None, log_delivery_configurations=None, maintenance_window=None, network_type=None, node_type=None, notification_topic_arn=None, num_cache_nodes=None, parameter_group_name=None, port=None, preferred_outpost_arn=None, replication_group_id=None, security_group_ids=None, security_group_names=None, snapshot_retention_limit=None, snapshot_window=None, subnet_group_name=None, tags=None):
+    def __init__(__self__, arn=None, availability_zone=None, cache_nodes=None, cluster_address=None, cluster_id=None, configuration_endpoint=None, engine=None, engine_version=None, id=None, ip_discovery=None, log_delivery_configurations=None, maintenance_window=None, network_type=None, node_type=None, notification_topic_arn=None, num_cache_nodes=None, parameter_group_name=None, port=None, preferred_outpost_arn=None, replication_group_id=None, security_group_ids=None, snapshot_retention_limit=None, snapshot_window=None, subnet_group_name=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -86,9 +86,6 @@ class GetClusterResult:
         if security_group_ids and not isinstance(security_group_ids, list):
             raise TypeError("Expected argument 'security_group_ids' to be a list")
         pulumi.set(__self__, "security_group_ids", security_group_ids)
-        if security_group_names and not isinstance(security_group_names, list):
-            raise TypeError("Expected argument 'security_group_names' to be a list")
-        pulumi.set(__self__, "security_group_names", security_group_names)
         if snapshot_retention_limit and not isinstance(snapshot_retention_limit, int):
             raise TypeError("Expected argument 'snapshot_retention_limit' to be a int")
         pulumi.set(__self__, "snapshot_retention_limit", snapshot_retention_limit)
@@ -269,17 +266,6 @@ class GetClusterResult:
         return pulumi.get(self, "security_group_ids")
 
     @property
-    @pulumi.getter(name="securityGroupNames")
-    def security_group_names(self) -> Sequence[str]:
-        """
-        List of security group names associated with this cache cluster.
-        """
-        warnings.warn("""With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-        pulumi.log.warn("""security_group_names is deprecated: With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.""")
-
-        return pulumi.get(self, "security_group_names")
-
-    @property
     @pulumi.getter(name="snapshotRetentionLimit")
     def snapshot_retention_limit(self) -> int:
         """
@@ -341,7 +327,6 @@ class AwaitableGetClusterResult(GetClusterResult):
             preferred_outpost_arn=self.preferred_outpost_arn,
             replication_group_id=self.replication_group_id,
             security_group_ids=self.security_group_ids,
-            security_group_names=self.security_group_names,
             snapshot_retention_limit=self.snapshot_retention_limit,
             snapshot_window=self.snapshot_window,
             subnet_group_name=self.subnet_group_name,
@@ -395,7 +380,6 @@ def get_cluster(cluster_id: Optional[str] = None,
         preferred_outpost_arn=pulumi.get(__ret__, 'preferred_outpost_arn'),
         replication_group_id=pulumi.get(__ret__, 'replication_group_id'),
         security_group_ids=pulumi.get(__ret__, 'security_group_ids'),
-        security_group_names=pulumi.get(__ret__, 'security_group_names'),
         snapshot_retention_limit=pulumi.get(__ret__, 'snapshot_retention_limit'),
         snapshot_window=pulumi.get(__ret__, 'snapshot_window'),
         subnet_group_name=pulumi.get(__ret__, 'subnet_group_name'),

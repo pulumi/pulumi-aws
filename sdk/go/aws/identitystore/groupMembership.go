@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -15,13 +16,11 @@ import (
 //
 // ## Import
 //
-// `aws_identitystore_group_membership` can be imported using the `identity_store_id/membership_id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_identitystore_group_membership.example
 //
-//	$ pulumi import aws:identitystore/groupMembership:GroupMembership example d-0000000000/00000000-0000-0000-0000-000000000000
-//
-// ```
+//	id = "d-0000000000/00000000-0000-0000-0000-000000000000" } Using `pulumi import`, import `aws_identitystore_group_membership` using the `identity_store_id/membership_id`. For exampleconsole % pulumi import aws_identitystore_group_membership.example d-0000000000/00000000-0000-0000-0000-000000000000
 type GroupMembership struct {
 	pulumi.CustomResourceState
 
@@ -51,6 +50,7 @@ func NewGroupMembership(ctx *pulumi.Context,
 	if args.MemberId == nil {
 		return nil, errors.New("invalid value for required argument 'MemberId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource GroupMembership
 	err := ctx.RegisterResource("aws:identitystore/groupMembership:GroupMembership", name, args, &resource, opts...)
 	if err != nil {

@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -33,6 +33,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Crawler{}
 	case "aws:glue/dataCatalogEncryptionSettings:DataCatalogEncryptionSettings":
 		r = &DataCatalogEncryptionSettings{}
+	case "aws:glue/dataQualityRuleset:DataQualityRuleset":
+		r = &DataQualityRuleset{}
 	case "aws:glue/devEndpoint:DevEndpoint":
 		r = &DevEndpoint{}
 	case "aws:glue/job:Job":
@@ -66,7 +68,7 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 }
 
 func init() {
-	version, err := aws.PkgVersion()
+	version, err := internal.PkgVersion()
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
@@ -98,6 +100,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"glue/dataCatalogEncryptionSettings",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"glue/dataQualityRuleset",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Rds
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
-        public static Task<GetInstanceResult> InvokeAsync(GetInstanceArgs args, InvokeOptions? options = null)
+        public static Task<GetInstanceResult> InvokeAsync(GetInstanceArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInstanceResult>("aws:rds/getInstance:getInstance", args ?? new GetInstanceArgs(), options.WithDefaults());
 
         /// <summary>
@@ -64,7 +64,7 @@ namespace Pulumi.Aws.Rds
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
-        public static Output<GetInstanceResult> Invoke(GetInstanceInvokeArgs args, InvokeOptions? options = null)
+        public static Output<GetInstanceResult> Invoke(GetInstanceInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInstanceResult>("aws:rds/getInstance:getInstance", args ?? new GetInstanceInvokeArgs(), options.WithDefaults());
     }
 
@@ -72,13 +72,17 @@ namespace Pulumi.Aws.Rds
     public sealed class GetInstanceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the RDS instance
+        /// Name of the RDS instance.
         /// </summary>
-        [Input("dbInstanceIdentifier", required: true)]
-        public string DbInstanceIdentifier { get; set; } = null!;
+        [Input("dbInstanceIdentifier")]
+        public string? DbInstanceIdentifier { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// Map of tags, each pair of which must exactly match a pair on the desired instance.
+        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -94,13 +98,17 @@ namespace Pulumi.Aws.Rds
     public sealed class GetInstanceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the RDS instance
+        /// Name of the RDS instance.
         /// </summary>
-        [Input("dbInstanceIdentifier", required: true)]
-        public Input<string> DbInstanceIdentifier { get; set; } = null!;
+        [Input("dbInstanceIdentifier")]
+        public Input<string>? DbInstanceIdentifier { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Map of tags, each pair of which must exactly match a pair on the desired instance.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -167,10 +175,6 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         public readonly ImmutableArray<string> DbParameterGroups;
         /// <summary>
-        /// Provides List of DB security groups associated to this DB instance.
-        /// </summary>
-        public readonly ImmutableArray<string> DbSecurityGroups;
-        /// <summary>
         /// Name of the subnet group associated with the DB instance.
         /// </summary>
         public readonly string DbSubnetGroup;
@@ -219,6 +223,10 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         public readonly string MasterUsername;
         /// <summary>
+        /// The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.
+        /// </summary>
+        public readonly int MaxAllocatedStorage;
+        /// <summary>
         /// Interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance.
         /// </summary>
         public readonly int MonitoringInterval;
@@ -239,7 +247,7 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         public readonly ImmutableArray<string> OptionGroupMemberships;
         /// <summary>
-        /// Database port.
+        /// Database endpoint port, primarily used by an Aurora DB cluster. For a conventional RDS DB instance, the `db_instance_port` is typically the preferred choice.
         /// </summary>
         public readonly int Port;
         /// <summary>
@@ -312,8 +320,6 @@ namespace Pulumi.Aws.Rds
 
             ImmutableArray<string> dbParameterGroups,
 
-            ImmutableArray<string> dbSecurityGroups,
-
             string dbSubnetGroup,
 
             ImmutableArray<string> enabledCloudwatchLogsExports,
@@ -337,6 +343,8 @@ namespace Pulumi.Aws.Rds
             ImmutableArray<Outputs.GetInstanceMasterUserSecretResult> masterUserSecrets,
 
             string masterUsername,
+
+            int maxAllocatedStorage,
 
             int monitoringInterval,
 
@@ -385,7 +393,6 @@ namespace Pulumi.Aws.Rds
             DbInstancePort = dbInstancePort;
             DbName = dbName;
             DbParameterGroups = dbParameterGroups;
-            DbSecurityGroups = dbSecurityGroups;
             DbSubnetGroup = dbSubnetGroup;
             EnabledCloudwatchLogsExports = enabledCloudwatchLogsExports;
             Endpoint = endpoint;
@@ -398,6 +405,7 @@ namespace Pulumi.Aws.Rds
             LicenseModel = licenseModel;
             MasterUserSecrets = masterUserSecrets;
             MasterUsername = masterUsername;
+            MaxAllocatedStorage = maxAllocatedStorage;
             MonitoringInterval = monitoringInterval;
             MonitoringRoleArn = monitoringRoleArn;
             MultiAz = multiAz;

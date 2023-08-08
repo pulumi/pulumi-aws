@@ -18,11 +18,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Location Geofence Collection can be imported using the `collection_name`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:location/geofenceCollection:GeofenceCollection example example
- * ```
+ *  to = aws_location_geofence_collection.example
+ *
+ *  id = "example" } Using `pulumi import`, import Location Geofence Collection using the `collection_name`. For exampleconsole % pulumi import aws_location_geofence_collection.example example
  */
 export class GeofenceCollection extends pulumi.CustomResource {
     /**

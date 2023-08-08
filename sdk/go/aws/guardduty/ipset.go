@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,8 +25,8 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/guardduty"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/guardduty"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -78,13 +79,11 @@ import (
 //
 // ## Import
 //
-// GuardDuty IPSet can be imported using the primary GuardDuty detector ID and IPSet ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_guardduty_ipset.MyIPSet
 //
-//	$ pulumi import aws:guardduty/iPSet:IPSet MyIPSet 00b00fd5aecc0ab60a708659477e9617:123456789012
-//
-// ```
+//	id = "00b00fd5aecc0ab60a708659477e9617:123456789012" } Using `pulumi import`, import GuardDuty IPSet using the primary GuardDuty detector ID and IPSet ID. For exampleconsole % pulumi import aws_guardduty_ipset.MyIPSet 00b00fd5aecc0ab60a708659477e9617:123456789012
 type IPSet struct {
 	pulumi.CustomResourceState
 
@@ -125,6 +124,7 @@ func NewIPSet(ctx *pulumi.Context,
 	if args.Location == nil {
 		return nil, errors.New("invalid value for required argument 'Location'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource IPSet
 	err := ctx.RegisterResource("aws:guardduty/iPSet:IPSet", name, args, &resource, opts...)
 	if err != nil {

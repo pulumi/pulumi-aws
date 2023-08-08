@@ -63,11 +63,11 @@ namespace Pulumi.Aws.ImageBuilder
     /// 
     /// ## Import
     /// 
-    /// `aws_imagebuilder_container_recipe` resources can be imported by using the Amazon Resource Name (ARN), e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:imagebuilder/containerRecipe:ContainerRecipe example arn:aws:imagebuilder:us-east-1:123456789012:container-recipe/example/1.0.0
-    /// ```
+    ///  to = aws_imagebuilder_container_recipe.example
+    /// 
+    ///  id = "arn:aws:imagebuilder:us-east-1:123456789012:container-recipe/example/1.0.0" } Using `pulumi import`, import `aws_imagebuilder_container_recipe` resources using the Amazon Resource Name (ARN). For exampleconsole % pulumi import aws_imagebuilder_container_recipe.example arn:aws:imagebuilder:us-east-1:123456789012:container-recipe/example/1.0.0
     /// </summary>
     [AwsResourceType("aws:imagebuilder/containerRecipe:ContainerRecipe")]
     public partial class ContainerRecipe : global::Pulumi.CustomResource

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -26,7 +27,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -65,7 +66,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -90,13 +91,11 @@ import (
 //
 // ## Import
 //
-// Default VPC route tables can be imported using the `vpc_id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_default_route_table.example
 //
-//	$ pulumi import aws:ec2/defaultRouteTable:DefaultRouteTable example vpc-33cc44dd
-//
-// ```
+//	id = "vpc-33cc44dd" } Using `pulumi import`, import Default VPC route tables using the `vpc_id`. For exampleconsole % pulumi import aws_default_route_table.example vpc-33cc44dd [tf-main-route-table-association]/docs/providers/aws/r/main_route_table_association.html
 type DefaultRouteTable struct {
 	pulumi.CustomResourceState
 
@@ -130,6 +129,7 @@ func NewDefaultRouteTable(ctx *pulumi.Context,
 	if args.DefaultRouteTableId == nil {
 		return nil, errors.New("invalid value for required argument 'DefaultRouteTableId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DefaultRouteTable
 	err := ctx.RegisterResource("aws:ec2/defaultRouteTable:DefaultRouteTable", name, args, &resource, opts...)
 	if err != nil {

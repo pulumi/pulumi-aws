@@ -91,11 +91,11 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// ## Import
     /// 
-    /// Cognito User Pools can be imported using the `id`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:cognito/userPool:UserPool pool us-west-2_abc123
-    /// ```
+    ///  to = aws_cognito_user_pool.pool
+    /// 
+    ///  id = "us-west-2_abc123" } Using `pulumi import`, import Cognito User Pools using the `id`. For exampleconsole % pulumi import aws_cognito_user_pool.pool us-west-2_abc123
     /// </summary>
     [AwsResourceType("aws:cognito/userPool:UserPool")]
     public partial class UserPool : global::Pulumi.CustomResource
@@ -217,7 +217,7 @@ namespace Pulumi.Aws.Cognito
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration blocked for information about the user pool password policy. Detailed below.
+        /// Configuration block for information about the user pool password policy. Detailed below.
         /// </summary>
         [Output("passwordPolicy")]
         public Output<Outputs.UserPoolPasswordPolicy> PasswordPolicy { get; private set; } = null!;
@@ -427,7 +427,7 @@ namespace Pulumi.Aws.Cognito
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Configuration blocked for information about the user pool password policy. Detailed below.
+        /// Configuration block for information about the user pool password policy. Detailed below.
         /// </summary>
         [Input("passwordPolicy")]
         public Input<Inputs.UserPoolPasswordPolicyArgs>? PasswordPolicy { get; set; }
@@ -653,7 +653,7 @@ namespace Pulumi.Aws.Cognito
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Configuration blocked for information about the user pool password policy. Detailed below.
+        /// Configuration block for information about the user pool password policy. Detailed below.
         /// </summary>
         [Input("passwordPolicy")]
         public Input<Inputs.UserPoolPasswordPolicyGetArgs>? PasswordPolicy { get; set; }

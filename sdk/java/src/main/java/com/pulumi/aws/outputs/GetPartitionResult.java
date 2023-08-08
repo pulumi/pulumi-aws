@@ -15,7 +15,7 @@ public final class GetPartitionResult {
      */
     private String dnsSuffix;
     /**
-     * @return The provider-assigned unique ID for this managed resource.
+     * @return Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
      * 
      */
     private String id;
@@ -39,7 +39,7 @@ public final class GetPartitionResult {
         return this.dnsSuffix;
     }
     /**
-     * @return The provider-assigned unique ID for this managed resource.
+     * @return Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
      * 
      */
     public String id() {

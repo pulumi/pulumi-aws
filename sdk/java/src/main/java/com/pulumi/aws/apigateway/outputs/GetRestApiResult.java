@@ -5,7 +5,6 @@ package com.pulumi.aws.apigateway.outputs;
 
 import com.pulumi.aws.apigateway.outputs.GetRestApiEndpointConfiguration;
 import com.pulumi.core.annotations.CustomType;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -52,7 +51,7 @@ public final class GetRestApiResult {
      * @return Minimum response size to compress for the REST API.
      * 
      */
-    private Integer minimumCompressionSize;
+    private String minimumCompressionSize;
     private String name;
     /**
      * @return JSON formatted policy document that controls access to the API Gateway.
@@ -124,7 +123,7 @@ public final class GetRestApiResult {
      * @return Minimum response size to compress for the REST API.
      * 
      */
-    public Integer minimumCompressionSize() {
+    public String minimumCompressionSize() {
         return this.minimumCompressionSize;
     }
     public String name() {
@@ -168,7 +167,7 @@ public final class GetRestApiResult {
         private List<GetRestApiEndpointConfiguration> endpointConfigurations;
         private String executionArn;
         private String id;
-        private Integer minimumCompressionSize;
+        private String minimumCompressionSize;
         private String name;
         private String policy;
         private String rootResourceId;
@@ -232,7 +231,7 @@ public final class GetRestApiResult {
             return this;
         }
         @CustomType.Setter
-        public Builder minimumCompressionSize(Integer minimumCompressionSize) {
+        public Builder minimumCompressionSize(String minimumCompressionSize) {
             this.minimumCompressionSize = Objects.requireNonNull(minimumCompressionSize);
             return this;
         }

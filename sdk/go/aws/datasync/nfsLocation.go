@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/datasync"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/datasync"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -49,13 +50,11 @@ import (
 //
 // ## Import
 //
-// `aws_datasync_location_nfs` can be imported by using the DataSync Task Amazon Resource Name (ARN), e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_datasync_location_nfs.example
 //
-//	$ pulumi import aws:datasync/nfsLocation:NfsLocation example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
-//
-// ```
+//	id = "arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567" } Using `pulumi import`, import `aws_datasync_location_nfs` using the DataSync Task Amazon Resource Name (ARN). For exampleconsole % pulumi import aws_datasync_location_nfs.example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
 type NfsLocation struct {
 	pulumi.CustomResourceState
 
@@ -92,6 +91,7 @@ func NewNfsLocation(ctx *pulumi.Context,
 	if args.Subdirectory == nil {
 		return nil, errors.New("invalid value for required argument 'Subdirectory'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NfsLocation
 	err := ctx.RegisterResource("aws:datasync/nfsLocation:NfsLocation", name, args, &resource, opts...)
 	if err != nil {

@@ -286,11 +286,11 @@ class CloudFormationStack(pulumi.CustomResource):
 
         ## Import
 
-        Serverless Application Repository Stack can be imported using the CloudFormation Stack name (with or without the `serverlessrepo-` prefix) or the CloudFormation Stack ID, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:serverlessrepository/cloudFormationStack:CloudFormationStack example serverlessrepo-postgres-rotator
-        ```
+         to = aws_serverlessapplicationrepository_cloudformation_stack.example
+
+         id = "serverlessrepo-postgres-rotator" } Using `pulumi import`, import Serverless Application Repository Stack using the CloudFormation Stack name (with or without the `serverlessrepo-` prefix) or the CloudFormation Stack ID. For exampleconsole % pulumi import aws_serverlessapplicationrepository_cloudformation_stack.example serverlessrepo-postgres-rotator
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -332,11 +332,11 @@ class CloudFormationStack(pulumi.CustomResource):
 
         ## Import
 
-        Serverless Application Repository Stack can be imported using the CloudFormation Stack name (with or without the `serverlessrepo-` prefix) or the CloudFormation Stack ID, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:serverlessrepository/cloudFormationStack:CloudFormationStack example serverlessrepo-postgres-rotator
-        ```
+         to = aws_serverlessapplicationrepository_cloudformation_stack.example
+
+         id = "serverlessrepo-postgres-rotator" } Using `pulumi import`, import Serverless Application Repository Stack using the CloudFormation Stack name (with or without the `serverlessrepo-` prefix) or the CloudFormation Stack ID. For exampleconsole % pulumi import aws_serverlessapplicationrepository_cloudformation_stack.example serverlessrepo-postgres-rotator
 
         :param str resource_name: The name of the resource.
         :param CloudFormationStackArgs args: The arguments to use to populate this resource's properties.

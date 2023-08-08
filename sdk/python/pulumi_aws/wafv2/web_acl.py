@@ -19,6 +19,7 @@ class WebAclArgs:
                  default_action: pulumi.Input['WebAclDefaultActionArgs'],
                  scope: pulumi.Input[str],
                  visibility_config: pulumi.Input['WebAclVisibilityConfigArgs'],
+                 association_config: Optional[pulumi.Input['WebAclAssociationConfigArgs']] = None,
                  captcha_config: Optional[pulumi.Input['WebAclCaptchaConfigArgs']] = None,
                  custom_response_bodies: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclCustomResponseBodyArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -28,10 +29,11 @@ class WebAclArgs:
                  token_domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a WebAcl resource.
-        :param pulumi.Input['WebAclDefaultActionArgs'] default_action: Action to perform if none of the `rules` contained in the WebACL match. See `default_ action` below for details.
+        :param pulumi.Input['WebAclDefaultActionArgs'] default_action: Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.
         :param pulumi.Input[str] scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
         :param pulumi.Input['WebAclVisibilityConfigArgs'] visibility_config: Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibility_config` below for details.
-        :param pulumi.Input['WebAclCaptchaConfigArgs'] captcha_config: Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+        :param pulumi.Input['WebAclAssociationConfigArgs'] association_config: Specifies custom configurations for the associations between the web ACL and protected resources. See `association_config` below for details.
+        :param pulumi.Input['WebAclCaptchaConfigArgs'] captcha_config: Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
         :param pulumi.Input[Sequence[pulumi.Input['WebAclCustomResponseBodyArgs']]] custom_response_bodies: Defines custom response bodies that can be referenced by `custom_response` actions. See `custom_response_body` below for details.
         :param pulumi.Input[str] description: Friendly description of the WebACL.
         :param pulumi.Input[str] name: Friendly name of the WebACL.
@@ -42,6 +44,8 @@ class WebAclArgs:
         pulumi.set(__self__, "default_action", default_action)
         pulumi.set(__self__, "scope", scope)
         pulumi.set(__self__, "visibility_config", visibility_config)
+        if association_config is not None:
+            pulumi.set(__self__, "association_config", association_config)
         if captcha_config is not None:
             pulumi.set(__self__, "captcha_config", captcha_config)
         if custom_response_bodies is not None:
@@ -61,7 +65,7 @@ class WebAclArgs:
     @pulumi.getter(name="defaultAction")
     def default_action(self) -> pulumi.Input['WebAclDefaultActionArgs']:
         """
-        Action to perform if none of the `rules` contained in the WebACL match. See `default_ action` below for details.
+        Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.
         """
         return pulumi.get(self, "default_action")
 
@@ -94,10 +98,22 @@ class WebAclArgs:
         pulumi.set(self, "visibility_config", value)
 
     @property
+    @pulumi.getter(name="associationConfig")
+    def association_config(self) -> Optional[pulumi.Input['WebAclAssociationConfigArgs']]:
+        """
+        Specifies custom configurations for the associations between the web ACL and protected resources. See `association_config` below for details.
+        """
+        return pulumi.get(self, "association_config")
+
+    @association_config.setter
+    def association_config(self, value: Optional[pulumi.Input['WebAclAssociationConfigArgs']]):
+        pulumi.set(self, "association_config", value)
+
+    @property
     @pulumi.getter(name="captchaConfig")
     def captcha_config(self) -> Optional[pulumi.Input['WebAclCaptchaConfigArgs']]:
         """
-        Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+        Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
         """
         return pulumi.get(self, "captcha_config")
 
@@ -182,6 +198,7 @@ class WebAclArgs:
 class _WebAclState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
+                 association_config: Optional[pulumi.Input['WebAclAssociationConfigArgs']] = None,
                  capacity: Optional[pulumi.Input[int]] = None,
                  captcha_config: Optional[pulumi.Input['WebAclCaptchaConfigArgs']] = None,
                  custom_response_bodies: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclCustomResponseBodyArgs']]]] = None,
@@ -198,10 +215,11 @@ class _WebAclState:
         """
         Input properties used for looking up and filtering WebAcl resources.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the IP Set that this statement references.
+        :param pulumi.Input['WebAclAssociationConfigArgs'] association_config: Specifies custom configurations for the associations between the web ACL and protected resources. See `association_config` below for details.
         :param pulumi.Input[int] capacity: Web ACL capacity units (WCUs) currently being used by this web ACL.
-        :param pulumi.Input['WebAclCaptchaConfigArgs'] captcha_config: Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+        :param pulumi.Input['WebAclCaptchaConfigArgs'] captcha_config: Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
         :param pulumi.Input[Sequence[pulumi.Input['WebAclCustomResponseBodyArgs']]] custom_response_bodies: Defines custom response bodies that can be referenced by `custom_response` actions. See `custom_response_body` below for details.
-        :param pulumi.Input['WebAclDefaultActionArgs'] default_action: Action to perform if none of the `rules` contained in the WebACL match. See `default_ action` below for details.
+        :param pulumi.Input['WebAclDefaultActionArgs'] default_action: Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.
         :param pulumi.Input[str] description: Friendly description of the WebACL.
         :param pulumi.Input[str] name: Friendly name of the WebACL.
         :param pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]] rules: Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
@@ -213,6 +231,8 @@ class _WebAclState:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
+        if association_config is not None:
+            pulumi.set(__self__, "association_config", association_config)
         if capacity is not None:
             pulumi.set(__self__, "capacity", capacity)
         if captcha_config is not None:
@@ -253,6 +273,18 @@ class _WebAclState:
         pulumi.set(self, "arn", value)
 
     @property
+    @pulumi.getter(name="associationConfig")
+    def association_config(self) -> Optional[pulumi.Input['WebAclAssociationConfigArgs']]:
+        """
+        Specifies custom configurations for the associations between the web ACL and protected resources. See `association_config` below for details.
+        """
+        return pulumi.get(self, "association_config")
+
+    @association_config.setter
+    def association_config(self, value: Optional[pulumi.Input['WebAclAssociationConfigArgs']]):
+        pulumi.set(self, "association_config", value)
+
+    @property
     @pulumi.getter
     def capacity(self) -> Optional[pulumi.Input[int]]:
         """
@@ -268,7 +300,7 @@ class _WebAclState:
     @pulumi.getter(name="captchaConfig")
     def captcha_config(self) -> Optional[pulumi.Input['WebAclCaptchaConfigArgs']]:
         """
-        Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+        Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
         """
         return pulumi.get(self, "captcha_config")
 
@@ -292,7 +324,7 @@ class _WebAclState:
     @pulumi.getter(name="defaultAction")
     def default_action(self) -> Optional[pulumi.Input['WebAclDefaultActionArgs']]:
         """
-        Action to perform if none of the `rules` contained in the WebACL match. See `default_ action` below for details.
+        Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.
         """
         return pulumi.get(self, "default_action")
 
@@ -411,6 +443,7 @@ class WebAcl(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 association_config: Optional[pulumi.Input[pulumi.InputType['WebAclAssociationConfigArgs']]] = None,
                  captcha_config: Optional[pulumi.Input[pulumi.InputType['WebAclCaptchaConfigArgs']]] = None,
                  custom_response_bodies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebAclCustomResponseBodyArgs']]]]] = None,
                  default_action: Optional[pulumi.Input[pulumi.InputType['WebAclDefaultActionArgs']]] = None,
@@ -423,240 +456,13 @@ class WebAcl(pulumi.CustomResource):
                  visibility_config: Optional[pulumi.Input[pulumi.InputType['WebAclVisibilityConfigArgs']]] = None,
                  __props__=None):
         """
-        Creates a WAFv2 Web ACL resource.
-
-        > **Note:** In `field_to_match` blocks, _e.g._, in `byte_match_statement`, the `body` block includes an optional argument `oversize_handling`. AWS indicates this argument will be required starting February 2023. To avoid configurations breaking when that change happens, treat the `oversize_handling` argument as **required** as soon as possible.
-
-        ## Example Usage
-
-        This resource is based on `wafv2.RuleGroup`, check the documentation of the `wafv2.RuleGroup` resource to see examples of the various available statements.
-        ### Account Takeover Protection
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        atp_example = aws.wafv2.WebAcl("atp-example",
-            default_action=aws.wafv2.WebAclDefaultActionArgs(
-                allow=aws.wafv2.WebAclDefaultActionAllowArgs(),
-            ),
-            description="Example of a managed ATP rule.",
-            rules=[aws.wafv2.WebAclRuleArgs(
-                name="atp-rule-1",
-                override_action=aws.wafv2.WebAclRuleOverrideActionArgs(
-                    count=aws.wafv2.WebAclRuleOverrideActionCountArgs(),
-                ),
-                priority=1,
-                statement=aws.wafv2.WebAclRuleStatementArgs(
-                    managed_rule_group_statement=aws.wafv2.WebAclRuleStatementManagedRuleGroupStatementArgs(
-                        managed_rule_group_configs=[aws.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs(
-                            aws_managed_rules_atp_rule_set=aws.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetArgs(
-                                login_path="/api/1/signin",
-                                request_inspection=aws.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionArgs(
-                                    password_field=aws.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordFieldArgs(
-                                        identifier="/password",
-                                    ),
-                                    payload_type="JSON",
-                                    username_field=aws.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionUsernameFieldArgs(
-                                        identifier="/email",
-                                    ),
-                                ),
-                                response_inspection=aws.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionArgs(
-                                    status_code=aws.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionStatusCodeArgs(
-                                        failure_codes=[403],
-                                        success_codes=[200],
-                                    ),
-                                ),
-                            ),
-                        )],
-                        name="AWSManagedRulesATPRuleSet",
-                        vendor_name="AWS",
-                    ),
-                ),
-                visibility_config=aws.wafv2.WebAclRuleVisibilityConfigArgs(
-                    cloudwatch_metrics_enabled=False,
-                    metric_name="friendly-rule-metric-name",
-                    sampled_requests_enabled=False,
-                ),
-            )],
-            scope="CLOUDFRONT",
-            visibility_config=aws.wafv2.WebAclVisibilityConfigArgs(
-                cloudwatch_metrics_enabled=False,
-                metric_name="friendly-metric-name",
-                sampled_requests_enabled=False,
-            ))
-        ```
-        ### Rate Based
-
-        Rate-limit US and NL-based clients to 10,000 requests for every 5 minutes.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.wafv2.WebAcl("example",
-            default_action=aws.wafv2.WebAclDefaultActionArgs(
-                allow=aws.wafv2.WebAclDefaultActionAllowArgs(),
-            ),
-            description="Example of a Cloudfront rate based statement.",
-            rules=[aws.wafv2.WebAclRuleArgs(
-                action=aws.wafv2.WebAclRuleActionArgs(
-                    block=aws.wafv2.WebAclRuleActionBlockArgs(),
-                ),
-                name="rule-1",
-                priority=1,
-                statement=aws.wafv2.WebAclRuleStatementArgs(
-                    rate_based_statement=aws.wafv2.WebAclRuleStatementRateBasedStatementArgs(
-                        aggregate_key_type="IP",
-                        limit=10000,
-                        scope_down_statement=aws.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementArgs(
-                            geo_match_statement=aws.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementArgs(
-                                country_codes=[
-                                    "US",
-                                    "NL",
-                                ],
-                            ),
-                        ),
-                    ),
-                ),
-                visibility_config=aws.wafv2.WebAclRuleVisibilityConfigArgs(
-                    cloudwatch_metrics_enabled=False,
-                    metric_name="friendly-rule-metric-name",
-                    sampled_requests_enabled=False,
-                ),
-            )],
-            scope="CLOUDFRONT",
-            tags={
-                "Tag1": "Value1",
-                "Tag2": "Value2",
-            },
-            visibility_config=aws.wafv2.WebAclVisibilityConfigArgs(
-                cloudwatch_metrics_enabled=False,
-                metric_name="friendly-metric-name",
-                sampled_requests_enabled=False,
-            ))
-        ```
-        ### Rule Group Reference
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.wafv2.RuleGroup("example",
-            capacity=10,
-            scope="REGIONAL",
-            rules=[
-                aws.wafv2.RuleGroupRuleArgs(
-                    name="rule-1",
-                    priority=1,
-                    action=aws.wafv2.RuleGroupRuleActionArgs(
-                        count=aws.wafv2.RuleGroupRuleActionCountArgs(),
-                    ),
-                    statement=aws.wafv2.RuleGroupRuleStatementArgs(
-                        geo_match_statement=aws.wafv2.RuleGroupRuleStatementGeoMatchStatementArgs(
-                            country_codes=["NL"],
-                        ),
-                    ),
-                    visibility_config=aws.wafv2.RuleGroupRuleVisibilityConfigArgs(
-                        cloudwatch_metrics_enabled=False,
-                        metric_name="friendly-rule-metric-name",
-                        sampled_requests_enabled=False,
-                    ),
-                ),
-                aws.wafv2.RuleGroupRuleArgs(
-                    name="rule-to-exclude-a",
-                    priority=10,
-                    action=aws.wafv2.RuleGroupRuleActionArgs(
-                        allow=aws.wafv2.RuleGroupRuleActionAllowArgs(),
-                    ),
-                    statement=aws.wafv2.RuleGroupRuleStatementArgs(
-                        geo_match_statement=aws.wafv2.RuleGroupRuleStatementGeoMatchStatementArgs(
-                            country_codes=["US"],
-                        ),
-                    ),
-                    visibility_config=aws.wafv2.RuleGroupRuleVisibilityConfigArgs(
-                        cloudwatch_metrics_enabled=False,
-                        metric_name="friendly-rule-metric-name",
-                        sampled_requests_enabled=False,
-                    ),
-                ),
-                aws.wafv2.RuleGroupRuleArgs(
-                    name="rule-to-exclude-b",
-                    priority=15,
-                    action=aws.wafv2.RuleGroupRuleActionArgs(
-                        allow=aws.wafv2.RuleGroupRuleActionAllowArgs(),
-                    ),
-                    statement=aws.wafv2.RuleGroupRuleStatementArgs(
-                        geo_match_statement=aws.wafv2.RuleGroupRuleStatementGeoMatchStatementArgs(
-                            country_codes=["GB"],
-                        ),
-                    ),
-                    visibility_config=aws.wafv2.RuleGroupRuleVisibilityConfigArgs(
-                        cloudwatch_metrics_enabled=False,
-                        metric_name="friendly-rule-metric-name",
-                        sampled_requests_enabled=False,
-                    ),
-                ),
-            ],
-            visibility_config=aws.wafv2.RuleGroupVisibilityConfigArgs(
-                cloudwatch_metrics_enabled=False,
-                metric_name="friendly-metric-name",
-                sampled_requests_enabled=False,
-            ))
-        test = aws.wafv2.WebAcl("test",
-            scope="REGIONAL",
-            default_action=aws.wafv2.WebAclDefaultActionArgs(
-                block=aws.wafv2.WebAclDefaultActionBlockArgs(),
-            ),
-            rules=[aws.wafv2.WebAclRuleArgs(
-                name="rule-1",
-                priority=1,
-                override_action=aws.wafv2.WebAclRuleOverrideActionArgs(
-                    count=aws.wafv2.WebAclRuleOverrideActionCountArgs(),
-                ),
-                statement=aws.wafv2.WebAclRuleStatementArgs(
-                    rule_group_reference_statement=aws.wafv2.WebAclRuleStatementRuleGroupReferenceStatementArgs(
-                        arn=example.arn,
-                        excluded_rules=[
-                            aws.wafv2.WebAclRuleStatementRuleGroupReferenceStatementExcludedRuleArgs(
-                                name="rule-to-exclude-b",
-                            ),
-                            aws.wafv2.WebAclRuleStatementRuleGroupReferenceStatementExcludedRuleArgs(
-                                name="rule-to-exclude-a",
-                            ),
-                        ],
-                    ),
-                ),
-                visibility_config=aws.wafv2.WebAclRuleVisibilityConfigArgs(
-                    cloudwatch_metrics_enabled=False,
-                    metric_name="friendly-rule-metric-name",
-                    sampled_requests_enabled=False,
-                ),
-            )],
-            tags={
-                "Tag1": "Value1",
-                "Tag2": "Value2",
-            },
-            visibility_config=aws.wafv2.WebAclVisibilityConfigArgs(
-                cloudwatch_metrics_enabled=False,
-                metric_name="friendly-metric-name",
-                sampled_requests_enabled=False,
-            ))
-        ```
-
-        ## Import
-
-        WAFv2 Web ACLs can be imported using `ID/Name/Scope` e.g.,
-
-        ```sh
-         $ pulumi import aws:wafv2/webAcl:WebAcl example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
-        ```
-
+        Create a WebAcl resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['WebAclCaptchaConfigArgs']] captcha_config: Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+        :param pulumi.Input[pulumi.InputType['WebAclAssociationConfigArgs']] association_config: Specifies custom configurations for the associations between the web ACL and protected resources. See `association_config` below for details.
+        :param pulumi.Input[pulumi.InputType['WebAclCaptchaConfigArgs']] captcha_config: Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebAclCustomResponseBodyArgs']]]] custom_response_bodies: Defines custom response bodies that can be referenced by `custom_response` actions. See `custom_response_body` below for details.
-        :param pulumi.Input[pulumi.InputType['WebAclDefaultActionArgs']] default_action: Action to perform if none of the `rules` contained in the WebACL match. See `default_ action` below for details.
+        :param pulumi.Input[pulumi.InputType['WebAclDefaultActionArgs']] default_action: Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.
         :param pulumi.Input[str] description: Friendly description of the WebACL.
         :param pulumi.Input[str] name: Friendly name of the WebACL.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebAclRuleArgs']]]] rules: Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
@@ -672,235 +478,7 @@ class WebAcl(pulumi.CustomResource):
                  args: WebAclArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates a WAFv2 Web ACL resource.
-
-        > **Note:** In `field_to_match` blocks, _e.g._, in `byte_match_statement`, the `body` block includes an optional argument `oversize_handling`. AWS indicates this argument will be required starting February 2023. To avoid configurations breaking when that change happens, treat the `oversize_handling` argument as **required** as soon as possible.
-
-        ## Example Usage
-
-        This resource is based on `wafv2.RuleGroup`, check the documentation of the `wafv2.RuleGroup` resource to see examples of the various available statements.
-        ### Account Takeover Protection
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        atp_example = aws.wafv2.WebAcl("atp-example",
-            default_action=aws.wafv2.WebAclDefaultActionArgs(
-                allow=aws.wafv2.WebAclDefaultActionAllowArgs(),
-            ),
-            description="Example of a managed ATP rule.",
-            rules=[aws.wafv2.WebAclRuleArgs(
-                name="atp-rule-1",
-                override_action=aws.wafv2.WebAclRuleOverrideActionArgs(
-                    count=aws.wafv2.WebAclRuleOverrideActionCountArgs(),
-                ),
-                priority=1,
-                statement=aws.wafv2.WebAclRuleStatementArgs(
-                    managed_rule_group_statement=aws.wafv2.WebAclRuleStatementManagedRuleGroupStatementArgs(
-                        managed_rule_group_configs=[aws.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs(
-                            aws_managed_rules_atp_rule_set=aws.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetArgs(
-                                login_path="/api/1/signin",
-                                request_inspection=aws.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionArgs(
-                                    password_field=aws.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordFieldArgs(
-                                        identifier="/password",
-                                    ),
-                                    payload_type="JSON",
-                                    username_field=aws.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionUsernameFieldArgs(
-                                        identifier="/email",
-                                    ),
-                                ),
-                                response_inspection=aws.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionArgs(
-                                    status_code=aws.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionStatusCodeArgs(
-                                        failure_codes=[403],
-                                        success_codes=[200],
-                                    ),
-                                ),
-                            ),
-                        )],
-                        name="AWSManagedRulesATPRuleSet",
-                        vendor_name="AWS",
-                    ),
-                ),
-                visibility_config=aws.wafv2.WebAclRuleVisibilityConfigArgs(
-                    cloudwatch_metrics_enabled=False,
-                    metric_name="friendly-rule-metric-name",
-                    sampled_requests_enabled=False,
-                ),
-            )],
-            scope="CLOUDFRONT",
-            visibility_config=aws.wafv2.WebAclVisibilityConfigArgs(
-                cloudwatch_metrics_enabled=False,
-                metric_name="friendly-metric-name",
-                sampled_requests_enabled=False,
-            ))
-        ```
-        ### Rate Based
-
-        Rate-limit US and NL-based clients to 10,000 requests for every 5 minutes.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.wafv2.WebAcl("example",
-            default_action=aws.wafv2.WebAclDefaultActionArgs(
-                allow=aws.wafv2.WebAclDefaultActionAllowArgs(),
-            ),
-            description="Example of a Cloudfront rate based statement.",
-            rules=[aws.wafv2.WebAclRuleArgs(
-                action=aws.wafv2.WebAclRuleActionArgs(
-                    block=aws.wafv2.WebAclRuleActionBlockArgs(),
-                ),
-                name="rule-1",
-                priority=1,
-                statement=aws.wafv2.WebAclRuleStatementArgs(
-                    rate_based_statement=aws.wafv2.WebAclRuleStatementRateBasedStatementArgs(
-                        aggregate_key_type="IP",
-                        limit=10000,
-                        scope_down_statement=aws.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementArgs(
-                            geo_match_statement=aws.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementArgs(
-                                country_codes=[
-                                    "US",
-                                    "NL",
-                                ],
-                            ),
-                        ),
-                    ),
-                ),
-                visibility_config=aws.wafv2.WebAclRuleVisibilityConfigArgs(
-                    cloudwatch_metrics_enabled=False,
-                    metric_name="friendly-rule-metric-name",
-                    sampled_requests_enabled=False,
-                ),
-            )],
-            scope="CLOUDFRONT",
-            tags={
-                "Tag1": "Value1",
-                "Tag2": "Value2",
-            },
-            visibility_config=aws.wafv2.WebAclVisibilityConfigArgs(
-                cloudwatch_metrics_enabled=False,
-                metric_name="friendly-metric-name",
-                sampled_requests_enabled=False,
-            ))
-        ```
-        ### Rule Group Reference
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.wafv2.RuleGroup("example",
-            capacity=10,
-            scope="REGIONAL",
-            rules=[
-                aws.wafv2.RuleGroupRuleArgs(
-                    name="rule-1",
-                    priority=1,
-                    action=aws.wafv2.RuleGroupRuleActionArgs(
-                        count=aws.wafv2.RuleGroupRuleActionCountArgs(),
-                    ),
-                    statement=aws.wafv2.RuleGroupRuleStatementArgs(
-                        geo_match_statement=aws.wafv2.RuleGroupRuleStatementGeoMatchStatementArgs(
-                            country_codes=["NL"],
-                        ),
-                    ),
-                    visibility_config=aws.wafv2.RuleGroupRuleVisibilityConfigArgs(
-                        cloudwatch_metrics_enabled=False,
-                        metric_name="friendly-rule-metric-name",
-                        sampled_requests_enabled=False,
-                    ),
-                ),
-                aws.wafv2.RuleGroupRuleArgs(
-                    name="rule-to-exclude-a",
-                    priority=10,
-                    action=aws.wafv2.RuleGroupRuleActionArgs(
-                        allow=aws.wafv2.RuleGroupRuleActionAllowArgs(),
-                    ),
-                    statement=aws.wafv2.RuleGroupRuleStatementArgs(
-                        geo_match_statement=aws.wafv2.RuleGroupRuleStatementGeoMatchStatementArgs(
-                            country_codes=["US"],
-                        ),
-                    ),
-                    visibility_config=aws.wafv2.RuleGroupRuleVisibilityConfigArgs(
-                        cloudwatch_metrics_enabled=False,
-                        metric_name="friendly-rule-metric-name",
-                        sampled_requests_enabled=False,
-                    ),
-                ),
-                aws.wafv2.RuleGroupRuleArgs(
-                    name="rule-to-exclude-b",
-                    priority=15,
-                    action=aws.wafv2.RuleGroupRuleActionArgs(
-                        allow=aws.wafv2.RuleGroupRuleActionAllowArgs(),
-                    ),
-                    statement=aws.wafv2.RuleGroupRuleStatementArgs(
-                        geo_match_statement=aws.wafv2.RuleGroupRuleStatementGeoMatchStatementArgs(
-                            country_codes=["GB"],
-                        ),
-                    ),
-                    visibility_config=aws.wafv2.RuleGroupRuleVisibilityConfigArgs(
-                        cloudwatch_metrics_enabled=False,
-                        metric_name="friendly-rule-metric-name",
-                        sampled_requests_enabled=False,
-                    ),
-                ),
-            ],
-            visibility_config=aws.wafv2.RuleGroupVisibilityConfigArgs(
-                cloudwatch_metrics_enabled=False,
-                metric_name="friendly-metric-name",
-                sampled_requests_enabled=False,
-            ))
-        test = aws.wafv2.WebAcl("test",
-            scope="REGIONAL",
-            default_action=aws.wafv2.WebAclDefaultActionArgs(
-                block=aws.wafv2.WebAclDefaultActionBlockArgs(),
-            ),
-            rules=[aws.wafv2.WebAclRuleArgs(
-                name="rule-1",
-                priority=1,
-                override_action=aws.wafv2.WebAclRuleOverrideActionArgs(
-                    count=aws.wafv2.WebAclRuleOverrideActionCountArgs(),
-                ),
-                statement=aws.wafv2.WebAclRuleStatementArgs(
-                    rule_group_reference_statement=aws.wafv2.WebAclRuleStatementRuleGroupReferenceStatementArgs(
-                        arn=example.arn,
-                        excluded_rules=[
-                            aws.wafv2.WebAclRuleStatementRuleGroupReferenceStatementExcludedRuleArgs(
-                                name="rule-to-exclude-b",
-                            ),
-                            aws.wafv2.WebAclRuleStatementRuleGroupReferenceStatementExcludedRuleArgs(
-                                name="rule-to-exclude-a",
-                            ),
-                        ],
-                    ),
-                ),
-                visibility_config=aws.wafv2.WebAclRuleVisibilityConfigArgs(
-                    cloudwatch_metrics_enabled=False,
-                    metric_name="friendly-rule-metric-name",
-                    sampled_requests_enabled=False,
-                ),
-            )],
-            tags={
-                "Tag1": "Value1",
-                "Tag2": "Value2",
-            },
-            visibility_config=aws.wafv2.WebAclVisibilityConfigArgs(
-                cloudwatch_metrics_enabled=False,
-                metric_name="friendly-metric-name",
-                sampled_requests_enabled=False,
-            ))
-        ```
-
-        ## Import
-
-        WAFv2 Web ACLs can be imported using `ID/Name/Scope` e.g.,
-
-        ```sh
-         $ pulumi import aws:wafv2/webAcl:WebAcl example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
-        ```
-
+        Create a WebAcl resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param WebAclArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -916,6 +494,7 @@ class WebAcl(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 association_config: Optional[pulumi.Input[pulumi.InputType['WebAclAssociationConfigArgs']]] = None,
                  captcha_config: Optional[pulumi.Input[pulumi.InputType['WebAclCaptchaConfigArgs']]] = None,
                  custom_response_bodies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebAclCustomResponseBodyArgs']]]]] = None,
                  default_action: Optional[pulumi.Input[pulumi.InputType['WebAclDefaultActionArgs']]] = None,
@@ -935,6 +514,7 @@ class WebAcl(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = WebAclArgs.__new__(WebAclArgs)
 
+            __props__.__dict__["association_config"] = association_config
             __props__.__dict__["captcha_config"] = captcha_config
             __props__.__dict__["custom_response_bodies"] = custom_response_bodies
             if default_action is None and not opts.urn:
@@ -966,6 +546,7 @@ class WebAcl(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
+            association_config: Optional[pulumi.Input[pulumi.InputType['WebAclAssociationConfigArgs']]] = None,
             capacity: Optional[pulumi.Input[int]] = None,
             captcha_config: Optional[pulumi.Input[pulumi.InputType['WebAclCaptchaConfigArgs']]] = None,
             custom_response_bodies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebAclCustomResponseBodyArgs']]]]] = None,
@@ -987,10 +568,11 @@ class WebAcl(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the IP Set that this statement references.
+        :param pulumi.Input[pulumi.InputType['WebAclAssociationConfigArgs']] association_config: Specifies custom configurations for the associations between the web ACL and protected resources. See `association_config` below for details.
         :param pulumi.Input[int] capacity: Web ACL capacity units (WCUs) currently being used by this web ACL.
-        :param pulumi.Input[pulumi.InputType['WebAclCaptchaConfigArgs']] captcha_config: Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+        :param pulumi.Input[pulumi.InputType['WebAclCaptchaConfigArgs']] captcha_config: Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebAclCustomResponseBodyArgs']]]] custom_response_bodies: Defines custom response bodies that can be referenced by `custom_response` actions. See `custom_response_body` below for details.
-        :param pulumi.Input[pulumi.InputType['WebAclDefaultActionArgs']] default_action: Action to perform if none of the `rules` contained in the WebACL match. See `default_ action` below for details.
+        :param pulumi.Input[pulumi.InputType['WebAclDefaultActionArgs']] default_action: Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.
         :param pulumi.Input[str] description: Friendly description of the WebACL.
         :param pulumi.Input[str] name: Friendly name of the WebACL.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebAclRuleArgs']]]] rules: Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
@@ -1005,6 +587,7 @@ class WebAcl(pulumi.CustomResource):
         __props__ = _WebAclState.__new__(_WebAclState)
 
         __props__.__dict__["arn"] = arn
+        __props__.__dict__["association_config"] = association_config
         __props__.__dict__["capacity"] = capacity
         __props__.__dict__["captcha_config"] = captcha_config
         __props__.__dict__["custom_response_bodies"] = custom_response_bodies
@@ -1029,6 +612,14 @@ class WebAcl(pulumi.CustomResource):
         return pulumi.get(self, "arn")
 
     @property
+    @pulumi.getter(name="associationConfig")
+    def association_config(self) -> pulumi.Output[Optional['outputs.WebAclAssociationConfig']]:
+        """
+        Specifies custom configurations for the associations between the web ACL and protected resources. See `association_config` below for details.
+        """
+        return pulumi.get(self, "association_config")
+
+    @property
     @pulumi.getter
     def capacity(self) -> pulumi.Output[int]:
         """
@@ -1040,7 +631,7 @@ class WebAcl(pulumi.CustomResource):
     @pulumi.getter(name="captchaConfig")
     def captcha_config(self) -> pulumi.Output[Optional['outputs.WebAclCaptchaConfig']]:
         """
-        Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+        Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
         """
         return pulumi.get(self, "captcha_config")
 
@@ -1056,7 +647,7 @@ class WebAcl(pulumi.CustomResource):
     @pulumi.getter(name="defaultAction")
     def default_action(self) -> pulumi.Output['outputs.WebAclDefaultAction']:
         """
-        Action to perform if none of the `rules` contained in the WebACL match. See `default_ action` below for details.
+        Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.
         """
         return pulumi.get(self, "default_action")
 

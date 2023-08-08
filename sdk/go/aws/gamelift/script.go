@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/gamelift"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/gamelift"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -44,13 +45,11 @@ import (
 //
 // ## Import
 //
-// GameLift Scripts can be imported using the ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_gamelift_script.example
 //
-//	$ pulumi import aws:gamelift/script:Script example <script-id>
-//
-// ```
+//	id = "<script-id>" } Using `pulumi import`, import GameLift Scripts using the ID. For exampleconsole % pulumi import aws_gamelift_script.example <script-id>
 type Script struct {
 	pulumi.CustomResourceState
 
@@ -77,6 +76,7 @@ func NewScript(ctx *pulumi.Context,
 		args = &ScriptArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Script
 	err := ctx.RegisterResource("aws:gamelift/script:Script", name, args, &resource, opts...)
 	if err != nil {

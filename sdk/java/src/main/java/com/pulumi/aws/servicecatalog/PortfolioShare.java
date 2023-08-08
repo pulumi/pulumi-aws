@@ -61,11 +61,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_servicecatalog_portfolio_share` can be imported using the portfolio share ID, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:servicecatalog/portfolioShare:PortfolioShare example port-12344321:ACCOUNT:123456789012
- * ```
+ *  to = aws_servicecatalog_portfolio_share.example
+ * 
+ *  id = &#34;port-12344321:ACCOUNT:123456789012&#34; } Using `pulumi import`, import `aws_servicecatalog_portfolio_share` using the portfolio share ID. For exampleconsole % pulumi import aws_servicecatalog_portfolio_share.example port-12344321:ACCOUNT:123456789012
  * 
  */
 @ResourceType(type="aws:servicecatalog/portfolioShare:PortfolioShare")

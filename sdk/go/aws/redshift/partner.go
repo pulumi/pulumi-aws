@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/redshift"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshift"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -44,13 +45,11 @@ import (
 //
 // ## Import
 //
-// Redshift usage limits can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_redshift_partner.example
 //
-//	$ pulumi import aws:redshift/partner:Partner example 01234567910:cluster-example-id:example:example
-//
-// ```
+//	id = "01234567910:cluster-example-id:example:example" } Using `pulumi import`, import Redshift usage limits using the `id`. For exampleconsole % pulumi import aws_redshift_partner.example 01234567910:cluster-example-id:example:example
 type Partner struct {
 	pulumi.CustomResourceState
 
@@ -87,6 +86,7 @@ func NewPartner(ctx *pulumi.Context,
 	if args.PartnerName == nil {
 		return nil, errors.New("invalid value for required argument 'PartnerName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Partner
 	err := ctx.RegisterResource("aws:redshift/partner:Partner", name, args, &resource, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -51,7 +52,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -78,13 +79,11 @@ import (
 //
 // ## Import
 //
-// SageMaker App Image Configs can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_sagemaker_app_image_config.example
 //
-//	$ pulumi import aws:sagemaker/appImageConfig:AppImageConfig example example
-//
-// ```
+//	id = "example" } Using `pulumi import`, import SageMaker App Image Configs using the `name`. For exampleconsole % pulumi import aws_sagemaker_app_image_config.example example
 type AppImageConfig struct {
 	pulumi.CustomResourceState
 
@@ -110,6 +109,7 @@ func NewAppImageConfig(ctx *pulumi.Context,
 	if args.AppImageConfigName == nil {
 		return nil, errors.New("invalid value for required argument 'AppImageConfigName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AppImageConfig
 	err := ctx.RegisterResource("aws:sagemaker/appImageConfig:AppImageConfig", name, args, &resource, opts...)
 	if err != nil {

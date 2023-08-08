@@ -14,7 +14,7 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class WebAclLoggingConfigurationLoggingFilterFilter
     {
         /// <summary>
-        /// How to handle logs that satisfy the filter's conditions and requirement. Valid values: `KEEP` or `DROP`.
+        /// Parameter that determines how to handle logs that meet the conditions and requirements of the filter. The valid values for `behavior` are `KEEP` or `DROP`.
         /// </summary>
         public readonly string Behavior;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.WebAclLoggingConfigurationLoggingFilterFilterCondition> Conditions;
         /// <summary>
-        /// Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition. Valid values: `MEETS_ALL` or `MEETS_ANY`.
+        /// Logic to apply to the filtering conditions. You can specify that a log must match all conditions or at least one condition in order to satisfy the filter. Valid values for `requirement` are `MEETS_ALL` or `MEETS_ANY`.
         /// </summary>
         public readonly string Requirement;
 

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicequotas"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicequotas"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -45,13 +46,11 @@ import (
 //
 // ## Import
 //
-// ~> *NOTE* This resource does not require explicit import and will assume management of an existing service quota on resource creation. `aws_servicequotas_service_quota` can be imported by using the service code and quota code, separated by a front slash (`/`), e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_servicequotas_service_quota.example
 //
-//	$ pulumi import aws:servicequotas/serviceQuota:ServiceQuota example vpc/L-F678F1CE
-//
-// ```
+//	id = "vpc/L-F678F1CE" } Using `pulumi import`, import `aws_servicequotas_service_quota` using the service code and quota code, separated by a front slash (`/`). For exampleconsole % pulumi import aws_servicequotas_service_quota.example vpc/L-F678F1CE
 type ServiceQuota struct {
 	pulumi.CustomResourceState
 
@@ -93,6 +92,7 @@ func NewServiceQuota(ctx *pulumi.Context,
 	if args.Value == nil {
 		return nil, errors.New("invalid value for required argument 'Value'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ServiceQuota
 	err := ctx.RegisterResource("aws:servicequotas/serviceQuota:ServiceQuota", name, args, &resource, opts...)
 	if err != nil {

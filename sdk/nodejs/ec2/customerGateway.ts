@@ -25,11 +25,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Customer Gateways can be imported using the `id`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:ec2/customerGateway:CustomerGateway main cgw-b4dc3961
- * ```
+ *  to = aws_customer_gateway.main
+ *
+ *  id = "cgw-b4dc3961" } Using `pulumi import`, import Customer Gateways using the `id`. For exampleconsole % pulumi import aws_customer_gateway.main cgw-b4dc3961
  */
 export class CustomerGateway extends pulumi.CustomResource {
     /**

@@ -12,6 +12,9 @@ namespace Pulumi.Aws.AppSync.Inputs
 
     public sealed class DataSourceDynamodbConfigGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The DeltaSyncConfig for a versioned data source. See Delta Sync Config
+        /// </summary>
         [Input("deltaSyncConfig")]
         public Input<Inputs.DataSourceDynamodbConfigDeltaSyncConfigGetArgs>? DeltaSyncConfig { get; set; }
 
@@ -33,6 +36,9 @@ namespace Pulumi.Aws.AppSync.Inputs
         [Input("useCallerCredentials")]
         public Input<bool>? UseCallerCredentials { get; set; }
 
+        /// <summary>
+        /// Detects Conflict Detection and Resolution with this data source.
+        /// </summary>
         [Input("versioned")]
         public Input<bool>? Versioned { get; set; }
 

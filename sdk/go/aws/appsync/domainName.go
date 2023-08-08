@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appsync"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appsync"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,13 +43,11 @@ import (
 //
 // ## Import
 //
-// `aws_appsync_domain_name` can be imported using the AppSync domain name, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_appsync_domain_name.example
 //
-//	$ pulumi import aws:appsync/domainName:DomainName example example.com
-//
-// ```
+//	id = "example.com" } Using `pulumi import`, import `aws_appsync_domain_name` using the AppSync domain name. For exampleconsole % pulumi import aws_appsync_domain_name.example example.com
 type DomainName struct {
 	pulumi.CustomResourceState
 
@@ -77,6 +76,7 @@ func NewDomainName(ctx *pulumi.Context,
 	if args.DomainName == nil {
 		return nil, errors.New("invalid value for required argument 'DomainName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DomainName
 	err := ctx.RegisterResource("aws:appsync/domainName:DomainName", name, args, &resource, opts...)
 	if err != nil {

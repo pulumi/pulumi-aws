@@ -28,6 +28,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.kms.Key;
@@ -93,11 +94,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * CodeBuild Report Group can be imported using the CodeBuild Report Group arn, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:codebuild/reportGroup:ReportGroup example arn:aws:codebuild:us-west-2:123456789:report-group/report-group-name
- * ```
+ *  to = aws_codebuild_report_group.example
+ * 
+ *  id = &#34;arn:aws:codebuild:us-west-2:123456789:report-group/report-group-name&#34; } Using `pulumi import`, import CodeBuild Report Group using the CodeBuild Report Group arn. For exampleconsole % pulumi import aws_codebuild_report_group.example arn:aws:codebuild:us-west-2:123456789:report-group/report-group-name
  * 
  */
 @ResourceType(type="aws:codebuild/reportGroup:ReportGroup")

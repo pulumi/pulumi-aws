@@ -92,11 +92,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * VPC Endpoint Services can be imported using the `VPC endpoint service id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:ec2/vpcEndpointService:VpcEndpointService foo vpce-svc-0f97a19d3fa8220bc
- * ```
+ *  to = aws_vpc_endpoint_service.foo
+ * 
+ *  id = &#34;vpce-svc-0f97a19d3fa8220bc&#34; } Using `pulumi import`, import VPC Endpoint Services using the VPC endpoint service `id`. For exampleconsole % pulumi import aws_vpc_endpoint_service.foo vpce-svc-0f97a19d3fa8220bc
  * 
  */
 @ResourceType(type="aws:ec2/vpcEndpointService:VpcEndpointService")

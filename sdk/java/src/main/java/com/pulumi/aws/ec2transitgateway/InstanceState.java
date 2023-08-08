@@ -77,11 +77,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_ec2_instance_state` can be imported by using the `instance_id` attribute, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:ec2transitgateway/instanceState:InstanceState test i-02cae6557dfcf2f96
- * ```
+ *  to = aws_ec2_instance_state.test
+ * 
+ *  id = &#34;i-02cae6557dfcf2f96&#34; } Using `pulumi import`, import `aws_ec2_instance_state` using the `instance_id` attribute. For exampleconsole % pulumi import aws_ec2_instance_state.test i-02cae6557dfcf2f96
  * 
  */
 @ResourceType(type="aws:ec2transitgateway/instanceState:InstanceState")

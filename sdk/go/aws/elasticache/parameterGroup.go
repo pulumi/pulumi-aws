@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elasticache"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticache"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -53,13 +54,11 @@ import (
 //
 // ## Import
 //
-// ElastiCache Parameter Groups can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_elasticache_parameter_group.default
 //
-//	$ pulumi import aws:elasticache/parameterGroup:ParameterGroup default redis-params
-//
-// ```
+//	id = "redis-params" } Using `pulumi import`, import ElastiCache Parameter Groups using the `name`. For exampleconsole % pulumi import aws_elasticache_parameter_group.default redis-params
 type ParameterGroup struct {
 	pulumi.CustomResourceState
 
@@ -92,6 +91,7 @@ func NewParameterGroup(ctx *pulumi.Context,
 	if args.Description == nil {
 		args.Description = pulumi.StringPtr("Managed by Pulumi")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ParameterGroup
 	err := ctx.RegisterResource("aws:elasticache/parameterGroup:ParameterGroup", name, args, &resource, opts...)
 	if err != nil {

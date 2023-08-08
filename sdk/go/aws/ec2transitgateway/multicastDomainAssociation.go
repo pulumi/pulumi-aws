@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -89,6 +90,7 @@ func NewMulticastDomainAssociation(ctx *pulumi.Context,
 	if args.TransitGatewayMulticastDomainId == nil {
 		return nil, errors.New("invalid value for required argument 'TransitGatewayMulticastDomainId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MulticastDomainAssociation
 	err := ctx.RegisterResource("aws:ec2transitgateway/multicastDomainAssociation:MulticastDomainAssociation", name, args, &resource, opts...)
 	if err != nil {

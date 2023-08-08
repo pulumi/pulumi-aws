@@ -49,11 +49,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * SES Receipt Filter can be imported using their `name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:ses/receiptFilter:ReceiptFilter test some-filter
- * ```
+ *  to = aws_ses_receipt_filter.test
+ * 
+ *  id = &#34;some-filter&#34; } Using `pulumi import`, import SES Receipt Filter using their `name`. For exampleconsole % pulumi import aws_ses_receipt_filter.test some-filter
  * 
  */
 @ResourceType(type="aws:ses/receiptFilter:ReceiptFilter")

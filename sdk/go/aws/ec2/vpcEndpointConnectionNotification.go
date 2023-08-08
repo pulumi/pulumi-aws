@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,9 +22,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -88,13 +89,11 @@ import (
 //
 // ## Import
 //
-// VPC Endpoint connection notifications can be imported using the `VPC endpoint connection notification id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_vpc_endpoint_connection_notification.foo
 //
-//	$ pulumi import aws:ec2/vpcEndpointConnectionNotification:VpcEndpointConnectionNotification foo vpce-nfn-09e6ed3b4efba2263
-//
-// ```
+//	id = "vpce-nfn-09e6ed3b4efba2263" } Using `pulumi import`, import VPC Endpoint connection notifications using the VPC endpoint connection notification `id`. For exampleconsole % pulumi import aws_vpc_endpoint_connection_notification.foo vpce-nfn-09e6ed3b4efba2263
 type VpcEndpointConnectionNotification struct {
 	pulumi.CustomResourceState
 
@@ -127,6 +126,7 @@ func NewVpcEndpointConnectionNotification(ctx *pulumi.Context,
 	if args.ConnectionNotificationArn == nil {
 		return nil, errors.New("invalid value for required argument 'ConnectionNotificationArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcEndpointConnectionNotification
 	err := ctx.RegisterResource("aws:ec2/vpcEndpointConnectionNotification:VpcEndpointConnectionNotification", name, args, &resource, opts...)
 	if err != nil {

@@ -39,11 +39,11 @@ namespace Pulumi.Aws.CloudFormation
     /// 
     /// ## Import
     /// 
-    /// `aws_cloudformation_type` can be imported with their type version Amazon Resource Name (ARN), e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:cloudformation/cloudFormationType:CloudFormationType example arn:aws:cloudformation:us-east-1:123456789012:type/resource/ExampleCompany-ExampleService-ExampleType/1
-    /// ```
+    ///  to = aws_cloudformation_type.example
+    /// 
+    ///  id = "arn:aws:cloudformation:us-east-1:123456789012:type/resource/ExampleCompany-ExampleService-ExampleType/1" } Using `pulumi import`, import `aws_cloudformation_type` using the type version Amazon Resource Name (ARN). For exampleconsole % pulumi import aws_cloudformation_type.example arn:aws:cloudformation:us-east-1:123456789012:type/resource/ExampleCompany-ExampleService-ExampleType/1
     /// </summary>
     [AwsResourceType("aws:cloudformation/cloudFormationType:CloudFormationType")]
     public partial class CloudFormationType : global::Pulumi.CustomResource

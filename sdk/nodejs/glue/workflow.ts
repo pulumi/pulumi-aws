@@ -40,11 +40,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Glue Workflows can be imported using `name`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:glue/workflow:Workflow MyWorkflow MyWorkflow
- * ```
+ *  to = aws_glue_workflow.MyWorkflow
+ *
+ *  id = "MyWorkflow" } Using `pulumi import`, import Glue Workflows using `name`. For exampleconsole % pulumi import aws_glue_workflow.MyWorkflow MyWorkflow
  */
 export class Workflow extends pulumi.CustomResource {
     /**
@@ -81,7 +81,7 @@ export class Workflow extends pulumi.CustomResource {
     /**
      * A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
      */
-    public readonly defaultRunProperties!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly defaultRunProperties!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Description of the workflow.
      */
@@ -149,7 +149,7 @@ export interface WorkflowState {
     /**
      * A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
      */
-    defaultRunProperties?: pulumi.Input<{[key: string]: any}>;
+    defaultRunProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Description of the workflow.
      */
@@ -179,7 +179,7 @@ export interface WorkflowArgs {
     /**
      * A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
      */
-    defaultRunProperties?: pulumi.Input<{[key: string]: any}>;
+    defaultRunProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Description of the workflow.
      */

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudformation"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudformation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -49,13 +50,11 @@ import (
 //
 // ## Import
 //
-// `aws_cloudformation_type` can be imported with their type version Amazon Resource Name (ARN), e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_cloudformation_type.example
 //
-//	$ pulumi import aws:cloudformation/cloudFormationType:CloudFormationType example arn:aws:cloudformation:us-east-1:123456789012:type/resource/ExampleCompany-ExampleService-ExampleType/1
-//
-// ```
+//	id = "arn:aws:cloudformation:us-east-1:123456789012:type/resource/ExampleCompany-ExampleService-ExampleType/1" } Using `pulumi import`, import `aws_cloudformation_type` using the type version Amazon Resource Name (ARN). For exampleconsole % pulumi import aws_cloudformation_type.example arn:aws:cloudformation:us-east-1:123456789012:type/resource/ExampleCompany-ExampleService-ExampleType/1
 type CloudFormationType struct {
 	pulumi.CustomResourceState
 
@@ -108,6 +107,7 @@ func NewCloudFormationType(ctx *pulumi.Context,
 	if args.TypeName == nil {
 		return nil, errors.New("invalid value for required argument 'TypeName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CloudFormationType
 	err := ctx.RegisterResource("aws:cloudformation/cloudFormationType:CloudFormationType", name, args, &resource, opts...)
 	if err != nil {

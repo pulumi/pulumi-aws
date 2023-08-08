@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kendra"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kendra"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -55,13 +56,11 @@ import (
 //
 // ## Import
 //
-// Kendra Experience can be imported using the unique identifiers of the experience and index separated by a slash (`/`) e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_kendra_experience.example
 //
-//	$ pulumi import aws:kendra/experience:Experience example 1045d08d-66ef-4882-b3ed-dfb7df183e90/b34dfdf7-1f2b-4704-9581-79e00296845f
-//
-// ```
+//	id = "1045d08d-66ef-4882-b3ed-dfb7df183e90/b34dfdf7-1f2b-4704-9581-79e00296845f" } Using `pulumi import`, import Kendra Experience using the unique identifiers of the experience and index separated by a slash (`/`). For exampleconsole % pulumi import aws_kendra_experience.example 1045d08d-66ef-4882-b3ed-dfb7df183e90/b34dfdf7-1f2b-4704-9581-79e00296845f
 type Experience struct {
 	pulumi.CustomResourceState
 
@@ -100,6 +99,7 @@ func NewExperience(ctx *pulumi.Context,
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Experience
 	err := ctx.RegisterResource("aws:kendra/experience:Experience", name, args, &resource, opts...)
 	if err != nil {

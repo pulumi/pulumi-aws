@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,12 +20,14 @@ import (
 // package main
 //
 // import (
-// "fmt"
 //
-// "github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codebuild"
-// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codebuild"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
@@ -158,7 +161,7 @@ import (
 // },
 // Environment: &codebuild.ProjectEnvironmentArgs{
 // ComputeType: pulumi.String("BUILD_GENERAL1_SMALL"),
-// Image: pulumi.String("aws/codebuild/standard:1.0"),
+// Image: pulumi.String("aws/codebuild/amazonlinux2-x86_64-standard:4.0"),
 // Type: pulumi.String("LINUX_CONTAINER"),
 // ImagePullCredentialsType: pulumi.String("CODEBUILD"),
 // EnvironmentVariables: codebuild.ProjectEnvironmentEnvironmentVariableArray{
@@ -229,7 +232,7 @@ import (
 // },
 // Environment: &codebuild.ProjectEnvironmentArgs{
 // ComputeType: pulumi.String("BUILD_GENERAL1_SMALL"),
-// Image: pulumi.String("aws/codebuild/standard:1.0"),
+// Image: pulumi.String("aws/codebuild/amazonlinux2-x86_64-standard:4.0"),
 // Type: pulumi.String("LINUX_CONTAINER"),
 // ImagePullCredentialsType: pulumi.String("CODEBUILD"),
 // EnvironmentVariables: codebuild.ProjectEnvironmentEnvironmentVariableArray{
@@ -258,13 +261,11 @@ import (
 //
 // ## Import
 //
-// CodeBuild Project can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_codebuild_project.name
 //
-//	$ pulumi import aws:codebuild/project:Project name project-name
-//
-// ```
+//	id = "project-name" } Using `pulumi import`, import CodeBuild Project using the `name`. For exampleconsole % pulumi import aws_codebuild_project.name project-name
 type Project struct {
 	pulumi.CustomResourceState
 
@@ -345,6 +346,7 @@ func NewProject(ctx *pulumi.Context,
 	if args.Source == nil {
 		return nil, errors.New("invalid value for required argument 'Source'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Project
 	err := ctx.RegisterResource("aws:codebuild/project:Project", name, args, &resource, opts...)
 	if err != nil {

@@ -81,11 +81,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Opsworks Application can be imported using the `id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:opsworks/application:Application test &lt;id&gt;
- * ```
+ *  to = aws_opsworks_application.test
+ * 
+ *  id = &#34;&lt;id&gt;&#34; } Using `pulumi import`, import Opsworks Application using the `id`. For exampleconsole % pulumi import aws_opsworks_application.test &lt;id&gt;
  * 
  */
 @ResourceType(type="aws:opsworks/application:Application")

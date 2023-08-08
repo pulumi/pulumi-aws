@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lightsail"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -43,13 +44,11 @@ import (
 //
 // ## Import
 //
-// `aws_lightsail_certificate` can be imported using the certificate name, e.g.
+// terraform import {
 //
-// ```sh
+//	to = aws_lightsail_certificate.test
 //
-//	$ pulumi import aws:lightsail/certificate:Certificate test CertificateName
-//
-// ```
+//	id = "CertificateName" } Using `pulumi import`, import `aws_lightsail_certificate` using the certificate name. For exampleconsole % pulumi import aws_lightsail_certificate.test CertificateName
 type Certificate struct {
 	pulumi.CustomResourceState
 
@@ -78,6 +77,7 @@ func NewCertificate(ctx *pulumi.Context,
 		args = &CertificateArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Certificate
 	err := ctx.RegisterResource("aws:lightsail/certificate:Certificate", name, args, &resource, opts...)
 	if err != nil {

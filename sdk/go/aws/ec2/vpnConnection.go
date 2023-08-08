@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,8 +26,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -65,7 +66,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -113,9 +114,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directconnect"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directconnect"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -186,13 +187,11 @@ import (
 //
 // ## Import
 //
-// VPN Connections can be imported using the `vpn connection id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_vpn_connection.testvpnconnection
 //
-//	$ pulumi import aws:ec2/vpnConnection:VpnConnection testvpnconnection vpn-40f41529
-//
-// ```
+//	id = "vpn-40f41529" } Using `pulumi import`, import VPN Connections using the VPN connection `id`. For exampleconsole % pulumi import aws_vpn_connection.testvpnconnection vpn-40f41529
 type VpnConnection struct {
 	pulumi.CustomResourceState
 
@@ -367,6 +366,7 @@ func NewVpnConnection(ctx *pulumi.Context,
 		"tunnel2PresharedKey",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpnConnection
 	err := ctx.RegisterResource("aws:ec2/vpnConnection:VpnConnection", name, args, &resource, opts...)
 	if err != nil {

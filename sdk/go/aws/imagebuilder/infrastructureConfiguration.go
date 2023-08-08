@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/imagebuilder"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/imagebuilder"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -62,13 +63,11 @@ import (
 //
 // ## Import
 //
-// `aws_imagebuilder_infrastructure_configuration` can be imported using the Amazon Resource Name (ARN), e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_imagebuilder_infrastructure_configuration.example
 //
-//	$ pulumi import aws:imagebuilder/infrastructureConfiguration:InfrastructureConfiguration example arn:aws:imagebuilder:us-east-1:123456789012:infrastructure-configuration/example
-//
-// ```
+//	id = "arn:aws:imagebuilder:us-east-1:123456789012:infrastructure-configuration/example" } Using `pulumi import`, import `aws_imagebuilder_infrastructure_configuration` using the Amazon Resource Name (ARN). For exampleconsole % pulumi import aws_imagebuilder_infrastructure_configuration.example arn:aws:imagebuilder:us-east-1:123456789012:infrastructure-configuration/example
 type InfrastructureConfiguration struct {
 	pulumi.CustomResourceState
 
@@ -120,6 +119,7 @@ func NewInfrastructureConfiguration(ctx *pulumi.Context,
 	if args.InstanceProfileName == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceProfileName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource InfrastructureConfiguration
 	err := ctx.RegisterResource("aws:imagebuilder/infrastructureConfiguration:InfrastructureConfiguration", name, args, &resource, opts...)
 	if err != nil {

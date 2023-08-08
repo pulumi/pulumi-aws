@@ -21,8 +21,6 @@ import javax.annotation.Nullable;
  * 
  * &gt; *NOTE:* The AWS Cost and Usage Report service is only available in `us-east-1` currently.
  * 
- * &gt; *NOTE:* If AWS Organizations is enabled, only the master account can use this resource.
- * 
  * ## Example Usage
  * ```java
  * package generated_program;
@@ -49,7 +47,9 @@ import javax.annotation.Nullable;
  *             .additionalArtifacts(            
  *                 &#34;REDSHIFT&#34;,
  *                 &#34;QUICKSIGHT&#34;)
- *             .additionalSchemaElements(&#34;RESOURCES&#34;)
+ *             .additionalSchemaElements(            
+ *                 &#34;RESOURCES&#34;,
+ *                 &#34;SPLIT_COST_ALLOCATION_DATA&#34;)
  *             .compression(&#34;GZIP&#34;)
  *             .format(&#34;textORcsv&#34;)
  *             .reportName(&#34;example-cur-report-definition&#34;)
@@ -64,11 +64,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Report Definitions can be imported using the `report_name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:cur/reportDefinition:ReportDefinition example_cur_report_definition example-cur-report-definition
- * ```
+ *  to = aws_cur_report_definition.example_cur_report_definition
+ * 
+ *  id = &#34;example-cur-report-definition&#34; } Using `pulumi import`, import Report Definitions using the `report_name`. For exampleconsole % pulumi import aws_cur_report_definition.example_cur_report_definition example-cur-report-definition
  * 
  */
 @ResourceType(type="aws:cur/reportDefinition:ReportDefinition")
@@ -88,14 +88,14 @@ public class ReportDefinition extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.additionalArtifacts);
     }
     /**
-     * A list of schema elements. Valid values are: `RESOURCES`.
+     * A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
      * 
      */
     @Export(name="additionalSchemaElements", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> additionalSchemaElements;
 
     /**
-     * @return A list of schema elements. Valid values are: `RESOURCES`.
+     * @return A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
      * 
      */
     public Output<List<String>> additionalSchemaElements() {

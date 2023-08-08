@@ -11,7 +11,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Integer;
-import java.lang.Object;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -80,11 +79,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * A Glue Development Endpoint can be imported using the `name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:glue/devEndpoint:DevEndpoint example foo
- * ```
+ *  to = aws_glue_dev_endpoint.example
+ * 
+ *  id = &#34;foo&#34; } Using `pulumi import`, import a Glue Development Endpoint using the `name`. For exampleconsole % pulumi import aws_glue_dev_endpoint.example foo
  * 
  */
 @ResourceType(type="aws:glue/devEndpoint:DevEndpoint")
@@ -93,14 +92,14 @@ public class DevEndpoint extends com.pulumi.resources.CustomResource {
      * A map of arguments used to configure the endpoint.
      * 
      */
-    @Export(name="arguments", refs={Map.class,String.class,Object.class}, tree="[0,1,2]")
-    private Output</* @Nullable */ Map<String,Object>> arguments;
+    @Export(name="arguments", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output</* @Nullable */ Map<String,String>> arguments;
 
     /**
      * @return A map of arguments used to configure the endpoint.
      * 
      */
-    public Output<Optional<Map<String,Object>>> arguments() {
+    public Output<Optional<Map<String,String>>> arguments() {
         return Codegen.optional(this.arguments);
     }
     /**

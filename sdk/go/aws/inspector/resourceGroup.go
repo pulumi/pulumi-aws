@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/inspector"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/inspector"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -60,6 +61,7 @@ func NewResourceGroup(ctx *pulumi.Context,
 	if args.Tags == nil {
 		return nil, errors.New("invalid value for required argument 'Tags'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResourceGroup
 	err := ctx.RegisterResource("aws:inspector/resourceGroup:ResourceGroup", name, args, &resource, opts...)
 	if err != nil {

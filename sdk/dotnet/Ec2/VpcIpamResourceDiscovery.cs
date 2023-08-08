@@ -47,11 +47,11 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// IPAMs can be imported using the `ipam resource discovery id`, e.g.
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:ec2/vpcIpamResourceDiscovery:VpcIpamResourceDiscovery example ipam-res-disco-0178368ad2146a492
-    /// ```
+    ///  to = aws_vpc_ipam_resource_discovery.example
+    /// 
+    ///  id = "ipam-res-disco-0178368ad2146a492" } Using `pulumi import`, import IPAMs using the IPAM resource discovery `id`. For exampleconsole % pulumi import aws_vpc_ipam_resource_discovery.example ipam-res-disco-0178368ad2146a492
     /// </summary>
     [AwsResourceType("aws:ec2/vpcIpamResourceDiscovery:VpcIpamResourceDiscovery")]
     public partial class VpcIpamResourceDiscovery : global::Pulumi.CustomResource

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cfg"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cfg"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,13 +43,11 @@ import (
 //
 // ## Import
 //
-// Config aggregate authorizations can be imported using `account_id:region`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_config_aggregate_authorization.example
 //
-//	$ pulumi import aws:cfg/aggregateAuthorization:AggregateAuthorization example 123456789012:us-east-1
-//
-// ```
+//	id = "123456789012:us-east-1" } Using `pulumi import`, import Config aggregate authorizations using `account_id:region`. For exampleconsole % pulumi import aws_config_aggregate_authorization.example 123456789012:us-east-1
 type AggregateAuthorization struct {
 	pulumi.CustomResourceState
 
@@ -77,6 +76,7 @@ func NewAggregateAuthorization(ctx *pulumi.Context,
 	if args.Region == nil {
 		return nil, errors.New("invalid value for required argument 'Region'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AggregateAuthorization
 	err := ctx.RegisterResource("aws:cfg/aggregateAuthorization:AggregateAuthorization", name, args, &resource, opts...)
 	if err != nil {

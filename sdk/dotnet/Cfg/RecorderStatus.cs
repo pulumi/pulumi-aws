@@ -115,11 +115,11 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// ## Import
     /// 
-    /// Configuration Recorder Status can be imported using the name of the Configuration Recorder, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:cfg/recorderStatus:RecorderStatus foo example
-    /// ```
+    ///  to = aws_config_configuration_recorder_status.foo
+    /// 
+    ///  id = "example" } Using `pulumi import`, import Configuration Recorder Status using the name of the Configuration Recorder. For exampleconsole % pulumi import aws_config_configuration_recorder_status.foo example
     /// </summary>
     [AwsResourceType("aws:cfg/recorderStatus:RecorderStatus")]
     public partial class RecorderStatus : global::Pulumi.CustomResource

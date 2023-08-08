@@ -50,6 +50,8 @@ public final class EmailIdentityArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The email address or domain to verify.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="emailIdentity", required=true)
     private Output<String> emailIdentity;
@@ -57,20 +59,22 @@ public final class EmailIdentityArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The email address or domain to verify.
      * 
+     * The following arguments are optional:
+     * 
      */
     public Output<String> emailIdentity() {
         return this.emailIdentity;
     }
 
     /**
-     * (Optional) A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return (Optional) A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -149,6 +153,8 @@ public final class EmailIdentityArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param emailIdentity The email address or domain to verify.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -160,6 +166,8 @@ public final class EmailIdentityArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param emailIdentity The email address or domain to verify.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -168,7 +176,7 @@ public final class EmailIdentityArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags (Optional) A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -179,7 +187,7 @@ public final class EmailIdentityArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags (Optional) A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

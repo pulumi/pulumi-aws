@@ -65,18 +65,14 @@ public final class WebAclRuleStatementSizeConstraintStatementArgs extends com.pu
     }
 
     /**
-     * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-     * At least one required.
-     * See `text_transformation` below for details.
+     * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
      * 
      */
     @Import(name="textTransformations", required=true)
     private Output<List<WebAclRuleStatementSizeConstraintStatementTextTransformationArgs>> textTransformations;
 
     /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-     * At least one required.
-     * See `text_transformation` below for details.
+     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
      * 
      */
     public Output<List<WebAclRuleStatementSizeConstraintStatementTextTransformationArgs>> textTransformations() {
@@ -174,9 +170,7 @@ public final class WebAclRuleStatementSizeConstraintStatementArgs extends com.pu
         }
 
         /**
-         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See `text_transformation` below for details.
+         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
          * 
          * @return builder
          * 
@@ -187,9 +181,7 @@ public final class WebAclRuleStatementSizeConstraintStatementArgs extends com.pu
         }
 
         /**
-         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See `text_transformation` below for details.
+         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
          * 
          * @return builder
          * 
@@ -199,9 +191,7 @@ public final class WebAclRuleStatementSizeConstraintStatementArgs extends com.pu
         }
 
         /**
-         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See `text_transformation` below for details.
+         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
          * 
          * @return builder
          * 

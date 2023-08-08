@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/oam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/oam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -43,13 +44,11 @@ import (
 //
 // ## Import
 //
-// CloudWatch Observability Access Manager Sink can be imported using the `arn`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_oam_sink.example
 //
-//	$ pulumi import aws:oam/sink:Sink example arn:aws:oam:us-west-2:123456789012:sink/sink-id
-//
-// ```
+//	id = "arn:aws:oam:us-west-2:123456789012:sink/sink-id" } Using `pulumi import`, import CloudWatch Observability Access Manager Sink using the `arn`. For exampleconsole % pulumi import aws_oam_sink.example arn:aws:oam:us-west-2:123456789012:sink/sink-id
 type Sink struct {
 	pulumi.CustomResourceState
 
@@ -73,6 +72,7 @@ func NewSink(ctx *pulumi.Context,
 		args = &SinkArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Sink
 	err := ctx.RegisterResource("aws:oam/sink:Sink", name, args, &resource, opts...)
 	if err != nil {

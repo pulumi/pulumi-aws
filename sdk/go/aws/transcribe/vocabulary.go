@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,8 +24,8 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/transcribe"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/transcribe"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -71,13 +72,11 @@ import (
 //
 // ## Import
 //
-// Transcribe Vocabulary can be imported using the `vocabulary_name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_transcribe_vocabulary.example
 //
-//	$ pulumi import aws:transcribe/vocabulary:Vocabulary example example-name
-//
-// ```
+//	id = "example-name" } Using `pulumi import`, import Transcribe Vocabulary using the `vocabulary_name`. For exampleconsole % pulumi import aws_transcribe_vocabulary.example example-name
 type Vocabulary struct {
 	pulumi.CustomResourceState
 
@@ -113,6 +112,7 @@ func NewVocabulary(ctx *pulumi.Context,
 	if args.VocabularyName == nil {
 		return nil, errors.New("invalid value for required argument 'VocabularyName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Vocabulary
 	err := ctx.RegisterResource("aws:transcribe/vocabulary:Vocabulary", name, args, &resource, opts...)
 	if err != nil {

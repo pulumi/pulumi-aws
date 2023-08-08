@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -51,7 +52,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -80,7 +81,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -104,13 +105,11 @@ import (
 //
 // ## Import
 //
-// Connect instances can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_connect_instance.example
 //
-//	$ pulumi import aws:connect/instance:Instance example f1288a1f-6193-445a-b47e-af739b2
-//
-// ```
+//	id = "f1288a1f-6193-445a-b47e-af739b2" } Using `pulumi import`, import Connect instances using the `id`. For exampleconsole % pulumi import aws_connect_instance.example f1288a1f-6193-445a-b47e-af739b2
 type Instance struct {
 	pulumi.CustomResourceState
 
@@ -161,6 +160,7 @@ func NewInstance(ctx *pulumi.Context,
 	if args.OutboundCallsEnabled == nil {
 		return nil, errors.New("invalid value for required argument 'OutboundCallsEnabled'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Instance
 	err := ctx.RegisterResource("aws:connect/instance:Instance", name, args, &resource, opts...)
 	if err != nil {

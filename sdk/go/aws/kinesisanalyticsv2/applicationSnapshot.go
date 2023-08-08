@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kinesisanalyticsv2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kinesisanalyticsv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -43,13 +44,11 @@ import (
 //
 // ## Import
 //
-// `aws_kinesisanalyticsv2_application` can be imported by using `application_name` together with `snapshot_name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_kinesisanalyticsv2_application_snapshot.example
 //
-//	$ pulumi import aws:kinesisanalyticsv2/applicationSnapshot:ApplicationSnapshot example example-application/example-snapshot
-//
-// ```
+//	id = "example-application/example-snapshot" } Using `pulumi import`, import `aws_kinesisanalyticsv2_application` using `application_name` together with `snapshot_name`. For exampleconsole % pulumi import aws_kinesisanalyticsv2_application_snapshot.example example-application/example-snapshot
 type ApplicationSnapshot struct {
 	pulumi.CustomResourceState
 
@@ -76,6 +75,7 @@ func NewApplicationSnapshot(ctx *pulumi.Context,
 	if args.SnapshotName == nil {
 		return nil, errors.New("invalid value for required argument 'SnapshotName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ApplicationSnapshot
 	err := ctx.RegisterResource("aws:kinesisanalyticsv2/applicationSnapshot:ApplicationSnapshot", name, args, &resource, opts...)
 	if err != nil {

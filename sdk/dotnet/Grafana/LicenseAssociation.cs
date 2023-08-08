@@ -67,11 +67,11 @@ namespace Pulumi.Aws.Grafana
     /// 
     /// ## Import
     /// 
-    /// Grafana workspace license association can be imported using the workspace's `id`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:grafana/licenseAssociation:LicenseAssociation example g-2054c75a02
-    /// ```
+    ///  to = aws_grafana_license_association.example
+    /// 
+    ///  id = "g-2054c75a02" } Using `pulumi import`, import Grafana workspace license association using the workspace's `id`. For exampleconsole % pulumi import aws_grafana_license_association.example g-2054c75a02
     /// </summary>
     [AwsResourceType("aws:grafana/licenseAssociation:LicenseAssociation")]
     public partial class LicenseAssociation : global::Pulumi.CustomResource

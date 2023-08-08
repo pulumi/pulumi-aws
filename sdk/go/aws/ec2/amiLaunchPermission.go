@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -47,7 +48,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -73,8 +74,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/organizations"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/organizations"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -100,13 +101,11 @@ import (
 //
 // ## Import
 //
-// AMI Launch Permissions can be imported using `[ACCOUNT-ID|GROUP-NAME|ORGANIZATION-ARN|ORGANIZATIONAL-UNIT-ARN]/IMAGE-ID`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_ami_launch_permission.example
 //
-//	$ pulumi import aws:ec2/amiLaunchPermission:AmiLaunchPermission example 123456789012/ami-12345678
-//
-// ```
+//	id = "123456789012/ami-12345678" } Using `pulumi import`, import AMI Launch Permissions using `[ACCOUNT-ID|GROUP-NAME|ORGANIZATION-ARN|ORGANIZATIONAL-UNIT-ARN]/IMAGE-ID`. For exampleconsole % pulumi import aws_ami_launch_permission.example 123456789012/ami-12345678
 type AmiLaunchPermission struct {
 	pulumi.CustomResourceState
 
@@ -132,6 +131,7 @@ func NewAmiLaunchPermission(ctx *pulumi.Context,
 	if args.ImageId == nil {
 		return nil, errors.New("invalid value for required argument 'ImageId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AmiLaunchPermission
 	err := ctx.RegisterResource("aws:ec2/amiLaunchPermission:AmiLaunchPermission", name, args, &resource, opts...)
 	if err != nil {

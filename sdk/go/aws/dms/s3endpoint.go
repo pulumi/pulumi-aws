@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,7 +28,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/dms"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dms"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -57,7 +58,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/dms"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dms"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -127,13 +128,11 @@ import (
 //
 // ## Import
 //
-// Endpoints can be imported using the `endpoint_id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_dms_s3_endpoint.example
 //
-//	$ pulumi import aws:dms/s3Endpoint:S3Endpoint example example-dms-endpoint-tf
-//
-// ```
+//	id = "example-dms-endpoint-tf" } Using `pulumi import`, import endpoints using the `endpoint_id`. For exampleconsole % pulumi import aws_dms_s3_endpoint.example example-dms-endpoint-tf
 type S3Endpoint struct {
 	pulumi.CustomResourceState
 
@@ -264,6 +263,7 @@ func NewS3Endpoint(ctx *pulumi.Context,
 	if args.ServiceAccessRoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceAccessRoleArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource S3Endpoint
 	err := ctx.RegisterResource("aws:dms/s3Endpoint:S3Endpoint", name, args, &resource, opts...)
 	if err != nil {

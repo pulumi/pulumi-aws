@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -16,14 +17,15 @@ import (
 // > **Note:** `alb.TargetGroupAttachment` is known as `lb.TargetGroupAttachment`. The functionality is identical.
 //
 // ## Example Usage
+// ### Basic Usage
 //
 // ```go
 // package main
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lb"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -51,15 +53,15 @@ import (
 //	}
 //
 // ```
-// ## Usage with lambda
+// ### Lambda Target
 //
 // ```go
 // package main
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lb"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -99,20 +101,68 @@ import (
 //	}
 //
 // ```
+// ### Registering Multiple Targets
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			var exampleInstance []*ec2.Instance
+//			for index := 0; index < 3; index++ {
+//				key0 := index
+//				_ := index
+//				__res, err := ec2.NewInstance(ctx, fmt.Sprintf("exampleInstance-%v", key0), nil)
+//				if err != nil {
+//					return err
+//				}
+//				exampleInstance = append(exampleInstance, __res)
+//			}
+//			exampleTargetGroup, err := lb.NewTargetGroup(ctx, "exampleTargetGroup", nil)
+//			if err != nil {
+//				return err
+//			}
+//			var exampleTargetGroupAttachment []*lb.TargetGroupAttachment
+//			for key0, val0 := range "TODO: For expression" {
+//				__res, err := lb.NewTargetGroupAttachment(ctx, fmt.Sprintf("exampleTargetGroupAttachment-%v", key0), &lb.TargetGroupAttachmentArgs{
+//					TargetGroupArn: exampleTargetGroup.Arn,
+//					TargetId:       pulumi.String(val0),
+//					Port:           pulumi.Int(80),
+//				})
+//				if err != nil {
+//					return err
+//				}
+//				exampleTargetGroupAttachment = append(exampleTargetGroupAttachment, __res)
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //
-// Target Group Attachments cannot be imported.
+// You cannot import Target Group Attachments.
 type TargetGroupAttachment struct {
 	pulumi.CustomResourceState
 
-	// The Availability Zone where the IP address of the target is to be registered. If the private ip address is outside of the VPC scope, this value must be set to 'all'.
+	// The Availability Zone where the IP address of the target is to be registered. If the private IP address is outside of the VPC scope, this value must be set to `all`.
 	AvailabilityZone pulumi.StringPtrOutput `pulumi:"availabilityZone"`
 	// The port on which targets receive traffic.
 	Port pulumi.IntPtrOutput `pulumi:"port"`
-	// The ARN of the target group with which to register targets
+	// The ARN of the target group with which to register targets.
 	TargetGroupArn pulumi.StringOutput `pulumi:"targetGroupArn"`
-	// The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is ip, specify an IP address. If the target type is lambda, specify the arn of lambda. If the target type is alb, specify the arn of alb.
+	// The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is `ip`, specify an IP address. If the target type is `lambda`, specify the Lambda function ARN. If the target type is `alb`, specify the ALB ARN.
+	//
+	// The following arguments are optional:
 	TargetId pulumi.StringOutput `pulumi:"targetId"`
 }
 
@@ -135,6 +185,7 @@ func NewTargetGroupAttachment(ctx *pulumi.Context,
 		},
 	})
 	opts = append(opts, aliases)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TargetGroupAttachment
 	err := ctx.RegisterResource("aws:alb/targetGroupAttachment:TargetGroupAttachment", name, args, &resource, opts...)
 	if err != nil {
@@ -157,24 +208,28 @@ func GetTargetGroupAttachment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TargetGroupAttachment resources.
 type targetGroupAttachmentState struct {
-	// The Availability Zone where the IP address of the target is to be registered. If the private ip address is outside of the VPC scope, this value must be set to 'all'.
+	// The Availability Zone where the IP address of the target is to be registered. If the private IP address is outside of the VPC scope, this value must be set to `all`.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// The port on which targets receive traffic.
 	Port *int `pulumi:"port"`
-	// The ARN of the target group with which to register targets
+	// The ARN of the target group with which to register targets.
 	TargetGroupArn *string `pulumi:"targetGroupArn"`
-	// The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is ip, specify an IP address. If the target type is lambda, specify the arn of lambda. If the target type is alb, specify the arn of alb.
+	// The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is `ip`, specify an IP address. If the target type is `lambda`, specify the Lambda function ARN. If the target type is `alb`, specify the ALB ARN.
+	//
+	// The following arguments are optional:
 	TargetId *string `pulumi:"targetId"`
 }
 
 type TargetGroupAttachmentState struct {
-	// The Availability Zone where the IP address of the target is to be registered. If the private ip address is outside of the VPC scope, this value must be set to 'all'.
+	// The Availability Zone where the IP address of the target is to be registered. If the private IP address is outside of the VPC scope, this value must be set to `all`.
 	AvailabilityZone pulumi.StringPtrInput
 	// The port on which targets receive traffic.
 	Port pulumi.IntPtrInput
-	// The ARN of the target group with which to register targets
+	// The ARN of the target group with which to register targets.
 	TargetGroupArn pulumi.StringPtrInput
-	// The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is ip, specify an IP address. If the target type is lambda, specify the arn of lambda. If the target type is alb, specify the arn of alb.
+	// The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is `ip`, specify an IP address. If the target type is `lambda`, specify the Lambda function ARN. If the target type is `alb`, specify the ALB ARN.
+	//
+	// The following arguments are optional:
 	TargetId pulumi.StringPtrInput
 }
 
@@ -183,25 +238,29 @@ func (TargetGroupAttachmentState) ElementType() reflect.Type {
 }
 
 type targetGroupAttachmentArgs struct {
-	// The Availability Zone where the IP address of the target is to be registered. If the private ip address is outside of the VPC scope, this value must be set to 'all'.
+	// The Availability Zone where the IP address of the target is to be registered. If the private IP address is outside of the VPC scope, this value must be set to `all`.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// The port on which targets receive traffic.
 	Port *int `pulumi:"port"`
-	// The ARN of the target group with which to register targets
+	// The ARN of the target group with which to register targets.
 	TargetGroupArn string `pulumi:"targetGroupArn"`
-	// The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is ip, specify an IP address. If the target type is lambda, specify the arn of lambda. If the target type is alb, specify the arn of alb.
+	// The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is `ip`, specify an IP address. If the target type is `lambda`, specify the Lambda function ARN. If the target type is `alb`, specify the ALB ARN.
+	//
+	// The following arguments are optional:
 	TargetId string `pulumi:"targetId"`
 }
 
 // The set of arguments for constructing a TargetGroupAttachment resource.
 type TargetGroupAttachmentArgs struct {
-	// The Availability Zone where the IP address of the target is to be registered. If the private ip address is outside of the VPC scope, this value must be set to 'all'.
+	// The Availability Zone where the IP address of the target is to be registered. If the private IP address is outside of the VPC scope, this value must be set to `all`.
 	AvailabilityZone pulumi.StringPtrInput
 	// The port on which targets receive traffic.
 	Port pulumi.IntPtrInput
-	// The ARN of the target group with which to register targets
+	// The ARN of the target group with which to register targets.
 	TargetGroupArn pulumi.StringInput
-	// The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is ip, specify an IP address. If the target type is lambda, specify the arn of lambda. If the target type is alb, specify the arn of alb.
+	// The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is `ip`, specify an IP address. If the target type is `lambda`, specify the Lambda function ARN. If the target type is `alb`, specify the ALB ARN.
+	//
+	// The following arguments are optional:
 	TargetId pulumi.StringInput
 }
 
@@ -292,7 +351,7 @@ func (o TargetGroupAttachmentOutput) ToTargetGroupAttachmentOutputWithContext(ct
 	return o
 }
 
-// The Availability Zone where the IP address of the target is to be registered. If the private ip address is outside of the VPC scope, this value must be set to 'all'.
+// The Availability Zone where the IP address of the target is to be registered. If the private IP address is outside of the VPC scope, this value must be set to `all`.
 func (o TargetGroupAttachmentOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TargetGroupAttachment) pulumi.StringPtrOutput { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
@@ -302,12 +361,14 @@ func (o TargetGroupAttachmentOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TargetGroupAttachment) pulumi.IntPtrOutput { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-// The ARN of the target group with which to register targets
+// The ARN of the target group with which to register targets.
 func (o TargetGroupAttachmentOutput) TargetGroupArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TargetGroupAttachment) pulumi.StringOutput { return v.TargetGroupArn }).(pulumi.StringOutput)
 }
 
-// The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is ip, specify an IP address. If the target type is lambda, specify the arn of lambda. If the target type is alb, specify the arn of alb.
+// The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is `ip`, specify an IP address. If the target type is `lambda`, specify the Lambda function ARN. If the target type is `alb`, specify the ALB ARN.
+//
+// The following arguments are optional:
 func (o TargetGroupAttachmentOutput) TargetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TargetGroupAttachment) pulumi.StringOutput { return v.TargetId }).(pulumi.StringOutput)
 }

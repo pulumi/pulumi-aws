@@ -24,11 +24,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * SES templates can be imported using the template name, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:ses/template:Template MyTemplate MyTemplate
- * ```
+ *  to = aws_ses_template.MyTemplate
+ *
+ *  id = "MyTemplate" } Using `pulumi import`, import SES templates using the template name. For exampleconsole % pulumi import aws_ses_template.MyTemplate MyTemplate
  */
 export class Template extends pulumi.CustomResource {
     /**

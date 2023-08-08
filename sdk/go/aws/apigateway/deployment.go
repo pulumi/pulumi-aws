@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -32,7 +33,7 @@ import (
 //	"encoding/json"
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -116,7 +117,7 @@ import (
 //	"encoding/json"
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -200,15 +201,11 @@ import (
 //
 // ## Import
 //
-// `aws_api_gateway_deployment` can be imported using `REST-API-ID/DEPLOYMENT-ID`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_api_gateway_deployment.example
 //
-//	$ pulumi import aws:apigateway/deployment:Deployment example aabbccddee/1122334
-//
-// ```
-//
-//	The `stage_name`, `stage_description`, and `variables` arguments cannot be imported. Use the `aws_api_gateway_stage` resource to import and manage stages. The `triggers` argument cannot be imported.
+//	id = "aabbccddee/1122334" } Using `pulumi import`, import `aws_api_gateway_deployment` using `REST-API-ID/DEPLOYMENT-ID`. For exampleconsole % pulumi import aws_api_gateway_deployment.example aabbccddee/1122334 The `stage_name`, `stage_description`, and `variables` arguments cannot be imported. Use the `aws_api_gateway_stage` resource to import and manage stages. The `triggers` argument cannot be imported.
 type Deployment struct {
 	pulumi.CustomResourceState
 
@@ -245,6 +242,7 @@ func NewDeployment(ctx *pulumi.Context,
 	if args.RestApi == nil {
 		return nil, errors.New("invalid value for required argument 'RestApi'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Deployment
 	err := ctx.RegisterResource("aws:apigateway/deployment:Deployment", name, args, &resource, opts...)
 	if err != nil {

@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *             .privateDnsEnabled(false)
  *             .securityGroupIds(aws_security_group.test().id())
  *             .build(), CustomResourceOptions.builder()
- *                 .provider(&#34;aws.alternate&#34;)
+ *                 .provider(aws.alternate())
  *                 .build());
  * 
  *         var exampleVpcEndpointConnectionAccepter = new VpcEndpointConnectionAccepter(&#34;exampleVpcEndpointConnectionAccepter&#34;, VpcEndpointConnectionAccepterArgs.builder()        
@@ -70,11 +70,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * VPC Endpoint Services can be imported using ID of the connection, which is the `VPC Endpoint Service ID` and `VPC Endpoint ID` separated by underscore (`_`). e.g.
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:ec2/vpcEndpointConnectionAccepter:VpcEndpointConnectionAccepter foo vpce-svc-0f97a19d3fa8220bc_vpce-010601a6db371e263
- * ```
+ *  to = aws_vpc_endpoint_connection_accepter.foo
+ * 
+ *  id = &#34;vpce-svc-0f97a19d3fa8220bc_vpce-010601a6db371e263&#34; } Using `pulumi import`, import VPC Endpoint Services using ID of the connection, which is the `VPC Endpoint Service ID` and `VPC Endpoint ID` separated by underscore (`_`).. For exampleconsole % pulumi import aws_vpc_endpoint_connection_accepter.foo vpce-svc-0f97a19d3fa8220bc_vpce-010601a6db371e263
  * 
  */
 @ResourceType(type="aws:ec2/vpcEndpointConnectionAccepter:VpcEndpointConnectionAccepter")

@@ -44,7 +44,7 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///     }, new CustomResourceOptions
     ///     {
-    ///         Provider = "aws.alternate",
+    ///         Provider = aws.Alternate,
     ///     });
     /// 
     ///     var exampleVpcEndpointConnectionAccepter = new Aws.Ec2.VpcEndpointConnectionAccepter("exampleVpcEndpointConnectionAccepter", new()
@@ -58,11 +58,11 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// VPC Endpoint Services can be imported using ID of the connection, which is the `VPC Endpoint Service ID` and `VPC Endpoint ID` separated by underscore (`_`). e.g.
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:ec2/vpcEndpointConnectionAccepter:VpcEndpointConnectionAccepter foo vpce-svc-0f97a19d3fa8220bc_vpce-010601a6db371e263
-    /// ```
+    ///  to = aws_vpc_endpoint_connection_accepter.foo
+    /// 
+    ///  id = "vpce-svc-0f97a19d3fa8220bc_vpce-010601a6db371e263" } Using `pulumi import`, import VPC Endpoint Services using ID of the connection, which is the `VPC Endpoint Service ID` and `VPC Endpoint ID` separated by underscore (`_`).. For exampleconsole % pulumi import aws_vpc_endpoint_connection_accepter.foo vpce-svc-0f97a19d3fa8220bc_vpce-010601a6db371e263
     /// </summary>
     [AwsResourceType("aws:ec2/vpcEndpointConnectionAccepter:VpcEndpointConnectionAccepter")]
     public partial class VpcEndpointConnectionAccepter : global::Pulumi.CustomResource

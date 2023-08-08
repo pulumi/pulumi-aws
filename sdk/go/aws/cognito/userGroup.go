@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cognito"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -92,13 +93,11 @@ import (
 //
 // ## Import
 //
-// Cognito User Groups can be imported using the `user_pool_id`/`name` attributes concatenated, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_cognito_user_group.group
 //
-//	$ pulumi import aws:cognito/userGroup:UserGroup group us-east-1_vG78M4goG/user-group
-//
-// ```
+//	id = "us-east-1_vG78M4goG/user-group" } Using `pulumi import`, import Cognito User Groups using the `user_pool_id`/`name` attributes concatenated. For exampleconsole % pulumi import aws_cognito_user_group.group us-east-1_vG78M4goG/user-group
 type UserGroup struct {
 	pulumi.CustomResourceState
 
@@ -124,6 +123,7 @@ func NewUserGroup(ctx *pulumi.Context,
 	if args.UserPoolId == nil {
 		return nil, errors.New("invalid value for required argument 'UserPoolId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource UserGroup
 	err := ctx.RegisterResource("aws:cognito/userGroup:UserGroup", name, args, &resource, opts...)
 	if err != nil {

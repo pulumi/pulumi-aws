@@ -60,11 +60,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_lightsail_lb_stickiness_policy` can be imported by using the `lb_name` attribute, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:lightsail/lbStickinessPolicy:LbStickinessPolicy test example-load-balancer
- * ```
+ *  to = aws_lightsail_lb_stickiness_policy.test
+ * 
+ *  id = &#34;example-load-balancer&#34; } Using `pulumi import`, import `aws_lightsail_lb_stickiness_policy` using the `lb_name` attribute. For exampleconsole % pulumi import aws_lightsail_lb_stickiness_policy.test example-load-balancer
  * 
  */
 @ResourceType(type="aws:lightsail/lbStickinessPolicy:LbStickinessPolicy")

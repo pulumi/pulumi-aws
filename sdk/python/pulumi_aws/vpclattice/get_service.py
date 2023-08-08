@@ -147,7 +147,8 @@ class AwaitableGetServiceResult(GetServiceResult):
             tags=self.tags)
 
 
-def get_service(service_identifier: Optional[str] = None,
+def get_service(name: Optional[str] = None,
+                service_identifier: Optional[str] = None,
                 tags: Optional[Mapping[str, str]] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceResult:
     """
@@ -160,14 +161,16 @@ def get_service(service_identifier: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.vpclattice.get_service()
+    example = aws.vpclattice.get_service(name="example")
     ```
 
 
-    :param str service_identifier: ID or Amazon Resource Name (ARN) of the service network
+    :param str name: Service name.
+    :param str service_identifier: ID or Amazon Resource Name (ARN) of the service network.
     :param Mapping[str, str] tags: List of tags associated with the service.
     """
     __args__ = dict()
+    __args__['name'] = name
     __args__['serviceIdentifier'] = service_identifier
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -187,7 +190,8 @@ def get_service(service_identifier: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_service)
-def get_service_output(service_identifier: Optional[pulumi.Input[str]] = None,
+def get_service_output(name: Optional[pulumi.Input[Optional[str]]] = None,
+                       service_identifier: Optional[pulumi.Input[Optional[str]]] = None,
                        tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceResult]:
     """
@@ -200,11 +204,12 @@ def get_service_output(service_identifier: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.vpclattice.get_service()
+    example = aws.vpclattice.get_service(name="example")
     ```
 
 
-    :param str service_identifier: ID or Amazon Resource Name (ARN) of the service network
+    :param str name: Service name.
+    :param str service_identifier: ID or Amazon Resource Name (ARN) of the service network.
     :param Mapping[str, str] tags: List of tags associated with the service.
     """
     ...

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,8 +24,8 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -76,13 +77,11 @@ import (
 //
 // ## Import
 //
-// S3 bucket policies can be imported using the bucket name, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_s3_bucket_policy.allow_access_from_another_account
 //
-//	$ pulumi import aws:s3/bucketPolicy:BucketPolicy allow_access_from_another_account my-tf-test-bucket
-//
-// ```
+//	id = "my-tf-test-bucket" } Using `pulumi import`, import S3 bucket policies using the bucket name. For exampleconsole % pulumi import aws_s3_bucket_policy.allow_access_from_another_account my-tf-test-bucket
 type BucketPolicy struct {
 	pulumi.CustomResourceState
 
@@ -105,6 +104,7 @@ func NewBucketPolicy(ctx *pulumi.Context,
 	if args.Policy == nil {
 		return nil, errors.New("invalid value for required argument 'Policy'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BucketPolicy
 	err := ctx.RegisterResource("aws:s3/bucketPolicy:BucketPolicy", name, args, &resource, opts...)
 	if err != nil {

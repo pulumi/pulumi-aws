@@ -14,9 +14,7 @@ import * as utilities from "../utilities";
  *
  * Because of backward incompatible API changes (read [here](https://github.com/awslabs/aws-app-mesh-examples/issues/92) and [here](https://github.com/awslabs/aws-app-mesh-examples/issues/94)), `aws.appmesh.VirtualRouter` resource definitions created with provider versions earlier than v2.3.0 will need to be modified:
  *
- * * Remove service `serviceNames` from the `spec` argument.
- * AWS has created a `aws.appmesh.VirtualService` resource for each of service names.
- * These resource can be imported using `import`.
+ * * Remove service `serviceNames` from the `spec` argument. AWS has created a `aws.appmesh.VirtualService` resource for each service name. Import these resource using `pulumi import`.
  *
  * * Add a `listener` configuration block to the `spec` argument.
  *
@@ -31,23 +29,23 @@ import * as utilities from "../utilities";
  * const serviceb = new aws.appmesh.VirtualRouter("serviceb", {
  *     meshName: aws_appmesh_mesh.simple.id,
  *     spec: {
- *         listener: {
+ *         listeners: [{
  *             portMapping: {
  *                 port: 8080,
  *                 protocol: "http",
  *             },
- *         },
+ *         }],
  *     },
  * });
  * ```
  *
  * ## Import
  *
- * App Mesh virtual routers can be imported using `mesh_name` together with the virtual router's `name`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:appmesh/virtualRouter:VirtualRouter serviceb simpleapp/serviceB
- * ```
+ *  to = aws_appmesh_virtual_router.serviceb
+ *
+ *  id = "simpleapp/serviceB" } Using `pulumi import`, import App Mesh virtual routers using `mesh_name` together with the virtual router's `name`. For exampleconsole % pulumi import aws_appmesh_virtual_router.serviceb simpleapp/serviceB
  */
 export class VirtualRouter extends pulumi.CustomResource {
     /**

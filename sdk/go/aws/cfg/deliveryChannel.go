@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,9 +25,9 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cfg"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cfg"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -113,13 +114,11 @@ import (
 //
 // ## Import
 //
-// Delivery Channel can be imported using the name, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_config_delivery_channel.foo
 //
-//	$ pulumi import aws:cfg/deliveryChannel:DeliveryChannel foo example
-//
-// ```
+//	id = "example" } Using `pulumi import`, import Delivery Channel using the name. For exampleconsole % pulumi import aws_config_delivery_channel.foo example
 type DeliveryChannel struct {
 	pulumi.CustomResourceState
 
@@ -147,6 +146,7 @@ func NewDeliveryChannel(ctx *pulumi.Context,
 	if args.S3BucketName == nil {
 		return nil, errors.New("invalid value for required argument 'S3BucketName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DeliveryChannel
 	err := ctx.RegisterResource("aws:cfg/deliveryChannel:DeliveryChannel", name, args, &resource, opts...)
 	if err != nil {

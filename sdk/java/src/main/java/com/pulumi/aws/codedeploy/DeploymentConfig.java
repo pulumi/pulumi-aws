@@ -146,11 +146,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * CodeDeploy Deployment Configurations can be imported using the `deployment_config_name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:codedeploy/deploymentConfig:DeploymentConfig example my-deployment-config
- * ```
+ *  to = aws_codedeploy_deployment_config.example
+ * 
+ *  id = &#34;my-deployment-config&#34; } Using `pulumi import`, import CodeDeploy Deployment Configurations using the `deployment_config_name`. For exampleconsole % pulumi import aws_codedeploy_deployment_config.example my-deployment-config
  * 
  */
 @ResourceType(type="aws:codedeploy/deploymentConfig:DeploymentConfig")

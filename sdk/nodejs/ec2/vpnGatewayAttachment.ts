@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * This resource does not support importing.
+ * You cannot import this resource.
  */
 export class VpnGatewayAttachment extends pulumi.CustomResource {
     /**

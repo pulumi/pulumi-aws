@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53recoverycontrol"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53recoverycontrol"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -44,7 +45,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53recoverycontrol"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53recoverycontrol"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -66,13 +67,11 @@ import (
 //
 // ## Import
 //
-// Route53 Recovery Control Config Routing Control can be imported via the routing control arn, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_route53recoverycontrolconfig_routing_control.mycontrol
 //
-//	$ pulumi import aws:route53recoverycontrol/routingControl:RoutingControl mycontrol arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8/routingcontrol/d5d90e587870494b
-//
-// ```
+//	id = "arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8/routingcontrol/d5d90e587870494b" } Using `pulumi import`, import Route53 Recovery Control Config Routing Control using the routing control arn. For exampleconsole % pulumi import aws_route53recoverycontrolconfig_routing_control.mycontrol arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8/routingcontrol/d5d90e587870494b
 type RoutingControl struct {
 	pulumi.CustomResourceState
 
@@ -100,6 +99,7 @@ func NewRoutingControl(ctx *pulumi.Context,
 	if args.ClusterArn == nil {
 		return nil, errors.New("invalid value for required argument 'ClusterArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RoutingControl
 	err := ctx.RegisterResource("aws:route53recoverycontrol/routingControl:RoutingControl", name, args, &resource, opts...)
 	if err != nil {

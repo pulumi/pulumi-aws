@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration {
     /**
-     * @return A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See Document Attribute Condition.
+     * @return A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
      * 
      */
     private @Nullable DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition invocationCondition;
@@ -30,7 +30,7 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationPostExtraction
 
     private DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration() {}
     /**
-     * @return A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See Document Attribute Condition.
+     * @return A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
      * 
      */
     public Optional<DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition> invocationCondition() {

@@ -122,11 +122,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * CloudWatch Evidently Segment can be imported using the `arn`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:evidently/segment:Segment example arn:aws:evidently:us-west-2:123456789012:segment/example
- * ```
+ *  to = aws_evidently_segment.example
+ * 
+ *  id = &#34;arn:aws:evidently:us-west-2:123456789012:segment/example&#34; } Using `pulumi import`, import CloudWatch Evidently Segment using the `arn`. For exampleconsole % pulumi import aws_evidently_segment.example arn:aws:evidently:us-west-2:123456789012:segment/example
  * 
  */
 @ResourceType(type="aws:evidently/segment:Segment")

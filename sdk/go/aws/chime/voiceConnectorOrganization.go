@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/chime"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/chime"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -64,13 +65,11 @@ import (
 //
 // ## Import
 //
-// Chime Voice Connector Origination can be imported using the `voice_connector_id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_chime_voice_connector_origination.default
 //
-//	$ pulumi import aws:chime/voiceConnectorOrganization:VoiceConnectorOrganization default abcdef1ghij2klmno3pqr4
-//
-// ```
+//	id = "abcdef1ghij2klmno3pqr4" } Using `pulumi import`, import Chime Voice Connector Origination using the `voice_connector_id`. For exampleconsole % pulumi import aws_chime_voice_connector_origination.default abcdef1ghij2klmno3pqr4
 type VoiceConnectorOrganization struct {
 	pulumi.CustomResourceState
 
@@ -95,6 +94,7 @@ func NewVoiceConnectorOrganization(ctx *pulumi.Context,
 	if args.VoiceConnectorId == nil {
 		return nil, errors.New("invalid value for required argument 'VoiceConnectorId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VoiceConnectorOrganization
 	err := ctx.RegisterResource("aws:chime/voiceConnectorOrganization:VoiceConnectorOrganization", name, args, &resource, opts...)
 	if err != nil {

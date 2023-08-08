@@ -10,6 +10,11 @@ export type Group = import("./group").Group;
 export const Group: typeof import("./group").Group = null as any;
 utilities.lazyLoad(exports, ["Group"], () => require("./group"));
 
+export { ResourceArgs, ResourceState } from "./resource";
+export type Resource = import("./resource").Resource;
+export const Resource: typeof import("./resource").Resource = null as any;
+utilities.lazyLoad(exports, ["Resource"], () => require("./resource"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -17,9 +22,12 @@ const _module = {
         switch (type) {
             case "aws:resourcegroups/group:Group":
                 return new Group(name, <any>undefined, { urn })
+            case "aws:resourcegroups/resource:Resource":
+                return new Resource(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("aws", "resourcegroups/group", _module)
+pulumi.runtime.registerResourceModule("aws", "resourcegroups/resource", _module)

@@ -273,7 +273,10 @@ import * as utilities from "../utilities";
  *             resources: [pulumi.interpolate`${exampleLogGroup.arn}:*`],
  *             principals: [{
  *                 type: "Service",
- *                 identifiers: ["events.amazonaws.com"],
+ *                 identifiers: [
+ *                     "events.amazonaws.com",
+ *                     "delivery.logs.amazonaws.com",
+ *                 ],
  *             }],
  *         },
  *         {
@@ -282,7 +285,10 @@ import * as utilities from "../utilities";
  *             resources: [pulumi.interpolate`${exampleLogGroup.arn}:*:*`],
  *             principals: [{
  *                 type: "Service",
- *                 identifiers: ["events.amazonaws.com"],
+ *                 identifiers: [
+ *                     "events.amazonaws.com",
+ *                     "delivery.logs.amazonaws.com",
+ *                 ],
  *             }],
  *             conditions: [{
  *                 test: "ArnEquals",
@@ -304,11 +310,13 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * EventBridge Targets can be imported using `event_bus_name/rule-name/target-id` (if you omit `event_bus_name`, the `default` event bus will be used).
+ *  terraform import {
  *
- * ```sh
- *  $ pulumi import aws:cloudwatch/eventTarget:EventTarget test-event-target rule-name/target-id
- * ```
+ *  to = aws_cloudwatch_event_target.test-event-target
+ *
+ *  id = "rule-name/target-id" } Using `pulumi import`, import EventBridge Targets using `event_bus_name/rule-name/target-id` (if you omit `event_bus_name`, the `default` event bus will be used). For example:
+ *
+ * console % pulumi import aws_cloudwatch_event_target.test-event-target rule-name/target-id
  */
 export class EventTarget extends pulumi.CustomResource {
     /**

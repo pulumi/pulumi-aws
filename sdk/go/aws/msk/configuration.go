@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/msk"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/msk"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -44,13 +45,11 @@ import (
 //
 // ## Import
 //
-// MSK configurations can be imported using the configuration ARN, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_msk_configuration.example
 //
-//	$ pulumi import aws:msk/configuration:Configuration example arn:aws:kafka:us-west-2:123456789012:configuration/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
-//
-// ```
+//	id = "arn:aws:kafka:us-west-2:123456789012:configuration/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3" } Using `pulumi import`, import MSK configurations using the configuration ARN. For exampleconsole % pulumi import aws_msk_configuration.example arn:aws:kafka:us-west-2:123456789012:configuration/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
 type Configuration struct {
 	pulumi.CustomResourceState
 
@@ -78,6 +77,7 @@ func NewConfiguration(ctx *pulumi.Context,
 	if args.ServerProperties == nil {
 		return nil, errors.New("invalid value for required argument 'ServerProperties'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Configuration
 	err := ctx.RegisterResource("aws:msk/configuration:Configuration", name, args, &resource, opts...)
 	if err != nil {

@@ -75,11 +75,11 @@ namespace Pulumi.Aws.DirectConnect
     /// 
     /// ## Import
     /// 
-    /// Direct Connect connections can be imported using the `connection id`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:directconnect/connection:Connection test_connection dxcon-ffre0ec3
-    /// ```
+    ///  to = aws_dx_connection.test_connection
+    /// 
+    ///  id = "dxcon-ffre0ec3" } Using `pulumi import`, import Direct Connect connections using the connection `id`. For exampleconsole % pulumi import aws_dx_connection.test_connection dxcon-ffre0ec3
     /// </summary>
     [AwsResourceType("aws:directconnect/connection:Connection")]
     public partial class Connection : global::Pulumi.CustomResource
@@ -192,7 +192,7 @@ namespace Pulumi.Aws.DirectConnect
         /// The VLAN ID.
         /// </summary>
         [Output("vlanId")]
-        public Output<string> VlanId { get; private set; } = null!;
+        public Output<int> VlanId { get; private set; } = null!;
 
 
         /// <summary>
@@ -424,7 +424,7 @@ namespace Pulumi.Aws.DirectConnect
         /// The VLAN ID.
         /// </summary>
         [Input("vlanId")]
-        public Input<string>? VlanId { get; set; }
+        public Input<int>? VlanId { get; set; }
 
         public ConnectionState()
         {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/redshift"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshift"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -67,13 +68,11 @@ import (
 //
 // ## Import
 //
-// Redshift Event Subscriptions can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_redshift_event_subscription.default
 //
-//	$ pulumi import aws:redshift/eventSubscription:EventSubscription default redshift-event-sub
-//
-// ```
+//	id = "redshift-event-sub" } Using `pulumi import`, import Redshift Event Subscriptions using the `name`. For exampleconsole % pulumi import aws_redshift_event_subscription.default redshift-event-sub
 type EventSubscription struct {
 	pulumi.CustomResourceState
 
@@ -112,6 +111,7 @@ func NewEventSubscription(ctx *pulumi.Context,
 	if args.SnsTopicArn == nil {
 		return nil, errors.New("invalid value for required argument 'SnsTopicArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EventSubscription
 	err := ctx.RegisterResource("aws:redshift/eventSubscription:EventSubscription", name, args, &resource, opts...)
 	if err != nil {

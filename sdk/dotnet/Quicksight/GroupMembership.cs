@@ -33,11 +33,11 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// ## Import
     /// 
-    /// QuickSight Group membership can be imported using the AWS account ID, namespace, group name and member name separated by `/`.
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:quicksight/groupMembership:GroupMembership example 123456789123/default/all-access-users/john_smith
-    /// ```
+    ///  to = aws_quicksight_group_membership.example
+    /// 
+    ///  id = "123456789123/default/all-access-users/john_smith" } Using `pulumi import`, import QuickSight Group membership using the AWS account ID, namespace, group name and member name separated by `/`. For exampleconsole % pulumi import aws_quicksight_group_membership.example 123456789123/default/all-access-users/john_smith
     /// </summary>
     [AwsResourceType("aws:quicksight/groupMembership:GroupMembership")]
     public partial class GroupMembership : global::Pulumi.CustomResource
@@ -64,7 +64,7 @@ namespace Pulumi.Aws.Quicksight
         public Output<string> MemberName { get; private set; } = null!;
 
         /// <summary>
-        /// The namespace. Defaults to `default`. Currently only `default` is supported.
+        /// The namespace that you want the user to be a part of. Defaults to `default`.
         /// </summary>
         [Output("namespace")]
         public Output<string?> Namespace { get; private set; } = null!;
@@ -134,7 +134,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string> MemberName { get; set; } = null!;
 
         /// <summary>
-        /// The namespace. Defaults to `default`. Currently only `default` is supported.
+        /// The namespace that you want the user to be a part of. Defaults to `default`.
         /// </summary>
         [Input("namespace")]
         public Input<string>? Namespace { get; set; }
@@ -169,7 +169,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? MemberName { get; set; }
 
         /// <summary>
-        /// The namespace. Defaults to `default`. Currently only `default` is supported.
+        /// The namespace that you want the user to be a part of. Defaults to `default`.
         /// </summary>
         [Input("namespace")]
         public Input<string>? Namespace { get; set; }

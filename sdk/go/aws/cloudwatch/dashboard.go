@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -83,13 +84,11 @@ import (
 //
 // ## Import
 //
-// CloudWatch dashboards can be imported using the `dashboard_name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_cloudwatch_dashboard.sample
 //
-//	$ pulumi import aws:cloudwatch/dashboard:Dashboard sample dashboard_name
-//
-// ```
+//	id = "dashboard_name" } Using `pulumi import`, import CloudWatch dashboards using the `dashboard_name`. For exampleconsole % pulumi import aws_cloudwatch_dashboard.sample dashboard_name
 type Dashboard struct {
 	pulumi.CustomResourceState
 
@@ -114,6 +113,7 @@ func NewDashboard(ctx *pulumi.Context,
 	if args.DashboardName == nil {
 		return nil, errors.New("invalid value for required argument 'DashboardName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Dashboard
 	err := ctx.RegisterResource("aws:cloudwatch/dashboard:Dashboard", name, args, &resource, opts...)
 	if err != nil {

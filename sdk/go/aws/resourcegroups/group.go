@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/resourcegroups"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/resourcegroups"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -55,13 +56,11 @@ import (
 //
 // ## Import
 //
-// Resource groups can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_resourcegroups_group.foo
 //
-//	$ pulumi import aws:resourcegroups/group:Group foo resource-group-name
-//
-// ```
+//	id = "resource-group-name" } Using `pulumi import`, import resource groups using the `name`. For exampleconsole % pulumi import aws_resourcegroups_group.foo resource-group-name
 type Group struct {
 	pulumi.CustomResourceState
 
@@ -88,6 +87,7 @@ func NewGroup(ctx *pulumi.Context,
 		args = &GroupArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Group
 	err := ctx.RegisterResource("aws:resourcegroups/group:Group", name, args, &resource, opts...)
 	if err != nil {

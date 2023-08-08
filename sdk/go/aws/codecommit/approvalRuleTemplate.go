@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codecommit"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codecommit"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -63,13 +64,11 @@ import (
 //
 // ## Import
 //
-// CodeCommit approval rule templates can be imported using the `name`, e.g.
+// terraform import {
 //
-// ```sh
+//	to = aws_codecommit_approval_rule_template.imported
 //
-//	$ pulumi import aws:codecommit/approvalRuleTemplate:ApprovalRuleTemplate imported ExistingApprovalRuleTemplateName
-//
-// ```
+//	id = "ExistingApprovalRuleTemplateName" } Using `pulumi import`, import CodeCommit approval rule templates using the `name`. For exampleconsole % pulumi import aws_codecommit_approval_rule_template.imported ExistingApprovalRuleTemplateName
 type ApprovalRuleTemplate struct {
 	pulumi.CustomResourceState
 
@@ -101,6 +100,7 @@ func NewApprovalRuleTemplate(ctx *pulumi.Context,
 	if args.Content == nil {
 		return nil, errors.New("invalid value for required argument 'Content'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ApprovalRuleTemplate
 	err := ctx.RegisterResource("aws:codecommit/approvalRuleTemplate:ApprovalRuleTemplate", name, args, &resource, opts...)
 	if err != nil {

@@ -39,11 +39,11 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     /// ## Import
     /// 
-    /// `aws_networkmanager_link` can be imported using the link ARN, e.g.
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:networkmanager/link:Link example arn:aws:networkmanager::123456789012:link/global-network-0d47f6t230mz46dy4/link-444555aaabbb11223
-    /// ```
+    ///  to = aws_networkmanager_link.example
+    /// 
+    ///  id = "arn:aws:networkmanager::123456789012:link/global-network-0d47f6t230mz46dy4/link-444555aaabbb11223" } Using `pulumi import`, import `aws_networkmanager_link` using the link ARN. For exampleconsole % pulumi import aws_networkmanager_link.example arn:aws:networkmanager::123456789012:link/global-network-0d47f6t230mz46dy4/link-444555aaabbb11223
     /// </summary>
     [AwsResourceType("aws:networkmanager/link:Link")]
     public partial class Link : global::Pulumi.CustomResource

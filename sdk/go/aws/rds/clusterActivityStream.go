@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -28,8 +29,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -85,15 +86,11 @@ import (
 //
 // ## Import
 //
-// RDS Aurora Cluster Database Activity Streams can be imported using the `resource_arn`, e.g.
+// terraform import {
 //
-// ```sh
+//	to = aws_rds_cluster_activity_stream.default
 //
-//	$ pulumi import aws:rds/clusterActivityStream:ClusterActivityStream default arn:aws:rds:us-west-2:123456789012:cluster:aurora-cluster-demo
-//
-// ```
-//
-//	[1]https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/DBActivityStreams.html [2]https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartActivityStream.html [3]https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html
+//	id = "arn:aws:rds:us-west-2:123456789012:cluster:aurora-cluster-demo" } Using `pulumi import`, import RDS Aurora Cluster Database Activity Streams using the `resource_arn`. For exampleconsole % pulumi import aws_rds_cluster_activity_stream.default arn:aws:rds:us-west-2:123456789012:cluster:aurora-cluster-demo [1]https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/DBActivityStreams.html [2]https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartActivityStream.html [3]https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html
 type ClusterActivityStream struct {
 	pulumi.CustomResourceState
 
@@ -125,6 +122,7 @@ func NewClusterActivityStream(ctx *pulumi.Context,
 	if args.ResourceArn == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ClusterActivityStream
 	err := ctx.RegisterResource("aws:rds/clusterActivityStream:ClusterActivityStream", name, args, &resource, opts...)
 	if err != nil {

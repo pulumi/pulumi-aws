@@ -14,11 +14,7 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class WebAclRuleStatementManagedRuleGroupStatement
     {
         /// <summary>
-        /// The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See `excluded_rule` below for details. Use `rule_action_override` instead. (See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ManagedRuleGroupStatement.html#WAF-Type-ManagedRuleGroupStatement-ExcludedRules))
-        /// </summary>
-        public readonly ImmutableArray<Outputs.WebAclRuleStatementManagedRuleGroupStatementExcludedRule> ExcludedRules;
-        /// <summary>
-        /// Additional information that's used by a managed rule group. Only one rule attribute is allowed in each config. See Managed Rule Group Configs for more details
+        /// Additional information that's used by a managed rule group. Only one rule attribute is allowed in each config. See `managed_rule_group_configs` for more details
         /// </summary>
         public readonly ImmutableArray<Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig> ManagedRuleGroupConfigs;
         /// <summary>
@@ -44,8 +40,6 @@ namespace Pulumi.Aws.WafV2.Outputs
 
         [OutputConstructor]
         private WebAclRuleStatementManagedRuleGroupStatement(
-            ImmutableArray<Outputs.WebAclRuleStatementManagedRuleGroupStatementExcludedRule> excludedRules,
-
             ImmutableArray<Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig> managedRuleGroupConfigs,
 
             string name,
@@ -58,7 +52,6 @@ namespace Pulumi.Aws.WafV2.Outputs
 
             string? version)
         {
-            ExcludedRules = excludedRules;
             ManagedRuleGroupConfigs = managedRuleGroupConfigs;
             Name = name;
             RuleActionOverrides = ruleActionOverrides;

@@ -145,11 +145,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_appsync_function` can be imported using the AppSync API ID and Function ID separated by `-`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:appsync/function:Function example xxxxx-yyyyy
- * ```
+ *  to = aws_appsync_function.example
+ * 
+ *  id = &#34;xxxxx-yyyyy&#34; } Using `pulumi import`, import `aws_appsync_function` using the AppSync API ID and Function ID separated by `-`. For exampleconsole % pulumi import aws_appsync_function.example xxxxx-yyyyy
  * 
  */
 @ResourceType(type="aws:appsync/function:Function")

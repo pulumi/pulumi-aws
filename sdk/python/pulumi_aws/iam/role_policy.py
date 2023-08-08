@@ -208,11 +208,11 @@ class RolePolicy(pulumi.CustomResource):
 
         ## Import
 
-        IAM Role Policies can be imported using the `role_name:role_policy_name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:iam/rolePolicy:RolePolicy mypolicy role_of_mypolicy_name:mypolicy_name
-        ```
+         to = aws_iam_role_policy.mypolicy
+
+         id = "role_of_mypolicy_name:mypolicy_name" } Using `pulumi import`, import IAM Role Policies using the `role_name:role_policy_name`. For exampleconsole % pulumi import aws_iam_role_policy.mypolicy role_of_mypolicy_name:mypolicy_name
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -266,11 +266,11 @@ class RolePolicy(pulumi.CustomResource):
 
         ## Import
 
-        IAM Role Policies can be imported using the `role_name:role_policy_name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:iam/rolePolicy:RolePolicy mypolicy role_of_mypolicy_name:mypolicy_name
-        ```
+         to = aws_iam_role_policy.mypolicy
+
+         id = "role_of_mypolicy_name:mypolicy_name" } Using `pulumi import`, import IAM Role Policies using the `role_name:role_policy_name`. For exampleconsole % pulumi import aws_iam_role_policy.mypolicy role_of_mypolicy_name:mypolicy_name
 
         :param str resource_name: The name of the resource.
         :param RolePolicyArgs args: The arguments to use to populate this resource's properties.

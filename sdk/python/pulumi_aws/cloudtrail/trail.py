@@ -635,13 +635,15 @@ class Trail(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        current = aws.get_caller_identity()
-        foo_bucket_v2 = aws.s3.BucketV2("fooBucketV2", force_destroy=True)
-        foobar = aws.cloudtrail.Trail("foobar",
-            s3_bucket_name=foo_bucket_v2.id,
+        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", force_destroy=True)
+        example_trail = aws.cloudtrail.Trail("exampleTrail",
+            s3_bucket_name=example_bucket_v2.id,
             s3_key_prefix="prefix",
             include_global_service_events=False)
-        foo_policy_document = aws.iam.get_policy_document_output(statements=[
+        current_caller_identity = aws.get_caller_identity()
+        current_partition = aws.get_partition()
+        current_region = aws.get_region()
+        example_policy_document = aws.iam.get_policy_document_output(statements=[
             aws.iam.GetPolicyDocumentStatementArgs(
                 sid="AWSCloudTrailAclCheck",
                 effect="Allow",
@@ -650,7 +652,12 @@ class Trail(pulumi.CustomResource):
                     identifiers=["cloudtrail.amazonaws.com"],
                 )],
                 actions=["s3:GetBucketAcl"],
-                resources=[foo_bucket_v2.arn],
+                resources=[example_bucket_v2.arn],
+                conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+                    test="StringEquals",
+                    variable="aws:SourceArn",
+                    values=[f"arn:{current_partition.partition}:cloudtrail:{current_region.name}:{current_caller_identity.account_id}:trail/example"],
+                )],
             ),
             aws.iam.GetPolicyDocumentStatementArgs(
                 sid="AWSCloudTrailWrite",
@@ -660,17 +667,24 @@ class Trail(pulumi.CustomResource):
                     identifiers=["cloudtrail.amazonaws.com"],
                 )],
                 actions=["s3:PutObject"],
-                resources=[foo_bucket_v2.arn.apply(lambda arn: f"{arn}/prefix/AWSLogs/{current.account_id}/*")],
-                conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
-                    test="StringEquals",
-                    variable="s3:x-amz-acl",
-                    values=["bucket-owner-full-control"],
-                )],
+                resources=[example_bucket_v2.arn.apply(lambda arn: f"{arn}/prefix/AWSLogs/{current_caller_identity.account_id}/*")],
+                conditions=[
+                    aws.iam.GetPolicyDocumentStatementConditionArgs(
+                        test="StringEquals",
+                        variable="s3:x-amz-acl",
+                        values=["bucket-owner-full-control"],
+                    ),
+                    aws.iam.GetPolicyDocumentStatementConditionArgs(
+                        test="StringEquals",
+                        variable="aws:SourceArn",
+                        values=[f"arn:{current_partition.partition}:cloudtrail:{current_region.name}:{current_caller_identity.account_id}:trail/example"],
+                    ),
+                ],
             ),
         ])
-        foo_bucket_policy = aws.s3.BucketPolicy("fooBucketPolicy",
-            bucket=foo_bucket_v2.id,
-            policy=foo_policy_document.json)
+        example_bucket_policy = aws.s3.BucketPolicy("exampleBucketPolicy",
+            bucket=example_bucket_v2.id,
+            policy=example_policy_document.json)
         ```
         ### Data Event Logging
 
@@ -737,11 +751,11 @@ class Trail(pulumi.CustomResource):
 
         ## Import
 
-        Cloudtrails can be imported using the `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:cloudtrail/trail:Trail sample my-sample-trail
-        ```
+         to = aws_cloudtrail.sample
+
+         id = "my-sample-trail" } Using `pulumi import`, import Cloudtrails using the `name`. For exampleconsole % pulumi import aws_cloudtrail.sample my-sample-trail
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -787,13 +801,15 @@ class Trail(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        current = aws.get_caller_identity()
-        foo_bucket_v2 = aws.s3.BucketV2("fooBucketV2", force_destroy=True)
-        foobar = aws.cloudtrail.Trail("foobar",
-            s3_bucket_name=foo_bucket_v2.id,
+        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", force_destroy=True)
+        example_trail = aws.cloudtrail.Trail("exampleTrail",
+            s3_bucket_name=example_bucket_v2.id,
             s3_key_prefix="prefix",
             include_global_service_events=False)
-        foo_policy_document = aws.iam.get_policy_document_output(statements=[
+        current_caller_identity = aws.get_caller_identity()
+        current_partition = aws.get_partition()
+        current_region = aws.get_region()
+        example_policy_document = aws.iam.get_policy_document_output(statements=[
             aws.iam.GetPolicyDocumentStatementArgs(
                 sid="AWSCloudTrailAclCheck",
                 effect="Allow",
@@ -802,7 +818,12 @@ class Trail(pulumi.CustomResource):
                     identifiers=["cloudtrail.amazonaws.com"],
                 )],
                 actions=["s3:GetBucketAcl"],
-                resources=[foo_bucket_v2.arn],
+                resources=[example_bucket_v2.arn],
+                conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+                    test="StringEquals",
+                    variable="aws:SourceArn",
+                    values=[f"arn:{current_partition.partition}:cloudtrail:{current_region.name}:{current_caller_identity.account_id}:trail/example"],
+                )],
             ),
             aws.iam.GetPolicyDocumentStatementArgs(
                 sid="AWSCloudTrailWrite",
@@ -812,17 +833,24 @@ class Trail(pulumi.CustomResource):
                     identifiers=["cloudtrail.amazonaws.com"],
                 )],
                 actions=["s3:PutObject"],
-                resources=[foo_bucket_v2.arn.apply(lambda arn: f"{arn}/prefix/AWSLogs/{current.account_id}/*")],
-                conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
-                    test="StringEquals",
-                    variable="s3:x-amz-acl",
-                    values=["bucket-owner-full-control"],
-                )],
+                resources=[example_bucket_v2.arn.apply(lambda arn: f"{arn}/prefix/AWSLogs/{current_caller_identity.account_id}/*")],
+                conditions=[
+                    aws.iam.GetPolicyDocumentStatementConditionArgs(
+                        test="StringEquals",
+                        variable="s3:x-amz-acl",
+                        values=["bucket-owner-full-control"],
+                    ),
+                    aws.iam.GetPolicyDocumentStatementConditionArgs(
+                        test="StringEquals",
+                        variable="aws:SourceArn",
+                        values=[f"arn:{current_partition.partition}:cloudtrail:{current_region.name}:{current_caller_identity.account_id}:trail/example"],
+                    ),
+                ],
             ),
         ])
-        foo_bucket_policy = aws.s3.BucketPolicy("fooBucketPolicy",
-            bucket=foo_bucket_v2.id,
-            policy=foo_policy_document.json)
+        example_bucket_policy = aws.s3.BucketPolicy("exampleBucketPolicy",
+            bucket=example_bucket_v2.id,
+            policy=example_policy_document.json)
         ```
         ### Data Event Logging
 
@@ -889,11 +917,11 @@ class Trail(pulumi.CustomResource):
 
         ## Import
 
-        Cloudtrails can be imported using the `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:cloudtrail/trail:Trail sample my-sample-trail
-        ```
+         to = aws_cloudtrail.sample
+
+         id = "my-sample-trail" } Using `pulumi import`, import Cloudtrails using the `name`. For exampleconsole % pulumi import aws_cloudtrail.sample my-sample-trail
 
         :param str resource_name: The name of the resource.
         :param TrailArgs args: The arguments to use to populate this resource's properties.

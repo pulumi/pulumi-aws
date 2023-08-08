@@ -5,7 +5,9 @@ package com.pulumi.aws.ec2.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -17,14 +19,14 @@ public final class NatGatewayState extends com.pulumi.resources.ResourceArgs {
     public static final NatGatewayState Empty = new NatGatewayState();
 
     /**
-     * The Allocation ID of the Elastic IP address for the gateway. Required for `connectivity_type` of `public`.
+     * The Allocation ID of the Elastic IP address for the NAT Gateway. Required for `connectivity_type` of `public`.
      * 
      */
     @Import(name="allocationId")
     private @Nullable Output<String> allocationId;
 
     /**
-     * @return The Allocation ID of the Elastic IP address for the gateway. Required for `connectivity_type` of `public`.
+     * @return The Allocation ID of the Elastic IP address for the NAT Gateway. Required for `connectivity_type` of `public`.
      * 
      */
     public Optional<Output<String>> allocationId() {
@@ -32,14 +34,14 @@ public final class NatGatewayState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The association ID of the Elastic IP address that&#39;s associated with the NAT gateway. Only available when `connectivity_type` is `public`.
+     * The association ID of the Elastic IP address that&#39;s associated with the NAT Gateway. Only available when `connectivity_type` is `public`.
      * 
      */
     @Import(name="associationId")
     private @Nullable Output<String> associationId;
 
     /**
-     * @return The association ID of the Elastic IP address that&#39;s associated with the NAT gateway. Only available when `connectivity_type` is `public`.
+     * @return The association ID of the Elastic IP address that&#39;s associated with the NAT Gateway. Only available when `connectivity_type` is `public`.
      * 
      */
     public Optional<Output<String>> associationId() {
@@ -47,14 +49,14 @@ public final class NatGatewayState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Connectivity type for the gateway. Valid values are `private` and `public`. Defaults to `public`.
+     * Connectivity type for the NAT Gateway. Valid values are `private` and `public`. Defaults to `public`.
      * 
      */
     @Import(name="connectivityType")
     private @Nullable Output<String> connectivityType;
 
     /**
-     * @return Connectivity type for the gateway. Valid values are `private` and `public`. Defaults to `public`.
+     * @return Connectivity type for the NAT Gateway. Valid values are `private` and `public`. Defaults to `public`.
      * 
      */
     public Optional<Output<String>> connectivityType() {
@@ -62,14 +64,14 @@ public final class NatGatewayState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the network interface associated with the NAT gateway.
+     * The ID of the network interface associated with the NAT Gateway.
      * 
      */
     @Import(name="networkInterfaceId")
     private @Nullable Output<String> networkInterfaceId;
 
     /**
-     * @return The ID of the network interface associated with the NAT gateway.
+     * @return The ID of the network interface associated with the NAT Gateway.
      * 
      */
     public Optional<Output<String>> networkInterfaceId() {
@@ -77,14 +79,14 @@ public final class NatGatewayState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The private IPv4 address to assign to the NAT gateway. If you don&#39;t provide an address, a private IPv4 address will be automatically assigned.
+     * The private IPv4 address to assign to the NAT Gateway. If you don&#39;t provide an address, a private IPv4 address will be automatically assigned.
      * 
      */
     @Import(name="privateIp")
     private @Nullable Output<String> privateIp;
 
     /**
-     * @return The private IPv4 address to assign to the NAT gateway. If you don&#39;t provide an address, a private IPv4 address will be automatically assigned.
+     * @return The private IPv4 address to assign to the NAT Gateway. If you don&#39;t provide an address, a private IPv4 address will be automatically assigned.
      * 
      */
     public Optional<Output<String>> privateIp() {
@@ -92,14 +94,14 @@ public final class NatGatewayState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Elastic IP address associated with the NAT gateway.
+     * The Elastic IP address associated with the NAT Gateway.
      * 
      */
     @Import(name="publicIp")
     private @Nullable Output<String> publicIp;
 
     /**
-     * @return The Elastic IP address associated with the NAT gateway.
+     * @return The Elastic IP address associated with the NAT Gateway.
      * 
      */
     public Optional<Output<String>> publicIp() {
@@ -107,14 +109,59 @@ public final class NatGatewayState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Subnet ID of the subnet in which to place the gateway.
+     * A list of secondary allocation EIP IDs for this NAT Gateway.
+     * 
+     */
+    @Import(name="secondaryAllocationIds")
+    private @Nullable Output<List<String>> secondaryAllocationIds;
+
+    /**
+     * @return A list of secondary allocation EIP IDs for this NAT Gateway.
+     * 
+     */
+    public Optional<Output<List<String>>> secondaryAllocationIds() {
+        return Optional.ofNullable(this.secondaryAllocationIds);
+    }
+
+    /**
+     * [Private NAT Gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
+     * 
+     */
+    @Import(name="secondaryPrivateIpAddressCount")
+    private @Nullable Output<Integer> secondaryPrivateIpAddressCount;
+
+    /**
+     * @return [Private NAT Gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
+     * 
+     */
+    public Optional<Output<Integer>> secondaryPrivateIpAddressCount() {
+        return Optional.ofNullable(this.secondaryPrivateIpAddressCount);
+    }
+
+    /**
+     * A list of secondary private IPv4 addresses to assign to the NAT Gateway.
+     * 
+     */
+    @Import(name="secondaryPrivateIpAddresses")
+    private @Nullable Output<List<String>> secondaryPrivateIpAddresses;
+
+    /**
+     * @return A list of secondary private IPv4 addresses to assign to the NAT Gateway.
+     * 
+     */
+    public Optional<Output<List<String>>> secondaryPrivateIpAddresses() {
+        return Optional.ofNullable(this.secondaryPrivateIpAddresses);
+    }
+
+    /**
+     * The Subnet ID of the subnet in which to place the NAT Gateway.
      * 
      */
     @Import(name="subnetId")
     private @Nullable Output<String> subnetId;
 
     /**
-     * @return The Subnet ID of the subnet in which to place the gateway.
+     * @return The Subnet ID of the subnet in which to place the NAT Gateway.
      * 
      */
     public Optional<Output<String>> subnetId() {
@@ -160,6 +207,9 @@ public final class NatGatewayState extends com.pulumi.resources.ResourceArgs {
         this.networkInterfaceId = $.networkInterfaceId;
         this.privateIp = $.privateIp;
         this.publicIp = $.publicIp;
+        this.secondaryAllocationIds = $.secondaryAllocationIds;
+        this.secondaryPrivateIpAddressCount = $.secondaryPrivateIpAddressCount;
+        this.secondaryPrivateIpAddresses = $.secondaryPrivateIpAddresses;
         this.subnetId = $.subnetId;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
@@ -184,7 +234,7 @@ public final class NatGatewayState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allocationId The Allocation ID of the Elastic IP address for the gateway. Required for `connectivity_type` of `public`.
+         * @param allocationId The Allocation ID of the Elastic IP address for the NAT Gateway. Required for `connectivity_type` of `public`.
          * 
          * @return builder
          * 
@@ -195,7 +245,7 @@ public final class NatGatewayState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allocationId The Allocation ID of the Elastic IP address for the gateway. Required for `connectivity_type` of `public`.
+         * @param allocationId The Allocation ID of the Elastic IP address for the NAT Gateway. Required for `connectivity_type` of `public`.
          * 
          * @return builder
          * 
@@ -205,7 +255,7 @@ public final class NatGatewayState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param associationId The association ID of the Elastic IP address that&#39;s associated with the NAT gateway. Only available when `connectivity_type` is `public`.
+         * @param associationId The association ID of the Elastic IP address that&#39;s associated with the NAT Gateway. Only available when `connectivity_type` is `public`.
          * 
          * @return builder
          * 
@@ -216,7 +266,7 @@ public final class NatGatewayState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param associationId The association ID of the Elastic IP address that&#39;s associated with the NAT gateway. Only available when `connectivity_type` is `public`.
+         * @param associationId The association ID of the Elastic IP address that&#39;s associated with the NAT Gateway. Only available when `connectivity_type` is `public`.
          * 
          * @return builder
          * 
@@ -226,7 +276,7 @@ public final class NatGatewayState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectivityType Connectivity type for the gateway. Valid values are `private` and `public`. Defaults to `public`.
+         * @param connectivityType Connectivity type for the NAT Gateway. Valid values are `private` and `public`. Defaults to `public`.
          * 
          * @return builder
          * 
@@ -237,7 +287,7 @@ public final class NatGatewayState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectivityType Connectivity type for the gateway. Valid values are `private` and `public`. Defaults to `public`.
+         * @param connectivityType Connectivity type for the NAT Gateway. Valid values are `private` and `public`. Defaults to `public`.
          * 
          * @return builder
          * 
@@ -247,7 +297,7 @@ public final class NatGatewayState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkInterfaceId The ID of the network interface associated with the NAT gateway.
+         * @param networkInterfaceId The ID of the network interface associated with the NAT Gateway.
          * 
          * @return builder
          * 
@@ -258,7 +308,7 @@ public final class NatGatewayState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkInterfaceId The ID of the network interface associated with the NAT gateway.
+         * @param networkInterfaceId The ID of the network interface associated with the NAT Gateway.
          * 
          * @return builder
          * 
@@ -268,7 +318,7 @@ public final class NatGatewayState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateIp The private IPv4 address to assign to the NAT gateway. If you don&#39;t provide an address, a private IPv4 address will be automatically assigned.
+         * @param privateIp The private IPv4 address to assign to the NAT Gateway. If you don&#39;t provide an address, a private IPv4 address will be automatically assigned.
          * 
          * @return builder
          * 
@@ -279,7 +329,7 @@ public final class NatGatewayState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateIp The private IPv4 address to assign to the NAT gateway. If you don&#39;t provide an address, a private IPv4 address will be automatically assigned.
+         * @param privateIp The private IPv4 address to assign to the NAT Gateway. If you don&#39;t provide an address, a private IPv4 address will be automatically assigned.
          * 
          * @return builder
          * 
@@ -289,7 +339,7 @@ public final class NatGatewayState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publicIp The Elastic IP address associated with the NAT gateway.
+         * @param publicIp The Elastic IP address associated with the NAT Gateway.
          * 
          * @return builder
          * 
@@ -300,7 +350,7 @@ public final class NatGatewayState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publicIp The Elastic IP address associated with the NAT gateway.
+         * @param publicIp The Elastic IP address associated with the NAT Gateway.
          * 
          * @return builder
          * 
@@ -310,7 +360,90 @@ public final class NatGatewayState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetId The Subnet ID of the subnet in which to place the gateway.
+         * @param secondaryAllocationIds A list of secondary allocation EIP IDs for this NAT Gateway.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryAllocationIds(@Nullable Output<List<String>> secondaryAllocationIds) {
+            $.secondaryAllocationIds = secondaryAllocationIds;
+            return this;
+        }
+
+        /**
+         * @param secondaryAllocationIds A list of secondary allocation EIP IDs for this NAT Gateway.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryAllocationIds(List<String> secondaryAllocationIds) {
+            return secondaryAllocationIds(Output.of(secondaryAllocationIds));
+        }
+
+        /**
+         * @param secondaryAllocationIds A list of secondary allocation EIP IDs for this NAT Gateway.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryAllocationIds(String... secondaryAllocationIds) {
+            return secondaryAllocationIds(List.of(secondaryAllocationIds));
+        }
+
+        /**
+         * @param secondaryPrivateIpAddressCount [Private NAT Gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryPrivateIpAddressCount(@Nullable Output<Integer> secondaryPrivateIpAddressCount) {
+            $.secondaryPrivateIpAddressCount = secondaryPrivateIpAddressCount;
+            return this;
+        }
+
+        /**
+         * @param secondaryPrivateIpAddressCount [Private NAT Gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryPrivateIpAddressCount(Integer secondaryPrivateIpAddressCount) {
+            return secondaryPrivateIpAddressCount(Output.of(secondaryPrivateIpAddressCount));
+        }
+
+        /**
+         * @param secondaryPrivateIpAddresses A list of secondary private IPv4 addresses to assign to the NAT Gateway.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryPrivateIpAddresses(@Nullable Output<List<String>> secondaryPrivateIpAddresses) {
+            $.secondaryPrivateIpAddresses = secondaryPrivateIpAddresses;
+            return this;
+        }
+
+        /**
+         * @param secondaryPrivateIpAddresses A list of secondary private IPv4 addresses to assign to the NAT Gateway.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryPrivateIpAddresses(List<String> secondaryPrivateIpAddresses) {
+            return secondaryPrivateIpAddresses(Output.of(secondaryPrivateIpAddresses));
+        }
+
+        /**
+         * @param secondaryPrivateIpAddresses A list of secondary private IPv4 addresses to assign to the NAT Gateway.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryPrivateIpAddresses(String... secondaryPrivateIpAddresses) {
+            return secondaryPrivateIpAddresses(List.of(secondaryPrivateIpAddresses));
+        }
+
+        /**
+         * @param subnetId The Subnet ID of the subnet in which to place the NAT Gateway.
          * 
          * @return builder
          * 
@@ -321,7 +454,7 @@ public final class NatGatewayState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetId The Subnet ID of the subnet in which to place the gateway.
+         * @param subnetId The Subnet ID of the subnet in which to place the NAT Gateway.
          * 
          * @return builder
          * 

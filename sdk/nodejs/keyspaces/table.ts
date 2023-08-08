@@ -35,11 +35,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Use the `keyspace_name` and `table_name` separated by `/` to import a table. For example
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:keyspaces/table:Table example my_keyspace/my_table
- * ```
+ *  to = aws_keyspaces_table.example
+ *
+ *  id = "my_keyspace/my_table" } Using `pulumi import`, import a table using the `keyspace_name` and `table_name` separated by `/`. For exampleconsole % pulumi import aws_keyspaces_table.example my_keyspace/my_table
  */
 export class Table extends pulumi.CustomResource {
     /**
@@ -77,6 +77,10 @@ export class Table extends pulumi.CustomResource {
      * Specifies the read/write throughput capacity mode for the table.
      */
     public readonly capacitySpecification!: pulumi.Output<outputs.keyspaces.TableCapacitySpecification>;
+    /**
+     * Enables client-side timestamps for the table. By default, the setting is disabled.
+     */
+    public readonly clientSideTimestamps!: pulumi.Output<outputs.keyspaces.TableClientSideTimestamps | undefined>;
     /**
      * A description of the table.
      */
@@ -135,6 +139,7 @@ export class Table extends pulumi.CustomResource {
             const state = argsOrState as TableState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["capacitySpecification"] = state ? state.capacitySpecification : undefined;
+            resourceInputs["clientSideTimestamps"] = state ? state.clientSideTimestamps : undefined;
             resourceInputs["comment"] = state ? state.comment : undefined;
             resourceInputs["defaultTimeToLive"] = state ? state.defaultTimeToLive : undefined;
             resourceInputs["encryptionSpecification"] = state ? state.encryptionSpecification : undefined;
@@ -157,6 +162,7 @@ export class Table extends pulumi.CustomResource {
                 throw new Error("Missing required property 'tableName'");
             }
             resourceInputs["capacitySpecification"] = args ? args.capacitySpecification : undefined;
+            resourceInputs["clientSideTimestamps"] = args ? args.clientSideTimestamps : undefined;
             resourceInputs["comment"] = args ? args.comment : undefined;
             resourceInputs["defaultTimeToLive"] = args ? args.defaultTimeToLive : undefined;
             resourceInputs["encryptionSpecification"] = args ? args.encryptionSpecification : undefined;
@@ -186,6 +192,10 @@ export interface TableState {
      * Specifies the read/write throughput capacity mode for the table.
      */
     capacitySpecification?: pulumi.Input<inputs.keyspaces.TableCapacitySpecification>;
+    /**
+     * Enables client-side timestamps for the table. By default, the setting is disabled.
+     */
+    clientSideTimestamps?: pulumi.Input<inputs.keyspaces.TableClientSideTimestamps>;
     /**
      * A description of the table.
      */
@@ -238,6 +248,10 @@ export interface TableArgs {
      * Specifies the read/write throughput capacity mode for the table.
      */
     capacitySpecification?: pulumi.Input<inputs.keyspaces.TableCapacitySpecification>;
+    /**
+     * Enables client-side timestamps for the table. By default, the setting is disabled.
+     */
+    clientSideTimestamps?: pulumi.Input<inputs.keyspaces.TableClientSideTimestamps>;
     /**
      * A description of the table.
      */

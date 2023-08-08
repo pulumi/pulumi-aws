@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2clientvpn"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2clientvpn"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -68,13 +69,11 @@ import (
 //
 // ## Import
 //
-// AWS Client VPN routes can be imported using the endpoint ID, target subnet ID, and destination CIDR block. All values are separated by a `,`.
+// terraform import {
 //
-// ```sh
+//	to = aws_ec2_client_vpn_route.example
 //
-//	$ pulumi import aws:ec2clientvpn/route:Route example cvpn-endpoint-1234567890abcdef,subnet-9876543210fedcba,10.1.0.0/24
-//
-// ```
+//	id = "cvpn-endpoint-1234567890abcdef,subnet-9876543210fedcba,10.1.0.0/24" } Using `pulumi import`, import AWS Client VPN routes using the endpoint ID, target subnet ID, and destination CIDR block. All values are separated by a `,`. For exampleconsole % pulumi import aws_ec2_client_vpn_route.example cvpn-endpoint-1234567890abcdef,subnet-9876543210fedcba,10.1.0.0/24
 type Route struct {
 	pulumi.CustomResourceState
 
@@ -108,6 +107,7 @@ func NewRoute(ctx *pulumi.Context,
 	if args.TargetVpcSubnetId == nil {
 		return nil, errors.New("invalid value for required argument 'TargetVpcSubnetId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Route
 	err := ctx.RegisterResource("aws:ec2clientvpn/route:Route", name, args, &resource, opts...)
 	if err != nil {

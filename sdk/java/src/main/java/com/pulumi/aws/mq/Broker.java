@@ -124,11 +124,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * MQ Brokers can be imported using their broker id, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:mq/broker:Broker example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
- * ```
+ *  to = aws_mq_broker.example
+ * 
+ *  id = &#34;a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc&#34; } Using `pulumi import`, import MQ Brokers using their broker id. For exampleconsole % pulumi import aws_mq_broker.example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
  * 
  */
 @ResourceType(type="aws:mq/broker:Broker")

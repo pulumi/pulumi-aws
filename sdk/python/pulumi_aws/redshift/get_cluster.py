@@ -22,7 +22,7 @@ class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, allow_version_upgrade=None, aqua_configuration_status=None, arn=None, automated_snapshot_retention_period=None, availability_zone=None, availability_zone_relocation_enabled=None, bucket_name=None, cluster_identifier=None, cluster_nodes=None, cluster_parameter_group_name=None, cluster_public_key=None, cluster_revision_number=None, cluster_security_groups=None, cluster_subnet_group_name=None, cluster_type=None, cluster_version=None, database_name=None, default_iam_role_arn=None, elastic_ip=None, enable_logging=None, encrypted=None, endpoint=None, enhanced_vpc_routing=None, iam_roles=None, id=None, kms_key_id=None, log_destination_type=None, log_exports=None, maintenance_track_name=None, manual_snapshot_retention_period=None, master_username=None, node_type=None, number_of_nodes=None, port=None, preferred_maintenance_window=None, publicly_accessible=None, s3_key_prefix=None, tags=None, vpc_id=None, vpc_security_group_ids=None):
+    def __init__(__self__, allow_version_upgrade=None, aqua_configuration_status=None, arn=None, automated_snapshot_retention_period=None, availability_zone=None, availability_zone_relocation_enabled=None, bucket_name=None, cluster_identifier=None, cluster_namespace_arn=None, cluster_nodes=None, cluster_parameter_group_name=None, cluster_public_key=None, cluster_revision_number=None, cluster_subnet_group_name=None, cluster_type=None, cluster_version=None, database_name=None, default_iam_role_arn=None, elastic_ip=None, enable_logging=None, encrypted=None, endpoint=None, enhanced_vpc_routing=None, iam_roles=None, id=None, kms_key_id=None, log_destination_type=None, log_exports=None, maintenance_track_name=None, manual_snapshot_retention_period=None, master_username=None, node_type=None, number_of_nodes=None, port=None, preferred_maintenance_window=None, publicly_accessible=None, s3_key_prefix=None, tags=None, vpc_id=None, vpc_security_group_ids=None):
         if allow_version_upgrade and not isinstance(allow_version_upgrade, bool):
             raise TypeError("Expected argument 'allow_version_upgrade' to be a bool")
         pulumi.set(__self__, "allow_version_upgrade", allow_version_upgrade)
@@ -47,6 +47,9 @@ class GetClusterResult:
         if cluster_identifier and not isinstance(cluster_identifier, str):
             raise TypeError("Expected argument 'cluster_identifier' to be a str")
         pulumi.set(__self__, "cluster_identifier", cluster_identifier)
+        if cluster_namespace_arn and not isinstance(cluster_namespace_arn, str):
+            raise TypeError("Expected argument 'cluster_namespace_arn' to be a str")
+        pulumi.set(__self__, "cluster_namespace_arn", cluster_namespace_arn)
         if cluster_nodes and not isinstance(cluster_nodes, list):
             raise TypeError("Expected argument 'cluster_nodes' to be a list")
         pulumi.set(__self__, "cluster_nodes", cluster_nodes)
@@ -59,9 +62,6 @@ class GetClusterResult:
         if cluster_revision_number and not isinstance(cluster_revision_number, str):
             raise TypeError("Expected argument 'cluster_revision_number' to be a str")
         pulumi.set(__self__, "cluster_revision_number", cluster_revision_number)
-        if cluster_security_groups and not isinstance(cluster_security_groups, list):
-            raise TypeError("Expected argument 'cluster_security_groups' to be a list")
-        pulumi.set(__self__, "cluster_security_groups", cluster_security_groups)
         if cluster_subnet_group_name and not isinstance(cluster_subnet_group_name, str):
             raise TypeError("Expected argument 'cluster_subnet_group_name' to be a str")
         pulumi.set(__self__, "cluster_subnet_group_name", cluster_subnet_group_name)
@@ -209,6 +209,14 @@ class GetClusterResult:
         return pulumi.get(self, "cluster_identifier")
 
     @property
+    @pulumi.getter(name="clusterNamespaceArn")
+    def cluster_namespace_arn(self) -> str:
+        """
+        The namespace Amazon Resource Name (ARN) of the cluster
+        """
+        return pulumi.get(self, "cluster_namespace_arn")
+
+    @property
     @pulumi.getter(name="clusterNodes")
     def cluster_nodes(self) -> Sequence['outputs.GetClusterClusterNodeResult']:
         """
@@ -239,17 +247,6 @@ class GetClusterResult:
         The cluster revision number
         """
         return pulumi.get(self, "cluster_revision_number")
-
-    @property
-    @pulumi.getter(name="clusterSecurityGroups")
-    def cluster_security_groups(self) -> Sequence[str]:
-        """
-        The security groups associated with the cluster
-        """
-        warnings.warn("""With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-        pulumi.log.warn("""cluster_security_groups is deprecated: With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.""")
-
-        return pulumi.get(self, "cluster_security_groups")
 
     @property
     @pulumi.getter(name="clusterSubnetGroupName")
@@ -284,7 +281,7 @@ class GetClusterResult:
     @pulumi.getter(name="defaultIamRoleArn")
     def default_iam_role_arn(self) -> str:
         """
-        ∂The ARN for the IAM role that was set as default for the cluster when the cluster was created.
+        The ARN for the IAM role that was set as default for the cluster when the cluster was created.
         """
         return pulumi.get(self, "default_iam_role_arn")
 
@@ -479,11 +476,11 @@ class AwaitableGetClusterResult(GetClusterResult):
             availability_zone_relocation_enabled=self.availability_zone_relocation_enabled,
             bucket_name=self.bucket_name,
             cluster_identifier=self.cluster_identifier,
+            cluster_namespace_arn=self.cluster_namespace_arn,
             cluster_nodes=self.cluster_nodes,
             cluster_parameter_group_name=self.cluster_parameter_group_name,
             cluster_public_key=self.cluster_public_key,
             cluster_revision_number=self.cluster_revision_number,
-            cluster_security_groups=self.cluster_security_groups,
             cluster_subnet_group_name=self.cluster_subnet_group_name,
             cluster_type=self.cluster_type,
             cluster_version=self.cluster_version,
@@ -519,33 +516,6 @@ def get_cluster(cluster_identifier: Optional[str] = None,
     """
     Provides details about a specific redshift cluster.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.redshift.get_cluster(cluster_identifier="example-cluster")
-    example_stream = aws.kinesis.FirehoseDeliveryStream("exampleStream",
-        destination="redshift",
-        s3_configuration=aws.kinesis.FirehoseDeliveryStreamS3ConfigurationArgs(
-            role_arn=aws_iam_role["firehose_role"]["arn"],
-            bucket_arn=aws_s3_bucket["bucket"]["arn"],
-            buffer_size=10,
-            buffer_interval=400,
-            compression_format="GZIP",
-        ),
-        redshift_configuration=aws.kinesis.FirehoseDeliveryStreamRedshiftConfigurationArgs(
-            role_arn=aws_iam_role["firehose_role"]["arn"],
-            cluster_jdbcurl=f"jdbc:redshift://{example.endpoint}/{example.database_name}",
-            username="exampleuser",
-            password="Exampl3Pass",
-            data_table_name="example-table",
-            copy_options="delimiter '|'",
-            data_table_columns="example-col",
-        ))
-    ```
-
 
     :param str cluster_identifier: Cluster identifier
     :param Mapping[str, str] tags: Tags associated to the cluster
@@ -565,11 +535,11 @@ def get_cluster(cluster_identifier: Optional[str] = None,
         availability_zone_relocation_enabled=pulumi.get(__ret__, 'availability_zone_relocation_enabled'),
         bucket_name=pulumi.get(__ret__, 'bucket_name'),
         cluster_identifier=pulumi.get(__ret__, 'cluster_identifier'),
+        cluster_namespace_arn=pulumi.get(__ret__, 'cluster_namespace_arn'),
         cluster_nodes=pulumi.get(__ret__, 'cluster_nodes'),
         cluster_parameter_group_name=pulumi.get(__ret__, 'cluster_parameter_group_name'),
         cluster_public_key=pulumi.get(__ret__, 'cluster_public_key'),
         cluster_revision_number=pulumi.get(__ret__, 'cluster_revision_number'),
-        cluster_security_groups=pulumi.get(__ret__, 'cluster_security_groups'),
         cluster_subnet_group_name=pulumi.get(__ret__, 'cluster_subnet_group_name'),
         cluster_type=pulumi.get(__ret__, 'cluster_type'),
         cluster_version=pulumi.get(__ret__, 'cluster_version'),
@@ -605,33 +575,6 @@ def get_cluster_output(cluster_identifier: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
     """
     Provides details about a specific redshift cluster.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.redshift.get_cluster(cluster_identifier="example-cluster")
-    example_stream = aws.kinesis.FirehoseDeliveryStream("exampleStream",
-        destination="redshift",
-        s3_configuration=aws.kinesis.FirehoseDeliveryStreamS3ConfigurationArgs(
-            role_arn=aws_iam_role["firehose_role"]["arn"],
-            bucket_arn=aws_s3_bucket["bucket"]["arn"],
-            buffer_size=10,
-            buffer_interval=400,
-            compression_format="GZIP",
-        ),
-        redshift_configuration=aws.kinesis.FirehoseDeliveryStreamRedshiftConfigurationArgs(
-            role_arn=aws_iam_role["firehose_role"]["arn"],
-            cluster_jdbcurl=f"jdbc:redshift://{example.endpoint}/{example.database_name}",
-            username="exampleuser",
-            password="Exampl3Pass",
-            data_table_name="example-table",
-            copy_options="delimiter '|'",
-            data_table_columns="example-col",
-        ))
-    ```
 
 
     :param str cluster_identifier: Cluster identifier

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssmincidents"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssmincidents"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,7 +55,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssmincidents"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssmincidents"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -141,13 +142,11 @@ import (
 //
 // ## Import
 //
-// To import an Incident Manager response plan, specify the response plan ARN. You can find the response plan ARN in the AWS Management Console. Use the following command to run the import operation
+// terraform import {
 //
-// ```sh
+//	to = aws_ssmincidents_response_plan.responsePlanName
 //
-//	$ pulumi import aws:ssmincidents/responsePlan:ResponsePlan responsePlanName ARNValue
-//
-// ```
+//	id = "ARNValue" } Using `pulumi import`, import an Incident Manager response plan using the response plan ARN. You can find the response plan ARN in the AWS Management Console. For exampleconsole % pulumi import aws_ssmincidents_response_plan.responsePlanName ARNValue
 type ResponsePlan struct {
 	pulumi.CustomResourceState
 
@@ -182,6 +181,7 @@ func NewResponsePlan(ctx *pulumi.Context,
 	if args.IncidentTemplate == nil {
 		return nil, errors.New("invalid value for required argument 'IncidentTemplate'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResponsePlan
 	err := ctx.RegisterResource("aws:ssmincidents/responsePlan:ResponsePlan", name, args, &resource, opts...)
 	if err != nil {

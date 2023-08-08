@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkfirewall"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkfirewall"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -58,7 +59,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkfirewall"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkfirewall"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -94,7 +95,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkfirewall"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkfirewall"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -126,13 +127,11 @@ import (
 //
 // ## Import
 //
-// Network Firewall Logging Configurations can be imported using the `firewall_arn` e.g
+// terraform import {
 //
-// ```sh
+//	to = aws_networkfirewall_logging_configuration.example
 //
-//	$ pulumi import aws:networkfirewall/loggingConfiguration:LoggingConfiguration example arn:aws:network-firewall:us-west-1:123456789012:firewall/example
-//
-// ```
+//	id = "arn:aws:network-firewall:us-west-1:123456789012:firewall/example" } Using `pulumi import`, import Network Firewall Logging Configurations using the `firewall_arn`. For exampleconsole % pulumi import aws_networkfirewall_logging_configuration.example arn:aws:network-firewall:us-west-1:123456789012:firewall/example
 type LoggingConfiguration struct {
 	pulumi.CustomResourceState
 
@@ -155,6 +154,7 @@ func NewLoggingConfiguration(ctx *pulumi.Context,
 	if args.LoggingConfiguration == nil {
 		return nil, errors.New("invalid value for required argument 'LoggingConfiguration'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LoggingConfiguration
 	err := ctx.RegisterResource("aws:networkfirewall/loggingConfiguration:LoggingConfiguration", name, args, &resource, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -49,13 +50,11 @@ import (
 //
 // ## Import
 //
-// IPAMs can be imported using the `ipam resource discovery association id`, e.g.
+// terraform import {
 //
-// ```sh
+//	to = aws_vpc_ipam_resource_discovery_association.example
 //
-//	$ pulumi import aws:ec2/vpcIpamResourceDiscoveryAssociation:VpcIpamResourceDiscoveryAssociation example ipam-res-disco-assoc-0178368ad2146a492
-//
-// ```
+//	id = "ipam-res-disco-assoc-0178368ad2146a492" } Using `pulumi import`, import IPAMs using the IPAM resource discovery association `id`. For exampleconsole % pulumi import aws_vpc_ipam_resource_discovery_association.example ipam-res-disco-assoc-0178368ad2146a492
 type VpcIpamResourceDiscoveryAssociation struct {
 	pulumi.CustomResourceState
 
@@ -94,6 +93,7 @@ func NewVpcIpamResourceDiscoveryAssociation(ctx *pulumi.Context,
 	if args.IpamResourceDiscoveryId == nil {
 		return nil, errors.New("invalid value for required argument 'IpamResourceDiscoveryId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcIpamResourceDiscoveryAssociation
 	err := ctx.RegisterResource("aws:ec2/vpcIpamResourceDiscoveryAssociation:VpcIpamResourceDiscoveryAssociation", name, args, &resource, opts...)
 	if err != nil {

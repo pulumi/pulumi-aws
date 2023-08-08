@@ -58,6 +58,31 @@ import * as utilities from "../utilities";
  * `,
  * });
  * ```
+ * ### Publish (Publish SFN version)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * // ...
+ * const sfnStateMachine = new aws.sfn.StateMachine("sfnStateMachine", {
+ *     roleArn: aws_iam_role.iam_for_sfn.arn,
+ *     publish: true,
+ *     type: "EXPRESS",
+ *     definition: `{
+ *   "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
+ *   "StartAt": "HelloWorld",
+ *   "States": {
+ *     "HelloWorld": {
+ *       "Type": "Task",
+ *       "Resource": "${aws_lambda_function.lambda.arn}",
+ *       "End": true
+ *     }
+ *   }
+ * }
+ * `,
+ * });
+ * ```
  * ### Logging
  *
  * > *NOTE:* See the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html) for more information about enabling Step Function logging.
@@ -91,11 +116,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * State Machines can be imported using the `arn`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:sfn/stateMachine:StateMachine foo arn:aws:states:eu-west-1:123456789098:stateMachine:bar
- * ```
+ *  to = aws_sfn_state_machine.foo
+ *
+ *  id = "arn:aws:states:eu-west-1:123456789098:stateMachine:bar" } Using `pulumi import`, import State Machines using the `arn`. For exampleconsole % pulumi import aws_sfn_state_machine.foo arn:aws:states:eu-west-1:123456789098:stateMachine:bar
  */
 export class StateMachine extends pulumi.CustomResource {
     /**
@@ -137,6 +162,7 @@ export class StateMachine extends pulumi.CustomResource {
      * The [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) definition of the state machine.
      */
     public readonly definition!: pulumi.Output<string>;
+    public /*out*/ readonly description!: pulumi.Output<string>;
     /**
      * Defines what execution history events are logged and where they are logged. The `loggingConfiguration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
      */
@@ -150,9 +176,15 @@ export class StateMachine extends pulumi.CustomResource {
      */
     public readonly namePrefix!: pulumi.Output<string>;
     /**
+     * Set to true to publish a version of the state machine during creation. Default: false.
+     */
+    public readonly publish!: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly revisionId!: pulumi.Output<string>;
+    /**
      * The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
      */
     public readonly roleArn!: pulumi.Output<string>;
+    public /*out*/ readonly stateMachineVersionArn!: pulumi.Output<string>;
     /**
      * The current status of the state machine. Either `ACTIVE` or `DELETING`.
      */
@@ -173,6 +205,7 @@ export class StateMachine extends pulumi.CustomResource {
      * Determines whether a Standard or Express state machine is created. The default is `STANDARD`. You cannot update the type of a state machine once it has been created. Valid values: `STANDARD`, `EXPRESS`.
      */
     public readonly type!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly versionDescription!: pulumi.Output<string>;
 
     /**
      * Create a StateMachine resource with the given unique name, arguments, and options.
@@ -190,15 +223,20 @@ export class StateMachine extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["creationDate"] = state ? state.creationDate : undefined;
             resourceInputs["definition"] = state ? state.definition : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["loggingConfiguration"] = state ? state.loggingConfiguration : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
+            resourceInputs["publish"] = state ? state.publish : undefined;
+            resourceInputs["revisionId"] = state ? state.revisionId : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
+            resourceInputs["stateMachineVersionArn"] = state ? state.stateMachineVersionArn : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["tracingConfiguration"] = state ? state.tracingConfiguration : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["versionDescription"] = state ? state.versionDescription : undefined;
         } else {
             const args = argsOrState as StateMachineArgs | undefined;
             if ((!args || args.definition === undefined) && !opts.urn) {
@@ -211,14 +249,19 @@ export class StateMachine extends pulumi.CustomResource {
             resourceInputs["loggingConfiguration"] = args ? args.loggingConfiguration : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
+            resourceInputs["publish"] = args ? args.publish : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tracingConfiguration"] = args ? args.tracingConfiguration : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["revisionId"] = undefined /*out*/;
+            resourceInputs["stateMachineVersionArn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["versionDescription"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(StateMachine.__pulumiType, name, resourceInputs, opts);
@@ -241,6 +284,7 @@ export interface StateMachineState {
      * The [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) definition of the state machine.
      */
     definition?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Defines what execution history events are logged and where they are logged. The `loggingConfiguration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
      */
@@ -254,9 +298,15 @@ export interface StateMachineState {
      */
     namePrefix?: pulumi.Input<string>;
     /**
+     * Set to true to publish a version of the state machine during creation. Default: false.
+     */
+    publish?: pulumi.Input<boolean>;
+    revisionId?: pulumi.Input<string>;
+    /**
      * The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
      */
     roleArn?: pulumi.Input<string>;
+    stateMachineVersionArn?: pulumi.Input<string>;
     /**
      * The current status of the state machine. Either `ACTIVE` or `DELETING`.
      */
@@ -277,6 +327,7 @@ export interface StateMachineState {
      * Determines whether a Standard or Express state machine is created. The default is `STANDARD`. You cannot update the type of a state machine once it has been created. Valid values: `STANDARD`, `EXPRESS`.
      */
     type?: pulumi.Input<string>;
+    versionDescription?: pulumi.Input<string>;
 }
 
 /**
@@ -299,6 +350,10 @@ export interface StateMachineArgs {
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
     namePrefix?: pulumi.Input<string>;
+    /**
+     * Set to true to publish a version of the state machine during creation. Default: false.
+     */
+    publish?: pulumi.Input<boolean>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
      */

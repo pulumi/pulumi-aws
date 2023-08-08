@@ -7,8 +7,11 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange struct {
 	// The final port in the range of TCP ports.
@@ -786,7 +789,7 @@ type ClusterCoreInstanceFleetInstanceTypeConfigConfiguration struct {
 	// Classification within a configuration.
 	Classification *string `pulumi:"classification"`
 	// Map of properties specified within a configuration classification.
-	Properties map[string]interface{} `pulumi:"properties"`
+	Properties map[string]string `pulumi:"properties"`
 }
 
 // ClusterCoreInstanceFleetInstanceTypeConfigConfigurationInput is an input type that accepts ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgs and ClusterCoreInstanceFleetInstanceTypeConfigConfigurationOutput values.
@@ -804,7 +807,7 @@ type ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgs struct {
 	// Classification within a configuration.
 	Classification pulumi.StringPtrInput `pulumi:"classification"`
 	// Map of properties specified within a configuration classification.
-	Properties pulumi.MapInput `pulumi:"properties"`
+	Properties pulumi.StringMapInput `pulumi:"properties"`
 }
 
 func (ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgs) ElementType() reflect.Type {
@@ -864,10 +867,8 @@ func (o ClusterCoreInstanceFleetInstanceTypeConfigConfigurationOutput) Classific
 }
 
 // Map of properties specified within a configuration classification.
-func (o ClusterCoreInstanceFleetInstanceTypeConfigConfigurationOutput) Properties() pulumi.MapOutput {
-	return o.ApplyT(func(v ClusterCoreInstanceFleetInstanceTypeConfigConfiguration) map[string]interface{} {
-		return v.Properties
-	}).(pulumi.MapOutput)
+func (o ClusterCoreInstanceFleetInstanceTypeConfigConfigurationOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ClusterCoreInstanceFleetInstanceTypeConfigConfiguration) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
 }
 
 type ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArrayOutput struct{ *pulumi.OutputState }
@@ -1274,7 +1275,7 @@ func (o ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOu
 }
 
 type ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecification struct {
-	// Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+	// Specifies the strategy to use in launching Spot instance fleets. Valid values include `capacity-optimized`, `diversified`, `lowest-price`, `price-capacity-optimized`. See the [AWS documentation](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html#emr-instance-fleet-allocation-strategy) for details on each strategy type.
 	AllocationStrategy string `pulumi:"allocationStrategy"`
 	// Defined duration for Spot instances (also known as Spot blocks) in minutes. When specified, the Spot instance does not terminate before the defined duration expires, and defined duration pricing for Spot instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
 	BlockDurationMinutes *int `pulumi:"blockDurationMinutes"`
@@ -1296,7 +1297,7 @@ type ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationInput interfac
 }
 
 type ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArgs struct {
-	// Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+	// Specifies the strategy to use in launching Spot instance fleets. Valid values include `capacity-optimized`, `diversified`, `lowest-price`, `price-capacity-optimized`. See the [AWS documentation](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html#emr-instance-fleet-allocation-strategy) for details on each strategy type.
 	AllocationStrategy pulumi.StringInput `pulumi:"allocationStrategy"`
 	// Defined duration for Spot instances (also known as Spot blocks) in minutes. When specified, the Spot instance does not terminate before the defined duration expires, and defined duration pricing for Spot instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
 	BlockDurationMinutes pulumi.IntPtrInput `pulumi:"blockDurationMinutes"`
@@ -1357,7 +1358,7 @@ func (o ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationOutput) ToC
 	return o
 }
 
-// Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+// Specifies the strategy to use in launching Spot instance fleets. Valid values include `capacity-optimized`, `diversified`, `lowest-price`, `price-capacity-optimized`. See the [AWS documentation](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html#emr-instance-fleet-allocation-strategy) for details on each strategy type.
 func (o ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationOutput) AllocationStrategy() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecification) string {
 		return v.AllocationStrategy
@@ -2715,7 +2716,7 @@ type ClusterMasterInstanceFleetInstanceTypeConfigConfiguration struct {
 	// Classification within a configuration.
 	Classification *string `pulumi:"classification"`
 	// Map of properties specified within a configuration classification.
-	Properties map[string]interface{} `pulumi:"properties"`
+	Properties map[string]string `pulumi:"properties"`
 }
 
 // ClusterMasterInstanceFleetInstanceTypeConfigConfigurationInput is an input type that accepts ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArgs and ClusterMasterInstanceFleetInstanceTypeConfigConfigurationOutput values.
@@ -2733,7 +2734,7 @@ type ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArgs struct {
 	// Classification within a configuration.
 	Classification pulumi.StringPtrInput `pulumi:"classification"`
 	// Map of properties specified within a configuration classification.
-	Properties pulumi.MapInput `pulumi:"properties"`
+	Properties pulumi.StringMapInput `pulumi:"properties"`
 }
 
 func (ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArgs) ElementType() reflect.Type {
@@ -2793,10 +2794,10 @@ func (o ClusterMasterInstanceFleetInstanceTypeConfigConfigurationOutput) Classif
 }
 
 // Map of properties specified within a configuration classification.
-func (o ClusterMasterInstanceFleetInstanceTypeConfigConfigurationOutput) Properties() pulumi.MapOutput {
-	return o.ApplyT(func(v ClusterMasterInstanceFleetInstanceTypeConfigConfiguration) map[string]interface{} {
+func (o ClusterMasterInstanceFleetInstanceTypeConfigConfigurationOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ClusterMasterInstanceFleetInstanceTypeConfigConfiguration) map[string]string {
 		return v.Properties
-	}).(pulumi.MapOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 type ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArrayOutput struct{ *pulumi.OutputState }
@@ -3203,7 +3204,7 @@ func (o ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArray
 }
 
 type ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification struct {
-	// Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+	// Specifies the strategy to use in launching Spot instance fleets. Valid values include `capacity-optimized`, `diversified`, `lowest-price`, `price-capacity-optimized`. See the [AWS documentation](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html#emr-instance-fleet-allocation-strategy) for details on each strategy type.
 	AllocationStrategy string `pulumi:"allocationStrategy"`
 	// Defined duration for Spot instances (also known as Spot blocks) in minutes. When specified, the Spot instance does not terminate before the defined duration expires, and defined duration pricing for Spot instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
 	BlockDurationMinutes *int `pulumi:"blockDurationMinutes"`
@@ -3225,7 +3226,7 @@ type ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationInput interf
 }
 
 type ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArgs struct {
-	// Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+	// Specifies the strategy to use in launching Spot instance fleets. Valid values include `capacity-optimized`, `diversified`, `lowest-price`, `price-capacity-optimized`. See the [AWS documentation](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html#emr-instance-fleet-allocation-strategy) for details on each strategy type.
 	AllocationStrategy pulumi.StringInput `pulumi:"allocationStrategy"`
 	// Defined duration for Spot instances (also known as Spot blocks) in minutes. When specified, the Spot instance does not terminate before the defined duration expires, and defined duration pricing for Spot instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
 	BlockDurationMinutes pulumi.IntPtrInput `pulumi:"blockDurationMinutes"`
@@ -3286,7 +3287,7 @@ func (o ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationOutput) T
 	return o
 }
 
-// Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+// Specifies the strategy to use in launching Spot instance fleets. Valid values include `capacity-optimized`, `diversified`, `lowest-price`, `price-capacity-optimized`. See the [AWS documentation](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html#emr-instance-fleet-allocation-strategy) for details on each strategy type.
 func (o ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationOutput) AllocationStrategy() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification) string {
 		return v.AllocationStrategy
@@ -4147,7 +4148,7 @@ type InstanceFleetInstanceTypeConfigConfiguration struct {
 	// The classification within a configuration.
 	Classification *string `pulumi:"classification"`
 	// A map of properties specified within a configuration classification
-	Properties map[string]interface{} `pulumi:"properties"`
+	Properties map[string]string `pulumi:"properties"`
 }
 
 // InstanceFleetInstanceTypeConfigConfigurationInput is an input type that accepts InstanceFleetInstanceTypeConfigConfigurationArgs and InstanceFleetInstanceTypeConfigConfigurationOutput values.
@@ -4165,7 +4166,7 @@ type InstanceFleetInstanceTypeConfigConfigurationArgs struct {
 	// The classification within a configuration.
 	Classification pulumi.StringPtrInput `pulumi:"classification"`
 	// A map of properties specified within a configuration classification
-	Properties pulumi.MapInput `pulumi:"properties"`
+	Properties pulumi.StringMapInput `pulumi:"properties"`
 }
 
 func (InstanceFleetInstanceTypeConfigConfigurationArgs) ElementType() reflect.Type {
@@ -4225,8 +4226,8 @@ func (o InstanceFleetInstanceTypeConfigConfigurationOutput) Classification() pul
 }
 
 // A map of properties specified within a configuration classification
-func (o InstanceFleetInstanceTypeConfigConfigurationOutput) Properties() pulumi.MapOutput {
-	return o.ApplyT(func(v InstanceFleetInstanceTypeConfigConfiguration) map[string]interface{} { return v.Properties }).(pulumi.MapOutput)
+func (o InstanceFleetInstanceTypeConfigConfigurationOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v InstanceFleetInstanceTypeConfigConfiguration) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
 }
 
 type InstanceFleetInstanceTypeConfigConfigurationArrayOutput struct{ *pulumi.OutputState }

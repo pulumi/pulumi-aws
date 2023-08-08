@@ -38,8 +38,8 @@ class ComputeEnvironmentComputeResources(dict):
             suggest = "bid_percentage"
         elif key == "desiredVcpus":
             suggest = "desired_vcpus"
-        elif key == "ec2Configuration":
-            suggest = "ec2_configuration"
+        elif key == "ec2Configurations":
+            suggest = "ec2_configurations"
         elif key == "ec2KeyPair":
             suggest = "ec2_key_pair"
         elif key == "imageId":
@@ -52,6 +52,8 @@ class ComputeEnvironmentComputeResources(dict):
             suggest = "launch_template"
         elif key == "minVcpus":
             suggest = "min_vcpus"
+        elif key == "placementGroup":
+            suggest = "placement_group"
         elif key == "securityGroupIds":
             suggest = "security_group_ids"
         elif key == "spotIamFleetRole":
@@ -75,13 +77,14 @@ class ComputeEnvironmentComputeResources(dict):
                  allocation_strategy: Optional[str] = None,
                  bid_percentage: Optional[int] = None,
                  desired_vcpus: Optional[int] = None,
-                 ec2_configuration: Optional['outputs.ComputeEnvironmentComputeResourcesEc2Configuration'] = None,
+                 ec2_configurations: Optional[Sequence['outputs.ComputeEnvironmentComputeResourcesEc2Configuration']] = None,
                  ec2_key_pair: Optional[str] = None,
                  image_id: Optional[str] = None,
                  instance_role: Optional[str] = None,
                  instance_types: Optional[Sequence[str]] = None,
                  launch_template: Optional['outputs.ComputeEnvironmentComputeResourcesLaunchTemplate'] = None,
                  min_vcpus: Optional[int] = None,
+                 placement_group: Optional[str] = None,
                  security_group_ids: Optional[Sequence[str]] = None,
                  spot_iam_fleet_role: Optional[str] = None,
                  tags: Optional[Mapping[str, str]] = None):
@@ -92,13 +95,14 @@ class ComputeEnvironmentComputeResources(dict):
         :param str allocation_strategy: The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. Valid items are `BEST_FIT_PROGRESSIVE`, `SPOT_CAPACITY_OPTIMIZED` or `BEST_FIT`. Defaults to `BEST_FIT`. See [AWS docs](https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html) for details. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         :param int bid_percentage: Integer of maximum percentage that a Spot Instance price can be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. If you leave this field empty, the default value is 100% of the On-Demand price. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         :param int desired_vcpus: The desired number of EC2 vCPUS in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
-        :param 'ComputeEnvironmentComputeResourcesEc2ConfigurationArgs' ec2_configuration: Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn't specified, the default is ECS_AL2. This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
+        :param Sequence['ComputeEnvironmentComputeResourcesEc2ConfigurationArgs'] ec2_configurations: Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn't specified, the default is ECS_AL2. This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
         :param str ec2_key_pair: The EC2 key pair that is used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         :param str image_id: The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified. (Deprecated, use `ec2_configuration` `image_id_override` instead)
         :param str instance_role: The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         :param Sequence[str] instance_types: A list of instance types that may be launched. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         :param 'ComputeEnvironmentComputeResourcesLaunchTemplateArgs' launch_template: The launch template to use for your compute resources. See details below. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         :param int min_vcpus: The minimum number of EC2 vCPUs that an environment should maintain. For `EC2` or `SPOT` compute environments, if the parameter is not explicitly defined, a `0` default value will be set. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+        :param str placement_group: The Amazon EC2 placement group to associate with your compute resources.
         :param Sequence[str] security_group_ids: A list of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
         :param str spot_iam_fleet_role: The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         :param Mapping[str, str] tags: Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
@@ -112,8 +116,8 @@ class ComputeEnvironmentComputeResources(dict):
             pulumi.set(__self__, "bid_percentage", bid_percentage)
         if desired_vcpus is not None:
             pulumi.set(__self__, "desired_vcpus", desired_vcpus)
-        if ec2_configuration is not None:
-            pulumi.set(__self__, "ec2_configuration", ec2_configuration)
+        if ec2_configurations is not None:
+            pulumi.set(__self__, "ec2_configurations", ec2_configurations)
         if ec2_key_pair is not None:
             pulumi.set(__self__, "ec2_key_pair", ec2_key_pair)
         if image_id is not None:
@@ -126,6 +130,8 @@ class ComputeEnvironmentComputeResources(dict):
             pulumi.set(__self__, "launch_template", launch_template)
         if min_vcpus is not None:
             pulumi.set(__self__, "min_vcpus", min_vcpus)
+        if placement_group is not None:
+            pulumi.set(__self__, "placement_group", placement_group)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
         if spot_iam_fleet_role is not None:
@@ -182,12 +188,12 @@ class ComputeEnvironmentComputeResources(dict):
         return pulumi.get(self, "desired_vcpus")
 
     @property
-    @pulumi.getter(name="ec2Configuration")
-    def ec2_configuration(self) -> Optional['outputs.ComputeEnvironmentComputeResourcesEc2Configuration']:
+    @pulumi.getter(name="ec2Configurations")
+    def ec2_configurations(self) -> Optional[Sequence['outputs.ComputeEnvironmentComputeResourcesEc2Configuration']]:
         """
         Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn't specified, the default is ECS_AL2. This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
         """
-        return pulumi.get(self, "ec2_configuration")
+        return pulumi.get(self, "ec2_configurations")
 
     @property
     @pulumi.getter(name="ec2KeyPair")
@@ -236,6 +242,14 @@ class ComputeEnvironmentComputeResources(dict):
         The minimum number of EC2 vCPUs that an environment should maintain. For `EC2` or `SPOT` compute environments, if the parameter is not explicitly defined, a `0` default value will be set. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         """
         return pulumi.get(self, "min_vcpus")
+
+    @property
+    @pulumi.getter(name="placementGroup")
+    def placement_group(self) -> Optional[str]:
+        """
+        The Amazon EC2 placement group to associate with your compute resources.
+        """
+        return pulumi.get(self, "placement_group")
 
     @property
     @pulumi.getter(name="securityGroupIds")

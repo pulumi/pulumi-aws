@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -39,6 +40,7 @@ import (
 //
 // ```
 func GetRouteTablePropagations(ctx *pulumi.Context, args *GetRouteTablePropagationsArgs, opts ...pulumi.InvokeOption) (*GetRouteTablePropagationsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRouteTablePropagationsResult
 	err := ctx.Invoke("aws:ec2transitgateway/getRouteTablePropagations:getRouteTablePropagations", args, &rv, opts...)
 	if err != nil {

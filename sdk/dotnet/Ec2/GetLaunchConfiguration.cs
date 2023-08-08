@@ -173,14 +173,6 @@ namespace Pulumi.Aws.Ec2
         /// User Data of the instance.
         /// </summary>
         public readonly string UserData;
-        /// <summary>
-        /// ID of a ClassicLink-enabled VPC.
-        /// </summary>
-        public readonly string VpcClassicLinkId;
-        /// <summary>
-        /// The IDs of one or more Security Groups for the specified ClassicLink-enabled VPC.
-        /// </summary>
-        public readonly ImmutableArray<string> VpcClassicLinkSecurityGroups;
 
         [OutputConstructor]
         private GetLaunchConfigurationResult(
@@ -218,11 +210,7 @@ namespace Pulumi.Aws.Ec2
 
             string spotPrice,
 
-            string userData,
-
-            string vpcClassicLinkId,
-
-            ImmutableArray<string> vpcClassicLinkSecurityGroups)
+            string userData)
         {
             Arn = arn;
             AssociatePublicIpAddress = associatePublicIpAddress;
@@ -242,8 +230,6 @@ namespace Pulumi.Aws.Ec2
             SecurityGroups = securityGroups;
             SpotPrice = spotPrice;
             UserData = userData;
-            VpcClassicLinkId = vpcClassicLinkId;
-            VpcClassicLinkSecurityGroups = vpcClassicLinkSecurityGroups;
         }
     }
 }

@@ -53,11 +53,11 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// Traffic mirror sessions can be imported using the `id`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:ec2/trafficMirrorSession:TrafficMirrorSession session tms-0d8aa3ca35897b82e
-    /// ```
+    ///  to = aws_ec2_traffic_mirror_session.session
+    /// 
+    ///  id = "tms-0d8aa3ca35897b82e" } Using `pulumi import`, import traffic mirror sessions using the `id`. For exampleconsole % pulumi import aws_ec2_traffic_mirror_session.session tms-0d8aa3ca35897b82e
     /// </summary>
     [AwsResourceType("aws:ec2/trafficMirrorSession:TrafficMirrorSession")]
     public partial class TrafficMirrorSession : global::Pulumi.CustomResource

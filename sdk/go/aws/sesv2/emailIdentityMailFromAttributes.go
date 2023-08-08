@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +24,7 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sesv2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sesv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,13 +55,11 @@ import (
 //
 // ## Import
 //
-// SESv2 (Simple Email V2) Email Identity Mail From Attributes can be imported using the `email_identity`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_sesv2_email_identity_mail_from_attributes.example
 //
-//	$ pulumi import aws:sesv2/emailIdentityMailFromAttributes:EmailIdentityMailFromAttributes example example.com
-//
-// ```
+//	id = "example.com" } Using `pulumi import`, import SESv2 (Simple Email V2) Email Identity Mail From Attributes using the `email_identity`. For exampleconsole % pulumi import aws_sesv2_email_identity_mail_from_attributes.example example.com
 type EmailIdentityMailFromAttributes struct {
 	pulumi.CustomResourceState
 
@@ -82,6 +81,7 @@ func NewEmailIdentityMailFromAttributes(ctx *pulumi.Context,
 	if args.EmailIdentity == nil {
 		return nil, errors.New("invalid value for required argument 'EmailIdentity'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EmailIdentityMailFromAttributes
 	err := ctx.RegisterResource("aws:sesv2/emailIdentityMailFromAttributes:EmailIdentityMailFromAttributes", name, args, &resource, opts...)
 	if err != nil {

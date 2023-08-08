@@ -54,11 +54,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_networkmanager_site` can be imported using the site ARN, e.g.
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:networkmanager/site:Site example arn:aws:networkmanager::123456789012:site/global-network-0d47f6t230mz46dy4/site-444555aaabbb11223
- * ```
+ *  to = aws_networkmanager_site.example
+ * 
+ *  id = &#34;arn:aws:networkmanager::123456789012:site/global-network-0d47f6t230mz46dy4/site-444555aaabbb11223&#34; } Using `pulumi import`, import `aws_networkmanager_site` using the site ARN. For exampleconsole % pulumi import aws_networkmanager_site.example arn:aws:networkmanager::123456789012:site/global-network-0d47f6t230mz46dy4/site-444555aaabbb11223
  * 
  */
 @ResourceType(type="aws:networkmanager/site:Site")

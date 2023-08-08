@@ -19,6 +19,7 @@ public final class GetParameterResult {
      * 
      */
     private String id;
+    private String insecureValue;
     private String name;
     private String type;
     private String value;
@@ -35,6 +36,9 @@ public final class GetParameterResult {
      */
     public String id() {
         return this.id;
+    }
+    public String insecureValue() {
+        return this.insecureValue;
     }
     public String name() {
         return this.name;
@@ -63,6 +67,7 @@ public final class GetParameterResult {
     public static final class Builder {
         private String arn;
         private String id;
+        private String insecureValue;
         private String name;
         private String type;
         private String value;
@@ -73,6 +78,7 @@ public final class GetParameterResult {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
     	      this.id = defaults.id;
+    	      this.insecureValue = defaults.insecureValue;
     	      this.name = defaults.name;
     	      this.type = defaults.type;
     	      this.value = defaults.value;
@@ -88,6 +94,11 @@ public final class GetParameterResult {
         @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder insecureValue(String insecureValue) {
+            this.insecureValue = Objects.requireNonNull(insecureValue);
             return this;
         }
         @CustomType.Setter
@@ -119,6 +130,7 @@ public final class GetParameterResult {
             final var o = new GetParameterResult();
             o.arn = arn;
             o.id = id;
+            o.insecureValue = insecureValue;
             o.name = name;
             o.type = type;
             o.value = value;

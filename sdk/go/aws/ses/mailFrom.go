@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,8 +26,8 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ses"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -84,7 +85,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ses"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -112,13 +113,11 @@ import (
 //
 // ## Import
 //
-// MAIL FROM domain can be imported using the `domain` attribute, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_ses_domain_mail_from.example
 //
-//	$ pulumi import aws:ses/mailFrom:MailFrom example example.com
-//
-// ```
+//	id = "example.com" } Using `pulumi import`, import MAIL FROM domain using the `domain` attribute. For exampleconsole % pulumi import aws_ses_domain_mail_from.example example.com
 type MailFrom struct {
 	pulumi.CustomResourceState
 
@@ -145,6 +144,7 @@ func NewMailFrom(ctx *pulumi.Context,
 	if args.MailFromDomain == nil {
 		return nil, errors.New("invalid value for required argument 'MailFromDomain'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MailFrom
 	err := ctx.RegisterResource("aws:ses/mailFrom:MailFrom", name, args, &resource, opts...)
 	if err != nil {

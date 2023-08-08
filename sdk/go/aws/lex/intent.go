@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -16,13 +17,11 @@ import (
 //
 // ## Import
 //
-// Intents can be imported using their name.
+// terraform import {
 //
-// ```sh
+//	to = aws_lex_intent.order_flowers_intent
 //
-//	$ pulumi import aws:lex/intent:Intent order_flowers_intent OrderFlowers
-//
-// ```
+//	id = "OrderFlowers" } Using `pulumi import`, import intents using their name. For exampleconsole % pulumi import aws_lex_intent.order_flowers_intent OrderFlowers
 type Intent struct {
 	pulumi.CustomResourceState
 
@@ -95,6 +94,7 @@ func NewIntent(ctx *pulumi.Context,
 	if args.FulfillmentActivity == nil {
 		return nil, errors.New("invalid value for required argument 'FulfillmentActivity'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Intent
 	err := ctx.RegisterResource("aws:lex/intent:Intent", name, args, &resource, opts...)
 	if err != nil {

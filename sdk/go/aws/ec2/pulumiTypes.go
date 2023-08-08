@@ -7,8 +7,11 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type AmiCopyEbsBlockDevice struct {
 	// Boolean controlling whether the EBS volumes created to
@@ -1985,45 +1988,29 @@ func (i FleetLaunchTemplateConfigArgs) ToFleetLaunchTemplateConfigOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(FleetLaunchTemplateConfigOutput)
 }
 
-func (i FleetLaunchTemplateConfigArgs) ToFleetLaunchTemplateConfigPtrOutput() FleetLaunchTemplateConfigPtrOutput {
-	return i.ToFleetLaunchTemplateConfigPtrOutputWithContext(context.Background())
-}
-
-func (i FleetLaunchTemplateConfigArgs) ToFleetLaunchTemplateConfigPtrOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FleetLaunchTemplateConfigOutput).ToFleetLaunchTemplateConfigPtrOutputWithContext(ctx)
-}
-
-// FleetLaunchTemplateConfigPtrInput is an input type that accepts FleetLaunchTemplateConfigArgs, FleetLaunchTemplateConfigPtr and FleetLaunchTemplateConfigPtrOutput values.
-// You can construct a concrete instance of `FleetLaunchTemplateConfigPtrInput` via:
+// FleetLaunchTemplateConfigArrayInput is an input type that accepts FleetLaunchTemplateConfigArray and FleetLaunchTemplateConfigArrayOutput values.
+// You can construct a concrete instance of `FleetLaunchTemplateConfigArrayInput` via:
 //
-//	        FleetLaunchTemplateConfigArgs{...}
-//
-//	or:
-//
-//	        nil
-type FleetLaunchTemplateConfigPtrInput interface {
+//	FleetLaunchTemplateConfigArray{ FleetLaunchTemplateConfigArgs{...} }
+type FleetLaunchTemplateConfigArrayInput interface {
 	pulumi.Input
 
-	ToFleetLaunchTemplateConfigPtrOutput() FleetLaunchTemplateConfigPtrOutput
-	ToFleetLaunchTemplateConfigPtrOutputWithContext(context.Context) FleetLaunchTemplateConfigPtrOutput
+	ToFleetLaunchTemplateConfigArrayOutput() FleetLaunchTemplateConfigArrayOutput
+	ToFleetLaunchTemplateConfigArrayOutputWithContext(context.Context) FleetLaunchTemplateConfigArrayOutput
 }
 
-type fleetLaunchTemplateConfigPtrType FleetLaunchTemplateConfigArgs
+type FleetLaunchTemplateConfigArray []FleetLaunchTemplateConfigInput
 
-func FleetLaunchTemplateConfigPtr(v *FleetLaunchTemplateConfigArgs) FleetLaunchTemplateConfigPtrInput {
-	return (*fleetLaunchTemplateConfigPtrType)(v)
+func (FleetLaunchTemplateConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FleetLaunchTemplateConfig)(nil)).Elem()
 }
 
-func (*fleetLaunchTemplateConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FleetLaunchTemplateConfig)(nil)).Elem()
+func (i FleetLaunchTemplateConfigArray) ToFleetLaunchTemplateConfigArrayOutput() FleetLaunchTemplateConfigArrayOutput {
+	return i.ToFleetLaunchTemplateConfigArrayOutputWithContext(context.Background())
 }
 
-func (i *fleetLaunchTemplateConfigPtrType) ToFleetLaunchTemplateConfigPtrOutput() FleetLaunchTemplateConfigPtrOutput {
-	return i.ToFleetLaunchTemplateConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *fleetLaunchTemplateConfigPtrType) ToFleetLaunchTemplateConfigPtrOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FleetLaunchTemplateConfigPtrOutput)
+func (i FleetLaunchTemplateConfigArray) ToFleetLaunchTemplateConfigArrayOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetLaunchTemplateConfigArrayOutput)
 }
 
 type FleetLaunchTemplateConfigOutput struct{ *pulumi.OutputState }
@@ -2040,16 +2027,6 @@ func (o FleetLaunchTemplateConfigOutput) ToFleetLaunchTemplateConfigOutputWithCo
 	return o
 }
 
-func (o FleetLaunchTemplateConfigOutput) ToFleetLaunchTemplateConfigPtrOutput() FleetLaunchTemplateConfigPtrOutput {
-	return o.ToFleetLaunchTemplateConfigPtrOutputWithContext(context.Background())
-}
-
-func (o FleetLaunchTemplateConfigOutput) ToFleetLaunchTemplateConfigPtrOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetLaunchTemplateConfig) *FleetLaunchTemplateConfig {
-		return &v
-	}).(FleetLaunchTemplateConfigPtrOutput)
-}
-
 // Nested argument containing EC2 Launch Template to use. Defined below.
 func (o FleetLaunchTemplateConfigOutput) LaunchTemplateSpecification() FleetLaunchTemplateConfigLaunchTemplateSpecificationPtrOutput {
 	return o.ApplyT(func(v FleetLaunchTemplateConfig) *FleetLaunchTemplateConfigLaunchTemplateSpecification {
@@ -2062,48 +2039,24 @@ func (o FleetLaunchTemplateConfigOutput) Overrides() FleetLaunchTemplateConfigOv
 	return o.ApplyT(func(v FleetLaunchTemplateConfig) []FleetLaunchTemplateConfigOverride { return v.Overrides }).(FleetLaunchTemplateConfigOverrideArrayOutput)
 }
 
-type FleetLaunchTemplateConfigPtrOutput struct{ *pulumi.OutputState }
+type FleetLaunchTemplateConfigArrayOutput struct{ *pulumi.OutputState }
 
-func (FleetLaunchTemplateConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FleetLaunchTemplateConfig)(nil)).Elem()
+func (FleetLaunchTemplateConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FleetLaunchTemplateConfig)(nil)).Elem()
 }
 
-func (o FleetLaunchTemplateConfigPtrOutput) ToFleetLaunchTemplateConfigPtrOutput() FleetLaunchTemplateConfigPtrOutput {
+func (o FleetLaunchTemplateConfigArrayOutput) ToFleetLaunchTemplateConfigArrayOutput() FleetLaunchTemplateConfigArrayOutput {
 	return o
 }
 
-func (o FleetLaunchTemplateConfigPtrOutput) ToFleetLaunchTemplateConfigPtrOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigPtrOutput {
+func (o FleetLaunchTemplateConfigArrayOutput) ToFleetLaunchTemplateConfigArrayOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigArrayOutput {
 	return o
 }
 
-func (o FleetLaunchTemplateConfigPtrOutput) Elem() FleetLaunchTemplateConfigOutput {
-	return o.ApplyT(func(v *FleetLaunchTemplateConfig) FleetLaunchTemplateConfig {
-		if v != nil {
-			return *v
-		}
-		var ret FleetLaunchTemplateConfig
-		return ret
+func (o FleetLaunchTemplateConfigArrayOutput) Index(i pulumi.IntInput) FleetLaunchTemplateConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FleetLaunchTemplateConfig {
+		return vs[0].([]FleetLaunchTemplateConfig)[vs[1].(int)]
 	}).(FleetLaunchTemplateConfigOutput)
-}
-
-// Nested argument containing EC2 Launch Template to use. Defined below.
-func (o FleetLaunchTemplateConfigPtrOutput) LaunchTemplateSpecification() FleetLaunchTemplateConfigLaunchTemplateSpecificationPtrOutput {
-	return o.ApplyT(func(v *FleetLaunchTemplateConfig) *FleetLaunchTemplateConfigLaunchTemplateSpecification {
-		if v == nil {
-			return nil
-		}
-		return v.LaunchTemplateSpecification
-	}).(FleetLaunchTemplateConfigLaunchTemplateSpecificationPtrOutput)
-}
-
-// Nested argument(s) containing parameters to override the same parameters in the Launch Template. Defined below.
-func (o FleetLaunchTemplateConfigPtrOutput) Overrides() FleetLaunchTemplateConfigOverrideArrayOutput {
-	return o.ApplyT(func(v *FleetLaunchTemplateConfig) []FleetLaunchTemplateConfigOverride {
-		if v == nil {
-			return nil
-		}
-		return v.Overrides
-	}).(FleetLaunchTemplateConfigOverrideArrayOutput)
 }
 
 type FleetLaunchTemplateConfigLaunchTemplateSpecification struct {
@@ -6666,6 +6619,356 @@ func (o InstanceEphemeralBlockDeviceArrayOutput) Index(i pulumi.IntInput) Instan
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InstanceEphemeralBlockDevice {
 		return vs[0].([]InstanceEphemeralBlockDevice)[vs[1].(int)]
 	}).(InstanceEphemeralBlockDeviceOutput)
+}
+
+type InstanceInstanceMarketOptions struct {
+	// Type of market for the instance. Valid value is `spot`. Defaults to `spot`.
+	MarketType *string `pulumi:"marketType"`
+	// Block to configure the options for Spot Instances. See Spot Options below for details on attributes.
+	SpotOptions *InstanceInstanceMarketOptionsSpotOptions `pulumi:"spotOptions"`
+}
+
+// InstanceInstanceMarketOptionsInput is an input type that accepts InstanceInstanceMarketOptionsArgs and InstanceInstanceMarketOptionsOutput values.
+// You can construct a concrete instance of `InstanceInstanceMarketOptionsInput` via:
+//
+//	InstanceInstanceMarketOptionsArgs{...}
+type InstanceInstanceMarketOptionsInput interface {
+	pulumi.Input
+
+	ToInstanceInstanceMarketOptionsOutput() InstanceInstanceMarketOptionsOutput
+	ToInstanceInstanceMarketOptionsOutputWithContext(context.Context) InstanceInstanceMarketOptionsOutput
+}
+
+type InstanceInstanceMarketOptionsArgs struct {
+	// Type of market for the instance. Valid value is `spot`. Defaults to `spot`.
+	MarketType pulumi.StringPtrInput `pulumi:"marketType"`
+	// Block to configure the options for Spot Instances. See Spot Options below for details on attributes.
+	SpotOptions InstanceInstanceMarketOptionsSpotOptionsPtrInput `pulumi:"spotOptions"`
+}
+
+func (InstanceInstanceMarketOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceInstanceMarketOptions)(nil)).Elem()
+}
+
+func (i InstanceInstanceMarketOptionsArgs) ToInstanceInstanceMarketOptionsOutput() InstanceInstanceMarketOptionsOutput {
+	return i.ToInstanceInstanceMarketOptionsOutputWithContext(context.Background())
+}
+
+func (i InstanceInstanceMarketOptionsArgs) ToInstanceInstanceMarketOptionsOutputWithContext(ctx context.Context) InstanceInstanceMarketOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceInstanceMarketOptionsOutput)
+}
+
+func (i InstanceInstanceMarketOptionsArgs) ToInstanceInstanceMarketOptionsPtrOutput() InstanceInstanceMarketOptionsPtrOutput {
+	return i.ToInstanceInstanceMarketOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i InstanceInstanceMarketOptionsArgs) ToInstanceInstanceMarketOptionsPtrOutputWithContext(ctx context.Context) InstanceInstanceMarketOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceInstanceMarketOptionsOutput).ToInstanceInstanceMarketOptionsPtrOutputWithContext(ctx)
+}
+
+// InstanceInstanceMarketOptionsPtrInput is an input type that accepts InstanceInstanceMarketOptionsArgs, InstanceInstanceMarketOptionsPtr and InstanceInstanceMarketOptionsPtrOutput values.
+// You can construct a concrete instance of `InstanceInstanceMarketOptionsPtrInput` via:
+//
+//	        InstanceInstanceMarketOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type InstanceInstanceMarketOptionsPtrInput interface {
+	pulumi.Input
+
+	ToInstanceInstanceMarketOptionsPtrOutput() InstanceInstanceMarketOptionsPtrOutput
+	ToInstanceInstanceMarketOptionsPtrOutputWithContext(context.Context) InstanceInstanceMarketOptionsPtrOutput
+}
+
+type instanceInstanceMarketOptionsPtrType InstanceInstanceMarketOptionsArgs
+
+func InstanceInstanceMarketOptionsPtr(v *InstanceInstanceMarketOptionsArgs) InstanceInstanceMarketOptionsPtrInput {
+	return (*instanceInstanceMarketOptionsPtrType)(v)
+}
+
+func (*instanceInstanceMarketOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceInstanceMarketOptions)(nil)).Elem()
+}
+
+func (i *instanceInstanceMarketOptionsPtrType) ToInstanceInstanceMarketOptionsPtrOutput() InstanceInstanceMarketOptionsPtrOutput {
+	return i.ToInstanceInstanceMarketOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *instanceInstanceMarketOptionsPtrType) ToInstanceInstanceMarketOptionsPtrOutputWithContext(ctx context.Context) InstanceInstanceMarketOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceInstanceMarketOptionsPtrOutput)
+}
+
+type InstanceInstanceMarketOptionsOutput struct{ *pulumi.OutputState }
+
+func (InstanceInstanceMarketOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceInstanceMarketOptions)(nil)).Elem()
+}
+
+func (o InstanceInstanceMarketOptionsOutput) ToInstanceInstanceMarketOptionsOutput() InstanceInstanceMarketOptionsOutput {
+	return o
+}
+
+func (o InstanceInstanceMarketOptionsOutput) ToInstanceInstanceMarketOptionsOutputWithContext(ctx context.Context) InstanceInstanceMarketOptionsOutput {
+	return o
+}
+
+func (o InstanceInstanceMarketOptionsOutput) ToInstanceInstanceMarketOptionsPtrOutput() InstanceInstanceMarketOptionsPtrOutput {
+	return o.ToInstanceInstanceMarketOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceInstanceMarketOptionsOutput) ToInstanceInstanceMarketOptionsPtrOutputWithContext(ctx context.Context) InstanceInstanceMarketOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceInstanceMarketOptions) *InstanceInstanceMarketOptions {
+		return &v
+	}).(InstanceInstanceMarketOptionsPtrOutput)
+}
+
+// Type of market for the instance. Valid value is `spot`. Defaults to `spot`.
+func (o InstanceInstanceMarketOptionsOutput) MarketType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceInstanceMarketOptions) *string { return v.MarketType }).(pulumi.StringPtrOutput)
+}
+
+// Block to configure the options for Spot Instances. See Spot Options below for details on attributes.
+func (o InstanceInstanceMarketOptionsOutput) SpotOptions() InstanceInstanceMarketOptionsSpotOptionsPtrOutput {
+	return o.ApplyT(func(v InstanceInstanceMarketOptions) *InstanceInstanceMarketOptionsSpotOptions { return v.SpotOptions }).(InstanceInstanceMarketOptionsSpotOptionsPtrOutput)
+}
+
+type InstanceInstanceMarketOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceInstanceMarketOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceInstanceMarketOptions)(nil)).Elem()
+}
+
+func (o InstanceInstanceMarketOptionsPtrOutput) ToInstanceInstanceMarketOptionsPtrOutput() InstanceInstanceMarketOptionsPtrOutput {
+	return o
+}
+
+func (o InstanceInstanceMarketOptionsPtrOutput) ToInstanceInstanceMarketOptionsPtrOutputWithContext(ctx context.Context) InstanceInstanceMarketOptionsPtrOutput {
+	return o
+}
+
+func (o InstanceInstanceMarketOptionsPtrOutput) Elem() InstanceInstanceMarketOptionsOutput {
+	return o.ApplyT(func(v *InstanceInstanceMarketOptions) InstanceInstanceMarketOptions {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceInstanceMarketOptions
+		return ret
+	}).(InstanceInstanceMarketOptionsOutput)
+}
+
+// Type of market for the instance. Valid value is `spot`. Defaults to `spot`.
+func (o InstanceInstanceMarketOptionsPtrOutput) MarketType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceInstanceMarketOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MarketType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Block to configure the options for Spot Instances. See Spot Options below for details on attributes.
+func (o InstanceInstanceMarketOptionsPtrOutput) SpotOptions() InstanceInstanceMarketOptionsSpotOptionsPtrOutput {
+	return o.ApplyT(func(v *InstanceInstanceMarketOptions) *InstanceInstanceMarketOptionsSpotOptions {
+		if v == nil {
+			return nil
+		}
+		return v.SpotOptions
+	}).(InstanceInstanceMarketOptionsSpotOptionsPtrOutput)
+}
+
+type InstanceInstanceMarketOptionsSpotOptions struct {
+	// The behavior when a Spot Instance is interrupted. Valid values include `hibernate`, `stop`, `terminate` . The default is `terminate`.
+	InstanceInterruptionBehavior *string `pulumi:"instanceInterruptionBehavior"`
+	// The maximum hourly price that you're willing to pay for a Spot Instance.
+	MaxPrice *string `pulumi:"maxPrice"`
+	// The Spot Instance request type. Valid values include `one-time`, `persistent`. Persistent Spot Instance requests are only supported when the instance interruption behavior is either hibernate or stop. The default is `one-time`.
+	SpotInstanceType *string `pulumi:"spotInstanceType"`
+	// The end date of the request, in UTC format (YYYY-MM-DDTHH:MM:SSZ). Supported only for persistent requests.
+	ValidUntil *string `pulumi:"validUntil"`
+}
+
+// InstanceInstanceMarketOptionsSpotOptionsInput is an input type that accepts InstanceInstanceMarketOptionsSpotOptionsArgs and InstanceInstanceMarketOptionsSpotOptionsOutput values.
+// You can construct a concrete instance of `InstanceInstanceMarketOptionsSpotOptionsInput` via:
+//
+//	InstanceInstanceMarketOptionsSpotOptionsArgs{...}
+type InstanceInstanceMarketOptionsSpotOptionsInput interface {
+	pulumi.Input
+
+	ToInstanceInstanceMarketOptionsSpotOptionsOutput() InstanceInstanceMarketOptionsSpotOptionsOutput
+	ToInstanceInstanceMarketOptionsSpotOptionsOutputWithContext(context.Context) InstanceInstanceMarketOptionsSpotOptionsOutput
+}
+
+type InstanceInstanceMarketOptionsSpotOptionsArgs struct {
+	// The behavior when a Spot Instance is interrupted. Valid values include `hibernate`, `stop`, `terminate` . The default is `terminate`.
+	InstanceInterruptionBehavior pulumi.StringPtrInput `pulumi:"instanceInterruptionBehavior"`
+	// The maximum hourly price that you're willing to pay for a Spot Instance.
+	MaxPrice pulumi.StringPtrInput `pulumi:"maxPrice"`
+	// The Spot Instance request type. Valid values include `one-time`, `persistent`. Persistent Spot Instance requests are only supported when the instance interruption behavior is either hibernate or stop. The default is `one-time`.
+	SpotInstanceType pulumi.StringPtrInput `pulumi:"spotInstanceType"`
+	// The end date of the request, in UTC format (YYYY-MM-DDTHH:MM:SSZ). Supported only for persistent requests.
+	ValidUntil pulumi.StringPtrInput `pulumi:"validUntil"`
+}
+
+func (InstanceInstanceMarketOptionsSpotOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceInstanceMarketOptionsSpotOptions)(nil)).Elem()
+}
+
+func (i InstanceInstanceMarketOptionsSpotOptionsArgs) ToInstanceInstanceMarketOptionsSpotOptionsOutput() InstanceInstanceMarketOptionsSpotOptionsOutput {
+	return i.ToInstanceInstanceMarketOptionsSpotOptionsOutputWithContext(context.Background())
+}
+
+func (i InstanceInstanceMarketOptionsSpotOptionsArgs) ToInstanceInstanceMarketOptionsSpotOptionsOutputWithContext(ctx context.Context) InstanceInstanceMarketOptionsSpotOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceInstanceMarketOptionsSpotOptionsOutput)
+}
+
+func (i InstanceInstanceMarketOptionsSpotOptionsArgs) ToInstanceInstanceMarketOptionsSpotOptionsPtrOutput() InstanceInstanceMarketOptionsSpotOptionsPtrOutput {
+	return i.ToInstanceInstanceMarketOptionsSpotOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i InstanceInstanceMarketOptionsSpotOptionsArgs) ToInstanceInstanceMarketOptionsSpotOptionsPtrOutputWithContext(ctx context.Context) InstanceInstanceMarketOptionsSpotOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceInstanceMarketOptionsSpotOptionsOutput).ToInstanceInstanceMarketOptionsSpotOptionsPtrOutputWithContext(ctx)
+}
+
+// InstanceInstanceMarketOptionsSpotOptionsPtrInput is an input type that accepts InstanceInstanceMarketOptionsSpotOptionsArgs, InstanceInstanceMarketOptionsSpotOptionsPtr and InstanceInstanceMarketOptionsSpotOptionsPtrOutput values.
+// You can construct a concrete instance of `InstanceInstanceMarketOptionsSpotOptionsPtrInput` via:
+//
+//	        InstanceInstanceMarketOptionsSpotOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type InstanceInstanceMarketOptionsSpotOptionsPtrInput interface {
+	pulumi.Input
+
+	ToInstanceInstanceMarketOptionsSpotOptionsPtrOutput() InstanceInstanceMarketOptionsSpotOptionsPtrOutput
+	ToInstanceInstanceMarketOptionsSpotOptionsPtrOutputWithContext(context.Context) InstanceInstanceMarketOptionsSpotOptionsPtrOutput
+}
+
+type instanceInstanceMarketOptionsSpotOptionsPtrType InstanceInstanceMarketOptionsSpotOptionsArgs
+
+func InstanceInstanceMarketOptionsSpotOptionsPtr(v *InstanceInstanceMarketOptionsSpotOptionsArgs) InstanceInstanceMarketOptionsSpotOptionsPtrInput {
+	return (*instanceInstanceMarketOptionsSpotOptionsPtrType)(v)
+}
+
+func (*instanceInstanceMarketOptionsSpotOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceInstanceMarketOptionsSpotOptions)(nil)).Elem()
+}
+
+func (i *instanceInstanceMarketOptionsSpotOptionsPtrType) ToInstanceInstanceMarketOptionsSpotOptionsPtrOutput() InstanceInstanceMarketOptionsSpotOptionsPtrOutput {
+	return i.ToInstanceInstanceMarketOptionsSpotOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *instanceInstanceMarketOptionsSpotOptionsPtrType) ToInstanceInstanceMarketOptionsSpotOptionsPtrOutputWithContext(ctx context.Context) InstanceInstanceMarketOptionsSpotOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceInstanceMarketOptionsSpotOptionsPtrOutput)
+}
+
+type InstanceInstanceMarketOptionsSpotOptionsOutput struct{ *pulumi.OutputState }
+
+func (InstanceInstanceMarketOptionsSpotOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceInstanceMarketOptionsSpotOptions)(nil)).Elem()
+}
+
+func (o InstanceInstanceMarketOptionsSpotOptionsOutput) ToInstanceInstanceMarketOptionsSpotOptionsOutput() InstanceInstanceMarketOptionsSpotOptionsOutput {
+	return o
+}
+
+func (o InstanceInstanceMarketOptionsSpotOptionsOutput) ToInstanceInstanceMarketOptionsSpotOptionsOutputWithContext(ctx context.Context) InstanceInstanceMarketOptionsSpotOptionsOutput {
+	return o
+}
+
+func (o InstanceInstanceMarketOptionsSpotOptionsOutput) ToInstanceInstanceMarketOptionsSpotOptionsPtrOutput() InstanceInstanceMarketOptionsSpotOptionsPtrOutput {
+	return o.ToInstanceInstanceMarketOptionsSpotOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceInstanceMarketOptionsSpotOptionsOutput) ToInstanceInstanceMarketOptionsSpotOptionsPtrOutputWithContext(ctx context.Context) InstanceInstanceMarketOptionsSpotOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceInstanceMarketOptionsSpotOptions) *InstanceInstanceMarketOptionsSpotOptions {
+		return &v
+	}).(InstanceInstanceMarketOptionsSpotOptionsPtrOutput)
+}
+
+// The behavior when a Spot Instance is interrupted. Valid values include `hibernate`, `stop`, `terminate` . The default is `terminate`.
+func (o InstanceInstanceMarketOptionsSpotOptionsOutput) InstanceInterruptionBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceInstanceMarketOptionsSpotOptions) *string { return v.InstanceInterruptionBehavior }).(pulumi.StringPtrOutput)
+}
+
+// The maximum hourly price that you're willing to pay for a Spot Instance.
+func (o InstanceInstanceMarketOptionsSpotOptionsOutput) MaxPrice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceInstanceMarketOptionsSpotOptions) *string { return v.MaxPrice }).(pulumi.StringPtrOutput)
+}
+
+// The Spot Instance request type. Valid values include `one-time`, `persistent`. Persistent Spot Instance requests are only supported when the instance interruption behavior is either hibernate or stop. The default is `one-time`.
+func (o InstanceInstanceMarketOptionsSpotOptionsOutput) SpotInstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceInstanceMarketOptionsSpotOptions) *string { return v.SpotInstanceType }).(pulumi.StringPtrOutput)
+}
+
+// The end date of the request, in UTC format (YYYY-MM-DDTHH:MM:SSZ). Supported only for persistent requests.
+func (o InstanceInstanceMarketOptionsSpotOptionsOutput) ValidUntil() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceInstanceMarketOptionsSpotOptions) *string { return v.ValidUntil }).(pulumi.StringPtrOutput)
+}
+
+type InstanceInstanceMarketOptionsSpotOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceInstanceMarketOptionsSpotOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceInstanceMarketOptionsSpotOptions)(nil)).Elem()
+}
+
+func (o InstanceInstanceMarketOptionsSpotOptionsPtrOutput) ToInstanceInstanceMarketOptionsSpotOptionsPtrOutput() InstanceInstanceMarketOptionsSpotOptionsPtrOutput {
+	return o
+}
+
+func (o InstanceInstanceMarketOptionsSpotOptionsPtrOutput) ToInstanceInstanceMarketOptionsSpotOptionsPtrOutputWithContext(ctx context.Context) InstanceInstanceMarketOptionsSpotOptionsPtrOutput {
+	return o
+}
+
+func (o InstanceInstanceMarketOptionsSpotOptionsPtrOutput) Elem() InstanceInstanceMarketOptionsSpotOptionsOutput {
+	return o.ApplyT(func(v *InstanceInstanceMarketOptionsSpotOptions) InstanceInstanceMarketOptionsSpotOptions {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceInstanceMarketOptionsSpotOptions
+		return ret
+	}).(InstanceInstanceMarketOptionsSpotOptionsOutput)
+}
+
+// The behavior when a Spot Instance is interrupted. Valid values include `hibernate`, `stop`, `terminate` . The default is `terminate`.
+func (o InstanceInstanceMarketOptionsSpotOptionsPtrOutput) InstanceInterruptionBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceInstanceMarketOptionsSpotOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceInterruptionBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
+// The maximum hourly price that you're willing to pay for a Spot Instance.
+func (o InstanceInstanceMarketOptionsSpotOptionsPtrOutput) MaxPrice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceInstanceMarketOptionsSpotOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MaxPrice
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Spot Instance request type. Valid values include `one-time`, `persistent`. Persistent Spot Instance requests are only supported when the instance interruption behavior is either hibernate or stop. The default is `one-time`.
+func (o InstanceInstanceMarketOptionsSpotOptionsPtrOutput) SpotInstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceInstanceMarketOptionsSpotOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SpotInstanceType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The end date of the request, in UTC format (YYYY-MM-DDTHH:MM:SSZ). Supported only for persistent requests.
+func (o InstanceInstanceMarketOptionsSpotOptionsPtrOutput) ValidUntil() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceInstanceMarketOptionsSpotOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ValidUntil
+	}).(pulumi.StringPtrOutput)
 }
 
 type InstanceLaunchTemplate struct {
@@ -13177,15 +13480,15 @@ func (o LaunchTemplateMaintenanceOptionsPtrOutput) AutoRecovery() pulumi.StringP
 }
 
 type LaunchTemplateMetadataOptions struct {
-	// Whether the metadata service is available. Can be `enabled` or `disabled`.
+	// Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
 	HttpEndpoint *string `pulumi:"httpEndpoint"`
-	// Enables or disables the IPv6 endpoint for the instance metadata service. (Default: `disabled`).
+	// Enables or disables the IPv6 endpoint for the instance metadata service. Can be `"enabled"` or `"disabled"`.
 	HttpProtocolIpv6 *string `pulumi:"httpProtocolIpv6"`
-	// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`.
+	// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
 	HttpPutResponseHopLimit *int `pulumi:"httpPutResponseHopLimit"`
-	// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `optional` or `required`.
+	// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
 	HttpTokens *string `pulumi:"httpTokens"`
-	// Enables or disables access to instance tags from the instance metadata service. (Default: `disabled`).
+	// Enables or disables access to instance tags from the instance metadata service. Can be `"enabled"` or `"disabled"`.
 	//
 	// For more information, see the documentation on the [Instance Metadata Service](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html).
 	InstanceMetadataTags *string `pulumi:"instanceMetadataTags"`
@@ -13203,15 +13506,15 @@ type LaunchTemplateMetadataOptionsInput interface {
 }
 
 type LaunchTemplateMetadataOptionsArgs struct {
-	// Whether the metadata service is available. Can be `enabled` or `disabled`.
+	// Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
 	HttpEndpoint pulumi.StringPtrInput `pulumi:"httpEndpoint"`
-	// Enables or disables the IPv6 endpoint for the instance metadata service. (Default: `disabled`).
+	// Enables or disables the IPv6 endpoint for the instance metadata service. Can be `"enabled"` or `"disabled"`.
 	HttpProtocolIpv6 pulumi.StringPtrInput `pulumi:"httpProtocolIpv6"`
-	// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`.
+	// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
 	HttpPutResponseHopLimit pulumi.IntPtrInput `pulumi:"httpPutResponseHopLimit"`
-	// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `optional` or `required`.
+	// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
 	HttpTokens pulumi.StringPtrInput `pulumi:"httpTokens"`
-	// Enables or disables access to instance tags from the instance metadata service. (Default: `disabled`).
+	// Enables or disables access to instance tags from the instance metadata service. Can be `"enabled"` or `"disabled"`.
 	//
 	// For more information, see the documentation on the [Instance Metadata Service](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html).
 	InstanceMetadataTags pulumi.StringPtrInput `pulumi:"instanceMetadataTags"`
@@ -13294,27 +13597,27 @@ func (o LaunchTemplateMetadataOptionsOutput) ToLaunchTemplateMetadataOptionsPtrO
 	}).(LaunchTemplateMetadataOptionsPtrOutput)
 }
 
-// Whether the metadata service is available. Can be `enabled` or `disabled`.
+// Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
 func (o LaunchTemplateMetadataOptionsOutput) HttpEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateMetadataOptions) *string { return v.HttpEndpoint }).(pulumi.StringPtrOutput)
 }
 
-// Enables or disables the IPv6 endpoint for the instance metadata service. (Default: `disabled`).
+// Enables or disables the IPv6 endpoint for the instance metadata service. Can be `"enabled"` or `"disabled"`.
 func (o LaunchTemplateMetadataOptionsOutput) HttpProtocolIpv6() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateMetadataOptions) *string { return v.HttpProtocolIpv6 }).(pulumi.StringPtrOutput)
 }
 
-// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`.
+// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
 func (o LaunchTemplateMetadataOptionsOutput) HttpPutResponseHopLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateMetadataOptions) *int { return v.HttpPutResponseHopLimit }).(pulumi.IntPtrOutput)
 }
 
-// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `optional` or `required`.
+// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
 func (o LaunchTemplateMetadataOptionsOutput) HttpTokens() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateMetadataOptions) *string { return v.HttpTokens }).(pulumi.StringPtrOutput)
 }
 
-// Enables or disables access to instance tags from the instance metadata service. (Default: `disabled`).
+// Enables or disables access to instance tags from the instance metadata service. Can be `"enabled"` or `"disabled"`.
 //
 // For more information, see the documentation on the [Instance Metadata Service](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html).
 func (o LaunchTemplateMetadataOptionsOutput) InstanceMetadataTags() pulumi.StringPtrOutput {
@@ -13345,7 +13648,7 @@ func (o LaunchTemplateMetadataOptionsPtrOutput) Elem() LaunchTemplateMetadataOpt
 	}).(LaunchTemplateMetadataOptionsOutput)
 }
 
-// Whether the metadata service is available. Can be `enabled` or `disabled`.
+// Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
 func (o LaunchTemplateMetadataOptionsPtrOutput) HttpEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateMetadataOptions) *string {
 		if v == nil {
@@ -13355,7 +13658,7 @@ func (o LaunchTemplateMetadataOptionsPtrOutput) HttpEndpoint() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Enables or disables the IPv6 endpoint for the instance metadata service. (Default: `disabled`).
+// Enables or disables the IPv6 endpoint for the instance metadata service. Can be `"enabled"` or `"disabled"`.
 func (o LaunchTemplateMetadataOptionsPtrOutput) HttpProtocolIpv6() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateMetadataOptions) *string {
 		if v == nil {
@@ -13365,7 +13668,7 @@ func (o LaunchTemplateMetadataOptionsPtrOutput) HttpProtocolIpv6() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`.
+// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
 func (o LaunchTemplateMetadataOptionsPtrOutput) HttpPutResponseHopLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateMetadataOptions) *int {
 		if v == nil {
@@ -13375,7 +13678,7 @@ func (o LaunchTemplateMetadataOptionsPtrOutput) HttpPutResponseHopLimit() pulumi
 	}).(pulumi.IntPtrOutput)
 }
 
-// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `optional` or `required`.
+// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
 func (o LaunchTemplateMetadataOptionsPtrOutput) HttpTokens() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateMetadataOptions) *string {
 		if v == nil {
@@ -13385,7 +13688,7 @@ func (o LaunchTemplateMetadataOptionsPtrOutput) HttpTokens() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Enables or disables access to instance tags from the instance metadata service. (Default: `disabled`).
+// Enables or disables access to instance tags from the instance metadata service. Can be `"enabled"` or `"disabled"`.
 //
 // For more information, see the documentation on the [Instance Metadata Service](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html).
 func (o LaunchTemplateMetadataOptionsPtrOutput) InstanceMetadataTags() pulumi.StringPtrOutput {
@@ -24546,21 +24849,8 @@ func (o NetworkInterfaceAttachmentTypeArrayOutput) Index(i pulumi.IntInput) Netw
 }
 
 type PeeringConnectionOptionsAccepter struct {
-	// Allow a local linked EC2-Classic instance to communicate
-	// with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
-	// to the remote VPC. This option is not supported for inter-region VPC peering.
-	//
-	// Deprecated: With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.
-	AllowClassicLinkToRemoteVpc *bool `pulumi:"allowClassicLinkToRemoteVpc"`
-	// Allow a local VPC to resolve public DNS hostnames to
-	// private IP addresses when queried from instances in the peer VPC.
+	// Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
 	AllowRemoteVpcDnsResolution *bool `pulumi:"allowRemoteVpcDnsResolution"`
-	// Allow a local VPC to communicate with a linked EC2-Classic
-	// instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
-	// connection. This option is not supported for inter-region VPC peering.
-	//
-	// Deprecated: With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.
-	AllowVpcToRemoteClassicLink *bool `pulumi:"allowVpcToRemoteClassicLink"`
 }
 
 // PeeringConnectionOptionsAccepterInput is an input type that accepts PeeringConnectionOptionsAccepterArgs and PeeringConnectionOptionsAccepterOutput values.
@@ -24575,21 +24865,8 @@ type PeeringConnectionOptionsAccepterInput interface {
 }
 
 type PeeringConnectionOptionsAccepterArgs struct {
-	// Allow a local linked EC2-Classic instance to communicate
-	// with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
-	// to the remote VPC. This option is not supported for inter-region VPC peering.
-	//
-	// Deprecated: With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.
-	AllowClassicLinkToRemoteVpc pulumi.BoolPtrInput `pulumi:"allowClassicLinkToRemoteVpc"`
-	// Allow a local VPC to resolve public DNS hostnames to
-	// private IP addresses when queried from instances in the peer VPC.
+	// Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
 	AllowRemoteVpcDnsResolution pulumi.BoolPtrInput `pulumi:"allowRemoteVpcDnsResolution"`
-	// Allow a local VPC to communicate with a linked EC2-Classic
-	// instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
-	// connection. This option is not supported for inter-region VPC peering.
-	//
-	// Deprecated: With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.
-	AllowVpcToRemoteClassicLink pulumi.BoolPtrInput `pulumi:"allowVpcToRemoteClassicLink"`
 }
 
 func (PeeringConnectionOptionsAccepterArgs) ElementType() reflect.Type {
@@ -24669,28 +24946,9 @@ func (o PeeringConnectionOptionsAccepterOutput) ToPeeringConnectionOptionsAccept
 	}).(PeeringConnectionOptionsAccepterPtrOutput)
 }
 
-// Allow a local linked EC2-Classic instance to communicate
-// with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
-// to the remote VPC. This option is not supported for inter-region VPC peering.
-//
-// Deprecated: With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.
-func (o PeeringConnectionOptionsAccepterOutput) AllowClassicLinkToRemoteVpc() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v PeeringConnectionOptionsAccepter) *bool { return v.AllowClassicLinkToRemoteVpc }).(pulumi.BoolPtrOutput)
-}
-
-// Allow a local VPC to resolve public DNS hostnames to
-// private IP addresses when queried from instances in the peer VPC.
+// Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
 func (o PeeringConnectionOptionsAccepterOutput) AllowRemoteVpcDnsResolution() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PeeringConnectionOptionsAccepter) *bool { return v.AllowRemoteVpcDnsResolution }).(pulumi.BoolPtrOutput)
-}
-
-// Allow a local VPC to communicate with a linked EC2-Classic
-// instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
-// connection. This option is not supported for inter-region VPC peering.
-//
-// Deprecated: With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.
-func (o PeeringConnectionOptionsAccepterOutput) AllowVpcToRemoteClassicLink() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v PeeringConnectionOptionsAccepter) *bool { return v.AllowVpcToRemoteClassicLink }).(pulumi.BoolPtrOutput)
 }
 
 type PeeringConnectionOptionsAccepterPtrOutput struct{ *pulumi.OutputState }
@@ -24717,22 +24975,7 @@ func (o PeeringConnectionOptionsAccepterPtrOutput) Elem() PeeringConnectionOptio
 	}).(PeeringConnectionOptionsAccepterOutput)
 }
 
-// Allow a local linked EC2-Classic instance to communicate
-// with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
-// to the remote VPC. This option is not supported for inter-region VPC peering.
-//
-// Deprecated: With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.
-func (o PeeringConnectionOptionsAccepterPtrOutput) AllowClassicLinkToRemoteVpc() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *PeeringConnectionOptionsAccepter) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.AllowClassicLinkToRemoteVpc
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Allow a local VPC to resolve public DNS hostnames to
-// private IP addresses when queried from instances in the peer VPC.
+// Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
 func (o PeeringConnectionOptionsAccepterPtrOutput) AllowRemoteVpcDnsResolution() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PeeringConnectionOptionsAccepter) *bool {
 		if v == nil {
@@ -24742,36 +24985,9 @@ func (o PeeringConnectionOptionsAccepterPtrOutput) AllowRemoteVpcDnsResolution()
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Allow a local VPC to communicate with a linked EC2-Classic
-// instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
-// connection. This option is not supported for inter-region VPC peering.
-//
-// Deprecated: With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.
-func (o PeeringConnectionOptionsAccepterPtrOutput) AllowVpcToRemoteClassicLink() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *PeeringConnectionOptionsAccepter) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.AllowVpcToRemoteClassicLink
-	}).(pulumi.BoolPtrOutput)
-}
-
 type PeeringConnectionOptionsRequester struct {
-	// Allow a local linked EC2-Classic instance to communicate
-	// with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
-	// to the remote VPC. This option is not supported for inter-region VPC peering.
-	//
-	// Deprecated: With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.
-	AllowClassicLinkToRemoteVpc *bool `pulumi:"allowClassicLinkToRemoteVpc"`
-	// Allow a local VPC to resolve public DNS hostnames to
-	// private IP addresses when queried from instances in the peer VPC.
+	// Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
 	AllowRemoteVpcDnsResolution *bool `pulumi:"allowRemoteVpcDnsResolution"`
-	// Allow a local VPC to communicate with a linked EC2-Classic
-	// instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
-	// connection. This option is not supported for inter-region VPC peering.
-	//
-	// Deprecated: With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.
-	AllowVpcToRemoteClassicLink *bool `pulumi:"allowVpcToRemoteClassicLink"`
 }
 
 // PeeringConnectionOptionsRequesterInput is an input type that accepts PeeringConnectionOptionsRequesterArgs and PeeringConnectionOptionsRequesterOutput values.
@@ -24786,21 +25002,8 @@ type PeeringConnectionOptionsRequesterInput interface {
 }
 
 type PeeringConnectionOptionsRequesterArgs struct {
-	// Allow a local linked EC2-Classic instance to communicate
-	// with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
-	// to the remote VPC. This option is not supported for inter-region VPC peering.
-	//
-	// Deprecated: With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.
-	AllowClassicLinkToRemoteVpc pulumi.BoolPtrInput `pulumi:"allowClassicLinkToRemoteVpc"`
-	// Allow a local VPC to resolve public DNS hostnames to
-	// private IP addresses when queried from instances in the peer VPC.
+	// Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
 	AllowRemoteVpcDnsResolution pulumi.BoolPtrInput `pulumi:"allowRemoteVpcDnsResolution"`
-	// Allow a local VPC to communicate with a linked EC2-Classic
-	// instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
-	// connection. This option is not supported for inter-region VPC peering.
-	//
-	// Deprecated: With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.
-	AllowVpcToRemoteClassicLink pulumi.BoolPtrInput `pulumi:"allowVpcToRemoteClassicLink"`
 }
 
 func (PeeringConnectionOptionsRequesterArgs) ElementType() reflect.Type {
@@ -24880,28 +25083,9 @@ func (o PeeringConnectionOptionsRequesterOutput) ToPeeringConnectionOptionsReque
 	}).(PeeringConnectionOptionsRequesterPtrOutput)
 }
 
-// Allow a local linked EC2-Classic instance to communicate
-// with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
-// to the remote VPC. This option is not supported for inter-region VPC peering.
-//
-// Deprecated: With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.
-func (o PeeringConnectionOptionsRequesterOutput) AllowClassicLinkToRemoteVpc() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v PeeringConnectionOptionsRequester) *bool { return v.AllowClassicLinkToRemoteVpc }).(pulumi.BoolPtrOutput)
-}
-
-// Allow a local VPC to resolve public DNS hostnames to
-// private IP addresses when queried from instances in the peer VPC.
+// Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
 func (o PeeringConnectionOptionsRequesterOutput) AllowRemoteVpcDnsResolution() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PeeringConnectionOptionsRequester) *bool { return v.AllowRemoteVpcDnsResolution }).(pulumi.BoolPtrOutput)
-}
-
-// Allow a local VPC to communicate with a linked EC2-Classic
-// instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
-// connection. This option is not supported for inter-region VPC peering.
-//
-// Deprecated: With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.
-func (o PeeringConnectionOptionsRequesterOutput) AllowVpcToRemoteClassicLink() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v PeeringConnectionOptionsRequester) *bool { return v.AllowVpcToRemoteClassicLink }).(pulumi.BoolPtrOutput)
 }
 
 type PeeringConnectionOptionsRequesterPtrOutput struct{ *pulumi.OutputState }
@@ -24928,42 +25112,13 @@ func (o PeeringConnectionOptionsRequesterPtrOutput) Elem() PeeringConnectionOpti
 	}).(PeeringConnectionOptionsRequesterOutput)
 }
 
-// Allow a local linked EC2-Classic instance to communicate
-// with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
-// to the remote VPC. This option is not supported for inter-region VPC peering.
-//
-// Deprecated: With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.
-func (o PeeringConnectionOptionsRequesterPtrOutput) AllowClassicLinkToRemoteVpc() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *PeeringConnectionOptionsRequester) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.AllowClassicLinkToRemoteVpc
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Allow a local VPC to resolve public DNS hostnames to
-// private IP addresses when queried from instances in the peer VPC.
+// Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
 func (o PeeringConnectionOptionsRequesterPtrOutput) AllowRemoteVpcDnsResolution() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PeeringConnectionOptionsRequester) *bool {
 		if v == nil {
 			return nil
 		}
 		return v.AllowRemoteVpcDnsResolution
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Allow a local VPC to communicate with a linked EC2-Classic
-// instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
-// connection. This option is not supported for inter-region VPC peering.
-//
-// Deprecated: With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.
-func (o PeeringConnectionOptionsRequesterPtrOutput) AllowVpcToRemoteClassicLink() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *PeeringConnectionOptionsRequester) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.AllowVpcToRemoteClassicLink
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -24980,12 +25135,8 @@ type RouteTableRoute struct {
 	DestinationPrefixListId *string `pulumi:"destinationPrefixListId"`
 	// Identifier of a VPC Egress Only Internet Gateway.
 	EgressOnlyGatewayId *string `pulumi:"egressOnlyGatewayId"`
-	// Identifier of a VPC internet gateway or a virtual private gateway.
+	// Identifier of a VPC internet gateway, virtual private gateway, or `local`. `local` routes cannot be created but can be adopted or imported. See the example above.
 	GatewayId *string `pulumi:"gatewayId"`
-	// Identifier of an EC2 instance.
-	//
-	// Deprecated: Use network_interface_id instead
-	InstanceId *string `pulumi:"instanceId"`
 	// The Ipv6 CIDR block of the route.
 	Ipv6CidrBlock *string `pulumi:"ipv6CidrBlock"`
 	// Identifier of a Outpost local gateway.
@@ -25028,12 +25179,8 @@ type RouteTableRouteArgs struct {
 	DestinationPrefixListId pulumi.StringPtrInput `pulumi:"destinationPrefixListId"`
 	// Identifier of a VPC Egress Only Internet Gateway.
 	EgressOnlyGatewayId pulumi.StringPtrInput `pulumi:"egressOnlyGatewayId"`
-	// Identifier of a VPC internet gateway or a virtual private gateway.
+	// Identifier of a VPC internet gateway, virtual private gateway, or `local`. `local` routes cannot be created but can be adopted or imported. See the example above.
 	GatewayId pulumi.StringPtrInput `pulumi:"gatewayId"`
-	// Identifier of an EC2 instance.
-	//
-	// Deprecated: Use network_interface_id instead
-	InstanceId pulumi.StringPtrInput `pulumi:"instanceId"`
 	// The Ipv6 CIDR block of the route.
 	Ipv6CidrBlock pulumi.StringPtrInput `pulumi:"ipv6CidrBlock"`
 	// Identifier of a Outpost local gateway.
@@ -25130,16 +25277,9 @@ func (o RouteTableRouteOutput) EgressOnlyGatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteTableRoute) *string { return v.EgressOnlyGatewayId }).(pulumi.StringPtrOutput)
 }
 
-// Identifier of a VPC internet gateway or a virtual private gateway.
+// Identifier of a VPC internet gateway, virtual private gateway, or `local`. `local` routes cannot be created but can be adopted or imported. See the example above.
 func (o RouteTableRouteOutput) GatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteTableRoute) *string { return v.GatewayId }).(pulumi.StringPtrOutput)
-}
-
-// Identifier of an EC2 instance.
-//
-// Deprecated: Use network_interface_id instead
-func (o RouteTableRouteOutput) InstanceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RouteTableRoute) *string { return v.InstanceId }).(pulumi.StringPtrOutput)
 }
 
 // The Ipv6 CIDR block of the route.
@@ -25219,6 +25359,8 @@ type SecurityGroupEgress struct {
 	// End range port (or ICMP code if protocol is `icmp`).
 	//
 	// The following arguments are optional:
+	//
+	// > **Note** Although `cidrBlocks`, `ipv6CidrBlocks`, `prefixListIds`, and `securityGroups` are all marked as optional, you _must_ provide one of them in order to configure the destination of the traffic.
 	ToPort int `pulumi:"toPort"`
 }
 
@@ -25253,6 +25395,8 @@ type SecurityGroupEgressArgs struct {
 	// End range port (or ICMP code if protocol is `icmp`).
 	//
 	// The following arguments are optional:
+	//
+	// > **Note** Although `cidrBlocks`, `ipv6CidrBlocks`, `prefixListIds`, and `securityGroups` are all marked as optional, you _must_ provide one of them in order to configure the destination of the traffic.
 	ToPort pulumi.IntInput `pulumi:"toPort"`
 }
 
@@ -25350,6 +25494,8 @@ func (o SecurityGroupEgressOutput) Self() pulumi.BoolPtrOutput {
 // End range port (or ICMP code if protocol is `icmp`).
 //
 // The following arguments are optional:
+//
+// > **Note** Although `cidrBlocks`, `ipv6CidrBlocks`, `prefixListIds`, and `securityGroups` are all marked as optional, you _must_ provide one of them in order to configure the destination of the traffic.
 func (o SecurityGroupEgressOutput) ToPort() pulumi.IntOutput {
 	return o.ApplyT(func(v SecurityGroupEgress) int { return v.ToPort }).(pulumi.IntOutput)
 }
@@ -25388,6 +25534,8 @@ type SecurityGroupIngress struct {
 	// Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to 0.  The supported values are defined in the `IpProtocol` argument on the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
 	//
 	// The following arguments are optional:
+	//
+	// > **Note** Although `cidrBlocks`, `ipv6CidrBlocks`, `prefixListIds`, and `securityGroups` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
 	Protocol string `pulumi:"protocol"`
 	// List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
 	SecurityGroups []string `pulumi:"securityGroups"`
@@ -25422,6 +25570,8 @@ type SecurityGroupIngressArgs struct {
 	// Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to 0.  The supported values are defined in the `IpProtocol` argument on the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
 	//
 	// The following arguments are optional:
+	//
+	// > **Note** Although `cidrBlocks`, `ipv6CidrBlocks`, `prefixListIds`, and `securityGroups` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
 	Protocol pulumi.StringInput `pulumi:"protocol"`
 	// List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
@@ -25510,6 +25660,8 @@ func (o SecurityGroupIngressOutput) PrefixListIds() pulumi.StringArrayOutput {
 // Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to 0.  The supported values are defined in the `IpProtocol` argument on the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
 //
 // The following arguments are optional:
+//
+// > **Note** Although `cidrBlocks`, `ipv6CidrBlocks`, `prefixListIds`, and `securityGroups` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
 func (o SecurityGroupIngressOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v SecurityGroupIngress) string { return v.Protocol }).(pulumi.StringOutput)
 }
@@ -31869,6 +32021,8 @@ func (o VpcEndpointDnsEntryArrayOutput) Index(i pulumi.IntInput) VpcEndpointDnsE
 type VpcEndpointDnsOptions struct {
 	// The DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
 	DnsRecordIpType *string `pulumi:"dnsRecordIpType"`
+	// Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint. Default is `false`. Can only be specified if privateDnsEnabled is `true`.
+	PrivateDnsOnlyForInboundResolverEndpoint *bool `pulumi:"privateDnsOnlyForInboundResolverEndpoint"`
 }
 
 // VpcEndpointDnsOptionsInput is an input type that accepts VpcEndpointDnsOptionsArgs and VpcEndpointDnsOptionsOutput values.
@@ -31885,6 +32039,8 @@ type VpcEndpointDnsOptionsInput interface {
 type VpcEndpointDnsOptionsArgs struct {
 	// The DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
 	DnsRecordIpType pulumi.StringPtrInput `pulumi:"dnsRecordIpType"`
+	// Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint. Default is `false`. Can only be specified if privateDnsEnabled is `true`.
+	PrivateDnsOnlyForInboundResolverEndpoint pulumi.BoolPtrInput `pulumi:"privateDnsOnlyForInboundResolverEndpoint"`
 }
 
 func (VpcEndpointDnsOptionsArgs) ElementType() reflect.Type {
@@ -31969,6 +32125,11 @@ func (o VpcEndpointDnsOptionsOutput) DnsRecordIpType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VpcEndpointDnsOptions) *string { return v.DnsRecordIpType }).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint. Default is `false`. Can only be specified if privateDnsEnabled is `true`.
+func (o VpcEndpointDnsOptionsOutput) PrivateDnsOnlyForInboundResolverEndpoint() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VpcEndpointDnsOptions) *bool { return v.PrivateDnsOnlyForInboundResolverEndpoint }).(pulumi.BoolPtrOutput)
+}
+
 type VpcEndpointDnsOptionsPtrOutput struct{ *pulumi.OutputState }
 
 func (VpcEndpointDnsOptionsPtrOutput) ElementType() reflect.Type {
@@ -32001,6 +32162,16 @@ func (o VpcEndpointDnsOptionsPtrOutput) DnsRecordIpType() pulumi.StringPtrOutput
 		}
 		return v.DnsRecordIpType
 	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint. Default is `false`. Can only be specified if privateDnsEnabled is `true`.
+func (o VpcEndpointDnsOptionsPtrOutput) PrivateDnsOnlyForInboundResolverEndpoint() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VpcEndpointDnsOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateDnsOnlyForInboundResolverEndpoint
+	}).(pulumi.BoolPtrOutput)
 }
 
 type VpcEndpointServicePrivateDnsNameConfiguration struct {
@@ -32478,21 +32649,9 @@ func (o VpcIpamResourceDiscoveryOperatingRegionArrayOutput) Index(i pulumi.IntIn
 }
 
 type VpcPeeringConnectionAccepterType struct {
-	// Allow a local linked EC2-Classic instance to communicate
-	// with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
-	// to the remote VPC.
-	//
-	// Deprecated: With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.
-	AllowClassicLinkToRemoteVpc *bool `pulumi:"allowClassicLinkToRemoteVpc"`
 	// Allow a local VPC to resolve public DNS hostnames to
 	// private IP addresses when queried from instances in the peer VPC.
 	AllowRemoteVpcDnsResolution *bool `pulumi:"allowRemoteVpcDnsResolution"`
-	// Allow a local VPC to communicate with a linked EC2-Classic
-	// instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
-	// connection.
-	//
-	// Deprecated: With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.
-	AllowVpcToRemoteClassicLink *bool `pulumi:"allowVpcToRemoteClassicLink"`
 }
 
 // VpcPeeringConnectionAccepterTypeInput is an input type that accepts VpcPeeringConnectionAccepterTypeArgs and VpcPeeringConnectionAccepterTypeOutput values.
@@ -32507,21 +32666,9 @@ type VpcPeeringConnectionAccepterTypeInput interface {
 }
 
 type VpcPeeringConnectionAccepterTypeArgs struct {
-	// Allow a local linked EC2-Classic instance to communicate
-	// with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
-	// to the remote VPC.
-	//
-	// Deprecated: With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.
-	AllowClassicLinkToRemoteVpc pulumi.BoolPtrInput `pulumi:"allowClassicLinkToRemoteVpc"`
 	// Allow a local VPC to resolve public DNS hostnames to
 	// private IP addresses when queried from instances in the peer VPC.
 	AllowRemoteVpcDnsResolution pulumi.BoolPtrInput `pulumi:"allowRemoteVpcDnsResolution"`
-	// Allow a local VPC to communicate with a linked EC2-Classic
-	// instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
-	// connection.
-	//
-	// Deprecated: With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.
-	AllowVpcToRemoteClassicLink pulumi.BoolPtrInput `pulumi:"allowVpcToRemoteClassicLink"`
 }
 
 func (VpcPeeringConnectionAccepterTypeArgs) ElementType() reflect.Type {
@@ -32601,28 +32748,10 @@ func (o VpcPeeringConnectionAccepterTypeOutput) ToVpcPeeringConnectionAccepterTy
 	}).(VpcPeeringConnectionAccepterTypePtrOutput)
 }
 
-// Allow a local linked EC2-Classic instance to communicate
-// with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
-// to the remote VPC.
-//
-// Deprecated: With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.
-func (o VpcPeeringConnectionAccepterTypeOutput) AllowClassicLinkToRemoteVpc() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v VpcPeeringConnectionAccepterType) *bool { return v.AllowClassicLinkToRemoteVpc }).(pulumi.BoolPtrOutput)
-}
-
 // Allow a local VPC to resolve public DNS hostnames to
 // private IP addresses when queried from instances in the peer VPC.
 func (o VpcPeeringConnectionAccepterTypeOutput) AllowRemoteVpcDnsResolution() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VpcPeeringConnectionAccepterType) *bool { return v.AllowRemoteVpcDnsResolution }).(pulumi.BoolPtrOutput)
-}
-
-// Allow a local VPC to communicate with a linked EC2-Classic
-// instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
-// connection.
-//
-// Deprecated: With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.
-func (o VpcPeeringConnectionAccepterTypeOutput) AllowVpcToRemoteClassicLink() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v VpcPeeringConnectionAccepterType) *bool { return v.AllowVpcToRemoteClassicLink }).(pulumi.BoolPtrOutput)
 }
 
 type VpcPeeringConnectionAccepterTypePtrOutput struct{ *pulumi.OutputState }
@@ -32649,20 +32778,6 @@ func (o VpcPeeringConnectionAccepterTypePtrOutput) Elem() VpcPeeringConnectionAc
 	}).(VpcPeeringConnectionAccepterTypeOutput)
 }
 
-// Allow a local linked EC2-Classic instance to communicate
-// with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
-// to the remote VPC.
-//
-// Deprecated: With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.
-func (o VpcPeeringConnectionAccepterTypePtrOutput) AllowClassicLinkToRemoteVpc() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *VpcPeeringConnectionAccepterType) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.AllowClassicLinkToRemoteVpc
-	}).(pulumi.BoolPtrOutput)
-}
-
 // Allow a local VPC to resolve public DNS hostnames to
 // private IP addresses when queried from instances in the peer VPC.
 func (o VpcPeeringConnectionAccepterTypePtrOutput) AllowRemoteVpcDnsResolution() pulumi.BoolPtrOutput {
@@ -32674,34 +32789,10 @@ func (o VpcPeeringConnectionAccepterTypePtrOutput) AllowRemoteVpcDnsResolution()
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Allow a local VPC to communicate with a linked EC2-Classic
-// instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
-// connection.
-//
-// Deprecated: With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.
-func (o VpcPeeringConnectionAccepterTypePtrOutput) AllowVpcToRemoteClassicLink() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *VpcPeeringConnectionAccepterType) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.AllowVpcToRemoteClassicLink
-	}).(pulumi.BoolPtrOutput)
-}
-
 type VpcPeeringConnectionAccepterAccepter struct {
-	// Indicates whether a local ClassicLink connection can communicate
-	// with the peer VPC over the VPC Peering Connection.
-	//
-	// Deprecated: With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.
-	AllowClassicLinkToRemoteVpc *bool `pulumi:"allowClassicLinkToRemoteVpc"`
 	// Indicates whether a local VPC can resolve public DNS hostnames to
 	// private IP addresses when queried from instances in a peer VPC.
 	AllowRemoteVpcDnsResolution *bool `pulumi:"allowRemoteVpcDnsResolution"`
-	// Indicates whether a local VPC can communicate with a ClassicLink
-	// connection in the peer VPC over the VPC Peering Connection.
-	//
-	// Deprecated: With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.
-	AllowVpcToRemoteClassicLink *bool `pulumi:"allowVpcToRemoteClassicLink"`
 }
 
 // VpcPeeringConnectionAccepterAccepterInput is an input type that accepts VpcPeeringConnectionAccepterAccepterArgs and VpcPeeringConnectionAccepterAccepterOutput values.
@@ -32716,19 +32807,9 @@ type VpcPeeringConnectionAccepterAccepterInput interface {
 }
 
 type VpcPeeringConnectionAccepterAccepterArgs struct {
-	// Indicates whether a local ClassicLink connection can communicate
-	// with the peer VPC over the VPC Peering Connection.
-	//
-	// Deprecated: With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.
-	AllowClassicLinkToRemoteVpc pulumi.BoolPtrInput `pulumi:"allowClassicLinkToRemoteVpc"`
 	// Indicates whether a local VPC can resolve public DNS hostnames to
 	// private IP addresses when queried from instances in a peer VPC.
 	AllowRemoteVpcDnsResolution pulumi.BoolPtrInput `pulumi:"allowRemoteVpcDnsResolution"`
-	// Indicates whether a local VPC can communicate with a ClassicLink
-	// connection in the peer VPC over the VPC Peering Connection.
-	//
-	// Deprecated: With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.
-	AllowVpcToRemoteClassicLink pulumi.BoolPtrInput `pulumi:"allowVpcToRemoteClassicLink"`
 }
 
 func (VpcPeeringConnectionAccepterAccepterArgs) ElementType() reflect.Type {
@@ -32808,26 +32889,10 @@ func (o VpcPeeringConnectionAccepterAccepterOutput) ToVpcPeeringConnectionAccept
 	}).(VpcPeeringConnectionAccepterAccepterPtrOutput)
 }
 
-// Indicates whether a local ClassicLink connection can communicate
-// with the peer VPC over the VPC Peering Connection.
-//
-// Deprecated: With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.
-func (o VpcPeeringConnectionAccepterAccepterOutput) AllowClassicLinkToRemoteVpc() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v VpcPeeringConnectionAccepterAccepter) *bool { return v.AllowClassicLinkToRemoteVpc }).(pulumi.BoolPtrOutput)
-}
-
 // Indicates whether a local VPC can resolve public DNS hostnames to
 // private IP addresses when queried from instances in a peer VPC.
 func (o VpcPeeringConnectionAccepterAccepterOutput) AllowRemoteVpcDnsResolution() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VpcPeeringConnectionAccepterAccepter) *bool { return v.AllowRemoteVpcDnsResolution }).(pulumi.BoolPtrOutput)
-}
-
-// Indicates whether a local VPC can communicate with a ClassicLink
-// connection in the peer VPC over the VPC Peering Connection.
-//
-// Deprecated: With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.
-func (o VpcPeeringConnectionAccepterAccepterOutput) AllowVpcToRemoteClassicLink() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v VpcPeeringConnectionAccepterAccepter) *bool { return v.AllowVpcToRemoteClassicLink }).(pulumi.BoolPtrOutput)
 }
 
 type VpcPeeringConnectionAccepterAccepterPtrOutput struct{ *pulumi.OutputState }
@@ -32854,19 +32919,6 @@ func (o VpcPeeringConnectionAccepterAccepterPtrOutput) Elem() VpcPeeringConnecti
 	}).(VpcPeeringConnectionAccepterAccepterOutput)
 }
 
-// Indicates whether a local ClassicLink connection can communicate
-// with the peer VPC over the VPC Peering Connection.
-//
-// Deprecated: With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.
-func (o VpcPeeringConnectionAccepterAccepterPtrOutput) AllowClassicLinkToRemoteVpc() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *VpcPeeringConnectionAccepterAccepter) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.AllowClassicLinkToRemoteVpc
-	}).(pulumi.BoolPtrOutput)
-}
-
 // Indicates whether a local VPC can resolve public DNS hostnames to
 // private IP addresses when queried from instances in a peer VPC.
 func (o VpcPeeringConnectionAccepterAccepterPtrOutput) AllowRemoteVpcDnsResolution() pulumi.BoolPtrOutput {
@@ -32878,33 +32930,10 @@ func (o VpcPeeringConnectionAccepterAccepterPtrOutput) AllowRemoteVpcDnsResoluti
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Indicates whether a local VPC can communicate with a ClassicLink
-// connection in the peer VPC over the VPC Peering Connection.
-//
-// Deprecated: With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.
-func (o VpcPeeringConnectionAccepterAccepterPtrOutput) AllowVpcToRemoteClassicLink() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *VpcPeeringConnectionAccepterAccepter) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.AllowVpcToRemoteClassicLink
-	}).(pulumi.BoolPtrOutput)
-}
-
 type VpcPeeringConnectionAccepterRequester struct {
-	// Indicates whether a local ClassicLink connection can communicate
-	// with the peer VPC over the VPC Peering Connection.
-	//
-	// Deprecated: With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.
-	AllowClassicLinkToRemoteVpc *bool `pulumi:"allowClassicLinkToRemoteVpc"`
 	// Indicates whether a local VPC can resolve public DNS hostnames to
 	// private IP addresses when queried from instances in a peer VPC.
 	AllowRemoteVpcDnsResolution *bool `pulumi:"allowRemoteVpcDnsResolution"`
-	// Indicates whether a local VPC can communicate with a ClassicLink
-	// connection in the peer VPC over the VPC Peering Connection.
-	//
-	// Deprecated: With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.
-	AllowVpcToRemoteClassicLink *bool `pulumi:"allowVpcToRemoteClassicLink"`
 }
 
 // VpcPeeringConnectionAccepterRequesterInput is an input type that accepts VpcPeeringConnectionAccepterRequesterArgs and VpcPeeringConnectionAccepterRequesterOutput values.
@@ -32919,19 +32948,9 @@ type VpcPeeringConnectionAccepterRequesterInput interface {
 }
 
 type VpcPeeringConnectionAccepterRequesterArgs struct {
-	// Indicates whether a local ClassicLink connection can communicate
-	// with the peer VPC over the VPC Peering Connection.
-	//
-	// Deprecated: With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.
-	AllowClassicLinkToRemoteVpc pulumi.BoolPtrInput `pulumi:"allowClassicLinkToRemoteVpc"`
 	// Indicates whether a local VPC can resolve public DNS hostnames to
 	// private IP addresses when queried from instances in a peer VPC.
 	AllowRemoteVpcDnsResolution pulumi.BoolPtrInput `pulumi:"allowRemoteVpcDnsResolution"`
-	// Indicates whether a local VPC can communicate with a ClassicLink
-	// connection in the peer VPC over the VPC Peering Connection.
-	//
-	// Deprecated: With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.
-	AllowVpcToRemoteClassicLink pulumi.BoolPtrInput `pulumi:"allowVpcToRemoteClassicLink"`
 }
 
 func (VpcPeeringConnectionAccepterRequesterArgs) ElementType() reflect.Type {
@@ -33011,26 +33030,10 @@ func (o VpcPeeringConnectionAccepterRequesterOutput) ToVpcPeeringConnectionAccep
 	}).(VpcPeeringConnectionAccepterRequesterPtrOutput)
 }
 
-// Indicates whether a local ClassicLink connection can communicate
-// with the peer VPC over the VPC Peering Connection.
-//
-// Deprecated: With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.
-func (o VpcPeeringConnectionAccepterRequesterOutput) AllowClassicLinkToRemoteVpc() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v VpcPeeringConnectionAccepterRequester) *bool { return v.AllowClassicLinkToRemoteVpc }).(pulumi.BoolPtrOutput)
-}
-
 // Indicates whether a local VPC can resolve public DNS hostnames to
 // private IP addresses when queried from instances in a peer VPC.
 func (o VpcPeeringConnectionAccepterRequesterOutput) AllowRemoteVpcDnsResolution() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VpcPeeringConnectionAccepterRequester) *bool { return v.AllowRemoteVpcDnsResolution }).(pulumi.BoolPtrOutput)
-}
-
-// Indicates whether a local VPC can communicate with a ClassicLink
-// connection in the peer VPC over the VPC Peering Connection.
-//
-// Deprecated: With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.
-func (o VpcPeeringConnectionAccepterRequesterOutput) AllowVpcToRemoteClassicLink() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v VpcPeeringConnectionAccepterRequester) *bool { return v.AllowVpcToRemoteClassicLink }).(pulumi.BoolPtrOutput)
 }
 
 type VpcPeeringConnectionAccepterRequesterPtrOutput struct{ *pulumi.OutputState }
@@ -33057,19 +33060,6 @@ func (o VpcPeeringConnectionAccepterRequesterPtrOutput) Elem() VpcPeeringConnect
 	}).(VpcPeeringConnectionAccepterRequesterOutput)
 }
 
-// Indicates whether a local ClassicLink connection can communicate
-// with the peer VPC over the VPC Peering Connection.
-//
-// Deprecated: With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.
-func (o VpcPeeringConnectionAccepterRequesterPtrOutput) AllowClassicLinkToRemoteVpc() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *VpcPeeringConnectionAccepterRequester) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.AllowClassicLinkToRemoteVpc
-	}).(pulumi.BoolPtrOutput)
-}
-
 // Indicates whether a local VPC can resolve public DNS hostnames to
 // private IP addresses when queried from instances in a peer VPC.
 func (o VpcPeeringConnectionAccepterRequesterPtrOutput) AllowRemoteVpcDnsResolution() pulumi.BoolPtrOutput {
@@ -33081,35 +33071,10 @@ func (o VpcPeeringConnectionAccepterRequesterPtrOutput) AllowRemoteVpcDnsResolut
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Indicates whether a local VPC can communicate with a ClassicLink
-// connection in the peer VPC over the VPC Peering Connection.
-//
-// Deprecated: With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.
-func (o VpcPeeringConnectionAccepterRequesterPtrOutput) AllowVpcToRemoteClassicLink() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *VpcPeeringConnectionAccepterRequester) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.AllowVpcToRemoteClassicLink
-	}).(pulumi.BoolPtrOutput)
-}
-
 type VpcPeeringConnectionRequester struct {
-	// Allow a local linked EC2-Classic instance to communicate
-	// with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
-	// to the remote VPC.
-	//
-	// Deprecated: With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.
-	AllowClassicLinkToRemoteVpc *bool `pulumi:"allowClassicLinkToRemoteVpc"`
 	// Allow a local VPC to resolve public DNS hostnames to
 	// private IP addresses when queried from instances in the peer VPC.
 	AllowRemoteVpcDnsResolution *bool `pulumi:"allowRemoteVpcDnsResolution"`
-	// Allow a local VPC to communicate with a linked EC2-Classic
-	// instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
-	// connection.
-	//
-	// Deprecated: With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.
-	AllowVpcToRemoteClassicLink *bool `pulumi:"allowVpcToRemoteClassicLink"`
 }
 
 // VpcPeeringConnectionRequesterInput is an input type that accepts VpcPeeringConnectionRequesterArgs and VpcPeeringConnectionRequesterOutput values.
@@ -33124,21 +33089,9 @@ type VpcPeeringConnectionRequesterInput interface {
 }
 
 type VpcPeeringConnectionRequesterArgs struct {
-	// Allow a local linked EC2-Classic instance to communicate
-	// with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
-	// to the remote VPC.
-	//
-	// Deprecated: With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.
-	AllowClassicLinkToRemoteVpc pulumi.BoolPtrInput `pulumi:"allowClassicLinkToRemoteVpc"`
 	// Allow a local VPC to resolve public DNS hostnames to
 	// private IP addresses when queried from instances in the peer VPC.
 	AllowRemoteVpcDnsResolution pulumi.BoolPtrInput `pulumi:"allowRemoteVpcDnsResolution"`
-	// Allow a local VPC to communicate with a linked EC2-Classic
-	// instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
-	// connection.
-	//
-	// Deprecated: With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.
-	AllowVpcToRemoteClassicLink pulumi.BoolPtrInput `pulumi:"allowVpcToRemoteClassicLink"`
 }
 
 func (VpcPeeringConnectionRequesterArgs) ElementType() reflect.Type {
@@ -33218,28 +33171,10 @@ func (o VpcPeeringConnectionRequesterOutput) ToVpcPeeringConnectionRequesterPtrO
 	}).(VpcPeeringConnectionRequesterPtrOutput)
 }
 
-// Allow a local linked EC2-Classic instance to communicate
-// with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
-// to the remote VPC.
-//
-// Deprecated: With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.
-func (o VpcPeeringConnectionRequesterOutput) AllowClassicLinkToRemoteVpc() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v VpcPeeringConnectionRequester) *bool { return v.AllowClassicLinkToRemoteVpc }).(pulumi.BoolPtrOutput)
-}
-
 // Allow a local VPC to resolve public DNS hostnames to
 // private IP addresses when queried from instances in the peer VPC.
 func (o VpcPeeringConnectionRequesterOutput) AllowRemoteVpcDnsResolution() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VpcPeeringConnectionRequester) *bool { return v.AllowRemoteVpcDnsResolution }).(pulumi.BoolPtrOutput)
-}
-
-// Allow a local VPC to communicate with a linked EC2-Classic
-// instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
-// connection.
-//
-// Deprecated: With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.
-func (o VpcPeeringConnectionRequesterOutput) AllowVpcToRemoteClassicLink() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v VpcPeeringConnectionRequester) *bool { return v.AllowVpcToRemoteClassicLink }).(pulumi.BoolPtrOutput)
 }
 
 type VpcPeeringConnectionRequesterPtrOutput struct{ *pulumi.OutputState }
@@ -33266,20 +33201,6 @@ func (o VpcPeeringConnectionRequesterPtrOutput) Elem() VpcPeeringConnectionReque
 	}).(VpcPeeringConnectionRequesterOutput)
 }
 
-// Allow a local linked EC2-Classic instance to communicate
-// with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
-// to the remote VPC.
-//
-// Deprecated: With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.
-func (o VpcPeeringConnectionRequesterPtrOutput) AllowClassicLinkToRemoteVpc() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *VpcPeeringConnectionRequester) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.AllowClassicLinkToRemoteVpc
-	}).(pulumi.BoolPtrOutput)
-}
-
 // Allow a local VPC to resolve public DNS hostnames to
 // private IP addresses when queried from instances in the peer VPC.
 func (o VpcPeeringConnectionRequesterPtrOutput) AllowRemoteVpcDnsResolution() pulumi.BoolPtrOutput {
@@ -33288,20 +33209,6 @@ func (o VpcPeeringConnectionRequesterPtrOutput) AllowRemoteVpcDnsResolution() pu
 			return nil
 		}
 		return v.AllowRemoteVpcDnsResolution
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Allow a local VPC to communicate with a linked EC2-Classic
-// instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
-// connection.
-//
-// Deprecated: With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.
-func (o VpcPeeringConnectionRequesterPtrOutput) AllowVpcToRemoteClassicLink() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *VpcPeeringConnectionRequester) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.AllowVpcToRemoteClassicLink
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -54684,208 +54591,6 @@ func (o GetSubnetFilterArrayOutput) Index(i pulumi.IntInput) GetSubnetFilterOutp
 	}).(GetSubnetFilterOutput)
 }
 
-type GetSubnetIdsFilter struct {
-	// Name of the field to filter by, as defined by
-	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
-	// For example, if matching against tag `Name`, use:
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		_, err := ec2.GetSubnetIds(ctx, &ec2.GetSubnetIdsArgs{
-	// 			Filters: []ec2.GetSubnetIdsFilter{
-	// 				{
-	// 					Name: "tag:Name",
-	// 					Values: []string{
-	// 						"",
-	// 					},
-	// 				},
-	// 			},
-	// 		}, nil)
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	Name string `pulumi:"name"`
-	// Set of values that are accepted for the given field.
-	// Subnet IDs will be selected if any one of the given values match.
-	Values []string `pulumi:"values"`
-}
-
-// GetSubnetIdsFilterInput is an input type that accepts GetSubnetIdsFilterArgs and GetSubnetIdsFilterOutput values.
-// You can construct a concrete instance of `GetSubnetIdsFilterInput` via:
-//
-//	GetSubnetIdsFilterArgs{...}
-type GetSubnetIdsFilterInput interface {
-	pulumi.Input
-
-	ToGetSubnetIdsFilterOutput() GetSubnetIdsFilterOutput
-	ToGetSubnetIdsFilterOutputWithContext(context.Context) GetSubnetIdsFilterOutput
-}
-
-type GetSubnetIdsFilterArgs struct {
-	// Name of the field to filter by, as defined by
-	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
-	// For example, if matching against tag `Name`, use:
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		_, err := ec2.GetSubnetIds(ctx, &ec2.GetSubnetIdsArgs{
-	// 			Filters: []ec2.GetSubnetIdsFilter{
-	// 				{
-	// 					Name: "tag:Name",
-	// 					Values: []string{
-	// 						"",
-	// 					},
-	// 				},
-	// 			},
-	// 		}, nil)
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	Name pulumi.StringInput `pulumi:"name"`
-	// Set of values that are accepted for the given field.
-	// Subnet IDs will be selected if any one of the given values match.
-	Values pulumi.StringArrayInput `pulumi:"values"`
-}
-
-func (GetSubnetIdsFilterArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetSubnetIdsFilter)(nil)).Elem()
-}
-
-func (i GetSubnetIdsFilterArgs) ToGetSubnetIdsFilterOutput() GetSubnetIdsFilterOutput {
-	return i.ToGetSubnetIdsFilterOutputWithContext(context.Background())
-}
-
-func (i GetSubnetIdsFilterArgs) ToGetSubnetIdsFilterOutputWithContext(ctx context.Context) GetSubnetIdsFilterOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetSubnetIdsFilterOutput)
-}
-
-// GetSubnetIdsFilterArrayInput is an input type that accepts GetSubnetIdsFilterArray and GetSubnetIdsFilterArrayOutput values.
-// You can construct a concrete instance of `GetSubnetIdsFilterArrayInput` via:
-//
-//	GetSubnetIdsFilterArray{ GetSubnetIdsFilterArgs{...} }
-type GetSubnetIdsFilterArrayInput interface {
-	pulumi.Input
-
-	ToGetSubnetIdsFilterArrayOutput() GetSubnetIdsFilterArrayOutput
-	ToGetSubnetIdsFilterArrayOutputWithContext(context.Context) GetSubnetIdsFilterArrayOutput
-}
-
-type GetSubnetIdsFilterArray []GetSubnetIdsFilterInput
-
-func (GetSubnetIdsFilterArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetSubnetIdsFilter)(nil)).Elem()
-}
-
-func (i GetSubnetIdsFilterArray) ToGetSubnetIdsFilterArrayOutput() GetSubnetIdsFilterArrayOutput {
-	return i.ToGetSubnetIdsFilterArrayOutputWithContext(context.Background())
-}
-
-func (i GetSubnetIdsFilterArray) ToGetSubnetIdsFilterArrayOutputWithContext(ctx context.Context) GetSubnetIdsFilterArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetSubnetIdsFilterArrayOutput)
-}
-
-type GetSubnetIdsFilterOutput struct{ *pulumi.OutputState }
-
-func (GetSubnetIdsFilterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetSubnetIdsFilter)(nil)).Elem()
-}
-
-func (o GetSubnetIdsFilterOutput) ToGetSubnetIdsFilterOutput() GetSubnetIdsFilterOutput {
-	return o
-}
-
-func (o GetSubnetIdsFilterOutput) ToGetSubnetIdsFilterOutputWithContext(ctx context.Context) GetSubnetIdsFilterOutput {
-	return o
-}
-
-// Name of the field to filter by, as defined by
-// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
-// For example, if matching against tag `Name`, use:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.GetSubnetIds(ctx, &ec2.GetSubnetIdsArgs{
-//				Filters: []ec2.GetSubnetIdsFilter{
-//					{
-//						Name: "tag:Name",
-//						Values: []string{
-//							"",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-func (o GetSubnetIdsFilterOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSubnetIdsFilter) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Set of values that are accepted for the given field.
-// Subnet IDs will be selected if any one of the given values match.
-func (o GetSubnetIdsFilterOutput) Values() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetSubnetIdsFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
-}
-
-type GetSubnetIdsFilterArrayOutput struct{ *pulumi.OutputState }
-
-func (GetSubnetIdsFilterArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetSubnetIdsFilter)(nil)).Elem()
-}
-
-func (o GetSubnetIdsFilterArrayOutput) ToGetSubnetIdsFilterArrayOutput() GetSubnetIdsFilterArrayOutput {
-	return o
-}
-
-func (o GetSubnetIdsFilterArrayOutput) ToGetSubnetIdsFilterArrayOutputWithContext(ctx context.Context) GetSubnetIdsFilterArrayOutput {
-	return o
-}
-
-func (o GetSubnetIdsFilterArrayOutput) Index(i pulumi.IntInput) GetSubnetIdsFilterOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSubnetIdsFilter {
-		return vs[0].([]GetSubnetIdsFilter)[vs[1].(int)]
-	}).(GetSubnetIdsFilterOutput)
-}
-
 type GetSubnetsFilter struct {
 	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
@@ -54895,7 +54600,7 @@ type GetSubnetsFilter struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -54944,7 +54649,7 @@ type GetSubnetsFilterArgs struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -55033,7 +54738,7 @@ func (o GetSubnetsFilterOutput) ToGetSubnetsFilterOutputWithContext(ctx context.
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -55531,7 +55236,10 @@ func (o GetVpcEndpointDnsEntryArrayOutput) Index(i pulumi.IntInput) GetVpcEndpoi
 }
 
 type GetVpcEndpointDnsOption struct {
+	// The DNS records created for the endpoint.
 	DnsRecordIpType string `pulumi:"dnsRecordIpType"`
+	// Indicates whether to enable private DNS only for inbound endpoints.
+	PrivateDnsOnlyForInboundResolverEndpoint bool `pulumi:"privateDnsOnlyForInboundResolverEndpoint"`
 }
 
 // GetVpcEndpointDnsOptionInput is an input type that accepts GetVpcEndpointDnsOptionArgs and GetVpcEndpointDnsOptionOutput values.
@@ -55546,7 +55254,10 @@ type GetVpcEndpointDnsOptionInput interface {
 }
 
 type GetVpcEndpointDnsOptionArgs struct {
+	// The DNS records created for the endpoint.
 	DnsRecordIpType pulumi.StringInput `pulumi:"dnsRecordIpType"`
+	// Indicates whether to enable private DNS only for inbound endpoints.
+	PrivateDnsOnlyForInboundResolverEndpoint pulumi.BoolInput `pulumi:"privateDnsOnlyForInboundResolverEndpoint"`
 }
 
 func (GetVpcEndpointDnsOptionArgs) ElementType() reflect.Type {
@@ -55600,8 +55311,14 @@ func (o GetVpcEndpointDnsOptionOutput) ToGetVpcEndpointDnsOptionOutputWithContex
 	return o
 }
 
+// The DNS records created for the endpoint.
 func (o GetVpcEndpointDnsOptionOutput) DnsRecordIpType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcEndpointDnsOption) string { return v.DnsRecordIpType }).(pulumi.StringOutput)
+}
+
+// Indicates whether to enable private DNS only for inbound endpoints.
+func (o GetVpcEndpointDnsOptionOutput) PrivateDnsOnlyForInboundResolverEndpoint() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetVpcEndpointDnsOption) bool { return v.PrivateDnsOnlyForInboundResolverEndpoint }).(pulumi.BoolOutput)
 }
 
 type GetVpcEndpointDnsOptionArrayOutput struct{ *pulumi.OutputState }
@@ -57287,7 +57004,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetFleetInstanceSetInput)(nil)).Elem(), FleetFleetInstanceSetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetFleetInstanceSetArrayInput)(nil)).Elem(), FleetFleetInstanceSetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetLaunchTemplateConfigInput)(nil)).Elem(), FleetLaunchTemplateConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FleetLaunchTemplateConfigPtrInput)(nil)).Elem(), FleetLaunchTemplateConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetLaunchTemplateConfigArrayInput)(nil)).Elem(), FleetLaunchTemplateConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetLaunchTemplateConfigLaunchTemplateSpecificationInput)(nil)).Elem(), FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetLaunchTemplateConfigLaunchTemplateSpecificationPtrInput)(nil)).Elem(), FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetLaunchTemplateConfigOverrideInput)(nil)).Elem(), FleetLaunchTemplateConfigOverrideArgs{})
@@ -57338,6 +57055,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceEnclaveOptionsPtrInput)(nil)).Elem(), InstanceEnclaveOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceEphemeralBlockDeviceInput)(nil)).Elem(), InstanceEphemeralBlockDeviceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceEphemeralBlockDeviceArrayInput)(nil)).Elem(), InstanceEphemeralBlockDeviceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceInstanceMarketOptionsInput)(nil)).Elem(), InstanceInstanceMarketOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceInstanceMarketOptionsPtrInput)(nil)).Elem(), InstanceInstanceMarketOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceInstanceMarketOptionsSpotOptionsInput)(nil)).Elem(), InstanceInstanceMarketOptionsSpotOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceInstanceMarketOptionsSpotOptionsPtrInput)(nil)).Elem(), InstanceInstanceMarketOptionsSpotOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceLaunchTemplateInput)(nil)).Elem(), InstanceLaunchTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceLaunchTemplatePtrInput)(nil)).Elem(), InstanceLaunchTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceMaintenanceOptionsInput)(nil)).Elem(), InstanceMaintenanceOptionsArgs{})
@@ -58049,8 +57770,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSpotPriceFilterArrayInput)(nil)).Elem(), GetSpotPriceFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSubnetFilterInput)(nil)).Elem(), GetSubnetFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSubnetFilterArrayInput)(nil)).Elem(), GetSubnetFilterArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetSubnetIdsFilterInput)(nil)).Elem(), GetSubnetIdsFilterArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetSubnetIdsFilterArrayInput)(nil)).Elem(), GetSubnetIdsFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSubnetsFilterInput)(nil)).Elem(), GetSubnetsFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSubnetsFilterArrayInput)(nil)).Elem(), GetSubnetsFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTransitGatewayRouteTablesFilterInput)(nil)).Elem(), GetTransitGatewayRouteTablesFilterArgs{})
@@ -58116,7 +57835,7 @@ func init() {
 	pulumi.RegisterOutputType(FleetFleetInstanceSetOutput{})
 	pulumi.RegisterOutputType(FleetFleetInstanceSetArrayOutput{})
 	pulumi.RegisterOutputType(FleetLaunchTemplateConfigOutput{})
-	pulumi.RegisterOutputType(FleetLaunchTemplateConfigPtrOutput{})
+	pulumi.RegisterOutputType(FleetLaunchTemplateConfigArrayOutput{})
 	pulumi.RegisterOutputType(FleetLaunchTemplateConfigLaunchTemplateSpecificationOutput{})
 	pulumi.RegisterOutputType(FleetLaunchTemplateConfigLaunchTemplateSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(FleetLaunchTemplateConfigOverrideOutput{})
@@ -58167,6 +57886,10 @@ func init() {
 	pulumi.RegisterOutputType(InstanceEnclaveOptionsPtrOutput{})
 	pulumi.RegisterOutputType(InstanceEphemeralBlockDeviceOutput{})
 	pulumi.RegisterOutputType(InstanceEphemeralBlockDeviceArrayOutput{})
+	pulumi.RegisterOutputType(InstanceInstanceMarketOptionsOutput{})
+	pulumi.RegisterOutputType(InstanceInstanceMarketOptionsPtrOutput{})
+	pulumi.RegisterOutputType(InstanceInstanceMarketOptionsSpotOptionsOutput{})
+	pulumi.RegisterOutputType(InstanceInstanceMarketOptionsSpotOptionsPtrOutput{})
 	pulumi.RegisterOutputType(InstanceLaunchTemplateOutput{})
 	pulumi.RegisterOutputType(InstanceLaunchTemplatePtrOutput{})
 	pulumi.RegisterOutputType(InstanceMaintenanceOptionsOutput{})
@@ -58878,8 +58601,6 @@ func init() {
 	pulumi.RegisterOutputType(GetSpotPriceFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetSubnetFilterOutput{})
 	pulumi.RegisterOutputType(GetSubnetFilterArrayOutput{})
-	pulumi.RegisterOutputType(GetSubnetIdsFilterOutput{})
-	pulumi.RegisterOutputType(GetSubnetIdsFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetSubnetsFilterOutput{})
 	pulumi.RegisterOutputType(GetSubnetsFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetTransitGatewayRouteTablesFilterOutput{})

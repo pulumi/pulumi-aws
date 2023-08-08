@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,11 +23,11 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codebuild"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codebuild"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -98,13 +99,11 @@ import (
 //
 // ## Import
 //
-// CodeBuild Report Group can be imported using the CodeBuild Report Group arn, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_codebuild_report_group.example
 //
-//	$ pulumi import aws:codebuild/reportGroup:ReportGroup example arn:aws:codebuild:us-west-2:123456789:report-group/report-group-name
-//
-// ```
+//	id = "arn:aws:codebuild:us-west-2:123456789:report-group/report-group-name" } Using `pulumi import`, import CodeBuild Report Group using the CodeBuild Report Group arn. For exampleconsole % pulumi import aws_codebuild_report_group.example arn:aws:codebuild:us-west-2:123456789:report-group/report-group-name
 type ReportGroup struct {
 	pulumi.CustomResourceState
 
@@ -139,6 +138,7 @@ func NewReportGroup(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ReportGroup
 	err := ctx.RegisterResource("aws:codebuild/reportGroup:ReportGroup", name, args, &resource, opts...)
 	if err != nil {

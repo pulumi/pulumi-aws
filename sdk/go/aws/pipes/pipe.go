@@ -8,12 +8,15 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource for managing an AWS EventBridge Pipes Pipe.
 //
 // You can find out more about EventBridge Pipes in the [User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html).
+//
+// EventBridge Pipes are very configurable, and may require IAM permissions to work correctly. More information on the configuration options and IAM permissions can be found in the [User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html).
 //
 // > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
 //
@@ -27,10 +30,10 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/pipes"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sqs"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/pipes"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sqs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -133,11 +136,9 @@ import (
 //				return err
 //			}
 //			_, err = pipes.NewPipe(ctx, "example", &pipes.PipeArgs{
-//				RoleArn:          pulumi.Any(aws_iam_role.Example.Arn),
-//				Source:           sourceQueue.Arn,
-//				Target:           targetQueue.Arn,
-//				SourceParameters: nil,
-//				TargetParameters: nil,
+//				RoleArn: pulumi.Any(aws_iam_role.Example.Arn),
+//				Source:  sourceQueue.Arn,
+//				Target:  targetQueue.Arn,
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				sourceRolePolicy,
 //				targetRolePolicy,
@@ -150,20 +151,65 @@ import (
 //	}
 //
 // ```
+// ### Filter Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/pipes"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"source": []string{
+//					"event-source",
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			_, err = pipes.NewPipe(ctx, "example", &pipes.PipeArgs{
+//				RoleArn: pulumi.Any(aws_iam_role.Example.Arn),
+//				Source:  pulumi.Any(aws_sqs_queue.Source.Arn),
+//				Target:  pulumi.Any(aws_sqs_queue.Target.Arn),
+//				SourceParameters: &pipes.PipeSourceParametersArgs{
+//					FilterCriteria: &pipes.PipeSourceParametersFilterCriteriaArgs{
+//						Filters: pipes.PipeSourceParametersFilterCriteriaFilterArray{
+//							&pipes.PipeSourceParametersFilterCriteriaFilterArgs{
+//								Pattern: pulumi.String(json0),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //
-// Pipes can be imported using the `name`. For example
+// terraform import {
 //
-// ```sh
+//	to = aws_pipes_pipe.example
 //
-//	$ pulumi import aws:pipes/pipe:Pipe example my-pipe
-//
-// ```
+//	id = "my-pipe" } Using `pulumi import`, import pipes using the `name`. For exampleconsole % pulumi import aws_pipes_pipe.example my-pipe
 type Pipe struct {
 	pulumi.CustomResourceState
 
-	// ARN of this pipe.
+	// The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A description of the pipe. At most 512 characters.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -171,6 +217,8 @@ type Pipe struct {
 	DesiredState pulumi.StringPtrOutput `pulumi:"desiredState"`
 	// Enrichment resource of the pipe (typically an ARN). Read more about enrichment in the [User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html#pipes-enrichment).
 	Enrichment pulumi.StringPtrOutput `pulumi:"enrichment"`
+	// Parameters to configure enrichment for your pipe. Detailed below.
+	EnrichmentParameters PipeEnrichmentParametersPtrOutput `pulumi:"enrichmentParameters"`
 	// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -179,18 +227,18 @@ type Pipe struct {
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// Source resource of the pipe (typically an ARN).
 	Source pulumi.StringOutput `pulumi:"source"`
-	// Parameters required to set up a source for the pipe. Detailed below.
+	// Parameters to configure a source for the pipe. Detailed below.
 	SourceParameters PipeSourceParametersOutput `pulumi:"sourceParameters"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Target resource of the pipe (typically an ARN).
-	Target pulumi.StringOutput `pulumi:"target"`
-	// Parameters required to set up a target for your pipe. Detailed below.
 	//
 	// The following arguments are optional:
-	TargetParameters PipeTargetParametersOutput `pulumi:"targetParameters"`
+	Target pulumi.StringOutput `pulumi:"target"`
+	// Parameters to configure a target for your pipe. Detailed below.
+	TargetParameters PipeTargetParametersPtrOutput `pulumi:"targetParameters"`
 }
 
 // NewPipe registers a new resource with the given unique name, arguments, and options.
@@ -206,15 +254,10 @@ func NewPipe(ctx *pulumi.Context,
 	if args.Source == nil {
 		return nil, errors.New("invalid value for required argument 'Source'")
 	}
-	if args.SourceParameters == nil {
-		return nil, errors.New("invalid value for required argument 'SourceParameters'")
-	}
 	if args.Target == nil {
 		return nil, errors.New("invalid value for required argument 'Target'")
 	}
-	if args.TargetParameters == nil {
-		return nil, errors.New("invalid value for required argument 'TargetParameters'")
-	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Pipe
 	err := ctx.RegisterResource("aws:pipes/pipe:Pipe", name, args, &resource, opts...)
 	if err != nil {
@@ -237,7 +280,7 @@ func GetPipe(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Pipe resources.
 type pipeState struct {
-	// ARN of this pipe.
+	// The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
 	Arn *string `pulumi:"arn"`
 	// A description of the pipe. At most 512 characters.
 	Description *string `pulumi:"description"`
@@ -245,6 +288,8 @@ type pipeState struct {
 	DesiredState *string `pulumi:"desiredState"`
 	// Enrichment resource of the pipe (typically an ARN). Read more about enrichment in the [User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html#pipes-enrichment).
 	Enrichment *string `pulumi:"enrichment"`
+	// Parameters to configure enrichment for your pipe. Detailed below.
+	EnrichmentParameters *PipeEnrichmentParameters `pulumi:"enrichmentParameters"`
 	// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -253,22 +298,22 @@ type pipeState struct {
 	RoleArn *string `pulumi:"roleArn"`
 	// Source resource of the pipe (typically an ARN).
 	Source *string `pulumi:"source"`
-	// Parameters required to set up a source for the pipe. Detailed below.
+	// Parameters to configure a source for the pipe. Detailed below.
 	SourceParameters *PipeSourceParameters `pulumi:"sourceParameters"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Target resource of the pipe (typically an ARN).
-	Target *string `pulumi:"target"`
-	// Parameters required to set up a target for your pipe. Detailed below.
 	//
 	// The following arguments are optional:
+	Target *string `pulumi:"target"`
+	// Parameters to configure a target for your pipe. Detailed below.
 	TargetParameters *PipeTargetParameters `pulumi:"targetParameters"`
 }
 
 type PipeState struct {
-	// ARN of this pipe.
+	// The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
 	Arn pulumi.StringPtrInput
 	// A description of the pipe. At most 512 characters.
 	Description pulumi.StringPtrInput
@@ -276,6 +321,8 @@ type PipeState struct {
 	DesiredState pulumi.StringPtrInput
 	// Enrichment resource of the pipe (typically an ARN). Read more about enrichment in the [User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html#pipes-enrichment).
 	Enrichment pulumi.StringPtrInput
+	// Parameters to configure enrichment for your pipe. Detailed below.
+	EnrichmentParameters PipeEnrichmentParametersPtrInput
 	// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -284,17 +331,17 @@ type PipeState struct {
 	RoleArn pulumi.StringPtrInput
 	// Source resource of the pipe (typically an ARN).
 	Source pulumi.StringPtrInput
-	// Parameters required to set up a source for the pipe. Detailed below.
+	// Parameters to configure a source for the pipe. Detailed below.
 	SourceParameters PipeSourceParametersPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Target resource of the pipe (typically an ARN).
-	Target pulumi.StringPtrInput
-	// Parameters required to set up a target for your pipe. Detailed below.
 	//
 	// The following arguments are optional:
+	Target pulumi.StringPtrInput
+	// Parameters to configure a target for your pipe. Detailed below.
 	TargetParameters PipeTargetParametersPtrInput
 }
 
@@ -309,6 +356,8 @@ type pipeArgs struct {
 	DesiredState *string `pulumi:"desiredState"`
 	// Enrichment resource of the pipe (typically an ARN). Read more about enrichment in the [User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html#pipes-enrichment).
 	Enrichment *string `pulumi:"enrichment"`
+	// Parameters to configure enrichment for your pipe. Detailed below.
+	EnrichmentParameters *PipeEnrichmentParameters `pulumi:"enrichmentParameters"`
 	// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -317,16 +366,16 @@ type pipeArgs struct {
 	RoleArn string `pulumi:"roleArn"`
 	// Source resource of the pipe (typically an ARN).
 	Source string `pulumi:"source"`
-	// Parameters required to set up a source for the pipe. Detailed below.
-	SourceParameters PipeSourceParameters `pulumi:"sourceParameters"`
+	// Parameters to configure a source for the pipe. Detailed below.
+	SourceParameters *PipeSourceParameters `pulumi:"sourceParameters"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Target resource of the pipe (typically an ARN).
-	Target string `pulumi:"target"`
-	// Parameters required to set up a target for your pipe. Detailed below.
 	//
 	// The following arguments are optional:
-	TargetParameters PipeTargetParameters `pulumi:"targetParameters"`
+	Target string `pulumi:"target"`
+	// Parameters to configure a target for your pipe. Detailed below.
+	TargetParameters *PipeTargetParameters `pulumi:"targetParameters"`
 }
 
 // The set of arguments for constructing a Pipe resource.
@@ -337,6 +386,8 @@ type PipeArgs struct {
 	DesiredState pulumi.StringPtrInput
 	// Enrichment resource of the pipe (typically an ARN). Read more about enrichment in the [User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html#pipes-enrichment).
 	Enrichment pulumi.StringPtrInput
+	// Parameters to configure enrichment for your pipe. Detailed below.
+	EnrichmentParameters PipeEnrichmentParametersPtrInput
 	// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -345,16 +396,16 @@ type PipeArgs struct {
 	RoleArn pulumi.StringInput
 	// Source resource of the pipe (typically an ARN).
 	Source pulumi.StringInput
-	// Parameters required to set up a source for the pipe. Detailed below.
-	SourceParameters PipeSourceParametersInput
+	// Parameters to configure a source for the pipe. Detailed below.
+	SourceParameters PipeSourceParametersPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Target resource of the pipe (typically an ARN).
-	Target pulumi.StringInput
-	// Parameters required to set up a target for your pipe. Detailed below.
 	//
 	// The following arguments are optional:
-	TargetParameters PipeTargetParametersInput
+	Target pulumi.StringInput
+	// Parameters to configure a target for your pipe. Detailed below.
+	TargetParameters PipeTargetParametersPtrInput
 }
 
 func (PipeArgs) ElementType() reflect.Type {
@@ -444,7 +495,7 @@ func (o PipeOutput) ToPipeOutputWithContext(ctx context.Context) PipeOutput {
 	return o
 }
 
-// ARN of this pipe.
+// The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
 func (o PipeOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipe) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -462,6 +513,11 @@ func (o PipeOutput) DesiredState() pulumi.StringPtrOutput {
 // Enrichment resource of the pipe (typically an ARN). Read more about enrichment in the [User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html#pipes-enrichment).
 func (o PipeOutput) Enrichment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Pipe) pulumi.StringPtrOutput { return v.Enrichment }).(pulumi.StringPtrOutput)
+}
+
+// Parameters to configure enrichment for your pipe. Detailed below.
+func (o PipeOutput) EnrichmentParameters() PipeEnrichmentParametersPtrOutput {
+	return o.ApplyT(func(v *Pipe) PipeEnrichmentParametersPtrOutput { return v.EnrichmentParameters }).(PipeEnrichmentParametersPtrOutput)
 }
 
 // Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
@@ -484,7 +540,7 @@ func (o PipeOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipe) pulumi.StringOutput { return v.Source }).(pulumi.StringOutput)
 }
 
-// Parameters required to set up a source for the pipe. Detailed below.
+// Parameters to configure a source for the pipe. Detailed below.
 func (o PipeOutput) SourceParameters() PipeSourceParametersOutput {
 	return o.ApplyT(func(v *Pipe) PipeSourceParametersOutput { return v.SourceParameters }).(PipeSourceParametersOutput)
 }
@@ -500,15 +556,15 @@ func (o PipeOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // Target resource of the pipe (typically an ARN).
+//
+// The following arguments are optional:
 func (o PipeOutput) Target() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipe) pulumi.StringOutput { return v.Target }).(pulumi.StringOutput)
 }
 
-// Parameters required to set up a target for your pipe. Detailed below.
-//
-// The following arguments are optional:
-func (o PipeOutput) TargetParameters() PipeTargetParametersOutput {
-	return o.ApplyT(func(v *Pipe) PipeTargetParametersOutput { return v.TargetParameters }).(PipeTargetParametersOutput)
+// Parameters to configure a target for your pipe. Detailed below.
+func (o PipeOutput) TargetParameters() PipeTargetParametersPtrOutput {
+	return o.ApplyT(func(v *Pipe) PipeTargetParametersPtrOutput { return v.TargetParameters }).(PipeTargetParametersPtrOutput)
 }
 
 type PipeArrayOutput struct{ *pulumi.OutputState }

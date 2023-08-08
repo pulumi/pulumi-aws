@@ -43,11 +43,11 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// Subnets can be imported using the `subnet id`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:ec2/defaultSubnet:DefaultSubnet public_subnet subnet-9d4a7b6c
-    /// ```
+    ///  to = aws_default_subnet.public_subnet
+    /// 
+    ///  id = "subnet-9d4a7b6c" } Using `pulumi import`, import subnets using the subnet `id`. For exampleconsole % pulumi import aws_default_subnet.public_subnet subnet-9d4a7b6c
     /// </summary>
     [AwsResourceType("aws:ec2/defaultSubnet:DefaultSubnet")]
     public partial class DefaultSubnet : global::Pulumi.CustomResource
@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Ec2
         /// * The `availability_zone_id`, `cidr_block` and `vpc_id` arguments become computed attributes
         /// * The default value for `map_public_ip_on_launch` is `true`
         /// 
-        /// The following additional arguments are supported:
+        /// This resource supports the following additional arguments:
         /// </summary>
         [Output("availabilityZone")]
         public Output<string> AvailabilityZone { get; private set; } = null!;
@@ -194,7 +194,7 @@ namespace Pulumi.Aws.Ec2
         /// * The `availability_zone_id`, `cidr_block` and `vpc_id` arguments become computed attributes
         /// * The default value for `map_public_ip_on_launch` is `true`
         /// 
-        /// The following additional arguments are supported:
+        /// This resource supports the following additional arguments:
         /// </summary>
         [Input("availabilityZone", required: true)]
         public Input<string> AvailabilityZone { get; set; } = null!;
@@ -259,7 +259,7 @@ namespace Pulumi.Aws.Ec2
         /// * The `availability_zone_id`, `cidr_block` and `vpc_id` arguments become computed attributes
         /// * The default value for `map_public_ip_on_launch` is `true`
         /// 
-        /// The following additional arguments are supported:
+        /// This resource supports the following additional arguments:
         /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }

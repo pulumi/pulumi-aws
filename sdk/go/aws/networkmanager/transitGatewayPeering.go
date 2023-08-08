@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkmanager"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkmanager"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,13 +43,11 @@ import (
 //
 // ## Import
 //
-// `aws_networkmanager_transit_gateway_peering` can be imported using the peering ID, e.g.
+// terraform import {
 //
-// ```sh
+//	to = aws_networkmanager_transit_gateway_peering.example
 //
-//	$ pulumi import aws:networkmanager/transitGatewayPeering:TransitGatewayPeering example peering-444555aaabbb11223
-//
-// ```
+//	id = "peering-444555aaabbb11223" } Using `pulumi import`, import `aws_networkmanager_transit_gateway_peering` using the peering ID. For exampleconsole % pulumi import aws_networkmanager_transit_gateway_peering.example peering-444555aaabbb11223
 type TransitGatewayPeering struct {
 	pulumi.CustomResourceState
 
@@ -89,6 +88,7 @@ func NewTransitGatewayPeering(ctx *pulumi.Context,
 	if args.TransitGatewayArn == nil {
 		return nil, errors.New("invalid value for required argument 'TransitGatewayArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TransitGatewayPeering
 	err := ctx.RegisterResource("aws:networkmanager/transitGatewayPeering:TransitGatewayPeering", name, args, &resource, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/xray"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/xray"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -34,7 +35,7 @@ import (
 //				FixedRate:     pulumi.Float64(0.05),
 //				Host:          pulumi.String("*"),
 //				HttpMethod:    pulumi.String("*"),
-//				Priority:      pulumi.Int(10000),
+//				Priority:      pulumi.Int(9999),
 //				ReservoirSize: pulumi.Int(1),
 //				ResourceArn:   pulumi.String("*"),
 //				RuleName:      pulumi.String("example"),
@@ -54,13 +55,11 @@ import (
 //
 // ## Import
 //
-// XRay Sampling Rules can be imported using the name, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_xray_sampling_rule.example
 //
-//	$ pulumi import aws:xray/samplingRule:SamplingRule example example
-//
-// ```
+//	id = "example" } Using `pulumi import`, import XRay Sampling Rules using the name. For exampleconsole % pulumi import aws_xray_sampling_rule.example example
 type SamplingRule struct {
 	pulumi.CustomResourceState
 
@@ -133,6 +132,7 @@ func NewSamplingRule(ctx *pulumi.Context,
 	if args.Version == nil {
 		return nil, errors.New("invalid value for required argument 'Version'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SamplingRule
 	err := ctx.RegisterResource("aws:xray/samplingRule:SamplingRule", name, args, &resource, opts...)
 	if err != nil {

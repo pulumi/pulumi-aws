@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *     engine: "mysql",
  *     engineVersion: "5.6.17",
  *     instanceClass: "db.t2.micro",
- *     name: "mydb",
+ *     dbName: "mydb",
  *     username: "foo",
  *     password: "bar",
  *     dbSubnetGroupName: "my_database_subnet_group",
@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * const defaultEventSubscription = new aws.rds.EventSubscription("defaultEventSubscription", {
  *     snsTopic: defaultTopic.arn,
  *     sourceType: "db-instance",
- *     sourceIds: [defaultInstance.id],
+ *     sourceIds: [defaultInstance.identifier],
  *     eventCategories: [
  *         "availability",
  *         "deletion",
@@ -46,11 +46,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * DB Event Subscriptions can be imported using the `name`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:rds/eventSubscription:EventSubscription default rds-event-sub
- * ```
+ *  to = aws_db_event_subscription.default
+ *
+ *  id = "rds-event-sub" } Using `pulumi import`, import DB Event Subscriptions using the `name`. For exampleconsole % pulumi import aws_db_event_subscription.default rds-event-sub
  */
 export class EventSubscription extends pulumi.CustomResource {
     /**
@@ -113,7 +113,7 @@ export class EventSubscription extends pulumi.CustomResource {
      */
     public readonly sourceIds!: pulumi.Output<string[] | undefined>;
     /**
-     * The type of source that will be generating the events. Valid options are `db-instance`, `db-security-group`, `db-parameter-group`, `db-snapshot`, `db-cluster` or `db-cluster-snapshot`. If not set, all sources will be subscribed to.
+     * The type of source that will be generating the events. Valid options are `db-instance`, `db-security-group`, `db-parameter-group`, `db-snapshot`, `db-cluster`, `db-cluster-snapshot`, or `db-proxy`. If not set, all sources will be subscribed to.
      */
     public readonly sourceType!: pulumi.Output<string | undefined>;
     /**
@@ -208,7 +208,7 @@ export interface EventSubscriptionState {
      */
     sourceIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The type of source that will be generating the events. Valid options are `db-instance`, `db-security-group`, `db-parameter-group`, `db-snapshot`, `db-cluster` or `db-cluster-snapshot`. If not set, all sources will be subscribed to.
+     * The type of source that will be generating the events. Valid options are `db-instance`, `db-security-group`, `db-parameter-group`, `db-snapshot`, `db-cluster`, `db-cluster-snapshot`, or `db-proxy`. If not set, all sources will be subscribed to.
      */
     sourceType?: pulumi.Input<string>;
     /**
@@ -250,7 +250,7 @@ export interface EventSubscriptionArgs {
      */
     sourceIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The type of source that will be generating the events. Valid options are `db-instance`, `db-security-group`, `db-parameter-group`, `db-snapshot`, `db-cluster` or `db-cluster-snapshot`. If not set, all sources will be subscribed to.
+     * The type of source that will be generating the events. Valid options are `db-instance`, `db-security-group`, `db-parameter-group`, `db-snapshot`, `db-cluster`, `db-cluster-snapshot`, or `db-proxy`. If not set, all sources will be subscribed to.
      */
     sourceType?: pulumi.Input<string>;
     /**

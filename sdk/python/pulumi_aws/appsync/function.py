@@ -503,11 +503,11 @@ class Function(pulumi.CustomResource):
 
         ## Import
 
-        `aws_appsync_function` can be imported using the AppSync API ID and Function ID separated by `-`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:appsync/function:Function example xxxxx-yyyyy
-        ```
+         to = aws_appsync_function.example
+
+         id = "xxxxx-yyyyy" } Using `pulumi import`, import `aws_appsync_function` using the AppSync API ID and Function ID separated by `-`. For exampleconsole % pulumi import aws_appsync_function.example xxxxx-yyyyy
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -604,11 +604,11 @@ class Function(pulumi.CustomResource):
 
         ## Import
 
-        `aws_appsync_function` can be imported using the AppSync API ID and Function ID separated by `-`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:appsync/function:Function example xxxxx-yyyyy
-        ```
+         to = aws_appsync_function.example
+
+         id = "xxxxx-yyyyy" } Using `pulumi import`, import `aws_appsync_function` using the AppSync API ID and Function ID separated by `-`. For exampleconsole % pulumi import aws_appsync_function.example xxxxx-yyyyy
 
         :param str resource_name: The name of the resource.
         :param FunctionArgs args: The arguments to use to populate this resource's properties.

@@ -529,11 +529,11 @@ class LocationHdfs(pulumi.CustomResource):
 
         ## Import
 
-        `aws_datasync_location_hdfs` can be imported by using the Amazon Resource Name (ARN), e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:datasync/locationHdfs:LocationHdfs example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
-        ```
+         to = aws_datasync_location_hdfs.example
+
+         id = "arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567" } Using `pulumi import`, import `aws_datasync_location_hdfs` using the Amazon Resource Name (ARN). For exampleconsole % pulumi import aws_datasync_location_hdfs.example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -580,11 +580,11 @@ class LocationHdfs(pulumi.CustomResource):
 
         ## Import
 
-        `aws_datasync_location_hdfs` can be imported by using the Amazon Resource Name (ARN), e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:datasync/locationHdfs:LocationHdfs example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
-        ```
+         to = aws_datasync_location_hdfs.example
+
+         id = "arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567" } Using `pulumi import`, import `aws_datasync_location_hdfs` using the Amazon Resource Name (ARN). For exampleconsole % pulumi import aws_datasync_location_hdfs.example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
 
         :param str resource_name: The name of the resource.
         :param LocationHdfsArgs args: The arguments to use to populate this resource's properties.

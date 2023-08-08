@@ -18,14 +18,14 @@ public final class QuerySuggestionsBlockListArgs extends com.pulumi.resources.Re
     public static final QuerySuggestionsBlockListArgs Empty = new QuerySuggestionsBlockListArgs();
 
     /**
-     * The description for a block list.
+     * Description for a block list.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The description for a block list.
+     * @return Description for a block list.
      * 
      */
     public Optional<Output<String>> description() {
@@ -33,14 +33,14 @@ public final class QuerySuggestionsBlockListArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The identifier of the index for a block list.
+     * Identifier of the index for a block list.
      * 
      */
     @Import(name="indexId", required=true)
     private Output<String> indexId;
 
     /**
-     * @return The identifier of the index for a block list.
+     * @return Identifier of the index for a block list.
      * 
      */
     public Output<String> indexId() {
@@ -48,14 +48,14 @@ public final class QuerySuggestionsBlockListArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The name for the block list.
+     * Name for the block list.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name for the block list.
+     * @return Name for the block list.
      * 
      */
     public Optional<Output<String>> name() {
@@ -63,14 +63,14 @@ public final class QuerySuggestionsBlockListArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The IAM (Identity and Access Management) role used to access the block list text file in S3.
+     * IAM (Identity and Access Management) role used to access the block list text file in S3.
      * 
      */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
     /**
-     * @return The IAM (Identity and Access Management) role used to access the block list text file in S3.
+     * @return IAM (Identity and Access Management) role used to access the block list text file in S3.
      * 
      */
     public Output<String> roleArn() {
@@ -78,7 +78,7 @@ public final class QuerySuggestionsBlockListArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The S3 path where your block list text file sits in S3. Detailed below.
+     * S3 path where your block list text file is located. See details below.
      * 
      * The `source_s3_path` configuration block supports the following arguments:
      * 
@@ -87,7 +87,7 @@ public final class QuerySuggestionsBlockListArgs extends com.pulumi.resources.Re
     private Output<QuerySuggestionsBlockListSourceS3PathArgs> sourceS3Path;
 
     /**
-     * @return The S3 path where your block list text file sits in S3. Detailed below.
+     * @return S3 path where your block list text file is located. See details below.
      * 
      * The `source_s3_path` configuration block supports the following arguments:
      * 
@@ -97,14 +97,14 @@ public final class QuerySuggestionsBlockListArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -141,7 +141,7 @@ public final class QuerySuggestionsBlockListArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param description The description for a block list.
+         * @param description Description for a block list.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class QuerySuggestionsBlockListArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param description The description for a block list.
+         * @param description Description for a block list.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class QuerySuggestionsBlockListArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param indexId The identifier of the index for a block list.
+         * @param indexId Identifier of the index for a block list.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class QuerySuggestionsBlockListArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param indexId The identifier of the index for a block list.
+         * @param indexId Identifier of the index for a block list.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class QuerySuggestionsBlockListArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param name The name for the block list.
+         * @param name Name for the block list.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class QuerySuggestionsBlockListArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param name The name for the block list.
+         * @param name Name for the block list.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class QuerySuggestionsBlockListArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param roleArn The IAM (Identity and Access Management) role used to access the block list text file in S3.
+         * @param roleArn IAM (Identity and Access Management) role used to access the block list text file in S3.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class QuerySuggestionsBlockListArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param roleArn The IAM (Identity and Access Management) role used to access the block list text file in S3.
+         * @param roleArn IAM (Identity and Access Management) role used to access the block list text file in S3.
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class QuerySuggestionsBlockListArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param sourceS3Path The S3 path where your block list text file sits in S3. Detailed below.
+         * @param sourceS3Path S3 path where your block list text file is located. See details below.
          * 
          * The `source_s3_path` configuration block supports the following arguments:
          * 
@@ -238,7 +238,7 @@ public final class QuerySuggestionsBlockListArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param sourceS3Path The S3 path where your block list text file sits in S3. Detailed below.
+         * @param sourceS3Path S3 path where your block list text file is located. See details below.
          * 
          * The `source_s3_path` configuration block supports the following arguments:
          * 
@@ -250,7 +250,7 @@ public final class QuerySuggestionsBlockListArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param tags Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value map of resource tags. If configured with a provider `default_tags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -261,7 +261,7 @@ public final class QuerySuggestionsBlockListArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param tags Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value map of resource tags. If configured with a provider `default_tags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

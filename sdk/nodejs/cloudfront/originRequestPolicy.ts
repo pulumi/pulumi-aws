@@ -41,11 +41,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Cloudfront Origin Request Policies can be imported using the `id`, e.g.
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:cloudfront/originRequestPolicy:OriginRequestPolicy policy ccca32ef-dce3-4df3-80df-1bd3000bc4d3
- * ```
+ *  to = aws_cloudfront_origin_request_policy.policy
+ *
+ *  id = "ccca32ef-dce3-4df3-80df-1bd3000bc4d3" } Using `pulumi import`, import Cloudfront Origin Request Policies using the `id`. For exampleconsole % pulumi import aws_cloudfront_origin_request_policy.policy ccca32ef-dce3-4df3-80df-1bd3000bc4d3
  */
 export class OriginRequestPolicy extends pulumi.CustomResource {
     /**

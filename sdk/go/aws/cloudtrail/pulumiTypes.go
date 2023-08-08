@@ -7,13 +7,16 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type EventDataStoreAdvancedEventSelector struct {
 	// Specifies the selector statements in an advanced event selector. Fields documented below.
 	FieldSelectors []EventDataStoreAdvancedEventSelectorFieldSelector `pulumi:"fieldSelectors"`
-	// The name of the event data store.
+	// Specifies the name of the advanced event selector.
 	Name *string `pulumi:"name"`
 }
 
@@ -31,7 +34,7 @@ type EventDataStoreAdvancedEventSelectorInput interface {
 type EventDataStoreAdvancedEventSelectorArgs struct {
 	// Specifies the selector statements in an advanced event selector. Fields documented below.
 	FieldSelectors EventDataStoreAdvancedEventSelectorFieldSelectorArrayInput `pulumi:"fieldSelectors"`
-	// The name of the event data store.
+	// Specifies the name of the advanced event selector.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -93,7 +96,7 @@ func (o EventDataStoreAdvancedEventSelectorOutput) FieldSelectors() EventDataSto
 	}).(EventDataStoreAdvancedEventSelectorFieldSelectorArrayOutput)
 }
 
-// The name of the event data store.
+// Specifies the name of the advanced event selector.
 func (o EventDataStoreAdvancedEventSelectorOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventDataStoreAdvancedEventSelector) *string { return v.Name }).(pulumi.StringPtrOutput)
 }

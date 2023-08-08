@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/waf"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/waf"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -63,13 +64,11 @@ import (
 //
 // ## Import
 //
-// WAF Rated Based Rule can be imported using the id, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_waf_rate_based_rule.wafrule
 //
-//	$ pulumi import aws:waf/rateBasedRule:RateBasedRule wafrule a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
-//
-// ```
+//	id = "a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc" } Using `pulumi import`, import WAF Rated Based Rule using the id. For exampleconsole % pulumi import aws_waf_rate_based_rule.wafrule a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
 type RateBasedRule struct {
 	pulumi.CustomResourceState
 
@@ -107,6 +106,7 @@ func NewRateBasedRule(ctx *pulumi.Context,
 	if args.RateLimit == nil {
 		return nil, errors.New("invalid value for required argument 'RateLimit'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RateBasedRule
 	err := ctx.RegisterResource("aws:waf/rateBasedRule:RateBasedRule", name, args, &resource, opts...)
 	if err != nil {

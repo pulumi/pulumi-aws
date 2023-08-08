@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/fsx"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/fsx"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -58,7 +59,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/fsx"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/fsx"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -96,13 +97,11 @@ import (
 //
 // ## Import
 //
-// FSx OpenZFS snapshot can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_fsx_openzfs_snapshot.example
 //
-//	$ pulumi import aws:fsx/openZfsSnapshot:OpenZfsSnapshot example fs-543ab12b1ca672f33
-//
-// ```
+//	id = "fs-543ab12b1ca672f33" } Using `pulumi import`, import FSx OpenZFS snapshot using the `id`. For exampleconsole % pulumi import aws_fsx_openzfs_snapshot.example fs-543ab12b1ca672f33
 type OpenZfsSnapshot struct {
 	pulumi.CustomResourceState
 
@@ -129,6 +128,7 @@ func NewOpenZfsSnapshot(ctx *pulumi.Context,
 	if args.VolumeId == nil {
 		return nil, errors.New("invalid value for required argument 'VolumeId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OpenZfsSnapshot
 	err := ctx.RegisterResource("aws:fsx/openZfsSnapshot:OpenZfsSnapshot", name, args, &resource, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -28,7 +29,7 @@ import (
 //	"fmt"
 //	"os"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudfront"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -60,13 +61,11 @@ import (
 //
 // ## Import
 //
-// CloudFront Functions can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_cloudfront_function.test
 //
-//	$ pulumi import aws:cloudfront/function:Function test my_test_function
-//
-// ```
+//	id = "my_test_function" } Using `pulumi import`, import CloudFront Functions using the `name`. For exampleconsole % pulumi import aws_cloudfront_function.test my_test_function
 type Function struct {
 	pulumi.CustomResourceState
 
@@ -105,6 +104,7 @@ func NewFunction(ctx *pulumi.Context,
 	if args.Runtime == nil {
 		return nil, errors.New("invalid value for required argument 'Runtime'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Function
 	err := ctx.RegisterResource("aws:cloudfront/function:Function", name, args, &resource, opts...)
 	if err != nil {

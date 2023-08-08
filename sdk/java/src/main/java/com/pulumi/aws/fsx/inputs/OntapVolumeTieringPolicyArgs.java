@@ -16,9 +16,17 @@ public final class OntapVolumeTieringPolicyArgs extends com.pulumi.resources.Res
 
     public static final OntapVolumeTieringPolicyArgs Empty = new OntapVolumeTieringPolicyArgs();
 
+    /**
+     * Specifies the number of days that user data in a volume must remain inactive before it is considered &#34;cold&#34; and moved to the capacity pool. Used with `AUTO` and `SNAPSHOT_ONLY` tiering policies only. Valid values are whole numbers between 2 and 183. Default values are 31 days for `AUTO` and 2 days for `SNAPSHOT_ONLY`.
+     * 
+     */
     @Import(name="coolingPeriod")
     private @Nullable Output<Integer> coolingPeriod;
 
+    /**
+     * @return Specifies the number of days that user data in a volume must remain inactive before it is considered &#34;cold&#34; and moved to the capacity pool. Used with `AUTO` and `SNAPSHOT_ONLY` tiering policies only. Valid values are whole numbers between 2 and 183. Default values are 31 days for `AUTO` and 2 days for `SNAPSHOT_ONLY`.
+     * 
+     */
     public Optional<Output<Integer>> coolingPeriod() {
         return Optional.ofNullable(this.coolingPeriod);
     }
@@ -63,11 +71,23 @@ public final class OntapVolumeTieringPolicyArgs extends com.pulumi.resources.Res
             $ = new OntapVolumeTieringPolicyArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param coolingPeriod Specifies the number of days that user data in a volume must remain inactive before it is considered &#34;cold&#34; and moved to the capacity pool. Used with `AUTO` and `SNAPSHOT_ONLY` tiering policies only. Valid values are whole numbers between 2 and 183. Default values are 31 days for `AUTO` and 2 days for `SNAPSHOT_ONLY`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder coolingPeriod(@Nullable Output<Integer> coolingPeriod) {
             $.coolingPeriod = coolingPeriod;
             return this;
         }
 
+        /**
+         * @param coolingPeriod Specifies the number of days that user data in a volume must remain inactive before it is considered &#34;cold&#34; and moved to the capacity pool. Used with `AUTO` and `SNAPSHOT_ONLY` tiering policies only. Valid values are whole numbers between 2 and 183. Default values are 31 days for `AUTO` and 2 days for `SNAPSHOT_ONLY`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder coolingPeriod(Integer coolingPeriod) {
             return coolingPeriod(Output.of(coolingPeriod));
         }

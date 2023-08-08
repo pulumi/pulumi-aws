@@ -54,11 +54,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_apigatewayv2_route_response` can be imported by using the API identifier, route identifier and route response identifier, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:apigatewayv2/routeResponse:RouteResponse example aabbccddee/1122334/998877
- * ```
+ *  to = aws_apigatewayv2_route_response.example
+ * 
+ *  id = &#34;aabbccddee/1122334/998877&#34; } Using `pulumi import`, import `aws_apigatewayv2_route_response` using the API identifier, route identifier and route response identifier. For exampleconsole % pulumi import aws_apigatewayv2_route_response.example aabbccddee/1122334/998877
  * 
  */
 @ResourceType(type="aws:apigatewayv2/routeResponse:RouteResponse")

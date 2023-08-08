@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicecatalog"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicecatalog"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -43,13 +44,11 @@ import (
 //
 // ## Import
 //
-// `aws_servicecatalog_product_portfolio_association` can be imported using the accept language, portfolio ID, and product ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_servicecatalog_product_portfolio_association.example
 //
-//	$ pulumi import aws:servicecatalog/productPortfolioAssociation:ProductPortfolioAssociation example en:port-68656c6c6f:prod-dnigbtea24ste
-//
-// ```
+//	id = "en:port-68656c6c6f:prod-dnigbtea24ste" } Using `pulumi import`, import `aws_servicecatalog_product_portfolio_association` using the accept language, portfolio ID, and product ID. For exampleconsole % pulumi import aws_servicecatalog_product_portfolio_association.example en:port-68656c6c6f:prod-dnigbtea24ste
 type ProductPortfolioAssociation struct {
 	pulumi.CustomResourceState
 
@@ -78,6 +77,7 @@ func NewProductPortfolioAssociation(ctx *pulumi.Context,
 	if args.ProductId == nil {
 		return nil, errors.New("invalid value for required argument 'ProductId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ProductPortfolioAssociation
 	err := ctx.RegisterResource("aws:servicecatalog/productPortfolioAssociation:ProductPortfolioAssociation", name, args, &resource, opts...)
 	if err != nil {

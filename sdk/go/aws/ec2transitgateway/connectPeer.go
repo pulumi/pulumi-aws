@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,13 +53,11 @@ import (
 //
 // ## Import
 //
-// `aws_ec2_transit_gateway_connect_peer` can be imported by using the EC2 Transit Gateway Connect Peer identifier, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_ec2_transit_gateway_connect_peer.example
 //
-//	$ pulumi import aws:ec2transitgateway/connectPeer:ConnectPeer example tgw-connect-peer-12345678
-//
-// ```
+//	id = "tgw-connect-peer-12345678" } Using `pulumi import`, import `aws_ec2_transit_gateway_connect_peer` using the EC2 Transit Gateway Connect Peer identifier. For exampleconsole % pulumi import aws_ec2_transit_gateway_connect_peer.example tgw-connect-peer-12345678
 type ConnectPeer struct {
 	pulumi.CustomResourceState
 
@@ -66,6 +65,10 @@ type ConnectPeer struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The BGP ASN number assigned customer device. If not provided, it will use the same BGP ASN as is associated with Transit Gateway.
 	BgpAsn pulumi.StringOutput `pulumi:"bgpAsn"`
+	// The IP address assigned to customer device, which is used as BGP IP address.
+	BgpPeerAddress pulumi.StringOutput `pulumi:"bgpPeerAddress"`
+	// The IP addresses assigned to Transit Gateway, which are used as BGP IP addresses.
+	BgpTransitGatewayAddresses pulumi.StringArrayOutput `pulumi:"bgpTransitGatewayAddresses"`
 	// The CIDR block that will be used for addressing within the tunnel. It must contain exactly one IPv4 CIDR block and up to one IPv6 CIDR block. The IPv4 CIDR block must be /29 size and must be within 169.254.0.0/16 range, with exception of: 169.254.0.0/29, 169.254.1.0/29, 169.254.2.0/29, 169.254.3.0/29, 169.254.4.0/29, 169.254.5.0/29, 169.254.169.248/29. The IPv6 CIDR block must be /125 size and must be within fd00::/8. The first IP from each CIDR block is assigned for customer gateway, the second and third is for Transit Gateway (An example: from range 169.254.100.0/29, .1 is assigned to customer gateway and .2 and .3 are assigned to Transit Gateway)
 	InsideCidrBlocks pulumi.StringArrayOutput `pulumi:"insideCidrBlocks"`
 	// The IP addressed assigned to customer device, which will be used as tunnel endpoint. It can be IPv4 or IPv6 address, but must be the same address family as `transitGatewayAddress`
@@ -96,6 +99,7 @@ func NewConnectPeer(ctx *pulumi.Context,
 	if args.TransitGatewayAttachmentId == nil {
 		return nil, errors.New("invalid value for required argument 'TransitGatewayAttachmentId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ConnectPeer
 	err := ctx.RegisterResource("aws:ec2transitgateway/connectPeer:ConnectPeer", name, args, &resource, opts...)
 	if err != nil {
@@ -122,6 +126,10 @@ type connectPeerState struct {
 	Arn *string `pulumi:"arn"`
 	// The BGP ASN number assigned customer device. If not provided, it will use the same BGP ASN as is associated with Transit Gateway.
 	BgpAsn *string `pulumi:"bgpAsn"`
+	// The IP address assigned to customer device, which is used as BGP IP address.
+	BgpPeerAddress *string `pulumi:"bgpPeerAddress"`
+	// The IP addresses assigned to Transit Gateway, which are used as BGP IP addresses.
+	BgpTransitGatewayAddresses []string `pulumi:"bgpTransitGatewayAddresses"`
 	// The CIDR block that will be used for addressing within the tunnel. It must contain exactly one IPv4 CIDR block and up to one IPv6 CIDR block. The IPv4 CIDR block must be /29 size and must be within 169.254.0.0/16 range, with exception of: 169.254.0.0/29, 169.254.1.0/29, 169.254.2.0/29, 169.254.3.0/29, 169.254.4.0/29, 169.254.5.0/29, 169.254.169.248/29. The IPv6 CIDR block must be /125 size and must be within fd00::/8. The first IP from each CIDR block is assigned for customer gateway, the second and third is for Transit Gateway (An example: from range 169.254.100.0/29, .1 is assigned to customer gateway and .2 and .3 are assigned to Transit Gateway)
 	InsideCidrBlocks []string `pulumi:"insideCidrBlocks"`
 	// The IP addressed assigned to customer device, which will be used as tunnel endpoint. It can be IPv4 or IPv6 address, but must be the same address family as `transitGatewayAddress`
@@ -141,6 +149,10 @@ type ConnectPeerState struct {
 	Arn pulumi.StringPtrInput
 	// The BGP ASN number assigned customer device. If not provided, it will use the same BGP ASN as is associated with Transit Gateway.
 	BgpAsn pulumi.StringPtrInput
+	// The IP address assigned to customer device, which is used as BGP IP address.
+	BgpPeerAddress pulumi.StringPtrInput
+	// The IP addresses assigned to Transit Gateway, which are used as BGP IP addresses.
+	BgpTransitGatewayAddresses pulumi.StringArrayInput
 	// The CIDR block that will be used for addressing within the tunnel. It must contain exactly one IPv4 CIDR block and up to one IPv6 CIDR block. The IPv4 CIDR block must be /29 size and must be within 169.254.0.0/16 range, with exception of: 169.254.0.0/29, 169.254.1.0/29, 169.254.2.0/29, 169.254.3.0/29, 169.254.4.0/29, 169.254.5.0/29, 169.254.169.248/29. The IPv6 CIDR block must be /125 size and must be within fd00::/8. The first IP from each CIDR block is assigned for customer gateway, the second and third is for Transit Gateway (An example: from range 169.254.100.0/29, .1 is assigned to customer gateway and .2 and .3 are assigned to Transit Gateway)
 	InsideCidrBlocks pulumi.StringArrayInput
 	// The IP addressed assigned to customer device, which will be used as tunnel endpoint. It can be IPv4 or IPv6 address, but must be the same address family as `transitGatewayAddress`
@@ -285,6 +297,16 @@ func (o ConnectPeerOutput) Arn() pulumi.StringOutput {
 // The BGP ASN number assigned customer device. If not provided, it will use the same BGP ASN as is associated with Transit Gateway.
 func (o ConnectPeerOutput) BgpAsn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectPeer) pulumi.StringOutput { return v.BgpAsn }).(pulumi.StringOutput)
+}
+
+// The IP address assigned to customer device, which is used as BGP IP address.
+func (o ConnectPeerOutput) BgpPeerAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectPeer) pulumi.StringOutput { return v.BgpPeerAddress }).(pulumi.StringOutput)
+}
+
+// The IP addresses assigned to Transit Gateway, which are used as BGP IP addresses.
+func (o ConnectPeerOutput) BgpTransitGatewayAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ConnectPeer) pulumi.StringArrayOutput { return v.BgpTransitGatewayAddresses }).(pulumi.StringArrayOutput)
 }
 
 // The CIDR block that will be used for addressing within the tunnel. It must contain exactly one IPv4 CIDR block and up to one IPv6 CIDR block. The IPv4 CIDR block must be /29 size and must be within 169.254.0.0/16 range, with exception of: 169.254.0.0/29, 169.254.1.0/29, 169.254.2.0/29, 169.254.3.0/29, 169.254.4.0/29, 169.254.5.0/29, 169.254.169.248/29. The IPv6 CIDR block must be /125 size and must be within fd00::/8. The first IP from each CIDR block is assigned for customer gateway, the second and third is for Transit Gateway (An example: from range 169.254.100.0/29, .1 is assigned to customer gateway and .2 and .3 are assigned to Transit Gateway)

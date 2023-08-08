@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -46,13 +47,11 @@ import (
 //
 // ## Import
 //
-// `aws_rds_cluster_role_association` can be imported using the DB Cluster Identifier and IAM Role ARN separated by a comma (`,`), e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_rds_cluster_role_association.example
 //
-//	$ pulumi import aws:rds/clusterRoleAssociation:ClusterRoleAssociation example my-db-cluster,arn:aws:iam::123456789012:role/my-role
-//
-// ```
+//	id = "my-db-cluster,arn:aws:iam::123456789012:role/my-role" } Using `pulumi import`, import `aws_rds_cluster_role_association` using the DB Cluster Identifier and IAM Role ARN separated by a comma (`,`). For exampleconsole % pulumi import aws_rds_cluster_role_association.example my-db-cluster,arn:aws:iam::123456789012:role/my-role
 type ClusterRoleAssociation struct {
 	pulumi.CustomResourceState
 
@@ -80,6 +79,7 @@ func NewClusterRoleAssociation(ctx *pulumi.Context,
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ClusterRoleAssociation
 	err := ctx.RegisterResource("aws:rds/clusterRoleAssociation:ClusterRoleAssociation", name, args, &resource, opts...)
 	if err != nil {

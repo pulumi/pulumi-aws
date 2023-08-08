@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,8 +23,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -82,13 +83,11 @@ import (
 //
 // ## Import
 //
-// Models can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_sagemaker_model.test_model
 //
-//	$ pulumi import aws:sagemaker/model:Model test_model model-foo
-//
-// ```
+//	id = "model-foo" } Using `pulumi import`, import models using the `name`. For exampleconsole % pulumi import aws_sagemaker_model.test_model model-foo
 type Model struct {
 	pulumi.CustomResourceState
 
@@ -126,6 +125,7 @@ func NewModel(ctx *pulumi.Context,
 	if args.ExecutionRoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'ExecutionRoleArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Model
 	err := ctx.RegisterResource("aws:sagemaker/model:Model", name, args, &resource, opts...)
 	if err != nil {

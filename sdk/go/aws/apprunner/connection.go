@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apprunner"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apprunner"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -47,13 +48,11 @@ import (
 //
 // ## Import
 //
-// App Runner Connections can be imported by using the `connection_name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_apprunner_connection.example
 //
-//	$ pulumi import aws:apprunner/connection:Connection example example
-//
-// ```
+//	id = "example" } Using `pulumi import`, import App Runner Connections using the `connection_name`. For exampleconsole % pulumi import aws_apprunner_connection.example example
 type Connection struct {
 	pulumi.CustomResourceState
 
@@ -84,6 +83,7 @@ func NewConnection(ctx *pulumi.Context,
 	if args.ProviderType == nil {
 		return nil, errors.New("invalid value for required argument 'ProviderType'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Connection
 	err := ctx.RegisterResource("aws:apprunner/connection:Connection", name, args, &resource, opts...)
 	if err != nil {

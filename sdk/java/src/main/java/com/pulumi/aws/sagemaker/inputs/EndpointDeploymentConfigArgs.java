@@ -5,6 +5,7 @@ package com.pulumi.aws.sagemaker.inputs;
 
 import com.pulumi.aws.sagemaker.inputs.EndpointDeploymentConfigAutoRollbackConfigurationArgs;
 import com.pulumi.aws.sagemaker.inputs.EndpointDeploymentConfigBlueGreenUpdatePolicyArgs;
+import com.pulumi.aws.sagemaker.inputs.EndpointDeploymentConfigRollingUpdatePolicyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.util.Objects;
@@ -32,18 +33,33 @@ public final class EndpointDeploymentConfigArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Update policy for a blue/green deployment. If this update policy is specified, SageMaker creates a new fleet during the deployment while maintaining the old fleet. See Blue Green Update Config.
+     * Update policy for a blue/green deployment. If this update policy is specified, SageMaker creates a new fleet during the deployment while maintaining the old fleet. SageMaker flips traffic to the new fleet according to the specified traffic routing configuration. Only one update policy should be used in the deployment configuration. If no update policy is specified, SageMaker uses a blue/green deployment strategy with all at once traffic shifting by default. See Blue Green Update Config.
      * 
      */
-    @Import(name="blueGreenUpdatePolicy", required=true)
-    private Output<EndpointDeploymentConfigBlueGreenUpdatePolicyArgs> blueGreenUpdatePolicy;
+    @Import(name="blueGreenUpdatePolicy")
+    private @Nullable Output<EndpointDeploymentConfigBlueGreenUpdatePolicyArgs> blueGreenUpdatePolicy;
 
     /**
-     * @return Update policy for a blue/green deployment. If this update policy is specified, SageMaker creates a new fleet during the deployment while maintaining the old fleet. See Blue Green Update Config.
+     * @return Update policy for a blue/green deployment. If this update policy is specified, SageMaker creates a new fleet during the deployment while maintaining the old fleet. SageMaker flips traffic to the new fleet according to the specified traffic routing configuration. Only one update policy should be used in the deployment configuration. If no update policy is specified, SageMaker uses a blue/green deployment strategy with all at once traffic shifting by default. See Blue Green Update Config.
      * 
      */
-    public Output<EndpointDeploymentConfigBlueGreenUpdatePolicyArgs> blueGreenUpdatePolicy() {
-        return this.blueGreenUpdatePolicy;
+    public Optional<Output<EndpointDeploymentConfigBlueGreenUpdatePolicyArgs>> blueGreenUpdatePolicy() {
+        return Optional.ofNullable(this.blueGreenUpdatePolicy);
+    }
+
+    /**
+     * Specifies a rolling deployment strategy for updating a SageMaker endpoint. See Rolling Update Policy.
+     * 
+     */
+    @Import(name="rollingUpdatePolicy")
+    private @Nullable Output<EndpointDeploymentConfigRollingUpdatePolicyArgs> rollingUpdatePolicy;
+
+    /**
+     * @return Specifies a rolling deployment strategy for updating a SageMaker endpoint. See Rolling Update Policy.
+     * 
+     */
+    public Optional<Output<EndpointDeploymentConfigRollingUpdatePolicyArgs>> rollingUpdatePolicy() {
+        return Optional.ofNullable(this.rollingUpdatePolicy);
     }
 
     private EndpointDeploymentConfigArgs() {}
@@ -51,6 +67,7 @@ public final class EndpointDeploymentConfigArgs extends com.pulumi.resources.Res
     private EndpointDeploymentConfigArgs(EndpointDeploymentConfigArgs $) {
         this.autoRollbackConfiguration = $.autoRollbackConfiguration;
         this.blueGreenUpdatePolicy = $.blueGreenUpdatePolicy;
+        this.rollingUpdatePolicy = $.rollingUpdatePolicy;
     }
 
     public static Builder builder() {
@@ -93,18 +110,18 @@ public final class EndpointDeploymentConfigArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param blueGreenUpdatePolicy Update policy for a blue/green deployment. If this update policy is specified, SageMaker creates a new fleet during the deployment while maintaining the old fleet. See Blue Green Update Config.
+         * @param blueGreenUpdatePolicy Update policy for a blue/green deployment. If this update policy is specified, SageMaker creates a new fleet during the deployment while maintaining the old fleet. SageMaker flips traffic to the new fleet according to the specified traffic routing configuration. Only one update policy should be used in the deployment configuration. If no update policy is specified, SageMaker uses a blue/green deployment strategy with all at once traffic shifting by default. See Blue Green Update Config.
          * 
          * @return builder
          * 
          */
-        public Builder blueGreenUpdatePolicy(Output<EndpointDeploymentConfigBlueGreenUpdatePolicyArgs> blueGreenUpdatePolicy) {
+        public Builder blueGreenUpdatePolicy(@Nullable Output<EndpointDeploymentConfigBlueGreenUpdatePolicyArgs> blueGreenUpdatePolicy) {
             $.blueGreenUpdatePolicy = blueGreenUpdatePolicy;
             return this;
         }
 
         /**
-         * @param blueGreenUpdatePolicy Update policy for a blue/green deployment. If this update policy is specified, SageMaker creates a new fleet during the deployment while maintaining the old fleet. See Blue Green Update Config.
+         * @param blueGreenUpdatePolicy Update policy for a blue/green deployment. If this update policy is specified, SageMaker creates a new fleet during the deployment while maintaining the old fleet. SageMaker flips traffic to the new fleet according to the specified traffic routing configuration. Only one update policy should be used in the deployment configuration. If no update policy is specified, SageMaker uses a blue/green deployment strategy with all at once traffic shifting by default. See Blue Green Update Config.
          * 
          * @return builder
          * 
@@ -113,8 +130,28 @@ public final class EndpointDeploymentConfigArgs extends com.pulumi.resources.Res
             return blueGreenUpdatePolicy(Output.of(blueGreenUpdatePolicy));
         }
 
+        /**
+         * @param rollingUpdatePolicy Specifies a rolling deployment strategy for updating a SageMaker endpoint. See Rolling Update Policy.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rollingUpdatePolicy(@Nullable Output<EndpointDeploymentConfigRollingUpdatePolicyArgs> rollingUpdatePolicy) {
+            $.rollingUpdatePolicy = rollingUpdatePolicy;
+            return this;
+        }
+
+        /**
+         * @param rollingUpdatePolicy Specifies a rolling deployment strategy for updating a SageMaker endpoint. See Rolling Update Policy.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rollingUpdatePolicy(EndpointDeploymentConfigRollingUpdatePolicyArgs rollingUpdatePolicy) {
+            return rollingUpdatePolicy(Output.of(rollingUpdatePolicy));
+        }
+
         public EndpointDeploymentConfigArgs build() {
-            $.blueGreenUpdatePolicy = Objects.requireNonNull($.blueGreenUpdatePolicy, "expected parameter 'blueGreenUpdatePolicy' to be non-null");
             return $;
         }
     }

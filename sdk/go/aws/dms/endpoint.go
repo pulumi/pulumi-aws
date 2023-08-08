@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/dms"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dms"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -59,13 +60,11 @@ import (
 //
 // ## Import
 //
-// Endpoints can be imported using the `endpoint_id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_dms_endpoint.test
 //
-//	$ pulumi import aws:dms/endpoint:Endpoint test test-dms-endpoint-tf
-//
-// ```
+//	id = "test-dms-endpoint-tf" } Using `pulumi import`, import endpoints using the `endpoint_id`. For exampleconsole % pulumi import aws_dms_endpoint.test test-dms-endpoint-tf
 type Endpoint struct {
 	pulumi.CustomResourceState
 
@@ -145,6 +144,7 @@ func NewEndpoint(ctx *pulumi.Context,
 		"password",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Endpoint
 	err := ctx.RegisterResource("aws:dms/endpoint:Endpoint", name, args, &resource, opts...)
 	if err != nil {

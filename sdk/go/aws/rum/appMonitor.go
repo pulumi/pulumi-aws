@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rum"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rum"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -41,13 +42,11 @@ import (
 //
 // ## Import
 //
-// Cloudwatch RUM App Monitor can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_rum_app_monitor.example
 //
-//	$ pulumi import aws:rum/appMonitor:AppMonitor example example
-//
-// ```
+//	id = "example" } Using `pulumi import`, import Cloudwatch RUM App Monitor using the `name`. For exampleconsole % pulumi import aws_rum_app_monitor.example example
 type AppMonitor struct {
 	pulumi.CustomResourceState
 
@@ -83,6 +82,7 @@ func NewAppMonitor(ctx *pulumi.Context,
 	if args.Domain == nil {
 		return nil, errors.New("invalid value for required argument 'Domain'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AppMonitor
 	err := ctx.RegisterResource("aws:rum/appMonitor:AppMonitor", name, args, &resource, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iot"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iot"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -59,13 +60,11 @@ import (
 //
 // ## Import
 //
-// IoT policies can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_iot_policy.pubsub
 //
-//	$ pulumi import aws:iot/policy:Policy pubsub PubSubToAnyTopic
-//
-// ```
+//	id = "PubSubToAnyTopic" } Using `pulumi import`, import IoT policies using the `name`. For exampleconsole % pulumi import aws_iot_policy.pubsub PubSubToAnyTopic
 type Policy struct {
 	pulumi.CustomResourceState
 
@@ -89,6 +88,7 @@ func NewPolicy(ctx *pulumi.Context,
 	if args.Policy == nil {
 		return nil, errors.New("invalid value for required argument 'Policy'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Policy
 	err := ctx.RegisterResource("aws:iot/policy:Policy", name, args, &resource, opts...)
 	if err != nil {

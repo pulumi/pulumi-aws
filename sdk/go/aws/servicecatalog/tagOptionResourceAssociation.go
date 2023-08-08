@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicecatalog"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicecatalog"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -45,13 +46,11 @@ import (
 //
 // ## Import
 //
-// `aws_servicecatalog_tag_option_resource_association` can be imported using the tag option ID and resource ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_servicecatalog_tag_option_resource_association.example
 //
-//	$ pulumi import aws:servicecatalog/tagOptionResourceAssociation:TagOptionResourceAssociation example tag-pjtvyakdlyo3m:prod-dnigbtea24ste
-//
-// ```
+//	id = "tag-pjtvyakdlyo3m:prod-dnigbtea24ste" } Using `pulumi import`, import `aws_servicecatalog_tag_option_resource_association` using the tag option ID and resource ID. For exampleconsole % pulumi import aws_servicecatalog_tag_option_resource_association.example tag-pjtvyakdlyo3m:prod-dnigbtea24ste
 type TagOptionResourceAssociation struct {
 	pulumi.CustomResourceState
 
@@ -82,6 +81,7 @@ func NewTagOptionResourceAssociation(ctx *pulumi.Context,
 	if args.TagOptionId == nil {
 		return nil, errors.New("invalid value for required argument 'TagOptionId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TagOptionResourceAssociation
 	err := ctx.RegisterResource("aws:servicecatalog/tagOptionResourceAssociation:TagOptionResourceAssociation", name, args, &resource, opts...)
 	if err != nil {

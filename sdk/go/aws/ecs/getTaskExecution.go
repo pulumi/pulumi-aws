@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -16,6 +17,7 @@ import (
 //
 // ## Example Usage
 func GetTaskExecution(ctx *pulumi.Context, args *GetTaskExecutionArgs, opts ...pulumi.InvokeOption) (*GetTaskExecutionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetTaskExecutionResult
 	err := ctx.Invoke("aws:ecs/getTaskExecution:getTaskExecution", args, &rv, opts...)
 	if err != nil {

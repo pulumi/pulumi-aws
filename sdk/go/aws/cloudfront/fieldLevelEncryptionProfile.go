@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 //	"os"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudfront"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -71,13 +72,11 @@ import (
 //
 // ## Import
 //
-// Cloudfront Field Level Encryption Profile can be imported using the `id`, e.g.
+// terraform import {
 //
-// ```sh
+//	to = aws_cloudfront_field_level_encryption_profile.profile
 //
-//	$ pulumi import aws:cloudfront/fieldLevelEncryptionProfile:FieldLevelEncryptionProfile profile K3D5EWEUDCCXON
-//
-// ```
+//	id = "K3D5EWEUDCCXON" } Using `pulumi import`, import Cloudfront Field Level Encryption Profile using the `id`. For exampleconsole % pulumi import aws_cloudfront_field_level_encryption_profile.profile K3D5EWEUDCCXON
 type FieldLevelEncryptionProfile struct {
 	pulumi.CustomResourceState
 
@@ -103,6 +102,7 @@ func NewFieldLevelEncryptionProfile(ctx *pulumi.Context,
 	if args.EncryptionEntities == nil {
 		return nil, errors.New("invalid value for required argument 'EncryptionEntities'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FieldLevelEncryptionProfile
 	err := ctx.RegisterResource("aws:cloudfront/fieldLevelEncryptionProfile:FieldLevelEncryptionProfile", name, args, &resource, opts...)
 	if err != nil {

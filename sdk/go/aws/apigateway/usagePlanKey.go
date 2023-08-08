@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -62,13 +63,11 @@ import (
 //
 // ## Import
 //
-// AWS API Gateway Usage Plan Key can be imported using the `USAGE-PLAN-ID/USAGE-PLAN-KEY-ID`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_api_gateway_usage_plan_key.key
 //
-//	$ pulumi import aws:apigateway/usagePlanKey:UsagePlanKey key 12345abcde/zzz
-//
-// ```
+//	id = "12345abcde/zzz" } Using `pulumi import`, import AWS API Gateway Usage Plan Key using the `USAGE-PLAN-ID/USAGE-PLAN-KEY-ID`. For exampleconsole % pulumi import aws_api_gateway_usage_plan_key.key 12345abcde/zzz
 type UsagePlanKey struct {
 	pulumi.CustomResourceState
 
@@ -100,6 +99,7 @@ func NewUsagePlanKey(ctx *pulumi.Context,
 	if args.UsagePlanId == nil {
 		return nil, errors.New("invalid value for required argument 'UsagePlanId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource UsagePlanKey
 	err := ctx.RegisterResource("aws:apigateway/usagePlanKey:UsagePlanKey", name, args, &resource, opts...)
 	if err != nil {

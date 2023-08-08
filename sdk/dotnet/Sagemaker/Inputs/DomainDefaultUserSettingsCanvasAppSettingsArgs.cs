@@ -24,6 +24,12 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         [Input("timeSeriesForecastingSettings")]
         public Input<Inputs.DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs>? TimeSeriesForecastingSettings { get; set; }
 
+        /// <summary>
+        /// The workspace settings for the SageMaker Canvas application. See Workspace Settings below.
+        /// </summary>
+        [Input("workspaceSettings")]
+        public Input<Inputs.DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsArgs>? WorkspaceSettings { get; set; }
+
         public DomainDefaultUserSettingsCanvasAppSettingsArgs()
         {
         }

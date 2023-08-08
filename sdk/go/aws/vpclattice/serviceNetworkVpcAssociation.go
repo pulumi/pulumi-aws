@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/vpclattice"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/vpclattice"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -46,13 +47,11 @@ import (
 //
 // ## Import
 //
-// VPC Lattice Service Network VPC Association can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_vpclattice_service_network_vpc_association.example
 //
-//	$ pulumi import aws:vpclattice/serviceNetworkVpcAssociation:ServiceNetworkVpcAssociation example snsa-05e2474658a88f6ba
-//
-// ```
+//	id = "snsa-05e2474658a88f6ba" } Using `pulumi import`, import VPC Lattice Service Network VPC Association using the `id`. For exampleconsole % pulumi import aws_vpclattice_service_network_vpc_association.example snsa-05e2474658a88f6ba
 type ServiceNetworkVpcAssociation struct {
 	pulumi.CustomResourceState
 
@@ -88,6 +87,7 @@ func NewServiceNetworkVpcAssociation(ctx *pulumi.Context,
 	if args.VpcIdentifier == nil {
 		return nil, errors.New("invalid value for required argument 'VpcIdentifier'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ServiceNetworkVpcAssociation
 	err := ctx.RegisterResource("aws:vpclattice/serviceNetworkVpcAssociation:ServiceNetworkVpcAssociation", name, args, &resource, opts...)
 	if err != nil {

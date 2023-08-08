@@ -61,11 +61,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Cognito User Pools can be imported using the `id`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:cognito/userPool:UserPool pool us-west-2_abc123
- * ```
+ *  to = aws_cognito_user_pool.pool
+ *
+ *  id = "us-west-2_abc123" } Using `pulumi import`, import Cognito User Pools using the `id`. For exampleconsole % pulumi import aws_cognito_user_pool.pool us-west-2_abc123
  */
 export class UserPool extends pulumi.CustomResource {
     /**
@@ -174,7 +174,7 @@ export class UserPool extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Configuration blocked for information about the user pool password policy. Detailed below.
+     * Configuration block for information about the user pool password policy. Detailed below.
      */
     public readonly passwordPolicy!: pulumi.Output<outputs.cognito.UserPoolPasswordPolicy>;
     /**
@@ -394,7 +394,7 @@ export interface UserPoolState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Configuration blocked for information about the user pool password policy. Detailed below.
+     * Configuration block for information about the user pool password policy. Detailed below.
      */
     passwordPolicy?: pulumi.Input<inputs.cognito.UserPoolPasswordPolicy>;
     /**
@@ -502,7 +502,7 @@ export interface UserPoolArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Configuration blocked for information about the user pool password policy. Detailed below.
+     * Configuration block for information about the user pool password policy. Detailed below.
      */
     passwordPolicy?: pulumi.Input<inputs.cognito.UserPoolPasswordPolicy>;
     /**

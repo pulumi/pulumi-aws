@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +22,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directconnect"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directconnect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -70,13 +71,11 @@ import (
 //
 // ## Import
 //
-// Direct Connect hosted public virtual interfaces can be imported using the `vif id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_dx_hosted_public_virtual_interface_accepter.test
 //
-//	$ pulumi import aws:directconnect/hostedPublicVirtualInterfaceAccepter:HostedPublicVirtualInterfaceAccepter test dxvif-33cc44dd
-//
-// ```
+//	id = "dxvif-33cc44dd" } Using `pulumi import`, import Direct Connect hosted public virtual interfaces using the VIF `id`. For exampleconsole % pulumi import aws_dx_hosted_public_virtual_interface_accepter.test dxvif-33cc44dd
 type HostedPublicVirtualInterfaceAccepter struct {
 	pulumi.CustomResourceState
 
@@ -100,6 +99,7 @@ func NewHostedPublicVirtualInterfaceAccepter(ctx *pulumi.Context,
 	if args.VirtualInterfaceId == nil {
 		return nil, errors.New("invalid value for required argument 'VirtualInterfaceId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource HostedPublicVirtualInterfaceAccepter
 	err := ctx.RegisterResource("aws:directconnect/hostedPublicVirtualInterfaceAccepter:HostedPublicVirtualInterfaceAccepter", name, args, &resource, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appautoscaling"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appautoscaling"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -63,7 +64,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appautoscaling"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appautoscaling"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -145,6 +146,7 @@ func NewScheduledAction(ctx *pulumi.Context,
 	if args.ServiceNamespace == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceNamespace'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ScheduledAction
 	err := ctx.RegisterResource("aws:appautoscaling/scheduledAction:ScheduledAction", name, args, &resource, opts...)
 	if err != nil {

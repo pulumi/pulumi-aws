@@ -7,8 +7,11 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type DeploymentConfigMinimumHealthyHosts struct {
 	// The type can either be `FLEET_PERCENT` or `HOST_COUNT`.
@@ -2866,7 +2869,7 @@ func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoPtrOutput) TestTraffic
 }
 
 type DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute struct {
-	// List of Amazon Resource Names (ARNs) of the load balancer listeners.
+	// List of Amazon Resource Names (ARNs) of the load balancer listeners. Must contain exactly one listener ARN.
 	ListenerArns []string `pulumi:"listenerArns"`
 }
 
@@ -2882,7 +2885,7 @@ type DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteInput int
 }
 
 type DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteArgs struct {
-	// List of Amazon Resource Names (ARNs) of the load balancer listeners.
+	// List of Amazon Resource Names (ARNs) of the load balancer listeners. Must contain exactly one listener ARN.
 	ListenerArns pulumi.StringArrayInput `pulumi:"listenerArns"`
 }
 
@@ -2963,7 +2966,7 @@ func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteOutput
 	}).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoutePtrOutput)
 }
 
-// List of Amazon Resource Names (ARNs) of the load balancer listeners.
+// List of Amazon Resource Names (ARNs) of the load balancer listeners. Must contain exactly one listener ARN.
 func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteOutput) ListenerArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute) []string {
 		return v.ListenerArns
@@ -2994,7 +2997,7 @@ func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoutePtrOut
 	}).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteOutput)
 }
 
-// List of Amazon Resource Names (ARNs) of the load balancer listeners.
+// List of Amazon Resource Names (ARNs) of the load balancer listeners. Must contain exactly one listener ARN.
 func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoutePtrOutput) ListenerArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute) []string {
 		if v == nil {

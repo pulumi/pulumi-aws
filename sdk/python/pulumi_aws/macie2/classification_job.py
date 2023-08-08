@@ -487,11 +487,11 @@ class ClassificationJob(pulumi.CustomResource):
 
         ## Import
 
-        `aws_macie2_classification_job` can be imported using the id, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:macie2/classificationJob:ClassificationJob example abcd1
-        ```
+         to = aws_macie2_classification_job.example
+
+         id = "abcd1" } Using `pulumi import`, import `aws_macie2_classification_job` using the id. For exampleconsole % pulumi import aws_macie2_classification_job.example abcd1
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -536,11 +536,11 @@ class ClassificationJob(pulumi.CustomResource):
 
         ## Import
 
-        `aws_macie2_classification_job` can be imported using the id, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:macie2/classificationJob:ClassificationJob example abcd1
-        ```
+         to = aws_macie2_classification_job.example
+
+         id = "abcd1" } Using `pulumi import`, import `aws_macie2_classification_job` using the id. For exampleconsole % pulumi import aws_macie2_classification_job.example abcd1
 
         :param str resource_name: The name of the resource.
         :param ClassificationJobArgs args: The arguments to use to populate this resource's properties.

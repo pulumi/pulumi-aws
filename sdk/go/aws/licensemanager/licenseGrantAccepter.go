@@ -8,20 +8,45 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Accepts a License Manager grant. This allows for sharing licenses with other aws accounts.
 //
-// ## Import
+// ## Example Usage
 //
-// `aws_licensemanager_grant_accepter` can be imported using the grant arn.
+// ```go
+// package main
 //
-// ```sh
+// import (
 //
-//	$ pulumi import aws:licensemanager/licenseGrantAccepter:LicenseGrantAccepter test arn:aws:license-manager::123456789012:grant:g-1cf9fba4ba2f42dcab11c686c4b4d329
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/licensemanager"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := licensemanager.NewLicenseGrantAccepter(ctx, "test", &licensemanager.LicenseGrantAccepterArgs{
+//				GrantArn: pulumi.String("arn:aws:license-manager::123456789012:grant:g-1cf9fba4ba2f42dcab11c686c4b4d329"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
+//
+// ## Import
+//
+// terraform import {
+//
+//	to = aws_licensemanager_grant_accepter.test
+//
+//	id = "arn:aws:license-manager::123456789012:grant:g-1cf9fba4ba2f42dcab11c686c4b4d329" } Using `pulumi import`, import `aws_licensemanager_grant_accepter` using the grant arn. For exampleconsole % pulumi import aws_licensemanager_grant_accepter.test arn:aws:license-manager::123456789012:grant:g-1cf9fba4ba2f42dcab11c686c4b4d329
 type LicenseGrantAccepter struct {
 	pulumi.CustomResourceState
 
@@ -55,6 +80,7 @@ func NewLicenseGrantAccepter(ctx *pulumi.Context,
 	if args.GrantArn == nil {
 		return nil, errors.New("invalid value for required argument 'GrantArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LicenseGrantAccepter
 	err := ctx.RegisterResource("aws:licensemanager/licenseGrantAccepter:LicenseGrantAccepter", name, args, &resource, opts...)
 	if err != nil {

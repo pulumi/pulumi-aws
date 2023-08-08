@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -44,13 +45,13 @@ import (
 //
 // ## Import
 //
-//	Route 53 Resolver query logging configurations can be imported using the Route 53 Resolver query logging configuration ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_route53_resolver_query_log_config.example
 //
-//	$ pulumi import aws:route53/resolverQueryLogConfig:ResolverQueryLogConfig example rqlc-92edc3b1838248bf
+//	id = "rqlc-92edc3b1838248bf" } Using `pulumi import`, import
 //
-// ```
+// Route 53 Resolver query logging configurations using the Route 53 Resolver query logging configuration ID. For exampleconsole % pulumi import aws_route53_resolver_query_log_config.example rqlc-92edc3b1838248bf
 type ResolverQueryLogConfig struct {
 	pulumi.CustomResourceState
 
@@ -83,6 +84,7 @@ func NewResolverQueryLogConfig(ctx *pulumi.Context,
 	if args.DestinationArn == nil {
 		return nil, errors.New("invalid value for required argument 'DestinationArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResolverQueryLogConfig
 	err := ctx.RegisterResource("aws:route53/resolverQueryLogConfig:ResolverQueryLogConfig", name, args, &resource, opts...)
 	if err != nil {

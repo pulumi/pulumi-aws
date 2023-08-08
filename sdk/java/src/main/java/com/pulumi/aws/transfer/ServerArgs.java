@@ -247,18 +247,33 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06` and `TransferSecurityPolicy-2022-03`. Default value is: `TransferSecurityPolicy-2018-11`.
+     * Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-2022-03` and `TransferSecurityPolicy-2023-05`. Default value is: `TransferSecurityPolicy-2018-11`.
      * 
      */
     @Import(name="securityPolicyName")
     private @Nullable Output<String> securityPolicyName;
 
     /**
-     * @return Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06` and `TransferSecurityPolicy-2022-03`. Default value is: `TransferSecurityPolicy-2018-11`.
+     * @return Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-2022-03` and `TransferSecurityPolicy-2023-05`. Default value is: `TransferSecurityPolicy-2018-11`.
      * 
      */
     public Optional<Output<String>> securityPolicyName() {
         return Optional.ofNullable(this.securityPolicyName);
+    }
+
+    /**
+     * This is a set of arns of destinations that will receive structured logs from the transfer server
+     * 
+     */
+    @Import(name="structuredLogDestinations")
+    private @Nullable Output<List<String>> structuredLogDestinations;
+
+    /**
+     * @return This is a set of arns of destinations that will receive structured logs from the transfer server
+     * 
+     */
+    public Optional<Output<List<String>>> structuredLogDestinations() {
+        return Optional.ofNullable(this.structuredLogDestinations);
     }
 
     /**
@@ -325,6 +340,7 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
         this.protocolDetails = $.protocolDetails;
         this.protocols = $.protocols;
         this.securityPolicyName = $.securityPolicyName;
+        this.structuredLogDestinations = $.structuredLogDestinations;
         this.tags = $.tags;
         this.url = $.url;
         this.workflowDetails = $.workflowDetails;
@@ -674,7 +690,7 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityPolicyName Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06` and `TransferSecurityPolicy-2022-03`. Default value is: `TransferSecurityPolicy-2018-11`.
+         * @param securityPolicyName Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-2022-03` and `TransferSecurityPolicy-2023-05`. Default value is: `TransferSecurityPolicy-2018-11`.
          * 
          * @return builder
          * 
@@ -685,13 +701,44 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityPolicyName Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06` and `TransferSecurityPolicy-2022-03`. Default value is: `TransferSecurityPolicy-2018-11`.
+         * @param securityPolicyName Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-2022-03` and `TransferSecurityPolicy-2023-05`. Default value is: `TransferSecurityPolicy-2018-11`.
          * 
          * @return builder
          * 
          */
         public Builder securityPolicyName(String securityPolicyName) {
             return securityPolicyName(Output.of(securityPolicyName));
+        }
+
+        /**
+         * @param structuredLogDestinations This is a set of arns of destinations that will receive structured logs from the transfer server
+         * 
+         * @return builder
+         * 
+         */
+        public Builder structuredLogDestinations(@Nullable Output<List<String>> structuredLogDestinations) {
+            $.structuredLogDestinations = structuredLogDestinations;
+            return this;
+        }
+
+        /**
+         * @param structuredLogDestinations This is a set of arns of destinations that will receive structured logs from the transfer server
+         * 
+         * @return builder
+         * 
+         */
+        public Builder structuredLogDestinations(List<String> structuredLogDestinations) {
+            return structuredLogDestinations(Output.of(structuredLogDestinations));
+        }
+
+        /**
+         * @param structuredLogDestinations This is a set of arns of destinations that will receive structured logs from the transfer server
+         * 
+         * @return builder
+         * 
+         */
+        public Builder structuredLogDestinations(String... structuredLogDestinations) {
+            return structuredLogDestinations(List.of(structuredLogDestinations));
         }
 
         /**

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 //	"os"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iot"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iot"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -57,13 +58,11 @@ import (
 //
 // ## Import
 //
-// IOT Authorizers can be imported using the name, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_iot_authorizer.example
 //
-//	$ pulumi import aws:iot/authorizer:Authorizer example example
-//
-// ```
+//	id = "example" } Using `pulumi import`, import IOT Authorizers using the name. For exampleconsole % pulumi import aws_iot_authorizer.example example
 type Authorizer struct {
 	pulumi.CustomResourceState
 
@@ -102,6 +101,7 @@ func NewAuthorizer(ctx *pulumi.Context,
 		"tokenSigningPublicKeys",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Authorizer
 	err := ctx.RegisterResource("aws:iot/authorizer:Authorizer", name, args, &resource, opts...)
 	if err != nil {

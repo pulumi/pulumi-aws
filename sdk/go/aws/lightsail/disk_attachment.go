@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lightsail"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -73,13 +74,11 @@ import (
 //
 // ## Import
 //
-// `aws_lightsail_disk` can be imported by using the id attribute, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_lightsail_disk_attachment.test
 //
-//	$ pulumi import aws:lightsail/disk_attachment:Disk_attachment test test-disk,test-instance
-//
-// ```
+//	id = "test-disk,test-instance" } Using `pulumi import`, import `aws_lightsail_disk` using the id attribute. For exampleconsole % pulumi import aws_lightsail_disk_attachment.test test-disk,test-instance
 type Disk_attachment struct {
 	pulumi.CustomResourceState
 
@@ -107,6 +106,7 @@ func NewDisk_attachment(ctx *pulumi.Context,
 	if args.InstanceName == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Disk_attachment
 	err := ctx.RegisterResource("aws:lightsail/disk_attachment:Disk_attachment", name, args, &resource, opts...)
 	if err != nil {

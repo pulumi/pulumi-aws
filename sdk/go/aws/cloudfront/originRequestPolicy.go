@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudfront"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -65,13 +66,11 @@ import (
 //
 // ## Import
 //
-// Cloudfront Origin Request Policies can be imported using the `id`, e.g.
+// terraform import {
 //
-// ```sh
+//	to = aws_cloudfront_origin_request_policy.policy
 //
-//	$ pulumi import aws:cloudfront/originRequestPolicy:OriginRequestPolicy policy ccca32ef-dce3-4df3-80df-1bd3000bc4d3
-//
-// ```
+//	id = "ccca32ef-dce3-4df3-80df-1bd3000bc4d3" } Using `pulumi import`, import Cloudfront Origin Request Policies using the `id`. For exampleconsole % pulumi import aws_cloudfront_origin_request_policy.policy ccca32ef-dce3-4df3-80df-1bd3000bc4d3
 type OriginRequestPolicy struct {
 	pulumi.CustomResourceState
 
@@ -105,6 +104,7 @@ func NewOriginRequestPolicy(ctx *pulumi.Context,
 	if args.QueryStringsConfig == nil {
 		return nil, errors.New("invalid value for required argument 'QueryStringsConfig'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OriginRequestPolicy
 	err := ctx.RegisterResource("aws:cloudfront/originRequestPolicy:OriginRequestPolicy", name, args, &resource, opts...)
 	if err != nil {

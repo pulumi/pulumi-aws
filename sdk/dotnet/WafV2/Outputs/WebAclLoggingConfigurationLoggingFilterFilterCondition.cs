@@ -14,11 +14,11 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class WebAclLoggingConfigurationLoggingFilterFilterCondition
     {
         /// <summary>
-        /// A single action condition. See Action Condition below for more details.
+        /// Configuration for a single action condition. See Action Condition below for more details.
         /// </summary>
         public readonly Outputs.WebAclLoggingConfigurationLoggingFilterFilterConditionActionCondition? ActionCondition;
         /// <summary>
-        /// A single label name condition. See Label Name Condition below for more details.
+        /// Condition for a single label name. See Label Name Condition below for more details.
         /// </summary>
         public readonly Outputs.WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameCondition? LabelNameCondition;
 

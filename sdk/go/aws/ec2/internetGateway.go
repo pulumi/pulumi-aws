@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -43,13 +44,11 @@ import (
 //
 // ## Import
 //
-// Internet Gateways can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_internet_gateway.gw
 //
-//	$ pulumi import aws:ec2/internetGateway:InternetGateway gw igw-c0a643a9
-//
-// ```
+//	id = "igw-c0a643a9" } Using `pulumi import`, import Internet Gateways using the `id`. For exampleconsole % pulumi import aws_internet_gateway.gw igw-c0a643a9
 type InternetGateway struct {
 	pulumi.CustomResourceState
 
@@ -65,7 +64,7 @@ type InternetGateway struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -101,6 +100,7 @@ func NewInternetGateway(ctx *pulumi.Context,
 		args = &InternetGatewayArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource InternetGateway
 	err := ctx.RegisterResource("aws:ec2/internetGateway:InternetGateway", name, args, &resource, opts...)
 	if err != nil {
@@ -135,7 +135,7 @@ type internetGatewayState struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -177,7 +177,7 @@ type InternetGatewayState struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -219,7 +219,7 @@ type internetGatewayArgs struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -256,7 +256,7 @@ type InternetGatewayArgs struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -389,7 +389,7 @@ func (o InternetGatewayOutput) OwnerId() pulumi.StringOutput {
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )

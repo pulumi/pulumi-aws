@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -47,13 +48,11 @@ import (
 //
 // ## Import
 //
-// DB Subnet groups can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_db_subnet_group.default
 //
-//	$ pulumi import aws:rds/subnetGroup:SubnetGroup default production-subnet-group
-//
-// ```
+//	id = "production-subnet-group" } Using `pulumi import`, import DB Subnet groups using the `name`. For exampleconsole % pulumi import aws_db_subnet_group.default production-subnet-group
 type SubnetGroup struct {
 	pulumi.CustomResourceState
 
@@ -90,6 +89,7 @@ func NewSubnetGroup(ctx *pulumi.Context,
 	if args.Description == nil {
 		args.Description = pulumi.StringPtr("Managed by Pulumi")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SubnetGroup
 	err := ctx.RegisterResource("aws:rds/subnetGroup:SubnetGroup", name, args, &resource, opts...)
 	if err != nil {

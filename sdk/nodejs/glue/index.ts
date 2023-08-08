@@ -35,6 +35,11 @@ export type DataCatalogEncryptionSettings = import("./dataCatalogEncryptionSetti
 export const DataCatalogEncryptionSettings: typeof import("./dataCatalogEncryptionSettings").DataCatalogEncryptionSettings = null as any;
 utilities.lazyLoad(exports, ["DataCatalogEncryptionSettings"], () => require("./dataCatalogEncryptionSettings"));
 
+export { DataQualityRulesetArgs, DataQualityRulesetState } from "./dataQualityRuleset";
+export type DataQualityRuleset = import("./dataQualityRuleset").DataQualityRuleset;
+export const DataQualityRuleset: typeof import("./dataQualityRuleset").DataQualityRuleset = null as any;
+utilities.lazyLoad(exports, ["DataQualityRuleset"], () => require("./dataQualityRuleset"));
+
 export { DevEndpointArgs, DevEndpointState } from "./devEndpoint";
 export type DevEndpoint = import("./devEndpoint").DevEndpoint;
 export const DevEndpoint: typeof import("./devEndpoint").DevEndpoint = null as any;
@@ -132,6 +137,8 @@ const _module = {
                 return new Crawler(name, <any>undefined, { urn })
             case "aws:glue/dataCatalogEncryptionSettings:DataCatalogEncryptionSettings":
                 return new DataCatalogEncryptionSettings(name, <any>undefined, { urn })
+            case "aws:glue/dataQualityRuleset:DataQualityRuleset":
+                return new DataQualityRuleset(name, <any>undefined, { urn })
             case "aws:glue/devEndpoint:DevEndpoint":
                 return new DevEndpoint(name, <any>undefined, { urn })
             case "aws:glue/job:Job":
@@ -167,6 +174,7 @@ pulumi.runtime.registerResourceModule("aws", "glue/classifier", _module)
 pulumi.runtime.registerResourceModule("aws", "glue/connection", _module)
 pulumi.runtime.registerResourceModule("aws", "glue/crawler", _module)
 pulumi.runtime.registerResourceModule("aws", "glue/dataCatalogEncryptionSettings", _module)
+pulumi.runtime.registerResourceModule("aws", "glue/dataQualityRuleset", _module)
 pulumi.runtime.registerResourceModule("aws", "glue/devEndpoint", _module)
 pulumi.runtime.registerResourceModule("aws", "glue/job", _module)
 pulumi.runtime.registerResourceModule("aws", "glue/mLTransform", _module)

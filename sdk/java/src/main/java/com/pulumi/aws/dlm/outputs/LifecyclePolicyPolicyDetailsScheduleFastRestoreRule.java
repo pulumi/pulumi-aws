@@ -19,17 +19,17 @@ public final class LifecyclePolicyPolicyDetailsScheduleFastRestoreRule {
      */
     private List<String> availabilityZones;
     /**
-     * @return Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`.
+     * @return Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`. Conflicts with `interval` and `interval_unit`.
      * 
      */
     private @Nullable Integer count;
     /**
-     * @return How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+     * @return How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cron_expression`. If set, `interval_unit` and `times` must also be set.
      * 
      */
     private @Nullable Integer interval;
     /**
-     * @return The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+     * @return The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cron_expression`. Must be set if `interval` is set.
      * 
      */
     private @Nullable String intervalUnit;
@@ -43,21 +43,21 @@ public final class LifecyclePolicyPolicyDetailsScheduleFastRestoreRule {
         return this.availabilityZones;
     }
     /**
-     * @return Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`.
+     * @return Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`. Conflicts with `interval` and `interval_unit`.
      * 
      */
     public Optional<Integer> count() {
         return Optional.ofNullable(this.count);
     }
     /**
-     * @return How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+     * @return How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cron_expression`. If set, `interval_unit` and `times` must also be set.
      * 
      */
     public Optional<Integer> interval() {
         return Optional.ofNullable(this.interval);
     }
     /**
-     * @return The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+     * @return The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cron_expression`. Must be set if `interval` is set.
      * 
      */
     public Optional<String> intervalUnit() {

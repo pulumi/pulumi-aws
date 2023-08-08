@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicecatalog"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicecatalog"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -45,13 +46,11 @@ import (
 //
 // ## Import
 //
-// `aws_servicecatalog_budget_resource_association` can be imported using the budget name and resource ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_servicecatalog_budget_resource_association.example
 //
-//	$ pulumi import aws:servicecatalog/budgetResourceAssociation:BudgetResourceAssociation example budget-pjtvyakdlyo3m:prod-dnigbtea24ste
-//
-// ```
+//	id = "budget-pjtvyakdlyo3m:prod-dnigbtea24ste" } Using `pulumi import`, import `aws_servicecatalog_budget_resource_association` using the budget name and resource ID. For exampleconsole % pulumi import aws_servicecatalog_budget_resource_association.example budget-pjtvyakdlyo3m:prod-dnigbtea24ste
 type BudgetResourceAssociation struct {
 	pulumi.CustomResourceState
 
@@ -74,6 +73,7 @@ func NewBudgetResourceAssociation(ctx *pulumi.Context,
 	if args.ResourceId == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BudgetResourceAssociation
 	err := ctx.RegisterResource("aws:servicecatalog/budgetResourceAssociation:BudgetResourceAssociation", name, args, &resource, opts...)
 	if err != nil {

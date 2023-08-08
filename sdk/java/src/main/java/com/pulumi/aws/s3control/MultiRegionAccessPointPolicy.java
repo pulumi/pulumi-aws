@@ -26,6 +26,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
+ * import com.pulumi.aws.inputs.GetPartitionArgs;
  * import com.pulumi.aws.s3.BucketV2;
  * import com.pulumi.aws.s3control.MultiRegionAccessPoint;
  * import com.pulumi.aws.s3control.MultiRegionAccessPointArgs;
@@ -90,11 +92,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Multi-Region Access Point Policies can be imported using the `account_id` and `name` of the Multi-Region Access Point separated by a colon (`:`), e.g.
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:s3control/multiRegionAccessPointPolicy:MultiRegionAccessPointPolicy example 123456789012:example
- * ```
+ *  to = aws_s3control_multi_region_access_point_policy.example
+ * 
+ *  id = &#34;123456789012:example&#34; } Using `pulumi import`, import Multi-Region Access Point Policies using the `account_id` and `name` of the Multi-Region Access Point separated by a colon (`:`). For exampleconsole % pulumi import aws_s3control_multi_region_access_point_policy.example 123456789012:example
  * 
  */
 @ResourceType(type="aws:s3control/multiRegionAccessPointPolicy:MultiRegionAccessPointPolicy")

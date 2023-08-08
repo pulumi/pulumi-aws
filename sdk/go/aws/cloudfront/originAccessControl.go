@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudfront"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -47,13 +48,11 @@ import (
 //
 // ## Import
 //
-// CloudFront Origin Access Control can be imported using the `id`. For example
+// terraform import {
 //
-// ```sh
+//	to = aws_cloudfront_origin_access_control.example
 //
-//	$ pulumi import aws:cloudfront/originAccessControl:OriginAccessControl example E327GJI25M56DG
-//
-// ```
+//	id = "E327GJI25M56DG" } Using `pulumi import`, import CloudFront Origin Access Control using the `id`. For exampleconsole % pulumi import aws_cloudfront_origin_access_control.example E327GJI25M56DG
 type OriginAccessControl struct {
 	pulumi.CustomResourceState
 
@@ -87,6 +86,7 @@ func NewOriginAccessControl(ctx *pulumi.Context,
 	if args.SigningProtocol == nil {
 		return nil, errors.New("invalid value for required argument 'SigningProtocol'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OriginAccessControl
 	err := ctx.RegisterResource("aws:cloudfront/originAccessControl:OriginAccessControl", name, args, &resource, opts...)
 	if err != nil {

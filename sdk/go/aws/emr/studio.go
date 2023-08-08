@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,13 +53,11 @@ import (
 //
 // ## Import
 //
-// EMR studios can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_emr_studio.studio
 //
-//	$ pulumi import aws:emr/studio:Studio studio es-123456ABCDEF
-//
-// ```
+//	id = "es-123456ABCDEF" } Using `pulumi import`, import EMR studios using the `id`. For exampleconsole % pulumi import aws_emr_studio.studio es-123456ABCDEF
 type Studio struct {
 	pulumi.CustomResourceState
 
@@ -125,6 +124,7 @@ func NewStudio(ctx *pulumi.Context,
 	if args.WorkspaceSecurityGroupId == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceSecurityGroupId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Studio
 	err := ctx.RegisterResource("aws:emr/studio:Studio", name, args, &resource, opts...)
 	if err != nil {

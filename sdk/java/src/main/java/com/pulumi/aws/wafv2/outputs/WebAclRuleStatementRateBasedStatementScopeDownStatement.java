@@ -38,7 +38,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatement {
      */
     private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement geoMatchStatement;
     /**
-     * @return Rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+     * @return Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ip_set_reference_statement` below for details.
      * 
      */
     private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement ipSetReferenceStatement;
@@ -63,7 +63,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatement {
      */
     private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement regexMatchStatement;
     /**
-     * @return Rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+     * @return Rule statement used to search web request components for matches with regular expressions. See `regex_pattern_set_reference_statement` below for details.
      * 
      */
     private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatement regexPatternSetReferenceStatement;
@@ -106,7 +106,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatement {
         return Optional.ofNullable(this.geoMatchStatement);
     }
     /**
-     * @return Rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+     * @return Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ip_set_reference_statement` below for details.
      * 
      */
     public Optional<WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement> ipSetReferenceStatement() {
@@ -141,7 +141,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatement {
         return Optional.ofNullable(this.regexMatchStatement);
     }
     /**
-     * @return Rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+     * @return Rule statement used to search web request components for matches with regular expressions. See `regex_pattern_set_reference_statement` below for details.
      * 
      */
     public Optional<WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatement> regexPatternSetReferenceStatement() {

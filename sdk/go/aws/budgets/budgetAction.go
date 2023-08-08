@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,9 +23,9 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/budgets"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/budgets"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -131,13 +132,11 @@ import (
 //
 // ## Import
 //
-// Budgets can be imported using `AccountID:ActionID:BudgetName`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_budgets_budget_action.myBudget
 //
-//	$ pulumi import aws:budgets/budgetAction:BudgetAction myBudget 123456789012:some-id:myBudget`
-//
-// ```
+//	id = "123456789012:some-id:myBudget" } Using `pulumi import`, import budget actions using `AccountID:ActionID:BudgetName`. For exampleconsole % pulumi import aws_budgets_budget_action.myBudget 123456789012:some-id:myBudget
 type BudgetAction struct {
 	pulumi.CustomResourceState
 
@@ -198,6 +197,7 @@ func NewBudgetAction(ctx *pulumi.Context,
 	if args.Subscribers == nil {
 		return nil, errors.New("invalid value for required argument 'Subscribers'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BudgetAction
 	err := ctx.RegisterResource("aws:budgets/budgetAction:BudgetAction", name, args, &resource, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,7 +26,7 @@ import (
 //
 //	"os"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -60,7 +61,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -82,13 +83,11 @@ import (
 //
 // ## Import
 //
-// IAM Signing Certificates can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_iam_signing_certificate.certificate
 //
-//	$ pulumi import aws:iam/signingCertificate:SigningCertificate certificate IDIDIDIDID:user-name
-//
-// ```
+//	id = "IDIDIDIDID:user-name" } Using `pulumi import`, import IAM Signing Certificates using the `id`. For exampleconsole % pulumi import aws_iam_signing_certificate.certificate IDIDIDIDID:user-name
 type SigningCertificate struct {
 	pulumi.CustomResourceState
 
@@ -115,6 +114,7 @@ func NewSigningCertificate(ctx *pulumi.Context,
 	if args.UserName == nil {
 		return nil, errors.New("invalid value for required argument 'UserName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SigningCertificate
 	err := ctx.RegisterResource("aws:iam/signingCertificate:SigningCertificate", name, args, &resource, opts...)
 	if err != nil {

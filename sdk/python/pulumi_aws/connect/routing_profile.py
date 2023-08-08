@@ -141,7 +141,6 @@ class _RoutingProfileState:
                  media_concurrencies: Optional[pulumi.Input[Sequence[pulumi.Input['RoutingProfileMediaConcurrencyArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  queue_configs: Optional[pulumi.Input[Sequence[pulumi.Input['RoutingProfileQueueConfigArgs']]]] = None,
-                 queue_configs_associateds: Optional[pulumi.Input[Sequence[pulumi.Input['RoutingProfileQueueConfigsAssociatedArgs']]]] = None,
                  routing_profile_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -173,11 +172,6 @@ class _RoutingProfileState:
             pulumi.set(__self__, "name", name)
         if queue_configs is not None:
             pulumi.set(__self__, "queue_configs", queue_configs)
-        if queue_configs_associateds is not None:
-            warnings.warn("""Use the queue_configs instead""", DeprecationWarning)
-            pulumi.log.warn("""queue_configs_associateds is deprecated: Use the queue_configs instead""")
-        if queue_configs_associateds is not None:
-            pulumi.set(__self__, "queue_configs_associateds", queue_configs_associateds)
         if routing_profile_id is not None:
             pulumi.set(__self__, "routing_profile_id", routing_profile_id)
         if tags is not None:
@@ -270,18 +264,6 @@ class _RoutingProfileState:
         pulumi.set(self, "queue_configs", value)
 
     @property
-    @pulumi.getter(name="queueConfigsAssociateds")
-    def queue_configs_associateds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RoutingProfileQueueConfigsAssociatedArgs']]]]:
-        warnings.warn("""Use the queue_configs instead""", DeprecationWarning)
-        pulumi.log.warn("""queue_configs_associateds is deprecated: Use the queue_configs instead""")
-
-        return pulumi.get(self, "queue_configs_associateds")
-
-    @queue_configs_associateds.setter
-    def queue_configs_associateds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RoutingProfileQueueConfigsAssociatedArgs']]]]):
-        pulumi.set(self, "queue_configs_associateds", value)
-
-    @property
     @pulumi.getter(name="routingProfileId")
     def routing_profile_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -363,11 +345,11 @@ class RoutingProfile(pulumi.CustomResource):
 
         ## Import
 
-        Amazon Connect Routing Profiles can be imported using the `instance_id` and `routing_profile_id` separated by a colon (`:`), e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:connect/routingProfile:RoutingProfile example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
-        ```
+         to = aws_connect_routing_profile.example
+
+         id = "f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5" } Using `pulumi import`, import Amazon Connect Routing Profiles using the `instance_id` and `routing_profile_id` separated by a colon (`:`). For exampleconsole % pulumi import aws_connect_routing_profile.example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -417,11 +399,11 @@ class RoutingProfile(pulumi.CustomResource):
 
         ## Import
 
-        Amazon Connect Routing Profiles can be imported using the `instance_id` and `routing_profile_id` separated by a colon (`:`), e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:connect/routingProfile:RoutingProfile example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
-        ```
+         to = aws_connect_routing_profile.example
+
+         id = "f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5" } Using `pulumi import`, import Amazon Connect Routing Profiles using the `instance_id` and `routing_profile_id` separated by a colon (`:`). For exampleconsole % pulumi import aws_connect_routing_profile.example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
 
         :param str resource_name: The name of the resource.
         :param RoutingProfileArgs args: The arguments to use to populate this resource's properties.
@@ -470,7 +452,6 @@ class RoutingProfile(pulumi.CustomResource):
             __props__.__dict__["queue_configs"] = queue_configs
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
-            __props__.__dict__["queue_configs_associateds"] = None
             __props__.__dict__["routing_profile_id"] = None
             __props__.__dict__["tags_all"] = None
         super(RoutingProfile, __self__).__init__(
@@ -490,7 +471,6 @@ class RoutingProfile(pulumi.CustomResource):
             media_concurrencies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoutingProfileMediaConcurrencyArgs']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             queue_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoutingProfileQueueConfigArgs']]]]] = None,
-            queue_configs_associateds: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoutingProfileQueueConfigsAssociatedArgs']]]]] = None,
             routing_profile_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'RoutingProfile':
@@ -524,7 +504,6 @@ class RoutingProfile(pulumi.CustomResource):
         __props__.__dict__["media_concurrencies"] = media_concurrencies
         __props__.__dict__["name"] = name
         __props__.__dict__["queue_configs"] = queue_configs
-        __props__.__dict__["queue_configs_associateds"] = queue_configs_associateds
         __props__.__dict__["routing_profile_id"] = routing_profile_id
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -585,14 +564,6 @@ class RoutingProfile(pulumi.CustomResource):
         One or more `queue_configs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queue_configs` block is documented below.
         """
         return pulumi.get(self, "queue_configs")
-
-    @property
-    @pulumi.getter(name="queueConfigsAssociateds")
-    def queue_configs_associateds(self) -> pulumi.Output[Sequence['outputs.RoutingProfileQueueConfigsAssociated']]:
-        warnings.warn("""Use the queue_configs instead""", DeprecationWarning)
-        pulumi.log.warn("""queue_configs_associateds is deprecated: Use the queue_configs instead""")
-
-        return pulumi.get(self, "queue_configs_associateds")
 
     @property
     @pulumi.getter(name="routingProfileId")

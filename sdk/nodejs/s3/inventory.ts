@@ -62,11 +62,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * S3 bucket inventory configurations can be imported using `bucket:inventory`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:s3/inventory:Inventory my-bucket-entire-bucket my-bucket:EntireBucket
- * ```
+ *  to = aws_s3_bucket_inventory.my-bucket-entire-bucket
+ *
+ *  id = "my-bucket:EntireBucket" } Using `pulumi import`, import S3 bucket inventory configurations using `bucket:inventory`. For exampleconsole % pulumi import aws_s3_bucket_inventory.my-bucket-entire-bucket my-bucket:EntireBucket
  */
 export class Inventory extends pulumi.CustomResource {
     /**

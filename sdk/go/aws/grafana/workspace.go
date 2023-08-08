@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,8 +24,8 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/grafana"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/grafana"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -73,13 +74,11 @@ import (
 //
 // ## Import
 //
-// Grafana Workspace can be imported using the workspace's `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_grafana_workspace.example
 //
-//	$ pulumi import aws:grafana/workspace:Workspace example g-2054c75a02
-//
-// ```
+//	id = "g-2054c75a02" } Using `pulumi import`, import Grafana Workspace using the workspace's `id`. For exampleconsole % pulumi import aws_grafana_workspace.example g-2054c75a02
 type Workspace struct {
 	pulumi.CustomResourceState
 
@@ -97,7 +96,7 @@ type Workspace struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The endpoint of the Grafana workspace.
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
-	// Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`. Upgrading the workspace version isn't supported, however it's possible to copy content from the old version to the new one using AWS official [migration tool](https://github.com/aws-observability/amazon-managed-grafana-migrator).
+	// Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`.
 	GrafanaVersion pulumi.StringOutput `pulumi:"grafanaVersion"`
 	// The Grafana workspace name.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -142,6 +141,7 @@ func NewWorkspace(ctx *pulumi.Context,
 	if args.PermissionType == nil {
 		return nil, errors.New("invalid value for required argument 'PermissionType'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Workspace
 	err := ctx.RegisterResource("aws:grafana/workspace:Workspace", name, args, &resource, opts...)
 	if err != nil {
@@ -178,7 +178,7 @@ type workspaceState struct {
 	Description *string `pulumi:"description"`
 	// The endpoint of the Grafana workspace.
 	Endpoint *string `pulumi:"endpoint"`
-	// Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`. Upgrading the workspace version isn't supported, however it's possible to copy content from the old version to the new one using AWS official [migration tool](https://github.com/aws-observability/amazon-managed-grafana-migrator).
+	// Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`.
 	GrafanaVersion *string `pulumi:"grafanaVersion"`
 	// The Grafana workspace name.
 	Name *string `pulumi:"name"`
@@ -222,7 +222,7 @@ type WorkspaceState struct {
 	Description pulumi.StringPtrInput
 	// The endpoint of the Grafana workspace.
 	Endpoint pulumi.StringPtrInput
-	// Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`. Upgrading the workspace version isn't supported, however it's possible to copy content from the old version to the new one using AWS official [migration tool](https://github.com/aws-observability/amazon-managed-grafana-migrator).
+	// Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`.
 	GrafanaVersion pulumi.StringPtrInput
 	// The Grafana workspace name.
 	Name pulumi.StringPtrInput
@@ -266,7 +266,7 @@ type workspaceArgs struct {
 	DataSources []string `pulumi:"dataSources"`
 	// The workspace description.
 	Description *string `pulumi:"description"`
-	// Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`. Upgrading the workspace version isn't supported, however it's possible to copy content from the old version to the new one using AWS official [migration tool](https://github.com/aws-observability/amazon-managed-grafana-migrator).
+	// Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`.
 	GrafanaVersion *string `pulumi:"grafanaVersion"`
 	// The Grafana workspace name.
 	Name *string `pulumi:"name"`
@@ -304,7 +304,7 @@ type WorkspaceArgs struct {
 	DataSources pulumi.StringArrayInput
 	// The workspace description.
 	Description pulumi.StringPtrInput
-	// Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`. Upgrading the workspace version isn't supported, however it's possible to copy content from the old version to the new one using AWS official [migration tool](https://github.com/aws-observability/amazon-managed-grafana-migrator).
+	// Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`.
 	GrafanaVersion pulumi.StringPtrInput
 	// The Grafana workspace name.
 	Name pulumi.StringPtrInput
@@ -452,7 +452,7 @@ func (o WorkspaceOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
 }
 
-// Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`. Upgrading the workspace version isn't supported, however it's possible to copy content from the old version to the new one using AWS official [migration tool](https://github.com/aws-observability/amazon-managed-grafana-migrator).
+// Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`.
 func (o WorkspaceOutput) GrafanaVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.GrafanaVersion }).(pulumi.StringOutput)
 }

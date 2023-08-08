@@ -74,6 +74,38 @@ namespace Pulumi.Aws.Sfn
     /// 
     /// });
     /// ```
+    /// ### Publish (Publish SFN version)
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // ...
+    ///     var sfnStateMachine = new Aws.Sfn.StateMachine("sfnStateMachine", new()
+    ///     {
+    ///         RoleArn = aws_iam_role.Iam_for_sfn.Arn,
+    ///         Publish = true,
+    ///         Type = "EXPRESS",
+    ///         Definition = @$"{{
+    ///   ""Comment"": ""A Hello World example of the Amazon States Language using an AWS Lambda Function"",
+    ///   ""StartAt"": ""HelloWorld"",
+    ///   ""States"": {{
+    ///     ""HelloWorld"": {{
+    ///       ""Type"": ""Task"",
+    ///       ""Resource"": ""{aws_lambda_function.Lambda.Arn}"",
+    ///       ""End"": true
+    ///     }}
+    ///   }}
+    /// }}
+    /// ",
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ### Logging
     /// 
     /// &gt; *NOTE:* See the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html) for more information about enabling Step Function logging.
@@ -115,11 +147,11 @@ namespace Pulumi.Aws.Sfn
     /// 
     /// ## Import
     /// 
-    /// State Machines can be imported using the `arn`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:sfn/stateMachine:StateMachine foo arn:aws:states:eu-west-1:123456789098:stateMachine:bar
-    /// ```
+    ///  to = aws_sfn_state_machine.foo
+    /// 
+    ///  id = "arn:aws:states:eu-west-1:123456789098:stateMachine:bar" } Using `pulumi import`, import State Machines using the `arn`. For exampleconsole % pulumi import aws_sfn_state_machine.foo arn:aws:states:eu-west-1:123456789098:stateMachine:bar
     /// </summary>
     [AwsResourceType("aws:sfn/stateMachine:StateMachine")]
     public partial class StateMachine : global::Pulumi.CustomResource
@@ -142,6 +174,9 @@ namespace Pulumi.Aws.Sfn
         [Output("definition")]
         public Output<string> Definition { get; private set; } = null!;
 
+        [Output("description")]
+        public Output<string> Description { get; private set; } = null!;
+
         /// <summary>
         /// Defines what execution history events are logged and where they are logged. The `logging_configuration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
         /// </summary>
@@ -161,10 +196,22 @@ namespace Pulumi.Aws.Sfn
         public Output<string> NamePrefix { get; private set; } = null!;
 
         /// <summary>
+        /// Set to true to publish a version of the state machine during creation. Default: false.
+        /// </summary>
+        [Output("publish")]
+        public Output<bool?> Publish { get; private set; } = null!;
+
+        [Output("revisionId")]
+        public Output<string> RevisionId { get; private set; } = null!;
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
         /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
+
+        [Output("stateMachineVersionArn")]
+        public Output<string> StateMachineVersionArn { get; private set; } = null!;
 
         /// <summary>
         /// The current status of the state machine. Either `ACTIVE` or `DELETING`.
@@ -195,6 +242,9 @@ namespace Pulumi.Aws.Sfn
         /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
+
+        [Output("versionDescription")]
+        public Output<string> VersionDescription { get; private set; } = null!;
 
 
         /// <summary>
@@ -267,6 +317,12 @@ namespace Pulumi.Aws.Sfn
         public Input<string>? NamePrefix { get; set; }
 
         /// <summary>
+        /// Set to true to publish a version of the state machine during creation. Default: false.
+        /// </summary>
+        [Input("publish")]
+        public Input<bool>? Publish { get; set; }
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
         /// </summary>
         [Input("roleArn", required: true)]
@@ -322,6 +378,9 @@ namespace Pulumi.Aws.Sfn
         [Input("definition")]
         public Input<string>? Definition { get; set; }
 
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
         /// <summary>
         /// Defines what execution history events are logged and where they are logged. The `logging_configuration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
         /// </summary>
@@ -341,10 +400,22 @@ namespace Pulumi.Aws.Sfn
         public Input<string>? NamePrefix { get; set; }
 
         /// <summary>
+        /// Set to true to publish a version of the state machine during creation. Default: false.
+        /// </summary>
+        [Input("publish")]
+        public Input<bool>? Publish { get; set; }
+
+        [Input("revisionId")]
+        public Input<string>? RevisionId { get; set; }
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
+
+        [Input("stateMachineVersionArn")]
+        public Input<string>? StateMachineVersionArn { get; set; }
 
         /// <summary>
         /// The current status of the state machine. Either `ACTIVE` or `DELETING`.
@@ -387,6 +458,9 @@ namespace Pulumi.Aws.Sfn
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
+
+        [Input("versionDescription")]
+        public Input<string>? VersionDescription { get; set; }
 
         public StateMachineState()
         {

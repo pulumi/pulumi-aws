@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,8 +23,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cfg"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/organizations"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cfg"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/organizations"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -83,9 +84,9 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cfg"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/organizations"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cfg"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/organizations"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -144,13 +145,11 @@ import (
 //
 // ## Import
 //
-// Config Organization Conformance Packs can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_config_organization_conformance_pack.example
 //
-//	$ pulumi import aws:cfg/organizationConformancePack:OrganizationConformancePack example example
-//
-// ```
+//	id = "example" } Using `pulumi import`, import Config Organization Conformance Packs using the `name`. For exampleconsole % pulumi import aws_config_organization_conformance_pack.example example
 type OrganizationConformancePack struct {
 	pulumi.CustomResourceState
 
@@ -179,6 +178,7 @@ func NewOrganizationConformancePack(ctx *pulumi.Context,
 		args = &OrganizationConformancePackArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OrganizationConformancePack
 	err := ctx.RegisterResource("aws:cfg/organizationConformancePack:OrganizationConformancePack", name, args, &resource, opts...)
 	if err != nil {

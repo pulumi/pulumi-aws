@@ -97,11 +97,11 @@ namespace Pulumi.Aws.SesV2
     /// 
     /// ## Import
     /// 
-    /// SESv2 (Simple Email V2) Email Identity can be imported using the `email_identity`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:sesv2/emailIdentity:EmailIdentity example example.com
-    /// ```
+    ///  to = aws_sesv2_email_identity.example
+    /// 
+    ///  id = "example.com" } Using `pulumi import`, import SESv2 (Simple Email V2) Email Identity using the `email_identity`. For exampleconsole % pulumi import aws_sesv2_email_identity.example example.com
     /// </summary>
     [AwsResourceType("aws:sesv2/emailIdentity:EmailIdentity")]
     public partial class EmailIdentity : global::Pulumi.CustomResource
@@ -126,6 +126,8 @@ namespace Pulumi.Aws.SesV2
 
         /// <summary>
         /// The email address or domain to verify.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("emailIdentity")]
         public Output<string> EmailIdentityDetails { get; private set; } = null!;
@@ -137,11 +139,14 @@ namespace Pulumi.Aws.SesV2
         public Output<string> IdentityType { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional) A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -211,6 +216,8 @@ namespace Pulumi.Aws.SesV2
 
         /// <summary>
         /// The email address or domain to verify.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("emailIdentity", required: true)]
         public Input<string> EmailIdentityDetails { get; set; } = null!;
@@ -219,7 +226,7 @@ namespace Pulumi.Aws.SesV2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// (Optional) A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -255,6 +262,8 @@ namespace Pulumi.Aws.SesV2
 
         /// <summary>
         /// The email address or domain to verify.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("emailIdentity")]
         public Input<string>? EmailIdentityDetails { get; set; }
@@ -269,7 +278,7 @@ namespace Pulumi.Aws.SesV2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// (Optional) A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -279,6 +288,10 @@ namespace Pulumi.Aws.SesV2
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

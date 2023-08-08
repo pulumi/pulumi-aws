@@ -122,7 +122,7 @@ import javax.annotation.Nullable;
  *             .engine(&#34;postgres&#34;)
  *             .engineVersion(&#34;13.4&#34;)
  *             .instanceClass(&#34;db.t3.micro&#34;)
- *             .name(&#34;mydb&#34;)
+ *             .dbName(&#34;mydb&#34;)
  *             .username(&#34;masterusername&#34;)
  *             .password(&#34;mustbeeightcharacters&#34;)
  *             .backupRetentionPeriod(7)
@@ -133,14 +133,14 @@ import javax.annotation.Nullable;
  *         var defaultKey = new Key(&#34;defaultKey&#34;, KeyArgs.builder()        
  *             .description(&#34;Encryption key for automated backups&#34;)
  *             .build(), CustomResourceOptions.builder()
- *                 .provider(&#34;aws.replica&#34;)
+ *                 .provider(aws.replica())
  *                 .build());
  * 
  *         var defaultInstanceAutomatedBackupsReplication = new InstanceAutomatedBackupsReplication(&#34;defaultInstanceAutomatedBackupsReplication&#34;, InstanceAutomatedBackupsReplicationArgs.builder()        
  *             .sourceDbInstanceArn(defaultInstance.arn())
  *             .kmsKeyId(defaultKey.arn())
  *             .build(), CustomResourceOptions.builder()
- *                 .provider(&#34;aws.replica&#34;)
+ *                 .provider(aws.replica())
  *                 .build());
  * 
  *     }
@@ -149,11 +149,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * RDS instance automated backups replication can be imported using the `arn`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:rds/instanceAutomatedBackupsReplication:InstanceAutomatedBackupsReplication default arn:aws:rds:us-east-1:123456789012:auto-backup:ab-faaa2mgdj1vmp4xflr7yhsrmtbtob7ltrzzz2my
- * ```
+ *  to = aws_db_instance_automated_backups_replication.default
+ * 
+ *  id = &#34;arn:aws:rds:us-east-1:123456789012:auto-backup:ab-faaa2mgdj1vmp4xflr7yhsrmtbtob7ltrzzz2my&#34; } Using `pulumi import`, import RDS instance automated backups replication using the `arn`. For exampleconsole % pulumi import aws_db_instance_automated_backups_replication.default arn:aws:rds:us-east-1:123456789012:auto-backup:ab-faaa2mgdj1vmp4xflr7yhsrmtbtob7ltrzzz2my
  * 
  */
 @ResourceType(type="aws:rds/instanceAutomatedBackupsReplication:InstanceAutomatedBackupsReplication")

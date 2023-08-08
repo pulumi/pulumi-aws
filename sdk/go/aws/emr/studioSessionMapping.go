@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -44,13 +45,11 @@ import (
 //
 // ## Import
 //
-// EMR studio session mappings can be imported using the `id`, e.g., `studio-id:identity-type:identity-id`
+// terraform import {
 //
-// ```sh
+//	to = aws_emr_studio_session_mapping.example
 //
-//	$ pulumi import aws:emr/studioSessionMapping:StudioSessionMapping example es-xxxxx:USER:xxxxx-xxx-xxx
-//
-// ```
+//	id = "es-xxxxx:USER:xxxxx-xxx-xxx" } Using `pulumi import`, import EMR studio session mappings using `studio-id:identity-type:identity-id`. For exampleconsole % pulumi import aws_emr_studio_session_mapping.example es-xxxxx:USER:xxxxx-xxx-xxx
 type StudioSessionMapping struct {
 	pulumi.CustomResourceState
 
@@ -82,6 +81,7 @@ func NewStudioSessionMapping(ctx *pulumi.Context,
 	if args.StudioId == nil {
 		return nil, errors.New("invalid value for required argument 'StudioId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource StudioSessionMapping
 	err := ctx.RegisterResource("aws:emr/studioSessionMapping:StudioSessionMapping", name, args, &resource, opts...)
 	if err != nil {

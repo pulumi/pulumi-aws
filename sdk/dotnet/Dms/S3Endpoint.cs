@@ -119,11 +119,11 @@ namespace Pulumi.Aws.Dms
     /// 
     /// ## Import
     /// 
-    /// Endpoints can be imported using the `endpoint_id`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:dms/s3Endpoint:S3Endpoint example example-dms-endpoint-tf
-    /// ```
+    ///  to = aws_dms_s3_endpoint.example
+    /// 
+    ///  id = "example-dms-endpoint-tf" } Using `pulumi import`, import endpoints using the `endpoint_id`. For exampleconsole % pulumi import aws_dms_s3_endpoint.example example-dms-endpoint-tf
     /// </summary>
     [AwsResourceType("aws:dms/s3Endpoint:S3Endpoint")]
     public partial class S3Endpoint : global::Pulumi.CustomResource

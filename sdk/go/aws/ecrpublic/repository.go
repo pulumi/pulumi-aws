@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,8 +26,8 @@ import (
 //	"encoding/base64"
 //	"os"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecrpublic"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecrpublic"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -76,13 +77,11 @@ import (
 //
 // ## Import
 //
-// ECR Public Repositories can be imported using the `repository_name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_ecrpublic_repository.example
 //
-//	$ pulumi import aws:ecrpublic/repository:Repository example example
-//
-// ```
+//	id = "example" } Using `pulumi import`, import ECR Public Repositories using the `repository_name`. For exampleconsole % pulumi import aws_ecrpublic_repository.example example
 type Repository struct {
 	pulumi.CustomResourceState
 
@@ -113,6 +112,7 @@ func NewRepository(ctx *pulumi.Context,
 	if args.RepositoryName == nil {
 		return nil, errors.New("invalid value for required argument 'RepositoryName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Repository
 	err := ctx.RegisterResource("aws:ecrpublic/repository:Repository", name, args, &resource, opts...)
 	if err != nil {

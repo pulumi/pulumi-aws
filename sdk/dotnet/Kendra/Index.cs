@@ -80,8 +80,31 @@ namespace Pulumi.Aws.Kendra
     /// 
     /// });
     /// ```
+    /// ### With user group resolution configuration
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Kendra.Index("example", new()
+    ///     {
+    ///         RoleArn = aws_iam_role.This.Arn,
+    ///         UserGroupResolutionConfiguration = new Aws.Kendra.Inputs.IndexUserGroupResolutionConfigurationArgs
+    ///         {
+    ///             UserGroupResolutionMode = "AWS_SSO",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ### With Document Metadata Configuration Updates
     /// ### Specifying the predefined elements
+    /// 
+    /// Refer to [Amazon Kendra documentation on built-in document fields](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html#index-reserved-fields) for more information.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -279,6 +302,23 @@ namespace Pulumi.Aws.Kendra
     ///                     Facetable = false,
     ///                     Searchable = false,
     ///                     Sortable = false,
+    ///                 },
+    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                 {
+    ///                     Importance = 1,
+    ///                     ValuesImportanceMap = null,
+    ///                 },
+    ///             },
+    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             {
+    ///                 Name = "_tenant_id",
+    ///                 Type = "STRING_VALUE",
+    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 {
+    ///                     Displayable = false,
+    ///                     Facetable = false,
+    ///                     Searchable = false,
+    ///                     Sortable = true,
     ///                 },
     ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
     ///                 {
@@ -534,6 +574,23 @@ namespace Pulumi.Aws.Kendra
     ///             },
     ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
     ///             {
+    ///                 Name = "_tenant_id",
+    ///                 Type = "STRING_VALUE",
+    ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
+    ///                 {
+    ///                     Displayable = false,
+    ///                     Facetable = false,
+    ///                     Searchable = false,
+    ///                     Sortable = true,
+    ///                 },
+    ///                 Relevance = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs
+    ///                 {
+    ///                     Importance = 1,
+    ///                     ValuesImportanceMap = null,
+    ///                 },
+    ///             },
+    ///             new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateArgs
+    ///             {
     ///                 Name = "_version",
     ///                 Type = "STRING_VALUE",
     ///                 Search = new Aws.Kendra.Inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs
@@ -668,11 +725,11 @@ namespace Pulumi.Aws.Kendra
     /// 
     /// ## Import
     /// 
-    /// Amazon Kendra Indexes can be imported using its `id`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:kendra/index:Index example 12345678-1234-5678-9123-123456789123
-    /// ```
+    ///  to = aws_kendra_index.example
+    /// 
+    ///  id = "12345678-1234-5678-9123-123456789123" } Using `pulumi import`, import Amazon Kendra Indexes using its `id`. For exampleconsole % pulumi import aws_kendra_index.example 12345678-1234-5678-9123-123456789123
     /// </summary>
     [AwsResourceType("aws:kendra/index:Index")]
     public partial class Index : global::Pulumi.CustomResource

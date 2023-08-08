@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/amplify"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/amplify"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,13 +55,11 @@ import (
 //
 // ## Import
 //
-// Amplify webhook can be imported using a webhook ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_amplify_webhook.master
 //
-//	$ pulumi import aws:amplify/webhook:Webhook master a26b22a0-748b-4b57-b9a0-ae7e601fe4b1
-//
-// ```
+//	id = "a26b22a0-748b-4b57-b9a0-ae7e601fe4b1" } Using `pulumi import`, import Amplify webhook using a webhook ID. For exampleconsole % pulumi import aws_amplify_webhook.master a26b22a0-748b-4b57-b9a0-ae7e601fe4b1
 type Webhook struct {
 	pulumi.CustomResourceState
 
@@ -89,6 +88,7 @@ func NewWebhook(ctx *pulumi.Context,
 	if args.BranchName == nil {
 		return nil, errors.New("invalid value for required argument 'BranchName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Webhook
 	err := ctx.RegisterResource("aws:amplify/webhook:Webhook", name, args, &resource, opts...)
 	if err != nil {

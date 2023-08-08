@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -40,6 +41,7 @@ import (
 //
 // ```
 func LookupSamlProvider(ctx *pulumi.Context, args *LookupSamlProviderArgs, opts ...pulumi.InvokeOption) (*LookupSamlProviderResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSamlProviderResult
 	err := ctx.Invoke("aws:iam/getSamlProvider:getSamlProvider", args, &rv, opts...)
 	if err != nil {

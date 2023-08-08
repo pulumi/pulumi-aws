@@ -19,8 +19,7 @@ namespace Pulumi.Aws.Kendra.Inputs
         public Input<string>? TargetDocumentAttributeKey { get; set; }
 
         /// <summary>
-        /// The target value you want to create for the target attribute. For example, 'Finance' could be the target value for the target attribute key 'Department'.
-        /// See Document Attribute Value.
+        /// The target value you want to create for the target attribute. For example, 'Finance' could be the target value for the target attribute key 'Department'. See target_document_attribute_value.
         /// </summary>
         [Input("targetDocumentAttributeValue")]
         public Input<Inputs.DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueArgs>? TargetDocumentAttributeValue { get; set; }

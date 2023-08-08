@@ -175,11 +175,11 @@ class OutboundConnection(pulumi.CustomResource):
 
         ## Import
 
-        AWS Opensearch Outbound Connections can be imported by using the Outbound Connection ID, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:opensearch/outboundConnection:OutboundConnection foo connection-id
-        ```
+         to = aws_opensearch_outbound_connection.foo
+
+         id = "connection-id" } Using `pulumi import`, import AWS Opensearch Outbound Connections using the Outbound Connection ID. For exampleconsole % pulumi import aws_opensearch_outbound_connection.foo connection-id
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -221,11 +221,11 @@ class OutboundConnection(pulumi.CustomResource):
 
         ## Import
 
-        AWS Opensearch Outbound Connections can be imported by using the Outbound Connection ID, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:opensearch/outboundConnection:OutboundConnection foo connection-id
-        ```
+         to = aws_opensearch_outbound_connection.foo
+
+         id = "connection-id" } Using `pulumi import`, import AWS Opensearch Outbound Connections using the Outbound Connection ID. For exampleconsole % pulumi import aws_opensearch_outbound_connection.foo connection-id
 
         :param str resource_name: The name of the resource.
         :param OutboundConnectionArgs args: The arguments to use to populate this resource's properties.

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -44,7 +45,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -75,13 +76,11 @@ import (
 //
 // ## Import
 //
-// Glue Catalog Databases can be imported using the `catalog_id:name`. If you have not set a Catalog ID specify the AWS Account ID that the database is in, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_glue_catalog_database.database
 //
-//	$ pulumi import aws:glue/catalogDatabase:CatalogDatabase database 123456789012:my_database
-//
-// ```
+//	id = "123456789012:my_database" } Using `pulumi import`, import Glue Catalog Databases using the `catalog_id:name`. If you have not set a Catalog ID specify the AWS Account ID that the database is in. For exampleconsole % pulumi import aws_glue_catalog_database.database 123456789012:my_database
 type CatalogDatabase struct {
 	pulumi.CustomResourceState
 
@@ -114,6 +113,7 @@ func NewCatalogDatabase(ctx *pulumi.Context,
 		args = &CatalogDatabaseArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CatalogDatabase
 	err := ctx.RegisterResource("aws:glue/catalogDatabase:CatalogDatabase", name, args, &resource, opts...)
 	if err != nil {

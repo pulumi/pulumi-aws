@@ -211,11 +211,11 @@ class EventBusPolicy(pulumi.CustomResource):
 
         ## Import
 
-        EventBridge permissions can be imported using the `event_bus_name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:cloudwatch/eventBusPolicy:EventBusPolicy DevAccountAccess example-event-bus
-        ```
+         to = aws_cloudwatch_event_bus_policy.DevAccountAccess
+
+         id = "example-event-bus" } Using `pulumi import`, import an EventBridge policy using the `event_bus_name`. For exampleconsole % pulumi import aws_cloudwatch_event_bus_policy.DevAccountAccess example-event-bus
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -338,11 +338,11 @@ class EventBusPolicy(pulumi.CustomResource):
 
         ## Import
 
-        EventBridge permissions can be imported using the `event_bus_name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:cloudwatch/eventBusPolicy:EventBusPolicy DevAccountAccess example-event-bus
-        ```
+         to = aws_cloudwatch_event_bus_policy.DevAccountAccess
+
+         id = "example-event-bus" } Using `pulumi import`, import an EventBridge policy using the `event_bus_name`. For exampleconsole % pulumi import aws_cloudwatch_event_bus_policy.DevAccountAccess example-event-bus
 
         :param str resource_name: The name of the resource.
         :param EventBusPolicyArgs args: The arguments to use to populate this resource's properties.

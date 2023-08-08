@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +22,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codepipeline"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codestarconnections"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codepipeline"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codestarconnections"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -86,13 +87,11 @@ import (
 //
 // ## Import
 //
-// CodeStar connections can be imported using the ARN, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_codestarconnections_connection.test-connection
 //
-//	$ pulumi import aws:codestarconnections/connection:Connection test-connection arn:aws:codestar-connections:us-west-1:0123456789:connection/79d4d357-a2ee-41e4-b350-2fe39ae59448
-//
-// ```
+//	id = "arn:aws:codestar-connections:us-west-1:0123456789:connection/79d4d357-a2ee-41e4-b350-2fe39ae59448" } Using `pulumi import`, import CodeStar connections using the ARN. For exampleconsole % pulumi import aws_codestarconnections_connection.test-connection arn:aws:codestar-connections:us-west-1:0123456789:connection/79d4d357-a2ee-41e4-b350-2fe39ae59448
 type Connection struct {
 	pulumi.CustomResourceState
 
@@ -119,6 +118,7 @@ func NewConnection(ctx *pulumi.Context,
 		args = &ConnectionArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Connection
 	err := ctx.RegisterResource("aws:codestarconnections/connection:Connection", name, args, &resource, opts...)
 	if err != nil {

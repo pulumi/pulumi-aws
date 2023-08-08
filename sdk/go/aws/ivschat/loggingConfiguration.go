@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ivschat"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ivschat"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,10 +55,10 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ivschat"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kinesis"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ivschat"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kinesis"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -135,13 +136,11 @@ import (
 //
 // ## Import
 //
-// IVS (Interactive Video) Chat Logging Configuration can be imported using the ARN, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_ivschat_logging_configuration.example
 //
-//	$ pulumi import aws:ivschat/loggingConfiguration:LoggingConfiguration example arn:aws:ivschat:us-west-2:326937407773:logging-configuration/MMUQc8wcqZmC
-//
-// ```
+//	id = "arn:aws:ivschat:us-west-2:326937407773:logging-configuration/MMUQc8wcqZmC" } Using `pulumi import`, import IVS (Interactive Video) Chat Logging Configuration using the ARN. For exampleconsole % pulumi import aws_ivschat_logging_configuration.example arn:aws:ivschat:us-west-2:326937407773:logging-configuration/MMUQc8wcqZmC
 type LoggingConfiguration struct {
 	pulumi.CustomResourceState
 
@@ -166,6 +165,7 @@ func NewLoggingConfiguration(ctx *pulumi.Context,
 		args = &LoggingConfigurationArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LoggingConfiguration
 	err := ctx.RegisterResource("aws:ivschat/loggingConfiguration:LoggingConfiguration", name, args, &resource, opts...)
 	if err != nil {

@@ -17,14 +17,14 @@ public final class CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersCon
     public static final CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs Empty = new CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs();
 
     /**
-     * Determines whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`.
+     * Whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `header_behavior` are `none` and `whitelist`.
      * 
      */
     @Import(name="headerBehavior")
     private @Nullable Output<String> headerBehavior;
 
     /**
-     * @return Determines whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`.
+     * @return Whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `header_behavior` are `none` and `whitelist`.
      * 
      */
     public Optional<Output<String>> headerBehavior() {
@@ -32,14 +32,14 @@ public final class CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersCon
     }
 
     /**
-     * Object that contains a list of header names. See Items for more information.
+     * Object contains a list of header names. See Items for more information.
      * 
      */
     @Import(name="headers")
     private @Nullable Output<CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArgs> headers;
 
     /**
-     * @return Object that contains a list of header names. See Items for more information.
+     * @return Object contains a list of header names. See Items for more information.
      * 
      */
     public Optional<Output<CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArgs>> headers() {
@@ -72,7 +72,7 @@ public final class CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersCon
         }
 
         /**
-         * @param headerBehavior Determines whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`.
+         * @param headerBehavior Whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `header_behavior` are `none` and `whitelist`.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersCon
         }
 
         /**
-         * @param headerBehavior Determines whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`.
+         * @param headerBehavior Whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `header_behavior` are `none` and `whitelist`.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersCon
         }
 
         /**
-         * @param headers Object that contains a list of header names. See Items for more information.
+         * @param headers Object contains a list of header names. See Items for more information.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersCon
         }
 
         /**
-         * @param headers Object that contains a list of header names. See Items for more information.
+         * @param headers Object contains a list of header names. See Items for more information.
          * 
          * @return builder
          * 

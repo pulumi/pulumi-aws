@@ -522,7 +522,9 @@ import javax.annotation.Nullable;
  *                     .resources(exampleLogGroup.arn().applyValue(arn -&gt; String.format(&#34;%s:*&#34;, arn)))
  *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                         .type(&#34;Service&#34;)
- *                         .identifiers(&#34;events.amazonaws.com&#34;)
+ *                         .identifiers(                        
+ *                             &#34;events.amazonaws.com&#34;,
+ *                             &#34;delivery.logs.amazonaws.com&#34;)
  *                         .build())
  *                     .build(),
  *                 GetPolicyDocumentStatementArgs.builder()
@@ -531,7 +533,9 @@ import javax.annotation.Nullable;
  *                     .resources(exampleLogGroup.arn().applyValue(arn -&gt; String.format(&#34;%s:*:*&#34;, arn)))
  *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                         .type(&#34;Service&#34;)
- *                         .identifiers(&#34;events.amazonaws.com&#34;)
+ *                         .identifiers(                        
+ *                             &#34;events.amazonaws.com&#34;,
+ *                             &#34;delivery.logs.amazonaws.com&#34;)
  *                         .build())
  *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
  *                         .test(&#34;ArnEquals&#34;)
@@ -557,11 +561,13 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * EventBridge Targets can be imported using `event_bus_name/rule-name/target-id` (if you omit `event_bus_name`, the `default` event bus will be used).
+ *  terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:cloudwatch/eventTarget:EventTarget test-event-target rule-name/target-id
- * ```
+ *  to = aws_cloudwatch_event_target.test-event-target
+ * 
+ *  id = &#34;rule-name/target-id&#34; } Using `pulumi import`, import EventBridge Targets using `event_bus_name/rule-name/target-id` (if you omit `event_bus_name`, the `default` event bus will be used). For example:
+ * 
+ * console % pulumi import aws_cloudwatch_event_target.test-event-target rule-name/target-id
  * 
  */
 @ResourceType(type="aws:cloudwatch/eventTarget:EventTarget")

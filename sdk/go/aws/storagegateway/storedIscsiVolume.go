@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/storagegateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/storagegateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,7 +53,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/storagegateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/storagegateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -78,13 +79,11 @@ import (
 //
 // ## Import
 //
-// `aws_storagegateway_stored_iscsi_volume` can be imported by using the volume Amazon Resource Name (ARN), e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_storagegateway_stored_iscsi_volume.example
 //
-//	$ pulumi import aws:storagegateway/storedIscsiVolume:StoredIscsiVolume example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678
-//
-// ```
+//	id = "arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678" } Using `pulumi import`, import `aws_storagegateway_stored_iscsi_volume` using the volume Amazon Resource Name (ARN). For exampleconsole % pulumi import aws_storagegateway_stored_iscsi_volume.example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678
 type StoredIscsiVolume struct {
 	pulumi.CustomResourceState
 
@@ -152,6 +151,7 @@ func NewStoredIscsiVolume(ctx *pulumi.Context,
 	if args.TargetName == nil {
 		return nil, errors.New("invalid value for required argument 'TargetName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource StoredIscsiVolume
 	err := ctx.RegisterResource("aws:storagegateway/storedIscsiVolume:StoredIscsiVolume", name, args, &resource, opts...)
 	if err != nil {

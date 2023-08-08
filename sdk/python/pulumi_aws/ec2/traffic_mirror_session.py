@@ -367,11 +367,11 @@ class TrafficMirrorSession(pulumi.CustomResource):
 
         ## Import
 
-        Traffic mirror sessions can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ec2/trafficMirrorSession:TrafficMirrorSession session tms-0d8aa3ca35897b82e
-        ```
+         to = aws_ec2_traffic_mirror_session.session
+
+         id = "tms-0d8aa3ca35897b82e" } Using `pulumi import`, import traffic mirror sessions using the `id`. For exampleconsole % pulumi import aws_ec2_traffic_mirror_session.session tms-0d8aa3ca35897b82e
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -416,11 +416,11 @@ class TrafficMirrorSession(pulumi.CustomResource):
 
         ## Import
 
-        Traffic mirror sessions can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ec2/trafficMirrorSession:TrafficMirrorSession session tms-0d8aa3ca35897b82e
-        ```
+         to = aws_ec2_traffic_mirror_session.session
+
+         id = "tms-0d8aa3ca35897b82e" } Using `pulumi import`, import traffic mirror sessions using the `id`. For exampleconsole % pulumi import aws_ec2_traffic_mirror_session.session tms-0d8aa3ca35897b82e
 
         :param str resource_name: The name of the resource.
         :param TrafficMirrorSessionArgs args: The arguments to use to populate this resource's properties.

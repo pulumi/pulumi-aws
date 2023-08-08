@@ -110,11 +110,11 @@ class RegistryPolicy(pulumi.CustomResource):
 
         ## Import
 
-        ECR Registry Policy can be imported using the registry id, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ecr/registryPolicy:RegistryPolicy example 123456789012
-        ```
+         to = aws_ecr_registry_policy.example
+
+         id = "123456789012" } Using `pulumi import`, import ECR Registry Policy using the registry id. For exampleconsole % pulumi import aws_ecr_registry_policy.example 123456789012
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -155,11 +155,11 @@ class RegistryPolicy(pulumi.CustomResource):
 
         ## Import
 
-        ECR Registry Policy can be imported using the registry id, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ecr/registryPolicy:RegistryPolicy example 123456789012
-        ```
+         to = aws_ecr_registry_policy.example
+
+         id = "123456789012" } Using `pulumi import`, import ECR Registry Policy using the registry id. For exampleconsole % pulumi import aws_ecr_registry_policy.example 123456789012
 
         :param str resource_name: The name of the resource.
         :param RegistryPolicyArgs args: The arguments to use to populate this resource's properties.

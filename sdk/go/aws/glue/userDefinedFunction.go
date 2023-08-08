@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -57,13 +58,11 @@ import (
 //
 // ## Import
 //
-// Glue User Defined Functions can be imported using the `catalog_id:database_name:function_name`. If you have not set a Catalog ID specify the AWS Account ID that the database is in, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_glue_user_defined_function.func
 //
-//	$ pulumi import aws:glue/userDefinedFunction:UserDefinedFunction func 123456789012:my_database:my_func
-//
-// ```
+//	id = "123456789012:my_database:my_func" } Using `pulumi import`, import Glue User Defined Functions using the `catalog_id:database_name:function_name`. If you have not set a Catalog ID specify the AWS Account ID that the database is in. For exampleconsole % pulumi import aws_glue_user_defined_function.func 123456789012:my_database:my_func
 type UserDefinedFunction struct {
 	pulumi.CustomResourceState
 
@@ -106,6 +105,7 @@ func NewUserDefinedFunction(ctx *pulumi.Context,
 	if args.OwnerType == nil {
 		return nil, errors.New("invalid value for required argument 'OwnerType'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource UserDefinedFunction
 	err := ctx.RegisterResource("aws:glue/userDefinedFunction:UserDefinedFunction", name, args, &resource, opts...)
 	if err != nil {

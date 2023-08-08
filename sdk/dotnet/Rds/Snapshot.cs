@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Rds
     ///         Engine = "mysql",
     ///         EngineVersion = "5.6.21",
     ///         InstanceClass = "db.t2.micro",
-    ///         Name = "baz",
+    ///         DbName = "baz",
     ///         Password = "barbarbarbar",
     ///         Username = "foo",
     ///         MaintenanceWindow = "Fri:09:00-Fri:09:30",
@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Rds
     /// 
     ///     var test = new Aws.Rds.Snapshot("test", new()
     ///     {
-    ///         DbInstanceIdentifier = bar.Id,
+    ///         DbInstanceIdentifier = bar.Identifier,
     ///         DbSnapshotIdentifier = "testsnapshot1234",
     ///     });
     /// 
@@ -47,11 +47,11 @@ namespace Pulumi.Aws.Rds
     /// 
     /// ## Import
     /// 
-    /// `aws_db_snapshot` can be imported by using the snapshot identifier, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:rds/snapshot:Snapshot example my-snapshot
-    /// ```
+    ///  to = aws_db_snapshot.example
+    /// 
+    ///  id = "my-snapshot" } Using `pulumi import`, import `aws_db_snapshot` using the snapshot identifier. For exampleconsole % pulumi import aws_db_snapshot.example my-snapshot
     /// </summary>
     [AwsResourceType("aws:rds/snapshot:Snapshot")]
     public partial class Snapshot : global::Pulumi.CustomResource

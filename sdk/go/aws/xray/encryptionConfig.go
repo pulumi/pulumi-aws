@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/xray"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/xray"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -49,10 +50,10 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/xray"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/xray"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -111,13 +112,11 @@ import (
 //
 // ## Import
 //
-// XRay Encryption Config can be imported using the region name, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_xray_encryption_config.example
 //
-//	$ pulumi import aws:xray/encryptionConfig:EncryptionConfig example us-west-2
-//
-// ```
+//	id = "us-west-2" } Using `pulumi import`, import XRay Encryption Config using the region name. For exampleconsole % pulumi import aws_xray_encryption_config.example us-west-2
 type EncryptionConfig struct {
 	pulumi.CustomResourceState
 
@@ -137,6 +136,7 @@ func NewEncryptionConfig(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EncryptionConfig
 	err := ctx.RegisterResource("aws:xray/encryptionConfig:EncryptionConfig", name, args, &resource, opts...)
 	if err != nil {

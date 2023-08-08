@@ -16,6 +16,7 @@ package provider
 
 import (
 	"context"
+	_ "embed"
 	"fmt"
 	"os"
 	"path/filepath"
@@ -27,7 +28,9 @@ import (
 	awsbase "github.com/hashicorp/aws-sdk-go-base/v2"
 	awsShim "github.com/hashicorp/terraform-provider-aws/shim"
 	"github.com/mitchellh/go-homedir"
-	"github.com/pulumi/pulumi-aws/provider/v5/pkg/version"
+	"github.com/pulumi/pulumi-aws/provider/v6/pkg/version"
+
+	pftfbridge "github.com/pulumi/pulumi-terraform-bridge/pf/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/x"
 	shim "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim"
@@ -62,6 +65,7 @@ const (
 	appautoscalingMod           = "AppAutoScaling"           // Application Auto Scaling
 	appRunnerMod                = "AppRunner"                // AppRunner
 	athenaMod                   = "Athena"                   // Athena
+	auditmanagerMod             = "Auditmanager"             // Audit Manager
 	autoscalingMod              = "AutoScaling"              // Auto Scaling
 	autoscalingPlansMod         = "AutoScalingPlans"         // Auto Scaling Plans
 	backupMod                   = "Backup"                   // Backup
@@ -269,6 +273,7 @@ var moduleMap = map[string]string{
 	"budgets":                         budgetsMod,
 	"chime":                           chimeMod,
 	"chimesdkmediapipelines":          chimeSDKMediaPipelinesMod,
+	"cleanrooms":                      "CleanRooms",
 	"cloud9":                          cloud9Mod,
 	"cloudcontrolapi":                 cloudControlMod,
 	"cloudformation":                  cloudformationMod,
@@ -323,6 +328,7 @@ var moduleMap = map[string]string{
 	"emr":                             emrMod,
 	"emrcontainers":                   emrContainersMod,
 	"emrserverless":                   emrServerlessMod,
+	"finspace":                        "FinSpace",
 	"fis":                             fisMod,
 	"fms":                             fmsMod,
 	"fsx":                             fsxMod,
@@ -465,10 +471,7 @@ func awsResource(mod string, res string) tokens.Type {
 	return awsTypeDefaultFile(mod, res)
 }
 
-// boolRef returns a reference to the bool argument.
-func boolRef(b bool) *bool {
-	return &b
-}
+func ref[T any](value T) *T { return &value }
 
 // stringValue gets a string value from a property map if present, else ""
 func stringValue(vars resource.PropertyMap, prop resource.PropertyKey, envs []string) string {
@@ -521,10 +524,6 @@ func arrayValue(vars resource.PropertyMap, prop resource.PropertyKey, envs []str
 		}
 	}
 	return vals
-}
-
-func stringRef(s string) *string {
-	return &s
 }
 
 // preConfigureCallback validates that AWS credentials can be successfully discovered. This emulates the credentials
@@ -622,9 +621,16 @@ func preConfigureCallback(vars resource.PropertyMap, c shim.ResourceConfig) erro
 // managedByPulumi is a default used for some managed resources, in the absence of something more meaningful.
 var managedByPulumi = &tfbridge.DefaultInfo{Value: "Managed by Pulumi"}
 
+//go:embed cmd/pulumi-resource-aws/bridge-metadata.json
+var metadata []byte
+
 // Provider returns additional overlaid schema and metadata associated with the aws package.
-func Provider() tfbridge.ProviderInfo {
-	p := shimv2.NewProvider(awsShim.NewProvider())
+func Provider() *tfbridge.ProviderInfo {
+	ctx := context.Background()
+	upstreamProvider, err := awsShim.NewUpstreamProvider(ctx)
+	contract.AssertNoErrorf(err, "NewUpstreamProvider failed to initialized")
+
+	p := pftfbridge.MuxShimWithDisjointgPF(ctx, shimv2.NewProvider(upstreamProvider.SDKV2Provider, shimv2.WithDiffStrategy(shimv2.PlanState)), upstreamProvider.PluginFrameworkProvider)
 
 	prov := tfbridge.ProviderInfo{
 		P:           p,
@@ -636,6 +642,9 @@ func Provider() tfbridge.ProviderInfo {
 		Repository:  "https://github.com/pulumi/pulumi-aws",
 		Version:     version.Version,
 		GitHubOrg:   "hashicorp",
+
+		MetadataInfo: tfbridge.NewProviderMetadata(metadata),
+
 		Config: map[string]*tfbridge.SchemaInfo{
 			"region": {
 				Type: awsTypeDefaultFile(awsMod, "Region"),
@@ -755,77 +764,13 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_appsync_type":                        {Tok: awsResource(appsyncMod, "Type")},
 
 			// AppMesh
-			"aws_appmesh_mesh":  {Tok: awsResource(appmeshMod, "Mesh")},
-			"aws_appmesh_route": {Tok: awsResource(appmeshMod, "Route")},
-			"aws_appmesh_virtual_node": {
-				Tok: awsResource(appmeshMod, "VirtualNode"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"spec": {
-						Elem: &tfbridge.SchemaInfo{
-							Fields: map[string]*tfbridge.SchemaInfo{
-								"listener": {
-									MaxItemsOne: tfbridge.True(),
-									Name:        "listener",
-									Elem: &tfbridge.SchemaInfo{
-										Fields: map[string]*tfbridge.SchemaInfo{
-											"connection_pool": {
-												Elem: &tfbridge.SchemaInfo{
-													Fields: map[string]*tfbridge.SchemaInfo{
-														"http": {
-															MaxItemsOne: tfbridge.True(),
-															Name:        "http",
-														},
-														"http2": {
-															MaxItemsOne: tfbridge.True(),
-															Name:        "http2",
-														},
-														"tcp": {
-															MaxItemsOne: tfbridge.True(),
-															Name:        "tcp",
-														},
-													},
-												},
-											},
-										},
-									},
-								},
-							},
-						},
-					},
-				},
-			},
-			"aws_appmesh_virtual_router": {
-				Tok: awsResource(appmeshMod, "VirtualRouter"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"spec": {
-						Elem: &tfbridge.SchemaInfo{
-							Fields: map[string]*tfbridge.SchemaInfo{
-								"listener": {
-									MaxItemsOne: tfbridge.True(),
-									Name:        "listener",
-								},
-							},
-						},
-					},
-				},
-			},
+			"aws_appmesh_mesh":            {Tok: awsResource(appmeshMod, "Mesh")},
+			"aws_appmesh_route":           {Tok: awsResource(appmeshMod, "Route")},
+			"aws_appmesh_virtual_node":    {Tok: awsResource(appmeshMod, "VirtualNode")},
+			"aws_appmesh_virtual_router":  {Tok: awsResource(appmeshMod, "VirtualRouter")},
 			"aws_appmesh_virtual_service": {Tok: awsResource(appmeshMod, "VirtualService")},
 			"aws_appmesh_gateway_route":   {Tok: awsResource(appmeshMod, "GatewayRoute")},
-			"aws_appmesh_virtual_gateway": {
-				Tok: awsResource(appmeshMod, "VirtualGateway"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"spec": {
-						Elem: &tfbridge.SchemaInfo{
-							Fields: map[string]*tfbridge.SchemaInfo{
-								"listener": {
-									MaxItemsOne: tfbridge.True(),
-									Name:        "listener",
-								},
-							},
-						},
-					},
-				},
-			},
+			"aws_appmesh_virtual_gateway": {Tok: awsResource(appmeshMod, "VirtualGateway")},
 			// API Gateway
 			"aws_api_gateway_account": {Tok: awsResource(apigatewayMod, "Account")},
 			"aws_api_gateway_api_key": {
@@ -1121,25 +1066,10 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			// Batch
-			"aws_batch_compute_environment": {
-				Tok: awsResource(batchMod, "ComputeEnvironment"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					// Introduced in https://github.com/hashicorp/terraform-provider-aws/pull/27207/files
-					"compute_resources": {
-						Elem: &tfbridge.SchemaInfo{
-							Fields: map[string]*tfbridge.SchemaInfo{
-								"ec2_configuration": {
-									Name:        "ec2Configuration",
-									MaxItemsOne: tfbridge.True(),
-								},
-							},
-						},
-					},
-				},
-			},
-			"aws_batch_job_definition":    {Tok: awsResource(batchMod, "JobDefinition")},
-			"aws_batch_job_queue":         {Tok: awsResource(batchMod, "JobQueue")},
-			"aws_batch_scheduling_policy": {Tok: awsResource(batchMod, "SchedulingPolicy")},
+			"aws_batch_compute_environment": {Tok: awsResource(batchMod, "ComputeEnvironment")},
+			"aws_batch_job_definition":      {Tok: awsResource(batchMod, "JobDefinition")},
+			"aws_batch_job_queue":           {Tok: awsResource(batchMod, "JobQueue")},
+			"aws_batch_scheduling_policy":   {Tok: awsResource(batchMod, "SchedulingPolicy")},
 			// Budgets
 			"aws_budgets_budget": {
 				Tok: awsResource(budgetsMod, "Budget"),
@@ -1507,6 +1437,17 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_directory_service_radius_settings":           {Tok: awsResource(directoryserviceMod, "RadiusSettings")},
 			"aws_directory_service_region":                    {Tok: awsResource(directoryserviceMod, "ServiceRegion")},
 
+			"aws_directory_service_trust": {
+				Tok: awsResource(directoryserviceMod, "Trust"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"trust_state": {
+						// Without this rename, C# compilation fails as there is a TrustState
+						// class generated in the SDK that now conflicts with TrustState field.
+						CSharpName: "Truststate",
+					},
+				},
+			},
+
 			// Document DB
 			"aws_docdb_cluster":                 {Tok: awsResource(docdbMod, "Cluster")},
 			"aws_docdb_cluster_instance":        {Tok: awsResource(docdbMod, "ClusterInstance")},
@@ -1625,14 +1566,6 @@ func Provider() tfbridge.ProviderInfo {
 					"auto_minor_version_upgrade": {
 						Type: "boolean",
 					},
-				},
-			},
-			"aws_elasticache_security_group": {
-				Tok: awsResource(elasticacheMod, "SecurityGroup"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"description": {Default: managedByPulumi},
-					// // Use "ingress" instead of "ingresses" to match AWS APIs
-					// "ingress": {Name: "ingress"},
 				},
 			},
 			"aws_elasticache_subnet_group": {
@@ -1775,9 +1708,6 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"fleet_state": {
 						CSharpName: "State",
-					},
-					"launch_template_config": {
-						MaxItemsOne: tfbridge.True(),
 					},
 				},
 			},
@@ -1926,6 +1856,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ec2_transit_gateway_policy_table":                 {Tok: awsResource(ec2TransitGatewayMod, "PolicyTable")},
 			"aws_ec2_transit_gateway_policy_table_association":     {Tok: awsResource(ec2TransitGatewayMod, "PolicyTableAssociation")},
 			"aws_ec2_instance_state":                               {Tok: awsResource(ec2TransitGatewayMod, "InstanceState")},
+			"aws_ec2_instance_connect_endpoint":                    {Tok: awsResource(ec2TransitGatewayMod, "InstanceConnectEndpoint")},
 			// Elastic Container Registry
 			"aws_ecr_repository": {Tok: awsResource(ecrMod, "Repository")},
 			"aws_ecr_repository_policy": {
@@ -1985,7 +1916,7 @@ func Provider() tfbridge.ProviderInfo {
 						// Even though only one is currently supported, the AWS API is designed to support multiple, so
 						// force this to project as an array (and assign a plural name).
 						Name:        "loadBalancers",
-						MaxItemsOne: boolRef(false),
+						MaxItemsOne: ref(false),
 					},
 					"service_connect_configuration": {
 						Elem: &tfbridge.SchemaInfo{
@@ -2037,8 +1968,12 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_eks_cluster": {
 				Tok: awsResource(eksMod, "Cluster"),
 				Fields: map[string]*tfbridge.SchemaInfo{
+					// TODO: This will be set correctly in v5.8.0.
+					// After we upgrade, removing this will be a no-op
+					// and the stickiness will be enforced with
+					// [prov.MustApplyAutoAliasing].
 					"certificate_authority": {
-						MaxItemsOne: boolRef(true),
+						MaxItemsOne: ref(true),
 					},
 				},
 			},
@@ -2140,6 +2075,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_fsx_windows_file_system":           {Tok: awsResource(fsxMod, "WindowsFileSystem")},
 
 			// GameLift
+
 			"aws_gamelift_alias":                     {Tok: awsResource(gameliftMod, "Alias")},
 			"aws_gamelift_build":                     {Tok: awsResource(gameliftMod, "Build")},
 			"aws_gamelift_fleet":                     {Tok: awsResource(gameliftMod, "Fleet")},
@@ -2148,6 +2084,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_gamelift_script":                    {Tok: awsResource(gameliftMod, "Script")},
 			"aws_gamelift_matchmaking_configuration": {Tok: awsResource(gameliftMod, "MatchmakingConfiguration")},
 			"aws_gamelift_matchmaking_rule_set":      {Tok: awsResource(gameliftMod, "MatchmakingRuleSet")},
+
 			// Glacier
 			"aws_glacier_vault":      {Tok: awsResource(glacierMod, "Vault")},
 			"aws_glacier_vault_lock": {Tok: awsResource(glacierMod, "VaultLock")},
@@ -2467,17 +2404,30 @@ func Provider() tfbridge.ProviderInfo {
 						tfbridge.AutoNameOptions{
 							Separator: "_",
 						}),
-					"cloudwatch_alarm":  {Name: "cloudwatchAlarm", MaxItemsOne: boolRef(true)},
-					"cloudwatch_metric": {Name: "cloudwatchMetric", MaxItemsOne: boolRef(true)},
-					"dynamodb":          {Name: "dynamodb", MaxItemsOne: boolRef(true)},
-					"elasticsearch":     {Name: "elasticsearch", MaxItemsOne: boolRef(true)},
-					"firehose":          {Name: "firehose", MaxItemsOne: boolRef(true)},
-					"kinesis":           {Name: "kinesis", MaxItemsOne: boolRef(true)},
-					"lambda":            {Name: "lambda", MaxItemsOne: boolRef(true)},
-					"republish":         {Name: "republish", MaxItemsOne: boolRef(true)},
-					"s3":                {Name: "s3", MaxItemsOne: boolRef(true)},
-					"sns":               {Name: "sns", MaxItemsOne: boolRef(true)},
-					"sqs":               {Name: "sqs", MaxItemsOne: boolRef(true)},
+					"kinesis": {Elem: &tfbridge.SchemaInfo{
+						NestedType: "TopicRuleKinesis",
+					}},
+					"s3": {
+						// Fix pluralization: `s3s` is confusing, so we hardcode `s3`.
+						Name: "s3",
+						// To minimize the diff, we instruct the nested type to revert
+						// to it's prior name.
+						Elem: &tfbridge.SchemaInfo{NestedType: "TopicRuleS3"},
+					},
+					"sns": {
+
+						// Singularization converts `sns` to `sn`, which is wrong.
+						Elem: &tfbridge.SchemaInfo{NestedType: "TopicRuleSns"},
+					},
+					"sqs": {
+						// Singularization converts `sqs` to `sq`, which is wrong.
+						Elem: &tfbridge.SchemaInfo{NestedType: "TopicRuleSqs"},
+					},
+					"elasticsearch": {
+						// The service is called "ElasticSearch", so pluralizing it to
+						// "elasticsearches" doesn't really make sense.
+						Name: "elasticsearch",
+					},
 				},
 			},
 			"aws_iot_thing_group":            {Tok: awsResource(iotMod, "ThingGroup")},
@@ -2664,10 +2614,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_location_tracker_association": {Tok: awsResource(locationMod, "TrackerAssociation")},
 
 			// Macie
-			"aws_macie_member_account_association": {Tok: awsResource(macieMod, "MemberAccountAssociation")},
-			"aws_macie_s3_bucket_association":      {Tok: awsResource(macieMod, "S3BucketAssociation")},
-			"aws_macie2_custom_data_identifier":    {Tok: awsResource(macieMod, "CustomDataIdentifier")},
-			"aws_macie2_findings_filter":           {Tok: awsResource(macieMod, "FindingsFilter")},
+			"aws_macie2_custom_data_identifier": {Tok: awsResource(macieMod, "CustomDataIdentifier")},
+			"aws_macie2_findings_filter":        {Tok: awsResource(macieMod, "FindingsFilter")},
 			// Macie2
 			"aws_macie2_account":                             {Tok: awsResource(macie2Mod, "Account")},
 			"aws_macie2_classification_job":                  {Tok: awsResource(macie2Mod, "ClassificationJob")},
@@ -2913,14 +2861,6 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_db_instance_role_association": {
 				Tok: awsResource(rdsMod, "RoleAssociation"),
 			},
-			"aws_db_security_group": {
-				Tok: awsResource(rdsMod, "SecurityGroup"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"description": {Default: managedByPulumi},
-					// Use "ingress" instead of "ingresses" to match AWS APIs
-					"ingress": {Name: "ingress"},
-				},
-			},
 			"aws_db_snapshot": {Tok: awsResource(rdsMod, "Snapshot")},
 			"aws_db_subnet_group": {
 				Tok: awsResource(rdsMod, "SubnetGroup"),
@@ -2955,14 +2895,6 @@ func Provider() tfbridge.ProviderInfo {
 					"description": {
 						Default: managedByPulumi,
 					},
-				},
-			},
-			"aws_redshift_security_group": {
-				Tok: awsResource(redshiftMod, "SecurityGroup"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"description": {Default: managedByPulumi},
-					// Use "ingress" instead of "ingresses" to match AWS APIs
-					"ingress": {Name: "ingress"},
 				},
 			},
 			"aws_redshift_snapshot_copy_grant": {Tok: awsResource(redshiftMod, "SnapshotCopyGrant")},
@@ -3331,7 +3263,7 @@ func Provider() tfbridge.ProviderInfo {
 				},
 				Aliases: []tfbridge.AliasInfo{
 					{
-						Type: stringRef("aws:s3/bucket:Bucket"),
+						Type: ref("aws:s3/bucket:Bucket"),
 					},
 				},
 			},
@@ -3383,7 +3315,7 @@ func Provider() tfbridge.ProviderInfo {
 				},
 				Aliases: []tfbridge.AliasInfo{
 					{
-						Type: stringRef("aws:s3/BucketObject:BucketObject"),
+						Type: ref("aws:s3/BucketObject:BucketObject"),
 					},
 				},
 			},
@@ -3665,6 +3597,12 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_transfer_access":   {Tok: awsResource(transferMod, "Access")},
 			"aws_transfer_workflow": {Tok: awsResource(transferMod, "Workflow")},
 			"aws_transfer_tag":      {Tok: awsResource(transferMod, "Tag")},
+			"aws_transfer_certificate": {
+				Tok: awsResource(transferMod, "Certificate"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"certificate": {CSharpName: "CertificateFile"},
+				},
+			},
 			// TimestreamWrite
 			"aws_timestreamwrite_database": {Tok: awsResource(timestreamWriteMod, "Database")},
 			"aws_timestreamwrite_table":    {Tok: awsResource(timestreamWriteMod, "Table")},
@@ -3751,6 +3689,26 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: awsResource(quicksightMod, "Template"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// HACK: remove this field for now as it breaks dotnet codegen due to our current type naming strategy.
+					// https://github.com/pulumi/pulumi-terraform-bridge/issues/1118
+					"definition": {
+						Omit: true,
+					},
+				},
+			},
+			"aws_quicksight_analysis": {
+				Tok: awsResource(quicksightMod, "Analysis"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					// HACK: remove this field for now as it breaks dotnet and java codegen due to our current type naming strategy.
+					// https://github.com/pulumi/pulumi-terraform-bridge/issues/1118
+					"definition": {
+						Omit: true,
+					},
+				},
+			},
+			"aws_quicksight_dashboard": {
+				Tok: awsResource(quicksightMod, "Dashboard"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					// HACK: remove this field for now as it breaks dotnet and java codegen due to our current type naming strategy.
 					// https://github.com/pulumi/pulumi-terraform-bridge/issues/1118
 					"definition": {
 						Omit: true,
@@ -5936,6 +5894,20 @@ func Provider() tfbridge.ProviderInfo {
 			},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
+
+			"aws_auditmanager_control": {
+				Tok: awsDataSource(auditmanagerMod, "getControl"),
+			},
+			"aws_auditmanager_framework": {
+				Tok: awsDataSource(auditmanagerMod, "getFramework"),
+			},
+			"aws_vpc_security_group_rule": {
+				Tok: awsDataSource("Vpc", "getSecurityGroupRule"),
+			},
+			"aws_vpc_security_group_rules": {
+				Tok: awsDataSource("Vpc", "getSecurityGroupRules"),
+			},
+
 			// AWS
 			"aws_arn":                     {Tok: awsDataSource(awsMod, "getArn")},
 			"aws_availability_zone":       {Tok: awsDataSource(awsMod, "getAvailabilityZone")},
@@ -6054,12 +6026,12 @@ func Provider() tfbridge.ProviderInfo {
 					// Override default pluralization ("indices") to match AWS APIs
 					"global_secondary_index": {Name: "globalSecondaryIndexes"},
 					"local_secondary_index":  {Name: "localSecondaryIndexes"},
-					"ttl": {
-						MaxItemsOne: boolRef(true),
-					},
-					"point_in_time_recovery": {
-						MaxItemsOne: boolRef(true),
-					},
+					// These are one field per table in the AWS API,
+					// so we enforce that at the Pulumi API as
+					// well. See
+					// https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/time-to-live-ttl-how-to.html
+					"ttl":                    {MaxItemsOne: ref(true)},
+					"point_in_time_recovery": {MaxItemsOne: ref(true)},
 				},
 			},
 			"aws_dynamodb_table_item": {Tok: awsDataSource(dynamodbMod, "getTableItem")},
@@ -6070,7 +6042,12 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_dx_location":             {Tok: awsDataSource(dxMod, "getLocation")},
 			"aws_dx_locations":            {Tok: awsDataSource(dxMod, "getLocations")},
 			"aws_dx_router_configuration": {Tok: awsDataSource(dxMod, "getRouterConfiguration")},
+
 			// EC2
+			"aws_ami":                   {Tok: awsDataSource(ec2Mod, "getAmi")},
+			"aws_ami_ids":               {Tok: awsDataSource(ec2Mod, "getAmiIds")},
+			"aws_eip":                   {Tok: awsDataSource(ec2Mod, "getElasticIp")},
+			"aws_prefix_list":           {Tok: awsDataSource(ec2Mod, "getPrefixList")},
 			"aws_customer_gateway":      {Tok: awsDataSource(ec2Mod, "getCustomerGateway")},
 			"aws_instance":              {Tok: awsDataSource(ec2Mod, "getInstance")},
 			"aws_ec2_instance_type":     {Tok: awsDataSource(ec2Mod, "getInstanceType")},
@@ -6087,11 +6064,11 @@ func Provider() tfbridge.ProviderInfo {
 							Fields: map[string]*tfbridge.SchemaInfo{
 								"associate_public_ip_address": {
 									Type:           "boolean",
-									MarkAsOptional: boolRef(true),
+									MarkAsOptional: ref(true),
 								},
 								"delete_on_termination": {
 									Type:           "boolean",
-									MarkAsOptional: boolRef(true),
+									MarkAsOptional: ref(true),
 								},
 							},
 						},
@@ -6109,7 +6086,6 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_security_group":                      {Tok: awsDataSource(ec2Mod, "getSecurityGroup")},
 			"aws_security_groups":                     {Tok: awsDataSource(ec2Mod, "getSecurityGroups")},
 			"aws_subnet":                              {Tok: awsDataSource(ec2Mod, "getSubnet")},
-			"aws_subnet_ids":                          {Tok: awsDataSource(ec2Mod, "getSubnetIds")},
 			"aws_key_pair":                            {Tok: awsDataSource(ec2Mod, "getKeyPair")},
 			"aws_subnets":                             {Tok: awsDataSource(ec2Mod, "getSubnets")},
 			"aws_vpc":                                 {Tok: awsDataSource(ec2Mod, "getVpc")},
@@ -6176,11 +6152,28 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_elastic_beanstalk_application": {
 				Tok: awsDataSource(elasticbeanstalkMod, "getApplication"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"appversion_lifecycle": {
-						MaxItemsOne: boolRef(true),
-					},
+					// This attribute is flattened upstream, so we
+					// only show one item in the Pulumi
+					// API. https://github.com/hashicorp/terraform-provider-aws/blob/71ac1fa8dd1c0aea46877437921d7443edbe0aa7/internal/service/elasticbeanstalk/application_data_source.go#L73
+					"appversion_lifecycle": {MaxItemsOne: ref(true)},
 				},
 			},
+
+			// Elastic Load Balancer
+			"aws_elb_hosted_zone_id":  {Tok: awsDataSource(elbMod, "getHostedZoneId")},
+			"aws_elb_service_account": {Tok: awsDataSource(elbMod, "getServiceAccount")},
+			"aws_elb": {
+				Tok: awsDataSource(elbMod, "getLoadBalancer"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					// This attribute is flattened upstream:
+					// https://github.com/hashicorp/terraform-provider-aws/blob/c14a7fe82ab84aaa9db676c9ee4242e20fb33145/internal/service/elb/load_balancer_data_source.go#L302.
+					"access_logs": {MaxItemsOne: ref(true)},
+					// This attribute is flattened upstream:
+					// https://github.com/hashicorp/terraform-provider-aws/blob/c14a7fe82ab84aaa9db676c9ee4242e20fb33145/internal/service/elb/load_balancer_data_source.go#L327
+					"health_check": {MaxItemsOne: ref(true)},
+				},
+			},
+
 			// Elastic Block Storage
 			"aws_ebs_default_kms_key":       {Tok: awsDataSource(ebsMod, "getDefaultKmsKey")},
 			"aws_ebs_encryption_by_default": {Tok: awsDataSource(ebsMod, "getEncryptionByDefault")},
@@ -6213,9 +6206,12 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_efs_file_system": {
 				Tok: awsDataSource(efsMod, "getFileSystem"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"lifecycle_policy": {
-						MaxItemsOne: boolRef(true),
-					},
+					// Removing `MaxItems: 1`, Seems to be a hedge
+					// against the future, but does not become present
+					// in the TF API. See
+					// https://github.com/hashicorp/terraform-provider-aws/commit/362c03ec27e839a571de312060e87657d617038b
+					// for details.
+					"lifecycle_policy": {MaxItemsOne: ref(true)},
 				},
 			},
 			"aws_efs_mount_target":  {Tok: awsDataSource(efsMod, "getMountTarget")},
@@ -6225,9 +6221,10 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_eks_cluster": {
 				Tok: awsDataSource(eksMod, "getCluster"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"vpc_config": {
-						MaxItemsOne: boolRef(true),
-					},
+					// This attribute is flattened upstream. See
+					// https://github.com/hashicorp/terraform-provider-aws/blob/c14a7fe82ab84aaa9db676c9ee4242e20fb33145/internal/service/eks/cluster_data_source.go#L231
+					// for details.
+					"vpc_config": {MaxItemsOne: ref(true)},
 				},
 			},
 			"aws_eks_cluster_auth":  {Tok: awsDataSource(eksMod, "getClusterAuth")},
@@ -6270,18 +6267,18 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_lambda_function": {
 				Tok: awsDataSource(lambdaMod, "getFunction"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"dead_letter_config": {
-						MaxItemsOne: boolRef(true),
-					},
-					"vpc_config": {
-						MaxItemsOne: boolRef(true),
-					},
-					"environment": {
-						MaxItemsOne: boolRef(true),
-					},
-					"tracing_config": {
-						MaxItemsOne: boolRef(true),
-					},
+					// This item is flattened upstream. See
+					// https://github.com/hashicorp/terraform-provider-aws/blob/71ac1fa8dd1c0aea46877437921d7443edbe0aa7/internal/service/lambda/function_data_source.go#L263-L273
+					"dead_letter_config": {MaxItemsOne: ref(true)},
+					// This item is flattened upstream. See
+					// https://github.com/hashicorp/terraform-provider-aws/blob/71ac1fa8dd1c0aea46877437921d7443edbe0aa7/internal/service/lambda/function_data_source.go#L321-L323
+					"vpc_config": {MaxItemsOne: ref(true)},
+					// This item is flattened upstream. See
+					// https://github.com/hashicorp/terraform-provider-aws/blob/71ac1fa8dd1c0aea46877437921d7443edbe0aa7/internal/service/lambda/function_data_source.go#L275-L277
+					"environment": {MaxItemsOne: ref(true)},
+					// This item is flattened upstream. See
+					// https://github.com/hashicorp/terraform-provider-aws/blob/71ac1fa8dd1c0aea46877437921d7443edbe0aa7/internal/service/lambda/function_data_source.go#L313-L319
+					"tracing_config": {MaxItemsOne: ref(true)},
 				},
 			},
 			"aws_lambda_functions":           {Tok: awsDataSource(lambdaMod, "getFunctions")},
@@ -6302,14 +6299,15 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_mq_broker": {
 				Tok: awsDataSource(mqMod, "getBroker"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"configuration": {
-						MaxItemsOne: boolRef(true),
-					},
-					"maintenance_window_start_time": {
-						MaxItemsOne: boolRef(true),
-					},
+					// This attribute is flattened upstream. See
+					// https://github.com/hashicorp/terraform-provider-aws/blob/c14a7fe82ab84aaa9db676c9ee4242e20fb33145/internal/service/mq/broker_data_source.go#L315-L317
+					"configuration": {MaxItemsOne: ref(true)},
+					// This attribute is flattened upstream. See
+					// https://github.com/hashicorp/terraform-provider-aws/blob/c14a7fe82ab84aaa9db676c9ee4242e20fb33145/internal/service/mq/broker_data_source.go#L336-L338.
+					"maintenance_window_start_time": {MaxItemsOne: ref(true)},
+					// This attribute is flattened upstream.
 					"logs": {
-						MaxItemsOne: boolRef(true),
+						MaxItemsOne: ref(true),
 						Elem: &tfbridge.SchemaInfo{
 							Fields: map[string]*tfbridge.SchemaInfo{
 								"audit": {
@@ -6335,7 +6333,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_iam_session_context":         {Tok: awsDataSource(iamMod, "getSessionContext")},
 			"aws_iam_roles":                   {Tok: awsDataSource(iamMod, "getRoles")},
 			"aws_iam_user_ssh_key":            {Tok: awsDataSource(iamMod, "getUserSshKey")},
-			"aws_iam_openid_connect_provider": {Tok: awsDataSource(iamMod, "getOpenidConnectProvider")},
+			"aws_iam_openid_connect_provider": {Tok: awsDataSource(iamMod, "getOpenIdConnectProvider")},
 			"aws_iam_saml_provider":           {Tok: awsDataSource(iamMod, "getSamlProvider")},
 			"aws_iam_instance_profiles":       {Tok: awsDataSource(iamMod, "getInstanceProfiles")},
 			"aws_iam_access_keys":             {Tok: awsDataSource(iamMod, "getAccessKeys")},
@@ -6425,13 +6423,16 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_route53_resolver_query_log_config":                {Tok: awsDataSource(route53Mod, "getQueryLogConfig")},
 			"aws_route53_traffic_policy_document":                  {Tok: awsDataSource(route53Mod, "getTrafficPolicyDocument")},
 			// S3
-			"aws_s3_bucket":                      {Tok: awsDataSource(s3Mod, "getBucket")},
-			"aws_s3_bucket_object":               {Tok: awsDataSource(s3Mod, "getBucketObject")},
-			"aws_s3_bucket_objects":              {Tok: awsDataSource(s3Mod, "getBucketObjects")},
-			"aws_s3_bucket_policy":               {Tok: awsDataSource(s3Mod, "getBucketPolicy")},
-			"aws_s3_object":                      {Tok: awsDataSource(s3Mod, "getObject")},
-			"aws_s3_objects":                     {Tok: awsDataSource(s3Mod, "getObjects")},
-			"aws_s3_account_public_access_block": {Tok: awsDataSource(s3Mod, "getAccountPublicAccessBlock")},
+			"aws_canonical_user_id": {Tok: awsDataSource(s3Mod, "getCanonicalUserId")},
+			"aws_s3_account_public_access_block": {
+				Tok: awsDataSource(s3Mod, "getAccountPublicAccessBlock")},
+			"aws_s3_bucket":         {Tok: awsDataSource(s3Mod, "getBucket")},
+			"aws_s3_bucket_object":  {Tok: awsDataSource(s3Mod, "getBucketObject")},
+			"aws_s3_bucket_objects": {Tok: awsDataSource(s3Mod, "getBucketObjects")},
+			"aws_s3_bucket_policy":  {Tok: awsDataSource(s3Mod, "getBucketPolicy")},
+			"aws_s3_object":         {Tok: awsDataSource(s3Mod, "getObject")},
+			"aws_s3_objects":        {Tok: awsDataSource(s3Mod, "getObjects")},
+
 			// S3Control
 			"aws_s3control_multi_region_access_point": {Tok: awsDataSource(s3ControlMod, "getMultiRegionAccessPoint")},
 			// Secrets Manager
@@ -6495,8 +6496,15 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_wafregional_rate_based_rule":       {Tok: awsDataSource(wafregionalMod, "getRateBasedMod")},
 			"aws_wafregional_subscribed_rule_group": {Tok: awsDataSource(wafregionalMod, "getSubscribedRuleGroup")},
 			// Organizations
-			"aws_organizations_organization":                            {Tok: awsDataSource(organizationsMod, "getOrganization")},
-			"aws_organizations_organizational_units":                    {Tok: awsDataSource(organizationsMod, "getOrganizationalUnits")},
+			"aws_organizations_organization": {Tok: awsDataSource(organizationsMod, "getOrganization")},
+			"aws_organizations_organizational_units": {
+				Tok: awsDataSource(organizationsMod, "getOrganizationalUnits"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					// The inflector incorrectly pluralizes this to
+					// "childrens".
+					"children": {Name: "children"},
+				},
+			},
 			"aws_organizations_organizational_unit_child_accounts":      {Tok: awsDataSource(organizationsMod, "getOrganizationalUnitChildAccounts")},
 			"aws_organizations_organizational_unit_descendant_accounts": {Tok: awsDataSource(organizationsMod, "getOrganizationalUnitDescendantAccounts")},
 			"aws_organizations_delegated_services":                      {Tok: awsDataSource(organizationsMod, "getDelegatedServices")},
@@ -6525,6 +6533,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_cloudfront_origin_access_identity":   {Tok: awsDataSource(cloudfrontMod, "getOriginAccessIdentity")},
 			"aws_cloudfront_realtime_log_config":      {Tok: awsDataSource(cloudfrontMod, "getRealtimeLogConfig")},
 			"aws_cloudfront_origin_access_identities": {Tok: awsDataSource(cloudfrontMod, "getOriginAccessIdentities")},
+			"aws_cloudfront_function":                 {Tok: awsDataSource(cloudfrontMod, "getFunction")},
 
 			// Backup
 			"aws_backup_plan":        {Tok: awsDataSource(backupMod, "getPlan")},
@@ -6626,6 +6635,32 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_apigatewayv2_api":  {Tok: awsDataSource(apigatewayv2Mod, "getApi")},
 			"aws_apigatewayv2_apis": {Tok: awsDataSource(apigatewayv2Mod, "getApis")},
 
+			// ALB
+			"aws_alb": {
+				Tok:  awsDataSource(albMod, "getLoadBalancer"),
+				Docs: &tfbridge.DocInfo{Source: "lb.html.markdown"},
+				Fields: map[string]*tfbridge.SchemaInfo{
+					// This attribute is flattened upstream. See
+					// https://github.com/hashicorp/terraform-provider-aws/blob/c14a7fe82ab84aaa9db676c9ee4242e20fb33145/internal/service/elbv2/load_balancer_data_source.go#L319
+					"access_logs": {MaxItemsOne: ref(true)},
+				},
+			},
+			"aws_alb_listener": {
+				Tok:  awsDataSource(albMod, "getListener"),
+				Docs: &tfbridge.DocInfo{Source: "lb_listener.html.markdown"},
+			},
+			"aws_alb_target_group": {
+				Tok:  awsDataSource(albMod, "getTargetGroup"),
+				Docs: &tfbridge.DocInfo{Source: "lb_target_group.html.markdown"},
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"health_check": {MaxItemsOne: ref(true)},
+					"stickiness":   {MaxItemsOne: ref(true)},
+				},
+			},
+
+			// Autoscaling
+			"aws_autoscaling_groups": {Tok: awsDataSource(autoscalingMod, "getAmiIds")},
+
 			// codestar connections
 			"aws_codestarconnections_connection": {Tok: awsDataSource(codestarConnectionsMod, "getConnection")},
 
@@ -6642,6 +6677,25 @@ func Provider() tfbridge.ProviderInfo {
 			// lb mod
 			"aws_lb_hosted_zone_id": {Tok: awsDataSource(lbMod, "getHostedZoneId")},
 			"aws_lbs":               {Tok: awsDataSource(lbMod, "getLbs")},
+			"aws_lb": {
+				Tok: awsDataSource(lbMod, "getLoadBalancer"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"access_logs": {
+						MaxItemsOne: ref(true),
+					},
+				},
+			},
+			"aws_lb_listener": {Tok: awsDataSource(lbMod, "getListener")},
+			"aws_lb_target_group": {Tok: awsDataSource(lbMod, "getTargetGroup"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"stickiness": {
+						MaxItemsOne: ref(true),
+					},
+					"health_check": {
+						MaxItemsOne: ref(true),
+					},
+				},
+			},
 
 			// SES v2
 			"aws_sesv2_dedicated_ip_pool": {Tok: awsDataSource(sesV2Mod, "getDedicatedIpPool")},
@@ -6665,7 +6719,6 @@ func Provider() tfbridge.ProviderInfo {
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{
 				"@pulumi/pulumi":    "^3.0.0",
-				"aws-sdk":           "^2.0.0",
 				"mime":              "^2.0.0",
 				"builtin-modules":   "3.0.0",
 				"read-package-tree": "^5.2.1",
@@ -6680,8 +6733,7 @@ func Provider() tfbridge.ProviderInfo {
 					"arn.ts",    // ARN typedef
 					"region.ts", // Region constants
 					"tags.ts",   // Tags typedef (currently unused but left for compatibility)
-					"utils.ts",  // Helpers,
-					"awsMixins.ts",
+					"utils.ts",  // Helpers
 				},
 				Modules: map[string]*tfbridge.OverlayInfo{
 					"autoscaling": {
@@ -6776,11 +6828,6 @@ func Provider() tfbridge.ProviderInfo {
 							"s3Mixins.ts",
 						},
 					},
-					"serverless": {
-						DestFiles: []string{
-							"function.ts",
-						},
-					},
 					"sns": {
 						DestFiles: []string{
 							"snsMixins.ts",
@@ -6822,63 +6869,70 @@ func Provider() tfbridge.ProviderInfo {
 		},
 	}
 
+	rAlias := func(token string, prev, current tokens.Type, info *tfbridge.ResourceInfo) {
+		_, ok := prov.Resources[token]
+		contract.Assertf(!ok, "We don't alias an existing resource")
+		if info == nil {
+			info = new(tfbridge.ResourceInfo)
+		}
+		info.Tok = current
+		info.Aliases = append(info.Aliases, tfbridge.AliasInfo{Type: ref(string(prev))})
+		prov.Resources[token] = info
+	}
+
 	// Fix the spelling mistake on `aws_ses_configuration_set` Tok
-	prov.RenameResourceWithAlias("aws_ses_configuration_set",
-		awsResource(sesMod, "ConfgurationSet"), awsResource(sesMod, "ConfigurationSet"), sesMod, sesMod, nil)
+	rAlias("aws_ses_configuration_set",
+		awsResource(sesMod, "ConfgurationSet"), awsResource(sesMod, "ConfigurationSet"),
+		nil)
 
 	// Define the tf `elb` resources.  For legacy compat we also export them from the `elasticloadbalancing` module
 	// not just the `elb` module.
-	prov.RenameResourceWithAlias("aws_app_cookie_stickiness_policy",
-		awsResource(legacyElbMod, "AppCookieStickinessPolicy"), awsResource(elbMod, "AppCookieStickinessPolicy"),
-		legacyElbMod, elbMod, nil)
-	prov.RenameResourceWithAlias("aws_elb",
+	rAlias("aws_app_cookie_stickiness_policy",
+		awsResource(legacyElbMod, "AppCookieStickinessPolicy"),
+		awsResource(elbMod, "AppCookieStickinessPolicy"),
+		nil)
+	rAlias("aws_elb",
 		awsResource(legacyElbMod, "LoadBalancer"), awsResource(elbMod, "LoadBalancer"),
-		legacyElbMod, elbMod, nil)
-	prov.RenameResourceWithAlias("aws_elb_attachment",
+		nil)
+	rAlias("aws_elb_attachment",
 		awsResource(legacyElbMod, "Attachment"), awsResource(elbMod, "Attachment"),
-		legacyElbMod, elbMod, nil)
-	prov.RenameResourceWithAlias("aws_lb_cookie_stickiness_policy",
+		nil)
+	rAlias("aws_lb_cookie_stickiness_policy",
 		awsResource(legacyElbMod, "LoadBalancerCookieStickinessPolicy"),
-		awsResource(elbMod, "LoadBalancerCookieStickinessPolicy"), legacyElbMod, elbMod, nil)
-	prov.RenameResourceWithAlias("aws_load_balancer_policy",
+		awsResource(elbMod, "LoadBalancerCookieStickinessPolicy"),
+		nil)
+	rAlias("aws_load_balancer_policy",
 		awsResource(legacyElbMod, "LoadBalancerPolicy"), awsResource(elbMod, "LoadBalancerPolicy"),
-		legacyElbMod, elbMod, nil)
-	prov.RenameResourceWithAlias("aws_load_balancer_listener_policy",
-		awsResource(legacyElbMod, "ListenerPolicy"), awsResource(elbMod, "ListenerPolicy"), legacyElbMod, elbMod, nil)
-	prov.RenameResourceWithAlias("aws_lb_ssl_negotiation_policy",
+		nil)
+	rAlias("aws_load_balancer_listener_policy",
+		awsResource(legacyElbMod, "ListenerPolicy"), awsResource(elbMod, "ListenerPolicy"),
+		nil)
+	rAlias("aws_lb_ssl_negotiation_policy",
 		awsResource(legacyElbMod, "SslNegotiationPolicy"), awsResource(elbMod, "SslNegotiationPolicy"),
-		legacyElbMod, elbMod, nil)
-	prov.RenameResourceWithAlias("aws_load_balancer_backend_server_policy",
+		nil)
+	rAlias("aws_load_balancer_backend_server_policy",
 		awsResource(legacyElbMod, "LoadBalancerBackendServerPolicy"),
-		awsResource(elbMod, "LoadBalancerBackendServerPolicy"), legacyElbMod, elbMod, nil)
-	prov.RenameDataSource("aws_elb_hosted_zone_id", awsDataSource(legacyElbMod, "getHostedZoneId"),
-		awsDataSource(elbMod, "getHostedZoneId"), legacyElbMod, elbMod, nil)
-	prov.RenameDataSource("aws_elb_service_account", awsDataSource(legacyElbMod, "getServiceAccount"),
-		awsDataSource(elbMod, "getServiceAccount"), legacyElbMod, elbMod, nil)
-	prov.RenameDataSource("aws_elb", awsDataSource(legacyElbMod, "getLoadBalancer"),
-		awsDataSource(elbMod, "getLoadBalancer"), legacyElbMod, elbMod, &tfbridge.DataSourceInfo{
-			Fields: map[string]*tfbridge.SchemaInfo{
-				"access_logs": {
-					MaxItemsOne: boolRef(true),
-				},
-				"health_check": {
-					MaxItemsOne: boolRef(true),
-				},
-			},
-		})
+		awsResource(elbMod, "LoadBalancerBackendServerPolicy"),
+		nil)
 
 	// Define the tf `lb` resources.  For legacy compat we also export them from the
 	// `elasticloadbalancingv2` module not just the `lb` module.
-	prov.RenameResourceWithAlias("aws_lb", awsResource(legacyElbv2Mod, "LoadBalancer"),
-		awsResource(lbMod, "LoadBalancer"), legacyElbv2Mod, lbMod, nil)
-	prov.RenameResourceWithAlias("aws_lb_listener", awsResource(legacyElbv2Mod, "Listener"),
-		awsResource(lbMod, "Listener"), legacyElbv2Mod, lbMod, nil)
-	prov.RenameResourceWithAlias("aws_lb_listener_certificate", awsResource(legacyElbv2Mod, "ListenerCertificate"),
-		awsResource(lbMod, "ListenerCertificate"), legacyElbv2Mod, lbMod, nil)
-	prov.RenameResourceWithAlias("aws_lb_listener_rule", awsResource(legacyElbv2Mod, "ListenerRule"),
-		awsResource(lbMod, "ListenerRule"), legacyElbv2Mod, lbMod, nil)
-	prov.RenameResourceWithAlias("aws_lb_target_group", awsResource(legacyElbv2Mod, "TargetGroup"),
-		awsResource(lbMod, "TargetGroup"), legacyElbv2Mod, lbMod, &tfbridge.ResourceInfo{
+	rAlias("aws_lb",
+		awsResource(legacyElbv2Mod, "LoadBalancer"), awsResource(lbMod, "LoadBalancer"),
+		nil)
+	rAlias("aws_lb_listener",
+		awsResource(legacyElbv2Mod, "Listener"), awsResource(lbMod, "Listener"),
+		nil)
+	rAlias("aws_lb_listener_certificate",
+		awsResource(legacyElbv2Mod, "ListenerCertificate"), awsResource(lbMod, "ListenerCertificate"),
+		nil)
+	rAlias("aws_lb_listener_rule",
+		awsResource(legacyElbv2Mod, "ListenerRule"), awsResource(lbMod, "ListenerRule"),
+		nil)
+	rAlias("aws_lb_target_group",
+		awsResource(legacyElbv2Mod, "TargetGroup"),
+		awsResource(lbMod, "TargetGroup"),
+		&tfbridge.ResourceInfo{
 			Fields: map[string]*tfbridge.SchemaInfo{
 				// https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html
 				"name": tfbridge.AutoName("name", 32, "-"),
@@ -6887,63 +6941,40 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 		})
-	prov.RenameResourceWithAlias("aws_lb_target_group_attachment",
+	rAlias("aws_lb_target_group_attachment",
 		awsResource(legacyElbv2Mod, "TargetGroupAttachment"), awsResource(lbMod, "TargetGroupAttachment"),
-		legacyElbv2Mod, lbMod, nil)
-	prov.RenameDataSource("aws_lb", awsDataSource(legacyElbv2Mod, "getLoadBalancer"),
-		awsDataSource(lbMod, "getLoadBalancer"), legacyElbv2Mod, lbMod, &tfbridge.DataSourceInfo{
-			Fields: map[string]*tfbridge.SchemaInfo{
-				"access_logs": {
-					MaxItemsOne: boolRef(true),
-				},
-			},
-		})
-	prov.RenameDataSource("aws_lb_listener", awsDataSource(legacyElbv2Mod, "getListener"),
-		awsDataSource(lbMod, "getListener"), legacyElbv2Mod, lbMod, nil)
-	prov.RenameDataSource("aws_lb_target_group", awsDataSource(legacyElbv2Mod, "getTargetGroup"),
-		awsDataSource(lbMod, "getTargetGroup"), legacyElbv2Mod, lbMod, &tfbridge.DataSourceInfo{
-			Fields: map[string]*tfbridge.SchemaInfo{
-				"stickiness": {
-					MaxItemsOne: boolRef(true),
-				},
-				"health_check": {
-					MaxItemsOne: boolRef(true),
-				},
-			},
-		})
-
-	prov.RenameDataSource("aws_cloudfront_function", awsDataSource(cloudtrailMod, "getFunction"),
-		awsDataSource(cloudfrontMod, "getFunction"), cloudtrailMod, cloudfrontMod, nil)
+		nil)
 
 	// Ec2 Transit Gateway
-	prov.RenameResourceWithAlias("aws_ec2_transit_gateway_peering_attachment_accepter",
+	rAlias("aws_ec2_transit_gateway_peering_attachment_accepter",
 		awsResource(ec2Mod, "TransitGatewayPeeringAttachmentAccepter"),
-		awsResource(ec2TransitGatewayMod, "PeeringAttachmentAccepter"), ec2Mod, ec2TransitGatewayMod, nil)
+		awsResource(ec2TransitGatewayMod, "PeeringAttachmentAccepter"),
+		nil)
 
 	// Define the tf `alb` resources.  For legacy compat we also export them from the `applicationloadbalancing` module
 	// not just the `alb` module.
-	prov.RenameResourceWithAlias("aws_alb", awsResource(legacyAlbMod, "LoadBalancer"),
-		awsResource(albMod, "LoadBalancer"), legacyAlbMod, albMod, &tfbridge.ResourceInfo{
+	rAlias("aws_alb", awsResource(legacyAlbMod, "LoadBalancer"),
+		awsResource(albMod, "LoadBalancer"), &tfbridge.ResourceInfo{
 			Fields: map[string]*tfbridge.SchemaInfo{
 				"load_balancer_type": {Type: awsResource(albMod, "LoadBalancerType")},
 				"ip_address_type":    {Type: awsResource(albMod, "IpAddressType")},
 			},
 			Docs: &tfbridge.DocInfo{Source: "lb.html.markdown"},
 		})
-	prov.RenameResourceWithAlias("aws_alb_listener", awsResource(legacyAlbMod, "Listener"),
-		awsResource(albMod, "Listener"), legacyAlbMod, albMod, &tfbridge.ResourceInfo{
+	rAlias("aws_alb_listener", awsResource(legacyAlbMod, "Listener"),
+		awsResource(albMod, "Listener"), &tfbridge.ResourceInfo{
 			Docs: &tfbridge.DocInfo{Source: "lb_listener.html.markdown"},
 		})
-	prov.RenameResourceWithAlias("aws_alb_listener_certificate", awsResource(legacyAlbMod, "ListenerCertificate"),
-		awsResource(albMod, "ListenerCertificate"), legacyAlbMod, albMod, &tfbridge.ResourceInfo{
+	rAlias("aws_alb_listener_certificate", awsResource(legacyAlbMod, "ListenerCertificate"),
+		awsResource(albMod, "ListenerCertificate"), &tfbridge.ResourceInfo{
 			Docs: &tfbridge.DocInfo{Source: "lb_listener_certificate.html.markdown"},
 		})
-	prov.RenameResourceWithAlias("aws_alb_listener_rule", awsResource(legacyAlbMod, "ListenerRule"),
-		awsResource(albMod, "ListenerRule"), legacyAlbMod, albMod, &tfbridge.ResourceInfo{
+	rAlias("aws_alb_listener_rule", awsResource(legacyAlbMod, "ListenerRule"),
+		awsResource(albMod, "ListenerRule"), &tfbridge.ResourceInfo{
 			Docs: &tfbridge.DocInfo{Source: "lb_listener_rule.html.markdown"},
 		})
-	prov.RenameResourceWithAlias("aws_alb_target_group", awsResource(legacyAlbMod, "TargetGroup"),
-		awsResource(albMod, "TargetGroup"), legacyAlbMod, albMod, &tfbridge.ResourceInfo{
+	rAlias("aws_alb_target_group", awsResource(legacyAlbMod, "TargetGroup"),
+		awsResource(albMod, "TargetGroup"), &tfbridge.ResourceInfo{
 			Docs: &tfbridge.DocInfo{Source: "lb_target_group.html.markdown"},
 			Fields: map[string]*tfbridge.SchemaInfo{
 				"deregistration_delay": {
@@ -6951,86 +6982,229 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 		})
-	prov.RenameResourceWithAlias("aws_alb_target_group_attachment", awsResource(legacyAlbMod, "TargetGroupAttachment"),
-		awsResource(albMod, "TargetGroupAttachment"), legacyAlbMod, albMod, &tfbridge.ResourceInfo{
+	rAlias("aws_alb_target_group_attachment", awsResource(legacyAlbMod, "TargetGroupAttachment"),
+		awsResource(albMod, "TargetGroupAttachment"), &tfbridge.ResourceInfo{
 			Docs: &tfbridge.DocInfo{Source: "lb_target_group_attachment.html.markdown"},
 		})
-	prov.RenameDataSource("aws_alb", awsDataSource(legacyAlbMod, "getLoadBalancer"),
-		awsDataSource(albMod, "getLoadBalancer"), legacyAlbMod, albMod, &tfbridge.DataSourceInfo{
-			Docs: &tfbridge.DocInfo{Source: "lb.html.markdown"},
-			Fields: map[string]*tfbridge.SchemaInfo{
-				"access_logs": {
-					MaxItemsOne: boolRef(true),
-				},
-			},
-		})
-	prov.RenameDataSource("aws_alb_listener", awsDataSource(legacyAlbMod, "getListener"),
-		awsDataSource(albMod, "getListener"), legacyAlbMod, albMod, &tfbridge.DataSourceInfo{
-			Docs: &tfbridge.DocInfo{Source: "lb_listener.html.markdown"},
-		})
-	prov.RenameDataSource("aws_alb_target_group", awsDataSource(legacyAlbMod, "getTargetGroup"),
-		awsDataSource(albMod, "getTargetGroup"), legacyAlbMod, albMod, &tfbridge.DataSourceInfo{
-			Docs: &tfbridge.DocInfo{Source: "lb_target_group.html.markdown"},
-			Fields: map[string]*tfbridge.SchemaInfo{
-				"health_check": {
-					MaxItemsOne: boolRef(true),
-				},
-				"stickiness": {
-					MaxItemsOne: boolRef(true),
-				},
-			},
-		})
-
-	// re-homing top level packages - https://github.com/pulumi/pulumi-aws/issues/1352
-	prov.RenameDataSource("aws_ami", awsDataSource(awsMod, "getAmi"),
-		awsDataSource(ec2Mod, "getAmi"), awsMod, ec2Mod, nil)
-	prov.RenameDataSource("aws_ami_ids", awsDataSource(awsMod, "getAmiIds"),
-		awsDataSource(ec2Mod, "getAmiIds"), awsMod, ec2Mod, nil)
-	prov.RenameDataSource("aws_eip", awsDataSource(awsMod, "getElasticIp"),
-		awsDataSource(ec2Mod, "getElasticIp"), awsMod, ec2Mod, nil)
-	prov.RenameDataSource("aws_prefix_list", awsDataSource(awsMod, "getPrefixList"),
-		awsDataSource(ec2Mod, "getPrefixList"), awsMod, ec2Mod, nil)
-	prov.RenameDataSource("aws_autoscaling_groups", awsDataSource(awsMod, "getAutoscalingGroups"),
-		awsDataSource(autoscalingMod, "getAmiIds"), awsMod, autoscalingMod, nil)
-	prov.RenameDataSource("aws_canonical_user_id", awsDataSource(awsMod, "getCanonicalUserId"),
-		awsDataSource(s3Mod, "getCanonicalUserId"), awsMod, s3Mod, nil)
-
-	err := x.ComputeDefaults(&prov, x.TokensMappedModules("aws_", "", moduleMap,
-		func(mod, name string) (string, error) {
-			return awsResource(mod, name).String(), nil
-		}))
-	contract.AssertNoErrorf(err, "failed to apply default token mappings")
-
-	prov.SetAutonaming(255, "-")
 
 	// Add a CSharp-specific override for aws_s3_bucket.bucket.
 	prov.Resources["aws_s3_bucket_legacy"].Fields["bucket"].CSharpName = "BucketName"
 
+	pluginFrameworkResoures := map[string]*tfbridge.ResourceInfo{
+		"aws_auditmanager_account_registration": {
+			Tok: awsResource(auditmanagerMod, "AccountRegistration"),
+		},
+		"aws_auditmanager_assessment": {
+			Tok: awsResource(auditmanagerMod, "Assessment"),
+		},
+		"aws_auditmanager_assessment_delegation": {
+			Tok: awsResource(auditmanagerMod, "AssessmentDelegation"),
+		},
+		"aws_auditmanager_assessment_report": {
+			Tok: awsResource(auditmanagerMod, "AssessmentReport"),
+		},
+		"aws_auditmanager_control": {
+			Tok: awsResource(auditmanagerMod, "Control"),
+		},
+		"aws_auditmanager_framework": {
+			Tok: awsResource(auditmanagerMod, "Framework"),
+		},
+		"aws_auditmanager_framework_share": {
+			Tok: awsResource(auditmanagerMod, "FrameworkShare"),
+		},
+		"aws_auditmanager_organization_admin_account_registration": {
+			Tok: awsResource(auditmanagerMod, "OrganizationAdminAccountRegistration"),
+		},
+		"aws_medialive_multiplex_program": {
+			Tok: awsResource(medialiveMod, "MultiplexProgram"),
+		},
+		"aws_rds_export_task": {
+			Tok: awsResource(rdsMod, "ExportTask"),
+		},
+		"aws_resourceexplorer2_index": {
+			Tok: awsResource("ResourceExplorer", "Index"),
+		},
+		"aws_resourceexplorer2_view": {
+			Tok: awsResource("ResourceExplorer", "View"),
+		},
+		"aws_route53_cidr_collection": {
+			Tok: awsResource(route53Mod, "CidrCollection"),
+		},
+		"aws_route53_cidr_location": {
+			Tok: awsResource(route53Mod, "CidrLocation"),
+		},
+		"aws_vpc_security_group_egress_rule": {
+			Tok: awsResource("Vpc", "SecurityGroupEgressRule"),
+		},
+		"aws_vpc_security_group_ingress_rule": {
+			Tok: awsResource("Vpc", "SecurityGroupIngressRule"),
+		},
+		"aws_quicksight_iam_policy_assignment": {
+			Tok: awsResource("QuickSight", "IamPolicyAssignment"),
+		},
+		"aws_quicksight_ingestion": {
+			Tok: awsResource("QuickSight", "Ingestion"),
+		},
+		"aws_quicksight_namespace": {
+			Tok: awsResource("QuickSight", "Namespace"),
+			Fields: map[string]*tfbridge.SchemaInfo{
+				"namespace": {
+					// Avoid conflict with "Namespace" class name that breaks compilation.
+					CSharpName: "NameSpace",
+				},
+			},
+		},
+		"aws_quicksight_folder_membership": {
+			Tok: awsResource("QuickSight", "FolderMembership"),
+		},
+		"aws_quicksight_refresh_schedule": {
+			Tok: awsResource("QuickSight", "RefreshSchedule"),
+		},
+	}
+
+	for k, v := range pluginFrameworkResoures {
+		if _, conflict := prov.Resources[k]; conflict {
+			panic(fmt.Sprintf("Resoruce already defined: %s", k))
+		}
+		prov.Resources[k] = v
+	}
+
+	if err := x.ComputeDefaults(&prov, x.TokensMappedModules("aws_", "", moduleMap,
+		func(mod, name string) (string, error) {
+			return awsResource(mod, name).String(), nil
+		})); err != nil {
+		contract.AssertNoErrorf(err, "failed to apply default token mappings")
+	}
+
 	prov.P.ResourcesMap().Range(func(key string, value shim.Resource) bool {
+		// Skip resources that don't have tags.
 		tagsF, ok := value.Schema().GetOk("tags")
 		if !ok {
 			return true
 		}
+		// Skip resources that don't have tags_all.
 		tagsAllF, ok := value.Schema().GetOk("tags_all")
 		if !ok {
 			return true
 		}
 
-		// tags_all must be present and computed, tags must be present and non-computed.
+		// tags_all must computed, tags must be non-computed.
 		if tagsF.Computed() || !tagsAllF.Computed() {
 			return true
 		}
 
-		if prov.Resources[key].Fields == nil {
-			prov.Resources[key].Fields = make(map[string]*tfbridge.SchemaInfo)
-		}
-		if f := prov.Resources[key].Fields["tags_all"]; f == nil {
-			prov.Resources[key].Fields["tags_all"] = &tfbridge.SchemaInfo{}
-		}
-		prov.Resources[key].Fields["tags_all"].XComputedInput = true
+		// We have ensured that this resource is using upstream's generic tagging
+		// mechanism, so override check so it works.
+		prov.Resources[key].PreCheckCallback = applyTags
 
 		return true
 	})
 
-	return prov
+	prov.SkipExamples = func(args tfbridge.SkipExamplesArgs) bool {
+		// These examples hang on Go generation. Issue tracking to unblock:
+		// https://github.com/pulumi/pulumi-aws/issues/2598
+		return args.ExamplePath == "#/resources/aws:wafv2/ruleGroup:RuleGroup" ||
+			args.ExamplePath == "#/resources/aws:wafv2/webAcl:WebAcl" ||
+			args.ExamplePath == "#/resources/aws:appsync/graphQLApi:GraphQLApi"
+	}
+
+	// Fixes a spurious diff on repeat pulumi up for the aws_wafv2_web_acl resource (pulumi/pulumi#1423).
+	shimv2.SetInstanceStateStrategy(prov.P.ResourcesMap().Get("aws_wafv2_web_acl"), shimv2.CtyInstanceState)
+
+	prov.SetAutonaming(255, "-")
+
+	return &prov
+}
+
+// Apply provider tags to an individual resource.
+//
+// Historically, Pulumi has struggles to handle the "tags" and "tags_all" fields correctly:
+// - https://github.com/pulumi/pulumi-aws/issues/2633
+// - https://github.com/pulumi/pulumi-aws/issues/1655
+//
+// terraform-provider-aws has also struggled with implementing their desired behavior:
+// - https://github.com/hashicorp/terraform-provider-aws/issues/29747
+// - https://github.com/hashicorp/terraform-provider-aws/issues/29842
+// - https://github.com/hashicorp/terraform-provider-aws/issues/24449
+//
+// The Terraform lifecycle simply does not have a good way to map provider configuration
+// onto resource values, so terraform-provider-aws is forced to work around limitations in
+// unreliable ways. For example, terraform-provider-aws does not apply tags correctly with
+// -refresh=false.
+//
+// This gives pulumi the same limitations by default. However, unlike Terraform, Pulumi
+// does have a clear way to insert provider configuration into resource properties:
+// Check. By writing a custom check function that applies "default_tags" to "tags" before
+// the Terraform provider sees any resource configuration, we can give a consistent,
+// reliable and good experience for Pulumi users.
+func applyTags(
+	ctx context.Context, config resource.PropertyMap, meta resource.PropertyMap,
+) (resource.PropertyMap, error) {
+	var defaultTags awsShim.TagConfig
+
+	unknown := func() (resource.PropertyMap, error) {
+		current := config["tags"]
+		if current.IsOutput() {
+			output := current.OutputValue()
+			output.Known = false
+			config["tags"] = resource.NewOutputProperty(output)
+		} else {
+			config["tags"] = resource.MakeOutput(current)
+		}
+		return config, nil
+	}
+
+	// awsShim.NewTagConfig accepts (context.Context, i interface{}) where i can be
+	// one of map[string]interface{} among other types. .Mappable() produces a
+	// map[string]interface{} where every value is of type string. This is well
+	// handled by awsShim.NewTagConfig.
+	//
+	// config values are guaranteed to be of the correct type because they have
+	// already been seen and approved of by the provider, which verifies its
+	// configuration is well typed.
+
+	if defaults, ok := meta["defaultTags"]; ok {
+		if defaults.ContainsUnknowns() {
+			return unknown()
+		}
+		if defaults.IsObject() {
+			defaults := defaults.ObjectValue()
+			tags, ok := defaults["tags"]
+			if ok {
+				defaultTags = awsShim.NewTagConfig(ctx, tags.Mappable())
+			}
+		}
+	}
+
+	ignoredTags := &awsShim.TagIgnoreConfig{}
+	if ignores, ok := meta["ignoreTags"]; ok {
+		if ignores.ContainsUnknowns() {
+			return unknown()
+		}
+		if keys, ok := ignores.ObjectValue()["keys"]; ok {
+			ignoredTags.Keys = awsShim.NewTagConfig(ctx, keys.Mappable()).Tags
+		}
+		if keys, ok := ignores.ObjectValue()["keyPrefixes"]; ok {
+			ignoredTags.KeyPrefixes = awsShim.NewTagConfig(ctx, keys.Mappable()).Tags
+		}
+	}
+
+	var resourceTags awsShim.TagConfig
+	if tags, ok := config["tags"]; ok {
+		resourceTags = awsShim.NewTagConfig(ctx, tags.Mappable().(map[string]interface{}))
+	}
+
+	allTags := defaultTags.MergeTags(resourceTags.Tags).IgnoreConfig(ignoredTags)
+
+	if len(allTags) > 0 {
+		allTagProperties := make(resource.PropertyMap, len(allTags))
+		for k, v := range allTags {
+			allTagProperties[resource.PropertyKey(k)] = resource.NewStringProperty(v.ValueString())
+		}
+		config["tags"] = resource.NewObjectProperty(allTagProperties)
+	} else {
+		delete(config, "tags")
+	}
+
+	return config, nil
 }

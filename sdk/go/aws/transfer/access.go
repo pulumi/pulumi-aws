@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +24,7 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/transfer"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/transfer"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -53,7 +54,7 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/transfer"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/transfer"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -81,13 +82,11 @@ import (
 //
 // ## Import
 //
-// Transfer Accesses can be imported using the `server_id` and `external_id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_transfer_access.example
 //
-//	$ pulumi import aws:transfer/access:Access example s-12345678/S-1-1-12-1234567890-123456789-1234567890-1234
-//
-// ```
+//	id = "s-12345678/S-1-1-12-1234567890-123456789-1234567890-1234" } Using `pulumi import`, import Transfer Accesses using the `server_id` and `external_id`. For exampleconsole % pulumi import aws_transfer_access.example s-12345678/S-1-1-12-1234567890-123456789-1234567890-1234
 type Access struct {
 	pulumi.CustomResourceState
 
@@ -122,6 +121,7 @@ func NewAccess(ctx *pulumi.Context,
 	if args.ServerId == nil {
 		return nil, errors.New("invalid value for required argument 'ServerId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Access
 	err := ctx.RegisterResource("aws:transfer/access:Access", name, args, &resource, opts...)
 	if err != nil {

@@ -24,7 +24,6 @@ import javax.annotation.Nullable;
  * Provides an AppFlow flow resource.
  * 
  * ## Example Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -97,19 +96,24 @@ import javax.annotation.Nullable;
  *         var exampleDestinationBucketV2 = new BucketV2(&#34;exampleDestinationBucketV2&#34;);
  * 
  *         final var exampleDestinationPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .sid(&#34;AllowAppFlowDestinationActions&#34;)
- *             .effect(&#34;Allow&#34;)
- *             .principals(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
- *             .actions(            
- *                 &#34;s3:PutObject&#34;,
- *                 &#34;s3:AbortMultipartUpload&#34;,
- *                 &#34;s3:ListMultipartUploadParts&#34;,
- *                 &#34;s3:ListBucketMultipartUploads&#34;,
- *                 &#34;s3:GetBucketAcl&#34;,
- *                 &#34;s3:PutObjectAcl&#34;)
- *             .resources(            
- *                 &#34;arn:aws:s3:::example_destination&#34;,
- *                 &#34;arn:aws:s3:::example_destination/*&#34;)
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .sid(&#34;AllowAppFlowDestinationActions&#34;)
+ *                 .effect(&#34;Allow&#34;)
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type(&#34;Service&#34;)
+ *                     .identifiers(&#34;appflow.amazonaws.com&#34;)
+ *                     .build())
+ *                 .actions(                
+ *                     &#34;s3:PutObject&#34;,
+ *                     &#34;s3:AbortMultipartUpload&#34;,
+ *                     &#34;s3:ListMultipartUploadParts&#34;,
+ *                     &#34;s3:ListBucketMultipartUploads&#34;,
+ *                     &#34;s3:GetBucketAcl&#34;,
+ *                     &#34;s3:PutObjectAcl&#34;)
+ *                 .resources(                
+ *                     &#34;arn:aws:s3:::example_destination&#34;,
+ *                     &#34;arn:aws:s3:::example_destination/*&#34;)
+ *                 .build())
  *             .build());
  * 
  *         var exampleDestinationBucketPolicy = new BucketPolicy(&#34;exampleDestinationBucketPolicy&#34;, BucketPolicyArgs.builder()        
@@ -159,11 +163,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * AppFlow flows can be imported using the `arn`, e.g.
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:appflow/flow:Flow example arn:aws:appflow:us-west-2:123456789012:flow/example-flow
- * ```
+ *  to = aws_appflow_flow.example
+ * 
+ *  id = &#34;arn:aws:appflow:us-west-2:123456789012:flow/example-flow&#34; } Using `pulumi import`, import AppFlow flows using the `arn`. For exampleconsole % pulumi import aws_appflow_flow.example arn:aws:appflow:us-west-2:123456789012:flow/example-flow
  * 
  */
 @ResourceType(type="aws:appflow/flow:Flow")

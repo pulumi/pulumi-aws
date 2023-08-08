@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53recoveryreadiness"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53recoveryreadiness"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -41,13 +42,11 @@ import (
 //
 // ## Import
 //
-// Route53 Recovery Readiness recovery groups can be imported via the recovery group name, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_route53recoveryreadiness_recovery_group.my-high-availability-app
 //
-//	$ pulumi import aws:route53recoveryreadiness/recoveryGroup:RecoveryGroup my-high-availability-app my-high-availability-app
-//
-// ```
+//	id = "my-high-availability-app" } Using `pulumi import`, import Route53 Recovery Readiness recovery groups using the recovery group name. For exampleconsole % pulumi import aws_route53recoveryreadiness_recovery_group.my-high-availability-app my-high-availability-app
 type RecoveryGroup struct {
 	pulumi.CustomResourceState
 
@@ -75,6 +74,7 @@ func NewRecoveryGroup(ctx *pulumi.Context,
 	if args.RecoveryGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'RecoveryGroupName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RecoveryGroup
 	err := ctx.RegisterResource("aws:route53recoveryreadiness/recoveryGroup:RecoveryGroup", name, args, &resource, opts...)
 	if err != nil {

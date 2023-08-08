@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -41,13 +42,11 @@ import (
 //
 // ## Import
 //
-// Glue Registries can be imported using `arn`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_glue_registry.example
 //
-//	$ pulumi import aws:glue/registry:Registry example arn:aws:glue:us-west-2:123456789012:registry/example
-//
-// ```
+//	id = "arn:aws:glue:us-west-2:123456789012:registry/example" } Using `pulumi import`, import Glue Registries using `arn`. For exampleconsole % pulumi import aws_glue_registry.example arn:aws:glue:us-west-2:123456789012:registry/example
 type Registry struct {
 	pulumi.CustomResourceState
 
@@ -73,6 +72,7 @@ func NewRegistry(ctx *pulumi.Context,
 	if args.RegistryName == nil {
 		return nil, errors.New("invalid value for required argument 'RegistryName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Registry
 	err := ctx.RegisterResource("aws:glue/registry:Registry", name, args, &resource, opts...)
 	if err != nil {

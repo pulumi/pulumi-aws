@@ -75,44 +75,6 @@ public final class DefaultVpcState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.dhcpOptionsId);
     }
 
-    /**
-     * @deprecated
-     * With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version.
-     * 
-     */
-    @Deprecated /* With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version. */
-    @Import(name="enableClassiclink")
-    private @Nullable Output<Boolean> enableClassiclink;
-
-    /**
-     * @deprecated
-     * With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version.
-     * 
-     */
-    @Deprecated /* With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version. */
-    public Optional<Output<Boolean>> enableClassiclink() {
-        return Optional.ofNullable(this.enableClassiclink);
-    }
-
-    /**
-     * @deprecated
-     * With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version.
-     * 
-     */
-    @Deprecated /* With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version. */
-    @Import(name="enableClassiclinkDnsSupport")
-    private @Nullable Output<Boolean> enableClassiclinkDnsSupport;
-
-    /**
-     * @deprecated
-     * With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version.
-     * 
-     */
-    @Deprecated /* With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version. */
-    public Optional<Output<Boolean>> enableClassiclinkDnsSupport() {
-        return Optional.ofNullable(this.enableClassiclinkDnsSupport);
-    }
-
     @Import(name="enableDnsHostnames")
     private @Nullable Output<Boolean> enableDnsHostnames;
 
@@ -244,8 +206,6 @@ public final class DefaultVpcState extends com.pulumi.resources.ResourceArgs {
         this.defaultRouteTableId = $.defaultRouteTableId;
         this.defaultSecurityGroupId = $.defaultSecurityGroupId;
         this.dhcpOptionsId = $.dhcpOptionsId;
-        this.enableClassiclink = $.enableClassiclink;
-        this.enableClassiclinkDnsSupport = $.enableClassiclinkDnsSupport;
         this.enableDnsHostnames = $.enableDnsHostnames;
         this.enableDnsSupport = $.enableDnsSupport;
         this.enableNetworkAddressUsageMetrics = $.enableNetworkAddressUsageMetrics;
@@ -354,56 +314,6 @@ public final class DefaultVpcState extends com.pulumi.resources.ResourceArgs {
 
         public Builder dhcpOptionsId(String dhcpOptionsId) {
             return dhcpOptionsId(Output.of(dhcpOptionsId));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version.
-         * 
-         */
-        @Deprecated /* With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version. */
-        public Builder enableClassiclink(@Nullable Output<Boolean> enableClassiclink) {
-            $.enableClassiclink = enableClassiclink;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version.
-         * 
-         */
-        @Deprecated /* With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version. */
-        public Builder enableClassiclink(Boolean enableClassiclink) {
-            return enableClassiclink(Output.of(enableClassiclink));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version.
-         * 
-         */
-        @Deprecated /* With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version. */
-        public Builder enableClassiclinkDnsSupport(@Nullable Output<Boolean> enableClassiclinkDnsSupport) {
-            $.enableClassiclinkDnsSupport = enableClassiclinkDnsSupport;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version.
-         * 
-         */
-        @Deprecated /* With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version. */
-        public Builder enableClassiclinkDnsSupport(Boolean enableClassiclinkDnsSupport) {
-            return enableClassiclinkDnsSupport(Output.of(enableClassiclinkDnsSupport));
         }
 
         public Builder enableDnsHostnames(@Nullable Output<Boolean> enableDnsHostnames) {

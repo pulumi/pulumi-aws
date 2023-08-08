@@ -295,11 +295,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * A QuickSight Data Set can be imported using the AWS account ID and data set ID separated by a comma (`,`) e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:quicksight/dataSet:DataSet example 123456789012,example-id
- * ```
+ *  to = aws_quicksight_data_set.example
+ * 
+ *  id = &#34;123456789012,example-id&#34; } Using `pulumi import`, import a QuickSight Data Set using the AWS account ID and data set ID separated by a comma (`,`). For exampleconsole % pulumi import aws_quicksight_data_set.example 123456789012,example-id
  * 
  */
 @ResourceType(type="aws:quicksight/dataSet:DataSet")
@@ -471,7 +471,7 @@ public class DataSet extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="physicalTableMaps", refs={List.class,DataSetPhysicalTableMap.class}, tree="[0,1]")
-    private Output<List<DataSetPhysicalTableMap>> physicalTableMaps;
+    private Output</* @Nullable */ List<DataSetPhysicalTableMap>> physicalTableMaps;
 
     /**
      * @return Declares the physical tables that are available in the underlying data sources. See physical_table_map.
@@ -479,8 +479,8 @@ public class DataSet extends com.pulumi.resources.CustomResource {
      * The following arguments are optional:
      * 
      */
-    public Output<List<DataSetPhysicalTableMap>> physicalTableMaps() {
-        return this.physicalTableMaps;
+    public Output<Optional<List<DataSetPhysicalTableMap>>> physicalTableMaps() {
+        return Codegen.optional(this.physicalTableMaps);
     }
     /**
      * The refresh properties for the data set. **NOTE**: Only valid when `import_mode` is set to `SPICE`. See refresh_properties.

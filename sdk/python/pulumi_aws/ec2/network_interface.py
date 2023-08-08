@@ -823,11 +823,11 @@ class NetworkInterface(pulumi.CustomResource):
 
         ## Import
 
-        Network Interfaces can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ec2/networkInterface:NetworkInterface test eni-e5aa89a3
-        ```
+         to = aws_network_interface.test
+
+         id = "eni-e5aa89a3" } Using `pulumi import`, import Network Interfaces using the `id`. For exampleconsole % pulumi import aws_network_interface.test eni-e5aa89a3
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -896,11 +896,11 @@ class NetworkInterface(pulumi.CustomResource):
 
         ## Import
 
-        Network Interfaces can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ec2/networkInterface:NetworkInterface test eni-e5aa89a3
-        ```
+         to = aws_network_interface.test
+
+         id = "eni-e5aa89a3" } Using `pulumi import`, import Network Interfaces using the `id`. For exampleconsole % pulumi import aws_network_interface.test eni-e5aa89a3
 
         :param str resource_name: The name of the resource.
         :param NetworkInterfaceArgs args: The arguments to use to populate this resource's properties.

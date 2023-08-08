@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -47,7 +48,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -111,13 +112,11 @@ import (
 //
 // ## Import
 //
-// Glue Tables can be imported with their catalog ID (usually AWS account ID), database name, and table name, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_glue_catalog_table.MyTable
 //
-//	$ pulumi import aws:glue/catalogTable:CatalogTable MyTable 123456789012:MyDatabase:MyTable
-//
-// ```
+//	id = "123456789012:MyDatabase:MyTable" } Using `pulumi import`, import Glue Tables using the catalog ID (usually AWS account ID), database name, and table name. For exampleconsole % pulumi import aws_glue_catalog_table.MyTable 123456789012:MyDatabase:MyTable
 type CatalogTable struct {
 	pulumi.CustomResourceState
 
@@ -165,6 +164,7 @@ func NewCatalogTable(ctx *pulumi.Context,
 	if args.DatabaseName == nil {
 		return nil, errors.New("invalid value for required argument 'DatabaseName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CatalogTable
 	err := ctx.RegisterResource("aws:glue/catalogTable:CatalogTable", name, args, &resource, opts...)
 	if err != nil {

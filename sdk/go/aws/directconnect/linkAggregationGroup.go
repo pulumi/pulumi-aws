@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directconnect"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directconnect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -45,13 +46,11 @@ import (
 //
 // ## Import
 //
-// Direct Connect LAGs can be imported using the `lag id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_dx_lag.test_lag
 //
-//	$ pulumi import aws:directconnect/linkAggregationGroup:LinkAggregationGroup test_lag dxlag-fgnsp5rq
-//
-// ```
+//	id = "dxlag-fgnsp5rq" } Using `pulumi import`, import Direct Connect LAGs using the LAG `id`. For exampleconsole % pulumi import aws_dx_lag.test_lag dxlag-fgnsp5rq
 type LinkAggregationGroup struct {
 	pulumi.CustomResourceState
 
@@ -94,6 +93,7 @@ func NewLinkAggregationGroup(ctx *pulumi.Context,
 	if args.Location == nil {
 		return nil, errors.New("invalid value for required argument 'Location'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LinkAggregationGroup
 	err := ctx.RegisterResource("aws:directconnect/linkAggregationGroup:LinkAggregationGroup", name, args, &resource, opts...)
 	if err != nil {

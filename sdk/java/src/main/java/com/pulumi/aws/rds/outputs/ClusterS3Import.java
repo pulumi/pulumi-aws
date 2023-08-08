@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClusterS3Import {
     /**
-     * @return The bucket name where your backup is stored
+     * @return Bucket name where your backup is stored
      * 
      */
     private String bucketName;
@@ -41,7 +41,7 @@ public final class ClusterS3Import {
 
     private ClusterS3Import() {}
     /**
-     * @return The bucket name where your backup is stored
+     * @return Bucket name where your backup is stored
      * 
      */
     public String bucketName() {

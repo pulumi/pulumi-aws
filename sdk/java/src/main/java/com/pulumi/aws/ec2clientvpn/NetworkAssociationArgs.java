@@ -6,10 +6,7 @@ package com.pulumi.aws.ec2clientvpn;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class NetworkAssociationArgs extends com.pulumi.resources.ResourceArgs {
@@ -32,29 +29,6 @@ public final class NetworkAssociationArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A list of up to five custom security groups to apply to the target network. If not specified, the VPC&#39;s default security group is assigned.
-     * 
-     * @deprecated
-     * Use the `security_group_ids` attribute of the `aws_ec2_client_vpn_endpoint` resource instead.
-     * 
-     */
-    @Deprecated /* Use the `security_group_ids` attribute of the `aws_ec2_client_vpn_endpoint` resource instead. */
-    @Import(name="securityGroups")
-    private @Nullable Output<List<String>> securityGroups;
-
-    /**
-     * @return A list of up to five custom security groups to apply to the target network. If not specified, the VPC&#39;s default security group is assigned.
-     * 
-     * @deprecated
-     * Use the `security_group_ids` attribute of the `aws_ec2_client_vpn_endpoint` resource instead.
-     * 
-     */
-    @Deprecated /* Use the `security_group_ids` attribute of the `aws_ec2_client_vpn_endpoint` resource instead. */
-    public Optional<Output<List<String>>> securityGroups() {
-        return Optional.ofNullable(this.securityGroups);
-    }
-
-    /**
      * The ID of the subnet to associate with the Client VPN endpoint.
      * 
      */
@@ -73,7 +47,6 @@ public final class NetworkAssociationArgs extends com.pulumi.resources.ResourceA
 
     private NetworkAssociationArgs(NetworkAssociationArgs $) {
         this.clientVpnEndpointId = $.clientVpnEndpointId;
-        this.securityGroups = $.securityGroups;
         this.subnetId = $.subnetId;
     }
 
@@ -114,49 +87,6 @@ public final class NetworkAssociationArgs extends com.pulumi.resources.ResourceA
          */
         public Builder clientVpnEndpointId(String clientVpnEndpointId) {
             return clientVpnEndpointId(Output.of(clientVpnEndpointId));
-        }
-
-        /**
-         * @param securityGroups A list of up to five custom security groups to apply to the target network. If not specified, the VPC&#39;s default security group is assigned.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use the `security_group_ids` attribute of the `aws_ec2_client_vpn_endpoint` resource instead.
-         * 
-         */
-        @Deprecated /* Use the `security_group_ids` attribute of the `aws_ec2_client_vpn_endpoint` resource instead. */
-        public Builder securityGroups(@Nullable Output<List<String>> securityGroups) {
-            $.securityGroups = securityGroups;
-            return this;
-        }
-
-        /**
-         * @param securityGroups A list of up to five custom security groups to apply to the target network. If not specified, the VPC&#39;s default security group is assigned.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use the `security_group_ids` attribute of the `aws_ec2_client_vpn_endpoint` resource instead.
-         * 
-         */
-        @Deprecated /* Use the `security_group_ids` attribute of the `aws_ec2_client_vpn_endpoint` resource instead. */
-        public Builder securityGroups(List<String> securityGroups) {
-            return securityGroups(Output.of(securityGroups));
-        }
-
-        /**
-         * @param securityGroups A list of up to five custom security groups to apply to the target network. If not specified, the VPC&#39;s default security group is assigned.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use the `security_group_ids` attribute of the `aws_ec2_client_vpn_endpoint` resource instead.
-         * 
-         */
-        @Deprecated /* Use the `security_group_ids` attribute of the `aws_ec2_client_vpn_endpoint` resource instead. */
-        public Builder securityGroups(String... securityGroups) {
-            return securityGroups(List.of(securityGroups));
         }
 
         /**

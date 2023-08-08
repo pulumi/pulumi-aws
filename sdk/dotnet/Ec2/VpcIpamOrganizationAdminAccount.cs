@@ -39,11 +39,11 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// IPAMs can be imported using the `delegate account id`, e.g.
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:ec2/vpcIpamOrganizationAdminAccount:VpcIpamOrganizationAdminAccount example 12345678901
-    /// ```
+    ///  to = aws_vpc_ipam_organization_admin_account.example
+    /// 
+    ///  id = "12345678901" } Using `pulumi import`, import IPAMs using the delegate account `id`. For exampleconsole % pulumi import aws_vpc_ipam_organization_admin_account.example 12345678901
     /// </summary>
     [AwsResourceType("aws:ec2/vpcIpamOrganizationAdminAccount:VpcIpamOrganizationAdminAccount")]
     public partial class VpcIpamOrganizationAdminAccount : global::Pulumi.CustomResource

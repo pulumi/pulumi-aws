@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *     engine: "mysql",
  *     engineVersion: "5.6.21",
  *     instanceClass: "db.t2.micro",
- *     name: "baz",
+ *     dbName: "baz",
  *     password: "barbarbarbar",
  *     username: "foo",
  *     maintenanceWindow: "Fri:09:00-Fri:09:30",
@@ -26,18 +26,18 @@ import * as utilities from "../utilities";
  *     parameterGroupName: "default.mysql5.6",
  * });
  * const test = new aws.rds.Snapshot("test", {
- *     dbInstanceIdentifier: bar.id,
+ *     dbInstanceIdentifier: bar.identifier,
  *     dbSnapshotIdentifier: "testsnapshot1234",
  * });
  * ```
  *
  * ## Import
  *
- * `aws_db_snapshot` can be imported by using the snapshot identifier, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:rds/snapshot:Snapshot example my-snapshot
- * ```
+ *  to = aws_db_snapshot.example
+ *
+ *  id = "my-snapshot" } Using `pulumi import`, import `aws_db_snapshot` using the snapshot identifier. For exampleconsole % pulumi import aws_db_snapshot.example my-snapshot
  */
 export class Snapshot extends pulumi.CustomResource {
     /**

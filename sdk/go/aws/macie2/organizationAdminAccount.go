@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/macie2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/macie2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -47,13 +48,11 @@ import (
 //
 // ## Import
 //
-// `aws_macie2_organization_admin_account` can be imported using the id, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_macie2_organization_admin_account.example
 //
-//	$ pulumi import aws:macie2/organizationAdminAccount:OrganizationAdminAccount example abcd1
-//
-// ```
+//	id = "abcd1" } Using `pulumi import`, import `aws_macie2_organization_admin_account` using the id. For exampleconsole % pulumi import aws_macie2_organization_admin_account.example abcd1
 type OrganizationAdminAccount struct {
 	pulumi.CustomResourceState
 
@@ -71,6 +70,7 @@ func NewOrganizationAdminAccount(ctx *pulumi.Context,
 	if args.AdminAccountId == nil {
 		return nil, errors.New("invalid value for required argument 'AdminAccountId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OrganizationAdminAccount
 	err := ctx.RegisterResource("aws:macie2/organizationAdminAccount:OrganizationAdminAccount", name, args, &resource, opts...)
 	if err != nil {

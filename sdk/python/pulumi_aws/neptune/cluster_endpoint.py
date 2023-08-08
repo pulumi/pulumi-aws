@@ -293,11 +293,11 @@ class ClusterEndpoint(pulumi.CustomResource):
 
         ## Import
 
-        `aws_neptune_cluster_endpoint` can be imported by using the `cluster-identifier:endpoint-identfier`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:neptune/clusterEndpoint:ClusterEndpoint example my-cluster:my-endpoint
-        ```
+         to = aws_neptune_cluster_endpoint.example
+
+         id = "my-cluster:my-endpoint" } Using `pulumi import`, import `aws_neptune_cluster_endpoint` using the `cluster-identifier:endpoint-identfier`. For exampleconsole % pulumi import aws_neptune_cluster_endpoint.example my-cluster:my-endpoint
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -331,11 +331,11 @@ class ClusterEndpoint(pulumi.CustomResource):
 
         ## Import
 
-        `aws_neptune_cluster_endpoint` can be imported by using the `cluster-identifier:endpoint-identfier`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:neptune/clusterEndpoint:ClusterEndpoint example my-cluster:my-endpoint
-        ```
+         to = aws_neptune_cluster_endpoint.example
+
+         id = "my-cluster:my-endpoint" } Using `pulumi import`, import `aws_neptune_cluster_endpoint` using the `cluster-identifier:endpoint-identfier`. For exampleconsole % pulumi import aws_neptune_cluster_endpoint.example my-cluster:my-endpoint
 
         :param str resource_name: The name of the resource.
         :param ClusterEndpointArgs args: The arguments to use to populate this resource's properties.

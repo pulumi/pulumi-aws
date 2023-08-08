@@ -38,7 +38,7 @@ import * as utilities from "../utilities";
  *     autoscalingGroupName: bar.name,
  * });
  * ```
- * ### Create target tarcking scaling policy using metric math
+ * ### Create target tracking scaling policy using metric math
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -179,11 +179,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * AutoScaling scaling policy can be imported using the role autoscaling_group_name and name separated by `/`.
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:autoscaling/policy:Policy test-policy asg-name/policy-name
- * ```
+ *  to = aws_autoscaling_policy.test-policy
+ *
+ *  id = "asg-name/policy-name" } Using `pulumi import`, import AutoScaling scaling policy using the role autoscaling_group_name and name separated by `/`. For exampleconsole % pulumi import aws_autoscaling_policy.test-policy asg-name/policy-name
  */
 export class Policy extends pulumi.CustomResource {
     /**

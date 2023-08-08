@@ -16,6 +16,9 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ## Example Usage
     /// 
+    /// ### End-to-end
+    /// ### Basic Usage
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -104,14 +107,115 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// });
     /// ```
+    /// ### CloudWatch Logging and Tracing
+    /// 
+    /// The AWS Console API Gateway Editor displays multiple options for CloudWatch Logs that don't directly map to the options in the AWS API and Pulumi. These examples show the `settings` blocks that are equivalent to the options the AWS Console gives for CloudWatch Logs.
+    /// ### Off
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var pathSpecific = new Aws.ApiGateway.MethodSettings("pathSpecific", new()
+    ///     {
+    ///         RestApi = aws_api_gateway_rest_api.Example.Id,
+    ///         StageName = aws_api_gateway_stage.Example.Stage_name,
+    ///         MethodPath = "path1/GET",
+    ///         Settings = new Aws.ApiGateway.Inputs.MethodSettingsSettingsArgs
+    ///         {
+    ///             LoggingLevel = "OFF",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Errors Only
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var pathSpecific = new Aws.ApiGateway.MethodSettings("pathSpecific", new()
+    ///     {
+    ///         RestApi = aws_api_gateway_rest_api.Example.Id,
+    ///         StageName = aws_api_gateway_stage.Example.Stage_name,
+    ///         MethodPath = "path1/GET",
+    ///         Settings = new Aws.ApiGateway.Inputs.MethodSettingsSettingsArgs
+    ///         {
+    ///             LoggingLevel = "ERROR",
+    ///             MetricsEnabled = true,
+    ///             DataTraceEnabled = false,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Errors and Info Logs
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var pathSpecific = new Aws.ApiGateway.MethodSettings("pathSpecific", new()
+    ///     {
+    ///         RestApi = aws_api_gateway_rest_api.Example.Id,
+    ///         StageName = aws_api_gateway_stage.Example.Stage_name,
+    ///         MethodPath = "path1/GET",
+    ///         Settings = new Aws.ApiGateway.Inputs.MethodSettingsSettingsArgs
+    ///         {
+    ///             LoggingLevel = "INFO",
+    ///             MetricsEnabled = true,
+    ///             DataTraceEnabled = false,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Full Request and Response Logs
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var pathSpecific = new Aws.ApiGateway.MethodSettings("pathSpecific", new()
+    ///     {
+    ///         RestApi = aws_api_gateway_rest_api.Example.Id,
+    ///         StageName = aws_api_gateway_stage.Example.Stage_name,
+    ///         MethodPath = "path1/GET",
+    ///         Settings = new Aws.ApiGateway.Inputs.MethodSettingsSettingsArgs
+    ///         {
+    ///             LoggingLevel = "INFO",
+    ///             MetricsEnabled = true,
+    ///             DataTraceEnabled = true,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 
-    /// `aws_api_gateway_method_settings` can be imported using `REST-API-ID/STAGE-NAME/METHOD-PATH`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:apigateway/methodSettings:MethodSettings example 12345abcde/example/test/GET
-    /// ```
+    ///  to = aws_api_gateway_method_settings.example
+    /// 
+    ///  id = "12345abcde/example/test/GET" } Using `pulumi import`, import `aws_api_gateway_method_settings` using `REST-API-ID/STAGE-NAME/METHOD-PATH`. For exampleconsole % pulumi import aws_api_gateway_method_settings.example 12345abcde/example/test/GET
     /// </summary>
     [AwsResourceType("aws:apigateway/methodSettings:MethodSettings")]
     public partial class MethodSettings : global::Pulumi.CustomResource

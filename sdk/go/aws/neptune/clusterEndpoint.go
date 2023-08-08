@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/neptune"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/neptune"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -43,13 +44,11 @@ import (
 //
 // ## Import
 //
-// `aws_neptune_cluster_endpoint` can be imported by using the `cluster-identifier:endpoint-identfier`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_neptune_cluster_endpoint.example
 //
-//	$ pulumi import aws:neptune/clusterEndpoint:ClusterEndpoint example my-cluster:my-endpoint
-//
-// ```
+//	id = "my-cluster:my-endpoint" } Using `pulumi import`, import `aws_neptune_cluster_endpoint` using the `cluster-identifier:endpoint-identfier`. For exampleconsole % pulumi import aws_neptune_cluster_endpoint.example my-cluster:my-endpoint
 type ClusterEndpoint struct {
 	pulumi.CustomResourceState
 
@@ -89,6 +88,7 @@ func NewClusterEndpoint(ctx *pulumi.Context,
 	if args.EndpointType == nil {
 		return nil, errors.New("invalid value for required argument 'EndpointType'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ClusterEndpoint
 	err := ctx.RegisterResource("aws:neptune/clusterEndpoint:ClusterEndpoint", name, args, &resource, opts...)
 	if err != nil {

@@ -150,11 +150,11 @@ class LfTag(pulumi.CustomResource):
 
         ## Import
 
-        Lake Formation LF-Tags can be imported using the `catalog_id:key`. If you have not set a Catalog ID specify the AWS Account ID that the database is in, e.g.
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:lakeformation/lfTag:LfTag example 123456789012:some_key
-        ```
+         to = aws_lakeformation_lf_tag.example
+
+         id = "123456789012:some_key" } Using `pulumi import`, import Lake Formation LF-Tags using the `catalog_id:key`. If you have not set a Catalog ID specify the AWS Account ID that the database is in. For exampleconsole % pulumi import aws_lakeformation_lf_tag.example 123456789012:some_key
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -188,11 +188,11 @@ class LfTag(pulumi.CustomResource):
 
         ## Import
 
-        Lake Formation LF-Tags can be imported using the `catalog_id:key`. If you have not set a Catalog ID specify the AWS Account ID that the database is in, e.g.
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:lakeformation/lfTag:LfTag example 123456789012:some_key
-        ```
+         to = aws_lakeformation_lf_tag.example
+
+         id = "123456789012:some_key" } Using `pulumi import`, import Lake Formation LF-Tags using the `catalog_id:key`. If you have not set a Catalog ID specify the AWS Account ID that the database is in. For exampleconsole % pulumi import aws_lakeformation_lf_tag.example 123456789012:some_key
 
         :param str resource_name: The name of the resource.
         :param LfTagArgs args: The arguments to use to populate this resource's properties.

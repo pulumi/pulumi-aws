@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/wafregional"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/wafregional"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -53,13 +54,11 @@ import (
 //
 // ## Import
 //
-// AWS WAF Regional XSS Match can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_wafregional_xss_match_set.example
 //
-//	$ pulumi import aws:wafregional/xssMatchSet:XssMatchSet example 12345abcde
-//
-// ```
+//	id = "12345abcde" } Using `pulumi import`, import AWS WAF Regional XSS Match using the `id`. For exampleconsole % pulumi import aws_wafregional_xss_match_set.example 12345abcde
 type XssMatchSet struct {
 	pulumi.CustomResourceState
 
@@ -76,6 +75,7 @@ func NewXssMatchSet(ctx *pulumi.Context,
 		args = &XssMatchSetArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource XssMatchSet
 	err := ctx.RegisterResource("aws:wafregional/xssMatchSet:XssMatchSet", name, args, &resource, opts...)
 	if err != nil {

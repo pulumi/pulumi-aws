@@ -25,11 +25,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_s3_bucket_public_access_block` can be imported by using the bucket name, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:s3/bucketPublicAccessBlock:BucketPublicAccessBlock example my-bucket
- * ```
+ *  to = aws_s3_bucket_public_access_block.example
+ *
+ *  id = "my-bucket" } Using `pulumi import`, import `aws_s3_bucket_public_access_block` using the bucket name. For exampleconsole % pulumi import aws_s3_bucket_public_access_block.example my-bucket
  */
 export class BucketPublicAccessBlock extends pulumi.CustomResource {
     /**

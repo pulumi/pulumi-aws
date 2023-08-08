@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,7 +25,7 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -49,13 +50,11 @@ import (
 //
 // ## Import
 //
-// Use the `alarm_name` to import a CloudWatch Composite Alarm. For example
+// terraform import {
 //
-// ```sh
+//	to = aws_cloudwatch_composite_alarm.test
 //
-//	$ pulumi import aws:cloudwatch/compositeAlarm:CompositeAlarm test my-alarm
-//
-// ```
+//	id = "my-alarm" } Using `pulumi import`, import a CloudWatch Composite Alarm using the `alarm_name`. For exampleconsole % pulumi import aws_cloudwatch_composite_alarm.test my-alarm
 type CompositeAlarm struct {
 	pulumi.CustomResourceState
 
@@ -94,6 +93,7 @@ func NewCompositeAlarm(ctx *pulumi.Context,
 	if args.AlarmRule == nil {
 		return nil, errors.New("invalid value for required argument 'AlarmRule'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CompositeAlarm
 	err := ctx.RegisterResource("aws:cloudwatch/compositeAlarm:CompositeAlarm", name, args, &resource, opts...)
 	if err != nil {

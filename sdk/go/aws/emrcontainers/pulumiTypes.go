@@ -7,8 +7,1590 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
+
+var _ = internal.GetEnvOrDefault
+
+type JobTemplateJobTemplateData struct {
+	// The configuration settings that are used to override defaults configuration.
+	ConfigurationOverrides *JobTemplateJobTemplateDataConfigurationOverrides `pulumi:"configurationOverrides"`
+	// The execution role ARN of the job run.
+	ExecutionRoleArn string `pulumi:"executionRoleArn"`
+	// Specify the driver that the job runs on. Exactly one of the two available job drivers is required, either sparkSqlJobDriver or sparkSubmitJobDriver.
+	JobDriver JobTemplateJobTemplateDataJobDriver `pulumi:"jobDriver"`
+	// The tags assigned to jobs started using the job template.
+	JobTags map[string]string `pulumi:"jobTags"`
+	// The release version of Amazon EMR.
+	ReleaseLabel string `pulumi:"releaseLabel"`
+}
+
+// JobTemplateJobTemplateDataInput is an input type that accepts JobTemplateJobTemplateDataArgs and JobTemplateJobTemplateDataOutput values.
+// You can construct a concrete instance of `JobTemplateJobTemplateDataInput` via:
+//
+//	JobTemplateJobTemplateDataArgs{...}
+type JobTemplateJobTemplateDataInput interface {
+	pulumi.Input
+
+	ToJobTemplateJobTemplateDataOutput() JobTemplateJobTemplateDataOutput
+	ToJobTemplateJobTemplateDataOutputWithContext(context.Context) JobTemplateJobTemplateDataOutput
+}
+
+type JobTemplateJobTemplateDataArgs struct {
+	// The configuration settings that are used to override defaults configuration.
+	ConfigurationOverrides JobTemplateJobTemplateDataConfigurationOverridesPtrInput `pulumi:"configurationOverrides"`
+	// The execution role ARN of the job run.
+	ExecutionRoleArn pulumi.StringInput `pulumi:"executionRoleArn"`
+	// Specify the driver that the job runs on. Exactly one of the two available job drivers is required, either sparkSqlJobDriver or sparkSubmitJobDriver.
+	JobDriver JobTemplateJobTemplateDataJobDriverInput `pulumi:"jobDriver"`
+	// The tags assigned to jobs started using the job template.
+	JobTags pulumi.StringMapInput `pulumi:"jobTags"`
+	// The release version of Amazon EMR.
+	ReleaseLabel pulumi.StringInput `pulumi:"releaseLabel"`
+}
+
+func (JobTemplateJobTemplateDataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateJobTemplateData)(nil)).Elem()
+}
+
+func (i JobTemplateJobTemplateDataArgs) ToJobTemplateJobTemplateDataOutput() JobTemplateJobTemplateDataOutput {
+	return i.ToJobTemplateJobTemplateDataOutputWithContext(context.Background())
+}
+
+func (i JobTemplateJobTemplateDataArgs) ToJobTemplateJobTemplateDataOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateJobTemplateDataOutput)
+}
+
+func (i JobTemplateJobTemplateDataArgs) ToJobTemplateJobTemplateDataPtrOutput() JobTemplateJobTemplateDataPtrOutput {
+	return i.ToJobTemplateJobTemplateDataPtrOutputWithContext(context.Background())
+}
+
+func (i JobTemplateJobTemplateDataArgs) ToJobTemplateJobTemplateDataPtrOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateJobTemplateDataOutput).ToJobTemplateJobTemplateDataPtrOutputWithContext(ctx)
+}
+
+// JobTemplateJobTemplateDataPtrInput is an input type that accepts JobTemplateJobTemplateDataArgs, JobTemplateJobTemplateDataPtr and JobTemplateJobTemplateDataPtrOutput values.
+// You can construct a concrete instance of `JobTemplateJobTemplateDataPtrInput` via:
+//
+//	        JobTemplateJobTemplateDataArgs{...}
+//
+//	or:
+//
+//	        nil
+type JobTemplateJobTemplateDataPtrInput interface {
+	pulumi.Input
+
+	ToJobTemplateJobTemplateDataPtrOutput() JobTemplateJobTemplateDataPtrOutput
+	ToJobTemplateJobTemplateDataPtrOutputWithContext(context.Context) JobTemplateJobTemplateDataPtrOutput
+}
+
+type jobTemplateJobTemplateDataPtrType JobTemplateJobTemplateDataArgs
+
+func JobTemplateJobTemplateDataPtr(v *JobTemplateJobTemplateDataArgs) JobTemplateJobTemplateDataPtrInput {
+	return (*jobTemplateJobTemplateDataPtrType)(v)
+}
+
+func (*jobTemplateJobTemplateDataPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobTemplateJobTemplateData)(nil)).Elem()
+}
+
+func (i *jobTemplateJobTemplateDataPtrType) ToJobTemplateJobTemplateDataPtrOutput() JobTemplateJobTemplateDataPtrOutput {
+	return i.ToJobTemplateJobTemplateDataPtrOutputWithContext(context.Background())
+}
+
+func (i *jobTemplateJobTemplateDataPtrType) ToJobTemplateJobTemplateDataPtrOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateJobTemplateDataPtrOutput)
+}
+
+type JobTemplateJobTemplateDataOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateJobTemplateDataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateJobTemplateData)(nil)).Elem()
+}
+
+func (o JobTemplateJobTemplateDataOutput) ToJobTemplateJobTemplateDataOutput() JobTemplateJobTemplateDataOutput {
+	return o
+}
+
+func (o JobTemplateJobTemplateDataOutput) ToJobTemplateJobTemplateDataOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataOutput {
+	return o
+}
+
+func (o JobTemplateJobTemplateDataOutput) ToJobTemplateJobTemplateDataPtrOutput() JobTemplateJobTemplateDataPtrOutput {
+	return o.ToJobTemplateJobTemplateDataPtrOutputWithContext(context.Background())
+}
+
+func (o JobTemplateJobTemplateDataOutput) ToJobTemplateJobTemplateDataPtrOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobTemplateJobTemplateData) *JobTemplateJobTemplateData {
+		return &v
+	}).(JobTemplateJobTemplateDataPtrOutput)
+}
+
+// The configuration settings that are used to override defaults configuration.
+func (o JobTemplateJobTemplateDataOutput) ConfigurationOverrides() JobTemplateJobTemplateDataConfigurationOverridesPtrOutput {
+	return o.ApplyT(func(v JobTemplateJobTemplateData) *JobTemplateJobTemplateDataConfigurationOverrides {
+		return v.ConfigurationOverrides
+	}).(JobTemplateJobTemplateDataConfigurationOverridesPtrOutput)
+}
+
+// The execution role ARN of the job run.
+func (o JobTemplateJobTemplateDataOutput) ExecutionRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v JobTemplateJobTemplateData) string { return v.ExecutionRoleArn }).(pulumi.StringOutput)
+}
+
+// Specify the driver that the job runs on. Exactly one of the two available job drivers is required, either sparkSqlJobDriver or sparkSubmitJobDriver.
+func (o JobTemplateJobTemplateDataOutput) JobDriver() JobTemplateJobTemplateDataJobDriverOutput {
+	return o.ApplyT(func(v JobTemplateJobTemplateData) JobTemplateJobTemplateDataJobDriver { return v.JobDriver }).(JobTemplateJobTemplateDataJobDriverOutput)
+}
+
+// The tags assigned to jobs started using the job template.
+func (o JobTemplateJobTemplateDataOutput) JobTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v JobTemplateJobTemplateData) map[string]string { return v.JobTags }).(pulumi.StringMapOutput)
+}
+
+// The release version of Amazon EMR.
+func (o JobTemplateJobTemplateDataOutput) ReleaseLabel() pulumi.StringOutput {
+	return o.ApplyT(func(v JobTemplateJobTemplateData) string { return v.ReleaseLabel }).(pulumi.StringOutput)
+}
+
+type JobTemplateJobTemplateDataPtrOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateJobTemplateDataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobTemplateJobTemplateData)(nil)).Elem()
+}
+
+func (o JobTemplateJobTemplateDataPtrOutput) ToJobTemplateJobTemplateDataPtrOutput() JobTemplateJobTemplateDataPtrOutput {
+	return o
+}
+
+func (o JobTemplateJobTemplateDataPtrOutput) ToJobTemplateJobTemplateDataPtrOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataPtrOutput {
+	return o
+}
+
+func (o JobTemplateJobTemplateDataPtrOutput) Elem() JobTemplateJobTemplateDataOutput {
+	return o.ApplyT(func(v *JobTemplateJobTemplateData) JobTemplateJobTemplateData {
+		if v != nil {
+			return *v
+		}
+		var ret JobTemplateJobTemplateData
+		return ret
+	}).(JobTemplateJobTemplateDataOutput)
+}
+
+// The configuration settings that are used to override defaults configuration.
+func (o JobTemplateJobTemplateDataPtrOutput) ConfigurationOverrides() JobTemplateJobTemplateDataConfigurationOverridesPtrOutput {
+	return o.ApplyT(func(v *JobTemplateJobTemplateData) *JobTemplateJobTemplateDataConfigurationOverrides {
+		if v == nil {
+			return nil
+		}
+		return v.ConfigurationOverrides
+	}).(JobTemplateJobTemplateDataConfigurationOverridesPtrOutput)
+}
+
+// The execution role ARN of the job run.
+func (o JobTemplateJobTemplateDataPtrOutput) ExecutionRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobTemplateJobTemplateData) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ExecutionRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specify the driver that the job runs on. Exactly one of the two available job drivers is required, either sparkSqlJobDriver or sparkSubmitJobDriver.
+func (o JobTemplateJobTemplateDataPtrOutput) JobDriver() JobTemplateJobTemplateDataJobDriverPtrOutput {
+	return o.ApplyT(func(v *JobTemplateJobTemplateData) *JobTemplateJobTemplateDataJobDriver {
+		if v == nil {
+			return nil
+		}
+		return &v.JobDriver
+	}).(JobTemplateJobTemplateDataJobDriverPtrOutput)
+}
+
+// The tags assigned to jobs started using the job template.
+func (o JobTemplateJobTemplateDataPtrOutput) JobTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *JobTemplateJobTemplateData) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.JobTags
+	}).(pulumi.StringMapOutput)
+}
+
+// The release version of Amazon EMR.
+func (o JobTemplateJobTemplateDataPtrOutput) ReleaseLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobTemplateJobTemplateData) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ReleaseLabel
+	}).(pulumi.StringPtrOutput)
+}
+
+type JobTemplateJobTemplateDataConfigurationOverrides struct {
+	// The configurations for the application running by the job run.
+	ApplicationConfigurations []JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration `pulumi:"applicationConfigurations"`
+	// The configurations for monitoring.
+	MonitoringConfiguration *JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration `pulumi:"monitoringConfiguration"`
+}
+
+// JobTemplateJobTemplateDataConfigurationOverridesInput is an input type that accepts JobTemplateJobTemplateDataConfigurationOverridesArgs and JobTemplateJobTemplateDataConfigurationOverridesOutput values.
+// You can construct a concrete instance of `JobTemplateJobTemplateDataConfigurationOverridesInput` via:
+//
+//	JobTemplateJobTemplateDataConfigurationOverridesArgs{...}
+type JobTemplateJobTemplateDataConfigurationOverridesInput interface {
+	pulumi.Input
+
+	ToJobTemplateJobTemplateDataConfigurationOverridesOutput() JobTemplateJobTemplateDataConfigurationOverridesOutput
+	ToJobTemplateJobTemplateDataConfigurationOverridesOutputWithContext(context.Context) JobTemplateJobTemplateDataConfigurationOverridesOutput
+}
+
+type JobTemplateJobTemplateDataConfigurationOverridesArgs struct {
+	// The configurations for the application running by the job run.
+	ApplicationConfigurations JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArrayInput `pulumi:"applicationConfigurations"`
+	// The configurations for monitoring.
+	MonitoringConfiguration JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrInput `pulumi:"monitoringConfiguration"`
+}
+
+func (JobTemplateJobTemplateDataConfigurationOverridesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateJobTemplateDataConfigurationOverrides)(nil)).Elem()
+}
+
+func (i JobTemplateJobTemplateDataConfigurationOverridesArgs) ToJobTemplateJobTemplateDataConfigurationOverridesOutput() JobTemplateJobTemplateDataConfigurationOverridesOutput {
+	return i.ToJobTemplateJobTemplateDataConfigurationOverridesOutputWithContext(context.Background())
+}
+
+func (i JobTemplateJobTemplateDataConfigurationOverridesArgs) ToJobTemplateJobTemplateDataConfigurationOverridesOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataConfigurationOverridesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateJobTemplateDataConfigurationOverridesOutput)
+}
+
+func (i JobTemplateJobTemplateDataConfigurationOverridesArgs) ToJobTemplateJobTemplateDataConfigurationOverridesPtrOutput() JobTemplateJobTemplateDataConfigurationOverridesPtrOutput {
+	return i.ToJobTemplateJobTemplateDataConfigurationOverridesPtrOutputWithContext(context.Background())
+}
+
+func (i JobTemplateJobTemplateDataConfigurationOverridesArgs) ToJobTemplateJobTemplateDataConfigurationOverridesPtrOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataConfigurationOverridesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateJobTemplateDataConfigurationOverridesOutput).ToJobTemplateJobTemplateDataConfigurationOverridesPtrOutputWithContext(ctx)
+}
+
+// JobTemplateJobTemplateDataConfigurationOverridesPtrInput is an input type that accepts JobTemplateJobTemplateDataConfigurationOverridesArgs, JobTemplateJobTemplateDataConfigurationOverridesPtr and JobTemplateJobTemplateDataConfigurationOverridesPtrOutput values.
+// You can construct a concrete instance of `JobTemplateJobTemplateDataConfigurationOverridesPtrInput` via:
+//
+//	        JobTemplateJobTemplateDataConfigurationOverridesArgs{...}
+//
+//	or:
+//
+//	        nil
+type JobTemplateJobTemplateDataConfigurationOverridesPtrInput interface {
+	pulumi.Input
+
+	ToJobTemplateJobTemplateDataConfigurationOverridesPtrOutput() JobTemplateJobTemplateDataConfigurationOverridesPtrOutput
+	ToJobTemplateJobTemplateDataConfigurationOverridesPtrOutputWithContext(context.Context) JobTemplateJobTemplateDataConfigurationOverridesPtrOutput
+}
+
+type jobTemplateJobTemplateDataConfigurationOverridesPtrType JobTemplateJobTemplateDataConfigurationOverridesArgs
+
+func JobTemplateJobTemplateDataConfigurationOverridesPtr(v *JobTemplateJobTemplateDataConfigurationOverridesArgs) JobTemplateJobTemplateDataConfigurationOverridesPtrInput {
+	return (*jobTemplateJobTemplateDataConfigurationOverridesPtrType)(v)
+}
+
+func (*jobTemplateJobTemplateDataConfigurationOverridesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobTemplateJobTemplateDataConfigurationOverrides)(nil)).Elem()
+}
+
+func (i *jobTemplateJobTemplateDataConfigurationOverridesPtrType) ToJobTemplateJobTemplateDataConfigurationOverridesPtrOutput() JobTemplateJobTemplateDataConfigurationOverridesPtrOutput {
+	return i.ToJobTemplateJobTemplateDataConfigurationOverridesPtrOutputWithContext(context.Background())
+}
+
+func (i *jobTemplateJobTemplateDataConfigurationOverridesPtrType) ToJobTemplateJobTemplateDataConfigurationOverridesPtrOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataConfigurationOverridesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateJobTemplateDataConfigurationOverridesPtrOutput)
+}
+
+type JobTemplateJobTemplateDataConfigurationOverridesOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateJobTemplateDataConfigurationOverridesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateJobTemplateDataConfigurationOverrides)(nil)).Elem()
+}
+
+func (o JobTemplateJobTemplateDataConfigurationOverridesOutput) ToJobTemplateJobTemplateDataConfigurationOverridesOutput() JobTemplateJobTemplateDataConfigurationOverridesOutput {
+	return o
+}
+
+func (o JobTemplateJobTemplateDataConfigurationOverridesOutput) ToJobTemplateJobTemplateDataConfigurationOverridesOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataConfigurationOverridesOutput {
+	return o
+}
+
+func (o JobTemplateJobTemplateDataConfigurationOverridesOutput) ToJobTemplateJobTemplateDataConfigurationOverridesPtrOutput() JobTemplateJobTemplateDataConfigurationOverridesPtrOutput {
+	return o.ToJobTemplateJobTemplateDataConfigurationOverridesPtrOutputWithContext(context.Background())
+}
+
+func (o JobTemplateJobTemplateDataConfigurationOverridesOutput) ToJobTemplateJobTemplateDataConfigurationOverridesPtrOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataConfigurationOverridesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobTemplateJobTemplateDataConfigurationOverrides) *JobTemplateJobTemplateDataConfigurationOverrides {
+		return &v
+	}).(JobTemplateJobTemplateDataConfigurationOverridesPtrOutput)
+}
+
+// The configurations for the application running by the job run.
+func (o JobTemplateJobTemplateDataConfigurationOverridesOutput) ApplicationConfigurations() JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArrayOutput {
+	return o.ApplyT(func(v JobTemplateJobTemplateDataConfigurationOverrides) []JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration {
+		return v.ApplicationConfigurations
+	}).(JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArrayOutput)
+}
+
+// The configurations for monitoring.
+func (o JobTemplateJobTemplateDataConfigurationOverridesOutput) MonitoringConfiguration() JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrOutput {
+	return o.ApplyT(func(v JobTemplateJobTemplateDataConfigurationOverrides) *JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration {
+		return v.MonitoringConfiguration
+	}).(JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrOutput)
+}
+
+type JobTemplateJobTemplateDataConfigurationOverridesPtrOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateJobTemplateDataConfigurationOverridesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobTemplateJobTemplateDataConfigurationOverrides)(nil)).Elem()
+}
+
+func (o JobTemplateJobTemplateDataConfigurationOverridesPtrOutput) ToJobTemplateJobTemplateDataConfigurationOverridesPtrOutput() JobTemplateJobTemplateDataConfigurationOverridesPtrOutput {
+	return o
+}
+
+func (o JobTemplateJobTemplateDataConfigurationOverridesPtrOutput) ToJobTemplateJobTemplateDataConfigurationOverridesPtrOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataConfigurationOverridesPtrOutput {
+	return o
+}
+
+func (o JobTemplateJobTemplateDataConfigurationOverridesPtrOutput) Elem() JobTemplateJobTemplateDataConfigurationOverridesOutput {
+	return o.ApplyT(func(v *JobTemplateJobTemplateDataConfigurationOverrides) JobTemplateJobTemplateDataConfigurationOverrides {
+		if v != nil {
+			return *v
+		}
+		var ret JobTemplateJobTemplateDataConfigurationOverrides
+		return ret
+	}).(JobTemplateJobTemplateDataConfigurationOverridesOutput)
+}
+
+// The configurations for the application running by the job run.
+func (o JobTemplateJobTemplateDataConfigurationOverridesPtrOutput) ApplicationConfigurations() JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArrayOutput {
+	return o.ApplyT(func(v *JobTemplateJobTemplateDataConfigurationOverrides) []JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ApplicationConfigurations
+	}).(JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArrayOutput)
+}
+
+// The configurations for monitoring.
+func (o JobTemplateJobTemplateDataConfigurationOverridesPtrOutput) MonitoringConfiguration() JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrOutput {
+	return o.ApplyT(func(v *JobTemplateJobTemplateDataConfigurationOverrides) *JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.MonitoringConfiguration
+	}).(JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrOutput)
+}
+
+type JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration struct {
+	// The classification within a configuration.
+	Classification string `pulumi:"classification"`
+	// A list of additional configurations to apply within a configuration object.
+	Configurations []JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfiguration `pulumi:"configurations"`
+	// A set of properties specified within a configuration classification.
+	Properties map[string]string `pulumi:"properties"`
+}
+
+// JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationInput is an input type that accepts JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArgs and JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationOutput values.
+// You can construct a concrete instance of `JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationInput` via:
+//
+//	JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArgs{...}
+type JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationInput interface {
+	pulumi.Input
+
+	ToJobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationOutput() JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationOutput
+	ToJobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationOutputWithContext(context.Context) JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationOutput
+}
+
+type JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArgs struct {
+	// The classification within a configuration.
+	Classification pulumi.StringInput `pulumi:"classification"`
+	// A list of additional configurations to apply within a configuration object.
+	Configurations JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArrayInput `pulumi:"configurations"`
+	// A set of properties specified within a configuration classification.
+	Properties pulumi.StringMapInput `pulumi:"properties"`
+}
+
+func (JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration)(nil)).Elem()
+}
+
+func (i JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArgs) ToJobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationOutput() JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationOutput {
+	return i.ToJobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationOutputWithContext(context.Background())
+}
+
+func (i JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArgs) ToJobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationOutput)
+}
+
+// JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArrayInput is an input type that accepts JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArray and JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArrayOutput values.
+// You can construct a concrete instance of `JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArrayInput` via:
+//
+//	JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArray{ JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArgs{...} }
+type JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToJobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArrayOutput() JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArrayOutput
+	ToJobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArrayOutputWithContext(context.Context) JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArrayOutput
+}
+
+type JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArray []JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationInput
+
+func (JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration)(nil)).Elem()
+}
+
+func (i JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArray) ToJobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArrayOutput() JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArrayOutput {
+	return i.ToJobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArray) ToJobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArrayOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArrayOutput)
+}
+
+type JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration)(nil)).Elem()
+}
+
+func (o JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationOutput) ToJobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationOutput() JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationOutput {
+	return o
+}
+
+func (o JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationOutput) ToJobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationOutput {
+	return o
+}
+
+// The classification within a configuration.
+func (o JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationOutput) Classification() pulumi.StringOutput {
+	return o.ApplyT(func(v JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration) string {
+		return v.Classification
+	}).(pulumi.StringOutput)
+}
+
+// A list of additional configurations to apply within a configuration object.
+func (o JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationOutput) Configurations() JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArrayOutput {
+	return o.ApplyT(func(v JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration) []JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfiguration {
+		return v.Configurations
+	}).(JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArrayOutput)
+}
+
+// A set of properties specified within a configuration classification.
+func (o JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration) map[string]string {
+		return v.Properties
+	}).(pulumi.StringMapOutput)
+}
+
+type JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration)(nil)).Elem()
+}
+
+func (o JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArrayOutput) ToJobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArrayOutput() JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArrayOutput {
+	return o
+}
+
+func (o JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArrayOutput) ToJobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArrayOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArrayOutput {
+	return o
+}
+
+func (o JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArrayOutput) Index(i pulumi.IntInput) JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration {
+		return vs[0].([]JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration)[vs[1].(int)]
+	}).(JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationOutput)
+}
+
+type JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfiguration struct {
+	// The classification within a configuration.
+	Classification *string `pulumi:"classification"`
+	// A set of properties specified within a configuration classification.
+	Properties map[string]string `pulumi:"properties"`
+}
+
+// JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationInput is an input type that accepts JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArgs and JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationOutput values.
+// You can construct a concrete instance of `JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationInput` via:
+//
+//	JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArgs{...}
+type JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationInput interface {
+	pulumi.Input
+
+	ToJobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationOutput() JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationOutput
+	ToJobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationOutputWithContext(context.Context) JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationOutput
+}
+
+type JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArgs struct {
+	// The classification within a configuration.
+	Classification pulumi.StringPtrInput `pulumi:"classification"`
+	// A set of properties specified within a configuration classification.
+	Properties pulumi.StringMapInput `pulumi:"properties"`
+}
+
+func (JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfiguration)(nil)).Elem()
+}
+
+func (i JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArgs) ToJobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationOutput() JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationOutput {
+	return i.ToJobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationOutputWithContext(context.Background())
+}
+
+func (i JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArgs) ToJobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationOutput)
+}
+
+// JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArrayInput is an input type that accepts JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArray and JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArrayOutput values.
+// You can construct a concrete instance of `JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArrayInput` via:
+//
+//	JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArray{ JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArgs{...} }
+type JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToJobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArrayOutput() JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArrayOutput
+	ToJobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArrayOutputWithContext(context.Context) JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArrayOutput
+}
+
+type JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArray []JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationInput
+
+func (JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfiguration)(nil)).Elem()
+}
+
+func (i JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArray) ToJobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArrayOutput() JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArrayOutput {
+	return i.ToJobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArray) ToJobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArrayOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArrayOutput)
+}
+
+type JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfiguration)(nil)).Elem()
+}
+
+func (o JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationOutput) ToJobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationOutput() JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationOutput {
+	return o
+}
+
+func (o JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationOutput) ToJobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationOutput {
+	return o
+}
+
+// The classification within a configuration.
+func (o JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationOutput) Classification() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfiguration) *string {
+		return v.Classification
+	}).(pulumi.StringPtrOutput)
+}
+
+// A set of properties specified within a configuration classification.
+func (o JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfiguration) map[string]string {
+		return v.Properties
+	}).(pulumi.StringMapOutput)
+}
+
+type JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfiguration)(nil)).Elem()
+}
+
+func (o JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArrayOutput) ToJobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArrayOutput() JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArrayOutput {
+	return o
+}
+
+func (o JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArrayOutput) ToJobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArrayOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArrayOutput {
+	return o
+}
+
+func (o JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArrayOutput) Index(i pulumi.IntInput) JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfiguration {
+		return vs[0].([]JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfiguration)[vs[1].(int)]
+	}).(JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationOutput)
+}
+
+type JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration struct {
+	// Monitoring configurations for CloudWatch.
+	CloudWatchMonitoringConfiguration *JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfiguration `pulumi:"cloudWatchMonitoringConfiguration"`
+	// Monitoring configurations for the persistent application UI.
+	PersistentAppUi *string `pulumi:"persistentAppUi"`
+	// Amazon S3 configuration for monitoring log publishing.
+	S3MonitoringConfiguration *JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfiguration `pulumi:"s3MonitoringConfiguration"`
+}
+
+// JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationInput is an input type that accepts JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArgs and JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationOutput values.
+// You can construct a concrete instance of `JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationInput` via:
+//
+//	JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArgs{...}
+type JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationInput interface {
+	pulumi.Input
+
+	ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationOutput() JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationOutput
+	ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationOutputWithContext(context.Context) JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationOutput
+}
+
+type JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArgs struct {
+	// Monitoring configurations for CloudWatch.
+	CloudWatchMonitoringConfiguration JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrInput `pulumi:"cloudWatchMonitoringConfiguration"`
+	// Monitoring configurations for the persistent application UI.
+	PersistentAppUi pulumi.StringPtrInput `pulumi:"persistentAppUi"`
+	// Amazon S3 configuration for monitoring log publishing.
+	S3MonitoringConfiguration JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrInput `pulumi:"s3MonitoringConfiguration"`
+}
+
+func (JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration)(nil)).Elem()
+}
+
+func (i JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArgs) ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationOutput() JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationOutput {
+	return i.ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationOutputWithContext(context.Background())
+}
+
+func (i JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArgs) ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationOutput)
+}
+
+func (i JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArgs) ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrOutput() JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrOutput {
+	return i.ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArgs) ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationOutput).ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrOutputWithContext(ctx)
+}
+
+// JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrInput is an input type that accepts JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArgs, JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtr and JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrOutput values.
+// You can construct a concrete instance of `JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrInput` via:
+//
+//	        JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrOutput() JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrOutput
+	ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrOutputWithContext(context.Context) JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrOutput
+}
+
+type jobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrType JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArgs
+
+func JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtr(v *JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArgs) JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrInput {
+	return (*jobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrType)(v)
+}
+
+func (*jobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration)(nil)).Elem()
+}
+
+func (i *jobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrType) ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrOutput() JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrOutput {
+	return i.ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *jobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrType) ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrOutput)
+}
+
+type JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration)(nil)).Elem()
+}
+
+func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationOutput) ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationOutput() JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationOutput {
+	return o
+}
+
+func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationOutput) ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationOutput {
+	return o
+}
+
+func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationOutput) ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrOutput() JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrOutput {
+	return o.ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationOutput) ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration) *JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration {
+		return &v
+	}).(JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrOutput)
+}
+
+// Monitoring configurations for CloudWatch.
+func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationOutput) CloudWatchMonitoringConfiguration() JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrOutput {
+	return o.ApplyT(func(v JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration) *JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfiguration {
+		return v.CloudWatchMonitoringConfiguration
+	}).(JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrOutput)
+}
+
+// Monitoring configurations for the persistent application UI.
+func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationOutput) PersistentAppUi() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration) *string {
+		return v.PersistentAppUi
+	}).(pulumi.StringPtrOutput)
+}
+
+// Amazon S3 configuration for monitoring log publishing.
+func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationOutput) S3MonitoringConfiguration() JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrOutput {
+	return o.ApplyT(func(v JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration) *JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfiguration {
+		return v.S3MonitoringConfiguration
+	}).(JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrOutput)
+}
+
+type JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration)(nil)).Elem()
+}
+
+func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrOutput) ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrOutput() JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrOutput {
+	return o
+}
+
+func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrOutput) ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrOutput {
+	return o
+}
+
+func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrOutput) Elem() JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationOutput {
+	return o.ApplyT(func(v *JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration) JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration
+		return ret
+	}).(JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationOutput)
+}
+
+// Monitoring configurations for CloudWatch.
+func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrOutput) CloudWatchMonitoringConfiguration() JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrOutput {
+	return o.ApplyT(func(v *JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration) *JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.CloudWatchMonitoringConfiguration
+	}).(JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrOutput)
+}
+
+// Monitoring configurations for the persistent application UI.
+func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrOutput) PersistentAppUi() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PersistentAppUi
+	}).(pulumi.StringPtrOutput)
+}
+
+// Amazon S3 configuration for monitoring log publishing.
+func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrOutput) S3MonitoringConfiguration() JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrOutput {
+	return o.ApplyT(func(v *JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration) *JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.S3MonitoringConfiguration
+	}).(JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrOutput)
+}
+
+type JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfiguration struct {
+	// The name of the log group for log publishing.
+	LogGroupName string `pulumi:"logGroupName"`
+	// The specified name prefix for log streams.
+	LogStreamNamePrefix *string `pulumi:"logStreamNamePrefix"`
+}
+
+// JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationInput is an input type that accepts JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationArgs and JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationOutput values.
+// You can construct a concrete instance of `JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationInput` via:
+//
+//	JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationArgs{...}
+type JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationInput interface {
+	pulumi.Input
+
+	ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationOutput() JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationOutput
+	ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationOutputWithContext(context.Context) JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationOutput
+}
+
+type JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationArgs struct {
+	// The name of the log group for log publishing.
+	LogGroupName pulumi.StringInput `pulumi:"logGroupName"`
+	// The specified name prefix for log streams.
+	LogStreamNamePrefix pulumi.StringPtrInput `pulumi:"logStreamNamePrefix"`
+}
+
+func (JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfiguration)(nil)).Elem()
+}
+
+func (i JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationArgs) ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationOutput() JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationOutput {
+	return i.ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationOutputWithContext(context.Background())
+}
+
+func (i JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationArgs) ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationOutput)
+}
+
+func (i JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationArgs) ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrOutput() JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrOutput {
+	return i.ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationArgs) ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationOutput).ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrOutputWithContext(ctx)
+}
+
+// JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrInput is an input type that accepts JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationArgs, JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtr and JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrOutput values.
+// You can construct a concrete instance of `JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrInput` via:
+//
+//	        JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrOutput() JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrOutput
+	ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrOutputWithContext(context.Context) JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrOutput
+}
+
+type jobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrType JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationArgs
+
+func JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtr(v *JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationArgs) JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrInput {
+	return (*jobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrType)(v)
+}
+
+func (*jobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfiguration)(nil)).Elem()
+}
+
+func (i *jobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrType) ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrOutput() JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrOutput {
+	return i.ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *jobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrType) ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrOutput)
+}
+
+type JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfiguration)(nil)).Elem()
+}
+
+func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationOutput) ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationOutput() JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationOutput {
+	return o
+}
+
+func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationOutput) ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationOutput {
+	return o
+}
+
+func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationOutput) ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrOutput() JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrOutput {
+	return o.ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationOutput) ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfiguration) *JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfiguration {
+		return &v
+	}).(JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrOutput)
+}
+
+// The name of the log group for log publishing.
+func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationOutput) LogGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfiguration) string {
+		return v.LogGroupName
+	}).(pulumi.StringOutput)
+}
+
+// The specified name prefix for log streams.
+func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationOutput) LogStreamNamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfiguration) *string {
+		return v.LogStreamNamePrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+type JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfiguration)(nil)).Elem()
+}
+
+func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrOutput) ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrOutput() JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrOutput {
+	return o
+}
+
+func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrOutput) ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrOutput {
+	return o
+}
+
+func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrOutput) Elem() JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationOutput {
+	return o.ApplyT(func(v *JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfiguration) JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfiguration
+		return ret
+	}).(JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationOutput)
+}
+
+// The name of the log group for log publishing.
+func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrOutput) LogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LogGroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The specified name prefix for log streams.
+func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrOutput) LogStreamNamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogStreamNamePrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+type JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfiguration struct {
+	// Amazon S3 destination URI for log publishing.
+	LogUri string `pulumi:"logUri"`
+}
+
+// JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationInput is an input type that accepts JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationArgs and JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationOutput values.
+// You can construct a concrete instance of `JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationInput` via:
+//
+//	JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationArgs{...}
+type JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationInput interface {
+	pulumi.Input
+
+	ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationOutput() JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationOutput
+	ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationOutputWithContext(context.Context) JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationOutput
+}
+
+type JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationArgs struct {
+	// Amazon S3 destination URI for log publishing.
+	LogUri pulumi.StringInput `pulumi:"logUri"`
+}
+
+func (JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfiguration)(nil)).Elem()
+}
+
+func (i JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationArgs) ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationOutput() JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationOutput {
+	return i.ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationOutputWithContext(context.Background())
+}
+
+func (i JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationArgs) ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationOutput)
+}
+
+func (i JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationArgs) ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrOutput() JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrOutput {
+	return i.ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationArgs) ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationOutput).ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrOutputWithContext(ctx)
+}
+
+// JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrInput is an input type that accepts JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationArgs, JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtr and JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrOutput values.
+// You can construct a concrete instance of `JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrInput` via:
+//
+//	        JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrOutput() JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrOutput
+	ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrOutputWithContext(context.Context) JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrOutput
+}
+
+type jobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrType JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationArgs
+
+func JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtr(v *JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationArgs) JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrInput {
+	return (*jobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrType)(v)
+}
+
+func (*jobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfiguration)(nil)).Elem()
+}
+
+func (i *jobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrType) ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrOutput() JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrOutput {
+	return i.ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *jobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrType) ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrOutput)
+}
+
+type JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfiguration)(nil)).Elem()
+}
+
+func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationOutput) ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationOutput() JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationOutput {
+	return o
+}
+
+func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationOutput) ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationOutput {
+	return o
+}
+
+func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationOutput) ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrOutput() JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrOutput {
+	return o.ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationOutput) ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfiguration) *JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfiguration {
+		return &v
+	}).(JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrOutput)
+}
+
+// Amazon S3 destination URI for log publishing.
+func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationOutput) LogUri() pulumi.StringOutput {
+	return o.ApplyT(func(v JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfiguration) string {
+		return v.LogUri
+	}).(pulumi.StringOutput)
+}
+
+type JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfiguration)(nil)).Elem()
+}
+
+func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrOutput) ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrOutput() JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrOutput {
+	return o
+}
+
+func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrOutput) ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrOutput {
+	return o
+}
+
+func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrOutput) Elem() JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationOutput {
+	return o.ApplyT(func(v *JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfiguration) JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfiguration
+		return ret
+	}).(JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationOutput)
+}
+
+// Amazon S3 destination URI for log publishing.
+func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrOutput) LogUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LogUri
+	}).(pulumi.StringPtrOutput)
+}
+
+type JobTemplateJobTemplateDataJobDriver struct {
+	// The job driver for job type.
+	SparkSqlJobDriver *JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver `pulumi:"sparkSqlJobDriver"`
+	// The job driver parameters specified for spark submit.
+	SparkSubmitJobDriver *JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver `pulumi:"sparkSubmitJobDriver"`
+}
+
+// JobTemplateJobTemplateDataJobDriverInput is an input type that accepts JobTemplateJobTemplateDataJobDriverArgs and JobTemplateJobTemplateDataJobDriverOutput values.
+// You can construct a concrete instance of `JobTemplateJobTemplateDataJobDriverInput` via:
+//
+//	JobTemplateJobTemplateDataJobDriverArgs{...}
+type JobTemplateJobTemplateDataJobDriverInput interface {
+	pulumi.Input
+
+	ToJobTemplateJobTemplateDataJobDriverOutput() JobTemplateJobTemplateDataJobDriverOutput
+	ToJobTemplateJobTemplateDataJobDriverOutputWithContext(context.Context) JobTemplateJobTemplateDataJobDriverOutput
+}
+
+type JobTemplateJobTemplateDataJobDriverArgs struct {
+	// The job driver for job type.
+	SparkSqlJobDriver JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrInput `pulumi:"sparkSqlJobDriver"`
+	// The job driver parameters specified for spark submit.
+	SparkSubmitJobDriver JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrInput `pulumi:"sparkSubmitJobDriver"`
+}
+
+func (JobTemplateJobTemplateDataJobDriverArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateJobTemplateDataJobDriver)(nil)).Elem()
+}
+
+func (i JobTemplateJobTemplateDataJobDriverArgs) ToJobTemplateJobTemplateDataJobDriverOutput() JobTemplateJobTemplateDataJobDriverOutput {
+	return i.ToJobTemplateJobTemplateDataJobDriverOutputWithContext(context.Background())
+}
+
+func (i JobTemplateJobTemplateDataJobDriverArgs) ToJobTemplateJobTemplateDataJobDriverOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataJobDriverOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateJobTemplateDataJobDriverOutput)
+}
+
+func (i JobTemplateJobTemplateDataJobDriverArgs) ToJobTemplateJobTemplateDataJobDriverPtrOutput() JobTemplateJobTemplateDataJobDriverPtrOutput {
+	return i.ToJobTemplateJobTemplateDataJobDriverPtrOutputWithContext(context.Background())
+}
+
+func (i JobTemplateJobTemplateDataJobDriverArgs) ToJobTemplateJobTemplateDataJobDriverPtrOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataJobDriverPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateJobTemplateDataJobDriverOutput).ToJobTemplateJobTemplateDataJobDriverPtrOutputWithContext(ctx)
+}
+
+// JobTemplateJobTemplateDataJobDriverPtrInput is an input type that accepts JobTemplateJobTemplateDataJobDriverArgs, JobTemplateJobTemplateDataJobDriverPtr and JobTemplateJobTemplateDataJobDriverPtrOutput values.
+// You can construct a concrete instance of `JobTemplateJobTemplateDataJobDriverPtrInput` via:
+//
+//	        JobTemplateJobTemplateDataJobDriverArgs{...}
+//
+//	or:
+//
+//	        nil
+type JobTemplateJobTemplateDataJobDriverPtrInput interface {
+	pulumi.Input
+
+	ToJobTemplateJobTemplateDataJobDriverPtrOutput() JobTemplateJobTemplateDataJobDriverPtrOutput
+	ToJobTemplateJobTemplateDataJobDriverPtrOutputWithContext(context.Context) JobTemplateJobTemplateDataJobDriverPtrOutput
+}
+
+type jobTemplateJobTemplateDataJobDriverPtrType JobTemplateJobTemplateDataJobDriverArgs
+
+func JobTemplateJobTemplateDataJobDriverPtr(v *JobTemplateJobTemplateDataJobDriverArgs) JobTemplateJobTemplateDataJobDriverPtrInput {
+	return (*jobTemplateJobTemplateDataJobDriverPtrType)(v)
+}
+
+func (*jobTemplateJobTemplateDataJobDriverPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobTemplateJobTemplateDataJobDriver)(nil)).Elem()
+}
+
+func (i *jobTemplateJobTemplateDataJobDriverPtrType) ToJobTemplateJobTemplateDataJobDriverPtrOutput() JobTemplateJobTemplateDataJobDriverPtrOutput {
+	return i.ToJobTemplateJobTemplateDataJobDriverPtrOutputWithContext(context.Background())
+}
+
+func (i *jobTemplateJobTemplateDataJobDriverPtrType) ToJobTemplateJobTemplateDataJobDriverPtrOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataJobDriverPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateJobTemplateDataJobDriverPtrOutput)
+}
+
+type JobTemplateJobTemplateDataJobDriverOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateJobTemplateDataJobDriverOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateJobTemplateDataJobDriver)(nil)).Elem()
+}
+
+func (o JobTemplateJobTemplateDataJobDriverOutput) ToJobTemplateJobTemplateDataJobDriverOutput() JobTemplateJobTemplateDataJobDriverOutput {
+	return o
+}
+
+func (o JobTemplateJobTemplateDataJobDriverOutput) ToJobTemplateJobTemplateDataJobDriverOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataJobDriverOutput {
+	return o
+}
+
+func (o JobTemplateJobTemplateDataJobDriverOutput) ToJobTemplateJobTemplateDataJobDriverPtrOutput() JobTemplateJobTemplateDataJobDriverPtrOutput {
+	return o.ToJobTemplateJobTemplateDataJobDriverPtrOutputWithContext(context.Background())
+}
+
+func (o JobTemplateJobTemplateDataJobDriverOutput) ToJobTemplateJobTemplateDataJobDriverPtrOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataJobDriverPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobTemplateJobTemplateDataJobDriver) *JobTemplateJobTemplateDataJobDriver {
+		return &v
+	}).(JobTemplateJobTemplateDataJobDriverPtrOutput)
+}
+
+// The job driver for job type.
+func (o JobTemplateJobTemplateDataJobDriverOutput) SparkSqlJobDriver() JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrOutput {
+	return o.ApplyT(func(v JobTemplateJobTemplateDataJobDriver) *JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver {
+		return v.SparkSqlJobDriver
+	}).(JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrOutput)
+}
+
+// The job driver parameters specified for spark submit.
+func (o JobTemplateJobTemplateDataJobDriverOutput) SparkSubmitJobDriver() JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrOutput {
+	return o.ApplyT(func(v JobTemplateJobTemplateDataJobDriver) *JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver {
+		return v.SparkSubmitJobDriver
+	}).(JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrOutput)
+}
+
+type JobTemplateJobTemplateDataJobDriverPtrOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateJobTemplateDataJobDriverPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobTemplateJobTemplateDataJobDriver)(nil)).Elem()
+}
+
+func (o JobTemplateJobTemplateDataJobDriverPtrOutput) ToJobTemplateJobTemplateDataJobDriverPtrOutput() JobTemplateJobTemplateDataJobDriverPtrOutput {
+	return o
+}
+
+func (o JobTemplateJobTemplateDataJobDriverPtrOutput) ToJobTemplateJobTemplateDataJobDriverPtrOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataJobDriverPtrOutput {
+	return o
+}
+
+func (o JobTemplateJobTemplateDataJobDriverPtrOutput) Elem() JobTemplateJobTemplateDataJobDriverOutput {
+	return o.ApplyT(func(v *JobTemplateJobTemplateDataJobDriver) JobTemplateJobTemplateDataJobDriver {
+		if v != nil {
+			return *v
+		}
+		var ret JobTemplateJobTemplateDataJobDriver
+		return ret
+	}).(JobTemplateJobTemplateDataJobDriverOutput)
+}
+
+// The job driver for job type.
+func (o JobTemplateJobTemplateDataJobDriverPtrOutput) SparkSqlJobDriver() JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrOutput {
+	return o.ApplyT(func(v *JobTemplateJobTemplateDataJobDriver) *JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver {
+		if v == nil {
+			return nil
+		}
+		return v.SparkSqlJobDriver
+	}).(JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrOutput)
+}
+
+// The job driver parameters specified for spark submit.
+func (o JobTemplateJobTemplateDataJobDriverPtrOutput) SparkSubmitJobDriver() JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrOutput {
+	return o.ApplyT(func(v *JobTemplateJobTemplateDataJobDriver) *JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver {
+		if v == nil {
+			return nil
+		}
+		return v.SparkSubmitJobDriver
+	}).(JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrOutput)
+}
+
+type JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver struct {
+	// The SQL file to be executed.
+	EntryPoint *string `pulumi:"entryPoint"`
+	// The Spark parameters to be included in the Spark SQL command.
+	SparkSqlParameters *string `pulumi:"sparkSqlParameters"`
+}
+
+// JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverInput is an input type that accepts JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs and JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverOutput values.
+// You can construct a concrete instance of `JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverInput` via:
+//
+//	JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs{...}
+type JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverInput interface {
+	pulumi.Input
+
+	ToJobTemplateJobTemplateDataJobDriverSparkSqlJobDriverOutput() JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverOutput
+	ToJobTemplateJobTemplateDataJobDriverSparkSqlJobDriverOutputWithContext(context.Context) JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverOutput
+}
+
+type JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs struct {
+	// The SQL file to be executed.
+	EntryPoint pulumi.StringPtrInput `pulumi:"entryPoint"`
+	// The Spark parameters to be included in the Spark SQL command.
+	SparkSqlParameters pulumi.StringPtrInput `pulumi:"sparkSqlParameters"`
+}
+
+func (JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver)(nil)).Elem()
+}
+
+func (i JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs) ToJobTemplateJobTemplateDataJobDriverSparkSqlJobDriverOutput() JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverOutput {
+	return i.ToJobTemplateJobTemplateDataJobDriverSparkSqlJobDriverOutputWithContext(context.Background())
+}
+
+func (i JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs) ToJobTemplateJobTemplateDataJobDriverSparkSqlJobDriverOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverOutput)
+}
+
+func (i JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs) ToJobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrOutput() JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrOutput {
+	return i.ToJobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrOutputWithContext(context.Background())
+}
+
+func (i JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs) ToJobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverOutput).ToJobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrOutputWithContext(ctx)
+}
+
+// JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrInput is an input type that accepts JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs, JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtr and JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrOutput values.
+// You can construct a concrete instance of `JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrInput` via:
+//
+//	        JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs{...}
+//
+//	or:
+//
+//	        nil
+type JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrInput interface {
+	pulumi.Input
+
+	ToJobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrOutput() JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrOutput
+	ToJobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrOutputWithContext(context.Context) JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrOutput
+}
+
+type jobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrType JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs
+
+func JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtr(v *JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs) JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrInput {
+	return (*jobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrType)(v)
+}
+
+func (*jobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver)(nil)).Elem()
+}
+
+func (i *jobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrType) ToJobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrOutput() JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrOutput {
+	return i.ToJobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrOutputWithContext(context.Background())
+}
+
+func (i *jobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrType) ToJobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrOutput)
+}
+
+type JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver)(nil)).Elem()
+}
+
+func (o JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverOutput) ToJobTemplateJobTemplateDataJobDriverSparkSqlJobDriverOutput() JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverOutput {
+	return o
+}
+
+func (o JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverOutput) ToJobTemplateJobTemplateDataJobDriverSparkSqlJobDriverOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverOutput {
+	return o
+}
+
+func (o JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverOutput) ToJobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrOutput() JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrOutput {
+	return o.ToJobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrOutputWithContext(context.Background())
+}
+
+func (o JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverOutput) ToJobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver) *JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver {
+		return &v
+	}).(JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrOutput)
+}
+
+// The SQL file to be executed.
+func (o JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverOutput) EntryPoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver) *string { return v.EntryPoint }).(pulumi.StringPtrOutput)
+}
+
+// The Spark parameters to be included in the Spark SQL command.
+func (o JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverOutput) SparkSqlParameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver) *string { return v.SparkSqlParameters }).(pulumi.StringPtrOutput)
+}
+
+type JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver)(nil)).Elem()
+}
+
+func (o JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrOutput) ToJobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrOutput() JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrOutput {
+	return o
+}
+
+func (o JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrOutput) ToJobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrOutput {
+	return o
+}
+
+func (o JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrOutput) Elem() JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverOutput {
+	return o.ApplyT(func(v *JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver) JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver {
+		if v != nil {
+			return *v
+		}
+		var ret JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver
+		return ret
+	}).(JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverOutput)
+}
+
+// The SQL file to be executed.
+func (o JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrOutput) EntryPoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EntryPoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Spark parameters to be included in the Spark SQL command.
+func (o JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrOutput) SparkSqlParameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SparkSqlParameters
+	}).(pulumi.StringPtrOutput)
+}
+
+type JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver struct {
+	// The entry point of job application.
+	EntryPoint string `pulumi:"entryPoint"`
+	// The arguments for job application.
+	EntryPointArguments []string `pulumi:"entryPointArguments"`
+	// The Spark submit parameters that are used for job runs.
+	SparkSubmitParameters *string `pulumi:"sparkSubmitParameters"`
+}
+
+// JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverInput is an input type that accepts JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverArgs and JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverOutput values.
+// You can construct a concrete instance of `JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverInput` via:
+//
+//	JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverArgs{...}
+type JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverInput interface {
+	pulumi.Input
+
+	ToJobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverOutput() JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverOutput
+	ToJobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverOutputWithContext(context.Context) JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverOutput
+}
+
+type JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverArgs struct {
+	// The entry point of job application.
+	EntryPoint pulumi.StringInput `pulumi:"entryPoint"`
+	// The arguments for job application.
+	EntryPointArguments pulumi.StringArrayInput `pulumi:"entryPointArguments"`
+	// The Spark submit parameters that are used for job runs.
+	SparkSubmitParameters pulumi.StringPtrInput `pulumi:"sparkSubmitParameters"`
+}
+
+func (JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver)(nil)).Elem()
+}
+
+func (i JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverArgs) ToJobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverOutput() JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverOutput {
+	return i.ToJobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverOutputWithContext(context.Background())
+}
+
+func (i JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverArgs) ToJobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverOutput)
+}
+
+func (i JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverArgs) ToJobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrOutput() JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrOutput {
+	return i.ToJobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrOutputWithContext(context.Background())
+}
+
+func (i JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverArgs) ToJobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverOutput).ToJobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrOutputWithContext(ctx)
+}
+
+// JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrInput is an input type that accepts JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverArgs, JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtr and JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrOutput values.
+// You can construct a concrete instance of `JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrInput` via:
+//
+//	        JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverArgs{...}
+//
+//	or:
+//
+//	        nil
+type JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrInput interface {
+	pulumi.Input
+
+	ToJobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrOutput() JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrOutput
+	ToJobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrOutputWithContext(context.Context) JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrOutput
+}
+
+type jobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrType JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverArgs
+
+func JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtr(v *JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverArgs) JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrInput {
+	return (*jobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrType)(v)
+}
+
+func (*jobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver)(nil)).Elem()
+}
+
+func (i *jobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrType) ToJobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrOutput() JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrOutput {
+	return i.ToJobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrOutputWithContext(context.Background())
+}
+
+func (i *jobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrType) ToJobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrOutput)
+}
+
+type JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver)(nil)).Elem()
+}
+
+func (o JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverOutput) ToJobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverOutput() JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverOutput {
+	return o
+}
+
+func (o JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverOutput) ToJobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverOutput {
+	return o
+}
+
+func (o JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverOutput) ToJobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrOutput() JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrOutput {
+	return o.ToJobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrOutputWithContext(context.Background())
+}
+
+func (o JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverOutput) ToJobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver) *JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver {
+		return &v
+	}).(JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrOutput)
+}
+
+// The entry point of job application.
+func (o JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverOutput) EntryPoint() pulumi.StringOutput {
+	return o.ApplyT(func(v JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver) string { return v.EntryPoint }).(pulumi.StringOutput)
+}
+
+// The arguments for job application.
+func (o JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverOutput) EntryPointArguments() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver) []string { return v.EntryPointArguments }).(pulumi.StringArrayOutput)
+}
+
+// The Spark submit parameters that are used for job runs.
+func (o JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverOutput) SparkSubmitParameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver) *string {
+		return v.SparkSubmitParameters
+	}).(pulumi.StringPtrOutput)
+}
+
+type JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver)(nil)).Elem()
+}
+
+func (o JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrOutput) ToJobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrOutput() JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrOutput {
+	return o
+}
+
+func (o JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrOutput) ToJobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrOutput {
+	return o
+}
+
+func (o JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrOutput) Elem() JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverOutput {
+	return o.ApplyT(func(v *JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver) JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver {
+		if v != nil {
+			return *v
+		}
+		var ret JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver
+		return ret
+	}).(JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverOutput)
+}
+
+// The entry point of job application.
+func (o JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrOutput) EntryPoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EntryPoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// The arguments for job application.
+func (o JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrOutput) EntryPointArguments() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver) []string {
+		if v == nil {
+			return nil
+		}
+		return v.EntryPointArguments
+	}).(pulumi.StringArrayOutput)
+}
+
+// The Spark submit parameters that are used for job runs.
+func (o JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrOutput) SparkSubmitParameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SparkSubmitParameters
+	}).(pulumi.StringPtrOutput)
+}
 
 type VirtualClusterContainerProvider struct {
 	// The name of the container provider that is running your EMR Containers cluster
@@ -773,6 +2355,26 @@ func (o GetVirtualClusterContainerProviderInfoEksInfoArrayOutput) Index(i pulumi
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateJobTemplateDataInput)(nil)).Elem(), JobTemplateJobTemplateDataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateJobTemplateDataPtrInput)(nil)).Elem(), JobTemplateJobTemplateDataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateJobTemplateDataConfigurationOverridesInput)(nil)).Elem(), JobTemplateJobTemplateDataConfigurationOverridesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateJobTemplateDataConfigurationOverridesPtrInput)(nil)).Elem(), JobTemplateJobTemplateDataConfigurationOverridesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationInput)(nil)).Elem(), JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArrayInput)(nil)).Elem(), JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationInput)(nil)).Elem(), JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArrayInput)(nil)).Elem(), JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationInput)(nil)).Elem(), JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrInput)(nil)).Elem(), JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationInput)(nil)).Elem(), JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrInput)(nil)).Elem(), JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationInput)(nil)).Elem(), JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrInput)(nil)).Elem(), JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateJobTemplateDataJobDriverInput)(nil)).Elem(), JobTemplateJobTemplateDataJobDriverArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateJobTemplateDataJobDriverPtrInput)(nil)).Elem(), JobTemplateJobTemplateDataJobDriverArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverInput)(nil)).Elem(), JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrInput)(nil)).Elem(), JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverInput)(nil)).Elem(), JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrInput)(nil)).Elem(), JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualClusterContainerProviderInput)(nil)).Elem(), VirtualClusterContainerProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualClusterContainerProviderPtrInput)(nil)).Elem(), VirtualClusterContainerProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualClusterContainerProviderInfoInput)(nil)).Elem(), VirtualClusterContainerProviderInfoArgs{})
@@ -785,6 +2387,26 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualClusterContainerProviderInfoArrayInput)(nil)).Elem(), GetVirtualClusterContainerProviderInfoArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualClusterContainerProviderInfoEksInfoInput)(nil)).Elem(), GetVirtualClusterContainerProviderInfoEksInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualClusterContainerProviderInfoEksInfoArrayInput)(nil)).Elem(), GetVirtualClusterContainerProviderInfoEksInfoArray{})
+	pulumi.RegisterOutputType(JobTemplateJobTemplateDataOutput{})
+	pulumi.RegisterOutputType(JobTemplateJobTemplateDataPtrOutput{})
+	pulumi.RegisterOutputType(JobTemplateJobTemplateDataConfigurationOverridesOutput{})
+	pulumi.RegisterOutputType(JobTemplateJobTemplateDataConfigurationOverridesPtrOutput{})
+	pulumi.RegisterOutputType(JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationOutput{})
+	pulumi.RegisterOutputType(JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationOutput{})
+	pulumi.RegisterOutputType(JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationOutput{})
+	pulumi.RegisterOutputType(JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationOutput{})
+	pulumi.RegisterOutputType(JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationOutput{})
+	pulumi.RegisterOutputType(JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(JobTemplateJobTemplateDataJobDriverOutput{})
+	pulumi.RegisterOutputType(JobTemplateJobTemplateDataJobDriverPtrOutput{})
+	pulumi.RegisterOutputType(JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverOutput{})
+	pulumi.RegisterOutputType(JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrOutput{})
+	pulumi.RegisterOutputType(JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverOutput{})
+	pulumi.RegisterOutputType(JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrOutput{})
 	pulumi.RegisterOutputType(VirtualClusterContainerProviderOutput{})
 	pulumi.RegisterOutputType(VirtualClusterContainerProviderPtrOutput{})
 	pulumi.RegisterOutputType(VirtualClusterContainerProviderInfoOutput{})

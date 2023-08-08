@@ -18,9 +18,17 @@ namespace Pulumi.Aws.Cfg.Outputs
         /// </summary>
         public readonly bool? AllSupported;
         /// <summary>
+        /// An object that specifies how AWS Config excludes resource types from being recorded by the configuration recorder.To use this option, you must set the useOnly field of RecordingStrategy to `EXCLUSION_BY_RESOURCE_TYPES` Requires `all_supported = false`. Conflicts with `resource_types`.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.RecorderRecordingGroupExclusionByResourceType> ExclusionByResourceTypes;
+        /// <summary>
         /// Specifies whether AWS Config includes all supported types of _global resources_ with the resources that it records. Requires `all_supported = true`. Conflicts with `resource_types`.
         /// </summary>
         public readonly bool? IncludeGlobalResourceTypes;
+        /// <summary>
+        /// Recording Strategy - see below..
+        /// </summary>
+        public readonly ImmutableArray<Outputs.RecorderRecordingGroupRecordingStrategy> RecordingStrategies;
         /// <summary>
         /// A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types. In order to use this attribute, `all_supported` must be set to false.
         /// </summary>
@@ -30,12 +38,18 @@ namespace Pulumi.Aws.Cfg.Outputs
         private RecorderRecordingGroup(
             bool? allSupported,
 
+            ImmutableArray<Outputs.RecorderRecordingGroupExclusionByResourceType> exclusionByResourceTypes,
+
             bool? includeGlobalResourceTypes,
+
+            ImmutableArray<Outputs.RecorderRecordingGroupRecordingStrategy> recordingStrategies,
 
             ImmutableArray<string> resourceTypes)
         {
             AllSupported = allSupported;
+            ExclusionByResourceTypes = exclusionByResourceTypes;
             IncludeGlobalResourceTypes = includeGlobalResourceTypes;
+            RecordingStrategies = recordingStrategies;
             ResourceTypes = resourceTypes;
         }
     }

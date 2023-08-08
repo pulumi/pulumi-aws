@@ -18,32 +18,32 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// </summary>
         public readonly Outputs.VirtualNodeSpecListenerConnectionPoolGrpc? Grpc;
         /// <summary>
-        /// Connection pool information for HTTP listeners.
-        /// </summary>
-        public readonly Outputs.VirtualNodeSpecListenerConnectionPoolHttp? Http;
-        /// <summary>
         /// Connection pool information for HTTP2 listeners.
         /// </summary>
-        public readonly Outputs.VirtualNodeSpecListenerConnectionPoolHttp2? Http2;
+        public readonly ImmutableArray<Outputs.VirtualNodeSpecListenerConnectionPoolHttp2> Http2s;
+        /// <summary>
+        /// Connection pool information for HTTP listeners.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.VirtualNodeSpecListenerConnectionPoolHttp> Https;
         /// <summary>
         /// Connection pool information for TCP listeners.
         /// </summary>
-        public readonly Outputs.VirtualNodeSpecListenerConnectionPoolTcp? Tcp;
+        public readonly ImmutableArray<Outputs.VirtualNodeSpecListenerConnectionPoolTcp> Tcps;
 
         [OutputConstructor]
         private VirtualNodeSpecListenerConnectionPool(
             Outputs.VirtualNodeSpecListenerConnectionPoolGrpc? grpc,
 
-            Outputs.VirtualNodeSpecListenerConnectionPoolHttp? http,
+            ImmutableArray<Outputs.VirtualNodeSpecListenerConnectionPoolHttp2> http2s,
 
-            Outputs.VirtualNodeSpecListenerConnectionPoolHttp2? http2,
+            ImmutableArray<Outputs.VirtualNodeSpecListenerConnectionPoolHttp> https,
 
-            Outputs.VirtualNodeSpecListenerConnectionPoolTcp? tcp)
+            ImmutableArray<Outputs.VirtualNodeSpecListenerConnectionPoolTcp> tcps)
         {
             Grpc = grpc;
-            Http = http;
-            Http2 = http2;
-            Tcp = tcp;
+            Http2s = http2s;
+            Https = https;
+            Tcps = tcps;
         }
     }
 }

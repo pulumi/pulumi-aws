@@ -112,11 +112,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Configuration Recorder Status can be imported using the name of the Configuration Recorder, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:cfg/recorderStatus:RecorderStatus foo example
- * ```
+ *  to = aws_config_configuration_recorder_status.foo
+ * 
+ *  id = &#34;example&#34; } Using `pulumi import`, import Configuration Recorder Status using the name of the Configuration Recorder. For exampleconsole % pulumi import aws_config_configuration_recorder_status.foo example
  * 
  */
 @ResourceType(type="aws:cfg/recorderStatus:RecorderStatus")

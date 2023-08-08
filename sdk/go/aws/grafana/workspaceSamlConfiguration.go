@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,8 +24,8 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/grafana"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/grafana"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -83,13 +84,11 @@ import (
 //
 // ## Import
 //
-// Grafana Workspace SAML configuration can be imported using the workspace's `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_grafana_workspace_saml_configuration.example
 //
-//	$ pulumi import aws:grafana/workspaceSamlConfiguration:WorkspaceSamlConfiguration example g-2054c75a02
-//
-// ```
+//	id = "g-2054c75a02" } Using `pulumi import`, import Grafana Workspace SAML configuration using the workspace's `id`. For exampleconsole % pulumi import aws_grafana_workspace_saml_configuration.example g-2054c75a02
 type WorkspaceSamlConfiguration struct {
 	pulumi.CustomResourceState
 
@@ -138,6 +137,7 @@ func NewWorkspaceSamlConfiguration(ctx *pulumi.Context,
 	if args.WorkspaceId == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource WorkspaceSamlConfiguration
 	err := ctx.RegisterResource("aws:grafana/workspaceSamlConfiguration:WorkspaceSamlConfiguration", name, args, &resource, opts...)
 	if err != nil {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -45,13 +46,11 @@ import (
 //
 // ## Import
 //
-// KMS Keys can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_kms_key.a
 //
-//	$ pulumi import aws:kms/key:Key a 1234abcd-12ab-34cd-56ef-1234567890ab
-//
-// ```
+//	id = "1234abcd-12ab-34cd-56ef-1234567890ab" } Using `pulumi import`, import KMS Keys using the `id`. For exampleconsole % pulumi import aws_kms_key.a 1234abcd-12ab-34cd-56ef-1234567890ab
 type Key struct {
 	pulumi.CustomResourceState
 
@@ -101,6 +100,7 @@ func NewKey(ctx *pulumi.Context,
 		args = &KeyArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Key
 	err := ctx.RegisterResource("aws:kms/key:Key", name, args, &resource, opts...)
 	if err != nil {

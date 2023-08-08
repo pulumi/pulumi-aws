@@ -126,11 +126,11 @@ namespace Pulumi.Aws.Eks
     /// 
     /// ## Import
     /// 
-    /// EKS Node Groups can be imported using the `cluster_name` and `node_group_name` separated by a colon (`:`), e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:eks/nodeGroup:NodeGroup my_node_group my_cluster:my_node_group
-    /// ```
+    ///  to = aws_eks_node_group.my_node_group
+    /// 
+    ///  id = "my_cluster:my_node_group" } Using `pulumi import`, import EKS Node Groups using the `cluster_name` and `node_group_name` separated by a colon (`:`). For exampleconsole % pulumi import aws_eks_node_group.my_node_group my_cluster:my_node_group
     /// </summary>
     [AwsResourceType("aws:eks/nodeGroup:NodeGroup")]
     public partial class NodeGroup : global::Pulumi.CustomResource
@@ -184,7 +184,7 @@ namespace Pulumi.Aws.Eks
         public Output<ImmutableDictionary<string, string>?> Labels { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block with Launch Template settings. Detailed below.
+        /// Configuration block with Launch Template settings. See `launch_template` below for details.
         /// </summary>
         [Output("launchTemplate")]
         public Output<Outputs.NodeGroupLaunchTemplate?> LaunchTemplate { get; private set; } = null!;
@@ -214,7 +214,7 @@ namespace Pulumi.Aws.Eks
         public Output<string> ReleaseVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block with remote access settings. Detailed below.
+        /// Configuration block with remote access settings. See `remote_access` below for details.
         /// </summary>
         [Output("remoteAccess")]
         public Output<Outputs.NodeGroupRemoteAccess?> RemoteAccess { get; private set; } = null!;
@@ -226,7 +226,7 @@ namespace Pulumi.Aws.Eks
         public Output<ImmutableArray<Outputs.NodeGroupResource>> Resources { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block with scaling settings. Detailed below.
+        /// Configuration block with scaling settings. See `scaling_config` below for details.
         /// </summary>
         [Output("scalingConfig")]
         public Output<Outputs.NodeGroupScalingConfig> ScalingConfig { get; private set; } = null!;
@@ -238,7 +238,7 @@ namespace Pulumi.Aws.Eks
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
+        /// Identifiers of EC2 Subnets to associate with the EKS Node Group.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -258,11 +258,14 @@ namespace Pulumi.Aws.Eks
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. Detailed below.
+        /// The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. See taint below for details.
         /// </summary>
         [Output("taints")]
         public Output<ImmutableArray<Outputs.NodeGroupTaint>> Taints { get; private set; } = null!;
 
+        /// <summary>
+        /// Configuration block with update settings. See `update_config` below for details.
+        /// </summary>
         [Output("updateConfig")]
         public Output<Outputs.NodeGroupUpdateConfig> UpdateConfig { get; private set; } = null!;
 
@@ -373,7 +376,7 @@ namespace Pulumi.Aws.Eks
         }
 
         /// <summary>
-        /// Configuration block with Launch Template settings. Detailed below.
+        /// Configuration block with Launch Template settings. See `launch_template` below for details.
         /// </summary>
         [Input("launchTemplate")]
         public Input<Inputs.NodeGroupLaunchTemplateArgs>? LaunchTemplate { get; set; }
@@ -403,13 +406,13 @@ namespace Pulumi.Aws.Eks
         public Input<string>? ReleaseVersion { get; set; }
 
         /// <summary>
-        /// Configuration block with remote access settings. Detailed below.
+        /// Configuration block with remote access settings. See `remote_access` below for details.
         /// </summary>
         [Input("remoteAccess")]
         public Input<Inputs.NodeGroupRemoteAccessArgs>? RemoteAccess { get; set; }
 
         /// <summary>
-        /// Configuration block with scaling settings. Detailed below.
+        /// Configuration block with scaling settings. See `scaling_config` below for details.
         /// </summary>
         [Input("scalingConfig", required: true)]
         public Input<Inputs.NodeGroupScalingConfigArgs> ScalingConfig { get; set; } = null!;
@@ -418,7 +421,7 @@ namespace Pulumi.Aws.Eks
         private InputList<string>? _subnetIds;
 
         /// <summary>
-        /// Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
+        /// Identifiers of EC2 Subnets to associate with the EKS Node Group.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -444,7 +447,7 @@ namespace Pulumi.Aws.Eks
         private InputList<Inputs.NodeGroupTaintArgs>? _taints;
 
         /// <summary>
-        /// The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. Detailed below.
+        /// The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. See taint below for details.
         /// </summary>
         public InputList<Inputs.NodeGroupTaintArgs> Taints
         {
@@ -452,6 +455,9 @@ namespace Pulumi.Aws.Eks
             set => _taints = value;
         }
 
+        /// <summary>
+        /// Configuration block with update settings. See `update_config` below for details.
+        /// </summary>
         [Input("updateConfig")]
         public Input<Inputs.NodeGroupUpdateConfigArgs>? UpdateConfig { get; set; }
 
@@ -530,7 +536,7 @@ namespace Pulumi.Aws.Eks
         }
 
         /// <summary>
-        /// Configuration block with Launch Template settings. Detailed below.
+        /// Configuration block with Launch Template settings. See `launch_template` below for details.
         /// </summary>
         [Input("launchTemplate")]
         public Input<Inputs.NodeGroupLaunchTemplateGetArgs>? LaunchTemplate { get; set; }
@@ -560,7 +566,7 @@ namespace Pulumi.Aws.Eks
         public Input<string>? ReleaseVersion { get; set; }
 
         /// <summary>
-        /// Configuration block with remote access settings. Detailed below.
+        /// Configuration block with remote access settings. See `remote_access` below for details.
         /// </summary>
         [Input("remoteAccess")]
         public Input<Inputs.NodeGroupRemoteAccessGetArgs>? RemoteAccess { get; set; }
@@ -578,7 +584,7 @@ namespace Pulumi.Aws.Eks
         }
 
         /// <summary>
-        /// Configuration block with scaling settings. Detailed below.
+        /// Configuration block with scaling settings. See `scaling_config` below for details.
         /// </summary>
         [Input("scalingConfig")]
         public Input<Inputs.NodeGroupScalingConfigGetArgs>? ScalingConfig { get; set; }
@@ -593,7 +599,7 @@ namespace Pulumi.Aws.Eks
         private InputList<string>? _subnetIds;
 
         /// <summary>
-        /// Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
+        /// Identifiers of EC2 Subnets to associate with the EKS Node Group.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -631,7 +637,7 @@ namespace Pulumi.Aws.Eks
         private InputList<Inputs.NodeGroupTaintGetArgs>? _taints;
 
         /// <summary>
-        /// The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. Detailed below.
+        /// The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. See taint below for details.
         /// </summary>
         public InputList<Inputs.NodeGroupTaintGetArgs> Taints
         {
@@ -639,6 +645,9 @@ namespace Pulumi.Aws.Eks
             set => _taints = value;
         }
 
+        /// <summary>
+        /// Configuration block with update settings. See `update_config` below for details.
+        /// </summary>
         [Input("updateConfig")]
         public Input<Inputs.NodeGroupUpdateConfigGetArgs>? UpdateConfig { get; set; }
 

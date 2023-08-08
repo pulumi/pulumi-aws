@@ -150,11 +150,11 @@ class GroupMembership(pulumi.CustomResource):
 
         ## Import
 
-        `aws_identitystore_group_membership` can be imported using the `identity_store_id/membership_id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:identitystore/groupMembership:GroupMembership example d-0000000000/00000000-0000-0000-0000-000000000000
-        ```
+         to = aws_identitystore_group_membership.example
+
+         id = "d-0000000000/00000000-0000-0000-0000-000000000000" } Using `pulumi import`, import `aws_identitystore_group_membership` using the `identity_store_id/membership_id`. For exampleconsole % pulumi import aws_identitystore_group_membership.example d-0000000000/00000000-0000-0000-0000-000000000000
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -173,11 +173,11 @@ class GroupMembership(pulumi.CustomResource):
 
         ## Import
 
-        `aws_identitystore_group_membership` can be imported using the `identity_store_id/membership_id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:identitystore/groupMembership:GroupMembership example d-0000000000/00000000-0000-0000-0000-000000000000
-        ```
+         to = aws_identitystore_group_membership.example
+
+         id = "d-0000000000/00000000-0000-0000-0000-000000000000" } Using `pulumi import`, import `aws_identitystore_group_membership` using the `identity_store_id/membership_id`. For exampleconsole % pulumi import aws_identitystore_group_membership.example d-0000000000/00000000-0000-0000-0000-000000000000
 
         :param str resource_name: The name of the resource.
         :param GroupMembershipArgs args: The arguments to use to populate this resource's properties.

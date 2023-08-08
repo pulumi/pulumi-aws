@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssmcontacts"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssmcontacts"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -49,7 +50,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssmcontacts"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssmcontacts"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -77,13 +78,11 @@ import (
 //
 // ## Import
 //
-// Import SSM Contact using the `ARN`. For example
+// terraform import {
 //
-// ```sh
+//	to = aws_ssmcontacts_contact.example
 //
-//	$ pulumi import aws:ssmcontacts/contact:Contact example {ARNValue}
-//
-// ```
+//	id = "{ARNValue}" } Using `pulumi import`, import SSM Contact using the `ARN`. For exampleconsole % pulumi import aws_ssmcontacts_contact.example {ARNValue}
 type Contact struct {
 	pulumi.CustomResourceState
 
@@ -117,6 +116,7 @@ func NewContact(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Contact
 	err := ctx.RegisterResource("aws:ssmcontacts/contact:Contact", name, args, &resource, opts...)
 	if err != nil {

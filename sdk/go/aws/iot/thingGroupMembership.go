@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iot"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iot"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -43,13 +44,11 @@ import (
 //
 // ## Import
 //
-// IoT Thing Group Membership can be imported using the thing group name and thing name.
+// terraform import {
 //
-// ```sh
+//	to = aws_iot_thing_group_membership.example
 //
-//	$ pulumi import aws:iot/thingGroupMembership:ThingGroupMembership example thing_group_name/thing_name
-//
-// ```
+//	id = "thing_group_name/thing_name" } Using `pulumi import`, import IoT Thing Group Membership using the thing group name and thing name. For exampleconsole % pulumi import aws_iot_thing_group_membership.example thing_group_name/thing_name
 type ThingGroupMembership struct {
 	pulumi.CustomResourceState
 
@@ -74,6 +73,7 @@ func NewThingGroupMembership(ctx *pulumi.Context,
 	if args.ThingName == nil {
 		return nil, errors.New("invalid value for required argument 'ThingName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ThingGroupMembership
 	err := ctx.RegisterResource("aws:iot/thingGroupMembership:ThingGroupMembership", name, args, &resource, opts...)
 	if err != nil {

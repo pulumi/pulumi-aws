@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssmcontacts"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssmcontacts"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -51,7 +52,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssmcontacts"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssmcontacts"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -88,7 +89,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssmcontacts"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssmcontacts"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -149,13 +150,11 @@ import (
 //
 // ## Import
 //
-// Import SSM Contact Plan using the Contact ARN. For example
+// terraform import {
 //
-// ```sh
+//	to = aws_ssmcontacts_plan.example
 //
-//	$ pulumi import aws:ssmcontacts/plan:Plan example {ARNValue}
-//
-// ```
+//	id = "{ARNValue}" } Using `pulumi import`, import SSM Contact Plan using the Contact ARN. For exampleconsole % pulumi import aws_ssmcontacts_plan.example {ARNValue}
 type Plan struct {
 	pulumi.CustomResourceState
 
@@ -178,6 +177,7 @@ func NewPlan(ctx *pulumi.Context,
 	if args.Stages == nil {
 		return nil, errors.New("invalid value for required argument 'Stages'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Plan
 	err := ctx.RegisterResource("aws:ssmcontacts/plan:Plan", name, args, &resource, opts...)
 	if err != nil {

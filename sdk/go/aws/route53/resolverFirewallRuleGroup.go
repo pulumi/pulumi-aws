@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -38,13 +39,13 @@ import (
 //
 // ## Import
 //
-//	Route 53 Resolver DNS Firewall rule groups can be imported using the Route 53 Resolver DNS Firewall rule group ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_route53_resolver_firewall_rule_group.example
 //
-//	$ pulumi import aws:route53/resolverFirewallRuleGroup:ResolverFirewallRuleGroup example rslvr-frg-0123456789abcdef
+//	id = "rslvr-frg-0123456789abcdef" } Using `pulumi import`, import
 //
-// ```
+// Route 53 Resolver DNS Firewall rule groups using the Route 53 Resolver DNS Firewall rule group ID. For exampleconsole % pulumi import aws_route53_resolver_firewall_rule_group.example rslvr-frg-0123456789abcdef
 type ResolverFirewallRuleGroup struct {
 	pulumi.CustomResourceState
 
@@ -69,6 +70,7 @@ func NewResolverFirewallRuleGroup(ctx *pulumi.Context,
 		args = &ResolverFirewallRuleGroupArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResolverFirewallRuleGroup
 	err := ctx.RegisterResource("aws:route53/resolverFirewallRuleGroup:ResolverFirewallRuleGroup", name, args, &resource, opts...)
 	if err != nil {

@@ -49,11 +49,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * SageMaker Notebook Instances can be imported using the `name`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:sagemaker/notebookInstance:NotebookInstance test_notebook_instance my-notebook-instance
- * ```
+ *  to = aws_sagemaker_notebook_instance.test_notebook_instance
+ *
+ *  id = "my-notebook-instance" } Using `pulumi import`, import SageMaker Notebook Instances using the `name`. For exampleconsole % pulumi import aws_sagemaker_notebook_instance.test_notebook_instance my-notebook-instance
  */
 export class NotebookInstance extends pulumi.CustomResource {
     /**

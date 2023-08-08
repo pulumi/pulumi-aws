@@ -121,11 +121,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Lightsail Instances can be imported using their name, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:lightsail/instance:Instance gitlab_test 'custom_gitlab'
- * ```
+ *  to = aws_lightsail_instance.gitlab_test
+ *
+ *  id = "custom_gitlab" } Using `pulumi import`, import Lightsail Instances using their name. For exampleconsole % pulumi import aws_lightsail_instance.gitlab_test 'custom_gitlab'
  */
 export class Instance extends pulumi.CustomResource {
     /**
@@ -188,12 +188,6 @@ export class Instance extends pulumi.CustomResource {
      * The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
      */
     public readonly ipAddressType!: pulumi.Output<string | undefined>;
-    /**
-     * (**Deprecated**) The first IPv6 address of the Lightsail instance. Use `ipv6Addresses` attribute instead.
-     *
-     * @deprecated use `ipv6_addresses` attribute instead
-     */
-    public /*out*/ readonly ipv6Address!: pulumi.Output<string>;
     /**
      * List of IPv6 addresses for the Lightsail instance.
      */
@@ -261,7 +255,6 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["cpuCount"] = state ? state.cpuCount : undefined;
             resourceInputs["createdAt"] = state ? state.createdAt : undefined;
             resourceInputs["ipAddressType"] = state ? state.ipAddressType : undefined;
-            resourceInputs["ipv6Address"] = state ? state.ipv6Address : undefined;
             resourceInputs["ipv6Addresses"] = state ? state.ipv6Addresses : undefined;
             resourceInputs["isStaticIp"] = state ? state.isStaticIp : undefined;
             resourceInputs["keyPairName"] = state ? state.keyPairName : undefined;
@@ -296,7 +289,6 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["cpuCount"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
-            resourceInputs["ipv6Address"] = undefined /*out*/;
             resourceInputs["ipv6Addresses"] = undefined /*out*/;
             resourceInputs["isStaticIp"] = undefined /*out*/;
             resourceInputs["privateIpAddress"] = undefined /*out*/;
@@ -347,12 +339,6 @@ export interface InstanceState {
      * The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
      */
     ipAddressType?: pulumi.Input<string>;
-    /**
-     * (**Deprecated**) The first IPv6 address of the Lightsail instance. Use `ipv6Addresses` attribute instead.
-     *
-     * @deprecated use `ipv6_addresses` attribute instead
-     */
-    ipv6Address?: pulumi.Input<string>;
     /**
      * List of IPv6 addresses for the Lightsail instance.
      */

@@ -20,7 +20,6 @@ __all__ = [
     'ScheduledActionTargetActionPauseClusterArgs',
     'ScheduledActionTargetActionResizeClusterArgs',
     'ScheduledActionTargetActionResumeClusterArgs',
-    'SecurityGroupIngressArgs',
 ]
 
 @pulumi.input_type
@@ -566,62 +565,5 @@ class ScheduledActionTargetActionResumeClusterArgs:
     @cluster_identifier.setter
     def cluster_identifier(self, value: pulumi.Input[str]):
         pulumi.set(self, "cluster_identifier", value)
-
-
-@pulumi.input_type
-class SecurityGroupIngressArgs:
-    def __init__(__self__, *,
-                 cidr: Optional[pulumi.Input[str]] = None,
-                 security_group_name: Optional[pulumi.Input[str]] = None,
-                 security_group_owner_id: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] cidr: The CIDR block to accept
-        :param pulumi.Input[str] security_group_name: The name of the security group to authorize
-        :param pulumi.Input[str] security_group_owner_id: The owner Id of the security group provided
-               by `security_group_name`.
-        """
-        if cidr is not None:
-            pulumi.set(__self__, "cidr", cidr)
-        if security_group_name is not None:
-            pulumi.set(__self__, "security_group_name", security_group_name)
-        if security_group_owner_id is not None:
-            pulumi.set(__self__, "security_group_owner_id", security_group_owner_id)
-
-    @property
-    @pulumi.getter
-    def cidr(self) -> Optional[pulumi.Input[str]]:
-        """
-        The CIDR block to accept
-        """
-        return pulumi.get(self, "cidr")
-
-    @cidr.setter
-    def cidr(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "cidr", value)
-
-    @property
-    @pulumi.getter(name="securityGroupName")
-    def security_group_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the security group to authorize
-        """
-        return pulumi.get(self, "security_group_name")
-
-    @security_group_name.setter
-    def security_group_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "security_group_name", value)
-
-    @property
-    @pulumi.getter(name="securityGroupOwnerId")
-    def security_group_owner_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The owner Id of the security group provided
-        by `security_group_name`.
-        """
-        return pulumi.get(self, "security_group_owner_id")
-
-    @security_group_owner_id.setter
-    def security_group_owner_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "security_group_owner_id", value)
 
 

@@ -850,7 +850,10 @@ class EventTarget(pulumi.CustomResource):
                 resources=[example_log_group.arn.apply(lambda arn: f"{arn}:*")],
                 principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                     type="Service",
-                    identifiers=["events.amazonaws.com"],
+                    identifiers=[
+                        "events.amazonaws.com",
+                        "delivery.logs.amazonaws.com",
+                    ],
                 )],
             ),
             aws.iam.GetPolicyDocumentStatementArgs(
@@ -859,7 +862,10 @@ class EventTarget(pulumi.CustomResource):
                 resources=[example_log_group.arn.apply(lambda arn: f"{arn}:*:*")],
                 principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                     type="Service",
-                    identifiers=["events.amazonaws.com"],
+                    identifiers=[
+                        "events.amazonaws.com",
+                        "delivery.logs.amazonaws.com",
+                    ],
                 )],
                 conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
                     test="ArnEquals",
@@ -878,11 +884,13 @@ class EventTarget(pulumi.CustomResource):
 
         ## Import
 
-        EventBridge Targets can be imported using `event_bus_name/rule-name/target-id` (if you omit `event_bus_name`, the `default` event bus will be used).
+         terraform import {
 
-        ```sh
-         $ pulumi import aws:cloudwatch/eventTarget:EventTarget test-event-target rule-name/target-id
-        ```
+         to = aws_cloudwatch_event_target.test-event-target
+
+         id = "rule-name/target-id" } Using `pulumi import`, import EventBridge Targets using `event_bus_name/rule-name/target-id` (if you omit `event_bus_name`, the `default` event bus will be used). For example:
+
+        console % pulumi import aws_cloudwatch_event_target.test-event-target rule-name/target-id
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1157,7 +1165,10 @@ class EventTarget(pulumi.CustomResource):
                 resources=[example_log_group.arn.apply(lambda arn: f"{arn}:*")],
                 principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                     type="Service",
-                    identifiers=["events.amazonaws.com"],
+                    identifiers=[
+                        "events.amazonaws.com",
+                        "delivery.logs.amazonaws.com",
+                    ],
                 )],
             ),
             aws.iam.GetPolicyDocumentStatementArgs(
@@ -1166,7 +1177,10 @@ class EventTarget(pulumi.CustomResource):
                 resources=[example_log_group.arn.apply(lambda arn: f"{arn}:*:*")],
                 principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                     type="Service",
-                    identifiers=["events.amazonaws.com"],
+                    identifiers=[
+                        "events.amazonaws.com",
+                        "delivery.logs.amazonaws.com",
+                    ],
                 )],
                 conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
                     test="ArnEquals",
@@ -1185,11 +1199,13 @@ class EventTarget(pulumi.CustomResource):
 
         ## Import
 
-        EventBridge Targets can be imported using `event_bus_name/rule-name/target-id` (if you omit `event_bus_name`, the `default` event bus will be used).
+         terraform import {
 
-        ```sh
-         $ pulumi import aws:cloudwatch/eventTarget:EventTarget test-event-target rule-name/target-id
-        ```
+         to = aws_cloudwatch_event_target.test-event-target
+
+         id = "rule-name/target-id" } Using `pulumi import`, import EventBridge Targets using `event_bus_name/rule-name/target-id` (if you omit `event_bus_name`, the `default` event bus will be used). For example:
+
+        console % pulumi import aws_cloudwatch_event_target.test-event-target rule-name/target-id
 
         :param str resource_name: The name of the resource.
         :param EventTargetArgs args: The arguments to use to populate this resource's properties.

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -53,7 +54,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -89,29 +90,19 @@ import (
 //
 // ## Import
 //
-// Individual routes can be imported using `ROUTETABLEID_DESTINATION`. [Local routes](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html#RouteTables) can be imported using the VPC's IPv4 or IPv6 CIDR blocks. For example, import a route in route table `rtb-656C65616E6F72` with an IPv4 destination CIDR of `10.42.0.0/16` like thisconsole
+// Import a route in route table `rtb-656C65616E6F72` with an IPv4 destination CIDR of `10.42.0.0/16`terraform import {
 //
-// ```sh
+//	to = aws_route.my_route
 //
-//	$ pulumi import aws:ec2/route:Route my_route rtb-656C65616E6F72_10.42.0.0/16
+//	id = "rtb-656C65616E6F72_10.42.0.0/16" } Import a route in route table `rtb-656C65616E6F72` with an IPv6 destination CIDR of `2620:0:2d0:200::8/125`terraform import {
 //
-// ```
+//	to = aws_route.my_route
 //
-//	Import a route in route table `rtb-656C65616E6F72` with an IPv6 destination CIDR of `2620:0:2d0:200::8/125` similarlyconsole
+//	id = "rtb-656C65616E6F72_2620:0:2d0:200::8/125" } Import a route in route table `rtb-656C65616E6F72` with a managed prefix list destination of `pl-0570a1d2d725c16be`terraform import {
 //
-// ```sh
+//	to = aws_route.my_route
 //
-//	$ pulumi import aws:ec2/route:Route my_route rtb-656C65616E6F72_2620:0:2d0:200::8/125
-//
-// ```
-//
-//	Import a route in route table `rtb-656C65616E6F72` with a managed prefix list destination of `pl-0570a1d2d725c16be` similarlyconsole
-//
-// ```sh
-//
-//	$ pulumi import aws:ec2/route:Route my_route rtb-656C65616E6F72_pl-0570a1d2d725c16be
-//
-// ```
+//	id = "rtb-656C65616E6F72_pl-0570a1d2d725c16be" } **Using `pulumi import` to import** individual routes using `ROUTETABLEID_DESTINATION`. Import [local routes](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html#RouteTables) using the VPC's IPv4 or IPv6 CIDR blocks. For exampleImport a route in route table `rtb-656C65616E6F72` with an IPv4 destination CIDR of `10.42.0.0/16`console % pulumi import aws_route.my_route rtb-656C65616E6F72_10.42.0.0/16 Import a route in route table `rtb-656C65616E6F72` with an IPv6 destination CIDR of `2620:0:2d0:200::8/125`console % pulumi import aws_route.my_route rtb-656C65616E6F72_2620:0:2d0:200::8/125 Import a route in route table `rtb-656C65616E6F72` with a managed prefix list destination of `pl-0570a1d2d725c16be`console % pulumi import aws_route.my_route rtb-656C65616E6F72_pl-0570a1d2d725c16be
 type Route struct {
 	pulumi.CustomResourceState
 
@@ -132,8 +123,6 @@ type Route struct {
 	// Identifier of a VPC internet gateway or a virtual private gateway. Specify `local` when updating a previously imported local route.
 	GatewayId pulumi.StringPtrOutput `pulumi:"gatewayId"`
 	// Identifier of an EC2 instance.
-	//
-	// Deprecated: Use network_interface_id instead
 	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
 	// The AWS account ID of the owner of the EC2 instance.
 	InstanceOwnerId pulumi.StringOutput `pulumi:"instanceOwnerId"`
@@ -171,6 +160,7 @@ func NewRoute(ctx *pulumi.Context,
 	if args.RouteTableId == nil {
 		return nil, errors.New("invalid value for required argument 'RouteTableId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Route
 	err := ctx.RegisterResource("aws:ec2/route:Route", name, args, &resource, opts...)
 	if err != nil {
@@ -210,8 +200,6 @@ type routeState struct {
 	// Identifier of a VPC internet gateway or a virtual private gateway. Specify `local` when updating a previously imported local route.
 	GatewayId *string `pulumi:"gatewayId"`
 	// Identifier of an EC2 instance.
-	//
-	// Deprecated: Use network_interface_id instead
 	InstanceId *string `pulumi:"instanceId"`
 	// The AWS account ID of the owner of the EC2 instance.
 	InstanceOwnerId *string `pulumi:"instanceOwnerId"`
@@ -257,8 +245,6 @@ type RouteState struct {
 	// Identifier of a VPC internet gateway or a virtual private gateway. Specify `local` when updating a previously imported local route.
 	GatewayId pulumi.StringPtrInput
 	// Identifier of an EC2 instance.
-	//
-	// Deprecated: Use network_interface_id instead
 	InstanceId pulumi.StringPtrInput
 	// The AWS account ID of the owner of the EC2 instance.
 	InstanceOwnerId pulumi.StringPtrInput
@@ -307,10 +293,6 @@ type routeArgs struct {
 	EgressOnlyGatewayId *string `pulumi:"egressOnlyGatewayId"`
 	// Identifier of a VPC internet gateway or a virtual private gateway. Specify `local` when updating a previously imported local route.
 	GatewayId *string `pulumi:"gatewayId"`
-	// Identifier of an EC2 instance.
-	//
-	// Deprecated: Use network_interface_id instead
-	InstanceId *string `pulumi:"instanceId"`
 	// Identifier of a Outpost local gateway.
 	LocalGatewayId *string `pulumi:"localGatewayId"`
 	// Identifier of a VPC NAT gateway.
@@ -349,10 +331,6 @@ type RouteArgs struct {
 	EgressOnlyGatewayId pulumi.StringPtrInput
 	// Identifier of a VPC internet gateway or a virtual private gateway. Specify `local` when updating a previously imported local route.
 	GatewayId pulumi.StringPtrInput
-	// Identifier of an EC2 instance.
-	//
-	// Deprecated: Use network_interface_id instead
-	InstanceId pulumi.StringPtrInput
 	// Identifier of a Outpost local gateway.
 	LocalGatewayId pulumi.StringPtrInput
 	// Identifier of a VPC NAT gateway.
@@ -498,8 +476,6 @@ func (o RouteOutput) GatewayId() pulumi.StringPtrOutput {
 }
 
 // Identifier of an EC2 instance.
-//
-// Deprecated: Use network_interface_id instead
 func (o RouteOutput) InstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.InstanceId }).(pulumi.StringOutput)
 }

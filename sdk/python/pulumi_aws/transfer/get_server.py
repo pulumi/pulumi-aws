@@ -21,7 +21,7 @@ class GetServerResult:
     """
     A collection of values returned by getServer.
     """
-    def __init__(__self__, arn=None, certificate=None, domain=None, endpoint=None, endpoint_type=None, id=None, identity_provider_type=None, invocation_role=None, logging_role=None, protocols=None, security_policy_name=None, server_id=None, url=None):
+    def __init__(__self__, arn=None, certificate=None, domain=None, endpoint=None, endpoint_type=None, id=None, identity_provider_type=None, invocation_role=None, logging_role=None, protocols=None, security_policy_name=None, server_id=None, structured_log_destinations=None, url=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -58,6 +58,9 @@ class GetServerResult:
         if server_id and not isinstance(server_id, str):
             raise TypeError("Expected argument 'server_id' to be a str")
         pulumi.set(__self__, "server_id", server_id)
+        if structured_log_destinations and not isinstance(structured_log_destinations, list):
+            raise TypeError("Expected argument 'structured_log_destinations' to be a list")
+        pulumi.set(__self__, "structured_log_destinations", structured_log_destinations)
         if url and not isinstance(url, str):
             raise TypeError("Expected argument 'url' to be a str")
         pulumi.set(__self__, "url", url)
@@ -156,6 +159,11 @@ class GetServerResult:
         return pulumi.get(self, "server_id")
 
     @property
+    @pulumi.getter(name="structuredLogDestinations")
+    def structured_log_destinations(self) -> Sequence[str]:
+        return pulumi.get(self, "structured_log_destinations")
+
+    @property
     @pulumi.getter
     def url(self) -> str:
         """
@@ -182,6 +190,7 @@ class AwaitableGetServerResult(GetServerResult):
             protocols=self.protocols,
             security_policy_name=self.security_policy_name,
             server_id=self.server_id,
+            structured_log_destinations=self.structured_log_destinations,
             url=self.url)
 
 
@@ -221,6 +230,7 @@ def get_server(server_id: Optional[str] = None,
         protocols=pulumi.get(__ret__, 'protocols'),
         security_policy_name=pulumi.get(__ret__, 'security_policy_name'),
         server_id=pulumi.get(__ret__, 'server_id'),
+        structured_log_destinations=pulumi.get(__ret__, 'structured_log_destinations'),
         url=pulumi.get(__ret__, 'url'))
 
 

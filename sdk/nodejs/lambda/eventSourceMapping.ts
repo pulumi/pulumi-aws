@@ -121,56 +121,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * ### Amazon MQ (ActiveMQ)
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.lambda.EventSourceMapping("example", {
- *     batchSize: 10,
- *     eventSourceArn: aws_mq_broker.example.arn,
- *     enabled: true,
- *     functionName: aws_lambda_function.example.arn,
- *     queues: ["example"],
- *     sourceAccessConfigurations: [{
- *         type: "BASIC_AUTH",
- *         uri: aws_secretsmanager_secret_version.example.arn,
- *     }],
- * });
- * ```
- * ### Amazon MQ (RabbitMQ)
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.lambda.EventSourceMapping("example", {
- *     batchSize: 1,
- *     eventSourceArn: aws_mq_broker.example.arn,
- *     enabled: true,
- *     functionName: aws_lambda_function.example.arn,
- *     queues: ["example"],
- *     sourceAccessConfigurations: [
- *         {
- *             type: "VIRTUAL_HOST",
- *             uri: "/example",
- *         },
- *         {
- *             type: "BASIC_AUTH",
- *             uri: aws_secretsmanager_secret_version.example.arn,
- *         },
- *     ],
- * });
- * ```
  *
  * ## Import
  *
- * Lambda event source mappings can be imported using the `UUID` (event source mapping identifier), e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:lambda/eventSourceMapping:EventSourceMapping event_source_mapping 12345kxodurf3443
- * ```
+ *  to = aws_lambda_event_source_mapping.event_source_mapping
+ *
+ *  id = "12345kxodurf3443" } Using `pulumi import`, import Lambda event source mappings using the `UUID` (event source mapping identifier). For exampleconsole % pulumi import aws_lambda_event_source_mapping.event_source_mapping 12345kxodurf3443
  */
 export class EventSourceMapping extends pulumi.CustomResource {
     /**
@@ -269,9 +227,9 @@ export class EventSourceMapping extends pulumi.CustomResource {
      */
     public readonly parallelizationFactor!: pulumi.Output<number>;
     /**
-     * The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. A single queue name must be specified.
+     * The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
      */
-    public readonly queues!: pulumi.Output<string[] | undefined>;
+    public readonly queues!: pulumi.Output<string | undefined>;
     /**
      * Scaling configuration of the event source. Only available for SQS queues. Detailed below.
      */
@@ -472,9 +430,9 @@ export interface EventSourceMappingState {
      */
     parallelizationFactor?: pulumi.Input<number>;
     /**
-     * The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. A single queue name must be specified.
+     * The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
      */
-    queues?: pulumi.Input<pulumi.Input<string>[]>;
+    queues?: pulumi.Input<string>;
     /**
      * Scaling configuration of the event source. Only available for SQS queues. Detailed below.
      */
@@ -582,9 +540,9 @@ export interface EventSourceMappingArgs {
      */
     parallelizationFactor?: pulumi.Input<number>;
     /**
-     * The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. A single queue name must be specified.
+     * The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
      */
-    queues?: pulumi.Input<pulumi.Input<string>[]>;
+    queues?: pulumi.Input<string>;
     /**
      * Scaling configuration of the event source. Only available for SQS queues. Detailed below.
      */

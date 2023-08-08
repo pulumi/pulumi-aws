@@ -21,11 +21,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_organizations_delegated_administrator` can be imported by using the account ID and its service principal, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:organizations/delegatedAdministrator:DelegatedAdministrator example 123456789012/config.amazonaws.com
- * ```
+ *  to = aws_organizations_delegated_administrator.example
+ *
+ *  id = "123456789012/config.amazonaws.com" } Using `pulumi import`, import `aws_organizations_delegated_administrator` using the account ID and its service principal. For exampleconsole % pulumi import aws_organizations_delegated_administrator.example 123456789012/config.amazonaws.com
  */
 export class DelegatedAdministrator extends pulumi.CustomResource {
     /**

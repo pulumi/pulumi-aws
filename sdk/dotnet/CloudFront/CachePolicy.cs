@@ -12,7 +12,7 @@ namespace Pulumi.Aws.CloudFront
     /// <summary>
     /// ## Example Usage
     /// 
-    /// The following example below creates a CloudFront cache policy.
+    /// Use the `aws.cloudfront.CachePolicy` resource to create a cache policy for CloudFront.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -71,53 +71,53 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// ## Import
     /// 
-    /// Cloudfront Cache Policies can be imported using the `id`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:cloudfront/cachePolicy:CachePolicy policy 658327ea-f89d-4fab-a63d-7e88639e58f6
-    /// ```
+    ///  to = aws_cloudfront_cache_policy.policy
+    /// 
+    ///  id = "658327ea-f89d-4fab-a63d-7e88639e58f6" } Using `pulumi import`, import CloudFront cache policies using the `id` of the cache policy. For exampleconsole % pulumi import aws_cloudfront_cache_policy.policy 658327ea-f89d-4fab-a63d-7e88639e58f6
     /// </summary>
     [AwsResourceType("aws:cloudfront/cachePolicy:CachePolicy")]
     public partial class CachePolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A comment to describe the cache policy.
+        /// Description for the cache policy.
         /// </summary>
         [Output("comment")]
         public Output<string?> Comment { get; private set; } = null!;
 
         /// <summary>
-        /// The default amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
+        /// Amount of time, in seconds, that objects are allowed to remain in the CloudFront cache before CloudFront sends a new request to the origin server to check if the object has been updated.
         /// </summary>
         [Output("defaultTtl")]
         public Output<int?> DefaultTtl { get; private set; } = null!;
 
         /// <summary>
-        /// The current version of the cache policy.
+        /// Current version of the cache policy.
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
-        /// The maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
+        /// Maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
         /// </summary>
         [Output("maxTtl")]
         public Output<int?> MaxTtl { get; private set; } = null!;
 
         /// <summary>
-        /// The minimum amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
+        /// Minimum amount of time, in seconds, that objects should remain in the CloudFront cache before a new request is sent to the origin to check for updates.
         /// </summary>
         [Output("minTtl")]
         public Output<int?> MinTtl { get; private set; } = null!;
 
         /// <summary>
-        /// A unique name to identify the cache policy.
+        /// Unique name used to identify the cache policy.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The HTTP headers, cookies, and URL query strings to include in the cache key. See Parameters In Cache Key And Forwarded To Origin for more information.
+        /// Configuration for including HTTP headers, cookies, and URL query strings in the cache key. For more information, refer to the Parameters In Cache Key And Forwarded To Origin section.
         /// </summary>
         [Output("parametersInCacheKeyAndForwardedToOrigin")]
         public Output<Outputs.CachePolicyParametersInCacheKeyAndForwardedToOrigin> ParametersInCacheKeyAndForwardedToOrigin { get; private set; } = null!;
@@ -169,37 +169,37 @@ namespace Pulumi.Aws.CloudFront
     public sealed class CachePolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A comment to describe the cache policy.
+        /// Description for the cache policy.
         /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// The default amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
+        /// Amount of time, in seconds, that objects are allowed to remain in the CloudFront cache before CloudFront sends a new request to the origin server to check if the object has been updated.
         /// </summary>
         [Input("defaultTtl")]
         public Input<int>? DefaultTtl { get; set; }
 
         /// <summary>
-        /// The maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
+        /// Maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
         /// </summary>
         [Input("maxTtl")]
         public Input<int>? MaxTtl { get; set; }
 
         /// <summary>
-        /// The minimum amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
+        /// Minimum amount of time, in seconds, that objects should remain in the CloudFront cache before a new request is sent to the origin to check for updates.
         /// </summary>
         [Input("minTtl")]
         public Input<int>? MinTtl { get; set; }
 
         /// <summary>
-        /// A unique name to identify the cache policy.
+        /// Unique name used to identify the cache policy.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The HTTP headers, cookies, and URL query strings to include in the cache key. See Parameters In Cache Key And Forwarded To Origin for more information.
+        /// Configuration for including HTTP headers, cookies, and URL query strings in the cache key. For more information, refer to the Parameters In Cache Key And Forwarded To Origin section.
         /// </summary>
         [Input("parametersInCacheKeyAndForwardedToOrigin", required: true)]
         public Input<Inputs.CachePolicyParametersInCacheKeyAndForwardedToOriginArgs> ParametersInCacheKeyAndForwardedToOrigin { get; set; } = null!;
@@ -213,43 +213,43 @@ namespace Pulumi.Aws.CloudFront
     public sealed class CachePolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A comment to describe the cache policy.
+        /// Description for the cache policy.
         /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// The default amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
+        /// Amount of time, in seconds, that objects are allowed to remain in the CloudFront cache before CloudFront sends a new request to the origin server to check if the object has been updated.
         /// </summary>
         [Input("defaultTtl")]
         public Input<int>? DefaultTtl { get; set; }
 
         /// <summary>
-        /// The current version of the cache policy.
+        /// Current version of the cache policy.
         /// </summary>
         [Input("etag")]
         public Input<string>? Etag { get; set; }
 
         /// <summary>
-        /// The maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
+        /// Maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
         /// </summary>
         [Input("maxTtl")]
         public Input<int>? MaxTtl { get; set; }
 
         /// <summary>
-        /// The minimum amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
+        /// Minimum amount of time, in seconds, that objects should remain in the CloudFront cache before a new request is sent to the origin to check for updates.
         /// </summary>
         [Input("minTtl")]
         public Input<int>? MinTtl { get; set; }
 
         /// <summary>
-        /// A unique name to identify the cache policy.
+        /// Unique name used to identify the cache policy.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The HTTP headers, cookies, and URL query strings to include in the cache key. See Parameters In Cache Key And Forwarded To Origin for more information.
+        /// Configuration for including HTTP headers, cookies, and URL query strings in the cache key. For more information, refer to the Parameters In Cache Key And Forwarded To Origin section.
         /// </summary>
         [Input("parametersInCacheKeyAndForwardedToOrigin")]
         public Input<Inputs.CachePolicyParametersInCacheKeyAndForwardedToOriginGetArgs>? ParametersInCacheKeyAndForwardedToOrigin { get; set; }

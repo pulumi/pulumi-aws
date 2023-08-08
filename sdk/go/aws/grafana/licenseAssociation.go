@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,8 +24,8 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/grafana"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/grafana"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -80,13 +81,11 @@ import (
 //
 // ## Import
 //
-// Grafana workspace license association can be imported using the workspace's `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_grafana_license_association.example
 //
-//	$ pulumi import aws:grafana/licenseAssociation:LicenseAssociation example g-2054c75a02
-//
-// ```
+//	id = "g-2054c75a02" } Using `pulumi import`, import Grafana workspace license association using the workspace's `id`. For exampleconsole % pulumi import aws_grafana_license_association.example g-2054c75a02
 type LicenseAssociation struct {
 	pulumi.CustomResourceState
 
@@ -113,6 +112,7 @@ func NewLicenseAssociation(ctx *pulumi.Context,
 	if args.WorkspaceId == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LicenseAssociation
 	err := ctx.RegisterResource("aws:grafana/licenseAssociation:LicenseAssociation", name, args, &resource, opts...)
 	if err != nil {

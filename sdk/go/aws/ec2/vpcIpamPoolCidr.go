@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,13 +21,11 @@ import (
 //
 // ## Import
 //
-// IPAMs can be imported using the `<cidr>_<ipam-pool-id>`. Please note we **DO NOT** use the ipam pool cidr id as this was introduced after the resource already existed. An import example
+// terraform import {
 //
-// ```sh
+//	to = aws_vpc_ipam_pool_cidr.example
 //
-//	$ pulumi import aws:ec2/vpcIpamPoolCidr:VpcIpamPoolCidr example 172.2.0.0/24_ipam-pool-0e634f5a1517cccdc
-//
-// ```
+//	id = "172.2.0.0/24_ipam-pool-0e634f5a1517cccdc" } Using `pulumi import`, import IPAMs using the `<cidr>_<ipam-pool-id>`. For exampleconsole % pulumi import aws_vpc_ipam_pool_cidr.example 172.2.0.0/24_ipam-pool-0e634f5a1517cccdc
 type VpcIpamPoolCidr struct {
 	pulumi.CustomResourceState
 
@@ -52,6 +51,7 @@ func NewVpcIpamPoolCidr(ctx *pulumi.Context,
 	if args.IpamPoolId == nil {
 		return nil, errors.New("invalid value for required argument 'IpamPoolId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcIpamPoolCidr
 	err := ctx.RegisterResource("aws:ec2/vpcIpamPoolCidr:VpcIpamPoolCidr", name, args, &resource, opts...)
 	if err != nil {

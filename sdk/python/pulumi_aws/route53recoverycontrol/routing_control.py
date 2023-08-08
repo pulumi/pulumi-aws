@@ -194,11 +194,11 @@ class RoutingControl(pulumi.CustomResource):
 
         ## Import
 
-        Route53 Recovery Control Config Routing Control can be imported via the routing control arn, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:route53recoverycontrol/routingControl:RoutingControl mycontrol arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8/routingcontrol/d5d90e587870494b
-        ```
+         to = aws_route53recoverycontrolconfig_routing_control.mycontrol
+
+         id = "arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8/routingcontrol/d5d90e587870494b" } Using `pulumi import`, import Route53 Recovery Control Config Routing Control using the routing control arn. For exampleconsole % pulumi import aws_route53recoverycontrolconfig_routing_control.mycontrol arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8/routingcontrol/d5d90e587870494b
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -237,11 +237,11 @@ class RoutingControl(pulumi.CustomResource):
 
         ## Import
 
-        Route53 Recovery Control Config Routing Control can be imported via the routing control arn, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:route53recoverycontrol/routingControl:RoutingControl mycontrol arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8/routingcontrol/d5d90e587870494b
-        ```
+         to = aws_route53recoverycontrolconfig_routing_control.mycontrol
+
+         id = "arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8/routingcontrol/d5d90e587870494b" } Using `pulumi import`, import Route53 Recovery Control Config Routing Control using the routing control arn. For exampleconsole % pulumi import aws_route53recoverycontrolconfig_routing_control.mycontrol arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8/routingcontrol/d5d90e587870494b
 
         :param str resource_name: The name of the resource.
         :param RoutingControlArgs args: The arguments to use to populate this resource's properties.

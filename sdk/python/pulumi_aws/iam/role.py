@@ -215,7 +215,6 @@ class _RoleState:
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  path: Optional[pulumi.Input[str]] = None,
                  permissions_boundary: Optional[pulumi.Input[str]] = None,
-                 role_last_useds: Optional[pulumi.Input[Sequence[pulumi.Input['RoleRoleLastUsedArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  unique_id: Optional[pulumi.Input[str]] = None):
@@ -236,7 +235,6 @@ class _RoleState:
         :param pulumi.Input[str] name_prefix: Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[str] path: Path to the role. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
         :param pulumi.Input[str] permissions_boundary: ARN of the policy that is used to set the permissions boundary for the role.
-        :param pulumi.Input[Sequence[pulumi.Input['RoleRoleLastUsedArgs']]] role_last_useds: Contains information about the last time that an IAM role was used. See `role_last_used` for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of tags for the IAM role. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] unique_id: Stable and unique string identifying the role.
@@ -265,8 +263,6 @@ class _RoleState:
             pulumi.set(__self__, "path", path)
         if permissions_boundary is not None:
             pulumi.set(__self__, "permissions_boundary", permissions_boundary)
-        if role_last_useds is not None:
-            pulumi.set(__self__, "role_last_useds", role_last_useds)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -418,18 +414,6 @@ class _RoleState:
     @permissions_boundary.setter
     def permissions_boundary(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "permissions_boundary", value)
-
-    @property
-    @pulumi.getter(name="roleLastUseds")
-    def role_last_useds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RoleRoleLastUsedArgs']]]]:
-        """
-        Contains information about the last time that an IAM role was used. See `role_last_used` for details.
-        """
-        return pulumi.get(self, "role_last_useds")
-
-    @role_last_useds.setter
-    def role_last_useds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RoleRoleLastUsedArgs']]]]):
-        pulumi.set(self, "role_last_useds", value)
 
     @property
     @pulumi.getter
@@ -629,11 +613,11 @@ class Role(pulumi.CustomResource):
 
         ## Import
 
-        IAM Roles can be imported using the `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:iam/role:Role developer developer_name
-        ```
+         to = aws_iam_role.developer
+
+         id = "developer_name" } Using `pulumi import`, import IAM Roles using the `name`. For exampleconsole % pulumi import aws_iam_role.developer developer_name
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -802,11 +786,11 @@ class Role(pulumi.CustomResource):
 
         ## Import
 
-        IAM Roles can be imported using the `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:iam/role:Role developer developer_name
-        ```
+         to = aws_iam_role.developer
+
+         id = "developer_name" } Using `pulumi import`, import IAM Roles using the `name`. For exampleconsole % pulumi import aws_iam_role.developer developer_name
 
         :param str resource_name: The name of the resource.
         :param RoleArgs args: The arguments to use to populate this resource's properties.
@@ -858,7 +842,6 @@ class Role(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["create_date"] = None
-            __props__.__dict__["role_last_useds"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["unique_id"] = None
         super(Role, __self__).__init__(
@@ -883,7 +866,6 @@ class Role(pulumi.CustomResource):
             name_prefix: Optional[pulumi.Input[str]] = None,
             path: Optional[pulumi.Input[str]] = None,
             permissions_boundary: Optional[pulumi.Input[str]] = None,
-            role_last_useds: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoleRoleLastUsedArgs']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             unique_id: Optional[pulumi.Input[str]] = None) -> 'Role':
@@ -909,7 +891,6 @@ class Role(pulumi.CustomResource):
         :param pulumi.Input[str] name_prefix: Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[str] path: Path to the role. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
         :param pulumi.Input[str] permissions_boundary: ARN of the policy that is used to set the permissions boundary for the role.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoleRoleLastUsedArgs']]]] role_last_useds: Contains information about the last time that an IAM role was used. See `role_last_used` for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of tags for the IAM role. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] unique_id: Stable and unique string identifying the role.
@@ -930,7 +911,6 @@ class Role(pulumi.CustomResource):
         __props__.__dict__["name_prefix"] = name_prefix
         __props__.__dict__["path"] = path
         __props__.__dict__["permissions_boundary"] = permissions_boundary
-        __props__.__dict__["role_last_useds"] = role_last_useds
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["unique_id"] = unique_id
@@ -1032,14 +1012,6 @@ class Role(pulumi.CustomResource):
         ARN of the policy that is used to set the permissions boundary for the role.
         """
         return pulumi.get(self, "permissions_boundary")
-
-    @property
-    @pulumi.getter(name="roleLastUseds")
-    def role_last_useds(self) -> pulumi.Output[Sequence['outputs.RoleRoleLastUsed']]:
-        """
-        Contains information about the last time that an IAM role was used. See `role_last_used` for details.
-        """
-        return pulumi.get(self, "role_last_useds")
 
     @property
     @pulumi.getter

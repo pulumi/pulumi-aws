@@ -52,11 +52,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * The EFS access points can be imported using the `id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:efs/accessPoint:AccessPoint test fsap-52a643fb
- * ```
+ *  to = aws_efs_access_point.test
+ * 
+ *  id = &#34;fsap-52a643fb&#34; } Using `pulumi import`, import the EFS access points using the `id`. For exampleconsole % pulumi import aws_efs_access_point.test fsap-52a643fb
  * 
  */
 @ResourceType(type="aws:efs/accessPoint:AccessPoint")

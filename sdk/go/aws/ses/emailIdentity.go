@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ses"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -41,13 +42,11 @@ import (
 //
 // ## Import
 //
-// SES email identities can be imported using the email address.
+// terraform import {
 //
-// ```sh
+//	to = aws_ses_email_identity.example
 //
-//	$ pulumi import aws:ses/emailIdentity:EmailIdentity example email@example.com
-//
-// ```
+//	id = "email@example.com" } Using `pulumi import`, import SES email identities using the email address. For exampleconsole % pulumi import aws_ses_email_identity.example email@example.com
 type EmailIdentity struct {
 	pulumi.CustomResourceState
 
@@ -67,6 +66,7 @@ func NewEmailIdentity(ctx *pulumi.Context,
 	if args.Email == nil {
 		return nil, errors.New("invalid value for required argument 'Email'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EmailIdentity
 	err := ctx.RegisterResource("aws:ses/emailIdentity:EmailIdentity", name, args, &resource, opts...)
 	if err != nil {

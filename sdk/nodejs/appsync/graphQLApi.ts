@@ -7,140 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides an AppSync GraphQL API.
- *
- * ## Example Usage
- * ### API Key Authentication
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.appsync.GraphQLApi("example", {authenticationType: "API_KEY"});
- * ```
- * ### AWS IAM Authentication
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.appsync.GraphQLApi("example", {authenticationType: "AWS_IAM"});
- * ```
- * ### AWS Cognito User Pool Authentication
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.appsync.GraphQLApi("example", {
- *     authenticationType: "AMAZON_COGNITO_USER_POOLS",
- *     userPoolConfig: {
- *         awsRegion: data.aws_region.current.name,
- *         defaultAction: "DENY",
- *         userPoolId: aws_cognito_user_pool.example.id,
- *     },
- * });
- * ```
- * ### OpenID Connect Authentication
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.appsync.GraphQLApi("example", {
- *     authenticationType: "OPENID_CONNECT",
- *     openidConnectConfig: {
- *         issuer: "https://example.com",
- *     },
- * });
- * ```
- * ### AWS Lambda Authorizer Authentication
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.appsync.GraphQLApi("example", {
- *     authenticationType: "AWS_LAMBDA",
- *     lambdaAuthorizerConfig: {
- *         authorizerUri: "arn:aws:lambda:us-east-1:123456789012:function:custom_lambda_authorizer",
- *     },
- * });
- * const appsyncLambdaAuthorizer = new aws.lambda.Permission("appsyncLambdaAuthorizer", {
- *     action: "lambda:InvokeFunction",
- *     "function": "custom_lambda_authorizer",
- *     principal: "appsync.amazonaws.com",
- *     sourceArn: example.arn,
- * });
- * ```
- * ### With Multiple Authentication Providers
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.appsync.GraphQLApi("example", {
- *     additionalAuthenticationProviders: [{
- *         authenticationType: "AWS_IAM",
- *     }],
- *     authenticationType: "API_KEY",
- * });
- * ```
- * ### With Schema
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.appsync.GraphQLApi("example", {
- *     authenticationType: "AWS_IAM",
- *     schema: `schema {
- * 	query: Query
- * }
- * type Query {
- *   test: Int
- * }
- *
- * `,
- * });
- * ```
- * ### Enabling Logging
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const assumeRole = aws.iam.getPolicyDocument({
- *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["appsync.amazonaws.com"],
- *         }],
- *         actions: ["sts:AssumeRole"],
- *     }],
- * });
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const exampleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("exampleRolePolicyAttachment", {
- *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSAppSyncPushToCloudWatchLogs",
- *     role: exampleRole.name,
- * });
- * // ... other configuration ...
- * const exampleGraphQLApi = new aws.appsync.GraphQLApi("exampleGraphQLApi", {logConfig: {
- *     cloudwatchLogsRoleArn: exampleRole.arn,
- *     fieldLogLevel: "ERROR",
- * }});
- * ```
- *
- * ## Import
- *
- * AppSync GraphQL API can be imported using the GraphQL API ID, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:appsync/graphQLApi:GraphQLApi example 0123456789
- * ```
- */
 export class GraphQLApi extends pulumi.CustomResource {
     /**
      * Get an existing GraphQLApi resource's state with the given name, ID, and optional extra
@@ -218,6 +84,10 @@ export class GraphQLApi extends pulumi.CustomResource {
      */
     public readonly userPoolConfig!: pulumi.Output<outputs.appsync.GraphQLApiUserPoolConfig | undefined>;
     /**
+     * Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
+     */
+    public readonly visibility!: pulumi.Output<string | undefined>;
+    /**
      * Whether tracing with X-ray is enabled. Defaults to false.
      */
     public readonly xrayEnabled!: pulumi.Output<boolean | undefined>;
@@ -247,6 +117,7 @@ export class GraphQLApi extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["uris"] = state ? state.uris : undefined;
             resourceInputs["userPoolConfig"] = state ? state.userPoolConfig : undefined;
+            resourceInputs["visibility"] = state ? state.visibility : undefined;
             resourceInputs["xrayEnabled"] = state ? state.xrayEnabled : undefined;
         } else {
             const args = argsOrState as GraphQLApiArgs | undefined;
@@ -262,6 +133,7 @@ export class GraphQLApi extends pulumi.CustomResource {
             resourceInputs["schema"] = args ? args.schema : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["userPoolConfig"] = args ? args.userPoolConfig : undefined;
+            resourceInputs["visibility"] = args ? args.visibility : undefined;
             resourceInputs["xrayEnabled"] = args ? args.xrayEnabled : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
@@ -325,6 +197,10 @@ export interface GraphQLApiState {
      */
     userPoolConfig?: pulumi.Input<inputs.appsync.GraphQLApiUserPoolConfig>;
     /**
+     * Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
+     */
+    visibility?: pulumi.Input<string>;
+    /**
      * Whether tracing with X-ray is enabled. Defaults to false.
      */
     xrayEnabled?: pulumi.Input<boolean>;
@@ -370,6 +246,10 @@ export interface GraphQLApiArgs {
      * Amazon Cognito User Pool configuration. Defined below.
      */
     userPoolConfig?: pulumi.Input<inputs.appsync.GraphQLApiUserPoolConfig>;
+    /**
+     * Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
+     */
+    visibility?: pulumi.Input<string>;
     /**
      * Whether tracing with X-ray is enabled. Defaults to false.
      */

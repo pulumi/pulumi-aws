@@ -7,8 +7,11 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type TableCapacitySpecification struct {
 	// The throughput capacity specified for read operations defined in read capacity units (RCUs).
@@ -183,6 +186,143 @@ func (o TableCapacitySpecificationPtrOutput) WriteCapacityUnits() pulumi.IntPtrO
 		}
 		return v.WriteCapacityUnits
 	}).(pulumi.IntPtrOutput)
+}
+
+type TableClientSideTimestamps struct {
+	// Shows how to enable client-side timestamps settings for the specified table. Valid values: `ENABLED`.
+	Status string `pulumi:"status"`
+}
+
+// TableClientSideTimestampsInput is an input type that accepts TableClientSideTimestampsArgs and TableClientSideTimestampsOutput values.
+// You can construct a concrete instance of `TableClientSideTimestampsInput` via:
+//
+//	TableClientSideTimestampsArgs{...}
+type TableClientSideTimestampsInput interface {
+	pulumi.Input
+
+	ToTableClientSideTimestampsOutput() TableClientSideTimestampsOutput
+	ToTableClientSideTimestampsOutputWithContext(context.Context) TableClientSideTimestampsOutput
+}
+
+type TableClientSideTimestampsArgs struct {
+	// Shows how to enable client-side timestamps settings for the specified table. Valid values: `ENABLED`.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (TableClientSideTimestampsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableClientSideTimestamps)(nil)).Elem()
+}
+
+func (i TableClientSideTimestampsArgs) ToTableClientSideTimestampsOutput() TableClientSideTimestampsOutput {
+	return i.ToTableClientSideTimestampsOutputWithContext(context.Background())
+}
+
+func (i TableClientSideTimestampsArgs) ToTableClientSideTimestampsOutputWithContext(ctx context.Context) TableClientSideTimestampsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableClientSideTimestampsOutput)
+}
+
+func (i TableClientSideTimestampsArgs) ToTableClientSideTimestampsPtrOutput() TableClientSideTimestampsPtrOutput {
+	return i.ToTableClientSideTimestampsPtrOutputWithContext(context.Background())
+}
+
+func (i TableClientSideTimestampsArgs) ToTableClientSideTimestampsPtrOutputWithContext(ctx context.Context) TableClientSideTimestampsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableClientSideTimestampsOutput).ToTableClientSideTimestampsPtrOutputWithContext(ctx)
+}
+
+// TableClientSideTimestampsPtrInput is an input type that accepts TableClientSideTimestampsArgs, TableClientSideTimestampsPtr and TableClientSideTimestampsPtrOutput values.
+// You can construct a concrete instance of `TableClientSideTimestampsPtrInput` via:
+//
+//	        TableClientSideTimestampsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableClientSideTimestampsPtrInput interface {
+	pulumi.Input
+
+	ToTableClientSideTimestampsPtrOutput() TableClientSideTimestampsPtrOutput
+	ToTableClientSideTimestampsPtrOutputWithContext(context.Context) TableClientSideTimestampsPtrOutput
+}
+
+type tableClientSideTimestampsPtrType TableClientSideTimestampsArgs
+
+func TableClientSideTimestampsPtr(v *TableClientSideTimestampsArgs) TableClientSideTimestampsPtrInput {
+	return (*tableClientSideTimestampsPtrType)(v)
+}
+
+func (*tableClientSideTimestampsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableClientSideTimestamps)(nil)).Elem()
+}
+
+func (i *tableClientSideTimestampsPtrType) ToTableClientSideTimestampsPtrOutput() TableClientSideTimestampsPtrOutput {
+	return i.ToTableClientSideTimestampsPtrOutputWithContext(context.Background())
+}
+
+func (i *tableClientSideTimestampsPtrType) ToTableClientSideTimestampsPtrOutputWithContext(ctx context.Context) TableClientSideTimestampsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableClientSideTimestampsPtrOutput)
+}
+
+type TableClientSideTimestampsOutput struct{ *pulumi.OutputState }
+
+func (TableClientSideTimestampsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableClientSideTimestamps)(nil)).Elem()
+}
+
+func (o TableClientSideTimestampsOutput) ToTableClientSideTimestampsOutput() TableClientSideTimestampsOutput {
+	return o
+}
+
+func (o TableClientSideTimestampsOutput) ToTableClientSideTimestampsOutputWithContext(ctx context.Context) TableClientSideTimestampsOutput {
+	return o
+}
+
+func (o TableClientSideTimestampsOutput) ToTableClientSideTimestampsPtrOutput() TableClientSideTimestampsPtrOutput {
+	return o.ToTableClientSideTimestampsPtrOutputWithContext(context.Background())
+}
+
+func (o TableClientSideTimestampsOutput) ToTableClientSideTimestampsPtrOutputWithContext(ctx context.Context) TableClientSideTimestampsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableClientSideTimestamps) *TableClientSideTimestamps {
+		return &v
+	}).(TableClientSideTimestampsPtrOutput)
+}
+
+// Shows how to enable client-side timestamps settings for the specified table. Valid values: `ENABLED`.
+func (o TableClientSideTimestampsOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v TableClientSideTimestamps) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type TableClientSideTimestampsPtrOutput struct{ *pulumi.OutputState }
+
+func (TableClientSideTimestampsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableClientSideTimestamps)(nil)).Elem()
+}
+
+func (o TableClientSideTimestampsPtrOutput) ToTableClientSideTimestampsPtrOutput() TableClientSideTimestampsPtrOutput {
+	return o
+}
+
+func (o TableClientSideTimestampsPtrOutput) ToTableClientSideTimestampsPtrOutputWithContext(ctx context.Context) TableClientSideTimestampsPtrOutput {
+	return o
+}
+
+func (o TableClientSideTimestampsPtrOutput) Elem() TableClientSideTimestampsOutput {
+	return o.ApplyT(func(v *TableClientSideTimestamps) TableClientSideTimestamps {
+		if v != nil {
+			return *v
+		}
+		var ret TableClientSideTimestamps
+		return ret
+	}).(TableClientSideTimestampsOutput)
+}
+
+// Shows how to enable client-side timestamps settings for the specified table. Valid values: `ENABLED`.
+func (o TableClientSideTimestampsPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableClientSideTimestamps) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
 }
 
 type TableComment struct {
@@ -1355,6 +1495,8 @@ func (o TableTtlPtrOutput) Status() pulumi.StringPtrOutput {
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableCapacitySpecificationInput)(nil)).Elem(), TableCapacitySpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableCapacitySpecificationPtrInput)(nil)).Elem(), TableCapacitySpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableClientSideTimestampsInput)(nil)).Elem(), TableClientSideTimestampsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableClientSideTimestampsPtrInput)(nil)).Elem(), TableClientSideTimestampsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableCommentInput)(nil)).Elem(), TableCommentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableCommentPtrInput)(nil)).Elem(), TableCommentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableEncryptionSpecificationInput)(nil)).Elem(), TableEncryptionSpecificationArgs{})
@@ -1375,6 +1517,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableTtlPtrInput)(nil)).Elem(), TableTtlArgs{})
 	pulumi.RegisterOutputType(TableCapacitySpecificationOutput{})
 	pulumi.RegisterOutputType(TableCapacitySpecificationPtrOutput{})
+	pulumi.RegisterOutputType(TableClientSideTimestampsOutput{})
+	pulumi.RegisterOutputType(TableClientSideTimestampsPtrOutput{})
 	pulumi.RegisterOutputType(TableCommentOutput{})
 	pulumi.RegisterOutputType(TableCommentPtrOutput{})
 	pulumi.RegisterOutputType(TableEncryptionSpecificationOutput{})

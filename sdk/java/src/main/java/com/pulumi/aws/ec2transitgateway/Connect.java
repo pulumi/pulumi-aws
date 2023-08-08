@@ -60,24 +60,24 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_ec2_transit_gateway_connect` can be imported by using the EC2 Transit Gateway Connect identifier, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:ec2transitgateway/connect:Connect example tgw-attach-12345678
- * ```
+ *  to = aws_ec2_transit_gateway_connect.example
+ * 
+ *  id = &#34;tgw-attach-12345678&#34; } Using `pulumi import`, import `aws_ec2_transit_gateway_connect` using the EC2 Transit Gateway Connect identifier. For exampleconsole % pulumi import aws_ec2_transit_gateway_connect.example tgw-attach-12345678
  * 
  */
 @ResourceType(type="aws:ec2transitgateway/connect:Connect")
 public class Connect extends com.pulumi.resources.CustomResource {
     /**
-     * The tunnel protocol. Valida values: `gre`. Default is `gre`.
+     * The tunnel protocol. Valid values: `gre`. Default is `gre`.
      * 
      */
     @Export(name="protocol", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> protocol;
 
     /**
-     * @return The tunnel protocol. Valida values: `gre`. Default is `gre`.
+     * @return The tunnel protocol. Valid values: `gre`. Default is `gre`.
      * 
      */
     public Output<Optional<String>> protocol() {

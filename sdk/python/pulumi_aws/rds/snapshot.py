@@ -457,24 +457,24 @@ class Snapshot(pulumi.CustomResource):
             engine="mysql",
             engine_version="5.6.21",
             instance_class="db.t2.micro",
-            name="baz",
+            db_name="baz",
             password="barbarbarbar",
             username="foo",
             maintenance_window="Fri:09:00-Fri:09:30",
             backup_retention_period=0,
             parameter_group_name="default.mysql5.6")
         test = aws.rds.Snapshot("test",
-            db_instance_identifier=bar.id,
+            db_instance_identifier=bar.identifier,
             db_snapshot_identifier="testsnapshot1234")
         ```
 
         ## Import
 
-        `aws_db_snapshot` can be imported by using the snapshot identifier, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:rds/snapshot:Snapshot example my-snapshot
-        ```
+         to = aws_db_snapshot.example
+
+         id = "my-snapshot" } Using `pulumi import`, import `aws_db_snapshot` using the snapshot identifier. For exampleconsole % pulumi import aws_db_snapshot.example my-snapshot
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -503,24 +503,24 @@ class Snapshot(pulumi.CustomResource):
             engine="mysql",
             engine_version="5.6.21",
             instance_class="db.t2.micro",
-            name="baz",
+            db_name="baz",
             password="barbarbarbar",
             username="foo",
             maintenance_window="Fri:09:00-Fri:09:30",
             backup_retention_period=0,
             parameter_group_name="default.mysql5.6")
         test = aws.rds.Snapshot("test",
-            db_instance_identifier=bar.id,
+            db_instance_identifier=bar.identifier,
             db_snapshot_identifier="testsnapshot1234")
         ```
 
         ## Import
 
-        `aws_db_snapshot` can be imported by using the snapshot identifier, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:rds/snapshot:Snapshot example my-snapshot
-        ```
+         to = aws_db_snapshot.example
+
+         id = "my-snapshot" } Using `pulumi import`, import `aws_db_snapshot` using the snapshot identifier. For exampleconsole % pulumi import aws_db_snapshot.example my-snapshot
 
         :param str resource_name: The name of the resource.
         :param SnapshotArgs args: The arguments to use to populate this resource's properties.

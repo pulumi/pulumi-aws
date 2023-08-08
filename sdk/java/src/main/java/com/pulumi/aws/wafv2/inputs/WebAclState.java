@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.wafv2.inputs;
 
+import com.pulumi.aws.wafv2.inputs.WebAclAssociationConfigArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclCaptchaConfigArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclCustomResponseBodyArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclDefaultActionArgs;
@@ -39,6 +40,21 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies custom configurations for the associations between the web ACL and protected resources. See `association_config` below for details.
+     * 
+     */
+    @Import(name="associationConfig")
+    private @Nullable Output<WebAclAssociationConfigArgs> associationConfig;
+
+    /**
+     * @return Specifies custom configurations for the associations between the web ACL and protected resources. See `association_config` below for details.
+     * 
+     */
+    public Optional<Output<WebAclAssociationConfigArgs>> associationConfig() {
+        return Optional.ofNullable(this.associationConfig);
+    }
+
+    /**
      * Web ACL capacity units (WCUs) currently being used by this web ACL.
      * 
      */
@@ -54,14 +70,14 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+     * Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
      * 
      */
     @Import(name="captchaConfig")
     private @Nullable Output<WebAclCaptchaConfigArgs> captchaConfig;
 
     /**
-     * @return Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+     * @return Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
      * 
      */
     public Optional<Output<WebAclCaptchaConfigArgs>> captchaConfig() {
@@ -84,14 +100,14 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Action to perform if none of the `rules` contained in the WebACL match. See `default_ action` below for details.
+     * Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.
      * 
      */
     @Import(name="defaultAction")
     private @Nullable Output<WebAclDefaultActionArgs> defaultAction;
 
     /**
-     * @return Action to perform if none of the `rules` contained in the WebACL match. See `default_ action` below for details.
+     * @return Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.
      * 
      */
     public Optional<Output<WebAclDefaultActionArgs>> defaultAction() {
@@ -229,6 +245,7 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
 
     private WebAclState(WebAclState $) {
         this.arn = $.arn;
+        this.associationConfig = $.associationConfig;
         this.capacity = $.capacity;
         this.captchaConfig = $.captchaConfig;
         this.customResponseBodies = $.customResponseBodies;
@@ -284,6 +301,27 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param associationConfig Specifies custom configurations for the associations between the web ACL and protected resources. See `association_config` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder associationConfig(@Nullable Output<WebAclAssociationConfigArgs> associationConfig) {
+            $.associationConfig = associationConfig;
+            return this;
+        }
+
+        /**
+         * @param associationConfig Specifies custom configurations for the associations between the web ACL and protected resources. See `association_config` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder associationConfig(WebAclAssociationConfigArgs associationConfig) {
+            return associationConfig(Output.of(associationConfig));
+        }
+
+        /**
          * @param capacity Web ACL capacity units (WCUs) currently being used by this web ACL.
          * 
          * @return builder
@@ -305,7 +343,7 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param captchaConfig Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+         * @param captchaConfig Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
          * 
          * @return builder
          * 
@@ -316,7 +354,7 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param captchaConfig Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+         * @param captchaConfig Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
          * 
          * @return builder
          * 
@@ -357,7 +395,7 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultAction Action to perform if none of the `rules` contained in the WebACL match. See `default_ action` below for details.
+         * @param defaultAction Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.
          * 
          * @return builder
          * 
@@ -368,7 +406,7 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultAction Action to perform if none of the `rules` contained in the WebACL match. See `default_ action` below for details.
+         * @param defaultAction Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.
          * 
          * @return builder
          * 

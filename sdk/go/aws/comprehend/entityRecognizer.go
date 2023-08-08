@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,8 +24,8 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/comprehend"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/comprehend"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -76,13 +77,11 @@ import (
 //
 // ## Import
 //
-// Comprehend Entity Recognizer can be imported using the ARN, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_comprehend_entity_recognizer.example
 //
-//	$ pulumi import aws:comprehend/entityRecognizer:EntityRecognizer example arn:aws:comprehend:us-west-2:123456789012:entity-recognizer/example
-//
-// ```
+//	id = "arn:aws:comprehend:us-west-2:123456789012:entity-recognizer/example" } Using `pulumi import`, import Comprehend Entity Recognizer using the ARN. For exampleconsole % pulumi import aws_comprehend_entity_recognizer.example arn:aws:comprehend:us-west-2:123456789012:entity-recognizer/example
 type EntityRecognizer struct {
 	pulumi.CustomResourceState
 
@@ -144,6 +143,7 @@ func NewEntityRecognizer(ctx *pulumi.Context,
 	if args.LanguageCode == nil {
 		return nil, errors.New("invalid value for required argument 'LanguageCode'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EntityRecognizer
 	err := ctx.RegisterResource("aws:comprehend/entityRecognizer:EntityRecognizer", name, args, &resource, opts...)
 	if err != nil {

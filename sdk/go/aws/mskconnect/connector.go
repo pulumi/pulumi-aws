@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/mskconnect"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/mskconnect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -90,13 +91,11 @@ import (
 //
 // ## Import
 //
-// MSK Connect Connector can be imported using the connector's `arn`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_mskconnect_connector.example
 //
-//	$ pulumi import aws:mskconnect/connector:Connector example 'arn:aws:kafkaconnect:eu-central-1:123456789012:connector/example/264edee4-17a3-412e-bd76-6681cfc93805-3'
-//
-// ```
+//	id = "arn:aws:kafkaconnect:eu-central-1:123456789012:connector/example/264edee4-17a3-412e-bd76-6681cfc93805-3" } Using `pulumi import`, import MSK Connect Connector using the connector's `arn`. For exampleconsole % pulumi import aws_mskconnect_connector.example 'arn:aws:kafkaconnect:eu-central-1:123456789012:connector/example/264edee4-17a3-412e-bd76-6681cfc93805-3'
 type Connector struct {
 	pulumi.CustomResourceState
 
@@ -161,6 +160,7 @@ func NewConnector(ctx *pulumi.Context,
 	if args.ServiceExecutionRoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceExecutionRoleArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Connector
 	err := ctx.RegisterResource("aws:mskconnect/connector:Connector", name, args, &resource, opts...)
 	if err != nil {

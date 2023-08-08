@@ -62,11 +62,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Global Accelerator accelerators can be imported using the `arn`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:globalaccelerator/accelerator:Accelerator example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
- * ```
+ *  to = aws_globalaccelerator_accelerator.example
+ * 
+ *  id = &#34;arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34; } Using `pulumi import`, import Global Accelerator accelerators using the `arn`. For exampleconsole % pulumi import aws_globalaccelerator_accelerator.example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
  * 
  */
 @ResourceType(type="aws:globalaccelerator/accelerator:Accelerator")
@@ -204,16 +204,12 @@ public class Accelerator extends com.pulumi.resources.CustomResource {
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
-     * **attributes** supports the following attributes:
-     * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
      * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     * **attributes** supports the following attributes:
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

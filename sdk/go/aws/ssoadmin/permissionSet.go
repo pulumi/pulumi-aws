@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -17,13 +18,11 @@ import (
 //
 // ## Import
 //
-// SSO Permission Sets can be imported using the `arn` and `instance_arn` separated by a comma (`,`) e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_ssoadmin_permission_set.example
 //
-//	$ pulumi import aws:ssoadmin/permissionSet:PermissionSet example arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72
-//
-// ```
+//	id = "arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72" } Using `pulumi import`, import SSO Permission Sets using the `arn` and `instance_arn` separated by a comma (`,`). For exampleconsole % pulumi import aws_ssoadmin_permission_set.example arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72
 type PermissionSet struct {
 	pulumi.CustomResourceState
 
@@ -57,6 +56,7 @@ func NewPermissionSet(ctx *pulumi.Context,
 	if args.InstanceArn == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PermissionSet
 	err := ctx.RegisterResource("aws:ssoadmin/permissionSet:PermissionSet", name, args, &resource, opts...)
 	if err != nil {

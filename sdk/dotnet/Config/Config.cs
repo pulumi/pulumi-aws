@@ -181,16 +181,15 @@ namespace Pulumi.Aws
             set => _region.Set(value);
         }
 
-        private static readonly __Value<bool?> _s3ForcePathStyle = new __Value<bool?>(() => __config.GetBoolean("s3ForcePathStyle"));
+        private static readonly __Value<string?> _retryMode = new __Value<string?>(() => __config.Get("retryMode"));
         /// <summary>
-        /// Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
-        /// default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
-        /// Specific to the Amazon S3 service.
+        /// Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
+        /// `AWS_RETRY_MODE` environment variable.
         /// </summary>
-        public static bool? S3ForcePathStyle
+        public static string? RetryMode
         {
-            get => _s3ForcePathStyle.Get();
-            set => _s3ForcePathStyle.Set(value);
+            get => _retryMode.Get();
+            set => _retryMode.Set(value);
         }
 
         private static readonly __Value<bool?> _s3UsePathStyle = new __Value<bool?>(() => __config.GetBoolean("s3UsePathStyle"));
@@ -225,16 +224,6 @@ namespace Pulumi.Aws
             set => _sharedConfigFiles.Set(value);
         }
 
-        private static readonly __Value<string?> _sharedCredentialsFile = new __Value<string?>(() => __config.Get("sharedCredentialsFile"));
-        /// <summary>
-        /// The path to the shared credentials file. If not set, defaults to ~/.aws/credentials.
-        /// </summary>
-        public static string? SharedCredentialsFile
-        {
-            get => _sharedCredentialsFile.Get();
-            set => _sharedCredentialsFile.Set(value);
-        }
-
         private static readonly __Value<ImmutableArray<string>> _sharedCredentialsFiles = new __Value<ImmutableArray<string>>(() => __config.GetObject<ImmutableArray<string>>("sharedCredentialsFiles"));
         /// <summary>
         /// List of paths to shared credentials files. If not set, defaults to [~/.aws/credentials].
@@ -254,16 +243,6 @@ namespace Pulumi.Aws
         {
             get => _skipCredentialsValidation.Get();
             set => _skipCredentialsValidation.Set(value);
-        }
-
-        private static readonly __Value<bool?> _skipGetEc2Platforms = new __Value<bool?>(() => __config.GetBoolean("skipGetEc2Platforms"));
-        /// <summary>
-        /// Skip getting the supported EC2 platforms. Used by users that don't have ec2:DescribeAccountAttributes permissions.
-        /// </summary>
-        public static bool? SkipGetEc2Platforms
-        {
-            get => _skipGetEc2Platforms.Get();
-            set => _skipGetEc2Platforms.Set(value);
         }
 
         private static readonly __Value<bool?> _skipMetadataApiCheck = new __Value<bool?>(() => __config.GetBoolean("skipMetadataApiCheck") ?? true);
@@ -343,7 +322,6 @@ namespace Pulumi.Aws
              public class AssumeRole
              {
                 public string? Duration { get; set; } = null!;
-                public int? DurationSeconds { get; set; }
                 public string? ExternalId { get; set; } = null!;
                 public string? Policy { get; set; } = null!;
                 public ImmutableArray<string> PolicyArns { get; set; }
@@ -376,61 +354,43 @@ namespace Pulumi.Aws
                 public string? Account { get; set; } = null!;
                 public string? Acm { get; set; } = null!;
                 public string? Acmpca { get; set; } = null!;
-                public string? Alexaforbusiness { get; set; } = null!;
                 public string? Amg { get; set; } = null!;
                 public string? Amp { get; set; } = null!;
                 public string? Amplify { get; set; } = null!;
-                public string? Amplifybackend { get; set; } = null!;
-                public string? Amplifyuibuilder { get; set; } = null!;
                 public string? Apigateway { get; set; } = null!;
-                public string? Apigatewaymanagementapi { get; set; } = null!;
                 public string? Apigatewayv2 { get; set; } = null!;
                 public string? Appautoscaling { get; set; } = null!;
                 public string? Appconfig { get; set; } = null!;
-                public string? Appconfigdata { get; set; } = null!;
                 public string? Appflow { get; set; } = null!;
                 public string? Appintegrations { get; set; } = null!;
                 public string? Appintegrationsservice { get; set; } = null!;
                 public string? Applicationautoscaling { get; set; } = null!;
-                public string? Applicationcostprofiler { get; set; } = null!;
-                public string? Applicationdiscovery { get; set; } = null!;
-                public string? Applicationdiscoveryservice { get; set; } = null!;
                 public string? Applicationinsights { get; set; } = null!;
                 public string? Appmesh { get; set; } = null!;
-                public string? Appregistry { get; set; } = null!;
                 public string? Apprunner { get; set; } = null!;
                 public string? Appstream { get; set; } = null!;
                 public string? Appsync { get; set; } = null!;
                 public string? Athena { get; set; } = null!;
                 public string? Auditmanager { get; set; } = null!;
-                public string? Augmentedairuntime { get; set; } = null!;
                 public string? Autoscaling { get; set; } = null!;
                 public string? Autoscalingplans { get; set; } = null!;
                 public string? Backup { get; set; } = null!;
-                public string? Backupgateway { get; set; } = null!;
                 public string? Batch { get; set; } = null!;
                 public string? Beanstalk { get; set; } = null!;
-                public string? Billingconductor { get; set; } = null!;
-                public string? Braket { get; set; } = null!;
                 public string? Budgets { get; set; } = null!;
                 public string? Ce { get; set; } = null!;
                 public string? Chime { get; set; } = null!;
-                public string? Chimesdkidentity { get; set; } = null!;
                 public string? Chimesdkmediapipelines { get; set; } = null!;
-                public string? Chimesdkmeetings { get; set; } = null!;
-                public string? Chimesdkmessaging { get; set; } = null!;
                 public string? Chimesdkvoice { get; set; } = null!;
                 public string? Cleanrooms { get; set; } = null!;
                 public string? Cloud9 { get; set; } = null!;
                 public string? Cloudcontrol { get; set; } = null!;
                 public string? Cloudcontrolapi { get; set; } = null!;
-                public string? Clouddirectory { get; set; } = null!;
                 public string? Cloudformation { get; set; } = null!;
                 public string? Cloudfront { get; set; } = null!;
                 public string? Cloudhsm { get; set; } = null!;
                 public string? Cloudhsmv2 { get; set; } = null!;
                 public string? Cloudsearch { get; set; } = null!;
-                public string? Cloudsearchdomain { get; set; } = null!;
                 public string? Cloudtrail { get; set; } = null!;
                 public string? Cloudwatch { get; set; } = null!;
                 public string? Cloudwatchevents { get; set; } = null!;
@@ -443,33 +403,24 @@ namespace Pulumi.Aws
                 public string? Codebuild { get; set; } = null!;
                 public string? Codecommit { get; set; } = null!;
                 public string? Codedeploy { get; set; } = null!;
-                public string? Codeguruprofiler { get; set; } = null!;
                 public string? Codegurureviewer { get; set; } = null!;
                 public string? Codepipeline { get; set; } = null!;
-                public string? Codestar { get; set; } = null!;
                 public string? Codestarconnections { get; set; } = null!;
                 public string? Codestarnotifications { get; set; } = null!;
                 public string? Cognitoidentity { get; set; } = null!;
                 public string? Cognitoidentityprovider { get; set; } = null!;
                 public string? Cognitoidp { get; set; } = null!;
-                public string? Cognitosync { get; set; } = null!;
                 public string? Comprehend { get; set; } = null!;
-                public string? Comprehendmedical { get; set; } = null!;
                 public string? Computeoptimizer { get; set; } = null!;
                 public string? Config { get; set; } = null!;
                 public string? Configservice { get; set; } = null!;
                 public string? Connect { get; set; } = null!;
-                public string? Connectcontactlens { get; set; } = null!;
-                public string? Connectparticipant { get; set; } = null!;
-                public string? Connectwisdomservice { get; set; } = null!;
                 public string? Controltower { get; set; } = null!;
                 public string? Costandusagereportservice { get; set; } = null!;
                 public string? Costexplorer { get; set; } = null!;
                 public string? Cur { get; set; } = null!;
-                public string? Customerprofiles { get; set; } = null!;
                 public string? Databasemigration { get; set; } = null!;
                 public string? Databasemigrationservice { get; set; } = null!;
-                public string? Databrew { get; set; } = null!;
                 public string? Dataexchange { get; set; } = null!;
                 public string? Datapipeline { get; set; } = null!;
                 public string? Datasync { get; set; } = null!;
@@ -477,21 +428,15 @@ namespace Pulumi.Aws
                 public string? Deploy { get; set; } = null!;
                 public string? Detective { get; set; } = null!;
                 public string? Devicefarm { get; set; } = null!;
-                public string? Devopsguru { get; set; } = null!;
                 public string? Directconnect { get; set; } = null!;
                 public string? Directoryservice { get; set; } = null!;
-                public string? Discovery { get; set; } = null!;
                 public string? Dlm { get; set; } = null!;
                 public string? Dms { get; set; } = null!;
                 public string? Docdb { get; set; } = null!;
                 public string? Docdbelastic { get; set; } = null!;
-                public string? Drs { get; set; } = null!;
                 public string? Ds { get; set; } = null!;
                 public string? Dynamodb { get; set; } = null!;
-                public string? Dynamodbstreams { get; set; } = null!;
-                public string? Ebs { get; set; } = null!;
                 public string? Ec2 { get; set; } = null!;
-                public string? Ec2instanceconnect { get; set; } = null!;
                 public string? Ecr { get; set; } = null!;
                 public string? Ecrpublic { get; set; } = null!;
                 public string? Ecs { get; set; } = null!;
@@ -499,7 +444,6 @@ namespace Pulumi.Aws
                 public string? Eks { get; set; } = null!;
                 public string? Elasticache { get; set; } = null!;
                 public string? Elasticbeanstalk { get; set; } = null!;
-                public string? Elasticinference { get; set; } = null!;
                 public string? Elasticloadbalancing { get; set; } = null!;
                 public string? Elasticloadbalancingv2 { get; set; } = null!;
                 public string? Elasticsearch { get; set; } = null!;
@@ -515,29 +459,18 @@ namespace Pulumi.Aws
                 public string? Events { get; set; } = null!;
                 public string? Evidently { get; set; } = null!;
                 public string? Finspace { get; set; } = null!;
-                public string? Finspacedata { get; set; } = null!;
                 public string? Firehose { get; set; } = null!;
                 public string? Fis { get; set; } = null!;
                 public string? Fms { get; set; } = null!;
-                public string? Forecast { get; set; } = null!;
-                public string? Forecastquery { get; set; } = null!;
-                public string? Forecastqueryservice { get; set; } = null!;
-                public string? Forecastservice { get; set; } = null!;
-                public string? Frauddetector { get; set; } = null!;
                 public string? Fsx { get; set; } = null!;
                 public string? Gamelift { get; set; } = null!;
                 public string? Glacier { get; set; } = null!;
                 public string? Globalaccelerator { get; set; } = null!;
                 public string? Glue { get; set; } = null!;
-                public string? Gluedatabrew { get; set; } = null!;
                 public string? Grafana { get; set; } = null!;
                 public string? Greengrass { get; set; } = null!;
-                public string? Greengrassv2 { get; set; } = null!;
-                public string? Groundstation { get; set; } = null!;
                 public string? Guardduty { get; set; } = null!;
-                public string? Health { get; set; } = null!;
                 public string? Healthlake { get; set; } = null!;
-                public string? Honeycode { get; set; } = null!;
                 public string? Iam { get; set; } = null!;
                 public string? Identitystore { get; set; } = null!;
                 public string? Imagebuilder { get; set; } = null!;
@@ -546,23 +479,8 @@ namespace Pulumi.Aws
                 public string? Inspectorv2 { get; set; } = null!;
                 public string? Internetmonitor { get; set; } = null!;
                 public string? Iot { get; set; } = null!;
-                public string? Iot1clickdevices { get; set; } = null!;
-                public string? Iot1clickdevicesservice { get; set; } = null!;
-                public string? Iot1clickprojects { get; set; } = null!;
                 public string? Iotanalytics { get; set; } = null!;
-                public string? Iotdata { get; set; } = null!;
-                public string? Iotdataplane { get; set; } = null!;
-                public string? Iotdeviceadvisor { get; set; } = null!;
                 public string? Iotevents { get; set; } = null!;
-                public string? Ioteventsdata { get; set; } = null!;
-                public string? Iotfleethub { get; set; } = null!;
-                public string? Iotjobsdata { get; set; } = null!;
-                public string? Iotjobsdataplane { get; set; } = null!;
-                public string? Iotsecuretunneling { get; set; } = null!;
-                public string? Iotsitewise { get; set; } = null!;
-                public string? Iotthingsgraph { get; set; } = null!;
-                public string? Iottwinmaker { get; set; } = null!;
-                public string? Iotwireless { get; set; } = null!;
                 public string? Ivs { get; set; } = null!;
                 public string? Ivschat { get; set; } = null!;
                 public string? Kafka { get; set; } = null!;
@@ -573,10 +491,6 @@ namespace Pulumi.Aws
                 public string? Kinesisanalytics { get; set; } = null!;
                 public string? Kinesisanalyticsv2 { get; set; } = null!;
                 public string? Kinesisvideo { get; set; } = null!;
-                public string? Kinesisvideoarchivedmedia { get; set; } = null!;
-                public string? Kinesisvideomedia { get; set; } = null!;
-                public string? Kinesisvideosignaling { get; set; } = null!;
-                public string? Kinesisvideosignalingchannels { get; set; } = null!;
                 public string? Kms { get; set; } = null!;
                 public string? Lakeformation { get; set; } = null!;
                 public string? Lambda { get; set; } = null!;
@@ -584,104 +498,54 @@ namespace Pulumi.Aws
                 public string? Lexmodelbuilding { get; set; } = null!;
                 public string? Lexmodelbuildingservice { get; set; } = null!;
                 public string? Lexmodels { get; set; } = null!;
-                public string? Lexmodelsv2 { get; set; } = null!;
-                public string? Lexruntime { get; set; } = null!;
-                public string? Lexruntimeservice { get; set; } = null!;
-                public string? Lexruntimev2 { get; set; } = null!;
-                public string? Lexv2models { get; set; } = null!;
-                public string? Lexv2runtime { get; set; } = null!;
                 public string? Licensemanager { get; set; } = null!;
                 public string? Lightsail { get; set; } = null!;
                 public string? Location { get; set; } = null!;
                 public string? Locationservice { get; set; } = null!;
                 public string? Logs { get; set; } = null!;
-                public string? Lookoutequipment { get; set; } = null!;
-                public string? Lookoutforvision { get; set; } = null!;
-                public string? Lookoutmetrics { get; set; } = null!;
-                public string? Lookoutvision { get; set; } = null!;
-                public string? Machinelearning { get; set; } = null!;
-                public string? Macie { get; set; } = null!;
                 public string? Macie2 { get; set; } = null!;
-                public string? Managedblockchain { get; set; } = null!;
                 public string? Managedgrafana { get; set; } = null!;
-                public string? Marketplacecatalog { get; set; } = null!;
-                public string? Marketplacecommerceanalytics { get; set; } = null!;
-                public string? Marketplaceentitlement { get; set; } = null!;
-                public string? Marketplaceentitlementservice { get; set; } = null!;
-                public string? Marketplacemetering { get; set; } = null!;
                 public string? Mediaconnect { get; set; } = null!;
                 public string? Mediaconvert { get; set; } = null!;
                 public string? Medialive { get; set; } = null!;
                 public string? Mediapackage { get; set; } = null!;
-                public string? Mediapackagevod { get; set; } = null!;
                 public string? Mediastore { get; set; } = null!;
-                public string? Mediastoredata { get; set; } = null!;
-                public string? Mediatailor { get; set; } = null!;
                 public string? Memorydb { get; set; } = null!;
-                public string? Meteringmarketplace { get; set; } = null!;
-                public string? Mgh { get; set; } = null!;
-                public string? Mgn { get; set; } = null!;
-                public string? Migrationhub { get; set; } = null!;
-                public string? Migrationhubconfig { get; set; } = null!;
-                public string? Migrationhubrefactorspaces { get; set; } = null!;
-                public string? Migrationhubstrategy { get; set; } = null!;
-                public string? Migrationhubstrategyrecommendations { get; set; } = null!;
-                public string? Mobile { get; set; } = null!;
                 public string? Mq { get; set; } = null!;
                 public string? Msk { get; set; } = null!;
-                public string? Mturk { get; set; } = null!;
                 public string? Mwaa { get; set; } = null!;
                 public string? Neptune { get; set; } = null!;
                 public string? Networkfirewall { get; set; } = null!;
                 public string? Networkmanager { get; set; } = null!;
-                public string? Nimble { get; set; } = null!;
-                public string? Nimblestudio { get; set; } = null!;
                 public string? Oam { get; set; } = null!;
                 public string? Opensearch { get; set; } = null!;
                 public string? Opensearchserverless { get; set; } = null!;
                 public string? Opensearchservice { get; set; } = null!;
                 public string? Opsworks { get; set; } = null!;
-                public string? Opsworkscm { get; set; } = null!;
                 public string? Organizations { get; set; } = null!;
                 public string? Outposts { get; set; } = null!;
-                public string? Panorama { get; set; } = null!;
-                public string? Personalize { get; set; } = null!;
-                public string? Personalizeevents { get; set; } = null!;
-                public string? Personalizeruntime { get; set; } = null!;
-                public string? Pi { get; set; } = null!;
                 public string? Pinpoint { get; set; } = null!;
-                public string? Pinpointemail { get; set; } = null!;
-                public string? Pinpointsmsvoice { get; set; } = null!;
                 public string? Pipes { get; set; } = null!;
-                public string? Polly { get; set; } = null!;
                 public string? Pricing { get; set; } = null!;
                 public string? Prometheus { get; set; } = null!;
                 public string? Prometheusservice { get; set; } = null!;
-                public string? Proton { get; set; } = null!;
                 public string? Qldb { get; set; } = null!;
-                public string? Qldbsession { get; set; } = null!;
                 public string? Quicksight { get; set; } = null!;
                 public string? Ram { get; set; } = null!;
                 public string? Rbin { get; set; } = null!;
                 public string? Rds { get; set; } = null!;
-                public string? Rdsdata { get; set; } = null!;
-                public string? Rdsdataservice { get; set; } = null!;
                 public string? Recyclebin { get; set; } = null!;
                 public string? Redshift { get; set; } = null!;
                 public string? Redshiftdata { get; set; } = null!;
                 public string? Redshiftdataapiservice { get; set; } = null!;
                 public string? Redshiftserverless { get; set; } = null!;
-                public string? Rekognition { get; set; } = null!;
-                public string? Resiliencehub { get; set; } = null!;
                 public string? Resourceexplorer2 { get; set; } = null!;
                 public string? Resourcegroups { get; set; } = null!;
                 public string? Resourcegroupstagging { get; set; } = null!;
                 public string? Resourcegroupstaggingapi { get; set; } = null!;
-                public string? Robomaker { get; set; } = null!;
                 public string? Rolesanywhere { get; set; } = null!;
                 public string? Route53 { get; set; } = null!;
                 public string? Route53domains { get; set; } = null!;
-                public string? Route53recoverycluster { get; set; } = null!;
                 public string? Route53recoverycontrolconfig { get; set; } = null!;
                 public string? Route53recoveryreadiness { get; set; } = null!;
                 public string? Route53resolver { get; set; } = null!;
@@ -691,12 +555,6 @@ namespace Pulumi.Aws
                 public string? S3control { get; set; } = null!;
                 public string? S3outposts { get; set; } = null!;
                 public string? Sagemaker { get; set; } = null!;
-                public string? Sagemakera2iruntime { get; set; } = null!;
-                public string? Sagemakeredge { get; set; } = null!;
-                public string? Sagemakeredgemanager { get; set; } = null!;
-                public string? Sagemakerfeaturestoreruntime { get; set; } = null!;
-                public string? Sagemakerruntime { get; set; } = null!;
-                public string? Savingsplans { get; set; } = null!;
                 public string? Scheduler { get; set; } = null!;
                 public string? Schemas { get; set; } = null!;
                 public string? Sdb { get; set; } = null!;
@@ -707,7 +565,6 @@ namespace Pulumi.Aws
                 public string? Serverlessapprepo { get; set; } = null!;
                 public string? Serverlessrepo { get; set; } = null!;
                 public string? Servicecatalog { get; set; } = null!;
-                public string? Servicecatalogappregistry { get; set; } = null!;
                 public string? Servicediscovery { get; set; } = null!;
                 public string? Servicequotas { get; set; } = null!;
                 public string? Ses { get; set; } = null!;
@@ -716,45 +573,28 @@ namespace Pulumi.Aws
                 public string? Shield { get; set; } = null!;
                 public string? Signer { get; set; } = null!;
                 public string? Simpledb { get; set; } = null!;
-                public string? Sms { get; set; } = null!;
-                public string? Snowball { get; set; } = null!;
-                public string? Snowdevicemanagement { get; set; } = null!;
                 public string? Sns { get; set; } = null!;
                 public string? Sqs { get; set; } = null!;
                 public string? Ssm { get; set; } = null!;
                 public string? Ssmcontacts { get; set; } = null!;
                 public string? Ssmincidents { get; set; } = null!;
-                public string? Sso { get; set; } = null!;
                 public string? Ssoadmin { get; set; } = null!;
-                public string? Ssooidc { get; set; } = null!;
                 public string? Stepfunctions { get; set; } = null!;
                 public string? Storagegateway { get; set; } = null!;
                 public string? Sts { get; set; } = null!;
-                public string? Support { get; set; } = null!;
                 public string? Swf { get; set; } = null!;
                 public string? Synthetics { get; set; } = null!;
-                public string? Textract { get; set; } = null!;
-                public string? Timestreamquery { get; set; } = null!;
                 public string? Timestreamwrite { get; set; } = null!;
                 public string? Transcribe { get; set; } = null!;
                 public string? Transcribeservice { get; set; } = null!;
-                public string? Transcribestreaming { get; set; } = null!;
-                public string? Transcribestreamingservice { get; set; } = null!;
                 public string? Transfer { get; set; } = null!;
-                public string? Translate { get; set; } = null!;
-                public string? Voiceid { get; set; } = null!;
+                public string? Verifiedpermissions { get; set; } = null!;
                 public string? Vpclattice { get; set; } = null!;
                 public string? Waf { get; set; } = null!;
                 public string? Wafregional { get; set; } = null!;
                 public string? Wafv2 { get; set; } = null!;
-                public string? Wellarchitected { get; set; } = null!;
-                public string? Wisdom { get; set; } = null!;
-                public string? Workdocs { get; set; } = null!;
                 public string? Worklink { get; set; } = null!;
-                public string? Workmail { get; set; } = null!;
-                public string? Workmailmessageflow { get; set; } = null!;
                 public string? Workspaces { get; set; } = null!;
-                public string? Workspacesweb { get; set; } = null!;
                 public string? Xray { get; set; } = null!;
             }
 

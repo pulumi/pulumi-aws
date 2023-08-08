@@ -146,22 +146,56 @@ public final class AddonState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Define how to resolve parameter value conflicts
-     * when migrating an existing add-on to an Amazon EKS add-on or when applying
-     * version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
+     * Define how to resolve parameter value conflicts when migrating an existing add-on to an Amazon EKS add-on or when applying version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. Note that `PRESERVE` is only valid on addon update, not for initial addon creation. If you need to set this to `PRESERVE`, use the `resolve_conflicts_on_create` and `resolve_conflicts_on_update` attributes instead. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
+     * 
+     * @deprecated
+     * The &#34;resolve_conflicts&#34; attribute can&#39;t be set to &#34;PRESERVE&#34; on initial resource creation. Use &#34;resolve_conflicts_on_create&#34; and/or &#34;resolve_conflicts_on_update&#34; instead
      * 
      */
+    @Deprecated /* The ""resolve_conflicts"" attribute can't be set to ""PRESERVE"" on initial resource creation. Use ""resolve_conflicts_on_create"" and/or ""resolve_conflicts_on_update"" instead */
     @Import(name="resolveConflicts")
     private @Nullable Output<String> resolveConflicts;
 
     /**
-     * @return Define how to resolve parameter value conflicts
-     * when migrating an existing add-on to an Amazon EKS add-on or when applying
-     * version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
+     * @return Define how to resolve parameter value conflicts when migrating an existing add-on to an Amazon EKS add-on or when applying version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. Note that `PRESERVE` is only valid on addon update, not for initial addon creation. If you need to set this to `PRESERVE`, use the `resolve_conflicts_on_create` and `resolve_conflicts_on_update` attributes instead. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
+     * 
+     * @deprecated
+     * The &#34;resolve_conflicts&#34; attribute can&#39;t be set to &#34;PRESERVE&#34; on initial resource creation. Use &#34;resolve_conflicts_on_create&#34; and/or &#34;resolve_conflicts_on_update&#34; instead
      * 
      */
+    @Deprecated /* The ""resolve_conflicts"" attribute can't be set to ""PRESERVE"" on initial resource creation. Use ""resolve_conflicts_on_create"" and/or ""resolve_conflicts_on_update"" instead */
     public Optional<Output<String>> resolveConflicts() {
         return Optional.ofNullable(this.resolveConflicts);
+    }
+
+    /**
+     * How to resolve field value conflicts when migrating a self-managed add-on to an Amazon EKS add-on. Valid values are `NONE` and `OVERWRITE`. For more details see the [CreateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_CreateAddon.html) API Docs.
+     * 
+     */
+    @Import(name="resolveConflictsOnCreate")
+    private @Nullable Output<String> resolveConflictsOnCreate;
+
+    /**
+     * @return How to resolve field value conflicts when migrating a self-managed add-on to an Amazon EKS add-on. Valid values are `NONE` and `OVERWRITE`. For more details see the [CreateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_CreateAddon.html) API Docs.
+     * 
+     */
+    public Optional<Output<String>> resolveConflictsOnCreate() {
+        return Optional.ofNullable(this.resolveConflictsOnCreate);
+    }
+
+    /**
+     * How to resolve field value conflicts for an Amazon EKS add-on if you&#39;ve changed a value from the Amazon EKS default value. Valid values are `NONE`, `OVERWRITE`, and `PRESERVE`. For more details see the [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
+     * 
+     */
+    @Import(name="resolveConflictsOnUpdate")
+    private @Nullable Output<String> resolveConflictsOnUpdate;
+
+    /**
+     * @return How to resolve field value conflicts for an Amazon EKS add-on if you&#39;ve changed a value from the Amazon EKS default value. Valid values are `NONE`, `OVERWRITE`, and `PRESERVE`. For more details see the [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
+     * 
+     */
+    public Optional<Output<String>> resolveConflictsOnUpdate() {
+        return Optional.ofNullable(this.resolveConflictsOnUpdate);
     }
 
     /**
@@ -241,6 +275,8 @@ public final class AddonState extends com.pulumi.resources.ResourceArgs {
         this.modifiedAt = $.modifiedAt;
         this.preserve = $.preserve;
         this.resolveConflicts = $.resolveConflicts;
+        this.resolveConflictsOnCreate = $.resolveConflictsOnCreate;
+        this.resolveConflictsOnUpdate = $.resolveConflictsOnUpdate;
         this.serviceAccountRoleArn = $.serviceAccountRoleArn;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
@@ -441,28 +477,74 @@ public final class AddonState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resolveConflicts Define how to resolve parameter value conflicts
-         * when migrating an existing add-on to an Amazon EKS add-on or when applying
-         * version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
+         * @param resolveConflicts Define how to resolve parameter value conflicts when migrating an existing add-on to an Amazon EKS add-on or when applying version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. Note that `PRESERVE` is only valid on addon update, not for initial addon creation. If you need to set this to `PRESERVE`, use the `resolve_conflicts_on_create` and `resolve_conflicts_on_update` attributes instead. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
          * 
          * @return builder
          * 
+         * @deprecated
+         * The &#34;resolve_conflicts&#34; attribute can&#39;t be set to &#34;PRESERVE&#34; on initial resource creation. Use &#34;resolve_conflicts_on_create&#34; and/or &#34;resolve_conflicts_on_update&#34; instead
+         * 
          */
+        @Deprecated /* The ""resolve_conflicts"" attribute can't be set to ""PRESERVE"" on initial resource creation. Use ""resolve_conflicts_on_create"" and/or ""resolve_conflicts_on_update"" instead */
         public Builder resolveConflicts(@Nullable Output<String> resolveConflicts) {
             $.resolveConflicts = resolveConflicts;
             return this;
         }
 
         /**
-         * @param resolveConflicts Define how to resolve parameter value conflicts
-         * when migrating an existing add-on to an Amazon EKS add-on or when applying
-         * version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
+         * @param resolveConflicts Define how to resolve parameter value conflicts when migrating an existing add-on to an Amazon EKS add-on or when applying version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. Note that `PRESERVE` is only valid on addon update, not for initial addon creation. If you need to set this to `PRESERVE`, use the `resolve_conflicts_on_create` and `resolve_conflicts_on_update` attributes instead. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * The &#34;resolve_conflicts&#34; attribute can&#39;t be set to &#34;PRESERVE&#34; on initial resource creation. Use &#34;resolve_conflicts_on_create&#34; and/or &#34;resolve_conflicts_on_update&#34; instead
+         * 
+         */
+        @Deprecated /* The ""resolve_conflicts"" attribute can't be set to ""PRESERVE"" on initial resource creation. Use ""resolve_conflicts_on_create"" and/or ""resolve_conflicts_on_update"" instead */
+        public Builder resolveConflicts(String resolveConflicts) {
+            return resolveConflicts(Output.of(resolveConflicts));
+        }
+
+        /**
+         * @param resolveConflictsOnCreate How to resolve field value conflicts when migrating a self-managed add-on to an Amazon EKS add-on. Valid values are `NONE` and `OVERWRITE`. For more details see the [CreateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_CreateAddon.html) API Docs.
          * 
          * @return builder
          * 
          */
-        public Builder resolveConflicts(String resolveConflicts) {
-            return resolveConflicts(Output.of(resolveConflicts));
+        public Builder resolveConflictsOnCreate(@Nullable Output<String> resolveConflictsOnCreate) {
+            $.resolveConflictsOnCreate = resolveConflictsOnCreate;
+            return this;
+        }
+
+        /**
+         * @param resolveConflictsOnCreate How to resolve field value conflicts when migrating a self-managed add-on to an Amazon EKS add-on. Valid values are `NONE` and `OVERWRITE`. For more details see the [CreateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_CreateAddon.html) API Docs.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resolveConflictsOnCreate(String resolveConflictsOnCreate) {
+            return resolveConflictsOnCreate(Output.of(resolveConflictsOnCreate));
+        }
+
+        /**
+         * @param resolveConflictsOnUpdate How to resolve field value conflicts for an Amazon EKS add-on if you&#39;ve changed a value from the Amazon EKS default value. Valid values are `NONE`, `OVERWRITE`, and `PRESERVE`. For more details see the [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resolveConflictsOnUpdate(@Nullable Output<String> resolveConflictsOnUpdate) {
+            $.resolveConflictsOnUpdate = resolveConflictsOnUpdate;
+            return this;
+        }
+
+        /**
+         * @param resolveConflictsOnUpdate How to resolve field value conflicts for an Amazon EKS add-on if you&#39;ve changed a value from the Amazon EKS default value. Valid values are `NONE`, `OVERWRITE`, and `PRESERVE`. For more details see the [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resolveConflictsOnUpdate(String resolveConflictsOnUpdate) {
+            return resolveConflictsOnUpdate(Output.of(resolveConflictsOnUpdate));
         }
 
         /**

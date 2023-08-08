@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -53,13 +54,11 @@ import (
 //
 // ## Import
 //
-// Endpoint configurations can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_sagemaker_endpoint_configuration.test_endpoint_config
 //
-//	$ pulumi import aws:sagemaker/endpointConfiguration:EndpointConfiguration test_endpoint_config endpoint-config-foo
-//
-// ```
+//	id = "endpoint-config-foo" } Using `pulumi import`, import endpoint configurations using the `name`. For exampleconsole % pulumi import aws_sagemaker_endpoint_configuration.test_endpoint_config endpoint-config-foo
 type EndpointConfiguration struct {
 	pulumi.CustomResourceState
 
@@ -95,6 +94,7 @@ func NewEndpointConfiguration(ctx *pulumi.Context,
 	if args.ProductionVariants == nil {
 		return nil, errors.New("invalid value for required argument 'ProductionVariants'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EndpointConfiguration
 	err := ctx.RegisterResource("aws:sagemaker/endpointConfiguration:EndpointConfiguration", name, args, &resource, opts...)
 	if err != nil {

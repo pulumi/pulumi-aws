@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2clientvpn"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2clientvpn"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -44,19 +45,15 @@ import (
 //
 // ## Import
 //
-// AWS Client VPN authorization rules can be imported using the endpoint ID and target network CIDR. If there is a specific group name that is included as well. All values are separated by a `,`.
+// Using the endpoint ID and target network CIDRterraform import {
 //
-// ```sh
+//	to = aws_ec2_client_vpn_authorization_rule.example
 //
-//	$ pulumi import aws:ec2clientvpn/authorizationRule:AuthorizationRule example cvpn-endpoint-0ac3a1abbccddd666,10.1.0.0/24
+//	id = "cvpn-endpoint-0ac3a1abbccddd666,10.1.0.0/24" } Using the endpoint ID, target network CIDR, and group nameterraform import {
 //
-// ```
+//	to = aws_ec2_client_vpn_authorization_rule.example
 //
-// ```sh
-//
-//	$ pulumi import aws:ec2clientvpn/authorizationRule:AuthorizationRule example cvpn-endpoint-0ac3a1abbccddd666,10.1.0.0/24,team-a
-//
-// ```
+//	id = "cvpn-endpoint-0ac3a1abbccddd666,10.1.0.0/24,team-a" } **Using `pulumi import` to import** AWS Client VPN authorization rules using the endpoint ID and target network CIDR. If there is a specific group name, include that also. All values are separated by a `,`. For exampleUsing the endpoint ID and target network CIDRconsole % pulumi import aws_ec2_client_vpn_authorization_rule.example cvpn-endpoint-0ac3a1abbccddd666,10.1.0.0/24 Using the endpoint ID, target network CIDR, and group nameconsole % pulumi import aws_ec2_client_vpn_authorization_rule.example cvpn-endpoint-0ac3a1abbccddd666,10.1.0.0/24,team-a
 type AuthorizationRule struct {
 	pulumi.CustomResourceState
 
@@ -85,6 +82,7 @@ func NewAuthorizationRule(ctx *pulumi.Context,
 	if args.TargetNetworkCidr == nil {
 		return nil, errors.New("invalid value for required argument 'TargetNetworkCidr'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AuthorizationRule
 	err := ctx.RegisterResource("aws:ec2clientvpn/authorizationRule:AuthorizationRule", name, args, &resource, opts...)
 	if err != nil {

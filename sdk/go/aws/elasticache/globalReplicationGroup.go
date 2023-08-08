@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elasticache"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticache"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -31,11 +32,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			primary, err := elasticache.NewReplicationGroup(ctx, "primary", &elasticache.ReplicationGroupArgs{
-//				ReplicationGroupDescription: pulumi.String("primary replication group"),
-//				Engine:                      pulumi.String("redis"),
-//				EngineVersion:               pulumi.String("5.0.6"),
-//				NodeType:                    pulumi.String("cache.m5.large"),
-//				NumberCacheClusters:         pulumi.Int(1),
+//				Description:      pulumi.String("primary replication group"),
+//				Engine:           pulumi.String("redis"),
+//				EngineVersion:    pulumi.String("5.0.6"),
+//				NodeType:         pulumi.String("cache.m5.large"),
+//				NumCacheClusters: pulumi.Int(1),
 //			})
 //			if err != nil {
 //				return err
@@ -48,9 +49,9 @@ import (
 //				return err
 //			}
 //			_, err = elasticache.NewReplicationGroup(ctx, "secondary", &elasticache.ReplicationGroupArgs{
-//				ReplicationGroupDescription: pulumi.String("secondary replication group"),
-//				GlobalReplicationGroupId:    example.GlobalReplicationGroupId,
-//				NumberCacheClusters:         pulumi.Int(1),
+//				Description:              pulumi.String("secondary replication group"),
+//				GlobalReplicationGroupId: example.GlobalReplicationGroupId,
+//				NumCacheClusters:         pulumi.Int(1),
 //			}, pulumi.Provider(aws.Other_region))
 //			if err != nil {
 //				return err
@@ -79,7 +80,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elasticache"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticache"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -87,11 +88,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			primary, err := elasticache.NewReplicationGroup(ctx, "primary", &elasticache.ReplicationGroupArgs{
-//				ReplicationGroupDescription: pulumi.String("primary replication group"),
-//				Engine:                      pulumi.String("redis"),
-//				EngineVersion:               pulumi.String("6.0"),
-//				NodeType:                    pulumi.String("cache.m5.large"),
-//				NumberCacheClusters:         pulumi.Int(1),
+//				Description:      pulumi.String("primary replication group"),
+//				Engine:           pulumi.String("redis"),
+//				EngineVersion:    pulumi.String("6.0"),
+//				NodeType:         pulumi.String("cache.m5.large"),
+//				NumCacheClusters: pulumi.Int(1),
 //			})
 //			if err != nil {
 //				return err
@@ -105,9 +106,9 @@ import (
 //				return err
 //			}
 //			_, err = elasticache.NewReplicationGroup(ctx, "secondary", &elasticache.ReplicationGroupArgs{
-//				ReplicationGroupDescription: pulumi.String("secondary replication group"),
-//				GlobalReplicationGroupId:    example.GlobalReplicationGroupId,
-//				NumberCacheClusters:         pulumi.Int(1),
+//				Description:              pulumi.String("secondary replication group"),
+//				GlobalReplicationGroupId: example.GlobalReplicationGroupId,
+//				NumCacheClusters:         pulumi.Int(1),
 //			}, pulumi.Provider(aws.Other_region))
 //			if err != nil {
 //				return err
@@ -120,13 +121,11 @@ import (
 //
 // ## Import
 //
-// ElastiCache Global Replication Groups can be imported using the `global_replication_group_id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_elasticache_global_replication_group.my_global_replication_group
 //
-//	$ pulumi import aws:elasticache/globalReplicationGroup:GlobalReplicationGroup my_global_replication_group okuqm-global-replication-group-1
-//
-// ```
+//	id = "okuqm-global-replication-group-1" } Using `pulumi import`, import ElastiCache Global Replication Groups using the `global_replication_group_id`. For exampleconsole % pulumi import aws_elasticache_global_replication_group.my_global_replication_group okuqm-global-replication-group-1
 type GlobalReplicationGroup struct {
 	pulumi.CustomResourceState
 
@@ -152,9 +151,10 @@ type GlobalReplicationGroup struct {
 	// When creating, by default the Global Replication Group inherits the version of the primary replication group.
 	// If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
 	// Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
-	// If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+	// When the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+	// When the version is 6, the major and minor version can be set, e.g., `6.2`,
 	// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
-	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
+	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
 	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
 	// The full version number of the cache engine running on the members of this global replication group.
 	EngineVersionActual pulumi.StringOutput `pulumi:"engineVersionActual"`
@@ -193,6 +193,7 @@ func NewGlobalReplicationGroup(ctx *pulumi.Context,
 	if args.PrimaryReplicationGroupId == nil {
 		return nil, errors.New("invalid value for required argument 'PrimaryReplicationGroupId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource GlobalReplicationGroup
 	err := ctx.RegisterResource("aws:elasticache/globalReplicationGroup:GlobalReplicationGroup", name, args, &resource, opts...)
 	if err != nil {
@@ -237,9 +238,10 @@ type globalReplicationGroupState struct {
 	// When creating, by default the Global Replication Group inherits the version of the primary replication group.
 	// If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
 	// Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
-	// If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+	// When the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+	// When the version is 6, the major and minor version can be set, e.g., `6.2`,
 	// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
-	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
+	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
 	EngineVersion *string `pulumi:"engineVersion"`
 	// The full version number of the cache engine running on the members of this global replication group.
 	EngineVersionActual *string `pulumi:"engineVersionActual"`
@@ -288,9 +290,10 @@ type GlobalReplicationGroupState struct {
 	// When creating, by default the Global Replication Group inherits the version of the primary replication group.
 	// If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
 	// Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
-	// If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+	// When the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+	// When the version is 6, the major and minor version can be set, e.g., `6.2`,
 	// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
-	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
+	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
 	EngineVersion pulumi.StringPtrInput
 	// The full version number of the cache engine running on the members of this global replication group.
 	EngineVersionActual pulumi.StringPtrInput
@@ -333,9 +336,10 @@ type globalReplicationGroupArgs struct {
 	// When creating, by default the Global Replication Group inherits the version of the primary replication group.
 	// If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
 	// Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
-	// If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+	// When the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+	// When the version is 6, the major and minor version can be set, e.g., `6.2`,
 	// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
-	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
+	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
 	EngineVersion *string `pulumi:"engineVersion"`
 	// A user-created description for the global replication group.
 	GlobalReplicationGroupDescription *string `pulumi:"globalReplicationGroupDescription"`
@@ -366,9 +370,10 @@ type GlobalReplicationGroupArgs struct {
 	// When creating, by default the Global Replication Group inherits the version of the primary replication group.
 	// If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
 	// Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
-	// If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+	// When the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+	// When the version is 6, the major and minor version can be set, e.g., `6.2`,
 	// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
-	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
+	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
 	EngineVersion pulumi.StringPtrInput
 	// A user-created description for the global replication group.
 	GlobalReplicationGroupDescription pulumi.StringPtrInput
@@ -515,9 +520,10 @@ func (o GlobalReplicationGroupOutput) Engine() pulumi.StringOutput {
 // When creating, by default the Global Replication Group inherits the version of the primary replication group.
 // If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
 // Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
-// If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+// When the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+// When the version is 6, the major and minor version can be set, e.g., `6.2`,
 // or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
-// The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
+// The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
 func (o GlobalReplicationGroupOutput) EngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *GlobalReplicationGroup) pulumi.StringOutput { return v.EngineVersion }).(pulumi.StringOutput)
 }

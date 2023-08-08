@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cfg"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cfg"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -81,13 +82,11 @@ import (
 //
 // ## Import
 //
-// Remediation Configurations can be imported using the name config_rule_name, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_config_remediation_configuration.this
 //
-//	$ pulumi import aws:cfg/remediationConfiguration:RemediationConfiguration this example
-//
-// ```
+//	id = "example" } Using `pulumi import`, import Remediation Configurations using the name config_rule_name. For exampleconsole % pulumi import aws_config_remediation_configuration.this example
 type RemediationConfiguration struct {
 	pulumi.CustomResourceState
 
@@ -133,6 +132,7 @@ func NewRemediationConfiguration(ctx *pulumi.Context,
 	if args.TargetType == nil {
 		return nil, errors.New("invalid value for required argument 'TargetType'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RemediationConfiguration
 	err := ctx.RegisterResource("aws:cfg/remediationConfiguration:RemediationConfiguration", name, args, &resource, opts...)
 	if err != nil {

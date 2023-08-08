@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,9 +21,10 @@ import (
 //
 // import (
 //
-// "github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudfront"
-// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
@@ -105,13 +107,11 @@ import (
 //
 // ## Import
 //
-// CloudFront real-time log configurations can be imported using the ARN, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_cloudfront_realtime_log_config.example
 //
-//	$ pulumi import aws:cloudfront/realtimeLogConfig:RealtimeLogConfig example arn:aws:cloudfront::111122223333:realtime-log-config/ExampleNameForRealtimeLogConfig
-//
-// ```
+//	id = "arn:aws:cloudfront::111122223333:realtime-log-config/ExampleNameForRealtimeLogConfig" } Using `pulumi import`, import CloudFront real-time log configurations using the ARN. For exampleconsole % pulumi import aws_cloudfront_realtime_log_config.example arn:aws:cloudfront::111122223333:realtime-log-config/ExampleNameForRealtimeLogConfig
 type RealtimeLogConfig struct {
 	pulumi.CustomResourceState
 
@@ -143,6 +143,7 @@ func NewRealtimeLogConfig(ctx *pulumi.Context,
 	if args.SamplingRate == nil {
 		return nil, errors.New("invalid value for required argument 'SamplingRate'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RealtimeLogConfig
 	err := ctx.RegisterResource("aws:cloudfront/realtimeLogConfig:RealtimeLogConfig", name, args, &resource, opts...)
 	if err != nil {

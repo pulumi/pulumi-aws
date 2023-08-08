@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -17,13 +18,11 @@ import (
 //
 // ## Import
 //
-// `aws_networkmanager_connect_peer` can be imported using the connect peer ID, e.g.
+// terraform import {
 //
-// ```sh
+//	to = aws_networkmanager_connect_peer.example
 //
-//	$ pulumi import aws:networkmanager/connectPeer:ConnectPeer example connect-peer-061f3e96275db1acc
-//
-// ```
+//	id = "connect-peer-061f3e96275db1acc" } Using `pulumi import`, import `aws_networkmanager_connect_peer` using the connect peer ID. For exampleconsole % pulumi import aws_networkmanager_connect_peer.example connect-peer-061f3e96275db1acc
 type ConnectPeer struct {
 	pulumi.CustomResourceState
 
@@ -73,6 +72,7 @@ func NewConnectPeer(ctx *pulumi.Context,
 	if args.PeerAddress == nil {
 		return nil, errors.New("invalid value for required argument 'PeerAddress'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ConnectPeer
 	err := ctx.RegisterResource("aws:networkmanager/connectPeer:ConnectPeer", name, args, &resource, opts...)
 	if err != nil {

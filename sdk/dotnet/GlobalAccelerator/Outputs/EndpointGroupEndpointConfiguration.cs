@@ -24,8 +24,6 @@ namespace Pulumi.Aws.GlobalAccelerator.Outputs
         public readonly string? EndpointId;
         /// <summary>
         /// The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify.
-        /// 
-        /// **port_override** supports the following attributes:
         /// </summary>
         public readonly int? Weight;
 

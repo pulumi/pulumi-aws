@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/pinpoint"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/pinpoint"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -46,13 +47,11 @@ import (
 //
 // ## Import
 //
-// Pinpoint App can be imported using the `application-id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_pinpoint_app.name
 //
-//	$ pulumi import aws:pinpoint/app:App name application-id
-//
-// ```
+//	id = "application-id" } Using `pulumi import`, import Pinpoint App using the `application-id`. For exampleconsole % pulumi import aws_pinpoint_app.name application-id
 type App struct {
 	pulumi.CustomResourceState
 
@@ -83,6 +82,7 @@ func NewApp(ctx *pulumi.Context,
 		args = &AppArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource App
 	err := ctx.RegisterResource("aws:pinpoint/app:App", name, args, &resource, opts...)
 	if err != nil {

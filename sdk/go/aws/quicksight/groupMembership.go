@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/quicksight"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,13 +43,11 @@ import (
 //
 // ## Import
 //
-// QuickSight Group membership can be imported using the AWS account ID, namespace, group name and member name separated by `/`.
+// terraform import {
 //
-// ```sh
+//	to = aws_quicksight_group_membership.example
 //
-//	$ pulumi import aws:quicksight/groupMembership:GroupMembership example 123456789123/default/all-access-users/john_smith
-//
-// ```
+//	id = "123456789123/default/all-access-users/john_smith" } Using `pulumi import`, import QuickSight Group membership using the AWS account ID, namespace, group name and member name separated by `/`. For exampleconsole % pulumi import aws_quicksight_group_membership.example 123456789123/default/all-access-users/john_smith
 type GroupMembership struct {
 	pulumi.CustomResourceState
 
@@ -59,7 +58,7 @@ type GroupMembership struct {
 	GroupName pulumi.StringOutput `pulumi:"groupName"`
 	// The name of the member to add to the group.
 	MemberName pulumi.StringOutput `pulumi:"memberName"`
-	// The namespace. Defaults to `default`. Currently only `default` is supported.
+	// The namespace that you want the user to be a part of. Defaults to `default`.
 	Namespace pulumi.StringPtrOutput `pulumi:"namespace"`
 }
 
@@ -76,6 +75,7 @@ func NewGroupMembership(ctx *pulumi.Context,
 	if args.MemberName == nil {
 		return nil, errors.New("invalid value for required argument 'MemberName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource GroupMembership
 	err := ctx.RegisterResource("aws:quicksight/groupMembership:GroupMembership", name, args, &resource, opts...)
 	if err != nil {
@@ -105,7 +105,7 @@ type groupMembershipState struct {
 	GroupName *string `pulumi:"groupName"`
 	// The name of the member to add to the group.
 	MemberName *string `pulumi:"memberName"`
-	// The namespace. Defaults to `default`. Currently only `default` is supported.
+	// The namespace that you want the user to be a part of. Defaults to `default`.
 	Namespace *string `pulumi:"namespace"`
 }
 
@@ -117,7 +117,7 @@ type GroupMembershipState struct {
 	GroupName pulumi.StringPtrInput
 	// The name of the member to add to the group.
 	MemberName pulumi.StringPtrInput
-	// The namespace. Defaults to `default`. Currently only `default` is supported.
+	// The namespace that you want the user to be a part of. Defaults to `default`.
 	Namespace pulumi.StringPtrInput
 }
 
@@ -132,7 +132,7 @@ type groupMembershipArgs struct {
 	GroupName string `pulumi:"groupName"`
 	// The name of the member to add to the group.
 	MemberName string `pulumi:"memberName"`
-	// The namespace. Defaults to `default`. Currently only `default` is supported.
+	// The namespace that you want the user to be a part of. Defaults to `default`.
 	Namespace *string `pulumi:"namespace"`
 }
 
@@ -144,7 +144,7 @@ type GroupMembershipArgs struct {
 	GroupName pulumi.StringInput
 	// The name of the member to add to the group.
 	MemberName pulumi.StringInput
-	// The namespace. Defaults to `default`. Currently only `default` is supported.
+	// The namespace that you want the user to be a part of. Defaults to `default`.
 	Namespace pulumi.StringPtrInput
 }
 
@@ -254,7 +254,7 @@ func (o GroupMembershipOutput) MemberName() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupMembership) pulumi.StringOutput { return v.MemberName }).(pulumi.StringOutput)
 }
 
-// The namespace. Defaults to `default`. Currently only `default` is supported.
+// The namespace that you want the user to be a part of. Defaults to `default`.
 func (o GroupMembershipOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupMembership) pulumi.StringPtrOutput { return v.Namespace }).(pulumi.StringPtrOutput)
 }

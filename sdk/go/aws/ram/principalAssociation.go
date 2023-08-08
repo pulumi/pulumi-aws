@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -31,7 +32,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ram"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ram"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -63,7 +64,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ram"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ram"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -85,13 +86,11 @@ import (
 //
 // ## Import
 //
-// RAM Principal Associations can be imported using their Resource Share ARN and the `principal` separated by a comma, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_ram_principal_association.example
 //
-//	$ pulumi import aws:ram/principalAssociation:PrincipalAssociation example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12,123456789012
-//
-// ```
+//	id = "arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12,123456789012" } Using `pulumi import`, import RAM Principal Associations using their Resource Share ARN and the `principal` separated by a comma. For exampleconsole % pulumi import aws_ram_principal_association.example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12,123456789012
 type PrincipalAssociation struct {
 	pulumi.CustomResourceState
 
@@ -114,6 +113,7 @@ func NewPrincipalAssociation(ctx *pulumi.Context,
 	if args.ResourceShareArn == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceShareArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PrincipalAssociation
 	err := ctx.RegisterResource("aws:ram/principalAssociation:PrincipalAssociation", name, args, &resource, opts...)
 	if err != nil {

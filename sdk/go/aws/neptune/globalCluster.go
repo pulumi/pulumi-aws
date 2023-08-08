@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,8 +24,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/neptune"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/neptune"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -107,7 +108,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/neptune"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/neptune"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -133,15 +134,11 @@ import (
 //
 // ## Import
 //
-// `aws_neptune_global_cluster` can be imported by using the Global Cluster identifier, e.g.
+// terraform import {
 //
-// ```sh
+//	to = aws_neptune_global_cluster.example
 //
-//	$ pulumi import aws:neptune/globalCluster:GlobalCluster example example
-//
-// ```
-//
-//	Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in configuration on an imported resource, the provider will always show a difference. To workaround this behavior, either omit the argument from configuration or use `ignore_changes` to hide the difference, e.g. terraform resource "aws_neptune_global_cluster" "example" {
+//	id = "example" } Using `pulumi import`, import `aws_neptune_global_cluster` using the Global Cluster identifier. For exampleconsole % pulumi import aws_neptune_global_cluster.example example Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the TODO configuration on an imported resource, TODO will always show a difference. To workaround this behavior, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For exampleterraform resource "aws_neptune_global_cluster" "example" {
 //
 // # ... other configuration ...
 //
@@ -187,6 +184,7 @@ func NewGlobalCluster(ctx *pulumi.Context,
 	if args.GlobalClusterIdentifier == nil {
 		return nil, errors.New("invalid value for required argument 'GlobalClusterIdentifier'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource GlobalCluster
 	err := ctx.RegisterResource("aws:neptune/globalCluster:GlobalCluster", name, args, &resource, opts...)
 	if err != nil {

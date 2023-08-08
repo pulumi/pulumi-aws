@@ -40,11 +40,11 @@ namespace Pulumi.Aws.Neptune
     /// 
     /// ## Import
     /// 
-    /// Neptune Parameter Groups can be imported using the `name`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:neptune/parameterGroup:ParameterGroup some_pg some-pg
-    /// ```
+    ///  to = aws_neptune_parameter_group.some_pg
+    /// 
+    ///  id = "some-pg" } Using `pulumi import`, import Neptune Parameter Groups using the `name`. For exampleconsole % pulumi import aws_neptune_parameter_group.some_pg some-pg
     /// </summary>
     [AwsResourceType("aws:neptune/parameterGroup:ParameterGroup")]
     public partial class ParameterGroup : global::Pulumi.CustomResource

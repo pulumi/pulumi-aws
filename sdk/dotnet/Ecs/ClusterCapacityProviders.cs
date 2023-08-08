@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// More information about capacity providers can be found in the [ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-capacity-providers.html).
     /// 
-    /// &gt; **NOTE on Clusters and Cluster Capacity Providers:** The provider provides both a standalone `aws.ecs.ClusterCapacityProviders` resource, as well as allowing the capacity providers and default strategies to be managed in-line by the `aws.ecs.Cluster` resource. You cannot use a Cluster with in-line capacity providers in conjunction with the Capacity Providers resource, nor use more than one Capacity Providers resource with a single Cluster, as doing so will cause a conflict and will lead to mutual overwrites.
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -51,11 +49,11 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// ## Import
     /// 
-    /// ECS cluster capacity providers can be imported using the `cluster_name` attribute. For example
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:ecs/clusterCapacityProviders:ClusterCapacityProviders example my-cluster
-    /// ```
+    ///  to = aws_ecs_cluster_capacity_providers.example
+    /// 
+    ///  id = "my-cluster" } Using `pulumi import`, import ECS cluster capacity providers using the `cluster_name` attribute. For exampleconsole % pulumi import aws_ecs_cluster_capacity_providers.example my-cluster
     /// </summary>
     [AwsResourceType("aws:ecs/clusterCapacityProviders:ClusterCapacityProviders")]
     public partial class ClusterCapacityProviders : global::Pulumi.CustomResource

@@ -21,7 +21,6 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * ### Basic
- * 
  * ```java
  * package generated_program;
  * 
@@ -47,7 +46,12 @@ import javax.annotation.Nullable;
  *         var example = new VirtualGateway(&#34;example&#34;, VirtualGatewayArgs.builder()        
  *             .meshName(&#34;example-service-mesh&#34;)
  *             .spec(VirtualGatewaySpecArgs.builder()
- *                 .listeners(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *                 .listeners(VirtualGatewaySpecListenerArgs.builder()
+ *                     .portMapping(VirtualGatewaySpecListenerPortMappingArgs.builder()
+ *                         .port(8080)
+ *                         .protocol(&#34;http&#34;)
+ *                         .build())
+ *                     .build())
  *                 .build())
  *             .tags(Map.of(&#34;Environment&#34;, &#34;test&#34;))
  *             .build());
@@ -65,11 +69,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.appmesh.VirtualGateway;
  * import com.pulumi.aws.appmesh.VirtualGatewayArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualGatewaySpecArgs;
- * import com.pulumi.aws.appmesh.inputs.VirtualGatewaySpecListenerArgs;
- * import com.pulumi.aws.appmesh.inputs.VirtualGatewaySpecListenerPortMappingArgs;
- * import com.pulumi.aws.appmesh.inputs.VirtualGatewaySpecListenerTlsArgs;
- * import com.pulumi.aws.appmesh.inputs.VirtualGatewaySpecListenerTlsCertificateArgs;
- * import com.pulumi.aws.appmesh.inputs.VirtualGatewaySpecListenerTlsCertificateAcmArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualGatewaySpecLoggingArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualGatewaySpecLoggingAccessLogArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualGatewaySpecLoggingAccessLogFileArgs;
@@ -89,7 +88,7 @@ import javax.annotation.Nullable;
  *         var example = new VirtualGateway(&#34;example&#34;, VirtualGatewayArgs.builder()        
  *             .meshName(&#34;example-service-mesh&#34;)
  *             .spec(VirtualGatewaySpecArgs.builder()
- *                 .listener(VirtualGatewaySpecListenerArgs.builder()
+ *                 .listeners(VirtualGatewaySpecListenerArgs.builder()
  *                     .portMapping(VirtualGatewaySpecListenerPortMappingArgs.builder()
  *                         .port(8080)
  *                         .protocol(&#34;http&#34;)
@@ -119,11 +118,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * App Mesh virtual gateway can be imported using `mesh_name` together with the virtual gateway&#39;s `name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:appmesh/virtualGateway:VirtualGateway example mesh/gw1
- * ```
+ *  to = aws_appmesh_virtual_gateway.example
+ * 
+ *  id = &#34;mesh/gw1&#34; } Using `pulumi import`, import App Mesh virtual gateway using `mesh_name` together with the virtual gateway&#39;s `name`. For exampleconsole % pulumi import aws_appmesh_virtual_gateway.example mesh/gw1
  * 
  */
 @ResourceType(type="aws:appmesh/virtualGateway:VirtualGateway")

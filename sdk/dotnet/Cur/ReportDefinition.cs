@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Cur
     /// 
     /// &gt; *NOTE:* The AWS Cost and Usage Report service is only available in `us-east-1` currently.
     /// 
-    /// &gt; *NOTE:* If AWS Organizations is enabled, only the master account can use this resource.
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -36,6 +34,7 @@ namespace Pulumi.Aws.Cur
     ///         AdditionalSchemaElements = new[]
     ///         {
     ///             "RESOURCES",
+    ///             "SPLIT_COST_ALLOCATION_DATA",
     ///         },
     ///         Compression = "GZIP",
     ///         Format = "textORcsv",
@@ -50,11 +49,11 @@ namespace Pulumi.Aws.Cur
     /// 
     /// ## Import
     /// 
-    /// Report Definitions can be imported using the `report_name`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:cur/reportDefinition:ReportDefinition example_cur_report_definition example-cur-report-definition
-    /// ```
+    ///  to = aws_cur_report_definition.example_cur_report_definition
+    /// 
+    ///  id = "example-cur-report-definition" } Using `pulumi import`, import Report Definitions using the `report_name`. For exampleconsole % pulumi import aws_cur_report_definition.example_cur_report_definition example-cur-report-definition
     /// </summary>
     [AwsResourceType("aws:cur/reportDefinition:ReportDefinition")]
     public partial class ReportDefinition : global::Pulumi.CustomResource
@@ -66,7 +65,7 @@ namespace Pulumi.Aws.Cur
         public Output<ImmutableArray<string>> AdditionalArtifacts { get; private set; } = null!;
 
         /// <summary>
-        /// A list of schema elements. Valid values are: `RESOURCES`.
+        /// A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
         /// </summary>
         [Output("additionalSchemaElements")]
         public Output<ImmutableArray<string>> AdditionalSchemaElements { get; private set; } = null!;
@@ -193,7 +192,7 @@ namespace Pulumi.Aws.Cur
         private InputList<string>? _additionalSchemaElements;
 
         /// <summary>
-        /// A list of schema elements. Valid values are: `RESOURCES`.
+        /// A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
         /// </summary>
         public InputList<string> AdditionalSchemaElements
         {
@@ -279,7 +278,7 @@ namespace Pulumi.Aws.Cur
         private InputList<string>? _additionalSchemaElements;
 
         /// <summary>
-        /// A list of schema elements. Valid values are: `RESOURCES`.
+        /// A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
         /// </summary>
         public InputList<string> AdditionalSchemaElements
         {

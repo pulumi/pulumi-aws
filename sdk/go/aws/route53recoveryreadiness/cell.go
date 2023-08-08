@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53recoveryreadiness"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53recoveryreadiness"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -41,13 +42,11 @@ import (
 //
 // ## Import
 //
-// Route53 Recovery Readiness cells can be imported via the cell name, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_route53recoveryreadiness_cell.us-west-2-failover-cell
 //
-//	$ pulumi import aws:route53recoveryreadiness/cell:Cell us-west-2-failover-cell us-west-2-failover-cell
-//
-// ```
+//	id = "us-west-2-failover-cell" } Using `pulumi import`, import Route53 Recovery Readiness cells using the cell name. For exampleconsole % pulumi import aws_route53recoveryreadiness_cell.us-west-2-failover-cell us-west-2-failover-cell
 type Cell struct {
 	pulumi.CustomResourceState
 
@@ -77,6 +76,7 @@ func NewCell(ctx *pulumi.Context,
 	if args.CellName == nil {
 		return nil, errors.New("invalid value for required argument 'CellName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Cell
 	err := ctx.RegisterResource("aws:route53recoveryreadiness/cell:Cell", name, args, &resource, opts...)
 	if err != nil {

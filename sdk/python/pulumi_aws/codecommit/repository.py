@@ -260,11 +260,11 @@ class Repository(pulumi.CustomResource):
 
         ## Import
 
-        Codecommit repository can be imported using repository name, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:codecommit/repository:Repository imported ExistingRepo
-        ```
+         to = aws_codecommit_repository.imported
+
+         id = "ExistingRepo" } Using `pulumi import`, import Codecommit repository using repository name. For exampleconsole % pulumi import aws_codecommit_repository.imported ExistingRepo
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -295,11 +295,11 @@ class Repository(pulumi.CustomResource):
 
         ## Import
 
-        Codecommit repository can be imported using repository name, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:codecommit/repository:Repository imported ExistingRepo
-        ```
+         to = aws_codecommit_repository.imported
+
+         id = "ExistingRepo" } Using `pulumi import`, import Codecommit repository using repository name. For exampleconsole % pulumi import aws_codecommit_repository.imported ExistingRepo
 
         :param str resource_name: The name of the resource.
         :param RepositoryArgs args: The arguments to use to populate this resource's properties.

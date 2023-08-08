@@ -339,11 +339,11 @@ class ResolverRule(pulumi.CustomResource):
 
         ## Import
 
-        Route53 Resolver rules can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:route53/resolverRule:ResolverRule sys rslvr-rr-0123456789abcdef0
-        ```
+         to = aws_route53_resolver_rule.sys
+
+         id = "rslvr-rr-0123456789abcdef0" } Using `pulumi import`, import Route53 Resolver rules using the `id`. For exampleconsole % pulumi import aws_route53_resolver_rule.sys rslvr-rr-0123456789abcdef0
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -396,11 +396,11 @@ class ResolverRule(pulumi.CustomResource):
 
         ## Import
 
-        Route53 Resolver rules can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:route53/resolverRule:ResolverRule sys rslvr-rr-0123456789abcdef0
-        ```
+         to = aws_route53_resolver_rule.sys
+
+         id = "rslvr-rr-0123456789abcdef0" } Using `pulumi import`, import Route53 Resolver rules using the `id`. For exampleconsole % pulumi import aws_route53_resolver_rule.sys rslvr-rr-0123456789abcdef0
 
         :param str resource_name: The name of the resource.
         :param ResolverRuleArgs args: The arguments to use to populate this resource's properties.

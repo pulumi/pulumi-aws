@@ -10,9 +10,12 @@ import com.pulumi.aws.quicksight.inputs.GetQuicksightGroupArgs;
 import com.pulumi.aws.quicksight.inputs.GetQuicksightGroupPlainArgs;
 import com.pulumi.aws.quicksight.inputs.GetQuicksightUserArgs;
 import com.pulumi.aws.quicksight.inputs.GetQuicksightUserPlainArgs;
+import com.pulumi.aws.quicksight.inputs.GetThemeArgs;
+import com.pulumi.aws.quicksight.inputs.GetThemePlainArgs;
 import com.pulumi.aws.quicksight.outputs.GetDataSetResult;
 import com.pulumi.aws.quicksight.outputs.GetQuicksightGroupResult;
 import com.pulumi.aws.quicksight.outputs.GetQuicksightUserResult;
+import com.pulumi.aws.quicksight.outputs.GetThemeResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
@@ -491,5 +494,157 @@ public final class QuicksightFunctions {
      */
     public static CompletableFuture<GetQuicksightUserResult> getQuicksightUserPlain(GetQuicksightUserPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:quicksight/getQuicksightUser:getQuicksightUser", TypeShape.of(GetQuicksightUserResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS QuickSight Theme.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.quicksight.QuicksightFunctions;
+     * import com.pulumi.aws.quicksight.inputs.GetThemeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = QuicksightFunctions.getTheme(GetThemeArgs.builder()
+     *             .themeId(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetThemeResult> getTheme(GetThemeArgs args) {
+        return getTheme(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS QuickSight Theme.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.quicksight.QuicksightFunctions;
+     * import com.pulumi.aws.quicksight.inputs.GetThemeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = QuicksightFunctions.getTheme(GetThemeArgs.builder()
+     *             .themeId(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetThemeResult> getThemePlain(GetThemePlainArgs args) {
+        return getThemePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS QuickSight Theme.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.quicksight.QuicksightFunctions;
+     * import com.pulumi.aws.quicksight.inputs.GetThemeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = QuicksightFunctions.getTheme(GetThemeArgs.builder()
+     *             .themeId(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetThemeResult> getTheme(GetThemeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:quicksight/getTheme:getTheme", TypeShape.of(GetThemeResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS QuickSight Theme.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.quicksight.QuicksightFunctions;
+     * import com.pulumi.aws.quicksight.inputs.GetThemeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = QuicksightFunctions.getTheme(GetThemeArgs.builder()
+     *             .themeId(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetThemeResult> getThemePlain(GetThemePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:quicksight/getTheme:getTheme", TypeShape.of(GetThemeResult.class), args, Utilities.withVersion(options));
     }
 }

@@ -133,6 +133,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
  * import com.pulumi.aws.ec2.VpcEndpointService;
  * import com.pulumi.aws.ec2.VpcEndpointServiceArgs;
  * import com.pulumi.aws.ec2.VpcEndpoint;
@@ -171,11 +172,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * VPC Endpoints can be imported using the `vpc endpoint id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:ec2/vpcEndpoint:VpcEndpoint endpoint1 vpce-3ecf2a57
- * ```
+ *  to = aws_vpc_endpoint.endpoint1
+ * 
+ *  id = &#34;vpce-3ecf2a57&#34; } Using `pulumi import`, import VPC Endpoints using the VPC endpoint `id`. For exampleconsole % pulumi import aws_vpc_endpoint.endpoint1 vpce-3ecf2a57
  * 
  */
 @ResourceType(type="aws:ec2/vpcEndpoint:VpcEndpoint")

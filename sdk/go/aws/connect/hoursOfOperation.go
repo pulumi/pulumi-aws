@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -71,13 +72,11 @@ import (
 //
 // ## Import
 //
-// Amazon Connect Hours of Operations can be imported using the `instance_id` and `hours_of_operation_id` separated by a colon (`:`), e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_connect_hours_of_operation.example
 //
-//	$ pulumi import aws:connect/hoursOfOperation:HoursOfOperation example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
-//
-// ```
+//	id = "f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5" } Using `pulumi import`, import Amazon Connect Hours of Operations using the `instance_id` and `hours_of_operation_id` separated by a colon (`:`). For exampleconsole % pulumi import aws_connect_hours_of_operation.example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
 type HoursOfOperation struct {
 	pulumi.CustomResourceState
 
@@ -87,10 +86,6 @@ type HoursOfOperation struct {
 	Configs HoursOfOperationConfigArrayOutput `pulumi:"configs"`
 	// Specifies the description of the Hours of Operation.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// (**Deprecated**) The Amazon Resource Name (ARN) of the Hours of Operation.
-	//
-	// Deprecated: use 'arn' attribute instead
-	HoursOfOperationArn pulumi.StringOutput `pulumi:"hoursOfOperationArn"`
 	// The identifier for the hours of operation.
 	HoursOfOperationId pulumi.StringOutput `pulumi:"hoursOfOperationId"`
 	// Specifies the identifier of the hosting Amazon Connect Instance.
@@ -121,6 +116,7 @@ func NewHoursOfOperation(ctx *pulumi.Context,
 	if args.TimeZone == nil {
 		return nil, errors.New("invalid value for required argument 'TimeZone'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource HoursOfOperation
 	err := ctx.RegisterResource("aws:connect/hoursOfOperation:HoursOfOperation", name, args, &resource, opts...)
 	if err != nil {
@@ -149,10 +145,6 @@ type hoursOfOperationState struct {
 	Configs []HoursOfOperationConfig `pulumi:"configs"`
 	// Specifies the description of the Hours of Operation.
 	Description *string `pulumi:"description"`
-	// (**Deprecated**) The Amazon Resource Name (ARN) of the Hours of Operation.
-	//
-	// Deprecated: use 'arn' attribute instead
-	HoursOfOperationArn *string `pulumi:"hoursOfOperationArn"`
 	// The identifier for the hours of operation.
 	HoursOfOperationId *string `pulumi:"hoursOfOperationId"`
 	// Specifies the identifier of the hosting Amazon Connect Instance.
@@ -174,10 +166,6 @@ type HoursOfOperationState struct {
 	Configs HoursOfOperationConfigArrayInput
 	// Specifies the description of the Hours of Operation.
 	Description pulumi.StringPtrInput
-	// (**Deprecated**) The Amazon Resource Name (ARN) of the Hours of Operation.
-	//
-	// Deprecated: use 'arn' attribute instead
-	HoursOfOperationArn pulumi.StringPtrInput
 	// The identifier for the hours of operation.
 	HoursOfOperationId pulumi.StringPtrInput
 	// Specifies the identifier of the hosting Amazon Connect Instance.
@@ -327,13 +315,6 @@ func (o HoursOfOperationOutput) Configs() HoursOfOperationConfigArrayOutput {
 // Specifies the description of the Hours of Operation.
 func (o HoursOfOperationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HoursOfOperation) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// (**Deprecated**) The Amazon Resource Name (ARN) of the Hours of Operation.
-//
-// Deprecated: use 'arn' attribute instead
-func (o HoursOfOperationOutput) HoursOfOperationArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *HoursOfOperation) pulumi.StringOutput { return v.HoursOfOperationArn }).(pulumi.StringOutput)
 }
 
 // The identifier for the hours of operation.

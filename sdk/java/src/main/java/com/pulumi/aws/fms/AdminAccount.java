@@ -45,11 +45,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Firewall Manager administrator account association can be imported using the account ID, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:fms/adminAccount:AdminAccount example 123456789012
- * ```
+ *  to = aws_fms_admin_account.example
+ * 
+ *  id = &#34;123456789012&#34; } Using `pulumi import`, import Firewall Manager administrator account association using the account ID. For exampleconsole % pulumi import aws_fms_admin_account.example 123456789012
  * 
  */
 @ResourceType(type="aws:fms/adminAccount:AdminAccount")

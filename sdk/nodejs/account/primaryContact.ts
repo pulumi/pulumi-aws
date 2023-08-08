@@ -26,6 +26,14 @@ import * as utilities from "../utilities";
  *     websiteUrl: "https://www.examplecorp.com",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * terraform import {
+ *
+ *  to = aws_account_primary_contact.test
+ *
+ *  id = "1234567890" } Using `pulumi import`, import the Primary Contact using the `account_id`. For exampleconsole % pulumi import aws_account_primary_contact.test 1234567890
  */
 export class PrimaryContact extends pulumi.CustomResource {
     /**

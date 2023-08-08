@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/amplify"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/amplify"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -71,13 +72,11 @@ import (
 //
 // ## Import
 //
-// Amplify domain association can be imported using `app_id` and `domain_name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_amplify_domain_association.app
 //
-//	$ pulumi import aws:amplify/domainAssociation:DomainAssociation app d2ypk4k47z8u6/example.com
-//
-// ```
+//	id = "d2ypk4k47z8u6/example.com" } Using `pulumi import`, import Amplify domain association using `app_id` and `domain_name`. For exampleconsole % pulumi import aws_amplify_domain_association.app d2ypk4k47z8u6/example.com
 type DomainAssociation struct {
 	pulumi.CustomResourceState
 
@@ -113,6 +112,7 @@ func NewDomainAssociation(ctx *pulumi.Context,
 	if args.SubDomains == nil {
 		return nil, errors.New("invalid value for required argument 'SubDomains'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DomainAssociation
 	err := ctx.RegisterResource("aws:amplify/domainAssociation:DomainAssociation", name, args, &resource, opts...)
 	if err != nil {

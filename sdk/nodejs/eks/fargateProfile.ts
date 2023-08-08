@@ -49,11 +49,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * EKS Fargate Profiles can be imported using the `cluster_name` and `fargate_profile_name` separated by a colon (`:`), e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:eks/fargateProfile:FargateProfile my_fargate_profile my_cluster:my_fargate_profile
- * ```
+ *  to = aws_eks_fargate_profile.my_fargate_profile
+ *
+ *  id = "my_cluster:my_fargate_profile" } Using `pulumi import`, import EKS Fargate Profiles using the `cluster_name` and `fargate_profile_name` separated by a colon (`:`). For exampleconsole % pulumi import aws_eks_fargate_profile.my_fargate_profile my_cluster:my_fargate_profile
  */
 export class FargateProfile extends pulumi.CustomResource {
     /**

@@ -283,11 +283,11 @@ class User(pulumi.CustomResource):
 
         ## Import
 
-        IAM Users can be imported using the `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:iam/user:User lb loadbalancer
-        ```
+         to = aws_iam_user.lb
+
+         id = "loadbalancer" } Using `pulumi import`, import IAM Users using the `name`. For exampleconsole % pulumi import aws_iam_user.lb loadbalancer
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -334,11 +334,11 @@ class User(pulumi.CustomResource):
 
         ## Import
 
-        IAM Users can be imported using the `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:iam/user:User lb loadbalancer
-        ```
+         to = aws_iam_user.lb
+
+         id = "loadbalancer" } Using `pulumi import`, import IAM Users using the `name`. For exampleconsole % pulumi import aws_iam_user.lb loadbalancer
 
         :param str resource_name: The name of the resource.
         :param UserArgs args: The arguments to use to populate this resource's properties.

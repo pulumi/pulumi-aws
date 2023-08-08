@@ -45,11 +45,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * AppConfig Extensions can be imported using their extension ID, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:appconfig/extension:Extension example 71rxuzt
- * ```
+ *  to = aws_appconfig_extension.example
+ *
+ *  id = "71rxuzt" } Using `pulumi import`, import AppConfig Extensions using their extension ID. For exampleconsole % pulumi import aws_appconfig_extension.example 71rxuzt
  */
 export class Extension extends pulumi.CustomResource {
     /**

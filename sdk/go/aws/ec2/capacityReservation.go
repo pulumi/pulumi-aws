@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -44,13 +45,11 @@ import (
 //
 // ## Import
 //
-// Capacity Reservations can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_ec2_capacity_reservation.web
 //
-//	$ pulumi import aws:ec2/capacityReservation:CapacityReservation web cr-0123456789abcdef0
-//
-// ```
+//	id = "cr-0123456789abcdef0" } Using `pulumi import`, import Capacity Reservations using the `id`. For exampleconsole % pulumi import aws_ec2_capacity_reservation.web cr-0123456789abcdef0
 type CapacityReservation struct {
 	pulumi.CustomResourceState
 
@@ -107,6 +106,7 @@ func NewCapacityReservation(ctx *pulumi.Context,
 	if args.InstanceType == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceType'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CapacityReservation
 	err := ctx.RegisterResource("aws:ec2/capacityReservation:CapacityReservation", name, args, &resource, opts...)
 	if err != nil {

@@ -16,8 +16,6 @@ class VpcArgs:
     def __init__(__self__, *,
                  assign_generated_ipv6_cidr_block: Optional[pulumi.Input[bool]] = None,
                  cidr_block: Optional[pulumi.Input[str]] = None,
-                 enable_classiclink: Optional[pulumi.Input[bool]] = None,
-                 enable_classiclink_dns_support: Optional[pulumi.Input[bool]] = None,
                  enable_dns_hostnames: Optional[pulumi.Input[bool]] = None,
                  enable_dns_support: Optional[pulumi.Input[bool]] = None,
                  enable_network_address_usage_metrics: Optional[pulumi.Input[bool]] = None,
@@ -33,11 +31,6 @@ class VpcArgs:
         The set of arguments for constructing a Vpc resource.
         :param pulumi.Input[bool] assign_generated_ipv6_cidr_block: Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6_ipam_pool_id`
         :param pulumi.Input[str] cidr_block: The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4_netmask_length`.
-        :param pulumi.Input[bool] enable_classiclink: A boolean flag to enable/disable ClassicLink
-               for the VPC. Only valid in regions and accounts that support EC2 Classic.
-               See the [ClassicLink documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html) for more information. Defaults false.
-        :param pulumi.Input[bool] enable_classiclink_dns_support: A boolean flag to enable/disable ClassicLink DNS Support for the VPC.
-               Only valid in regions and accounts that support EC2 Classic.
         :param pulumi.Input[bool] enable_dns_hostnames: A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
         :param pulumi.Input[bool] enable_dns_support: A boolean flag to enable/disable DNS support in the VPC. Defaults to true.
         :param pulumi.Input[bool] enable_network_address_usage_metrics: Indicates whether Network Address Usage metrics are enabled for your VPC. Defaults to false.
@@ -54,16 +47,6 @@ class VpcArgs:
             pulumi.set(__self__, "assign_generated_ipv6_cidr_block", assign_generated_ipv6_cidr_block)
         if cidr_block is not None:
             pulumi.set(__self__, "cidr_block", cidr_block)
-        if enable_classiclink is not None:
-            warnings.warn("""With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-            pulumi.log.warn("""enable_classiclink is deprecated: With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version.""")
-        if enable_classiclink is not None:
-            pulumi.set(__self__, "enable_classiclink", enable_classiclink)
-        if enable_classiclink_dns_support is not None:
-            warnings.warn("""With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-            pulumi.log.warn("""enable_classiclink_dns_support is deprecated: With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version.""")
-        if enable_classiclink_dns_support is not None:
-            pulumi.set(__self__, "enable_classiclink_dns_support", enable_classiclink_dns_support)
         if enable_dns_hostnames is not None:
             pulumi.set(__self__, "enable_dns_hostnames", enable_dns_hostnames)
         if enable_dns_support is not None:
@@ -110,39 +93,6 @@ class VpcArgs:
     @cidr_block.setter
     def cidr_block(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cidr_block", value)
-
-    @property
-    @pulumi.getter(name="enableClassiclink")
-    def enable_classiclink(self) -> Optional[pulumi.Input[bool]]:
-        """
-        A boolean flag to enable/disable ClassicLink
-        for the VPC. Only valid in regions and accounts that support EC2 Classic.
-        See the [ClassicLink documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html) for more information. Defaults false.
-        """
-        warnings.warn("""With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-        pulumi.log.warn("""enable_classiclink is deprecated: With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version.""")
-
-        return pulumi.get(self, "enable_classiclink")
-
-    @enable_classiclink.setter
-    def enable_classiclink(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enable_classiclink", value)
-
-    @property
-    @pulumi.getter(name="enableClassiclinkDnsSupport")
-    def enable_classiclink_dns_support(self) -> Optional[pulumi.Input[bool]]:
-        """
-        A boolean flag to enable/disable ClassicLink DNS Support for the VPC.
-        Only valid in regions and accounts that support EC2 Classic.
-        """
-        warnings.warn("""With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-        pulumi.log.warn("""enable_classiclink_dns_support is deprecated: With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version.""")
-
-        return pulumi.get(self, "enable_classiclink_dns_support")
-
-    @enable_classiclink_dns_support.setter
-    def enable_classiclink_dns_support(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enable_classiclink_dns_support", value)
 
     @property
     @pulumi.getter(name="enableDnsHostnames")
@@ -287,8 +237,6 @@ class _VpcState:
                  default_route_table_id: Optional[pulumi.Input[str]] = None,
                  default_security_group_id: Optional[pulumi.Input[str]] = None,
                  dhcp_options_id: Optional[pulumi.Input[str]] = None,
-                 enable_classiclink: Optional[pulumi.Input[bool]] = None,
-                 enable_classiclink_dns_support: Optional[pulumi.Input[bool]] = None,
                  enable_dns_hostnames: Optional[pulumi.Input[bool]] = None,
                  enable_dns_support: Optional[pulumi.Input[bool]] = None,
                  enable_network_address_usage_metrics: Optional[pulumi.Input[bool]] = None,
@@ -312,11 +260,6 @@ class _VpcState:
         :param pulumi.Input[str] default_network_acl_id: The ID of the network ACL created by default on VPC creation
         :param pulumi.Input[str] default_route_table_id: The ID of the route table created by default on VPC creation
         :param pulumi.Input[str] default_security_group_id: The ID of the security group created by default on VPC creation
-        :param pulumi.Input[bool] enable_classiclink: A boolean flag to enable/disable ClassicLink
-               for the VPC. Only valid in regions and accounts that support EC2 Classic.
-               See the [ClassicLink documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html) for more information. Defaults false.
-        :param pulumi.Input[bool] enable_classiclink_dns_support: A boolean flag to enable/disable ClassicLink DNS Support for the VPC.
-               Only valid in regions and accounts that support EC2 Classic.
         :param pulumi.Input[bool] enable_dns_hostnames: A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
         :param pulumi.Input[bool] enable_dns_support: A boolean flag to enable/disable DNS support in the VPC. Defaults to true.
         :param pulumi.Input[bool] enable_network_address_usage_metrics: Indicates whether Network Address Usage metrics are enabled for your VPC. Defaults to false.
@@ -349,16 +292,6 @@ class _VpcState:
             pulumi.set(__self__, "default_security_group_id", default_security_group_id)
         if dhcp_options_id is not None:
             pulumi.set(__self__, "dhcp_options_id", dhcp_options_id)
-        if enable_classiclink is not None:
-            warnings.warn("""With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-            pulumi.log.warn("""enable_classiclink is deprecated: With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version.""")
-        if enable_classiclink is not None:
-            pulumi.set(__self__, "enable_classiclink", enable_classiclink)
-        if enable_classiclink_dns_support is not None:
-            warnings.warn("""With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-            pulumi.log.warn("""enable_classiclink_dns_support is deprecated: With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version.""")
-        if enable_classiclink_dns_support is not None:
-            pulumi.set(__self__, "enable_classiclink_dns_support", enable_classiclink_dns_support)
         if enable_dns_hostnames is not None:
             pulumi.set(__self__, "enable_dns_hostnames", enable_dns_hostnames)
         if enable_dns_support is not None:
@@ -470,39 +403,6 @@ class _VpcState:
     @dhcp_options_id.setter
     def dhcp_options_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "dhcp_options_id", value)
-
-    @property
-    @pulumi.getter(name="enableClassiclink")
-    def enable_classiclink(self) -> Optional[pulumi.Input[bool]]:
-        """
-        A boolean flag to enable/disable ClassicLink
-        for the VPC. Only valid in regions and accounts that support EC2 Classic.
-        See the [ClassicLink documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html) for more information. Defaults false.
-        """
-        warnings.warn("""With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-        pulumi.log.warn("""enable_classiclink is deprecated: With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version.""")
-
-        return pulumi.get(self, "enable_classiclink")
-
-    @enable_classiclink.setter
-    def enable_classiclink(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enable_classiclink", value)
-
-    @property
-    @pulumi.getter(name="enableClassiclinkDnsSupport")
-    def enable_classiclink_dns_support(self) -> Optional[pulumi.Input[bool]]:
-        """
-        A boolean flag to enable/disable ClassicLink DNS Support for the VPC.
-        Only valid in regions and accounts that support EC2 Classic.
-        """
-        warnings.warn("""With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-        pulumi.log.warn("""enable_classiclink_dns_support is deprecated: With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version.""")
-
-        return pulumi.get(self, "enable_classiclink_dns_support")
-
-    @enable_classiclink_dns_support.setter
-    def enable_classiclink_dns_support(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enable_classiclink_dns_support", value)
 
     @property
     @pulumi.getter(name="enableDnsHostnames")
@@ -694,8 +594,6 @@ class Vpc(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  assign_generated_ipv6_cidr_block: Optional[pulumi.Input[bool]] = None,
                  cidr_block: Optional[pulumi.Input[str]] = None,
-                 enable_classiclink: Optional[pulumi.Input[bool]] = None,
-                 enable_classiclink_dns_support: Optional[pulumi.Input[bool]] = None,
                  enable_dns_hostnames: Optional[pulumi.Input[bool]] = None,
                  enable_dns_support: Optional[pulumi.Input[bool]] = None,
                  enable_network_address_usage_metrics: Optional[pulumi.Input[bool]] = None,
@@ -761,21 +659,16 @@ class Vpc(pulumi.CustomResource):
 
         ## Import
 
-        VPCs can be imported using the `vpc id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ec2/vpc:Vpc test_vpc vpc-a01106c2
-        ```
+         to = aws_vpc.test_vpc
+
+         id = "vpc-a01106c2" } Using `pulumi import`, import VPCs using the VPC `id`. For exampleconsole % pulumi import aws_vpc.test_vpc vpc-a01106c2
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] assign_generated_ipv6_cidr_block: Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6_ipam_pool_id`
         :param pulumi.Input[str] cidr_block: The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4_netmask_length`.
-        :param pulumi.Input[bool] enable_classiclink: A boolean flag to enable/disable ClassicLink
-               for the VPC. Only valid in regions and accounts that support EC2 Classic.
-               See the [ClassicLink documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html) for more information. Defaults false.
-        :param pulumi.Input[bool] enable_classiclink_dns_support: A boolean flag to enable/disable ClassicLink DNS Support for the VPC.
-               Only valid in regions and accounts that support EC2 Classic.
         :param pulumi.Input[bool] enable_dns_hostnames: A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
         :param pulumi.Input[bool] enable_dns_support: A boolean flag to enable/disable DNS support in the VPC. Defaults to true.
         :param pulumi.Input[bool] enable_network_address_usage_metrics: Indicates whether Network Address Usage metrics are enabled for your VPC. Defaults to false.
@@ -847,11 +740,11 @@ class Vpc(pulumi.CustomResource):
 
         ## Import
 
-        VPCs can be imported using the `vpc id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ec2/vpc:Vpc test_vpc vpc-a01106c2
-        ```
+         to = aws_vpc.test_vpc
+
+         id = "vpc-a01106c2" } Using `pulumi import`, import VPCs using the VPC `id`. For exampleconsole % pulumi import aws_vpc.test_vpc vpc-a01106c2
 
         :param str resource_name: The name of the resource.
         :param VpcArgs args: The arguments to use to populate this resource's properties.
@@ -870,8 +763,6 @@ class Vpc(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  assign_generated_ipv6_cidr_block: Optional[pulumi.Input[bool]] = None,
                  cidr_block: Optional[pulumi.Input[str]] = None,
-                 enable_classiclink: Optional[pulumi.Input[bool]] = None,
-                 enable_classiclink_dns_support: Optional[pulumi.Input[bool]] = None,
                  enable_dns_hostnames: Optional[pulumi.Input[bool]] = None,
                  enable_dns_support: Optional[pulumi.Input[bool]] = None,
                  enable_network_address_usage_metrics: Optional[pulumi.Input[bool]] = None,
@@ -894,14 +785,6 @@ class Vpc(pulumi.CustomResource):
 
             __props__.__dict__["assign_generated_ipv6_cidr_block"] = assign_generated_ipv6_cidr_block
             __props__.__dict__["cidr_block"] = cidr_block
-            if enable_classiclink is not None and not opts.urn:
-                warnings.warn("""With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-                pulumi.log.warn("""enable_classiclink is deprecated: With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version.""")
-            __props__.__dict__["enable_classiclink"] = enable_classiclink
-            if enable_classiclink_dns_support is not None and not opts.urn:
-                warnings.warn("""With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-                pulumi.log.warn("""enable_classiclink_dns_support is deprecated: With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version.""")
-            __props__.__dict__["enable_classiclink_dns_support"] = enable_classiclink_dns_support
             __props__.__dict__["enable_dns_hostnames"] = enable_dns_hostnames
             __props__.__dict__["enable_dns_support"] = enable_dns_support
             __props__.__dict__["enable_network_address_usage_metrics"] = enable_network_address_usage_metrics
@@ -939,8 +822,6 @@ class Vpc(pulumi.CustomResource):
             default_route_table_id: Optional[pulumi.Input[str]] = None,
             default_security_group_id: Optional[pulumi.Input[str]] = None,
             dhcp_options_id: Optional[pulumi.Input[str]] = None,
-            enable_classiclink: Optional[pulumi.Input[bool]] = None,
-            enable_classiclink_dns_support: Optional[pulumi.Input[bool]] = None,
             enable_dns_hostnames: Optional[pulumi.Input[bool]] = None,
             enable_dns_support: Optional[pulumi.Input[bool]] = None,
             enable_network_address_usage_metrics: Optional[pulumi.Input[bool]] = None,
@@ -969,11 +850,6 @@ class Vpc(pulumi.CustomResource):
         :param pulumi.Input[str] default_network_acl_id: The ID of the network ACL created by default on VPC creation
         :param pulumi.Input[str] default_route_table_id: The ID of the route table created by default on VPC creation
         :param pulumi.Input[str] default_security_group_id: The ID of the security group created by default on VPC creation
-        :param pulumi.Input[bool] enable_classiclink: A boolean flag to enable/disable ClassicLink
-               for the VPC. Only valid in regions and accounts that support EC2 Classic.
-               See the [ClassicLink documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html) for more information. Defaults false.
-        :param pulumi.Input[bool] enable_classiclink_dns_support: A boolean flag to enable/disable ClassicLink DNS Support for the VPC.
-               Only valid in regions and accounts that support EC2 Classic.
         :param pulumi.Input[bool] enable_dns_hostnames: A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
         :param pulumi.Input[bool] enable_dns_support: A boolean flag to enable/disable DNS support in the VPC. Defaults to true.
         :param pulumi.Input[bool] enable_network_address_usage_metrics: Indicates whether Network Address Usage metrics are enabled for your VPC. Defaults to false.
@@ -1003,8 +879,6 @@ class Vpc(pulumi.CustomResource):
         __props__.__dict__["default_route_table_id"] = default_route_table_id
         __props__.__dict__["default_security_group_id"] = default_security_group_id
         __props__.__dict__["dhcp_options_id"] = dhcp_options_id
-        __props__.__dict__["enable_classiclink"] = enable_classiclink
-        __props__.__dict__["enable_classiclink_dns_support"] = enable_classiclink_dns_support
         __props__.__dict__["enable_dns_hostnames"] = enable_dns_hostnames
         __props__.__dict__["enable_dns_support"] = enable_dns_support
         __props__.__dict__["enable_network_address_usage_metrics"] = enable_network_address_usage_metrics
@@ -1074,31 +948,6 @@ class Vpc(pulumi.CustomResource):
     @pulumi.getter(name="dhcpOptionsId")
     def dhcp_options_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "dhcp_options_id")
-
-    @property
-    @pulumi.getter(name="enableClassiclink")
-    def enable_classiclink(self) -> pulumi.Output[bool]:
-        """
-        A boolean flag to enable/disable ClassicLink
-        for the VPC. Only valid in regions and accounts that support EC2 Classic.
-        See the [ClassicLink documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html) for more information. Defaults false.
-        """
-        warnings.warn("""With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-        pulumi.log.warn("""enable_classiclink is deprecated: With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version.""")
-
-        return pulumi.get(self, "enable_classiclink")
-
-    @property
-    @pulumi.getter(name="enableClassiclinkDnsSupport")
-    def enable_classiclink_dns_support(self) -> pulumi.Output[bool]:
-        """
-        A boolean flag to enable/disable ClassicLink DNS Support for the VPC.
-        Only valid in regions and accounts that support EC2 Classic.
-        """
-        warnings.warn("""With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-        pulumi.log.warn("""enable_classiclink_dns_support is deprecated: With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version.""")
-
-        return pulumi.get(self, "enable_classiclink_dns_support")
 
     @property
     @pulumi.getter(name="enableDnsHostnames")

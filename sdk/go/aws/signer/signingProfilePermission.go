@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/signer"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/signer"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -77,13 +78,11 @@ import (
 //
 // ## Import
 //
-// Signer signing profile permission statements can be imported using profile_name/statement_id, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_signer_signing_profile_permission.test_signer_signing_profile_permission
 //
-//	$ pulumi import aws:signer/signingProfilePermission:SigningProfilePermission test_signer_signing_profile_permission prod_profile_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK/ProdAccountStartSigningJobStatementId
-//
-// ```
+//	id = "prod_profile_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK/ProdAccountStartSigningJobStatementId" } Using `pulumi import`, import Signer signing profile permission statements using profile_name/statement_id. For exampleconsole % pulumi import aws_signer_signing_profile_permission.test_signer_signing_profile_permission prod_profile_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK/ProdAccountStartSigningJobStatementId
 type SigningProfilePermission struct {
 	pulumi.CustomResourceState
 
@@ -117,6 +116,7 @@ func NewSigningProfilePermission(ctx *pulumi.Context,
 	if args.ProfileName == nil {
 		return nil, errors.New("invalid value for required argument 'ProfileName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SigningProfilePermission
 	err := ctx.RegisterResource("aws:signer/signingProfilePermission:SigningProfilePermission", name, args, &resource, opts...)
 	if err != nil {

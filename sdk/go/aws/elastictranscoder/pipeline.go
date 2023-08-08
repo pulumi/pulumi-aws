@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elastictranscoder"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elastictranscoder"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -50,13 +51,11 @@ import (
 //
 // ## Import
 //
-// Elastic Transcoder pipelines can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_elastictranscoder_pipeline.basic_pipeline
 //
-//	$ pulumi import aws:elastictranscoder/pipeline:Pipeline basic_pipeline 1407981661351-cttk8b
-//
-// ```
+//	id = "1407981661351-cttk8b" } Using `pulumi import`, import Elastic Transcoder pipelines using the `id`. For exampleconsole % pulumi import aws_elastictranscoder_pipeline.basic_pipeline 1407981661351-cttk8b
 type Pipeline struct {
 	pulumi.CustomResourceState
 
@@ -104,6 +103,7 @@ func NewPipeline(ctx *pulumi.Context,
 	if args.Role == nil {
 		return nil, errors.New("invalid value for required argument 'Role'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Pipeline
 	err := ctx.RegisterResource("aws:elastictranscoder/pipeline:Pipeline", name, args, &resource, opts...)
 	if err != nil {

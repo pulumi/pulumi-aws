@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,9 +24,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -101,9 +102,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sqs"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sqs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -179,9 +180,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -267,9 +268,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sqs"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sqs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -366,16 +367,44 @@ import (
 //	}
 //
 // ```
+// ### Emit events to EventBridge
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			bucket, err := s3.NewBucketV2(ctx, "bucket", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketNotification(ctx, "bucketNotification", &s3.BucketNotificationArgs{
+//				Bucket:      bucket.ID(),
+//				Eventbridge: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //
-// S3 bucket notification can be imported using the `bucket`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_s3_bucket_notification.bucket_notification
 //
-//	$ pulumi import aws:s3/bucketNotification:BucketNotification bucket_notification bucket-name
-//
-// ```
+//	id = "bucket-name" } Using `pulumi import`, import S3 bucket notification using the `bucket`. For exampleconsole % pulumi import aws_s3_bucket_notification.bucket_notification bucket-name
 type BucketNotification struct {
 	pulumi.CustomResourceState
 
@@ -383,7 +412,7 @@ type BucketNotification struct {
 	//
 	// The following arguments are optional:
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
-	// Whether to enable Amazon EventBridge notifications.
+	// Whether to enable Amazon EventBridge notifications. Defaults to `false`.
 	Eventbridge pulumi.BoolPtrOutput `pulumi:"eventbridge"`
 	// Used to configure notifications to a Lambda Function. See below.
 	LambdaFunctions BucketNotificationLambdaFunctionArrayOutput `pulumi:"lambdaFunctions"`
@@ -403,6 +432,7 @@ func NewBucketNotification(ctx *pulumi.Context,
 	if args.Bucket == nil {
 		return nil, errors.New("invalid value for required argument 'Bucket'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BucketNotification
 	err := ctx.RegisterResource("aws:s3/bucketNotification:BucketNotification", name, args, &resource, opts...)
 	if err != nil {
@@ -429,7 +459,7 @@ type bucketNotificationState struct {
 	//
 	// The following arguments are optional:
 	Bucket *string `pulumi:"bucket"`
-	// Whether to enable Amazon EventBridge notifications.
+	// Whether to enable Amazon EventBridge notifications. Defaults to `false`.
 	Eventbridge *bool `pulumi:"eventbridge"`
 	// Used to configure notifications to a Lambda Function. See below.
 	LambdaFunctions []BucketNotificationLambdaFunction `pulumi:"lambdaFunctions"`
@@ -444,7 +474,7 @@ type BucketNotificationState struct {
 	//
 	// The following arguments are optional:
 	Bucket pulumi.StringPtrInput
-	// Whether to enable Amazon EventBridge notifications.
+	// Whether to enable Amazon EventBridge notifications. Defaults to `false`.
 	Eventbridge pulumi.BoolPtrInput
 	// Used to configure notifications to a Lambda Function. See below.
 	LambdaFunctions BucketNotificationLambdaFunctionArrayInput
@@ -463,7 +493,7 @@ type bucketNotificationArgs struct {
 	//
 	// The following arguments are optional:
 	Bucket string `pulumi:"bucket"`
-	// Whether to enable Amazon EventBridge notifications.
+	// Whether to enable Amazon EventBridge notifications. Defaults to `false`.
 	Eventbridge *bool `pulumi:"eventbridge"`
 	// Used to configure notifications to a Lambda Function. See below.
 	LambdaFunctions []BucketNotificationLambdaFunction `pulumi:"lambdaFunctions"`
@@ -479,7 +509,7 @@ type BucketNotificationArgs struct {
 	//
 	// The following arguments are optional:
 	Bucket pulumi.StringInput
-	// Whether to enable Amazon EventBridge notifications.
+	// Whether to enable Amazon EventBridge notifications. Defaults to `false`.
 	Eventbridge pulumi.BoolPtrInput
 	// Used to configure notifications to a Lambda Function. See below.
 	LambdaFunctions BucketNotificationLambdaFunctionArrayInput
@@ -583,7 +613,7 @@ func (o BucketNotificationOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketNotification) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// Whether to enable Amazon EventBridge notifications.
+// Whether to enable Amazon EventBridge notifications. Defaults to `false`.
 func (o BucketNotificationOutput) Eventbridge() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BucketNotification) pulumi.BoolPtrOutput { return v.Eventbridge }).(pulumi.BoolPtrOutput)
 }

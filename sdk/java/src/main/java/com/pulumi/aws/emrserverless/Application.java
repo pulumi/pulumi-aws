@@ -137,11 +137,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * EMR Severless applications can be imported using the `id`, e.g.
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:emrserverless/application:Application example id
- * ```
+ *  to = aws_emrserverless_application.example
+ * 
+ *  id = &#34;id&#34; } Using `pulumi import`, import EMR Severless applications using the `id`. For exampleconsole % pulumi import aws_emrserverless_application.example id
  * 
  */
 @ResourceType(type="aws:emrserverless/application:Application")

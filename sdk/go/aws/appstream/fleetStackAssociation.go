@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appstream"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appstream"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -56,13 +57,11 @@ import (
 //
 // ## Import
 //
-// AppStream Stack Fleet Association can be imported by using the `fleet_name` and `stack_name` separated by a slash (`/`), e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_appstream_fleet_stack_association.example
 //
-//	$ pulumi import aws:appstream/fleetStackAssociation:FleetStackAssociation example fleetName/stackName
-//
-// ```
+//	id = "fleetName/stackName" } Using `pulumi import`, import AppStream Stack Fleet Association using the `fleet_name` and `stack_name` separated by a slash (`/`). For exampleconsole % pulumi import aws_appstream_fleet_stack_association.example fleetName/stackName
 type FleetStackAssociation struct {
 	pulumi.CustomResourceState
 
@@ -85,6 +84,7 @@ func NewFleetStackAssociation(ctx *pulumi.Context,
 	if args.StackName == nil {
 		return nil, errors.New("invalid value for required argument 'StackName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FleetStackAssociation
 	err := ctx.RegisterResource("aws:appstream/fleetStackAssociation:FleetStackAssociation", name, args, &resource, opts...)
 	if err != nil {

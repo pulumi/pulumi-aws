@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -56,13 +57,11 @@ import (
 //
 // ## Import
 //
-// DB proxy endpoints can be imported using the `DB-PROXY-NAME/DB-PROXY-ENDPOINT-NAME`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_db_proxy_endpoint.example
 //
-//	$ pulumi import aws:rds/proxyEndpoint:ProxyEndpoint example example/example
-//
-// ```
+//	id = "example/example" } Using `pulumi import`, import DB proxy endpoints using the `DB-PROXY-NAME/DB-PROXY-ENDPOINT-NAME`. For exampleconsole % pulumi import aws_db_proxy_endpoint.example example/example
 type ProxyEndpoint struct {
 	pulumi.CustomResourceState
 
@@ -105,6 +104,7 @@ func NewProxyEndpoint(ctx *pulumi.Context,
 	if args.VpcSubnetIds == nil {
 		return nil, errors.New("invalid value for required argument 'VpcSubnetIds'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ProxyEndpoint
 	err := ctx.RegisterResource("aws:rds/proxyEndpoint:ProxyEndpoint", name, args, &resource, opts...)
 	if err != nil {

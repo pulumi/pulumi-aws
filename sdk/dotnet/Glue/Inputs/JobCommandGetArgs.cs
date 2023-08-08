@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Glue.Inputs
     public sealed class JobCommandGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, or `gluestreaming` for Streaming Job Type. `max_capacity` needs to be set if `pythonshell` is chosen.
+        /// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `glueray` for Ray Job Type, or `gluestreaming` for Streaming Job Type. `max_capacity` needs to be set if `pythonshell` is chosen.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -23,6 +23,12 @@ namespace Pulumi.Aws.Glue.Inputs
         /// </summary>
         [Input("pythonVersion")]
         public Input<string>? PythonVersion { get; set; }
+
+        /// <summary>
+        /// In Ray jobs, runtime is used to specify the versions of Ray, Python and additional libraries available in your environment. This field is not used in other job types. For supported runtime environment values, see [Working with Ray jobs](https://docs.aws.amazon.com/glue/latest/dg/ray-jobs-section.html#author-job-ray-runtimes) in the Glue Developer Guide.
+        /// </summary>
+        [Input("runtime")]
+        public Input<string>? Runtime { get; set; }
 
         /// <summary>
         /// Specifies the S3 path to a script that executes a job.

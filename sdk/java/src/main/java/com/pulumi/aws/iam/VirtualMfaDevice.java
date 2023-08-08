@@ -19,6 +19,10 @@ import javax.annotation.Nullable;
  * Provides an IAM Virtual MFA Device.
  * 
  * &gt; **Note:** All attributes will be stored in the raw state as plain-text.
+ * **Note:** A virtual MFA device cannot be directly associated with an IAM User from the provider.
+ *   To associate the virtual MFA device with a user and enable it, use the code returned in either `base_32_string_seed` or `qr_code_png` to generate TOTP authentication codes.
+ *   The authentication codes can then be used with the AWS CLI command [`aws iam enable-mfa-device`](https://docs.aws.amazon.com/cli/latest/reference/iam/enable-mfa-device.html) or the AWS API call [`EnableMFADevice`](https://docs.aws.amazon.com/IAM/latest/APIReference/API_EnableMFADevice.html).
+ * 
  * ## Example Usage
  * 
  * **Using certs on file:**
@@ -53,11 +57,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * IAM Virtual MFA Devices can be imported using the `arn`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:iam/virtualMfaDevice:VirtualMfaDevice example arn:aws:iam::123456789012:mfa/example
- * ```
+ *  to = aws_iam_virtual_mfa_device.example
+ * 
+ *  id = &#34;arn:aws:iam::123456789012:mfa/example&#34; } Using `pulumi import`, import IAM Virtual MFA Devices using the `arn`. For exampleconsole % pulumi import aws_iam_virtual_mfa_device.example arn:aws:iam::123456789012:mfa/example
  * 
  */
 @ResourceType(type="aws:iam/virtualMfaDevice:VirtualMfaDevice")
@@ -91,6 +95,20 @@ public class VirtualMfaDevice extends com.pulumi.resources.CustomResource {
         return this.base32StringSeed;
     }
     /**
+     * The date and time when the virtual MFA device was enabled.
+     * 
+     */
+    @Export(name="enableDate", refs={String.class}, tree="[0]")
+    private Output<String> enableDate;
+
+    /**
+     * @return The date and time when the virtual MFA device was enabled.
+     * 
+     */
+    public Output<String> enableDate() {
+        return this.enableDate;
+    }
+    /**
      * The path for the virtual MFA device.
      * 
      */
@@ -105,14 +123,14 @@ public class VirtualMfaDevice extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.path);
     }
     /**
-     * A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID otherwise), and Base32String is the seed in base32 format.
+     * A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID), and Base32String is the seed in base32 format.
      * 
      */
     @Export(name="qrCodePng", refs={String.class}, tree="[0]")
     private Output<String> qrCodePng;
 
     /**
-     * @return A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID otherwise), and Base32String is the seed in base32 format.
+     * @return A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID), and Base32String is the seed in base32 format.
      * 
      */
     public Output<String> qrCodePng() {
@@ -145,6 +163,20 @@ public class VirtualMfaDevice extends com.pulumi.resources.CustomResource {
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
+    }
+    /**
+     * The associated IAM User name if the virtual MFA device is enabled.
+     * 
+     */
+    @Export(name="userName", refs={String.class}, tree="[0]")
+    private Output<String> userName;
+
+    /**
+     * @return The associated IAM User name if the virtual MFA device is enabled.
+     * 
+     */
+    public Output<String> userName() {
+        return this.userName;
     }
     /**
      * The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.

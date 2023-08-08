@@ -98,11 +98,11 @@ namespace Pulumi.Aws.Elb
     /// 
     /// ## Import
     /// 
-    /// ELBs can be imported using the `name`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:elb/loadBalancer:LoadBalancer bar elb-production-12345
-    /// ```
+    ///  to = aws_elb.bar
+    /// 
+    ///  id = "elb-production-12345" } Using `pulumi import`, import ELBs using the `name`. For exampleconsole % pulumi import aws_elb.bar elb-production-12345
     /// </summary>
     [AwsResourceType("aws:elb/loadBalancer:LoadBalancer")]
     public partial class LoadBalancer : global::Pulumi.CustomResource
@@ -222,7 +222,7 @@ namespace Pulumi.Aws.Elb
         public Output<string> SourceSecurityGroupId { get; private set; } = null!;
 
         /// <summary>
-        /// A list of subnet IDs to attach to the ELB.
+        /// A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
         /// </summary>
         [Output("subnets")]
         public Output<ImmutableArray<string>> Subnets { get; private set; } = null!;
@@ -420,7 +420,7 @@ namespace Pulumi.Aws.Elb
         private InputList<string>? _subnets;
 
         /// <summary>
-        /// A list of subnet IDs to attach to the ELB.
+        /// A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
         /// </summary>
         public InputList<string> Subnets
         {
@@ -593,7 +593,7 @@ namespace Pulumi.Aws.Elb
         private InputList<string>? _subnets;
 
         /// <summary>
-        /// A list of subnet IDs to attach to the ELB.
+        /// A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
         /// </summary>
         public InputList<string> Subnets
         {

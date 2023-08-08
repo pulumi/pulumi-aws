@@ -85,6 +85,11 @@ export const getVpnAttachment: typeof import("./getVpnAttachment").getVpnAttachm
 export const getVpnAttachmentOutput: typeof import("./getVpnAttachment").getVpnAttachmentOutput = null as any;
 utilities.lazyLoad(exports, ["getVpnAttachment","getVpnAttachmentOutput"], () => require("./getVpnAttachment"));
 
+export { InstanceConnectEndpointArgs, InstanceConnectEndpointState } from "./instanceConnectEndpoint";
+export type InstanceConnectEndpoint = import("./instanceConnectEndpoint").InstanceConnectEndpoint;
+export const InstanceConnectEndpoint: typeof import("./instanceConnectEndpoint").InstanceConnectEndpoint = null as any;
+utilities.lazyLoad(exports, ["InstanceConnectEndpoint"], () => require("./instanceConnectEndpoint"));
+
 export { InstanceStateArgs, InstanceStateState } from "./instanceState";
 export type InstanceState = import("./instanceState").InstanceState;
 export const InstanceState: typeof import("./instanceState").InstanceState = null as any;
@@ -179,6 +184,8 @@ const _module = {
                 return new Connect(name, <any>undefined, { urn })
             case "aws:ec2transitgateway/connectPeer:ConnectPeer":
                 return new ConnectPeer(name, <any>undefined, { urn })
+            case "aws:ec2transitgateway/instanceConnectEndpoint:InstanceConnectEndpoint":
+                return new InstanceConnectEndpoint(name, <any>undefined, { urn })
             case "aws:ec2transitgateway/instanceState:InstanceState":
                 return new InstanceState(name, <any>undefined, { urn })
             case "aws:ec2transitgateway/multicastDomain:MulticastDomain":
@@ -220,6 +227,7 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "ec2transitgateway/connect", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2transitgateway/connectPeer", _module)
+pulumi.runtime.registerResourceModule("aws", "ec2transitgateway/instanceConnectEndpoint", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2transitgateway/instanceState", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2transitgateway/multicastDomain", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2transitgateway/multicastDomainAssociation", _module)

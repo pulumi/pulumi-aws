@@ -265,7 +265,7 @@ namespace Pulumi.Aws.Sns
     ///         Policy = sns_topic_policy.Apply(sns_topic_policy =&gt; sns_topic_policy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json)),
     ///     }, new CustomResourceOptions
     ///     {
-    ///         Provider = "aws.sns",
+    ///         Provider = aws.Sns,
     ///     });
     /// 
     ///     var sqs_queue = new Aws.Sqs.Queue("sqs-queue", new()
@@ -273,7 +273,7 @@ namespace Pulumi.Aws.Sns
     ///         Policy = sqs_queue_policy.Apply(sqs_queue_policy =&gt; sqs_queue_policy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json)),
     ///     }, new CustomResourceOptions
     ///     {
-    ///         Provider = "aws.sqs",
+    ///         Provider = aws.Sqs,
     ///     });
     /// 
     ///     var sns_topicTopicSubscription = new Aws.Sns.TopicSubscription("sns-topicTopicSubscription", new()
@@ -283,7 +283,7 @@ namespace Pulumi.Aws.Sns
     ///         Endpoint = sqs_queue.Arn,
     ///     }, new CustomResourceOptions
     ///     {
-    ///         Provider = "aws.sns2sqs",
+    ///         Provider = aws.Sns2sqs,
     ///     });
     /// 
     /// });
@@ -291,11 +291,11 @@ namespace Pulumi.Aws.Sns
     /// 
     /// ## Import
     /// 
-    /// SNS Topic Subscriptions can be imported using the `subscription arn`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:sns/topicSubscription:TopicSubscription user_updates_sqs_target arn:aws:sns:us-west-2:0123456789012:my-topic:8a21d249-4329-4871-acc6-7be709c6ea7f
-    /// ```
+    ///  to = aws_sns_topic_subscription.user_updates_sqs_target
+    /// 
+    ///  id = "arn:aws:sns:us-west-2:0123456789012:my-topic:8a21d249-4329-4871-acc6-7be709c6ea7f" } Using `pulumi import`, import SNS Topic Subscriptions using the subscription `arn`. For exampleconsole % pulumi import aws_sns_topic_subscription.user_updates_sqs_target arn:aws:sns:us-west-2:0123456789012:my-topic:8a21d249-4329-4871-acc6-7be709c6ea7f
     /// </summary>
     [AwsResourceType("aws:sns/topicSubscription:TopicSubscription")]
     public partial class TopicSubscription : global::Pulumi.CustomResource

@@ -64,11 +64,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Config Organization Managed Rules can be imported using the name, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:cfg/organizationManagedRule:OrganizationManagedRule example example
- * ```
+ *  to = aws_config_organization_managed_rule.example
+ * 
+ *  id = &#34;example&#34; } Using `pulumi import`, import Config Organization Managed Rules using the name. For exampleconsole % pulumi import aws_config_organization_managed_rule.example example
  * 
  */
 @ResourceType(type="aws:cfg/organizationManagedRule:OrganizationManagedRule")

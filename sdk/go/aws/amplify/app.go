@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/amplify"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/amplify"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -77,7 +78,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/amplify"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/amplify"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -105,7 +106,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/amplify"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/amplify"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -137,7 +138,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/amplify"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/amplify"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -173,7 +174,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/amplify"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/amplify"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -196,15 +197,11 @@ import (
 //
 // ## Import
 //
-// Amplify App can be imported using Amplify App ID (appId), e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_amplify_app.example
 //
-//	$ pulumi import aws:amplify/app:App example d2ypk4k47z8u6
-//
-// ```
-//
-//	App ID can be obtained from App ARN (e.g., `arn:aws:amplify:us-east-1:12345678:apps/d2ypk4k47z8u6`).
+//	id = "d2ypk4k47z8u6" } Using `pulumi import`, import Amplify App using Amplify App ID (appId). For exampleconsole % pulumi import aws_amplify_app.example d2ypk4k47z8u6 App ID can be obtained from App ARN (e.g., `arn:aws:amplify:us-east-1:12345678:apps/d2ypk4k47z8u6`).
 type App struct {
 	pulumi.CustomResourceState
 
@@ -276,6 +273,7 @@ func NewApp(ctx *pulumi.Context,
 		"oauthToken",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource App
 	err := ctx.RegisterResource("aws:amplify/app:App", name, args, &resource, opts...)
 	if err != nil {

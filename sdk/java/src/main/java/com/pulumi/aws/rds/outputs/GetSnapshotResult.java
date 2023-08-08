@@ -7,6 +7,7 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -100,6 +101,7 @@ public final class GetSnapshotResult {
      * 
      */
     private String storageType;
+    private Map<String,String> tags;
     /**
      * @return ID of the VPC associated with the DB snapshot.
      * 
@@ -240,6 +242,9 @@ public final class GetSnapshotResult {
     public String storageType() {
         return this.storageType;
     }
+    public Map<String,String> tags() {
+        return this.tags;
+    }
     /**
      * @return ID of the VPC associated with the DB snapshot.
      * 
@@ -280,6 +285,7 @@ public final class GetSnapshotResult {
         private String sourceRegion;
         private String status;
         private String storageType;
+        private Map<String,String> tags;
         private String vpcId;
         public Builder() {}
         public Builder(GetSnapshotResult defaults) {
@@ -307,6 +313,7 @@ public final class GetSnapshotResult {
     	      this.sourceRegion = defaults.sourceRegion;
     	      this.status = defaults.status;
     	      this.storageType = defaults.storageType;
+    	      this.tags = defaults.tags;
     	      this.vpcId = defaults.vpcId;
         }
 
@@ -426,6 +433,11 @@ public final class GetSnapshotResult {
             return this;
         }
         @CustomType.Setter
+        public Builder tags(Map<String,String> tags) {
+            this.tags = Objects.requireNonNull(tags);
+            return this;
+        }
+        @CustomType.Setter
         public Builder vpcId(String vpcId) {
             this.vpcId = Objects.requireNonNull(vpcId);
             return this;
@@ -455,6 +467,7 @@ public final class GetSnapshotResult {
             o.sourceRegion = sourceRegion;
             o.status = status;
             o.storageType = storageType;
+            o.tags = tags;
             o.vpcId = vpcId;
             return o;
         }

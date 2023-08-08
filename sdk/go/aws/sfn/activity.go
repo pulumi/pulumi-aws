@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sfn"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sfn"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -38,13 +39,11 @@ import (
 //
 // ## Import
 //
-// Activities can be imported using the `arn`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_sfn_activity.foo
 //
-//	$ pulumi import aws:sfn/activity:Activity foo arn:aws:states:eu-west-1:123456789098:activity:bar
-//
-// ```
+//	id = "arn:aws:states:eu-west-1:123456789098:activity:bar" } Using `pulumi import`, import activities using the `arn`. For exampleconsole % pulumi import aws_sfn_activity.foo arn:aws:states:eu-west-1:123456789098:activity:bar
 type Activity struct {
 	pulumi.CustomResourceState
 
@@ -65,6 +64,7 @@ func NewActivity(ctx *pulumi.Context,
 		args = &ActivityArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Activity
 	err := ctx.RegisterResource("aws:sfn/activity:Activity", name, args, &resource, opts...)
 	if err != nil {

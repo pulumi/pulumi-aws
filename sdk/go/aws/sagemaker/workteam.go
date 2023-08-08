@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -57,7 +58,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -89,13 +90,11 @@ import (
 //
 // ## Import
 //
-// SageMaker Workteams can be imported using the `workteam_name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_sagemaker_workteam.example
 //
-//	$ pulumi import aws:sagemaker/workteam:Workteam example example
-//
-// ```
+//	id = "example" } Using `pulumi import`, import SageMaker Workteams using the `workteam_name`. For exampleconsole % pulumi import aws_sagemaker_workteam.example example
 type Workteam struct {
 	pulumi.CustomResourceState
 
@@ -138,6 +137,7 @@ func NewWorkteam(ctx *pulumi.Context,
 	if args.WorkteamName == nil {
 		return nil, errors.New("invalid value for required argument 'WorkteamName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Workteam
 	err := ctx.RegisterResource("aws:sagemaker/workteam:Workteam", name, args, &resource, opts...)
 	if err != nil {

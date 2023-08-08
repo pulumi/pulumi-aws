@@ -32,11 +32,11 @@ namespace Pulumi.Aws.Iam
     /// 
     /// ## Import
     /// 
-    /// IAM service-linked roles can be imported using role ARN, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:iam/serviceLinkedRole:ServiceLinkedRole elasticbeanstalk arn:aws:iam::123456789012:role/aws-service-role/elasticbeanstalk.amazonaws.com/AWSServiceRoleForElasticBeanstalk
-    /// ```
+    ///  to = aws_iam_service_linked_role.elasticbeanstalk
+    /// 
+    ///  id = "arn:aws:iam::123456789012:role/aws-service-role/elasticbeanstalk.amazonaws.com/AWSServiceRoleForElasticBeanstalk" } Using `pulumi import`, import IAM service-linked roles using role ARN. For exampleconsole % pulumi import aws_iam_service_linked_role.elasticbeanstalk arn:aws:iam::123456789012:role/aws-service-role/elasticbeanstalk.amazonaws.com/AWSServiceRoleForElasticBeanstalk
     /// </summary>
     [AwsResourceType("aws:iam/serviceLinkedRole:ServiceLinkedRole")]
     public partial class ServiceLinkedRole : global::Pulumi.CustomResource

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/evidently"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/evidently"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -58,7 +59,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/evidently"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/evidently"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -98,7 +99,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/evidently"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/evidently"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -140,7 +141,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/evidently"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/evidently"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -173,13 +174,11 @@ import (
 //
 // ## Import
 //
-// CloudWatch Evidently Feature can be imported using the feature `name` and `name` or `arn` of the hosting CloudWatch Evidently Project separated by a `:`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_evidently_feature.example
 //
-//	$ pulumi import aws:evidently/feature:Feature example exampleFeatureName:arn:aws:evidently:us-east-1:123456789012:project/example
-//
-// ```
+//	id = "exampleFeatureName:arn:aws:evidently:us-east-1:123456789012:project/example" } Using `pulumi import`, import CloudWatch Evidently Feature using the feature `name` and `name` or `arn` of the hosting CloudWatch Evidently Project separated by a `:`. For exampleconsole % pulumi import aws_evidently_feature.example exampleFeatureName:arn:aws:evidently:us-east-1:123456789012:project/example
 type Feature struct {
 	pulumi.CustomResourceState
 
@@ -228,6 +227,7 @@ func NewFeature(ctx *pulumi.Context,
 	if args.Variations == nil {
 		return nil, errors.New("invalid value for required argument 'Variations'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Feature
 	err := ctx.RegisterResource("aws:evidently/feature:Feature", name, args, &resource, opts...)
 	if err != nil {

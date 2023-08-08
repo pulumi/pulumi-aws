@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,6 +23,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:transfer/access:Access":
 		r = &Access{}
+	case "aws:transfer/agreement:Agreement":
+		r = &Agreement{}
+	case "aws:transfer/certificate:Certificate":
+		r = &Certificate{}
+	case "aws:transfer/connector:Connector":
+		r = &Connector{}
+	case "aws:transfer/profile:Profile":
+		r = &Profile{}
 	case "aws:transfer/server:Server":
 		r = &Server{}
 	case "aws:transfer/sshKey:SshKey":
@@ -42,13 +50,33 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 }
 
 func init() {
-	version, err := aws.PkgVersion()
+	version, err := internal.PkgVersion()
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
 	pulumi.RegisterResourceModule(
 		"aws",
 		"transfer/access",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"transfer/agreement",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"transfer/certificate",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"transfer/connector",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"transfer/profile",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

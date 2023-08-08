@@ -45,11 +45,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * EventBridge permissions can be imported using the `event_bus_name/statement_id` (if you omit `event_bus_name`, the `default` event bus will be used), e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:cloudwatch/eventPermission:EventPermission DevAccountAccess example-event-bus/DevAccountAccess
- * ```
+ *  to = aws_cloudwatch_event_permission.DevAccountAccess
+ *
+ *  id = "example-event-bus/DevAccountAccess" } Using `pulumi import`, import EventBridge permissions using the `event_bus_name/statement_id` (if you omit `event_bus_name`, the `default` event bus will be used). For exampleconsole % pulumi import aws_cloudwatch_event_permission.DevAccountAccess example-event-bus/DevAccountAccess
  */
 export class EventPermission extends pulumi.CustomResource {
     /**

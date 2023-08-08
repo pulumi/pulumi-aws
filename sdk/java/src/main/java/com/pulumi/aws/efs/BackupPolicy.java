@@ -57,11 +57,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * The EFS backup policies can be imported using the `id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:efs/backupPolicy:BackupPolicy example fs-6fa144c6
- * ```
+ *  to = aws_efs_backup_policy.example
+ * 
+ *  id = &#34;fs-6fa144c6&#34; } Using `pulumi import`, import the EFS backup policies using the `id`. For exampleconsole % pulumi import aws_efs_backup_policy.example fs-6fa144c6
  * 
  */
 @ResourceType(type="aws:efs/backupPolicy:BackupPolicy")

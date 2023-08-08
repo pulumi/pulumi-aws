@@ -89,8 +89,8 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     ///     var s3Stream = new Aws.Kinesis.FirehoseDeliveryStream("s3Stream", new()
     ///     {
-    ///         Destination = "s3",
-    ///         S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamS3ConfigurationArgs
+    ///         Destination = "extended_s3",
+    ///         ExtendedS3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs
     ///         {
     ///             RoleArn = firehoseToS3Role.Arn,
     ///             BucketArn = bucket.Arn,
@@ -242,11 +242,11 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// ## Import
     /// 
-    /// CloudWatch metric streams can be imported using the `name`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:cloudwatch/metricStream:MetricStream sample sample-stream-name
-    /// ```
+    ///  to = aws_cloudwatch_metric_stream.sample
+    /// 
+    ///  id = "sample-stream-name" } Using `pulumi import`, import CloudWatch metric streams using the `name`. For exampleconsole % pulumi import aws_cloudwatch_metric_stream.sample sample-stream-name
     /// </summary>
     [AwsResourceType("aws:cloudwatch/metricStream:MetricStream")]
     public partial class MetricStream : global::Pulumi.CustomResource

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/organizations"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/organizations"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,13 +43,11 @@ import (
 //
 // ## Import
 //
-// `aws_organizations_delegated_administrator` can be imported by using the account ID and its service principal, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_organizations_delegated_administrator.example
 //
-//	$ pulumi import aws:organizations/delegatedAdministrator:DelegatedAdministrator example 123456789012/config.amazonaws.com
-//
-// ```
+//	id = "123456789012/config.amazonaws.com" } Using `pulumi import`, import `aws_organizations_delegated_administrator` using the account ID and its service principal. For exampleconsole % pulumi import aws_organizations_delegated_administrator.example 123456789012/config.amazonaws.com
 type DelegatedAdministrator struct {
 	pulumi.CustomResourceState
 
@@ -85,6 +84,7 @@ func NewDelegatedAdministrator(ctx *pulumi.Context,
 	if args.ServicePrincipal == nil {
 		return nil, errors.New("invalid value for required argument 'ServicePrincipal'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DelegatedAdministrator
 	err := ctx.RegisterResource("aws:organizations/delegatedAdministrator:DelegatedAdministrator", name, args, &resource, opts...)
 	if err != nil {

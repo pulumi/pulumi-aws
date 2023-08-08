@@ -81,11 +81,11 @@ class GlobalSettings(pulumi.CustomResource):
 
         ## Import
 
-        Backup Global Settings can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:backup/globalSettings:GlobalSettings example 123456789012
-        ```
+         to = aws_backup_global_settings.example
+
+         id = "123456789012" } Using `pulumi import`, import Backup Global Settings using the `id`. For exampleconsole % pulumi import aws_backup_global_settings.example 123456789012
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -113,11 +113,11 @@ class GlobalSettings(pulumi.CustomResource):
 
         ## Import
 
-        Backup Global Settings can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:backup/globalSettings:GlobalSettings example 123456789012
-        ```
+         to = aws_backup_global_settings.example
+
+         id = "123456789012" } Using `pulumi import`, import Backup Global Settings using the `id`. For exampleconsole % pulumi import aws_backup_global_settings.example 123456789012
 
         :param str resource_name: The name of the resource.
         :param GlobalSettingsArgs args: The arguments to use to populate this resource's properties.

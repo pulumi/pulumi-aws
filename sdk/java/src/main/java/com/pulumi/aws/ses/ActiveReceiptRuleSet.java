@@ -46,6 +46,14 @@ import javax.annotation.Nullable;
  * }
  * ```
  * 
+ * ## Import
+ * 
+ * terraform import {
+ * 
+ *  to = aws_ses_active_receipt_rule_set.my_rule_set
+ * 
+ *  id = &#34;my_rule_set_name&#34; } Using `pulumi import`, import active SES receipt rule sets using the rule set name. For exampleconsole % pulumi import aws_ses_active_receipt_rule_set.my_rule_set my_rule_set_name
+ * 
  */
 @ResourceType(type="aws:ses/activeReceiptRuleSet:ActiveReceiptRuleSet")
 public class ActiveReceiptRuleSet extends com.pulumi.resources.CustomResource {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +22,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3control"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3control"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -67,13 +68,11 @@ import (
 //
 // ## Import
 //
-// Object Lambda Access Points can be imported using the `account_id` and `name`, separated by a colon (`:`), e.g.
+// terraform import {
 //
-// ```sh
+//	to = aws_s3control_object_lambda_access_point.example
 //
-//	$ pulumi import aws:s3control/objectLambdaAccessPoint:ObjectLambdaAccessPoint example 123456789012:example
-//
-// ```
+//	id = "123456789012:example" } Using `pulumi import`, import Object Lambda Access Points using the `account_id` and `name`, separated by a colon (`:`). For exampleconsole % pulumi import aws_s3control_object_lambda_access_point.example 123456789012:example
 type ObjectLambdaAccessPoint struct {
 	pulumi.CustomResourceState
 
@@ -97,6 +96,7 @@ func NewObjectLambdaAccessPoint(ctx *pulumi.Context,
 	if args.Configuration == nil {
 		return nil, errors.New("invalid value for required argument 'Configuration'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ObjectLambdaAccessPoint
 	err := ctx.RegisterResource("aws:s3control/objectLambdaAccessPoint:ObjectLambdaAccessPoint", name, args, &resource, opts...)
 	if err != nil {

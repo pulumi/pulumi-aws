@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Batch.Outputs
         /// <summary>
         /// Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn't specified, the default is ECS_AL2. This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
         /// </summary>
-        public readonly Outputs.ComputeEnvironmentComputeResourcesEc2Configuration? Ec2Configuration;
+        public readonly ImmutableArray<Outputs.ComputeEnvironmentComputeResourcesEc2Configuration> Ec2Configurations;
         /// <summary>
         /// The EC2 key pair that is used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         /// </summary>
@@ -58,6 +58,10 @@ namespace Pulumi.Aws.Batch.Outputs
         /// </summary>
         public readonly int? MinVcpus;
         /// <summary>
+        /// The Amazon EC2 placement group to associate with your compute resources.
+        /// </summary>
+        public readonly string? PlacementGroup;
+        /// <summary>
         /// A list of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
         /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
@@ -86,7 +90,7 @@ namespace Pulumi.Aws.Batch.Outputs
 
             int? desiredVcpus,
 
-            Outputs.ComputeEnvironmentComputeResourcesEc2Configuration? ec2Configuration,
+            ImmutableArray<Outputs.ComputeEnvironmentComputeResourcesEc2Configuration> ec2Configurations,
 
             string? ec2KeyPair,
 
@@ -102,6 +106,8 @@ namespace Pulumi.Aws.Batch.Outputs
 
             int? minVcpus,
 
+            string? placementGroup,
+
             ImmutableArray<string> securityGroupIds,
 
             string? spotIamFleetRole,
@@ -115,7 +121,7 @@ namespace Pulumi.Aws.Batch.Outputs
             AllocationStrategy = allocationStrategy;
             BidPercentage = bidPercentage;
             DesiredVcpus = desiredVcpus;
-            Ec2Configuration = ec2Configuration;
+            Ec2Configurations = ec2Configurations;
             Ec2KeyPair = ec2KeyPair;
             ImageId = imageId;
             InstanceRole = instanceRole;
@@ -123,6 +129,7 @@ namespace Pulumi.Aws.Batch.Outputs
             LaunchTemplate = launchTemplate;
             MaxVcpus = maxVcpus;
             MinVcpus = minVcpus;
+            PlacementGroup = placementGroup;
             SecurityGroupIds = securityGroupIds;
             SpotIamFleetRole = spotIamFleetRole;
             Subnets = subnets;

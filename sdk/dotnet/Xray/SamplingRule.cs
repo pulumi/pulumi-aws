@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Xray
     ///         FixedRate = 0.05,
     ///         Host = "*",
     ///         HttpMethod = "*",
-    ///         Priority = 10000,
+    ///         Priority = 9999,
     ///         ReservoirSize = 1,
     ///         ResourceArn = "*",
     ///         RuleName = "example",
@@ -46,11 +46,11 @@ namespace Pulumi.Aws.Xray
     /// 
     /// ## Import
     /// 
-    /// XRay Sampling Rules can be imported using the name, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:xray/samplingRule:SamplingRule example example
-    /// ```
+    ///  to = aws_xray_sampling_rule.example
+    /// 
+    ///  id = "example" } Using `pulumi import`, import XRay Sampling Rules using the name. For exampleconsole % pulumi import aws_xray_sampling_rule.example example
     /// </summary>
     [AwsResourceType("aws:xray/samplingRule:SamplingRule")]
     public partial class SamplingRule : global::Pulumi.CustomResource

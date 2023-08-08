@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directconnect"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directconnect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -81,6 +82,7 @@ func NewBgpPeer(ctx *pulumi.Context,
 	if args.VirtualInterfaceId == nil {
 		return nil, errors.New("invalid value for required argument 'VirtualInterfaceId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BgpPeer
 	err := ctx.RegisterResource("aws:directconnect/bgpPeer:BgpPeer", name, args, &resource, opts...)
 	if err != nil {

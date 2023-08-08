@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,13 +23,11 @@ import (
 //
 // ## Import
 //
-// ACM PCA Certificates can be imported using their ARN, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_acmpca_certificate.cert
 //
-//	$ pulumi import aws:acmpca/certificate:Certificate cert arn:aws:acm-pca:eu-west-1:675225743824:certificate-authority/08319ede-83g9-1400-8f21-c7d12b2b6edb/certificate/a4e9c2aa4bcfab625g1b9136464cd3a
-//
-// ```
+//	id = "arn:aws:acm-pca:eu-west-1:675225743824:certificate-authority/08319ede-83g9-1400-8f21-c7d12b2b6edb/certificate/a4e9c2aa4bcfab625g1b9136464cd3a" } Using `pulumi import`, import ACM PCA Certificates using their ARN. For exampleconsole % pulumi import aws_acmpca_certificate.cert arn:aws:acm-pca:eu-west-1:675225743824:certificate-authority/08319ede-83g9-1400-8f21-c7d12b2b6edb/certificate/a4e9c2aa4bcfab625g1b9136464cd3a
 type Certificate struct {
 	pulumi.CustomResourceState
 
@@ -72,6 +71,7 @@ func NewCertificate(ctx *pulumi.Context,
 	if args.Validity == nil {
 		return nil, errors.New("invalid value for required argument 'Validity'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Certificate
 	err := ctx.RegisterResource("aws:acmpca/certificate:Certificate", name, args, &resource, opts...)
 	if err != nil {

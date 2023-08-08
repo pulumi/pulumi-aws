@@ -71,11 +71,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * License configurations can be imported using the `id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:licensemanager/licenseConfiguration:LicenseConfiguration example arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
- * ```
+ *  to = aws_licensemanager_license_configuration.example
+ * 
+ *  id = &#34;arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef&#34; } Using `pulumi import`, import license configurations using the `id`. For exampleconsole % pulumi import aws_licensemanager_license_configuration.example arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
  * 
  */
 @ResourceType(type="aws:licensemanager/licenseConfiguration:LicenseConfiguration")

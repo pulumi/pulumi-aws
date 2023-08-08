@@ -471,7 +471,7 @@ class Schedule(pulumi.CustomResource):
             flexible_time_window=aws.scheduler.ScheduleFlexibleTimeWindowArgs(
                 mode="OFF",
             ),
-            schedule_expression="rate(1 hour)",
+            schedule_expression="rate(1 hours)",
             target=aws.scheduler.ScheduleTargetArgs(
                 arn=aws_sqs_queue["example"]["arn"],
                 role_arn=aws_iam_role["example"]["arn"],
@@ -489,7 +489,7 @@ class Schedule(pulumi.CustomResource):
             flexible_time_window=aws.scheduler.ScheduleFlexibleTimeWindowArgs(
                 mode="OFF",
             ),
-            schedule_expression="rate(1 hour)",
+            schedule_expression="rate(1 hours)",
             target=aws.scheduler.ScheduleTargetArgs(
                 arn="arn:aws:scheduler:::aws-sdk:sqs:sendMessage",
                 role_arn=aws_iam_role["example"]["arn"],
@@ -502,11 +502,11 @@ class Schedule(pulumi.CustomResource):
 
         ## Import
 
-        Schedules can be imported using the combination `group_name/name`. For example
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:scheduler/schedule:Schedule example my-schedule-group/my-schedule
-        ```
+         to = aws_scheduler_schedule.example
+
+         id = "my-schedule-group/my-schedule" } Using `pulumi import`, import schedules using the combination `group_name/name`. For exampleconsole % pulumi import aws_scheduler_schedule.example my-schedule-group/my-schedule
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -550,7 +550,7 @@ class Schedule(pulumi.CustomResource):
             flexible_time_window=aws.scheduler.ScheduleFlexibleTimeWindowArgs(
                 mode="OFF",
             ),
-            schedule_expression="rate(1 hour)",
+            schedule_expression="rate(1 hours)",
             target=aws.scheduler.ScheduleTargetArgs(
                 arn=aws_sqs_queue["example"]["arn"],
                 role_arn=aws_iam_role["example"]["arn"],
@@ -568,7 +568,7 @@ class Schedule(pulumi.CustomResource):
             flexible_time_window=aws.scheduler.ScheduleFlexibleTimeWindowArgs(
                 mode="OFF",
             ),
-            schedule_expression="rate(1 hour)",
+            schedule_expression="rate(1 hours)",
             target=aws.scheduler.ScheduleTargetArgs(
                 arn="arn:aws:scheduler:::aws-sdk:sqs:sendMessage",
                 role_arn=aws_iam_role["example"]["arn"],
@@ -581,11 +581,11 @@ class Schedule(pulumi.CustomResource):
 
         ## Import
 
-        Schedules can be imported using the combination `group_name/name`. For example
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:scheduler/schedule:Schedule example my-schedule-group/my-schedule
-        ```
+         to = aws_scheduler_schedule.example
+
+         id = "my-schedule-group/my-schedule" } Using `pulumi import`, import schedules using the combination `group_name/name`. For exampleconsole % pulumi import aws_scheduler_schedule.example my-schedule-group/my-schedule
 
         :param str resource_name: The name of the resource.
         :param ScheduleArgs args: The arguments to use to populate this resource's properties.

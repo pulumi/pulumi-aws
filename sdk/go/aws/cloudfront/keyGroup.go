@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 //	"os"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudfront"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -61,13 +62,11 @@ import (
 //
 // ## Import
 //
-// CloudFront Key Group can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_cloudfront_key_group.example
 //
-//	$ pulumi import aws:cloudfront/keyGroup:KeyGroup example 4b4f2r1c-315d-5c2e-f093-216t50jed10f
-//
-// ```
+//	id = "4b4f2r1c-315d-5c2e-f093-216t50jed10f" } Using `pulumi import`, import CloudFront Key Group using the `id`. For exampleconsole % pulumi import aws_cloudfront_key_group.example 4b4f2r1c-315d-5c2e-f093-216t50jed10f
 type KeyGroup struct {
 	pulumi.CustomResourceState
 
@@ -91,6 +90,7 @@ func NewKeyGroup(ctx *pulumi.Context,
 	if args.Items == nil {
 		return nil, errors.New("invalid value for required argument 'Items'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource KeyGroup
 	err := ctx.RegisterResource("aws:cloudfront/keyGroup:KeyGroup", name, args, &resource, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -26,10 +27,10 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/shield"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/shield"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -49,7 +50,7 @@ import (
 //				return err
 //			}
 //			exampleEip, err := ec2.NewEip(ctx, "exampleEip", &ec2.EipArgs{
-//				Vpc: pulumi.Bool(true),
+//				Domain: pulumi.String("vpc"),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("example"),
 //				},
@@ -94,13 +95,11 @@ import (
 //
 // ## Import
 //
-// Shield protection health check association resources can be imported by specifying the `shield_protection_id` and `health_check_arn` e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_shield_protection_health_check_association.example
 //
-//	$ pulumi import aws:shield/protectionHealthCheckAssociation:ProtectionHealthCheckAssociation example ff9592dc-22f3-4e88-afa1-7b29fde9669a+arn:aws:route53:::healthcheck/3742b175-edb9-46bc-9359-f53e3b794b1b
-//
-// ```
+//	id = "ff9592dc-22f3-4e88-afa1-7b29fde9669a+arn:aws:route53:::healthcheck/3742b175-edb9-46bc-9359-f53e3b794b1b" } Using `pulumi import`, import Shield protection health check association resources using the `shield_protection_id` and `health_check_arn`. For exampleconsole % pulumi import aws_shield_protection_health_check_association.example ff9592dc-22f3-4e88-afa1-7b29fde9669a+arn:aws:route53:::healthcheck/3742b175-edb9-46bc-9359-f53e3b794b1b
 type ProtectionHealthCheckAssociation struct {
 	pulumi.CustomResourceState
 
@@ -123,6 +122,7 @@ func NewProtectionHealthCheckAssociation(ctx *pulumi.Context,
 	if args.ShieldProtectionId == nil {
 		return nil, errors.New("invalid value for required argument 'ShieldProtectionId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ProtectionHealthCheckAssociation
 	err := ctx.RegisterResource("aws:shield/protectionHealthCheckAssociation:ProtectionHealthCheckAssociation", name, args, &resource, opts...)
 	if err != nil {

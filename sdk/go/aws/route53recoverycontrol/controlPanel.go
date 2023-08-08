@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53recoverycontrol"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53recoverycontrol"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -41,13 +42,11 @@ import (
 //
 // ## Import
 //
-// Route53 Recovery Control Config Control Panel can be imported via the control panel arn, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_route53recoverycontrolconfig_control_panel.mypanel
 //
-//	$ pulumi import aws:route53recoverycontrol/controlPanel:ControlPanel mypanel arn:aws:route53-recovery-control::313517334327:controlpanel/1bfba17df8684f5dab0467b71424f7e8
-//
-// ```
+//	id = "arn:aws:route53-recovery-control::313517334327:controlpanel/1bfba17df8684f5dab0467b71424f7e8" } Using `pulumi import`, import Route53 Recovery Control Config Control Panel using the control panel arn. For exampleconsole % pulumi import aws_route53recoverycontrolconfig_control_panel.mypanel arn:aws:route53-recovery-control::313517334327:controlpanel/1bfba17df8684f5dab0467b71424f7e8
 type ControlPanel struct {
 	pulumi.CustomResourceState
 
@@ -75,6 +74,7 @@ func NewControlPanel(ctx *pulumi.Context,
 	if args.ClusterArn == nil {
 		return nil, errors.New("invalid value for required argument 'ClusterArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ControlPanel
 	err := ctx.RegisterResource("aws:route53recoverycontrol/controlPanel:ControlPanel", name, args, &resource, opts...)
 	if err != nil {

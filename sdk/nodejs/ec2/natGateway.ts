@@ -24,6 +24,19 @@ import * as utilities from "../utilities";
  *     dependsOn: [aws_internet_gateway.example],
  * });
  * ```
+ * ### Public NAT with Secondary Private IP Addresses
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.ec2.NatGateway("example", {
+ *     allocationId: aws_eip.example.id,
+ *     subnetId: aws_subnet.example.id,
+ *     secondaryAllocationIds: [aws_eip.secondary.id],
+ *     secondaryPrivateIpAddresses: ["10.0.1.5"],
+ * });
+ * ```
  * ### Private NAT
  *
  * ```typescript
@@ -35,14 +48,26 @@ import * as utilities from "../utilities";
  *     subnetId: aws_subnet.example.id,
  * });
  * ```
+ * ### Private NAT with Secondary Private IP Addresses
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.ec2.NatGateway("example", {
+ *     connectivityType: "private",
+ *     subnetId: aws_subnet.example.id,
+ *     secondaryPrivateIpAddressCount: 7,
+ * });
+ * ```
  *
  * ## Import
  *
- * NAT Gateways can be imported using the `id`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:ec2/natGateway:NatGateway private_gw nat-05dba92075d71c408
- * ```
+ *  to = aws_nat_gateway.private_gw
+ *
+ *  id = "nat-05dba92075d71c408" } Using `pulumi import`, import NAT Gateways using the `id`. For exampleconsole % pulumi import aws_nat_gateway.private_gw nat-05dba92075d71c408
  */
 export class NatGateway extends pulumi.CustomResource {
     /**
@@ -73,31 +98,43 @@ export class NatGateway extends pulumi.CustomResource {
     }
 
     /**
-     * The Allocation ID of the Elastic IP address for the gateway. Required for `connectivityType` of `public`.
+     * The Allocation ID of the Elastic IP address for the NAT Gateway. Required for `connectivityType` of `public`.
      */
     public readonly allocationId!: pulumi.Output<string | undefined>;
     /**
-     * The association ID of the Elastic IP address that's associated with the NAT gateway. Only available when `connectivityType` is `public`.
+     * The association ID of the Elastic IP address that's associated with the NAT Gateway. Only available when `connectivityType` is `public`.
      */
     public /*out*/ readonly associationId!: pulumi.Output<string>;
     /**
-     * Connectivity type for the gateway. Valid values are `private` and `public`. Defaults to `public`.
+     * Connectivity type for the NAT Gateway. Valid values are `private` and `public`. Defaults to `public`.
      */
     public readonly connectivityType!: pulumi.Output<string | undefined>;
     /**
-     * The ID of the network interface associated with the NAT gateway.
+     * The ID of the network interface associated with the NAT Gateway.
      */
     public /*out*/ readonly networkInterfaceId!: pulumi.Output<string>;
     /**
-     * The private IPv4 address to assign to the NAT gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
+     * The private IPv4 address to assign to the NAT Gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
      */
     public readonly privateIp!: pulumi.Output<string>;
     /**
-     * The Elastic IP address associated with the NAT gateway.
+     * The Elastic IP address associated with the NAT Gateway.
      */
     public /*out*/ readonly publicIp!: pulumi.Output<string>;
     /**
-     * The Subnet ID of the subnet in which to place the gateway.
+     * A list of secondary allocation EIP IDs for this NAT Gateway.
+     */
+    public readonly secondaryAllocationIds!: pulumi.Output<string[] | undefined>;
+    /**
+     * [Private NAT Gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
+     */
+    public readonly secondaryPrivateIpAddressCount!: pulumi.Output<number>;
+    /**
+     * A list of secondary private IPv4 addresses to assign to the NAT Gateway.
+     */
+    public readonly secondaryPrivateIpAddresses!: pulumi.Output<string[]>;
+    /**
+     * The Subnet ID of the subnet in which to place the NAT Gateway.
      */
     public readonly subnetId!: pulumi.Output<string>;
     /**
@@ -128,6 +165,9 @@ export class NatGateway extends pulumi.CustomResource {
             resourceInputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
             resourceInputs["privateIp"] = state ? state.privateIp : undefined;
             resourceInputs["publicIp"] = state ? state.publicIp : undefined;
+            resourceInputs["secondaryAllocationIds"] = state ? state.secondaryAllocationIds : undefined;
+            resourceInputs["secondaryPrivateIpAddressCount"] = state ? state.secondaryPrivateIpAddressCount : undefined;
+            resourceInputs["secondaryPrivateIpAddresses"] = state ? state.secondaryPrivateIpAddresses : undefined;
             resourceInputs["subnetId"] = state ? state.subnetId : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -139,6 +179,9 @@ export class NatGateway extends pulumi.CustomResource {
             resourceInputs["allocationId"] = args ? args.allocationId : undefined;
             resourceInputs["connectivityType"] = args ? args.connectivityType : undefined;
             resourceInputs["privateIp"] = args ? args.privateIp : undefined;
+            resourceInputs["secondaryAllocationIds"] = args ? args.secondaryAllocationIds : undefined;
+            resourceInputs["secondaryPrivateIpAddressCount"] = args ? args.secondaryPrivateIpAddressCount : undefined;
+            resourceInputs["secondaryPrivateIpAddresses"] = args ? args.secondaryPrivateIpAddresses : undefined;
             resourceInputs["subnetId"] = args ? args.subnetId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["associationId"] = undefined /*out*/;
@@ -156,31 +199,43 @@ export class NatGateway extends pulumi.CustomResource {
  */
 export interface NatGatewayState {
     /**
-     * The Allocation ID of the Elastic IP address for the gateway. Required for `connectivityType` of `public`.
+     * The Allocation ID of the Elastic IP address for the NAT Gateway. Required for `connectivityType` of `public`.
      */
     allocationId?: pulumi.Input<string>;
     /**
-     * The association ID of the Elastic IP address that's associated with the NAT gateway. Only available when `connectivityType` is `public`.
+     * The association ID of the Elastic IP address that's associated with the NAT Gateway. Only available when `connectivityType` is `public`.
      */
     associationId?: pulumi.Input<string>;
     /**
-     * Connectivity type for the gateway. Valid values are `private` and `public`. Defaults to `public`.
+     * Connectivity type for the NAT Gateway. Valid values are `private` and `public`. Defaults to `public`.
      */
     connectivityType?: pulumi.Input<string>;
     /**
-     * The ID of the network interface associated with the NAT gateway.
+     * The ID of the network interface associated with the NAT Gateway.
      */
     networkInterfaceId?: pulumi.Input<string>;
     /**
-     * The private IPv4 address to assign to the NAT gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
+     * The private IPv4 address to assign to the NAT Gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
      */
     privateIp?: pulumi.Input<string>;
     /**
-     * The Elastic IP address associated with the NAT gateway.
+     * The Elastic IP address associated with the NAT Gateway.
      */
     publicIp?: pulumi.Input<string>;
     /**
-     * The Subnet ID of the subnet in which to place the gateway.
+     * A list of secondary allocation EIP IDs for this NAT Gateway.
+     */
+    secondaryAllocationIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * [Private NAT Gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
+     */
+    secondaryPrivateIpAddressCount?: pulumi.Input<number>;
+    /**
+     * A list of secondary private IPv4 addresses to assign to the NAT Gateway.
+     */
+    secondaryPrivateIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The Subnet ID of the subnet in which to place the NAT Gateway.
      */
     subnetId?: pulumi.Input<string>;
     /**
@@ -198,19 +253,31 @@ export interface NatGatewayState {
  */
 export interface NatGatewayArgs {
     /**
-     * The Allocation ID of the Elastic IP address for the gateway. Required for `connectivityType` of `public`.
+     * The Allocation ID of the Elastic IP address for the NAT Gateway. Required for `connectivityType` of `public`.
      */
     allocationId?: pulumi.Input<string>;
     /**
-     * Connectivity type for the gateway. Valid values are `private` and `public`. Defaults to `public`.
+     * Connectivity type for the NAT Gateway. Valid values are `private` and `public`. Defaults to `public`.
      */
     connectivityType?: pulumi.Input<string>;
     /**
-     * The private IPv4 address to assign to the NAT gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
+     * The private IPv4 address to assign to the NAT Gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
      */
     privateIp?: pulumi.Input<string>;
     /**
-     * The Subnet ID of the subnet in which to place the gateway.
+     * A list of secondary allocation EIP IDs for this NAT Gateway.
+     */
+    secondaryAllocationIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * [Private NAT Gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
+     */
+    secondaryPrivateIpAddressCount?: pulumi.Input<number>;
+    /**
+     * A list of secondary private IPv4 addresses to assign to the NAT Gateway.
+     */
+    secondaryPrivateIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The Subnet ID of the subnet in which to place the NAT Gateway.
      */
     subnetId: pulumi.Input<string>;
     /**

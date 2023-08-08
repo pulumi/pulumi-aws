@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/mq"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/mq"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -59,13 +60,11 @@ import (
 //
 // ## Import
 //
-// MQ Configurations can be imported using the configuration ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_mq_configuration.example
 //
-//	$ pulumi import aws:mq/configuration:Configuration example c-0187d1eb-88c8-475a-9b79-16ef5a10c94f
-//
-// ```
+//	id = "c-0187d1eb-88c8-475a-9b79-16ef5a10c94f" } Using `pulumi import`, import MQ Configurations using the configuration ID. For exampleconsole % pulumi import aws_mq_configuration.example c-0187d1eb-88c8-475a-9b79-16ef5a10c94f
 type Configuration struct {
 	pulumi.CustomResourceState
 
@@ -109,6 +108,7 @@ func NewConfiguration(ctx *pulumi.Context,
 	if args.EngineVersion == nil {
 		return nil, errors.New("invalid value for required argument 'EngineVersion'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Configuration
 	err := ctx.RegisterResource("aws:mq/configuration:Configuration", name, args, &resource, opts...)
 	if err != nil {

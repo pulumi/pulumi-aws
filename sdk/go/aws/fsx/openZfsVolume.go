@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/fsx"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/fsx"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,13 +43,11 @@ import (
 //
 // ## Import
 //
-// FSx Volumes can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_fsx_openzfs_volume.example
 //
-//	$ pulumi import aws:fsx/openZfsVolume:OpenZfsVolume example fsvol-543ab12b1ca672f33
-//
-// ```
+//	id = "fsvol-543ab12b1ca672f33" } Using `pulumi import`, import FSx Volumes using the `id`. For exampleconsole % pulumi import aws_fsx_openzfs_volume.example fsvol-543ab12b1ca672f33
 type OpenZfsVolume struct {
 	pulumi.CustomResourceState
 
@@ -93,6 +92,7 @@ func NewOpenZfsVolume(ctx *pulumi.Context,
 	if args.ParentVolumeId == nil {
 		return nil, errors.New("invalid value for required argument 'ParentVolumeId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OpenZfsVolume
 	err := ctx.RegisterResource("aws:fsx/openZfsVolume:OpenZfsVolume", name, args, &resource, opts...)
 	if err != nil {

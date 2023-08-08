@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/dax"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dax"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -49,13 +50,11 @@ import (
 //
 // ## Import
 //
-// DAX Parameter Group can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_dax_parameter_group.example
 //
-//	$ pulumi import aws:dax/parameterGroup:ParameterGroup example my_dax_pg
-//
-// ```
+//	id = "my_dax_pg" } Using `pulumi import`, import DAX Parameter Group using the `name`. For exampleconsole % pulumi import aws_dax_parameter_group.example my_dax_pg
 type ParameterGroup struct {
 	pulumi.CustomResourceState
 
@@ -74,6 +73,7 @@ func NewParameterGroup(ctx *pulumi.Context,
 		args = &ParameterGroupArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ParameterGroup
 	err := ctx.RegisterResource("aws:dax/parameterGroup:ParameterGroup", name, args, &resource, opts...)
 	if err != nil {

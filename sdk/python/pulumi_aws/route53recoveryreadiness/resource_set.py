@@ -223,11 +223,11 @@ class ResourceSet(pulumi.CustomResource):
 
         ## Import
 
-        Route53 Recovery Readiness resource set name can be imported via the resource set name, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:route53recoveryreadiness/resourceSet:ResourceSet my-cw-alarm-set
-        ```
+         to = aws_route53recoveryreadiness_resource_set.my-cw-alarm-set
+
+         id = "example" } Using `pulumi import`, import Route53 Recovery Readiness resource set name using the resource set name. For exampleconsole % pulumi import aws_route53recoveryreadiness_resource_set.my-cw-alarm-set example
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -263,11 +263,11 @@ class ResourceSet(pulumi.CustomResource):
 
         ## Import
 
-        Route53 Recovery Readiness resource set name can be imported via the resource set name, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:route53recoveryreadiness/resourceSet:ResourceSet my-cw-alarm-set
-        ```
+         to = aws_route53recoveryreadiness_resource_set.my-cw-alarm-set
+
+         id = "example" } Using `pulumi import`, import Route53 Recovery Readiness resource set name using the resource set name. For exampleconsole % pulumi import aws_route53recoveryreadiness_resource_set.my-cw-alarm-set example
 
         :param str resource_name: The name of the resource.
         :param ResourceSetArgs args: The arguments to use to populate this resource's properties.

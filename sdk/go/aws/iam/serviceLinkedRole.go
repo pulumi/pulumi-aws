@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -41,13 +42,11 @@ import (
 //
 // ## Import
 //
-// IAM service-linked roles can be imported using role ARN, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_iam_service_linked_role.elasticbeanstalk
 //
-//	$ pulumi import aws:iam/serviceLinkedRole:ServiceLinkedRole elasticbeanstalk arn:aws:iam::123456789012:role/aws-service-role/elasticbeanstalk.amazonaws.com/AWSServiceRoleForElasticBeanstalk
-//
-// ```
+//	id = "arn:aws:iam::123456789012:role/aws-service-role/elasticbeanstalk.amazonaws.com/AWSServiceRoleForElasticBeanstalk" } Using `pulumi import`, import IAM service-linked roles using role ARN. For exampleconsole % pulumi import aws_iam_service_linked_role.elasticbeanstalk arn:aws:iam::123456789012:role/aws-service-role/elasticbeanstalk.amazonaws.com/AWSServiceRoleForElasticBeanstalk
 type ServiceLinkedRole struct {
 	pulumi.CustomResourceState
 
@@ -83,6 +82,7 @@ func NewServiceLinkedRole(ctx *pulumi.Context,
 	if args.AwsServiceName == nil {
 		return nil, errors.New("invalid value for required argument 'AwsServiceName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ServiceLinkedRole
 	err := ctx.RegisterResource("aws:iam/serviceLinkedRole:ServiceLinkedRole", name, args, &resource, opts...)
 	if err != nil {

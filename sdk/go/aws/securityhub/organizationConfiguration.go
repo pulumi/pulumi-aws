@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,8 +25,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/organizations"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/securityhub"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/organizations"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/securityhub"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -63,13 +64,11 @@ import (
 //
 // ## Import
 //
-// An existing Security Hub enabled account can be imported using the AWS account ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_securityhub_organization_configuration.example
 //
-//	$ pulumi import aws:securityhub/organizationConfiguration:OrganizationConfiguration example 123456789012
-//
-// ```
+//	id = "123456789012" } Using `pulumi import`, import an existing Security Hub enabled account using the AWS account ID. For exampleconsole % pulumi import aws_securityhub_organization_configuration.example 123456789012
 type OrganizationConfiguration struct {
 	pulumi.CustomResourceState
 
@@ -89,6 +88,7 @@ func NewOrganizationConfiguration(ctx *pulumi.Context,
 	if args.AutoEnable == nil {
 		return nil, errors.New("invalid value for required argument 'AutoEnable'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OrganizationConfiguration
 	err := ctx.RegisterResource("aws:securityhub/organizationConfiguration:OrganizationConfiguration", name, args, &resource, opts...)
 	if err != nil {

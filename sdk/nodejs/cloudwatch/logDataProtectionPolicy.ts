@@ -52,11 +52,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * This resource can be imported using the `log_group_name`. For example
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:cloudwatch/logDataProtectionPolicy:LogDataProtectionPolicy example my-log-group
- * ```
+ *  to = aws_cloudwatch_log_data_protection_policy.example
+ *
+ *  id = "my-log-group" } Using `pulumi import`, import this resource using the `log_group_name`. For exampleconsole % pulumi import aws_cloudwatch_log_data_protection_policy.example my-log-group
  */
 export class LogDataProtectionPolicy extends pulumi.CustomResource {
     /**

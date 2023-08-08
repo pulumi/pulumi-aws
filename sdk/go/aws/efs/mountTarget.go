@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/efs"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/efs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -57,13 +58,11 @@ import (
 //
 // ## Import
 //
-// The EFS mount targets can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_efs_mount_target.alpha
 //
-//	$ pulumi import aws:efs/mountTarget:MountTarget alpha fsmt-52a643fb
-//
-// ```
+//	id = "fsmt-52a643fb" } Using `pulumi import`, import the EFS mount targets using the `id`. For exampleconsole % pulumi import aws_efs_mount_target.alpha fsmt-52a643fb
 type MountTarget struct {
 	pulumi.CustomResourceState
 
@@ -106,6 +105,7 @@ func NewMountTarget(ctx *pulumi.Context,
 	if args.SubnetId == nil {
 		return nil, errors.New("invalid value for required argument 'SubnetId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MountTarget
 	err := ctx.RegisterResource("aws:efs/mountTarget:MountTarget", name, args, &resource, opts...)
 	if err != nil {

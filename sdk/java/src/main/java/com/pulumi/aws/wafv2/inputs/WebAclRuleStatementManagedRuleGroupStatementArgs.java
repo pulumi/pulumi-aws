@@ -3,7 +3,6 @@
 
 package com.pulumi.aws.wafv2.inputs;
 
-import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementExcludedRuleArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs;
@@ -21,37 +20,14 @@ public final class WebAclRuleStatementManagedRuleGroupStatementArgs extends com.
     public static final WebAclRuleStatementManagedRuleGroupStatementArgs Empty = new WebAclRuleStatementManagedRuleGroupStatementArgs();
 
     /**
-     * The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See `excluded_rule` below for details. Use `rule_action_override` instead. (See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ManagedRuleGroupStatement.html#WAF-Type-ManagedRuleGroupStatement-ExcludedRules))
-     * 
-     * @deprecated
-     * Use rule_action_override instead
-     * 
-     */
-    @Deprecated /* Use rule_action_override instead */
-    @Import(name="excludedRules")
-    private @Nullable Output<List<WebAclRuleStatementManagedRuleGroupStatementExcludedRuleArgs>> excludedRules;
-
-    /**
-     * @return The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See `excluded_rule` below for details. Use `rule_action_override` instead. (See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ManagedRuleGroupStatement.html#WAF-Type-ManagedRuleGroupStatement-ExcludedRules))
-     * 
-     * @deprecated
-     * Use rule_action_override instead
-     * 
-     */
-    @Deprecated /* Use rule_action_override instead */
-    public Optional<Output<List<WebAclRuleStatementManagedRuleGroupStatementExcludedRuleArgs>>> excludedRules() {
-        return Optional.ofNullable(this.excludedRules);
-    }
-
-    /**
-     * Additional information that&#39;s used by a managed rule group. Only one rule attribute is allowed in each config. See Managed Rule Group Configs for more details
+     * Additional information that&#39;s used by a managed rule group. Only one rule attribute is allowed in each config. See `managed_rule_group_configs` for more details
      * 
      */
     @Import(name="managedRuleGroupConfigs")
     private @Nullable Output<List<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs>> managedRuleGroupConfigs;
 
     /**
-     * @return Additional information that&#39;s used by a managed rule group. Only one rule attribute is allowed in each config. See Managed Rule Group Configs for more details
+     * @return Additional information that&#39;s used by a managed rule group. Only one rule attribute is allowed in each config. See `managed_rule_group_configs` for more details
      * 
      */
     public Optional<Output<List<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs>>> managedRuleGroupConfigs() {
@@ -136,7 +112,6 @@ public final class WebAclRuleStatementManagedRuleGroupStatementArgs extends com.
     private WebAclRuleStatementManagedRuleGroupStatementArgs() {}
 
     private WebAclRuleStatementManagedRuleGroupStatementArgs(WebAclRuleStatementManagedRuleGroupStatementArgs $) {
-        this.excludedRules = $.excludedRules;
         this.managedRuleGroupConfigs = $.managedRuleGroupConfigs;
         this.name = $.name;
         this.ruleActionOverrides = $.ruleActionOverrides;
@@ -164,50 +139,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementArgs extends com.
         }
 
         /**
-         * @param excludedRules The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See `excluded_rule` below for details. Use `rule_action_override` instead. (See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ManagedRuleGroupStatement.html#WAF-Type-ManagedRuleGroupStatement-ExcludedRules))
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use rule_action_override instead
-         * 
-         */
-        @Deprecated /* Use rule_action_override instead */
-        public Builder excludedRules(@Nullable Output<List<WebAclRuleStatementManagedRuleGroupStatementExcludedRuleArgs>> excludedRules) {
-            $.excludedRules = excludedRules;
-            return this;
-        }
-
-        /**
-         * @param excludedRules The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See `excluded_rule` below for details. Use `rule_action_override` instead. (See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ManagedRuleGroupStatement.html#WAF-Type-ManagedRuleGroupStatement-ExcludedRules))
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use rule_action_override instead
-         * 
-         */
-        @Deprecated /* Use rule_action_override instead */
-        public Builder excludedRules(List<WebAclRuleStatementManagedRuleGroupStatementExcludedRuleArgs> excludedRules) {
-            return excludedRules(Output.of(excludedRules));
-        }
-
-        /**
-         * @param excludedRules The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See `excluded_rule` below for details. Use `rule_action_override` instead. (See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ManagedRuleGroupStatement.html#WAF-Type-ManagedRuleGroupStatement-ExcludedRules))
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use rule_action_override instead
-         * 
-         */
-        @Deprecated /* Use rule_action_override instead */
-        public Builder excludedRules(WebAclRuleStatementManagedRuleGroupStatementExcludedRuleArgs... excludedRules) {
-            return excludedRules(List.of(excludedRules));
-        }
-
-        /**
-         * @param managedRuleGroupConfigs Additional information that&#39;s used by a managed rule group. Only one rule attribute is allowed in each config. See Managed Rule Group Configs for more details
+         * @param managedRuleGroupConfigs Additional information that&#39;s used by a managed rule group. Only one rule attribute is allowed in each config. See `managed_rule_group_configs` for more details
          * 
          * @return builder
          * 
@@ -218,7 +150,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementArgs extends com.
         }
 
         /**
-         * @param managedRuleGroupConfigs Additional information that&#39;s used by a managed rule group. Only one rule attribute is allowed in each config. See Managed Rule Group Configs for more details
+         * @param managedRuleGroupConfigs Additional information that&#39;s used by a managed rule group. Only one rule attribute is allowed in each config. See `managed_rule_group_configs` for more details
          * 
          * @return builder
          * 
@@ -228,7 +160,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementArgs extends com.
         }
 
         /**
-         * @param managedRuleGroupConfigs Additional information that&#39;s used by a managed rule group. Only one rule attribute is allowed in each config. See Managed Rule Group Configs for more details
+         * @param managedRuleGroupConfigs Additional information that&#39;s used by a managed rule group. Only one rule attribute is allowed in each config. See `managed_rule_group_configs` for more details
          * 
          * @return builder
          * 

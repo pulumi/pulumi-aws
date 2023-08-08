@@ -71,17 +71,8 @@ namespace Pulumi.Aws
 
     public sealed class GetDefaultTagsArgs : global::Pulumi.InvokeArgs
     {
-        [Input("tags")]
-        private Dictionary<string, string>? _tags;
-
-        /// <summary>
-        /// Blocks of default tags set on the provider. See details below.
-        /// </summary>
-        public Dictionary<string, string> Tags
-        {
-            get => _tags ?? (_tags = new Dictionary<string, string>());
-            set => _tags = value;
-        }
+        [Input("id")]
+        public string? Id { get; set; }
 
         public GetDefaultTagsArgs()
         {
@@ -91,17 +82,8 @@ namespace Pulumi.Aws
 
     public sealed class GetDefaultTagsInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Blocks of default tags set on the provider. See details below.
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
+        [Input("id")]
+        public Input<string>? Id { get; set; }
 
         public GetDefaultTagsInvokeArgs()
         {
@@ -113,9 +95,6 @@ namespace Pulumi.Aws
     [OutputType]
     public sealed class GetDefaultTagsResult
     {
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
         public readonly string Id;
         /// <summary>
         /// Blocks of default tags set on the provider. See details below.

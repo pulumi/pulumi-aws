@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,8 +23,8 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3control"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3control"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -94,13 +95,11 @@ import (
 //
 // ## Import
 //
-// Object Lambda Access Point policies can be imported using the `account_id` and `name`, separated by a colon (`:`), e.g.
+// terraform import {
 //
-// ```sh
+//	to = aws_s3control_object_lambda_access_point_policy.example
 //
-//	$ pulumi import aws:s3control/objectLambdaAccessPointPolicy:ObjectLambdaAccessPointPolicy example 123456789012:example
-//
-// ```
+//	id = "123456789012:example" } Using `pulumi import`, import Object Lambda Access Point policies using the `account_id` and `name`, separated by a colon (`:`). For exampleconsole % pulumi import aws_s3control_object_lambda_access_point_policy.example 123456789012:example
 type ObjectLambdaAccessPointPolicy struct {
 	pulumi.CustomResourceState
 
@@ -124,6 +123,7 @@ func NewObjectLambdaAccessPointPolicy(ctx *pulumi.Context,
 	if args.Policy == nil {
 		return nil, errors.New("invalid value for required argument 'Policy'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ObjectLambdaAccessPointPolicy
 	err := ctx.RegisterResource("aws:s3control/objectLambdaAccessPointPolicy:ObjectLambdaAccessPointPolicy", name, args, &resource, opts...)
 	if err != nil {

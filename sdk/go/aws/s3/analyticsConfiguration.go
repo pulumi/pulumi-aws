@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -63,7 +64,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -95,13 +96,11 @@ import (
 //
 // ## Import
 //
-// S3 bucket analytics configurations can be imported using `bucket:analytics`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_s3_bucket_analytics_configuration.my-bucket-entire-bucket
 //
-//	$ pulumi import aws:s3/analyticsConfiguration:AnalyticsConfiguration my-bucket-entire-bucket my-bucket:EntireBucket
-//
-// ```
+//	id = "my-bucket:EntireBucket" } Using `pulumi import`, import S3 bucket analytics configurations using `bucket:analytics`. For exampleconsole % pulumi import aws_s3_bucket_analytics_configuration.my-bucket-entire-bucket my-bucket:EntireBucket
 type AnalyticsConfiguration struct {
 	pulumi.CustomResourceState
 
@@ -125,6 +124,7 @@ func NewAnalyticsConfiguration(ctx *pulumi.Context,
 	if args.Bucket == nil {
 		return nil, errors.New("invalid value for required argument 'Bucket'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AnalyticsConfiguration
 	err := ctx.RegisterResource("aws:s3/analyticsConfiguration:AnalyticsConfiguration", name, args, &resource, opts...)
 	if err != nil {

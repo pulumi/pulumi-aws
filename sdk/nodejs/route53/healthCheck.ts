@@ -83,11 +83,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Route53 Health Checks can be imported using the `health check id`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:route53/healthCheck:HealthCheck http_check abcdef11-2222-3333-4444-555555fedcba
- * ```
+ *  to = aws_route53_health_check.http_check
+ *
+ *  id = "abcdef11-2222-3333-4444-555555fedcba" } Using `pulumi import`, import Route53 Health Checks using the health check `id`. For exampleconsole % pulumi import aws_route53_health_check.http_check abcdef11-2222-3333-4444-555555fedcba
  */
 export class HealthCheck extends pulumi.CustomResource {
     /**
@@ -155,7 +155,7 @@ export class HealthCheck extends pulumi.CustomResource {
      */
     public readonly failureThreshold!: pulumi.Output<number>;
     /**
-     * The fully qualified domain name of the endpoint to be checked.
+     * The fully qualified domain name of the endpoint to be checked. If a value is set for `ipAddress`, the value set for `fqdn` will be passed in the `Host` header.
      */
     public readonly fqdn!: pulumi.Output<string | undefined>;
     /**
@@ -328,7 +328,7 @@ export interface HealthCheckState {
      */
     failureThreshold?: pulumi.Input<number>;
     /**
-     * The fully qualified domain name of the endpoint to be checked.
+     * The fully qualified domain name of the endpoint to be checked. If a value is set for `ipAddress`, the value set for `fqdn` will be passed in the `Host` header.
      */
     fqdn?: pulumi.Input<string>;
     /**
@@ -428,7 +428,7 @@ export interface HealthCheckArgs {
      */
     failureThreshold?: pulumi.Input<number>;
     /**
-     * The fully qualified domain name of the endpoint to be checked.
+     * The fully qualified domain name of the endpoint to be checked. If a value is set for `ipAddress`, the value set for `fqdn` will be passed in the `Host` header.
      */
     fqdn?: pulumi.Input<string>;
     /**

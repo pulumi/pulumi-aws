@@ -114,11 +114,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * DirectoryService directories can be imported using the directory `id`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:directoryservice/directory:Directory sample d-926724cf57
- * ```
+ *  to = aws_directory_service_directory.sample
+ *
+ *  id = "d-926724cf57" } Using `pulumi import`, import DirectoryService directories using the directory `id`. For exampleconsole % pulumi import aws_directory_service_directory.sample d-926724cf57
  */
 export class Directory extends pulumi.CustomResource {
     /**

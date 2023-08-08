@@ -22,7 +22,6 @@ from .hsm_configuration import *
 from .parameter_group import *
 from .partner import *
 from .scheduled_action import *
-from .security_group import *
 from .snapshot_copy_grant import *
 from .snapshot_schedule import *
 from .snapshot_schedule_association import *

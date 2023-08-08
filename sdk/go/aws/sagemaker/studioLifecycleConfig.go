@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -17,13 +18,11 @@ import (
 //
 // ## Import
 //
-// SageMaker Studio Lifecycle Configs can be imported using the `studio_lifecycle_config_name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_sagemaker_studio_lifecycle_config.example
 //
-//	$ pulumi import aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig example example
-//
-// ```
+//	id = "example" } Using `pulumi import`, import SageMaker Studio Lifecycle Configs using the `studio_lifecycle_config_name`. For exampleconsole % pulumi import aws_sagemaker_studio_lifecycle_config.example example
 type StudioLifecycleConfig struct {
 	pulumi.CustomResourceState
 
@@ -57,6 +56,7 @@ func NewStudioLifecycleConfig(ctx *pulumi.Context,
 	if args.StudioLifecycleConfigName == nil {
 		return nil, errors.New("invalid value for required argument 'StudioLifecycleConfigName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource StudioLifecycleConfig
 	err := ctx.RegisterResource("aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig", name, args, &resource, opts...)
 	if err != nil {

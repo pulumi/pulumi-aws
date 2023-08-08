@@ -193,11 +193,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * CloudWatch Evidently Feature can be imported using the feature `name` and `name` or `arn` of the hosting CloudWatch Evidently Project separated by a `:`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:evidently/feature:Feature example exampleFeatureName:arn:aws:evidently:us-east-1:123456789012:project/example
- * ```
+ *  to = aws_evidently_feature.example
+ * 
+ *  id = &#34;exampleFeatureName:arn:aws:evidently:us-east-1:123456789012:project/example&#34; } Using `pulumi import`, import CloudWatch Evidently Feature using the feature `name` and `name` or `arn` of the hosting CloudWatch Evidently Project separated by a `:`. For exampleconsole % pulumi import aws_evidently_feature.example exampleFeatureName:arn:aws:evidently:us-east-1:123456789012:project/example
  * 
  */
 @ResourceType(type="aws:evidently/feature:Feature")

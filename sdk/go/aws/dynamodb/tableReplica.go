@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,8 +26,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/dynamodb"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dynamodb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -56,7 +57,7 @@ import (
 //						Type: pulumi.String("S"),
 //					},
 //				},
-//			}, pulumi.Provider("aws.main"))
+//			}, pulumi.Provider(aws.Main))
 //			if err != nil {
 //				return err
 //			}
@@ -66,7 +67,7 @@ import (
 //					"Name": pulumi.String("IZPAWS"),
 //					"Pozo": pulumi.String("Amargo"),
 //				},
-//			}, pulumi.Provider("aws.alt"))
+//			}, pulumi.Provider(aws.Alt))
 //			if err != nil {
 //				return err
 //			}
@@ -78,13 +79,11 @@ import (
 //
 // ## Import
 //
-// DynamoDB table replicas can be imported using the `table-name:main-region`, _e.g._,
+// terraform import {
 //
-// ```sh
+//	to = aws_dynamodb_table_replica.example
 //
-//	$ pulumi import aws:dynamodb/tableReplica:TableReplica example TestTable:us-west-2
-//
-// ```
+//	id = "TestTable:us-west-2" } Using `pulumi import`, import DynamoDB table replicas using the `table-name:main-region`. For exampleconsole % pulumi import aws_dynamodb_table_replica.example TestTable:us-west-2
 type TableReplica struct {
 	pulumi.CustomResourceState
 
@@ -116,6 +115,7 @@ func NewTableReplica(ctx *pulumi.Context,
 	if args.GlobalTableArn == nil {
 		return nil, errors.New("invalid value for required argument 'GlobalTableArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TableReplica
 	err := ctx.RegisterResource("aws:dynamodb/tableReplica:TableReplica", name, args, &resource, opts...)
 	if err != nil {

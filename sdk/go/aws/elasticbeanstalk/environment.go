@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,7 +26,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elasticbeanstalk"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticbeanstalk"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -69,7 +70,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elasticbeanstalk"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticbeanstalk"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -109,13 +110,11 @@ import (
 //
 // ## Import
 //
-// Elastic Beanstalk Environments can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_elastic_beanstalk_environment.prodenv
 //
-//	$ pulumi import aws:elasticbeanstalk/environment:Environment prodenv e-rpqsewtp2j
-//
-// ```
+//	id = "e-rpqsewtp2j" } Using `pulumi import`, import Elastic Beanstalk Environments using the `id`. For exampleconsole % pulumi import aws_elastic_beanstalk_environment.prodenv e-rpqsewtp2j
 type Environment struct {
 	pulumi.CustomResourceState
 
@@ -196,6 +195,7 @@ func NewEnvironment(ctx *pulumi.Context,
 	if args.Application == nil {
 		return nil, errors.New("invalid value for required argument 'Application'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Environment
 	err := ctx.RegisterResource("aws:elasticbeanstalk/environment:Environment", name, args, &resource, opts...)
 	if err != nil {

@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Ec2
     /// Provides an EC2 Spot Fleet Request resource. This allows a fleet of Spot
     /// instances to be requested on the Spot market.
     /// 
+    /// &gt; **NOTE [AWS strongly discourages](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html#which-spot-request-method-to-use) the use of the legacy APIs called by this resource.
+    /// We recommend using the EC2 Fleet or Auto Scaling Group resources instead.
+    /// 
     /// ## Example Usage
     /// ### Using launch specifications
     /// 
@@ -127,9 +130,19 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = Aws.Ec2.GetSubnetIds.Invoke(new()
+    ///     var example = Aws.Ec2.GetSubnets.Invoke(new()
     ///     {
-    ///         VpcId = @var.Vpc_id,
+    ///         Filters = new[]
+    ///         {
+    ///             new Aws.Ec2.Inputs.GetSubnetsFilterInputArgs
+    ///             {
+    ///                 Name = "vpc-id",
+    ///                 Values = new[]
+    ///                 {
+    ///                     @var.Vpc_id,
+    ///                 },
+    ///             },
+    ///         },
     ///     });
     /// 
     ///     var fooLaunchTemplate = new Aws.Ec2.LaunchTemplate("fooLaunchTemplate", new()
@@ -158,15 +171,15 @@ namespace Pulumi.Aws.Ec2
     ///                 {
     ///                     new Aws.Ec2.Inputs.SpotFleetRequestLaunchTemplateConfigOverrideArgs
     ///                     {
-    ///                         SubnetId = data.Aws_subnets.Example.Ids[0],
+    ///                         SubnetId = example.Apply(getSubnetsResult =&gt; getSubnetsResult.Ids[0]),
     ///                     },
     ///                     new Aws.Ec2.Inputs.SpotFleetRequestLaunchTemplateConfigOverrideArgs
     ///                     {
-    ///                         SubnetId = data.Aws_subnets.Example.Ids[1],
+    ///                         SubnetId = example.Apply(getSubnetsResult =&gt; getSubnetsResult.Ids[1]),
     ///                     },
     ///                     new Aws.Ec2.Inputs.SpotFleetRequestLaunchTemplateConfigOverrideArgs
     ///                     {
-    ///                         SubnetId = data.Aws_subnets.Example.Ids[2],
+    ///                         SubnetId = example.Apply(getSubnetsResult =&gt; getSubnetsResult.Ids[2]),
     ///                     },
     ///                 },
     ///             },
@@ -184,11 +197,11 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// Spot Fleet Requests can be imported using `id`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:ec2/spotFleetRequest:SpotFleetRequest fleet sfr-005e9ec8-5546-4c31-b317-31a62325411e
-    /// ```
+    ///  to = aws_spot_fleet_request.fleet
+    /// 
+    ///  id = "sfr-005e9ec8-5546-4c31-b317-31a62325411e" } Using `pulumi import`, import Spot Fleet Requests using `id`. For exampleconsole % pulumi import aws_spot_fleet_request.fleet sfr-005e9ec8-5546-4c31-b317-31a62325411e
     /// </summary>
     [AwsResourceType("aws:ec2/spotFleetRequest:SpotFleetRequest")]
     public partial class SpotFleetRequest : global::Pulumi.CustomResource

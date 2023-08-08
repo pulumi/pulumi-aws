@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appconfig"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appconfig"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,13 +53,11 @@ import (
 //
 // ## Import
 //
-// AppConfig Configuration Profiles can be imported by using the configuration profile ID and application ID separated by a colon (`:`), e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_appconfig_configuration_profile.example
 //
-//	$ pulumi import aws:appconfig/configurationProfile:ConfigurationProfile example 71abcde:11xxxxx
-//
-// ```
+//	id = "71abcde:11xxxxx" } Using `pulumi import`, import AppConfig Configuration Profiles using the configuration profile ID and application ID separated by a colon (`:`). For exampleconsole % pulumi import aws_appconfig_configuration_profile.example 71abcde:11xxxxx
 type ConfigurationProfile struct {
 	pulumi.CustomResourceState
 
@@ -99,6 +98,7 @@ func NewConfigurationProfile(ctx *pulumi.Context,
 	if args.LocationUri == nil {
 		return nil, errors.New("invalid value for required argument 'LocationUri'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ConfigurationProfile
 	err := ctx.RegisterResource("aws:appconfig/configurationProfile:ConfigurationProfile", name, args, &resource, opts...)
 	if err != nil {

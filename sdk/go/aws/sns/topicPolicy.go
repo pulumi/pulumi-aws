@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,9 +23,10 @@ import (
 //
 // import (
 //
-// "github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
@@ -90,13 +92,11 @@ import (
 //
 // ## Import
 //
-// SNS Topic Policy can be imported using the topic ARN, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_sns_topic_policy.user_updates
 //
-//	$ pulumi import aws:sns/topicPolicy:TopicPolicy user_updates arn:aws:sns:us-west-2:0123456789012:my-topic
-//
-// ```
+//	id = "arn:aws:sns:us-west-2:0123456789012:my-topic" } Using `pulumi import`, import SNS Topic Policy using the topic ARN. For exampleconsole % pulumi import aws_sns_topic_policy.user_updates arn:aws:sns:us-west-2:0123456789012:my-topic
 type TopicPolicy struct {
 	pulumi.CustomResourceState
 
@@ -121,6 +121,7 @@ func NewTopicPolicy(ctx *pulumi.Context,
 	if args.Policy == nil {
 		return nil, errors.New("invalid value for required argument 'Policy'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TopicPolicy
 	err := ctx.RegisterResource("aws:sns/topicPolicy:TopicPolicy", name, args, &resource, opts...)
 	if err != nil {

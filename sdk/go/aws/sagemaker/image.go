@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -43,13 +44,11 @@ import (
 //
 // ## Import
 //
-// SageMaker Code Images can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_sagemaker_image.test_image
 //
-//	$ pulumi import aws:sagemaker/image:Image test_image my-code-repo
-//
-// ```
+//	id = "my-code-repo" } Using `pulumi import`, import SageMaker Code Images using the `name`. For exampleconsole % pulumi import aws_sagemaker_image.test_image my-code-repo
 type Image struct {
 	pulumi.CustomResourceState
 
@@ -82,6 +81,7 @@ func NewImage(ctx *pulumi.Context,
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Image
 	err := ctx.RegisterResource("aws:sagemaker/image:Image", name, args, &resource, opts...)
 	if err != nil {

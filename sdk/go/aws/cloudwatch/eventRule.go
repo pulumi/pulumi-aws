@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,12 +21,14 @@ import (
 // package main
 //
 // import (
-// "encoding/json"
 //
-// "github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
@@ -95,13 +98,11 @@ import (
 //
 // ## Import
 //
-// EventBridge Rules can be imported using the `event_bus_name/rule_name` (if you omit `event_bus_name`, the `default` event bus will be used), e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_cloudwatch_event_rule.console
 //
-//	$ pulumi import aws:cloudwatch/eventRule:EventRule console example-event-bus/capture-console-sign-in
-//
-// ```
+//	id = "example-event-bus/capture-console-sign-in" } Using `pulumi import`, import EventBridge Rules using the `event_bus_name/rule_name` (if you omit `event_bus_name`, the `default` event bus will be used). For exampleconsole % pulumi import aws_cloudwatch_event_rule.console example-event-bus/capture-console-sign-in
 type EventRule struct {
 	pulumi.CustomResourceState
 
@@ -137,6 +138,7 @@ func NewEventRule(ctx *pulumi.Context,
 		args = &EventRuleArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EventRule
 	err := ctx.RegisterResource("aws:cloudwatch/eventRule:EventRule", name, args, &resource, opts...)
 	if err != nil {

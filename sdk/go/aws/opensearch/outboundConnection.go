@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +22,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/opensearch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opensearch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -61,13 +62,11 @@ import (
 //
 // ## Import
 //
-// AWS Opensearch Outbound Connections can be imported by using the Outbound Connection ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_opensearch_outbound_connection.foo
 //
-//	$ pulumi import aws:opensearch/outboundConnection:OutboundConnection foo connection-id
-//
-// ```
+//	id = "connection-id" } Using `pulumi import`, import AWS Opensearch Outbound Connections using the Outbound Connection ID. For exampleconsole % pulumi import aws_opensearch_outbound_connection.foo connection-id
 type OutboundConnection struct {
 	pulumi.CustomResourceState
 
@@ -97,6 +96,7 @@ func NewOutboundConnection(ctx *pulumi.Context,
 	if args.RemoteDomainInfo == nil {
 		return nil, errors.New("invalid value for required argument 'RemoteDomainInfo'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OutboundConnection
 	err := ctx.RegisterResource("aws:opensearch/outboundConnection:OutboundConnection", name, args, &resource, opts...)
 	if err != nil {

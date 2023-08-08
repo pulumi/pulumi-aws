@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -55,13 +56,11 @@ import (
 //
 // ## Import
 //
-// Route53 Traffic Policy can be imported using the `id` and `version`, e.g.
+// terraform import {
 //
-// ```sh
+//	to = aws_route53_traffic_policy.example
 //
-//	$ pulumi import aws:route53/trafficPolicy:TrafficPolicy example 01a52019-d16f-422a-ae72-c306d2b6df7e/1
-//
-// ```
+//	id = "01a52019-d16f-422a-ae72-c306d2b6df7e/1" } Using `pulumi import`, import Route53 Traffic Policy using the `id` and `version`. For exampleconsole % pulumi import aws_route53_traffic_policy.example 01a52019-d16f-422a-ae72-c306d2b6df7e/1
 type TrafficPolicy struct {
 	pulumi.CustomResourceState
 
@@ -89,6 +88,7 @@ func NewTrafficPolicy(ctx *pulumi.Context,
 	if args.Document == nil {
 		return nil, errors.New("invalid value for required argument 'Document'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TrafficPolicy
 	err := ctx.RegisterResource("aws:route53/trafficPolicy:TrafficPolicy", name, args, &resource, opts...)
 	if err != nil {

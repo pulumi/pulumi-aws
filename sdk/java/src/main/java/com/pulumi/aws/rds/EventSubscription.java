@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *             .engine(&#34;mysql&#34;)
  *             .engineVersion(&#34;5.6.17&#34;)
  *             .instanceClass(&#34;db.t2.micro&#34;)
- *             .name(&#34;mydb&#34;)
+ *             .dbName(&#34;mydb&#34;)
  *             .username(&#34;foo&#34;)
  *             .password(&#34;bar&#34;)
  *             .dbSubnetGroupName(&#34;my_database_subnet_group&#34;)
@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  *         var defaultEventSubscription = new EventSubscription(&#34;defaultEventSubscription&#34;, EventSubscriptionArgs.builder()        
  *             .snsTopic(defaultTopic.arn())
  *             .sourceType(&#34;db-instance&#34;)
- *             .sourceIds(defaultInstance.id())
+ *             .sourceIds(defaultInstance.identifier())
  *             .eventCategories(            
  *                 &#34;availability&#34;,
  *                 &#34;deletion&#34;,
@@ -82,11 +82,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * DB Event Subscriptions can be imported using the `name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:rds/eventSubscription:EventSubscription default rds-event-sub
- * ```
+ *  to = aws_db_event_subscription.default
+ * 
+ *  id = &#34;rds-event-sub&#34; } Using `pulumi import`, import DB Event Subscriptions using the `name`. For exampleconsole % pulumi import aws_db_event_subscription.default rds-event-sub
  * 
  */
 @ResourceType(type="aws:rds/eventSubscription:EventSubscription")
@@ -204,14 +204,14 @@ public class EventSubscription extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.sourceIds);
     }
     /**
-     * The type of source that will be generating the events. Valid options are `db-instance`, `db-security-group`, `db-parameter-group`, `db-snapshot`, `db-cluster` or `db-cluster-snapshot`. If not set, all sources will be subscribed to.
+     * The type of source that will be generating the events. Valid options are `db-instance`, `db-security-group`, `db-parameter-group`, `db-snapshot`, `db-cluster`, `db-cluster-snapshot`, or `db-proxy`. If not set, all sources will be subscribed to.
      * 
      */
     @Export(name="sourceType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sourceType;
 
     /**
-     * @return The type of source that will be generating the events. Valid options are `db-instance`, `db-security-group`, `db-parameter-group`, `db-snapshot`, `db-cluster` or `db-cluster-snapshot`. If not set, all sources will be subscribed to.
+     * @return The type of source that will be generating the events. Valid options are `db-instance`, `db-security-group`, `db-parameter-group`, `db-snapshot`, `db-cluster`, `db-cluster-snapshot`, or `db-proxy`. If not set, all sources will be subscribed to.
      * 
      */
     public Output<Optional<String>> sourceType() {

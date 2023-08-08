@@ -265,7 +265,6 @@ import javax.annotation.Nullable;
  * ```
  * 
  * CloudFront distribution using [managed policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) (ex: CachingDisabled):
- * 
  * ```java
  * package generated_program;
  * 
@@ -313,7 +312,6 @@ import javax.annotation.Nullable;
  *                     &#34;GET&#34;,
  *                     &#34;HEAD&#34;,
  *                     &#34;OPTIONS&#34;)
- *                 .pathPattern(&#34;/content/*&#34;)
  *                 .targetOriginId(s3OriginId)
  *                 .build())
  *             .restrictions(DistributionRestrictionsArgs.builder()
@@ -337,11 +335,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * CloudFront Distributions can be imported using the `id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:cloudfront/distribution:Distribution distribution E74FTE3EXAMPLE
- * ```
+ *  to = aws_cloudfront_distribution.distribution
+ * 
+ *  id = &#34;E74FTE3EXAMPLE&#34; } Using `pulumi import`, import CloudFront Distributions using the `id`. For exampleconsole % pulumi import aws_cloudfront_distribution.distribution E74FTE3EXAMPLE
  * 
  */
 @ResourceType(type="aws:cloudfront/distribution:Distribution")

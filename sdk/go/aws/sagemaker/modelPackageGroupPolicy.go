@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -17,13 +18,11 @@ import (
 //
 // ## Import
 //
-// SageMaker Model Package Groups can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_sagemaker_model_package_group_policy.example
 //
-//	$ pulumi import aws:sagemaker/modelPackageGroupPolicy:ModelPackageGroupPolicy example example
-//
-// ```
+//	id = "example" } Using `pulumi import`, import SageMaker Model Package Groups using the `name`. For exampleconsole % pulumi import aws_sagemaker_model_package_group_policy.example example
 type ModelPackageGroupPolicy struct {
 	pulumi.CustomResourceState
 
@@ -45,6 +44,7 @@ func NewModelPackageGroupPolicy(ctx *pulumi.Context,
 	if args.ResourcePolicy == nil {
 		return nil, errors.New("invalid value for required argument 'ResourcePolicy'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ModelPackageGroupPolicy
 	err := ctx.RegisterResource("aws:sagemaker/modelPackageGroupPolicy:ModelPackageGroupPolicy", name, args, &resource, opts...)
 	if err != nil {

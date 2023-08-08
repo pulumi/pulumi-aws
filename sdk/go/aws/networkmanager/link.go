@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkmanager"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkmanager"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -47,13 +48,11 @@ import (
 //
 // ## Import
 //
-// `aws_networkmanager_link` can be imported using the link ARN, e.g.
+// terraform import {
 //
-// ```sh
+//	to = aws_networkmanager_link.example
 //
-//	$ pulumi import aws:networkmanager/link:Link example arn:aws:networkmanager::123456789012:link/global-network-0d47f6t230mz46dy4/link-444555aaabbb11223
-//
-// ```
+//	id = "arn:aws:networkmanager::123456789012:link/global-network-0d47f6t230mz46dy4/link-444555aaabbb11223" } Using `pulumi import`, import `aws_networkmanager_link` using the link ARN. For exampleconsole % pulumi import aws_networkmanager_link.example arn:aws:networkmanager::123456789012:link/global-network-0d47f6t230mz46dy4/link-444555aaabbb11223
 type Link struct {
 	pulumi.CustomResourceState
 
@@ -93,6 +92,7 @@ func NewLink(ctx *pulumi.Context,
 	if args.SiteId == nil {
 		return nil, errors.New("invalid value for required argument 'SiteId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Link
 	err := ctx.RegisterResource("aws:networkmanager/link:Link", name, args, &resource, opts...)
 	if err != nil {

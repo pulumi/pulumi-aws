@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.keyspaces.TableArgs;
 import com.pulumi.aws.keyspaces.inputs.TableState;
 import com.pulumi.aws.keyspaces.outputs.TableCapacitySpecification;
+import com.pulumi.aws.keyspaces.outputs.TableClientSideTimestamps;
 import com.pulumi.aws.keyspaces.outputs.TableComment;
 import com.pulumi.aws.keyspaces.outputs.TableEncryptionSpecification;
 import com.pulumi.aws.keyspaces.outputs.TablePointInTimeRecovery;
@@ -70,11 +71,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Use the `keyspace_name` and `table_name` separated by `/` to import a table. For example
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:keyspaces/table:Table example my_keyspace/my_table
- * ```
+ *  to = aws_keyspaces_table.example
+ * 
+ *  id = &#34;my_keyspace/my_table&#34; } Using `pulumi import`, import a table using the `keyspace_name` and `table_name` separated by `/`. For exampleconsole % pulumi import aws_keyspaces_table.example my_keyspace/my_table
  * 
  */
 @ResourceType(type="aws:keyspaces/table:Table")
@@ -106,6 +107,20 @@ public class Table extends com.pulumi.resources.CustomResource {
      */
     public Output<TableCapacitySpecification> capacitySpecification() {
         return this.capacitySpecification;
+    }
+    /**
+     * Enables client-side timestamps for the table. By default, the setting is disabled.
+     * 
+     */
+    @Export(name="clientSideTimestamps", refs={TableClientSideTimestamps.class}, tree="[0]")
+    private Output</* @Nullable */ TableClientSideTimestamps> clientSideTimestamps;
+
+    /**
+     * @return Enables client-side timestamps for the table. By default, the setting is disabled.
+     * 
+     */
+    public Output<Optional<TableClientSideTimestamps>> clientSideTimestamps() {
+        return Codegen.optional(this.clientSideTimestamps);
     }
     /**
      * A description of the table.

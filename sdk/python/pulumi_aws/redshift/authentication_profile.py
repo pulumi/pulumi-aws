@@ -118,11 +118,11 @@ class AuthenticationProfile(pulumi.CustomResource):
 
         ## Import
 
-        Redshift Authentication Profiles support import by `authentication_profile_name`, e.g., console
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:redshift/authenticationProfile:AuthenticationProfile test example
-        ```
+         to = aws_redshift_authentication_profile.test
+
+         id = "example" } Using `pulumi import`, import Redshift Authentication by `authentication_profile_name`. For exampleconsole % pulumi import aws_redshift_authentication_profile.test example
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -156,11 +156,11 @@ class AuthenticationProfile(pulumi.CustomResource):
 
         ## Import
 
-        Redshift Authentication Profiles support import by `authentication_profile_name`, e.g., console
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:redshift/authenticationProfile:AuthenticationProfile test example
-        ```
+         to = aws_redshift_authentication_profile.test
+
+         id = "example" } Using `pulumi import`, import Redshift Authentication by `authentication_profile_name`. For exampleconsole % pulumi import aws_redshift_authentication_profile.test example
 
         :param str resource_name: The name of the resource.
         :param AuthenticationProfileArgs args: The arguments to use to populate this resource's properties.

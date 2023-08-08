@@ -6,26 +6,10 @@ import * as utilities from "./utilities";
 
 // Export members:
 export * from "./arn";
-export * from "./awsMixins";
-export { GetAmiArgs, GetAmiResult, GetAmiOutputArgs } from "./getAmi";
-export const getAmi: typeof import("./getAmi").getAmi = null as any;
-export const getAmiOutput: typeof import("./getAmi").getAmiOutput = null as any;
-utilities.lazyLoad(exports, ["getAmi","getAmiOutput"], () => require("./getAmi"));
-
-export { GetAmiIdsArgs, GetAmiIdsResult, GetAmiIdsOutputArgs } from "./getAmiIds";
-export const getAmiIds: typeof import("./getAmiIds").getAmiIds = null as any;
-export const getAmiIdsOutput: typeof import("./getAmiIds").getAmiIdsOutput = null as any;
-utilities.lazyLoad(exports, ["getAmiIds","getAmiIdsOutput"], () => require("./getAmiIds"));
-
 export { GetArnArgs, GetArnResult, GetArnOutputArgs } from "./getArn";
 export const getArn: typeof import("./getArn").getArn = null as any;
 export const getArnOutput: typeof import("./getArn").getArnOutput = null as any;
 utilities.lazyLoad(exports, ["getArn","getArnOutput"], () => require("./getArn"));
-
-export { GetAutoscalingGroupsArgs, GetAutoscalingGroupsResult, GetAutoscalingGroupsOutputArgs } from "./getAutoscalingGroups";
-export const getAutoscalingGroups: typeof import("./getAutoscalingGroups").getAutoscalingGroups = null as any;
-export const getAutoscalingGroupsOutput: typeof import("./getAutoscalingGroups").getAutoscalingGroupsOutput = null as any;
-utilities.lazyLoad(exports, ["getAutoscalingGroups","getAutoscalingGroupsOutput"], () => require("./getAutoscalingGroups"));
 
 export { GetAvailabilityZoneArgs, GetAvailabilityZoneResult, GetAvailabilityZoneOutputArgs } from "./getAvailabilityZone";
 export const getAvailabilityZone: typeof import("./getAvailabilityZone").getAvailabilityZone = null as any;
@@ -37,41 +21,30 @@ export const getAvailabilityZones: typeof import("./getAvailabilityZones").getAv
 export const getAvailabilityZonesOutput: typeof import("./getAvailabilityZones").getAvailabilityZonesOutput = null as any;
 utilities.lazyLoad(exports, ["getAvailabilityZones","getAvailabilityZonesOutput"], () => require("./getAvailabilityZones"));
 
-export { GetBillingServiceAccountResult } from "./getBillingServiceAccount";
+export { GetBillingServiceAccountArgs, GetBillingServiceAccountResult, GetBillingServiceAccountOutputArgs } from "./getBillingServiceAccount";
 export const getBillingServiceAccount: typeof import("./getBillingServiceAccount").getBillingServiceAccount = null as any;
-utilities.lazyLoad(exports, ["getBillingServiceAccount"], () => require("./getBillingServiceAccount"));
+export const getBillingServiceAccountOutput: typeof import("./getBillingServiceAccount").getBillingServiceAccountOutput = null as any;
+utilities.lazyLoad(exports, ["getBillingServiceAccount","getBillingServiceAccountOutput"], () => require("./getBillingServiceAccount"));
 
-export { GetCallerIdentityResult } from "./getCallerIdentity";
+export { GetCallerIdentityArgs, GetCallerIdentityResult, GetCallerIdentityOutputArgs } from "./getCallerIdentity";
 export const getCallerIdentity: typeof import("./getCallerIdentity").getCallerIdentity = null as any;
-utilities.lazyLoad(exports, ["getCallerIdentity"], () => require("./getCallerIdentity"));
-
-export { GetCanonicalUserIdResult } from "./getCanonicalUserId";
-export const getCanonicalUserId: typeof import("./getCanonicalUserId").getCanonicalUserId = null as any;
-utilities.lazyLoad(exports, ["getCanonicalUserId"], () => require("./getCanonicalUserId"));
+export const getCallerIdentityOutput: typeof import("./getCallerIdentity").getCallerIdentityOutput = null as any;
+utilities.lazyLoad(exports, ["getCallerIdentity","getCallerIdentityOutput"], () => require("./getCallerIdentity"));
 
 export { GetDefaultTagsArgs, GetDefaultTagsResult, GetDefaultTagsOutputArgs } from "./getDefaultTags";
 export const getDefaultTags: typeof import("./getDefaultTags").getDefaultTags = null as any;
 export const getDefaultTagsOutput: typeof import("./getDefaultTags").getDefaultTagsOutput = null as any;
 utilities.lazyLoad(exports, ["getDefaultTags","getDefaultTagsOutput"], () => require("./getDefaultTags"));
 
-export { GetElasticIpArgs, GetElasticIpResult, GetElasticIpOutputArgs } from "./getElasticIp";
-export const getElasticIp: typeof import("./getElasticIp").getElasticIp = null as any;
-export const getElasticIpOutput: typeof import("./getElasticIp").getElasticIpOutput = null as any;
-utilities.lazyLoad(exports, ["getElasticIp","getElasticIpOutput"], () => require("./getElasticIp"));
-
 export { GetIpRangesArgs, GetIpRangesResult, GetIpRangesOutputArgs } from "./getIpRanges";
 export const getIpRanges: typeof import("./getIpRanges").getIpRanges = null as any;
 export const getIpRangesOutput: typeof import("./getIpRanges").getIpRangesOutput = null as any;
 utilities.lazyLoad(exports, ["getIpRanges","getIpRangesOutput"], () => require("./getIpRanges"));
 
-export { GetPartitionResult } from "./getPartition";
+export { GetPartitionArgs, GetPartitionResult, GetPartitionOutputArgs } from "./getPartition";
 export const getPartition: typeof import("./getPartition").getPartition = null as any;
-utilities.lazyLoad(exports, ["getPartition"], () => require("./getPartition"));
-
-export { GetPrefixListArgs, GetPrefixListResult, GetPrefixListOutputArgs } from "./getPrefixList";
-export const getPrefixList: typeof import("./getPrefixList").getPrefixList = null as any;
-export const getPrefixListOutput: typeof import("./getPrefixList").getPrefixListOutput = null as any;
-utilities.lazyLoad(exports, ["getPrefixList","getPrefixListOutput"], () => require("./getPrefixList"));
+export const getPartitionOutput: typeof import("./getPartition").getPartitionOutput = null as any;
+utilities.lazyLoad(exports, ["getPartition","getPartitionOutput"], () => require("./getPartition"));
 
 export { GetRegionArgs, GetRegionResult, GetRegionOutputArgs } from "./getRegion";
 export const getRegion: typeof import("./getRegion").getRegion = null as any;
@@ -121,6 +94,7 @@ import * as apprunner from "./apprunner";
 import * as appstream from "./appstream";
 import * as appsync from "./appsync";
 import * as athena from "./athena";
+import * as auditmanager from "./auditmanager";
 import * as autoscaling from "./autoscaling";
 import * as autoscalingplans from "./autoscalingplans";
 import * as backup from "./backup";
@@ -129,6 +103,7 @@ import * as budgets from "./budgets";
 import * as cfg from "./cfg";
 import * as chime from "./chime";
 import * as chimesdkmediapipelines from "./chimesdkmediapipelines";
+import * as cleanrooms from "./cleanrooms";
 import * as cloud9 from "./cloud9";
 import * as cloudcontrol from "./cloudcontrol";
 import * as cloudformation from "./cloudformation";
@@ -175,8 +150,6 @@ import * as efs from "./efs";
 import * as eks from "./eks";
 import * as elasticache from "./elasticache";
 import * as elasticbeanstalk from "./elasticbeanstalk";
-import * as elasticloadbalancing from "./elasticloadbalancing";
-import * as elasticloadbalancingv2 from "./elasticloadbalancingv2";
 import * as elasticsearch from "./elasticsearch";
 import * as elastictranscoder from "./elastictranscoder";
 import * as elb from "./elb";
@@ -184,6 +157,7 @@ import * as emr from "./emr";
 import * as emrcontainers from "./emrcontainers";
 import * as emrserverless from "./emrserverless";
 import * as evidently from "./evidently";
+import * as finspace from "./finspace";
 import * as fis from "./fis";
 import * as fms from "./fms";
 import * as fsx from "./fsx";
@@ -243,6 +217,7 @@ import * as rds from "./rds";
 import * as redshift from "./redshift";
 import * as redshiftdata from "./redshiftdata";
 import * as redshiftserverless from "./redshiftserverless";
+import * as resourceexplorer from "./resourceexplorer";
 import * as resourcegroups from "./resourcegroups";
 import * as resourcegroupstaggingapi from "./resourcegroupstaggingapi";
 import * as rolesanywhere from "./rolesanywhere";
@@ -259,7 +234,6 @@ import * as scheduler from "./scheduler";
 import * as schemas from "./schemas";
 import * as secretsmanager from "./secretsmanager";
 import * as securityhub from "./securityhub";
-import * as serverless from "./serverless";
 import * as serverlessrepository from "./serverlessrepository";
 import * as servicecatalog from "./servicecatalog";
 import * as servicediscovery from "./servicediscovery";
@@ -283,6 +257,7 @@ import * as timestreamwrite from "./timestreamwrite";
 import * as transcribe from "./transcribe";
 import * as transfer from "./transfer";
 import * as types from "./types";
+import * as vpc from "./vpc";
 import * as vpclattice from "./vpclattice";
 import * as waf from "./waf";
 import * as wafregional from "./wafregional";
@@ -312,6 +287,7 @@ export {
     appstream,
     appsync,
     athena,
+    auditmanager,
     autoscaling,
     autoscalingplans,
     backup,
@@ -320,6 +296,7 @@ export {
     cfg,
     chime,
     chimesdkmediapipelines,
+    cleanrooms,
     cloud9,
     cloudcontrol,
     cloudformation,
@@ -366,8 +343,6 @@ export {
     eks,
     elasticache,
     elasticbeanstalk,
-    elasticloadbalancing,
-    elasticloadbalancingv2,
     elasticsearch,
     elastictranscoder,
     elb,
@@ -375,6 +350,7 @@ export {
     emrcontainers,
     emrserverless,
     evidently,
+    finspace,
     fis,
     fms,
     fsx,
@@ -434,6 +410,7 @@ export {
     redshift,
     redshiftdata,
     redshiftserverless,
+    resourceexplorer,
     resourcegroups,
     resourcegroupstaggingapi,
     rolesanywhere,
@@ -450,7 +427,6 @@ export {
     schemas,
     secretsmanager,
     securityhub,
-    serverless,
     serverlessrepository,
     servicecatalog,
     servicediscovery,
@@ -474,6 +450,7 @@ export {
     transcribe,
     transfer,
     types,
+    vpc,
     vpclattice,
     waf,
     wafregional,

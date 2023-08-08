@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,8 +23,8 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iot"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iot"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -132,13 +133,11 @@ import (
 //
 // ## Import
 //
-// IoT fleet provisioning templates can be imported using the `name`, e.g.
+// terraform import {
 //
-// ```sh
+//	to = aws_iot_provisioning_template.fleet
 //
-//	$ pulumi import aws:iot/provisioningTemplate:ProvisioningTemplate fleet FleetProvisioningTemplate
-//
-// ```
+//	id = "FleetProvisioningTemplate" } Using `pulumi import`, import IoT fleet provisioning templates using the `name`. For exampleconsole % pulumi import aws_iot_provisioning_template.fleet FleetProvisioningTemplate
 type ProvisioningTemplate struct {
 	pulumi.CustomResourceState
 
@@ -177,6 +176,7 @@ func NewProvisioningTemplate(ctx *pulumi.Context,
 	if args.TemplateBody == nil {
 		return nil, errors.New("invalid value for required argument 'TemplateBody'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ProvisioningTemplate
 	err := ctx.RegisterResource("aws:iot/provisioningTemplate:ProvisioningTemplate", name, args, &resource, opts...)
 	if err != nil {

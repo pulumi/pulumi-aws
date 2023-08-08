@@ -8,33 +8,26 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a managed prefix list entry resource.
+// Use the `awsPrefixListEntry` resource to manage a managed prefix list entry.
 //
-// > **NOTE on Managed Prefix Lists and Managed Prefix List Entries:** The provider
-// currently provides both a standalone Managed Prefix List Entry resource (a single entry),
-// and a Managed Prefix List resource with entries defined
-// in-line. At this time you cannot use a Managed Prefix List with in-line rules in
-// conjunction with any Managed Prefix List Entry resources. Doing so will cause a conflict
-// of entries and will overwrite entries.
+// > **NOTE:** Pulumi currently provides two resources for managing Managed Prefix Lists and Managed Prefix List Entries. The standalone resource, Managed Prefix List Entry, is used to manage a single entry. The Managed Prefix List resource is used to manage multiple entries defined in-line. It is important to note that you cannot use a Managed Prefix List with in-line rules in conjunction with any Managed Prefix List Entry resources. This will result in a conflict of entries and will cause the entries to be overwritten.
 //
-// > **NOTE on Managed Prefix Lists with many entries:**  To improved execution times on larger
-// updates, if you plan to create a prefix list with more than 100 entries, it is **recommended**
-// that you use the inline `entry` block as part of the Managed Prefix List resource
-// resource instead.
+// > **NOTE:** To improve execution times on larger updates, it is recommended to use the inline `entry` block as part of the Managed Prefix List resource when creating a prefix list with more than 100 entries. You can find more information about the resource here.
 //
 // ## Example Usage
 //
-// # Basic usage
+// Basic usage.
 //
 // ```go
 // package main
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -67,19 +60,17 @@ import (
 //
 // ## Import
 //
-// Prefix List Entries can be imported using the `prefix_list_id` and `cidr` separated by a `,`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_ec2_managed_prefix_list_entry.default
 //
-//	$ pulumi import aws:ec2/managedPrefixListEntry:ManagedPrefixListEntry default pl-0570a1d2d725c16be,10.0.3.0/24
-//
-// ```
+//	id = "pl-0570a1d2d725c16be,10.0.3.0/24" } Using `pulumi import`, import prefix list entries using `prefix_list_id` and `cidr` separated by a comma (`,`). For exampleconsole % pulumi import aws_ec2_managed_prefix_list_entry.default pl-0570a1d2d725c16be,10.0.3.0/24
 type ManagedPrefixListEntry struct {
 	pulumi.CustomResourceState
 
 	// CIDR block of this entry.
 	Cidr pulumi.StringOutput `pulumi:"cidr"`
-	// Description of this entry. Due to API limitations, updating only the description of an entry requires recreating the entry.
+	// Description of this entry. Please note that due to API limitations, updating only the description of an entry will require recreating the entry.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// CIDR block of this entry.
 	PrefixListId pulumi.StringOutput `pulumi:"prefixListId"`
@@ -98,6 +89,7 @@ func NewManagedPrefixListEntry(ctx *pulumi.Context,
 	if args.PrefixListId == nil {
 		return nil, errors.New("invalid value for required argument 'PrefixListId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ManagedPrefixListEntry
 	err := ctx.RegisterResource("aws:ec2/managedPrefixListEntry:ManagedPrefixListEntry", name, args, &resource, opts...)
 	if err != nil {
@@ -122,7 +114,7 @@ func GetManagedPrefixListEntry(ctx *pulumi.Context,
 type managedPrefixListEntryState struct {
 	// CIDR block of this entry.
 	Cidr *string `pulumi:"cidr"`
-	// Description of this entry. Due to API limitations, updating only the description of an entry requires recreating the entry.
+	// Description of this entry. Please note that due to API limitations, updating only the description of an entry will require recreating the entry.
 	Description *string `pulumi:"description"`
 	// CIDR block of this entry.
 	PrefixListId *string `pulumi:"prefixListId"`
@@ -131,7 +123,7 @@ type managedPrefixListEntryState struct {
 type ManagedPrefixListEntryState struct {
 	// CIDR block of this entry.
 	Cidr pulumi.StringPtrInput
-	// Description of this entry. Due to API limitations, updating only the description of an entry requires recreating the entry.
+	// Description of this entry. Please note that due to API limitations, updating only the description of an entry will require recreating the entry.
 	Description pulumi.StringPtrInput
 	// CIDR block of this entry.
 	PrefixListId pulumi.StringPtrInput
@@ -144,7 +136,7 @@ func (ManagedPrefixListEntryState) ElementType() reflect.Type {
 type managedPrefixListEntryArgs struct {
 	// CIDR block of this entry.
 	Cidr string `pulumi:"cidr"`
-	// Description of this entry. Due to API limitations, updating only the description of an entry requires recreating the entry.
+	// Description of this entry. Please note that due to API limitations, updating only the description of an entry will require recreating the entry.
 	Description *string `pulumi:"description"`
 	// CIDR block of this entry.
 	PrefixListId string `pulumi:"prefixListId"`
@@ -154,7 +146,7 @@ type managedPrefixListEntryArgs struct {
 type ManagedPrefixListEntryArgs struct {
 	// CIDR block of this entry.
 	Cidr pulumi.StringInput
-	// Description of this entry. Due to API limitations, updating only the description of an entry requires recreating the entry.
+	// Description of this entry. Please note that due to API limitations, updating only the description of an entry will require recreating the entry.
 	Description pulumi.StringPtrInput
 	// CIDR block of this entry.
 	PrefixListId pulumi.StringInput
@@ -252,7 +244,7 @@ func (o ManagedPrefixListEntryOutput) Cidr() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedPrefixListEntry) pulumi.StringOutput { return v.Cidr }).(pulumi.StringOutput)
 }
 
-// Description of this entry. Due to API limitations, updating only the description of an entry requires recreating the entry.
+// Description of this entry. Please note that due to API limitations, updating only the description of an entry will require recreating the entry.
 func (o ManagedPrefixListEntryOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedPrefixListEntry) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }

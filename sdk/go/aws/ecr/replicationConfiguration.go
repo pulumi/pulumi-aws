@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,8 +20,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecr"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecr"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -64,8 +65,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecr"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecr"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -114,8 +115,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecr"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecr"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -161,13 +162,11 @@ import (
 //
 // ## Import
 //
-// ECR Replication Configuration can be imported using the `registry_id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_ecr_replication_configuration.service
 //
-//	$ pulumi import aws:ecr/replicationConfiguration:ReplicationConfiguration service 012345678912
-//
-// ```
+//	id = "012345678912" } Using `pulumi import`, import ECR Replication Configuration using the `registry_id`. For exampleconsole % pulumi import aws_ecr_replication_configuration.service 012345678912
 type ReplicationConfiguration struct {
 	pulumi.CustomResourceState
 
@@ -184,6 +183,7 @@ func NewReplicationConfiguration(ctx *pulumi.Context,
 		args = &ReplicationConfigurationArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ReplicationConfiguration
 	err := ctx.RegisterResource("aws:ecr/replicationConfiguration:ReplicationConfiguration", name, args, &resource, opts...)
 	if err != nil {

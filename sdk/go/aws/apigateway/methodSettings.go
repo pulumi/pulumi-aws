@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -16,6 +17,9 @@ import (
 // > **NOTE:** We recommend using this resource in conjunction with the `apigateway.Stage` resource instead of a stage managed by the `apigateway.Deployment` resource optional `stageName` argument. Stages managed by the `apigateway.Deployment` resource are recreated on redeployment and this resource will require a second apply to recreate the method settings.
 //
 // ## Example Usage
+//
+// ### End-to-end
+// ### Basic Usage
 //
 // ```go
 // package main
@@ -26,7 +30,7 @@ import (
 //	"encoding/json"
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -123,16 +127,143 @@ import (
 //	}
 //
 // ```
+// ### CloudWatch Logging and Tracing
+//
+// The AWS Console API Gateway Editor displays multiple options for CloudWatch Logs that don't directly map to the options in the AWS API and Pulumi. These examples show the `settings` blocks that are equivalent to the options the AWS Console gives for CloudWatch Logs.
+// ### Off
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := apigateway.NewMethodSettings(ctx, "pathSpecific", &apigateway.MethodSettingsArgs{
+//				RestApi:    pulumi.Any(aws_api_gateway_rest_api.Example.Id),
+//				StageName:  pulumi.Any(aws_api_gateway_stage.Example.Stage_name),
+//				MethodPath: pulumi.String("path1/GET"),
+//				Settings: &apigateway.MethodSettingsSettingsArgs{
+//					LoggingLevel: pulumi.String("OFF"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Errors Only
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := apigateway.NewMethodSettings(ctx, "pathSpecific", &apigateway.MethodSettingsArgs{
+//				RestApi:    pulumi.Any(aws_api_gateway_rest_api.Example.Id),
+//				StageName:  pulumi.Any(aws_api_gateway_stage.Example.Stage_name),
+//				MethodPath: pulumi.String("path1/GET"),
+//				Settings: &apigateway.MethodSettingsSettingsArgs{
+//					LoggingLevel:     pulumi.String("ERROR"),
+//					MetricsEnabled:   pulumi.Bool(true),
+//					DataTraceEnabled: pulumi.Bool(false),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Errors and Info Logs
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := apigateway.NewMethodSettings(ctx, "pathSpecific", &apigateway.MethodSettingsArgs{
+//				RestApi:    pulumi.Any(aws_api_gateway_rest_api.Example.Id),
+//				StageName:  pulumi.Any(aws_api_gateway_stage.Example.Stage_name),
+//				MethodPath: pulumi.String("path1/GET"),
+//				Settings: &apigateway.MethodSettingsSettingsArgs{
+//					LoggingLevel:     pulumi.String("INFO"),
+//					MetricsEnabled:   pulumi.Bool(true),
+//					DataTraceEnabled: pulumi.Bool(false),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Full Request and Response Logs
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := apigateway.NewMethodSettings(ctx, "pathSpecific", &apigateway.MethodSettingsArgs{
+//				RestApi:    pulumi.Any(aws_api_gateway_rest_api.Example.Id),
+//				StageName:  pulumi.Any(aws_api_gateway_stage.Example.Stage_name),
+//				MethodPath: pulumi.String("path1/GET"),
+//				Settings: &apigateway.MethodSettingsSettingsArgs{
+//					LoggingLevel:     pulumi.String("INFO"),
+//					MetricsEnabled:   pulumi.Bool(true),
+//					DataTraceEnabled: pulumi.Bool(true),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //
-// `aws_api_gateway_method_settings` can be imported using `REST-API-ID/STAGE-NAME/METHOD-PATH`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_api_gateway_method_settings.example
 //
-//	$ pulumi import aws:apigateway/methodSettings:MethodSettings example 12345abcde/example/test/GET
-//
-// ```
+//	id = "12345abcde/example/test/GET" } Using `pulumi import`, import `aws_api_gateway_method_settings` using `REST-API-ID/STAGE-NAME/METHOD-PATH`. For exampleconsole % pulumi import aws_api_gateway_method_settings.example 12345abcde/example/test/GET
 type MethodSettings struct {
 	pulumi.CustomResourceState
 
@@ -165,6 +296,7 @@ func NewMethodSettings(ctx *pulumi.Context,
 	if args.StageName == nil {
 		return nil, errors.New("invalid value for required argument 'StageName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MethodSettings
 	err := ctx.RegisterResource("aws:apigateway/methodSettings:MethodSettings", name, args, &resource, opts...)
 	if err != nil {

@@ -15,6 +15,14 @@ import * as utilities from "../utilities";
  *
  * const main = new aws.ses.ActiveReceiptRuleSet("main", {ruleSetName: "primary-rules"});
  * ```
+ *
+ * ## Import
+ *
+ * terraform import {
+ *
+ *  to = aws_ses_active_receipt_rule_set.my_rule_set
+ *
+ *  id = "my_rule_set_name" } Using `pulumi import`, import active SES receipt rule sets using the rule set name. For exampleconsole % pulumi import aws_ses_active_receipt_rule_set.my_rule_set my_rule_set_name
  */
 export class ActiveReceiptRuleSet extends pulumi.CustomResource {
     /**

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ivschat"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ivschat"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -43,8 +44,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ivschat"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ivschat"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -84,13 +85,11 @@ import (
 //
 // ## Import
 //
-// IVS (Interactive Video) Chat Room can be imported using the ARN, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_ivschat_room.example
 //
-//	$ pulumi import aws:ivschat/room:Room example arn:aws:ivschat:us-west-2:326937407773:room/GoXEXyB4VwHb
-//
-// ```
+//	id = "arn:aws:ivschat:us-west-2:326937407773:room/GoXEXyB4VwHb" } Using `pulumi import`, import IVS (Interactive Video) Chat Room using the ARN. For exampleconsole % pulumi import aws_ivschat_room.example arn:aws:ivschat:us-west-2:326937407773:room/GoXEXyB4VwHb
 type Room struct {
 	pulumi.CustomResourceState
 
@@ -124,6 +123,7 @@ func NewRoom(ctx *pulumi.Context,
 		args = &RoomArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Room
 	err := ctx.RegisterResource("aws:ivschat/room:Room", name, args, &resource, opts...)
 	if err != nil {

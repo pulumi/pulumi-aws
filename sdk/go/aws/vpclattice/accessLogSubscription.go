@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/vpclattice"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/vpclattice"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -43,13 +44,11 @@ import (
 //
 // ## Import
 //
-// VPC Lattice Access Log Subscription can be imported using the access log subscription ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_vpclattice_access_log_subscription.example
 //
-//	$ pulumi import aws:vpclattice/accessLogSubscription:AccessLogSubscription example rft-8012925589
-//
-// ```
+//	id = "rft-8012925589" } Using `pulumi import`, import VPC Lattice Access Log Subscription using the access log subscription ID. For exampleconsole % pulumi import aws_vpclattice_access_log_subscription.example rft-8012925589
 type AccessLogSubscription struct {
 	pulumi.CustomResourceState
 
@@ -78,6 +77,7 @@ func NewAccessLogSubscription(ctx *pulumi.Context,
 	if args.ResourceIdentifier == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceIdentifier'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AccessLogSubscription
 	err := ctx.RegisterResource("aws:vpclattice/accessLogSubscription:AccessLogSubscription", name, args, &resource, opts...)
 	if err != nil {

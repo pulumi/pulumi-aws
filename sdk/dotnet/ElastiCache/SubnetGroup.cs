@@ -12,10 +12,6 @@ namespace Pulumi.Aws.ElastiCache
     /// <summary>
     /// Provides an ElastiCache Subnet Group resource.
     /// 
-    /// &gt; **NOTE:** ElastiCache Subnet Groups are only for use when working with an
-    /// ElastiCache cluster **inside** of a VPC. If you are on EC2 Classic, see the
-    /// ElastiCache Security Group resource.
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -59,11 +55,11 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// ## Import
     /// 
-    /// ElastiCache Subnet Groups can be imported using the `name`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:elasticache/subnetGroup:SubnetGroup bar tf-test-cache-subnet
-    /// ```
+    ///  to = aws_elasticache_subnet_group.bar
+    /// 
+    ///  id = "tf-test-cache-subnet" } Using `pulumi import`, import ElastiCache Subnet Groups using the `name`. For exampleconsole % pulumi import aws_elasticache_subnet_group.bar tf-test-cache-subnet
     /// </summary>
     [AwsResourceType("aws:elasticache/subnetGroup:SubnetGroup")]
     public partial class SubnetGroup : global::Pulumi.CustomResource

@@ -13,13 +13,15 @@ from ._enums import *
 
 __all__ = [
     'RoleInlinePolicy',
-    'RoleRoleLastUsed',
     'GetAccessKeysAccessKeyResult',
     'GetGroupUserResult',
     'GetPolicyDocumentStatementResult',
     'GetPolicyDocumentStatementConditionResult',
     'GetPolicyDocumentStatementNotPrincipalResult',
     'GetPolicyDocumentStatementPrincipalResult',
+    'GetPrincipalPolicySimulationContextResult',
+    'GetPrincipalPolicySimulationResultResult',
+    'GetPrincipalPolicySimulationResultMatchedStatementResult',
     'GetRoleRoleLastUsedResult',
 ]
 
@@ -52,50 +54,6 @@ class RoleInlinePolicy(dict):
         Policy document as a JSON formatted string.
         """
         return pulumi.get(self, "policy")
-
-
-@pulumi.output_type
-class RoleRoleLastUsed(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "lastUsedDate":
-            suggest = "last_used_date"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in RoleRoleLastUsed. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        RoleRoleLastUsed.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        RoleRoleLastUsed.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 last_used_date: Optional[str] = None,
-                 region: Optional[str] = None):
-        """
-        :param str region: The name of the AWS Region in which the role was last used.
-        """
-        if last_used_date is not None:
-            pulumi.set(__self__, "last_used_date", last_used_date)
-        if region is not None:
-            pulumi.set(__self__, "region", region)
-
-    @property
-    @pulumi.getter(name="lastUsedDate")
-    def last_used_date(self) -> Optional[str]:
-        return pulumi.get(self, "last_used_date")
-
-    @property
-    @pulumi.getter
-    def region(self) -> Optional[str]:
-        """
-        The name of the AWS Region in which the role was last used.
-        """
-        return pulumi.get(self, "region")
 
 
 @pulumi.output_type
@@ -403,11 +361,163 @@ class GetPolicyDocumentStatementPrincipalResult(dict):
 
 
 @pulumi.output_type
+class GetPrincipalPolicySimulationContextResult(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 type: str,
+                 values: Sequence[str]):
+        """
+        :param str key: The context _condition key_ to set.
+               
+               If you have policies containing `Condition` elements or using dynamic interpolations then you will need to provide suitable values for each condition key your policies use. See [Actions, resources, and condition keys for AWS services](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html) to find the various condition keys that are normally provided for real requests to each action of each AWS service.
+        :param str type: An IAM value type that determines how the policy simulator will interpret the strings given in `values`.
+               
+               For more information, see the `ContextKeyType` field of [`iam.ContextEntry`](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ContextEntry.html) in the underlying API.
+        :param Sequence[str] values: A set of one or more values for this context entry.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The context _condition key_ to set.
+
+        If you have policies containing `Condition` elements or using dynamic interpolations then you will need to provide suitable values for each condition key your policies use. See [Actions, resources, and condition keys for AWS services](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html) to find the various condition keys that are normally provided for real requests to each action of each AWS service.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        An IAM value type that determines how the policy simulator will interpret the strings given in `values`.
+
+        For more information, see the `ContextKeyType` field of [`iam.ContextEntry`](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ContextEntry.html) in the underlying API.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        A set of one or more values for this context entry.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetPrincipalPolicySimulationResultResult(dict):
+    def __init__(__self__, *,
+                 action_name: str,
+                 allowed: bool,
+                 decision: str,
+                 decision_details: Mapping[str, str],
+                 matched_statements: Sequence['outputs.GetPrincipalPolicySimulationResultMatchedStatementResult'],
+                 missing_context_keys: Sequence[str],
+                 resource_arn: str):
+        """
+        :param str action_name: The name of the single IAM action used for this particular request.
+        :param bool allowed: `true` if `decision` is "allowed", and `false` otherwise.
+        :param str decision: The raw decision determined from all of the policies in scope; either "allowed", "explicitDeny", or "implicitDeny".
+        :param Mapping[str, str] decision_details: A map of arbitrary metadata entries returned by the policy simulator for this request.
+        :param Sequence['GetPrincipalPolicySimulationResultMatchedStatementArgs'] matched_statements: A nested set of objects describing which policies contained statements that were relevant to this simulation request. Each object has attributes `source_policy_id` and `source_policy_type` to identify one of the policies.
+        :param Sequence[str] missing_context_keys: A set of context keys (or condition keys) that were needed by some of the policies contributing to this result but not specified using a `context` block in the configuration. Missing or incorrect context keys will typically cause a simulated request to be disallowed.
+        :param str resource_arn: ARN of the resource that was used for this particular request. When you specify multiple actions and multiple resource ARNs, that causes a separate policy request for each combination of unique action and resource.
+        """
+        pulumi.set(__self__, "action_name", action_name)
+        pulumi.set(__self__, "allowed", allowed)
+        pulumi.set(__self__, "decision", decision)
+        pulumi.set(__self__, "decision_details", decision_details)
+        pulumi.set(__self__, "matched_statements", matched_statements)
+        pulumi.set(__self__, "missing_context_keys", missing_context_keys)
+        pulumi.set(__self__, "resource_arn", resource_arn)
+
+    @property
+    @pulumi.getter(name="actionName")
+    def action_name(self) -> str:
+        """
+        The name of the single IAM action used for this particular request.
+        """
+        return pulumi.get(self, "action_name")
+
+    @property
+    @pulumi.getter
+    def allowed(self) -> bool:
+        """
+        `true` if `decision` is "allowed", and `false` otherwise.
+        """
+        return pulumi.get(self, "allowed")
+
+    @property
+    @pulumi.getter
+    def decision(self) -> str:
+        """
+        The raw decision determined from all of the policies in scope; either "allowed", "explicitDeny", or "implicitDeny".
+        """
+        return pulumi.get(self, "decision")
+
+    @property
+    @pulumi.getter(name="decisionDetails")
+    def decision_details(self) -> Mapping[str, str]:
+        """
+        A map of arbitrary metadata entries returned by the policy simulator for this request.
+        """
+        return pulumi.get(self, "decision_details")
+
+    @property
+    @pulumi.getter(name="matchedStatements")
+    def matched_statements(self) -> Sequence['outputs.GetPrincipalPolicySimulationResultMatchedStatementResult']:
+        """
+        A nested set of objects describing which policies contained statements that were relevant to this simulation request. Each object has attributes `source_policy_id` and `source_policy_type` to identify one of the policies.
+        """
+        return pulumi.get(self, "matched_statements")
+
+    @property
+    @pulumi.getter(name="missingContextKeys")
+    def missing_context_keys(self) -> Sequence[str]:
+        """
+        A set of context keys (or condition keys) that were needed by some of the policies contributing to this result but not specified using a `context` block in the configuration. Missing or incorrect context keys will typically cause a simulated request to be disallowed.
+        """
+        return pulumi.get(self, "missing_context_keys")
+
+    @property
+    @pulumi.getter(name="resourceArn")
+    def resource_arn(self) -> str:
+        """
+        ARN of the resource that was used for this particular request. When you specify multiple actions and multiple resource ARNs, that causes a separate policy request for each combination of unique action and resource.
+        """
+        return pulumi.get(self, "resource_arn")
+
+
+@pulumi.output_type
+class GetPrincipalPolicySimulationResultMatchedStatementResult(dict):
+    def __init__(__self__, *,
+                 source_policy_id: str,
+                 source_policy_type: str):
+        pulumi.set(__self__, "source_policy_id", source_policy_id)
+        pulumi.set(__self__, "source_policy_type", source_policy_type)
+
+    @property
+    @pulumi.getter(name="sourcePolicyId")
+    def source_policy_id(self) -> str:
+        return pulumi.get(self, "source_policy_id")
+
+    @property
+    @pulumi.getter(name="sourcePolicyType")
+    def source_policy_type(self) -> str:
+        return pulumi.get(self, "source_policy_type")
+
+
+@pulumi.output_type
 class GetRoleRoleLastUsedResult(dict):
     def __init__(__self__, *,
                  last_used_date: str,
                  region: str):
         """
+        :param str last_used_date: The date and time, in RFC 3339 format, that the role was last used.
         :param str region: The name of the AWS Region in which the role was last used.
         """
         pulumi.set(__self__, "last_used_date", last_used_date)
@@ -416,6 +526,9 @@ class GetRoleRoleLastUsedResult(dict):
     @property
     @pulumi.getter(name="lastUsedDate")
     def last_used_date(self) -> str:
+        """
+        The date and time, in RFC 3339 format, that the role was last used.
+        """
         return pulumi.get(self, "last_used_date")
 
     @property

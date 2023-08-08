@@ -26,11 +26,11 @@ import {LogGroup} from "./index";
  *
  * ## Import
  *
- * CloudWatch Logs subscription filter can be imported using the log group name and subscription filter name separated by `|`.
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:cloudwatch/logSubscriptionFilter:LogSubscriptionFilter test_lambdafunction_logfilter /aws/lambda/example_lambda_name|test_lambdafunction_logfilter
- * ```
+ *  to = aws_cloudwatch_log_subscription_filter.test_lambdafunction_logfilter
+ *
+ *  id = "/aws/lambda/example_lambda_name|test_lambdafunction_logfilter" } Using `pulumi import`, import CloudWatch Logs subscription filter using the log group name and subscription filter name separated by `|`. For exampleconsole % pulumi import aws_cloudwatch_log_subscription_filter.test_lambdafunction_logfilter /aws/lambda/example_lambda_name|test_lambdafunction_logfilter
  */
 export class LogSubscriptionFilter extends pulumi.CustomResource {
     /**

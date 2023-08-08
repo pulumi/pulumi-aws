@@ -112,11 +112,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Cognito User Pool UI Customizations can be imported using the `user_pool_id` and `client_id` separated by `,`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:cognito/userPoolUICustomization:UserPoolUICustomization example us-west-2_ZCTarbt5C,12bu4fuk3mlgqa2rtrujgp6egq
- * ```
+ *  to = aws_cognito_user_pool_ui_customization.example
+ * 
+ *  id = &#34;us-west-2_ZCTarbt5C,12bu4fuk3mlgqa2rtrujgp6egq&#34; } Using `pulumi import`, import Cognito User Pool UI Customizations using the `user_pool_id` and `client_id` separated by `,`. For exampleconsole % pulumi import aws_cognito_user_pool_ui_customization.example us-west-2_ZCTarbt5C,12bu4fuk3mlgqa2rtrujgp6egq
  * 
  */
 @ResourceType(type="aws:cognito/userPoolUICustomization:UserPoolUICustomization")

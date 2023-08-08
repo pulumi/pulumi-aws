@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,8 +24,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -50,13 +51,11 @@ import (
 //
 // ## Import
 //
-// A Spot Datafeed Subscription can be imported using the word `spot-datafeed-subscription`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_spot_datafeed_subscription.mysubscription
 //
-//	$ pulumi import aws:ec2/spotDatafeedSubscription:SpotDatafeedSubscription mysubscription spot-datafeed-subscription
-//
-// ```
+//	id = "spot-datafeed-subscription" } Using `pulumi import`, import a Spot Datafeed Subscription using the word `spot-datafeed-subscription`. For exampleconsole % pulumi import aws_spot_datafeed_subscription.mysubscription spot-datafeed-subscription
 type SpotDatafeedSubscription struct {
 	pulumi.CustomResourceState
 
@@ -76,6 +75,7 @@ func NewSpotDatafeedSubscription(ctx *pulumi.Context,
 	if args.Bucket == nil {
 		return nil, errors.New("invalid value for required argument 'Bucket'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SpotDatafeedSubscription
 	err := ctx.RegisterResource("aws:ec2/spotDatafeedSubscription:SpotDatafeedSubscription", name, args, &resource, opts...)
 	if err != nil {

@@ -8,22 +8,92 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Provides a [Data Lifecycle Manager (DLM) lifecycle policy](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html) for managing snapshots.
 //
 // ## Example Usage
+// ### Example Event Based Policy Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dlm"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := aws.GetCallerIdentity(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = dlm.NewLifecyclePolicy(ctx, "exampleLifecyclePolicy", &dlm.LifecyclePolicyArgs{
+//				Description:      pulumi.String("tf-acc-basic"),
+//				ExecutionRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
+//				PolicyDetails: &dlm.LifecyclePolicyPolicyDetailsArgs{
+//					PolicyType: pulumi.String("EVENT_BASED_POLICY"),
+//					Action: &dlm.LifecyclePolicyPolicyDetailsActionArgs{
+//						Name: pulumi.String("tf-acc-basic"),
+//						CrossRegionCopies: dlm.LifecyclePolicyPolicyDetailsActionCrossRegionCopyArray{
+//							&dlm.LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs{
+//								EncryptionConfiguration: nil,
+//								RetainRule: &dlm.LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArgs{
+//									Interval:     pulumi.Int(15),
+//									IntervalUnit: pulumi.String("MONTHS"),
+//								},
+//								Target: pulumi.String("us-east-1"),
+//							},
+//						},
+//					},
+//					EventSource: &dlm.LifecyclePolicyPolicyDetailsEventSourceArgs{
+//						Type: pulumi.String("MANAGED_CWE"),
+//						Parameters: &dlm.LifecyclePolicyPolicyDetailsEventSourceParametersArgs{
+//							DescriptionRegex: pulumi.String("^.*Created for policy: policy-1234567890abcdef0.*$"),
+//							EventType:        pulumi.String("shareSnapshot"),
+//							SnapshotOwners: pulumi.StringArray{
+//								*pulumi.String(current.AccountId),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			examplePolicy, err := iam.LookupPolicy(ctx, &iam.LookupPolicyArgs{
+//				Name: pulumi.StringRef("AWSDataLifecycleManagerServiceRole"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewRolePolicyAttachment(ctx, "exampleRolePolicyAttachment", &iam.RolePolicyAttachmentArgs{
+//				Role:      pulumi.Any(aws_iam_role.Example.Id),
+//				PolicyArn: *pulumi.String(examplePolicy.Arn),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //
-// # DLM lifecycle policies can be imported by their policy ID
+// terraform import {
 //
-// ```sh
+//	to = aws_dlm_lifecycle_policy.example
 //
-//	$ pulumi import aws:dlm/lifecyclePolicy:LifecyclePolicy example policy-abcdef12345678901
-//
-// ```
+//	id = "policy-abcdef12345678901" } Using `pulumi import`, import DLM lifecycle policies using their policy ID. For exampleconsole % pulumi import aws_dlm_lifecycle_policy.example policy-abcdef12345678901
 type LifecyclePolicy struct {
 	pulumi.CustomResourceState
 
@@ -59,6 +129,7 @@ func NewLifecyclePolicy(ctx *pulumi.Context,
 	if args.PolicyDetails == nil {
 		return nil, errors.New("invalid value for required argument 'PolicyDetails'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LifecyclePolicy
 	err := ctx.RegisterResource("aws:dlm/lifecyclePolicy:LifecyclePolicy", name, args, &resource, opts...)
 	if err != nil {

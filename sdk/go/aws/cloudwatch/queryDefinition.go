@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -45,13 +46,11 @@ import (
 //
 // ## Import
 //
-// CloudWatch query definitions can be imported using the query definition ARN. The ARN can be found on the "Edit Query" page for the query in the AWS Console.
+// terraform import {
 //
-// ```sh
+//	to = aws_cloudwatch_query_definition.example
 //
-//	$ pulumi import aws:cloudwatch/queryDefinition:QueryDefinition example arn:aws:logs:us-west-2:123456789012:query-definition:269951d7-6f75-496d-9d7b-6b7a5486bdbd
-//
-// ```
+//	id = "arn:aws:logs:us-west-2:123456789012:query-definition:269951d7-6f75-496d-9d7b-6b7a5486bdbd" } Using `pulumi import`, import CloudWatch query definitions using the query definition ARN. The ARN can be found on the "Edit Query" page for the query in the AWS Console. For exampleconsole % pulumi import aws_cloudwatch_query_definition.example arn:aws:logs:us-west-2:123456789012:query-definition:269951d7-6f75-496d-9d7b-6b7a5486bdbd
 type QueryDefinition struct {
 	pulumi.CustomResourceState
 
@@ -75,6 +74,7 @@ func NewQueryDefinition(ctx *pulumi.Context,
 	if args.QueryString == nil {
 		return nil, errors.New("invalid value for required argument 'QueryString'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource QueryDefinition
 	err := ctx.RegisterResource("aws:cloudwatch/queryDefinition:QueryDefinition", name, args, &resource, opts...)
 	if err != nil {

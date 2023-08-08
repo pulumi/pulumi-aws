@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/keyspaces"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/keyspaces"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -57,13 +58,11 @@ import (
 //
 // ## Import
 //
-// Use the `keyspace_name` and `table_name` separated by `/` to import a table. For example
+// terraform import {
 //
-// ```sh
+//	to = aws_keyspaces_table.example
 //
-//	$ pulumi import aws:keyspaces/table:Table example my_keyspace/my_table
-//
-// ```
+//	id = "my_keyspace/my_table" } Using `pulumi import`, import a table using the `keyspace_name` and `table_name` separated by `/`. For exampleconsole % pulumi import aws_keyspaces_table.example my_keyspace/my_table
 type Table struct {
 	pulumi.CustomResourceState
 
@@ -71,6 +70,8 @@ type Table struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Specifies the read/write throughput capacity mode for the table.
 	CapacitySpecification TableCapacitySpecificationOutput `pulumi:"capacitySpecification"`
+	// Enables client-side timestamps for the table. By default, the setting is disabled.
+	ClientSideTimestamps TableClientSideTimestampsPtrOutput `pulumi:"clientSideTimestamps"`
 	// A description of the table.
 	Comment TableCommentOutput `pulumi:"comment"`
 	// The default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
@@ -111,6 +112,7 @@ func NewTable(ctx *pulumi.Context,
 	if args.TableName == nil {
 		return nil, errors.New("invalid value for required argument 'TableName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Table
 	err := ctx.RegisterResource("aws:keyspaces/table:Table", name, args, &resource, opts...)
 	if err != nil {
@@ -137,6 +139,8 @@ type tableState struct {
 	Arn *string `pulumi:"arn"`
 	// Specifies the read/write throughput capacity mode for the table.
 	CapacitySpecification *TableCapacitySpecification `pulumi:"capacitySpecification"`
+	// Enables client-side timestamps for the table. By default, the setting is disabled.
+	ClientSideTimestamps *TableClientSideTimestamps `pulumi:"clientSideTimestamps"`
 	// A description of the table.
 	Comment *TableComment `pulumi:"comment"`
 	// The default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
@@ -166,6 +170,8 @@ type TableState struct {
 	Arn pulumi.StringPtrInput
 	// Specifies the read/write throughput capacity mode for the table.
 	CapacitySpecification TableCapacitySpecificationPtrInput
+	// Enables client-side timestamps for the table. By default, the setting is disabled.
+	ClientSideTimestamps TableClientSideTimestampsPtrInput
 	// A description of the table.
 	Comment TableCommentPtrInput
 	// The default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
@@ -197,6 +203,8 @@ func (TableState) ElementType() reflect.Type {
 type tableArgs struct {
 	// Specifies the read/write throughput capacity mode for the table.
 	CapacitySpecification *TableCapacitySpecification `pulumi:"capacitySpecification"`
+	// Enables client-side timestamps for the table. By default, the setting is disabled.
+	ClientSideTimestamps *TableClientSideTimestamps `pulumi:"clientSideTimestamps"`
 	// A description of the table.
 	Comment *TableComment `pulumi:"comment"`
 	// The default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
@@ -223,6 +231,8 @@ type tableArgs struct {
 type TableArgs struct {
 	// Specifies the read/write throughput capacity mode for the table.
 	CapacitySpecification TableCapacitySpecificationPtrInput
+	// Enables client-side timestamps for the table. By default, the setting is disabled.
+	ClientSideTimestamps TableClientSideTimestampsPtrInput
 	// A description of the table.
 	Comment TableCommentPtrInput
 	// The default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
@@ -340,6 +350,11 @@ func (o TableOutput) Arn() pulumi.StringOutput {
 // Specifies the read/write throughput capacity mode for the table.
 func (o TableOutput) CapacitySpecification() TableCapacitySpecificationOutput {
 	return o.ApplyT(func(v *Table) TableCapacitySpecificationOutput { return v.CapacitySpecification }).(TableCapacitySpecificationOutput)
+}
+
+// Enables client-side timestamps for the table. By default, the setting is disabled.
+func (o TableOutput) ClientSideTimestamps() TableClientSideTimestampsPtrOutput {
+	return o.ApplyT(func(v *Table) TableClientSideTimestampsPtrOutput { return v.ClientSideTimestamps }).(TableClientSideTimestampsPtrOutput)
 }
 
 // A description of the table.

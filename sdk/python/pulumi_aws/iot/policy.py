@@ -152,11 +152,11 @@ class Policy(pulumi.CustomResource):
 
         ## Import
 
-        IoT policies can be imported using the `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:iot/policy:Policy pubsub PubSubToAnyTopic
-        ```
+         to = aws_iot_policy.pubsub
+
+         id = "PubSubToAnyTopic" } Using `pulumi import`, import IoT policies using the `name`. For exampleconsole % pulumi import aws_iot_policy.pubsub PubSubToAnyTopic
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -191,11 +191,11 @@ class Policy(pulumi.CustomResource):
 
         ## Import
 
-        IoT policies can be imported using the `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:iot/policy:Policy pubsub PubSubToAnyTopic
-        ```
+         to = aws_iot_policy.pubsub
+
+         id = "PubSubToAnyTopic" } Using `pulumi import`, import IoT policies using the `name`. For exampleconsole % pulumi import aws_iot_policy.pubsub PubSubToAnyTopic
 
         :param str resource_name: The name of the resource.
         :param PolicyArgs args: The arguments to use to populate this resource's properties.

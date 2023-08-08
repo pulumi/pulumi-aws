@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -43,7 +44,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -70,13 +71,11 @@ import (
 //
 // ## Import
 //
-// # EventBridge event buses can be imported using the `name` (which can also be a partner event source name), e.g., console
+// terraform import {
 //
-// ```sh
+//	to = aws_cloudwatch_event_bus.messenger
 //
-//	$ pulumi import aws:cloudwatch/eventBus:EventBus messenger chat-messages
-//
-// ```
+//	id = "chat-messages" } Using `pulumi import`, import EventBridge event buses using the `name` (which can also be a partner event source name). For exampleconsole % pulumi import aws_cloudwatch_event_bus.messenger chat-messages
 type EventBus struct {
 	pulumi.CustomResourceState
 
@@ -99,6 +98,7 @@ func NewEventBus(ctx *pulumi.Context,
 		args = &EventBusArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EventBus
 	err := ctx.RegisterResource("aws:cloudwatch/eventBus:EventBus", name, args, &resource, opts...)
 	if err != nil {

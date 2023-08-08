@@ -28,15 +28,6 @@ public final class GetHoursOfOperationResult {
      */
     private String description;
     /**
-     * @return (**Deprecated**) ARN of the Hours of Operation.
-     * 
-     * @deprecated
-     * use &#39;arn&#39; attribute instead
-     * 
-     */
-    @Deprecated /* use 'arn' attribute instead */
-    private String hoursOfOperationArn;
-    /**
      * @return The identifier for the hours of operation.
      * 
      */
@@ -88,17 +79,6 @@ public final class GetHoursOfOperationResult {
      */
     public String description() {
         return this.description;
-    }
-    /**
-     * @return (**Deprecated**) ARN of the Hours of Operation.
-     * 
-     * @deprecated
-     * use &#39;arn&#39; attribute instead
-     * 
-     */
-    @Deprecated /* use 'arn' attribute instead */
-    public String hoursOfOperationArn() {
-        return this.hoursOfOperationArn;
     }
     /**
      * @return The identifier for the hours of operation.
@@ -155,7 +135,6 @@ public final class GetHoursOfOperationResult {
         private String arn;
         private List<GetHoursOfOperationConfig> configs;
         private String description;
-        private String hoursOfOperationArn;
         private String hoursOfOperationId;
         private String id;
         private String instanceId;
@@ -168,7 +147,6 @@ public final class GetHoursOfOperationResult {
     	      this.arn = defaults.arn;
     	      this.configs = defaults.configs;
     	      this.description = defaults.description;
-    	      this.hoursOfOperationArn = defaults.hoursOfOperationArn;
     	      this.hoursOfOperationId = defaults.hoursOfOperationId;
     	      this.id = defaults.id;
     	      this.instanceId = defaults.instanceId;
@@ -193,11 +171,6 @@ public final class GetHoursOfOperationResult {
         @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
-            return this;
-        }
-        @CustomType.Setter
-        public Builder hoursOfOperationArn(String hoursOfOperationArn) {
-            this.hoursOfOperationArn = Objects.requireNonNull(hoursOfOperationArn);
             return this;
         }
         @CustomType.Setter
@@ -235,7 +208,6 @@ public final class GetHoursOfOperationResult {
             o.arn = arn;
             o.configs = configs;
             o.description = description;
-            o.hoursOfOperationArn = hoursOfOperationArn;
             o.hoursOfOperationId = hoursOfOperationId;
             o.id = id;
             o.instanceId = instanceId;

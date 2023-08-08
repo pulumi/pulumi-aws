@@ -22,12 +22,8 @@ class PeeringConnectionOptionsArgs:
         """
         The set of arguments for constructing a PeeringConnectionOptions resource.
         :param pulumi.Input[str] vpc_peering_connection_id: The ID of the requester VPC peering connection.
-        :param pulumi.Input['PeeringConnectionOptionsAccepterArgs'] accepter: An optional configuration block that allows for [VPC Peering Connection]
-               (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
-               the peering connection (a maximum of one).
-        :param pulumi.Input['PeeringConnectionOptionsRequesterArgs'] requester: A optional configuration block that allows for [VPC Peering Connection]
-               (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
-               the peering connection (a maximum of one).
+        :param pulumi.Input['PeeringConnectionOptionsAccepterArgs'] accepter: An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that acceptsthe peering connection (a maximum of one).
+        :param pulumi.Input['PeeringConnectionOptionsRequesterArgs'] requester: A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requeststhe peering connection (a maximum of one).
         """
         pulumi.set(__self__, "vpc_peering_connection_id", vpc_peering_connection_id)
         if accepter is not None:
@@ -51,9 +47,7 @@ class PeeringConnectionOptionsArgs:
     @pulumi.getter
     def accepter(self) -> Optional[pulumi.Input['PeeringConnectionOptionsAccepterArgs']]:
         """
-        An optional configuration block that allows for [VPC Peering Connection]
-        (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
-        the peering connection (a maximum of one).
+        An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that acceptsthe peering connection (a maximum of one).
         """
         return pulumi.get(self, "accepter")
 
@@ -65,9 +59,7 @@ class PeeringConnectionOptionsArgs:
     @pulumi.getter
     def requester(self) -> Optional[pulumi.Input['PeeringConnectionOptionsRequesterArgs']]:
         """
-        A optional configuration block that allows for [VPC Peering Connection]
-        (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
-        the peering connection (a maximum of one).
+        A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requeststhe peering connection (a maximum of one).
         """
         return pulumi.get(self, "requester")
 
@@ -84,12 +76,8 @@ class _PeeringConnectionOptionsState:
                  vpc_peering_connection_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering PeeringConnectionOptions resources.
-        :param pulumi.Input['PeeringConnectionOptionsAccepterArgs'] accepter: An optional configuration block that allows for [VPC Peering Connection]
-               (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
-               the peering connection (a maximum of one).
-        :param pulumi.Input['PeeringConnectionOptionsRequesterArgs'] requester: A optional configuration block that allows for [VPC Peering Connection]
-               (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
-               the peering connection (a maximum of one).
+        :param pulumi.Input['PeeringConnectionOptionsAccepterArgs'] accepter: An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that acceptsthe peering connection (a maximum of one).
+        :param pulumi.Input['PeeringConnectionOptionsRequesterArgs'] requester: A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requeststhe peering connection (a maximum of one).
         :param pulumi.Input[str] vpc_peering_connection_id: The ID of the requester VPC peering connection.
         """
         if accepter is not None:
@@ -103,9 +91,7 @@ class _PeeringConnectionOptionsState:
     @pulumi.getter
     def accepter(self) -> Optional[pulumi.Input['PeeringConnectionOptionsAccepterArgs']]:
         """
-        An optional configuration block that allows for [VPC Peering Connection]
-        (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
-        the peering connection (a maximum of one).
+        An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that acceptsthe peering connection (a maximum of one).
         """
         return pulumi.get(self, "accepter")
 
@@ -117,9 +103,7 @@ class _PeeringConnectionOptionsState:
     @pulumi.getter
     def requester(self) -> Optional[pulumi.Input['PeeringConnectionOptionsRequesterArgs']]:
         """
-        A optional configuration block that allows for [VPC Peering Connection]
-        (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
-        the peering connection (a maximum of one).
+        A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requeststhe peering connection (a maximum of one).
         """
         return pulumi.get(self, "requester")
 
@@ -178,10 +162,6 @@ class PeeringConnectionOptions(pulumi.CustomResource):
             vpc_peering_connection_id=foo_vpc_peering_connection.id,
             accepter=aws.ec2.PeeringConnectionOptionsAccepterArgs(
                 allow_remote_vpc_dns_resolution=True,
-            ),
-            requester=aws.ec2.PeeringConnectionOptionsRequesterArgs(
-                allow_vpc_to_remote_classic_link=True,
-                allow_classic_link_to_remote_vpc=True,
             ))
         ```
         ### Cross-Account Usage
@@ -239,20 +219,16 @@ class PeeringConnectionOptions(pulumi.CustomResource):
 
         ## Import
 
-        VPC Peering Connection Options can be imported using the `vpc peering id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ec2/peeringConnectionOptions:PeeringConnectionOptions foo pcx-111aaa111
-        ```
+         to = aws_vpc_peering_connection_options.foo
+
+         id = "pcx-111aaa111" } Using `pulumi import`, import VPC Peering Connection Options using the VPC peering `id`. For exampleconsole % pulumi import aws_vpc_peering_connection_options.foo pcx-111aaa111
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['PeeringConnectionOptionsAccepterArgs']] accepter: An optional configuration block that allows for [VPC Peering Connection]
-               (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
-               the peering connection (a maximum of one).
-        :param pulumi.Input[pulumi.InputType['PeeringConnectionOptionsRequesterArgs']] requester: A optional configuration block that allows for [VPC Peering Connection]
-               (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
-               the peering connection (a maximum of one).
+        :param pulumi.Input[pulumi.InputType['PeeringConnectionOptionsAccepterArgs']] accepter: An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that acceptsthe peering connection (a maximum of one).
+        :param pulumi.Input[pulumi.InputType['PeeringConnectionOptionsRequesterArgs']] requester: A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requeststhe peering connection (a maximum of one).
         :param pulumi.Input[str] vpc_peering_connection_id: The ID of the requester VPC peering connection.
         """
         ...
@@ -290,10 +266,6 @@ class PeeringConnectionOptions(pulumi.CustomResource):
             vpc_peering_connection_id=foo_vpc_peering_connection.id,
             accepter=aws.ec2.PeeringConnectionOptionsAccepterArgs(
                 allow_remote_vpc_dns_resolution=True,
-            ),
-            requester=aws.ec2.PeeringConnectionOptionsRequesterArgs(
-                allow_vpc_to_remote_classic_link=True,
-                allow_classic_link_to_remote_vpc=True,
             ))
         ```
         ### Cross-Account Usage
@@ -351,11 +323,11 @@ class PeeringConnectionOptions(pulumi.CustomResource):
 
         ## Import
 
-        VPC Peering Connection Options can be imported using the `vpc peering id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ec2/peeringConnectionOptions:PeeringConnectionOptions foo pcx-111aaa111
-        ```
+         to = aws_vpc_peering_connection_options.foo
+
+         id = "pcx-111aaa111" } Using `pulumi import`, import VPC Peering Connection Options using the VPC peering `id`. For exampleconsole % pulumi import aws_vpc_peering_connection_options.foo pcx-111aaa111
 
         :param str resource_name: The name of the resource.
         :param PeeringConnectionOptionsArgs args: The arguments to use to populate this resource's properties.
@@ -409,12 +381,8 @@ class PeeringConnectionOptions(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['PeeringConnectionOptionsAccepterArgs']] accepter: An optional configuration block that allows for [VPC Peering Connection]
-               (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
-               the peering connection (a maximum of one).
-        :param pulumi.Input[pulumi.InputType['PeeringConnectionOptionsRequesterArgs']] requester: A optional configuration block that allows for [VPC Peering Connection]
-               (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
-               the peering connection (a maximum of one).
+        :param pulumi.Input[pulumi.InputType['PeeringConnectionOptionsAccepterArgs']] accepter: An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that acceptsthe peering connection (a maximum of one).
+        :param pulumi.Input[pulumi.InputType['PeeringConnectionOptionsRequesterArgs']] requester: A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requeststhe peering connection (a maximum of one).
         :param pulumi.Input[str] vpc_peering_connection_id: The ID of the requester VPC peering connection.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -430,9 +398,7 @@ class PeeringConnectionOptions(pulumi.CustomResource):
     @pulumi.getter
     def accepter(self) -> pulumi.Output['outputs.PeeringConnectionOptionsAccepter']:
         """
-        An optional configuration block that allows for [VPC Peering Connection]
-        (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
-        the peering connection (a maximum of one).
+        An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that acceptsthe peering connection (a maximum of one).
         """
         return pulumi.get(self, "accepter")
 
@@ -440,9 +406,7 @@ class PeeringConnectionOptions(pulumi.CustomResource):
     @pulumi.getter
     def requester(self) -> pulumi.Output['outputs.PeeringConnectionOptionsRequester']:
         """
-        A optional configuration block that allows for [VPC Peering Connection]
-        (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
-        the peering connection (a maximum of one).
+        A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requeststhe peering connection (a maximum of one).
         """
         return pulumi.get(self, "requester")
 

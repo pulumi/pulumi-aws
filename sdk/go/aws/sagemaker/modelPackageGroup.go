@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,13 +43,11 @@ import (
 //
 // ## Import
 //
-// SageMaker Model Package Groups can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_sagemaker_model_package_group.test_model_package_group
 //
-//	$ pulumi import aws:sagemaker/modelPackageGroup:ModelPackageGroup test_model_package_group my-code-repo
-//
-// ```
+//	id = "my-code-repo" } Using `pulumi import`, import SageMaker Model Package Groups using the `name`. For exampleconsole % pulumi import aws_sagemaker_model_package_group.test_model_package_group my-code-repo
 type ModelPackageGroup struct {
 	pulumi.CustomResourceState
 
@@ -74,6 +73,7 @@ func NewModelPackageGroup(ctx *pulumi.Context,
 	if args.ModelPackageGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ModelPackageGroupName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ModelPackageGroup
 	err := ctx.RegisterResource("aws:sagemaker/modelPackageGroup:ModelPackageGroup", name, args, &resource, opts...)
 	if err != nil {

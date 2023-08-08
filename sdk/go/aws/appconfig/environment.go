@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appconfig"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appconfig"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -60,13 +61,11 @@ import (
 //
 // ## Import
 //
-// AppConfig Environments can be imported by using the environment ID and application ID separated by a colon (`:`), e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_appconfig_environment.example
 //
-//	$ pulumi import aws:appconfig/environment:Environment example 71abcde:11xxxxx
-//
-// ```
+//	id = "71abcde:11xxxxx" } Using `pulumi import`, import AppConfig Environments using the environment ID and application ID separated by a colon (`:`). For exampleconsole % pulumi import aws_appconfig_environment.example 71abcde:11xxxxx
 type Environment struct {
 	pulumi.CustomResourceState
 
@@ -75,7 +74,7 @@ type Environment struct {
 	// ARN of the AppConfig Environment.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Description of the environment. Can be at most 1024 characters.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
+	Description pulumi.StringOutput `pulumi:"description"`
 	// AppConfig environment ID.
 	EnvironmentId pulumi.StringOutput `pulumi:"environmentId"`
 	// Set of Amazon CloudWatch alarms to monitor during the deployment process. Maximum of 5. See Monitor below for more details.
@@ -101,6 +100,7 @@ func NewEnvironment(ctx *pulumi.Context,
 	if args.ApplicationId == nil {
 		return nil, errors.New("invalid value for required argument 'ApplicationId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Environment
 	err := ctx.RegisterResource("aws:appconfig/environment:Environment", name, args, &resource, opts...)
 	if err != nil {
@@ -295,8 +295,8 @@ func (o EnvironmentOutput) Arn() pulumi.StringOutput {
 }
 
 // Description of the environment. Can be at most 1024 characters.
-func (o EnvironmentOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+func (o EnvironmentOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
 // AppConfig environment ID.

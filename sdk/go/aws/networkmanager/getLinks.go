@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkmanager"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkmanager"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -41,6 +42,7 @@ import (
 //
 // ```
 func GetLinks(ctx *pulumi.Context, args *GetLinksArgs, opts ...pulumi.InvokeOption) (*GetLinksResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLinksResult
 	err := ctx.Invoke("aws:networkmanager/getLinks:getLinks", args, &rv, opts...)
 	if err != nil {

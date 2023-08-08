@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appstream"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appstream"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -53,13 +54,11 @@ import (
 //
 // ## Import
 //
-// `aws_appstream_image_builder` can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_appstream_image_builder.example
 //
-//	$ pulumi import aws:appstream/imageBuilder:ImageBuilder example imageBuilderExample
-//
-// ```
+//	id = "imageBuilderExample" } Using `pulumi import`, import `aws_appstream_image_builder` using the `name`. For exampleconsole % pulumi import aws_appstream_image_builder.example imageBuilderExample
 type ImageBuilder struct {
 	pulumi.CustomResourceState
 
@@ -111,6 +110,7 @@ func NewImageBuilder(ctx *pulumi.Context,
 	if args.InstanceType == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceType'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ImageBuilder
 	err := ctx.RegisterResource("aws:appstream/imageBuilder:ImageBuilder", name, args, &resource, opts...)
 	if err != nil {

@@ -139,7 +139,7 @@ public final class FlowLogState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * *Deprecated:* Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
+     * **Deprecated:** Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
      * 
      * @deprecated
      * use &#39;log_destination&#39; argument instead
@@ -150,7 +150,7 @@ public final class FlowLogState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> logGroupName;
 
     /**
-     * @return *Deprecated:* Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
+     * @return **Deprecated:** Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
      * 
      * @deprecated
      * use &#39;log_destination&#39; argument instead
@@ -496,7 +496,7 @@ public final class FlowLogState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logGroupName *Deprecated:* Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
+         * @param logGroupName **Deprecated:** Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
          * 
          * @return builder
          * 
@@ -511,7 +511,7 @@ public final class FlowLogState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logGroupName *Deprecated:* Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
+         * @param logGroupName **Deprecated:** Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
          * 
          * @return builder
          * 

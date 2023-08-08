@@ -53,11 +53,11 @@ namespace Pulumi.Aws.Batch
     /// 
     /// ## Import
     /// 
-    /// Batch Scheduling Policy can be imported using the `arn`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:batch/schedulingPolicy:SchedulingPolicy test_policy arn:aws:batch:us-east-1:123456789012:scheduling-policy/sample
-    /// ```
+    ///  to = aws_batch_scheduling_policy.test_policy
+    /// 
+    ///  id = "arn:aws:batch:us-east-1:123456789012:scheduling-policy/sample" } Using `pulumi import`, import Batch Scheduling Policy using the `arn`. For exampleconsole % pulumi import aws_batch_scheduling_policy.test_policy arn:aws:batch:us-east-1:123456789012:scheduling-policy/sample
     /// </summary>
     [AwsResourceType("aws:batch/schedulingPolicy:SchedulingPolicy")]
     public partial class SchedulingPolicy : global::Pulumi.CustomResource

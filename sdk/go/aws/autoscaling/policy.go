@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -26,8 +27,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -62,14 +63,14 @@ import (
 //	}
 //
 // ```
-// ### Create target tarcking scaling policy using metric math
+// ### Create target tracking scaling policy using metric math
 //
 // ```go
 // package main
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -144,7 +145,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -209,7 +210,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -260,13 +261,11 @@ import (
 //
 // ## Import
 //
-// AutoScaling scaling policy can be imported using the role autoscaling_group_name and name separated by `/`.
+// terraform import {
 //
-// ```sh
+//	to = aws_autoscaling_policy.test-policy
 //
-//	$ pulumi import aws:autoscaling/policy:Policy test-policy asg-name/policy-name
-//
-// ```
+//	id = "asg-name/policy-name" } Using `pulumi import`, import AutoScaling scaling policy using the role autoscaling_group_name and name separated by `/`. For exampleconsole % pulumi import aws_autoscaling_policy.test-policy asg-name/policy-name
 type Policy struct {
 	pulumi.CustomResourceState
 
@@ -307,7 +306,7 @@ type Policy struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -343,7 +342,7 @@ type Policy struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -379,6 +378,7 @@ func NewPolicy(ctx *pulumi.Context,
 	if args.AutoscalingGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'AutoscalingGroupName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Policy
 	err := ctx.RegisterResource("aws:autoscaling/policy:Policy", name, args, &resource, opts...)
 	if err != nil {
@@ -438,7 +438,7 @@ type policyState struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -474,7 +474,7 @@ type policyState struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -538,7 +538,7 @@ type PolicyState struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -574,7 +574,7 @@ type PolicyState struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -640,7 +640,7 @@ type policyArgs struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -676,7 +676,7 @@ type policyArgs struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -739,7 +739,7 @@ type PolicyArgs struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -775,7 +775,7 @@ type PolicyArgs struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -962,7 +962,7 @@ func (o PolicyOutput) ScalingAdjustment() pulumi.IntPtrOutput {
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -1004,7 +1004,7 @@ func (o PolicyOutput) StepAdjustments() PolicyStepAdjustmentArrayOutput {
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )

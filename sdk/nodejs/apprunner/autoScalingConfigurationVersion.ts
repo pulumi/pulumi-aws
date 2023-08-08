@@ -26,11 +26,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * App Runner AutoScaling Configuration Versions can be imported by using the `arn`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:apprunner/autoScalingConfigurationVersion:AutoScalingConfigurationVersion example "arn:aws:apprunner:us-east-1:1234567890:autoscalingconfiguration/example/1/69bdfe0115224b0db49398b7beb68e0f
- * ```
+ *  to = aws_apprunner_auto_scaling_configuration_version.example
+ *
+ *  id = "arn:aws:apprunner:us-east-1:1234567890:autoscalingconfiguration/example/1/69bdfe0115224b0db49398b7beb68e0f" } Using `pulumi import`, import App Runner AutoScaling Configuration Versions using the `arn`. For exampleconsole % pulumi import aws_apprunner_auto_scaling_configuration_version.example "arn:aws:apprunner:us-east-1:1234567890:autoscalingconfiguration/example/1/69bdfe0115224b0db49398b7beb68e0f
  */
 export class AutoScalingConfigurationVersion extends pulumi.CustomResource {
     /**

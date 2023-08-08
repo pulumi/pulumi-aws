@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -80,13 +81,11 @@ import (
 //
 // ## Import
 //
-// DB proxy default target groups can be imported using the `db_proxy_name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_db_proxy_default_target_group.example
 //
-//	$ pulumi import aws:rds/proxyDefaultTargetGroup:ProxyDefaultTargetGroup example example
-//
-// ```
+//	id = "example" } Using `pulumi import`, import DB proxy default target groups using the `db_proxy_name`. For exampleconsole % pulumi import aws_db_proxy_default_target_group.example example
 type ProxyDefaultTargetGroup struct {
 	pulumi.CustomResourceState
 
@@ -110,6 +109,7 @@ func NewProxyDefaultTargetGroup(ctx *pulumi.Context,
 	if args.DbProxyName == nil {
 		return nil, errors.New("invalid value for required argument 'DbProxyName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ProxyDefaultTargetGroup
 	err := ctx.RegisterResource("aws:rds/proxyDefaultTargetGroup:ProxyDefaultTargetGroup", name, args, &resource, opts...)
 	if err != nil {

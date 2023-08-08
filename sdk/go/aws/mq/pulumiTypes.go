@@ -7,8 +7,11 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type BrokerConfiguration struct {
 	// The Configuration ID.
@@ -1093,6 +1096,8 @@ type BrokerUser struct {
 	Groups []string `pulumi:"groups"`
 	// Password of the user. It must be 12 to 250 characters long, at least 4 unique characters, and must not contain commas.
 	Password string `pulumi:"password"`
+	// Whether to set set replication user. Defaults to `false`.
+	ReplicationUser *bool `pulumi:"replicationUser"`
 	// Username of the user.
 	//
 	// > **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
@@ -1117,6 +1122,8 @@ type BrokerUserArgs struct {
 	Groups pulumi.StringArrayInput `pulumi:"groups"`
 	// Password of the user. It must be 12 to 250 characters long, at least 4 unique characters, and must not contain commas.
 	Password pulumi.StringInput `pulumi:"password"`
+	// Whether to set set replication user. Defaults to `false`.
+	ReplicationUser pulumi.BoolPtrInput `pulumi:"replicationUser"`
 	// Username of the user.
 	//
 	// > **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
@@ -1187,6 +1194,11 @@ func (o BrokerUserOutput) Groups() pulumi.StringArrayOutput {
 // Password of the user. It must be 12 to 250 characters long, at least 4 unique characters, and must not contain commas.
 func (o BrokerUserOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v BrokerUser) string { return v.Password }).(pulumi.StringOutput)
+}
+
+// Whether to set set replication user. Defaults to `false`.
+func (o BrokerUserOutput) ReplicationUser() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BrokerUser) *bool { return v.ReplicationUser }).(pulumi.BoolPtrOutput)
 }
 
 // Username of the user.
@@ -1748,9 +1760,10 @@ func (o GetBrokerMaintenanceWindowStartTimeOutput) TimeZone() pulumi.StringOutpu
 }
 
 type GetBrokerUser struct {
-	ConsoleAccess bool     `pulumi:"consoleAccess"`
-	Groups        []string `pulumi:"groups"`
-	Username      string   `pulumi:"username"`
+	ConsoleAccess   bool     `pulumi:"consoleAccess"`
+	Groups          []string `pulumi:"groups"`
+	ReplicationUser bool     `pulumi:"replicationUser"`
+	Username        string   `pulumi:"username"`
 }
 
 // GetBrokerUserInput is an input type that accepts GetBrokerUserArgs and GetBrokerUserOutput values.
@@ -1765,9 +1778,10 @@ type GetBrokerUserInput interface {
 }
 
 type GetBrokerUserArgs struct {
-	ConsoleAccess pulumi.BoolInput        `pulumi:"consoleAccess"`
-	Groups        pulumi.StringArrayInput `pulumi:"groups"`
-	Username      pulumi.StringInput      `pulumi:"username"`
+	ConsoleAccess   pulumi.BoolInput        `pulumi:"consoleAccess"`
+	Groups          pulumi.StringArrayInput `pulumi:"groups"`
+	ReplicationUser pulumi.BoolInput        `pulumi:"replicationUser"`
+	Username        pulumi.StringInput      `pulumi:"username"`
 }
 
 func (GetBrokerUserArgs) ElementType() reflect.Type {
@@ -1827,6 +1841,10 @@ func (o GetBrokerUserOutput) ConsoleAccess() pulumi.BoolOutput {
 
 func (o GetBrokerUserOutput) Groups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetBrokerUser) []string { return v.Groups }).(pulumi.StringArrayOutput)
+}
+
+func (o GetBrokerUserOutput) ReplicationUser() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetBrokerUser) bool { return v.ReplicationUser }).(pulumi.BoolOutput)
 }
 
 func (o GetBrokerUserOutput) Username() pulumi.StringOutput {

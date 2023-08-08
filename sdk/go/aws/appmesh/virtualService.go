@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appmesh"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appmesh"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -53,7 +54,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appmesh"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appmesh"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -81,13 +82,11 @@ import (
 //
 // ## Import
 //
-// App Mesh virtual services can be imported using `mesh_name` together with the virtual service's `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_appmesh_virtual_service.servicea
 //
-//	$ pulumi import aws:appmesh/virtualService:VirtualService servicea simpleapp/servicea.simpleapp.local
-//
-// ```
+//	id = "simpleapp/servicea.simpleapp.local" } Using `pulumi import`, import App Mesh virtual services using `mesh_name` together with the virtual service's `name`. For exampleconsole % pulumi import aws_appmesh_virtual_service.servicea simpleapp/servicea.simpleapp.local
 type VirtualService struct {
 	pulumi.CustomResourceState
 
@@ -126,6 +125,7 @@ func NewVirtualService(ctx *pulumi.Context,
 	if args.Spec == nil {
 		return nil, errors.New("invalid value for required argument 'Spec'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VirtualService
 	err := ctx.RegisterResource("aws:appmesh/virtualService:VirtualService", name, args, &resource, opts...)
 	if err != nil {

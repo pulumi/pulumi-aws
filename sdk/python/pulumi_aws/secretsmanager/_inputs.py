@@ -12,7 +12,6 @@ from .. import _utilities
 __all__ = [
     'SecretReplicaArgs',
     'SecretRotationRotationRulesArgs',
-    'SecretRotationRulesArgs',
     'GetSecretsFilterArgs',
 ]
 
@@ -150,53 +149,6 @@ class SecretRotationRotationRulesArgs:
         """
         A `cron()` or `rate()` expression that defines the schedule for rotating your secret. Either `automatically_after_days` or `schedule_expression` must be specified.
         """
-        return pulumi.get(self, "schedule_expression")
-
-    @schedule_expression.setter
-    def schedule_expression(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "schedule_expression", value)
-
-
-@pulumi.input_type
-class SecretRotationRulesArgs:
-    def __init__(__self__, *,
-                 automatically_after_days: Optional[pulumi.Input[int]] = None,
-                 duration: Optional[pulumi.Input[str]] = None,
-                 schedule_expression: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[int] automatically_after_days: Specifies the number of days between automatic scheduled rotations of the secret.
-        """
-        if automatically_after_days is not None:
-            pulumi.set(__self__, "automatically_after_days", automatically_after_days)
-        if duration is not None:
-            pulumi.set(__self__, "duration", duration)
-        if schedule_expression is not None:
-            pulumi.set(__self__, "schedule_expression", schedule_expression)
-
-    @property
-    @pulumi.getter(name="automaticallyAfterDays")
-    def automatically_after_days(self) -> Optional[pulumi.Input[int]]:
-        """
-        Specifies the number of days between automatic scheduled rotations of the secret.
-        """
-        return pulumi.get(self, "automatically_after_days")
-
-    @automatically_after_days.setter
-    def automatically_after_days(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "automatically_after_days", value)
-
-    @property
-    @pulumi.getter
-    def duration(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "duration")
-
-    @duration.setter
-    def duration(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "duration", value)
-
-    @property
-    @pulumi.getter(name="scheduleExpression")
-    def schedule_expression(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "schedule_expression")
 
     @schedule_expression.setter

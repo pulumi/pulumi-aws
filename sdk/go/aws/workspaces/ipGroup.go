@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/workspaces"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/workspaces"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,13 +55,11 @@ import (
 //
 // ## Import
 //
-// WorkSpaces IP groups can be imported using their GroupID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_workspaces_ip_group.example
 //
-//	$ pulumi import aws:workspaces/ipGroup:IpGroup example wsipg-488lrtl3k
-//
-// ```
+//	id = "wsipg-488lrtl3k" } Using `pulumi import`, import WorkSpaces IP groups using their GroupID. For exampleconsole % pulumi import aws_workspaces_ip_group.example wsipg-488lrtl3k
 type IpGroup struct {
 	pulumi.CustomResourceState
 
@@ -83,6 +82,7 @@ func NewIpGroup(ctx *pulumi.Context,
 		args = &IpGroupArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource IpGroup
 	err := ctx.RegisterResource("aws:workspaces/ipGroup:IpGroup", name, args, &resource, opts...)
 	if err != nil {

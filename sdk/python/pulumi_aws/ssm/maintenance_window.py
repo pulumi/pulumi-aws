@@ -459,13 +459,13 @@ class MaintenanceWindow(pulumi.CustomResource):
 
         ## Import
 
-        SSM
+        terraform import {
 
-        Maintenance Windows can be imported using the `maintenance window id`, e.g.,
+         to = aws_ssm_maintenance_window.imported-window
 
-        ```sh
-         $ pulumi import aws:ssm/maintenanceWindow:MaintenanceWindow imported-window mw-0123456789
-        ```
+         id = "mw-0123456789" } Using `pulumi import`, import SSM
+
+        Maintenance Windows using the maintenance window `id`. For exampleconsole % pulumi import aws_ssm_maintenance_window.imported-window mw-0123456789
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -505,13 +505,13 @@ class MaintenanceWindow(pulumi.CustomResource):
 
         ## Import
 
-        SSM
+        terraform import {
 
-        Maintenance Windows can be imported using the `maintenance window id`, e.g.,
+         to = aws_ssm_maintenance_window.imported-window
 
-        ```sh
-         $ pulumi import aws:ssm/maintenanceWindow:MaintenanceWindow imported-window mw-0123456789
-        ```
+         id = "mw-0123456789" } Using `pulumi import`, import SSM
+
+        Maintenance Windows using the maintenance window `id`. For exampleconsole % pulumi import aws_ssm_maintenance_window.imported-window mw-0123456789
 
         :param str resource_name: The name of the resource.
         :param MaintenanceWindowArgs args: The arguments to use to populate this resource's properties.

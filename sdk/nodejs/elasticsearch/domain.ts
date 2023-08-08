@@ -103,8 +103,11 @@ import {PolicyDocument} from "../iam";
  *         Name: vpc,
  *     },
  * });
- * const selectedSubnetIds = selectedVpc.then(selectedVpc => aws.ec2.getSubnetIds({
- *     vpcId: selectedVpc.id,
+ * const selectedSubnets = selectedVpc.then(selectedVpc => aws.ec2.getSubnets({
+ *     filters: [{
+ *         name: "vpc-id",
+ *         values: [selectedVpc.id],
+ *     }],
  *     tags: {
  *         Tier: "private",
  *     },
@@ -130,8 +133,8 @@ import {PolicyDocument} from "../iam";
  *     },
  *     vpcOptions: {
  *         subnetIds: [
- *             selectedSubnetIds.then(selectedSubnetIds => selectedSubnetIds.ids?.[0]),
- *             selectedSubnetIds.then(selectedSubnetIds => selectedSubnetIds.ids?.[1]),
+ *             selectedSubnets.then(selectedSubnets => selectedSubnets.ids?.[0]),
+ *             selectedSubnets.then(selectedSubnets => selectedSubnets.ids?.[1]),
  *         ],
  *         securityGroupIds: [esSecurityGroup.id],
  *     },
@@ -160,11 +163,11 @@ import {PolicyDocument} from "../iam";
  *
  * ## Import
  *
- * Elasticsearch domains can be imported using the `domain_name`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:elasticsearch/domain:Domain example domain_name
- * ```
+ *  to = aws_elasticsearch_domain.example
+ *
+ *  id = "domain_name" } Using `pulumi import`, import Elasticsearch domains using the `domain_name`. For exampleconsole % pulumi import aws_elasticsearch_domain.example domain_name
  */
 export class Domain extends pulumi.CustomResource {
     /**

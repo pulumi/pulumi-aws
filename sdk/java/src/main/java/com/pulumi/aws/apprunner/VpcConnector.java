@@ -58,11 +58,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * App Runner vpc connector can be imported by using the `arn`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:apprunner/vpcConnector:VpcConnector example arn:aws:apprunner:us-east-1:1234567890:vpcconnector/example/1/0a03292a89764e5882c41d8f991c82fe
- * ```
+ *  to = aws_apprunner_vpc_connector.example
+ * 
+ *  id = &#34;arn:aws:apprunner:us-east-1:1234567890:vpcconnector/example/1/0a03292a89764e5882c41d8f991c82fe&#34; } Using `pulumi import`, import App Runner vpc connector using the `arn`. For exampleconsole % pulumi import aws_apprunner_vpc_connector.example arn:aws:apprunner:us-east-1:1234567890:vpcconnector/example/1/0a03292a89764e5882c41d8f991c82fe
  * 
  */
 @ResourceType(type="aws:apprunner/vpcConnector:VpcConnector")

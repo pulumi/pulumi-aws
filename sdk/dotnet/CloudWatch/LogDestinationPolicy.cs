@@ -69,11 +69,11 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// ## Import
     /// 
-    /// CloudWatch Logs destination policies can be imported using the `destination_name`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:cloudwatch/logDestinationPolicy:LogDestinationPolicy test_destination_policy test_destination
-    /// ```
+    ///  to = aws_cloudwatch_log_destination_policy.test_destination_policy
+    /// 
+    ///  id = "test_destination" } Using `pulumi import`, import CloudWatch Logs destination policies using the `destination_name`. For exampleconsole % pulumi import aws_cloudwatch_log_destination_policy.test_destination_policy test_destination
     /// </summary>
     [AwsResourceType("aws:cloudwatch/logDestinationPolicy:LogDestinationPolicy")]
     public partial class LogDestinationPolicy : global::Pulumi.CustomResource

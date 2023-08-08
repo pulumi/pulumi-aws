@@ -24,11 +24,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Redshift Snapshot Copy Grants support import by name, e.g., console
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:redshift/snapshotCopyGrant:SnapshotCopyGrant test my-grant
- * ```
+ *  to = aws_redshift_snapshot_copy_grant.test
+ *
+ *  id = "my-grant" } Using `pulumi import`, import Redshift Snapshot Copy Grants by name. For exampleconsole % pulumi import aws_redshift_snapshot_copy_grant.test my-grant
  */
 export class SnapshotCopyGrant extends pulumi.CustomResource {
     /**

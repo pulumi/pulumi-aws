@@ -8,321 +8,24 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates a WAFv2 Web ACL resource.
-//
-// > **Note:** In `fieldToMatch` blocks, _e.g._, in `byteMatchStatement`, the `body` block includes an optional argument `oversizeHandling`. AWS indicates this argument will be required starting February 2023. To avoid configurations breaking when that change happens, treat the `oversizeHandling` argument as **required** as soon as possible.
-//
-// ## Example Usage
-//
-// This resource is based on `wafv2.RuleGroup`, check the documentation of the `wafv2.RuleGroup` resource to see examples of the various available statements.
-// ### Account Takeover Protection
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/wafv2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := wafv2.NewWebAcl(ctx, "atp-example", &wafv2.WebAclArgs{
-//				DefaultAction: &wafv2.WebAclDefaultActionArgs{
-//					Allow: nil,
-//				},
-//				Description: pulumi.String("Example of a managed ATP rule."),
-//				Rules: wafv2.WebAclRuleArray{
-//					&wafv2.WebAclRuleArgs{
-//						Name: pulumi.String("atp-rule-1"),
-//						OverrideAction: &wafv2.WebAclRuleOverrideActionArgs{
-//							Count: nil,
-//						},
-//						Priority: pulumi.Int(1),
-//						Statement: &wafv2.WebAclRuleStatementArgs{
-//							ManagedRuleGroupStatement: &wafv2.WebAclRuleStatementManagedRuleGroupStatementArgs{
-//								ManagedRuleGroupConfigs: wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArray{
-//									&wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs{
-//										AwsManagedRulesAtpRuleSet: &wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetArgs{
-//											LoginPath: pulumi.String("/api/1/signin"),
-//											RequestInspection: &wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionArgs{
-//												PasswordField: &wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordFieldArgs{
-//													Identifier: pulumi.String("/password"),
-//												},
-//												PayloadType: pulumi.String("JSON"),
-//												UsernameField: &wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionUsernameFieldArgs{
-//													Identifier: pulumi.String("/email"),
-//												},
-//											},
-//											ResponseInspection: &wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionArgs{
-//												StatusCode: &wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionStatusCodeArgs{
-//													FailureCodes: pulumi.IntArray{
-//														pulumi.Int(403),
-//													},
-//													SuccessCodes: pulumi.IntArray{
-//														pulumi.Int(200),
-//													},
-//												},
-//											},
-//										},
-//									},
-//								},
-//								Name:       pulumi.String("AWSManagedRulesATPRuleSet"),
-//								VendorName: pulumi.String("AWS"),
-//							},
-//						},
-//						VisibilityConfig: &wafv2.WebAclRuleVisibilityConfigArgs{
-//							CloudwatchMetricsEnabled: pulumi.Bool(false),
-//							MetricName:               pulumi.String("friendly-rule-metric-name"),
-//							SampledRequestsEnabled:   pulumi.Bool(false),
-//						},
-//					},
-//				},
-//				Scope: pulumi.String("CLOUDFRONT"),
-//				VisibilityConfig: &wafv2.WebAclVisibilityConfigArgs{
-//					CloudwatchMetricsEnabled: pulumi.Bool(false),
-//					MetricName:               pulumi.String("friendly-metric-name"),
-//					SampledRequestsEnabled:   pulumi.Bool(false),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Rate Based
-//
-// Rate-limit US and NL-based clients to 10,000 requests for every 5 minutes.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/wafv2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := wafv2.NewWebAcl(ctx, "example", &wafv2.WebAclArgs{
-//				DefaultAction: &wafv2.WebAclDefaultActionArgs{
-//					Allow: nil,
-//				},
-//				Description: pulumi.String("Example of a Cloudfront rate based statement."),
-//				Rules: wafv2.WebAclRuleArray{
-//					&wafv2.WebAclRuleArgs{
-//						Action: &wafv2.WebAclRuleActionArgs{
-//							Block: nil,
-//						},
-//						Name:     pulumi.String("rule-1"),
-//						Priority: pulumi.Int(1),
-//						Statement: &wafv2.WebAclRuleStatementArgs{
-//							RateBasedStatement: &wafv2.WebAclRuleStatementRateBasedStatementArgs{
-//								AggregateKeyType: pulumi.String("IP"),
-//								Limit:            pulumi.Int(10000),
-//								ScopeDownStatement: &wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementArgs{
-//									GeoMatchStatement: &wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementArgs{
-//										CountryCodes: pulumi.StringArray{
-//											pulumi.String("US"),
-//											pulumi.String("NL"),
-//										},
-//									},
-//								},
-//							},
-//						},
-//						VisibilityConfig: &wafv2.WebAclRuleVisibilityConfigArgs{
-//							CloudwatchMetricsEnabled: pulumi.Bool(false),
-//							MetricName:               pulumi.String("friendly-rule-metric-name"),
-//							SampledRequestsEnabled:   pulumi.Bool(false),
-//						},
-//					},
-//				},
-//				Scope: pulumi.String("CLOUDFRONT"),
-//				Tags: pulumi.StringMap{
-//					"Tag1": pulumi.String("Value1"),
-//					"Tag2": pulumi.String("Value2"),
-//				},
-//				VisibilityConfig: &wafv2.WebAclVisibilityConfigArgs{
-//					CloudwatchMetricsEnabled: pulumi.Bool(false),
-//					MetricName:               pulumi.String("friendly-metric-name"),
-//					SampledRequestsEnabled:   pulumi.Bool(false),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Rule Group Reference
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/wafv2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := wafv2.NewRuleGroup(ctx, "example", &wafv2.RuleGroupArgs{
-//				Capacity: pulumi.Int(10),
-//				Scope:    pulumi.String("REGIONAL"),
-//				Rules: wafv2.RuleGroupRuleArray{
-//					&wafv2.RuleGroupRuleArgs{
-//						Name:     pulumi.String("rule-1"),
-//						Priority: pulumi.Int(1),
-//						Action: &wafv2.RuleGroupRuleActionArgs{
-//							Count: nil,
-//						},
-//						Statement: &wafv2.RuleGroupRuleStatementArgs{
-//							GeoMatchStatement: &wafv2.RuleGroupRuleStatementGeoMatchStatementArgs{
-//								CountryCodes: pulumi.StringArray{
-//									pulumi.String("NL"),
-//								},
-//							},
-//						},
-//						VisibilityConfig: &wafv2.RuleGroupRuleVisibilityConfigArgs{
-//							CloudwatchMetricsEnabled: pulumi.Bool(false),
-//							MetricName:               pulumi.String("friendly-rule-metric-name"),
-//							SampledRequestsEnabled:   pulumi.Bool(false),
-//						},
-//					},
-//					&wafv2.RuleGroupRuleArgs{
-//						Name:     pulumi.String("rule-to-exclude-a"),
-//						Priority: pulumi.Int(10),
-//						Action: &wafv2.RuleGroupRuleActionArgs{
-//							Allow: nil,
-//						},
-//						Statement: &wafv2.RuleGroupRuleStatementArgs{
-//							GeoMatchStatement: &wafv2.RuleGroupRuleStatementGeoMatchStatementArgs{
-//								CountryCodes: pulumi.StringArray{
-//									pulumi.String("US"),
-//								},
-//							},
-//						},
-//						VisibilityConfig: &wafv2.RuleGroupRuleVisibilityConfigArgs{
-//							CloudwatchMetricsEnabled: pulumi.Bool(false),
-//							MetricName:               pulumi.String("friendly-rule-metric-name"),
-//							SampledRequestsEnabled:   pulumi.Bool(false),
-//						},
-//					},
-//					&wafv2.RuleGroupRuleArgs{
-//						Name:     pulumi.String("rule-to-exclude-b"),
-//						Priority: pulumi.Int(15),
-//						Action: &wafv2.RuleGroupRuleActionArgs{
-//							Allow: nil,
-//						},
-//						Statement: &wafv2.RuleGroupRuleStatementArgs{
-//							GeoMatchStatement: &wafv2.RuleGroupRuleStatementGeoMatchStatementArgs{
-//								CountryCodes: pulumi.StringArray{
-//									pulumi.String("GB"),
-//								},
-//							},
-//						},
-//						VisibilityConfig: &wafv2.RuleGroupRuleVisibilityConfigArgs{
-//							CloudwatchMetricsEnabled: pulumi.Bool(false),
-//							MetricName:               pulumi.String("friendly-rule-metric-name"),
-//							SampledRequestsEnabled:   pulumi.Bool(false),
-//						},
-//					},
-//				},
-//				VisibilityConfig: &wafv2.RuleGroupVisibilityConfigArgs{
-//					CloudwatchMetricsEnabled: pulumi.Bool(false),
-//					MetricName:               pulumi.String("friendly-metric-name"),
-//					SampledRequestsEnabled:   pulumi.Bool(false),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = wafv2.NewWebAcl(ctx, "test", &wafv2.WebAclArgs{
-//				Scope: pulumi.String("REGIONAL"),
-//				DefaultAction: &wafv2.WebAclDefaultActionArgs{
-//					Block: nil,
-//				},
-//				Rules: wafv2.WebAclRuleArray{
-//					&wafv2.WebAclRuleArgs{
-//						Name:     pulumi.String("rule-1"),
-//						Priority: pulumi.Int(1),
-//						OverrideAction: &wafv2.WebAclRuleOverrideActionArgs{
-//							Count: nil,
-//						},
-//						Statement: &wafv2.WebAclRuleStatementArgs{
-//							RuleGroupReferenceStatement: &wafv2.WebAclRuleStatementRuleGroupReferenceStatementArgs{
-//								Arn: example.Arn,
-//								ExcludedRules: wafv2.WebAclRuleStatementRuleGroupReferenceStatementExcludedRuleArray{
-//									&wafv2.WebAclRuleStatementRuleGroupReferenceStatementExcludedRuleArgs{
-//										Name: pulumi.String("rule-to-exclude-b"),
-//									},
-//									&wafv2.WebAclRuleStatementRuleGroupReferenceStatementExcludedRuleArgs{
-//										Name: pulumi.String("rule-to-exclude-a"),
-//									},
-//								},
-//							},
-//						},
-//						VisibilityConfig: &wafv2.WebAclRuleVisibilityConfigArgs{
-//							CloudwatchMetricsEnabled: pulumi.Bool(false),
-//							MetricName:               pulumi.String("friendly-rule-metric-name"),
-//							SampledRequestsEnabled:   pulumi.Bool(false),
-//						},
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Tag1": pulumi.String("Value1"),
-//					"Tag2": pulumi.String("Value2"),
-//				},
-//				VisibilityConfig: &wafv2.WebAclVisibilityConfigArgs{
-//					CloudwatchMetricsEnabled: pulumi.Bool(false),
-//					MetricName:               pulumi.String("friendly-metric-name"),
-//					SampledRequestsEnabled:   pulumi.Bool(false),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// WAFv2 Web ACLs can be imported using `ID/Name/Scope` e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:wafv2/webAcl:WebAcl example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
-//
-// ```
 type WebAcl struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) of the IP Set that this statement references.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Specifies custom configurations for the associations between the web ACL and protected resources. See `associationConfig` below for details.
+	AssociationConfig WebAclAssociationConfigPtrOutput `pulumi:"associationConfig"`
 	// Web ACL capacity units (WCUs) currently being used by this web ACL.
 	Capacity pulumi.IntOutput `pulumi:"capacity"`
-	// Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+	// Specifies how AWS WAF should handle CAPTCHA evaluations. See `captchaConfig` below for details.
 	CaptchaConfig WebAclCaptchaConfigPtrOutput `pulumi:"captchaConfig"`
 	// Defines custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
 	CustomResponseBodies WebAclCustomResponseBodyArrayOutput `pulumi:"customResponseBodies"`
-	// Action to perform if none of the `rules` contained in the WebACL match. See `default_ action` below for details.
+	// Action to perform if none of the `rules` contained in the WebACL match. See `defaultAction` below for details.
 	DefaultAction WebAclDefaultActionOutput `pulumi:"defaultAction"`
 	// Friendly description of the WebACL.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -359,6 +62,7 @@ func NewWebAcl(ctx *pulumi.Context,
 	if args.VisibilityConfig == nil {
 		return nil, errors.New("invalid value for required argument 'VisibilityConfig'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource WebAcl
 	err := ctx.RegisterResource("aws:wafv2/webAcl:WebAcl", name, args, &resource, opts...)
 	if err != nil {
@@ -383,13 +87,15 @@ func GetWebAcl(ctx *pulumi.Context,
 type webAclState struct {
 	// The Amazon Resource Name (ARN) of the IP Set that this statement references.
 	Arn *string `pulumi:"arn"`
+	// Specifies custom configurations for the associations between the web ACL and protected resources. See `associationConfig` below for details.
+	AssociationConfig *WebAclAssociationConfig `pulumi:"associationConfig"`
 	// Web ACL capacity units (WCUs) currently being used by this web ACL.
 	Capacity *int `pulumi:"capacity"`
-	// Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+	// Specifies how AWS WAF should handle CAPTCHA evaluations. See `captchaConfig` below for details.
 	CaptchaConfig *WebAclCaptchaConfig `pulumi:"captchaConfig"`
 	// Defines custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
 	CustomResponseBodies []WebAclCustomResponseBody `pulumi:"customResponseBodies"`
-	// Action to perform if none of the `rules` contained in the WebACL match. See `default_ action` below for details.
+	// Action to perform if none of the `rules` contained in the WebACL match. See `defaultAction` below for details.
 	DefaultAction *WebAclDefaultAction `pulumi:"defaultAction"`
 	// Friendly description of the WebACL.
 	Description *string `pulumi:"description"`
@@ -413,13 +119,15 @@ type webAclState struct {
 type WebAclState struct {
 	// The Amazon Resource Name (ARN) of the IP Set that this statement references.
 	Arn pulumi.StringPtrInput
+	// Specifies custom configurations for the associations between the web ACL and protected resources. See `associationConfig` below for details.
+	AssociationConfig WebAclAssociationConfigPtrInput
 	// Web ACL capacity units (WCUs) currently being used by this web ACL.
 	Capacity pulumi.IntPtrInput
-	// Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+	// Specifies how AWS WAF should handle CAPTCHA evaluations. See `captchaConfig` below for details.
 	CaptchaConfig WebAclCaptchaConfigPtrInput
 	// Defines custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
 	CustomResponseBodies WebAclCustomResponseBodyArrayInput
-	// Action to perform if none of the `rules` contained in the WebACL match. See `default_ action` below for details.
+	// Action to perform if none of the `rules` contained in the WebACL match. See `defaultAction` below for details.
 	DefaultAction WebAclDefaultActionPtrInput
 	// Friendly description of the WebACL.
 	Description pulumi.StringPtrInput
@@ -445,11 +153,13 @@ func (WebAclState) ElementType() reflect.Type {
 }
 
 type webAclArgs struct {
-	// Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+	// Specifies custom configurations for the associations between the web ACL and protected resources. See `associationConfig` below for details.
+	AssociationConfig *WebAclAssociationConfig `pulumi:"associationConfig"`
+	// Specifies how AWS WAF should handle CAPTCHA evaluations. See `captchaConfig` below for details.
 	CaptchaConfig *WebAclCaptchaConfig `pulumi:"captchaConfig"`
 	// Defines custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
 	CustomResponseBodies []WebAclCustomResponseBody `pulumi:"customResponseBodies"`
-	// Action to perform if none of the `rules` contained in the WebACL match. See `default_ action` below for details.
+	// Action to perform if none of the `rules` contained in the WebACL match. See `defaultAction` below for details.
 	DefaultAction WebAclDefaultAction `pulumi:"defaultAction"`
 	// Friendly description of the WebACL.
 	Description *string `pulumi:"description"`
@@ -469,11 +179,13 @@ type webAclArgs struct {
 
 // The set of arguments for constructing a WebAcl resource.
 type WebAclArgs struct {
-	// Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+	// Specifies custom configurations for the associations between the web ACL and protected resources. See `associationConfig` below for details.
+	AssociationConfig WebAclAssociationConfigPtrInput
+	// Specifies how AWS WAF should handle CAPTCHA evaluations. See `captchaConfig` below for details.
 	CaptchaConfig WebAclCaptchaConfigPtrInput
 	// Defines custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
 	CustomResponseBodies WebAclCustomResponseBodyArrayInput
-	// Action to perform if none of the `rules` contained in the WebACL match. See `default_ action` below for details.
+	// Action to perform if none of the `rules` contained in the WebACL match. See `defaultAction` below for details.
 	DefaultAction WebAclDefaultActionInput
 	// Friendly description of the WebACL.
 	Description pulumi.StringPtrInput
@@ -583,12 +295,17 @@ func (o WebAclOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebAcl) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Specifies custom configurations for the associations between the web ACL and protected resources. See `associationConfig` below for details.
+func (o WebAclOutput) AssociationConfig() WebAclAssociationConfigPtrOutput {
+	return o.ApplyT(func(v *WebAcl) WebAclAssociationConfigPtrOutput { return v.AssociationConfig }).(WebAclAssociationConfigPtrOutput)
+}
+
 // Web ACL capacity units (WCUs) currently being used by this web ACL.
 func (o WebAclOutput) Capacity() pulumi.IntOutput {
 	return o.ApplyT(func(v *WebAcl) pulumi.IntOutput { return v.Capacity }).(pulumi.IntOutput)
 }
 
-// Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+// Specifies how AWS WAF should handle CAPTCHA evaluations. See `captchaConfig` below for details.
 func (o WebAclOutput) CaptchaConfig() WebAclCaptchaConfigPtrOutput {
 	return o.ApplyT(func(v *WebAcl) WebAclCaptchaConfigPtrOutput { return v.CaptchaConfig }).(WebAclCaptchaConfigPtrOutput)
 }
@@ -598,7 +315,7 @@ func (o WebAclOutput) CustomResponseBodies() WebAclCustomResponseBodyArrayOutput
 	return o.ApplyT(func(v *WebAcl) WebAclCustomResponseBodyArrayOutput { return v.CustomResponseBodies }).(WebAclCustomResponseBodyArrayOutput)
 }
 
-// Action to perform if none of the `rules` contained in the WebACL match. See `default_ action` below for details.
+// Action to perform if none of the `rules` contained in the WebACL match. See `defaultAction` below for details.
 func (o WebAclOutput) DefaultAction() WebAclDefaultActionOutput {
 	return o.ApplyT(func(v *WebAcl) WebAclDefaultActionOutput { return v.DefaultAction }).(WebAclDefaultActionOutput)
 }

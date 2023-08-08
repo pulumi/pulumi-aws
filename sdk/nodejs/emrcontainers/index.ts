@@ -10,6 +10,11 @@ export const getVirtualCluster: typeof import("./getVirtualCluster").getVirtualC
 export const getVirtualClusterOutput: typeof import("./getVirtualCluster").getVirtualClusterOutput = null as any;
 utilities.lazyLoad(exports, ["getVirtualCluster","getVirtualClusterOutput"], () => require("./getVirtualCluster"));
 
+export { JobTemplateArgs, JobTemplateState } from "./jobTemplate";
+export type JobTemplate = import("./jobTemplate").JobTemplate;
+export const JobTemplate: typeof import("./jobTemplate").JobTemplate = null as any;
+utilities.lazyLoad(exports, ["JobTemplate"], () => require("./jobTemplate"));
+
 export { VirtualClusterArgs, VirtualClusterState } from "./virtualCluster";
 export type VirtualCluster = import("./virtualCluster").VirtualCluster;
 export const VirtualCluster: typeof import("./virtualCluster").VirtualCluster = null as any;
@@ -20,6 +25,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:emrcontainers/jobTemplate:JobTemplate":
+                return new JobTemplate(name, <any>undefined, { urn })
             case "aws:emrcontainers/virtualCluster:VirtualCluster":
                 return new VirtualCluster(name, <any>undefined, { urn })
             default:
@@ -27,4 +34,5 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "emrcontainers/jobTemplate", _module)
 pulumi.runtime.registerResourceModule("aws", "emrcontainers/virtualCluster", _module)

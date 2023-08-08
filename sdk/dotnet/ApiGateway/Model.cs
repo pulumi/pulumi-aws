@@ -44,11 +44,11 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ## Import
     /// 
-    /// `aws_api_gateway_model` can be imported using `REST-API-ID/NAME`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:apigateway/model:Model example 12345abcde/example
-    /// ```
+    ///  to = aws_api_gateway_model.example
+    /// 
+    ///  id = "12345abcde/example" } Using `pulumi import`, import `aws_api_gateway_model` using `REST-API-ID/NAME`. For exampleconsole % pulumi import aws_api_gateway_model.example 12345abcde/example
     /// </summary>
     [AwsResourceType("aws:apigateway/model:Model")]
     public partial class Model : global::Pulumi.CustomResource

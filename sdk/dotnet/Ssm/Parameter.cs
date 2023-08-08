@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Ssm
     /// <summary>
     /// Provides an SSM Parameter resource.
     /// 
-    /// &gt; **Note:** `overwrite` also makes it possible to overwrite an existing SSM Parameter that's not created by the provider before.
+    /// &gt; **Note:** `overwrite` also makes it possible to overwrite an existing SSM Parameter that's not created by the provider before. This argument has been deprecated and will be removed in v6.0.0 of the provider. For more information on how this affects the behavior of this resource, see this issue comment.
     /// 
     /// ## Example Usage
     /// ### Basic example
@@ -50,7 +50,7 @@ namespace Pulumi.Aws.Ssm
     ///         Engine = "mysql",
     ///         EngineVersion = "5.7.16",
     ///         InstanceClass = "db.t2.micro",
-    ///         Name = "mydb",
+    ///         DbName = "mydb",
     ///         Username = "foo",
     ///         Password = @var.Database_master_password,
     ///         DbSubnetGroupName = "my_database_subnet_group",
@@ -73,11 +73,11 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// ## Import
     /// 
-    /// SSM Parameters can be imported using the `parameter store name`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:ssm/parameter:Parameter my_param /my_path/my_paramname
-    /// ```
+    ///  to = aws_ssm_parameter.my_param
+    /// 
+    ///  id = "/my_path/my_paramname" } Using `pulumi import`, import SSM Parameters using the parameter store `name`. For exampleconsole % pulumi import aws_ssm_parameter.my_param /my_path/my_paramname
     /// </summary>
     [AwsResourceType("aws:ssm/parameter:Parameter")]
     public partial class Parameter : global::Pulumi.CustomResource
@@ -125,7 +125,7 @@ namespace Pulumi.Aws.Ssm
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise.
+        /// Overwrite an existing parameter. If not specified, defaults to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource, and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
         /// </summary>
         [Output("overwrite")]
         public Output<bool?> Overwrite { get; private set; } = null!;
@@ -263,7 +263,7 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise.
+        /// Overwrite an existing parameter. If not specified, defaults to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource, and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
         /// </summary>
         [Input("overwrite")]
         public Input<bool>? Overwrite { get; set; }
@@ -363,7 +363,7 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise.
+        /// Overwrite an existing parameter. If not specified, defaults to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource, and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
         /// </summary>
         [Input("overwrite")]
         public Input<bool>? Overwrite { get; set; }

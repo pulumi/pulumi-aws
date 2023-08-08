@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -50,13 +51,13 @@ import (
 //
 // ## Import
 //
-//	Route 53 Resolver DNSSEC configs can be imported using the Route 53 Resolver DNSSEC config ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_route53_resolver_dnssec_config.example
 //
-//	$ pulumi import aws:route53/resolverDnsSecConfig:ResolverDnsSecConfig example rdsc-be1866ecc1683e95
+//	id = "rdsc-be1866ecc1683e95" } Using `pulumi import`, import
 //
-// ```
+// Route 53 Resolver DNSSEC configs using the Route 53 Resolver DNSSEC config ID. For exampleconsole % pulumi import aws_route53_resolver_dnssec_config.example rdsc-be1866ecc1683e95
 type ResolverDnsSecConfig struct {
 	pulumi.CustomResourceState
 
@@ -80,6 +81,7 @@ func NewResolverDnsSecConfig(ctx *pulumi.Context,
 	if args.ResourceId == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResolverDnsSecConfig
 	err := ctx.RegisterResource("aws:route53/resolverDnsSecConfig:ResolverDnsSecConfig", name, args, &resource, opts...)
 	if err != nil {

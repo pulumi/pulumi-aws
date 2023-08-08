@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Information about single Outpost Instance Type.
 func GetOutpostInstanceType(ctx *pulumi.Context, args *GetOutpostInstanceTypeArgs, opts ...pulumi.InvokeOption) (*GetOutpostInstanceTypeResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetOutpostInstanceTypeResult
 	err := ctx.Invoke("aws:outposts/getOutpostInstanceType:getOutpostInstanceType", args, &rv, opts...)
 	if err != nil {

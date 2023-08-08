@@ -17,13 +17,12 @@ package shim
 import (
 	"context"
 	"testing"
-
-	"github.com/hashicorp/terraform-provider-aws/internal/provider"
 )
 
 // This checks that any runtime checks in the underlying provider (with patches) are passed.
 func TestProviderShim(t *testing.T) {
-	_, err := provider.New(context.Background())
+	ctx := context.Background()
+	_, err := NewUpstreamProvider(ctx)
 	if err != nil {
 		t.Fatal(err)
 	}

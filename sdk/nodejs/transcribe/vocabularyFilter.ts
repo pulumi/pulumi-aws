@@ -30,11 +30,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Transcribe VocabularyFilter can be imported using the `vocabulary_filter_name`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:transcribe/vocabularyFilter:VocabularyFilter example example-name
- * ```
+ *  to = aws_transcribe_vocabulary_filter.example
+ *
+ *  id = "example-name" } Using `pulumi import`, import Transcribe VocabularyFilter using the `vocabulary_filter_name`. For exampleconsole % pulumi import aws_transcribe_vocabulary_filter.example example-name
  */
 export class VocabularyFilter extends pulumi.CustomResource {
     /**

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -168,7 +169,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -299,7 +300,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -337,8 +338,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -373,17 +374,11 @@ import (
 //
 // ## Import
 //
-// EMR clusters can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_emr_cluster.cluster
 //
-//	$ pulumi import aws:emr/cluster:Cluster cluster j-123456ABCDEF
-//
-// ```
-//
-//	Since the API does not return the actual values for Kerberos configurations, environments with those configurations will need to use the
-//
-// `ignore_changes` option available to all resources to prevent perpetual differences, e.g., terraform resource "aws_emr_cluster" "example" {
+//	id = "j-123456ABCDEF" } Using `pulumi import`, import EMR clusters using the `id`. For exampleconsole % pulumi import aws_emr_cluster.cluster j-123456ABCDEF Since the API does not return the actual values for Kerberos configurations, environments with those TODO configurations will need to use the `lifecycle` configuration block `ignore_changes` argument available to all TODO resources to prevent perpetual differences. For exampleterraform resource "aws_emr_cluster" "example" {
 //
 // # ... other configuration ...
 //
@@ -418,7 +413,7 @@ type Cluster struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -517,6 +512,7 @@ func NewCluster(ctx *pulumi.Context,
 	if args.ServiceRole == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceRole'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Cluster
 	err := ctx.RegisterResource("aws:emr/cluster:Cluster", name, args, &resource, opts...)
 	if err != nil {
@@ -562,7 +558,7 @@ type clusterState struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -672,7 +668,7 @@ type ClusterState struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -783,7 +779,7 @@ type clusterArgs struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -887,7 +883,7 @@ type ClusterArgs struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -1104,7 +1100,7 @@ func (o ClusterOutput) Configurations() pulumi.StringPtrOutput {
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )

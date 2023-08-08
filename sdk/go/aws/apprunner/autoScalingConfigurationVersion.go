@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apprunner"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apprunner"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -47,13 +48,11 @@ import (
 //
 // ## Import
 //
-// App Runner AutoScaling Configuration Versions can be imported by using the `arn`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_apprunner_auto_scaling_configuration_version.example
 //
-//	$ pulumi import aws:apprunner/autoScalingConfigurationVersion:AutoScalingConfigurationVersion example "arn:aws:apprunner:us-east-1:1234567890:autoscalingconfiguration/example/1/69bdfe0115224b0db49398b7beb68e0f
-//
-// ```
+//	id = "arn:aws:apprunner:us-east-1:1234567890:autoscalingconfiguration/example/1/69bdfe0115224b0db49398b7beb68e0f" } Using `pulumi import`, import App Runner AutoScaling Configuration Versions using the `arn`. For exampleconsole % pulumi import aws_apprunner_auto_scaling_configuration_version.example "arn:aws:apprunner:us-east-1:1234567890:autoscalingconfiguration/example/1/69bdfe0115224b0db49398b7beb68e0f
 type AutoScalingConfigurationVersion struct {
 	pulumi.CustomResourceState
 
@@ -89,6 +88,7 @@ func NewAutoScalingConfigurationVersion(ctx *pulumi.Context,
 	if args.AutoScalingConfigurationName == nil {
 		return nil, errors.New("invalid value for required argument 'AutoScalingConfigurationName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AutoScalingConfigurationVersion
 	err := ctx.RegisterResource("aws:apprunner/autoScalingConfigurationVersion:AutoScalingConfigurationVersion", name, args, &resource, opts...)
 	if err != nil {

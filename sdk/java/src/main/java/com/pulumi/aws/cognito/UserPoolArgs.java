@@ -215,14 +215,14 @@ public final class UserPoolArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration blocked for information about the user pool password policy. Detailed below.
+     * Configuration block for information about the user pool password policy. Detailed below.
      * 
      */
     @Import(name="passwordPolicy")
     private @Nullable Output<UserPoolPasswordPolicyArgs> passwordPolicy;
 
     /**
-     * @return Configuration blocked for information about the user pool password policy. Detailed below.
+     * @return Configuration block for information about the user pool password policy. Detailed below.
      * 
      */
     public Optional<Output<UserPoolPasswordPolicyArgs>> passwordPolicy() {
@@ -718,7 +718,7 @@ public final class UserPoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passwordPolicy Configuration blocked for information about the user pool password policy. Detailed below.
+         * @param passwordPolicy Configuration block for information about the user pool password policy. Detailed below.
          * 
          * @return builder
          * 
@@ -729,7 +729,7 @@ public final class UserPoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passwordPolicy Configuration blocked for information about the user pool password policy. Detailed below.
+         * @param passwordPolicy Configuration block for information about the user pool password policy. Detailed below.
          * 
          * @return builder
          * 

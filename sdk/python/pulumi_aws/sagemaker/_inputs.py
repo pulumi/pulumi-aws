@@ -46,6 +46,7 @@ __all__ = [
     'DomainDefaultUserSettingsCanvasAppSettingsArgs',
     'DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArgs',
     'DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs',
+    'DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsArgs',
     'DomainDefaultUserSettingsJupyterServerAppSettingsArgs',
     'DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryArgs',
     'DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs',
@@ -83,6 +84,9 @@ __all__ = [
     'EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationArgs',
     'EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeArgs',
     'EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeArgs',
+    'EndpointDeploymentConfigRollingUpdatePolicyArgs',
+    'EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeArgs',
+    'EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs',
     'FeatureGroupFeatureDefinitionArgs',
     'FeatureGroupOfflineStoreConfigArgs',
     'FeatureGroupOfflineStoreConfigDataCatalogConfigArgs',
@@ -108,6 +112,8 @@ __all__ = [
     'MonitoringScheduleMonitoringScheduleConfigArgs',
     'MonitoringScheduleMonitoringScheduleConfigScheduleConfigArgs',
     'NotebookInstanceInstanceMetadataServiceConfigurationArgs',
+    'PipelineParallelismConfigurationArgs',
+    'PipelinePipelineDefinitionS3LocationArgs',
     'ProjectServiceCatalogProvisioningDetailsArgs',
     'ProjectServiceCatalogProvisioningDetailsProvisioningParameterArgs',
     'SpaceSpaceSettingsArgs',
@@ -121,6 +127,7 @@ __all__ = [
     'UserProfileUserSettingsCanvasAppSettingsArgs',
     'UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgs',
     'UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs',
+    'UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsArgs',
     'UserProfileUserSettingsJupyterServerAppSettingsArgs',
     'UserProfileUserSettingsJupyterServerAppSettingsCodeRepositoryArgs',
     'UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs',
@@ -1800,15 +1807,19 @@ class DomainDefaultUserSettingsArgs:
 class DomainDefaultUserSettingsCanvasAppSettingsArgs:
     def __init__(__self__, *,
                  model_register_settings: Optional[pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArgs']] = None,
-                 time_series_forecasting_settings: Optional[pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs']] = None):
+                 time_series_forecasting_settings: Optional[pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs']] = None,
+                 workspace_settings: Optional[pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsArgs']] = None):
         """
         :param pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArgs'] model_register_settings: The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
         :param pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs'] time_series_forecasting_settings: Time series forecast settings for the Canvas app. See Time Series Forecasting Settings below.
+        :param pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsArgs'] workspace_settings: The workspace settings for the SageMaker Canvas application. See Workspace Settings below.
         """
         if model_register_settings is not None:
             pulumi.set(__self__, "model_register_settings", model_register_settings)
         if time_series_forecasting_settings is not None:
             pulumi.set(__self__, "time_series_forecasting_settings", time_series_forecasting_settings)
+        if workspace_settings is not None:
+            pulumi.set(__self__, "workspace_settings", workspace_settings)
 
     @property
     @pulumi.getter(name="modelRegisterSettings")
@@ -1834,6 +1845,18 @@ class DomainDefaultUserSettingsCanvasAppSettingsArgs:
     def time_series_forecasting_settings(self, value: Optional[pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs']]):
         pulumi.set(self, "time_series_forecasting_settings", value)
 
+    @property
+    @pulumi.getter(name="workspaceSettings")
+    def workspace_settings(self) -> Optional[pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsArgs']]:
+        """
+        The workspace settings for the SageMaker Canvas application. See Workspace Settings below.
+        """
+        return pulumi.get(self, "workspace_settings")
+
+    @workspace_settings.setter
+    def workspace_settings(self, value: Optional[pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsArgs']]):
+        pulumi.set(self, "workspace_settings", value)
+
 
 @pulumi.input_type
 class DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArgs:
@@ -1842,7 +1865,7 @@ class DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArgs:
                  status: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] cross_account_model_register_role_arn: The Amazon Resource Name (ARN) of the SageMaker model registry account. Required only to register model versions created by a different SageMaker Canvas AWS account than the AWS account in which SageMaker model registry is set up.
-        :param pulumi.Input[str] status: Describes whether the integration to the model registry is enabled or disabled in the Canvas application.. Valid values are `ENABLED` and `DISABLED`.
+        :param pulumi.Input[str] status: Describes whether the integration to the model registry is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
         """
         if cross_account_model_register_role_arn is not None:
             pulumi.set(__self__, "cross_account_model_register_role_arn", cross_account_model_register_role_arn)
@@ -1865,7 +1888,7 @@ class DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArgs:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        Describes whether the integration to the model registry is enabled or disabled in the Canvas application.. Valid values are `ENABLED` and `DISABLED`.
+        Describes whether the integration to the model registry is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
         """
         return pulumi.get(self, "status")
 
@@ -1911,6 +1934,45 @@ class DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArg
     @status.setter
     def status(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "status", value)
+
+
+@pulumi.input_type
+class DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsArgs:
+    def __init__(__self__, *,
+                 s3_artifact_path: Optional[pulumi.Input[str]] = None,
+                 s3_kms_key_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] s3_artifact_path: The Amazon S3 bucket used to store artifacts generated by Canvas. Updating the Amazon S3 location impacts existing configuration settings, and Canvas users no longer have access to their artifacts. Canvas users must log out and log back in to apply the new location.
+        :param pulumi.Input[str] s3_kms_key_id: The Amazon Web Services Key Management Service (KMS) encryption key ID that is used to encrypt artifacts generated by Canvas in the Amazon S3 bucket.
+        """
+        if s3_artifact_path is not None:
+            pulumi.set(__self__, "s3_artifact_path", s3_artifact_path)
+        if s3_kms_key_id is not None:
+            pulumi.set(__self__, "s3_kms_key_id", s3_kms_key_id)
+
+    @property
+    @pulumi.getter(name="s3ArtifactPath")
+    def s3_artifact_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon S3 bucket used to store artifacts generated by Canvas. Updating the Amazon S3 location impacts existing configuration settings, and Canvas users no longer have access to their artifacts. Canvas users must log out and log back in to apply the new location.
+        """
+        return pulumi.get(self, "s3_artifact_path")
+
+    @s3_artifact_path.setter
+    def s3_artifact_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "s3_artifact_path", value)
+
+    @property
+    @pulumi.getter(name="s3KmsKeyId")
+    def s3_kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Web Services Key Management Service (KMS) encryption key ID that is used to encrypt artifacts generated by Canvas in the Amazon S3 bucket.
+        """
+        return pulumi.get(self, "s3_kms_key_id")
+
+    @s3_kms_key_id.setter
+    def s3_kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "s3_kms_key_id", value)
 
 
 @pulumi.input_type
@@ -3397,13 +3459,17 @@ class EndpointConfigurationProductionVariantCoreDumpConfigArgs:
 class EndpointConfigurationProductionVariantServerlessConfigArgs:
     def __init__(__self__, *,
                  max_concurrency: pulumi.Input[int],
-                 memory_size_in_mb: pulumi.Input[int]):
+                 memory_size_in_mb: pulumi.Input[int],
+                 provisioned_concurrency: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[int] max_concurrency: The maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
         :param pulumi.Input[int] memory_size_in_mb: The memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
+        :param pulumi.Input[int] provisioned_concurrency: The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `max_concurrency`. Valid values are between `1` and `200`.
         """
         pulumi.set(__self__, "max_concurrency", max_concurrency)
         pulumi.set(__self__, "memory_size_in_mb", memory_size_in_mb)
+        if provisioned_concurrency is not None:
+            pulumi.set(__self__, "provisioned_concurrency", provisioned_concurrency)
 
     @property
     @pulumi.getter(name="maxConcurrency")
@@ -3428,6 +3494,18 @@ class EndpointConfigurationProductionVariantServerlessConfigArgs:
     @memory_size_in_mb.setter
     def memory_size_in_mb(self, value: pulumi.Input[int]):
         pulumi.set(self, "memory_size_in_mb", value)
+
+    @property
+    @pulumi.getter(name="provisionedConcurrency")
+    def provisioned_concurrency(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `max_concurrency`. Valid values are between `1` and `200`.
+        """
+        return pulumi.get(self, "provisioned_concurrency")
+
+    @provisioned_concurrency.setter
+    def provisioned_concurrency(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "provisioned_concurrency", value)
 
 
 @pulumi.input_type
@@ -3669,13 +3747,17 @@ class EndpointConfigurationShadowProductionVariantCoreDumpConfigArgs:
 class EndpointConfigurationShadowProductionVariantServerlessConfigArgs:
     def __init__(__self__, *,
                  max_concurrency: pulumi.Input[int],
-                 memory_size_in_mb: pulumi.Input[int]):
+                 memory_size_in_mb: pulumi.Input[int],
+                 provisioned_concurrency: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[int] max_concurrency: The maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
         :param pulumi.Input[int] memory_size_in_mb: The memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
+        :param pulumi.Input[int] provisioned_concurrency: The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `max_concurrency`. Valid values are between `1` and `200`.
         """
         pulumi.set(__self__, "max_concurrency", max_concurrency)
         pulumi.set(__self__, "memory_size_in_mb", memory_size_in_mb)
+        if provisioned_concurrency is not None:
+            pulumi.set(__self__, "provisioned_concurrency", provisioned_concurrency)
 
     @property
     @pulumi.getter(name="maxConcurrency")
@@ -3701,31 +3783,36 @@ class EndpointConfigurationShadowProductionVariantServerlessConfigArgs:
     def memory_size_in_mb(self, value: pulumi.Input[int]):
         pulumi.set(self, "memory_size_in_mb", value)
 
+    @property
+    @pulumi.getter(name="provisionedConcurrency")
+    def provisioned_concurrency(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `max_concurrency`. Valid values are between `1` and `200`.
+        """
+        return pulumi.get(self, "provisioned_concurrency")
+
+    @provisioned_concurrency.setter
+    def provisioned_concurrency(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "provisioned_concurrency", value)
+
 
 @pulumi.input_type
 class EndpointDeploymentConfigArgs:
     def __init__(__self__, *,
-                 blue_green_update_policy: pulumi.Input['EndpointDeploymentConfigBlueGreenUpdatePolicyArgs'],
-                 auto_rollback_configuration: Optional[pulumi.Input['EndpointDeploymentConfigAutoRollbackConfigurationArgs']] = None):
+                 auto_rollback_configuration: Optional[pulumi.Input['EndpointDeploymentConfigAutoRollbackConfigurationArgs']] = None,
+                 blue_green_update_policy: Optional[pulumi.Input['EndpointDeploymentConfigBlueGreenUpdatePolicyArgs']] = None,
+                 rolling_update_policy: Optional[pulumi.Input['EndpointDeploymentConfigRollingUpdatePolicyArgs']] = None):
         """
-        :param pulumi.Input['EndpointDeploymentConfigBlueGreenUpdatePolicyArgs'] blue_green_update_policy: Update policy for a blue/green deployment. If this update policy is specified, SageMaker creates a new fleet during the deployment while maintaining the old fleet. See Blue Green Update Config.
         :param pulumi.Input['EndpointDeploymentConfigAutoRollbackConfigurationArgs'] auto_rollback_configuration: Automatic rollback configuration for handling endpoint deployment failures and recovery. See Auto Rollback Configuration.
+        :param pulumi.Input['EndpointDeploymentConfigBlueGreenUpdatePolicyArgs'] blue_green_update_policy: Update policy for a blue/green deployment. If this update policy is specified, SageMaker creates a new fleet during the deployment while maintaining the old fleet. SageMaker flips traffic to the new fleet according to the specified traffic routing configuration. Only one update policy should be used in the deployment configuration. If no update policy is specified, SageMaker uses a blue/green deployment strategy with all at once traffic shifting by default. See Blue Green Update Config.
+        :param pulumi.Input['EndpointDeploymentConfigRollingUpdatePolicyArgs'] rolling_update_policy: Specifies a rolling deployment strategy for updating a SageMaker endpoint. See Rolling Update Policy.
         """
-        pulumi.set(__self__, "blue_green_update_policy", blue_green_update_policy)
         if auto_rollback_configuration is not None:
             pulumi.set(__self__, "auto_rollback_configuration", auto_rollback_configuration)
-
-    @property
-    @pulumi.getter(name="blueGreenUpdatePolicy")
-    def blue_green_update_policy(self) -> pulumi.Input['EndpointDeploymentConfigBlueGreenUpdatePolicyArgs']:
-        """
-        Update policy for a blue/green deployment. If this update policy is specified, SageMaker creates a new fleet during the deployment while maintaining the old fleet. See Blue Green Update Config.
-        """
-        return pulumi.get(self, "blue_green_update_policy")
-
-    @blue_green_update_policy.setter
-    def blue_green_update_policy(self, value: pulumi.Input['EndpointDeploymentConfigBlueGreenUpdatePolicyArgs']):
-        pulumi.set(self, "blue_green_update_policy", value)
+        if blue_green_update_policy is not None:
+            pulumi.set(__self__, "blue_green_update_policy", blue_green_update_policy)
+        if rolling_update_policy is not None:
+            pulumi.set(__self__, "rolling_update_policy", rolling_update_policy)
 
     @property
     @pulumi.getter(name="autoRollbackConfiguration")
@@ -3738,6 +3825,30 @@ class EndpointDeploymentConfigArgs:
     @auto_rollback_configuration.setter
     def auto_rollback_configuration(self, value: Optional[pulumi.Input['EndpointDeploymentConfigAutoRollbackConfigurationArgs']]):
         pulumi.set(self, "auto_rollback_configuration", value)
+
+    @property
+    @pulumi.getter(name="blueGreenUpdatePolicy")
+    def blue_green_update_policy(self) -> Optional[pulumi.Input['EndpointDeploymentConfigBlueGreenUpdatePolicyArgs']]:
+        """
+        Update policy for a blue/green deployment. If this update policy is specified, SageMaker creates a new fleet during the deployment while maintaining the old fleet. SageMaker flips traffic to the new fleet according to the specified traffic routing configuration. Only one update policy should be used in the deployment configuration. If no update policy is specified, SageMaker uses a blue/green deployment strategy with all at once traffic shifting by default. See Blue Green Update Config.
+        """
+        return pulumi.get(self, "blue_green_update_policy")
+
+    @blue_green_update_policy.setter
+    def blue_green_update_policy(self, value: Optional[pulumi.Input['EndpointDeploymentConfigBlueGreenUpdatePolicyArgs']]):
+        pulumi.set(self, "blue_green_update_policy", value)
+
+    @property
+    @pulumi.getter(name="rollingUpdatePolicy")
+    def rolling_update_policy(self) -> Optional[pulumi.Input['EndpointDeploymentConfigRollingUpdatePolicyArgs']]:
+        """
+        Specifies a rolling deployment strategy for updating a SageMaker endpoint. See Rolling Update Policy.
+        """
+        return pulumi.get(self, "rolling_update_policy")
+
+    @rolling_update_policy.setter
+    def rolling_update_policy(self, value: Optional[pulumi.Input['EndpointDeploymentConfigRollingUpdatePolicyArgs']]):
+        pulumi.set(self, "rolling_update_policy", value)
 
 
 @pulumi.input_type
@@ -3947,6 +4058,149 @@ class EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCa
 
 @pulumi.input_type
 class EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 value: pulumi.Input[int]):
+        """
+        :param pulumi.Input[str] type: Specifies the endpoint capacity type. Valid values are: `INSTANCE_COUNT`, or `CAPACITY_PERCENT`.
+        :param pulumi.Input[int] value: Defines the capacity size, either as a number of instances or a capacity percentage.
+        """
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Specifies the endpoint capacity type. Valid values are: `INSTANCE_COUNT`, or `CAPACITY_PERCENT`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[int]:
+        """
+        Defines the capacity size, either as a number of instances or a capacity percentage.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[int]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class EndpointDeploymentConfigRollingUpdatePolicyArgs:
+    def __init__(__self__, *,
+                 maximum_batch_size: pulumi.Input['EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeArgs'],
+                 wait_interval_in_seconds: pulumi.Input[int],
+                 maximum_execution_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
+                 rollback_maximum_batch_size: Optional[pulumi.Input['EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs']] = None):
+        """
+        :param pulumi.Input['EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeArgs'] maximum_batch_size: Batch size for each rolling step to provision capacity and turn on traffic on the new endpoint fleet, and terminate capacity on the old endpoint fleet. Value must be between 5% to 50% of the variant's total instance count. See Maximum Batch Size.
+        :param pulumi.Input[int] wait_interval_in_seconds: The length of the baking period, during which SageMaker monitors alarms for each batch on the new fleet. Valid values are between `0` and `3600`.
+        :param pulumi.Input[int] maximum_execution_timeout_in_seconds: The time limit for the total deployment. Exceeding this limit causes a timeout. Valid values are between `600` and `14400`.
+        :param pulumi.Input['EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs'] rollback_maximum_batch_size: Batch size for rollback to the old endpoint fleet. Each rolling step to provision capacity and turn on traffic on the old endpoint fleet, and terminate capacity on the new endpoint fleet. If this field is absent, the default value will be set to 100% of total capacity which means to bring up the whole capacity of the old fleet at once during rollback. See Rollback Maximum Batch Size.
+        """
+        pulumi.set(__self__, "maximum_batch_size", maximum_batch_size)
+        pulumi.set(__self__, "wait_interval_in_seconds", wait_interval_in_seconds)
+        if maximum_execution_timeout_in_seconds is not None:
+            pulumi.set(__self__, "maximum_execution_timeout_in_seconds", maximum_execution_timeout_in_seconds)
+        if rollback_maximum_batch_size is not None:
+            pulumi.set(__self__, "rollback_maximum_batch_size", rollback_maximum_batch_size)
+
+    @property
+    @pulumi.getter(name="maximumBatchSize")
+    def maximum_batch_size(self) -> pulumi.Input['EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeArgs']:
+        """
+        Batch size for each rolling step to provision capacity and turn on traffic on the new endpoint fleet, and terminate capacity on the old endpoint fleet. Value must be between 5% to 50% of the variant's total instance count. See Maximum Batch Size.
+        """
+        return pulumi.get(self, "maximum_batch_size")
+
+    @maximum_batch_size.setter
+    def maximum_batch_size(self, value: pulumi.Input['EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeArgs']):
+        pulumi.set(self, "maximum_batch_size", value)
+
+    @property
+    @pulumi.getter(name="waitIntervalInSeconds")
+    def wait_interval_in_seconds(self) -> pulumi.Input[int]:
+        """
+        The length of the baking period, during which SageMaker monitors alarms for each batch on the new fleet. Valid values are between `0` and `3600`.
+        """
+        return pulumi.get(self, "wait_interval_in_seconds")
+
+    @wait_interval_in_seconds.setter
+    def wait_interval_in_seconds(self, value: pulumi.Input[int]):
+        pulumi.set(self, "wait_interval_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="maximumExecutionTimeoutInSeconds")
+    def maximum_execution_timeout_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The time limit for the total deployment. Exceeding this limit causes a timeout. Valid values are between `600` and `14400`.
+        """
+        return pulumi.get(self, "maximum_execution_timeout_in_seconds")
+
+    @maximum_execution_timeout_in_seconds.setter
+    def maximum_execution_timeout_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "maximum_execution_timeout_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="rollbackMaximumBatchSize")
+    def rollback_maximum_batch_size(self) -> Optional[pulumi.Input['EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs']]:
+        """
+        Batch size for rollback to the old endpoint fleet. Each rolling step to provision capacity and turn on traffic on the old endpoint fleet, and terminate capacity on the new endpoint fleet. If this field is absent, the default value will be set to 100% of total capacity which means to bring up the whole capacity of the old fleet at once during rollback. See Rollback Maximum Batch Size.
+        """
+        return pulumi.get(self, "rollback_maximum_batch_size")
+
+    @rollback_maximum_batch_size.setter
+    def rollback_maximum_batch_size(self, value: Optional[pulumi.Input['EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs']]):
+        pulumi.set(self, "rollback_maximum_batch_size", value)
+
+
+@pulumi.input_type
+class EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 value: pulumi.Input[int]):
+        """
+        :param pulumi.Input[str] type: Specifies the endpoint capacity type. Valid values are: `INSTANCE_COUNT`, or `CAPACITY_PERCENT`.
+        :param pulumi.Input[int] value: Defines the capacity size, either as a number of instances or a capacity percentage.
+        """
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Specifies the endpoint capacity type. Valid values are: `INSTANCE_COUNT`, or `CAPACITY_PERCENT`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[int]:
+        """
+        Defines the capacity size, either as a number of instances or a capacity percentage.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[int]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  value: pulumi.Input[int]):
@@ -4633,44 +4887,37 @@ class HumanTaskUIUiTemplateArgs:
 @pulumi.input_type
 class ModelContainerArgs:
     def __init__(__self__, *,
-                 image: pulumi.Input[str],
                  container_hostname: Optional[pulumi.Input[str]] = None,
                  environment: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 image: Optional[pulumi.Input[str]] = None,
                  image_config: Optional[pulumi.Input['ModelContainerImageConfigArgs']] = None,
                  mode: Optional[pulumi.Input[str]] = None,
-                 model_data_url: Optional[pulumi.Input[str]] = None):
+                 model_data_url: Optional[pulumi.Input[str]] = None,
+                 model_package_name: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] image: The registry path where the inference code image is stored in Amazon ECR.
         :param pulumi.Input[str] container_hostname: The DNS host name for the container.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment: Environment variables for the Docker container.
                A list of key value pairs.
+        :param pulumi.Input[str] image: The registry path where the inference code image is stored in Amazon ECR.
         :param pulumi.Input['ModelContainerImageConfigArgs'] image_config: Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
         :param pulumi.Input[str] mode: The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
         :param pulumi.Input[str] model_data_url: The URL for the S3 location where model artifacts are stored.
+        :param pulumi.Input[str] model_package_name: The Amazon Resource Name (ARN) of the model package to use to create the model.
         """
-        pulumi.set(__self__, "image", image)
         if container_hostname is not None:
             pulumi.set(__self__, "container_hostname", container_hostname)
         if environment is not None:
             pulumi.set(__self__, "environment", environment)
+        if image is not None:
+            pulumi.set(__self__, "image", image)
         if image_config is not None:
             pulumi.set(__self__, "image_config", image_config)
         if mode is not None:
             pulumi.set(__self__, "mode", mode)
         if model_data_url is not None:
             pulumi.set(__self__, "model_data_url", model_data_url)
-
-    @property
-    @pulumi.getter
-    def image(self) -> pulumi.Input[str]:
-        """
-        The registry path where the inference code image is stored in Amazon ECR.
-        """
-        return pulumi.get(self, "image")
-
-    @image.setter
-    def image(self, value: pulumi.Input[str]):
-        pulumi.set(self, "image", value)
+        if model_package_name is not None:
+            pulumi.set(__self__, "model_package_name", model_package_name)
 
     @property
     @pulumi.getter(name="containerHostname")
@@ -4696,6 +4943,18 @@ class ModelContainerArgs:
     @environment.setter
     def environment(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "environment", value)
+
+    @property
+    @pulumi.getter
+    def image(self) -> Optional[pulumi.Input[str]]:
+        """
+        The registry path where the inference code image is stored in Amazon ECR.
+        """
+        return pulumi.get(self, "image")
+
+    @image.setter
+    def image(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "image", value)
 
     @property
     @pulumi.getter(name="imageConfig")
@@ -4732,6 +4991,18 @@ class ModelContainerArgs:
     @model_data_url.setter
     def model_data_url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "model_data_url", value)
+
+    @property
+    @pulumi.getter(name="modelPackageName")
+    def model_package_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the model package to use to create the model.
+        """
+        return pulumi.get(self, "model_package_name")
+
+    @model_package_name.setter
+    def model_package_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "model_package_name", value)
 
 
 @pulumi.input_type
@@ -4819,44 +5090,37 @@ class ModelInferenceExecutionConfigArgs:
 @pulumi.input_type
 class ModelPrimaryContainerArgs:
     def __init__(__self__, *,
-                 image: pulumi.Input[str],
                  container_hostname: Optional[pulumi.Input[str]] = None,
                  environment: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 image: Optional[pulumi.Input[str]] = None,
                  image_config: Optional[pulumi.Input['ModelPrimaryContainerImageConfigArgs']] = None,
                  mode: Optional[pulumi.Input[str]] = None,
-                 model_data_url: Optional[pulumi.Input[str]] = None):
+                 model_data_url: Optional[pulumi.Input[str]] = None,
+                 model_package_name: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] image: The registry path where the inference code image is stored in Amazon ECR.
         :param pulumi.Input[str] container_hostname: The DNS host name for the container.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment: Environment variables for the Docker container.
                A list of key value pairs.
+        :param pulumi.Input[str] image: The registry path where the inference code image is stored in Amazon ECR.
         :param pulumi.Input['ModelPrimaryContainerImageConfigArgs'] image_config: Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
         :param pulumi.Input[str] mode: The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
         :param pulumi.Input[str] model_data_url: The URL for the S3 location where model artifacts are stored.
+        :param pulumi.Input[str] model_package_name: The Amazon Resource Name (ARN) of the model package to use to create the model.
         """
-        pulumi.set(__self__, "image", image)
         if container_hostname is not None:
             pulumi.set(__self__, "container_hostname", container_hostname)
         if environment is not None:
             pulumi.set(__self__, "environment", environment)
+        if image is not None:
+            pulumi.set(__self__, "image", image)
         if image_config is not None:
             pulumi.set(__self__, "image_config", image_config)
         if mode is not None:
             pulumi.set(__self__, "mode", mode)
         if model_data_url is not None:
             pulumi.set(__self__, "model_data_url", model_data_url)
-
-    @property
-    @pulumi.getter
-    def image(self) -> pulumi.Input[str]:
-        """
-        The registry path where the inference code image is stored in Amazon ECR.
-        """
-        return pulumi.get(self, "image")
-
-    @image.setter
-    def image(self, value: pulumi.Input[str]):
-        pulumi.set(self, "image", value)
+        if model_package_name is not None:
+            pulumi.set(__self__, "model_package_name", model_package_name)
 
     @property
     @pulumi.getter(name="containerHostname")
@@ -4882,6 +5146,18 @@ class ModelPrimaryContainerArgs:
     @environment.setter
     def environment(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "environment", value)
+
+    @property
+    @pulumi.getter
+    def image(self) -> Optional[pulumi.Input[str]]:
+        """
+        The registry path where the inference code image is stored in Amazon ECR.
+        """
+        return pulumi.get(self, "image")
+
+    @image.setter
+    def image(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "image", value)
 
     @property
     @pulumi.getter(name="imageConfig")
@@ -4918,6 +5194,18 @@ class ModelPrimaryContainerArgs:
     @model_data_url.setter
     def model_data_url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "model_data_url", value)
+
+    @property
+    @pulumi.getter(name="modelPackageName")
+    def model_package_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the model package to use to create the model.
+        """
+        return pulumi.get(self, "model_package_name")
+
+    @model_package_name.setter
+    def model_package_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "model_package_name", value)
 
 
 @pulumi.input_type
@@ -5103,6 +5391,81 @@ class NotebookInstanceInstanceMetadataServiceConfigurationArgs:
     @minimum_instance_metadata_service_version.setter
     def minimum_instance_metadata_service_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "minimum_instance_metadata_service_version", value)
+
+
+@pulumi.input_type
+class PipelineParallelismConfigurationArgs:
+    def __init__(__self__, *,
+                 max_parallel_execution_steps: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] max_parallel_execution_steps: The max number of steps that can be executed in parallel.
+        """
+        pulumi.set(__self__, "max_parallel_execution_steps", max_parallel_execution_steps)
+
+    @property
+    @pulumi.getter(name="maxParallelExecutionSteps")
+    def max_parallel_execution_steps(self) -> pulumi.Input[int]:
+        """
+        The max number of steps that can be executed in parallel.
+        """
+        return pulumi.get(self, "max_parallel_execution_steps")
+
+    @max_parallel_execution_steps.setter
+    def max_parallel_execution_steps(self, value: pulumi.Input[int]):
+        pulumi.set(self, "max_parallel_execution_steps", value)
+
+
+@pulumi.input_type
+class PipelinePipelineDefinitionS3LocationArgs:
+    def __init__(__self__, *,
+                 bucket: pulumi.Input[str],
+                 object_key: pulumi.Input[str],
+                 version_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] bucket: Name of the S3 bucket.
+        :param pulumi.Input[str] object_key: The object key (or key name) uniquely identifies the object in an S3 bucket.
+        :param pulumi.Input[str] version_id: Version Id of the pipeline definition file. If not specified, Amazon SageMaker will retrieve the latest version.
+        """
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "object_key", object_key)
+        if version_id is not None:
+            pulumi.set(__self__, "version_id", version_id)
+
+    @property
+    @pulumi.getter
+    def bucket(self) -> pulumi.Input[str]:
+        """
+        Name of the S3 bucket.
+        """
+        return pulumi.get(self, "bucket")
+
+    @bucket.setter
+    def bucket(self, value: pulumi.Input[str]):
+        pulumi.set(self, "bucket", value)
+
+    @property
+    @pulumi.getter(name="objectKey")
+    def object_key(self) -> pulumi.Input[str]:
+        """
+        The object key (or key name) uniquely identifies the object in an S3 bucket.
+        """
+        return pulumi.get(self, "object_key")
+
+    @object_key.setter
+    def object_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "object_key", value)
+
+    @property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Version Id of the pipeline definition file. If not specified, Amazon SageMaker will retrieve the latest version.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version_id", value)
 
 
 @pulumi.input_type
@@ -5731,15 +6094,19 @@ class UserProfileUserSettingsArgs:
 class UserProfileUserSettingsCanvasAppSettingsArgs:
     def __init__(__self__, *,
                  model_register_settings: Optional[pulumi.Input['UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgs']] = None,
-                 time_series_forecasting_settings: Optional[pulumi.Input['UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs']] = None):
+                 time_series_forecasting_settings: Optional[pulumi.Input['UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs']] = None,
+                 workspace_settings: Optional[pulumi.Input['UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsArgs']] = None):
         """
         :param pulumi.Input['UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgs'] model_register_settings: The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
         :param pulumi.Input['UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs'] time_series_forecasting_settings: Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
+        :param pulumi.Input['UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsArgs'] workspace_settings: The workspace settings for the SageMaker Canvas application. See Workspace Settings below.
         """
         if model_register_settings is not None:
             pulumi.set(__self__, "model_register_settings", model_register_settings)
         if time_series_forecasting_settings is not None:
             pulumi.set(__self__, "time_series_forecasting_settings", time_series_forecasting_settings)
+        if workspace_settings is not None:
+            pulumi.set(__self__, "workspace_settings", workspace_settings)
 
     @property
     @pulumi.getter(name="modelRegisterSettings")
@@ -5765,6 +6132,18 @@ class UserProfileUserSettingsCanvasAppSettingsArgs:
     def time_series_forecasting_settings(self, value: Optional[pulumi.Input['UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs']]):
         pulumi.set(self, "time_series_forecasting_settings", value)
 
+    @property
+    @pulumi.getter(name="workspaceSettings")
+    def workspace_settings(self) -> Optional[pulumi.Input['UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsArgs']]:
+        """
+        The workspace settings for the SageMaker Canvas application. See Workspace Settings below.
+        """
+        return pulumi.get(self, "workspace_settings")
+
+    @workspace_settings.setter
+    def workspace_settings(self, value: Optional[pulumi.Input['UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsArgs']]):
+        pulumi.set(self, "workspace_settings", value)
+
 
 @pulumi.input_type
 class UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgs:
@@ -5773,7 +6152,7 @@ class UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgs:
                  status: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] cross_account_model_register_role_arn: The Amazon Resource Name (ARN) of the SageMaker model registry account. Required only to register model versions created by a different SageMaker Canvas AWS account than the AWS account in which SageMaker model registry is set up.
-        :param pulumi.Input[str] status: Describes whether the integration to the model registry is enabled or disabled in the Canvas application.. Valid values are `ENABLED` and `DISABLED`.
+        :param pulumi.Input[str] status: Describes whether the integration to the model registry is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
         """
         if cross_account_model_register_role_arn is not None:
             pulumi.set(__self__, "cross_account_model_register_role_arn", cross_account_model_register_role_arn)
@@ -5796,7 +6175,7 @@ class UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgs:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        Describes whether the integration to the model registry is enabled or disabled in the Canvas application.. Valid values are `ENABLED` and `DISABLED`.
+        Describes whether the integration to the model registry is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
         """
         return pulumi.get(self, "status")
 
@@ -5842,6 +6221,45 @@ class UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs:
     @status.setter
     def status(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "status", value)
+
+
+@pulumi.input_type
+class UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsArgs:
+    def __init__(__self__, *,
+                 s3_artifact_path: Optional[pulumi.Input[str]] = None,
+                 s3_kms_key_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] s3_artifact_path: The Amazon S3 bucket used to store artifacts generated by Canvas. Updating the Amazon S3 location impacts existing configuration settings, and Canvas users no longer have access to their artifacts. Canvas users must log out and log back in to apply the new location.
+        :param pulumi.Input[str] s3_kms_key_id: The Amazon Web Services Key Management Service (KMS) encryption key ID that is used to encrypt artifacts generated by Canvas in the Amazon S3 bucket.
+        """
+        if s3_artifact_path is not None:
+            pulumi.set(__self__, "s3_artifact_path", s3_artifact_path)
+        if s3_kms_key_id is not None:
+            pulumi.set(__self__, "s3_kms_key_id", s3_kms_key_id)
+
+    @property
+    @pulumi.getter(name="s3ArtifactPath")
+    def s3_artifact_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon S3 bucket used to store artifacts generated by Canvas. Updating the Amazon S3 location impacts existing configuration settings, and Canvas users no longer have access to their artifacts. Canvas users must log out and log back in to apply the new location.
+        """
+        return pulumi.get(self, "s3_artifact_path")
+
+    @s3_artifact_path.setter
+    def s3_artifact_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "s3_artifact_path", value)
+
+    @property
+    @pulumi.getter(name="s3KmsKeyId")
+    def s3_kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Web Services Key Management Service (KMS) encryption key ID that is used to encrypt artifacts generated by Canvas in the Amazon S3 bucket.
+        """
+        return pulumi.get(self, "s3_kms_key_id")
+
+    @s3_kms_key_id.setter
+    def s3_kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "s3_kms_key_id", value)
 
 
 @pulumi.input_type

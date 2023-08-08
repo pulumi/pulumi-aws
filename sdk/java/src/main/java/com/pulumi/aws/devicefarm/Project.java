@@ -53,11 +53,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * DeviceFarm Projects can be imported by their arn
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:devicefarm/project:Project example arn:aws:devicefarm:us-west-2:123456789012:project:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
- * ```
+ *  to = aws_devicefarm_project.example
+ * 
+ *  id = &#34;arn:aws:devicefarm:us-west-2:123456789012:project:4fa784c7-ccb4-4dbf-ba4f-02198320daa1&#34; } Using `pulumi import`, import DeviceFarm Projects using their ARN. For exampleconsole % pulumi import aws_devicefarm_project.example arn:aws:devicefarm:us-west-2:123456789012:project:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
  * 
  */
 @ResourceType(type="aws:devicefarm/project:Project")

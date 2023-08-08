@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +24,7 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,6 +43,7 @@ import (
 //
 // ```
 func LookupCodeSigningConfig(ctx *pulumi.Context, args *LookupCodeSigningConfigArgs, opts ...pulumi.InvokeOption) (*LookupCodeSigningConfigResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCodeSigningConfigResult
 	err := ctx.Invoke("aws:lambda/getCodeSigningConfig:getCodeSigningConfig", args, &rv, opts...)
 	if err != nil {

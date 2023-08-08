@@ -43,17 +43,17 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// 
     /// ## Import
     /// 
-    /// `aws_ec2_transit_gateway_connect` can be imported by using the EC2 Transit Gateway Connect identifier, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:ec2transitgateway/connect:Connect example tgw-attach-12345678
-    /// ```
+    ///  to = aws_ec2_transit_gateway_connect.example
+    /// 
+    ///  id = "tgw-attach-12345678" } Using `pulumi import`, import `aws_ec2_transit_gateway_connect` using the EC2 Transit Gateway Connect identifier. For exampleconsole % pulumi import aws_ec2_transit_gateway_connect.example tgw-attach-12345678
     /// </summary>
     [AwsResourceType("aws:ec2transitgateway/connect:Connect")]
     public partial class Connect : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The tunnel protocol. Valida values: `gre`. Default is `gre`.
+        /// The tunnel protocol. Valid values: `gre`. Default is `gre`.
         /// </summary>
         [Output("protocol")]
         public Output<string?> Protocol { get; private set; } = null!;
@@ -141,7 +141,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     public sealed class ConnectArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The tunnel protocol. Valida values: `gre`. Default is `gre`.
+        /// The tunnel protocol. Valid values: `gre`. Default is `gre`.
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
@@ -191,7 +191,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     public sealed class ConnectState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The tunnel protocol. Valida values: `gre`. Default is `gre`.
+        /// The tunnel protocol. Valid values: `gre`. Default is `gre`.
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }

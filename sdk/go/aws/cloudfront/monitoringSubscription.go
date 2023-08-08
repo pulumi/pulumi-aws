@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudfront"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -46,13 +47,11 @@ import (
 //
 // ## Import
 //
-// CloudFront monitoring subscription can be imported using the id, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_cloudfront_monitoring_subscription.example
 //
-//	$ pulumi import aws:cloudfront/monitoringSubscription:MonitoringSubscription example E3QYSUHO4VYRGB
-//
-// ```
+//	id = "E3QYSUHO4VYRGB" } Using `pulumi import`, import CloudFront monitoring subscription using the id. For exampleconsole % pulumi import aws_cloudfront_monitoring_subscription.example E3QYSUHO4VYRGB
 type MonitoringSubscription struct {
 	pulumi.CustomResourceState
 
@@ -75,6 +74,7 @@ func NewMonitoringSubscription(ctx *pulumi.Context,
 	if args.MonitoringSubscription == nil {
 		return nil, errors.New("invalid value for required argument 'MonitoringSubscription'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MonitoringSubscription
 	err := ctx.RegisterResource("aws:cloudfront/monitoringSubscription:MonitoringSubscription", name, args, &resource, opts...)
 	if err != nil {

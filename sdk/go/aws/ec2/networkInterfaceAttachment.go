@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -43,13 +44,11 @@ import (
 //
 // ## Import
 //
-// Elastic network interface (ENI) Attachments can be imported using its Attachment ID e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_network_interface_attachment.secondary_nic
 //
-//	$ pulumi import aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment secondary_nic eni-attach-0a33842b4ec347c4c
-//
-// ```
+//	id = "eni-attach-0a33842b4ec347c4c" } Using `pulumi import`, import Elastic network interface (ENI) Attachments using its Attachment ID. For exampleconsole % pulumi import aws_network_interface_attachment.secondary_nic eni-attach-0a33842b4ec347c4c
 type NetworkInterfaceAttachment struct {
 	pulumi.CustomResourceState
 
@@ -81,6 +80,7 @@ func NewNetworkInterfaceAttachment(ctx *pulumi.Context,
 	if args.NetworkInterfaceId == nil {
 		return nil, errors.New("invalid value for required argument 'NetworkInterfaceId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NetworkInterfaceAttachment
 	err := ctx.RegisterResource("aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment", name, args, &resource, opts...)
 	if err != nil {

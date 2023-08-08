@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,8 +24,8 @@ import (
 //	"encoding/json"
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecr"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecr"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -79,13 +80,11 @@ import (
 //
 // ## Import
 //
-// ECR Registry Policy can be imported using the registry id, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_ecr_registry_policy.example
 //
-//	$ pulumi import aws:ecr/registryPolicy:RegistryPolicy example 123456789012
-//
-// ```
+//	id = "123456789012" } Using `pulumi import`, import ECR Registry Policy using the registry id. For exampleconsole % pulumi import aws_ecr_registry_policy.example 123456789012
 type RegistryPolicy struct {
 	pulumi.CustomResourceState
 
@@ -105,6 +104,7 @@ func NewRegistryPolicy(ctx *pulumi.Context,
 	if args.Policy == nil {
 		return nil, errors.New("invalid value for required argument 'Policy'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RegistryPolicy
 	err := ctx.RegisterResource("aws:ecr/registryPolicy:RegistryPolicy", name, args, &resource, opts...)
 	if err != nil {

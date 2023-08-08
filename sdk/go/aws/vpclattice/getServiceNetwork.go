@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/vpclattice"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/vpclattice"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -39,6 +40,7 @@ import (
 //
 // ```
 func LookupServiceNetwork(ctx *pulumi.Context, args *LookupServiceNetworkArgs, opts ...pulumi.InvokeOption) (*LookupServiceNetworkResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupServiceNetworkResult
 	err := ctx.Invoke("aws:vpclattice/getServiceNetwork:getServiceNetwork", args, &rv, opts...)
 	if err != nil {
@@ -62,7 +64,7 @@ type LookupServiceNetworkResult struct {
 	AuthType string `pulumi:"authType"`
 	// Date and time the service network was created.
 	CreatedAt string `pulumi:"createdAt"`
-	// ID of the service network.
+	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Date and time the service network was last updated.
 	LastUpdatedAt string `pulumi:"lastUpdatedAt"`
@@ -130,7 +132,7 @@ func (o LookupServiceNetworkResultOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceNetworkResult) string { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// ID of the service network.
+// The provider-assigned unique ID for this managed resource.
 func (o LookupServiceNetworkResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceNetworkResult) string { return v.Id }).(pulumi.StringOutput)
 }

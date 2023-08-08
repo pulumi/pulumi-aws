@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -43,13 +44,11 @@ import (
 //
 // ## Import
 //
-// Existing CIDR reservations can be imported using `SUBNET_ID:RESERVATION_ID`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_ec2_subnet_cidr_reservation.example
 //
-//	$ pulumi import aws:ec2/subnetCidrReservation:SubnetCidrReservation example subnet-01llsxvsxabqiymcz:scr-4mnvz6wb7otksjcs9
-//
-// ```
+//	id = "subnet-01llsxvsxabqiymcz:scr-4mnvz6wb7otksjcs9" } Using `pulumi import`, import Existing CIDR reservations using `SUBNET_ID:RESERVATION_ID`. For exampleconsole % pulumi import aws_ec2_subnet_cidr_reservation.example subnet-01llsxvsxabqiymcz:scr-4mnvz6wb7otksjcs9
 type SubnetCidrReservation struct {
 	pulumi.CustomResourceState
 
@@ -81,6 +80,7 @@ func NewSubnetCidrReservation(ctx *pulumi.Context,
 	if args.SubnetId == nil {
 		return nil, errors.New("invalid value for required argument 'SubnetId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SubnetCidrReservation
 	err := ctx.RegisterResource("aws:ec2/subnetCidrReservation:SubnetCidrReservation", name, args, &resource, opts...)
 	if err != nil {

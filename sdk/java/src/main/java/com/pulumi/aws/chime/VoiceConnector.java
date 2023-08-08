@@ -12,6 +12,7 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -51,15 +52,29 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Configuration Recorder can be imported using the name, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:chime/voiceConnector:VoiceConnector test example
- * ```
+ *  to = aws_chime_voice_connector.test
+ * 
+ *  id = &#34;example&#34; } Using `pulumi import`, import Configuration Recorder using the name. For exampleconsole % pulumi import aws_chime_voice_connector.test example
  * 
  */
 @ResourceType(type="aws:chime/voiceConnector:VoiceConnector")
 public class VoiceConnector extends com.pulumi.resources.CustomResource {
+    /**
+     * ARN (Amazon Resource Name) of the Amazon Chime Voice Connector.
+     * 
+     */
+    @Export(name="arn", refs={String.class}, tree="[0]")
+    private Output<String> arn;
+
+    /**
+     * @return ARN (Amazon Resource Name) of the Amazon Chime Voice Connector.
+     * 
+     */
+    public Output<String> arn() {
+        return this.arn;
+    }
     /**
      * The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
      * 
@@ -105,6 +120,8 @@ public class VoiceConnector extends com.pulumi.resources.CustomResource {
     /**
      * When enabled, requires encryption for the Amazon Chime Voice Connector.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="requireEncryption", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> requireEncryption;
@@ -112,9 +129,39 @@ public class VoiceConnector extends com.pulumi.resources.CustomResource {
     /**
      * @return When enabled, requires encryption for the Amazon Chime Voice Connector.
      * 
+     * The following arguments are optional:
+     * 
      */
     public Output<Boolean> requireEncryption() {
         return this.requireEncryption;
+    }
+    /**
+     * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output</* @Nullable */ Map<String,String>> tags;
+
+    /**
+     * @return Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
+    public Output<Optional<Map<String,String>>> tags() {
+        return Codegen.optional(this.tags);
+    }
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output<Map<String,String>> tagsAll;
+
+    /**
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    public Output<Map<String,String>> tagsAll() {
+        return this.tagsAll;
     }
 
     /**

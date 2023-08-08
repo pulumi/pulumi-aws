@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -48,7 +49,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -68,6 +69,7 @@ import (
 //
 // ```
 func LookupHoursOfOperation(ctx *pulumi.Context, args *LookupHoursOfOperationArgs, opts ...pulumi.InvokeOption) (*LookupHoursOfOperationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupHoursOfOperationResult
 	err := ctx.Invoke("aws:connect/getHoursOfOperation:getHoursOfOperation", args, &rv, opts...)
 	if err != nil {
@@ -96,10 +98,6 @@ type LookupHoursOfOperationResult struct {
 	Configs []GetHoursOfOperationConfig `pulumi:"configs"`
 	// Description of the Hours of Operation.
 	Description string `pulumi:"description"`
-	// (**Deprecated**) ARN of the Hours of Operation.
-	//
-	// Deprecated: use 'arn' attribute instead
-	HoursOfOperationArn string `pulumi:"hoursOfOperationArn"`
 	// The identifier for the hours of operation.
 	HoursOfOperationId string `pulumi:"hoursOfOperationId"`
 	// The provider-assigned unique ID for this managed resource.
@@ -171,13 +169,6 @@ func (o LookupHoursOfOperationResultOutput) Configs() GetHoursOfOperationConfigA
 // Description of the Hours of Operation.
 func (o LookupHoursOfOperationResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupHoursOfOperationResult) string { return v.Description }).(pulumi.StringOutput)
-}
-
-// (**Deprecated**) ARN of the Hours of Operation.
-//
-// Deprecated: use 'arn' attribute instead
-func (o LookupHoursOfOperationResultOutput) HoursOfOperationArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupHoursOfOperationResult) string { return v.HoursOfOperationArn }).(pulumi.StringOutput)
 }
 
 // The identifier for the hours of operation.

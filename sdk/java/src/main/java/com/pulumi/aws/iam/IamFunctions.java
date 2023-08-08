@@ -12,12 +12,14 @@ import com.pulumi.aws.iam.inputs.GetInstanceProfileArgs;
 import com.pulumi.aws.iam.inputs.GetInstanceProfilePlainArgs;
 import com.pulumi.aws.iam.inputs.GetInstanceProfilesArgs;
 import com.pulumi.aws.iam.inputs.GetInstanceProfilesPlainArgs;
-import com.pulumi.aws.iam.inputs.GetOpenidConnectProviderArgs;
-import com.pulumi.aws.iam.inputs.GetOpenidConnectProviderPlainArgs;
+import com.pulumi.aws.iam.inputs.GetOpenIdConnectProviderArgs;
+import com.pulumi.aws.iam.inputs.GetOpenIdConnectProviderPlainArgs;
 import com.pulumi.aws.iam.inputs.GetPolicyArgs;
 import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
 import com.pulumi.aws.iam.inputs.GetPolicyDocumentPlainArgs;
 import com.pulumi.aws.iam.inputs.GetPolicyPlainArgs;
+import com.pulumi.aws.iam.inputs.GetPrincipalPolicySimulationArgs;
+import com.pulumi.aws.iam.inputs.GetPrincipalPolicySimulationPlainArgs;
 import com.pulumi.aws.iam.inputs.GetRoleArgs;
 import com.pulumi.aws.iam.inputs.GetRolePlainArgs;
 import com.pulumi.aws.iam.inputs.GetRolesArgs;
@@ -39,9 +41,10 @@ import com.pulumi.aws.iam.outputs.GetAccountAliasResult;
 import com.pulumi.aws.iam.outputs.GetGroupResult;
 import com.pulumi.aws.iam.outputs.GetInstanceProfileResult;
 import com.pulumi.aws.iam.outputs.GetInstanceProfilesResult;
-import com.pulumi.aws.iam.outputs.GetOpenidConnectProviderResult;
+import com.pulumi.aws.iam.outputs.GetOpenIdConnectProviderResult;
 import com.pulumi.aws.iam.outputs.GetPolicyDocumentResult;
 import com.pulumi.aws.iam.outputs.GetPolicyResult;
+import com.pulumi.aws.iam.outputs.GetPrincipalPolicySimulationInvokeResult;
 import com.pulumi.aws.iam.outputs.GetRoleResult;
 import com.pulumi.aws.iam.outputs.GetRolesResult;
 import com.pulumi.aws.iam.outputs.GetSamlProviderResult;
@@ -907,7 +910,7 @@ public final class IamFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
-     * import com.pulumi.aws.iam.inputs.GetOpenidConnectProviderArgs;
+     * import com.pulumi.aws.iam.inputs.GetOpenIdConnectProviderArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -921,7 +924,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = IamFunctions.getOpenidConnectProvider(GetOpenidConnectProviderArgs.builder()
+     *         final var example = IamFunctions.getOpenIdConnectProvider(GetOpenIdConnectProviderArgs.builder()
      *             .arn(&#34;arn:aws:iam::123456789012:oidc-provider/accounts.google.com&#34;)
      *             .build());
      * 
@@ -935,7 +938,7 @@ public final class IamFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
-     * import com.pulumi.aws.iam.inputs.GetOpenidConnectProviderArgs;
+     * import com.pulumi.aws.iam.inputs.GetOpenIdConnectProviderArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -949,7 +952,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = IamFunctions.getOpenidConnectProvider(GetOpenidConnectProviderArgs.builder()
+     *         final var example = IamFunctions.getOpenIdConnectProvider(GetOpenIdConnectProviderArgs.builder()
      *             .url(&#34;https://accounts.google.com&#34;)
      *             .build());
      * 
@@ -958,8 +961,8 @@ public final class IamFunctions {
      * ```
      * 
      */
-    public static Output<GetOpenidConnectProviderResult> getOpenidConnectProvider() {
-        return getOpenidConnectProvider(GetOpenidConnectProviderArgs.Empty, InvokeOptions.Empty);
+    public static Output<GetOpenIdConnectProviderResult> getOpenIdConnectProvider() {
+        return getOpenIdConnectProvider(GetOpenIdConnectProviderArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * This data source can be used to fetch information about a specific
@@ -974,7 +977,7 @@ public final class IamFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
-     * import com.pulumi.aws.iam.inputs.GetOpenidConnectProviderArgs;
+     * import com.pulumi.aws.iam.inputs.GetOpenIdConnectProviderArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -988,7 +991,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = IamFunctions.getOpenidConnectProvider(GetOpenidConnectProviderArgs.builder()
+     *         final var example = IamFunctions.getOpenIdConnectProvider(GetOpenIdConnectProviderArgs.builder()
      *             .arn(&#34;arn:aws:iam::123456789012:oidc-provider/accounts.google.com&#34;)
      *             .build());
      * 
@@ -1002,7 +1005,7 @@ public final class IamFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
-     * import com.pulumi.aws.iam.inputs.GetOpenidConnectProviderArgs;
+     * import com.pulumi.aws.iam.inputs.GetOpenIdConnectProviderArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1016,7 +1019,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = IamFunctions.getOpenidConnectProvider(GetOpenidConnectProviderArgs.builder()
+     *         final var example = IamFunctions.getOpenIdConnectProvider(GetOpenIdConnectProviderArgs.builder()
      *             .url(&#34;https://accounts.google.com&#34;)
      *             .build());
      * 
@@ -1025,8 +1028,8 @@ public final class IamFunctions {
      * ```
      * 
      */
-    public static CompletableFuture<GetOpenidConnectProviderResult> getOpenidConnectProviderPlain() {
-        return getOpenidConnectProviderPlain(GetOpenidConnectProviderPlainArgs.Empty, InvokeOptions.Empty);
+    public static CompletableFuture<GetOpenIdConnectProviderResult> getOpenIdConnectProviderPlain() {
+        return getOpenIdConnectProviderPlain(GetOpenIdConnectProviderPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * This data source can be used to fetch information about a specific
@@ -1041,7 +1044,7 @@ public final class IamFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
-     * import com.pulumi.aws.iam.inputs.GetOpenidConnectProviderArgs;
+     * import com.pulumi.aws.iam.inputs.GetOpenIdConnectProviderArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1055,7 +1058,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = IamFunctions.getOpenidConnectProvider(GetOpenidConnectProviderArgs.builder()
+     *         final var example = IamFunctions.getOpenIdConnectProvider(GetOpenIdConnectProviderArgs.builder()
      *             .arn(&#34;arn:aws:iam::123456789012:oidc-provider/accounts.google.com&#34;)
      *             .build());
      * 
@@ -1069,7 +1072,7 @@ public final class IamFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
-     * import com.pulumi.aws.iam.inputs.GetOpenidConnectProviderArgs;
+     * import com.pulumi.aws.iam.inputs.GetOpenIdConnectProviderArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1083,7 +1086,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = IamFunctions.getOpenidConnectProvider(GetOpenidConnectProviderArgs.builder()
+     *         final var example = IamFunctions.getOpenIdConnectProvider(GetOpenIdConnectProviderArgs.builder()
      *             .url(&#34;https://accounts.google.com&#34;)
      *             .build());
      * 
@@ -1092,8 +1095,8 @@ public final class IamFunctions {
      * ```
      * 
      */
-    public static Output<GetOpenidConnectProviderResult> getOpenidConnectProvider(GetOpenidConnectProviderArgs args) {
-        return getOpenidConnectProvider(args, InvokeOptions.Empty);
+    public static Output<GetOpenIdConnectProviderResult> getOpenIdConnectProvider(GetOpenIdConnectProviderArgs args) {
+        return getOpenIdConnectProvider(args, InvokeOptions.Empty);
     }
     /**
      * This data source can be used to fetch information about a specific
@@ -1108,7 +1111,7 @@ public final class IamFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
-     * import com.pulumi.aws.iam.inputs.GetOpenidConnectProviderArgs;
+     * import com.pulumi.aws.iam.inputs.GetOpenIdConnectProviderArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1122,7 +1125,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = IamFunctions.getOpenidConnectProvider(GetOpenidConnectProviderArgs.builder()
+     *         final var example = IamFunctions.getOpenIdConnectProvider(GetOpenIdConnectProviderArgs.builder()
      *             .arn(&#34;arn:aws:iam::123456789012:oidc-provider/accounts.google.com&#34;)
      *             .build());
      * 
@@ -1136,7 +1139,7 @@ public final class IamFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
-     * import com.pulumi.aws.iam.inputs.GetOpenidConnectProviderArgs;
+     * import com.pulumi.aws.iam.inputs.GetOpenIdConnectProviderArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1150,7 +1153,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = IamFunctions.getOpenidConnectProvider(GetOpenidConnectProviderArgs.builder()
+     *         final var example = IamFunctions.getOpenIdConnectProvider(GetOpenIdConnectProviderArgs.builder()
      *             .url(&#34;https://accounts.google.com&#34;)
      *             .build());
      * 
@@ -1159,8 +1162,8 @@ public final class IamFunctions {
      * ```
      * 
      */
-    public static CompletableFuture<GetOpenidConnectProviderResult> getOpenidConnectProviderPlain(GetOpenidConnectProviderPlainArgs args) {
-        return getOpenidConnectProviderPlain(args, InvokeOptions.Empty);
+    public static CompletableFuture<GetOpenIdConnectProviderResult> getOpenIdConnectProviderPlain(GetOpenIdConnectProviderPlainArgs args) {
+        return getOpenIdConnectProviderPlain(args, InvokeOptions.Empty);
     }
     /**
      * This data source can be used to fetch information about a specific
@@ -1175,7 +1178,7 @@ public final class IamFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
-     * import com.pulumi.aws.iam.inputs.GetOpenidConnectProviderArgs;
+     * import com.pulumi.aws.iam.inputs.GetOpenIdConnectProviderArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1189,7 +1192,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = IamFunctions.getOpenidConnectProvider(GetOpenidConnectProviderArgs.builder()
+     *         final var example = IamFunctions.getOpenIdConnectProvider(GetOpenIdConnectProviderArgs.builder()
      *             .arn(&#34;arn:aws:iam::123456789012:oidc-provider/accounts.google.com&#34;)
      *             .build());
      * 
@@ -1203,7 +1206,7 @@ public final class IamFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
-     * import com.pulumi.aws.iam.inputs.GetOpenidConnectProviderArgs;
+     * import com.pulumi.aws.iam.inputs.GetOpenIdConnectProviderArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1217,7 +1220,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = IamFunctions.getOpenidConnectProvider(GetOpenidConnectProviderArgs.builder()
+     *         final var example = IamFunctions.getOpenIdConnectProvider(GetOpenIdConnectProviderArgs.builder()
      *             .url(&#34;https://accounts.google.com&#34;)
      *             .build());
      * 
@@ -1226,8 +1229,8 @@ public final class IamFunctions {
      * ```
      * 
      */
-    public static Output<GetOpenidConnectProviderResult> getOpenidConnectProvider(GetOpenidConnectProviderArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:iam/getOpenidConnectProvider:getOpenidConnectProvider", TypeShape.of(GetOpenidConnectProviderResult.class), args, Utilities.withVersion(options));
+    public static Output<GetOpenIdConnectProviderResult> getOpenIdConnectProvider(GetOpenIdConnectProviderArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:iam/getOpenIdConnectProvider:getOpenIdConnectProvider", TypeShape.of(GetOpenIdConnectProviderResult.class), args, Utilities.withVersion(options));
     }
     /**
      * This data source can be used to fetch information about a specific
@@ -1242,7 +1245,7 @@ public final class IamFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
-     * import com.pulumi.aws.iam.inputs.GetOpenidConnectProviderArgs;
+     * import com.pulumi.aws.iam.inputs.GetOpenIdConnectProviderArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1256,7 +1259,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = IamFunctions.getOpenidConnectProvider(GetOpenidConnectProviderArgs.builder()
+     *         final var example = IamFunctions.getOpenIdConnectProvider(GetOpenIdConnectProviderArgs.builder()
      *             .arn(&#34;arn:aws:iam::123456789012:oidc-provider/accounts.google.com&#34;)
      *             .build());
      * 
@@ -1270,7 +1273,7 @@ public final class IamFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
-     * import com.pulumi.aws.iam.inputs.GetOpenidConnectProviderArgs;
+     * import com.pulumi.aws.iam.inputs.GetOpenIdConnectProviderArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1284,7 +1287,7 @@ public final class IamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = IamFunctions.getOpenidConnectProvider(GetOpenidConnectProviderArgs.builder()
+     *         final var example = IamFunctions.getOpenIdConnectProvider(GetOpenIdConnectProviderArgs.builder()
      *             .url(&#34;https://accounts.google.com&#34;)
      *             .build());
      * 
@@ -1293,8 +1296,8 @@ public final class IamFunctions {
      * ```
      * 
      */
-    public static CompletableFuture<GetOpenidConnectProviderResult> getOpenidConnectProviderPlain(GetOpenidConnectProviderPlainArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invokeAsync("aws:iam/getOpenidConnectProvider:getOpenidConnectProvider", TypeShape.of(GetOpenidConnectProviderResult.class), args, Utilities.withVersion(options));
+    public static CompletableFuture<GetOpenIdConnectProviderResult> getOpenIdConnectProviderPlain(GetOpenIdConnectProviderPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:iam/getOpenIdConnectProvider:getOpenIdConnectProvider", TypeShape.of(GetOpenIdConnectProviderResult.class), args, Utilities.withVersion(options));
     }
     /**
      * This data source can be used to fetch information about a specific
@@ -5269,6 +5272,62 @@ public final class IamFunctions {
         return Deployment.getInstance().invokeAsync("aws:iam/getPolicyDocument:getPolicyDocument", TypeShape.of(GetPolicyDocumentResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Runs a simulation of the IAM policies of a particular principal against a given hypothetical request.
+     * 
+     * You can use this data source in conjunction with
+     * Preconditions and Postconditions so that your configuration can test either whether it should have sufficient access to do its own work, or whether policies your configuration declares itself are sufficient for their intended use elsewhere.
+     * 
+     * &gt; **Note:** Correctly using this data source requires familiarity with various details of AWS Identity and Access Management, and how various AWS services integrate with it. For general information on the AWS IAM policy simulator, see [Testing IAM policies with the IAM policy simulator](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html). This data source wraps the `iam:SimulatePrincipalPolicy` API action described on that page.
+     * 
+     * ## Example Usage
+     * 
+     */
+    public static Output<GetPrincipalPolicySimulationInvokeResult> getPrincipalPolicySimulation(GetPrincipalPolicySimulationArgs args) {
+        return getPrincipalPolicySimulation(args, InvokeOptions.Empty);
+    }
+    /**
+     * Runs a simulation of the IAM policies of a particular principal against a given hypothetical request.
+     * 
+     * You can use this data source in conjunction with
+     * Preconditions and Postconditions so that your configuration can test either whether it should have sufficient access to do its own work, or whether policies your configuration declares itself are sufficient for their intended use elsewhere.
+     * 
+     * &gt; **Note:** Correctly using this data source requires familiarity with various details of AWS Identity and Access Management, and how various AWS services integrate with it. For general information on the AWS IAM policy simulator, see [Testing IAM policies with the IAM policy simulator](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html). This data source wraps the `iam:SimulatePrincipalPolicy` API action described on that page.
+     * 
+     * ## Example Usage
+     * 
+     */
+    public static CompletableFuture<GetPrincipalPolicySimulationInvokeResult> getPrincipalPolicySimulationPlain(GetPrincipalPolicySimulationPlainArgs args) {
+        return getPrincipalPolicySimulationPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Runs a simulation of the IAM policies of a particular principal against a given hypothetical request.
+     * 
+     * You can use this data source in conjunction with
+     * Preconditions and Postconditions so that your configuration can test either whether it should have sufficient access to do its own work, or whether policies your configuration declares itself are sufficient for their intended use elsewhere.
+     * 
+     * &gt; **Note:** Correctly using this data source requires familiarity with various details of AWS Identity and Access Management, and how various AWS services integrate with it. For general information on the AWS IAM policy simulator, see [Testing IAM policies with the IAM policy simulator](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html). This data source wraps the `iam:SimulatePrincipalPolicy` API action described on that page.
+     * 
+     * ## Example Usage
+     * 
+     */
+    public static Output<GetPrincipalPolicySimulationInvokeResult> getPrincipalPolicySimulation(GetPrincipalPolicySimulationArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:iam/getPrincipalPolicySimulation:getPrincipalPolicySimulation", TypeShape.of(GetPrincipalPolicySimulationInvokeResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Runs a simulation of the IAM policies of a particular principal against a given hypothetical request.
+     * 
+     * You can use this data source in conjunction with
+     * Preconditions and Postconditions so that your configuration can test either whether it should have sufficient access to do its own work, or whether policies your configuration declares itself are sufficient for their intended use elsewhere.
+     * 
+     * &gt; **Note:** Correctly using this data source requires familiarity with various details of AWS Identity and Access Management, and how various AWS services integrate with it. For general information on the AWS IAM policy simulator, see [Testing IAM policies with the IAM policy simulator](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html). This data source wraps the `iam:SimulatePrincipalPolicy` API action described on that page.
+     * 
+     * ## Example Usage
+     * 
+     */
+    public static CompletableFuture<GetPrincipalPolicySimulationInvokeResult> getPrincipalPolicySimulationPlain(GetPrincipalPolicySimulationPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:iam/getPrincipalPolicySimulation:getPrincipalPolicySimulation", TypeShape.of(GetPrincipalPolicySimulationInvokeResult.class), args, Utilities.withVersion(options));
+    }
+    /**
      * This data source can be used to fetch information about a specific
      * IAM role. By using this data source, you can reference IAM role
      * properties without having to hard code ARNs as input.
@@ -6879,6 +6938,7 @@ public final class IamFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetSessionContextArgs;
      * import java.util.List;
@@ -6953,6 +7013,7 @@ public final class IamFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetSessionContextArgs;
      * import java.util.List;
@@ -7027,6 +7088,7 @@ public final class IamFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetSessionContextArgs;
      * import java.util.List;
@@ -7101,6 +7163,7 @@ public final class IamFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetSessionContextArgs;
      * import java.util.List;

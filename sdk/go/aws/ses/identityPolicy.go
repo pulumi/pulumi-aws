@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ses"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -72,13 +73,11 @@ import (
 //
 // ## Import
 //
-// SES Identity Policies can be imported using the identity and policy name, separated by a pipe character (`|`), e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_ses_identity_policy.example
 //
-//	$ pulumi import aws:ses/identityPolicy:IdentityPolicy example 'example.com|example'
-//
-// ```
+//	id = "example.com|example" } Using `pulumi import`, import SES Identity Policies using the identity and policy name, separated by a pipe character (`|`). For exampleconsole % pulumi import aws_ses_identity_policy.example 'example.com|example'
 type IdentityPolicy struct {
 	pulumi.CustomResourceState
 
@@ -103,6 +102,7 @@ func NewIdentityPolicy(ctx *pulumi.Context,
 	if args.Policy == nil {
 		return nil, errors.New("invalid value for required argument 'Policy'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource IdentityPolicy
 	err := ctx.RegisterResource("aws:ses/identityPolicy:IdentityPolicy", name, args, &resource, opts...)
 	if err != nil {

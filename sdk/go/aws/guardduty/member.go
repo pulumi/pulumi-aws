@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/guardduty"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/guardduty"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -57,13 +58,11 @@ import (
 //
 // ## Import
 //
-// GuardDuty members can be imported using the primary GuardDuty detector ID and member AWS account ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_guardduty_member.MyMember
 //
-//	$ pulumi import aws:guardduty/member:Member MyMember 00b00fd5aecc0ab60a708659477e9617:123456789012
-//
-// ```
+//	id = "00b00fd5aecc0ab60a708659477e9617:123456789012" } Using `pulumi import`, import GuardDuty members using the primary GuardDuty detector ID and member AWS account ID. For exampleconsole % pulumi import aws_guardduty_member.MyMember 00b00fd5aecc0ab60a708659477e9617:123456789012
 type Member struct {
 	pulumi.CustomResourceState
 
@@ -99,6 +98,7 @@ func NewMember(ctx *pulumi.Context,
 	if args.Email == nil {
 		return nil, errors.New("invalid value for required argument 'Email'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Member
 	err := ctx.RegisterResource("aws:guardduty/member:Member", name, args, &resource, opts...)
 	if err != nil {

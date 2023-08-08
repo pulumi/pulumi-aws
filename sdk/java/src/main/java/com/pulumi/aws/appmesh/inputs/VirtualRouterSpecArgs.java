@@ -6,6 +6,7 @@ package com.pulumi.aws.appmesh.inputs;
 import com.pulumi.aws.appmesh.inputs.VirtualRouterSpecListenerArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -20,22 +21,22 @@ public final class VirtualRouterSpecArgs extends com.pulumi.resources.ResourceAr
      * Currently only one listener is supported per virtual router.
      * 
      */
-    @Import(name="listener")
-    private @Nullable Output<VirtualRouterSpecListenerArgs> listener;
+    @Import(name="listeners")
+    private @Nullable Output<List<VirtualRouterSpecListenerArgs>> listeners;
 
     /**
      * @return Listeners that the virtual router is expected to receive inbound traffic from.
      * Currently only one listener is supported per virtual router.
      * 
      */
-    public Optional<Output<VirtualRouterSpecListenerArgs>> listener() {
-        return Optional.ofNullable(this.listener);
+    public Optional<Output<List<VirtualRouterSpecListenerArgs>>> listeners() {
+        return Optional.ofNullable(this.listeners);
     }
 
     private VirtualRouterSpecArgs() {}
 
     private VirtualRouterSpecArgs(VirtualRouterSpecArgs $) {
-        this.listener = $.listener;
+        this.listeners = $.listeners;
     }
 
     public static Builder builder() {
@@ -57,26 +58,37 @@ public final class VirtualRouterSpecArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param listener Listeners that the virtual router is expected to receive inbound traffic from.
+         * @param listeners Listeners that the virtual router is expected to receive inbound traffic from.
          * Currently only one listener is supported per virtual router.
          * 
          * @return builder
          * 
          */
-        public Builder listener(@Nullable Output<VirtualRouterSpecListenerArgs> listener) {
-            $.listener = listener;
+        public Builder listeners(@Nullable Output<List<VirtualRouterSpecListenerArgs>> listeners) {
+            $.listeners = listeners;
             return this;
         }
 
         /**
-         * @param listener Listeners that the virtual router is expected to receive inbound traffic from.
+         * @param listeners Listeners that the virtual router is expected to receive inbound traffic from.
          * Currently only one listener is supported per virtual router.
          * 
          * @return builder
          * 
          */
-        public Builder listener(VirtualRouterSpecListenerArgs listener) {
-            return listener(Output.of(listener));
+        public Builder listeners(List<VirtualRouterSpecListenerArgs> listeners) {
+            return listeners(Output.of(listeners));
+        }
+
+        /**
+         * @param listeners Listeners that the virtual router is expected to receive inbound traffic from.
+         * Currently only one listener is supported per virtual router.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder listeners(VirtualRouterSpecListenerArgs... listeners) {
+            return listeners(List.of(listeners));
         }
 
         public VirtualRouterSpecArgs build() {

@@ -8,20 +8,21 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Provides an AWS App Mesh virtual gateway resource.
 //
 // ## Example Usage
-// ### Access Logs and TLS
+// ### Basic
 //
 // ```go
 // package main
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appmesh"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appmesh"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -31,18 +32,58 @@ import (
 //			_, err := appmesh.NewVirtualGateway(ctx, "example", &appmesh.VirtualGatewayArgs{
 //				MeshName: pulumi.String("example-service-mesh"),
 //				Spec: &appmesh.VirtualGatewaySpecArgs{
-//					Listener: &appmesh.VirtualGatewaySpecListenerArgs{
-//						PortMapping: &appmesh.VirtualGatewaySpecListenerPortMappingArgs{
-//							Port:     pulumi.Int(8080),
-//							Protocol: pulumi.String("http"),
-//						},
-//						Tls: &appmesh.VirtualGatewaySpecListenerTlsArgs{
-//							Certificate: &appmesh.VirtualGatewaySpecListenerTlsCertificateArgs{
-//								Acm: &appmesh.VirtualGatewaySpecListenerTlsCertificateAcmArgs{
-//									CertificateArn: pulumi.Any(aws_acm_certificate.Example.Arn),
-//								},
+//					Listeners: appmesh.VirtualGatewaySpecListenerArray{
+//						&appmesh.VirtualGatewaySpecListenerArgs{
+//							PortMapping: &appmesh.VirtualGatewaySpecListenerPortMappingArgs{
+//								Port:     pulumi.Int(8080),
+//								Protocol: pulumi.String("http"),
 //							},
-//							Mode: pulumi.String("STRICT"),
+//						},
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"Environment": pulumi.String("test"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Access Logs and TLS
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appmesh"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := appmesh.NewVirtualGateway(ctx, "example", &appmesh.VirtualGatewayArgs{
+//				MeshName: pulumi.String("example-service-mesh"),
+//				Spec: &appmesh.VirtualGatewaySpecArgs{
+//					Listeners: appmesh.VirtualGatewaySpecListenerArray{
+//						&appmesh.VirtualGatewaySpecListenerArgs{
+//							PortMapping: &appmesh.VirtualGatewaySpecListenerPortMappingArgs{
+//								Port:     pulumi.Int(8080),
+//								Protocol: pulumi.String("http"),
+//							},
+//							Tls: &appmesh.VirtualGatewaySpecListenerTlsArgs{
+//								Certificate: &appmesh.VirtualGatewaySpecListenerTlsCertificateArgs{
+//									Acm: &appmesh.VirtualGatewaySpecListenerTlsCertificateAcmArgs{
+//										CertificateArn: pulumi.Any(aws_acm_certificate.Example.Arn),
+//									},
+//								},
+//								Mode: pulumi.String("STRICT"),
+//							},
 //						},
 //					},
 //					Logging: &appmesh.VirtualGatewaySpecLoggingArgs{
@@ -65,13 +106,11 @@ import (
 //
 // ## Import
 //
-// App Mesh virtual gateway can be imported using `mesh_name` together with the virtual gateway's `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_appmesh_virtual_gateway.example
 //
-//	$ pulumi import aws:appmesh/virtualGateway:VirtualGateway example mesh/gw1
-//
-// ```
+//	id = "mesh/gw1" } Using `pulumi import`, import App Mesh virtual gateway using `mesh_name` together with the virtual gateway's `name`. For exampleconsole % pulumi import aws_appmesh_virtual_gateway.example mesh/gw1
 type VirtualGateway struct {
 	pulumi.CustomResourceState
 
@@ -110,6 +149,7 @@ func NewVirtualGateway(ctx *pulumi.Context,
 	if args.Spec == nil {
 		return nil, errors.New("invalid value for required argument 'Spec'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VirtualGateway
 	err := ctx.RegisterResource("aws:appmesh/virtualGateway:VirtualGateway", name, args, &resource, opts...)
 	if err != nil {

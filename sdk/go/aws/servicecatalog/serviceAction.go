@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicecatalog"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicecatalog"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -45,13 +46,11 @@ import (
 //
 // ## Import
 //
-// `aws_servicecatalog_service_action` can be imported using the service action ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_servicecatalog_service_action.example
 //
-//	$ pulumi import aws:servicecatalog/serviceAction:ServiceAction example act-f1w12eperfslh
-//
-// ```
+//	id = "act-f1w12eperfslh" } Using `pulumi import`, import `aws_servicecatalog_service_action` using the service action ID. For exampleconsole % pulumi import aws_servicecatalog_service_action.example act-f1w12eperfslh
 type ServiceAction struct {
 	pulumi.CustomResourceState
 
@@ -77,6 +76,7 @@ func NewServiceAction(ctx *pulumi.Context,
 	if args.Definition == nil {
 		return nil, errors.New("invalid value for required argument 'Definition'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ServiceAction
 	err := ctx.RegisterResource("aws:servicecatalog/serviceAction:ServiceAction", name, args, &resource, opts...)
 	if err != nil {

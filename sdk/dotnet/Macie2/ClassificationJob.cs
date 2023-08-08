@@ -54,11 +54,11 @@ namespace Pulumi.Aws.Macie2
     /// 
     /// ## Import
     /// 
-    /// `aws_macie2_classification_job` can be imported using the id, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:macie2/classificationJob:ClassificationJob example abcd1
-    /// ```
+    ///  to = aws_macie2_classification_job.example
+    /// 
+    ///  id = "abcd1" } Using `pulumi import`, import `aws_macie2_classification_job` using the id. For exampleconsole % pulumi import aws_macie2_classification_job.example abcd1
     /// </summary>
     [AwsResourceType("aws:macie2/classificationJob:ClassificationJob")]
     public partial class ClassificationJob : global::Pulumi.CustomResource

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/securityhub"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/securityhub"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -48,13 +49,11 @@ import (
 //
 // ## Import
 //
-// Security Hub custom action can be imported using the action target ARN e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_securityhub_action_target.example
 //
-//	$ pulumi import aws:securityhub/actionTarget:ActionTarget example arn:aws:securityhub:eu-west-1:312940875350:action/custom/a
-//
-// ```
+//	id = "arn:aws:securityhub:eu-west-1:312940875350:action/custom/a" } Using `pulumi import`, import Security Hub custom action using the action target ARN. For exampleconsole % pulumi import aws_securityhub_action_target.example arn:aws:securityhub:eu-west-1:312940875350:action/custom/a
 type ActionTarget struct {
 	pulumi.CustomResourceState
 
@@ -81,6 +80,7 @@ func NewActionTarget(ctx *pulumi.Context,
 	if args.Identifier == nil {
 		return nil, errors.New("invalid value for required argument 'Identifier'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ActionTarget
 	err := ctx.RegisterResource("aws:securityhub/actionTarget:ActionTarget", name, args, &resource, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/synthetics"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/synthetics"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -50,13 +51,11 @@ import (
 //
 // ## Import
 //
-// Synthetics Canaries can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_synthetics_canary.some
 //
-//	$ pulumi import aws:synthetics/canary:Canary some some-canary
-//
-// ```
+//	id = "some-canary" } Using `pulumi import`, import Synthetics Canaries using the `name`. For exampleconsole % pulumi import aws_synthetics_canary.some some-canary
 type Canary struct {
 	pulumi.CustomResourceState
 
@@ -134,6 +133,7 @@ func NewCanary(ctx *pulumi.Context,
 	if args.Schedule == nil {
 		return nil, errors.New("invalid value for required argument 'Schedule'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Canary
 	err := ctx.RegisterResource("aws:synthetics/canary:Canary", name, args, &resource, opts...)
 	if err != nil {

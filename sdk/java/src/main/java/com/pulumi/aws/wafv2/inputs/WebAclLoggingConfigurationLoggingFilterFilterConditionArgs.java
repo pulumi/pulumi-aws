@@ -17,14 +17,14 @@ public final class WebAclLoggingConfigurationLoggingFilterFilterConditionArgs ex
     public static final WebAclLoggingConfigurationLoggingFilterFilterConditionArgs Empty = new WebAclLoggingConfigurationLoggingFilterFilterConditionArgs();
 
     /**
-     * A single action condition. See Action Condition below for more details.
+     * Configuration for a single action condition. See Action Condition below for more details.
      * 
      */
     @Import(name="actionCondition")
     private @Nullable Output<WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArgs> actionCondition;
 
     /**
-     * @return A single action condition. See Action Condition below for more details.
+     * @return Configuration for a single action condition. See Action Condition below for more details.
      * 
      */
     public Optional<Output<WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArgs>> actionCondition() {
@@ -32,14 +32,14 @@ public final class WebAclLoggingConfigurationLoggingFilterFilterConditionArgs ex
     }
 
     /**
-     * A single label name condition. See Label Name Condition below for more details.
+     * Condition for a single label name. See Label Name Condition below for more details.
      * 
      */
     @Import(name="labelNameCondition")
     private @Nullable Output<WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameConditionArgs> labelNameCondition;
 
     /**
-     * @return A single label name condition. See Label Name Condition below for more details.
+     * @return Condition for a single label name. See Label Name Condition below for more details.
      * 
      */
     public Optional<Output<WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameConditionArgs>> labelNameCondition() {
@@ -72,7 +72,7 @@ public final class WebAclLoggingConfigurationLoggingFilterFilterConditionArgs ex
         }
 
         /**
-         * @param actionCondition A single action condition. See Action Condition below for more details.
+         * @param actionCondition Configuration for a single action condition. See Action Condition below for more details.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class WebAclLoggingConfigurationLoggingFilterFilterConditionArgs ex
         }
 
         /**
-         * @param actionCondition A single action condition. See Action Condition below for more details.
+         * @param actionCondition Configuration for a single action condition. See Action Condition below for more details.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class WebAclLoggingConfigurationLoggingFilterFilterConditionArgs ex
         }
 
         /**
-         * @param labelNameCondition A single label name condition. See Label Name Condition below for more details.
+         * @param labelNameCondition Condition for a single label name. See Label Name Condition below for more details.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class WebAclLoggingConfigurationLoggingFilterFilterConditionArgs ex
         }
 
         /**
-         * @param labelNameCondition A single label name condition. See Label Name Condition below for more details.
+         * @param labelNameCondition Condition for a single label name. See Label Name Condition below for more details.
          * 
          * @return builder
          * 

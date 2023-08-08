@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/efs"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/efs"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -81,13 +82,11 @@ import (
 //
 // ## Import
 //
-// The EFS file system policies can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_efs_file_system_policy.foo
 //
-//	$ pulumi import aws:efs/fileSystemPolicy:FileSystemPolicy foo fs-6fa144c6
-//
-// ```
+//	id = "fs-6fa144c6" } Using `pulumi import`, import the EFS file system policies using the `id`. For exampleconsole % pulumi import aws_efs_file_system_policy.foo fs-6fa144c6
 type FileSystemPolicy struct {
 	pulumi.CustomResourceState
 
@@ -114,6 +113,7 @@ func NewFileSystemPolicy(ctx *pulumi.Context,
 	if args.Policy == nil {
 		return nil, errors.New("invalid value for required argument 'Policy'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FileSystemPolicy
 	err := ctx.RegisterResource("aws:efs/fileSystemPolicy:FileSystemPolicy", name, args, &resource, opts...)
 	if err != nil {

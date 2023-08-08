@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lightsail"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,13 +53,11 @@ import (
 //
 // ## Import
 //
-// `aws_lightsail_lb_certificate` can be imported by using the id attribute, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_lightsail_lb_certificate.test
 //
-//	$ pulumi import aws:lightsail/lbCertificate:LbCertificate test example-load-balancer,example-load-balancer-certificate
-//
-// ```
+//	id = "example-load-balancer,example-load-balancer-certificate" } Using `pulumi import`, import `aws_lightsail_lb_certificate` using the id attribute. For exampleconsole % pulumi import aws_lightsail_lb_certificate.test example-load-balancer,example-load-balancer-certificate
 type LbCertificate struct {
 	pulumi.CustomResourceState
 
@@ -88,6 +87,7 @@ func NewLbCertificate(ctx *pulumi.Context,
 	if args.LbName == nil {
 		return nil, errors.New("invalid value for required argument 'LbName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LbCertificate
 	err := ctx.RegisterResource("aws:lightsail/lbCertificate:LbCertificate", name, args, &resource, opts...)
 	if err != nil {

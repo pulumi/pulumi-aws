@@ -431,11 +431,11 @@ class DataQualityJobDefinition(pulumi.CustomResource):
 
         ## Import
 
-        Data quality job definitions can be imported using the `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:sagemaker/dataQualityJobDefinition:DataQualityJobDefinition test_data_quality_job_definition data-quality-job-definition-foo
-        ```
+         to = aws_sagemaker_data_quality_job_definition.test_data_quality_job_definition
+
+         id = "data-quality-job-definition-foo" } Using `pulumi import`, import data quality job definitions using the `name`. For exampleconsole % pulumi import aws_sagemaker_data_quality_job_definition.test_data_quality_job_definition data-quality-job-definition-foo
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -495,11 +495,11 @@ class DataQualityJobDefinition(pulumi.CustomResource):
 
         ## Import
 
-        Data quality job definitions can be imported using the `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:sagemaker/dataQualityJobDefinition:DataQualityJobDefinition test_data_quality_job_definition data-quality-job-definition-foo
-        ```
+         to = aws_sagemaker_data_quality_job_definition.test_data_quality_job_definition
+
+         id = "data-quality-job-definition-foo" } Using `pulumi import`, import data quality job definitions using the `name`. For exampleconsole % pulumi import aws_sagemaker_data_quality_job_definition.test_data_quality_job_definition data-quality-job-definition-foo
 
         :param str resource_name: The name of the resource.
         :param DataQualityJobDefinitionArgs args: The arguments to use to populate this resource's properties.

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -16,13 +17,11 @@ import (
 //
 // ## Import
 //
-// Replicated Regions can be imported using directory ID,Region name e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_directory_service_region.example
 //
-//	$ pulumi import aws:directoryservice/serviceRegion:ServiceRegion example d-9267651497,us-east-2
-//
-// ```
+//	id = "d-9267651497,us-east-2" } Using `pulumi import`, import Replicated Regions using directory ID,Region name. For exampleconsole % pulumi import aws_directory_service_region.example d-9267651497,us-east-2
 type ServiceRegion struct {
 	pulumi.CustomResourceState
 
@@ -56,6 +55,7 @@ func NewServiceRegion(ctx *pulumi.Context,
 	if args.VpcSettings == nil {
 		return nil, errors.New("invalid value for required argument 'VpcSettings'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ServiceRegion
 	err := ctx.RegisterResource("aws:directoryservice/serviceRegion:ServiceRegion", name, args, &resource, opts...)
 	if err != nil {

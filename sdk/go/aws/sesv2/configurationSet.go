@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sesv2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sesv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -60,13 +61,11 @@ import (
 //
 // ## Import
 //
-// SESv2 (Simple Email V2) Configuration Set can be imported using the `configuration_set_name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_sesv2_configuration_set.example
 //
-//	$ pulumi import aws:sesv2/configurationSet:ConfigurationSet example example
-//
-// ```
+//	id = "example" } Using `pulumi import`, import SESv2 (Simple Email V2) Configuration Set using the `configuration_set_name`. For exampleconsole % pulumi import aws_sesv2_configuration_set.example example
 type ConfigurationSet struct {
 	pulumi.CustomResourceState
 
@@ -101,6 +100,7 @@ func NewConfigurationSet(ctx *pulumi.Context,
 	if args.ConfigurationSetName == nil {
 		return nil, errors.New("invalid value for required argument 'ConfigurationSetName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ConfigurationSet
 	err := ctx.RegisterResource("aws:sesv2/configurationSet:ConfigurationSet", name, args, &resource, opts...)
 	if err != nil {

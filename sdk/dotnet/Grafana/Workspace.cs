@@ -61,11 +61,11 @@ namespace Pulumi.Aws.Grafana
     /// 
     /// ## Import
     /// 
-    /// Grafana Workspace can be imported using the workspace's `id`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:grafana/workspace:Workspace example g-2054c75a02
-    /// ```
+    ///  to = aws_grafana_workspace.example
+    /// 
+    ///  id = "g-2054c75a02" } Using `pulumi import`, import Grafana Workspace using the workspace's `id`. For exampleconsole % pulumi import aws_grafana_workspace.example g-2054c75a02
     /// </summary>
     [AwsResourceType("aws:grafana/workspace:Workspace")]
     public partial class Workspace : global::Pulumi.CustomResource
@@ -113,7 +113,7 @@ namespace Pulumi.Aws.Grafana
         public Output<string> Endpoint { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`. Upgrading the workspace version isn't supported, however it's possible to copy content from the old version to the new one using AWS official [migration tool](https://github.com/aws-observability/amazon-managed-grafana-migrator).
+        /// Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`.
         /// </summary>
         [Output("grafanaVersion")]
         public Output<string> GrafanaVersion { get; private set; } = null!;
@@ -278,7 +278,7 @@ namespace Pulumi.Aws.Grafana
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`. Upgrading the workspace version isn't supported, however it's possible to copy content from the old version to the new one using AWS official [migration tool](https://github.com/aws-observability/amazon-managed-grafana-migrator).
+        /// Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`.
         /// </summary>
         [Input("grafanaVersion")]
         public Input<string>? GrafanaVersion { get; set; }
@@ -426,7 +426,7 @@ namespace Pulumi.Aws.Grafana
         public Input<string>? Endpoint { get; set; }
 
         /// <summary>
-        /// Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`. Upgrading the workspace version isn't supported, however it's possible to copy content from the old version to the new one using AWS official [migration tool](https://github.com/aws-observability/amazon-managed-grafana-migrator).
+        /// Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`.
         /// </summary>
         [Input("grafanaVersion")]
         public Input<string>? GrafanaVersion { get; set; }

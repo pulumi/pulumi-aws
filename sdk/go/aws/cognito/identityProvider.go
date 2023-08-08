@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cognito"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -60,13 +61,11 @@ import (
 //
 // ## Import
 //
-// `aws_cognito_identity_provider` resources can be imported using their User Pool ID and Provider Name, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_cognito_identity_provider.example
 //
-//	$ pulumi import aws:cognito/identityProvider:IdentityProvider example us-west-2_abc123:CorpAD
-//
-// ```
+//	id = "us-west-2_abc123:CorpAD" } Using `pulumi import`, import `aws_cognito_identity_provider` resources using their User Pool ID and Provider Name. For exampleconsole % pulumi import aws_cognito_identity_provider.example us-west-2_abc123:CorpAD
 type IdentityProvider struct {
 	pulumi.CustomResourceState
 
@@ -103,6 +102,7 @@ func NewIdentityProvider(ctx *pulumi.Context,
 	if args.UserPoolId == nil {
 		return nil, errors.New("invalid value for required argument 'UserPoolId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource IdentityProvider
 	err := ctx.RegisterResource("aws:cognito/identityProvider:IdentityProvider", name, args, &resource, opts...)
 	if err != nil {

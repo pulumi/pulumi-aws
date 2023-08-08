@@ -30,11 +30,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * WAFv2 IP Sets can be imported using `ID/name/scope`
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:wafv2/ipSet:IpSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
- * ```
+ *  to = aws_wafv2_ip_set.example
+ *
+ *  id = "a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL" } Using `pulumi import`, import WAFv2 IP Sets using `ID/name/scope`. For exampleconsole % pulumi import aws_wafv2_ip_set.example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
  */
 export class IpSet extends pulumi.CustomResource {
     /**
@@ -65,7 +65,7 @@ export class IpSet extends pulumi.CustomResource {
     }
 
     /**
-     * Contains an array of strings that specify one or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation. AWS WAF supports all address ranges for IP versions IPv4 and IPv6.
+     * Contains an array of strings that specifies zero or more IP addresses or blocks of IP addresses. All addresses must be specified using Classless Inter-Domain Routing (CIDR) notation. WAF supports all IPv4 and IPv6 CIDR ranges except for `/0`.
      */
     public readonly addresses!: pulumi.Output<string[] | undefined>;
     /**
@@ -148,7 +148,7 @@ export class IpSet extends pulumi.CustomResource {
  */
 export interface IpSetState {
     /**
-     * Contains an array of strings that specify one or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation. AWS WAF supports all address ranges for IP versions IPv4 and IPv6.
+     * Contains an array of strings that specifies zero or more IP addresses or blocks of IP addresses. All addresses must be specified using Classless Inter-Domain Routing (CIDR) notation. WAF supports all IPv4 and IPv6 CIDR ranges except for `/0`.
      */
     addresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -187,7 +187,7 @@ export interface IpSetState {
  */
 export interface IpSetArgs {
     /**
-     * Contains an array of strings that specify one or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation. AWS WAF supports all address ranges for IP versions IPv4 and IPv6.
+     * Contains an array of strings that specifies zero or more IP addresses or blocks of IP addresses. All addresses must be specified using Classless Inter-Domain Routing (CIDR) notation. WAF supports all IPv4 and IPv6 CIDR ranges except for `/0`.
      */
     addresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**

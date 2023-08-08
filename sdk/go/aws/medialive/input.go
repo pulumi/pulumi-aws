@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/medialive"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/medialive"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -61,13 +62,11 @@ import (
 //
 // ## Import
 //
-// MediaLive Input can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_medialive_input.example
 //
-//	$ pulumi import aws:medialive/input:Input example 12345678
-//
-// ```
+//	id = "12345678" } Using `pulumi import`, import MediaLive Input using the `id`. For exampleconsole % pulumi import aws_medialive_input.example 12345678
 type Input struct {
 	pulumi.CustomResourceState
 
@@ -116,6 +115,7 @@ func NewInput(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Input
 	err := ctx.RegisterResource("aws:medialive/input:Input", name, args, &resource, opts...)
 	if err != nil {

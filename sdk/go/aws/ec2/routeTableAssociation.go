@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -46,7 +47,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -68,21 +69,15 @@ import (
 //
 // ## Import
 //
-// is already associated, will result in an error (e.g., `Resource.AlreadyAssociatedthe specified association for route table rtb-4176657279 conflicts with an existing association`) unless you first import the original association. EC2 Route Table Associations can be imported using the associated resource ID and Route Table ID separated by a forward slash (`/`). For example with EC2 Subnets
+// With EC2 Subnetsterraform import {
 //
-// ```sh
+//	to = aws_route_table_association.assoc
 //
-//	$ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation assoc subnet-6777656e646f6c796e/rtb-656c65616e6f72
+//	id = "subnet-6777656e646f6c796e/rtb-656c65616e6f72" } With EC2 Internet Gatewaysterraform import {
 //
-// ```
+//	to = aws_route_table_association.assoc
 //
-//	For example with EC2 Internet Gateways
-//
-// ```sh
-//
-//	$ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation assoc igw-01b3a60780f8d034a/rtb-656c65616e6f72
-//
-// ```
+//	id = "igw-01b3a60780f8d034a/rtb-656c65616e6f72" } **Using `pulumi import` to import** EC2 Route Table Associations using the associated resource ID and Route Table ID separated by a forward slash (`/`). For exampleWith EC2 Subnetsconsole % pulumi import aws_route_table_association.assoc subnet-6777656e646f6c796e/rtb-656c65616e6f72 With EC2 Internet Gatewaysconsole % pulumi import aws_route_table_association.assoc igw-01b3a60780f8d034a/rtb-656c65616e6f72
 type RouteTableAssociation struct {
 	pulumi.CustomResourceState
 
@@ -104,6 +99,7 @@ func NewRouteTableAssociation(ctx *pulumi.Context,
 	if args.RouteTableId == nil {
 		return nil, errors.New("invalid value for required argument 'RouteTableId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RouteTableAssociation
 	err := ctx.RegisterResource("aws:ec2/routeTableAssociation:RouteTableAssociation", name, args, &resource, opts...)
 	if err != nil {

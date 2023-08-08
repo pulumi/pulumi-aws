@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/gamelift"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/gamelift"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -153,6 +154,7 @@ func NewMatchmakingConfiguration(ctx *pulumi.Context,
 	if args.RuleSetName == nil {
 		return nil, errors.New("invalid value for required argument 'RuleSetName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MatchmakingConfiguration
 	err := ctx.RegisterResource("aws:gamelift/matchmakingConfiguration:MatchmakingConfiguration", name, args, &resource, opts...)
 	if err != nil {

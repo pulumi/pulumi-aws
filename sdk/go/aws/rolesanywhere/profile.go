@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,8 +23,8 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rolesanywhere"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rolesanywhere"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -74,13 +75,11 @@ import (
 //
 // ## Import
 //
-// `aws_rolesanywhere_profile` can be imported using its `id`, e.g.
+// terraform import {
 //
-// ```sh
+//	to = aws_rolesanywhere_profile.example
 //
-//	$ pulumi import aws:rolesanywhere/profile:Profile example db138a85-8925-4f9f-a409-08231233cacf
-//
-// ```
+//	id = "db138a85-8925-4f9f-a409-08231233cacf" } Using `pulumi import`, import `aws_rolesanywhere_profile` using its `id`. For exampleconsole % pulumi import aws_rolesanywhere_profile.example db138a85-8925-4f9f-a409-08231233cacf
 type Profile struct {
 	pulumi.CustomResourceState
 
@@ -116,6 +115,7 @@ func NewProfile(ctx *pulumi.Context,
 	if args.RoleArns == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArns'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Profile
 	err := ctx.RegisterResource("aws:rolesanywhere/profile:Profile", name, args, &resource, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/docdb"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/docdb"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -69,13 +70,11 @@ import (
 //
 // ## Import
 //
-// DocumentDB Event Subscriptions can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_docdb_event_subscription.example
 //
-//	$ pulumi import aws:docdb/eventSubscription:EventSubscription example event-sub
-//
-// ```
+//	id = "event-sub" } Using `pulumi import`, import DocumentDB Event Subscriptions using the `name`. For exampleconsole % pulumi import aws_docdb_event_subscription.example event-sub
 type EventSubscription struct {
 	pulumi.CustomResourceState
 
@@ -112,6 +111,7 @@ func NewEventSubscription(ctx *pulumi.Context,
 	if args.SnsTopicArn == nil {
 		return nil, errors.New("invalid value for required argument 'SnsTopicArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EventSubscription
 	err := ctx.RegisterResource("aws:docdb/eventSubscription:EventSubscription", name, args, &resource, opts...)
 	if err != nil {

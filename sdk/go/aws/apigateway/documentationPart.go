@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -51,13 +52,11 @@ import (
 //
 // ## Import
 //
-// API Gateway documentation_parts can be imported using `REST-API-ID/DOC-PART-ID`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_api_gateway_documentation_part.example
 //
-//	$ pulumi import aws:apigateway/documentationPart:DocumentationPart example 5i4e1ko720/3oyy3t
-//
-// ```
+//	id = "5i4e1ko720/3oyy3t" } Using `pulumi import`, import API Gateway documentation_parts using `REST-API-ID/DOC-PART-ID`. For exampleconsole % pulumi import aws_api_gateway_documentation_part.example 5i4e1ko720/3oyy3t
 type DocumentationPart struct {
 	pulumi.CustomResourceState
 
@@ -85,6 +84,7 @@ func NewDocumentationPart(ctx *pulumi.Context,
 	if args.RestApiId == nil {
 		return nil, errors.New("invalid value for required argument 'RestApiId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DocumentationPart
 	err := ctx.RegisterResource("aws:apigateway/documentationPart:DocumentationPart", name, args, &resource, opts...)
 	if err != nil {

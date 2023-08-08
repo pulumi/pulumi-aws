@@ -3,11 +3,8 @@
 
 package com.pulumi.aws.secretsmanager.outputs;
 
-import com.pulumi.aws.secretsmanager.outputs.GetSecretRotationRule;
 import com.pulumi.core.annotations.CustomType;
-import java.lang.Boolean;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -39,33 +36,6 @@ public final class GetSecretResult {
      * 
      */
     private String policy;
-    /**
-     * @return Whether rotation is enabled or not.
-     * 
-     * @deprecated
-     * Use the aws_secretsmanager_secret_rotation data source instead
-     * 
-     */
-    @Deprecated /* Use the aws_secretsmanager_secret_rotation data source instead */
-    private Boolean rotationEnabled;
-    /**
-     * @return Rotation Lambda function ARN if rotation is enabled.
-     * 
-     * @deprecated
-     * Use the aws_secretsmanager_secret_rotation data source instead
-     * 
-     */
-    @Deprecated /* Use the aws_secretsmanager_secret_rotation data source instead */
-    private String rotationLambdaArn;
-    /**
-     * @return Rotation rules if rotation is enabled.
-     * 
-     * @deprecated
-     * Use the aws_secretsmanager_secret_rotation data source instead
-     * 
-     */
-    @Deprecated /* Use the aws_secretsmanager_secret_rotation data source instead */
-    private List<GetSecretRotationRule> rotationRules;
     /**
      * @return Tags of the secret.
      * 
@@ -112,39 +82,6 @@ public final class GetSecretResult {
         return this.policy;
     }
     /**
-     * @return Whether rotation is enabled or not.
-     * 
-     * @deprecated
-     * Use the aws_secretsmanager_secret_rotation data source instead
-     * 
-     */
-    @Deprecated /* Use the aws_secretsmanager_secret_rotation data source instead */
-    public Boolean rotationEnabled() {
-        return this.rotationEnabled;
-    }
-    /**
-     * @return Rotation Lambda function ARN if rotation is enabled.
-     * 
-     * @deprecated
-     * Use the aws_secretsmanager_secret_rotation data source instead
-     * 
-     */
-    @Deprecated /* Use the aws_secretsmanager_secret_rotation data source instead */
-    public String rotationLambdaArn() {
-        return this.rotationLambdaArn;
-    }
-    /**
-     * @return Rotation rules if rotation is enabled.
-     * 
-     * @deprecated
-     * Use the aws_secretsmanager_secret_rotation data source instead
-     * 
-     */
-    @Deprecated /* Use the aws_secretsmanager_secret_rotation data source instead */
-    public List<GetSecretRotationRule> rotationRules() {
-        return this.rotationRules;
-    }
-    /**
      * @return Tags of the secret.
      * 
      */
@@ -167,9 +104,6 @@ public final class GetSecretResult {
         private String kmsKeyId;
         private String name;
         private String policy;
-        private Boolean rotationEnabled;
-        private String rotationLambdaArn;
-        private List<GetSecretRotationRule> rotationRules;
         private Map<String,String> tags;
         public Builder() {}
         public Builder(GetSecretResult defaults) {
@@ -180,9 +114,6 @@ public final class GetSecretResult {
     	      this.kmsKeyId = defaults.kmsKeyId;
     	      this.name = defaults.name;
     	      this.policy = defaults.policy;
-    	      this.rotationEnabled = defaults.rotationEnabled;
-    	      this.rotationLambdaArn = defaults.rotationLambdaArn;
-    	      this.rotationRules = defaults.rotationRules;
     	      this.tags = defaults.tags;
         }
 
@@ -217,24 +148,6 @@ public final class GetSecretResult {
             return this;
         }
         @CustomType.Setter
-        public Builder rotationEnabled(Boolean rotationEnabled) {
-            this.rotationEnabled = Objects.requireNonNull(rotationEnabled);
-            return this;
-        }
-        @CustomType.Setter
-        public Builder rotationLambdaArn(String rotationLambdaArn) {
-            this.rotationLambdaArn = Objects.requireNonNull(rotationLambdaArn);
-            return this;
-        }
-        @CustomType.Setter
-        public Builder rotationRules(List<GetSecretRotationRule> rotationRules) {
-            this.rotationRules = Objects.requireNonNull(rotationRules);
-            return this;
-        }
-        public Builder rotationRules(GetSecretRotationRule... rotationRules) {
-            return rotationRules(List.of(rotationRules));
-        }
-        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
@@ -247,9 +160,6 @@ public final class GetSecretResult {
             o.kmsKeyId = kmsKeyId;
             o.name = name;
             o.policy = policy;
-            o.rotationEnabled = rotationEnabled;
-            o.rotationLambdaArn = rotationLambdaArn;
-            o.rotationRules = rotationRules;
             o.tags = tags;
             return o;
         }

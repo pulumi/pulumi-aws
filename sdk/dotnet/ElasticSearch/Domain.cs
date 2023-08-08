@@ -168,9 +168,19 @@ namespace Pulumi.Aws.ElasticSearch
     ///         },
     ///     });
     /// 
-    ///     var selectedSubnetIds = Aws.Ec2.GetSubnetIds.Invoke(new()
+    ///     var selectedSubnets = Aws.Ec2.GetSubnets.Invoke(new()
     ///     {
-    ///         VpcId = selectedVpc.Apply(getVpcResult =&gt; getVpcResult.Id),
+    ///         Filters = new[]
+    ///         {
+    ///             new Aws.Ec2.Inputs.GetSubnetsFilterInputArgs
+    ///             {
+    ///                 Name = "vpc-id",
+    ///                 Values = new[]
+    ///                 {
+    ///                     selectedVpc.Apply(getVpcResult =&gt; getVpcResult.Id),
+    ///                 },
+    ///             },
+    ///         },
     ///         Tags = 
     ///         {
     ///             { "Tier", "private" },
@@ -217,8 +227,8 @@ namespace Pulumi.Aws.ElasticSearch
     ///         {
     ///             SubnetIds = new[]
     ///             {
-    ///                 selectedSubnetIds.Apply(getSubnetIdsResult =&gt; getSubnetIdsResult.Ids[0]),
-    ///                 selectedSubnetIds.Apply(getSubnetIdsResult =&gt; getSubnetIdsResult.Ids[1]),
+    ///                 selectedSubnets.Apply(getSubnetsResult =&gt; getSubnetsResult.Ids[0]),
+    ///                 selectedSubnets.Apply(getSubnetsResult =&gt; getSubnetsResult.Ids[1]),
     ///             },
     ///             SecurityGroupIds = new[]
     ///             {
@@ -263,11 +273,11 @@ namespace Pulumi.Aws.ElasticSearch
     /// 
     /// ## Import
     /// 
-    /// Elasticsearch domains can be imported using the `domain_name`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:elasticsearch/domain:Domain example domain_name
-    /// ```
+    ///  to = aws_elasticsearch_domain.example
+    /// 
+    ///  id = "domain_name" } Using `pulumi import`, import Elasticsearch domains using the `domain_name`. For exampleconsole % pulumi import aws_elasticsearch_domain.example domain_name
     /// </summary>
     [AwsResourceType("aws:elasticsearch/domain:Domain")]
     public partial class Domain : global::Pulumi.CustomResource

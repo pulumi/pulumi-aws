@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 //
@@ -41,6 +42,7 @@ import (
 //
 // ```
 func LookupFunctionUrl(ctx *pulumi.Context, args *LookupFunctionUrlArgs, opts ...pulumi.InvokeOption) (*LookupFunctionUrlResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFunctionUrlResult
 	err := ctx.Invoke("aws:lambda/getFunctionUrl:getFunctionUrl", args, &rv, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lightsail"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -51,13 +52,11 @@ import (
 //
 // ## Import
 //
-// `aws_lightsail_domain_entry` can be imported by using the id attribute, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_lightsail_domain_entry.example
 //
-//	$ pulumi import aws:lightsail/domainEntry:DomainEntry example www,mydomain.com,A,127.0.0.1
-//
-// ```
+//	id = "www,mydomain.com,A,127.0.0.1" } Using `pulumi import`, import `aws_lightsail_domain_entry` using the id attribute. For exampleconsole % pulumi import aws_lightsail_domain_entry.example www,mydomain.com,A,127.0.0.1
 type DomainEntry struct {
 	pulumi.CustomResourceState
 
@@ -89,6 +88,7 @@ func NewDomainEntry(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DomainEntry
 	err := ctx.RegisterResource("aws:lightsail/domainEntry:DomainEntry", name, args, &resource, opts...)
 	if err != nil {

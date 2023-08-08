@@ -26,6 +26,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
  * import com.pulumi.aws.inputs.GetRegionsArgs;
  * import com.pulumi.aws.ecr.ReplicationConfiguration;
  * import com.pulumi.aws.ecr.ReplicationConfigurationArgs;
@@ -69,6 +70,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
  * import com.pulumi.aws.inputs.GetRegionsArgs;
  * import com.pulumi.aws.ecr.ReplicationConfiguration;
  * import com.pulumi.aws.ecr.ReplicationConfigurationArgs;
@@ -118,6 +120,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
  * import com.pulumi.aws.inputs.GetRegionsArgs;
  * import com.pulumi.aws.ecr.ReplicationConfiguration;
  * import com.pulumi.aws.ecr.ReplicationConfigurationArgs;
@@ -160,11 +163,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * ECR Replication Configuration can be imported using the `registry_id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:ecr/replicationConfiguration:ReplicationConfiguration service 012345678912
- * ```
+ *  to = aws_ecr_replication_configuration.service
+ * 
+ *  id = &#34;012345678912&#34; } Using `pulumi import`, import ECR Replication Configuration using the `registry_id`. For exampleconsole % pulumi import aws_ecr_replication_configuration.service 012345678912
  * 
  */
 @ResourceType(type="aws:ecr/replicationConfiguration:ReplicationConfiguration")

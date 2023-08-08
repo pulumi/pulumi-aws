@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appconfig"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appconfig"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -48,13 +49,11 @@ import (
 //
 // ## Import
 //
-// Amazon AppIntegrations Event Integrations can be imported using the `name` e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_appintegrations_event_integration.example
 //
-//	$ pulumi import aws:appconfig/eventIntegration:EventIntegration example example-name
-//
-// ```
+//	id = "example-name" } Using `pulumi import`, import Amazon AppIntegrations Event Integrations using the `name`. For exampleconsole % pulumi import aws_appintegrations_event_integration.example example-name
 type EventIntegration struct {
 	pulumi.CustomResourceState
 
@@ -87,6 +86,7 @@ func NewEventIntegration(ctx *pulumi.Context,
 	if args.EventbridgeBus == nil {
 		return nil, errors.New("invalid value for required argument 'EventbridgeBus'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EventIntegration
 	err := ctx.RegisterResource("aws:appconfig/eventIntegration:EventIntegration", name, args, &resource, opts...)
 	if err != nil {

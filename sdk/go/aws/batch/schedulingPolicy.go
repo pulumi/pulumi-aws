@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/batch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/batch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -56,13 +57,11 @@ import (
 //
 // ## Import
 //
-// Batch Scheduling Policy can be imported using the `arn`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_batch_scheduling_policy.test_policy
 //
-//	$ pulumi import aws:batch/schedulingPolicy:SchedulingPolicy test_policy arn:aws:batch:us-east-1:123456789012:scheduling-policy/sample
-//
-// ```
+//	id = "arn:aws:batch:us-east-1:123456789012:scheduling-policy/sample" } Using `pulumi import`, import Batch Scheduling Policy using the `arn`. For exampleconsole % pulumi import aws_batch_scheduling_policy.test_policy arn:aws:batch:us-east-1:123456789012:scheduling-policy/sample
 type SchedulingPolicy struct {
 	pulumi.CustomResourceState
 
@@ -84,6 +83,7 @@ func NewSchedulingPolicy(ctx *pulumi.Context,
 		args = &SchedulingPolicyArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SchedulingPolicy
 	err := ctx.RegisterResource("aws:batch/schedulingPolicy:SchedulingPolicy", name, args, &resource, opts...)
 	if err != nil {

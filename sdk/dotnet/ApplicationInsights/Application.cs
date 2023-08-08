@@ -58,11 +58,11 @@ namespace Pulumi.Aws.ApplicationInsights
     /// 
     /// ## Import
     /// 
-    /// ApplicationInsights Applications can be imported using the `resource_group_name`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:applicationinsights/application:Application some some-application
-    /// ```
+    ///  to = aws_applicationinsights_application.some
+    /// 
+    ///  id = "some-application" } Using `pulumi import`, import ApplicationInsights Applications using the `resource_group_name`. For exampleconsole % pulumi import aws_applicationinsights_application.some some-application
     /// </summary>
     [AwsResourceType("aws:applicationinsights/application:Application")]
     public partial class Application : global::Pulumi.CustomResource

@@ -37,11 +37,11 @@ namespace Pulumi.Aws.Pinpoint
     /// 
     /// ## Import
     /// 
-    /// Pinpoint APNs VoIP Channel can be imported using the `application-id`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:pinpoint/apnsVoipChannel:ApnsVoipChannel apns_voip application-id
-    /// ```
+    ///  to = aws_pinpoint_apns_voip_channel.apns_voip
+    /// 
+    ///  id = "application-id" } Using `pulumi import`, import Pinpoint APNs VoIP Channel using the `application-id`. For exampleconsole % pulumi import aws_pinpoint_apns_voip_channel.apns_voip application-id
     /// </summary>
     [AwsResourceType("aws:pinpoint/apnsVoipChannel:ApnsVoipChannel")]
     public partial class ApnsVoipChannel : global::Pulumi.CustomResource

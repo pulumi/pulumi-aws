@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/efs"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/efs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -49,13 +50,11 @@ import (
 //
 // ## Import
 //
-// The EFS backup policies can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_efs_backup_policy.example
 //
-//	$ pulumi import aws:efs/backupPolicy:BackupPolicy example fs-6fa144c6
-//
-// ```
+//	id = "fs-6fa144c6" } Using `pulumi import`, import the EFS backup policies using the `id`. For exampleconsole % pulumi import aws_efs_backup_policy.example fs-6fa144c6
 type BackupPolicy struct {
 	pulumi.CustomResourceState
 
@@ -78,6 +77,7 @@ func NewBackupPolicy(ctx *pulumi.Context,
 	if args.FileSystemId == nil {
 		return nil, errors.New("invalid value for required argument 'FileSystemId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BackupPolicy
 	err := ctx.RegisterResource("aws:efs/backupPolicy:BackupPolicy", name, args, &resource, opts...)
 	if err != nil {

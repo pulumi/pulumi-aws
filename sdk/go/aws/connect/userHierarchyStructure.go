@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,7 +53,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -90,13 +91,11 @@ import (
 //
 // ## Import
 //
-// Amazon Connect User Hierarchy Structures can be imported using the `instance_id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_connect_user_hierarchy_structure.example
 //
-//	$ pulumi import aws:connect/userHierarchyStructure:UserHierarchyStructure example f1288a1f-6193-445a-b47e-af739b2
-//
-// ```
+//	id = "f1288a1f-6193-445a-b47e-af739b2" } Using `pulumi import`, import Amazon Connect User Hierarchy Structures using the `instance_id`. For exampleconsole % pulumi import aws_connect_user_hierarchy_structure.example f1288a1f-6193-445a-b47e-af739b2
 type UserHierarchyStructure struct {
 	pulumi.CustomResourceState
 
@@ -119,6 +118,7 @@ func NewUserHierarchyStructure(ctx *pulumi.Context,
 	if args.InstanceId == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource UserHierarchyStructure
 	err := ctx.RegisterResource("aws:connect/userHierarchyStructure:UserHierarchyStructure", name, args, &resource, opts...)
 	if err != nil {

@@ -113,11 +113,11 @@ class DomainNameApiAssociation(pulumi.CustomResource):
 
         ## Import
 
-        `aws_appsync_domain_name_api_association` can be imported using the AppSync domain name, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:appsync/domainNameApiAssociation:DomainNameApiAssociation example example.com
-        ```
+         to = aws_appsync_domain_name_api_association.example
+
+         id = "example.com" } Using `pulumi import`, import `aws_appsync_domain_name_api_association` using the AppSync domain name. For exampleconsole % pulumi import aws_appsync_domain_name_api_association.example example.com
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -146,11 +146,11 @@ class DomainNameApiAssociation(pulumi.CustomResource):
 
         ## Import
 
-        `aws_appsync_domain_name_api_association` can be imported using the AppSync domain name, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:appsync/domainNameApiAssociation:DomainNameApiAssociation example example.com
-        ```
+         to = aws_appsync_domain_name_api_association.example
+
+         id = "example.com" } Using `pulumi import`, import `aws_appsync_domain_name_api_association` using the AppSync domain name. For exampleconsole % pulumi import aws_appsync_domain_name_api_association.example example.com
 
         :param str resource_name: The name of the resource.
         :param DomainNameApiAssociationArgs args: The arguments to use to populate this resource's properties.

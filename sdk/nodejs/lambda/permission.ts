@@ -10,6 +10,7 @@ import {Function} from "./index";
  * Gives an external source (like an EventBridge Rule, SNS, or S3) permission to access the Lambda function.
  *
  * ## Example Usage
+ * ### Basic Usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -45,7 +46,7 @@ import {Function} from "./index";
  *     qualifier: testAlias.name,
  * });
  * ```
- * ## Usage with SNS
+ * ### With SNS
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -81,8 +82,7 @@ import {Function} from "./index";
  *     endpoint: func.arn,
  * });
  * ```
- *
- * ## Specify Lambda permissions for API Gateway REST API
+ * ### With API Gateway REST API
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -96,8 +96,7 @@ import {Function} from "./index";
  *     sourceArn: pulumi.interpolate`${myDemoAPI.executionArn}/*`,
  * });
  * ```
- *
- * ## Usage with CloudWatch log group
+ * ### With CloudWatch Log Group
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -135,8 +134,7 @@ import {Function} from "./index";
  *     dependsOn: [loggingPermission],
  * });
  * ```
- *
- * ## Example function URL cross-account invoke policy
+ * ### With Cross-Account Invocation Policy
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -154,18 +152,33 @@ import {Function} from "./index";
  *     functionUrlAuthType: "AWS_IAM",
  * });
  * ```
+ * ### With `replaceTriggeredBy` Lifecycle Configuration
+ *
+ * If omitting the `qualifier` argument (which forces re-creation each time a function version is published), a `lifecycle` block can be used to ensure permissions are re-applied on any change to the underlying function.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const logging = new aws.lambda.Permission("logging", {
+ *     action: "lambda:InvokeFunction",
+ *     "function": aws_lambda_function.example.function_name,
+ *     principal: "events.amazonaws.com",
+ *     sourceArn: "arn:aws:events:eu-west-1:111122223333:rule/RunDaily",
+ * });
+ * ```
  *
  * ## Import
  *
- * Lambda permission statements can be imported using function_name/statement_id, with an optional qualifier, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:lambda/permission:Permission test_lambda_permission my_test_lambda_function/AllowExecutionFromCloudWatch
- * ```
+ *  to = aws_lambda_permission.test_lambda_permission
  *
- * ```sh
- *  $ pulumi import aws:lambda/permission:Permission test_lambda_permission my_test_lambda_function:qualifier_name/AllowExecutionFromCloudWatch
- * ```
+ *  id = "my_test_lambda_function/AllowExecutionFromCloudWatch" } terraform import {
+ *
+ *  to = aws_lambda_permission.test_lambda_permission
+ *
+ *  id = "my_test_lambda_function:qualifier_name/AllowExecutionFromCloudWatch" } Using `pulumi import`, import Lambda permission statements using function_name/statement_id with an optional qualifier. For exampleconsole % pulumi import aws_lambda_permission.test_lambda_permission my_test_lambda_function/AllowExecutionFromCloudWatch console % pulumi import aws_lambda_permission.test_lambda_permission my_test_lambda_function:qualifier_name/AllowExecutionFromCloudWatch
  */
 export class Permission extends pulumi.CustomResource {
     /**

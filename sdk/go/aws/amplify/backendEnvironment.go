@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/amplify"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/amplify"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -48,13 +49,11 @@ import (
 //
 // ## Import
 //
-// Amplify backend environment can be imported using `app_id` and `environment_name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_amplify_backend_environment.example
 //
-//	$ pulumi import aws:amplify/backendEnvironment:BackendEnvironment example d2ypk4k47z8u6/example
-//
-// ```
+//	id = "d2ypk4k47z8u6/example" } Using `pulumi import`, import Amplify backend environment using `app_id` and `environment_name`. For exampleconsole % pulumi import aws_amplify_backend_environment.example d2ypk4k47z8u6/example
 type BackendEnvironment struct {
 	pulumi.CustomResourceState
 
@@ -83,6 +82,7 @@ func NewBackendEnvironment(ctx *pulumi.Context,
 	if args.EnvironmentName == nil {
 		return nil, errors.New("invalid value for required argument 'EnvironmentName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BackendEnvironment
 	err := ctx.RegisterResource("aws:amplify/backendEnvironment:BackendEnvironment", name, args, &resource, opts...)
 	if err != nil {

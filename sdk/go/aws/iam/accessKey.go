@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -75,7 +76,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -103,15 +104,11 @@ import (
 //
 // ## Import
 //
-// IAM Access Keys can be imported using the identifier, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_iam_access_key.example
 //
-//	$ pulumi import aws:iam/accessKey:AccessKey example AKIA1234567890
-//
-// ```
-//
-//	Resource attributes such as `encrypted_secret`, `key_fingerprint`, `pgp_key`, `secret`, `ses_smtp_password_v4`, and `encrypted_ses_smtp_password_v4` are not available for imported resources as this information cannot be read from the IAM API.
+//	id = "AKIA1234567890" } Using `pulumi import`, import IAM Access Keys using the identifier. For exampleconsole % pulumi import aws_iam_access_key.example AKIA1234567890 Resource attributes such as `encrypted_secret`, `key_fingerprint`, `pgp_key`, `secret`, `ses_smtp_password_v4`, and `encrypted_ses_smtp_password_v4` are not available for imported resources as this information cannot be read from the IAM API.
 type AccessKey struct {
 	pulumi.CustomResourceState
 
@@ -150,6 +147,7 @@ func NewAccessKey(ctx *pulumi.Context,
 		"sesSmtpPasswordV4",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AccessKey
 	err := ctx.RegisterResource("aws:iam/accessKey:AccessKey", name, args, &resource, opts...)
 	if err != nil {

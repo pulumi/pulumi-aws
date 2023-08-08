@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,8 +23,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:ses/activeReceiptRuleSet:ActiveReceiptRuleSet":
 		r = &ActiveReceiptRuleSet{}
-	case "aws:ses/confgurationSet:ConfgurationSet":
-		r = &ConfgurationSet{}
 	case "aws:ses/configurationSet:ConfigurationSet":
 		r = &ConfigurationSet{}
 	case "aws:ses/domainDkim:DomainDkim":
@@ -60,18 +58,13 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 }
 
 func init() {
-	version, err := aws.PkgVersion()
+	version, err := internal.PkgVersion()
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
 	pulumi.RegisterResourceModule(
 		"aws",
 		"ses/activeReceiptRuleSet",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"aws",
-		"ses/confgurationSet",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

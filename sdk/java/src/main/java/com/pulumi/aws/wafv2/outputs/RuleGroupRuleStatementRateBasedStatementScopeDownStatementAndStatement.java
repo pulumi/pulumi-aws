@@ -3,7 +3,7 @@
 
 package com.pulumi.aws.wafv2.outputs;
 
-import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatementStatement;
+import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatement;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
@@ -11,17 +11,17 @@ import java.util.Objects;
 @CustomType
 public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatement {
     /**
-     * @return The statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
+     * @return The statements to combine.
      * 
      */
-    private List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatementStatement> statements;
+    private List<RuleGroupRuleStatement> statements;
 
     private RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatement() {}
     /**
-     * @return The statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
+     * @return The statements to combine.
      * 
      */
-    public List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatementStatement> statements() {
+    public List<RuleGroupRuleStatement> statements() {
         return this.statements;
     }
 
@@ -34,7 +34,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementAnd
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatementStatement> statements;
+        private List<RuleGroupRuleStatement> statements;
         public Builder() {}
         public Builder(RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatement defaults) {
     	      Objects.requireNonNull(defaults);
@@ -42,11 +42,11 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementAnd
         }
 
         @CustomType.Setter
-        public Builder statements(List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatementStatement> statements) {
+        public Builder statements(List<RuleGroupRuleStatement> statements) {
             this.statements = Objects.requireNonNull(statements);
             return this;
         }
-        public Builder statements(RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatementStatement... statements) {
+        public Builder statements(RuleGroupRuleStatement... statements) {
             return statements(List.of(statements));
         }
         public RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatement build() {

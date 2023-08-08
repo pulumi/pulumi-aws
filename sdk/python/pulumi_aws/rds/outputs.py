@@ -18,6 +18,7 @@ __all__ = [
     'ClusterS3Import',
     'ClusterScalingConfiguration',
     'ClusterServerlessv2ScalingConfiguration',
+    'ExportTaskTimeouts',
     'GlobalClusterGlobalClusterMember',
     'InstanceBlueGreenUpdate',
     'InstanceListenerEndpoint',
@@ -30,7 +31,6 @@ __all__ = [
     'ProxyAuth',
     'ProxyDefaultTargetGroupConnectionPoolConfig',
     'ReservedInstanceRecurringCharge',
-    'SecurityGroupIngress',
     'GetClusterMasterUserSecretResult',
     'GetClustersFilterResult',
     'GetEngineVersionFilterResult',
@@ -67,9 +67,9 @@ class ClusterMasterUserSecret(dict):
                  secret_arn: Optional[str] = None,
                  secret_status: Optional[str] = None):
         """
-        :param str kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
-        :param str secret_arn: The Amazon Resource Name (ARN) of the secret.
-        :param str secret_status: The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
+        :param str kms_key_id: ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
+        :param str secret_arn: Amazon Resource Name (ARN) of the secret.
+        :param str secret_status: Status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
         """
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
@@ -82,7 +82,7 @@ class ClusterMasterUserSecret(dict):
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[str]:
         """
-        The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
+        ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -90,7 +90,7 @@ class ClusterMasterUserSecret(dict):
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> Optional[str]:
         """
-        The Amazon Resource Name (ARN) of the secret.
+        Amazon Resource Name (ARN) of the secret.
         """
         return pulumi.get(self, "secret_arn")
 
@@ -98,7 +98,7 @@ class ClusterMasterUserSecret(dict):
     @pulumi.getter(name="secretStatus")
     def secret_status(self) -> Optional[str]:
         """
-        The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
+        Status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
         """
         return pulumi.get(self, "secret_status")
 
@@ -196,7 +196,7 @@ class ClusterRestoreToPointInTime(dict):
                  restore_type: Optional[str] = None,
                  use_latest_restorable_time: Optional[bool] = None):
         """
-        :param str source_cluster_identifier: The identifier of the source database cluster from which to restore.
+        :param str source_cluster_identifier: Identifier of the source database cluster from which to restore.
         :param str restore_to_time: Date and time in UTC format to restore the database cluster to. Conflicts with `use_latest_restorable_time`.
         :param str restore_type: Type of restore to be performed.
                Valid options are `full-copy` (default) and `copy-on-write`.
@@ -214,7 +214,7 @@ class ClusterRestoreToPointInTime(dict):
     @pulumi.getter(name="sourceClusterIdentifier")
     def source_cluster_identifier(self) -> str:
         """
-        The identifier of the source database cluster from which to restore.
+        Identifier of the source database cluster from which to restore.
         """
         return pulumi.get(self, "source_cluster_identifier")
 
@@ -278,7 +278,7 @@ class ClusterS3Import(dict):
                  source_engine_version: str,
                  bucket_prefix: Optional[str] = None):
         """
-        :param str bucket_name: The bucket name where your backup is stored
+        :param str bucket_name: Bucket name where your backup is stored
         :param str ingestion_role: Role applied to load the data.
         :param str source_engine: Source engine for the backup
         :param str source_engine_version: Version of the source engine used to make the backup
@@ -297,7 +297,7 @@ class ClusterS3Import(dict):
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> str:
         """
-        The bucket name where your backup is stored
+        Bucket name where your backup is stored
         """
         return pulumi.get(self, "bucket_name")
 
@@ -371,10 +371,10 @@ class ClusterScalingConfiguration(dict):
                  timeout_action: Optional[str] = None):
         """
         :param bool auto_pause: Whether to enable automatic pause. A DB cluster can be paused only when it's idle (it has no connections). If a DB cluster is paused for more than seven days, the DB cluster might be backed up with a snapshot. In this case, the DB cluster is restored when there is a request to connect to it. Defaults to `true`.
-        :param int max_capacity: The maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
-        :param int min_capacity: The minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
-        :param int seconds_until_auto_pause: The time, in seconds, before an Aurora DB cluster in serverless mode is paused. Valid values are `300` through `86400`. Defaults to `300`.
-        :param str timeout_action: The action to take when the timeout is reached. Valid values: `ForceApplyCapacityChange`, `RollbackCapacityChange`. Defaults to `RollbackCapacityChange`. See [documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.timeout-action).
+        :param int max_capacity: Maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
+        :param int min_capacity: Minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
+        :param int seconds_until_auto_pause: Time, in seconds, before an Aurora DB cluster in serverless mode is paused. Valid values are `300` through `86400`. Defaults to `300`.
+        :param str timeout_action: Action to take when the timeout is reached. Valid values: `ForceApplyCapacityChange`, `RollbackCapacityChange`. Defaults to `RollbackCapacityChange`. See [documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.timeout-action).
         """
         if auto_pause is not None:
             pulumi.set(__self__, "auto_pause", auto_pause)
@@ -399,7 +399,7 @@ class ClusterScalingConfiguration(dict):
     @pulumi.getter(name="maxCapacity")
     def max_capacity(self) -> Optional[int]:
         """
-        The maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
+        Maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
         """
         return pulumi.get(self, "max_capacity")
 
@@ -407,7 +407,7 @@ class ClusterScalingConfiguration(dict):
     @pulumi.getter(name="minCapacity")
     def min_capacity(self) -> Optional[int]:
         """
-        The minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
+        Minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
         """
         return pulumi.get(self, "min_capacity")
 
@@ -415,7 +415,7 @@ class ClusterScalingConfiguration(dict):
     @pulumi.getter(name="secondsUntilAutoPause")
     def seconds_until_auto_pause(self) -> Optional[int]:
         """
-        The time, in seconds, before an Aurora DB cluster in serverless mode is paused. Valid values are `300` through `86400`. Defaults to `300`.
+        Time, in seconds, before an Aurora DB cluster in serverless mode is paused. Valid values are `300` through `86400`. Defaults to `300`.
         """
         return pulumi.get(self, "seconds_until_auto_pause")
 
@@ -423,7 +423,7 @@ class ClusterScalingConfiguration(dict):
     @pulumi.getter(name="timeoutAction")
     def timeout_action(self) -> Optional[str]:
         """
-        The action to take when the timeout is reached. Valid values: `ForceApplyCapacityChange`, `RollbackCapacityChange`. Defaults to `RollbackCapacityChange`. See [documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.timeout-action).
+        Action to take when the timeout is reached. Valid values: `ForceApplyCapacityChange`, `RollbackCapacityChange`. Defaults to `RollbackCapacityChange`. See [documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.timeout-action).
         """
         return pulumi.get(self, "timeout_action")
 
@@ -453,8 +453,8 @@ class ClusterServerlessv2ScalingConfiguration(dict):
                  max_capacity: float,
                  min_capacity: float):
         """
-        :param float max_capacity: The maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
-        :param float min_capacity: The minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
+        :param float max_capacity: Maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
+        :param float min_capacity: Minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
         """
         pulumi.set(__self__, "max_capacity", max_capacity)
         pulumi.set(__self__, "min_capacity", min_capacity)
@@ -463,7 +463,7 @@ class ClusterServerlessv2ScalingConfiguration(dict):
     @pulumi.getter(name="maxCapacity")
     def max_capacity(self) -> float:
         """
-        The maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
+        Maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
         """
         return pulumi.get(self, "max_capacity")
 
@@ -471,9 +471,30 @@ class ClusterServerlessv2ScalingConfiguration(dict):
     @pulumi.getter(name="minCapacity")
     def min_capacity(self) -> float:
         """
-        The minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
+        Minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
         """
         return pulumi.get(self, "min_capacity")
+
+
+@pulumi.output_type
+class ExportTaskTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[str] = None,
+                 delete: Optional[str] = None):
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[str]:
+        return pulumi.get(self, "create")
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[str]:
+        return pulumi.get(self, "delete")
 
 
 @pulumi.output_type
@@ -1298,84 +1319,6 @@ class ReservedInstanceRecurringCharge(dict):
 
 
 @pulumi.output_type
-class SecurityGroupIngress(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "securityGroupId":
-            suggest = "security_group_id"
-        elif key == "securityGroupName":
-            suggest = "security_group_name"
-        elif key == "securityGroupOwnerId":
-            suggest = "security_group_owner_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SecurityGroupIngress. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SecurityGroupIngress.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SecurityGroupIngress.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 cidr: Optional[str] = None,
-                 security_group_id: Optional[str] = None,
-                 security_group_name: Optional[str] = None,
-                 security_group_owner_id: Optional[str] = None):
-        """
-        :param str cidr: The CIDR block to accept
-        :param str security_group_id: The ID of the security group to authorize
-        :param str security_group_name: The name of the security group to authorize
-        :param str security_group_owner_id: The owner Id of the security group provided
-               by `security_group_name`.
-        """
-        if cidr is not None:
-            pulumi.set(__self__, "cidr", cidr)
-        if security_group_id is not None:
-            pulumi.set(__self__, "security_group_id", security_group_id)
-        if security_group_name is not None:
-            pulumi.set(__self__, "security_group_name", security_group_name)
-        if security_group_owner_id is not None:
-            pulumi.set(__self__, "security_group_owner_id", security_group_owner_id)
-
-    @property
-    @pulumi.getter
-    def cidr(self) -> Optional[str]:
-        """
-        The CIDR block to accept
-        """
-        return pulumi.get(self, "cidr")
-
-    @property
-    @pulumi.getter(name="securityGroupId")
-    def security_group_id(self) -> Optional[str]:
-        """
-        The ID of the security group to authorize
-        """
-        return pulumi.get(self, "security_group_id")
-
-    @property
-    @pulumi.getter(name="securityGroupName")
-    def security_group_name(self) -> Optional[str]:
-        """
-        The name of the security group to authorize
-        """
-        return pulumi.get(self, "security_group_name")
-
-    @property
-    @pulumi.getter(name="securityGroupOwnerId")
-    def security_group_owner_id(self) -> Optional[str]:
-        """
-        The owner Id of the security group provided
-        by `security_group_name`.
-        """
-        return pulumi.get(self, "security_group_owner_id")
-
-
-@pulumi.output_type
 class GetClusterMasterUserSecretResult(dict):
     def __init__(__self__, *,
                  kms_key_id: str,
@@ -1495,7 +1438,7 @@ class GetInstancesFilterResult(dict):
                  name: str,
                  values: Sequence[str]):
         """
-        :param str name: Name of the filter field. Valid values can be found in the [RDS DescribeDBClusters API Reference](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusters.html).
+        :param str name: Name of the filter field. Valid values can be found in the [RDS DescribeDBClusters API Reference](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusters.html) or [RDS DescribeDBInstances API Reference](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstances.html).
         :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
         """
         pulumi.set(__self__, "name", name)
@@ -1505,7 +1448,7 @@ class GetInstancesFilterResult(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        Name of the filter field. Valid values can be found in the [RDS DescribeDBClusters API Reference](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusters.html).
+        Name of the filter field. Valid values can be found in the [RDS DescribeDBClusters API Reference](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusters.html) or [RDS DescribeDBInstances API Reference](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstances.html).
         """
         return pulumi.get(self, "name")
 

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rbin"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rbin"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -56,13 +57,11 @@ import (
 //
 // ## Import
 //
-// RBin Rule can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_rbin_rule.example
 //
-//	$ pulumi import aws:rbin/rule:Rule example examplerule
-//
-// ```
+//	id = "examplerule" } Using `pulumi import`, import RBin Rule using the `id`. For exampleconsole % pulumi import aws_rbin_rule.example examplerule
 type Rule struct {
 	pulumi.CustomResourceState
 
@@ -102,6 +101,7 @@ func NewRule(ctx *pulumi.Context,
 	if args.RetentionPeriod == nil {
 		return nil, errors.New("invalid value for required argument 'RetentionPeriod'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Rule
 	err := ctx.RegisterResource("aws:rbin/rule:Rule", name, args, &resource, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -44,13 +45,11 @@ import (
 //
 // ## Import
 //
-// `aws_ec2_carrier_gateway` can be imported using the carrier gateway's ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_ec2_carrier_gateway.example
 //
-//	$ pulumi import aws:ec2/carrierGateway:CarrierGateway example cgw-12345
-//
-// ```
+//	id = "cgw-12345" } Using `pulumi import`, import `aws_ec2_carrier_gateway` using the carrier gateway's ID. For exampleconsole % pulumi import aws_ec2_carrier_gateway.example cgw-12345
 type CarrierGateway struct {
 	pulumi.CustomResourceState
 
@@ -76,6 +75,7 @@ func NewCarrierGateway(ctx *pulumi.Context,
 	if args.VpcId == nil {
 		return nil, errors.New("invalid value for required argument 'VpcId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CarrierGateway
 	err := ctx.RegisterResource("aws:ec2/carrierGateway:CarrierGateway", name, args, &resource, opts...)
 	if err != nil {

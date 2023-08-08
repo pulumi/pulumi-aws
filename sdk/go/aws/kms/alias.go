@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -47,13 +48,11 @@ import (
 //
 // ## Import
 //
-// KMS aliases can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_kms_alias.a
 //
-//	$ pulumi import aws:kms/alias:Alias a alias/my-key-alias
-//
-// ```
+//	id = "alias/my-key-alias" } Using `pulumi import`, import KMS aliases using the `name`. For exampleconsole % pulumi import aws_kms_alias.a alias/my-key-alias
 type Alias struct {
 	pulumi.CustomResourceState
 
@@ -80,6 +79,7 @@ func NewAlias(ctx *pulumi.Context,
 	if args.TargetKeyId == nil {
 		return nil, errors.New("invalid value for required argument 'TargetKeyId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Alias
 	err := ctx.RegisterResource("aws:kms/alias:Alias", name, args, &resource, opts...)
 	if err != nil {

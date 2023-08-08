@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -28,7 +29,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -71,6 +72,7 @@ func NewSecurityGroupAssociation(ctx *pulumi.Context,
 	if args.VpcEndpointId == nil {
 		return nil, errors.New("invalid value for required argument 'VpcEndpointId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SecurityGroupAssociation
 	err := ctx.RegisterResource("aws:ec2/securityGroupAssociation:SecurityGroupAssociation", name, args, &resource, opts...)
 	if err != nil {

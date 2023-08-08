@@ -224,30 +224,28 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Objects can be imported using the `id`. The `id` is the bucket name and the key together e.g.,
+ * Import using the `id`, which is the bucket name and the key togetherterraform import {
  * 
- * ```sh
- *  $ pulumi import aws:s3/bucketObjectv2:BucketObjectv2 object some-bucket-name/some/key.txt
- * ```
+ *  to = aws_s3_object.example
  * 
- *  Additionally, s3 url syntax can be used, e.g.,
+ *  id = &#34;some-bucket-name/some/key.txt&#34; } Import using S3 URL syntaxterraform import {
  * 
- * ```sh
- *  $ pulumi import aws:s3/bucketObjectv2:BucketObjectv2 object s3://some-bucket-name/some/key.txt
- * ```
+ *  to = aws_s3_object.example
+ * 
+ *  id = &#34;s3://some-bucket-name/some/key.txt&#34; } **Using `pulumi import` to import** objects using the `id` or S3 URL. For exampleImport using the `id`, which is the bucket name and the key togetherconsole % pulumi import aws_s3_object.example some-bucket-name/some/key.txt Import using S3 URL syntaxconsole % pulumi import aws_s3_object.example s3://some-bucket-name/some/key.txt
  * 
  */
 @ResourceType(type="aws:s3/bucketObjectv2:BucketObjectv2")
 public class BucketObjectv2 extends com.pulumi.resources.CustomResource {
     /**
-     * [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Defaults to `private`.
+     * [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`.
      * 
      */
     @Export(name="acl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> acl;
 
     /**
-     * @return [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Defaults to `private`.
+     * @return [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`.
      * 
      */
     public Output<Optional<String>> acl() {

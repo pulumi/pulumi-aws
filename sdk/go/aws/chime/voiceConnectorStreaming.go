@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/chime"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/chime"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -57,10 +58,10 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/chime"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/chimesdkmediapipelines"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kinesis"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/chime"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/chimesdkmediapipelines"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kinesis"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -149,13 +150,11 @@ import (
 //
 // ## Import
 //
-// Chime Voice Connector Streaming can be imported using the `voice_connector_id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_chime_voice_connector_streaming.default
 //
-//	$ pulumi import aws:chime/voiceConnectorStreaming:VoiceConnectorStreaming default abcdef1ghij2klmno3pqr4
-//
-// ```
+//	id = "abcdef1ghij2klmno3pqr4" } Using `pulumi import`, import Chime Voice Connector Streaming using the `voice_connector_id`. For exampleconsole % pulumi import aws_chime_voice_connector_streaming.default abcdef1ghij2klmno3pqr4
 type VoiceConnectorStreaming struct {
 	pulumi.CustomResourceState
 
@@ -184,6 +183,7 @@ func NewVoiceConnectorStreaming(ctx *pulumi.Context,
 	if args.VoiceConnectorId == nil {
 		return nil, errors.New("invalid value for required argument 'VoiceConnectorId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VoiceConnectorStreaming
 	err := ctx.RegisterResource("aws:chime/voiceConnectorStreaming:VoiceConnectorStreaming", name, args, &resource, opts...)
 	if err != nil {

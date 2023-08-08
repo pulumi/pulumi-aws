@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,7 +28,7 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sqs"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sqs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -83,13 +84,11 @@ import (
 //
 // ## Import
 //
-// SQS Queue Redrive Policies can be imported using the queue URL, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_sqs_queue_redrive_policy.test
 //
-//	$ pulumi import aws:sqs/redrivePolicy:RedrivePolicy test https://queue.amazonaws.com/0123456789012/myqueue
-//
-// ```
+//	id = "https://queue.amazonaws.com/0123456789012/myqueue" } Using `pulumi import`, import SQS Queue Redrive Policies using the queue URL. For exampleconsole % pulumi import aws_sqs_queue_redrive_policy.test https://queue.amazonaws.com/0123456789012/myqueue
 type RedrivePolicy struct {
 	pulumi.CustomResourceState
 
@@ -112,6 +111,7 @@ func NewRedrivePolicy(ctx *pulumi.Context,
 	if args.RedrivePolicy == nil {
 		return nil, errors.New("invalid value for required argument 'RedrivePolicy'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RedrivePolicy
 	err := ctx.RegisterResource("aws:sqs/redrivePolicy:RedrivePolicy", name, args, &resource, opts...)
 	if err != nil {

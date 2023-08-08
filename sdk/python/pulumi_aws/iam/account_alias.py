@@ -81,11 +81,11 @@ class AccountAlias(pulumi.CustomResource):
 
         ## Import
 
-        The current Account Alias can be imported using the `account_alias`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:iam/accountAlias:AccountAlias alias my-account-alias
-        ```
+         to = aws_iam_account_alias.alias
+
+         id = "my-account-alias" } Using `pulumi import`, import the current Account Alias using the `account_alias`. For exampleconsole % pulumi import aws_iam_account_alias.alias my-account-alias
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -113,11 +113,11 @@ class AccountAlias(pulumi.CustomResource):
 
         ## Import
 
-        The current Account Alias can be imported using the `account_alias`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:iam/accountAlias:AccountAlias alias my-account-alias
-        ```
+         to = aws_iam_account_alias.alias
+
+         id = "my-account-alias" } Using `pulumi import`, import the current Account Alias using the `account_alias`. For exampleconsole % pulumi import aws_iam_account_alias.alias my-account-alias
 
         :param str resource_name: The name of the resource.
         :param AccountAliasArgs args: The arguments to use to populate this resource's properties.

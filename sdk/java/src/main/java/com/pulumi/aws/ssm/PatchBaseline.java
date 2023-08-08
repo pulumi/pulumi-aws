@@ -257,11 +257,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * SSM Patch Baselines can be imported by their baseline ID, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:ssm/patchBaseline:PatchBaseline example pb-12345678
- * ```
+ *  to = aws_ssm_patch_baseline.example
+ * 
+ *  id = &#34;pb-12345678&#34; } Using `pulumi import`, import SSM Patch Baselines using their baseline ID. For exampleconsole % pulumi import aws_ssm_patch_baseline.example pb-12345678
  * 
  */
 @ResourceType(type="aws:ssm/patchBaseline:PatchBaseline")
@@ -399,9 +399,11 @@ public class PatchBaseline extends com.pulumi.resources.CustomResource {
     /**
      * The operating system the patch baseline applies to.
      * Valid values are
+     * `ALMA_LINUX`,
      * `AMAZON_LINUX`,
      * `AMAZON_LINUX_2`,
      * `AMAZON_LINUX_2022`,
+     * `AMAZON_LINUX_2023`,
      * `CENTOS`,
      * `DEBIAN`,
      * `MACOS`,
@@ -421,9 +423,11 @@ public class PatchBaseline extends com.pulumi.resources.CustomResource {
     /**
      * @return The operating system the patch baseline applies to.
      * Valid values are
+     * `ALMA_LINUX`,
      * `AMAZON_LINUX`,
      * `AMAZON_LINUX_2`,
      * `AMAZON_LINUX_2022`,
+     * `AMAZON_LINUX_2023`,
      * `CENTOS`,
      * `DEBIAN`,
      * `MACOS`,

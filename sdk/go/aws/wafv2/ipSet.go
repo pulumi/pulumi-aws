@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/wafv2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/wafv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -51,17 +52,15 @@ import (
 //
 // ## Import
 //
-// WAFv2 IP Sets can be imported using `ID/name/scope`
+// terraform import {
 //
-// ```sh
+//	to = aws_wafv2_ip_set.example
 //
-//	$ pulumi import aws:wafv2/ipSet:IpSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
-//
-// ```
+//	id = "a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL" } Using `pulumi import`, import WAFv2 IP Sets using `ID/name/scope`. For exampleconsole % pulumi import aws_wafv2_ip_set.example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
 type IpSet struct {
 	pulumi.CustomResourceState
 
-	// Contains an array of strings that specify one or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation. AWS WAF supports all address ranges for IP versions IPv4 and IPv6.
+	// Contains an array of strings that specifies zero or more IP addresses or blocks of IP addresses. All addresses must be specified using Classless Inter-Domain Routing (CIDR) notation. WAF supports all IPv4 and IPv6 CIDR ranges except for `/0`.
 	Addresses pulumi.StringArrayOutput `pulumi:"addresses"`
 	// The Amazon Resource Name (ARN) of the IP set.
 	Arn pulumi.StringOutput `pulumi:"arn"`
@@ -93,6 +92,7 @@ func NewIpSet(ctx *pulumi.Context,
 	if args.Scope == nil {
 		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource IpSet
 	err := ctx.RegisterResource("aws:wafv2/ipSet:IpSet", name, args, &resource, opts...)
 	if err != nil {
@@ -115,7 +115,7 @@ func GetIpSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IpSet resources.
 type ipSetState struct {
-	// Contains an array of strings that specify one or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation. AWS WAF supports all address ranges for IP versions IPv4 and IPv6.
+	// Contains an array of strings that specifies zero or more IP addresses or blocks of IP addresses. All addresses must be specified using Classless Inter-Domain Routing (CIDR) notation. WAF supports all IPv4 and IPv6 CIDR ranges except for `/0`.
 	Addresses []string `pulumi:"addresses"`
 	// The Amazon Resource Name (ARN) of the IP set.
 	Arn *string `pulumi:"arn"`
@@ -135,7 +135,7 @@ type ipSetState struct {
 }
 
 type IpSetState struct {
-	// Contains an array of strings that specify one or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation. AWS WAF supports all address ranges for IP versions IPv4 and IPv6.
+	// Contains an array of strings that specifies zero or more IP addresses or blocks of IP addresses. All addresses must be specified using Classless Inter-Domain Routing (CIDR) notation. WAF supports all IPv4 and IPv6 CIDR ranges except for `/0`.
 	Addresses pulumi.StringArrayInput
 	// The Amazon Resource Name (ARN) of the IP set.
 	Arn pulumi.StringPtrInput
@@ -159,7 +159,7 @@ func (IpSetState) ElementType() reflect.Type {
 }
 
 type ipSetArgs struct {
-	// Contains an array of strings that specify one or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation. AWS WAF supports all address ranges for IP versions IPv4 and IPv6.
+	// Contains an array of strings that specifies zero or more IP addresses or blocks of IP addresses. All addresses must be specified using Classless Inter-Domain Routing (CIDR) notation. WAF supports all IPv4 and IPv6 CIDR ranges except for `/0`.
 	Addresses []string `pulumi:"addresses"`
 	// A friendly description of the IP set.
 	Description *string `pulumi:"description"`
@@ -175,7 +175,7 @@ type ipSetArgs struct {
 
 // The set of arguments for constructing a IpSet resource.
 type IpSetArgs struct {
-	// Contains an array of strings that specify one or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation. AWS WAF supports all address ranges for IP versions IPv4 and IPv6.
+	// Contains an array of strings that specifies zero or more IP addresses or blocks of IP addresses. All addresses must be specified using Classless Inter-Domain Routing (CIDR) notation. WAF supports all IPv4 and IPv6 CIDR ranges except for `/0`.
 	Addresses pulumi.StringArrayInput
 	// A friendly description of the IP set.
 	Description pulumi.StringPtrInput
@@ -276,7 +276,7 @@ func (o IpSetOutput) ToIpSetOutputWithContext(ctx context.Context) IpSetOutput {
 	return o
 }
 
-// Contains an array of strings that specify one or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation. AWS WAF supports all address ranges for IP versions IPv4 and IPv6.
+// Contains an array of strings that specifies zero or more IP addresses or blocks of IP addresses. All addresses must be specified using Classless Inter-Domain Routing (CIDR) notation. WAF supports all IPv4 and IPv6 CIDR ranges except for `/0`.
 func (o IpSetOutput) Addresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *IpSet) pulumi.StringArrayOutput { return v.Addresses }).(pulumi.StringArrayOutput)
 }

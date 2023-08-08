@@ -57,11 +57,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Pinpoint ADM Channel can be imported using the `application-id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:pinpoint/admChannel:AdmChannel channel application-id
- * ```
+ *  to = aws_pinpoint_adm_channel.channel
+ * 
+ *  id = &#34;application-id&#34; } Using `pulumi import`, import Pinpoint ADM Channel using the `application-id`. For exampleconsole % pulumi import aws_pinpoint_adm_channel.channel application-id
  * 
  */
 @ResourceType(type="aws:pinpoint/admChannel:AdmChannel")

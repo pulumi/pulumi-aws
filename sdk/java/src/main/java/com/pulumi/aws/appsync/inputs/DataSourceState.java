@@ -68,14 +68,14 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * DynamoDB settings. See below
+     * DynamoDB settings. See DynamoDB Config
      * 
      */
     @Import(name="dynamodbConfig")
     private @Nullable Output<DataSourceDynamodbConfigArgs> dynamodbConfig;
 
     /**
-     * @return DynamoDB settings. See below
+     * @return DynamoDB settings. See DynamoDB Config
      * 
      */
     public Optional<Output<DataSourceDynamodbConfigArgs>> dynamodbConfig() {
@@ -83,14 +83,14 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Elasticsearch settings. See below
+     * Amazon Elasticsearch settings. See ElasticSearch Config
      * 
      */
     @Import(name="elasticsearchConfig")
     private @Nullable Output<DataSourceElasticsearchConfigArgs> elasticsearchConfig;
 
     /**
-     * @return Amazon Elasticsearch settings. See below
+     * @return Amazon Elasticsearch settings. See ElasticSearch Config
      * 
      */
     public Optional<Output<DataSourceElasticsearchConfigArgs>> elasticsearchConfig() {
@@ -98,14 +98,14 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * AWS EventBridge settings. See below
+     * AWS EventBridge settings. See Event Bridge Config
      * 
      */
     @Import(name="eventBridgeConfig")
     private @Nullable Output<DataSourceEventBridgeConfigArgs> eventBridgeConfig;
 
     /**
-     * @return AWS EventBridge settings. See below
+     * @return AWS EventBridge settings. See Event Bridge Config
      * 
      */
     public Optional<Output<DataSourceEventBridgeConfigArgs>> eventBridgeConfig() {
@@ -113,14 +113,14 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * HTTP settings. See below
+     * HTTP settings. See HTTP Config
      * 
      */
     @Import(name="httpConfig")
     private @Nullable Output<DataSourceHttpConfigArgs> httpConfig;
 
     /**
-     * @return HTTP settings. See below
+     * @return HTTP settings. See HTTP Config
      * 
      */
     public Optional<Output<DataSourceHttpConfigArgs>> httpConfig() {
@@ -128,14 +128,14 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * AWS Lambda settings. See below
+     * AWS Lambda settings. See Lambda Config
      * 
      */
     @Import(name="lambdaConfig")
     private @Nullable Output<DataSourceLambdaConfigArgs> lambdaConfig;
 
     /**
-     * @return AWS Lambda settings. See below
+     * @return AWS Lambda settings. See Lambda Config
      * 
      */
     public Optional<Output<DataSourceLambdaConfigArgs>> lambdaConfig() {
@@ -158,14 +158,14 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon OpenSearch Service settings. See below
+     * Amazon OpenSearch Service settings. See OpenSearch Service Config
      * 
      */
     @Import(name="opensearchserviceConfig")
     private @Nullable Output<DataSourceOpensearchserviceConfigArgs> opensearchserviceConfig;
 
     /**
-     * @return Amazon OpenSearch Service settings. See below
+     * @return Amazon OpenSearch Service settings. See OpenSearch Service Config
      * 
      */
     public Optional<Output<DataSourceOpensearchserviceConfigArgs>> opensearchserviceConfig() {
@@ -203,14 +203,14 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`.
+     * Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`, `AMAZON_OPENSEARCH_SERVICE`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`.
+     * @return Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`, `AMAZON_OPENSEARCH_SERVICE`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -317,7 +317,7 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dynamodbConfig DynamoDB settings. See below
+         * @param dynamodbConfig DynamoDB settings. See DynamoDB Config
          * 
          * @return builder
          * 
@@ -328,7 +328,7 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dynamodbConfig DynamoDB settings. See below
+         * @param dynamodbConfig DynamoDB settings. See DynamoDB Config
          * 
          * @return builder
          * 
@@ -338,7 +338,7 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param elasticsearchConfig Amazon Elasticsearch settings. See below
+         * @param elasticsearchConfig Amazon Elasticsearch settings. See ElasticSearch Config
          * 
          * @return builder
          * 
@@ -349,7 +349,7 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param elasticsearchConfig Amazon Elasticsearch settings. See below
+         * @param elasticsearchConfig Amazon Elasticsearch settings. See ElasticSearch Config
          * 
          * @return builder
          * 
@@ -359,7 +359,7 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eventBridgeConfig AWS EventBridge settings. See below
+         * @param eventBridgeConfig AWS EventBridge settings. See Event Bridge Config
          * 
          * @return builder
          * 
@@ -370,7 +370,7 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eventBridgeConfig AWS EventBridge settings. See below
+         * @param eventBridgeConfig AWS EventBridge settings. See Event Bridge Config
          * 
          * @return builder
          * 
@@ -380,7 +380,7 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param httpConfig HTTP settings. See below
+         * @param httpConfig HTTP settings. See HTTP Config
          * 
          * @return builder
          * 
@@ -391,7 +391,7 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param httpConfig HTTP settings. See below
+         * @param httpConfig HTTP settings. See HTTP Config
          * 
          * @return builder
          * 
@@ -401,7 +401,7 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lambdaConfig AWS Lambda settings. See below
+         * @param lambdaConfig AWS Lambda settings. See Lambda Config
          * 
          * @return builder
          * 
@@ -412,7 +412,7 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lambdaConfig AWS Lambda settings. See below
+         * @param lambdaConfig AWS Lambda settings. See Lambda Config
          * 
          * @return builder
          * 
@@ -443,7 +443,7 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param opensearchserviceConfig Amazon OpenSearch Service settings. See below
+         * @param opensearchserviceConfig Amazon OpenSearch Service settings. See OpenSearch Service Config
          * 
          * @return builder
          * 
@@ -454,7 +454,7 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param opensearchserviceConfig Amazon OpenSearch Service settings. See below
+         * @param opensearchserviceConfig Amazon OpenSearch Service settings. See OpenSearch Service Config
          * 
          * @return builder
          * 
@@ -506,7 +506,7 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`.
+         * @param type Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`, `AMAZON_OPENSEARCH_SERVICE`.
          * 
          * @return builder
          * 
@@ -517,7 +517,7 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`.
+         * @param type Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`, `AMAZON_OPENSEARCH_SERVICE`.
          * 
          * @return builder
          * 

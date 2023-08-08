@@ -26,7 +26,7 @@ class BucketNotificationArgs:
         :param pulumi.Input[str] bucket: Name of the bucket for notification configuration.
                
                The following arguments are optional:
-        :param pulumi.Input[bool] eventbridge: Whether to enable Amazon EventBridge notifications.
+        :param pulumi.Input[bool] eventbridge: Whether to enable Amazon EventBridge notifications. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input['BucketNotificationLambdaFunctionArgs']]] lambda_functions: Used to configure notifications to a Lambda Function. See below.
         :param pulumi.Input[Sequence[pulumi.Input['BucketNotificationQueueArgs']]] queues: Notification configuration to SQS Queue. See below.
         :param pulumi.Input[Sequence[pulumi.Input['BucketNotificationTopicArgs']]] topics: Notification configuration to SNS Topic. See below.
@@ -59,7 +59,7 @@ class BucketNotificationArgs:
     @pulumi.getter
     def eventbridge(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether to enable Amazon EventBridge notifications.
+        Whether to enable Amazon EventBridge notifications. Defaults to `false`.
         """
         return pulumi.get(self, "eventbridge")
 
@@ -117,7 +117,7 @@ class _BucketNotificationState:
         :param pulumi.Input[str] bucket: Name of the bucket for notification configuration.
                
                The following arguments are optional:
-        :param pulumi.Input[bool] eventbridge: Whether to enable Amazon EventBridge notifications.
+        :param pulumi.Input[bool] eventbridge: Whether to enable Amazon EventBridge notifications. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input['BucketNotificationLambdaFunctionArgs']]] lambda_functions: Used to configure notifications to a Lambda Function. See below.
         :param pulumi.Input[Sequence[pulumi.Input['BucketNotificationQueueArgs']]] queues: Notification configuration to SQS Queue. See below.
         :param pulumi.Input[Sequence[pulumi.Input['BucketNotificationTopicArgs']]] topics: Notification configuration to SNS Topic. See below.
@@ -151,7 +151,7 @@ class _BucketNotificationState:
     @pulumi.getter
     def eventbridge(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether to enable Amazon EventBridge notifications.
+        Whether to enable Amazon EventBridge notifications. Defaults to `false`.
         """
         return pulumi.get(self, "eventbridge")
 
@@ -354,21 +354,32 @@ class BucketNotification(pulumi.CustomResource):
         ```python
         import pulumi
         ```
+        ### Emit events to EventBridge
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        bucket = aws.s3.BucketV2("bucket")
+        bucket_notification = aws.s3.BucketNotification("bucketNotification",
+            bucket=bucket.id,
+            eventbridge=True)
+        ```
 
         ## Import
 
-        S3 bucket notification can be imported using the `bucket`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:s3/bucketNotification:BucketNotification bucket_notification bucket-name
-        ```
+         to = aws_s3_bucket_notification.bucket_notification
+
+         id = "bucket-name" } Using `pulumi import`, import S3 bucket notification using the `bucket`. For exampleconsole % pulumi import aws_s3_bucket_notification.bucket_notification bucket-name
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bucket: Name of the bucket for notification configuration.
                
                The following arguments are optional:
-        :param pulumi.Input[bool] eventbridge: Whether to enable Amazon EventBridge notifications.
+        :param pulumi.Input[bool] eventbridge: Whether to enable Amazon EventBridge notifications. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketNotificationLambdaFunctionArgs']]]] lambda_functions: Used to configure notifications to a Lambda Function. See below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketNotificationQueueArgs']]]] queues: Notification configuration to SQS Queue. See below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketNotificationTopicArgs']]]] topics: Notification configuration to SNS Topic. See below.
@@ -526,14 +537,25 @@ class BucketNotification(pulumi.CustomResource):
         ```python
         import pulumi
         ```
+        ### Emit events to EventBridge
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        bucket = aws.s3.BucketV2("bucket")
+        bucket_notification = aws.s3.BucketNotification("bucketNotification",
+            bucket=bucket.id,
+            eventbridge=True)
+        ```
 
         ## Import
 
-        S3 bucket notification can be imported using the `bucket`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:s3/bucketNotification:BucketNotification bucket_notification bucket-name
-        ```
+         to = aws_s3_bucket_notification.bucket_notification
+
+         id = "bucket-name" } Using `pulumi import`, import S3 bucket notification using the `bucket`. For exampleconsole % pulumi import aws_s3_bucket_notification.bucket_notification bucket-name
 
         :param str resource_name: The name of the resource.
         :param BucketNotificationArgs args: The arguments to use to populate this resource's properties.
@@ -596,7 +618,7 @@ class BucketNotification(pulumi.CustomResource):
         :param pulumi.Input[str] bucket: Name of the bucket for notification configuration.
                
                The following arguments are optional:
-        :param pulumi.Input[bool] eventbridge: Whether to enable Amazon EventBridge notifications.
+        :param pulumi.Input[bool] eventbridge: Whether to enable Amazon EventBridge notifications. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketNotificationLambdaFunctionArgs']]]] lambda_functions: Used to configure notifications to a Lambda Function. See below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketNotificationQueueArgs']]]] queues: Notification configuration to SQS Queue. See below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketNotificationTopicArgs']]]] topics: Notification configuration to SNS Topic. See below.
@@ -626,7 +648,7 @@ class BucketNotification(pulumi.CustomResource):
     @pulumi.getter
     def eventbridge(self) -> pulumi.Output[Optional[bool]]:
         """
-        Whether to enable Amazon EventBridge notifications.
+        Whether to enable Amazon EventBridge notifications. Defaults to `false`.
         """
         return pulumi.get(self, "eventbridge")
 

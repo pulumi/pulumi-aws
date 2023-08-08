@@ -561,11 +561,11 @@ class Stack(pulumi.CustomResource):
 
         ## Import
 
-        `aws_appstream_stack` can be imported using the id, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:appstream/stack:Stack example stackID
-        ```
+         to = aws_appstream_stack.example
+
+         id = "stackID" } Using `pulumi import`, import `aws_appstream_stack` using the id. For exampleconsole % pulumi import aws_appstream_stack.example stackID
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -653,11 +653,11 @@ class Stack(pulumi.CustomResource):
 
         ## Import
 
-        `aws_appstream_stack` can be imported using the id, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:appstream/stack:Stack example stackID
-        ```
+         to = aws_appstream_stack.example
+
+         id = "stackID" } Using `pulumi import`, import `aws_appstream_stack` using the id. For exampleconsole % pulumi import aws_appstream_stack.example stackID
 
         :param str resource_name: The name of the resource.
         :param StackArgs args: The arguments to use to populate this resource's properties.

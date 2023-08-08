@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ses"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -44,13 +45,11 @@ import (
 //
 // ## Import
 //
-// Identity Notification Topics can be imported using the ID of the record. The ID is made up as `IDENTITY|TYPE` where `IDENTITY` is the SES Identity and `TYPE` is the Notification Type.
+// terraform import {
 //
-// ```sh
+//	to = aws_ses_identity_notification_topic.test
 //
-//	$ pulumi import aws:ses/identityNotificationTopic:IdentityNotificationTopic test 'example.com|Bounce'
-//
-// ```
+//	id = "example.com|Bounce" } Using `pulumi import`, import Identity Notification Topics using the ID of the record. The ID is made up as `IDENTITY|TYPE` where `IDENTITY` is the SES Identity and `TYPE` is the Notification Type. For exampleconsole % pulumi import aws_ses_identity_notification_topic.test 'example.com|Bounce'
 type IdentityNotificationTopic struct {
 	pulumi.CustomResourceState
 
@@ -77,6 +76,7 @@ func NewIdentityNotificationTopic(ctx *pulumi.Context,
 	if args.NotificationType == nil {
 		return nil, errors.New("invalid value for required argument 'NotificationType'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource IdentityNotificationTopic
 	err := ctx.RegisterResource("aws:ses/identityNotificationTopic:IdentityNotificationTopic", name, args, &resource, opts...)
 	if err != nil {

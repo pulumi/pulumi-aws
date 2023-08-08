@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/redshift"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshift"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -46,13 +47,11 @@ import (
 //
 // ## Import
 //
-// Redshift Hsm Client Certificates support import by `hsm_configuration_identifier`, e.g., console
+// terraform import {
 //
-// ```sh
+//	to = aws_redshift_hsm_configuration.test
 //
-//	$ pulumi import aws:redshift/hsmConfiguration:HsmConfiguration example example
-//
-// ```
+//	id = "example" } Using `pulumi import`, import Redshift HSM Client Certificates using `hsm_configuration_identifier`. For exampleconsole % pulumi import aws_redshift_hsm_configuration.example example
 type HsmConfiguration struct {
 	pulumi.CustomResourceState
 
@@ -108,6 +107,7 @@ func NewHsmConfiguration(ctx *pulumi.Context,
 		"hsmPartitionPassword",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource HsmConfiguration
 	err := ctx.RegisterResource("aws:redshift/hsmConfiguration:HsmConfiguration", name, args, &resource, opts...)
 	if err != nil {

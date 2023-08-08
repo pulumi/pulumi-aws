@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicecatalog"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicecatalog"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -43,13 +44,11 @@ import (
 //
 // ## Import
 //
-// `aws_servicecatalog_principal_portfolio_association` can be imported using the accept language, principal ARN, and portfolio ID, separated by a comma, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_servicecatalog_principal_portfolio_association.example
 //
-//	$ pulumi import aws:servicecatalog/principalPortfolioAssociation:PrincipalPortfolioAssociation example en,arn:aws:iam::123456789012:user/Eleanor,port-68656c6c6f
-//
-// ```
+//	id = "en,arn:aws:iam::123456789012:user/Eleanor,port-68656c6c6f" } Using `pulumi import`, import `aws_servicecatalog_principal_portfolio_association` using the accept language, principal ARN, and portfolio ID, separated by a comma. For exampleconsole % pulumi import aws_servicecatalog_principal_portfolio_association.example en,arn:aws:iam::123456789012:user/Eleanor,port-68656c6c6f
 type PrincipalPortfolioAssociation struct {
 	pulumi.CustomResourceState
 
@@ -78,6 +77,7 @@ func NewPrincipalPortfolioAssociation(ctx *pulumi.Context,
 	if args.PrincipalArn == nil {
 		return nil, errors.New("invalid value for required argument 'PrincipalArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PrincipalPortfolioAssociation
 	err := ctx.RegisterResource("aws:servicecatalog/principalPortfolioAssociation:PrincipalPortfolioAssociation", name, args, &resource, opts...)
 	if err != nil {

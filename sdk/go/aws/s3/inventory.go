@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -64,7 +65,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -107,13 +108,11 @@ import (
 //
 // ## Import
 //
-// S3 bucket inventory configurations can be imported using `bucket:inventory`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_s3_bucket_inventory.my-bucket-entire-bucket
 //
-//	$ pulumi import aws:s3/inventory:Inventory my-bucket-entire-bucket my-bucket:EntireBucket
-//
-// ```
+//	id = "my-bucket:EntireBucket" } Using `pulumi import`, import S3 bucket inventory configurations using `bucket:inventory`. For exampleconsole % pulumi import aws_s3_bucket_inventory.my-bucket-entire-bucket my-bucket:EntireBucket
 type Inventory struct {
 	pulumi.CustomResourceState
 
@@ -154,6 +153,7 @@ func NewInventory(ctx *pulumi.Context,
 	if args.Schedule == nil {
 		return nil, errors.New("invalid value for required argument 'Schedule'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Inventory
 	err := ctx.RegisterResource("aws:s3/inventory:Inventory", name, args, &resource, opts...)
 	if err != nil {

@@ -7,8 +7,11 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type DomainAdvancedSecurityOptions struct {
 	// Whether Anonymous auth is enabled. Enables fine-grained access control on an existing domain. Ignored unless `advancedSecurityOptions` are enabled. _Can only be enabled on an existing domain._
@@ -2365,6 +2368,453 @@ func (o DomainNodeToNodeEncryptionPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+type DomainOffPeakWindowOptions struct {
+	// Enabled disabled toggle for off-peak update window.
+	Enabled       *bool                                    `pulumi:"enabled"`
+	OffPeakWindow *DomainOffPeakWindowOptionsOffPeakWindow `pulumi:"offPeakWindow"`
+}
+
+// DomainOffPeakWindowOptionsInput is an input type that accepts DomainOffPeakWindowOptionsArgs and DomainOffPeakWindowOptionsOutput values.
+// You can construct a concrete instance of `DomainOffPeakWindowOptionsInput` via:
+//
+//	DomainOffPeakWindowOptionsArgs{...}
+type DomainOffPeakWindowOptionsInput interface {
+	pulumi.Input
+
+	ToDomainOffPeakWindowOptionsOutput() DomainOffPeakWindowOptionsOutput
+	ToDomainOffPeakWindowOptionsOutputWithContext(context.Context) DomainOffPeakWindowOptionsOutput
+}
+
+type DomainOffPeakWindowOptionsArgs struct {
+	// Enabled disabled toggle for off-peak update window.
+	Enabled       pulumi.BoolPtrInput                             `pulumi:"enabled"`
+	OffPeakWindow DomainOffPeakWindowOptionsOffPeakWindowPtrInput `pulumi:"offPeakWindow"`
+}
+
+func (DomainOffPeakWindowOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainOffPeakWindowOptions)(nil)).Elem()
+}
+
+func (i DomainOffPeakWindowOptionsArgs) ToDomainOffPeakWindowOptionsOutput() DomainOffPeakWindowOptionsOutput {
+	return i.ToDomainOffPeakWindowOptionsOutputWithContext(context.Background())
+}
+
+func (i DomainOffPeakWindowOptionsArgs) ToDomainOffPeakWindowOptionsOutputWithContext(ctx context.Context) DomainOffPeakWindowOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainOffPeakWindowOptionsOutput)
+}
+
+func (i DomainOffPeakWindowOptionsArgs) ToDomainOffPeakWindowOptionsPtrOutput() DomainOffPeakWindowOptionsPtrOutput {
+	return i.ToDomainOffPeakWindowOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainOffPeakWindowOptionsArgs) ToDomainOffPeakWindowOptionsPtrOutputWithContext(ctx context.Context) DomainOffPeakWindowOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainOffPeakWindowOptionsOutput).ToDomainOffPeakWindowOptionsPtrOutputWithContext(ctx)
+}
+
+// DomainOffPeakWindowOptionsPtrInput is an input type that accepts DomainOffPeakWindowOptionsArgs, DomainOffPeakWindowOptionsPtr and DomainOffPeakWindowOptionsPtrOutput values.
+// You can construct a concrete instance of `DomainOffPeakWindowOptionsPtrInput` via:
+//
+//	        DomainOffPeakWindowOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainOffPeakWindowOptionsPtrInput interface {
+	pulumi.Input
+
+	ToDomainOffPeakWindowOptionsPtrOutput() DomainOffPeakWindowOptionsPtrOutput
+	ToDomainOffPeakWindowOptionsPtrOutputWithContext(context.Context) DomainOffPeakWindowOptionsPtrOutput
+}
+
+type domainOffPeakWindowOptionsPtrType DomainOffPeakWindowOptionsArgs
+
+func DomainOffPeakWindowOptionsPtr(v *DomainOffPeakWindowOptionsArgs) DomainOffPeakWindowOptionsPtrInput {
+	return (*domainOffPeakWindowOptionsPtrType)(v)
+}
+
+func (*domainOffPeakWindowOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainOffPeakWindowOptions)(nil)).Elem()
+}
+
+func (i *domainOffPeakWindowOptionsPtrType) ToDomainOffPeakWindowOptionsPtrOutput() DomainOffPeakWindowOptionsPtrOutput {
+	return i.ToDomainOffPeakWindowOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainOffPeakWindowOptionsPtrType) ToDomainOffPeakWindowOptionsPtrOutputWithContext(ctx context.Context) DomainOffPeakWindowOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainOffPeakWindowOptionsPtrOutput)
+}
+
+type DomainOffPeakWindowOptionsOutput struct{ *pulumi.OutputState }
+
+func (DomainOffPeakWindowOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainOffPeakWindowOptions)(nil)).Elem()
+}
+
+func (o DomainOffPeakWindowOptionsOutput) ToDomainOffPeakWindowOptionsOutput() DomainOffPeakWindowOptionsOutput {
+	return o
+}
+
+func (o DomainOffPeakWindowOptionsOutput) ToDomainOffPeakWindowOptionsOutputWithContext(ctx context.Context) DomainOffPeakWindowOptionsOutput {
+	return o
+}
+
+func (o DomainOffPeakWindowOptionsOutput) ToDomainOffPeakWindowOptionsPtrOutput() DomainOffPeakWindowOptionsPtrOutput {
+	return o.ToDomainOffPeakWindowOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainOffPeakWindowOptionsOutput) ToDomainOffPeakWindowOptionsPtrOutputWithContext(ctx context.Context) DomainOffPeakWindowOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainOffPeakWindowOptions) *DomainOffPeakWindowOptions {
+		return &v
+	}).(DomainOffPeakWindowOptionsPtrOutput)
+}
+
+// Enabled disabled toggle for off-peak update window.
+func (o DomainOffPeakWindowOptionsOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DomainOffPeakWindowOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o DomainOffPeakWindowOptionsOutput) OffPeakWindow() DomainOffPeakWindowOptionsOffPeakWindowPtrOutput {
+	return o.ApplyT(func(v DomainOffPeakWindowOptions) *DomainOffPeakWindowOptionsOffPeakWindow { return v.OffPeakWindow }).(DomainOffPeakWindowOptionsOffPeakWindowPtrOutput)
+}
+
+type DomainOffPeakWindowOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainOffPeakWindowOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainOffPeakWindowOptions)(nil)).Elem()
+}
+
+func (o DomainOffPeakWindowOptionsPtrOutput) ToDomainOffPeakWindowOptionsPtrOutput() DomainOffPeakWindowOptionsPtrOutput {
+	return o
+}
+
+func (o DomainOffPeakWindowOptionsPtrOutput) ToDomainOffPeakWindowOptionsPtrOutputWithContext(ctx context.Context) DomainOffPeakWindowOptionsPtrOutput {
+	return o
+}
+
+func (o DomainOffPeakWindowOptionsPtrOutput) Elem() DomainOffPeakWindowOptionsOutput {
+	return o.ApplyT(func(v *DomainOffPeakWindowOptions) DomainOffPeakWindowOptions {
+		if v != nil {
+			return *v
+		}
+		var ret DomainOffPeakWindowOptions
+		return ret
+	}).(DomainOffPeakWindowOptionsOutput)
+}
+
+// Enabled disabled toggle for off-peak update window.
+func (o DomainOffPeakWindowOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DomainOffPeakWindowOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o DomainOffPeakWindowOptionsPtrOutput) OffPeakWindow() DomainOffPeakWindowOptionsOffPeakWindowPtrOutput {
+	return o.ApplyT(func(v *DomainOffPeakWindowOptions) *DomainOffPeakWindowOptionsOffPeakWindow {
+		if v == nil {
+			return nil
+		}
+		return v.OffPeakWindow
+	}).(DomainOffPeakWindowOptionsOffPeakWindowPtrOutput)
+}
+
+type DomainOffPeakWindowOptionsOffPeakWindow struct {
+	// 10h window for updates
+	WindowStartTime *DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime `pulumi:"windowStartTime"`
+}
+
+// DomainOffPeakWindowOptionsOffPeakWindowInput is an input type that accepts DomainOffPeakWindowOptionsOffPeakWindowArgs and DomainOffPeakWindowOptionsOffPeakWindowOutput values.
+// You can construct a concrete instance of `DomainOffPeakWindowOptionsOffPeakWindowInput` via:
+//
+//	DomainOffPeakWindowOptionsOffPeakWindowArgs{...}
+type DomainOffPeakWindowOptionsOffPeakWindowInput interface {
+	pulumi.Input
+
+	ToDomainOffPeakWindowOptionsOffPeakWindowOutput() DomainOffPeakWindowOptionsOffPeakWindowOutput
+	ToDomainOffPeakWindowOptionsOffPeakWindowOutputWithContext(context.Context) DomainOffPeakWindowOptionsOffPeakWindowOutput
+}
+
+type DomainOffPeakWindowOptionsOffPeakWindowArgs struct {
+	// 10h window for updates
+	WindowStartTime DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrInput `pulumi:"windowStartTime"`
+}
+
+func (DomainOffPeakWindowOptionsOffPeakWindowArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainOffPeakWindowOptionsOffPeakWindow)(nil)).Elem()
+}
+
+func (i DomainOffPeakWindowOptionsOffPeakWindowArgs) ToDomainOffPeakWindowOptionsOffPeakWindowOutput() DomainOffPeakWindowOptionsOffPeakWindowOutput {
+	return i.ToDomainOffPeakWindowOptionsOffPeakWindowOutputWithContext(context.Background())
+}
+
+func (i DomainOffPeakWindowOptionsOffPeakWindowArgs) ToDomainOffPeakWindowOptionsOffPeakWindowOutputWithContext(ctx context.Context) DomainOffPeakWindowOptionsOffPeakWindowOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainOffPeakWindowOptionsOffPeakWindowOutput)
+}
+
+func (i DomainOffPeakWindowOptionsOffPeakWindowArgs) ToDomainOffPeakWindowOptionsOffPeakWindowPtrOutput() DomainOffPeakWindowOptionsOffPeakWindowPtrOutput {
+	return i.ToDomainOffPeakWindowOptionsOffPeakWindowPtrOutputWithContext(context.Background())
+}
+
+func (i DomainOffPeakWindowOptionsOffPeakWindowArgs) ToDomainOffPeakWindowOptionsOffPeakWindowPtrOutputWithContext(ctx context.Context) DomainOffPeakWindowOptionsOffPeakWindowPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainOffPeakWindowOptionsOffPeakWindowOutput).ToDomainOffPeakWindowOptionsOffPeakWindowPtrOutputWithContext(ctx)
+}
+
+// DomainOffPeakWindowOptionsOffPeakWindowPtrInput is an input type that accepts DomainOffPeakWindowOptionsOffPeakWindowArgs, DomainOffPeakWindowOptionsOffPeakWindowPtr and DomainOffPeakWindowOptionsOffPeakWindowPtrOutput values.
+// You can construct a concrete instance of `DomainOffPeakWindowOptionsOffPeakWindowPtrInput` via:
+//
+//	        DomainOffPeakWindowOptionsOffPeakWindowArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainOffPeakWindowOptionsOffPeakWindowPtrInput interface {
+	pulumi.Input
+
+	ToDomainOffPeakWindowOptionsOffPeakWindowPtrOutput() DomainOffPeakWindowOptionsOffPeakWindowPtrOutput
+	ToDomainOffPeakWindowOptionsOffPeakWindowPtrOutputWithContext(context.Context) DomainOffPeakWindowOptionsOffPeakWindowPtrOutput
+}
+
+type domainOffPeakWindowOptionsOffPeakWindowPtrType DomainOffPeakWindowOptionsOffPeakWindowArgs
+
+func DomainOffPeakWindowOptionsOffPeakWindowPtr(v *DomainOffPeakWindowOptionsOffPeakWindowArgs) DomainOffPeakWindowOptionsOffPeakWindowPtrInput {
+	return (*domainOffPeakWindowOptionsOffPeakWindowPtrType)(v)
+}
+
+func (*domainOffPeakWindowOptionsOffPeakWindowPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainOffPeakWindowOptionsOffPeakWindow)(nil)).Elem()
+}
+
+func (i *domainOffPeakWindowOptionsOffPeakWindowPtrType) ToDomainOffPeakWindowOptionsOffPeakWindowPtrOutput() DomainOffPeakWindowOptionsOffPeakWindowPtrOutput {
+	return i.ToDomainOffPeakWindowOptionsOffPeakWindowPtrOutputWithContext(context.Background())
+}
+
+func (i *domainOffPeakWindowOptionsOffPeakWindowPtrType) ToDomainOffPeakWindowOptionsOffPeakWindowPtrOutputWithContext(ctx context.Context) DomainOffPeakWindowOptionsOffPeakWindowPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainOffPeakWindowOptionsOffPeakWindowPtrOutput)
+}
+
+type DomainOffPeakWindowOptionsOffPeakWindowOutput struct{ *pulumi.OutputState }
+
+func (DomainOffPeakWindowOptionsOffPeakWindowOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainOffPeakWindowOptionsOffPeakWindow)(nil)).Elem()
+}
+
+func (o DomainOffPeakWindowOptionsOffPeakWindowOutput) ToDomainOffPeakWindowOptionsOffPeakWindowOutput() DomainOffPeakWindowOptionsOffPeakWindowOutput {
+	return o
+}
+
+func (o DomainOffPeakWindowOptionsOffPeakWindowOutput) ToDomainOffPeakWindowOptionsOffPeakWindowOutputWithContext(ctx context.Context) DomainOffPeakWindowOptionsOffPeakWindowOutput {
+	return o
+}
+
+func (o DomainOffPeakWindowOptionsOffPeakWindowOutput) ToDomainOffPeakWindowOptionsOffPeakWindowPtrOutput() DomainOffPeakWindowOptionsOffPeakWindowPtrOutput {
+	return o.ToDomainOffPeakWindowOptionsOffPeakWindowPtrOutputWithContext(context.Background())
+}
+
+func (o DomainOffPeakWindowOptionsOffPeakWindowOutput) ToDomainOffPeakWindowOptionsOffPeakWindowPtrOutputWithContext(ctx context.Context) DomainOffPeakWindowOptionsOffPeakWindowPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainOffPeakWindowOptionsOffPeakWindow) *DomainOffPeakWindowOptionsOffPeakWindow {
+		return &v
+	}).(DomainOffPeakWindowOptionsOffPeakWindowPtrOutput)
+}
+
+// 10h window for updates
+func (o DomainOffPeakWindowOptionsOffPeakWindowOutput) WindowStartTime() DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput {
+	return o.ApplyT(func(v DomainOffPeakWindowOptionsOffPeakWindow) *DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime {
+		return v.WindowStartTime
+	}).(DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput)
+}
+
+type DomainOffPeakWindowOptionsOffPeakWindowPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainOffPeakWindowOptionsOffPeakWindowPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainOffPeakWindowOptionsOffPeakWindow)(nil)).Elem()
+}
+
+func (o DomainOffPeakWindowOptionsOffPeakWindowPtrOutput) ToDomainOffPeakWindowOptionsOffPeakWindowPtrOutput() DomainOffPeakWindowOptionsOffPeakWindowPtrOutput {
+	return o
+}
+
+func (o DomainOffPeakWindowOptionsOffPeakWindowPtrOutput) ToDomainOffPeakWindowOptionsOffPeakWindowPtrOutputWithContext(ctx context.Context) DomainOffPeakWindowOptionsOffPeakWindowPtrOutput {
+	return o
+}
+
+func (o DomainOffPeakWindowOptionsOffPeakWindowPtrOutput) Elem() DomainOffPeakWindowOptionsOffPeakWindowOutput {
+	return o.ApplyT(func(v *DomainOffPeakWindowOptionsOffPeakWindow) DomainOffPeakWindowOptionsOffPeakWindow {
+		if v != nil {
+			return *v
+		}
+		var ret DomainOffPeakWindowOptionsOffPeakWindow
+		return ret
+	}).(DomainOffPeakWindowOptionsOffPeakWindowOutput)
+}
+
+// 10h window for updates
+func (o DomainOffPeakWindowOptionsOffPeakWindowPtrOutput) WindowStartTime() DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput {
+	return o.ApplyT(func(v *DomainOffPeakWindowOptionsOffPeakWindow) *DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime {
+		if v == nil {
+			return nil
+		}
+		return v.WindowStartTime
+	}).(DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput)
+}
+
+type DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime struct {
+	// Starting hour of the 10-hour window for updates
+	Hours *int `pulumi:"hours"`
+	// Starting minute of the 10-hour window for updates
+	Minutes *int `pulumi:"minutes"`
+}
+
+// DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeInput is an input type that accepts DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs and DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput values.
+// You can construct a concrete instance of `DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeInput` via:
+//
+//	DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs{...}
+type DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeInput interface {
+	pulumi.Input
+
+	ToDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput() DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput
+	ToDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutputWithContext(context.Context) DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput
+}
+
+type DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs struct {
+	// Starting hour of the 10-hour window for updates
+	Hours pulumi.IntPtrInput `pulumi:"hours"`
+	// Starting minute of the 10-hour window for updates
+	Minutes pulumi.IntPtrInput `pulumi:"minutes"`
+}
+
+func (DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime)(nil)).Elem()
+}
+
+func (i DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs) ToDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput() DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput {
+	return i.ToDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutputWithContext(context.Background())
+}
+
+func (i DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs) ToDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutputWithContext(ctx context.Context) DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput)
+}
+
+func (i DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs) ToDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput() DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput {
+	return i.ToDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutputWithContext(context.Background())
+}
+
+func (i DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs) ToDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutputWithContext(ctx context.Context) DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput).ToDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutputWithContext(ctx)
+}
+
+// DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrInput is an input type that accepts DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs, DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtr and DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput values.
+// You can construct a concrete instance of `DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrInput` via:
+//
+//	        DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrInput interface {
+	pulumi.Input
+
+	ToDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput() DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput
+	ToDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutputWithContext(context.Context) DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput
+}
+
+type domainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrType DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs
+
+func DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtr(v *DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs) DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrInput {
+	return (*domainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrType)(v)
+}
+
+func (*domainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime)(nil)).Elem()
+}
+
+func (i *domainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrType) ToDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput() DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput {
+	return i.ToDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutputWithContext(context.Background())
+}
+
+func (i *domainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrType) ToDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutputWithContext(ctx context.Context) DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput)
+}
+
+type DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput struct{ *pulumi.OutputState }
+
+func (DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime)(nil)).Elem()
+}
+
+func (o DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput) ToDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput() DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput {
+	return o
+}
+
+func (o DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput) ToDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutputWithContext(ctx context.Context) DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput {
+	return o
+}
+
+func (o DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput) ToDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput() DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput {
+	return o.ToDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutputWithContext(context.Background())
+}
+
+func (o DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput) ToDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutputWithContext(ctx context.Context) DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime) *DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime {
+		return &v
+	}).(DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput)
+}
+
+// Starting hour of the 10-hour window for updates
+func (o DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput) Hours() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime) *int { return v.Hours }).(pulumi.IntPtrOutput)
+}
+
+// Starting minute of the 10-hour window for updates
+func (o DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput) Minutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime) *int { return v.Minutes }).(pulumi.IntPtrOutput)
+}
+
+type DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput struct{ *pulumi.OutputState }
+
+func (DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime)(nil)).Elem()
+}
+
+func (o DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput) ToDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput() DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput {
+	return o
+}
+
+func (o DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput) ToDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutputWithContext(ctx context.Context) DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput {
+	return o
+}
+
+func (o DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput) Elem() DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput {
+	return o.ApplyT(func(v *DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime) DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime {
+		if v != nil {
+			return *v
+		}
+		var ret DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime
+		return ret
+	}).(DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput)
+}
+
+// Starting hour of the 10-hour window for updates
+func (o DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput) Hours() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Hours
+	}).(pulumi.IntPtrOutput)
+}
+
+// Starting minute of the 10-hour window for updates
+func (o DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput) Minutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Minutes
+	}).(pulumi.IntPtrOutput)
+}
+
 type DomainSamlOptionsSamlOptions struct {
 	// Whether SAML authentication is enabled.
 	Enabled *bool `pulumi:"enabled"`
@@ -3445,9 +3895,514 @@ func (o OutboundConnectionRemoteDomainInfoPtrOutput) Region() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+type ServerlessCollectionTimeouts struct {
+	Create *string `pulumi:"create"`
+	Delete *string `pulumi:"delete"`
+}
+
+// ServerlessCollectionTimeoutsInput is an input type that accepts ServerlessCollectionTimeoutsArgs and ServerlessCollectionTimeoutsOutput values.
+// You can construct a concrete instance of `ServerlessCollectionTimeoutsInput` via:
+//
+//	ServerlessCollectionTimeoutsArgs{...}
+type ServerlessCollectionTimeoutsInput interface {
+	pulumi.Input
+
+	ToServerlessCollectionTimeoutsOutput() ServerlessCollectionTimeoutsOutput
+	ToServerlessCollectionTimeoutsOutputWithContext(context.Context) ServerlessCollectionTimeoutsOutput
+}
+
+type ServerlessCollectionTimeoutsArgs struct {
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+}
+
+func (ServerlessCollectionTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessCollectionTimeouts)(nil)).Elem()
+}
+
+func (i ServerlessCollectionTimeoutsArgs) ToServerlessCollectionTimeoutsOutput() ServerlessCollectionTimeoutsOutput {
+	return i.ToServerlessCollectionTimeoutsOutputWithContext(context.Background())
+}
+
+func (i ServerlessCollectionTimeoutsArgs) ToServerlessCollectionTimeoutsOutputWithContext(ctx context.Context) ServerlessCollectionTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessCollectionTimeoutsOutput)
+}
+
+func (i ServerlessCollectionTimeoutsArgs) ToServerlessCollectionTimeoutsPtrOutput() ServerlessCollectionTimeoutsPtrOutput {
+	return i.ToServerlessCollectionTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i ServerlessCollectionTimeoutsArgs) ToServerlessCollectionTimeoutsPtrOutputWithContext(ctx context.Context) ServerlessCollectionTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessCollectionTimeoutsOutput).ToServerlessCollectionTimeoutsPtrOutputWithContext(ctx)
+}
+
+// ServerlessCollectionTimeoutsPtrInput is an input type that accepts ServerlessCollectionTimeoutsArgs, ServerlessCollectionTimeoutsPtr and ServerlessCollectionTimeoutsPtrOutput values.
+// You can construct a concrete instance of `ServerlessCollectionTimeoutsPtrInput` via:
+//
+//	        ServerlessCollectionTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServerlessCollectionTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToServerlessCollectionTimeoutsPtrOutput() ServerlessCollectionTimeoutsPtrOutput
+	ToServerlessCollectionTimeoutsPtrOutputWithContext(context.Context) ServerlessCollectionTimeoutsPtrOutput
+}
+
+type serverlessCollectionTimeoutsPtrType ServerlessCollectionTimeoutsArgs
+
+func ServerlessCollectionTimeoutsPtr(v *ServerlessCollectionTimeoutsArgs) ServerlessCollectionTimeoutsPtrInput {
+	return (*serverlessCollectionTimeoutsPtrType)(v)
+}
+
+func (*serverlessCollectionTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerlessCollectionTimeouts)(nil)).Elem()
+}
+
+func (i *serverlessCollectionTimeoutsPtrType) ToServerlessCollectionTimeoutsPtrOutput() ServerlessCollectionTimeoutsPtrOutput {
+	return i.ToServerlessCollectionTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *serverlessCollectionTimeoutsPtrType) ToServerlessCollectionTimeoutsPtrOutputWithContext(ctx context.Context) ServerlessCollectionTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessCollectionTimeoutsPtrOutput)
+}
+
+type ServerlessCollectionTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (ServerlessCollectionTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessCollectionTimeouts)(nil)).Elem()
+}
+
+func (o ServerlessCollectionTimeoutsOutput) ToServerlessCollectionTimeoutsOutput() ServerlessCollectionTimeoutsOutput {
+	return o
+}
+
+func (o ServerlessCollectionTimeoutsOutput) ToServerlessCollectionTimeoutsOutputWithContext(ctx context.Context) ServerlessCollectionTimeoutsOutput {
+	return o
+}
+
+func (o ServerlessCollectionTimeoutsOutput) ToServerlessCollectionTimeoutsPtrOutput() ServerlessCollectionTimeoutsPtrOutput {
+	return o.ToServerlessCollectionTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o ServerlessCollectionTimeoutsOutput) ToServerlessCollectionTimeoutsPtrOutputWithContext(ctx context.Context) ServerlessCollectionTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerlessCollectionTimeouts) *ServerlessCollectionTimeouts {
+		return &v
+	}).(ServerlessCollectionTimeoutsPtrOutput)
+}
+
+func (o ServerlessCollectionTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerlessCollectionTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+func (o ServerlessCollectionTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerlessCollectionTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+type ServerlessCollectionTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (ServerlessCollectionTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerlessCollectionTimeouts)(nil)).Elem()
+}
+
+func (o ServerlessCollectionTimeoutsPtrOutput) ToServerlessCollectionTimeoutsPtrOutput() ServerlessCollectionTimeoutsPtrOutput {
+	return o
+}
+
+func (o ServerlessCollectionTimeoutsPtrOutput) ToServerlessCollectionTimeoutsPtrOutputWithContext(ctx context.Context) ServerlessCollectionTimeoutsPtrOutput {
+	return o
+}
+
+func (o ServerlessCollectionTimeoutsPtrOutput) Elem() ServerlessCollectionTimeoutsOutput {
+	return o.ApplyT(func(v *ServerlessCollectionTimeouts) ServerlessCollectionTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret ServerlessCollectionTimeouts
+		return ret
+	}).(ServerlessCollectionTimeoutsOutput)
+}
+
+func (o ServerlessCollectionTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerlessCollectionTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ServerlessCollectionTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerlessCollectionTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServerlessSecurityConfigSamlOptions struct {
+	// Group attribute for this SAML integration.
+	GroupAttribute *string `pulumi:"groupAttribute"`
+	// The XML IdP metadata file generated from your identity provider.
+	Metadata string `pulumi:"metadata"`
+	// Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
+	SessionTimeout *int `pulumi:"sessionTimeout"`
+	// User attribute for this SAML integration.
+	UserAttribute *string `pulumi:"userAttribute"`
+}
+
+// ServerlessSecurityConfigSamlOptionsInput is an input type that accepts ServerlessSecurityConfigSamlOptionsArgs and ServerlessSecurityConfigSamlOptionsOutput values.
+// You can construct a concrete instance of `ServerlessSecurityConfigSamlOptionsInput` via:
+//
+//	ServerlessSecurityConfigSamlOptionsArgs{...}
+type ServerlessSecurityConfigSamlOptionsInput interface {
+	pulumi.Input
+
+	ToServerlessSecurityConfigSamlOptionsOutput() ServerlessSecurityConfigSamlOptionsOutput
+	ToServerlessSecurityConfigSamlOptionsOutputWithContext(context.Context) ServerlessSecurityConfigSamlOptionsOutput
+}
+
+type ServerlessSecurityConfigSamlOptionsArgs struct {
+	// Group attribute for this SAML integration.
+	GroupAttribute pulumi.StringPtrInput `pulumi:"groupAttribute"`
+	// The XML IdP metadata file generated from your identity provider.
+	Metadata pulumi.StringInput `pulumi:"metadata"`
+	// Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
+	SessionTimeout pulumi.IntPtrInput `pulumi:"sessionTimeout"`
+	// User attribute for this SAML integration.
+	UserAttribute pulumi.StringPtrInput `pulumi:"userAttribute"`
+}
+
+func (ServerlessSecurityConfigSamlOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessSecurityConfigSamlOptions)(nil)).Elem()
+}
+
+func (i ServerlessSecurityConfigSamlOptionsArgs) ToServerlessSecurityConfigSamlOptionsOutput() ServerlessSecurityConfigSamlOptionsOutput {
+	return i.ToServerlessSecurityConfigSamlOptionsOutputWithContext(context.Background())
+}
+
+func (i ServerlessSecurityConfigSamlOptionsArgs) ToServerlessSecurityConfigSamlOptionsOutputWithContext(ctx context.Context) ServerlessSecurityConfigSamlOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessSecurityConfigSamlOptionsOutput)
+}
+
+func (i ServerlessSecurityConfigSamlOptionsArgs) ToServerlessSecurityConfigSamlOptionsPtrOutput() ServerlessSecurityConfigSamlOptionsPtrOutput {
+	return i.ToServerlessSecurityConfigSamlOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i ServerlessSecurityConfigSamlOptionsArgs) ToServerlessSecurityConfigSamlOptionsPtrOutputWithContext(ctx context.Context) ServerlessSecurityConfigSamlOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessSecurityConfigSamlOptionsOutput).ToServerlessSecurityConfigSamlOptionsPtrOutputWithContext(ctx)
+}
+
+// ServerlessSecurityConfigSamlOptionsPtrInput is an input type that accepts ServerlessSecurityConfigSamlOptionsArgs, ServerlessSecurityConfigSamlOptionsPtr and ServerlessSecurityConfigSamlOptionsPtrOutput values.
+// You can construct a concrete instance of `ServerlessSecurityConfigSamlOptionsPtrInput` via:
+//
+//	        ServerlessSecurityConfigSamlOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServerlessSecurityConfigSamlOptionsPtrInput interface {
+	pulumi.Input
+
+	ToServerlessSecurityConfigSamlOptionsPtrOutput() ServerlessSecurityConfigSamlOptionsPtrOutput
+	ToServerlessSecurityConfigSamlOptionsPtrOutputWithContext(context.Context) ServerlessSecurityConfigSamlOptionsPtrOutput
+}
+
+type serverlessSecurityConfigSamlOptionsPtrType ServerlessSecurityConfigSamlOptionsArgs
+
+func ServerlessSecurityConfigSamlOptionsPtr(v *ServerlessSecurityConfigSamlOptionsArgs) ServerlessSecurityConfigSamlOptionsPtrInput {
+	return (*serverlessSecurityConfigSamlOptionsPtrType)(v)
+}
+
+func (*serverlessSecurityConfigSamlOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerlessSecurityConfigSamlOptions)(nil)).Elem()
+}
+
+func (i *serverlessSecurityConfigSamlOptionsPtrType) ToServerlessSecurityConfigSamlOptionsPtrOutput() ServerlessSecurityConfigSamlOptionsPtrOutput {
+	return i.ToServerlessSecurityConfigSamlOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *serverlessSecurityConfigSamlOptionsPtrType) ToServerlessSecurityConfigSamlOptionsPtrOutputWithContext(ctx context.Context) ServerlessSecurityConfigSamlOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessSecurityConfigSamlOptionsPtrOutput)
+}
+
+type ServerlessSecurityConfigSamlOptionsOutput struct{ *pulumi.OutputState }
+
+func (ServerlessSecurityConfigSamlOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessSecurityConfigSamlOptions)(nil)).Elem()
+}
+
+func (o ServerlessSecurityConfigSamlOptionsOutput) ToServerlessSecurityConfigSamlOptionsOutput() ServerlessSecurityConfigSamlOptionsOutput {
+	return o
+}
+
+func (o ServerlessSecurityConfigSamlOptionsOutput) ToServerlessSecurityConfigSamlOptionsOutputWithContext(ctx context.Context) ServerlessSecurityConfigSamlOptionsOutput {
+	return o
+}
+
+func (o ServerlessSecurityConfigSamlOptionsOutput) ToServerlessSecurityConfigSamlOptionsPtrOutput() ServerlessSecurityConfigSamlOptionsPtrOutput {
+	return o.ToServerlessSecurityConfigSamlOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o ServerlessSecurityConfigSamlOptionsOutput) ToServerlessSecurityConfigSamlOptionsPtrOutputWithContext(ctx context.Context) ServerlessSecurityConfigSamlOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerlessSecurityConfigSamlOptions) *ServerlessSecurityConfigSamlOptions {
+		return &v
+	}).(ServerlessSecurityConfigSamlOptionsPtrOutput)
+}
+
+// Group attribute for this SAML integration.
+func (o ServerlessSecurityConfigSamlOptionsOutput) GroupAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerlessSecurityConfigSamlOptions) *string { return v.GroupAttribute }).(pulumi.StringPtrOutput)
+}
+
+// The XML IdP metadata file generated from your identity provider.
+func (o ServerlessSecurityConfigSamlOptionsOutput) Metadata() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerlessSecurityConfigSamlOptions) string { return v.Metadata }).(pulumi.StringOutput)
+}
+
+// Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
+func (o ServerlessSecurityConfigSamlOptionsOutput) SessionTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServerlessSecurityConfigSamlOptions) *int { return v.SessionTimeout }).(pulumi.IntPtrOutput)
+}
+
+// User attribute for this SAML integration.
+func (o ServerlessSecurityConfigSamlOptionsOutput) UserAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerlessSecurityConfigSamlOptions) *string { return v.UserAttribute }).(pulumi.StringPtrOutput)
+}
+
+type ServerlessSecurityConfigSamlOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ServerlessSecurityConfigSamlOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerlessSecurityConfigSamlOptions)(nil)).Elem()
+}
+
+func (o ServerlessSecurityConfigSamlOptionsPtrOutput) ToServerlessSecurityConfigSamlOptionsPtrOutput() ServerlessSecurityConfigSamlOptionsPtrOutput {
+	return o
+}
+
+func (o ServerlessSecurityConfigSamlOptionsPtrOutput) ToServerlessSecurityConfigSamlOptionsPtrOutputWithContext(ctx context.Context) ServerlessSecurityConfigSamlOptionsPtrOutput {
+	return o
+}
+
+func (o ServerlessSecurityConfigSamlOptionsPtrOutput) Elem() ServerlessSecurityConfigSamlOptionsOutput {
+	return o.ApplyT(func(v *ServerlessSecurityConfigSamlOptions) ServerlessSecurityConfigSamlOptions {
+		if v != nil {
+			return *v
+		}
+		var ret ServerlessSecurityConfigSamlOptions
+		return ret
+	}).(ServerlessSecurityConfigSamlOptionsOutput)
+}
+
+// Group attribute for this SAML integration.
+func (o ServerlessSecurityConfigSamlOptionsPtrOutput) GroupAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerlessSecurityConfigSamlOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupAttribute
+	}).(pulumi.StringPtrOutput)
+}
+
+// The XML IdP metadata file generated from your identity provider.
+func (o ServerlessSecurityConfigSamlOptionsPtrOutput) Metadata() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerlessSecurityConfigSamlOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Metadata
+	}).(pulumi.StringPtrOutput)
+}
+
+// Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
+func (o ServerlessSecurityConfigSamlOptionsPtrOutput) SessionTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServerlessSecurityConfigSamlOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SessionTimeout
+	}).(pulumi.IntPtrOutput)
+}
+
+// User attribute for this SAML integration.
+func (o ServerlessSecurityConfigSamlOptionsPtrOutput) UserAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerlessSecurityConfigSamlOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAttribute
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServerlessVpcEndpointTimeouts struct {
+	Create *string `pulumi:"create"`
+	Delete *string `pulumi:"delete"`
+	Update *string `pulumi:"update"`
+}
+
+// ServerlessVpcEndpointTimeoutsInput is an input type that accepts ServerlessVpcEndpointTimeoutsArgs and ServerlessVpcEndpointTimeoutsOutput values.
+// You can construct a concrete instance of `ServerlessVpcEndpointTimeoutsInput` via:
+//
+//	ServerlessVpcEndpointTimeoutsArgs{...}
+type ServerlessVpcEndpointTimeoutsInput interface {
+	pulumi.Input
+
+	ToServerlessVpcEndpointTimeoutsOutput() ServerlessVpcEndpointTimeoutsOutput
+	ToServerlessVpcEndpointTimeoutsOutputWithContext(context.Context) ServerlessVpcEndpointTimeoutsOutput
+}
+
+type ServerlessVpcEndpointTimeoutsArgs struct {
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (ServerlessVpcEndpointTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessVpcEndpointTimeouts)(nil)).Elem()
+}
+
+func (i ServerlessVpcEndpointTimeoutsArgs) ToServerlessVpcEndpointTimeoutsOutput() ServerlessVpcEndpointTimeoutsOutput {
+	return i.ToServerlessVpcEndpointTimeoutsOutputWithContext(context.Background())
+}
+
+func (i ServerlessVpcEndpointTimeoutsArgs) ToServerlessVpcEndpointTimeoutsOutputWithContext(ctx context.Context) ServerlessVpcEndpointTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessVpcEndpointTimeoutsOutput)
+}
+
+func (i ServerlessVpcEndpointTimeoutsArgs) ToServerlessVpcEndpointTimeoutsPtrOutput() ServerlessVpcEndpointTimeoutsPtrOutput {
+	return i.ToServerlessVpcEndpointTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i ServerlessVpcEndpointTimeoutsArgs) ToServerlessVpcEndpointTimeoutsPtrOutputWithContext(ctx context.Context) ServerlessVpcEndpointTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessVpcEndpointTimeoutsOutput).ToServerlessVpcEndpointTimeoutsPtrOutputWithContext(ctx)
+}
+
+// ServerlessVpcEndpointTimeoutsPtrInput is an input type that accepts ServerlessVpcEndpointTimeoutsArgs, ServerlessVpcEndpointTimeoutsPtr and ServerlessVpcEndpointTimeoutsPtrOutput values.
+// You can construct a concrete instance of `ServerlessVpcEndpointTimeoutsPtrInput` via:
+//
+//	        ServerlessVpcEndpointTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServerlessVpcEndpointTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToServerlessVpcEndpointTimeoutsPtrOutput() ServerlessVpcEndpointTimeoutsPtrOutput
+	ToServerlessVpcEndpointTimeoutsPtrOutputWithContext(context.Context) ServerlessVpcEndpointTimeoutsPtrOutput
+}
+
+type serverlessVpcEndpointTimeoutsPtrType ServerlessVpcEndpointTimeoutsArgs
+
+func ServerlessVpcEndpointTimeoutsPtr(v *ServerlessVpcEndpointTimeoutsArgs) ServerlessVpcEndpointTimeoutsPtrInput {
+	return (*serverlessVpcEndpointTimeoutsPtrType)(v)
+}
+
+func (*serverlessVpcEndpointTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerlessVpcEndpointTimeouts)(nil)).Elem()
+}
+
+func (i *serverlessVpcEndpointTimeoutsPtrType) ToServerlessVpcEndpointTimeoutsPtrOutput() ServerlessVpcEndpointTimeoutsPtrOutput {
+	return i.ToServerlessVpcEndpointTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *serverlessVpcEndpointTimeoutsPtrType) ToServerlessVpcEndpointTimeoutsPtrOutputWithContext(ctx context.Context) ServerlessVpcEndpointTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessVpcEndpointTimeoutsPtrOutput)
+}
+
+type ServerlessVpcEndpointTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (ServerlessVpcEndpointTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessVpcEndpointTimeouts)(nil)).Elem()
+}
+
+func (o ServerlessVpcEndpointTimeoutsOutput) ToServerlessVpcEndpointTimeoutsOutput() ServerlessVpcEndpointTimeoutsOutput {
+	return o
+}
+
+func (o ServerlessVpcEndpointTimeoutsOutput) ToServerlessVpcEndpointTimeoutsOutputWithContext(ctx context.Context) ServerlessVpcEndpointTimeoutsOutput {
+	return o
+}
+
+func (o ServerlessVpcEndpointTimeoutsOutput) ToServerlessVpcEndpointTimeoutsPtrOutput() ServerlessVpcEndpointTimeoutsPtrOutput {
+	return o.ToServerlessVpcEndpointTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o ServerlessVpcEndpointTimeoutsOutput) ToServerlessVpcEndpointTimeoutsPtrOutputWithContext(ctx context.Context) ServerlessVpcEndpointTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerlessVpcEndpointTimeouts) *ServerlessVpcEndpointTimeouts {
+		return &v
+	}).(ServerlessVpcEndpointTimeoutsPtrOutput)
+}
+
+func (o ServerlessVpcEndpointTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerlessVpcEndpointTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+func (o ServerlessVpcEndpointTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerlessVpcEndpointTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+func (o ServerlessVpcEndpointTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerlessVpcEndpointTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type ServerlessVpcEndpointTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (ServerlessVpcEndpointTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerlessVpcEndpointTimeouts)(nil)).Elem()
+}
+
+func (o ServerlessVpcEndpointTimeoutsPtrOutput) ToServerlessVpcEndpointTimeoutsPtrOutput() ServerlessVpcEndpointTimeoutsPtrOutput {
+	return o
+}
+
+func (o ServerlessVpcEndpointTimeoutsPtrOutput) ToServerlessVpcEndpointTimeoutsPtrOutputWithContext(ctx context.Context) ServerlessVpcEndpointTimeoutsPtrOutput {
+	return o
+}
+
+func (o ServerlessVpcEndpointTimeoutsPtrOutput) Elem() ServerlessVpcEndpointTimeoutsOutput {
+	return o.ApplyT(func(v *ServerlessVpcEndpointTimeouts) ServerlessVpcEndpointTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret ServerlessVpcEndpointTimeouts
+		return ret
+	}).(ServerlessVpcEndpointTimeoutsOutput)
+}
+
+func (o ServerlessVpcEndpointTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerlessVpcEndpointTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ServerlessVpcEndpointTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerlessVpcEndpointTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ServerlessVpcEndpointTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerlessVpcEndpointTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetDomainAdvancedSecurityOption struct {
 	AnonymousAuthEnabled bool `pulumi:"anonymousAuthEnabled"`
-	// Whether node to node encryption is enabled.
+	// Enabled disabled toggle for off-peak update window
 	Enabled bool `pulumi:"enabled"`
 	// Whether the internal user database is enabled.
 	InternalUserDatabaseEnabled bool `pulumi:"internalUserDatabaseEnabled"`
@@ -3466,7 +4421,7 @@ type GetDomainAdvancedSecurityOptionInput interface {
 
 type GetDomainAdvancedSecurityOptionArgs struct {
 	AnonymousAuthEnabled pulumi.BoolInput `pulumi:"anonymousAuthEnabled"`
-	// Whether node to node encryption is enabled.
+	// Enabled disabled toggle for off-peak update window
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Whether the internal user database is enabled.
 	InternalUserDatabaseEnabled pulumi.BoolInput `pulumi:"internalUserDatabaseEnabled"`
@@ -3527,7 +4482,7 @@ func (o GetDomainAdvancedSecurityOptionOutput) AnonymousAuthEnabled() pulumi.Boo
 	return o.ApplyT(func(v GetDomainAdvancedSecurityOption) bool { return v.AnonymousAuthEnabled }).(pulumi.BoolOutput)
 }
 
-// Whether node to node encryption is enabled.
+// Enabled disabled toggle for off-peak update window
 func (o GetDomainAdvancedSecurityOptionOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetDomainAdvancedSecurityOption) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -4087,7 +5042,7 @@ func (o GetDomainClusterConfigArrayOutput) Index(i pulumi.IntInput) GetDomainClu
 }
 
 type GetDomainClusterConfigColdStorageOption struct {
-	// Whether node to node encryption is enabled.
+	// Enabled disabled toggle for off-peak update window
 	Enabled bool `pulumi:"enabled"`
 }
 
@@ -4103,7 +5058,7 @@ type GetDomainClusterConfigColdStorageOptionInput interface {
 }
 
 type GetDomainClusterConfigColdStorageOptionArgs struct {
-	// Whether node to node encryption is enabled.
+	// Enabled disabled toggle for off-peak update window
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 }
 
@@ -4158,7 +5113,7 @@ func (o GetDomainClusterConfigColdStorageOptionOutput) ToGetDomainClusterConfigC
 	return o
 }
 
-// Whether node to node encryption is enabled.
+// Enabled disabled toggle for off-peak update window
 func (o GetDomainClusterConfigColdStorageOptionOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetDomainClusterConfigColdStorageOption) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -4281,7 +5236,7 @@ func (o GetDomainClusterConfigZoneAwarenessConfigArrayOutput) Index(i pulumi.Int
 }
 
 type GetDomainCognitoOption struct {
-	// Whether node to node encryption is enabled.
+	// Enabled disabled toggle for off-peak update window
 	Enabled bool `pulumi:"enabled"`
 	// Cognito Identity pool used by the domain.
 	IdentityPoolId string `pulumi:"identityPoolId"`
@@ -4303,7 +5258,7 @@ type GetDomainCognitoOptionInput interface {
 }
 
 type GetDomainCognitoOptionArgs struct {
-	// Whether node to node encryption is enabled.
+	// Enabled disabled toggle for off-peak update window
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Cognito Identity pool used by the domain.
 	IdentityPoolId pulumi.StringInput `pulumi:"identityPoolId"`
@@ -4364,7 +5319,7 @@ func (o GetDomainCognitoOptionOutput) ToGetDomainCognitoOptionOutputWithContext(
 	return o
 }
 
-// Whether node to node encryption is enabled.
+// Enabled disabled toggle for off-peak update window
 func (o GetDomainCognitoOptionOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetDomainCognitoOption) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -4538,7 +5493,7 @@ func (o GetDomainEbsOptionArrayOutput) Index(i pulumi.IntInput) GetDomainEbsOpti
 }
 
 type GetDomainEncryptionAtRest struct {
-	// Whether node to node encryption is enabled.
+	// Enabled disabled toggle for off-peak update window
 	Enabled bool `pulumi:"enabled"`
 	// KMS key id used to encrypt data at rest.
 	KmsKeyId string `pulumi:"kmsKeyId"`
@@ -4556,7 +5511,7 @@ type GetDomainEncryptionAtRestInput interface {
 }
 
 type GetDomainEncryptionAtRestArgs struct {
-	// Whether node to node encryption is enabled.
+	// Enabled disabled toggle for off-peak update window
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// KMS key id used to encrypt data at rest.
 	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
@@ -4613,7 +5568,7 @@ func (o GetDomainEncryptionAtRestOutput) ToGetDomainEncryptionAtRestOutputWithCo
 	return o
 }
 
-// Whether node to node encryption is enabled.
+// Enabled disabled toggle for off-peak update window
 func (o GetDomainEncryptionAtRestOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetDomainEncryptionAtRest) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -4646,7 +5601,7 @@ func (o GetDomainEncryptionAtRestArrayOutput) Index(i pulumi.IntInput) GetDomain
 type GetDomainLogPublishingOption struct {
 	// CloudWatch Log Group where the logs are published.
 	CloudwatchLogGroupArn string `pulumi:"cloudwatchLogGroupArn"`
-	// Whether node to node encryption is enabled.
+	// Enabled disabled toggle for off-peak update window
 	Enabled bool `pulumi:"enabled"`
 	// Type of OpenSearch log being published.
 	LogType string `pulumi:"logType"`
@@ -4666,7 +5621,7 @@ type GetDomainLogPublishingOptionInput interface {
 type GetDomainLogPublishingOptionArgs struct {
 	// CloudWatch Log Group where the logs are published.
 	CloudwatchLogGroupArn pulumi.StringInput `pulumi:"cloudwatchLogGroupArn"`
-	// Whether node to node encryption is enabled.
+	// Enabled disabled toggle for off-peak update window
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Type of OpenSearch log being published.
 	LogType pulumi.StringInput `pulumi:"logType"`
@@ -4728,7 +5683,7 @@ func (o GetDomainLogPublishingOptionOutput) CloudwatchLogGroupArn() pulumi.Strin
 	return o.ApplyT(func(v GetDomainLogPublishingOption) string { return v.CloudwatchLogGroupArn }).(pulumi.StringOutput)
 }
 
-// Whether node to node encryption is enabled.
+// Enabled disabled toggle for off-peak update window
 func (o GetDomainLogPublishingOptionOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetDomainLogPublishingOption) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -4759,7 +5714,7 @@ func (o GetDomainLogPublishingOptionArrayOutput) Index(i pulumi.IntInput) GetDom
 }
 
 type GetDomainNodeToNodeEncryption struct {
-	// Whether node to node encryption is enabled.
+	// Enabled disabled toggle for off-peak update window
 	Enabled bool `pulumi:"enabled"`
 }
 
@@ -4775,7 +5730,7 @@ type GetDomainNodeToNodeEncryptionInput interface {
 }
 
 type GetDomainNodeToNodeEncryptionArgs struct {
-	// Whether node to node encryption is enabled.
+	// Enabled disabled toggle for off-peak update window
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 }
 
@@ -4830,7 +5785,7 @@ func (o GetDomainNodeToNodeEncryptionOutput) ToGetDomainNodeToNodeEncryptionOutp
 	return o
 }
 
-// Whether node to node encryption is enabled.
+// Enabled disabled toggle for off-peak update window
 func (o GetDomainNodeToNodeEncryptionOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetDomainNodeToNodeEncryption) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -4853,6 +5808,365 @@ func (o GetDomainNodeToNodeEncryptionArrayOutput) Index(i pulumi.IntInput) GetDo
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDomainNodeToNodeEncryption {
 		return vs[0].([]GetDomainNodeToNodeEncryption)[vs[1].(int)]
 	}).(GetDomainNodeToNodeEncryptionOutput)
+}
+
+type GetDomainOffPeakWindowOptions struct {
+	// Enabled disabled toggle for off-peak update window
+	Enabled        bool                                         `pulumi:"enabled"`
+	OffPeakWindows []GetDomainOffPeakWindowOptionsOffPeakWindow `pulumi:"offPeakWindows"`
+}
+
+// GetDomainOffPeakWindowOptionsInput is an input type that accepts GetDomainOffPeakWindowOptionsArgs and GetDomainOffPeakWindowOptionsOutput values.
+// You can construct a concrete instance of `GetDomainOffPeakWindowOptionsInput` via:
+//
+//	GetDomainOffPeakWindowOptionsArgs{...}
+type GetDomainOffPeakWindowOptionsInput interface {
+	pulumi.Input
+
+	ToGetDomainOffPeakWindowOptionsOutput() GetDomainOffPeakWindowOptionsOutput
+	ToGetDomainOffPeakWindowOptionsOutputWithContext(context.Context) GetDomainOffPeakWindowOptionsOutput
+}
+
+type GetDomainOffPeakWindowOptionsArgs struct {
+	// Enabled disabled toggle for off-peak update window
+	Enabled        pulumi.BoolInput                                     `pulumi:"enabled"`
+	OffPeakWindows GetDomainOffPeakWindowOptionsOffPeakWindowArrayInput `pulumi:"offPeakWindows"`
+}
+
+func (GetDomainOffPeakWindowOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDomainOffPeakWindowOptions)(nil)).Elem()
+}
+
+func (i GetDomainOffPeakWindowOptionsArgs) ToGetDomainOffPeakWindowOptionsOutput() GetDomainOffPeakWindowOptionsOutput {
+	return i.ToGetDomainOffPeakWindowOptionsOutputWithContext(context.Background())
+}
+
+func (i GetDomainOffPeakWindowOptionsArgs) ToGetDomainOffPeakWindowOptionsOutputWithContext(ctx context.Context) GetDomainOffPeakWindowOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDomainOffPeakWindowOptionsOutput)
+}
+
+func (i GetDomainOffPeakWindowOptionsArgs) ToGetDomainOffPeakWindowOptionsPtrOutput() GetDomainOffPeakWindowOptionsPtrOutput {
+	return i.ToGetDomainOffPeakWindowOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i GetDomainOffPeakWindowOptionsArgs) ToGetDomainOffPeakWindowOptionsPtrOutputWithContext(ctx context.Context) GetDomainOffPeakWindowOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDomainOffPeakWindowOptionsOutput).ToGetDomainOffPeakWindowOptionsPtrOutputWithContext(ctx)
+}
+
+// GetDomainOffPeakWindowOptionsPtrInput is an input type that accepts GetDomainOffPeakWindowOptionsArgs, GetDomainOffPeakWindowOptionsPtr and GetDomainOffPeakWindowOptionsPtrOutput values.
+// You can construct a concrete instance of `GetDomainOffPeakWindowOptionsPtrInput` via:
+//
+//	        GetDomainOffPeakWindowOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetDomainOffPeakWindowOptionsPtrInput interface {
+	pulumi.Input
+
+	ToGetDomainOffPeakWindowOptionsPtrOutput() GetDomainOffPeakWindowOptionsPtrOutput
+	ToGetDomainOffPeakWindowOptionsPtrOutputWithContext(context.Context) GetDomainOffPeakWindowOptionsPtrOutput
+}
+
+type getDomainOffPeakWindowOptionsPtrType GetDomainOffPeakWindowOptionsArgs
+
+func GetDomainOffPeakWindowOptionsPtr(v *GetDomainOffPeakWindowOptionsArgs) GetDomainOffPeakWindowOptionsPtrInput {
+	return (*getDomainOffPeakWindowOptionsPtrType)(v)
+}
+
+func (*getDomainOffPeakWindowOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetDomainOffPeakWindowOptions)(nil)).Elem()
+}
+
+func (i *getDomainOffPeakWindowOptionsPtrType) ToGetDomainOffPeakWindowOptionsPtrOutput() GetDomainOffPeakWindowOptionsPtrOutput {
+	return i.ToGetDomainOffPeakWindowOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *getDomainOffPeakWindowOptionsPtrType) ToGetDomainOffPeakWindowOptionsPtrOutputWithContext(ctx context.Context) GetDomainOffPeakWindowOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDomainOffPeakWindowOptionsPtrOutput)
+}
+
+type GetDomainOffPeakWindowOptionsOutput struct{ *pulumi.OutputState }
+
+func (GetDomainOffPeakWindowOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDomainOffPeakWindowOptions)(nil)).Elem()
+}
+
+func (o GetDomainOffPeakWindowOptionsOutput) ToGetDomainOffPeakWindowOptionsOutput() GetDomainOffPeakWindowOptionsOutput {
+	return o
+}
+
+func (o GetDomainOffPeakWindowOptionsOutput) ToGetDomainOffPeakWindowOptionsOutputWithContext(ctx context.Context) GetDomainOffPeakWindowOptionsOutput {
+	return o
+}
+
+func (o GetDomainOffPeakWindowOptionsOutput) ToGetDomainOffPeakWindowOptionsPtrOutput() GetDomainOffPeakWindowOptionsPtrOutput {
+	return o.ToGetDomainOffPeakWindowOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o GetDomainOffPeakWindowOptionsOutput) ToGetDomainOffPeakWindowOptionsPtrOutputWithContext(ctx context.Context) GetDomainOffPeakWindowOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetDomainOffPeakWindowOptions) *GetDomainOffPeakWindowOptions {
+		return &v
+	}).(GetDomainOffPeakWindowOptionsPtrOutput)
+}
+
+// Enabled disabled toggle for off-peak update window
+func (o GetDomainOffPeakWindowOptionsOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDomainOffPeakWindowOptions) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+func (o GetDomainOffPeakWindowOptionsOutput) OffPeakWindows() GetDomainOffPeakWindowOptionsOffPeakWindowArrayOutput {
+	return o.ApplyT(func(v GetDomainOffPeakWindowOptions) []GetDomainOffPeakWindowOptionsOffPeakWindow {
+		return v.OffPeakWindows
+	}).(GetDomainOffPeakWindowOptionsOffPeakWindowArrayOutput)
+}
+
+type GetDomainOffPeakWindowOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (GetDomainOffPeakWindowOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetDomainOffPeakWindowOptions)(nil)).Elem()
+}
+
+func (o GetDomainOffPeakWindowOptionsPtrOutput) ToGetDomainOffPeakWindowOptionsPtrOutput() GetDomainOffPeakWindowOptionsPtrOutput {
+	return o
+}
+
+func (o GetDomainOffPeakWindowOptionsPtrOutput) ToGetDomainOffPeakWindowOptionsPtrOutputWithContext(ctx context.Context) GetDomainOffPeakWindowOptionsPtrOutput {
+	return o
+}
+
+func (o GetDomainOffPeakWindowOptionsPtrOutput) Elem() GetDomainOffPeakWindowOptionsOutput {
+	return o.ApplyT(func(v *GetDomainOffPeakWindowOptions) GetDomainOffPeakWindowOptions {
+		if v != nil {
+			return *v
+		}
+		var ret GetDomainOffPeakWindowOptions
+		return ret
+	}).(GetDomainOffPeakWindowOptionsOutput)
+}
+
+// Enabled disabled toggle for off-peak update window
+func (o GetDomainOffPeakWindowOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetDomainOffPeakWindowOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetDomainOffPeakWindowOptionsPtrOutput) OffPeakWindows() GetDomainOffPeakWindowOptionsOffPeakWindowArrayOutput {
+	return o.ApplyT(func(v *GetDomainOffPeakWindowOptions) []GetDomainOffPeakWindowOptionsOffPeakWindow {
+		if v == nil {
+			return nil
+		}
+		return v.OffPeakWindows
+	}).(GetDomainOffPeakWindowOptionsOffPeakWindowArrayOutput)
+}
+
+type GetDomainOffPeakWindowOptionsOffPeakWindow struct {
+	// 10h window for updates
+	WindowStartTimes []GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime `pulumi:"windowStartTimes"`
+}
+
+// GetDomainOffPeakWindowOptionsOffPeakWindowInput is an input type that accepts GetDomainOffPeakWindowOptionsOffPeakWindowArgs and GetDomainOffPeakWindowOptionsOffPeakWindowOutput values.
+// You can construct a concrete instance of `GetDomainOffPeakWindowOptionsOffPeakWindowInput` via:
+//
+//	GetDomainOffPeakWindowOptionsOffPeakWindowArgs{...}
+type GetDomainOffPeakWindowOptionsOffPeakWindowInput interface {
+	pulumi.Input
+
+	ToGetDomainOffPeakWindowOptionsOffPeakWindowOutput() GetDomainOffPeakWindowOptionsOffPeakWindowOutput
+	ToGetDomainOffPeakWindowOptionsOffPeakWindowOutputWithContext(context.Context) GetDomainOffPeakWindowOptionsOffPeakWindowOutput
+}
+
+type GetDomainOffPeakWindowOptionsOffPeakWindowArgs struct {
+	// 10h window for updates
+	WindowStartTimes GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArrayInput `pulumi:"windowStartTimes"`
+}
+
+func (GetDomainOffPeakWindowOptionsOffPeakWindowArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDomainOffPeakWindowOptionsOffPeakWindow)(nil)).Elem()
+}
+
+func (i GetDomainOffPeakWindowOptionsOffPeakWindowArgs) ToGetDomainOffPeakWindowOptionsOffPeakWindowOutput() GetDomainOffPeakWindowOptionsOffPeakWindowOutput {
+	return i.ToGetDomainOffPeakWindowOptionsOffPeakWindowOutputWithContext(context.Background())
+}
+
+func (i GetDomainOffPeakWindowOptionsOffPeakWindowArgs) ToGetDomainOffPeakWindowOptionsOffPeakWindowOutputWithContext(ctx context.Context) GetDomainOffPeakWindowOptionsOffPeakWindowOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDomainOffPeakWindowOptionsOffPeakWindowOutput)
+}
+
+// GetDomainOffPeakWindowOptionsOffPeakWindowArrayInput is an input type that accepts GetDomainOffPeakWindowOptionsOffPeakWindowArray and GetDomainOffPeakWindowOptionsOffPeakWindowArrayOutput values.
+// You can construct a concrete instance of `GetDomainOffPeakWindowOptionsOffPeakWindowArrayInput` via:
+//
+//	GetDomainOffPeakWindowOptionsOffPeakWindowArray{ GetDomainOffPeakWindowOptionsOffPeakWindowArgs{...} }
+type GetDomainOffPeakWindowOptionsOffPeakWindowArrayInput interface {
+	pulumi.Input
+
+	ToGetDomainOffPeakWindowOptionsOffPeakWindowArrayOutput() GetDomainOffPeakWindowOptionsOffPeakWindowArrayOutput
+	ToGetDomainOffPeakWindowOptionsOffPeakWindowArrayOutputWithContext(context.Context) GetDomainOffPeakWindowOptionsOffPeakWindowArrayOutput
+}
+
+type GetDomainOffPeakWindowOptionsOffPeakWindowArray []GetDomainOffPeakWindowOptionsOffPeakWindowInput
+
+func (GetDomainOffPeakWindowOptionsOffPeakWindowArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDomainOffPeakWindowOptionsOffPeakWindow)(nil)).Elem()
+}
+
+func (i GetDomainOffPeakWindowOptionsOffPeakWindowArray) ToGetDomainOffPeakWindowOptionsOffPeakWindowArrayOutput() GetDomainOffPeakWindowOptionsOffPeakWindowArrayOutput {
+	return i.ToGetDomainOffPeakWindowOptionsOffPeakWindowArrayOutputWithContext(context.Background())
+}
+
+func (i GetDomainOffPeakWindowOptionsOffPeakWindowArray) ToGetDomainOffPeakWindowOptionsOffPeakWindowArrayOutputWithContext(ctx context.Context) GetDomainOffPeakWindowOptionsOffPeakWindowArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDomainOffPeakWindowOptionsOffPeakWindowArrayOutput)
+}
+
+type GetDomainOffPeakWindowOptionsOffPeakWindowOutput struct{ *pulumi.OutputState }
+
+func (GetDomainOffPeakWindowOptionsOffPeakWindowOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDomainOffPeakWindowOptionsOffPeakWindow)(nil)).Elem()
+}
+
+func (o GetDomainOffPeakWindowOptionsOffPeakWindowOutput) ToGetDomainOffPeakWindowOptionsOffPeakWindowOutput() GetDomainOffPeakWindowOptionsOffPeakWindowOutput {
+	return o
+}
+
+func (o GetDomainOffPeakWindowOptionsOffPeakWindowOutput) ToGetDomainOffPeakWindowOptionsOffPeakWindowOutputWithContext(ctx context.Context) GetDomainOffPeakWindowOptionsOffPeakWindowOutput {
+	return o
+}
+
+// 10h window for updates
+func (o GetDomainOffPeakWindowOptionsOffPeakWindowOutput) WindowStartTimes() GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArrayOutput {
+	return o.ApplyT(func(v GetDomainOffPeakWindowOptionsOffPeakWindow) []GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime {
+		return v.WindowStartTimes
+	}).(GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArrayOutput)
+}
+
+type GetDomainOffPeakWindowOptionsOffPeakWindowArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDomainOffPeakWindowOptionsOffPeakWindowArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDomainOffPeakWindowOptionsOffPeakWindow)(nil)).Elem()
+}
+
+func (o GetDomainOffPeakWindowOptionsOffPeakWindowArrayOutput) ToGetDomainOffPeakWindowOptionsOffPeakWindowArrayOutput() GetDomainOffPeakWindowOptionsOffPeakWindowArrayOutput {
+	return o
+}
+
+func (o GetDomainOffPeakWindowOptionsOffPeakWindowArrayOutput) ToGetDomainOffPeakWindowOptionsOffPeakWindowArrayOutputWithContext(ctx context.Context) GetDomainOffPeakWindowOptionsOffPeakWindowArrayOutput {
+	return o
+}
+
+func (o GetDomainOffPeakWindowOptionsOffPeakWindowArrayOutput) Index(i pulumi.IntInput) GetDomainOffPeakWindowOptionsOffPeakWindowOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDomainOffPeakWindowOptionsOffPeakWindow {
+		return vs[0].([]GetDomainOffPeakWindowOptionsOffPeakWindow)[vs[1].(int)]
+	}).(GetDomainOffPeakWindowOptionsOffPeakWindowOutput)
+}
+
+type GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime struct {
+	// Starting hour of the 10-hour window for updates
+	Hours int `pulumi:"hours"`
+	// Starting minute of the 10-hour window for updates
+	Minutes int `pulumi:"minutes"`
+}
+
+// GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeInput is an input type that accepts GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs and GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput values.
+// You can construct a concrete instance of `GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeInput` via:
+//
+//	GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs{...}
+type GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeInput interface {
+	pulumi.Input
+
+	ToGetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput() GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput
+	ToGetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutputWithContext(context.Context) GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput
+}
+
+type GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs struct {
+	// Starting hour of the 10-hour window for updates
+	Hours pulumi.IntInput `pulumi:"hours"`
+	// Starting minute of the 10-hour window for updates
+	Minutes pulumi.IntInput `pulumi:"minutes"`
+}
+
+func (GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime)(nil)).Elem()
+}
+
+func (i GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs) ToGetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput() GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput {
+	return i.ToGetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutputWithContext(context.Background())
+}
+
+func (i GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs) ToGetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutputWithContext(ctx context.Context) GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput)
+}
+
+// GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArrayInput is an input type that accepts GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArray and GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArrayOutput values.
+// You can construct a concrete instance of `GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArrayInput` via:
+//
+//	GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArray{ GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs{...} }
+type GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArrayInput interface {
+	pulumi.Input
+
+	ToGetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArrayOutput() GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArrayOutput
+	ToGetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArrayOutputWithContext(context.Context) GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArrayOutput
+}
+
+type GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArray []GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeInput
+
+func (GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime)(nil)).Elem()
+}
+
+func (i GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArray) ToGetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArrayOutput() GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArrayOutput {
+	return i.ToGetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArrayOutputWithContext(context.Background())
+}
+
+func (i GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArray) ToGetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArrayOutputWithContext(ctx context.Context) GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArrayOutput)
+}
+
+type GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput struct{ *pulumi.OutputState }
+
+func (GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime)(nil)).Elem()
+}
+
+func (o GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput) ToGetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput() GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput {
+	return o
+}
+
+func (o GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput) ToGetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutputWithContext(ctx context.Context) GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput {
+	return o
+}
+
+// Starting hour of the 10-hour window for updates
+func (o GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput) Hours() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime) int { return v.Hours }).(pulumi.IntOutput)
+}
+
+// Starting minute of the 10-hour window for updates
+func (o GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput) Minutes() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime) int { return v.Minutes }).(pulumi.IntOutput)
+}
+
+type GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime)(nil)).Elem()
+}
+
+func (o GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArrayOutput) ToGetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArrayOutput() GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArrayOutput {
+	return o
+}
+
+func (o GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArrayOutput) ToGetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArrayOutputWithContext(ctx context.Context) GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArrayOutput {
+	return o
+}
+
+func (o GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArrayOutput) Index(i pulumi.IntInput) GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime {
+		return vs[0].([]GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTime)[vs[1].(int)]
+	}).(GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput)
 }
 
 type GetDomainSnapshotOption struct {
@@ -5076,6 +6390,200 @@ func (o GetDomainVpcOptionArrayOutput) Index(i pulumi.IntInput) GetDomainVpcOpti
 	}).(GetDomainVpcOptionOutput)
 }
 
+type GetServerlessSecurityConfigSamlOptions struct {
+	// Group attribute for this SAML integration.
+	GroupAttribute string `pulumi:"groupAttribute"`
+	// The XML IdP metadata file generated from your identity provider.
+	Metadata string `pulumi:"metadata"`
+	// Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
+	SessionTimeout int `pulumi:"sessionTimeout"`
+	// User attribute for this SAML integration.
+	UserAttribute string `pulumi:"userAttribute"`
+}
+
+// GetServerlessSecurityConfigSamlOptionsInput is an input type that accepts GetServerlessSecurityConfigSamlOptionsArgs and GetServerlessSecurityConfigSamlOptionsOutput values.
+// You can construct a concrete instance of `GetServerlessSecurityConfigSamlOptionsInput` via:
+//
+//	GetServerlessSecurityConfigSamlOptionsArgs{...}
+type GetServerlessSecurityConfigSamlOptionsInput interface {
+	pulumi.Input
+
+	ToGetServerlessSecurityConfigSamlOptionsOutput() GetServerlessSecurityConfigSamlOptionsOutput
+	ToGetServerlessSecurityConfigSamlOptionsOutputWithContext(context.Context) GetServerlessSecurityConfigSamlOptionsOutput
+}
+
+type GetServerlessSecurityConfigSamlOptionsArgs struct {
+	// Group attribute for this SAML integration.
+	GroupAttribute pulumi.StringInput `pulumi:"groupAttribute"`
+	// The XML IdP metadata file generated from your identity provider.
+	Metadata pulumi.StringInput `pulumi:"metadata"`
+	// Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
+	SessionTimeout pulumi.IntInput `pulumi:"sessionTimeout"`
+	// User attribute for this SAML integration.
+	UserAttribute pulumi.StringInput `pulumi:"userAttribute"`
+}
+
+func (GetServerlessSecurityConfigSamlOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServerlessSecurityConfigSamlOptions)(nil)).Elem()
+}
+
+func (i GetServerlessSecurityConfigSamlOptionsArgs) ToGetServerlessSecurityConfigSamlOptionsOutput() GetServerlessSecurityConfigSamlOptionsOutput {
+	return i.ToGetServerlessSecurityConfigSamlOptionsOutputWithContext(context.Background())
+}
+
+func (i GetServerlessSecurityConfigSamlOptionsArgs) ToGetServerlessSecurityConfigSamlOptionsOutputWithContext(ctx context.Context) GetServerlessSecurityConfigSamlOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServerlessSecurityConfigSamlOptionsOutput)
+}
+
+func (i GetServerlessSecurityConfigSamlOptionsArgs) ToGetServerlessSecurityConfigSamlOptionsPtrOutput() GetServerlessSecurityConfigSamlOptionsPtrOutput {
+	return i.ToGetServerlessSecurityConfigSamlOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i GetServerlessSecurityConfigSamlOptionsArgs) ToGetServerlessSecurityConfigSamlOptionsPtrOutputWithContext(ctx context.Context) GetServerlessSecurityConfigSamlOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServerlessSecurityConfigSamlOptionsOutput).ToGetServerlessSecurityConfigSamlOptionsPtrOutputWithContext(ctx)
+}
+
+// GetServerlessSecurityConfigSamlOptionsPtrInput is an input type that accepts GetServerlessSecurityConfigSamlOptionsArgs, GetServerlessSecurityConfigSamlOptionsPtr and GetServerlessSecurityConfigSamlOptionsPtrOutput values.
+// You can construct a concrete instance of `GetServerlessSecurityConfigSamlOptionsPtrInput` via:
+//
+//	        GetServerlessSecurityConfigSamlOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetServerlessSecurityConfigSamlOptionsPtrInput interface {
+	pulumi.Input
+
+	ToGetServerlessSecurityConfigSamlOptionsPtrOutput() GetServerlessSecurityConfigSamlOptionsPtrOutput
+	ToGetServerlessSecurityConfigSamlOptionsPtrOutputWithContext(context.Context) GetServerlessSecurityConfigSamlOptionsPtrOutput
+}
+
+type getServerlessSecurityConfigSamlOptionsPtrType GetServerlessSecurityConfigSamlOptionsArgs
+
+func GetServerlessSecurityConfigSamlOptionsPtr(v *GetServerlessSecurityConfigSamlOptionsArgs) GetServerlessSecurityConfigSamlOptionsPtrInput {
+	return (*getServerlessSecurityConfigSamlOptionsPtrType)(v)
+}
+
+func (*getServerlessSecurityConfigSamlOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetServerlessSecurityConfigSamlOptions)(nil)).Elem()
+}
+
+func (i *getServerlessSecurityConfigSamlOptionsPtrType) ToGetServerlessSecurityConfigSamlOptionsPtrOutput() GetServerlessSecurityConfigSamlOptionsPtrOutput {
+	return i.ToGetServerlessSecurityConfigSamlOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *getServerlessSecurityConfigSamlOptionsPtrType) ToGetServerlessSecurityConfigSamlOptionsPtrOutputWithContext(ctx context.Context) GetServerlessSecurityConfigSamlOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServerlessSecurityConfigSamlOptionsPtrOutput)
+}
+
+type GetServerlessSecurityConfigSamlOptionsOutput struct{ *pulumi.OutputState }
+
+func (GetServerlessSecurityConfigSamlOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServerlessSecurityConfigSamlOptions)(nil)).Elem()
+}
+
+func (o GetServerlessSecurityConfigSamlOptionsOutput) ToGetServerlessSecurityConfigSamlOptionsOutput() GetServerlessSecurityConfigSamlOptionsOutput {
+	return o
+}
+
+func (o GetServerlessSecurityConfigSamlOptionsOutput) ToGetServerlessSecurityConfigSamlOptionsOutputWithContext(ctx context.Context) GetServerlessSecurityConfigSamlOptionsOutput {
+	return o
+}
+
+func (o GetServerlessSecurityConfigSamlOptionsOutput) ToGetServerlessSecurityConfigSamlOptionsPtrOutput() GetServerlessSecurityConfigSamlOptionsPtrOutput {
+	return o.ToGetServerlessSecurityConfigSamlOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o GetServerlessSecurityConfigSamlOptionsOutput) ToGetServerlessSecurityConfigSamlOptionsPtrOutputWithContext(ctx context.Context) GetServerlessSecurityConfigSamlOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetServerlessSecurityConfigSamlOptions) *GetServerlessSecurityConfigSamlOptions {
+		return &v
+	}).(GetServerlessSecurityConfigSamlOptionsPtrOutput)
+}
+
+// Group attribute for this SAML integration.
+func (o GetServerlessSecurityConfigSamlOptionsOutput) GroupAttribute() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServerlessSecurityConfigSamlOptions) string { return v.GroupAttribute }).(pulumi.StringOutput)
+}
+
+// The XML IdP metadata file generated from your identity provider.
+func (o GetServerlessSecurityConfigSamlOptionsOutput) Metadata() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServerlessSecurityConfigSamlOptions) string { return v.Metadata }).(pulumi.StringOutput)
+}
+
+// Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
+func (o GetServerlessSecurityConfigSamlOptionsOutput) SessionTimeout() pulumi.IntOutput {
+	return o.ApplyT(func(v GetServerlessSecurityConfigSamlOptions) int { return v.SessionTimeout }).(pulumi.IntOutput)
+}
+
+// User attribute for this SAML integration.
+func (o GetServerlessSecurityConfigSamlOptionsOutput) UserAttribute() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServerlessSecurityConfigSamlOptions) string { return v.UserAttribute }).(pulumi.StringOutput)
+}
+
+type GetServerlessSecurityConfigSamlOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (GetServerlessSecurityConfigSamlOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetServerlessSecurityConfigSamlOptions)(nil)).Elem()
+}
+
+func (o GetServerlessSecurityConfigSamlOptionsPtrOutput) ToGetServerlessSecurityConfigSamlOptionsPtrOutput() GetServerlessSecurityConfigSamlOptionsPtrOutput {
+	return o
+}
+
+func (o GetServerlessSecurityConfigSamlOptionsPtrOutput) ToGetServerlessSecurityConfigSamlOptionsPtrOutputWithContext(ctx context.Context) GetServerlessSecurityConfigSamlOptionsPtrOutput {
+	return o
+}
+
+func (o GetServerlessSecurityConfigSamlOptionsPtrOutput) Elem() GetServerlessSecurityConfigSamlOptionsOutput {
+	return o.ApplyT(func(v *GetServerlessSecurityConfigSamlOptions) GetServerlessSecurityConfigSamlOptions {
+		if v != nil {
+			return *v
+		}
+		var ret GetServerlessSecurityConfigSamlOptions
+		return ret
+	}).(GetServerlessSecurityConfigSamlOptionsOutput)
+}
+
+// Group attribute for this SAML integration.
+func (o GetServerlessSecurityConfigSamlOptionsPtrOutput) GroupAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetServerlessSecurityConfigSamlOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.GroupAttribute
+	}).(pulumi.StringPtrOutput)
+}
+
+// The XML IdP metadata file generated from your identity provider.
+func (o GetServerlessSecurityConfigSamlOptionsPtrOutput) Metadata() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetServerlessSecurityConfigSamlOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Metadata
+	}).(pulumi.StringPtrOutput)
+}
+
+// Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
+func (o GetServerlessSecurityConfigSamlOptionsPtrOutput) SessionTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GetServerlessSecurityConfigSamlOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.SessionTimeout
+	}).(pulumi.IntPtrOutput)
+}
+
+// User attribute for this SAML integration.
+func (o GetServerlessSecurityConfigSamlOptionsPtrOutput) UserAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetServerlessSecurityConfigSamlOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.UserAttribute
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAdvancedSecurityOptionsInput)(nil)).Elem(), DomainAdvancedSecurityOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAdvancedSecurityOptionsPtrInput)(nil)).Elem(), DomainAdvancedSecurityOptionsArgs{})
@@ -5104,6 +6612,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainLogPublishingOptionArrayInput)(nil)).Elem(), DomainLogPublishingOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainNodeToNodeEncryptionInput)(nil)).Elem(), DomainNodeToNodeEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainNodeToNodeEncryptionPtrInput)(nil)).Elem(), DomainNodeToNodeEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainOffPeakWindowOptionsInput)(nil)).Elem(), DomainOffPeakWindowOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainOffPeakWindowOptionsPtrInput)(nil)).Elem(), DomainOffPeakWindowOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainOffPeakWindowOptionsOffPeakWindowInput)(nil)).Elem(), DomainOffPeakWindowOptionsOffPeakWindowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainOffPeakWindowOptionsOffPeakWindowPtrInput)(nil)).Elem(), DomainOffPeakWindowOptionsOffPeakWindowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeInput)(nil)).Elem(), DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrInput)(nil)).Elem(), DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSamlOptionsSamlOptionsInput)(nil)).Elem(), DomainSamlOptionsSamlOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSamlOptionsSamlOptionsPtrInput)(nil)).Elem(), DomainSamlOptionsSamlOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSamlOptionsSamlOptionsIdpInput)(nil)).Elem(), DomainSamlOptionsSamlOptionsIdpArgs{})
@@ -5116,6 +6630,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OutboundConnectionLocalDomainInfoPtrInput)(nil)).Elem(), OutboundConnectionLocalDomainInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OutboundConnectionRemoteDomainInfoInput)(nil)).Elem(), OutboundConnectionRemoteDomainInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OutboundConnectionRemoteDomainInfoPtrInput)(nil)).Elem(), OutboundConnectionRemoteDomainInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCollectionTimeoutsInput)(nil)).Elem(), ServerlessCollectionTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCollectionTimeoutsPtrInput)(nil)).Elem(), ServerlessCollectionTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessSecurityConfigSamlOptionsInput)(nil)).Elem(), ServerlessSecurityConfigSamlOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessSecurityConfigSamlOptionsPtrInput)(nil)).Elem(), ServerlessSecurityConfigSamlOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessVpcEndpointTimeoutsInput)(nil)).Elem(), ServerlessVpcEndpointTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessVpcEndpointTimeoutsPtrInput)(nil)).Elem(), ServerlessVpcEndpointTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainAdvancedSecurityOptionInput)(nil)).Elem(), GetDomainAdvancedSecurityOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainAdvancedSecurityOptionArrayInput)(nil)).Elem(), GetDomainAdvancedSecurityOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainAutoTuneOptionInput)(nil)).Elem(), GetDomainAutoTuneOptionArgs{})
@@ -5140,10 +6660,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainLogPublishingOptionArrayInput)(nil)).Elem(), GetDomainLogPublishingOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainNodeToNodeEncryptionInput)(nil)).Elem(), GetDomainNodeToNodeEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainNodeToNodeEncryptionArrayInput)(nil)).Elem(), GetDomainNodeToNodeEncryptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainOffPeakWindowOptionsInput)(nil)).Elem(), GetDomainOffPeakWindowOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainOffPeakWindowOptionsPtrInput)(nil)).Elem(), GetDomainOffPeakWindowOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainOffPeakWindowOptionsOffPeakWindowInput)(nil)).Elem(), GetDomainOffPeakWindowOptionsOffPeakWindowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainOffPeakWindowOptionsOffPeakWindowArrayInput)(nil)).Elem(), GetDomainOffPeakWindowOptionsOffPeakWindowArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeInput)(nil)).Elem(), GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArrayInput)(nil)).Elem(), GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainSnapshotOptionInput)(nil)).Elem(), GetDomainSnapshotOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainSnapshotOptionArrayInput)(nil)).Elem(), GetDomainSnapshotOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainVpcOptionInput)(nil)).Elem(), GetDomainVpcOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainVpcOptionArrayInput)(nil)).Elem(), GetDomainVpcOptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServerlessSecurityConfigSamlOptionsInput)(nil)).Elem(), GetServerlessSecurityConfigSamlOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServerlessSecurityConfigSamlOptionsPtrInput)(nil)).Elem(), GetServerlessSecurityConfigSamlOptionsArgs{})
 	pulumi.RegisterOutputType(DomainAdvancedSecurityOptionsOutput{})
 	pulumi.RegisterOutputType(DomainAdvancedSecurityOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainAdvancedSecurityOptionsMasterUserOptionsOutput{})
@@ -5171,6 +6699,12 @@ func init() {
 	pulumi.RegisterOutputType(DomainLogPublishingOptionArrayOutput{})
 	pulumi.RegisterOutputType(DomainNodeToNodeEncryptionOutput{})
 	pulumi.RegisterOutputType(DomainNodeToNodeEncryptionPtrOutput{})
+	pulumi.RegisterOutputType(DomainOffPeakWindowOptionsOutput{})
+	pulumi.RegisterOutputType(DomainOffPeakWindowOptionsPtrOutput{})
+	pulumi.RegisterOutputType(DomainOffPeakWindowOptionsOffPeakWindowOutput{})
+	pulumi.RegisterOutputType(DomainOffPeakWindowOptionsOffPeakWindowPtrOutput{})
+	pulumi.RegisterOutputType(DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput{})
+	pulumi.RegisterOutputType(DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimePtrOutput{})
 	pulumi.RegisterOutputType(DomainSamlOptionsSamlOptionsOutput{})
 	pulumi.RegisterOutputType(DomainSamlOptionsSamlOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainSamlOptionsSamlOptionsIdpOutput{})
@@ -5183,6 +6717,12 @@ func init() {
 	pulumi.RegisterOutputType(OutboundConnectionLocalDomainInfoPtrOutput{})
 	pulumi.RegisterOutputType(OutboundConnectionRemoteDomainInfoOutput{})
 	pulumi.RegisterOutputType(OutboundConnectionRemoteDomainInfoPtrOutput{})
+	pulumi.RegisterOutputType(ServerlessCollectionTimeoutsOutput{})
+	pulumi.RegisterOutputType(ServerlessCollectionTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(ServerlessSecurityConfigSamlOptionsOutput{})
+	pulumi.RegisterOutputType(ServerlessSecurityConfigSamlOptionsPtrOutput{})
+	pulumi.RegisterOutputType(ServerlessVpcEndpointTimeoutsOutput{})
+	pulumi.RegisterOutputType(ServerlessVpcEndpointTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(GetDomainAdvancedSecurityOptionOutput{})
 	pulumi.RegisterOutputType(GetDomainAdvancedSecurityOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetDomainAutoTuneOptionOutput{})
@@ -5207,8 +6747,16 @@ func init() {
 	pulumi.RegisterOutputType(GetDomainLogPublishingOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetDomainNodeToNodeEncryptionOutput{})
 	pulumi.RegisterOutputType(GetDomainNodeToNodeEncryptionArrayOutput{})
+	pulumi.RegisterOutputType(GetDomainOffPeakWindowOptionsOutput{})
+	pulumi.RegisterOutputType(GetDomainOffPeakWindowOptionsPtrOutput{})
+	pulumi.RegisterOutputType(GetDomainOffPeakWindowOptionsOffPeakWindowOutput{})
+	pulumi.RegisterOutputType(GetDomainOffPeakWindowOptionsOffPeakWindowArrayOutput{})
+	pulumi.RegisterOutputType(GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeOutput{})
+	pulumi.RegisterOutputType(GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArrayOutput{})
 	pulumi.RegisterOutputType(GetDomainSnapshotOptionOutput{})
 	pulumi.RegisterOutputType(GetDomainSnapshotOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetDomainVpcOptionOutput{})
 	pulumi.RegisterOutputType(GetDomainVpcOptionArrayOutput{})
+	pulumi.RegisterOutputType(GetServerlessSecurityConfigSamlOptionsOutput{})
+	pulumi.RegisterOutputType(GetServerlessSecurityConfigSamlOptionsPtrOutput{})
 }

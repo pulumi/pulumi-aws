@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emrserverless"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emrserverless"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -47,7 +48,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emrserverless"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emrserverless"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -85,7 +86,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emrserverless"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emrserverless"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -111,13 +112,11 @@ import (
 //
 // ## Import
 //
-// EMR Severless applications can be imported using the `id`, e.g.
+// terraform import {
 //
-// ```sh
+//	to = aws_emrserverless_application.example
 //
-//	$ pulumi import aws:emrserverless/application:Application example id
-//
-// ```
+//	id = "id" } Using `pulumi import`, import EMR Severless applications using the `id`. For exampleconsole % pulumi import aws_emrserverless_application.example id
 type Application struct {
 	pulumi.CustomResourceState
 
@@ -162,6 +161,7 @@ func NewApplication(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Application
 	err := ctx.RegisterResource("aws:emrserverless/application:Application", name, args, &resource, opts...)
 	if err != nil {

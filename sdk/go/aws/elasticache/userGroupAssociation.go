@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elasticache"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticache"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -78,13 +79,11 @@ import (
 //
 // ## Import
 //
-// ElastiCache user group associations can be imported using the `user_group_id` and `user_id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_elasticache_user_group_association.example
 //
-//	$ pulumi import aws:elasticache/userGroupAssociation:UserGroupAssociation example userGoupId1,userId
-//
-// ```
+//	id = "userGoupId1,userId" } Using `pulumi import`, import ElastiCache user group associations using the `user_group_id` and `user_id`. For exampleconsole % pulumi import aws_elasticache_user_group_association.example userGoupId1,userId
 type UserGroupAssociation struct {
 	pulumi.CustomResourceState
 
@@ -107,6 +106,7 @@ func NewUserGroupAssociation(ctx *pulumi.Context,
 	if args.UserId == nil {
 		return nil, errors.New("invalid value for required argument 'UserId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource UserGroupAssociation
 	err := ctx.RegisterResource("aws:elasticache/userGroupAssociation:UserGroupAssociation", name, args, &resource, opts...)
 	if err != nil {

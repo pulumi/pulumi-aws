@@ -334,11 +334,6 @@ export const getSubnet: typeof import("./getSubnet").getSubnet = null as any;
 export const getSubnetOutput: typeof import("./getSubnet").getSubnetOutput = null as any;
 utilities.lazyLoad(exports, ["getSubnet","getSubnetOutput"], () => require("./getSubnet"));
 
-export { GetSubnetIdsArgs, GetSubnetIdsResult, GetSubnetIdsOutputArgs } from "./getSubnetIds";
-export const getSubnetIds: typeof import("./getSubnetIds").getSubnetIds = null as any;
-export const getSubnetIdsOutput: typeof import("./getSubnetIds").getSubnetIdsOutput = null as any;
-utilities.lazyLoad(exports, ["getSubnetIds","getSubnetIdsOutput"], () => require("./getSubnetIds"));
-
 export { GetSubnetsArgs, GetSubnetsResult, GetSubnetsOutputArgs } from "./getSubnets";
 export const getSubnets: typeof import("./getSubnets").getSubnets = null as any;
 export const getSubnetsOutput: typeof import("./getSubnets").getSubnetsOutput = null as any;
@@ -613,11 +608,6 @@ export { TrafficMirrorTargetArgs, TrafficMirrorTargetState } from "./trafficMirr
 export type TrafficMirrorTarget = import("./trafficMirrorTarget").TrafficMirrorTarget;
 export const TrafficMirrorTarget: typeof import("./trafficMirrorTarget").TrafficMirrorTarget = null as any;
 utilities.lazyLoad(exports, ["TrafficMirrorTarget"], () => require("./trafficMirrorTarget"));
-
-export { TransitGatewayPeeringAttachmentAccepterArgs, TransitGatewayPeeringAttachmentAccepterState } from "./transitGatewayPeeringAttachmentAccepter";
-export type TransitGatewayPeeringAttachmentAccepter = import("./transitGatewayPeeringAttachmentAccepter").TransitGatewayPeeringAttachmentAccepter;
-export const TransitGatewayPeeringAttachmentAccepter: typeof import("./transitGatewayPeeringAttachmentAccepter").TransitGatewayPeeringAttachmentAccepter = null as any;
-utilities.lazyLoad(exports, ["TransitGatewayPeeringAttachmentAccepter"], () => require("./transitGatewayPeeringAttachmentAccepter"));
 
 export { VolumeAttachmentArgs, VolumeAttachmentState } from "./volumeAttachment";
 export type VolumeAttachment = import("./volumeAttachment").VolumeAttachment;
@@ -904,8 +894,6 @@ const _module = {
                 return new TrafficMirrorSession(name, <any>undefined, { urn })
             case "aws:ec2/trafficMirrorTarget:TrafficMirrorTarget":
                 return new TrafficMirrorTarget(name, <any>undefined, { urn })
-            case "aws:ec2/transitGatewayPeeringAttachmentAccepter:TransitGatewayPeeringAttachmentAccepter":
-                return new TransitGatewayPeeringAttachmentAccepter(name, <any>undefined, { urn })
             case "aws:ec2/volumeAttachment:VolumeAttachment":
                 return new VolumeAttachment(name, <any>undefined, { urn })
             case "aws:ec2/vpc:Vpc":
@@ -1034,7 +1022,6 @@ pulumi.runtime.registerResourceModule("aws", "ec2/trafficMirrorFilter", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/trafficMirrorFilterRule", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/trafficMirrorSession", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/trafficMirrorTarget", _module)
-pulumi.runtime.registerResourceModule("aws", "ec2/transitGatewayPeeringAttachmentAccepter", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/volumeAttachment", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpc", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcDhcpOptions", _module)

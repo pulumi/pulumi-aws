@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/opsworks"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opsworks"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -90,13 +91,11 @@ import (
 //
 // ## Import
 //
-// Opsworks Instances can be imported using the `instance id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_opsworks_instance.my_instance
 //
-//	$ pulumi import aws:opsworks/instance:Instance my_instance 4d6d1710-ded9-42a1-b08e-b043ad7af1e2
-//
-// ```
+//	id = "4d6d1710-ded9-42a1-b08e-b043ad7af1e2" } Using `pulumi import`, import Opsworks Instances using the instance `id`. For exampleconsole % pulumi import aws_opsworks_instance.my_instance 4d6d1710-ded9-42a1-b08e-b043ad7af1e2
 type Instance struct {
 	pulumi.CustomResourceState
 
@@ -207,6 +206,7 @@ func NewInstance(ctx *pulumi.Context,
 	if args.StackId == nil {
 		return nil, errors.New("invalid value for required argument 'StackId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Instance
 	err := ctx.RegisterResource("aws:opsworks/instance:Instance", name, args, &resource, opts...)
 	if err != nil {

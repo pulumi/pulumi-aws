@@ -23,11 +23,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * VPN Gateways can be imported using the `vpn gateway id`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:ec2/vpnGateway:VpnGateway testvpngateway vgw-9a4cacf3
- * ```
+ *  to = aws_vpn_gateway.testvpngateway
+ *
+ *  id = "vgw-9a4cacf3" } Using `pulumi import`, import VPN Gateways using the VPN gateway `id`. For exampleconsole % pulumi import aws_vpn_gateway.testvpngateway vgw-9a4cacf3
  */
 export class VpnGateway extends pulumi.CustomResource {
     /**

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/pinpoint"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/pinpoint"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -47,13 +48,11 @@ import (
 //
 // ## Import
 //
-// Pinpoint Baidu Channel can be imported using the `application-id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_pinpoint_baidu_channel.channel
 //
-//	$ pulumi import aws:pinpoint/baiduChannel:BaiduChannel channel application-id
-//
-// ```
+//	id = "application-id" } Using `pulumi import`, import Pinpoint Baidu Channel using the `application-id`. For exampleconsole % pulumi import aws_pinpoint_baidu_channel.channel application-id
 type BaiduChannel struct {
 	pulumi.CustomResourceState
 
@@ -94,6 +93,7 @@ func NewBaiduChannel(ctx *pulumi.Context,
 		"secretKey",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BaiduChannel
 	err := ctx.RegisterResource("aws:pinpoint/baiduChannel:BaiduChannel", name, args, &resource, opts...)
 	if err != nil {

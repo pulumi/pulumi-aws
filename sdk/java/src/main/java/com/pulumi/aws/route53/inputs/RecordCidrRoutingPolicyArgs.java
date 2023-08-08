@@ -14,14 +14,14 @@ public final class RecordCidrRoutingPolicyArgs extends com.pulumi.resources.Reso
     public static final RecordCidrRoutingPolicyArgs Empty = new RecordCidrRoutingPolicyArgs();
 
     /**
-     * The CIDR collection ID. See the `aws_route53_cidr_collection` resource for more details.
+     * The CIDR collection ID. See the `aws.route53.CidrCollection` resource for more details.
      * 
      */
     @Import(name="collectionId", required=true)
     private Output<String> collectionId;
 
     /**
-     * @return The CIDR collection ID. See the `aws_route53_cidr_collection` resource for more details.
+     * @return The CIDR collection ID. See the `aws.route53.CidrCollection` resource for more details.
      * 
      */
     public Output<String> collectionId() {
@@ -29,14 +29,14 @@ public final class RecordCidrRoutingPolicyArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The CIDR collection location name. See the `aws_route53_cidr_location` resource for more details. A `location_name` with an asterisk `&#34;*&#34;` can be used to create a default CIDR record. `collection_id` is still required for default record.
+     * The CIDR collection location name. See the `aws.route53.CidrLocation` resource for more details. A `location_name` with an asterisk `&#34;*&#34;` can be used to create a default CIDR record. `collection_id` is still required for default record.
      * 
      */
     @Import(name="locationName", required=true)
     private Output<String> locationName;
 
     /**
-     * @return The CIDR collection location name. See the `aws_route53_cidr_location` resource for more details. A `location_name` with an asterisk `&#34;*&#34;` can be used to create a default CIDR record. `collection_id` is still required for default record.
+     * @return The CIDR collection location name. See the `aws.route53.CidrLocation` resource for more details. A `location_name` with an asterisk `&#34;*&#34;` can be used to create a default CIDR record. `collection_id` is still required for default record.
      * 
      */
     public Output<String> locationName() {
@@ -69,7 +69,7 @@ public final class RecordCidrRoutingPolicyArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param collectionId The CIDR collection ID. See the `aws_route53_cidr_collection` resource for more details.
+         * @param collectionId The CIDR collection ID. See the `aws.route53.CidrCollection` resource for more details.
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class RecordCidrRoutingPolicyArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param collectionId The CIDR collection ID. See the `aws_route53_cidr_collection` resource for more details.
+         * @param collectionId The CIDR collection ID. See the `aws.route53.CidrCollection` resource for more details.
          * 
          * @return builder
          * 
@@ -90,7 +90,7 @@ public final class RecordCidrRoutingPolicyArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param locationName The CIDR collection location name. See the `aws_route53_cidr_location` resource for more details. A `location_name` with an asterisk `&#34;*&#34;` can be used to create a default CIDR record. `collection_id` is still required for default record.
+         * @param locationName The CIDR collection location name. See the `aws.route53.CidrLocation` resource for more details. A `location_name` with an asterisk `&#34;*&#34;` can be used to create a default CIDR record. `collection_id` is still required for default record.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class RecordCidrRoutingPolicyArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param locationName The CIDR collection location name. See the `aws_route53_cidr_location` resource for more details. A `location_name` with an asterisk `&#34;*&#34;` can be used to create a default CIDR record. `collection_id` is still required for default record.
+         * @param locationName The CIDR collection location name. See the `aws.route53.CidrLocation` resource for more details. A `location_name` with an asterisk `&#34;*&#34;` can be used to create a default CIDR record. `collection_id` is still required for default record.
          * 
          * @return builder
          * 

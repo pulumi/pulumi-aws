@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -63,13 +64,11 @@ import (
 //
 // ## Import
 //
-// AutoScaling ScheduledAction can be imported using the `auto-scaling-group-name` and `scheduled-action-name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_autoscaling_schedule.resource-name
 //
-//	$ pulumi import aws:autoscaling/schedule:Schedule resource-name auto-scaling-group-name/scheduled-action-name
-//
-// ```
+//	id = "auto-scaling-group-name/scheduled-action-name" } Using `pulumi import`, import AutoScaling ScheduledAction using the `auto-scaling-group-name` and `scheduled-action-name`. For exampleconsole % pulumi import aws_autoscaling_schedule.resource-name auto-scaling-group-name/scheduled-action-name
 type Schedule struct {
 	pulumi.CustomResourceState
 
@@ -112,6 +111,7 @@ func NewSchedule(ctx *pulumi.Context,
 	if args.ScheduledActionName == nil {
 		return nil, errors.New("invalid value for required argument 'ScheduledActionName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Schedule
 	err := ctx.RegisterResource("aws:autoscaling/schedule:Schedule", name, args, &resource, opts...)
 	if err != nil {

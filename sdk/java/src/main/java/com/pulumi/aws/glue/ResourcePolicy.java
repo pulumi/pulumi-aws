@@ -25,6 +25,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
+ * import com.pulumi.aws.inputs.GetPartitionArgs;
  * import com.pulumi.aws.inputs.GetRegionArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
@@ -70,11 +72,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Glue Resource Policy can be imported using the account ID
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:glue/resourcePolicy:ResourcePolicy Test 12356789012
- * ```
+ *  to = aws_glue_resource_policy.Test
+ * 
+ *  id = &#34;12356789012&#34; } Using `pulumi import`, import Glue Resource Policy using the account ID. For exampleconsole % pulumi import aws_glue_resource_policy.Test 12356789012
  * 
  */
 @ResourceType(type="aws:glue/resourcePolicy:ResourcePolicy")

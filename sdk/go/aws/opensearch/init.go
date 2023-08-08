@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -31,6 +31,16 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &InboundConnectionAccepter{}
 	case "aws:opensearch/outboundConnection:OutboundConnection":
 		r = &OutboundConnection{}
+	case "aws:opensearch/serverlessAccessPolicy:ServerlessAccessPolicy":
+		r = &ServerlessAccessPolicy{}
+	case "aws:opensearch/serverlessCollection:ServerlessCollection":
+		r = &ServerlessCollection{}
+	case "aws:opensearch/serverlessSecurityConfig:ServerlessSecurityConfig":
+		r = &ServerlessSecurityConfig{}
+	case "aws:opensearch/serverlessSecurityPolicy:ServerlessSecurityPolicy":
+		r = &ServerlessSecurityPolicy{}
+	case "aws:opensearch/serverlessVpcEndpoint:ServerlessVpcEndpoint":
+		r = &ServerlessVpcEndpoint{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -40,7 +50,7 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 }
 
 func init() {
-	version, err := aws.PkgVersion()
+	version, err := internal.PkgVersion()
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
@@ -67,6 +77,31 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"opensearch/outboundConnection",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"opensearch/serverlessAccessPolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"opensearch/serverlessCollection",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"opensearch/serverlessSecurityConfig",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"opensearch/serverlessSecurityPolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"opensearch/serverlessVpcEndpoint",
 		&module{version},
 	)
 }

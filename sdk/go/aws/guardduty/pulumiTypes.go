@@ -7,8 +7,11 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type DetectorDatasources struct {
 	// Configures [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
@@ -2224,7 +2227,7 @@ func (o OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWith
 }
 
 type OrganizationConfigurationDatasourcesS3Logs struct {
-	// When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+	// *Deprecated:* Use `autoEnableOrganizationMembers` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
 	AutoEnable bool `pulumi:"autoEnable"`
 }
 
@@ -2240,7 +2243,7 @@ type OrganizationConfigurationDatasourcesS3LogsInput interface {
 }
 
 type OrganizationConfigurationDatasourcesS3LogsArgs struct {
-	// When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+	// *Deprecated:* Use `autoEnableOrganizationMembers` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
 	AutoEnable pulumi.BoolInput `pulumi:"autoEnable"`
 }
 
@@ -2321,7 +2324,7 @@ func (o OrganizationConfigurationDatasourcesS3LogsOutput) ToOrganizationConfigur
 	}).(OrganizationConfigurationDatasourcesS3LogsPtrOutput)
 }
 
-// When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+// *Deprecated:* Use `autoEnableOrganizationMembers` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
 func (o OrganizationConfigurationDatasourcesS3LogsOutput) AutoEnable() pulumi.BoolOutput {
 	return o.ApplyT(func(v OrganizationConfigurationDatasourcesS3Logs) bool { return v.AutoEnable }).(pulumi.BoolOutput)
 }
@@ -2350,7 +2353,7 @@ func (o OrganizationConfigurationDatasourcesS3LogsPtrOutput) Elem() Organization
 	}).(OrganizationConfigurationDatasourcesS3LogsOutput)
 }
 
-// When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+// *Deprecated:* Use `autoEnableOrganizationMembers` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
 func (o OrganizationConfigurationDatasourcesS3LogsPtrOutput) AutoEnable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OrganizationConfigurationDatasourcesS3Logs) *bool {
 		if v == nil {

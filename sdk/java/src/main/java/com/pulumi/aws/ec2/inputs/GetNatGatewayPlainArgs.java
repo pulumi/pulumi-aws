@@ -39,14 +39,14 @@ public final class GetNatGatewayPlainArgs extends com.pulumi.resources.InvokeArg
     }
 
     /**
-     * ID of the specific Nat Gateway to retrieve.
+     * ID of the specific NAT Gateway to retrieve.
      * 
      */
     @Import(name="id")
     private @Nullable String id;
 
     /**
-     * @return ID of the specific Nat Gateway to retrieve.
+     * @return ID of the specific NAT Gateway to retrieve.
      * 
      */
     public Optional<String> id() {
@@ -54,14 +54,14 @@ public final class GetNatGatewayPlainArgs extends com.pulumi.resources.InvokeArg
     }
 
     /**
-     * State of the NAT gateway (pending | failed | available | deleting | deleted ).
+     * State of the NAT Gateway (pending | failed | available | deleting | deleted ).
      * 
      */
     @Import(name="state")
     private @Nullable String state;
 
     /**
-     * @return State of the NAT gateway (pending | failed | available | deleting | deleted ).
+     * @return State of the NAT Gateway (pending | failed | available | deleting | deleted ).
      * 
      */
     public Optional<String> state() {
@@ -69,14 +69,14 @@ public final class GetNatGatewayPlainArgs extends com.pulumi.resources.InvokeArg
     }
 
     /**
-     * ID of subnet that the Nat Gateway resides in.
+     * ID of subnet that the NAT Gateway resides in.
      * 
      */
     @Import(name="subnetId")
     private @Nullable String subnetId;
 
     /**
-     * @return ID of subnet that the Nat Gateway resides in.
+     * @return ID of subnet that the NAT Gateway resides in.
      * 
      */
     public Optional<String> subnetId() {
@@ -85,7 +85,7 @@ public final class GetNatGatewayPlainArgs extends com.pulumi.resources.InvokeArg
 
     /**
      * Map of tags, each pair of which must exactly match
-     * a pair on the desired Nat Gateway.
+     * a pair on the desired NAT Gateway.
      * 
      */
     @Import(name="tags")
@@ -93,7 +93,7 @@ public final class GetNatGatewayPlainArgs extends com.pulumi.resources.InvokeArg
 
     /**
      * @return Map of tags, each pair of which must exactly match
-     * a pair on the desired Nat Gateway.
+     * a pair on the desired NAT Gateway.
      * 
      */
     public Optional<Map<String,String>> tags() {
@@ -101,14 +101,14 @@ public final class GetNatGatewayPlainArgs extends com.pulumi.resources.InvokeArg
     }
 
     /**
-     * ID of the VPC that the Nat Gateway resides in.
+     * ID of the VPC that the NAT Gateway resides in.
      * 
      */
     @Import(name="vpcId")
     private @Nullable String vpcId;
 
     /**
-     * @return ID of the VPC that the Nat Gateway resides in.
+     * @return ID of the VPC that the NAT Gateway resides in.
      * 
      */
     public Optional<String> vpcId() {
@@ -172,7 +172,7 @@ public final class GetNatGatewayPlainArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param id ID of the specific Nat Gateway to retrieve.
+         * @param id ID of the specific NAT Gateway to retrieve.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class GetNatGatewayPlainArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param state State of the NAT gateway (pending | failed | available | deleting | deleted ).
+         * @param state State of the NAT Gateway (pending | failed | available | deleting | deleted ).
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class GetNatGatewayPlainArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param subnetId ID of subnet that the Nat Gateway resides in.
+         * @param subnetId ID of subnet that the NAT Gateway resides in.
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class GetNatGatewayPlainArgs extends com.pulumi.resources.InvokeArg
 
         /**
          * @param tags Map of tags, each pair of which must exactly match
-         * a pair on the desired Nat Gateway.
+         * a pair on the desired NAT Gateway.
          * 
          * @return builder
          * 
@@ -217,7 +217,7 @@ public final class GetNatGatewayPlainArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param vpcId ID of the VPC that the Nat Gateway resides in.
+         * @param vpcId ID of the VPC that the NAT Gateway resides in.
          * 
          * @return builder
          * 

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -31,7 +32,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -84,7 +85,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -127,7 +128,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -166,7 +167,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -188,13 +189,11 @@ import (
 //
 // ## Import
 //
-// Default Network ACLs can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_default_network_acl.sample
 //
-//	$ pulumi import aws:ec2/defaultNetworkAcl:DefaultNetworkAcl sample acl-7aaabd18
-//
-// ```
+//	id = "acl-7aaabd18" } Using `pulumi import`, import Default Network ACLs using the `id`. For exampleconsole % pulumi import aws_default_network_acl.sample acl-7aaabd18
 type DefaultNetworkAcl struct {
 	pulumi.CustomResourceState
 
@@ -230,6 +229,7 @@ func NewDefaultNetworkAcl(ctx *pulumi.Context,
 	if args.DefaultNetworkAclId == nil {
 		return nil, errors.New("invalid value for required argument 'DefaultNetworkAclId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DefaultNetworkAcl
 	err := ctx.RegisterResource("aws:ec2/defaultNetworkAcl:DefaultNetworkAcl", name, args, &resource, opts...)
 	if err != nil {

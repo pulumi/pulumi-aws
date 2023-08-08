@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +24,7 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -62,7 +63,7 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -107,7 +108,7 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -160,13 +161,11 @@ import (
 //
 // ## Import
 //
-// SageMaker Flow Definitions can be imported using the `flow_definition_name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_sagemaker_flow_definition.example
 //
-//	$ pulumi import aws:sagemaker/flowDefinition:FlowDefinition example example
-//
-// ```
+//	id = "example" } Using `pulumi import`, import SageMaker Flow Definitions using the `flow_definition_name`. For exampleconsole % pulumi import aws_sagemaker_flow_definition.example example
 type FlowDefinition struct {
 	pulumi.CustomResourceState
 
@@ -209,6 +208,7 @@ func NewFlowDefinition(ctx *pulumi.Context,
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FlowDefinition
 	err := ctx.RegisterResource("aws:sagemaker/flowDefinition:FlowDefinition", name, args, &resource, opts...)
 	if err != nil {

@@ -7,8 +7,11 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type ChannelCdiInputSpecification struct {
 	// Maximum CDI input resolution.
@@ -653,6 +656,14 @@ type ChannelEncoderSettings struct {
 	AudioDescriptions []ChannelEncoderSettingsAudioDescription `pulumi:"audioDescriptions"`
 	// Settings for ad avail blanking. See Avail Blanking for more details.
 	AvailBlanking *ChannelEncoderSettingsAvailBlanking `pulumi:"availBlanking"`
+	// Caption Descriptions. See Caption Descriptions for more details.
+	CaptionDescriptions []ChannelEncoderSettingsCaptionDescription `pulumi:"captionDescriptions"`
+	// Configuration settings that apply to the event as a whole. See Global Configuration for more details.
+	GlobalConfiguration *ChannelEncoderSettingsGlobalConfiguration `pulumi:"globalConfiguration"`
+	// Settings for motion graphics. See Motion Graphics Configuration for more details.
+	MotionGraphicsConfiguration *ChannelEncoderSettingsMotionGraphicsConfiguration `pulumi:"motionGraphicsConfiguration"`
+	// Nielsen configuration settings. See Nielsen Configuration for more details.
+	NielsenConfiguration *ChannelEncoderSettingsNielsenConfiguration `pulumi:"nielsenConfiguration"`
 	// Output groups for the channel. See Output Groups for more details.
 	OutputGroups []ChannelEncoderSettingsOutputGroup `pulumi:"outputGroups"`
 	// Contains settings used to acquire and adjust timecode information from inputs. See Timecode Config for more details.
@@ -677,6 +688,14 @@ type ChannelEncoderSettingsArgs struct {
 	AudioDescriptions ChannelEncoderSettingsAudioDescriptionArrayInput `pulumi:"audioDescriptions"`
 	// Settings for ad avail blanking. See Avail Blanking for more details.
 	AvailBlanking ChannelEncoderSettingsAvailBlankingPtrInput `pulumi:"availBlanking"`
+	// Caption Descriptions. See Caption Descriptions for more details.
+	CaptionDescriptions ChannelEncoderSettingsCaptionDescriptionArrayInput `pulumi:"captionDescriptions"`
+	// Configuration settings that apply to the event as a whole. See Global Configuration for more details.
+	GlobalConfiguration ChannelEncoderSettingsGlobalConfigurationPtrInput `pulumi:"globalConfiguration"`
+	// Settings for motion graphics. See Motion Graphics Configuration for more details.
+	MotionGraphicsConfiguration ChannelEncoderSettingsMotionGraphicsConfigurationPtrInput `pulumi:"motionGraphicsConfiguration"`
+	// Nielsen configuration settings. See Nielsen Configuration for more details.
+	NielsenConfiguration ChannelEncoderSettingsNielsenConfigurationPtrInput `pulumi:"nielsenConfiguration"`
 	// Output groups for the channel. See Output Groups for more details.
 	OutputGroups ChannelEncoderSettingsOutputGroupArrayInput `pulumi:"outputGroups"`
 	// Contains settings used to acquire and adjust timecode information from inputs. See Timecode Config for more details.
@@ -772,6 +791,34 @@ func (o ChannelEncoderSettingsOutput) AvailBlanking() ChannelEncoderSettingsAvai
 	return o.ApplyT(func(v ChannelEncoderSettings) *ChannelEncoderSettingsAvailBlanking { return v.AvailBlanking }).(ChannelEncoderSettingsAvailBlankingPtrOutput)
 }
 
+// Caption Descriptions. See Caption Descriptions for more details.
+func (o ChannelEncoderSettingsOutput) CaptionDescriptions() ChannelEncoderSettingsCaptionDescriptionArrayOutput {
+	return o.ApplyT(func(v ChannelEncoderSettings) []ChannelEncoderSettingsCaptionDescription {
+		return v.CaptionDescriptions
+	}).(ChannelEncoderSettingsCaptionDescriptionArrayOutput)
+}
+
+// Configuration settings that apply to the event as a whole. See Global Configuration for more details.
+func (o ChannelEncoderSettingsOutput) GlobalConfiguration() ChannelEncoderSettingsGlobalConfigurationPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettings) *ChannelEncoderSettingsGlobalConfiguration {
+		return v.GlobalConfiguration
+	}).(ChannelEncoderSettingsGlobalConfigurationPtrOutput)
+}
+
+// Settings for motion graphics. See Motion Graphics Configuration for more details.
+func (o ChannelEncoderSettingsOutput) MotionGraphicsConfiguration() ChannelEncoderSettingsMotionGraphicsConfigurationPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettings) *ChannelEncoderSettingsMotionGraphicsConfiguration {
+		return v.MotionGraphicsConfiguration
+	}).(ChannelEncoderSettingsMotionGraphicsConfigurationPtrOutput)
+}
+
+// Nielsen configuration settings. See Nielsen Configuration for more details.
+func (o ChannelEncoderSettingsOutput) NielsenConfiguration() ChannelEncoderSettingsNielsenConfigurationPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettings) *ChannelEncoderSettingsNielsenConfiguration {
+		return v.NielsenConfiguration
+	}).(ChannelEncoderSettingsNielsenConfigurationPtrOutput)
+}
+
 // Output groups for the channel. See Output Groups for more details.
 func (o ChannelEncoderSettingsOutput) OutputGroups() ChannelEncoderSettingsOutputGroupArrayOutput {
 	return o.ApplyT(func(v ChannelEncoderSettings) []ChannelEncoderSettingsOutputGroup { return v.OutputGroups }).(ChannelEncoderSettingsOutputGroupArrayOutput)
@@ -829,6 +876,46 @@ func (o ChannelEncoderSettingsPtrOutput) AvailBlanking() ChannelEncoderSettingsA
 		}
 		return v.AvailBlanking
 	}).(ChannelEncoderSettingsAvailBlankingPtrOutput)
+}
+
+// Caption Descriptions. See Caption Descriptions for more details.
+func (o ChannelEncoderSettingsPtrOutput) CaptionDescriptions() ChannelEncoderSettingsCaptionDescriptionArrayOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettings) []ChannelEncoderSettingsCaptionDescription {
+		if v == nil {
+			return nil
+		}
+		return v.CaptionDescriptions
+	}).(ChannelEncoderSettingsCaptionDescriptionArrayOutput)
+}
+
+// Configuration settings that apply to the event as a whole. See Global Configuration for more details.
+func (o ChannelEncoderSettingsPtrOutput) GlobalConfiguration() ChannelEncoderSettingsGlobalConfigurationPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettings) *ChannelEncoderSettingsGlobalConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.GlobalConfiguration
+	}).(ChannelEncoderSettingsGlobalConfigurationPtrOutput)
+}
+
+// Settings for motion graphics. See Motion Graphics Configuration for more details.
+func (o ChannelEncoderSettingsPtrOutput) MotionGraphicsConfiguration() ChannelEncoderSettingsMotionGraphicsConfigurationPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettings) *ChannelEncoderSettingsMotionGraphicsConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.MotionGraphicsConfiguration
+	}).(ChannelEncoderSettingsMotionGraphicsConfigurationPtrOutput)
+}
+
+// Nielsen configuration settings. See Nielsen Configuration for more details.
+func (o ChannelEncoderSettingsPtrOutput) NielsenConfiguration() ChannelEncoderSettingsNielsenConfigurationPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettings) *ChannelEncoderSettingsNielsenConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.NielsenConfiguration
+	}).(ChannelEncoderSettingsNielsenConfigurationPtrOutput)
 }
 
 // Output groups for the channel. See Output Groups for more details.
@@ -4527,6 +4614,4458 @@ func (o ChannelEncoderSettingsAvailBlankingAvailBlankingImagePtrOutput) Username
 	}).(pulumi.StringPtrOutput)
 }
 
+type ChannelEncoderSettingsCaptionDescription struct {
+	// Indicates whether the caption track implements accessibility features such as written descriptions of spoken dialog, music, and sounds.
+	Accessibility *string `pulumi:"accessibility"`
+	// Specifies which input caption selector to use as a caption source when generating output captions. This field should match a captionSelector name.
+	CaptionSelectorName string `pulumi:"captionSelectorName"`
+	// Additional settings for captions destination that depend on the destination type. See Destination Settings for more details.
+	DestinationSettings *ChannelEncoderSettingsCaptionDescriptionDestinationSettings `pulumi:"destinationSettings"`
+	// ISO 639-2 three-digit code.
+	LanguageCode *string `pulumi:"languageCode"`
+	// Human readable information to indicate captions available for players (eg. English, or Spanish).
+	LanguageDescription *string `pulumi:"languageDescription"`
+	// Name of the caption description. Used to associate a caption description with an output. Names must be unique within an event.
+	Name string `pulumi:"name"`
+}
+
+// ChannelEncoderSettingsCaptionDescriptionInput is an input type that accepts ChannelEncoderSettingsCaptionDescriptionArgs and ChannelEncoderSettingsCaptionDescriptionOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsCaptionDescriptionInput` via:
+//
+//	ChannelEncoderSettingsCaptionDescriptionArgs{...}
+type ChannelEncoderSettingsCaptionDescriptionInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsCaptionDescriptionOutput() ChannelEncoderSettingsCaptionDescriptionOutput
+	ToChannelEncoderSettingsCaptionDescriptionOutputWithContext(context.Context) ChannelEncoderSettingsCaptionDescriptionOutput
+}
+
+type ChannelEncoderSettingsCaptionDescriptionArgs struct {
+	// Indicates whether the caption track implements accessibility features such as written descriptions of spoken dialog, music, and sounds.
+	Accessibility pulumi.StringPtrInput `pulumi:"accessibility"`
+	// Specifies which input caption selector to use as a caption source when generating output captions. This field should match a captionSelector name.
+	CaptionSelectorName pulumi.StringInput `pulumi:"captionSelectorName"`
+	// Additional settings for captions destination that depend on the destination type. See Destination Settings for more details.
+	DestinationSettings ChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrInput `pulumi:"destinationSettings"`
+	// ISO 639-2 three-digit code.
+	LanguageCode pulumi.StringPtrInput `pulumi:"languageCode"`
+	// Human readable information to indicate captions available for players (eg. English, or Spanish).
+	LanguageDescription pulumi.StringPtrInput `pulumi:"languageDescription"`
+	// Name of the caption description. Used to associate a caption description with an output. Names must be unique within an event.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (ChannelEncoderSettingsCaptionDescriptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsCaptionDescription)(nil)).Elem()
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionArgs) ToChannelEncoderSettingsCaptionDescriptionOutput() ChannelEncoderSettingsCaptionDescriptionOutput {
+	return i.ToChannelEncoderSettingsCaptionDescriptionOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionArgs) ToChannelEncoderSettingsCaptionDescriptionOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsCaptionDescriptionOutput)
+}
+
+// ChannelEncoderSettingsCaptionDescriptionArrayInput is an input type that accepts ChannelEncoderSettingsCaptionDescriptionArray and ChannelEncoderSettingsCaptionDescriptionArrayOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsCaptionDescriptionArrayInput` via:
+//
+//	ChannelEncoderSettingsCaptionDescriptionArray{ ChannelEncoderSettingsCaptionDescriptionArgs{...} }
+type ChannelEncoderSettingsCaptionDescriptionArrayInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsCaptionDescriptionArrayOutput() ChannelEncoderSettingsCaptionDescriptionArrayOutput
+	ToChannelEncoderSettingsCaptionDescriptionArrayOutputWithContext(context.Context) ChannelEncoderSettingsCaptionDescriptionArrayOutput
+}
+
+type ChannelEncoderSettingsCaptionDescriptionArray []ChannelEncoderSettingsCaptionDescriptionInput
+
+func (ChannelEncoderSettingsCaptionDescriptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ChannelEncoderSettingsCaptionDescription)(nil)).Elem()
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionArray) ToChannelEncoderSettingsCaptionDescriptionArrayOutput() ChannelEncoderSettingsCaptionDescriptionArrayOutput {
+	return i.ToChannelEncoderSettingsCaptionDescriptionArrayOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionArray) ToChannelEncoderSettingsCaptionDescriptionArrayOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsCaptionDescriptionArrayOutput)
+}
+
+type ChannelEncoderSettingsCaptionDescriptionOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsCaptionDescriptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsCaptionDescription)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionOutput) ToChannelEncoderSettingsCaptionDescriptionOutput() ChannelEncoderSettingsCaptionDescriptionOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionOutput) ToChannelEncoderSettingsCaptionDescriptionOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionOutput {
+	return o
+}
+
+// Indicates whether the caption track implements accessibility features such as written descriptions of spoken dialog, music, and sounds.
+func (o ChannelEncoderSettingsCaptionDescriptionOutput) Accessibility() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescription) *string { return v.Accessibility }).(pulumi.StringPtrOutput)
+}
+
+// Specifies which input caption selector to use as a caption source when generating output captions. This field should match a captionSelector name.
+func (o ChannelEncoderSettingsCaptionDescriptionOutput) CaptionSelectorName() pulumi.StringOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescription) string { return v.CaptionSelectorName }).(pulumi.StringOutput)
+}
+
+// Additional settings for captions destination that depend on the destination type. See Destination Settings for more details.
+func (o ChannelEncoderSettingsCaptionDescriptionOutput) DestinationSettings() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescription) *ChannelEncoderSettingsCaptionDescriptionDestinationSettings {
+		return v.DestinationSettings
+	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutput)
+}
+
+// ISO 639-2 three-digit code.
+func (o ChannelEncoderSettingsCaptionDescriptionOutput) LanguageCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescription) *string { return v.LanguageCode }).(pulumi.StringPtrOutput)
+}
+
+// Human readable information to indicate captions available for players (eg. English, or Spanish).
+func (o ChannelEncoderSettingsCaptionDescriptionOutput) LanguageDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescription) *string { return v.LanguageDescription }).(pulumi.StringPtrOutput)
+}
+
+// Name of the caption description. Used to associate a caption description with an output. Names must be unique within an event.
+func (o ChannelEncoderSettingsCaptionDescriptionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescription) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type ChannelEncoderSettingsCaptionDescriptionArrayOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsCaptionDescriptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ChannelEncoderSettingsCaptionDescription)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionArrayOutput) ToChannelEncoderSettingsCaptionDescriptionArrayOutput() ChannelEncoderSettingsCaptionDescriptionArrayOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionArrayOutput) ToChannelEncoderSettingsCaptionDescriptionArrayOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionArrayOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionArrayOutput) Index(i pulumi.IntInput) ChannelEncoderSettingsCaptionDescriptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ChannelEncoderSettingsCaptionDescription {
+		return vs[0].([]ChannelEncoderSettingsCaptionDescription)[vs[1].(int)]
+	}).(ChannelEncoderSettingsCaptionDescriptionOutput)
+}
+
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettings struct {
+	// Arib Destination Settings.
+	AribDestinationSettings *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettings `pulumi:"aribDestinationSettings"`
+	// Burn In Destination Settings. See Burn In Destination Settings for more details.
+	BurnInDestinationSettings *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings `pulumi:"burnInDestinationSettings"`
+	// Dvb Sub Destination Settings. See Dvb Sub Destination Settings for more details.
+	DvbSubDestinationSettings *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings `pulumi:"dvbSubDestinationSettings"`
+	// Ebu Tt D Destination Settings. See Ebu Tt D Destination Settings for more details.
+	EbuTtDDestinationSettings *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettings `pulumi:"ebuTtDDestinationSettings"`
+	// Embedded Destination Settings.
+	EmbeddedDestinationSettings *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettings `pulumi:"embeddedDestinationSettings"`
+	// Embedded Plus Scte20 Destination Settings.
+	EmbeddedPlusScte20DestinationSettings *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettings `pulumi:"embeddedPlusScte20DestinationSettings"`
+	// Rtmp Caption Info Destination Settings.
+	RtmpCaptionInfoDestinationSettings *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettings `pulumi:"rtmpCaptionInfoDestinationSettings"`
+	// Scte20 Plus Embedded Destination Settings.
+	Scte20PlusEmbeddedDestinationSettings *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettings `pulumi:"scte20PlusEmbeddedDestinationSettings"`
+	// Scte27 Destination Settings.
+	Scte27DestinationSettings  *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettings  `pulumi:"scte27DestinationSettings"`
+	SmpteTtDestinationSettings *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettings `pulumi:"smpteTtDestinationSettings"`
+	// Teletext Destination Settings.
+	TeletextDestinationSettings *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettings `pulumi:"teletextDestinationSettings"`
+	// Ttml Destination Settings. See Ttml Destination Settings for more details.
+	TtmlDestinationSettings *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettings `pulumi:"ttmlDestinationSettings"`
+	// Webvtt Destination Settings. See Webvtt Destination Settings for more details.
+	WebvttDestinationSettings *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettings `pulumi:"webvttDestinationSettings"`
+}
+
+// ChannelEncoderSettingsCaptionDescriptionDestinationSettingsInput is an input type that accepts ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs and ChannelEncoderSettingsCaptionDescriptionDestinationSettingsOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsCaptionDescriptionDestinationSettingsInput` via:
+//
+//	ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs{...}
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsOutput
+	ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsOutputWithContext(context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsOutput
+}
+
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs struct {
+	// Arib Destination Settings.
+	AribDestinationSettings ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsPtrInput `pulumi:"aribDestinationSettings"`
+	// Burn In Destination Settings. See Burn In Destination Settings for more details.
+	BurnInDestinationSettings ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrInput `pulumi:"burnInDestinationSettings"`
+	// Dvb Sub Destination Settings. See Dvb Sub Destination Settings for more details.
+	DvbSubDestinationSettings ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrInput `pulumi:"dvbSubDestinationSettings"`
+	// Ebu Tt D Destination Settings. See Ebu Tt D Destination Settings for more details.
+	EbuTtDDestinationSettings ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsPtrInput `pulumi:"ebuTtDDestinationSettings"`
+	// Embedded Destination Settings.
+	EmbeddedDestinationSettings ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsPtrInput `pulumi:"embeddedDestinationSettings"`
+	// Embedded Plus Scte20 Destination Settings.
+	EmbeddedPlusScte20DestinationSettings ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsPtrInput `pulumi:"embeddedPlusScte20DestinationSettings"`
+	// Rtmp Caption Info Destination Settings.
+	RtmpCaptionInfoDestinationSettings ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsPtrInput `pulumi:"rtmpCaptionInfoDestinationSettings"`
+	// Scte20 Plus Embedded Destination Settings.
+	Scte20PlusEmbeddedDestinationSettings ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsPtrInput `pulumi:"scte20PlusEmbeddedDestinationSettings"`
+	// Scte27 Destination Settings.
+	Scte27DestinationSettings  ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsPtrInput  `pulumi:"scte27DestinationSettings"`
+	SmpteTtDestinationSettings ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsPtrInput `pulumi:"smpteTtDestinationSettings"`
+	// Teletext Destination Settings.
+	TeletextDestinationSettings ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsPtrInput `pulumi:"teletextDestinationSettings"`
+	// Ttml Destination Settings. See Ttml Destination Settings for more details.
+	TtmlDestinationSettings ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsPtrInput `pulumi:"ttmlDestinationSettings"`
+	// Webvtt Destination Settings. See Webvtt Destination Settings for more details.
+	WebvttDestinationSettings ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsPtrInput `pulumi:"webvttDestinationSettings"`
+}
+
+func (ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionDestinationSettings)(nil)).Elem()
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsOutput {
+	return i.ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsOutput)
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutput {
+	return i.ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsOutput).ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutputWithContext(ctx)
+}
+
+// ChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrInput is an input type that accepts ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs, ChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtr and ChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrInput` via:
+//
+//	        ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutput
+	ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutputWithContext(context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutput
+}
+
+type channelEncoderSettingsCaptionDescriptionDestinationSettingsPtrType ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs
+
+func ChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtr(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrInput {
+	return (*channelEncoderSettingsCaptionDescriptionDestinationSettingsPtrType)(v)
+}
+
+func (*channelEncoderSettingsCaptionDescriptionDestinationSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsCaptionDescriptionDestinationSettings)(nil)).Elem()
+}
+
+func (i *channelEncoderSettingsCaptionDescriptionDestinationSettingsPtrType) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutput {
+	return i.ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *channelEncoderSettingsCaptionDescriptionDestinationSettingsPtrType) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutput)
+}
+
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsCaptionDescriptionDestinationSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionDestinationSettings)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutput {
+	return o.ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelEncoderSettingsCaptionDescriptionDestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettings {
+		return &v
+	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutput)
+}
+
+// Arib Destination Settings.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsOutput) AribDestinationSettings() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettings {
+		return v.AribDestinationSettings
+	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsPtrOutput)
+}
+
+// Burn In Destination Settings. See Burn In Destination Settings for more details.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsOutput) BurnInDestinationSettings() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings {
+		return v.BurnInDestinationSettings
+	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrOutput)
+}
+
+// Dvb Sub Destination Settings. See Dvb Sub Destination Settings for more details.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsOutput) DvbSubDestinationSettings() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings {
+		return v.DvbSubDestinationSettings
+	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrOutput)
+}
+
+// Ebu Tt D Destination Settings. See Ebu Tt D Destination Settings for more details.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsOutput) EbuTtDDestinationSettings() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettings {
+		return v.EbuTtDDestinationSettings
+	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsPtrOutput)
+}
+
+// Embedded Destination Settings.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsOutput) EmbeddedDestinationSettings() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettings {
+		return v.EmbeddedDestinationSettings
+	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsPtrOutput)
+}
+
+// Embedded Plus Scte20 Destination Settings.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsOutput) EmbeddedPlusScte20DestinationSettings() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettings {
+		return v.EmbeddedPlusScte20DestinationSettings
+	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsPtrOutput)
+}
+
+// Rtmp Caption Info Destination Settings.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsOutput) RtmpCaptionInfoDestinationSettings() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettings {
+		return v.RtmpCaptionInfoDestinationSettings
+	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsPtrOutput)
+}
+
+// Scte20 Plus Embedded Destination Settings.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsOutput) Scte20PlusEmbeddedDestinationSettings() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettings {
+		return v.Scte20PlusEmbeddedDestinationSettings
+	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsPtrOutput)
+}
+
+// Scte27 Destination Settings.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsOutput) Scte27DestinationSettings() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettings {
+		return v.Scte27DestinationSettings
+	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsPtrOutput)
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsOutput) SmpteTtDestinationSettings() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettings {
+		return v.SmpteTtDestinationSettings
+	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsPtrOutput)
+}
+
+// Teletext Destination Settings.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsOutput) TeletextDestinationSettings() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettings {
+		return v.TeletextDestinationSettings
+	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsPtrOutput)
+}
+
+// Ttml Destination Settings. See Ttml Destination Settings for more details.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsOutput) TtmlDestinationSettings() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettings {
+		return v.TtmlDestinationSettings
+	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsPtrOutput)
+}
+
+// Webvtt Destination Settings. See Webvtt Destination Settings for more details.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsOutput) WebvttDestinationSettings() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettings {
+		return v.WebvttDestinationSettings
+	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsPtrOutput)
+}
+
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsCaptionDescriptionDestinationSettings)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutput) Elem() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettings) ChannelEncoderSettingsCaptionDescriptionDestinationSettings {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelEncoderSettingsCaptionDescriptionDestinationSettings
+		return ret
+	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsOutput)
+}
+
+// Arib Destination Settings.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutput) AribDestinationSettings() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettings {
+		if v == nil {
+			return nil
+		}
+		return v.AribDestinationSettings
+	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsPtrOutput)
+}
+
+// Burn In Destination Settings. See Burn In Destination Settings for more details.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutput) BurnInDestinationSettings() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings {
+		if v == nil {
+			return nil
+		}
+		return v.BurnInDestinationSettings
+	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrOutput)
+}
+
+// Dvb Sub Destination Settings. See Dvb Sub Destination Settings for more details.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutput) DvbSubDestinationSettings() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings {
+		if v == nil {
+			return nil
+		}
+		return v.DvbSubDestinationSettings
+	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrOutput)
+}
+
+// Ebu Tt D Destination Settings. See Ebu Tt D Destination Settings for more details.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutput) EbuTtDDestinationSettings() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettings {
+		if v == nil {
+			return nil
+		}
+		return v.EbuTtDDestinationSettings
+	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsPtrOutput)
+}
+
+// Embedded Destination Settings.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutput) EmbeddedDestinationSettings() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettings {
+		if v == nil {
+			return nil
+		}
+		return v.EmbeddedDestinationSettings
+	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsPtrOutput)
+}
+
+// Embedded Plus Scte20 Destination Settings.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutput) EmbeddedPlusScte20DestinationSettings() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettings {
+		if v == nil {
+			return nil
+		}
+		return v.EmbeddedPlusScte20DestinationSettings
+	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsPtrOutput)
+}
+
+// Rtmp Caption Info Destination Settings.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutput) RtmpCaptionInfoDestinationSettings() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettings {
+		if v == nil {
+			return nil
+		}
+		return v.RtmpCaptionInfoDestinationSettings
+	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsPtrOutput)
+}
+
+// Scte20 Plus Embedded Destination Settings.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutput) Scte20PlusEmbeddedDestinationSettings() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettings {
+		if v == nil {
+			return nil
+		}
+		return v.Scte20PlusEmbeddedDestinationSettings
+	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsPtrOutput)
+}
+
+// Scte27 Destination Settings.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutput) Scte27DestinationSettings() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettings {
+		if v == nil {
+			return nil
+		}
+		return v.Scte27DestinationSettings
+	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsPtrOutput)
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutput) SmpteTtDestinationSettings() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettings {
+		if v == nil {
+			return nil
+		}
+		return v.SmpteTtDestinationSettings
+	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsPtrOutput)
+}
+
+// Teletext Destination Settings.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutput) TeletextDestinationSettings() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettings {
+		if v == nil {
+			return nil
+		}
+		return v.TeletextDestinationSettings
+	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsPtrOutput)
+}
+
+// Ttml Destination Settings. See Ttml Destination Settings for more details.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutput) TtmlDestinationSettings() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettings {
+		if v == nil {
+			return nil
+		}
+		return v.TtmlDestinationSettings
+	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsPtrOutput)
+}
+
+// Webvtt Destination Settings. See Webvtt Destination Settings for more details.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutput) WebvttDestinationSettings() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettings {
+		if v == nil {
+			return nil
+		}
+		return v.WebvttDestinationSettings
+	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsPtrOutput)
+}
+
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettings struct {
+}
+
+// ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsInput is an input type that accepts ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsArgs and ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsInput` via:
+//
+//	ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsArgs{...}
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsOutput
+	ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsOutputWithContext(context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsOutput
+}
+
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsArgs struct {
+}
+
+func (ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettings)(nil)).Elem()
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsArgs) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsOutput {
+	return i.ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsArgs) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsOutput)
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsArgs) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsPtrOutput {
+	return i.ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsArgs) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsOutput).ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsPtrOutputWithContext(ctx)
+}
+
+// ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsPtrInput is an input type that accepts ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsArgs, ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsPtr and ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsPtrOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsPtrInput` via:
+//
+//	        ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsPtrInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsPtrOutput
+	ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsPtrOutputWithContext(context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsPtrOutput
+}
+
+type channelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsPtrType ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsArgs
+
+func ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsPtr(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsArgs) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsPtrInput {
+	return (*channelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsPtrType)(v)
+}
+
+func (*channelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettings)(nil)).Elem()
+}
+
+func (i *channelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsPtrType) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsPtrOutput {
+	return i.ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *channelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsPtrType) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsPtrOutput)
+}
+
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettings)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsPtrOutput {
+	return o.ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettings {
+		return &v
+	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsPtrOutput)
+}
+
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettings)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsPtrOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsPtrOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsPtrOutput) Elem() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettings) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettings {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettings
+		return ret
+	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsOutput)
+}
+
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings struct {
+	// If no explicit xPosition or yPosition is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. Selecting “smart” justification will left-justify live subtitles and center-justify pre-recorded subtitles. All burn-in and DVB-Sub font settings must match.
+	Alignment *string `pulumi:"alignment"`
+	// Specifies the color of the rectangle behind the captions. All burn-in and DVB-Sub font settings must match.
+	BackgroundColor *string `pulumi:"backgroundColor"`
+	// Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
+	BackgroundOpacity *int `pulumi:"backgroundOpacity"`
+	// External font file used for caption burn-in. File extension must be ‘ttf’ or ‘tte’. Although the user can select output fonts for many different types of input captions, embedded, STL and teletext sources use a strict grid system. Using external fonts with these caption sources could cause unexpected display of proportional fonts. All burn-in and DVB-Sub font settings must match. See Font for more details.
+	Font *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFont `pulumi:"font"`
+	// Specifies the color of the burned-in captions. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+	FontColor *string `pulumi:"fontColor"`
+	// Specifies the opacity of the burned-in captions. 255 is opaque; 0 is transparent. All burn-in and DVB-Sub font settings must match.
+	FontOpacity *int `pulumi:"fontOpacity"`
+	// Font resolution in DPI (dots per inch); default is 96 dpi. All burn-in and DVB-Sub font settings must match.
+	FontResolution *int `pulumi:"fontResolution"`
+	// When set to ‘auto’ fontSize will scale depending on the size of the output. Giving a positive integer will specify the exact font size in points. All burn-in and DVB-Sub font settings must match.
+	FontSize *string `pulumi:"fontSize"`
+	// Specifies font outline color. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+	OutlineColor string `pulumi:"outlineColor"`
+	// Specifies font outline size in pixels. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+	OutlineSize *int `pulumi:"outlineSize"`
+	// Specifies the color of the shadow cast by the captions. All burn-in and DVB-Sub font settings must match.
+	ShadowColor *string `pulumi:"shadowColor"`
+	// Specifies the opacity of the shadow. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
+	ShadowOpacity *int `pulumi:"shadowOpacity"`
+	// Specifies the horizontal offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels to the left. All burn-in and DVB-Sub font settings must match.
+	ShadowXOffset *int `pulumi:"shadowXOffset"`
+	// Specifies the vertical offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels above the text. All burn-in and DVB-Sub font settings must match.
+	ShadowYOffset *int `pulumi:"shadowYOffset"`
+	// Controls whether a fixed grid size will be used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.
+	TeletextGridControl string `pulumi:"teletextGridControl"`
+	// Specifies the horizontal position of the caption relative to the left side of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the left of the output. If no explicit xPosition is provided, the horizontal caption position will be determined by the alignment parameter. All burn-in and DVB-Sub font settings must match.
+	XPosition *int `pulumi:"xPosition"`
+	// Specifies the vertical position of the caption relative to the top of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the top of the output. If no explicit yPosition is provided, the caption will be positioned towards the bottom of the output. All burn-in and DVB-Sub font settings must match.
+	YPosition *int `pulumi:"yPosition"`
+}
+
+// ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsInput is an input type that accepts ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsArgs and ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsInput` via:
+//
+//	ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsArgs{...}
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsOutput
+	ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsOutputWithContext(context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsOutput
+}
+
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsArgs struct {
+	// If no explicit xPosition or yPosition is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. Selecting “smart” justification will left-justify live subtitles and center-justify pre-recorded subtitles. All burn-in and DVB-Sub font settings must match.
+	Alignment pulumi.StringPtrInput `pulumi:"alignment"`
+	// Specifies the color of the rectangle behind the captions. All burn-in and DVB-Sub font settings must match.
+	BackgroundColor pulumi.StringPtrInput `pulumi:"backgroundColor"`
+	// Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
+	BackgroundOpacity pulumi.IntPtrInput `pulumi:"backgroundOpacity"`
+	// External font file used for caption burn-in. File extension must be ‘ttf’ or ‘tte’. Although the user can select output fonts for many different types of input captions, embedded, STL and teletext sources use a strict grid system. Using external fonts with these caption sources could cause unexpected display of proportional fonts. All burn-in and DVB-Sub font settings must match. See Font for more details.
+	Font ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontPtrInput `pulumi:"font"`
+	// Specifies the color of the burned-in captions. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+	FontColor pulumi.StringPtrInput `pulumi:"fontColor"`
+	// Specifies the opacity of the burned-in captions. 255 is opaque; 0 is transparent. All burn-in and DVB-Sub font settings must match.
+	FontOpacity pulumi.IntPtrInput `pulumi:"fontOpacity"`
+	// Font resolution in DPI (dots per inch); default is 96 dpi. All burn-in and DVB-Sub font settings must match.
+	FontResolution pulumi.IntPtrInput `pulumi:"fontResolution"`
+	// When set to ‘auto’ fontSize will scale depending on the size of the output. Giving a positive integer will specify the exact font size in points. All burn-in and DVB-Sub font settings must match.
+	FontSize pulumi.StringPtrInput `pulumi:"fontSize"`
+	// Specifies font outline color. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+	OutlineColor pulumi.StringInput `pulumi:"outlineColor"`
+	// Specifies font outline size in pixels. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+	OutlineSize pulumi.IntPtrInput `pulumi:"outlineSize"`
+	// Specifies the color of the shadow cast by the captions. All burn-in and DVB-Sub font settings must match.
+	ShadowColor pulumi.StringPtrInput `pulumi:"shadowColor"`
+	// Specifies the opacity of the shadow. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
+	ShadowOpacity pulumi.IntPtrInput `pulumi:"shadowOpacity"`
+	// Specifies the horizontal offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels to the left. All burn-in and DVB-Sub font settings must match.
+	ShadowXOffset pulumi.IntPtrInput `pulumi:"shadowXOffset"`
+	// Specifies the vertical offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels above the text. All burn-in and DVB-Sub font settings must match.
+	ShadowYOffset pulumi.IntPtrInput `pulumi:"shadowYOffset"`
+	// Controls whether a fixed grid size will be used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.
+	TeletextGridControl pulumi.StringInput `pulumi:"teletextGridControl"`
+	// Specifies the horizontal position of the caption relative to the left side of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the left of the output. If no explicit xPosition is provided, the horizontal caption position will be determined by the alignment parameter. All burn-in and DVB-Sub font settings must match.
+	XPosition pulumi.IntPtrInput `pulumi:"xPosition"`
+	// Specifies the vertical position of the caption relative to the top of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the top of the output. If no explicit yPosition is provided, the caption will be positioned towards the bottom of the output. All burn-in and DVB-Sub font settings must match.
+	YPosition pulumi.IntPtrInput `pulumi:"yPosition"`
+}
+
+func (ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings)(nil)).Elem()
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsArgs) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsOutput {
+	return i.ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsArgs) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsOutput)
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsArgs) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrOutput {
+	return i.ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsArgs) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsOutput).ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrOutputWithContext(ctx)
+}
+
+// ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrInput is an input type that accepts ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsArgs, ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtr and ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrInput` via:
+//
+//	        ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrOutput
+	ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrOutputWithContext(context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrOutput
+}
+
+type channelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrType ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsArgs
+
+func ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtr(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsArgs) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrInput {
+	return (*channelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrType)(v)
+}
+
+func (*channelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings)(nil)).Elem()
+}
+
+func (i *channelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrType) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrOutput {
+	return i.ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *channelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrType) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrOutput)
+}
+
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrOutput {
+	return o.ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings {
+		return &v
+	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrOutput)
+}
+
+// If no explicit xPosition or yPosition is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. Selecting “smart” justification will left-justify live subtitles and center-justify pre-recorded subtitles. All burn-in and DVB-Sub font settings must match.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsOutput) Alignment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings) *string {
+		return v.Alignment
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the color of the rectangle behind the captions. All burn-in and DVB-Sub font settings must match.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsOutput) BackgroundColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings) *string {
+		return v.BackgroundColor
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsOutput) BackgroundOpacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings) *int {
+		return v.BackgroundOpacity
+	}).(pulumi.IntPtrOutput)
+}
+
+// External font file used for caption burn-in. File extension must be ‘ttf’ or ‘tte’. Although the user can select output fonts for many different types of input captions, embedded, STL and teletext sources use a strict grid system. Using external fonts with these caption sources could cause unexpected display of proportional fonts. All burn-in and DVB-Sub font settings must match. See Font for more details.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsOutput) Font() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFont {
+		return v.Font
+	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontPtrOutput)
+}
+
+// Specifies the color of the burned-in captions. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsOutput) FontColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings) *string {
+		return v.FontColor
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the opacity of the burned-in captions. 255 is opaque; 0 is transparent. All burn-in and DVB-Sub font settings must match.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsOutput) FontOpacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings) *int {
+		return v.FontOpacity
+	}).(pulumi.IntPtrOutput)
+}
+
+// Font resolution in DPI (dots per inch); default is 96 dpi. All burn-in and DVB-Sub font settings must match.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsOutput) FontResolution() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings) *int {
+		return v.FontResolution
+	}).(pulumi.IntPtrOutput)
+}
+
+// When set to ‘auto’ fontSize will scale depending on the size of the output. Giving a positive integer will specify the exact font size in points. All burn-in and DVB-Sub font settings must match.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsOutput) FontSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings) *string {
+		return v.FontSize
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies font outline color. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsOutput) OutlineColor() pulumi.StringOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings) string {
+		return v.OutlineColor
+	}).(pulumi.StringOutput)
+}
+
+// Specifies font outline size in pixels. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsOutput) OutlineSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings) *int {
+		return v.OutlineSize
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the color of the shadow cast by the captions. All burn-in and DVB-Sub font settings must match.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsOutput) ShadowColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings) *string {
+		return v.ShadowColor
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the opacity of the shadow. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsOutput) ShadowOpacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings) *int {
+		return v.ShadowOpacity
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the horizontal offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels to the left. All burn-in and DVB-Sub font settings must match.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsOutput) ShadowXOffset() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings) *int {
+		return v.ShadowXOffset
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the vertical offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels above the text. All burn-in and DVB-Sub font settings must match.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsOutput) ShadowYOffset() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings) *int {
+		return v.ShadowYOffset
+	}).(pulumi.IntPtrOutput)
+}
+
+// Controls whether a fixed grid size will be used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsOutput) TeletextGridControl() pulumi.StringOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings) string {
+		return v.TeletextGridControl
+	}).(pulumi.StringOutput)
+}
+
+// Specifies the horizontal position of the caption relative to the left side of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the left of the output. If no explicit xPosition is provided, the horizontal caption position will be determined by the alignment parameter. All burn-in and DVB-Sub font settings must match.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsOutput) XPosition() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings) *int {
+		return v.XPosition
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the vertical position of the caption relative to the top of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the top of the output. If no explicit yPosition is provided, the caption will be positioned towards the bottom of the output. All burn-in and DVB-Sub font settings must match.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsOutput) YPosition() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings) *int {
+		return v.YPosition
+	}).(pulumi.IntPtrOutput)
+}
+
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrOutput) Elem() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings
+		return ret
+	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsOutput)
+}
+
+// If no explicit xPosition or yPosition is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. Selecting “smart” justification will left-justify live subtitles and center-justify pre-recorded subtitles. All burn-in and DVB-Sub font settings must match.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrOutput) Alignment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Alignment
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the color of the rectangle behind the captions. All burn-in and DVB-Sub font settings must match.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrOutput) BackgroundColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BackgroundColor
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrOutput) BackgroundOpacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BackgroundOpacity
+	}).(pulumi.IntPtrOutput)
+}
+
+// External font file used for caption burn-in. File extension must be ‘ttf’ or ‘tte’. Although the user can select output fonts for many different types of input captions, embedded, STL and teletext sources use a strict grid system. Using external fonts with these caption sources could cause unexpected display of proportional fonts. All burn-in and DVB-Sub font settings must match. See Font for more details.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrOutput) Font() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFont {
+		if v == nil {
+			return nil
+		}
+		return v.Font
+	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontPtrOutput)
+}
+
+// Specifies the color of the burned-in captions. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrOutput) FontColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FontColor
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the opacity of the burned-in captions. 255 is opaque; 0 is transparent. All burn-in and DVB-Sub font settings must match.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrOutput) FontOpacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.FontOpacity
+	}).(pulumi.IntPtrOutput)
+}
+
+// Font resolution in DPI (dots per inch); default is 96 dpi. All burn-in and DVB-Sub font settings must match.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrOutput) FontResolution() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.FontResolution
+	}).(pulumi.IntPtrOutput)
+}
+
+// When set to ‘auto’ fontSize will scale depending on the size of the output. Giving a positive integer will specify the exact font size in points. All burn-in and DVB-Sub font settings must match.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrOutput) FontSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FontSize
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies font outline color. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrOutput) OutlineColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.OutlineColor
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies font outline size in pixels. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrOutput) OutlineSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.OutlineSize
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the color of the shadow cast by the captions. All burn-in and DVB-Sub font settings must match.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrOutput) ShadowColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ShadowColor
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the opacity of the shadow. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrOutput) ShadowOpacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ShadowOpacity
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the horizontal offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels to the left. All burn-in and DVB-Sub font settings must match.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrOutput) ShadowXOffset() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ShadowXOffset
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the vertical offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels above the text. All burn-in and DVB-Sub font settings must match.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrOutput) ShadowYOffset() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ShadowYOffset
+	}).(pulumi.IntPtrOutput)
+}
+
+// Controls whether a fixed grid size will be used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrOutput) TeletextGridControl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TeletextGridControl
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the horizontal position of the caption relative to the left side of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the left of the output. If no explicit xPosition is provided, the horizontal caption position will be determined by the alignment parameter. All burn-in and DVB-Sub font settings must match.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrOutput) XPosition() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.XPosition
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the vertical position of the caption relative to the top of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the top of the output. If no explicit yPosition is provided, the caption will be positioned towards the bottom of the output. All burn-in and DVB-Sub font settings must match.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrOutput) YPosition() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.YPosition
+	}).(pulumi.IntPtrOutput)
+}
+
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFont struct {
+	// Key used to extract the password from EC2 Parameter store.
+	PasswordParam *string `pulumi:"passwordParam"`
+	// Path to a file accessible to the live stream.
+	Uri string `pulumi:"uri"`
+	// Username to be used.
+	Username *string `pulumi:"username"`
+}
+
+// ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontInput is an input type that accepts ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontArgs and ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontInput` via:
+//
+//	ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontArgs{...}
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontOutput
+	ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontOutputWithContext(context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontOutput
+}
+
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontArgs struct {
+	// Key used to extract the password from EC2 Parameter store.
+	PasswordParam pulumi.StringPtrInput `pulumi:"passwordParam"`
+	// Path to a file accessible to the live stream.
+	Uri pulumi.StringInput `pulumi:"uri"`
+	// Username to be used.
+	Username pulumi.StringPtrInput `pulumi:"username"`
+}
+
+func (ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFont)(nil)).Elem()
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontArgs) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontOutput {
+	return i.ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontArgs) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontOutput)
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontArgs) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontPtrOutput {
+	return i.ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontArgs) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontOutput).ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontPtrOutputWithContext(ctx)
+}
+
+// ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontPtrInput is an input type that accepts ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontArgs, ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontPtr and ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontPtrOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontPtrInput` via:
+//
+//	        ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontPtrInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontPtrOutput
+	ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontPtrOutputWithContext(context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontPtrOutput
+}
+
+type channelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontPtrType ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontArgs
+
+func ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontPtr(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontArgs) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontPtrInput {
+	return (*channelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontPtrType)(v)
+}
+
+func (*channelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFont)(nil)).Elem()
+}
+
+func (i *channelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontPtrType) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontPtrOutput {
+	return i.ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontPtrOutputWithContext(context.Background())
+}
+
+func (i *channelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontPtrType) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontPtrOutput)
+}
+
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFont)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontPtrOutput {
+	return o.ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFont) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFont {
+		return &v
+	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontPtrOutput)
+}
+
+// Key used to extract the password from EC2 Parameter store.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontOutput) PasswordParam() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFont) *string {
+		return v.PasswordParam
+	}).(pulumi.StringPtrOutput)
+}
+
+// Path to a file accessible to the live stream.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFont) string {
+		return v.Uri
+	}).(pulumi.StringOutput)
+}
+
+// Username to be used.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFont) *string {
+		return v.Username
+	}).(pulumi.StringPtrOutput)
+}
+
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFont)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontPtrOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontPtrOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontPtrOutput) Elem() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFont) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFont {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFont
+		return ret
+	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontOutput)
+}
+
+// Key used to extract the password from EC2 Parameter store.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontPtrOutput) PasswordParam() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFont) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PasswordParam
+	}).(pulumi.StringPtrOutput)
+}
+
+// Path to a file accessible to the live stream.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontPtrOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFont) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+// Username to be used.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontPtrOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFont) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Username
+	}).(pulumi.StringPtrOutput)
+}
+
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings struct {
+	// If no explicit xPosition or yPosition is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. Selecting “smart” justification will left-justify live subtitles and center-justify pre-recorded subtitles. This option is not valid for source captions that are STL or 608/embedded. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+	Alignment *string `pulumi:"alignment"`
+	// Specifies the color of the rectangle behind the captions. All burn-in and DVB-Sub font settings must match.
+	BackgroundColor *string `pulumi:"backgroundColor"`
+	// Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter blank is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
+	BackgroundOpacity *int `pulumi:"backgroundOpacity"`
+	// External font file used for caption burn-in. File extension must be ‘ttf’ or ‘tte’. Although the user can select output fonts for many different types of input captions, embedded, STL and teletext sources use a strict grid system. Using external fonts with these caption sources could cause unexpected display of proportional fonts. All burn-in and DVB-Sub font settings must match. See Font for more details.
+	Font *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFont `pulumi:"font"`
+	// Specifies the color of the burned-in captions. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+	FontColor *string `pulumi:"fontColor"`
+	// Specifies the opacity of the burned-in captions. 255 is opaque; 0 is transparent. All burn-in and DVB-Sub font settings must match.
+	FontOpacity *int `pulumi:"fontOpacity"`
+	// Font resolution in DPI (dots per inch); default is 96 dpi. All burn-in and DVB-Sub font settings must match.
+	FontResolution *int `pulumi:"fontResolution"`
+	// When set to auto fontSize will scale depending on the size of the output. Giving a positive integer will specify the exact font size in points. All burn-in and DVB-Sub font settings must match.
+	FontSize *string `pulumi:"fontSize"`
+	// Specifies font outline color. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+	OutlineColor *string `pulumi:"outlineColor"`
+	// Specifies font outline size in pixels. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+	OutlineSize *int `pulumi:"outlineSize"`
+	// Specifies the color of the shadow cast by the captions. All burn-in and DVB-Sub font settings must match.
+	ShadowColor *string `pulumi:"shadowColor"`
+	// Specifies the opacity of the shadow. 255 is opaque; 0 is transparent. Leaving this parameter blank is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
+	ShadowOpacity *int `pulumi:"shadowOpacity"`
+	// Specifies the horizontal offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels to the left. All burn-in and DVB-Sub font settings must match.
+	ShadowXOffset *int `pulumi:"shadowXOffset"`
+	// Specifies the vertical offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels above the text. All burn-in and DVB-Sub font settings must match.
+	ShadowYOffset *int `pulumi:"shadowYOffset"`
+	// Controls whether a fixed grid size will be used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.
+	TeletextGridControl *string `pulumi:"teletextGridControl"`
+	// Specifies the horizontal position of the caption relative to the left side of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the left of the output. If no explicit xPosition is provided, the horizontal caption position will be determined by the alignment parameter. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+	XPosition *int `pulumi:"xPosition"`
+	// Specifies the vertical position of the caption relative to the top of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the top of the output. If no explicit yPosition is provided, the caption will be positioned towards the bottom of the output. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+	YPosition *int `pulumi:"yPosition"`
+}
+
+// ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsInput is an input type that accepts ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsArgs and ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsInput` via:
+//
+//	ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsArgs{...}
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsOutput
+	ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsOutputWithContext(context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsOutput
+}
+
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsArgs struct {
+	// If no explicit xPosition or yPosition is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. Selecting “smart” justification will left-justify live subtitles and center-justify pre-recorded subtitles. This option is not valid for source captions that are STL or 608/embedded. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+	Alignment pulumi.StringPtrInput `pulumi:"alignment"`
+	// Specifies the color of the rectangle behind the captions. All burn-in and DVB-Sub font settings must match.
+	BackgroundColor pulumi.StringPtrInput `pulumi:"backgroundColor"`
+	// Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter blank is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
+	BackgroundOpacity pulumi.IntPtrInput `pulumi:"backgroundOpacity"`
+	// External font file used for caption burn-in. File extension must be ‘ttf’ or ‘tte’. Although the user can select output fonts for many different types of input captions, embedded, STL and teletext sources use a strict grid system. Using external fonts with these caption sources could cause unexpected display of proportional fonts. All burn-in and DVB-Sub font settings must match. See Font for more details.
+	Font ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontPtrInput `pulumi:"font"`
+	// Specifies the color of the burned-in captions. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+	FontColor pulumi.StringPtrInput `pulumi:"fontColor"`
+	// Specifies the opacity of the burned-in captions. 255 is opaque; 0 is transparent. All burn-in and DVB-Sub font settings must match.
+	FontOpacity pulumi.IntPtrInput `pulumi:"fontOpacity"`
+	// Font resolution in DPI (dots per inch); default is 96 dpi. All burn-in and DVB-Sub font settings must match.
+	FontResolution pulumi.IntPtrInput `pulumi:"fontResolution"`
+	// When set to auto fontSize will scale depending on the size of the output. Giving a positive integer will specify the exact font size in points. All burn-in and DVB-Sub font settings must match.
+	FontSize pulumi.StringPtrInput `pulumi:"fontSize"`
+	// Specifies font outline color. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+	OutlineColor pulumi.StringPtrInput `pulumi:"outlineColor"`
+	// Specifies font outline size in pixels. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+	OutlineSize pulumi.IntPtrInput `pulumi:"outlineSize"`
+	// Specifies the color of the shadow cast by the captions. All burn-in and DVB-Sub font settings must match.
+	ShadowColor pulumi.StringPtrInput `pulumi:"shadowColor"`
+	// Specifies the opacity of the shadow. 255 is opaque; 0 is transparent. Leaving this parameter blank is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
+	ShadowOpacity pulumi.IntPtrInput `pulumi:"shadowOpacity"`
+	// Specifies the horizontal offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels to the left. All burn-in and DVB-Sub font settings must match.
+	ShadowXOffset pulumi.IntPtrInput `pulumi:"shadowXOffset"`
+	// Specifies the vertical offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels above the text. All burn-in and DVB-Sub font settings must match.
+	ShadowYOffset pulumi.IntPtrInput `pulumi:"shadowYOffset"`
+	// Controls whether a fixed grid size will be used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.
+	TeletextGridControl pulumi.StringPtrInput `pulumi:"teletextGridControl"`
+	// Specifies the horizontal position of the caption relative to the left side of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the left of the output. If no explicit xPosition is provided, the horizontal caption position will be determined by the alignment parameter. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+	XPosition pulumi.IntPtrInput `pulumi:"xPosition"`
+	// Specifies the vertical position of the caption relative to the top of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the top of the output. If no explicit yPosition is provided, the caption will be positioned towards the bottom of the output. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+	YPosition pulumi.IntPtrInput `pulumi:"yPosition"`
+}
+
+func (ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings)(nil)).Elem()
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsArgs) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsOutput {
+	return i.ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsArgs) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsOutput)
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsArgs) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrOutput {
+	return i.ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsArgs) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsOutput).ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrOutputWithContext(ctx)
+}
+
+// ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrInput is an input type that accepts ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsArgs, ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtr and ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrInput` via:
+//
+//	        ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrOutput
+	ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrOutputWithContext(context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrOutput
+}
+
+type channelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrType ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsArgs
+
+func ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtr(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsArgs) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrInput {
+	return (*channelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrType)(v)
+}
+
+func (*channelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings)(nil)).Elem()
+}
+
+func (i *channelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrType) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrOutput {
+	return i.ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *channelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrType) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrOutput)
+}
+
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrOutput {
+	return o.ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings {
+		return &v
+	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrOutput)
+}
+
+// If no explicit xPosition or yPosition is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. Selecting “smart” justification will left-justify live subtitles and center-justify pre-recorded subtitles. This option is not valid for source captions that are STL or 608/embedded. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsOutput) Alignment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings) *string {
+		return v.Alignment
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the color of the rectangle behind the captions. All burn-in and DVB-Sub font settings must match.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsOutput) BackgroundColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings) *string {
+		return v.BackgroundColor
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter blank is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsOutput) BackgroundOpacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings) *int {
+		return v.BackgroundOpacity
+	}).(pulumi.IntPtrOutput)
+}
+
+// External font file used for caption burn-in. File extension must be ‘ttf’ or ‘tte’. Although the user can select output fonts for many different types of input captions, embedded, STL and teletext sources use a strict grid system. Using external fonts with these caption sources could cause unexpected display of proportional fonts. All burn-in and DVB-Sub font settings must match. See Font for more details.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsOutput) Font() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFont {
+		return v.Font
+	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontPtrOutput)
+}
+
+// Specifies the color of the burned-in captions. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsOutput) FontColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings) *string {
+		return v.FontColor
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the opacity of the burned-in captions. 255 is opaque; 0 is transparent. All burn-in and DVB-Sub font settings must match.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsOutput) FontOpacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings) *int {
+		return v.FontOpacity
+	}).(pulumi.IntPtrOutput)
+}
+
+// Font resolution in DPI (dots per inch); default is 96 dpi. All burn-in and DVB-Sub font settings must match.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsOutput) FontResolution() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings) *int {
+		return v.FontResolution
+	}).(pulumi.IntPtrOutput)
+}
+
+// When set to auto fontSize will scale depending on the size of the output. Giving a positive integer will specify the exact font size in points. All burn-in and DVB-Sub font settings must match.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsOutput) FontSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings) *string {
+		return v.FontSize
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies font outline color. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsOutput) OutlineColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings) *string {
+		return v.OutlineColor
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies font outline size in pixels. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsOutput) OutlineSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings) *int {
+		return v.OutlineSize
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the color of the shadow cast by the captions. All burn-in and DVB-Sub font settings must match.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsOutput) ShadowColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings) *string {
+		return v.ShadowColor
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the opacity of the shadow. 255 is opaque; 0 is transparent. Leaving this parameter blank is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsOutput) ShadowOpacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings) *int {
+		return v.ShadowOpacity
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the horizontal offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels to the left. All burn-in and DVB-Sub font settings must match.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsOutput) ShadowXOffset() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings) *int {
+		return v.ShadowXOffset
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the vertical offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels above the text. All burn-in and DVB-Sub font settings must match.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsOutput) ShadowYOffset() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings) *int {
+		return v.ShadowYOffset
+	}).(pulumi.IntPtrOutput)
+}
+
+// Controls whether a fixed grid size will be used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsOutput) TeletextGridControl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings) *string {
+		return v.TeletextGridControl
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the horizontal position of the caption relative to the left side of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the left of the output. If no explicit xPosition is provided, the horizontal caption position will be determined by the alignment parameter. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsOutput) XPosition() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings) *int {
+		return v.XPosition
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the vertical position of the caption relative to the top of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the top of the output. If no explicit yPosition is provided, the caption will be positioned towards the bottom of the output. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsOutput) YPosition() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings) *int {
+		return v.YPosition
+	}).(pulumi.IntPtrOutput)
+}
+
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrOutput) Elem() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings
+		return ret
+	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsOutput)
+}
+
+// If no explicit xPosition or yPosition is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. Selecting “smart” justification will left-justify live subtitles and center-justify pre-recorded subtitles. This option is not valid for source captions that are STL or 608/embedded. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrOutput) Alignment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Alignment
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the color of the rectangle behind the captions. All burn-in and DVB-Sub font settings must match.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrOutput) BackgroundColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BackgroundColor
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter blank is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrOutput) BackgroundOpacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BackgroundOpacity
+	}).(pulumi.IntPtrOutput)
+}
+
+// External font file used for caption burn-in. File extension must be ‘ttf’ or ‘tte’. Although the user can select output fonts for many different types of input captions, embedded, STL and teletext sources use a strict grid system. Using external fonts with these caption sources could cause unexpected display of proportional fonts. All burn-in and DVB-Sub font settings must match. See Font for more details.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrOutput) Font() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFont {
+		if v == nil {
+			return nil
+		}
+		return v.Font
+	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontPtrOutput)
+}
+
+// Specifies the color of the burned-in captions. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrOutput) FontColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FontColor
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the opacity of the burned-in captions. 255 is opaque; 0 is transparent. All burn-in and DVB-Sub font settings must match.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrOutput) FontOpacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.FontOpacity
+	}).(pulumi.IntPtrOutput)
+}
+
+// Font resolution in DPI (dots per inch); default is 96 dpi. All burn-in and DVB-Sub font settings must match.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrOutput) FontResolution() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.FontResolution
+	}).(pulumi.IntPtrOutput)
+}
+
+// When set to auto fontSize will scale depending on the size of the output. Giving a positive integer will specify the exact font size in points. All burn-in and DVB-Sub font settings must match.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrOutput) FontSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FontSize
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies font outline color. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrOutput) OutlineColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OutlineColor
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies font outline size in pixels. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrOutput) OutlineSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.OutlineSize
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the color of the shadow cast by the captions. All burn-in and DVB-Sub font settings must match.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrOutput) ShadowColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ShadowColor
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the opacity of the shadow. 255 is opaque; 0 is transparent. Leaving this parameter blank is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrOutput) ShadowOpacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ShadowOpacity
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the horizontal offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels to the left. All burn-in and DVB-Sub font settings must match.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrOutput) ShadowXOffset() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ShadowXOffset
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the vertical offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels above the text. All burn-in and DVB-Sub font settings must match.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrOutput) ShadowYOffset() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ShadowYOffset
+	}).(pulumi.IntPtrOutput)
+}
+
+// Controls whether a fixed grid size will be used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrOutput) TeletextGridControl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TeletextGridControl
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the horizontal position of the caption relative to the left side of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the left of the output. If no explicit xPosition is provided, the horizontal caption position will be determined by the alignment parameter. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrOutput) XPosition() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.XPosition
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the vertical position of the caption relative to the top of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the top of the output. If no explicit yPosition is provided, the caption will be positioned towards the bottom of the output. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrOutput) YPosition() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.YPosition
+	}).(pulumi.IntPtrOutput)
+}
+
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFont struct {
+	// Key used to extract the password from EC2 Parameter store.
+	PasswordParam *string `pulumi:"passwordParam"`
+	// Path to a file accessible to the live stream.
+	Uri string `pulumi:"uri"`
+	// Username to be used.
+	Username *string `pulumi:"username"`
+}
+
+// ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontInput is an input type that accepts ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontArgs and ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontInput` via:
+//
+//	ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontArgs{...}
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontOutput
+	ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontOutputWithContext(context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontOutput
+}
+
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontArgs struct {
+	// Key used to extract the password from EC2 Parameter store.
+	PasswordParam pulumi.StringPtrInput `pulumi:"passwordParam"`
+	// Path to a file accessible to the live stream.
+	Uri pulumi.StringInput `pulumi:"uri"`
+	// Username to be used.
+	Username pulumi.StringPtrInput `pulumi:"username"`
+}
+
+func (ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFont)(nil)).Elem()
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontArgs) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontOutput {
+	return i.ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontArgs) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontOutput)
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontArgs) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontPtrOutput {
+	return i.ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontArgs) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontOutput).ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontPtrOutputWithContext(ctx)
+}
+
+// ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontPtrInput is an input type that accepts ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontArgs, ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontPtr and ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontPtrOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontPtrInput` via:
+//
+//	        ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontPtrInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontPtrOutput
+	ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontPtrOutputWithContext(context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontPtrOutput
+}
+
+type channelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontPtrType ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontArgs
+
+func ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontPtr(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontArgs) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontPtrInput {
+	return (*channelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontPtrType)(v)
+}
+
+func (*channelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFont)(nil)).Elem()
+}
+
+func (i *channelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontPtrType) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontPtrOutput {
+	return i.ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontPtrOutputWithContext(context.Background())
+}
+
+func (i *channelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontPtrType) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontPtrOutput)
+}
+
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFont)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontPtrOutput {
+	return o.ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFont) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFont {
+		return &v
+	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontPtrOutput)
+}
+
+// Key used to extract the password from EC2 Parameter store.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontOutput) PasswordParam() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFont) *string {
+		return v.PasswordParam
+	}).(pulumi.StringPtrOutput)
+}
+
+// Path to a file accessible to the live stream.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFont) string {
+		return v.Uri
+	}).(pulumi.StringOutput)
+}
+
+// Username to be used.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFont) *string {
+		return v.Username
+	}).(pulumi.StringPtrOutput)
+}
+
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFont)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontPtrOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontPtrOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontPtrOutput) Elem() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFont) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFont {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFont
+		return ret
+	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontOutput)
+}
+
+// Key used to extract the password from EC2 Parameter store.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontPtrOutput) PasswordParam() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFont) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PasswordParam
+	}).(pulumi.StringPtrOutput)
+}
+
+// Path to a file accessible to the live stream.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontPtrOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFont) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+// Username to be used.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontPtrOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFont) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Username
+	}).(pulumi.StringPtrOutput)
+}
+
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettings struct {
+	// Complete this field if you want to include the name of the copyright holder in the copyright tag in the captions metadata.
+	CopyrightHolder *string `pulumi:"copyrightHolder"`
+	// Specifies how to handle the gap between the lines (in multi-line captions). - enabled: Fill with the captions background color (as specified in the input captions). - disabled: Leave the gap unfilled.
+	FillLineGap *string `pulumi:"fillLineGap"`
+	// Specifies the font family to include in the font data attached to the EBU-TT captions. Valid only if styleControl is set to include. If you leave this field empty, the font family is set to “monospaced”. (If styleControl is set to exclude, the font family is always set to “monospaced”.) You specify only the font family. All other style information (color, bold, position and so on) is copied from the input captions. The size is always set to 100% to allow the downstream player to choose the size. - Enter a list of font families, as a comma-separated list of font names, in order of preference. The name can be a font family (such as “Arial”), or a generic font family (such as “serif”), or “default” (to let the downstream player choose the font). - Leave blank to set the family to “monospace”.
+	FontFamily *string `pulumi:"fontFamily"`
+	// Specifies the style information (font color, font position, and so on) to include in the font data that is attached to the EBU-TT captions. - include: Take the style information (font color, font position, and so on) from the source captions and include that information in the font data attached to the EBU-TT captions. This option is valid only if the source captions are Embedded or Teletext. - exclude: In the font data attached to the EBU-TT captions, set the font family to “monospaced”. Do not include any other style information.
+	StyleControl *string `pulumi:"styleControl"`
+}
+
+// ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsInput is an input type that accepts ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsArgs and ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsInput` via:
+//
+//	ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsArgs{...}
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsOutput
+	ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsOutputWithContext(context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsOutput
+}
+
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsArgs struct {
+	// Complete this field if you want to include the name of the copyright holder in the copyright tag in the captions metadata.
+	CopyrightHolder pulumi.StringPtrInput `pulumi:"copyrightHolder"`
+	// Specifies how to handle the gap between the lines (in multi-line captions). - enabled: Fill with the captions background color (as specified in the input captions). - disabled: Leave the gap unfilled.
+	FillLineGap pulumi.StringPtrInput `pulumi:"fillLineGap"`
+	// Specifies the font family to include in the font data attached to the EBU-TT captions. Valid only if styleControl is set to include. If you leave this field empty, the font family is set to “monospaced”. (If styleControl is set to exclude, the font family is always set to “monospaced”.) You specify only the font family. All other style information (color, bold, position and so on) is copied from the input captions. The size is always set to 100% to allow the downstream player to choose the size. - Enter a list of font families, as a comma-separated list of font names, in order of preference. The name can be a font family (such as “Arial”), or a generic font family (such as “serif”), or “default” (to let the downstream player choose the font). - Leave blank to set the family to “monospace”.
+	FontFamily pulumi.StringPtrInput `pulumi:"fontFamily"`
+	// Specifies the style information (font color, font position, and so on) to include in the font data that is attached to the EBU-TT captions. - include: Take the style information (font color, font position, and so on) from the source captions and include that information in the font data attached to the EBU-TT captions. This option is valid only if the source captions are Embedded or Teletext. - exclude: In the font data attached to the EBU-TT captions, set the font family to “monospaced”. Do not include any other style information.
+	StyleControl pulumi.StringPtrInput `pulumi:"styleControl"`
+}
+
+func (ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettings)(nil)).Elem()
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsArgs) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsOutput {
+	return i.ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsArgs) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsOutput)
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsArgs) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsPtrOutput {
+	return i.ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsArgs) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsOutput).ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsPtrOutputWithContext(ctx)
+}
+
+// ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsPtrInput is an input type that accepts ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsArgs, ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsPtr and ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsPtrOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsPtrInput` via:
+//
+//	        ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsPtrInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsPtrOutput
+	ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsPtrOutputWithContext(context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsPtrOutput
+}
+
+type channelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsPtrType ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsArgs
+
+func ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsPtr(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsArgs) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsPtrInput {
+	return (*channelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsPtrType)(v)
+}
+
+func (*channelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettings)(nil)).Elem()
+}
+
+func (i *channelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsPtrType) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsPtrOutput {
+	return i.ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *channelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsPtrType) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsPtrOutput)
+}
+
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettings)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsPtrOutput {
+	return o.ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettings {
+		return &v
+	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsPtrOutput)
+}
+
+// Complete this field if you want to include the name of the copyright holder in the copyright tag in the captions metadata.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsOutput) CopyrightHolder() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettings) *string {
+		return v.CopyrightHolder
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies how to handle the gap between the lines (in multi-line captions). - enabled: Fill with the captions background color (as specified in the input captions). - disabled: Leave the gap unfilled.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsOutput) FillLineGap() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettings) *string {
+		return v.FillLineGap
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the font family to include in the font data attached to the EBU-TT captions. Valid only if styleControl is set to include. If you leave this field empty, the font family is set to “monospaced”. (If styleControl is set to exclude, the font family is always set to “monospaced”.) You specify only the font family. All other style information (color, bold, position and so on) is copied from the input captions. The size is always set to 100% to allow the downstream player to choose the size. - Enter a list of font families, as a comma-separated list of font names, in order of preference. The name can be a font family (such as “Arial”), or a generic font family (such as “serif”), or “default” (to let the downstream player choose the font). - Leave blank to set the family to “monospace”.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsOutput) FontFamily() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettings) *string {
+		return v.FontFamily
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the style information (font color, font position, and so on) to include in the font data that is attached to the EBU-TT captions. - include: Take the style information (font color, font position, and so on) from the source captions and include that information in the font data attached to the EBU-TT captions. This option is valid only if the source captions are Embedded or Teletext. - exclude: In the font data attached to the EBU-TT captions, set the font family to “monospaced”. Do not include any other style information.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsOutput) StyleControl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettings) *string {
+		return v.StyleControl
+	}).(pulumi.StringPtrOutput)
+}
+
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettings)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsPtrOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsPtrOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsPtrOutput) Elem() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettings) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettings {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettings
+		return ret
+	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsOutput)
+}
+
+// Complete this field if you want to include the name of the copyright holder in the copyright tag in the captions metadata.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsPtrOutput) CopyrightHolder() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CopyrightHolder
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies how to handle the gap between the lines (in multi-line captions). - enabled: Fill with the captions background color (as specified in the input captions). - disabled: Leave the gap unfilled.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsPtrOutput) FillLineGap() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FillLineGap
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the font family to include in the font data attached to the EBU-TT captions. Valid only if styleControl is set to include. If you leave this field empty, the font family is set to “monospaced”. (If styleControl is set to exclude, the font family is always set to “monospaced”.) You specify only the font family. All other style information (color, bold, position and so on) is copied from the input captions. The size is always set to 100% to allow the downstream player to choose the size. - Enter a list of font families, as a comma-separated list of font names, in order of preference. The name can be a font family (such as “Arial”), or a generic font family (such as “serif”), or “default” (to let the downstream player choose the font). - Leave blank to set the family to “monospace”.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsPtrOutput) FontFamily() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FontFamily
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the style information (font color, font position, and so on) to include in the font data that is attached to the EBU-TT captions. - include: Take the style information (font color, font position, and so on) from the source captions and include that information in the font data attached to the EBU-TT captions. This option is valid only if the source captions are Embedded or Teletext. - exclude: In the font data attached to the EBU-TT captions, set the font family to “monospaced”. Do not include any other style information.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsPtrOutput) StyleControl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StyleControl
+	}).(pulumi.StringPtrOutput)
+}
+
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettings struct {
+}
+
+// ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsInput is an input type that accepts ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsArgs and ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsInput` via:
+//
+//	ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsArgs{...}
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsOutput
+	ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsOutputWithContext(context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsOutput
+}
+
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsArgs struct {
+}
+
+func (ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettings)(nil)).Elem()
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsArgs) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsOutput {
+	return i.ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsArgs) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsOutput)
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsArgs) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsPtrOutput {
+	return i.ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsArgs) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsOutput).ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsPtrOutputWithContext(ctx)
+}
+
+// ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsPtrInput is an input type that accepts ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsArgs, ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsPtr and ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsPtrOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsPtrInput` via:
+//
+//	        ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsPtrInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsPtrOutput
+	ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsPtrOutputWithContext(context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsPtrOutput
+}
+
+type channelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsPtrType ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsArgs
+
+func ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsPtr(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsArgs) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsPtrInput {
+	return (*channelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsPtrType)(v)
+}
+
+func (*channelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettings)(nil)).Elem()
+}
+
+func (i *channelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsPtrType) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsPtrOutput {
+	return i.ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *channelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsPtrType) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsPtrOutput)
+}
+
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettings)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsPtrOutput {
+	return o.ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettings {
+		return &v
+	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsPtrOutput)
+}
+
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettings)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsPtrOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsPtrOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsPtrOutput) Elem() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettings) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettings {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettings
+		return ret
+	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsOutput)
+}
+
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettings struct {
+}
+
+// ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsInput is an input type that accepts ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsArgs and ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsInput` via:
+//
+//	ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsArgs{...}
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsOutput
+	ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsOutputWithContext(context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsOutput
+}
+
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsArgs struct {
+}
+
+func (ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettings)(nil)).Elem()
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsArgs) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsOutput {
+	return i.ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsArgs) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsOutput)
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsArgs) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsPtrOutput {
+	return i.ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsArgs) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsOutput).ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsPtrOutputWithContext(ctx)
+}
+
+// ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsPtrInput is an input type that accepts ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsArgs, ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsPtr and ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsPtrOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsPtrInput` via:
+//
+//	        ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsPtrInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsPtrOutput
+	ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsPtrOutputWithContext(context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsPtrOutput
+}
+
+type channelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsPtrType ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsArgs
+
+func ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsPtr(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsArgs) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsPtrInput {
+	return (*channelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsPtrType)(v)
+}
+
+func (*channelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettings)(nil)).Elem()
+}
+
+func (i *channelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsPtrType) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsPtrOutput {
+	return i.ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *channelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsPtrType) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsPtrOutput)
+}
+
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettings)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsPtrOutput {
+	return o.ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettings {
+		return &v
+	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsPtrOutput)
+}
+
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettings)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsPtrOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsPtrOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsPtrOutput) Elem() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettings) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettings {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettings
+		return ret
+	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsOutput)
+}
+
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettings struct {
+}
+
+// ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsInput is an input type that accepts ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsArgs and ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsInput` via:
+//
+//	ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsArgs{...}
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsOutput
+	ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsOutputWithContext(context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsOutput
+}
+
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsArgs struct {
+}
+
+func (ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettings)(nil)).Elem()
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsArgs) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsOutput {
+	return i.ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsArgs) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsOutput)
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsArgs) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsPtrOutput {
+	return i.ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsArgs) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsOutput).ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsPtrOutputWithContext(ctx)
+}
+
+// ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsPtrInput is an input type that accepts ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsArgs, ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsPtr and ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsPtrOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsPtrInput` via:
+//
+//	        ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsPtrInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsPtrOutput
+	ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsPtrOutputWithContext(context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsPtrOutput
+}
+
+type channelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsPtrType ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsArgs
+
+func ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsPtr(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsArgs) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsPtrInput {
+	return (*channelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsPtrType)(v)
+}
+
+func (*channelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettings)(nil)).Elem()
+}
+
+func (i *channelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsPtrType) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsPtrOutput {
+	return i.ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *channelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsPtrType) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsPtrOutput)
+}
+
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettings)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsPtrOutput {
+	return o.ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettings {
+		return &v
+	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsPtrOutput)
+}
+
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettings)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsPtrOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsPtrOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsPtrOutput) Elem() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettings) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettings {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettings
+		return ret
+	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsOutput)
+}
+
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettings struct {
+}
+
+// ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsInput is an input type that accepts ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsArgs and ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsInput` via:
+//
+//	ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsArgs{...}
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsOutput
+	ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsOutputWithContext(context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsOutput
+}
+
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsArgs struct {
+}
+
+func (ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettings)(nil)).Elem()
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsArgs) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsOutput {
+	return i.ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsArgs) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsOutput)
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsArgs) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsPtrOutput {
+	return i.ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsArgs) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsOutput).ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsPtrOutputWithContext(ctx)
+}
+
+// ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsPtrInput is an input type that accepts ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsArgs, ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsPtr and ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsPtrOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsPtrInput` via:
+//
+//	        ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsPtrInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsPtrOutput
+	ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsPtrOutputWithContext(context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsPtrOutput
+}
+
+type channelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsPtrType ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsArgs
+
+func ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsPtr(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsArgs) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsPtrInput {
+	return (*channelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsPtrType)(v)
+}
+
+func (*channelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettings)(nil)).Elem()
+}
+
+func (i *channelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsPtrType) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsPtrOutput {
+	return i.ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *channelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsPtrType) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsPtrOutput)
+}
+
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettings)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsPtrOutput {
+	return o.ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettings {
+		return &v
+	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsPtrOutput)
+}
+
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettings)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsPtrOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsPtrOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsPtrOutput) Elem() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettings) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettings {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettings
+		return ret
+	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsOutput)
+}
+
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettings struct {
+}
+
+// ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsInput is an input type that accepts ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsArgs and ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsInput` via:
+//
+//	ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsArgs{...}
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsOutput
+	ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsOutputWithContext(context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsOutput
+}
+
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsArgs struct {
+}
+
+func (ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettings)(nil)).Elem()
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsArgs) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsOutput {
+	return i.ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsArgs) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsOutput)
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsArgs) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsPtrOutput {
+	return i.ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsArgs) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsOutput).ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsPtrOutputWithContext(ctx)
+}
+
+// ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsPtrInput is an input type that accepts ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsArgs, ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsPtr and ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsPtrOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsPtrInput` via:
+//
+//	        ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsPtrInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsPtrOutput
+	ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsPtrOutputWithContext(context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsPtrOutput
+}
+
+type channelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsPtrType ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsArgs
+
+func ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsPtr(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsArgs) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsPtrInput {
+	return (*channelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsPtrType)(v)
+}
+
+func (*channelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettings)(nil)).Elem()
+}
+
+func (i *channelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsPtrType) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsPtrOutput {
+	return i.ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *channelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsPtrType) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsPtrOutput)
+}
+
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettings)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsPtrOutput {
+	return o.ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettings {
+		return &v
+	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsPtrOutput)
+}
+
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettings)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsPtrOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsPtrOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsPtrOutput) Elem() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettings) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettings {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettings
+		return ret
+	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsOutput)
+}
+
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettings struct {
+}
+
+// ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsInput is an input type that accepts ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsArgs and ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsInput` via:
+//
+//	ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsArgs{...}
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsOutput
+	ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsOutputWithContext(context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsOutput
+}
+
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsArgs struct {
+}
+
+func (ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettings)(nil)).Elem()
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsArgs) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsOutput {
+	return i.ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsArgs) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsOutput)
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsArgs) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsPtrOutput {
+	return i.ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsArgs) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsOutput).ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsPtrOutputWithContext(ctx)
+}
+
+// ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsPtrInput is an input type that accepts ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsArgs, ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsPtr and ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsPtrOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsPtrInput` via:
+//
+//	        ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsPtrInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsPtrOutput
+	ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsPtrOutputWithContext(context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsPtrOutput
+}
+
+type channelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsPtrType ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsArgs
+
+func ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsPtr(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsArgs) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsPtrInput {
+	return (*channelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsPtrType)(v)
+}
+
+func (*channelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettings)(nil)).Elem()
+}
+
+func (i *channelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsPtrType) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsPtrOutput {
+	return i.ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *channelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsPtrType) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsPtrOutput)
+}
+
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettings)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsPtrOutput {
+	return o.ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettings {
+		return &v
+	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsPtrOutput)
+}
+
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettings)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsPtrOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsPtrOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsPtrOutput) Elem() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettings) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettings {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettings
+		return ret
+	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsOutput)
+}
+
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettings struct {
+}
+
+// ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsInput is an input type that accepts ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsArgs and ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsInput` via:
+//
+//	ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsArgs{...}
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsOutput
+	ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsOutputWithContext(context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsOutput
+}
+
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsArgs struct {
+}
+
+func (ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettings)(nil)).Elem()
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsArgs) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsOutput {
+	return i.ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsArgs) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsOutput)
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsArgs) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsPtrOutput {
+	return i.ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsArgs) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsOutput).ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsPtrOutputWithContext(ctx)
+}
+
+// ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsPtrInput is an input type that accepts ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsArgs, ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsPtr and ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsPtrOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsPtrInput` via:
+//
+//	        ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsPtrInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsPtrOutput
+	ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsPtrOutputWithContext(context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsPtrOutput
+}
+
+type channelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsPtrType ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsArgs
+
+func ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsPtr(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsArgs) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsPtrInput {
+	return (*channelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsPtrType)(v)
+}
+
+func (*channelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettings)(nil)).Elem()
+}
+
+func (i *channelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsPtrType) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsPtrOutput {
+	return i.ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *channelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsPtrType) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsPtrOutput)
+}
+
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettings)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsPtrOutput {
+	return o.ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettings {
+		return &v
+	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsPtrOutput)
+}
+
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettings)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsPtrOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsPtrOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsPtrOutput) Elem() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettings) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettings {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettings
+		return ret
+	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsOutput)
+}
+
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettings struct {
+	// This field is not currently supported and will not affect the output styling. Leave the default value.
+	StyleControl string `pulumi:"styleControl"`
+}
+
+// ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsInput is an input type that accepts ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsArgs and ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsInput` via:
+//
+//	ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsArgs{...}
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsOutput
+	ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsOutputWithContext(context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsOutput
+}
+
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsArgs struct {
+	// This field is not currently supported and will not affect the output styling. Leave the default value.
+	StyleControl pulumi.StringInput `pulumi:"styleControl"`
+}
+
+func (ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettings)(nil)).Elem()
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsArgs) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsOutput {
+	return i.ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsArgs) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsOutput)
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsArgs) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsPtrOutput {
+	return i.ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsArgs) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsOutput).ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsPtrOutputWithContext(ctx)
+}
+
+// ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsPtrInput is an input type that accepts ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsArgs, ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsPtr and ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsPtrOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsPtrInput` via:
+//
+//	        ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsPtrInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsPtrOutput
+	ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsPtrOutputWithContext(context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsPtrOutput
+}
+
+type channelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsPtrType ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsArgs
+
+func ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsPtr(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsArgs) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsPtrInput {
+	return (*channelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsPtrType)(v)
+}
+
+func (*channelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettings)(nil)).Elem()
+}
+
+func (i *channelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsPtrType) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsPtrOutput {
+	return i.ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *channelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsPtrType) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsPtrOutput)
+}
+
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettings)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsPtrOutput {
+	return o.ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettings {
+		return &v
+	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsPtrOutput)
+}
+
+// This field is not currently supported and will not affect the output styling. Leave the default value.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsOutput) StyleControl() pulumi.StringOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettings) string {
+		return v.StyleControl
+	}).(pulumi.StringOutput)
+}
+
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettings)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsPtrOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsPtrOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsPtrOutput) Elem() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettings) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettings {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettings
+		return ret
+	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsOutput)
+}
+
+// This field is not currently supported and will not affect the output styling. Leave the default value.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsPtrOutput) StyleControl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StyleControl
+	}).(pulumi.StringPtrOutput)
+}
+
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettings struct {
+	// Controls whether the color and position of the source captions is passed through to the WebVTT output captions. PASSTHROUGH - Valid only if the source captions are EMBEDDED or TELETEXT. NO\_STYLE\_DATA - Don’t pass through the style. The output captions will not contain any font styling information.
+	StyleControl string `pulumi:"styleControl"`
+}
+
+// ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsInput is an input type that accepts ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsArgs and ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsInput` via:
+//
+//	ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsArgs{...}
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsOutput
+	ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsOutputWithContext(context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsOutput
+}
+
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsArgs struct {
+	// Controls whether the color and position of the source captions is passed through to the WebVTT output captions. PASSTHROUGH - Valid only if the source captions are EMBEDDED or TELETEXT. NO\_STYLE\_DATA - Don’t pass through the style. The output captions will not contain any font styling information.
+	StyleControl pulumi.StringInput `pulumi:"styleControl"`
+}
+
+func (ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettings)(nil)).Elem()
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsArgs) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsOutput {
+	return i.ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsArgs) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsOutput)
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsArgs) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsPtrOutput {
+	return i.ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsArgs) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsOutput).ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsPtrOutputWithContext(ctx)
+}
+
+// ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsPtrInput is an input type that accepts ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsArgs, ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsPtr and ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsPtrOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsPtrInput` via:
+//
+//	        ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsPtrInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsPtrOutput
+	ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsPtrOutputWithContext(context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsPtrOutput
+}
+
+type channelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsPtrType ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsArgs
+
+func ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsPtr(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsArgs) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsPtrInput {
+	return (*channelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsPtrType)(v)
+}
+
+func (*channelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettings)(nil)).Elem()
+}
+
+func (i *channelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsPtrType) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsPtrOutput {
+	return i.ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *channelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsPtrType) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsPtrOutput)
+}
+
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettings)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsPtrOutput {
+	return o.ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettings {
+		return &v
+	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsPtrOutput)
+}
+
+// Controls whether the color and position of the source captions is passed through to the WebVTT output captions. PASSTHROUGH - Valid only if the source captions are EMBEDDED or TELETEXT. NO\_STYLE\_DATA - Don’t pass through the style. The output captions will not contain any font styling information.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsOutput) StyleControl() pulumi.StringOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettings) string {
+		return v.StyleControl
+	}).(pulumi.StringOutput)
+}
+
+type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettings)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsPtrOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsPtrOutput() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsPtrOutput) ToChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsPtrOutput) Elem() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettings) ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettings {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettings
+		return ret
+	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsOutput)
+}
+
+// Controls whether the color and position of the source captions is passed through to the WebVTT output captions. PASSTHROUGH - Valid only if the source captions are EMBEDDED or TELETEXT. NO\_STYLE\_DATA - Don’t pass through the style. The output captions will not contain any font styling information.
+func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsPtrOutput) StyleControl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StyleControl
+	}).(pulumi.StringPtrOutput)
+}
+
+type ChannelEncoderSettingsGlobalConfiguration struct {
+	// Value to set the initial audio gain for the Live Event.
+	InitialAudioGain *int `pulumi:"initialAudioGain"`
+	// Indicates the action to take when the current input completes (e.g. end-of-file). When switchAndLoopInputs is configured the encoder will restart at the beginning of the first input. When “none” is configured the encoder will transcode either black, a solid color, or a user specified slate images per the “Input Loss Behavior” configuration until the next input switch occurs (which is controlled through the Channel Schedule API).
+	InputEndAction *string `pulumi:"inputEndAction"`
+	// Settings for system actions when input is lost. See Input Loss Behavior for more details.
+	InputLossBehavior *ChannelEncoderSettingsGlobalConfigurationInputLossBehavior `pulumi:"inputLossBehavior"`
+	// Indicates how MediaLive pipelines are synchronized. PIPELINE\_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the other. EPOCH\_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the Unix epoch.
+	OutputLockingMode *string `pulumi:"outputLockingMode"`
+	// Indicates whether the rate of frames emitted by the Live encoder should be paced by its system clock (which optionally may be locked to another source via NTP) or should be locked to the clock of the source that is providing the input stream.
+	OutputTimingSource *string `pulumi:"outputTimingSource"`
+	// Adjusts video input buffer for streams with very low video framerates. This is commonly set to enabled for music channels with less than one video frame per second.
+	SupportLowFramerateInputs *string `pulumi:"supportLowFramerateInputs"`
+}
+
+// ChannelEncoderSettingsGlobalConfigurationInput is an input type that accepts ChannelEncoderSettingsGlobalConfigurationArgs and ChannelEncoderSettingsGlobalConfigurationOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsGlobalConfigurationInput` via:
+//
+//	ChannelEncoderSettingsGlobalConfigurationArgs{...}
+type ChannelEncoderSettingsGlobalConfigurationInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsGlobalConfigurationOutput() ChannelEncoderSettingsGlobalConfigurationOutput
+	ToChannelEncoderSettingsGlobalConfigurationOutputWithContext(context.Context) ChannelEncoderSettingsGlobalConfigurationOutput
+}
+
+type ChannelEncoderSettingsGlobalConfigurationArgs struct {
+	// Value to set the initial audio gain for the Live Event.
+	InitialAudioGain pulumi.IntPtrInput `pulumi:"initialAudioGain"`
+	// Indicates the action to take when the current input completes (e.g. end-of-file). When switchAndLoopInputs is configured the encoder will restart at the beginning of the first input. When “none” is configured the encoder will transcode either black, a solid color, or a user specified slate images per the “Input Loss Behavior” configuration until the next input switch occurs (which is controlled through the Channel Schedule API).
+	InputEndAction pulumi.StringPtrInput `pulumi:"inputEndAction"`
+	// Settings for system actions when input is lost. See Input Loss Behavior for more details.
+	InputLossBehavior ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorPtrInput `pulumi:"inputLossBehavior"`
+	// Indicates how MediaLive pipelines are synchronized. PIPELINE\_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the other. EPOCH\_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the Unix epoch.
+	OutputLockingMode pulumi.StringPtrInput `pulumi:"outputLockingMode"`
+	// Indicates whether the rate of frames emitted by the Live encoder should be paced by its system clock (which optionally may be locked to another source via NTP) or should be locked to the clock of the source that is providing the input stream.
+	OutputTimingSource pulumi.StringPtrInput `pulumi:"outputTimingSource"`
+	// Adjusts video input buffer for streams with very low video framerates. This is commonly set to enabled for music channels with less than one video frame per second.
+	SupportLowFramerateInputs pulumi.StringPtrInput `pulumi:"supportLowFramerateInputs"`
+}
+
+func (ChannelEncoderSettingsGlobalConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsGlobalConfiguration)(nil)).Elem()
+}
+
+func (i ChannelEncoderSettingsGlobalConfigurationArgs) ToChannelEncoderSettingsGlobalConfigurationOutput() ChannelEncoderSettingsGlobalConfigurationOutput {
+	return i.ToChannelEncoderSettingsGlobalConfigurationOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsGlobalConfigurationArgs) ToChannelEncoderSettingsGlobalConfigurationOutputWithContext(ctx context.Context) ChannelEncoderSettingsGlobalConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsGlobalConfigurationOutput)
+}
+
+func (i ChannelEncoderSettingsGlobalConfigurationArgs) ToChannelEncoderSettingsGlobalConfigurationPtrOutput() ChannelEncoderSettingsGlobalConfigurationPtrOutput {
+	return i.ToChannelEncoderSettingsGlobalConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsGlobalConfigurationArgs) ToChannelEncoderSettingsGlobalConfigurationPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsGlobalConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsGlobalConfigurationOutput).ToChannelEncoderSettingsGlobalConfigurationPtrOutputWithContext(ctx)
+}
+
+// ChannelEncoderSettingsGlobalConfigurationPtrInput is an input type that accepts ChannelEncoderSettingsGlobalConfigurationArgs, ChannelEncoderSettingsGlobalConfigurationPtr and ChannelEncoderSettingsGlobalConfigurationPtrOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsGlobalConfigurationPtrInput` via:
+//
+//	        ChannelEncoderSettingsGlobalConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelEncoderSettingsGlobalConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsGlobalConfigurationPtrOutput() ChannelEncoderSettingsGlobalConfigurationPtrOutput
+	ToChannelEncoderSettingsGlobalConfigurationPtrOutputWithContext(context.Context) ChannelEncoderSettingsGlobalConfigurationPtrOutput
+}
+
+type channelEncoderSettingsGlobalConfigurationPtrType ChannelEncoderSettingsGlobalConfigurationArgs
+
+func ChannelEncoderSettingsGlobalConfigurationPtr(v *ChannelEncoderSettingsGlobalConfigurationArgs) ChannelEncoderSettingsGlobalConfigurationPtrInput {
+	return (*channelEncoderSettingsGlobalConfigurationPtrType)(v)
+}
+
+func (*channelEncoderSettingsGlobalConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsGlobalConfiguration)(nil)).Elem()
+}
+
+func (i *channelEncoderSettingsGlobalConfigurationPtrType) ToChannelEncoderSettingsGlobalConfigurationPtrOutput() ChannelEncoderSettingsGlobalConfigurationPtrOutput {
+	return i.ToChannelEncoderSettingsGlobalConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *channelEncoderSettingsGlobalConfigurationPtrType) ToChannelEncoderSettingsGlobalConfigurationPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsGlobalConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsGlobalConfigurationPtrOutput)
+}
+
+type ChannelEncoderSettingsGlobalConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsGlobalConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsGlobalConfiguration)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsGlobalConfigurationOutput) ToChannelEncoderSettingsGlobalConfigurationOutput() ChannelEncoderSettingsGlobalConfigurationOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsGlobalConfigurationOutput) ToChannelEncoderSettingsGlobalConfigurationOutputWithContext(ctx context.Context) ChannelEncoderSettingsGlobalConfigurationOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsGlobalConfigurationOutput) ToChannelEncoderSettingsGlobalConfigurationPtrOutput() ChannelEncoderSettingsGlobalConfigurationPtrOutput {
+	return o.ToChannelEncoderSettingsGlobalConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelEncoderSettingsGlobalConfigurationOutput) ToChannelEncoderSettingsGlobalConfigurationPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsGlobalConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelEncoderSettingsGlobalConfiguration) *ChannelEncoderSettingsGlobalConfiguration {
+		return &v
+	}).(ChannelEncoderSettingsGlobalConfigurationPtrOutput)
+}
+
+// Value to set the initial audio gain for the Live Event.
+func (o ChannelEncoderSettingsGlobalConfigurationOutput) InitialAudioGain() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsGlobalConfiguration) *int { return v.InitialAudioGain }).(pulumi.IntPtrOutput)
+}
+
+// Indicates the action to take when the current input completes (e.g. end-of-file). When switchAndLoopInputs is configured the encoder will restart at the beginning of the first input. When “none” is configured the encoder will transcode either black, a solid color, or a user specified slate images per the “Input Loss Behavior” configuration until the next input switch occurs (which is controlled through the Channel Schedule API).
+func (o ChannelEncoderSettingsGlobalConfigurationOutput) InputEndAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsGlobalConfiguration) *string { return v.InputEndAction }).(pulumi.StringPtrOutput)
+}
+
+// Settings for system actions when input is lost. See Input Loss Behavior for more details.
+func (o ChannelEncoderSettingsGlobalConfigurationOutput) InputLossBehavior() ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsGlobalConfiguration) *ChannelEncoderSettingsGlobalConfigurationInputLossBehavior {
+		return v.InputLossBehavior
+	}).(ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorPtrOutput)
+}
+
+// Indicates how MediaLive pipelines are synchronized. PIPELINE\_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the other. EPOCH\_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the Unix epoch.
+func (o ChannelEncoderSettingsGlobalConfigurationOutput) OutputLockingMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsGlobalConfiguration) *string { return v.OutputLockingMode }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether the rate of frames emitted by the Live encoder should be paced by its system clock (which optionally may be locked to another source via NTP) or should be locked to the clock of the source that is providing the input stream.
+func (o ChannelEncoderSettingsGlobalConfigurationOutput) OutputTimingSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsGlobalConfiguration) *string { return v.OutputTimingSource }).(pulumi.StringPtrOutput)
+}
+
+// Adjusts video input buffer for streams with very low video framerates. This is commonly set to enabled for music channels with less than one video frame per second.
+func (o ChannelEncoderSettingsGlobalConfigurationOutput) SupportLowFramerateInputs() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsGlobalConfiguration) *string { return v.SupportLowFramerateInputs }).(pulumi.StringPtrOutput)
+}
+
+type ChannelEncoderSettingsGlobalConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsGlobalConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsGlobalConfiguration)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsGlobalConfigurationPtrOutput) ToChannelEncoderSettingsGlobalConfigurationPtrOutput() ChannelEncoderSettingsGlobalConfigurationPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsGlobalConfigurationPtrOutput) ToChannelEncoderSettingsGlobalConfigurationPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsGlobalConfigurationPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsGlobalConfigurationPtrOutput) Elem() ChannelEncoderSettingsGlobalConfigurationOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsGlobalConfiguration) ChannelEncoderSettingsGlobalConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelEncoderSettingsGlobalConfiguration
+		return ret
+	}).(ChannelEncoderSettingsGlobalConfigurationOutput)
+}
+
+// Value to set the initial audio gain for the Live Event.
+func (o ChannelEncoderSettingsGlobalConfigurationPtrOutput) InitialAudioGain() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsGlobalConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.InitialAudioGain
+	}).(pulumi.IntPtrOutput)
+}
+
+// Indicates the action to take when the current input completes (e.g. end-of-file). When switchAndLoopInputs is configured the encoder will restart at the beginning of the first input. When “none” is configured the encoder will transcode either black, a solid color, or a user specified slate images per the “Input Loss Behavior” configuration until the next input switch occurs (which is controlled through the Channel Schedule API).
+func (o ChannelEncoderSettingsGlobalConfigurationPtrOutput) InputEndAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsGlobalConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InputEndAction
+	}).(pulumi.StringPtrOutput)
+}
+
+// Settings for system actions when input is lost. See Input Loss Behavior for more details.
+func (o ChannelEncoderSettingsGlobalConfigurationPtrOutput) InputLossBehavior() ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsGlobalConfiguration) *ChannelEncoderSettingsGlobalConfigurationInputLossBehavior {
+		if v == nil {
+			return nil
+		}
+		return v.InputLossBehavior
+	}).(ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorPtrOutput)
+}
+
+// Indicates how MediaLive pipelines are synchronized. PIPELINE\_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the other. EPOCH\_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the Unix epoch.
+func (o ChannelEncoderSettingsGlobalConfigurationPtrOutput) OutputLockingMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsGlobalConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OutputLockingMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether the rate of frames emitted by the Live encoder should be paced by its system clock (which optionally may be locked to another source via NTP) or should be locked to the clock of the source that is providing the input stream.
+func (o ChannelEncoderSettingsGlobalConfigurationPtrOutput) OutputTimingSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsGlobalConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OutputTimingSource
+	}).(pulumi.StringPtrOutput)
+}
+
+// Adjusts video input buffer for streams with very low video framerates. This is commonly set to enabled for music channels with less than one video frame per second.
+func (o ChannelEncoderSettingsGlobalConfigurationPtrOutput) SupportLowFramerateInputs() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsGlobalConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SupportLowFramerateInputs
+	}).(pulumi.StringPtrOutput)
+}
+
+type ChannelEncoderSettingsGlobalConfigurationInputLossBehavior struct {
+	BlackFrameMsec      *int                                                                           `pulumi:"blackFrameMsec"`
+	InputLossImageColor *string                                                                        `pulumi:"inputLossImageColor"`
+	InputLossImageSlate *ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlate `pulumi:"inputLossImageSlate"`
+	InputLossImageType  *string                                                                        `pulumi:"inputLossImageType"`
+	RepeatFrameMsec     *int                                                                           `pulumi:"repeatFrameMsec"`
+}
+
+// ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInput is an input type that accepts ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs and ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInput` via:
+//
+//	ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs{...}
+type ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsGlobalConfigurationInputLossBehaviorOutput() ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorOutput
+	ToChannelEncoderSettingsGlobalConfigurationInputLossBehaviorOutputWithContext(context.Context) ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorOutput
+}
+
+type ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs struct {
+	BlackFrameMsec      pulumi.IntPtrInput                                                                    `pulumi:"blackFrameMsec"`
+	InputLossImageColor pulumi.StringPtrInput                                                                 `pulumi:"inputLossImageColor"`
+	InputLossImageSlate ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlatePtrInput `pulumi:"inputLossImageSlate"`
+	InputLossImageType  pulumi.StringPtrInput                                                                 `pulumi:"inputLossImageType"`
+	RepeatFrameMsec     pulumi.IntPtrInput                                                                    `pulumi:"repeatFrameMsec"`
+}
+
+func (ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsGlobalConfigurationInputLossBehavior)(nil)).Elem()
+}
+
+func (i ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs) ToChannelEncoderSettingsGlobalConfigurationInputLossBehaviorOutput() ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorOutput {
+	return i.ToChannelEncoderSettingsGlobalConfigurationInputLossBehaviorOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs) ToChannelEncoderSettingsGlobalConfigurationInputLossBehaviorOutputWithContext(ctx context.Context) ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorOutput)
+}
+
+func (i ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs) ToChannelEncoderSettingsGlobalConfigurationInputLossBehaviorPtrOutput() ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorPtrOutput {
+	return i.ToChannelEncoderSettingsGlobalConfigurationInputLossBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs) ToChannelEncoderSettingsGlobalConfigurationInputLossBehaviorPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorOutput).ToChannelEncoderSettingsGlobalConfigurationInputLossBehaviorPtrOutputWithContext(ctx)
+}
+
+// ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorPtrInput is an input type that accepts ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs, ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorPtr and ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorPtrOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorPtrInput` via:
+//
+//	        ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorPtrInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsGlobalConfigurationInputLossBehaviorPtrOutput() ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorPtrOutput
+	ToChannelEncoderSettingsGlobalConfigurationInputLossBehaviorPtrOutputWithContext(context.Context) ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorPtrOutput
+}
+
+type channelEncoderSettingsGlobalConfigurationInputLossBehaviorPtrType ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs
+
+func ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorPtr(v *ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs) ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorPtrInput {
+	return (*channelEncoderSettingsGlobalConfigurationInputLossBehaviorPtrType)(v)
+}
+
+func (*channelEncoderSettingsGlobalConfigurationInputLossBehaviorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsGlobalConfigurationInputLossBehavior)(nil)).Elem()
+}
+
+func (i *channelEncoderSettingsGlobalConfigurationInputLossBehaviorPtrType) ToChannelEncoderSettingsGlobalConfigurationInputLossBehaviorPtrOutput() ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorPtrOutput {
+	return i.ToChannelEncoderSettingsGlobalConfigurationInputLossBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (i *channelEncoderSettingsGlobalConfigurationInputLossBehaviorPtrType) ToChannelEncoderSettingsGlobalConfigurationInputLossBehaviorPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorPtrOutput)
+}
+
+type ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsGlobalConfigurationInputLossBehavior)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorOutput) ToChannelEncoderSettingsGlobalConfigurationInputLossBehaviorOutput() ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorOutput) ToChannelEncoderSettingsGlobalConfigurationInputLossBehaviorOutputWithContext(ctx context.Context) ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorOutput) ToChannelEncoderSettingsGlobalConfigurationInputLossBehaviorPtrOutput() ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorPtrOutput {
+	return o.ToChannelEncoderSettingsGlobalConfigurationInputLossBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorOutput) ToChannelEncoderSettingsGlobalConfigurationInputLossBehaviorPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelEncoderSettingsGlobalConfigurationInputLossBehavior) *ChannelEncoderSettingsGlobalConfigurationInputLossBehavior {
+		return &v
+	}).(ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorPtrOutput)
+}
+
+func (o ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorOutput) BlackFrameMsec() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsGlobalConfigurationInputLossBehavior) *int { return v.BlackFrameMsec }).(pulumi.IntPtrOutput)
+}
+
+func (o ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorOutput) InputLossImageColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsGlobalConfigurationInputLossBehavior) *string {
+		return v.InputLossImageColor
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorOutput) InputLossImageSlate() ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlatePtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsGlobalConfigurationInputLossBehavior) *ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlate {
+		return v.InputLossImageSlate
+	}).(ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlatePtrOutput)
+}
+
+func (o ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorOutput) InputLossImageType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsGlobalConfigurationInputLossBehavior) *string {
+		return v.InputLossImageType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorOutput) RepeatFrameMsec() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsGlobalConfigurationInputLossBehavior) *int { return v.RepeatFrameMsec }).(pulumi.IntPtrOutput)
+}
+
+type ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsGlobalConfigurationInputLossBehavior)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorPtrOutput) ToChannelEncoderSettingsGlobalConfigurationInputLossBehaviorPtrOutput() ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorPtrOutput) ToChannelEncoderSettingsGlobalConfigurationInputLossBehaviorPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorPtrOutput) Elem() ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsGlobalConfigurationInputLossBehavior) ChannelEncoderSettingsGlobalConfigurationInputLossBehavior {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelEncoderSettingsGlobalConfigurationInputLossBehavior
+		return ret
+	}).(ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorOutput)
+}
+
+func (o ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorPtrOutput) BlackFrameMsec() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsGlobalConfigurationInputLossBehavior) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BlackFrameMsec
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorPtrOutput) InputLossImageColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsGlobalConfigurationInputLossBehavior) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InputLossImageColor
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorPtrOutput) InputLossImageSlate() ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlatePtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsGlobalConfigurationInputLossBehavior) *ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlate {
+		if v == nil {
+			return nil
+		}
+		return v.InputLossImageSlate
+	}).(ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlatePtrOutput)
+}
+
+func (o ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorPtrOutput) InputLossImageType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsGlobalConfigurationInputLossBehavior) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InputLossImageType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorPtrOutput) RepeatFrameMsec() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsGlobalConfigurationInputLossBehavior) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RepeatFrameMsec
+	}).(pulumi.IntPtrOutput)
+}
+
+type ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlate struct {
+	// Key used to extract the password from EC2 Parameter store.
+	PasswordParam *string `pulumi:"passwordParam"`
+	// Path to a file accessible to the live stream.
+	Uri string `pulumi:"uri"`
+	// Username for destination.
+	Username *string `pulumi:"username"`
+}
+
+// ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateInput is an input type that accepts ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateArgs and ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateInput` via:
+//
+//	ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateArgs{...}
+type ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateOutput() ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateOutput
+	ToChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateOutputWithContext(context.Context) ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateOutput
+}
+
+type ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateArgs struct {
+	// Key used to extract the password from EC2 Parameter store.
+	PasswordParam pulumi.StringPtrInput `pulumi:"passwordParam"`
+	// Path to a file accessible to the live stream.
+	Uri pulumi.StringInput `pulumi:"uri"`
+	// Username for destination.
+	Username pulumi.StringPtrInput `pulumi:"username"`
+}
+
+func (ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlate)(nil)).Elem()
+}
+
+func (i ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateArgs) ToChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateOutput() ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateOutput {
+	return i.ToChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateArgs) ToChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateOutputWithContext(ctx context.Context) ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateOutput)
+}
+
+func (i ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateArgs) ToChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlatePtrOutput() ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlatePtrOutput {
+	return i.ToChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlatePtrOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateArgs) ToChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlatePtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateOutput).ToChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlatePtrOutputWithContext(ctx)
+}
+
+// ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlatePtrInput is an input type that accepts ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateArgs, ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlatePtr and ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlatePtrOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlatePtrInput` via:
+//
+//	        ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlatePtrInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlatePtrOutput() ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlatePtrOutput
+	ToChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlatePtrOutputWithContext(context.Context) ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlatePtrOutput
+}
+
+type channelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlatePtrType ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateArgs
+
+func ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlatePtr(v *ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateArgs) ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlatePtrInput {
+	return (*channelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlatePtrType)(v)
+}
+
+func (*channelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlate)(nil)).Elem()
+}
+
+func (i *channelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlatePtrType) ToChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlatePtrOutput() ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlatePtrOutput {
+	return i.ToChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlatePtrOutputWithContext(context.Background())
+}
+
+func (i *channelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlatePtrType) ToChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlatePtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlatePtrOutput)
+}
+
+type ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlate)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateOutput) ToChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateOutput() ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateOutput) ToChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateOutputWithContext(ctx context.Context) ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateOutput) ToChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlatePtrOutput() ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlatePtrOutput {
+	return o.ToChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlatePtrOutputWithContext(context.Background())
+}
+
+func (o ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateOutput) ToChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlatePtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlate) *ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlate {
+		return &v
+	}).(ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlatePtrOutput)
+}
+
+// Key used to extract the password from EC2 Parameter store.
+func (o ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateOutput) PasswordParam() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlate) *string {
+		return v.PasswordParam
+	}).(pulumi.StringPtrOutput)
+}
+
+// Path to a file accessible to the live stream.
+func (o ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlate) string {
+		return v.Uri
+	}).(pulumi.StringOutput)
+}
+
+// Username for destination.
+func (o ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlate) *string {
+		return v.Username
+	}).(pulumi.StringPtrOutput)
+}
+
+type ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlatePtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlate)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlatePtrOutput) ToChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlatePtrOutput() ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlatePtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlatePtrOutput) ToChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlatePtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlatePtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlatePtrOutput) Elem() ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlate) ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlate {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlate
+		return ret
+	}).(ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateOutput)
+}
+
+// Key used to extract the password from EC2 Parameter store.
+func (o ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlatePtrOutput) PasswordParam() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PasswordParam
+	}).(pulumi.StringPtrOutput)
+}
+
+// Path to a file accessible to the live stream.
+func (o ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlatePtrOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlate) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+// Username for destination.
+func (o ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlatePtrOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Username
+	}).(pulumi.StringPtrOutput)
+}
+
+type ChannelEncoderSettingsMotionGraphicsConfiguration struct {
+	// Motion Graphics Insertion.
+	MotionGraphicsInsertion *string `pulumi:"motionGraphicsInsertion"`
+	// Motion Graphics Settings. See Motion Graphics Settings for more details.
+	MotionGraphicsSettings ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings `pulumi:"motionGraphicsSettings"`
+}
+
+// ChannelEncoderSettingsMotionGraphicsConfigurationInput is an input type that accepts ChannelEncoderSettingsMotionGraphicsConfigurationArgs and ChannelEncoderSettingsMotionGraphicsConfigurationOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsMotionGraphicsConfigurationInput` via:
+//
+//	ChannelEncoderSettingsMotionGraphicsConfigurationArgs{...}
+type ChannelEncoderSettingsMotionGraphicsConfigurationInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsMotionGraphicsConfigurationOutput() ChannelEncoderSettingsMotionGraphicsConfigurationOutput
+	ToChannelEncoderSettingsMotionGraphicsConfigurationOutputWithContext(context.Context) ChannelEncoderSettingsMotionGraphicsConfigurationOutput
+}
+
+type ChannelEncoderSettingsMotionGraphicsConfigurationArgs struct {
+	// Motion Graphics Insertion.
+	MotionGraphicsInsertion pulumi.StringPtrInput `pulumi:"motionGraphicsInsertion"`
+	// Motion Graphics Settings. See Motion Graphics Settings for more details.
+	MotionGraphicsSettings ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsInput `pulumi:"motionGraphicsSettings"`
+}
+
+func (ChannelEncoderSettingsMotionGraphicsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsMotionGraphicsConfiguration)(nil)).Elem()
+}
+
+func (i ChannelEncoderSettingsMotionGraphicsConfigurationArgs) ToChannelEncoderSettingsMotionGraphicsConfigurationOutput() ChannelEncoderSettingsMotionGraphicsConfigurationOutput {
+	return i.ToChannelEncoderSettingsMotionGraphicsConfigurationOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsMotionGraphicsConfigurationArgs) ToChannelEncoderSettingsMotionGraphicsConfigurationOutputWithContext(ctx context.Context) ChannelEncoderSettingsMotionGraphicsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsMotionGraphicsConfigurationOutput)
+}
+
+func (i ChannelEncoderSettingsMotionGraphicsConfigurationArgs) ToChannelEncoderSettingsMotionGraphicsConfigurationPtrOutput() ChannelEncoderSettingsMotionGraphicsConfigurationPtrOutput {
+	return i.ToChannelEncoderSettingsMotionGraphicsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsMotionGraphicsConfigurationArgs) ToChannelEncoderSettingsMotionGraphicsConfigurationPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsMotionGraphicsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsMotionGraphicsConfigurationOutput).ToChannelEncoderSettingsMotionGraphicsConfigurationPtrOutputWithContext(ctx)
+}
+
+// ChannelEncoderSettingsMotionGraphicsConfigurationPtrInput is an input type that accepts ChannelEncoderSettingsMotionGraphicsConfigurationArgs, ChannelEncoderSettingsMotionGraphicsConfigurationPtr and ChannelEncoderSettingsMotionGraphicsConfigurationPtrOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsMotionGraphicsConfigurationPtrInput` via:
+//
+//	        ChannelEncoderSettingsMotionGraphicsConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelEncoderSettingsMotionGraphicsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsMotionGraphicsConfigurationPtrOutput() ChannelEncoderSettingsMotionGraphicsConfigurationPtrOutput
+	ToChannelEncoderSettingsMotionGraphicsConfigurationPtrOutputWithContext(context.Context) ChannelEncoderSettingsMotionGraphicsConfigurationPtrOutput
+}
+
+type channelEncoderSettingsMotionGraphicsConfigurationPtrType ChannelEncoderSettingsMotionGraphicsConfigurationArgs
+
+func ChannelEncoderSettingsMotionGraphicsConfigurationPtr(v *ChannelEncoderSettingsMotionGraphicsConfigurationArgs) ChannelEncoderSettingsMotionGraphicsConfigurationPtrInput {
+	return (*channelEncoderSettingsMotionGraphicsConfigurationPtrType)(v)
+}
+
+func (*channelEncoderSettingsMotionGraphicsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsMotionGraphicsConfiguration)(nil)).Elem()
+}
+
+func (i *channelEncoderSettingsMotionGraphicsConfigurationPtrType) ToChannelEncoderSettingsMotionGraphicsConfigurationPtrOutput() ChannelEncoderSettingsMotionGraphicsConfigurationPtrOutput {
+	return i.ToChannelEncoderSettingsMotionGraphicsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *channelEncoderSettingsMotionGraphicsConfigurationPtrType) ToChannelEncoderSettingsMotionGraphicsConfigurationPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsMotionGraphicsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsMotionGraphicsConfigurationPtrOutput)
+}
+
+type ChannelEncoderSettingsMotionGraphicsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsMotionGraphicsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsMotionGraphicsConfiguration)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsMotionGraphicsConfigurationOutput) ToChannelEncoderSettingsMotionGraphicsConfigurationOutput() ChannelEncoderSettingsMotionGraphicsConfigurationOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsMotionGraphicsConfigurationOutput) ToChannelEncoderSettingsMotionGraphicsConfigurationOutputWithContext(ctx context.Context) ChannelEncoderSettingsMotionGraphicsConfigurationOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsMotionGraphicsConfigurationOutput) ToChannelEncoderSettingsMotionGraphicsConfigurationPtrOutput() ChannelEncoderSettingsMotionGraphicsConfigurationPtrOutput {
+	return o.ToChannelEncoderSettingsMotionGraphicsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelEncoderSettingsMotionGraphicsConfigurationOutput) ToChannelEncoderSettingsMotionGraphicsConfigurationPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsMotionGraphicsConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelEncoderSettingsMotionGraphicsConfiguration) *ChannelEncoderSettingsMotionGraphicsConfiguration {
+		return &v
+	}).(ChannelEncoderSettingsMotionGraphicsConfigurationPtrOutput)
+}
+
+// Motion Graphics Insertion.
+func (o ChannelEncoderSettingsMotionGraphicsConfigurationOutput) MotionGraphicsInsertion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsMotionGraphicsConfiguration) *string { return v.MotionGraphicsInsertion }).(pulumi.StringPtrOutput)
+}
+
+// Motion Graphics Settings. See Motion Graphics Settings for more details.
+func (o ChannelEncoderSettingsMotionGraphicsConfigurationOutput) MotionGraphicsSettings() ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsMotionGraphicsConfiguration) ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings {
+		return v.MotionGraphicsSettings
+	}).(ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsOutput)
+}
+
+type ChannelEncoderSettingsMotionGraphicsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsMotionGraphicsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsMotionGraphicsConfiguration)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsMotionGraphicsConfigurationPtrOutput) ToChannelEncoderSettingsMotionGraphicsConfigurationPtrOutput() ChannelEncoderSettingsMotionGraphicsConfigurationPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsMotionGraphicsConfigurationPtrOutput) ToChannelEncoderSettingsMotionGraphicsConfigurationPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsMotionGraphicsConfigurationPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsMotionGraphicsConfigurationPtrOutput) Elem() ChannelEncoderSettingsMotionGraphicsConfigurationOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsMotionGraphicsConfiguration) ChannelEncoderSettingsMotionGraphicsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelEncoderSettingsMotionGraphicsConfiguration
+		return ret
+	}).(ChannelEncoderSettingsMotionGraphicsConfigurationOutput)
+}
+
+// Motion Graphics Insertion.
+func (o ChannelEncoderSettingsMotionGraphicsConfigurationPtrOutput) MotionGraphicsInsertion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsMotionGraphicsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MotionGraphicsInsertion
+	}).(pulumi.StringPtrOutput)
+}
+
+// Motion Graphics Settings. See Motion Graphics Settings for more details.
+func (o ChannelEncoderSettingsMotionGraphicsConfigurationPtrOutput) MotionGraphicsSettings() ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsMotionGraphicsConfiguration) *ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings {
+		if v == nil {
+			return nil
+		}
+		return &v.MotionGraphicsSettings
+	}).(ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsPtrOutput)
+}
+
+type ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings struct {
+	// Html Motion Graphics Settings.
+	HtmlMotionGraphicsSettings *ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettings `pulumi:"htmlMotionGraphicsSettings"`
+}
+
+// ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsInput is an input type that accepts ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsArgs and ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsInput` via:
+//
+//	ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsArgs{...}
+type ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsOutput() ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsOutput
+	ToChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsOutputWithContext(context.Context) ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsOutput
+}
+
+type ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsArgs struct {
+	// Html Motion Graphics Settings.
+	HtmlMotionGraphicsSettings ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsPtrInput `pulumi:"htmlMotionGraphicsSettings"`
+}
+
+func (ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings)(nil)).Elem()
+}
+
+func (i ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsArgs) ToChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsOutput() ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsOutput {
+	return i.ToChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsArgs) ToChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsOutputWithContext(ctx context.Context) ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsOutput)
+}
+
+func (i ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsArgs) ToChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsPtrOutput() ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsPtrOutput {
+	return i.ToChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsArgs) ToChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsOutput).ToChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsPtrOutputWithContext(ctx)
+}
+
+// ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsPtrInput is an input type that accepts ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsArgs, ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsPtr and ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsPtrOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsPtrInput` via:
+//
+//	        ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsPtrInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsPtrOutput() ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsPtrOutput
+	ToChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsPtrOutputWithContext(context.Context) ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsPtrOutput
+}
+
+type channelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsPtrType ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsArgs
+
+func ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsPtr(v *ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsArgs) ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsPtrInput {
+	return (*channelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsPtrType)(v)
+}
+
+func (*channelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings)(nil)).Elem()
+}
+
+func (i *channelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsPtrType) ToChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsPtrOutput() ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsPtrOutput {
+	return i.ToChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *channelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsPtrType) ToChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsPtrOutput)
+}
+
+type ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsOutput) ToChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsOutput() ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsOutput) ToChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsOutputWithContext(ctx context.Context) ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsOutput) ToChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsPtrOutput() ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsPtrOutput {
+	return o.ToChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsOutput) ToChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings) *ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings {
+		return &v
+	}).(ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsPtrOutput)
+}
+
+// Html Motion Graphics Settings.
+func (o ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsOutput) HtmlMotionGraphicsSettings() ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings) *ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettings {
+		return v.HtmlMotionGraphicsSettings
+	}).(ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsPtrOutput)
+}
+
+type ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsPtrOutput) ToChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsPtrOutput() ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsPtrOutput) ToChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsPtrOutput) Elem() ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings) ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings
+		return ret
+	}).(ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsOutput)
+}
+
+// Html Motion Graphics Settings.
+func (o ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsPtrOutput) HtmlMotionGraphicsSettings() ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings) *ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettings {
+		if v == nil {
+			return nil
+		}
+		return v.HtmlMotionGraphicsSettings
+	}).(ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsPtrOutput)
+}
+
+type ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettings struct {
+}
+
+// ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsInput is an input type that accepts ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsArgs and ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsInput` via:
+//
+//	ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsArgs{...}
+type ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsOutput() ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsOutput
+	ToChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsOutputWithContext(context.Context) ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsOutput
+}
+
+type ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsArgs struct {
+}
+
+func (ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettings)(nil)).Elem()
+}
+
+func (i ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsArgs) ToChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsOutput() ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsOutput {
+	return i.ToChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsArgs) ToChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsOutputWithContext(ctx context.Context) ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsOutput)
+}
+
+func (i ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsArgs) ToChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsPtrOutput() ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsPtrOutput {
+	return i.ToChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsArgs) ToChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsOutput).ToChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsPtrOutputWithContext(ctx)
+}
+
+// ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsPtrInput is an input type that accepts ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsArgs, ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsPtr and ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsPtrOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsPtrInput` via:
+//
+//	        ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsPtrInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsPtrOutput() ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsPtrOutput
+	ToChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsPtrOutputWithContext(context.Context) ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsPtrOutput
+}
+
+type channelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsPtrType ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsArgs
+
+func ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsPtr(v *ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsArgs) ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsPtrInput {
+	return (*channelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsPtrType)(v)
+}
+
+func (*channelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettings)(nil)).Elem()
+}
+
+func (i *channelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsPtrType) ToChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsPtrOutput() ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsPtrOutput {
+	return i.ToChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *channelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsPtrType) ToChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsPtrOutput)
+}
+
+type ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettings)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsOutput) ToChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsOutput() ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsOutput) ToChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsOutputWithContext(ctx context.Context) ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsOutput) ToChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsPtrOutput() ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsPtrOutput {
+	return o.ToChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsOutput) ToChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettings) *ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettings {
+		return &v
+	}).(ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsPtrOutput)
+}
+
+type ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettings)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsPtrOutput) ToChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsPtrOutput() ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsPtrOutput) ToChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsPtrOutput) Elem() ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettings) ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettings {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettings
+		return ret
+	}).(ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsOutput)
+}
+
+type ChannelEncoderSettingsNielsenConfiguration struct {
+	// Enter the Distributor ID assigned to your organization by Nielsen.
+	DistributorId *string `pulumi:"distributorId"`
+	// Enables Nielsen PCM to ID3 tagging.
+	NielsenPcmToId3Tagging *string `pulumi:"nielsenPcmToId3Tagging"`
+}
+
+// ChannelEncoderSettingsNielsenConfigurationInput is an input type that accepts ChannelEncoderSettingsNielsenConfigurationArgs and ChannelEncoderSettingsNielsenConfigurationOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsNielsenConfigurationInput` via:
+//
+//	ChannelEncoderSettingsNielsenConfigurationArgs{...}
+type ChannelEncoderSettingsNielsenConfigurationInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsNielsenConfigurationOutput() ChannelEncoderSettingsNielsenConfigurationOutput
+	ToChannelEncoderSettingsNielsenConfigurationOutputWithContext(context.Context) ChannelEncoderSettingsNielsenConfigurationOutput
+}
+
+type ChannelEncoderSettingsNielsenConfigurationArgs struct {
+	// Enter the Distributor ID assigned to your organization by Nielsen.
+	DistributorId pulumi.StringPtrInput `pulumi:"distributorId"`
+	// Enables Nielsen PCM to ID3 tagging.
+	NielsenPcmToId3Tagging pulumi.StringPtrInput `pulumi:"nielsenPcmToId3Tagging"`
+}
+
+func (ChannelEncoderSettingsNielsenConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsNielsenConfiguration)(nil)).Elem()
+}
+
+func (i ChannelEncoderSettingsNielsenConfigurationArgs) ToChannelEncoderSettingsNielsenConfigurationOutput() ChannelEncoderSettingsNielsenConfigurationOutput {
+	return i.ToChannelEncoderSettingsNielsenConfigurationOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsNielsenConfigurationArgs) ToChannelEncoderSettingsNielsenConfigurationOutputWithContext(ctx context.Context) ChannelEncoderSettingsNielsenConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsNielsenConfigurationOutput)
+}
+
+func (i ChannelEncoderSettingsNielsenConfigurationArgs) ToChannelEncoderSettingsNielsenConfigurationPtrOutput() ChannelEncoderSettingsNielsenConfigurationPtrOutput {
+	return i.ToChannelEncoderSettingsNielsenConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelEncoderSettingsNielsenConfigurationArgs) ToChannelEncoderSettingsNielsenConfigurationPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsNielsenConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsNielsenConfigurationOutput).ToChannelEncoderSettingsNielsenConfigurationPtrOutputWithContext(ctx)
+}
+
+// ChannelEncoderSettingsNielsenConfigurationPtrInput is an input type that accepts ChannelEncoderSettingsNielsenConfigurationArgs, ChannelEncoderSettingsNielsenConfigurationPtr and ChannelEncoderSettingsNielsenConfigurationPtrOutput values.
+// You can construct a concrete instance of `ChannelEncoderSettingsNielsenConfigurationPtrInput` via:
+//
+//	        ChannelEncoderSettingsNielsenConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelEncoderSettingsNielsenConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToChannelEncoderSettingsNielsenConfigurationPtrOutput() ChannelEncoderSettingsNielsenConfigurationPtrOutput
+	ToChannelEncoderSettingsNielsenConfigurationPtrOutputWithContext(context.Context) ChannelEncoderSettingsNielsenConfigurationPtrOutput
+}
+
+type channelEncoderSettingsNielsenConfigurationPtrType ChannelEncoderSettingsNielsenConfigurationArgs
+
+func ChannelEncoderSettingsNielsenConfigurationPtr(v *ChannelEncoderSettingsNielsenConfigurationArgs) ChannelEncoderSettingsNielsenConfigurationPtrInput {
+	return (*channelEncoderSettingsNielsenConfigurationPtrType)(v)
+}
+
+func (*channelEncoderSettingsNielsenConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsNielsenConfiguration)(nil)).Elem()
+}
+
+func (i *channelEncoderSettingsNielsenConfigurationPtrType) ToChannelEncoderSettingsNielsenConfigurationPtrOutput() ChannelEncoderSettingsNielsenConfigurationPtrOutput {
+	return i.ToChannelEncoderSettingsNielsenConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *channelEncoderSettingsNielsenConfigurationPtrType) ToChannelEncoderSettingsNielsenConfigurationPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsNielsenConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncoderSettingsNielsenConfigurationPtrOutput)
+}
+
+type ChannelEncoderSettingsNielsenConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsNielsenConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncoderSettingsNielsenConfiguration)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsNielsenConfigurationOutput) ToChannelEncoderSettingsNielsenConfigurationOutput() ChannelEncoderSettingsNielsenConfigurationOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsNielsenConfigurationOutput) ToChannelEncoderSettingsNielsenConfigurationOutputWithContext(ctx context.Context) ChannelEncoderSettingsNielsenConfigurationOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsNielsenConfigurationOutput) ToChannelEncoderSettingsNielsenConfigurationPtrOutput() ChannelEncoderSettingsNielsenConfigurationPtrOutput {
+	return o.ToChannelEncoderSettingsNielsenConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelEncoderSettingsNielsenConfigurationOutput) ToChannelEncoderSettingsNielsenConfigurationPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsNielsenConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelEncoderSettingsNielsenConfiguration) *ChannelEncoderSettingsNielsenConfiguration {
+		return &v
+	}).(ChannelEncoderSettingsNielsenConfigurationPtrOutput)
+}
+
+// Enter the Distributor ID assigned to your organization by Nielsen.
+func (o ChannelEncoderSettingsNielsenConfigurationOutput) DistributorId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsNielsenConfiguration) *string { return v.DistributorId }).(pulumi.StringPtrOutput)
+}
+
+// Enables Nielsen PCM to ID3 tagging.
+func (o ChannelEncoderSettingsNielsenConfigurationOutput) NielsenPcmToId3Tagging() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelEncoderSettingsNielsenConfiguration) *string { return v.NielsenPcmToId3Tagging }).(pulumi.StringPtrOutput)
+}
+
+type ChannelEncoderSettingsNielsenConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncoderSettingsNielsenConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncoderSettingsNielsenConfiguration)(nil)).Elem()
+}
+
+func (o ChannelEncoderSettingsNielsenConfigurationPtrOutput) ToChannelEncoderSettingsNielsenConfigurationPtrOutput() ChannelEncoderSettingsNielsenConfigurationPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsNielsenConfigurationPtrOutput) ToChannelEncoderSettingsNielsenConfigurationPtrOutputWithContext(ctx context.Context) ChannelEncoderSettingsNielsenConfigurationPtrOutput {
+	return o
+}
+
+func (o ChannelEncoderSettingsNielsenConfigurationPtrOutput) Elem() ChannelEncoderSettingsNielsenConfigurationOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsNielsenConfiguration) ChannelEncoderSettingsNielsenConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelEncoderSettingsNielsenConfiguration
+		return ret
+	}).(ChannelEncoderSettingsNielsenConfigurationOutput)
+}
+
+// Enter the Distributor ID assigned to your organization by Nielsen.
+func (o ChannelEncoderSettingsNielsenConfigurationPtrOutput) DistributorId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsNielsenConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DistributorId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Enables Nielsen PCM to ID3 tagging.
+func (o ChannelEncoderSettingsNielsenConfigurationPtrOutput) NielsenPcmToId3Tagging() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncoderSettingsNielsenConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NielsenPcmToId3Tagging
+	}).(pulumi.StringPtrOutput)
+}
+
 type ChannelEncoderSettingsOutputGroup struct {
 	// Custom output group name defined by the user.
 	Name *string `pulumi:"name"`
@@ -6768,7 +11307,8 @@ func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsPtrO
 type ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMapping struct {
 	CaptionChannel int `pulumi:"captionChannel"`
 	// When specified this field indicates the three letter language code of the caption track to extract from the source.
-	LanguageCode        string `pulumi:"languageCode"`
+	LanguageCode string `pulumi:"languageCode"`
+	// Human readable information to indicate captions available for players (eg. English, or Spanish).
 	LanguageDescription string `pulumi:"languageDescription"`
 }
 
@@ -6786,7 +11326,8 @@ type ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaption
 type ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMappingArgs struct {
 	CaptionChannel pulumi.IntInput `pulumi:"captionChannel"`
 	// When specified this field indicates the three letter language code of the caption track to extract from the source.
-	LanguageCode        pulumi.StringInput `pulumi:"languageCode"`
+	LanguageCode pulumi.StringInput `pulumi:"languageCode"`
+	// Human readable information to indicate captions available for players (eg. English, or Spanish).
 	LanguageDescription pulumi.StringInput `pulumi:"languageDescription"`
 }
 
@@ -6854,6 +11395,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCapt
 	}).(pulumi.StringOutput)
 }
 
+// Human readable information to indicate captions available for players (eg. English, or Spanish).
 func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMappingOutput) LanguageDescription() pulumi.StringOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMapping) string {
 		return v.LanguageDescription
@@ -26255,6 +30797,697 @@ func (o MultiplexMultiplexSettingsPtrOutput) TransportStreamReservedBitrate() pu
 	}).(pulumi.IntPtrOutput)
 }
 
+type MultiplexProgramMultiplexProgramSettings struct {
+	// Enum for preferred channel pipeline. Options are `CURRENTLY_ACTIVE`, `PIPELINE_0`, or `PIPELINE_1`.
+	PreferredChannelPipeline string `pulumi:"preferredChannelPipeline"`
+	// Unique program number.
+	ProgramNumber int `pulumi:"programNumber"`
+	// Service Descriptor. See Service Descriptor for more details.
+	ServiceDescriptor *MultiplexProgramMultiplexProgramSettingsServiceDescriptor `pulumi:"serviceDescriptor"`
+	// Video settings. See Video Settings for more details.
+	VideoSettings *MultiplexProgramMultiplexProgramSettingsVideoSettings `pulumi:"videoSettings"`
+}
+
+// MultiplexProgramMultiplexProgramSettingsInput is an input type that accepts MultiplexProgramMultiplexProgramSettingsArgs and MultiplexProgramMultiplexProgramSettingsOutput values.
+// You can construct a concrete instance of `MultiplexProgramMultiplexProgramSettingsInput` via:
+//
+//	MultiplexProgramMultiplexProgramSettingsArgs{...}
+type MultiplexProgramMultiplexProgramSettingsInput interface {
+	pulumi.Input
+
+	ToMultiplexProgramMultiplexProgramSettingsOutput() MultiplexProgramMultiplexProgramSettingsOutput
+	ToMultiplexProgramMultiplexProgramSettingsOutputWithContext(context.Context) MultiplexProgramMultiplexProgramSettingsOutput
+}
+
+type MultiplexProgramMultiplexProgramSettingsArgs struct {
+	// Enum for preferred channel pipeline. Options are `CURRENTLY_ACTIVE`, `PIPELINE_0`, or `PIPELINE_1`.
+	PreferredChannelPipeline pulumi.StringInput `pulumi:"preferredChannelPipeline"`
+	// Unique program number.
+	ProgramNumber pulumi.IntInput `pulumi:"programNumber"`
+	// Service Descriptor. See Service Descriptor for more details.
+	ServiceDescriptor MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrInput `pulumi:"serviceDescriptor"`
+	// Video settings. See Video Settings for more details.
+	VideoSettings MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrInput `pulumi:"videoSettings"`
+}
+
+func (MultiplexProgramMultiplexProgramSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultiplexProgramMultiplexProgramSettings)(nil)).Elem()
+}
+
+func (i MultiplexProgramMultiplexProgramSettingsArgs) ToMultiplexProgramMultiplexProgramSettingsOutput() MultiplexProgramMultiplexProgramSettingsOutput {
+	return i.ToMultiplexProgramMultiplexProgramSettingsOutputWithContext(context.Background())
+}
+
+func (i MultiplexProgramMultiplexProgramSettingsArgs) ToMultiplexProgramMultiplexProgramSettingsOutputWithContext(ctx context.Context) MultiplexProgramMultiplexProgramSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiplexProgramMultiplexProgramSettingsOutput)
+}
+
+func (i MultiplexProgramMultiplexProgramSettingsArgs) ToMultiplexProgramMultiplexProgramSettingsPtrOutput() MultiplexProgramMultiplexProgramSettingsPtrOutput {
+	return i.ToMultiplexProgramMultiplexProgramSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i MultiplexProgramMultiplexProgramSettingsArgs) ToMultiplexProgramMultiplexProgramSettingsPtrOutputWithContext(ctx context.Context) MultiplexProgramMultiplexProgramSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiplexProgramMultiplexProgramSettingsOutput).ToMultiplexProgramMultiplexProgramSettingsPtrOutputWithContext(ctx)
+}
+
+// MultiplexProgramMultiplexProgramSettingsPtrInput is an input type that accepts MultiplexProgramMultiplexProgramSettingsArgs, MultiplexProgramMultiplexProgramSettingsPtr and MultiplexProgramMultiplexProgramSettingsPtrOutput values.
+// You can construct a concrete instance of `MultiplexProgramMultiplexProgramSettingsPtrInput` via:
+//
+//	        MultiplexProgramMultiplexProgramSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type MultiplexProgramMultiplexProgramSettingsPtrInput interface {
+	pulumi.Input
+
+	ToMultiplexProgramMultiplexProgramSettingsPtrOutput() MultiplexProgramMultiplexProgramSettingsPtrOutput
+	ToMultiplexProgramMultiplexProgramSettingsPtrOutputWithContext(context.Context) MultiplexProgramMultiplexProgramSettingsPtrOutput
+}
+
+type multiplexProgramMultiplexProgramSettingsPtrType MultiplexProgramMultiplexProgramSettingsArgs
+
+func MultiplexProgramMultiplexProgramSettingsPtr(v *MultiplexProgramMultiplexProgramSettingsArgs) MultiplexProgramMultiplexProgramSettingsPtrInput {
+	return (*multiplexProgramMultiplexProgramSettingsPtrType)(v)
+}
+
+func (*multiplexProgramMultiplexProgramSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultiplexProgramMultiplexProgramSettings)(nil)).Elem()
+}
+
+func (i *multiplexProgramMultiplexProgramSettingsPtrType) ToMultiplexProgramMultiplexProgramSettingsPtrOutput() MultiplexProgramMultiplexProgramSettingsPtrOutput {
+	return i.ToMultiplexProgramMultiplexProgramSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *multiplexProgramMultiplexProgramSettingsPtrType) ToMultiplexProgramMultiplexProgramSettingsPtrOutputWithContext(ctx context.Context) MultiplexProgramMultiplexProgramSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiplexProgramMultiplexProgramSettingsPtrOutput)
+}
+
+type MultiplexProgramMultiplexProgramSettingsOutput struct{ *pulumi.OutputState }
+
+func (MultiplexProgramMultiplexProgramSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultiplexProgramMultiplexProgramSettings)(nil)).Elem()
+}
+
+func (o MultiplexProgramMultiplexProgramSettingsOutput) ToMultiplexProgramMultiplexProgramSettingsOutput() MultiplexProgramMultiplexProgramSettingsOutput {
+	return o
+}
+
+func (o MultiplexProgramMultiplexProgramSettingsOutput) ToMultiplexProgramMultiplexProgramSettingsOutputWithContext(ctx context.Context) MultiplexProgramMultiplexProgramSettingsOutput {
+	return o
+}
+
+func (o MultiplexProgramMultiplexProgramSettingsOutput) ToMultiplexProgramMultiplexProgramSettingsPtrOutput() MultiplexProgramMultiplexProgramSettingsPtrOutput {
+	return o.ToMultiplexProgramMultiplexProgramSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o MultiplexProgramMultiplexProgramSettingsOutput) ToMultiplexProgramMultiplexProgramSettingsPtrOutputWithContext(ctx context.Context) MultiplexProgramMultiplexProgramSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MultiplexProgramMultiplexProgramSettings) *MultiplexProgramMultiplexProgramSettings {
+		return &v
+	}).(MultiplexProgramMultiplexProgramSettingsPtrOutput)
+}
+
+// Enum for preferred channel pipeline. Options are `CURRENTLY_ACTIVE`, `PIPELINE_0`, or `PIPELINE_1`.
+func (o MultiplexProgramMultiplexProgramSettingsOutput) PreferredChannelPipeline() pulumi.StringOutput {
+	return o.ApplyT(func(v MultiplexProgramMultiplexProgramSettings) string { return v.PreferredChannelPipeline }).(pulumi.StringOutput)
+}
+
+// Unique program number.
+func (o MultiplexProgramMultiplexProgramSettingsOutput) ProgramNumber() pulumi.IntOutput {
+	return o.ApplyT(func(v MultiplexProgramMultiplexProgramSettings) int { return v.ProgramNumber }).(pulumi.IntOutput)
+}
+
+// Service Descriptor. See Service Descriptor for more details.
+func (o MultiplexProgramMultiplexProgramSettingsOutput) ServiceDescriptor() MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutput {
+	return o.ApplyT(func(v MultiplexProgramMultiplexProgramSettings) *MultiplexProgramMultiplexProgramSettingsServiceDescriptor {
+		return v.ServiceDescriptor
+	}).(MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutput)
+}
+
+// Video settings. See Video Settings for more details.
+func (o MultiplexProgramMultiplexProgramSettingsOutput) VideoSettings() MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutput {
+	return o.ApplyT(func(v MultiplexProgramMultiplexProgramSettings) *MultiplexProgramMultiplexProgramSettingsVideoSettings {
+		return v.VideoSettings
+	}).(MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutput)
+}
+
+type MultiplexProgramMultiplexProgramSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (MultiplexProgramMultiplexProgramSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultiplexProgramMultiplexProgramSettings)(nil)).Elem()
+}
+
+func (o MultiplexProgramMultiplexProgramSettingsPtrOutput) ToMultiplexProgramMultiplexProgramSettingsPtrOutput() MultiplexProgramMultiplexProgramSettingsPtrOutput {
+	return o
+}
+
+func (o MultiplexProgramMultiplexProgramSettingsPtrOutput) ToMultiplexProgramMultiplexProgramSettingsPtrOutputWithContext(ctx context.Context) MultiplexProgramMultiplexProgramSettingsPtrOutput {
+	return o
+}
+
+func (o MultiplexProgramMultiplexProgramSettingsPtrOutput) Elem() MultiplexProgramMultiplexProgramSettingsOutput {
+	return o.ApplyT(func(v *MultiplexProgramMultiplexProgramSettings) MultiplexProgramMultiplexProgramSettings {
+		if v != nil {
+			return *v
+		}
+		var ret MultiplexProgramMultiplexProgramSettings
+		return ret
+	}).(MultiplexProgramMultiplexProgramSettingsOutput)
+}
+
+// Enum for preferred channel pipeline. Options are `CURRENTLY_ACTIVE`, `PIPELINE_0`, or `PIPELINE_1`.
+func (o MultiplexProgramMultiplexProgramSettingsPtrOutput) PreferredChannelPipeline() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MultiplexProgramMultiplexProgramSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PreferredChannelPipeline
+	}).(pulumi.StringPtrOutput)
+}
+
+// Unique program number.
+func (o MultiplexProgramMultiplexProgramSettingsPtrOutput) ProgramNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MultiplexProgramMultiplexProgramSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.ProgramNumber
+	}).(pulumi.IntPtrOutput)
+}
+
+// Service Descriptor. See Service Descriptor for more details.
+func (o MultiplexProgramMultiplexProgramSettingsPtrOutput) ServiceDescriptor() MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutput {
+	return o.ApplyT(func(v *MultiplexProgramMultiplexProgramSettings) *MultiplexProgramMultiplexProgramSettingsServiceDescriptor {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceDescriptor
+	}).(MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutput)
+}
+
+// Video settings. See Video Settings for more details.
+func (o MultiplexProgramMultiplexProgramSettingsPtrOutput) VideoSettings() MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutput {
+	return o.ApplyT(func(v *MultiplexProgramMultiplexProgramSettings) *MultiplexProgramMultiplexProgramSettingsVideoSettings {
+		if v == nil {
+			return nil
+		}
+		return v.VideoSettings
+	}).(MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutput)
+}
+
+type MultiplexProgramMultiplexProgramSettingsServiceDescriptor struct {
+	// Unique provider name.
+	ProviderName string `pulumi:"providerName"`
+	// Unique service name.
+	ServiceName string `pulumi:"serviceName"`
+}
+
+// MultiplexProgramMultiplexProgramSettingsServiceDescriptorInput is an input type that accepts MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs and MultiplexProgramMultiplexProgramSettingsServiceDescriptorOutput values.
+// You can construct a concrete instance of `MultiplexProgramMultiplexProgramSettingsServiceDescriptorInput` via:
+//
+//	MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs{...}
+type MultiplexProgramMultiplexProgramSettingsServiceDescriptorInput interface {
+	pulumi.Input
+
+	ToMultiplexProgramMultiplexProgramSettingsServiceDescriptorOutput() MultiplexProgramMultiplexProgramSettingsServiceDescriptorOutput
+	ToMultiplexProgramMultiplexProgramSettingsServiceDescriptorOutputWithContext(context.Context) MultiplexProgramMultiplexProgramSettingsServiceDescriptorOutput
+}
+
+type MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs struct {
+	// Unique provider name.
+	ProviderName pulumi.StringInput `pulumi:"providerName"`
+	// Unique service name.
+	ServiceName pulumi.StringInput `pulumi:"serviceName"`
+}
+
+func (MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultiplexProgramMultiplexProgramSettingsServiceDescriptor)(nil)).Elem()
+}
+
+func (i MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs) ToMultiplexProgramMultiplexProgramSettingsServiceDescriptorOutput() MultiplexProgramMultiplexProgramSettingsServiceDescriptorOutput {
+	return i.ToMultiplexProgramMultiplexProgramSettingsServiceDescriptorOutputWithContext(context.Background())
+}
+
+func (i MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs) ToMultiplexProgramMultiplexProgramSettingsServiceDescriptorOutputWithContext(ctx context.Context) MultiplexProgramMultiplexProgramSettingsServiceDescriptorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiplexProgramMultiplexProgramSettingsServiceDescriptorOutput)
+}
+
+func (i MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs) ToMultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutput() MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutput {
+	return i.ToMultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutputWithContext(context.Background())
+}
+
+func (i MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs) ToMultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutputWithContext(ctx context.Context) MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiplexProgramMultiplexProgramSettingsServiceDescriptorOutput).ToMultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutputWithContext(ctx)
+}
+
+// MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrInput is an input type that accepts MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs, MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtr and MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutput values.
+// You can construct a concrete instance of `MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrInput` via:
+//
+//	        MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs{...}
+//
+//	or:
+//
+//	        nil
+type MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrInput interface {
+	pulumi.Input
+
+	ToMultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutput() MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutput
+	ToMultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutputWithContext(context.Context) MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutput
+}
+
+type multiplexProgramMultiplexProgramSettingsServiceDescriptorPtrType MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs
+
+func MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtr(v *MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs) MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrInput {
+	return (*multiplexProgramMultiplexProgramSettingsServiceDescriptorPtrType)(v)
+}
+
+func (*multiplexProgramMultiplexProgramSettingsServiceDescriptorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultiplexProgramMultiplexProgramSettingsServiceDescriptor)(nil)).Elem()
+}
+
+func (i *multiplexProgramMultiplexProgramSettingsServiceDescriptorPtrType) ToMultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutput() MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutput {
+	return i.ToMultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutputWithContext(context.Background())
+}
+
+func (i *multiplexProgramMultiplexProgramSettingsServiceDescriptorPtrType) ToMultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutputWithContext(ctx context.Context) MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutput)
+}
+
+type MultiplexProgramMultiplexProgramSettingsServiceDescriptorOutput struct{ *pulumi.OutputState }
+
+func (MultiplexProgramMultiplexProgramSettingsServiceDescriptorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultiplexProgramMultiplexProgramSettingsServiceDescriptor)(nil)).Elem()
+}
+
+func (o MultiplexProgramMultiplexProgramSettingsServiceDescriptorOutput) ToMultiplexProgramMultiplexProgramSettingsServiceDescriptorOutput() MultiplexProgramMultiplexProgramSettingsServiceDescriptorOutput {
+	return o
+}
+
+func (o MultiplexProgramMultiplexProgramSettingsServiceDescriptorOutput) ToMultiplexProgramMultiplexProgramSettingsServiceDescriptorOutputWithContext(ctx context.Context) MultiplexProgramMultiplexProgramSettingsServiceDescriptorOutput {
+	return o
+}
+
+func (o MultiplexProgramMultiplexProgramSettingsServiceDescriptorOutput) ToMultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutput() MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutput {
+	return o.ToMultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutputWithContext(context.Background())
+}
+
+func (o MultiplexProgramMultiplexProgramSettingsServiceDescriptorOutput) ToMultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutputWithContext(ctx context.Context) MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MultiplexProgramMultiplexProgramSettingsServiceDescriptor) *MultiplexProgramMultiplexProgramSettingsServiceDescriptor {
+		return &v
+	}).(MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutput)
+}
+
+// Unique provider name.
+func (o MultiplexProgramMultiplexProgramSettingsServiceDescriptorOutput) ProviderName() pulumi.StringOutput {
+	return o.ApplyT(func(v MultiplexProgramMultiplexProgramSettingsServiceDescriptor) string { return v.ProviderName }).(pulumi.StringOutput)
+}
+
+// Unique service name.
+func (o MultiplexProgramMultiplexProgramSettingsServiceDescriptorOutput) ServiceName() pulumi.StringOutput {
+	return o.ApplyT(func(v MultiplexProgramMultiplexProgramSettingsServiceDescriptor) string { return v.ServiceName }).(pulumi.StringOutput)
+}
+
+type MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutput struct{ *pulumi.OutputState }
+
+func (MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultiplexProgramMultiplexProgramSettingsServiceDescriptor)(nil)).Elem()
+}
+
+func (o MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutput) ToMultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutput() MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutput {
+	return o
+}
+
+func (o MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutput) ToMultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutputWithContext(ctx context.Context) MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutput {
+	return o
+}
+
+func (o MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutput) Elem() MultiplexProgramMultiplexProgramSettingsServiceDescriptorOutput {
+	return o.ApplyT(func(v *MultiplexProgramMultiplexProgramSettingsServiceDescriptor) MultiplexProgramMultiplexProgramSettingsServiceDescriptor {
+		if v != nil {
+			return *v
+		}
+		var ret MultiplexProgramMultiplexProgramSettingsServiceDescriptor
+		return ret
+	}).(MultiplexProgramMultiplexProgramSettingsServiceDescriptorOutput)
+}
+
+// Unique provider name.
+func (o MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutput) ProviderName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MultiplexProgramMultiplexProgramSettingsServiceDescriptor) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ProviderName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Unique service name.
+func (o MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutput) ServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MultiplexProgramMultiplexProgramSettingsServiceDescriptor) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ServiceName
+	}).(pulumi.StringPtrOutput)
+}
+
+type MultiplexProgramMultiplexProgramSettingsVideoSettings struct {
+	// Constant bitrate value.
+	ConstantBitrate *int `pulumi:"constantBitrate"`
+	// Statmux settings. See Statmux Settings for more details.
+	StatmuxSettings *MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings `pulumi:"statmuxSettings"`
+}
+
+// MultiplexProgramMultiplexProgramSettingsVideoSettingsInput is an input type that accepts MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs and MultiplexProgramMultiplexProgramSettingsVideoSettingsOutput values.
+// You can construct a concrete instance of `MultiplexProgramMultiplexProgramSettingsVideoSettingsInput` via:
+//
+//	MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs{...}
+type MultiplexProgramMultiplexProgramSettingsVideoSettingsInput interface {
+	pulumi.Input
+
+	ToMultiplexProgramMultiplexProgramSettingsVideoSettingsOutput() MultiplexProgramMultiplexProgramSettingsVideoSettingsOutput
+	ToMultiplexProgramMultiplexProgramSettingsVideoSettingsOutputWithContext(context.Context) MultiplexProgramMultiplexProgramSettingsVideoSettingsOutput
+}
+
+type MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs struct {
+	// Constant bitrate value.
+	ConstantBitrate pulumi.IntPtrInput `pulumi:"constantBitrate"`
+	// Statmux settings. See Statmux Settings for more details.
+	StatmuxSettings MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrInput `pulumi:"statmuxSettings"`
+}
+
+func (MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultiplexProgramMultiplexProgramSettingsVideoSettings)(nil)).Elem()
+}
+
+func (i MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs) ToMultiplexProgramMultiplexProgramSettingsVideoSettingsOutput() MultiplexProgramMultiplexProgramSettingsVideoSettingsOutput {
+	return i.ToMultiplexProgramMultiplexProgramSettingsVideoSettingsOutputWithContext(context.Background())
+}
+
+func (i MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs) ToMultiplexProgramMultiplexProgramSettingsVideoSettingsOutputWithContext(ctx context.Context) MultiplexProgramMultiplexProgramSettingsVideoSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiplexProgramMultiplexProgramSettingsVideoSettingsOutput)
+}
+
+func (i MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs) ToMultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutput() MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutput {
+	return i.ToMultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs) ToMultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutputWithContext(ctx context.Context) MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiplexProgramMultiplexProgramSettingsVideoSettingsOutput).ToMultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutputWithContext(ctx)
+}
+
+// MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrInput is an input type that accepts MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs, MultiplexProgramMultiplexProgramSettingsVideoSettingsPtr and MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutput values.
+// You can construct a concrete instance of `MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrInput` via:
+//
+//	        MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrInput interface {
+	pulumi.Input
+
+	ToMultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutput() MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutput
+	ToMultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutputWithContext(context.Context) MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutput
+}
+
+type multiplexProgramMultiplexProgramSettingsVideoSettingsPtrType MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs
+
+func MultiplexProgramMultiplexProgramSettingsVideoSettingsPtr(v *MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs) MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrInput {
+	return (*multiplexProgramMultiplexProgramSettingsVideoSettingsPtrType)(v)
+}
+
+func (*multiplexProgramMultiplexProgramSettingsVideoSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultiplexProgramMultiplexProgramSettingsVideoSettings)(nil)).Elem()
+}
+
+func (i *multiplexProgramMultiplexProgramSettingsVideoSettingsPtrType) ToMultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutput() MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutput {
+	return i.ToMultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *multiplexProgramMultiplexProgramSettingsVideoSettingsPtrType) ToMultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutputWithContext(ctx context.Context) MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutput)
+}
+
+type MultiplexProgramMultiplexProgramSettingsVideoSettingsOutput struct{ *pulumi.OutputState }
+
+func (MultiplexProgramMultiplexProgramSettingsVideoSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultiplexProgramMultiplexProgramSettingsVideoSettings)(nil)).Elem()
+}
+
+func (o MultiplexProgramMultiplexProgramSettingsVideoSettingsOutput) ToMultiplexProgramMultiplexProgramSettingsVideoSettingsOutput() MultiplexProgramMultiplexProgramSettingsVideoSettingsOutput {
+	return o
+}
+
+func (o MultiplexProgramMultiplexProgramSettingsVideoSettingsOutput) ToMultiplexProgramMultiplexProgramSettingsVideoSettingsOutputWithContext(ctx context.Context) MultiplexProgramMultiplexProgramSettingsVideoSettingsOutput {
+	return o
+}
+
+func (o MultiplexProgramMultiplexProgramSettingsVideoSettingsOutput) ToMultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutput() MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutput {
+	return o.ToMultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o MultiplexProgramMultiplexProgramSettingsVideoSettingsOutput) ToMultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutputWithContext(ctx context.Context) MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MultiplexProgramMultiplexProgramSettingsVideoSettings) *MultiplexProgramMultiplexProgramSettingsVideoSettings {
+		return &v
+	}).(MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutput)
+}
+
+// Constant bitrate value.
+func (o MultiplexProgramMultiplexProgramSettingsVideoSettingsOutput) ConstantBitrate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MultiplexProgramMultiplexProgramSettingsVideoSettings) *int { return v.ConstantBitrate }).(pulumi.IntPtrOutput)
+}
+
+// Statmux settings. See Statmux Settings for more details.
+func (o MultiplexProgramMultiplexProgramSettingsVideoSettingsOutput) StatmuxSettings() MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput {
+	return o.ApplyT(func(v MultiplexProgramMultiplexProgramSettingsVideoSettings) *MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings {
+		return v.StatmuxSettings
+	}).(MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput)
+}
+
+type MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultiplexProgramMultiplexProgramSettingsVideoSettings)(nil)).Elem()
+}
+
+func (o MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutput) ToMultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutput() MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutput {
+	return o
+}
+
+func (o MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutput) ToMultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutputWithContext(ctx context.Context) MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutput {
+	return o
+}
+
+func (o MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutput) Elem() MultiplexProgramMultiplexProgramSettingsVideoSettingsOutput {
+	return o.ApplyT(func(v *MultiplexProgramMultiplexProgramSettingsVideoSettings) MultiplexProgramMultiplexProgramSettingsVideoSettings {
+		if v != nil {
+			return *v
+		}
+		var ret MultiplexProgramMultiplexProgramSettingsVideoSettings
+		return ret
+	}).(MultiplexProgramMultiplexProgramSettingsVideoSettingsOutput)
+}
+
+// Constant bitrate value.
+func (o MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutput) ConstantBitrate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MultiplexProgramMultiplexProgramSettingsVideoSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ConstantBitrate
+	}).(pulumi.IntPtrOutput)
+}
+
+// Statmux settings. See Statmux Settings for more details.
+func (o MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutput) StatmuxSettings() MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput {
+	return o.ApplyT(func(v *MultiplexProgramMultiplexProgramSettingsVideoSettings) *MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings {
+		if v == nil {
+			return nil
+		}
+		return v.StatmuxSettings
+	}).(MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput)
+}
+
+type MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings struct {
+	// Maximum bitrate.
+	MaximumBitrate *int `pulumi:"maximumBitrate"`
+	// Minimum bitrate.
+	MinimumBitrate *int `pulumi:"minimumBitrate"`
+	// Priority value.
+	Priority *int `pulumi:"priority"`
+}
+
+// MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsInput is an input type that accepts MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs and MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsOutput values.
+// You can construct a concrete instance of `MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsInput` via:
+//
+//	MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs{...}
+type MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsInput interface {
+	pulumi.Input
+
+	ToMultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsOutput() MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsOutput
+	ToMultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsOutputWithContext(context.Context) MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsOutput
+}
+
+type MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs struct {
+	// Maximum bitrate.
+	MaximumBitrate pulumi.IntPtrInput `pulumi:"maximumBitrate"`
+	// Minimum bitrate.
+	MinimumBitrate pulumi.IntPtrInput `pulumi:"minimumBitrate"`
+	// Priority value.
+	Priority pulumi.IntPtrInput `pulumi:"priority"`
+}
+
+func (MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings)(nil)).Elem()
+}
+
+func (i MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs) ToMultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsOutput() MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsOutput {
+	return i.ToMultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsOutputWithContext(context.Background())
+}
+
+func (i MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs) ToMultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsOutputWithContext(ctx context.Context) MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsOutput)
+}
+
+func (i MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs) ToMultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput() MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput {
+	return i.ToMultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs) ToMultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutputWithContext(ctx context.Context) MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsOutput).ToMultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutputWithContext(ctx)
+}
+
+// MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrInput is an input type that accepts MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs, MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtr and MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput values.
+// You can construct a concrete instance of `MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrInput` via:
+//
+//	        MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrInput interface {
+	pulumi.Input
+
+	ToMultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput() MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput
+	ToMultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutputWithContext(context.Context) MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput
+}
+
+type multiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrType MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs
+
+func MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtr(v *MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs) MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrInput {
+	return (*multiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrType)(v)
+}
+
+func (*multiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings)(nil)).Elem()
+}
+
+func (i *multiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrType) ToMultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput() MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput {
+	return i.ToMultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *multiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrType) ToMultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutputWithContext(ctx context.Context) MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput)
+}
+
+type MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsOutput struct{ *pulumi.OutputState }
+
+func (MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings)(nil)).Elem()
+}
+
+func (o MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsOutput) ToMultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsOutput() MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsOutput {
+	return o
+}
+
+func (o MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsOutput) ToMultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsOutputWithContext(ctx context.Context) MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsOutput {
+	return o
+}
+
+func (o MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsOutput) ToMultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput() MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput {
+	return o.ToMultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsOutput) ToMultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutputWithContext(ctx context.Context) MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings) *MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings {
+		return &v
+	}).(MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput)
+}
+
+// Maximum bitrate.
+func (o MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsOutput) MaximumBitrate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings) *int {
+		return v.MaximumBitrate
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum bitrate.
+func (o MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsOutput) MinimumBitrate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings) *int {
+		return v.MinimumBitrate
+	}).(pulumi.IntPtrOutput)
+}
+
+// Priority value.
+func (o MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings) *int { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
+type MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings)(nil)).Elem()
+}
+
+func (o MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput) ToMultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput() MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput {
+	return o
+}
+
+func (o MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput) ToMultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutputWithContext(ctx context.Context) MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput {
+	return o
+}
+
+func (o MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput) Elem() MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsOutput {
+	return o.ApplyT(func(v *MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings) MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings {
+		if v != nil {
+			return *v
+		}
+		var ret MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings
+		return ret
+	}).(MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsOutput)
+}
+
+// Maximum bitrate.
+func (o MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput) MaximumBitrate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaximumBitrate
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum bitrate.
+func (o MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput) MinimumBitrate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinimumBitrate
+	}).(pulumi.IntPtrOutput)
+}
+
+// Priority value.
+func (o MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Priority
+	}).(pulumi.IntPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelCdiInputSpecificationInput)(nil)).Elem(), ChannelCdiInputSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelCdiInputSpecificationPtrInput)(nil)).Elem(), ChannelCdiInputSpecificationArgs{})
@@ -26306,6 +31539,54 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsAvailBlankingPtrInput)(nil)).Elem(), ChannelEncoderSettingsAvailBlankingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsAvailBlankingAvailBlankingImageInput)(nil)).Elem(), ChannelEncoderSettingsAvailBlankingAvailBlankingImageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsAvailBlankingAvailBlankingImagePtrInput)(nil)).Elem(), ChannelEncoderSettingsAvailBlankingAvailBlankingImageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionInput)(nil)).Elem(), ChannelEncoderSettingsCaptionDescriptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionArrayInput)(nil)).Elem(), ChannelEncoderSettingsCaptionDescriptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionDestinationSettingsInput)(nil)).Elem(), ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrInput)(nil)).Elem(), ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsInput)(nil)).Elem(), ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsPtrInput)(nil)).Elem(), ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsInput)(nil)).Elem(), ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrInput)(nil)).Elem(), ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontInput)(nil)).Elem(), ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontPtrInput)(nil)).Elem(), ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsInput)(nil)).Elem(), ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrInput)(nil)).Elem(), ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontInput)(nil)).Elem(), ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontPtrInput)(nil)).Elem(), ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsInput)(nil)).Elem(), ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsPtrInput)(nil)).Elem(), ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsInput)(nil)).Elem(), ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsPtrInput)(nil)).Elem(), ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsInput)(nil)).Elem(), ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsPtrInput)(nil)).Elem(), ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsInput)(nil)).Elem(), ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsPtrInput)(nil)).Elem(), ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsInput)(nil)).Elem(), ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsPtrInput)(nil)).Elem(), ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsInput)(nil)).Elem(), ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsPtrInput)(nil)).Elem(), ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsInput)(nil)).Elem(), ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsPtrInput)(nil)).Elem(), ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsInput)(nil)).Elem(), ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsPtrInput)(nil)).Elem(), ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsInput)(nil)).Elem(), ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsPtrInput)(nil)).Elem(), ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsInput)(nil)).Elem(), ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsPtrInput)(nil)).Elem(), ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsGlobalConfigurationInput)(nil)).Elem(), ChannelEncoderSettingsGlobalConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsGlobalConfigurationPtrInput)(nil)).Elem(), ChannelEncoderSettingsGlobalConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInput)(nil)).Elem(), ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorPtrInput)(nil)).Elem(), ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateInput)(nil)).Elem(), ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlatePtrInput)(nil)).Elem(), ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsMotionGraphicsConfigurationInput)(nil)).Elem(), ChannelEncoderSettingsMotionGraphicsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsMotionGraphicsConfigurationPtrInput)(nil)).Elem(), ChannelEncoderSettingsMotionGraphicsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsInput)(nil)).Elem(), ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsPtrInput)(nil)).Elem(), ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsInput)(nil)).Elem(), ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsPtrInput)(nil)).Elem(), ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsNielsenConfigurationInput)(nil)).Elem(), ChannelEncoderSettingsNielsenConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsNielsenConfigurationPtrInput)(nil)).Elem(), ChannelEncoderSettingsNielsenConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsOutputGroupInput)(nil)).Elem(), ChannelEncoderSettingsOutputGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsOutputGroupArrayInput)(nil)).Elem(), ChannelEncoderSettingsOutputGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsOutputGroupOutputTypeInput)(nil)).Elem(), ChannelEncoderSettingsOutputGroupOutputTypeArgs{})
@@ -26533,6 +31814,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InputVpcPtrInput)(nil)).Elem(), InputVpcArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiplexMultiplexSettingsInput)(nil)).Elem(), MultiplexMultiplexSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiplexMultiplexSettingsPtrInput)(nil)).Elem(), MultiplexMultiplexSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultiplexProgramMultiplexProgramSettingsInput)(nil)).Elem(), MultiplexProgramMultiplexProgramSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultiplexProgramMultiplexProgramSettingsPtrInput)(nil)).Elem(), MultiplexProgramMultiplexProgramSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultiplexProgramMultiplexProgramSettingsServiceDescriptorInput)(nil)).Elem(), MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrInput)(nil)).Elem(), MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultiplexProgramMultiplexProgramSettingsVideoSettingsInput)(nil)).Elem(), MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrInput)(nil)).Elem(), MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsInput)(nil)).Elem(), MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrInput)(nil)).Elem(), MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs{})
 	pulumi.RegisterOutputType(ChannelCdiInputSpecificationOutput{})
 	pulumi.RegisterOutputType(ChannelCdiInputSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(ChannelDestinationOutput{})
@@ -26583,6 +31872,54 @@ func init() {
 	pulumi.RegisterOutputType(ChannelEncoderSettingsAvailBlankingPtrOutput{})
 	pulumi.RegisterOutputType(ChannelEncoderSettingsAvailBlankingAvailBlankingImageOutput{})
 	pulumi.RegisterOutputType(ChannelEncoderSettingsAvailBlankingAvailBlankingImagePtrOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsCaptionDescriptionOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsCaptionDescriptionArrayOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsPtrOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontPtrOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontPtrOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsPtrOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsPtrOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsPtrOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsPtrOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsPtrOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsPtrOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsPtrOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsPtrOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsPtrOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsPtrOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsGlobalConfigurationOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsGlobalConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorPtrOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlatePtrOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsMotionGraphicsConfigurationOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsMotionGraphicsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsPtrOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsPtrOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsNielsenConfigurationOutput{})
+	pulumi.RegisterOutputType(ChannelEncoderSettingsNielsenConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ChannelEncoderSettingsOutputGroupOutput{})
 	pulumi.RegisterOutputType(ChannelEncoderSettingsOutputGroupArrayOutput{})
 	pulumi.RegisterOutputType(ChannelEncoderSettingsOutputGroupOutputTypeOutput{})
@@ -26810,4 +32147,12 @@ func init() {
 	pulumi.RegisterOutputType(InputVpcPtrOutput{})
 	pulumi.RegisterOutputType(MultiplexMultiplexSettingsOutput{})
 	pulumi.RegisterOutputType(MultiplexMultiplexSettingsPtrOutput{})
+	pulumi.RegisterOutputType(MultiplexProgramMultiplexProgramSettingsOutput{})
+	pulumi.RegisterOutputType(MultiplexProgramMultiplexProgramSettingsPtrOutput{})
+	pulumi.RegisterOutputType(MultiplexProgramMultiplexProgramSettingsServiceDescriptorOutput{})
+	pulumi.RegisterOutputType(MultiplexProgramMultiplexProgramSettingsServiceDescriptorPtrOutput{})
+	pulumi.RegisterOutputType(MultiplexProgramMultiplexProgramSettingsVideoSettingsOutput{})
+	pulumi.RegisterOutputType(MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutput{})
+	pulumi.RegisterOutputType(MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsOutput{})
+	pulumi.RegisterOutputType(MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput{})
 }

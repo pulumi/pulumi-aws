@@ -16,14 +16,14 @@ public final class ClusterS3ImportArgs extends com.pulumi.resources.ResourceArgs
     public static final ClusterS3ImportArgs Empty = new ClusterS3ImportArgs();
 
     /**
-     * The bucket name where your backup is stored
+     * Bucket name where your backup is stored
      * 
      */
     @Import(name="bucketName", required=true)
     private Output<String> bucketName;
 
     /**
-     * @return The bucket name where your backup is stored
+     * @return Bucket name where your backup is stored
      * 
      */
     public Output<String> bucketName() {
@@ -123,7 +123,7 @@ public final class ClusterS3ImportArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param bucketName The bucket name where your backup is stored
+         * @param bucketName Bucket name where your backup is stored
          * 
          * @return builder
          * 
@@ -134,7 +134,7 @@ public final class ClusterS3ImportArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param bucketName The bucket name where your backup is stored
+         * @param bucketName Bucket name where your backup is stored
          * 
          * @return builder
          * 

@@ -60,12 +60,36 @@ public final class GetServicePlainArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * (**Deprecated**) Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     * @deprecated
+     * this attribute has been deprecated
+     * 
+     */
+    @Deprecated /* this attribute has been deprecated */
+    @Import(name="tagsAll")
+    private @Nullable Map<String,String> tagsAll;
+
+    /**
+     * @return (**Deprecated**) Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     * @deprecated
+     * this attribute has been deprecated
+     * 
+     */
+    @Deprecated /* this attribute has been deprecated */
+    public Optional<Map<String,String>> tagsAll() {
+        return Optional.ofNullable(this.tagsAll);
+    }
+
     private GetServicePlainArgs() {}
 
     private GetServicePlainArgs(GetServicePlainArgs $) {
         this.name = $.name;
         this.namespaceId = $.namespaceId;
         this.tags = $.tags;
+        this.tagsAll = $.tagsAll;
     }
 
     public static Builder builder() {
@@ -116,6 +140,21 @@ public final class GetServicePlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
+            return this;
+        }
+
+        /**
+         * @param tagsAll (**Deprecated**) Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * this attribute has been deprecated
+         * 
+         */
+        @Deprecated /* this attribute has been deprecated */
+        public Builder tagsAll(@Nullable Map<String,String> tagsAll) {
+            $.tagsAll = tagsAll;
             return this;
         }
 

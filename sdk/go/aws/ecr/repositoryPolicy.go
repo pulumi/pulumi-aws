@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,8 +23,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecr"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecr"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -84,13 +85,11 @@ import (
 //
 // ## Import
 //
-// ECR Repository Policy can be imported using the repository name, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_ecr_repository_policy.example
 //
-//	$ pulumi import aws:ecr/repositoryPolicy:RepositoryPolicy example example
-//
-// ```
+//	id = "example" } Using `pulumi import`, import ECR Repository Policy using the repository name. For exampleconsole % pulumi import aws_ecr_repository_policy.example example
 type RepositoryPolicy struct {
 	pulumi.CustomResourceState
 
@@ -115,6 +114,7 @@ func NewRepositoryPolicy(ctx *pulumi.Context,
 	if args.Repository == nil {
 		return nil, errors.New("invalid value for required argument 'Repository'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RepositoryPolicy
 	err := ctx.RegisterResource("aws:ecr/repositoryPolicy:RepositoryPolicy", name, args, &resource, opts...)
 	if err != nil {

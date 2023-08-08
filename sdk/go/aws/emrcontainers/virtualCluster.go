@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emrcontainers"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emrcontainers"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -50,13 +51,11 @@ import (
 //
 // ## Import
 //
-// EKS Clusters can be imported using the `id`, e.g.
+// terraform import {
 //
-// ```sh
+//	to = aws_emrcontainers_virtual_cluster.example
 //
-//	$ pulumi import aws:emrcontainers/virtualCluster:VirtualCluster example a1b2c3d4e5f6g7h8i9j10k11l
-//
-// ```
+//	id = "a1b2c3d4e5f6g7h8i9j10k11l" } Using `pulumi import`, import EKS Clusters using the `id`. For exampleconsole % pulumi import aws_emrcontainers_virtual_cluster.example a1b2c3d4e5f6g7h8i9j10k11l
 type VirtualCluster struct {
 	pulumi.CustomResourceState
 
@@ -82,6 +81,7 @@ func NewVirtualCluster(ctx *pulumi.Context,
 	if args.ContainerProvider == nil {
 		return nil, errors.New("invalid value for required argument 'ContainerProvider'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VirtualCluster
 	err := ctx.RegisterResource("aws:emrcontainers/virtualCluster:VirtualCluster", name, args, &resource, opts...)
 	if err != nil {

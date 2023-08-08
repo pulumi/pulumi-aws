@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -59,13 +60,11 @@ import (
 //
 // ## Import
 //
-// `aws_api_gateway_model` can be imported using `REST-API-ID/NAME`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_api_gateway_model.example
 //
-//	$ pulumi import aws:apigateway/model:Model example 12345abcde/example
-//
-// ```
+//	id = "12345abcde/example" } Using `pulumi import`, import `aws_api_gateway_model` using `REST-API-ID/NAME`. For exampleconsole % pulumi import aws_api_gateway_model.example 12345abcde/example
 type Model struct {
 	pulumi.CustomResourceState
 
@@ -94,6 +93,7 @@ func NewModel(ctx *pulumi.Context,
 	if args.RestApi == nil {
 		return nil, errors.New("invalid value for required argument 'RestApi'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Model
 	err := ctx.RegisterResource("aws:apigateway/model:Model", name, args, &resource, opts...)
 	if err != nil {

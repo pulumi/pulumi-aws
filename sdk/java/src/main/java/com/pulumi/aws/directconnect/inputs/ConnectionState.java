@@ -6,6 +6,7 @@ package com.pulumi.aws.directconnect.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -281,13 +282,13 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="vlanId")
-    private @Nullable Output<String> vlanId;
+    private @Nullable Output<Integer> vlanId;
 
     /**
      * @return The VLAN ID.
      * 
      */
-    public Optional<Output<String>> vlanId() {
+    public Optional<Output<Integer>> vlanId() {
         return Optional.ofNullable(this.vlanId);
     }
 
@@ -699,7 +700,7 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder vlanId(@Nullable Output<String> vlanId) {
+        public Builder vlanId(@Nullable Output<Integer> vlanId) {
             $.vlanId = vlanId;
             return this;
         }
@@ -710,7 +711,7 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder vlanId(String vlanId) {
+        public Builder vlanId(Integer vlanId) {
             return vlanId(Output.of(vlanId));
         }
 

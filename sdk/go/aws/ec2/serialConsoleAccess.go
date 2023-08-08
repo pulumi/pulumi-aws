@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,13 +43,11 @@ import (
 //
 // ## Import
 //
-// Serial console access state can be imported, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_ec2_serial_console_access.example
 //
-//	$ pulumi import aws:ec2/serialConsoleAccess:SerialConsoleAccess example default
-//
-// ```
+//	id = "default" } Using `pulumi import`, import serial console access state. For exampleconsole % pulumi import aws_ec2_serial_console_access.example default
 type SerialConsoleAccess struct {
 	pulumi.CustomResourceState
 
@@ -63,6 +62,7 @@ func NewSerialConsoleAccess(ctx *pulumi.Context,
 		args = &SerialConsoleAccessArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SerialConsoleAccess
 	err := ctx.RegisterResource("aws:ec2/serialConsoleAccess:SerialConsoleAccess", name, args, &resource, opts...)
 	if err != nil {

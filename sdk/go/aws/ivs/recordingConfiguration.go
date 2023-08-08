@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ivs"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ivs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -46,13 +47,11 @@ import (
 //
 // ## Import
 //
-// IVS (Interactive Video) Recording Configuration can be imported using the ARN, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_ivs_recording_configuration.example
 //
-//	$ pulumi import aws:ivs/recordingConfiguration:RecordingConfiguration example arn:aws:ivs:us-west-2:326937407773:recording-configuration/KAk1sHBl2L47
-//
-// ```
+//	id = "arn:aws:ivs:us-west-2:326937407773:recording-configuration/KAk1sHBl2L47" } Using `pulumi import`, import IVS (Interactive Video) Recording Configuration using the ARN. For exampleconsole % pulumi import aws_ivs_recording_configuration.example arn:aws:ivs:us-west-2:326937407773:recording-configuration/KAk1sHBl2L47
 type RecordingConfiguration struct {
 	pulumi.CustomResourceState
 
@@ -84,6 +83,7 @@ func NewRecordingConfiguration(ctx *pulumi.Context,
 	if args.DestinationConfiguration == nil {
 		return nil, errors.New("invalid value for required argument 'DestinationConfiguration'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RecordingConfiguration
 	err := ctx.RegisterResource("aws:ivs/recordingConfiguration:RecordingConfiguration", name, args, &resource, opts...)
 	if err != nil {

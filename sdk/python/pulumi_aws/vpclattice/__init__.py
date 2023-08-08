@@ -9,6 +9,7 @@ from .access_log_subscription import *
 from .auth_policy import *
 from .get_auth_policy import *
 from .get_listener import *
+from .get_resource_policy import *
 from .get_service import *
 from .get_service_network import *
 from .listener import *

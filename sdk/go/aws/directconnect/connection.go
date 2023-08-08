@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directconnect"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directconnect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -47,7 +48,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directconnect"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directconnect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -76,7 +77,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directconnect"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directconnect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -100,13 +101,11 @@ import (
 //
 // ## Import
 //
-// Direct Connect connections can be imported using the `connection id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_dx_connection.test_connection
 //
-//	$ pulumi import aws:directconnect/connection:Connection test_connection dxcon-ffre0ec3
-//
-// ```
+//	id = "dxcon-ffre0ec3" } Using `pulumi import`, import Direct Connect connections using the connection `id`. For exampleconsole % pulumi import aws_dx_connection.test_connection dxcon-ffre0ec3
 type Connection struct {
 	pulumi.CustomResourceState
 
@@ -147,7 +146,7 @@ type Connection struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The VLAN ID.
-	VlanId pulumi.StringOutput `pulumi:"vlanId"`
+	VlanId pulumi.IntOutput `pulumi:"vlanId"`
 }
 
 // NewConnection registers a new resource with the given unique name, arguments, and options.
@@ -163,6 +162,7 @@ func NewConnection(ctx *pulumi.Context,
 	if args.Location == nil {
 		return nil, errors.New("invalid value for required argument 'Location'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Connection
 	err := ctx.RegisterResource("aws:directconnect/connection:Connection", name, args, &resource, opts...)
 	if err != nil {
@@ -222,7 +222,7 @@ type connectionState struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The VLAN ID.
-	VlanId *string `pulumi:"vlanId"`
+	VlanId *int `pulumi:"vlanId"`
 }
 
 type ConnectionState struct {
@@ -263,7 +263,7 @@ type ConnectionState struct {
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The VLAN ID.
-	VlanId pulumi.StringPtrInput
+	VlanId pulumi.IntPtrInput
 }
 
 func (ConnectionState) ElementType() reflect.Type {
@@ -488,8 +488,8 @@ func (o ConnectionOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // The VLAN ID.
-func (o ConnectionOutput) VlanId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.VlanId }).(pulumi.StringOutput)
+func (o ConnectionOutput) VlanId() pulumi.IntOutput {
+	return o.ApplyT(func(v *Connection) pulumi.IntOutput { return v.VlanId }).(pulumi.IntOutput)
 }
 
 type ConnectionArrayOutput struct{ *pulumi.OutputState }

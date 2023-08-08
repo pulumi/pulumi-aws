@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Route53
     ///         EnableDnsSupport = true,
     ///     }, new CustomResourceOptions
     ///     {
-    ///         Provider = "aws.alternate",
+    ///         Provider = aws.Alternate,
     ///     });
     /// 
     ///     var exampleVpcAssociationAuthorization = new Aws.Route53.VpcAssociationAuthorization("exampleVpcAssociationAuthorization", new()
@@ -64,7 +64,7 @@ namespace Pulumi.Aws.Route53
     ///         ZoneId = exampleVpcAssociationAuthorization.ZoneId,
     ///     }, new CustomResourceOptions
     ///     {
-    ///         Provider = "aws.alternate",
+    ///         Provider = aws.Alternate,
     ///     });
     /// 
     /// });
@@ -72,11 +72,11 @@ namespace Pulumi.Aws.Route53
     /// 
     /// ## Import
     /// 
-    /// Route 53 VPC Association Authorizations can be imported via the Hosted Zone ID and VPC ID, separated by a colon (`:`), e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:route53/vpcAssociationAuthorization:VpcAssociationAuthorization example Z123456ABCDEFG:vpc-12345678
-    /// ```
+    ///  to = aws_route53_vpc_association_authorization.example
+    /// 
+    ///  id = "Z123456ABCDEFG:vpc-12345678" } Using `pulumi import`, import Route 53 VPC Association Authorizations using the Hosted Zone ID and VPC ID, separated by a colon (`:`). For exampleconsole % pulumi import aws_route53_vpc_association_authorization.example Z123456ABCDEFG:vpc-12345678
     /// </summary>
     [AwsResourceType("aws:route53/vpcAssociationAuthorization:VpcAssociationAuthorization")]
     public partial class VpcAssociationAuthorization : global::Pulumi.CustomResource

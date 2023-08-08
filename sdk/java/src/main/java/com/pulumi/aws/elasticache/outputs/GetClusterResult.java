@@ -116,15 +116,6 @@ public final class GetClusterResult {
      */
     private List<String> securityGroupIds;
     /**
-     * @return List of security group names associated with this cache cluster.
-     * 
-     * @deprecated
-     * With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
-     * 
-     */
-    @Deprecated /* With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version. */
-    private List<String> securityGroupNames;
-    /**
      * @return The number of days for which ElastiCache will
      * retain automatic cache cluster snapshots before deleting them.
      * 
@@ -292,17 +283,6 @@ public final class GetClusterResult {
         return this.securityGroupIds;
     }
     /**
-     * @return List of security group names associated with this cache cluster.
-     * 
-     * @deprecated
-     * With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
-     * 
-     */
-    @Deprecated /* With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version. */
-    public List<String> securityGroupNames() {
-        return this.securityGroupNames;
-    }
-    /**
      * @return The number of days for which ElastiCache will
      * retain automatic cache cluster snapshots before deleting them.
      * 
@@ -363,7 +343,6 @@ public final class GetClusterResult {
         private String preferredOutpostArn;
         private String replicationGroupId;
         private List<String> securityGroupIds;
-        private List<String> securityGroupNames;
         private Integer snapshotRetentionLimit;
         private String snapshotWindow;
         private String subnetGroupName;
@@ -392,7 +371,6 @@ public final class GetClusterResult {
     	      this.preferredOutpostArn = defaults.preferredOutpostArn;
     	      this.replicationGroupId = defaults.replicationGroupId;
     	      this.securityGroupIds = defaults.securityGroupIds;
-    	      this.securityGroupNames = defaults.securityGroupNames;
     	      this.snapshotRetentionLimit = defaults.snapshotRetentionLimit;
     	      this.snapshotWindow = defaults.snapshotWindow;
     	      this.subnetGroupName = defaults.subnetGroupName;
@@ -514,14 +492,6 @@ public final class GetClusterResult {
             return securityGroupIds(List.of(securityGroupIds));
         }
         @CustomType.Setter
-        public Builder securityGroupNames(List<String> securityGroupNames) {
-            this.securityGroupNames = Objects.requireNonNull(securityGroupNames);
-            return this;
-        }
-        public Builder securityGroupNames(String... securityGroupNames) {
-            return securityGroupNames(List.of(securityGroupNames));
-        }
-        @CustomType.Setter
         public Builder snapshotRetentionLimit(Integer snapshotRetentionLimit) {
             this.snapshotRetentionLimit = Objects.requireNonNull(snapshotRetentionLimit);
             return this;
@@ -564,7 +534,6 @@ public final class GetClusterResult {
             o.preferredOutpostArn = preferredOutpostArn;
             o.replicationGroupId = replicationGroupId;
             o.securityGroupIds = securityGroupIds;
-            o.securityGroupNames = securityGroupNames;
             o.snapshotRetentionLimit = snapshotRetentionLimit;
             o.snapshotWindow = snapshotWindow;
             o.subnetGroupName = subnetGroupName;

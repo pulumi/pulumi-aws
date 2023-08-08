@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// ## Import
     /// 
-    /// Cognito Identity Pool Roles Attachment can be imported using the Identity Pool ID, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:cognito/identityPoolRoleAttachment:IdentityPoolRoleAttachment example us-west-2:b64805ad-cb56-40ba-9ffc-f5d8207e6d42
-    /// ```
+    ///  to = aws_cognito_identity_pool_roles_attachment.example
+    /// 
+    ///  id = "us-west-2:b64805ad-cb56-40ba-9ffc-f5d8207e6d42" } Using `pulumi import`, import Cognito Identity Pool Roles Attachment using the Identity Pool ID. For exampleconsole % pulumi import aws_cognito_identity_pool_roles_attachment.example us-west-2:b64805ad-cb56-40ba-9ffc-f5d8207e6d42
     /// </summary>
     [AwsResourceType("aws:cognito/identityPoolRoleAttachment:IdentityPoolRoleAttachment")]
     public partial class IdentityPoolRoleAttachment : global::Pulumi.CustomResource

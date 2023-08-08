@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,7 +26,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,9 +55,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3control"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3control"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -92,21 +93,15 @@ import (
 //
 // ## Import
 //
-// For Access Points associated with an AWS Partition S3 Bucket, this resource can be imported using the `account_id` and `name` separated by a colon (`:`), e.g.,
+// Import using the `account_id` and `name` separated by a colon (`:`) for Access Points associated with an AWS Partition S3 Bucketterraform import {
 //
-// ```sh
+//	to = aws_s3_access_point.example
 //
-//	$ pulumi import aws:s3/accessPoint:AccessPoint example 123456789012:example
+//	id = "123456789012:example" } Import using the ARN for Access Points associated with an S3 on Outposts Bucketterraform import {
 //
-// ```
+//	to = aws_s3_access_point.example
 //
-//	For Access Points associated with an S3 on Outposts Bucket, this resource can be imported using the ARN, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:s3/accessPoint:AccessPoint example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-1234567890123456/accesspoint/example
-//
-// ```
+//	id = "arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-1234567890123456/accesspoint/example" } **Using `pulumi import` to import.** For exampleImport using the `account_id` and `name` separated by a colon (`:`) for Access Points associated with an AWS Partition S3 Bucketconsole % pulumi import aws_s3_access_point.example 123456789012:example Import using the ARN for Access Points associated with an S3 on Outposts Bucketconsole % pulumi import aws_s3_access_point.example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-1234567890123456/accesspoint/example
 type AccessPoint struct {
 	pulumi.CustomResourceState
 
@@ -151,6 +146,7 @@ func NewAccessPoint(ctx *pulumi.Context,
 	if args.Bucket == nil {
 		return nil, errors.New("invalid value for required argument 'Bucket'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AccessPoint
 	err := ctx.RegisterResource("aws:s3/accessPoint:AccessPoint", name, args, &resource, opts...)
 	if err != nil {

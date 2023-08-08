@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,7 +53,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -80,7 +81,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -104,13 +105,11 @@ import (
 //
 // ## Import
 //
-// Amazon Connect Phone Numbers can be imported using its `id` e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_connect_phone_number.example
 //
-//	$ pulumi import aws:connect/phoneNumber:PhoneNumber example 12345678-abcd-1234-efgh-9876543210ab
-//
-// ```
+//	id = "12345678-abcd-1234-efgh-9876543210ab" } Using `pulumi import`, import Amazon Connect Phone Numbers using its `id`. For exampleconsole % pulumi import aws_connect_phone_number.example 12345678-abcd-1234-efgh-9876543210ab
 type PhoneNumber struct {
 	pulumi.CustomResourceState
 
@@ -152,6 +151,7 @@ func NewPhoneNumber(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PhoneNumber
 	err := ctx.RegisterResource("aws:connect/phoneNumber:PhoneNumber", name, args, &resource, opts...)
 	if err != nil {

@@ -7,8 +7,11 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type PolicyStepScalingPolicyConfiguration struct {
 	// Whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
@@ -25,7 +28,7 @@ type PolicyStepScalingPolicyConfiguration struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appautoscaling"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appautoscaling"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -83,7 +86,7 @@ type PolicyStepScalingPolicyConfigurationArgs struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appautoscaling"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appautoscaling"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -219,7 +222,7 @@ func (o PolicyStepScalingPolicyConfigurationOutput) MinAdjustmentMagnitude() pul
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appautoscaling"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appautoscaling"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -327,7 +330,7 @@ func (o PolicyStepScalingPolicyConfigurationPtrOutput) MinAdjustmentMagnitude() 
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appautoscaling"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appautoscaling"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )

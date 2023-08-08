@@ -52,11 +52,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Backup vault can be imported using the `name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:backup/vault:Vault test-vault TestVault
- * ```
+ *  to = aws_backup_vault.test-vault
+ * 
+ *  id = &#34;TestVault&#34; } Using `pulumi import`, import Backup vault using the `name`. For exampleconsole % pulumi import aws_backup_vault.test-vault TestVault
  * 
  */
 @ResourceType(type="aws:backup/vault:Vault")

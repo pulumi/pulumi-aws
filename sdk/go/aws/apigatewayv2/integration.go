@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigatewayv2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigatewayv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -48,9 +49,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigatewayv2"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigatewayv2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -91,7 +92,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigatewayv2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigatewayv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -124,7 +125,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigatewayv2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigatewayv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -173,13 +174,11 @@ import (
 //
 // ## Import
 //
-// `aws_apigatewayv2_integration` can be imported by using the API identifier and integration identifier, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_apigatewayv2_integration.example
 //
-//	$ pulumi import aws:apigatewayv2/integration:Integration example aabbccddee/1122334
-//
-// ```
+//	id = "aabbccddee/1122334" } Using `pulumi import`, import `aws_apigatewayv2_integration` using the API identifier and integration identifier. For exampleconsole % pulumi import aws_apigatewayv2_integration.example aabbccddee/1122334
 type Integration struct {
 	pulumi.CustomResourceState
 
@@ -244,6 +243,7 @@ func NewIntegration(ctx *pulumi.Context,
 	if args.IntegrationType == nil {
 		return nil, errors.New("invalid value for required argument 'IntegrationType'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Integration
 	err := ctx.RegisterResource("aws:apigatewayv2/integration:Integration", name, args, &resource, opts...)
 	if err != nil {

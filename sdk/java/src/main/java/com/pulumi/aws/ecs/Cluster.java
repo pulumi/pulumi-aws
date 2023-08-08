@@ -7,7 +7,6 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.ecs.ClusterArgs;
 import com.pulumi.aws.ecs.inputs.ClusterState;
 import com.pulumi.aws.ecs.outputs.ClusterConfiguration;
-import com.pulumi.aws.ecs.outputs.ClusterDefaultCapacityProviderStrategy;
 import com.pulumi.aws.ecs.outputs.ClusterServiceConnectDefaults;
 import com.pulumi.aws.ecs.outputs.ClusterSetting;
 import com.pulumi.core.Output;
@@ -22,8 +21,6 @@ import javax.annotation.Nullable;
 
 /**
  * Provides an ECS cluster.
- * 
- * &gt; **NOTE on Clusters and Cluster Capacity Providers:** this provider provides both a standalone `aws.ecs.ClusterCapacityProviders` resource, as well as allowing the capacity providers and default strategies to be managed in-line by the `aws.ecs.Cluster` resource. You cannot use a Cluster with in-line capacity providers in conjunction with the Capacity Providers resource, nor use more than one Capacity Providers resource with a single Cluster, as doing so will cause a conflict and will lead to mutual overwrites.
  * 
  * ## Example Usage
  * ```java
@@ -109,62 +106,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ### Example with Capacity Providers
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ecs.Cluster;
- * import com.pulumi.aws.ecs.CapacityProvider;
- * import com.pulumi.aws.ecs.CapacityProviderArgs;
- * import com.pulumi.aws.ecs.inputs.CapacityProviderAutoScalingGroupProviderArgs;
- * import com.pulumi.aws.ecs.ClusterCapacityProviders;
- * import com.pulumi.aws.ecs.ClusterCapacityProvidersArgs;
- * import com.pulumi.aws.ecs.inputs.ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleCluster = new Cluster(&#34;exampleCluster&#34;);
- * 
- *         var exampleCapacityProvider = new CapacityProvider(&#34;exampleCapacityProvider&#34;, CapacityProviderArgs.builder()        
- *             .autoScalingGroupProvider(CapacityProviderAutoScalingGroupProviderArgs.builder()
- *                 .autoScalingGroupArn(aws_autoscaling_group.example().arn())
- *                 .build())
- *             .build());
- * 
- *         var exampleClusterCapacityProviders = new ClusterCapacityProviders(&#34;exampleClusterCapacityProviders&#34;, ClusterCapacityProvidersArgs.builder()        
- *             .clusterName(exampleCluster.name())
- *             .capacityProviders(exampleCapacityProvider.name())
- *             .defaultCapacityProviderStrategies(ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs.builder()
- *                 .base(1)
- *                 .weight(100)
- *                 .capacityProvider(exampleCapacityProvider.name())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
  * 
  * ## Import
  * 
- * ECS clusters can be imported using the `name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:ecs/cluster:Cluster stateless stateless-app
- * ```
+ *  to = aws_ecs_cluster.stateless
+ * 
+ *  id = &#34;stateless-app&#34; } Using `pulumi import`, import ECS clusters using the `name`. For exampleconsole % pulumi import aws_ecs_cluster.stateless stateless-app
  * 
  */
 @ResourceType(type="aws:ecs/cluster:Cluster")
@@ -184,24 +133,6 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
-     * 
-     * @deprecated
-     * Use the aws_ecs_cluster_capacity_providers resource instead
-     * 
-     */
-    @Deprecated /* Use the aws_ecs_cluster_capacity_providers resource instead */
-    @Export(name="capacityProviders", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> capacityProviders;
-
-    /**
-     * @return List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
-     * 
-     */
-    public Output<List<String>> capacityProviders() {
-        return this.capacityProviders;
-    }
-    /**
      * The execute command configuration for the cluster. Detailed below.
      * 
      */
@@ -214,24 +145,6 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<ClusterConfiguration>> configuration() {
         return Codegen.optional(this.configuration);
-    }
-    /**
-     * Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
-     * 
-     * @deprecated
-     * Use the aws_ecs_cluster_capacity_providers resource instead
-     * 
-     */
-    @Deprecated /* Use the aws_ecs_cluster_capacity_providers resource instead */
-    @Export(name="defaultCapacityProviderStrategies", refs={List.class,ClusterDefaultCapacityProviderStrategy.class}, tree="[0,1]")
-    private Output<List<ClusterDefaultCapacityProviderStrategy>> defaultCapacityProviderStrategies;
-
-    /**
-     * @return Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
-     * 
-     */
-    public Output<List<ClusterDefaultCapacityProviderStrategy>> defaultCapacityProviderStrategies() {
-        return this.defaultCapacityProviderStrategies;
     }
     /**
      * Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)

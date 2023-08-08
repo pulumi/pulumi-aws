@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *             .engine(&#34;mysql&#34;)
  *             .engineVersion(&#34;5.6.21&#34;)
  *             .instanceClass(&#34;db.t2.micro&#34;)
- *             .name(&#34;baz&#34;)
+ *             .dbName(&#34;baz&#34;)
  *             .password(&#34;barbarbarbar&#34;)
  *             .username(&#34;foo&#34;)
  *             .maintenanceWindow(&#34;Fri:09:00-Fri:09:30&#34;)
@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var test = new Snapshot(&#34;test&#34;, SnapshotArgs.builder()        
- *             .dbInstanceIdentifier(bar.id())
+ *             .dbInstanceIdentifier(bar.identifier())
  *             .dbSnapshotIdentifier(&#34;testsnapshot1234&#34;)
  *             .build());
  * 
@@ -69,11 +69,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_db_snapshot` can be imported by using the snapshot identifier, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:rds/snapshot:Snapshot example my-snapshot
- * ```
+ *  to = aws_db_snapshot.example
+ * 
+ *  id = &#34;my-snapshot&#34; } Using `pulumi import`, import `aws_db_snapshot` using the snapshot identifier. For exampleconsole % pulumi import aws_db_snapshot.example my-snapshot
  * 
  */
 @ResourceType(type="aws:rds/snapshot:Snapshot")

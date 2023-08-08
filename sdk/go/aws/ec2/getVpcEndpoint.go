@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -47,6 +48,7 @@ import (
 //
 // ```
 func LookupVpcEndpoint(ctx *pulumi.Context, args *LookupVpcEndpointArgs, opts ...pulumi.InvokeOption) (*LookupVpcEndpointResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVpcEndpointResult
 	err := ctx.Invoke("aws:ec2/getVpcEndpoint:getVpcEndpoint", args, &rv, opts...)
 	if err != nil {
@@ -81,8 +83,9 @@ type LookupVpcEndpointResult struct {
 	Arn string `pulumi:"arn"`
 	// List of CIDR blocks for the exposed AWS service. Applicable for endpoints of type `Gateway`.
 	CidrBlocks []string `pulumi:"cidrBlocks"`
-	// DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
-	DnsEntries    []GetVpcEndpointDnsEntry  `pulumi:"dnsEntries"`
+	// DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS entry blocks are documented below.
+	DnsEntries []GetVpcEndpointDnsEntry `pulumi:"dnsEntries"`
+	// DNS options for the VPC Endpoint. DNS options blocks are documented below.
 	DnsOptions    []GetVpcEndpointDnsOption `pulumi:"dnsOptions"`
 	Filters       []GetVpcEndpointFilter    `pulumi:"filters"`
 	Id            string                    `pulumi:"id"`
@@ -175,11 +178,12 @@ func (o LookupVpcEndpointResultOutput) CidrBlocks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupVpcEndpointResult) []string { return v.CidrBlocks }).(pulumi.StringArrayOutput)
 }
 
-// DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
+// DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS entry blocks are documented below.
 func (o LookupVpcEndpointResultOutput) DnsEntries() GetVpcEndpointDnsEntryArrayOutput {
 	return o.ApplyT(func(v LookupVpcEndpointResult) []GetVpcEndpointDnsEntry { return v.DnsEntries }).(GetVpcEndpointDnsEntryArrayOutput)
 }
 
+// DNS options for the VPC Endpoint. DNS options blocks are documented below.
 func (o LookupVpcEndpointResultOutput) DnsOptions() GetVpcEndpointDnsOptionArrayOutput {
 	return o.ApplyT(func(v LookupVpcEndpointResult) []GetVpcEndpointDnsOption { return v.DnsOptions }).(GetVpcEndpointDnsOptionArrayOutput)
 }

@@ -50,11 +50,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * CloudFront Public Key can be imported using the `id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:cloudfront/publicKey:PublicKey example K3D5EWEUDCCXON
- * ```
+ *  to = aws_cloudfront_public_key.example
+ * 
+ *  id = &#34;K3D5EWEUDCCXON&#34; } Using `pulumi import`, import CloudFront Public Key using the `id`. For exampleconsole % pulumi import aws_cloudfront_public_key.example K3D5EWEUDCCXON
  * 
  */
 @ResourceType(type="aws:cloudfront/publicKey:PublicKey")

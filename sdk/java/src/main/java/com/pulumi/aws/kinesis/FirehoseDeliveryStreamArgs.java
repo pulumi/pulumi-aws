@@ -9,7 +9,6 @@ import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamHttpEndpointConfigura
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamKinesisSourceConfigurationArgs;
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamOpensearchConfigurationArgs;
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs;
-import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamS3ConfigurationArgs;
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamServerSideEncryptionArgs;
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamSplunkConfigurationArgs;
 import com.pulumi.core.Output;
@@ -42,6 +41,7 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
 
     /**
      * This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint` and `opensearch`.
+     * is redshift). More details are given below.
      * 
      */
     @Import(name="destination", required=true)
@@ -49,6 +49,7 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
 
     /**
      * @return This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint` and `opensearch`.
+     * is redshift). More details are given below.
      * 
      */
     public Output<String> destination() {
@@ -172,23 +173,6 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Required for non-S3 destinations. For S3 destination, use `extended_s3_configuration` instead. Configuration options for the s3 destination (or the intermediate bucket if the destination
-     * is redshift). More details are given below.
-     * 
-     */
-    @Import(name="s3Configuration")
-    private @Nullable Output<FirehoseDeliveryStreamS3ConfigurationArgs> s3Configuration;
-
-    /**
-     * @return Required for non-S3 destinations. For S3 destination, use `extended_s3_configuration` instead. Configuration options for the s3 destination (or the intermediate bucket if the destination
-     * is redshift). More details are given below.
-     * 
-     */
-    public Optional<Output<FirehoseDeliveryStreamS3ConfigurationArgs>> s3Configuration() {
-        return Optional.ofNullable(this.s3Configuration);
-    }
-
-    /**
      * Encrypt at rest options.
      * Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
      * 
@@ -263,7 +247,6 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
         this.name = $.name;
         this.opensearchConfiguration = $.opensearchConfiguration;
         this.redshiftConfiguration = $.redshiftConfiguration;
-        this.s3Configuration = $.s3Configuration;
         this.serverSideEncryption = $.serverSideEncryption;
         this.splunkConfiguration = $.splunkConfiguration;
         this.tags = $.tags;
@@ -311,6 +294,7 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
 
         /**
          * @param destination This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint` and `opensearch`.
+         * is redshift). More details are given below.
          * 
          * @return builder
          * 
@@ -322,6 +306,7 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
 
         /**
          * @param destination This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint` and `opensearch`.
+         * is redshift). More details are given below.
          * 
          * @return builder
          * 
@@ -488,29 +473,6 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
          */
         public Builder redshiftConfiguration(FirehoseDeliveryStreamRedshiftConfigurationArgs redshiftConfiguration) {
             return redshiftConfiguration(Output.of(redshiftConfiguration));
-        }
-
-        /**
-         * @param s3Configuration Required for non-S3 destinations. For S3 destination, use `extended_s3_configuration` instead. Configuration options for the s3 destination (or the intermediate bucket if the destination
-         * is redshift). More details are given below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder s3Configuration(@Nullable Output<FirehoseDeliveryStreamS3ConfigurationArgs> s3Configuration) {
-            $.s3Configuration = s3Configuration;
-            return this;
-        }
-
-        /**
-         * @param s3Configuration Required for non-S3 destinations. For S3 destination, use `extended_s3_configuration` instead. Configuration options for the s3 destination (or the intermediate bucket if the destination
-         * is redshift). More details are given below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder s3Configuration(FirehoseDeliveryStreamS3ConfigurationArgs s3Configuration) {
-            return s3Configuration(Output.of(s3Configuration));
         }
 
         /**

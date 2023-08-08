@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,8 +26,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glacier"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glacier"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -81,7 +82,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glacier"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glacier"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -104,13 +105,11 @@ import (
 //
 // ## Import
 //
-// Glacier Vault Locks can be imported using the Glacier Vault name, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_glacier_vault_lock.example
 //
-//	$ pulumi import aws:glacier/vaultLock:VaultLock example example-vault
-//
-// ```
+//	id = "example-vault" } Using `pulumi import`, import Glacier Vault Locks using the Glacier Vault name. For exampleconsole % pulumi import aws_glacier_vault_lock.example example-vault
 type VaultLock struct {
 	pulumi.CustomResourceState
 
@@ -140,6 +139,7 @@ func NewVaultLock(ctx *pulumi.Context,
 	if args.VaultName == nil {
 		return nil, errors.New("invalid value for required argument 'VaultName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VaultLock
 	err := ctx.RegisterResource("aws:glacier/vaultLock:VaultLock", name, args, &resource, opts...)
 	if err != nil {

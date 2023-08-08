@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,8 +23,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cfg"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cfg"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -71,13 +72,11 @@ import (
 //
 // ## Import
 //
-// Configuration Recorder can be imported using the name, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_config_configuration_recorder.foo
 //
-//	$ pulumi import aws:cfg/recorder:Recorder foo example
-//
-// ```
+//	id = "example" } Using `pulumi import`, import Configuration Recorder using the name. For exampleconsole % pulumi import aws_config_configuration_recorder.foo example
 type Recorder struct {
 	pulumi.CustomResourceState
 
@@ -99,6 +98,7 @@ func NewRecorder(ctx *pulumi.Context,
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Recorder
 	err := ctx.RegisterResource("aws:cfg/recorder:Recorder", name, args, &resource, opts...)
 	if err != nil {

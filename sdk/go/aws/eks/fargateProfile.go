@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/eks"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/eks"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -66,7 +67,7 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -110,13 +111,11 @@ import (
 //
 // ## Import
 //
-// EKS Fargate Profiles can be imported using the `cluster_name` and `fargate_profile_name` separated by a colon (`:`), e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_eks_fargate_profile.my_fargate_profile
 //
-//	$ pulumi import aws:eks/fargateProfile:FargateProfile my_fargate_profile my_cluster:my_fargate_profile
-//
-// ```
+//	id = "my_cluster:my_fargate_profile" } Using `pulumi import`, import EKS Fargate Profiles using the `cluster_name` and `fargate_profile_name` separated by a colon (`:`). For exampleconsole % pulumi import aws_eks_fargate_profile.my_fargate_profile my_cluster:my_fargate_profile
 type FargateProfile struct {
 	pulumi.CustomResourceState
 
@@ -158,6 +157,7 @@ func NewFargateProfile(ctx *pulumi.Context,
 	if args.Selectors == nil {
 		return nil, errors.New("invalid value for required argument 'Selectors'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FargateProfile
 	err := ctx.RegisterResource("aws:eks/fargateProfile:FargateProfile", name, args, &resource, opts...)
 	if err != nil {

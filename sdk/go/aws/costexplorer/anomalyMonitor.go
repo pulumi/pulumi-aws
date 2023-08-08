@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/costexplorer"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/costexplorer"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -51,7 +52,7 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/costexplorer"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/costexplorer"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -91,13 +92,11 @@ import (
 //
 // ## Import
 //
-// `aws_ce_anomaly_monitor` can be imported using the `id`, e.g.
+// terraform import {
 //
-// ```sh
+//	to = aws_ce_anomaly_monitor.example
 //
-//	$ pulumi import aws:costexplorer/anomalyMonitor:AnomalyMonitor example costAnomalyMonitorARN
-//
-// ```
+//	id = "costAnomalyMonitorARN" } Using `pulumi import`, import `aws_ce_anomaly_monitor` using the `id`. For exampleconsole % pulumi import aws_ce_anomaly_monitor.example costAnomalyMonitorARN
 type AnomalyMonitor struct {
 	pulumi.CustomResourceState
 
@@ -127,6 +126,7 @@ func NewAnomalyMonitor(ctx *pulumi.Context,
 	if args.MonitorType == nil {
 		return nil, errors.New("invalid value for required argument 'MonitorType'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AnomalyMonitor
 	err := ctx.RegisterResource("aws:costexplorer/anomalyMonitor:AnomalyMonitor", name, args, &resource, opts...)
 	if err != nil {

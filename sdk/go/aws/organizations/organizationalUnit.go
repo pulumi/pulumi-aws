@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/organizations"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/organizations"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -41,13 +42,11 @@ import (
 //
 // ## Import
 //
-// AWS Organizations Organizational Units can be imported by using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_organizations_organizational_unit.example
 //
-//	$ pulumi import aws:organizations/organizationalUnit:OrganizationalUnit example ou-1234567
-//
-// ```
+//	id = "ou-1234567" } Using `pulumi import`, import AWS Organizations Organizational Units using the `id`. For exampleconsole % pulumi import aws_organizations_organizational_unit.example ou-1234567
 type OrganizationalUnit struct {
 	pulumi.CustomResourceState
 
@@ -75,6 +74,7 @@ func NewOrganizationalUnit(ctx *pulumi.Context,
 	if args.ParentId == nil {
 		return nil, errors.New("invalid value for required argument 'ParentId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OrganizationalUnit
 	err := ctx.RegisterResource("aws:organizations/organizationalUnit:OrganizationalUnit", name, args, &resource, opts...)
 	if err != nil {

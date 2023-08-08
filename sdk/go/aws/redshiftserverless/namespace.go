@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/redshiftserverless"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshiftserverless"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -41,13 +42,11 @@ import (
 //
 // ## Import
 //
-// Redshift Serverless Namespaces can be imported using the `namespace_name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_redshiftserverless_namespace.example
 //
-//	$ pulumi import aws:redshiftserverless/namespace:Namespace example example
-//
-// ```
+//	id = "example" } Using `pulumi import`, import Redshift Serverless Namespaces using the `namespace_name`. For exampleconsole % pulumi import aws_redshiftserverless_namespace.example example
 type Namespace struct {
 	pulumi.CustomResourceState
 
@@ -98,6 +97,7 @@ func NewNamespace(ctx *pulumi.Context,
 		"adminUsername",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Namespace
 	err := ctx.RegisterResource("aws:redshiftserverless/namespace:Namespace", name, args, &resource, opts...)
 	if err != nil {

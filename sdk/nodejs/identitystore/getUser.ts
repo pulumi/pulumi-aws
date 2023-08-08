@@ -15,7 +15,6 @@ export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:identitystore/getUser:getUser", {
         "alternateIdentifier": args.alternateIdentifier,
-        "filter": args.filter,
         "identityStoreId": args.identityStoreId,
         "userId": args.userId,
     }, opts);
@@ -26,15 +25,9 @@ export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise
  */
 export interface GetUserArgs {
     /**
-     * A unique identifier for a user or group that is not the primary identifier. Conflicts with `userId` and `filter`. Detailed below.
+     * A unique identifier for a user or group that is not the primary identifier. Conflicts with `userId`. Detailed below.
      */
     alternateIdentifier?: inputs.identitystore.GetUserAlternateIdentifier;
-    /**
-     * Configuration block for filtering by a unique attribute of the user. Detailed below.
-     *
-     * @deprecated Use the alternate_identifier attribute instead.
-     */
-    filter?: inputs.identitystore.GetUserFilter;
     /**
      * Identity Store ID associated with the Single Sign-On Instance.
      *
@@ -44,7 +37,7 @@ export interface GetUserArgs {
     /**
      * The identifier for a user in the Identity Store.
      *
-     * > Exactly one of the above arguments must be provided. Passing both `filter` and `userId` is allowed for backwards compatibility.
+     * > Exactly one of the above arguments must be provided.
      */
     userId?: string;
 }
@@ -70,10 +63,6 @@ export interface GetUserResult {
      * List of identifiers issued to this resource by an external identity provider.
      */
     readonly externalIds: outputs.identitystore.GetUserExternalId[];
-    /**
-     * @deprecated Use the alternate_identifier attribute instead.
-     */
-    readonly filter?: outputs.identitystore.GetUserFilter;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -133,15 +122,9 @@ export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptio
  */
 export interface GetUserOutputArgs {
     /**
-     * A unique identifier for a user or group that is not the primary identifier. Conflicts with `userId` and `filter`. Detailed below.
+     * A unique identifier for a user or group that is not the primary identifier. Conflicts with `userId`. Detailed below.
      */
     alternateIdentifier?: pulumi.Input<inputs.identitystore.GetUserAlternateIdentifierArgs>;
-    /**
-     * Configuration block for filtering by a unique attribute of the user. Detailed below.
-     *
-     * @deprecated Use the alternate_identifier attribute instead.
-     */
-    filter?: pulumi.Input<inputs.identitystore.GetUserFilterArgs>;
     /**
      * Identity Store ID associated with the Single Sign-On Instance.
      *
@@ -151,7 +134,7 @@ export interface GetUserOutputArgs {
     /**
      * The identifier for a user in the Identity Store.
      *
-     * > Exactly one of the above arguments must be provided. Passing both `filter` and `userId` is allowed for backwards compatibility.
+     * > Exactly one of the above arguments must be provided.
      */
     userId?: pulumi.Input<string>;
 }

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/fms"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/fms"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -38,13 +39,11 @@ import (
 //
 // ## Import
 //
-// Firewall Manager administrator account association can be imported using the account ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_fms_admin_account.example
 //
-//	$ pulumi import aws:fms/adminAccount:AdminAccount example 123456789012
-//
-// ```
+//	id = "123456789012" } Using `pulumi import`, import Firewall Manager administrator account association using the account ID. For exampleconsole % pulumi import aws_fms_admin_account.example 123456789012
 type AdminAccount struct {
 	pulumi.CustomResourceState
 
@@ -59,6 +58,7 @@ func NewAdminAccount(ctx *pulumi.Context,
 		args = &AdminAccountArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AdminAccount
 	err := ctx.RegisterResource("aws:fms/adminAccount:AdminAccount", name, args, &resource, opts...)
 	if err != nil {

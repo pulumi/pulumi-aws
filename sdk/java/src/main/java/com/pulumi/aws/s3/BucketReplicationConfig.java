@@ -267,11 +267,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * S3 bucket replication configuration can be imported using the `bucket`, e.g.
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:s3/bucketReplicationConfig:BucketReplicationConfig replication bucket-name
- * ```
+ *  to = aws_s3_bucket_replication_configuration.replication
+ * 
+ *  id = &#34;bucket-name&#34; } Using `pulumi import`, import S3 bucket replication configuration using the `bucket`. For exampleconsole % pulumi import aws_s3_bucket_replication_configuration.replication bucket-name
  * 
  */
 @ResourceType(type="aws:s3/bucketReplicationConfig:BucketReplicationConfig")

@@ -23,11 +23,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_autoscaling_group_tag` can be imported by using the ASG name and key, separated by a comma (`,`), e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:autoscaling/tag:Tag example asg-example,k8s.io/cluster-autoscaler/node-template/label/eks.amazonaws.com/capacityType
- * ```
+ *  to = aws_autoscaling_group_tag.example
+ * 
+ *  id = &#34;asg-example,k8s.io/cluster-autoscaler/node-template/label/eks.amazonaws.com/capacityType&#34; } Using `pulumi import`, import `aws_autoscaling_group_tag` using the ASG name and key, separated by a comma (`,`). For exampleconsole % pulumi import aws_autoscaling_group_tag.example asg-example,k8s.io/cluster-autoscaler/node-template/label/eks.amazonaws.com/capacityType
  * 
  */
 @ResourceType(type="aws:autoscaling/tag:Tag")

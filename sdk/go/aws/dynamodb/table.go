@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -35,7 +36,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/dynamodb"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dynamodb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -103,7 +104,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/dynamodb"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dynamodb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -141,13 +142,11 @@ import (
 //
 // ## Import
 //
-// DynamoDB tables can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_dynamodb_table.basic-dynamodb-table
 //
-//	$ pulumi import aws:dynamodb/table:Table basic-dynamodb-table GameScores
-//
-// ```
+//	id = "GameScores" } Using `pulumi import`, import DynamoDB tables using the `name`. For exampleconsole % pulumi import aws_dynamodb_table.basic-dynamodb-table GameScores
 type Table struct {
 	pulumi.CustomResourceState
 
@@ -214,6 +213,7 @@ func NewTable(ctx *pulumi.Context,
 		args = &TableArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Table
 	err := ctx.RegisterResource("aws:dynamodb/table:Table", name, args, &resource, opts...)
 	if err != nil {

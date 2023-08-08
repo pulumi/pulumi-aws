@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,9 +24,9 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/controltower"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/organizations"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/controltower"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/organizations"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -61,13 +62,11 @@ import (
 //
 // ## Import
 //
-// Control Tower Controls can be imported using their `organizational_unit_arn/control_identifier`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_controltower_control.example
 //
-//	$ pulumi import aws:controltower/controlTowerControl:ControlTowerControl example arn:aws:organizations::123456789101:ou/o-qqaejywet/ou-qg5o-ufbhdtv3,arn:aws:controltower:us-east-1::control/WTDSMKDKDNLE
-//
-// ```
+//	id = "arn:aws:organizations::123456789101:ou/o-qqaejywet/ou-qg5o-ufbhdtv3,arn:aws:controltower:us-east-1::control/WTDSMKDKDNLE" } Using `pulumi import`, import Control Tower Controls using their `organizational_unit_arn/control_identifier`. For exampleconsole % pulumi import aws_controltower_control.example arn:aws:organizations::123456789101:ou/o-qqaejywet/ou-qg5o-ufbhdtv3,arn:aws:controltower:us-east-1::control/WTDSMKDKDNLE
 type ControlTowerControl struct {
 	pulumi.CustomResourceState
 
@@ -90,6 +89,7 @@ func NewControlTowerControl(ctx *pulumi.Context,
 	if args.TargetIdentifier == nil {
 		return nil, errors.New("invalid value for required argument 'TargetIdentifier'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ControlTowerControl
 	err := ctx.RegisterResource("aws:controltower/controlTowerControl:ControlTowerControl", name, args, &resource, opts...)
 	if err != nil {

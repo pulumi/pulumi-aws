@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/mediapackage"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/mediapackage"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,13 +43,11 @@ import (
 //
 // ## Import
 //
-// Media Package Channels can be imported via the channel ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_media_package_channel.kittens
 //
-//	$ pulumi import aws:mediapackage/channel:Channel kittens kittens-channel
-//
-// ```
+//	id = "kittens-channel" } Using `pulumi import`, import Media Package Channels using the channel ID. For exampleconsole % pulumi import aws_media_package_channel.kittens kittens-channel
 type Channel struct {
 	pulumi.CustomResourceState
 
@@ -79,6 +78,7 @@ func NewChannel(ctx *pulumi.Context,
 	if args.Description == nil {
 		args.Description = pulumi.StringPtr("Managed by Pulumi")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Channel
 	err := ctx.RegisterResource("aws:mediapackage/channel:Channel", name, args, &resource, opts...)
 	if err != nil {

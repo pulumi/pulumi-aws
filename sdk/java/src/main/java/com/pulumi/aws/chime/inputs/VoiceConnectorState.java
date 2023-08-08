@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -15,6 +16,21 @@ import javax.annotation.Nullable;
 public final class VoiceConnectorState extends com.pulumi.resources.ResourceArgs {
 
     public static final VoiceConnectorState Empty = new VoiceConnectorState();
+
+    /**
+     * ARN (Amazon Resource Name) of the Amazon Chime Voice Connector.
+     * 
+     */
+    @Import(name="arn")
+    private @Nullable Output<String> arn;
+
+    /**
+     * @return ARN (Amazon Resource Name) of the Amazon Chime Voice Connector.
+     * 
+     */
+    public Optional<Output<String>> arn() {
+        return Optional.ofNullable(this.arn);
+    }
 
     /**
      * The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
@@ -64,6 +80,8 @@ public final class VoiceConnectorState extends com.pulumi.resources.ResourceArgs
     /**
      * When enabled, requires encryption for the Amazon Chime Voice Connector.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="requireEncryption")
     private @Nullable Output<Boolean> requireEncryption;
@@ -71,18 +89,53 @@ public final class VoiceConnectorState extends com.pulumi.resources.ResourceArgs
     /**
      * @return When enabled, requires encryption for the Amazon Chime Voice Connector.
      * 
+     * The following arguments are optional:
+     * 
      */
     public Optional<Output<Boolean>> requireEncryption() {
         return Optional.ofNullable(this.requireEncryption);
     }
 
+    /**
+     * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
+    @Import(name="tags")
+    private @Nullable Output<Map<String,String>> tags;
+
+    /**
+     * @return Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> tags() {
+        return Optional.ofNullable(this.tags);
+    }
+
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    @Import(name="tagsAll")
+    private @Nullable Output<Map<String,String>> tagsAll;
+
+    /**
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> tagsAll() {
+        return Optional.ofNullable(this.tagsAll);
+    }
+
     private VoiceConnectorState() {}
 
     private VoiceConnectorState(VoiceConnectorState $) {
+        this.arn = $.arn;
         this.awsRegion = $.awsRegion;
         this.name = $.name;
         this.outboundHostName = $.outboundHostName;
         this.requireEncryption = $.requireEncryption;
+        this.tags = $.tags;
+        this.tagsAll = $.tagsAll;
     }
 
     public static Builder builder() {
@@ -101,6 +154,27 @@ public final class VoiceConnectorState extends com.pulumi.resources.ResourceArgs
 
         public Builder(VoiceConnectorState defaults) {
             $ = new VoiceConnectorState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param arn ARN (Amazon Resource Name) of the Amazon Chime Voice Connector.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(@Nullable Output<String> arn) {
+            $.arn = arn;
+            return this;
+        }
+
+        /**
+         * @param arn ARN (Amazon Resource Name) of the Amazon Chime Voice Connector.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(String arn) {
+            return arn(Output.of(arn));
         }
 
         /**
@@ -169,6 +243,8 @@ public final class VoiceConnectorState extends com.pulumi.resources.ResourceArgs
         /**
          * @param requireEncryption When enabled, requires encryption for the Amazon Chime Voice Connector.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -180,11 +256,55 @@ public final class VoiceConnectorState extends com.pulumi.resources.ResourceArgs
         /**
          * @param requireEncryption When enabled, requires encryption for the Amazon Chime Voice Connector.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
         public Builder requireEncryption(Boolean requireEncryption) {
             return requireEncryption(Output.of(requireEncryption));
+        }
+
+        /**
+         * @param tags Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(@Nullable Output<Map<String,String>> tags) {
+            $.tags = tags;
+            return this;
+        }
+
+        /**
+         * @param tags Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(Map<String,String> tags) {
+            return tags(Output.of(tags));
+        }
+
+        /**
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
+            $.tagsAll = tagsAll;
+            return this;
+        }
+
+        /**
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagsAll(Map<String,String> tagsAll) {
+            return tagsAll(Output.of(tagsAll));
         }
 
         public VoiceConnectorState build() {

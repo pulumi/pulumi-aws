@@ -7,7 +7,6 @@ import com.pulumi.aws.costexplorer.inputs.AnomalySubscriptionSubscriberArgs;
 import com.pulumi.aws.costexplorer.inputs.AnomalySubscriptionThresholdExpressionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import java.lang.Double;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -111,29 +110,6 @@ public final class AnomalySubscriptionArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The dollar value that triggers a notification if the threshold is exceeded. Depracated, use `threshold_expression` instead.
-     * 
-     * @deprecated
-     * use threshold_expression instead
-     * 
-     */
-    @Deprecated /* use threshold_expression instead */
-    @Import(name="threshold")
-    private @Nullable Output<Double> threshold;
-
-    /**
-     * @return The dollar value that triggers a notification if the threshold is exceeded. Depracated, use `threshold_expression` instead.
-     * 
-     * @deprecated
-     * use threshold_expression instead
-     * 
-     */
-    @Deprecated /* use threshold_expression instead */
-    public Optional<Output<Double>> threshold() {
-        return Optional.ofNullable(this.threshold);
-    }
-
-    /**
      * An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
      * 
      */
@@ -157,7 +133,6 @@ public final class AnomalySubscriptionArgs extends com.pulumi.resources.Resource
         this.name = $.name;
         this.subscribers = $.subscribers;
         this.tags = $.tags;
-        this.threshold = $.threshold;
         this.thresholdExpression = $.thresholdExpression;
     }
 
@@ -323,35 +298,6 @@ public final class AnomalySubscriptionArgs extends com.pulumi.resources.Resource
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
-        }
-
-        /**
-         * @param threshold The dollar value that triggers a notification if the threshold is exceeded. Depracated, use `threshold_expression` instead.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * use threshold_expression instead
-         * 
-         */
-        @Deprecated /* use threshold_expression instead */
-        public Builder threshold(@Nullable Output<Double> threshold) {
-            $.threshold = threshold;
-            return this;
-        }
-
-        /**
-         * @param threshold The dollar value that triggers a notification if the threshold is exceeded. Depracated, use `threshold_expression` instead.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * use threshold_expression instead
-         * 
-         */
-        @Deprecated /* use threshold_expression instead */
-        public Builder threshold(Double threshold) {
-            return threshold(Output.of(threshold));
         }
 
         /**

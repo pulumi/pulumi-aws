@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -72,20 +73,18 @@ import (
 //
 // ## Import
 //
-// Glue Workflows can be imported using `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_glue_workflow.MyWorkflow
 //
-//	$ pulumi import aws:glue/workflow:Workflow MyWorkflow MyWorkflow
-//
-// ```
+//	id = "MyWorkflow" } Using `pulumi import`, import Glue Workflows using `name`. For exampleconsole % pulumi import aws_glue_workflow.MyWorkflow MyWorkflow
 type Workflow struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) of Glue Workflow
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
-	DefaultRunProperties pulumi.MapOutput `pulumi:"defaultRunProperties"`
+	DefaultRunProperties pulumi.StringMapOutput `pulumi:"defaultRunProperties"`
 	// Description of the workflow.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
@@ -105,6 +104,7 @@ func NewWorkflow(ctx *pulumi.Context,
 		args = &WorkflowArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Workflow
 	err := ctx.RegisterResource("aws:glue/workflow:Workflow", name, args, &resource, opts...)
 	if err != nil {
@@ -130,7 +130,7 @@ type workflowState struct {
 	// Amazon Resource Name (ARN) of Glue Workflow
 	Arn *string `pulumi:"arn"`
 	// A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
-	DefaultRunProperties map[string]interface{} `pulumi:"defaultRunProperties"`
+	DefaultRunProperties map[string]string `pulumi:"defaultRunProperties"`
 	// Description of the workflow.
 	Description *string `pulumi:"description"`
 	// Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
@@ -147,7 +147,7 @@ type WorkflowState struct {
 	// Amazon Resource Name (ARN) of Glue Workflow
 	Arn pulumi.StringPtrInput
 	// A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
-	DefaultRunProperties pulumi.MapInput
+	DefaultRunProperties pulumi.StringMapInput
 	// Description of the workflow.
 	Description pulumi.StringPtrInput
 	// Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
@@ -166,7 +166,7 @@ func (WorkflowState) ElementType() reflect.Type {
 
 type workflowArgs struct {
 	// A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
-	DefaultRunProperties map[string]interface{} `pulumi:"defaultRunProperties"`
+	DefaultRunProperties map[string]string `pulumi:"defaultRunProperties"`
 	// Description of the workflow.
 	Description *string `pulumi:"description"`
 	// Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
@@ -180,7 +180,7 @@ type workflowArgs struct {
 // The set of arguments for constructing a Workflow resource.
 type WorkflowArgs struct {
 	// A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
-	DefaultRunProperties pulumi.MapInput
+	DefaultRunProperties pulumi.StringMapInput
 	// Description of the workflow.
 	Description pulumi.StringPtrInput
 	// Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
@@ -284,8 +284,8 @@ func (o WorkflowOutput) Arn() pulumi.StringOutput {
 }
 
 // A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
-func (o WorkflowOutput) DefaultRunProperties() pulumi.MapOutput {
-	return o.ApplyT(func(v *Workflow) pulumi.MapOutput { return v.DefaultRunProperties }).(pulumi.MapOutput)
+func (o WorkflowOutput) DefaultRunProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Workflow) pulumi.StringMapOutput { return v.DefaultRunProperties }).(pulumi.StringMapOutput)
 }
 
 // Description of the workflow.

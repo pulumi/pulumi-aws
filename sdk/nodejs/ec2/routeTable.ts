@@ -30,6 +30,7 @@ import * as utilities from "../utilities";
  * the separate resource.
  *
  * ## Example Usage
+ * ### Basic example
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -67,14 +68,56 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * ### Adopting an existing local route
+ *
+ * AWS creates certain routes that the AWS provider mostly ignores. You can manage them by importing or adopting them. See Import below for information on importing. This example shows adopting a route and then updating its target.
+ *
+ * First, adopt an existing AWS-created route:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const testVpc = new aws.ec2.Vpc("testVpc", {cidrBlock: "10.1.0.0/16"});
+ * const testRouteTable = new aws.ec2.RouteTable("testRouteTable", {
+ *     vpcId: testVpc.id,
+ *     routes: [{
+ *         cidrBlock: "10.1.0.0/16",
+ *         gatewayId: "local",
+ *     }],
+ * });
+ * ```
+ *
+ * Next, update the target of the route:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const testVpc = new aws.ec2.Vpc("testVpc", {cidrBlock: "10.1.0.0/16"});
+ * const testSubnet = new aws.ec2.Subnet("testSubnet", {
+ *     cidrBlock: "10.1.1.0/24",
+ *     vpcId: testVpc.id,
+ * });
+ * const testNetworkInterface = new aws.ec2.NetworkInterface("testNetworkInterface", {subnetId: testSubnet.id});
+ * const testRouteTable = new aws.ec2.RouteTable("testRouteTable", {
+ *     vpcId: testVpc.id,
+ *     routes: [{
+ *         cidrBlock: testVpc.cidrBlock,
+ *         networkInterfaceId: testNetworkInterface.id,
+ *     }],
+ * });
+ * ```
+ *
+ * The target could then be updated again back to `local`.
  *
  * ## Import
  *
- * Route Tables can be imported using the route table `id`. For example, to import route table `rtb-4e616f6d69`, use this command
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:ec2/routeTable:RouteTable public_rt rtb-4e616f6d69
- * ```
+ *  to = aws_route_table.public_rt
+ *
+ *  id = "rtb-4e616f6d69" } Using `pulumi import`, import Route Tables using the route table `id`. For exampleconsole % pulumi import aws_route_table.public_rt rtb-4e616f6d69
  */
 export class RouteTable extends pulumi.CustomResource {
     /**

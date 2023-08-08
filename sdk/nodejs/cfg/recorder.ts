@@ -34,11 +34,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Configuration Recorder can be imported using the name, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:cfg/recorder:Recorder foo example
- * ```
+ *  to = aws_config_configuration_recorder.foo
+ *
+ *  id = "example" } Using `pulumi import`, import Configuration Recorder using the name. For exampleconsole % pulumi import aws_config_configuration_recorder.foo example
  */
 export class Recorder extends pulumi.CustomResource {
     /**

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -80,13 +81,11 @@ import (
 //
 // ## Import
 //
-// AWS SSM Activation can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_ssm_activation.example
 //
-//	$ pulumi import aws:ssm/activation:Activation example e488f2f6-e686-4afb-8a04-ef6dfEXAMPLE
-//
-// ```
+//	id = "e488f2f6-e686-4afb-8a04-ef6dfEXAMPLE" } Using `pulumi import`, import AWS SSM Activation using the `id`. For exampleconsole % pulumi import aws_ssm_activation.example e488f2f6-e686-4afb-8a04-ef6dfEXAMPLE
 type Activation struct {
 	pulumi.CustomResourceState
 
@@ -122,6 +121,7 @@ func NewActivation(ctx *pulumi.Context,
 	if args.IamRole == nil {
 		return nil, errors.New("invalid value for required argument 'IamRole'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Activation
 	err := ctx.RegisterResource("aws:ssm/activation:Activation", name, args, &resource, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/quicksight"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -50,13 +51,11 @@ import (
 //
 // ## Import
 //
-// A QuickSight data source can be imported using the AWS account ID, and data source ID separated by a slash (`/`) e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_quicksight_data_source.example
 //
-//	$ pulumi import aws:quicksight/dataSource:DataSource example 123456789123/my-data-source-id
-//
-// ```
+//	id = "123456789123/my-data-source-id" } Using `pulumi import`, import a QuickSight data source using the AWS account ID, and data source ID separated by a slash (`/`). For exampleconsole % pulumi import aws_quicksight_data_source.example 123456789123/my-data-source-id
 type DataSource struct {
 	pulumi.CustomResourceState
 
@@ -104,6 +103,7 @@ func NewDataSource(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DataSource
 	err := ctx.RegisterResource("aws:quicksight/dataSource:DataSource", name, args, &resource, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -109,15 +110,11 @@ import (
 //
 // ## Import
 //
-// RDS Clusters Endpoint can be imported using the `cluster_endpoint_identifier`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_rds_cluster_endpoint.custom_reader
 //
-//	$ pulumi import aws:rds/clusterEndpoint:ClusterEndpoint custom_reader aurora-prod-cluster-custom-reader
-//
-// ```
-//
-//	[1]https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.Endpoints.html#Aurora.Endpoints.Cluster
+//	id = "aurora-prod-cluster-custom-reader" } Using `pulumi import`, import RDS Clusters Endpoint using the `cluster_endpoint_identifier`. For exampleconsole % pulumi import aws_rds_cluster_endpoint.custom_reader aurora-prod-cluster-custom-reader [1]https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.Endpoints.html#Aurora.Endpoints.Cluster
 type ClusterEndpoint struct {
 	pulumi.CustomResourceState
 
@@ -157,6 +154,7 @@ func NewClusterEndpoint(ctx *pulumi.Context,
 	if args.CustomEndpointType == nil {
 		return nil, errors.New("invalid value for required argument 'CustomEndpointType'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ClusterEndpoint
 	err := ctx.RegisterResource("aws:rds/clusterEndpoint:ClusterEndpoint", name, args, &resource, opts...)
 	if err != nil {

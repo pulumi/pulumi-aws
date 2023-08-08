@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/guardduty"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/guardduty"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -69,13 +70,11 @@ import (
 //
 // ## Import
 //
-// GuardDuty filters can be imported using the detector ID and filter's name separated by a colon, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_guardduty_filter.MyFilter
 //
-//	$ pulumi import aws:guardduty/filter:Filter MyFilter 00b00fd5aecc0ab60a708659477e9617:MyFilter
-//
-// ```
+//	id = "00b00fd5aecc0ab60a708659477e9617:MyFilter" } Using `pulumi import`, import GuardDuty filters using the detector ID and filter's name separated by a colon. For exampleconsole % pulumi import aws_guardduty_filter.MyFilter 00b00fd5aecc0ab60a708659477e9617:MyFilter
 type Filter struct {
 	pulumi.CustomResourceState
 
@@ -118,6 +117,7 @@ func NewFilter(ctx *pulumi.Context,
 	if args.Rank == nil {
 		return nil, errors.New("invalid value for required argument 'Rank'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Filter
 	err := ctx.RegisterResource("aws:guardduty/filter:Filter", name, args, &resource, opts...)
 	if err != nil {

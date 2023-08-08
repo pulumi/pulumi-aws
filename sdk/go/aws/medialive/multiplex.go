@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +22,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/medialive"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/medialive"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -62,13 +63,11 @@ import (
 //
 // ## Import
 //
-// MediaLive Multiplex can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_medialive_multiplex.example
 //
-//	$ pulumi import aws:medialive/multiplex:Multiplex example 12345678
-//
-// ```
+//	id = "12345678" } Using `pulumi import`, import MediaLive Multiplex using the `id`. For exampleconsole % pulumi import aws_medialive_multiplex.example 12345678
 type Multiplex struct {
 	pulumi.CustomResourceState
 
@@ -99,6 +98,7 @@ func NewMultiplex(ctx *pulumi.Context,
 	if args.AvailabilityZones == nil {
 		return nil, errors.New("invalid value for required argument 'AvailabilityZones'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Multiplex
 	err := ctx.RegisterResource("aws:medialive/multiplex:Multiplex", name, args, &resource, opts...)
 	if err != nil {

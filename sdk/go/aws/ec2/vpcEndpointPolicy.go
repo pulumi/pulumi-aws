@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -83,13 +84,11 @@ import (
 //
 // ## Import
 //
-// VPC Endpoint Policies can be imported using the `id`, e.g.
+// terraform import {
 //
-// ```sh
+//	to = aws_vpc_endpoint_policy.example
 //
-//	$ pulumi import aws:ec2/vpcEndpointPolicy:VpcEndpointPolicy example vpce-3ecf2a57
-//
-// ```
+//	id = "vpce-3ecf2a57" } Using `pulumi import`, import VPC Endpoint Policies using the `id`. For exampleconsole % pulumi import aws_vpc_endpoint_policy.example vpce-3ecf2a57
 type VpcEndpointPolicy struct {
 	pulumi.CustomResourceState
 
@@ -109,6 +108,7 @@ func NewVpcEndpointPolicy(ctx *pulumi.Context,
 	if args.VpcEndpointId == nil {
 		return nil, errors.New("invalid value for required argument 'VpcEndpointId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcEndpointPolicy
 	err := ctx.RegisterResource("aws:ec2/vpcEndpointPolicy:VpcEndpointPolicy", name, args, &resource, opts...)
 	if err != nil {

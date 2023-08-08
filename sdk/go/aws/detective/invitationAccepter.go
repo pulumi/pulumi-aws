@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/detective"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/detective"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -56,13 +57,11 @@ import (
 //
 // ## Import
 //
-// `aws_detective_invitation_accepter` can be imported using the graph ARN, e.g.
+// terraform import {
 //
-// ```sh
+//	to = aws_detective_invitation_accepter.example
 //
-//	$ pulumi import aws:detective/invitationAccepter:InvitationAccepter example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d
-//
-// ```
+//	id = "arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d" } Using `pulumi import`, import `aws_detective_invitation_accepter` using the graph ARN. For exampleconsole % pulumi import aws_detective_invitation_accepter.example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d
 type InvitationAccepter struct {
 	pulumi.CustomResourceState
 
@@ -80,6 +79,7 @@ func NewInvitationAccepter(ctx *pulumi.Context,
 	if args.GraphArn == nil {
 		return nil, errors.New("invalid value for required argument 'GraphArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource InvitationAccepter
 	err := ctx.RegisterResource("aws:detective/invitationAccepter:InvitationAccepter", name, args, &resource, opts...)
 	if err != nil {

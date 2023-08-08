@@ -51,11 +51,11 @@ namespace Pulumi.Aws.DynamoDB
     /// 
     /// ## Import
     /// 
-    /// DynamoDB Kinesis Streaming Destinations can be imported using the `table_name` and `stream_arn` separated by `,`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:dynamodb/kinesisStreamingDestination:KinesisStreamingDestination example example,arn:aws:kinesis:us-east-1:111122223333:exampleStreamName
-    /// ```
+    ///  to = aws_dynamodb_kinesis_streaming_destination.example
+    /// 
+    ///  id = "example,arn:aws:kinesis:us-east-1:111122223333:exampleStreamName" } Using `pulumi import`, import DynamoDB Kinesis Streaming Destinations using the `table_name` and `stream_arn` separated by `,`. For exampleconsole % pulumi import aws_dynamodb_kinesis_streaming_destination.example example,arn:aws:kinesis:us-east-1:111122223333:exampleStreamName
     /// </summary>
     [AwsResourceType("aws:dynamodb/kinesisStreamingDestination:KinesisStreamingDestination")]
     public partial class KinesisStreamingDestination : global::Pulumi.CustomResource

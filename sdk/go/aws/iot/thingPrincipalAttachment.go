@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 //	"os"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iot"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iot"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -82,6 +83,7 @@ func NewThingPrincipalAttachment(ctx *pulumi.Context,
 	if args.Thing == nil {
 		return nil, errors.New("invalid value for required argument 'Thing'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ThingPrincipalAttachment
 	err := ctx.RegisterResource("aws:iot/thingPrincipalAttachment:ThingPrincipalAttachment", name, args, &resource, opts...)
 	if err != nil {

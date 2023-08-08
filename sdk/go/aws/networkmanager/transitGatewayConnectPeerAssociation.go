@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkmanager"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkmanager"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -44,13 +45,11 @@ import (
 //
 // ## Import
 //
-// `aws_networkmanager_transit_gateway_connect_peer_association` can be imported using the global network ID and customer gateway ARN, e.g.
+// terraform import {
 //
-// ```sh
+//	to = aws_networkmanager_transit_gateway_connect_peer_association.example
 //
-//	$ pulumi import aws:networkmanager/transitGatewayConnectPeerAssociation:TransitGatewayConnectPeerAssociation example global-network-0d47f6t230mz46dy4,arn:aws:ec2:us-west-2:123456789012:transit-gateway-connect-peer/tgw-connect-peer-12345678
-//
-// ```
+//	id = "global-network-0d47f6t230mz46dy4,arn:aws:ec2:us-west-2:123456789012:transit-gateway-connect-peer/tgw-connect-peer-12345678" } Using `pulumi import`, import `aws_networkmanager_transit_gateway_connect_peer_association` using the global network ID and customer gateway ARN. For exampleconsole % pulumi import aws_networkmanager_transit_gateway_connect_peer_association.example global-network-0d47f6t230mz46dy4,arn:aws:ec2:us-west-2:123456789012:transit-gateway-connect-peer/tgw-connect-peer-12345678
 type TransitGatewayConnectPeerAssociation struct {
 	pulumi.CustomResourceState
 
@@ -80,6 +79,7 @@ func NewTransitGatewayConnectPeerAssociation(ctx *pulumi.Context,
 	if args.TransitGatewayConnectPeerArn == nil {
 		return nil, errors.New("invalid value for required argument 'TransitGatewayConnectPeerArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TransitGatewayConnectPeerAssociation
 	err := ctx.RegisterResource("aws:networkmanager/transitGatewayConnectPeerAssociation:TransitGatewayConnectPeerAssociation", name, args, &resource, opts...)
 	if err != nil {

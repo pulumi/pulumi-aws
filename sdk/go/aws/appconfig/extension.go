@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,9 +21,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appconfig"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appconfig"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -88,13 +89,11 @@ import (
 //
 // ## Import
 //
-// AppConfig Extensions can be imported using their extension ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_appconfig_extension.example
 //
-//	$ pulumi import aws:appconfig/extension:Extension example 71rxuzt
-//
-// ```
+//	id = "71rxuzt" } Using `pulumi import`, import AppConfig Extensions using their extension ID. For exampleconsole % pulumi import aws_appconfig_extension.example 71rxuzt
 type Extension struct {
 	pulumi.CustomResourceState
 
@@ -125,6 +124,7 @@ func NewExtension(ctx *pulumi.Context,
 	if args.ActionPoints == nil {
 		return nil, errors.New("invalid value for required argument 'ActionPoints'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Extension
 	err := ctx.RegisterResource("aws:appconfig/extension:Extension", name, args, &resource, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -29,7 +30,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elb"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -98,13 +99,11 @@ import (
 //
 // ## Import
 //
-// ELBs can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_elb.bar
 //
-//	$ pulumi import aws:elb/loadBalancer:LoadBalancer bar elb-production-12345
-//
-// ```
+//	id = "elb-production-12345" } Using `pulumi import`, import ELBs using the `name`. For exampleconsole % pulumi import aws_elb.bar elb-production-12345
 type LoadBalancer struct {
 	pulumi.CustomResourceState
 
@@ -150,7 +149,7 @@ type LoadBalancer struct {
 	// part of your inbound rules for your load balancer's back-end application
 	// instances. Only available on ELBs launched in a VPC.
 	SourceSecurityGroupId pulumi.StringOutput `pulumi:"sourceSecurityGroupId"`
-	// A list of subnet IDs to attach to the ELB.
+	// A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
 	Subnets pulumi.StringArrayOutput `pulumi:"subnets"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	//
@@ -179,6 +178,7 @@ func NewLoadBalancer(ctx *pulumi.Context,
 		},
 	})
 	opts = append(opts, aliases)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LoadBalancer
 	err := ctx.RegisterResource("aws:elb/loadBalancer:LoadBalancer", name, args, &resource, opts...)
 	if err != nil {
@@ -243,7 +243,7 @@ type loadBalancerState struct {
 	// part of your inbound rules for your load balancer's back-end application
 	// instances. Only available on ELBs launched in a VPC.
 	SourceSecurityGroupId *string `pulumi:"sourceSecurityGroupId"`
-	// A list of subnet IDs to attach to the ELB.
+	// A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
 	Subnets []string `pulumi:"subnets"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	//
@@ -299,7 +299,7 @@ type LoadBalancerState struct {
 	// part of your inbound rules for your load balancer's back-end application
 	// instances. Only available on ELBs launched in a VPC.
 	SourceSecurityGroupId pulumi.StringPtrInput
-	// A list of subnet IDs to attach to the ELB.
+	// A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
 	Subnets pulumi.StringArrayInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	//
@@ -351,7 +351,7 @@ type loadBalancerArgs struct {
 	// part of your inbound rules for your load balancer's back-end application
 	// instances. Use this for Classic or Default VPC only.
 	SourceSecurityGroup *string `pulumi:"sourceSecurityGroup"`
-	// A list of subnet IDs to attach to the ELB.
+	// A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
 	Subnets []string `pulumi:"subnets"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	//
@@ -396,7 +396,7 @@ type LoadBalancerArgs struct {
 	// part of your inbound rules for your load balancer's back-end application
 	// instances. Use this for Classic or Default VPC only.
 	SourceSecurityGroup pulumi.StringPtrInput
-	// A list of subnet IDs to attach to the ELB.
+	// A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
 	Subnets pulumi.StringArrayInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	//
@@ -588,7 +588,7 @@ func (o LoadBalancerOutput) SourceSecurityGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.SourceSecurityGroupId }).(pulumi.StringOutput)
 }
 
-// A list of subnet IDs to attach to the ELB.
+// A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
 func (o LoadBalancerOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringArrayOutput { return v.Subnets }).(pulumi.StringArrayOutput)
 }

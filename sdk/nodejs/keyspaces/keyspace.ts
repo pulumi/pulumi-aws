@@ -20,11 +20,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Use the `name` to import a keyspace. For example
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:keyspaces/keyspace:Keyspace example my_keyspace
- * ```
+ *  to = aws_keyspaces_keyspace.example
+ *
+ *  id = "my_keyspace" } Using `pulumi import`, import a keyspace using the `name`. For exampleconsole % pulumi import aws_keyspaces_keyspace.example my_keyspace
  */
 export class Keyspace extends pulumi.CustomResource {
     /**

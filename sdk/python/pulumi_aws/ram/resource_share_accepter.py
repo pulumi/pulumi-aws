@@ -207,11 +207,11 @@ class ResourceShareAccepter(pulumi.CustomResource):
 
         ## Import
 
-        Resource share accepters can be imported using the resource share ARN, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ram/resourceShareAccepter:ResourceShareAccepter example arn:aws:ram:us-east-1:123456789012:resource-share/c4b56393-e8d9-89d9-6dc9-883752de4767
-        ```
+         to = aws_ram_resource_share_accepter.example
+
+         id = "arn:aws:ram:us-east-1:123456789012:resource-share/c4b56393-e8d9-89d9-6dc9-883752de4767" } Using `pulumi import`, import resource share accepters using the resource share ARN. For exampleconsole % pulumi import aws_ram_resource_share_accepter.example arn:aws:ram:us-east-1:123456789012:resource-share/c4b56393-e8d9-89d9-6dc9-883752de4767
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -253,11 +253,11 @@ class ResourceShareAccepter(pulumi.CustomResource):
 
         ## Import
 
-        Resource share accepters can be imported using the resource share ARN, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ram/resourceShareAccepter:ResourceShareAccepter example arn:aws:ram:us-east-1:123456789012:resource-share/c4b56393-e8d9-89d9-6dc9-883752de4767
-        ```
+         to = aws_ram_resource_share_accepter.example
+
+         id = "arn:aws:ram:us-east-1:123456789012:resource-share/c4b56393-e8d9-89d9-6dc9-883752de4767" } Using `pulumi import`, import resource share accepters using the resource share ARN. For exampleconsole % pulumi import aws_ram_resource_share_accepter.example arn:aws:ram:us-east-1:123456789012:resource-share/c4b56393-e8d9-89d9-6dc9-883752de4767
 
         :param str resource_name: The name of the resource.
         :param ResourceShareAccepterArgs args: The arguments to use to populate this resource's properties.

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iot"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iot"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -38,13 +39,11 @@ import (
 //
 // ## Import
 //
-// IOT Thing Types can be imported using the name, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_iot_thing_type.example
 //
-//	$ pulumi import aws:iot/thingType:ThingType example example
-//
-// ```
+//	id = "example" } Using `pulumi import`, import IOT Thing Types using the name. For exampleconsole % pulumi import aws_iot_thing_type.example example
 type ThingType struct {
 	pulumi.CustomResourceState
 
@@ -69,6 +68,7 @@ func NewThingType(ctx *pulumi.Context,
 		args = &ThingTypeArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ThingType
 	err := ctx.RegisterResource("aws:iot/thingType:ThingType", name, args, &resource, opts...)
 	if err != nil {

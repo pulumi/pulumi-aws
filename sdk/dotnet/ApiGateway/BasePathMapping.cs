@@ -53,17 +53,15 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ## Import
     /// 
-    /// `aws_api_gateway_base_path_mapping` can be imported by using the domain name and base path, e.g., For empty `base_path` (e.g., root path (`/`))
+    /// For an empty `base_path` or, in other words, a root path (`/`)terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/
-    /// ```
+    ///  to = aws_api_gateway_base_path_mapping.example
     /// 
-    ///  Otherwise
+    ///  id = "example.com/" } For a non-root `base_path`terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/base-path
-    /// ```
+    ///  to = aws_api_gateway_base_path_mapping.example
+    /// 
+    ///  id = "example.com/base-path" } Using `pulumi import`, import `aws_api_gateway_base_path_mapping` using the domain name and base path. For exampleFor an empty `base_path` or, in other words, a root path (`/`)console % pulumi import aws_api_gateway_base_path_mapping.example example.com/ For a non-root `base_path`console % pulumi import aws_api_gateway_base_path_mapping.example example.com/base-path
     /// </summary>
     [AwsResourceType("aws:apigateway/basePathMapping:BasePathMapping")]
     public partial class BasePathMapping : global::Pulumi.CustomResource

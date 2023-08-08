@@ -19,33 +19,14 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.secretsmanager.Secret("example", {});
  * ```
- * ### Rotation Configuration
- *
- * To enable automatic secret rotation, the Secrets Manager service requires usage of a Lambda function. The [Rotate Secrets section in the Secrets Manager User Guide](https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html) provides additional information about deploying a prebuilt Lambda functions for supported credential rotation (e.g., RDS) or deploying a custom Lambda function.
- *
- * > **NOTE:** Configuring rotation causes the secret to rotate once as soon as you store the secret. Before you do this, you must ensure that all of your applications that use the credentials stored in the secret are updated to retrieve the secret from AWS Secrets Manager. The old credentials might no longer be usable after the initial rotation and any applications that you fail to update will break as soon as the old credentials are no longer valid.
- *
- * > **NOTE:** If you cancel a rotation that is in progress (by removing the `rotation` configuration), it can leave the VersionStage labels in an unexpected state. Depending on what step of the rotation was in progress, you might need to remove the staging label AWSPENDING from the partially created version, specified by the SecretVersionId response value. You should also evaluate the partially rotated new version to see if it should be deleted, which you can do by removing all staging labels from the new version's VersionStage field.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const rotation_example = new aws.secretsmanager.Secret("rotation-example", {
- *     rotationLambdaArn: aws_lambda_function.example.arn,
- *     rotationRules: {
- *         automaticallyAfterDays: 7,
- *     },
- * });
- * ```
  *
  * ## Import
  *
- * `aws_secretsmanager_secret` can be imported by using the secret Amazon Resource Name (ARN), e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:secretsmanager/secret:Secret example arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456
- * ```
+ *  to = aws_secretsmanager_secret.example
+ *
+ *  id = "arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456" } Using `pulumi import`, import `aws_secretsmanager_secret` using the secret Amazon Resource Name (ARN). For exampleconsole % pulumi import aws_secretsmanager_secret.example arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456
  */
 export class Secret extends pulumi.CustomResource {
     /**
@@ -112,24 +93,6 @@ export class Secret extends pulumi.CustomResource {
      */
     public readonly replicas!: pulumi.Output<outputs.secretsmanager.SecretReplica[]>;
     /**
-     * Whether automatic rotation is enabled for this secret.
-     *
-     * @deprecated Use the aws_secretsmanager_secret_rotation resource instead
-     */
-    public /*out*/ readonly rotationEnabled!: pulumi.Output<boolean>;
-    /**
-     * ARN of the Lambda function that can rotate the secret. Use the `aws.secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
-     *
-     * @deprecated Use the aws_secretsmanager_secret_rotation resource instead
-     */
-    public readonly rotationLambdaArn!: pulumi.Output<string>;
-    /**
-     * Configuration block for the rotation configuration of this secret. Defined below. Use the `aws.secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
-     *
-     * @deprecated Use the aws_secretsmanager_secret_rotation resource instead
-     */
-    public readonly rotationRules!: pulumi.Output<outputs.secretsmanager.SecretRotationRules>;
-    /**
      * Key-value map of user-defined tags that are attached to the secret. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -160,9 +123,6 @@ export class Secret extends pulumi.CustomResource {
             resourceInputs["policy"] = state ? state.policy : undefined;
             resourceInputs["recoveryWindowInDays"] = state ? state.recoveryWindowInDays : undefined;
             resourceInputs["replicas"] = state ? state.replicas : undefined;
-            resourceInputs["rotationEnabled"] = state ? state.rotationEnabled : undefined;
-            resourceInputs["rotationLambdaArn"] = state ? state.rotationLambdaArn : undefined;
-            resourceInputs["rotationRules"] = state ? state.rotationRules : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
@@ -175,11 +135,8 @@ export class Secret extends pulumi.CustomResource {
             resourceInputs["policy"] = args ? args.policy : undefined;
             resourceInputs["recoveryWindowInDays"] = args ? args.recoveryWindowInDays : undefined;
             resourceInputs["replicas"] = args ? args.replicas : undefined;
-            resourceInputs["rotationLambdaArn"] = args ? args.rotationLambdaArn : undefined;
-            resourceInputs["rotationRules"] = args ? args.rotationRules : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
-            resourceInputs["rotationEnabled"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -228,24 +185,6 @@ export interface SecretState {
      */
     replicas?: pulumi.Input<pulumi.Input<inputs.secretsmanager.SecretReplica>[]>;
     /**
-     * Whether automatic rotation is enabled for this secret.
-     *
-     * @deprecated Use the aws_secretsmanager_secret_rotation resource instead
-     */
-    rotationEnabled?: pulumi.Input<boolean>;
-    /**
-     * ARN of the Lambda function that can rotate the secret. Use the `aws.secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
-     *
-     * @deprecated Use the aws_secretsmanager_secret_rotation resource instead
-     */
-    rotationLambdaArn?: pulumi.Input<string>;
-    /**
-     * Configuration block for the rotation configuration of this secret. Defined below. Use the `aws.secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
-     *
-     * @deprecated Use the aws_secretsmanager_secret_rotation resource instead
-     */
-    rotationRules?: pulumi.Input<inputs.secretsmanager.SecretRotationRules>;
-    /**
      * Key-value map of user-defined tags that are attached to the secret. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -291,18 +230,6 @@ export interface SecretArgs {
      * Configuration block to support secret replication. See details below.
      */
     replicas?: pulumi.Input<pulumi.Input<inputs.secretsmanager.SecretReplica>[]>;
-    /**
-     * ARN of the Lambda function that can rotate the secret. Use the `aws.secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
-     *
-     * @deprecated Use the aws_secretsmanager_secret_rotation resource instead
-     */
-    rotationLambdaArn?: pulumi.Input<string>;
-    /**
-     * Configuration block for the rotation configuration of this secret. Defined below. Use the `aws.secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
-     *
-     * @deprecated Use the aws_secretsmanager_secret_rotation resource instead
-     */
-    rotationRules?: pulumi.Input<inputs.secretsmanager.SecretRotationRules>;
     /**
      * Key-value map of user-defined tags that are attached to the secret. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

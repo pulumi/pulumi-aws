@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -39,6 +40,7 @@ import (
 //
 // ```
 func GetPublicIpv4Pool(ctx *pulumi.Context, args *GetPublicIpv4PoolArgs, opts ...pulumi.InvokeOption) (*GetPublicIpv4PoolResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetPublicIpv4PoolResult
 	err := ctx.Invoke("aws:ec2/getPublicIpv4Pool:getPublicIpv4Pool", args, &rv, opts...)
 	if err != nil {

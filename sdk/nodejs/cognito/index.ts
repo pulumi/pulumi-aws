@@ -45,6 +45,11 @@ export type IdentityProvider = import("./identityProvider").IdentityProvider;
 export const IdentityProvider: typeof import("./identityProvider").IdentityProvider = null as any;
 utilities.lazyLoad(exports, ["IdentityProvider"], () => require("./identityProvider"));
 
+export { ManagedUserPoolClientArgs, ManagedUserPoolClientState } from "./managedUserPoolClient";
+export type ManagedUserPoolClient = import("./managedUserPoolClient").ManagedUserPoolClient;
+export const ManagedUserPoolClient: typeof import("./managedUserPoolClient").ManagedUserPoolClient = null as any;
+utilities.lazyLoad(exports, ["ManagedUserPoolClient"], () => require("./managedUserPoolClient"));
+
 export { ResourceServerArgs, ResourceServerState } from "./resourceServer";
 export type ResourceServer = import("./resourceServer").ResourceServer;
 export const ResourceServer: typeof import("./resourceServer").ResourceServer = null as any;
@@ -103,6 +108,8 @@ const _module = {
                 return new IdentityPoolRoleAttachment(name, <any>undefined, { urn })
             case "aws:cognito/identityProvider:IdentityProvider":
                 return new IdentityProvider(name, <any>undefined, { urn })
+            case "aws:cognito/managedUserPoolClient:ManagedUserPoolClient":
+                return new ManagedUserPoolClient(name, <any>undefined, { urn })
             case "aws:cognito/resourceServer:ResourceServer":
                 return new ResourceServer(name, <any>undefined, { urn })
             case "aws:cognito/riskConfiguration:RiskConfiguration":
@@ -130,6 +137,7 @@ pulumi.runtime.registerResourceModule("aws", "cognito/identityPool", _module)
 pulumi.runtime.registerResourceModule("aws", "cognito/identityPoolProviderPrincipalTag", _module)
 pulumi.runtime.registerResourceModule("aws", "cognito/identityPoolRoleAttachment", _module)
 pulumi.runtime.registerResourceModule("aws", "cognito/identityProvider", _module)
+pulumi.runtime.registerResourceModule("aws", "cognito/managedUserPoolClient", _module)
 pulumi.runtime.registerResourceModule("aws", "cognito/resourceServer", _module)
 pulumi.runtime.registerResourceModule("aws", "cognito/riskConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "cognito/user", _module)

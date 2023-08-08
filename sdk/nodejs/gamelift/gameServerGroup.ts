@@ -110,11 +110,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * GameLift Game Server Group can be imported using the `name`, e.g.
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:gamelift/gameServerGroup:GameServerGroup example example
- * ```
+ *  to = aws_gamelift_game_server_group.example
+ *
+ *  id = "example" } Using `pulumi import`, import GameLift Game Server Group using the `name`. For exampleconsole % pulumi import aws_gamelift_game_server_group.example example
  */
 export class GameServerGroup extends pulumi.CustomResource {
     /**

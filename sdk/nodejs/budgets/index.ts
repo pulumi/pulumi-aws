@@ -15,6 +15,11 @@ export type BudgetAction = import("./budgetAction").BudgetAction;
 export const BudgetAction: typeof import("./budgetAction").BudgetAction = null as any;
 utilities.lazyLoad(exports, ["BudgetAction"], () => require("./budgetAction"));
 
+export { GetBudgetArgs, GetBudgetResult, GetBudgetOutputArgs } from "./getBudget";
+export const getBudget: typeof import("./getBudget").getBudget = null as any;
+export const getBudgetOutput: typeof import("./getBudget").getBudgetOutput = null as any;
+utilities.lazyLoad(exports, ["getBudget","getBudgetOutput"], () => require("./getBudget"));
+
 
 const _module = {
     version: utilities.getVersion(),

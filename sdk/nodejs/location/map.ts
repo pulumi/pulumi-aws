@@ -26,11 +26,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_location_map` resources can be imported using the map name, e.g.
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:location/map:Map example example
- * ```
+ *  to = aws_location_map.example
+ *
+ *  id = "example" } Using `pulumi import`, import `aws_location_map` resources using the map name. For exampleconsole % pulumi import aws_location_map.example example
  */
 export class Map extends pulumi.CustomResource {
     /**

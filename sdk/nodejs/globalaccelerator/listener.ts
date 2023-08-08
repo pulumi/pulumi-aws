@@ -38,11 +38,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Global Accelerator listeners can be imported using the `id`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:globalaccelerator/listener:Listener example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx
- * ```
+ *  to = aws_globalaccelerator_listener.example
+ *
+ *  id = "arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx" } Using `pulumi import`, import Global Accelerator listeners using the `id`. For exampleconsole % pulumi import aws_globalaccelerator_listener.example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx
  */
 export class Listener extends pulumi.CustomResource {
     /**
@@ -82,8 +82,6 @@ export class Listener extends pulumi.CustomResource {
     public readonly clientAffinity!: pulumi.Output<string | undefined>;
     /**
      * The list of port ranges for the connections from clients to the accelerator. Fields documented below.
-     *
-     * **port_range** supports the following attributes:
      */
     public readonly portRanges!: pulumi.Output<outputs.globalaccelerator.ListenerPortRange[]>;
     /**
@@ -143,8 +141,6 @@ export interface ListenerState {
     clientAffinity?: pulumi.Input<string>;
     /**
      * The list of port ranges for the connections from clients to the accelerator. Fields documented below.
-     *
-     * **port_range** supports the following attributes:
      */
     portRanges?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.ListenerPortRange>[]>;
     /**
@@ -167,8 +163,6 @@ export interface ListenerArgs {
     clientAffinity?: pulumi.Input<string>;
     /**
      * The list of port ranges for the connections from clients to the accelerator. Fields documented below.
-     *
-     * **port_range** supports the following attributes:
      */
     portRanges: pulumi.Input<pulumi.Input<inputs.globalaccelerator.ListenerPortRange>[]>;
     /**

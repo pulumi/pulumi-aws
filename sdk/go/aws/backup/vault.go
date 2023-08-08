@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/backup"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/backup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -40,13 +41,11 @@ import (
 //
 // ## Import
 //
-// Backup vault can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_backup_vault.test-vault
 //
-//	$ pulumi import aws:backup/vault:Vault test-vault TestVault
-//
-// ```
+//	id = "TestVault" } Using `pulumi import`, import Backup vault using the `name`. For exampleconsole % pulumi import aws_backup_vault.test-vault TestVault
 type Vault struct {
 	pulumi.CustomResourceState
 
@@ -73,6 +72,7 @@ func NewVault(ctx *pulumi.Context,
 		args = &VaultArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Vault
 	err := ctx.RegisterResource("aws:backup/vault:Vault", name, args, &resource, opts...)
 	if err != nil {

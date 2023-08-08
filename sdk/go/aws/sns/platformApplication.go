@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -48,7 +49,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -77,7 +78,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -99,13 +100,11 @@ import (
 //
 // ## Import
 //
-// SNS platform applications can be imported using the ARN, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_sns_platform_application.gcm_application
 //
-//	$ pulumi import aws:sns/platformApplication:PlatformApplication gcm_application arn:aws:sns:us-west-2:0123456789012:app/GCM/gcm_application
-//
-// ```
+//	id = "arn:aws:sns:us-west-2:0123456789012:app/GCM/gcm_application" } Using `pulumi import`, import SNS platform applications using the ARN. For exampleconsole % pulumi import aws_sns_platform_application.gcm_application arn:aws:sns:us-west-2:0123456789012:app/GCM/gcm_application
 type PlatformApplication struct {
 	pulumi.CustomResourceState
 
@@ -165,6 +164,7 @@ func NewPlatformApplication(ctx *pulumi.Context,
 		"platformPrincipal",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PlatformApplication
 	err := ctx.RegisterResource("aws:sns/platformApplication:PlatformApplication", name, args, &resource, opts...)
 	if err != nil {

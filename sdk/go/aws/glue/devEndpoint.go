@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,8 +23,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -77,18 +78,16 @@ import (
 //
 // ## Import
 //
-// A Glue Development Endpoint can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_glue_dev_endpoint.example
 //
-//	$ pulumi import aws:glue/devEndpoint:DevEndpoint example foo
-//
-// ```
+//	id = "foo" } Using `pulumi import`, import a Glue Development Endpoint using the `name`. For exampleconsole % pulumi import aws_glue_dev_endpoint.example foo
 type DevEndpoint struct {
 	pulumi.CustomResourceState
 
 	// A map of arguments used to configure the endpoint.
-	Arguments pulumi.MapOutput `pulumi:"arguments"`
+	Arguments pulumi.StringMapOutput `pulumi:"arguments"`
 	// The ARN of the endpoint.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The AWS availability zone where this endpoint is located.
@@ -149,6 +148,7 @@ func NewDevEndpoint(ctx *pulumi.Context,
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DevEndpoint
 	err := ctx.RegisterResource("aws:glue/devEndpoint:DevEndpoint", name, args, &resource, opts...)
 	if err != nil {
@@ -172,7 +172,7 @@ func GetDevEndpoint(ctx *pulumi.Context,
 // Input properties used for looking up and filtering DevEndpoint resources.
 type devEndpointState struct {
 	// A map of arguments used to configure the endpoint.
-	Arguments map[string]interface{} `pulumi:"arguments"`
+	Arguments map[string]string `pulumi:"arguments"`
 	// The ARN of the endpoint.
 	Arn *string `pulumi:"arn"`
 	// The AWS availability zone where this endpoint is located.
@@ -225,7 +225,7 @@ type devEndpointState struct {
 
 type DevEndpointState struct {
 	// A map of arguments used to configure the endpoint.
-	Arguments pulumi.MapInput
+	Arguments pulumi.StringMapInput
 	// The ARN of the endpoint.
 	Arn pulumi.StringPtrInput
 	// The AWS availability zone where this endpoint is located.
@@ -282,7 +282,7 @@ func (DevEndpointState) ElementType() reflect.Type {
 
 type devEndpointArgs struct {
 	// A map of arguments used to configure the endpoint.
-	Arguments map[string]interface{} `pulumi:"arguments"`
+	Arguments map[string]string `pulumi:"arguments"`
 	// Path to one or more Java Jars in an S3 bucket that should be loaded in this endpoint.
 	ExtraJarsS3Path *string `pulumi:"extraJarsS3Path"`
 	// Path(s) to one or more Python libraries in an S3 bucket that should be loaded in this endpoint. Multiple values must be complete paths separated by a comma.
@@ -316,7 +316,7 @@ type devEndpointArgs struct {
 // The set of arguments for constructing a DevEndpoint resource.
 type DevEndpointArgs struct {
 	// A map of arguments used to configure the endpoint.
-	Arguments pulumi.MapInput
+	Arguments pulumi.StringMapInput
 	// Path to one or more Java Jars in an S3 bucket that should be loaded in this endpoint.
 	ExtraJarsS3Path pulumi.StringPtrInput
 	// Path(s) to one or more Python libraries in an S3 bucket that should be loaded in this endpoint. Multiple values must be complete paths separated by a comma.
@@ -435,8 +435,8 @@ func (o DevEndpointOutput) ToDevEndpointOutputWithContext(ctx context.Context) D
 }
 
 // A map of arguments used to configure the endpoint.
-func (o DevEndpointOutput) Arguments() pulumi.MapOutput {
-	return o.ApplyT(func(v *DevEndpoint) pulumi.MapOutput { return v.Arguments }).(pulumi.MapOutput)
+func (o DevEndpointOutput) Arguments() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DevEndpoint) pulumi.StringMapOutput { return v.Arguments }).(pulumi.StringMapOutput)
 }
 
 // The ARN of the endpoint.

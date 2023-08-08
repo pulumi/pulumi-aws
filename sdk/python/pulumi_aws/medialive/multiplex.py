@@ -265,11 +265,11 @@ class Multiplex(pulumi.CustomResource):
 
         ## Import
 
-        MediaLive Multiplex can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:medialive/multiplex:Multiplex example 12345678
-        ```
+         to = aws_medialive_multiplex.example
+
+         id = "12345678" } Using `pulumi import`, import MediaLive Multiplex using the `id`. For exampleconsole % pulumi import aws_medialive_multiplex.example 12345678
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -317,11 +317,11 @@ class Multiplex(pulumi.CustomResource):
 
         ## Import
 
-        MediaLive Multiplex can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:medialive/multiplex:Multiplex example 12345678
-        ```
+         to = aws_medialive_multiplex.example
+
+         id = "12345678" } Using `pulumi import`, import MediaLive Multiplex using the `id`. For exampleconsole % pulumi import aws_medialive_multiplex.example 12345678
 
         :param str resource_name: The name of the resource.
         :param MultiplexArgs args: The arguments to use to populate this resource's properties.

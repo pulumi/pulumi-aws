@@ -120,8 +120,11 @@ import * as utilities from "../utilities";
  *         Name: vpc,
  *     },
  * });
- * const exampleSubnetIds = exampleVpc.then(exampleVpc => aws.ec2.getSubnetIds({
- *     vpcId: exampleVpc.id,
+ * const exampleSubnets = exampleVpc.then(exampleVpc => aws.ec2.getSubnets({
+ *     filters: [{
+ *         name: "vpc-id",
+ *         values: [exampleVpc.id],
+ *     }],
  *     tags: {
  *         Tier: "private",
  *     },
@@ -158,8 +161,8 @@ import * as utilities from "../utilities";
  *     },
  *     vpcOptions: {
  *         subnetIds: [
- *             exampleSubnetIds.then(exampleSubnetIds => exampleSubnetIds.ids?.[0]),
- *             exampleSubnetIds.then(exampleSubnetIds => exampleSubnetIds.ids?.[1]),
+ *             exampleSubnets.then(exampleSubnets => exampleSubnets.ids?.[0]),
+ *             exampleSubnets.then(exampleSubnets => exampleSubnets.ids?.[1]),
  *         ],
  *         securityGroupIds: [exampleSecurityGroup.id],
  *     },
@@ -254,11 +257,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * OpenSearch domains can be imported using the `domain_name`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:opensearch/domain:Domain example domain_name
- * ```
+ *  to = aws_opensearch_domain.example
+ *
+ *  id = "domain_name" } Using `pulumi import`, import OpenSearch domains using the `domain_name`. For exampleconsole % pulumi import aws_opensearch_domain.example domain_name
  */
 export class Domain extends pulumi.CustomResource {
     /**
@@ -347,11 +350,15 @@ export class Domain extends pulumi.CustomResource {
      */
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
     /**
-     * Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`. See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains). Defaults to `OpenSearch_1.1`.
+     * Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`.
+     * See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).
+     * Defaults to the lastest version of OpenSearch.
      */
-    public readonly engineVersion!: pulumi.Output<string | undefined>;
+    public readonly engineVersion!: pulumi.Output<string>;
     /**
-     * Domain-specific endpoint for kibana without https scheme. OpenSearch Dashboards do not use Kibana, so this attribute will be **DEPRECATED** in a future version.
+     * (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboardEndpoint` attribute instead.
+     *
+     * @deprecated use 'dashboard_endpoint' attribute instead
      */
     public /*out*/ readonly kibanaEndpoint!: pulumi.Output<string>;
     /**
@@ -362,6 +369,10 @@ export class Domain extends pulumi.CustomResource {
      * Configuration block for node-to-node encryption options. Detailed below.
      */
     public readonly nodeToNodeEncryption!: pulumi.Output<outputs.opensearch.DomainNodeToNodeEncryption>;
+    /**
+     * Configuration to add Off Peak update options. ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html)). Detailed below.
+     */
+    public readonly offPeakWindowOptions!: pulumi.Output<outputs.opensearch.DomainOffPeakWindowOptions>;
     /**
      * Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
      */
@@ -412,6 +423,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["kibanaEndpoint"] = state ? state.kibanaEndpoint : undefined;
             resourceInputs["logPublishingOptions"] = state ? state.logPublishingOptions : undefined;
             resourceInputs["nodeToNodeEncryption"] = state ? state.nodeToNodeEncryption : undefined;
+            resourceInputs["offPeakWindowOptions"] = state ? state.offPeakWindowOptions : undefined;
             resourceInputs["snapshotOptions"] = state ? state.snapshotOptions : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -431,6 +443,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
             resourceInputs["logPublishingOptions"] = args ? args.logPublishingOptions : undefined;
             resourceInputs["nodeToNodeEncryption"] = args ? args.nodeToNodeEncryption : undefined;
+            resourceInputs["offPeakWindowOptions"] = args ? args.offPeakWindowOptions : undefined;
             resourceInputs["snapshotOptions"] = args ? args.snapshotOptions : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vpcOptions"] = args ? args.vpcOptions : undefined;
@@ -509,11 +522,15 @@ export interface DomainState {
      */
     endpoint?: pulumi.Input<string>;
     /**
-     * Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`. See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains). Defaults to `OpenSearch_1.1`.
+     * Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`.
+     * See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).
+     * Defaults to the lastest version of OpenSearch.
      */
     engineVersion?: pulumi.Input<string>;
     /**
-     * Domain-specific endpoint for kibana without https scheme. OpenSearch Dashboards do not use Kibana, so this attribute will be **DEPRECATED** in a future version.
+     * (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboardEndpoint` attribute instead.
+     *
+     * @deprecated use 'dashboard_endpoint' attribute instead
      */
     kibanaEndpoint?: pulumi.Input<string>;
     /**
@@ -524,6 +541,10 @@ export interface DomainState {
      * Configuration block for node-to-node encryption options. Detailed below.
      */
     nodeToNodeEncryption?: pulumi.Input<inputs.opensearch.DomainNodeToNodeEncryption>;
+    /**
+     * Configuration to add Off Peak update options. ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html)). Detailed below.
+     */
+    offPeakWindowOptions?: pulumi.Input<inputs.opensearch.DomainOffPeakWindowOptions>;
     /**
      * Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
      */
@@ -591,7 +612,9 @@ export interface DomainArgs {
      */
     encryptAtRest?: pulumi.Input<inputs.opensearch.DomainEncryptAtRest>;
     /**
-     * Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`. See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains). Defaults to `OpenSearch_1.1`.
+     * Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`.
+     * See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).
+     * Defaults to the lastest version of OpenSearch.
      */
     engineVersion?: pulumi.Input<string>;
     /**
@@ -602,6 +625,10 @@ export interface DomainArgs {
      * Configuration block for node-to-node encryption options. Detailed below.
      */
     nodeToNodeEncryption?: pulumi.Input<inputs.opensearch.DomainNodeToNodeEncryption>;
+    /**
+     * Configuration to add Off Peak update options. ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html)). Detailed below.
+     */
+    offPeakWindowOptions?: pulumi.Input<inputs.opensearch.DomainOffPeakWindowOptions>;
     /**
      * Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
      */

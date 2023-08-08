@@ -27,41 +27,14 @@ namespace Pulumi.Aws.SecretsManager
     /// 
     /// });
     /// ```
-    /// ### Rotation Configuration
-    /// 
-    /// To enable automatic secret rotation, the Secrets Manager service requires usage of a Lambda function. The [Rotate Secrets section in the Secrets Manager User Guide](https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html) provides additional information about deploying a prebuilt Lambda functions for supported credential rotation (e.g., RDS) or deploying a custom Lambda function.
-    /// 
-    /// &gt; **NOTE:** Configuring rotation causes the secret to rotate once as soon as you store the secret. Before you do this, you must ensure that all of your applications that use the credentials stored in the secret are updated to retrieve the secret from AWS Secrets Manager. The old credentials might no longer be usable after the initial rotation and any applications that you fail to update will break as soon as the old credentials are no longer valid.
-    /// 
-    /// &gt; **NOTE:** If you cancel a rotation that is in progress (by removing the `rotation` configuration), it can leave the VersionStage labels in an unexpected state. Depending on what step of the rotation was in progress, you might need to remove the staging label AWSPENDING from the partially created version, specified by the SecretVersionId response value. You should also evaluate the partially rotated new version to see if it should be deleted, which you can do by removing all staging labels from the new version's VersionStage field.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var rotation_example = new Aws.SecretsManager.Secret("rotation-example", new()
-    ///     {
-    ///         RotationLambdaArn = aws_lambda_function.Example.Arn,
-    ///         RotationRules = new Aws.SecretsManager.Inputs.SecretRotationRulesArgs
-    ///         {
-    ///             AutomaticallyAfterDays = 7,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 
-    /// `aws_secretsmanager_secret` can be imported by using the secret Amazon Resource Name (ARN), e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:secretsmanager/secret:Secret example arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456
-    /// ```
+    ///  to = aws_secretsmanager_secret.example
+    /// 
+    ///  id = "arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456" } Using `pulumi import`, import `aws_secretsmanager_secret` using the secret Amazon Resource Name (ARN). For exampleconsole % pulumi import aws_secretsmanager_secret.example arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456
     /// </summary>
     [AwsResourceType("aws:secretsmanager/secret:Secret")]
     public partial class Secret : global::Pulumi.CustomResource
@@ -119,24 +92,6 @@ namespace Pulumi.Aws.SecretsManager
         /// </summary>
         [Output("replicas")]
         public Output<ImmutableArray<Outputs.SecretReplica>> Replicas { get; private set; } = null!;
-
-        /// <summary>
-        /// Whether automatic rotation is enabled for this secret.
-        /// </summary>
-        [Output("rotationEnabled")]
-        public Output<bool> RotationEnabled { get; private set; } = null!;
-
-        /// <summary>
-        /// ARN of the Lambda function that can rotate the secret. Use the `aws.secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
-        /// </summary>
-        [Output("rotationLambdaArn")]
-        public Output<string> RotationLambdaArn { get; private set; } = null!;
-
-        /// <summary>
-        /// Configuration block for the rotation configuration of this secret. Defined below. Use the `aws.secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
-        /// </summary>
-        [Output("rotationRules")]
-        public Output<Outputs.SecretRotationRules> RotationRules { get; private set; } = null!;
 
         /// <summary>
         /// Key-value map of user-defined tags that are attached to the secret. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -250,18 +205,6 @@ namespace Pulumi.Aws.SecretsManager
             set => _replicas = value;
         }
 
-        /// <summary>
-        /// ARN of the Lambda function that can rotate the secret. Use the `aws.secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
-        /// </summary>
-        [Input("rotationLambdaArn")]
-        public Input<string>? RotationLambdaArn { get; set; }
-
-        /// <summary>
-        /// Configuration block for the rotation configuration of this secret. Defined below. Use the `aws.secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
-        /// </summary>
-        [Input("rotationRules")]
-        public Input<Inputs.SecretRotationRulesArgs>? RotationRules { get; set; }
-
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -341,24 +284,6 @@ namespace Pulumi.Aws.SecretsManager
             get => _replicas ?? (_replicas = new InputList<Inputs.SecretReplicaGetArgs>());
             set => _replicas = value;
         }
-
-        /// <summary>
-        /// Whether automatic rotation is enabled for this secret.
-        /// </summary>
-        [Input("rotationEnabled")]
-        public Input<bool>? RotationEnabled { get; set; }
-
-        /// <summary>
-        /// ARN of the Lambda function that can rotate the secret. Use the `aws.secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
-        /// </summary>
-        [Input("rotationLambdaArn")]
-        public Input<string>? RotationLambdaArn { get; set; }
-
-        /// <summary>
-        /// Configuration block for the rotation configuration of this secret. Defined below. Use the `aws.secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
-        /// </summary>
-        [Input("rotationRules")]
-        public Input<Inputs.SecretRotationRulesGetArgs>? RotationRules { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

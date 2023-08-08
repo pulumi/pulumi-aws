@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/athena"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/athena"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,13 +53,11 @@ import (
 //
 // ## Import
 //
-// Athena Workgroups can be imported using their name, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_athena_workgroup.example
 //
-//	$ pulumi import aws:athena/workgroup:Workgroup example example
-//
-// ```
+//	id = "example" } Using `pulumi import`, import Athena Workgroups using their name. For exampleconsole % pulumi import aws_athena_workgroup.example example
 type Workgroup struct {
 	pulumi.CustomResourceState
 
@@ -87,6 +86,7 @@ func NewWorkgroup(ctx *pulumi.Context,
 		args = &WorkgroupArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Workgroup
 	err := ctx.RegisterResource("aws:athena/workgroup:Workgroup", name, args, &resource, opts...)
 	if err != nil {

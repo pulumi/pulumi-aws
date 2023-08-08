@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -46,13 +47,11 @@ import (
 //
 // ## Import
 //
-// Customer Gateways can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_customer_gateway.main
 //
-//	$ pulumi import aws:ec2/customerGateway:CustomerGateway main cgw-b4dc3961
-//
-// ```
+//	id = "cgw-b4dc3961" } Using `pulumi import`, import Customer Gateways using the `id`. For exampleconsole % pulumi import aws_customer_gateway.main cgw-b4dc3961
 type CustomerGateway struct {
 	pulumi.CustomResourceState
 
@@ -88,6 +87,7 @@ func NewCustomerGateway(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CustomerGateway
 	err := ctx.RegisterResource("aws:ec2/customerGateway:CustomerGateway", name, args, &resource, opts...)
 	if err != nil {

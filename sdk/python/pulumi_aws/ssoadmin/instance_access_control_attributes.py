@@ -128,11 +128,11 @@ class InstanceAccessControlAttributes(pulumi.CustomResource):
 
         ## Import
 
-        SSO Account Assignments can be imported using the `instance_arn`
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ssoadmin/instanceAccessControlAttributes:InstanceAccessControlAttributes example arn:aws:sso:::instance/ssoins-0123456789abcdef
-        ```
+         to = aws_ssoadmin_instance_access_control_attributes.example
+
+         id = "arn:aws:sso:::instance/ssoins-0123456789abcdef" } Using `pulumi import`, import SSO Account Assignments using the `instance_arn`. For exampleconsole % pulumi import aws_ssoadmin_instance_access_control_attributes.example arn:aws:sso:::instance/ssoins-0123456789abcdef
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -150,11 +150,11 @@ class InstanceAccessControlAttributes(pulumi.CustomResource):
 
         ## Import
 
-        SSO Account Assignments can be imported using the `instance_arn`
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ssoadmin/instanceAccessControlAttributes:InstanceAccessControlAttributes example arn:aws:sso:::instance/ssoins-0123456789abcdef
-        ```
+         to = aws_ssoadmin_instance_access_control_attributes.example
+
+         id = "arn:aws:sso:::instance/ssoins-0123456789abcdef" } Using `pulumi import`, import SSO Account Assignments using the `instance_arn`. For exampleconsole % pulumi import aws_ssoadmin_instance_access_control_attributes.example arn:aws:sso:::instance/ssoins-0123456789abcdef
 
         :param str resource_name: The name of the resource.
         :param InstanceAccessControlAttributesArgs args: The arguments to use to populate this resource's properties.

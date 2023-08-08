@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -15,13 +16,11 @@ import (
 //
 // ## Import
 //
-// Redshift Cluster Snapshots support import by `snapshot_identifier`, e.g., console
+// terraform import {
 //
-// ```sh
+//	to = aws_redshift_cluster_snapshot.test
 //
-//	$ pulumi import aws:redshift/clusterSnapshot:ClusterSnapshot test example
-//
-// ```
+//	id = "example" } Using `pulumi import`, import Redshift Cluster Snapshots using `snapshot_identifier`. For exampleconsole % pulumi import aws_redshift_cluster_snapshot.test example
 type ClusterSnapshot struct {
 	pulumi.CustomResourceState
 
@@ -56,6 +55,7 @@ func NewClusterSnapshot(ctx *pulumi.Context,
 	if args.SnapshotIdentifier == nil {
 		return nil, errors.New("invalid value for required argument 'SnapshotIdentifier'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ClusterSnapshot
 	err := ctx.RegisterResource("aws:redshift/clusterSnapshot:ClusterSnapshot", name, args, &resource, opts...)
 	if err != nil {

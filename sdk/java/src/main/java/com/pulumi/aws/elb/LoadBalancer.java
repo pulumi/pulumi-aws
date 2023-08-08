@@ -111,11 +111,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * ELBs can be imported using the `name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:elb/loadBalancer:LoadBalancer bar elb-production-12345
- * ```
+ *  to = aws_elb.bar
+ * 
+ *  id = &#34;elb-production-12345&#34; } Using `pulumi import`, import ELBs using the `name`. For exampleconsole % pulumi import aws_elb.bar elb-production-12345
  * 
  */
 @ResourceType(type="aws:elb/loadBalancer:LoadBalancer")
@@ -385,14 +385,14 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
         return this.sourceSecurityGroupId;
     }
     /**
-     * A list of subnet IDs to attach to the ELB.
+     * A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
      * 
      */
     @Export(name="subnets", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> subnets;
 
     /**
-     * @return A list of subnet IDs to attach to the ELB.
+     * @return A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
      * 
      */
     public Output<List<String>> subnets() {

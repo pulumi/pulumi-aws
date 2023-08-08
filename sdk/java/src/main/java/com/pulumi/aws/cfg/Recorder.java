@@ -70,11 +70,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Configuration Recorder can be imported using the name, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:cfg/recorder:Recorder foo example
- * ```
+ *  to = aws_config_configuration_recorder.foo
+ * 
+ *  id = &#34;example&#34; } Using `pulumi import`, import Configuration Recorder using the name. For exampleconsole % pulumi import aws_config_configuration_recorder.foo example
  * 
  */
 @ResourceType(type="aws:cfg/recorder:Recorder")

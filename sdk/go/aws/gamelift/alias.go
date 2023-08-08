@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/gamelift"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/gamelift"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -45,13 +46,11 @@ import (
 //
 // ## Import
 //
-// GameLift Aliases can be imported using the ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_gamelift_alias.example
 //
-//	$ pulumi import aws:gamelift/alias:Alias example <alias-id>
-//
-// ```
+//	id = "<alias-id>" } Using `pulumi import`, import GameLift Aliases using the ID. For exampleconsole % pulumi import aws_gamelift_alias.example <alias-id>
 type Alias struct {
 	pulumi.CustomResourceState
 
@@ -79,6 +78,7 @@ func NewAlias(ctx *pulumi.Context,
 	if args.RoutingStrategy == nil {
 		return nil, errors.New("invalid value for required argument 'RoutingStrategy'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Alias
 	err := ctx.RegisterResource("aws:gamelift/alias:Alias", name, args, &resource, opts...)
 	if err != nil {

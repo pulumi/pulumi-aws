@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -26,7 +27,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lightsail"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -57,7 +58,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lightsail"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -91,10 +92,11 @@ import (
 //
 // import (
 //
-// "github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecr"
-// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lightsail"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecr"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
@@ -145,13 +147,11 @@ import (
 //
 // ## Import
 //
-// Lightsail Container Service can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_lightsail_container_service.my_container_service
 //
-//	$ pulumi import aws:lightsail/containerService:ContainerService my_container_service container-service-1
-//
-// ```
+//	id = "container-service-1" } Using `pulumi import`, import Lightsail Container Service using the `name`. For exampleconsole % pulumi import aws_lightsail_container_service.my_container_service container-service-1
 type ContainerService struct {
 	pulumi.CustomResourceState
 
@@ -219,6 +219,7 @@ func NewContainerService(ctx *pulumi.Context,
 	if args.Scale == nil {
 		return nil, errors.New("invalid value for required argument 'Scale'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ContainerService
 	err := ctx.RegisterResource("aws:lightsail/containerService:ContainerService", name, args, &resource, opts...)
 	if err != nil {

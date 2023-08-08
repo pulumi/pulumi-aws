@@ -49,11 +49,11 @@ namespace Pulumi.Aws.Rds
     /// 
     /// ## Import
     /// 
-    /// RDS Cluster Parameter Groups can be imported using the `name`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:rds/clusterParameterGroup:ClusterParameterGroup cluster_pg production-pg-1
-    /// ```
+    ///  to = aws_rds_cluster_parameter_group.cluster_pg
+    /// 
+    ///  id = "production-pg-1" } Using `pulumi import`, import RDS Cluster Parameter Groups using the `name`. For exampleconsole % pulumi import aws_rds_cluster_parameter_group.cluster_pg production-pg-1
     /// </summary>
     [AwsResourceType("aws:rds/clusterParameterGroup:ClusterParameterGroup")]
     public partial class ClusterParameterGroup : global::Pulumi.CustomResource

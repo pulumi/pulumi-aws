@@ -24,14 +24,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const current = aws.getCallerIdentity({});
- * const fooBucketV2 = new aws.s3.BucketV2("fooBucketV2", {forceDestroy: true});
- * const foobar = new aws.cloudtrail.Trail("foobar", {
- *     s3BucketName: fooBucketV2.id,
+ * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {forceDestroy: true});
+ * const exampleTrail = new aws.cloudtrail.Trail("exampleTrail", {
+ *     s3BucketName: exampleBucketV2.id,
  *     s3KeyPrefix: "prefix",
  *     includeGlobalServiceEvents: false,
  * });
- * const fooPolicyDocument = aws.iam.getPolicyDocumentOutput({
+ * const currentCallerIdentity = aws.getCallerIdentity({});
+ * const currentPartition = aws.getPartition({});
+ * const currentRegion = aws.getRegion({});
+ * const examplePolicyDocument = aws.iam.getPolicyDocumentOutput({
  *     statements: [
  *         {
  *             sid: "AWSCloudTrailAclCheck",
@@ -41,7 +43,12 @@ import * as utilities from "../utilities";
  *                 identifiers: ["cloudtrail.amazonaws.com"],
  *             }],
  *             actions: ["s3:GetBucketAcl"],
- *             resources: [fooBucketV2.arn],
+ *             resources: [exampleBucketV2.arn],
+ *             conditions: [{
+ *                 test: "StringEquals",
+ *                 variable: "aws:SourceArn",
+ *                 values: [Promise.all([currentPartition, currentRegion, currentCallerIdentity]).then(([currentPartition, currentRegion, currentCallerIdentity]) => `arn:${currentPartition.partition}:cloudtrail:${currentRegion.name}:${currentCallerIdentity.accountId}:trail/example`)],
+ *             }],
  *         },
  *         {
  *             sid: "AWSCloudTrailWrite",
@@ -51,18 +58,25 @@ import * as utilities from "../utilities";
  *                 identifiers: ["cloudtrail.amazonaws.com"],
  *             }],
  *             actions: ["s3:PutObject"],
- *             resources: [pulumi.all([fooBucketV2.arn, current]).apply(([arn, current]) => `${arn}/prefix/AWSLogs/${current.accountId}/*`)],
- *             conditions: [{
- *                 test: "StringEquals",
- *                 variable: "s3:x-amz-acl",
- *                 values: ["bucket-owner-full-control"],
- *             }],
+ *             resources: [pulumi.all([exampleBucketV2.arn, currentCallerIdentity]).apply(([arn, currentCallerIdentity]) => `${arn}/prefix/AWSLogs/${currentCallerIdentity.accountId}/*`)],
+ *             conditions: [
+ *                 {
+ *                     test: "StringEquals",
+ *                     variable: "s3:x-amz-acl",
+ *                     values: ["bucket-owner-full-control"],
+ *                 },
+ *                 {
+ *                     test: "StringEquals",
+ *                     variable: "aws:SourceArn",
+ *                     values: [Promise.all([currentPartition, currentRegion, currentCallerIdentity]).then(([currentPartition, currentRegion, currentCallerIdentity]) => `arn:${currentPartition.partition}:cloudtrail:${currentRegion.name}:${currentCallerIdentity.accountId}:trail/example`)],
+ *                 },
+ *             ],
  *         },
  *     ],
  * });
- * const fooBucketPolicy = new aws.s3.BucketPolicy("fooBucketPolicy", {
- *     bucket: fooBucketV2.id,
- *     policy: fooPolicyDocument.apply(fooPolicyDocument => fooPolicyDocument.json),
+ * const exampleBucketPolicy = new aws.s3.BucketPolicy("exampleBucketPolicy", {
+ *     bucket: exampleBucketV2.id,
+ *     policy: examplePolicyDocument.apply(examplePolicyDocument => examplePolicyDocument.json),
  * });
  * ```
  * ### Data Event Logging
@@ -132,11 +146,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Cloudtrails can be imported using the `name`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:cloudtrail/trail:Trail sample my-sample-trail
- * ```
+ *  to = aws_cloudtrail.sample
+ *
+ *  id = "my-sample-trail" } Using `pulumi import`, import Cloudtrails using the `name`. For exampleconsole % pulumi import aws_cloudtrail.sample my-sample-trail
  */
 export class Trail extends pulumi.CustomResource {
     /**

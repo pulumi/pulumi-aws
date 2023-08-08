@@ -246,11 +246,11 @@ class ApiCache(pulumi.CustomResource):
 
         ## Import
 
-        `aws_appsync_api_cache` can be imported using the AppSync API ID, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:appsync/apiCache:ApiCache example xxxxx
-        ```
+         to = aws_appsync_api_cache.example
+
+         id = "xxxxx" } Using `pulumi import`, import `aws_appsync_api_cache` using the AppSync API ID. For exampleconsole % pulumi import aws_appsync_api_cache.example xxxxx
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -286,11 +286,11 @@ class ApiCache(pulumi.CustomResource):
 
         ## Import
 
-        `aws_appsync_api_cache` can be imported using the AppSync API ID, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:appsync/apiCache:ApiCache example xxxxx
-        ```
+         to = aws_appsync_api_cache.example
+
+         id = "xxxxx" } Using `pulumi import`, import `aws_appsync_api_cache` using the AppSync API ID. For exampleconsole % pulumi import aws_appsync_api_cache.example xxxxx
 
         :param str resource_name: The name of the resource.
         :param ApiCacheArgs args: The arguments to use to populate this resource's properties.

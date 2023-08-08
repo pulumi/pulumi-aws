@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/opsworks"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opsworks"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,13 +43,11 @@ import (
 //
 // ## Import
 //
-// OpsWorks Custom Layers can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_opsworks_custom_layer.bar
 //
-//	$ pulumi import aws:opsworks/customLayer:CustomLayer bar 00000000-0000-0000-0000-000000000000
-//
-// ```
+//	id = "00000000-0000-0000-0000-000000000000" } Using `pulumi import`, import OpsWorks Custom Layers using the `id`. For exampleconsole % pulumi import aws_opsworks_custom_layer.bar 00000000-0000-0000-0000-000000000000
 type CustomLayer struct {
 	pulumi.CustomResourceState
 
@@ -118,6 +117,7 @@ func NewCustomLayer(ctx *pulumi.Context,
 	if args.StackId == nil {
 		return nil, errors.New("invalid value for required argument 'StackId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CustomLayer
 	err := ctx.RegisterResource("aws:opsworks/customLayer:CustomLayer", name, args, &resource, opts...)
 	if err != nil {

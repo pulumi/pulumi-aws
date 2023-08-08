@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/transfer"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/transfer"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -39,6 +40,7 @@ import (
 //
 // ```
 func LookupServer(ctx *pulumi.Context, args *LookupServerArgs, opts ...pulumi.InvokeOption) (*LookupServerResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupServerResult
 	err := ctx.Invoke("aws:transfer/getServer:getServer", args, &rv, opts...)
 	if err != nil {
@@ -76,8 +78,9 @@ type LookupServerResult struct {
 	// File transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint.
 	Protocols []string `pulumi:"protocols"`
 	// The name of the security policy that is attached to the server.
-	SecurityPolicyName string `pulumi:"securityPolicyName"`
-	ServerId           string `pulumi:"serverId"`
+	SecurityPolicyName        string   `pulumi:"securityPolicyName"`
+	ServerId                  string   `pulumi:"serverId"`
+	StructuredLogDestinations []string `pulumi:"structuredLogDestinations"`
 	// URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
 	Url string `pulumi:"url"`
 }
@@ -177,6 +180,10 @@ func (o LookupServerResultOutput) SecurityPolicyName() pulumi.StringOutput {
 
 func (o LookupServerResultOutput) ServerId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerResult) string { return v.ServerId }).(pulumi.StringOutput)
+}
+
+func (o LookupServerResultOutput) StructuredLogDestinations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupServerResult) []string { return v.StructuredLogDestinations }).(pulumi.StringArrayOutput)
 }
 
 // URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.

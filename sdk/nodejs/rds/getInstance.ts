@@ -21,7 +21,8 @@ import * as utilities from "../utilities";
  * });
  * ```
  */
-export function getInstance(args: GetInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceResult> {
+export function getInstance(args?: GetInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceResult> {
+    args = args || {};
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:rds/getInstance:getInstance", {
@@ -35,9 +36,12 @@ export function getInstance(args: GetInstanceArgs, opts?: pulumi.InvokeOptions):
  */
 export interface GetInstanceArgs {
     /**
-     * Name of the RDS instance
+     * Name of the RDS instance.
      */
-    dbInstanceIdentifier: string;
+    dbInstanceIdentifier?: string;
+    /**
+     * Map of tags, each pair of which must exactly match a pair on the desired instance.
+     */
     tags?: {[key: string]: string};
 }
 
@@ -95,12 +99,6 @@ export interface GetInstanceResult {
      */
     readonly dbParameterGroups: string[];
     /**
-     * Provides List of DB security groups associated to this DB instance.
-     *
-     * @deprecated With the retirement of EC2-Classic the db_security_groups attribute has been deprecated and will be removed in a future version.
-     */
-    readonly dbSecurityGroups: string[];
-    /**
      * Name of the subnet group associated with the DB instance.
      */
     readonly dbSubnetGroup: string;
@@ -149,6 +147,10 @@ export interface GetInstanceResult {
      */
     readonly masterUsername: string;
     /**
+     * The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.
+     */
+    readonly maxAllocatedStorage: number;
+    /**
      * Interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance.
      */
     readonly monitoringInterval: number;
@@ -169,7 +171,7 @@ export interface GetInstanceResult {
      */
     readonly optionGroupMemberships: string[];
     /**
-     * Database port.
+     * Database endpoint port, primarily used by an Aurora DB cluster. For a conventional RDS DB instance, the `dbInstancePort` is typically the preferred choice.
      */
     readonly port: number;
     /**
@@ -228,7 +230,7 @@ export interface GetInstanceResult {
  * });
  * ```
  */
-export function getInstanceOutput(args: GetInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceResult> {
+export function getInstanceOutput(args?: GetInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceResult> {
     return pulumi.output(args).apply((a: any) => getInstance(a, opts))
 }
 
@@ -237,8 +239,11 @@ export function getInstanceOutput(args: GetInstanceOutputArgs, opts?: pulumi.Inv
  */
 export interface GetInstanceOutputArgs {
     /**
-     * Name of the RDS instance
+     * Name of the RDS instance.
      */
-    dbInstanceIdentifier: pulumi.Input<string>;
+    dbInstanceIdentifier?: pulumi.Input<string>;
+    /**
+     * Map of tags, each pair of which must exactly match a pair on the desired instance.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

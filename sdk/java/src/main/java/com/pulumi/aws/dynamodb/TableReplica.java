@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  *                 .type(&#34;S&#34;)
  *                 .build())
  *             .build(), CustomResourceOptions.builder()
- *                 .provider(&#34;aws.main&#34;)
+ *                 .provider(aws.main())
  *                 .build());
  * 
  *         var exampleTableReplica = new TableReplica(&#34;exampleTableReplica&#34;, TableReplicaArgs.builder()        
@@ -80,7 +80,7 @@ import javax.annotation.Nullable;
  *                 Map.entry(&#34;Pozo&#34;, &#34;Amargo&#34;)
  *             ))
  *             .build(), CustomResourceOptions.builder()
- *                 .provider(&#34;aws.alt&#34;)
+ *                 .provider(aws.alt())
  *                 .build());
  * 
  *     }
@@ -89,11 +89,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * DynamoDB table replicas can be imported using the `table-name:main-region`, _e.g._,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:dynamodb/tableReplica:TableReplica example TestTable:us-west-2
- * ```
+ *  to = aws_dynamodb_table_replica.example
+ * 
+ *  id = &#34;TestTable:us-west-2&#34; } Using `pulumi import`, import DynamoDB table replicas using the `table-name:main-region`. For exampleconsole % pulumi import aws_dynamodb_table_replica.example TestTable:us-west-2
  * 
  */
 @ResourceType(type="aws:dynamodb/tableReplica:TableReplica")

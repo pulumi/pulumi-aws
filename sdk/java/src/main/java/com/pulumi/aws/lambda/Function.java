@@ -94,7 +94,7 @@ import javax.annotation.Nullable;
  *             .code(new FileArchive(&#34;lambda_function_payload.zip&#34;))
  *             .role(iamForLambda.arn())
  *             .handler(&#34;index.test&#34;)
- *             .runtime(&#34;nodejs16.x&#34;)
+ *             .runtime(&#34;nodejs18.x&#34;)
  *             .environment(FunctionEnvironmentArgs.builder()
  *                 .variables(Map.of(&#34;foo&#34;, &#34;bar&#34;))
  *                 .build())
@@ -184,7 +184,7 @@ import javax.annotation.Nullable;
  *             .code(new FileArchive(&#34;lambda_function_payload.zip&#34;))
  *             .role(iamForLambda.arn())
  *             .handler(&#34;index.test&#34;)
- *             .runtime(&#34;nodejs14.x&#34;)
+ *             .runtime(&#34;nodejs18.x&#34;)
  *             .ephemeralStorage(FunctionEphemeralStorageArgs.builder()
  *                 .size(10240)
  *                 .build())
@@ -355,11 +355,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Lambda Functions can be imported using the `function_name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:lambda/function:Function test_lambda my_test_lambda_function
- * ```
+ *  to = aws_lambda_function.test_lambda
+ * 
+ *  id = &#34;my_test_lambda_function&#34; } Using `pulumi import`, import Lambda Functions using the `function_name`. For exampleconsole % pulumi import aws_lambda_function.test_lambda my_test_lambda_function
  * 
  */
 @ResourceType(type="aws:lambda/function:Function")
@@ -673,14 +673,18 @@ public class Function extends com.pulumi.resources.CustomResource {
         return this.qualifiedInvokeArn;
     }
     /**
-     * Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS&#39;s internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function&#39;s VPC. Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
+     * **AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.** Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS&#39;s internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function&#39;s VPC. Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
+     * 
+     * @deprecated
+     * AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.
      * 
      */
+    @Deprecated /* AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version. */
     @Export(name="replaceSecurityGroupsOnDestroy", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> replaceSecurityGroupsOnDestroy;
 
     /**
-     * @return Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS&#39;s internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function&#39;s VPC. Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
+     * @return **AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.** Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS&#39;s internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function&#39;s VPC. Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
      * 
      */
     public Output<Optional<Boolean>> replaceSecurityGroupsOnDestroy() {
@@ -689,7 +693,11 @@ public class Function extends com.pulumi.resources.CustomResource {
     /**
      * List of security group IDs to assign to orphaned Lambda function network interfaces upon destruction. `replace_security_groups_on_destroy` must be set to `true` to use this attribute.
      * 
+     * @deprecated
+     * AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.
+     * 
      */
+    @Deprecated /* AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version. */
     @Export(name="replacementSecurityGroupIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> replacementSecurityGroupIds;
 

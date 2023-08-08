@@ -24,6 +24,18 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * ### Using tags
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.rds.getInstances({
+ *     tags: {
+ *         Env: "test",
+ *     },
+ * });
+ * ```
  */
 export function getInstances(args?: GetInstancesArgs, opts?: pulumi.InvokeOptions): Promise<GetInstancesResult> {
     args = args || {};
@@ -31,6 +43,7 @@ export function getInstances(args?: GetInstancesArgs, opts?: pulumi.InvokeOption
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:rds/getInstances:getInstances", {
         "filters": args.filters,
+        "tags": args.tags,
     }, opts);
 }
 
@@ -39,9 +52,13 @@ export function getInstances(args?: GetInstancesArgs, opts?: pulumi.InvokeOption
  */
 export interface GetInstancesArgs {
     /**
-     * Configuration block(s) for filtering. Detailed below.
+     * Configuration block(s) used to filter instances with AWS supported attributes, such as `engine`, `db-cluster-id` or `db-instance-id` for example. Detailed below.
      */
     filters?: inputs.rds.GetInstancesFilter[];
+    /**
+     * Map of tags, each pair of which must exactly match a pair on the desired instances.
+     */
+    tags?: {[key: string]: string};
 }
 
 /**
@@ -61,6 +78,7 @@ export interface GetInstancesResult {
      * Identifiers of the matched RDS instances.
      */
     readonly instanceIdentifiers: string[];
+    readonly tags: {[key: string]: string};
 }
 /**
  * Data source for listing RDS Database Instances.
@@ -79,6 +97,18 @@ export interface GetInstancesResult {
  *     }],
  * });
  * ```
+ * ### Using tags
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.rds.getInstances({
+ *     tags: {
+ *         Env: "test",
+ *     },
+ * });
+ * ```
  */
 export function getInstancesOutput(args?: GetInstancesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstancesResult> {
     return pulumi.output(args).apply((a: any) => getInstances(a, opts))
@@ -89,7 +119,11 @@ export function getInstancesOutput(args?: GetInstancesOutputArgs, opts?: pulumi.
  */
 export interface GetInstancesOutputArgs {
     /**
-     * Configuration block(s) for filtering. Detailed below.
+     * Configuration block(s) used to filter instances with AWS supported attributes, such as `engine`, `db-cluster-id` or `db-instance-id` for example. Detailed below.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.rds.GetInstancesFilterArgs>[]>;
+    /**
+     * Map of tags, each pair of which must exactly match a pair on the desired instances.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

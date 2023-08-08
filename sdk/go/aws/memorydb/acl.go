@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/memorydb"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/memorydb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -45,13 +46,11 @@ import (
 //
 // ## Import
 //
-// Use the `name` to import an ACL. For example
+// terraform import {
 //
-// ```sh
+//	to = aws_memorydb_acl.example
 //
-//	$ pulumi import aws:memorydb/acl:Acl example my-acl
-//
-// ```
+//	id = "my-acl" } Using `pulumi import`, import an ACL using the `name`. For exampleconsole % pulumi import aws_memorydb_acl.example my-acl
 type Acl struct {
 	pulumi.CustomResourceState
 
@@ -78,6 +77,7 @@ func NewAcl(ctx *pulumi.Context,
 		args = &AclArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Acl
 	err := ctx.RegisterResource("aws:memorydb/acl:Acl", name, args, &resource, opts...)
 	if err != nil {

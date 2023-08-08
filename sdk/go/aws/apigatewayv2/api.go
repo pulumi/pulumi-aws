@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigatewayv2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigatewayv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -49,7 +50,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigatewayv2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigatewayv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -70,13 +71,11 @@ import (
 //
 // ## Import
 //
-// `aws_apigatewayv2_api` can be imported by using the API identifier, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_apigatewayv2_api.example
 //
-//	$ pulumi import aws:apigatewayv2/api:Api example aabbccddee
-//
-// ```
+//	id = "aabbccddee" } Using `pulumi import`, import `aws_apigatewayv2_api` using the API identifier. For exampleconsole % pulumi import aws_apigatewayv2_api.example aabbccddee
 type Api struct {
 	pulumi.CustomResourceState
 
@@ -137,6 +136,7 @@ func NewApi(ctx *pulumi.Context,
 	if args.ProtocolType == nil {
 		return nil, errors.New("invalid value for required argument 'ProtocolType'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Api
 	err := ctx.RegisterResource("aws:apigatewayv2/api:Api", name, args, &resource, opts...)
 	if err != nil {

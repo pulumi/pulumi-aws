@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,8 +20,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/macie"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/macie2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/macie"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/macie2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -55,13 +56,11 @@ import (
 //
 // ## Import
 //
-// `aws_macie2_custom_data_identifier` can be imported using the id, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_macie2_custom_data_identifier.example
 //
-//	$ pulumi import aws:macie/customDataIdentifier:CustomDataIdentifier example abcd1
-//
-// ```
+//	id = "abcd1" } Using `pulumi import`, import `aws_macie2_custom_data_identifier` using the id. For exampleconsole % pulumi import aws_macie2_custom_data_identifier.example abcd1
 type CustomDataIdentifier struct {
 	pulumi.CustomResourceState
 
@@ -95,6 +94,7 @@ func NewCustomDataIdentifier(ctx *pulumi.Context,
 		args = &CustomDataIdentifierArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CustomDataIdentifier
 	err := ctx.RegisterResource("aws:macie/customDataIdentifier:CustomDataIdentifier", name, args, &resource, opts...)
 	if err != nil {

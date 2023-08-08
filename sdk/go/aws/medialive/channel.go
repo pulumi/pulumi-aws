@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +24,7 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/medialive"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/medialive"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -120,13 +121,11 @@ import (
 //
 // ## Import
 //
-// MediaLive Channel can be imported using the `channel_id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_medialive_channel.example
 //
-//	$ pulumi import aws:medialive/channel:Channel example 1234567
-//
-// ```
+//	id = "1234567" } Using `pulumi import`, import MediaLive Channel using the `channel_id`. For exampleconsole % pulumi import aws_medialive_channel.example 1234567
 type Channel struct {
 	pulumi.CustomResourceState
 
@@ -187,6 +186,7 @@ func NewChannel(ctx *pulumi.Context,
 	if args.InputSpecification == nil {
 		return nil, errors.New("invalid value for required argument 'InputSpecification'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Channel
 	err := ctx.RegisterResource("aws:medialive/channel:Channel", name, args, &resource, opts...)
 	if err != nil {

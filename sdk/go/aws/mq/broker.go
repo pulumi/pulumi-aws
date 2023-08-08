@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,7 +28,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/mq"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/mq"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -69,7 +70,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/mq"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/mq"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -106,13 +107,11 @@ import (
 //
 // ## Import
 //
-// MQ Brokers can be imported using their broker id, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_mq_broker.example
 //
-//	$ pulumi import aws:mq/broker:Broker example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
-//
-// ```
+//	id = "a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc" } Using `pulumi import`, import MQ Brokers using their broker id. For exampleconsole % pulumi import aws_mq_broker.example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
 type Broker struct {
 	pulumi.CustomResourceState
 
@@ -194,6 +193,7 @@ func NewBroker(ctx *pulumi.Context,
 	if args.Users == nil {
 		return nil, errors.New("invalid value for required argument 'Users'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Broker
 	err := ctx.RegisterResource("aws:mq/broker:Broker", name, args, &resource, opts...)
 	if err != nil {

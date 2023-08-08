@@ -328,11 +328,11 @@ class ParameterGroup(pulumi.CustomResource):
 
         ## Import
 
-        DB Parameter groups can be imported using the `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:rds/parameterGroup:ParameterGroup rds_pg rds-pg
-        ```
+         to = aws_db_parameter_group.rds_pg
+
+         id = "rds-pg" } Using `pulumi import`, import DB Parameter groups using the `name`. For exampleconsole % pulumi import aws_db_parameter_group.rds_pg rds-pg
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -409,11 +409,11 @@ class ParameterGroup(pulumi.CustomResource):
 
         ## Import
 
-        DB Parameter groups can be imported using the `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:rds/parameterGroup:ParameterGroup rds_pg rds-pg
-        ```
+         to = aws_db_parameter_group.rds_pg
+
+         id = "rds-pg" } Using `pulumi import`, import DB Parameter groups using the `name`. For exampleconsole % pulumi import aws_db_parameter_group.rds_pg rds-pg
 
         :param str resource_name: The name of the resource.
         :param ParameterGroupArgs args: The arguments to use to populate this resource's properties.

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/amplify"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/amplify"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -56,14 +57,16 @@ import (
 // package main
 //
 // import (
-// "encoding/json"
-// "fmt"
 //
-// "github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/amplify"
-// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
+//	"encoding/json"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/amplify"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
@@ -189,13 +192,11 @@ import (
 //
 // ## Import
 //
-// Amplify branch can be imported using `app_id` and `branch_name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_amplify_branch.master
 //
-//	$ pulumi import aws:amplify/branch:Branch master d2ypk4k47z8u6/master
-//
-// ```
+//	id = "d2ypk4k47z8u6/master" } Using `pulumi import`, import Amplify branch using `app_id` and `branch_name`. For exampleconsole % pulumi import aws_amplify_branch.master d2ypk4k47z8u6/master
 type Branch struct {
 	pulumi.CustomResourceState
 
@@ -267,6 +268,7 @@ func NewBranch(ctx *pulumi.Context,
 		"basicAuthCredentials",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Branch
 	err := ctx.RegisterResource("aws:amplify/branch:Branch", name, args, &resource, opts...)
 	if err != nil {

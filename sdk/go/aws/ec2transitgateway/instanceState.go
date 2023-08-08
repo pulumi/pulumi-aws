@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,8 +23,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -78,13 +79,11 @@ import (
 //
 // ## Import
 //
-// `aws_ec2_instance_state` can be imported by using the `instance_id` attribute, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_ec2_instance_state.test
 //
-//	$ pulumi import aws:ec2transitgateway/instanceState:InstanceState test i-02cae6557dfcf2f96
-//
-// ```
+//	id = "i-02cae6557dfcf2f96" } Using `pulumi import`, import `aws_ec2_instance_state` using the `instance_id` attribute. For exampleconsole % pulumi import aws_ec2_instance_state.test i-02cae6557dfcf2f96
 type InstanceState struct {
 	pulumi.CustomResourceState
 
@@ -111,6 +110,7 @@ func NewInstanceState(ctx *pulumi.Context,
 	if args.State == nil {
 		return nil, errors.New("invalid value for required argument 'State'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource InstanceState
 	err := ctx.RegisterResource("aws:ec2transitgateway/instanceState:InstanceState", name, args, &resource, opts...)
 	if err != nil {

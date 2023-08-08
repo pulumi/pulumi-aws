@@ -152,11 +152,11 @@ class ReplicationConfiguration(pulumi.CustomResource):
 
         ## Import
 
-        ECR Replication Configuration can be imported using the `registry_id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ecr/replicationConfiguration:ReplicationConfiguration service 012345678912
-        ```
+         to = aws_ecr_replication_configuration.service
+
+         id = "012345678912" } Using `pulumi import`, import ECR Replication Configuration using the `registry_id`. For exampleconsole % pulumi import aws_ecr_replication_configuration.service 012345678912
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -236,11 +236,11 @@ class ReplicationConfiguration(pulumi.CustomResource):
 
         ## Import
 
-        ECR Replication Configuration can be imported using the `registry_id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ecr/replicationConfiguration:ReplicationConfiguration service 012345678912
-        ```
+         to = aws_ecr_replication_configuration.service
+
+         id = "012345678912" } Using `pulumi import`, import ECR Replication Configuration using the `registry_id`. For exampleconsole % pulumi import aws_ecr_replication_configuration.service 012345678912
 
         :param str resource_name: The name of the resource.
         :param ReplicationConfigurationArgs args: The arguments to use to populate this resource's properties.

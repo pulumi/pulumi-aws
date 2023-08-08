@@ -56,11 +56,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_appstream_directory_config` can be imported using the id, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:appstream/directoryConfig:DirectoryConfig example directoryNameExample
- * ```
+ *  to = aws_appstream_directory_config.example
+ * 
+ *  id = &#34;directoryNameExample&#34; } Using `pulumi import`, import `aws_appstream_directory_config` using the id. For exampleconsole % pulumi import aws_appstream_directory_config.example directoryNameExample
  * 
  */
 @ResourceType(type="aws:appstream/directoryConfig:DirectoryConfig")

@@ -54,8 +54,23 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * ### With user group resolution configuration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.kendra.Index("example", {
+ *     roleArn: aws_iam_role["this"].arn,
+ *     userGroupResolutionConfiguration: {
+ *         userGroupResolutionMode: "AWS_SSO",
+ *     },
+ * });
+ * ```
  * ### With Document Metadata Configuration Updates
  * ### Specifying the predefined elements
+ *
+ * Refer to [Amazon Kendra documentation on built-in document fields](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html#index-reserved-fields) for more information.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -215,6 +230,20 @@ import * as utilities from "../utilities";
  *                 facetable: false,
  *                 searchable: false,
  *                 sortable: false,
+ *             },
+ *             relevance: {
+ *                 importance: 1,
+ *                 valuesImportanceMap: {},
+ *             },
+ *         },
+ *         {
+ *             name: "_tenant_id",
+ *             type: "STRING_VALUE",
+ *             search: {
+ *                 displayable: false,
+ *                 facetable: false,
+ *                 searchable: false,
+ *                 sortable: true,
  *             },
  *             relevance: {
  *                 importance: 1,
@@ -421,6 +450,20 @@ import * as utilities from "../utilities";
  *             },
  *         },
  *         {
+ *             name: "_tenant_id",
+ *             type: "STRING_VALUE",
+ *             search: {
+ *                 displayable: false,
+ *                 facetable: false,
+ *                 searchable: false,
+ *                 sortable: true,
+ *             },
+ *             relevance: {
+ *                 importance: 1,
+ *                 valuesImportanceMap: {},
+ *             },
+ *         },
+ *         {
  *             name: "_version",
  *             type: "STRING_VALUE",
  *             search: {
@@ -527,11 +570,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Amazon Kendra Indexes can be imported using its `id`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:kendra/index:Index example 12345678-1234-5678-9123-123456789123
- * ```
+ *  to = aws_kendra_index.example
+ *
+ *  id = "12345678-1234-5678-9123-123456789123" } Using `pulumi import`, import Amazon Kendra Indexes using its `id`. For exampleconsole % pulumi import aws_kendra_index.example 12345678-1234-5678-9123-123456789123
  */
 export class Index extends pulumi.CustomResource {
     /**

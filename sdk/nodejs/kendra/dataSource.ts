@@ -58,10 +58,33 @@ import * as utilities from "../utilities";
  *     roleArn: aws_iam_role.example.arn,
  *     configuration: {
  *         s3Configuration: {
+ *             bucketName: aws_s3_bucket.example.id,
  *             accessControlListConfiguration: {
  *                 keyPath: `s3://${aws_s3_bucket.example.id}/path-1`,
  *             },
+ *         },
+ *     },
+ * });
+ * ```
+ * ### With Documents Metadata Configuration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.kendra.DataSource("example", {
+ *     indexId: aws_kendra_index.example.id,
+ *     type: "S3",
+ *     roleArn: aws_iam_role.example.arn,
+ *     configuration: {
+ *         s3Configuration: {
  *             bucketName: aws_s3_bucket.example.id,
+ *             exclusionPatterns: ["example"],
+ *             inclusionPatterns: ["hello"],
+ *             inclusionPrefixes: ["world"],
+ *             documentsMetadataConfiguration: {
+ *                 s3Prefix: "example",
+ *             },
  *         },
  *     },
  * });
@@ -281,11 +304,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Kendra Data Source can be imported using the unique identifiers of the data_source and index separated by a slash (`/`) e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:kendra/dataSource:DataSource example 1045d08d-66ef-4882-b3ed-dfb7df183e90/b34dfdf7-1f2b-4704-9581-79e00296845f
- * ```
+ *  to = aws_kendra_data_source.example
+ *
+ *  id = "1045d08d-66ef-4882-b3ed-dfb7df183e90/b34dfdf7-1f2b-4704-9581-79e00296845f" } Using `pulumi import`, import Kendra Data Source using the unique identifiers of the data_source and index separated by a slash (`/`). For exampleconsole % pulumi import aws_kendra_data_source.example 1045d08d-66ef-4882-b3ed-dfb7df183e90/b34dfdf7-1f2b-4704-9581-79e00296845f
  */
 export class DataSource extends pulumi.CustomResource {
     /**
@@ -320,7 +343,7 @@ export class DataSource extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` argument when the `type` parameter is set to `CUSTOM`. Detailed below.
+     * A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
      */
     public readonly configuration!: pulumi.Output<outputs.kendra.DataSourceConfiguration | undefined>;
     /**
@@ -344,7 +367,7 @@ export class DataSource extends pulumi.CustomResource {
      */
     public /*out*/ readonly errorMessage!: pulumi.Output<string>;
     /**
-     * The identifier of the index for your Amazon Kendra data_source.
+     * The identifier of the index for your Amazon Kendra data source.
      */
     public readonly indexId!: pulumi.Output<string>;
     /**
@@ -352,7 +375,7 @@ export class DataSource extends pulumi.CustomResource {
      */
     public readonly languageCode!: pulumi.Output<string>;
     /**
-     * A name for your Data Source connector.
+     * A name for your data source connector.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -456,7 +479,7 @@ export interface DataSourceState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` argument when the `type` parameter is set to `CUSTOM`. Detailed below.
+     * A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
      */
     configuration?: pulumi.Input<inputs.kendra.DataSourceConfiguration>;
     /**
@@ -480,7 +503,7 @@ export interface DataSourceState {
      */
     errorMessage?: pulumi.Input<string>;
     /**
-     * The identifier of the index for your Amazon Kendra data_source.
+     * The identifier of the index for your Amazon Kendra data source.
      */
     indexId?: pulumi.Input<string>;
     /**
@@ -488,7 +511,7 @@ export interface DataSourceState {
      */
     languageCode?: pulumi.Input<string>;
     /**
-     * A name for your Data Source connector.
+     * A name for your data source connector.
      */
     name?: pulumi.Input<string>;
     /**
@@ -528,7 +551,7 @@ export interface DataSourceState {
  */
 export interface DataSourceArgs {
     /**
-     * A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` argument when the `type` parameter is set to `CUSTOM`. Detailed below.
+     * A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
      */
     configuration?: pulumi.Input<inputs.kendra.DataSourceConfiguration>;
     /**
@@ -540,7 +563,7 @@ export interface DataSourceArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * The identifier of the index for your Amazon Kendra data_source.
+     * The identifier of the index for your Amazon Kendra data source.
      */
     indexId: pulumi.Input<string>;
     /**
@@ -548,7 +571,7 @@ export interface DataSourceArgs {
      */
     languageCode?: pulumi.Input<string>;
     /**
-     * A name for your Data Source connector.
+     * A name for your data source connector.
      */
     name?: pulumi.Input<string>;
     /**

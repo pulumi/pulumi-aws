@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -69,13 +70,11 @@ import (
 //
 // ## Import
 //
-// Network Interfaces can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_network_interface.test
 //
-//	$ pulumi import aws:ec2/networkInterface:NetworkInterface test eni-e5aa89a3
-//
-// ```
+//	id = "eni-e5aa89a3" } Using `pulumi import`, import Network Interfaces using the `id`. For exampleconsole % pulumi import aws_network_interface.test eni-e5aa89a3
 type NetworkInterface struct {
 	pulumi.CustomResourceState
 
@@ -143,6 +142,7 @@ func NewNetworkInterface(ctx *pulumi.Context,
 	if args.SubnetId == nil {
 		return nil, errors.New("invalid value for required argument 'SubnetId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NetworkInterface
 	err := ctx.RegisterResource("aws:ec2/networkInterface:NetworkInterface", name, args, &resource, opts...)
 	if err != nil {

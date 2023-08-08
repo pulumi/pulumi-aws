@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/redshift"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshift"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,13 +43,11 @@ import (
 //
 // ## Import
 //
-// Redshift endpoint authorization can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_redshift_endpoint_authorization.example
 //
-//	$ pulumi import aws:redshift/endpointAuthorization:EndpointAuthorization example 01234567910:cluster-example-id
-//
-// ```
+//	id = "01234567910:cluster-example-id" } Using `pulumi import`, import Redshift endpoint authorization using the `id`. For exampleconsole % pulumi import aws_redshift_endpoint_authorization.example 01234567910:cluster-example-id
 type EndpointAuthorization struct {
 	pulumi.CustomResourceState
 
@@ -83,6 +82,7 @@ func NewEndpointAuthorization(ctx *pulumi.Context,
 	if args.ClusterIdentifier == nil {
 		return nil, errors.New("invalid value for required argument 'ClusterIdentifier'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EndpointAuthorization
 	err := ctx.RegisterResource("aws:redshift/endpointAuthorization:EndpointAuthorization", name, args, &resource, opts...)
 	if err != nil {

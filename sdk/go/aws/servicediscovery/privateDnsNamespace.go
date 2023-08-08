@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicediscovery"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicediscovery"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -49,13 +50,11 @@ import (
 //
 // ## Import
 //
-// Service Discovery Private DNS Namespace can be imported using the namespace ID and VPC ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_service_discovery_private_dns_namespace.example
 //
-//	$ pulumi import aws:servicediscovery/privateDnsNamespace:PrivateDnsNamespace example 0123456789:vpc-123345
-//
-// ```
+//	id = "0123456789:vpc-123345" } Using `pulumi import`, import Service Discovery Private DNS Namespace using the namespace ID and VPC ID. For exampleconsole % pulumi import aws_service_discovery_private_dns_namespace.example 0123456789:vpc-123345
 type PrivateDnsNamespace struct {
 	pulumi.CustomResourceState
 
@@ -85,6 +84,7 @@ func NewPrivateDnsNamespace(ctx *pulumi.Context,
 	if args.Vpc == nil {
 		return nil, errors.New("invalid value for required argument 'Vpc'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PrivateDnsNamespace
 	err := ctx.RegisterResource("aws:servicediscovery/privateDnsNamespace:PrivateDnsNamespace", name, args, &resource, opts...)
 	if err != nil {

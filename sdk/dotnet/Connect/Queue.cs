@@ -13,8 +13,6 @@ namespace Pulumi.Aws.Connect
     /// Provides an Amazon Connect Queue resource. For more information see
     /// [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
     /// 
-    /// &gt; **NOTE:** Due to The behaviour of Amazon Connect you cannot delete queues.
-    /// 
     /// ## Example Usage
     /// ### Basic
     /// 
@@ -98,11 +96,11 @@ namespace Pulumi.Aws.Connect
     /// 
     /// ## Import
     /// 
-    /// Amazon Connect Queues can be imported using the `instance_id` and `queue_id` separated by a colon (`:`), e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:connect/queue:Queue example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
-    /// ```
+    ///  to = aws_connect_queue.example
+    /// 
+    ///  id = "f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5" } Using `pulumi import`, import Amazon Connect Queues using the `instance_id` and `queue_id` separated by a colon (`:`). For exampleconsole % pulumi import aws_connect_queue.example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
     /// </summary>
     [AwsResourceType("aws:connect/queue:Queue")]
     public partial class Queue : global::Pulumi.CustomResource
@@ -160,9 +158,6 @@ namespace Pulumi.Aws.Connect
         /// </summary>
         [Output("quickConnectIds")]
         public Output<ImmutableArray<string>> QuickConnectIds { get; private set; } = null!;
-
-        [Output("quickConnectIdsAssociateds")]
-        public Output<ImmutableArray<string>> QuickConnectIdsAssociateds { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
@@ -360,15 +355,6 @@ namespace Pulumi.Aws.Connect
         {
             get => _quickConnectIds ?? (_quickConnectIds = new InputList<string>());
             set => _quickConnectIds = value;
-        }
-
-        [Input("quickConnectIdsAssociateds")]
-        private InputList<string>? _quickConnectIdsAssociateds;
-        [Obsolete(@"Use the quick_connect_ids instead")]
-        public InputList<string> QuickConnectIdsAssociateds
-        {
-            get => _quickConnectIdsAssociateds ?? (_quickConnectIdsAssociateds = new InputList<string>());
-            set => _quickConnectIdsAssociateds = value;
         }
 
         /// <summary>

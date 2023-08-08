@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.pipes;
 
+import com.pulumi.aws.pipes.inputs.PipeEnrichmentParametersArgs;
 import com.pulumi.aws.pipes.inputs.PipeSourceParametersArgs;
 import com.pulumi.aws.pipes.inputs.PipeTargetParametersArgs;
 import com.pulumi.core.Output;
@@ -61,6 +62,21 @@ public final class PipeArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> enrichment() {
         return Optional.ofNullable(this.enrichment);
+    }
+
+    /**
+     * Parameters to configure enrichment for your pipe. Detailed below.
+     * 
+     */
+    @Import(name="enrichmentParameters")
+    private @Nullable Output<PipeEnrichmentParametersArgs> enrichmentParameters;
+
+    /**
+     * @return Parameters to configure enrichment for your pipe. Detailed below.
+     * 
+     */
+    public Optional<Output<PipeEnrichmentParametersArgs>> enrichmentParameters() {
+        return Optional.ofNullable(this.enrichmentParameters);
     }
 
     /**
@@ -124,18 +140,18 @@ public final class PipeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Parameters required to set up a source for the pipe. Detailed below.
+     * Parameters to configure a source for the pipe. Detailed below.
      * 
      */
-    @Import(name="sourceParameters", required=true)
-    private Output<PipeSourceParametersArgs> sourceParameters;
+    @Import(name="sourceParameters")
+    private @Nullable Output<PipeSourceParametersArgs> sourceParameters;
 
     /**
-     * @return Parameters required to set up a source for the pipe. Detailed below.
+     * @return Parameters to configure a source for the pipe. Detailed below.
      * 
      */
-    public Output<PipeSourceParametersArgs> sourceParameters() {
-        return this.sourceParameters;
+    public Optional<Output<PipeSourceParametersArgs>> sourceParameters() {
+        return Optional.ofNullable(this.sourceParameters);
     }
 
     /**
@@ -156,6 +172,8 @@ public final class PipeArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Target resource of the pipe (typically an ARN).
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="target", required=true)
     private Output<String> target;
@@ -163,28 +181,26 @@ public final class PipeArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Target resource of the pipe (typically an ARN).
      * 
+     * The following arguments are optional:
+     * 
      */
     public Output<String> target() {
         return this.target;
     }
 
     /**
-     * Parameters required to set up a target for your pipe. Detailed below.
-     * 
-     * The following arguments are optional:
+     * Parameters to configure a target for your pipe. Detailed below.
      * 
      */
-    @Import(name="targetParameters", required=true)
-    private Output<PipeTargetParametersArgs> targetParameters;
+    @Import(name="targetParameters")
+    private @Nullable Output<PipeTargetParametersArgs> targetParameters;
 
     /**
-     * @return Parameters required to set up a target for your pipe. Detailed below.
-     * 
-     * The following arguments are optional:
+     * @return Parameters to configure a target for your pipe. Detailed below.
      * 
      */
-    public Output<PipeTargetParametersArgs> targetParameters() {
-        return this.targetParameters;
+    public Optional<Output<PipeTargetParametersArgs>> targetParameters() {
+        return Optional.ofNullable(this.targetParameters);
     }
 
     private PipeArgs() {}
@@ -193,6 +209,7 @@ public final class PipeArgs extends com.pulumi.resources.ResourceArgs {
         this.description = $.description;
         this.desiredState = $.desiredState;
         this.enrichment = $.enrichment;
+        this.enrichmentParameters = $.enrichmentParameters;
         this.name = $.name;
         this.namePrefix = $.namePrefix;
         this.roleArn = $.roleArn;
@@ -285,6 +302,27 @@ public final class PipeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param enrichmentParameters Parameters to configure enrichment for your pipe. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enrichmentParameters(@Nullable Output<PipeEnrichmentParametersArgs> enrichmentParameters) {
+            $.enrichmentParameters = enrichmentParameters;
+            return this;
+        }
+
+        /**
+         * @param enrichmentParameters Parameters to configure enrichment for your pipe. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enrichmentParameters(PipeEnrichmentParametersArgs enrichmentParameters) {
+            return enrichmentParameters(Output.of(enrichmentParameters));
+        }
+
+        /**
          * @param name Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
          * 
          * @return builder
@@ -369,18 +407,18 @@ public final class PipeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceParameters Parameters required to set up a source for the pipe. Detailed below.
+         * @param sourceParameters Parameters to configure a source for the pipe. Detailed below.
          * 
          * @return builder
          * 
          */
-        public Builder sourceParameters(Output<PipeSourceParametersArgs> sourceParameters) {
+        public Builder sourceParameters(@Nullable Output<PipeSourceParametersArgs> sourceParameters) {
             $.sourceParameters = sourceParameters;
             return this;
         }
 
         /**
-         * @param sourceParameters Parameters required to set up a source for the pipe. Detailed below.
+         * @param sourceParameters Parameters to configure a source for the pipe. Detailed below.
          * 
          * @return builder
          * 
@@ -413,6 +451,8 @@ public final class PipeArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param target Target resource of the pipe (typically an ARN).
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -424,6 +464,8 @@ public final class PipeArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param target Target resource of the pipe (typically an ARN).
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -432,22 +474,18 @@ public final class PipeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetParameters Parameters required to set up a target for your pipe. Detailed below.
-         * 
-         * The following arguments are optional:
+         * @param targetParameters Parameters to configure a target for your pipe. Detailed below.
          * 
          * @return builder
          * 
          */
-        public Builder targetParameters(Output<PipeTargetParametersArgs> targetParameters) {
+        public Builder targetParameters(@Nullable Output<PipeTargetParametersArgs> targetParameters) {
             $.targetParameters = targetParameters;
             return this;
         }
 
         /**
-         * @param targetParameters Parameters required to set up a target for your pipe. Detailed below.
-         * 
-         * The following arguments are optional:
+         * @param targetParameters Parameters to configure a target for your pipe. Detailed below.
          * 
          * @return builder
          * 
@@ -459,9 +497,7 @@ public final class PipeArgs extends com.pulumi.resources.ResourceArgs {
         public PipeArgs build() {
             $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
             $.source = Objects.requireNonNull($.source, "expected parameter 'source' to be non-null");
-            $.sourceParameters = Objects.requireNonNull($.sourceParameters, "expected parameter 'sourceParameters' to be non-null");
             $.target = Objects.requireNonNull($.target, "expected parameter 'target' to be non-null");
-            $.targetParameters = Objects.requireNonNull($.targetParameters, "expected parameter 'targetParameters' to be non-null");
             return $;
         }
     }

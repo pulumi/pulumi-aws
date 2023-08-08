@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sesv2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sesv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -46,7 +47,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sesv2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sesv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -76,13 +77,11 @@ import (
 //
 // ## Import
 //
-// SESv2 (Simple Email V2) Contact List can be imported using the `example_id_arg`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_sesv2_contact_list.example
 //
-//	$ pulumi import aws:sesv2/contactList:ContactList example example
-//
-// ```
+//	id = "example" } Using `pulumi import`, import SESv2 (Simple Email V2) Contact List using the `example_id_arg`. For exampleconsole % pulumi import aws_sesv2_contact_list.example example
 type ContactList struct {
 	pulumi.CustomResourceState
 
@@ -114,6 +113,7 @@ func NewContactList(ctx *pulumi.Context,
 	if args.ContactListName == nil {
 		return nil, errors.New("invalid value for required argument 'ContactListName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ContactList
 	err := ctx.RegisterResource("aws:sesv2/contactList:ContactList", name, args, &resource, opts...)
 	if err != nil {

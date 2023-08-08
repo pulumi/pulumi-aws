@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lex"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lex"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -72,13 +73,11 @@ import (
 //
 // ## Import
 //
-// Bots can be imported using their name.
+// terraform import {
 //
-// ```sh
+//	to = aws_lex_bot.order_flowers_bot
 //
-//	$ pulumi import aws:lex/bot:Bot order_flowers_bot OrderFlowers
-//
-// ```
+//	id = "OrderFlowers" } Using `pulumi import`, import bots using their name. For exampleconsole % pulumi import aws_lex_bot.order_flowers_bot OrderFlowers
 type Bot struct {
 	pulumi.CustomResourceState
 
@@ -145,6 +144,7 @@ func NewBot(ctx *pulumi.Context,
 	if args.Intents == nil {
 		return nil, errors.New("invalid value for required argument 'Intents'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Bot
 	err := ctx.RegisterResource("aws:lex/bot:Bot", name, args, &resource, opts...)
 	if err != nil {

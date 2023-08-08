@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,9 +25,9 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/shield"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/shield"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -46,7 +47,7 @@ import (
 //				return err
 //			}
 //			exampleEip, err := ec2.NewEip(ctx, "exampleEip", &ec2.EipArgs{
-//				Vpc: pulumi.Bool(true),
+//				Domain: pulumi.String("vpc"),
 //			})
 //			if err != nil {
 //				return err
@@ -70,13 +71,11 @@ import (
 //
 // ## Import
 //
-// Shield protection resources can be imported by specifying their ID e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_shield_protection.example
 //
-//	$ pulumi import aws:shield/protection:Protection example ff9592dc-22f3-4e88-afa1-7b29fde9669a
-//
-// ```
+//	id = "ff9592dc-22f3-4e88-afa1-7b29fde9669a" } Using `pulumi import`, import Shield protection resources using specifying their ID. For exampleconsole % pulumi import aws_shield_protection.example ff9592dc-22f3-4e88-afa1-7b29fde9669a
 type Protection struct {
 	pulumi.CustomResourceState
 
@@ -102,6 +101,7 @@ func NewProtection(ctx *pulumi.Context,
 	if args.ResourceArn == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Protection
 	err := ctx.RegisterResource("aws:shield/protection:Protection", name, args, &resource, opts...)
 	if err != nil {

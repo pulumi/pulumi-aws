@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,7 +26,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/scheduler"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/scheduler"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -37,7 +38,7 @@ import (
 //				FlexibleTimeWindow: &scheduler.ScheduleFlexibleTimeWindowArgs{
 //					Mode: pulumi.String("OFF"),
 //				},
-//				ScheduleExpression: pulumi.String("rate(1 hour)"),
+//				ScheduleExpression: pulumi.String("rate(1 hours)"),
 //				Target: &scheduler.ScheduleTargetArgs{
 //					Arn:     pulumi.Any(aws_sqs_queue.Example.Arn),
 //					RoleArn: pulumi.Any(aws_iam_role.Example.Arn),
@@ -60,8 +61,8 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/scheduler"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sqs"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/scheduler"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sqs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -76,7 +77,7 @@ import (
 //				FlexibleTimeWindow: &scheduler.ScheduleFlexibleTimeWindowArgs{
 //					Mode: pulumi.String("OFF"),
 //				},
-//				ScheduleExpression: pulumi.String("rate(1 hour)"),
+//				ScheduleExpression: pulumi.String("rate(1 hours)"),
 //				Target: &scheduler.ScheduleTargetArgs{
 //					Arn:     pulumi.String("arn:aws:scheduler:::aws-sdk:sqs:sendMessage"),
 //					RoleArn: pulumi.Any(aws_iam_role.Example.Arn),
@@ -105,13 +106,11 @@ import (
 //
 // ## Import
 //
-// Schedules can be imported using the combination `group_name/name`. For example
+// terraform import {
 //
-// ```sh
+//	to = aws_scheduler_schedule.example
 //
-//	$ pulumi import aws:scheduler/schedule:Schedule example my-schedule-group/my-schedule
-//
-// ```
+//	id = "my-schedule-group/my-schedule" } Using `pulumi import`, import schedules using the combination `group_name/name`. For exampleconsole % pulumi import aws_scheduler_schedule.example my-schedule-group/my-schedule
 type Schedule struct {
 	pulumi.CustomResourceState
 
@@ -161,6 +160,7 @@ func NewSchedule(ctx *pulumi.Context,
 	if args.Target == nil {
 		return nil, errors.New("invalid value for required argument 'Target'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Schedule
 	err := ctx.RegisterResource("aws:scheduler/schedule:Schedule", name, args, &resource, opts...)
 	if err != nil {

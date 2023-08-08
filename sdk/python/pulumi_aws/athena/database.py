@@ -316,13 +316,11 @@ class Database(pulumi.CustomResource):
 
         ## Import
 
-        Athena Databases can be imported using their name, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:athena/database:Database example example
-        ```
+         to = aws_athena_database.example
 
-         Certain resource arguments, like `encryption_configuration` and `bucket`, do not have an API method for reading the information after creation. If the argument is set in the configuration on an imported resource, the provider will always show a difference. To workaround this behavior, either omit the argument from the configuration or use `ignore_changes` to hide the difference, e.g., terraform resource "aws_athena_database" "example" {
+         id = "example" } Using `pulumi import`, import Athena Databases using their name. For exampleconsole % pulumi import aws_athena_database.example example Certain resource arguments, like `encryption_configuration` and `bucket`, do not have an API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For exampleterraform resource "aws_athena_database" "example" {
 
          name
 
@@ -372,13 +370,11 @@ class Database(pulumi.CustomResource):
 
         ## Import
 
-        Athena Databases can be imported using their name, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:athena/database:Database example example
-        ```
+         to = aws_athena_database.example
 
-         Certain resource arguments, like `encryption_configuration` and `bucket`, do not have an API method for reading the information after creation. If the argument is set in the configuration on an imported resource, the provider will always show a difference. To workaround this behavior, either omit the argument from the configuration or use `ignore_changes` to hide the difference, e.g., terraform resource "aws_athena_database" "example" {
+         id = "example" } Using `pulumi import`, import Athena Databases using their name. For exampleconsole % pulumi import aws_athena_database.example example Certain resource arguments, like `encryption_configuration` and `bucket`, do not have an API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For exampleterraform resource "aws_athena_database" "example" {
 
          name
 

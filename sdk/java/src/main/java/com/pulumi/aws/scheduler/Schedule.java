@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *             .flexibleTimeWindow(ScheduleFlexibleTimeWindowArgs.builder()
  *                 .mode(&#34;OFF&#34;)
  *                 .build())
- *             .scheduleExpression(&#34;rate(1 hour)&#34;)
+ *             .scheduleExpression(&#34;rate(1 hours)&#34;)
  *             .target(ScheduleTargetArgs.builder()
  *                 .arn(aws_sqs_queue.example().arn())
  *                 .roleArn(aws_iam_role.example().arn())
@@ -95,7 +95,7 @@ import javax.annotation.Nullable;
  *             .flexibleTimeWindow(ScheduleFlexibleTimeWindowArgs.builder()
  *                 .mode(&#34;OFF&#34;)
  *                 .build())
- *             .scheduleExpression(&#34;rate(1 hour)&#34;)
+ *             .scheduleExpression(&#34;rate(1 hours)&#34;)
  *             .target(ScheduleTargetArgs.builder()
  *                 .arn(&#34;arn:aws:scheduler:::aws-sdk:sqs:sendMessage&#34;)
  *                 .roleArn(aws_iam_role.example().arn())
@@ -113,11 +113,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Schedules can be imported using the combination `group_name/name`. For example
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:scheduler/schedule:Schedule example my-schedule-group/my-schedule
- * ```
+ *  to = aws_scheduler_schedule.example
+ * 
+ *  id = &#34;my-schedule-group/my-schedule&#34; } Using `pulumi import`, import schedules using the combination `group_name/name`. For exampleconsole % pulumi import aws_scheduler_schedule.example my-schedule-group/my-schedule
  * 
  */
 @ResourceType(type="aws:scheduler/schedule:Schedule")

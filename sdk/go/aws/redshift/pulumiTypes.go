@@ -7,8 +7,11 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type ClusterClusterNode struct {
 	// Whether the node is a leader node or a compute node
@@ -1526,124 +1529,6 @@ func (o ScheduledActionTargetActionResumeClusterPtrOutput) ClusterIdentifier() p
 	}).(pulumi.StringPtrOutput)
 }
 
-type SecurityGroupIngress struct {
-	// The CIDR block to accept
-	Cidr *string `pulumi:"cidr"`
-	// The name of the security group to authorize
-	SecurityGroupName *string `pulumi:"securityGroupName"`
-	// The owner Id of the security group provided
-	// by `securityGroupName`.
-	SecurityGroupOwnerId *string `pulumi:"securityGroupOwnerId"`
-}
-
-// SecurityGroupIngressInput is an input type that accepts SecurityGroupIngressArgs and SecurityGroupIngressOutput values.
-// You can construct a concrete instance of `SecurityGroupIngressInput` via:
-//
-//	SecurityGroupIngressArgs{...}
-type SecurityGroupIngressInput interface {
-	pulumi.Input
-
-	ToSecurityGroupIngressOutput() SecurityGroupIngressOutput
-	ToSecurityGroupIngressOutputWithContext(context.Context) SecurityGroupIngressOutput
-}
-
-type SecurityGroupIngressArgs struct {
-	// The CIDR block to accept
-	Cidr pulumi.StringPtrInput `pulumi:"cidr"`
-	// The name of the security group to authorize
-	SecurityGroupName pulumi.StringPtrInput `pulumi:"securityGroupName"`
-	// The owner Id of the security group provided
-	// by `securityGroupName`.
-	SecurityGroupOwnerId pulumi.StringPtrInput `pulumi:"securityGroupOwnerId"`
-}
-
-func (SecurityGroupIngressArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurityGroupIngress)(nil)).Elem()
-}
-
-func (i SecurityGroupIngressArgs) ToSecurityGroupIngressOutput() SecurityGroupIngressOutput {
-	return i.ToSecurityGroupIngressOutputWithContext(context.Background())
-}
-
-func (i SecurityGroupIngressArgs) ToSecurityGroupIngressOutputWithContext(ctx context.Context) SecurityGroupIngressOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SecurityGroupIngressOutput)
-}
-
-// SecurityGroupIngressArrayInput is an input type that accepts SecurityGroupIngressArray and SecurityGroupIngressArrayOutput values.
-// You can construct a concrete instance of `SecurityGroupIngressArrayInput` via:
-//
-//	SecurityGroupIngressArray{ SecurityGroupIngressArgs{...} }
-type SecurityGroupIngressArrayInput interface {
-	pulumi.Input
-
-	ToSecurityGroupIngressArrayOutput() SecurityGroupIngressArrayOutput
-	ToSecurityGroupIngressArrayOutputWithContext(context.Context) SecurityGroupIngressArrayOutput
-}
-
-type SecurityGroupIngressArray []SecurityGroupIngressInput
-
-func (SecurityGroupIngressArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SecurityGroupIngress)(nil)).Elem()
-}
-
-func (i SecurityGroupIngressArray) ToSecurityGroupIngressArrayOutput() SecurityGroupIngressArrayOutput {
-	return i.ToSecurityGroupIngressArrayOutputWithContext(context.Background())
-}
-
-func (i SecurityGroupIngressArray) ToSecurityGroupIngressArrayOutputWithContext(ctx context.Context) SecurityGroupIngressArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SecurityGroupIngressArrayOutput)
-}
-
-type SecurityGroupIngressOutput struct{ *pulumi.OutputState }
-
-func (SecurityGroupIngressOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurityGroupIngress)(nil)).Elem()
-}
-
-func (o SecurityGroupIngressOutput) ToSecurityGroupIngressOutput() SecurityGroupIngressOutput {
-	return o
-}
-
-func (o SecurityGroupIngressOutput) ToSecurityGroupIngressOutputWithContext(ctx context.Context) SecurityGroupIngressOutput {
-	return o
-}
-
-// The CIDR block to accept
-func (o SecurityGroupIngressOutput) Cidr() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SecurityGroupIngress) *string { return v.Cidr }).(pulumi.StringPtrOutput)
-}
-
-// The name of the security group to authorize
-func (o SecurityGroupIngressOutput) SecurityGroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SecurityGroupIngress) *string { return v.SecurityGroupName }).(pulumi.StringPtrOutput)
-}
-
-// The owner Id of the security group provided
-// by `securityGroupName`.
-func (o SecurityGroupIngressOutput) SecurityGroupOwnerId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SecurityGroupIngress) *string { return v.SecurityGroupOwnerId }).(pulumi.StringPtrOutput)
-}
-
-type SecurityGroupIngressArrayOutput struct{ *pulumi.OutputState }
-
-func (SecurityGroupIngressArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SecurityGroupIngress)(nil)).Elem()
-}
-
-func (o SecurityGroupIngressArrayOutput) ToSecurityGroupIngressArrayOutput() SecurityGroupIngressArrayOutput {
-	return o
-}
-
-func (o SecurityGroupIngressArrayOutput) ToSecurityGroupIngressArrayOutputWithContext(ctx context.Context) SecurityGroupIngressArrayOutput {
-	return o
-}
-
-func (o SecurityGroupIngressArrayOutput) Index(i pulumi.IntInput) SecurityGroupIngressOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecurityGroupIngress {
-		return vs[0].([]SecurityGroupIngress)[vs[1].(int)]
-	}).(SecurityGroupIngressOutput)
-}
-
 type GetClusterClusterNode struct {
 	// Whether the node is a leader node or a compute node
 	NodeRole string `pulumi:"nodeRole"`
@@ -1780,8 +1665,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledActionTargetActionResizeClusterPtrInput)(nil)).Elem(), ScheduledActionTargetActionResizeClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledActionTargetActionResumeClusterInput)(nil)).Elem(), ScheduledActionTargetActionResumeClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledActionTargetActionResumeClusterPtrInput)(nil)).Elem(), ScheduledActionTargetActionResumeClusterArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupIngressInput)(nil)).Elem(), SecurityGroupIngressArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupIngressArrayInput)(nil)).Elem(), SecurityGroupIngressArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterClusterNodeInput)(nil)).Elem(), GetClusterClusterNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterClusterNodeArrayInput)(nil)).Elem(), GetClusterClusterNodeArray{})
 	pulumi.RegisterOutputType(ClusterClusterNodeOutput{})
@@ -1804,8 +1687,6 @@ func init() {
 	pulumi.RegisterOutputType(ScheduledActionTargetActionResizeClusterPtrOutput{})
 	pulumi.RegisterOutputType(ScheduledActionTargetActionResumeClusterOutput{})
 	pulumi.RegisterOutputType(ScheduledActionTargetActionResumeClusterPtrOutput{})
-	pulumi.RegisterOutputType(SecurityGroupIngressOutput{})
-	pulumi.RegisterOutputType(SecurityGroupIngressArrayOutput{})
 	pulumi.RegisterOutputType(GetClusterClusterNodeOutput{})
 	pulumi.RegisterOutputType(GetClusterClusterNodeArrayOutput{})
 }

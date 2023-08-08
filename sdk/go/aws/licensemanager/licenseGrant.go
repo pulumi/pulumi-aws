@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -15,13 +16,11 @@ import (
 //
 // ## Import
 //
-// `aws_licensemanager_grant` can be imported using the grant arn.
+// terraform import {
 //
-// ```sh
+//	to = aws_licensemanager_grant.test
 //
-//	$ pulumi import aws:licensemanager/licenseGrant:LicenseGrant test arn:aws:license-manager::123456789011:grant:g-01d313393d9e443d8664cc054db1e089
-//
-// ```
+//	id = "arn:aws:license-manager::123456789011:grant:g-01d313393d9e443d8664cc054db1e089" } Using `pulumi import`, import `aws_licensemanager_grant` using the grant arn. For exampleconsole % pulumi import aws_licensemanager_grant.test arn:aws:license-manager::123456789011:grant:g-01d313393d9e443d8664cc054db1e089
 type LicenseGrant struct {
 	pulumi.CustomResourceState
 
@@ -61,6 +60,7 @@ func NewLicenseGrant(ctx *pulumi.Context,
 	if args.Principal == nil {
 		return nil, errors.New("invalid value for required argument 'Principal'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LicenseGrant
 	err := ctx.RegisterResource("aws:licensemanager/licenseGrant:LicenseGrant", name, args, &resource, opts...)
 	if err != nil {

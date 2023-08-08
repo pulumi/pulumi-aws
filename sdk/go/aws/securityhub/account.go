@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/securityhub"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/securityhub"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -40,13 +41,11 @@ import (
 //
 // ## Import
 //
-// An existing Security Hub enabled account can be imported using the AWS account ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_securityhub_account.example
 //
-//	$ pulumi import aws:securityhub/account:Account example 123456789012
-//
-// ```
+//	id = "123456789012" } Using `pulumi import`, import an existing Security Hub enabled account using the AWS account ID. For exampleconsole % pulumi import aws_securityhub_account.example 123456789012
 type Account struct {
 	pulumi.CustomResourceState
 
@@ -67,6 +66,7 @@ func NewAccount(ctx *pulumi.Context,
 		args = &AccountArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Account
 	err := ctx.RegisterResource("aws:securityhub/account:Account", name, args, &resource, opts...)
 	if err != nil {

@@ -110,11 +110,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * CodeDeploy Applications can be imported using the `name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:codedeploy/application:Application example my-application
- * ```
+ *  to = aws_codedeploy_app.example
+ * 
+ *  id = &#34;my-application&#34; } Using `pulumi import`, import CodeDeploy Applications using the `name`. For exampleconsole % pulumi import aws_codedeploy_app.example my-application
  * 
  */
 @ResourceType(type="aws:codedeploy/application:Application")

@@ -53,11 +53,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Connect instances can be imported using the `id`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:connect/instance:Instance example f1288a1f-6193-445a-b47e-af739b2
- * ```
+ *  to = aws_connect_instance.example
+ *
+ *  id = "f1288a1f-6193-445a-b47e-af739b2" } Using `pulumi import`, import Connect instances using the `id`. For exampleconsole % pulumi import aws_connect_instance.example f1288a1f-6193-445a-b47e-af739b2
  */
 export class Instance extends pulumi.CustomResource {
     /**

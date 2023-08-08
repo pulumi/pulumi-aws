@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/macie2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/macie2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -50,13 +51,11 @@ import (
 //
 // ## Import
 //
-// `aws_macie2_classification_export_configuration` can be imported using the account ID and region, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_macie2_classification_export_configuration.example
 //
-//	$ pulumi import aws:macie2/classificationExportConfiguration:ClassificationExportConfiguration example 123456789012:us-west-2
-//
-// ```
+//	id = "123456789012:us-west-2" } Using `pulumi import`, import `aws_macie2_classification_export_configuration` using the account ID and region. For exampleconsole % pulumi import aws_macie2_classification_export_configuration.example 123456789012:us-west-2
 type ClassificationExportConfiguration struct {
 	pulumi.CustomResourceState
 
@@ -71,6 +70,7 @@ func NewClassificationExportConfiguration(ctx *pulumi.Context,
 		args = &ClassificationExportConfigurationArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ClassificationExportConfiguration
 	err := ctx.RegisterResource("aws:macie2/classificationExportConfiguration:ClassificationExportConfiguration", name, args, &resource, opts...)
 	if err != nil {

@@ -18,13 +18,19 @@ class NatGatewayArgs:
                  allocation_id: Optional[pulumi.Input[str]] = None,
                  connectivity_type: Optional[pulumi.Input[str]] = None,
                  private_ip: Optional[pulumi.Input[str]] = None,
+                 secondary_allocation_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 secondary_private_ip_address_count: Optional[pulumi.Input[int]] = None,
+                 secondary_private_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a NatGateway resource.
-        :param pulumi.Input[str] subnet_id: The Subnet ID of the subnet in which to place the gateway.
-        :param pulumi.Input[str] allocation_id: The Allocation ID of the Elastic IP address for the gateway. Required for `connectivity_type` of `public`.
-        :param pulumi.Input[str] connectivity_type: Connectivity type for the gateway. Valid values are `private` and `public`. Defaults to `public`.
-        :param pulumi.Input[str] private_ip: The private IPv4 address to assign to the NAT gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
+        :param pulumi.Input[str] subnet_id: The Subnet ID of the subnet in which to place the NAT Gateway.
+        :param pulumi.Input[str] allocation_id: The Allocation ID of the Elastic IP address for the NAT Gateway. Required for `connectivity_type` of `public`.
+        :param pulumi.Input[str] connectivity_type: Connectivity type for the NAT Gateway. Valid values are `private` and `public`. Defaults to `public`.
+        :param pulumi.Input[str] private_ip: The private IPv4 address to assign to the NAT Gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] secondary_allocation_ids: A list of secondary allocation EIP IDs for this NAT Gateway.
+        :param pulumi.Input[int] secondary_private_ip_address_count: [Private NAT Gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] secondary_private_ip_addresses: A list of secondary private IPv4 addresses to assign to the NAT Gateway.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "subnet_id", subnet_id)
@@ -34,6 +40,12 @@ class NatGatewayArgs:
             pulumi.set(__self__, "connectivity_type", connectivity_type)
         if private_ip is not None:
             pulumi.set(__self__, "private_ip", private_ip)
+        if secondary_allocation_ids is not None:
+            pulumi.set(__self__, "secondary_allocation_ids", secondary_allocation_ids)
+        if secondary_private_ip_address_count is not None:
+            pulumi.set(__self__, "secondary_private_ip_address_count", secondary_private_ip_address_count)
+        if secondary_private_ip_addresses is not None:
+            pulumi.set(__self__, "secondary_private_ip_addresses", secondary_private_ip_addresses)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -41,7 +53,7 @@ class NatGatewayArgs:
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Input[str]:
         """
-        The Subnet ID of the subnet in which to place the gateway.
+        The Subnet ID of the subnet in which to place the NAT Gateway.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -53,7 +65,7 @@ class NatGatewayArgs:
     @pulumi.getter(name="allocationId")
     def allocation_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The Allocation ID of the Elastic IP address for the gateway. Required for `connectivity_type` of `public`.
+        The Allocation ID of the Elastic IP address for the NAT Gateway. Required for `connectivity_type` of `public`.
         """
         return pulumi.get(self, "allocation_id")
 
@@ -65,7 +77,7 @@ class NatGatewayArgs:
     @pulumi.getter(name="connectivityType")
     def connectivity_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Connectivity type for the gateway. Valid values are `private` and `public`. Defaults to `public`.
+        Connectivity type for the NAT Gateway. Valid values are `private` and `public`. Defaults to `public`.
         """
         return pulumi.get(self, "connectivity_type")
 
@@ -77,13 +89,49 @@ class NatGatewayArgs:
     @pulumi.getter(name="privateIp")
     def private_ip(self) -> Optional[pulumi.Input[str]]:
         """
-        The private IPv4 address to assign to the NAT gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
+        The private IPv4 address to assign to the NAT Gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
         """
         return pulumi.get(self, "private_ip")
 
     @private_ip.setter
     def private_ip(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "private_ip", value)
+
+    @property
+    @pulumi.getter(name="secondaryAllocationIds")
+    def secondary_allocation_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of secondary allocation EIP IDs for this NAT Gateway.
+        """
+        return pulumi.get(self, "secondary_allocation_ids")
+
+    @secondary_allocation_ids.setter
+    def secondary_allocation_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "secondary_allocation_ids", value)
+
+    @property
+    @pulumi.getter(name="secondaryPrivateIpAddressCount")
+    def secondary_private_ip_address_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        [Private NAT Gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
+        """
+        return pulumi.get(self, "secondary_private_ip_address_count")
+
+    @secondary_private_ip_address_count.setter
+    def secondary_private_ip_address_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "secondary_private_ip_address_count", value)
+
+    @property
+    @pulumi.getter(name="secondaryPrivateIpAddresses")
+    def secondary_private_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of secondary private IPv4 addresses to assign to the NAT Gateway.
+        """
+        return pulumi.get(self, "secondary_private_ip_addresses")
+
+    @secondary_private_ip_addresses.setter
+    def secondary_private_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "secondary_private_ip_addresses", value)
 
     @property
     @pulumi.getter
@@ -107,18 +155,24 @@ class _NatGatewayState:
                  network_interface_id: Optional[pulumi.Input[str]] = None,
                  private_ip: Optional[pulumi.Input[str]] = None,
                  public_ip: Optional[pulumi.Input[str]] = None,
+                 secondary_allocation_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 secondary_private_ip_address_count: Optional[pulumi.Input[int]] = None,
+                 secondary_private_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering NatGateway resources.
-        :param pulumi.Input[str] allocation_id: The Allocation ID of the Elastic IP address for the gateway. Required for `connectivity_type` of `public`.
-        :param pulumi.Input[str] association_id: The association ID of the Elastic IP address that's associated with the NAT gateway. Only available when `connectivity_type` is `public`.
-        :param pulumi.Input[str] connectivity_type: Connectivity type for the gateway. Valid values are `private` and `public`. Defaults to `public`.
-        :param pulumi.Input[str] network_interface_id: The ID of the network interface associated with the NAT gateway.
-        :param pulumi.Input[str] private_ip: The private IPv4 address to assign to the NAT gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
-        :param pulumi.Input[str] public_ip: The Elastic IP address associated with the NAT gateway.
-        :param pulumi.Input[str] subnet_id: The Subnet ID of the subnet in which to place the gateway.
+        :param pulumi.Input[str] allocation_id: The Allocation ID of the Elastic IP address for the NAT Gateway. Required for `connectivity_type` of `public`.
+        :param pulumi.Input[str] association_id: The association ID of the Elastic IP address that's associated with the NAT Gateway. Only available when `connectivity_type` is `public`.
+        :param pulumi.Input[str] connectivity_type: Connectivity type for the NAT Gateway. Valid values are `private` and `public`. Defaults to `public`.
+        :param pulumi.Input[str] network_interface_id: The ID of the network interface associated with the NAT Gateway.
+        :param pulumi.Input[str] private_ip: The private IPv4 address to assign to the NAT Gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
+        :param pulumi.Input[str] public_ip: The Elastic IP address associated with the NAT Gateway.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] secondary_allocation_ids: A list of secondary allocation EIP IDs for this NAT Gateway.
+        :param pulumi.Input[int] secondary_private_ip_address_count: [Private NAT Gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] secondary_private_ip_addresses: A list of secondary private IPv4 addresses to assign to the NAT Gateway.
+        :param pulumi.Input[str] subnet_id: The Subnet ID of the subnet in which to place the NAT Gateway.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -134,6 +188,12 @@ class _NatGatewayState:
             pulumi.set(__self__, "private_ip", private_ip)
         if public_ip is not None:
             pulumi.set(__self__, "public_ip", public_ip)
+        if secondary_allocation_ids is not None:
+            pulumi.set(__self__, "secondary_allocation_ids", secondary_allocation_ids)
+        if secondary_private_ip_address_count is not None:
+            pulumi.set(__self__, "secondary_private_ip_address_count", secondary_private_ip_address_count)
+        if secondary_private_ip_addresses is not None:
+            pulumi.set(__self__, "secondary_private_ip_addresses", secondary_private_ip_addresses)
         if subnet_id is not None:
             pulumi.set(__self__, "subnet_id", subnet_id)
         if tags is not None:
@@ -145,7 +205,7 @@ class _NatGatewayState:
     @pulumi.getter(name="allocationId")
     def allocation_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The Allocation ID of the Elastic IP address for the gateway. Required for `connectivity_type` of `public`.
+        The Allocation ID of the Elastic IP address for the NAT Gateway. Required for `connectivity_type` of `public`.
         """
         return pulumi.get(self, "allocation_id")
 
@@ -157,7 +217,7 @@ class _NatGatewayState:
     @pulumi.getter(name="associationId")
     def association_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The association ID of the Elastic IP address that's associated with the NAT gateway. Only available when `connectivity_type` is `public`.
+        The association ID of the Elastic IP address that's associated with the NAT Gateway. Only available when `connectivity_type` is `public`.
         """
         return pulumi.get(self, "association_id")
 
@@ -169,7 +229,7 @@ class _NatGatewayState:
     @pulumi.getter(name="connectivityType")
     def connectivity_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Connectivity type for the gateway. Valid values are `private` and `public`. Defaults to `public`.
+        Connectivity type for the NAT Gateway. Valid values are `private` and `public`. Defaults to `public`.
         """
         return pulumi.get(self, "connectivity_type")
 
@@ -181,7 +241,7 @@ class _NatGatewayState:
     @pulumi.getter(name="networkInterfaceId")
     def network_interface_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the network interface associated with the NAT gateway.
+        The ID of the network interface associated with the NAT Gateway.
         """
         return pulumi.get(self, "network_interface_id")
 
@@ -193,7 +253,7 @@ class _NatGatewayState:
     @pulumi.getter(name="privateIp")
     def private_ip(self) -> Optional[pulumi.Input[str]]:
         """
-        The private IPv4 address to assign to the NAT gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
+        The private IPv4 address to assign to the NAT Gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
         """
         return pulumi.get(self, "private_ip")
 
@@ -205,7 +265,7 @@ class _NatGatewayState:
     @pulumi.getter(name="publicIp")
     def public_ip(self) -> Optional[pulumi.Input[str]]:
         """
-        The Elastic IP address associated with the NAT gateway.
+        The Elastic IP address associated with the NAT Gateway.
         """
         return pulumi.get(self, "public_ip")
 
@@ -214,10 +274,46 @@ class _NatGatewayState:
         pulumi.set(self, "public_ip", value)
 
     @property
+    @pulumi.getter(name="secondaryAllocationIds")
+    def secondary_allocation_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of secondary allocation EIP IDs for this NAT Gateway.
+        """
+        return pulumi.get(self, "secondary_allocation_ids")
+
+    @secondary_allocation_ids.setter
+    def secondary_allocation_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "secondary_allocation_ids", value)
+
+    @property
+    @pulumi.getter(name="secondaryPrivateIpAddressCount")
+    def secondary_private_ip_address_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        [Private NAT Gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
+        """
+        return pulumi.get(self, "secondary_private_ip_address_count")
+
+    @secondary_private_ip_address_count.setter
+    def secondary_private_ip_address_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "secondary_private_ip_address_count", value)
+
+    @property
+    @pulumi.getter(name="secondaryPrivateIpAddresses")
+    def secondary_private_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of secondary private IPv4 addresses to assign to the NAT Gateway.
+        """
+        return pulumi.get(self, "secondary_private_ip_addresses")
+
+    @secondary_private_ip_addresses.setter
+    def secondary_private_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "secondary_private_ip_addresses", value)
+
+    @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The Subnet ID of the subnet in which to place the gateway.
+        The Subnet ID of the subnet in which to place the NAT Gateway.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -258,6 +354,9 @@ class NatGateway(pulumi.CustomResource):
                  allocation_id: Optional[pulumi.Input[str]] = None,
                  connectivity_type: Optional[pulumi.Input[str]] = None,
                  private_ip: Optional[pulumi.Input[str]] = None,
+                 secondary_allocation_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 secondary_private_ip_address_count: Optional[pulumi.Input[int]] = None,
+                 secondary_private_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -279,6 +378,18 @@ class NatGateway(pulumi.CustomResource):
             },
             opts=pulumi.ResourceOptions(depends_on=[aws_internet_gateway["example"]]))
         ```
+        ### Public NAT with Secondary Private IP Addresses
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ec2.NatGateway("example",
+            allocation_id=aws_eip["example"]["id"],
+            subnet_id=aws_subnet["example"]["id"],
+            secondary_allocation_ids=[aws_eip["secondary"]["id"]],
+            secondary_private_ip_addresses=["10.0.1.5"])
+        ```
         ### Private NAT
 
         ```python
@@ -289,21 +400,35 @@ class NatGateway(pulumi.CustomResource):
             connectivity_type="private",
             subnet_id=aws_subnet["example"]["id"])
         ```
+        ### Private NAT with Secondary Private IP Addresses
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ec2.NatGateway("example",
+            connectivity_type="private",
+            subnet_id=aws_subnet["example"]["id"],
+            secondary_private_ip_address_count=7)
+        ```
 
         ## Import
 
-        NAT Gateways can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ec2/natGateway:NatGateway private_gw nat-05dba92075d71c408
-        ```
+         to = aws_nat_gateway.private_gw
+
+         id = "nat-05dba92075d71c408" } Using `pulumi import`, import NAT Gateways using the `id`. For exampleconsole % pulumi import aws_nat_gateway.private_gw nat-05dba92075d71c408
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] allocation_id: The Allocation ID of the Elastic IP address for the gateway. Required for `connectivity_type` of `public`.
-        :param pulumi.Input[str] connectivity_type: Connectivity type for the gateway. Valid values are `private` and `public`. Defaults to `public`.
-        :param pulumi.Input[str] private_ip: The private IPv4 address to assign to the NAT gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
-        :param pulumi.Input[str] subnet_id: The Subnet ID of the subnet in which to place the gateway.
+        :param pulumi.Input[str] allocation_id: The Allocation ID of the Elastic IP address for the NAT Gateway. Required for `connectivity_type` of `public`.
+        :param pulumi.Input[str] connectivity_type: Connectivity type for the NAT Gateway. Valid values are `private` and `public`. Defaults to `public`.
+        :param pulumi.Input[str] private_ip: The private IPv4 address to assign to the NAT Gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] secondary_allocation_ids: A list of secondary allocation EIP IDs for this NAT Gateway.
+        :param pulumi.Input[int] secondary_private_ip_address_count: [Private NAT Gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] secondary_private_ip_addresses: A list of secondary private IPv4 addresses to assign to the NAT Gateway.
+        :param pulumi.Input[str] subnet_id: The Subnet ID of the subnet in which to place the NAT Gateway.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -330,6 +455,18 @@ class NatGateway(pulumi.CustomResource):
             },
             opts=pulumi.ResourceOptions(depends_on=[aws_internet_gateway["example"]]))
         ```
+        ### Public NAT with Secondary Private IP Addresses
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ec2.NatGateway("example",
+            allocation_id=aws_eip["example"]["id"],
+            subnet_id=aws_subnet["example"]["id"],
+            secondary_allocation_ids=[aws_eip["secondary"]["id"]],
+            secondary_private_ip_addresses=["10.0.1.5"])
+        ```
         ### Private NAT
 
         ```python
@@ -340,14 +477,25 @@ class NatGateway(pulumi.CustomResource):
             connectivity_type="private",
             subnet_id=aws_subnet["example"]["id"])
         ```
+        ### Private NAT with Secondary Private IP Addresses
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ec2.NatGateway("example",
+            connectivity_type="private",
+            subnet_id=aws_subnet["example"]["id"],
+            secondary_private_ip_address_count=7)
+        ```
 
         ## Import
 
-        NAT Gateways can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ec2/natGateway:NatGateway private_gw nat-05dba92075d71c408
-        ```
+         to = aws_nat_gateway.private_gw
+
+         id = "nat-05dba92075d71c408" } Using `pulumi import`, import NAT Gateways using the `id`. For exampleconsole % pulumi import aws_nat_gateway.private_gw nat-05dba92075d71c408
 
         :param str resource_name: The name of the resource.
         :param NatGatewayArgs args: The arguments to use to populate this resource's properties.
@@ -367,6 +515,9 @@ class NatGateway(pulumi.CustomResource):
                  allocation_id: Optional[pulumi.Input[str]] = None,
                  connectivity_type: Optional[pulumi.Input[str]] = None,
                  private_ip: Optional[pulumi.Input[str]] = None,
+                 secondary_allocation_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 secondary_private_ip_address_count: Optional[pulumi.Input[int]] = None,
+                 secondary_private_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -381,6 +532,9 @@ class NatGateway(pulumi.CustomResource):
             __props__.__dict__["allocation_id"] = allocation_id
             __props__.__dict__["connectivity_type"] = connectivity_type
             __props__.__dict__["private_ip"] = private_ip
+            __props__.__dict__["secondary_allocation_ids"] = secondary_allocation_ids
+            __props__.__dict__["secondary_private_ip_address_count"] = secondary_private_ip_address_count
+            __props__.__dict__["secondary_private_ip_addresses"] = secondary_private_ip_addresses
             if subnet_id is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_id'")
             __props__.__dict__["subnet_id"] = subnet_id
@@ -405,6 +559,9 @@ class NatGateway(pulumi.CustomResource):
             network_interface_id: Optional[pulumi.Input[str]] = None,
             private_ip: Optional[pulumi.Input[str]] = None,
             public_ip: Optional[pulumi.Input[str]] = None,
+            secondary_allocation_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            secondary_private_ip_address_count: Optional[pulumi.Input[int]] = None,
+            secondary_private_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             subnet_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'NatGateway':
@@ -415,13 +572,16 @@ class NatGateway(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] allocation_id: The Allocation ID of the Elastic IP address for the gateway. Required for `connectivity_type` of `public`.
-        :param pulumi.Input[str] association_id: The association ID of the Elastic IP address that's associated with the NAT gateway. Only available when `connectivity_type` is `public`.
-        :param pulumi.Input[str] connectivity_type: Connectivity type for the gateway. Valid values are `private` and `public`. Defaults to `public`.
-        :param pulumi.Input[str] network_interface_id: The ID of the network interface associated with the NAT gateway.
-        :param pulumi.Input[str] private_ip: The private IPv4 address to assign to the NAT gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
-        :param pulumi.Input[str] public_ip: The Elastic IP address associated with the NAT gateway.
-        :param pulumi.Input[str] subnet_id: The Subnet ID of the subnet in which to place the gateway.
+        :param pulumi.Input[str] allocation_id: The Allocation ID of the Elastic IP address for the NAT Gateway. Required for `connectivity_type` of `public`.
+        :param pulumi.Input[str] association_id: The association ID of the Elastic IP address that's associated with the NAT Gateway. Only available when `connectivity_type` is `public`.
+        :param pulumi.Input[str] connectivity_type: Connectivity type for the NAT Gateway. Valid values are `private` and `public`. Defaults to `public`.
+        :param pulumi.Input[str] network_interface_id: The ID of the network interface associated with the NAT Gateway.
+        :param pulumi.Input[str] private_ip: The private IPv4 address to assign to the NAT Gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
+        :param pulumi.Input[str] public_ip: The Elastic IP address associated with the NAT Gateway.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] secondary_allocation_ids: A list of secondary allocation EIP IDs for this NAT Gateway.
+        :param pulumi.Input[int] secondary_private_ip_address_count: [Private NAT Gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] secondary_private_ip_addresses: A list of secondary private IPv4 addresses to assign to the NAT Gateway.
+        :param pulumi.Input[str] subnet_id: The Subnet ID of the subnet in which to place the NAT Gateway.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -435,6 +595,9 @@ class NatGateway(pulumi.CustomResource):
         __props__.__dict__["network_interface_id"] = network_interface_id
         __props__.__dict__["private_ip"] = private_ip
         __props__.__dict__["public_ip"] = public_ip
+        __props__.__dict__["secondary_allocation_ids"] = secondary_allocation_ids
+        __props__.__dict__["secondary_private_ip_address_count"] = secondary_private_ip_address_count
+        __props__.__dict__["secondary_private_ip_addresses"] = secondary_private_ip_addresses
         __props__.__dict__["subnet_id"] = subnet_id
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -444,7 +607,7 @@ class NatGateway(pulumi.CustomResource):
     @pulumi.getter(name="allocationId")
     def allocation_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The Allocation ID of the Elastic IP address for the gateway. Required for `connectivity_type` of `public`.
+        The Allocation ID of the Elastic IP address for the NAT Gateway. Required for `connectivity_type` of `public`.
         """
         return pulumi.get(self, "allocation_id")
 
@@ -452,7 +615,7 @@ class NatGateway(pulumi.CustomResource):
     @pulumi.getter(name="associationId")
     def association_id(self) -> pulumi.Output[str]:
         """
-        The association ID of the Elastic IP address that's associated with the NAT gateway. Only available when `connectivity_type` is `public`.
+        The association ID of the Elastic IP address that's associated with the NAT Gateway. Only available when `connectivity_type` is `public`.
         """
         return pulumi.get(self, "association_id")
 
@@ -460,7 +623,7 @@ class NatGateway(pulumi.CustomResource):
     @pulumi.getter(name="connectivityType")
     def connectivity_type(self) -> pulumi.Output[Optional[str]]:
         """
-        Connectivity type for the gateway. Valid values are `private` and `public`. Defaults to `public`.
+        Connectivity type for the NAT Gateway. Valid values are `private` and `public`. Defaults to `public`.
         """
         return pulumi.get(self, "connectivity_type")
 
@@ -468,7 +631,7 @@ class NatGateway(pulumi.CustomResource):
     @pulumi.getter(name="networkInterfaceId")
     def network_interface_id(self) -> pulumi.Output[str]:
         """
-        The ID of the network interface associated with the NAT gateway.
+        The ID of the network interface associated with the NAT Gateway.
         """
         return pulumi.get(self, "network_interface_id")
 
@@ -476,7 +639,7 @@ class NatGateway(pulumi.CustomResource):
     @pulumi.getter(name="privateIp")
     def private_ip(self) -> pulumi.Output[str]:
         """
-        The private IPv4 address to assign to the NAT gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
+        The private IPv4 address to assign to the NAT Gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
         """
         return pulumi.get(self, "private_ip")
 
@@ -484,15 +647,39 @@ class NatGateway(pulumi.CustomResource):
     @pulumi.getter(name="publicIp")
     def public_ip(self) -> pulumi.Output[str]:
         """
-        The Elastic IP address associated with the NAT gateway.
+        The Elastic IP address associated with the NAT Gateway.
         """
         return pulumi.get(self, "public_ip")
+
+    @property
+    @pulumi.getter(name="secondaryAllocationIds")
+    def secondary_allocation_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A list of secondary allocation EIP IDs for this NAT Gateway.
+        """
+        return pulumi.get(self, "secondary_allocation_ids")
+
+    @property
+    @pulumi.getter(name="secondaryPrivateIpAddressCount")
+    def secondary_private_ip_address_count(self) -> pulumi.Output[int]:
+        """
+        [Private NAT Gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
+        """
+        return pulumi.get(self, "secondary_private_ip_address_count")
+
+    @property
+    @pulumi.getter(name="secondaryPrivateIpAddresses")
+    def secondary_private_ip_addresses(self) -> pulumi.Output[Sequence[str]]:
+        """
+        A list of secondary private IPv4 addresses to assign to the NAT Gateway.
+        """
+        return pulumi.get(self, "secondary_private_ip_addresses")
 
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Output[str]:
         """
-        The Subnet ID of the subnet in which to place the gateway.
+        The Subnet ID of the subnet in which to place the NAT Gateway.
         """
         return pulumi.get(self, "subnet_id")
 

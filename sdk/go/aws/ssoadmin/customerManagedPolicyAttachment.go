@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -17,13 +18,11 @@ import (
 //
 // ## Import
 //
-// SSO Managed Policy Attachments can be imported using the `name`, `path`, `permission_set_arn`, and `instance_arn` separated by a comma (`,`) e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_ssoadmin_customer_managed_policy_attachment.example
 //
-//	$ pulumi import aws:ssoadmin/customerManagedPolicyAttachment:CustomerManagedPolicyAttachment example TestPolicy,/,arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72
-//
-// ```
+//	id = "TestPolicy,/,arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72" } Using `pulumi import`, import SSO Managed Policy Attachments using the `name`, `path`, `permission_set_arn`, and `instance_arn` separated by a comma (`,`). For exampleconsole % pulumi import aws_ssoadmin_customer_managed_policy_attachment.example TestPolicy,/,arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72
 type CustomerManagedPolicyAttachment struct {
 	pulumi.CustomResourceState
 
@@ -51,6 +50,7 @@ func NewCustomerManagedPolicyAttachment(ctx *pulumi.Context,
 	if args.PermissionSetArn == nil {
 		return nil, errors.New("invalid value for required argument 'PermissionSetArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CustomerManagedPolicyAttachment
 	err := ctx.RegisterResource("aws:ssoadmin/customerManagedPolicyAttachment:CustomerManagedPolicyAttachment", name, args, &resource, opts...)
 	if err != nil {

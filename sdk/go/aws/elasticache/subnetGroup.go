@@ -8,14 +8,11 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Provides an ElastiCache Subnet Group resource.
-//
-// > **NOTE:** ElastiCache Subnet Groups are only for use when working with an
-// ElastiCache cluster **inside** of a VPC. If you are on EC2 Classic, see the
-// ElastiCache Security Group resource.
 //
 // ## Example Usage
 //
@@ -24,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elasticache"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticache"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -68,13 +65,11 @@ import (
 //
 // ## Import
 //
-// ElastiCache Subnet Groups can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_elasticache_subnet_group.bar
 //
-//	$ pulumi import aws:elasticache/subnetGroup:SubnetGroup bar tf-test-cache-subnet
-//
-// ```
+//	id = "tf-test-cache-subnet" } Using `pulumi import`, import ElastiCache Subnet Groups using the `name`. For exampleconsole % pulumi import aws_elasticache_subnet_group.bar tf-test-cache-subnet
 type SubnetGroup struct {
 	pulumi.CustomResourceState
 
@@ -104,6 +99,7 @@ func NewSubnetGroup(ctx *pulumi.Context,
 	if args.Description == nil {
 		args.Description = pulumi.StringPtr("Managed by Pulumi")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SubnetGroup
 	err := ctx.RegisterResource("aws:elasticache/subnetGroup:SubnetGroup", name, args, &resource, opts...)
 	if err != nil {

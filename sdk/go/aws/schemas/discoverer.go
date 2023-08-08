@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,8 +23,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/schemas"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/schemas"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -49,13 +50,11 @@ import (
 //
 // ## Import
 //
-// # EventBridge discoverers can be imported using the `id`, e.g., console
+// terraform import {
 //
-// ```sh
+//	to = aws_schemas_discoverer.test
 //
-//	$ pulumi import aws:schemas/discoverer:Discoverer test 123
-//
-// ```
+//	id = "123" } Using `pulumi import`, import EventBridge discoverers using the `id`. For exampleconsole % pulumi import aws_schemas_discoverer.test 123
 type Discoverer struct {
 	pulumi.CustomResourceState
 
@@ -81,6 +80,7 @@ func NewDiscoverer(ctx *pulumi.Context,
 	if args.SourceArn == nil {
 		return nil, errors.New("invalid value for required argument 'SourceArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Discoverer
 	err := ctx.RegisterResource("aws:schemas/discoverer:Discoverer", name, args, &resource, opts...)
 	if err != nil {

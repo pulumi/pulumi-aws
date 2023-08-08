@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/macie2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/macie2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -51,13 +52,11 @@ import (
 //
 // ## Import
 //
-// `aws_macie2_member` can be imported using the account ID of the member account, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_macie2_member.example
 //
-//	$ pulumi import aws:macie2/member:Member example 123456789012
-//
-// ```
+//	id = "123456789012" } Using `pulumi import`, import `aws_macie2_member` using the account ID of the member account. For exampleconsole % pulumi import aws_macie2_member.example 123456789012
 type Member struct {
 	pulumi.CustomResourceState
 
@@ -102,6 +101,7 @@ func NewMember(ctx *pulumi.Context,
 	if args.Email == nil {
 		return nil, errors.New("invalid value for required argument 'Email'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Member
 	err := ctx.RegisterResource("aws:macie2/member:Member", name, args, &resource, opts...)
 	if err != nil {

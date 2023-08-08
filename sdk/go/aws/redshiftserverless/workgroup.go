@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/redshiftserverless"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshiftserverless"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,13 +43,11 @@ import (
 //
 // ## Import
 //
-// Redshift Serverless Workgroups can be imported using the `workgroup_name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_redshiftserverless_workgroup.example
 //
-//	$ pulumi import aws:redshiftserverless/workgroup:Workgroup example example
-//
-// ```
+//	id = "example" } Using `pulumi import`, import Redshift Serverless Workgroups using the `workgroup_name`. For exampleconsole % pulumi import aws_redshiftserverless_workgroup.example example
 type Workgroup struct {
 	pulumi.CustomResourceState
 
@@ -95,6 +94,7 @@ func NewWorkgroup(ctx *pulumi.Context,
 	if args.WorkgroupName == nil {
 		return nil, errors.New("invalid value for required argument 'WorkgroupName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Workgroup
 	err := ctx.RegisterResource("aws:redshiftserverless/workgroup:Workgroup", name, args, &resource, opts...)
 	if err != nil {

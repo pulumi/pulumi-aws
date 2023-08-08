@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -49,13 +50,11 @@ import (
 //
 // ## Import
 //
-// `aws_s3_bucket_public_access_block` can be imported by using the bucket name, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_s3_bucket_public_access_block.example
 //
-//	$ pulumi import aws:s3/bucketPublicAccessBlock:BucketPublicAccessBlock example my-bucket
-//
-// ```
+//	id = "my-bucket" } Using `pulumi import`, import `aws_s3_bucket_public_access_block` using the bucket name. For exampleconsole % pulumi import aws_s3_bucket_public_access_block.example my-bucket
 type BucketPublicAccessBlock struct {
 	pulumi.CustomResourceState
 
@@ -86,6 +85,7 @@ func NewBucketPublicAccessBlock(ctx *pulumi.Context,
 	if args.Bucket == nil {
 		return nil, errors.New("invalid value for required argument 'Bucket'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BucketPublicAccessBlock
 	err := ctx.RegisterResource("aws:s3/bucketPublicAccessBlock:BucketPublicAccessBlock", name, args, &resource, opts...)
 	if err != nil {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/vpclattice"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/vpclattice"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,13 +43,11 @@ import (
 //
 // ## Import
 //
-// VPC Lattice Service can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_vpclattice_service.example
 //
-//	$ pulumi import aws:vpclattice/service:Service example svc-06728e2357ea55f8a
-//
-// ```
+//	id = "svc-06728e2357ea55f8a" } Using `pulumi import`, import VPC Lattice Service using the `id`. For exampleconsole % pulumi import aws_vpclattice_service.example svc-06728e2357ea55f8a
 type Service struct {
 	pulumi.CustomResourceState
 
@@ -81,6 +80,7 @@ func NewService(ctx *pulumi.Context,
 		args = &ServiceArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Service
 	err := ctx.RegisterResource("aws:vpclattice/service:Service", name, args, &resource, opts...)
 	if err != nil {

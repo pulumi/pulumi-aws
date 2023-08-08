@@ -183,14 +183,14 @@ public class StandardsControl extends com.pulumi.resources.CustomResource {
         return this.severityRating;
     }
     /**
-     * The standards control ARN.
+     * The standards control ARN. See the AWS documentation for how to list existing controls using [`get-enabled-standards`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/get-enabled-standards.html) and [`describe-standards-controls`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/describe-standards-controls.html).
      * 
      */
     @Export(name="standardsControlArn", refs={String.class}, tree="[0]")
     private Output<String> standardsControlArn;
 
     /**
-     * @return The standards control ARN.
+     * @return The standards control ARN. See the AWS documentation for how to list existing controls using [`get-enabled-standards`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/get-enabled-standards.html) and [`describe-standards-controls`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/describe-standards-controls.html).
      * 
      */
     public Output<String> standardsControlArn() {

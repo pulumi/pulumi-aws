@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/dms"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dms"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -45,13 +46,11 @@ import (
 //
 // ## Import
 //
-// Certificates can be imported using the `certificate_id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_dms_certificate.test
 //
-//	$ pulumi import aws:dms/certificate:Certificate test test-dms-certificate-tf
-//
-// ```
+//	id = "test-dms-certificate-tf" } Using `pulumi import`, import certificates using the `certificate_id`. For exampleconsole % pulumi import aws_dms_certificate.test test-dms-certificate-tf
 type Certificate struct {
 	pulumi.CustomResourceState
 
@@ -92,6 +91,7 @@ func NewCertificate(ctx *pulumi.Context,
 		"certificateWallet",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Certificate
 	err := ctx.RegisterResource("aws:dms/certificate:Certificate", name, args, &resource, opts...)
 	if err != nil {

@@ -515,11 +515,11 @@ class Connector(pulumi.CustomResource):
 
         ## Import
 
-        MSK Connect Connector can be imported using the connector's `arn`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:mskconnect/connector:Connector example 'arn:aws:kafkaconnect:eu-central-1:123456789012:connector/example/264edee4-17a3-412e-bd76-6681cfc93805-3'
-        ```
+         to = aws_mskconnect_connector.example
+
+         id = "arn:aws:kafkaconnect:eu-central-1:123456789012:connector/example/264edee4-17a3-412e-bd76-6681cfc93805-3" } Using `pulumi import`, import MSK Connect Connector using the connector's `arn`. For exampleconsole % pulumi import aws_mskconnect_connector.example 'arn:aws:kafkaconnect:eu-central-1:123456789012:connector/example/264edee4-17a3-412e-bd76-6681cfc93805-3'
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -602,11 +602,11 @@ class Connector(pulumi.CustomResource):
 
         ## Import
 
-        MSK Connect Connector can be imported using the connector's `arn`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:mskconnect/connector:Connector example 'arn:aws:kafkaconnect:eu-central-1:123456789012:connector/example/264edee4-17a3-412e-bd76-6681cfc93805-3'
-        ```
+         to = aws_mskconnect_connector.example
+
+         id = "arn:aws:kafkaconnect:eu-central-1:123456789012:connector/example/264edee4-17a3-412e-bd76-6681cfc93805-3" } Using `pulumi import`, import MSK Connect Connector using the connector's `arn`. For exampleconsole % pulumi import aws_mskconnect_connector.example 'arn:aws:kafkaconnect:eu-central-1:123456789012:connector/example/264edee4-17a3-412e-bd76-6681cfc93805-3'
 
         :param str resource_name: The name of the resource.
         :param ConnectorArgs args: The arguments to use to populate this resource's properties.

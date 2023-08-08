@@ -151,23 +151,23 @@ class VpcAssociationAuthorization(pulumi.CustomResource):
             cidr_block="10.7.0.0/16",
             enable_dns_hostnames=True,
             enable_dns_support=True,
-            opts=pulumi.ResourceOptions(provider="aws.alternate"))
+            opts=pulumi.ResourceOptions(provider=aws["alternate"]))
         example_vpc_association_authorization = aws.route53.VpcAssociationAuthorization("exampleVpcAssociationAuthorization",
             vpc_id=alternate_vpc.id,
             zone_id=example_zone.id)
         example_zone_association = aws.route53.ZoneAssociation("exampleZoneAssociation",
             vpc_id=example_vpc_association_authorization.vpc_id,
             zone_id=example_vpc_association_authorization.zone_id,
-            opts=pulumi.ResourceOptions(provider="aws.alternate"))
+            opts=pulumi.ResourceOptions(provider=aws["alternate"]))
         ```
 
         ## Import
 
-        Route 53 VPC Association Authorizations can be imported via the Hosted Zone ID and VPC ID, separated by a colon (`:`), e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:route53/vpcAssociationAuthorization:VpcAssociationAuthorization example Z123456ABCDEFG:vpc-12345678
-        ```
+         to = aws_route53_vpc_association_authorization.example
+
+         id = "Z123456ABCDEFG:vpc-12345678" } Using `pulumi import`, import Route 53 VPC Association Authorizations using the Hosted Zone ID and VPC ID, separated by a colon (`:`). For exampleconsole % pulumi import aws_route53_vpc_association_authorization.example Z123456ABCDEFG:vpc-12345678
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -202,23 +202,23 @@ class VpcAssociationAuthorization(pulumi.CustomResource):
             cidr_block="10.7.0.0/16",
             enable_dns_hostnames=True,
             enable_dns_support=True,
-            opts=pulumi.ResourceOptions(provider="aws.alternate"))
+            opts=pulumi.ResourceOptions(provider=aws["alternate"]))
         example_vpc_association_authorization = aws.route53.VpcAssociationAuthorization("exampleVpcAssociationAuthorization",
             vpc_id=alternate_vpc.id,
             zone_id=example_zone.id)
         example_zone_association = aws.route53.ZoneAssociation("exampleZoneAssociation",
             vpc_id=example_vpc_association_authorization.vpc_id,
             zone_id=example_vpc_association_authorization.zone_id,
-            opts=pulumi.ResourceOptions(provider="aws.alternate"))
+            opts=pulumi.ResourceOptions(provider=aws["alternate"]))
         ```
 
         ## Import
 
-        Route 53 VPC Association Authorizations can be imported via the Hosted Zone ID and VPC ID, separated by a colon (`:`), e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:route53/vpcAssociationAuthorization:VpcAssociationAuthorization example Z123456ABCDEFG:vpc-12345678
-        ```
+         to = aws_route53_vpc_association_authorization.example
+
+         id = "Z123456ABCDEFG:vpc-12345678" } Using `pulumi import`, import Route 53 VPC Association Authorizations using the Hosted Zone ID and VPC ID, separated by a colon (`:`). For exampleconsole % pulumi import aws_route53_vpc_association_authorization.example Z123456ABCDEFG:vpc-12345678
 
         :param str resource_name: The name of the resource.
         :param VpcAssociationAuthorizationArgs args: The arguments to use to populate this resource's properties.

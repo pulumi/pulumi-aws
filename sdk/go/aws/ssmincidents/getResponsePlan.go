@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -14,6 +15,7 @@ import (
 //
 // ## Example Usage
 func LookupResponsePlan(ctx *pulumi.Context, args *LookupResponsePlanArgs, opts ...pulumi.InvokeOption) (*LookupResponsePlanResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupResponsePlanResult
 	err := ctx.Invoke("aws:ssmincidents/getResponsePlan:getResponsePlan", args, &rv, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,9 +23,9 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/acmpca"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rolesanywhere"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/acmpca"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rolesanywhere"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -91,13 +92,11 @@ import (
 //
 // ## Import
 //
-// `aws_rolesanywhere_trust_anchor` can be imported using its `id`, e.g.
+// terraform import {
 //
-// ```sh
+//	to = aws_rolesanywhere_trust_anchor.example
 //
-//	$ pulumi import aws:rolesanywhere/trustAnchor:TrustAnchor example 92b2fbbb-984d-41a3-a765-e3cbdb69ebb1
-//
-// ```
+//	id = "92b2fbbb-984d-41a3-a765-e3cbdb69ebb1" } Using `pulumi import`, import `aws_rolesanywhere_trust_anchor` using its `id`. For exampleconsole % pulumi import aws_rolesanywhere_trust_anchor.example 92b2fbbb-984d-41a3-a765-e3cbdb69ebb1
 type TrustAnchor struct {
 	pulumi.CustomResourceState
 
@@ -125,6 +124,7 @@ func NewTrustAnchor(ctx *pulumi.Context,
 	if args.Source == nil {
 		return nil, errors.New("invalid value for required argument 'Source'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TrustAnchor
 	err := ctx.RegisterResource("aws:rolesanywhere/trustAnchor:TrustAnchor", name, args, &resource, opts...)
 	if err != nil {

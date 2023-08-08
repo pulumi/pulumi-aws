@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/globalaccelerator"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/globalaccelerator"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -49,13 +50,11 @@ import (
 //
 // ## Import
 //
-// Global Accelerator accelerators can be imported using the `arn`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_globalaccelerator_accelerator.example
 //
-//	$ pulumi import aws:globalaccelerator/accelerator:Accelerator example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-//
-// ```
+//	id = "arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" } Using `pulumi import`, import Global Accelerator accelerators using the `arn`. For exampleconsole % pulumi import aws_globalaccelerator_accelerator.example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 type Accelerator struct {
 	pulumi.CustomResourceState
 
@@ -80,8 +79,6 @@ type Accelerator struct {
 	// The name of the accelerator.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	//
-	// **attributes** supports the following attributes:
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -94,6 +91,7 @@ func NewAccelerator(ctx *pulumi.Context,
 		args = &AcceleratorArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Accelerator
 	err := ctx.RegisterResource("aws:globalaccelerator/accelerator:Accelerator", name, args, &resource, opts...)
 	if err != nil {
@@ -137,8 +135,6 @@ type acceleratorState struct {
 	// The name of the accelerator.
 	Name *string `pulumi:"name"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	//
-	// **attributes** supports the following attributes:
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -166,8 +162,6 @@ type AcceleratorState struct {
 	// The name of the accelerator.
 	Name pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	//
-	// **attributes** supports the following attributes:
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -189,8 +183,6 @@ type acceleratorArgs struct {
 	// The name of the accelerator.
 	Name *string `pulumi:"name"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	//
-	// **attributes** supports the following attributes:
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -207,8 +199,6 @@ type AcceleratorArgs struct {
 	// The name of the accelerator.
 	Name pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	//
-	// **attributes** supports the following attributes:
 	Tags pulumi.StringMapInput
 }
 
@@ -347,8 +337,6 @@ func (o AcceleratorOutput) Name() pulumi.StringOutput {
 }
 
 // A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-//
-// **attributes** supports the following attributes:
 func (o AcceleratorOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Accelerator) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

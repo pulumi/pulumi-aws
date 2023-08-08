@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -57,7 +58,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -85,7 +86,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -112,7 +113,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -136,13 +137,11 @@ import (
 //
 // ## Import
 //
-// Glue Classifiers can be imported using their name, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_glue_classifier.MyClassifier
 //
-//	$ pulumi import aws:glue/classifier:Classifier MyClassifier MyClassifier
-//
-// ```
+//	id = "MyClassifier" } Using `pulumi import`, import Glue Classifiers using their name. For exampleconsole % pulumi import aws_glue_classifier.MyClassifier MyClassifier
 type Classifier struct {
 	pulumi.CustomResourceState
 
@@ -165,6 +164,7 @@ func NewClassifier(ctx *pulumi.Context,
 		args = &ClassifierArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Classifier
 	err := ctx.RegisterResource("aws:glue/classifier:Classifier", name, args, &resource, opts...)
 	if err != nil {

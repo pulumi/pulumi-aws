@@ -230,11 +230,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * ECS Task Definitions can be imported via their Amazon Resource Name (ARN)
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:ecs/taskDefinition:TaskDefinition example arn:aws:ecs:us-east-1:012345678910:task-definition/mytaskfamily:123
- * ```
+ *  to = aws_ecs_task_definition.example
+ *
+ *  id = "arn:aws:ecs:us-east-1:012345678910:task-definition/mytaskfamily:123" } Using `pulumi import`, import ECS Task Definitions using their ARNs. For exampleconsole % pulumi import aws_ecs_task_definition.example arn:aws:ecs:us-east-1:012345678910:task-definition/mytaskfamily:123
  */
 export class TaskDefinition extends pulumi.CustomResource {
     /**

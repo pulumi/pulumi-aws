@@ -142,11 +142,11 @@ class GroupAssociation(pulumi.CustomResource):
 
         ## Import
 
-        CloudWatch Synthetics Group Association can be imported in the form `canary_arn,group_name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:synthetics/groupAssociation:GroupAssociation example arn:aws:synthetics:us-west-2:123456789012:canary:tf-acc-test-abcd1234,examplename
-        ```
+         to = aws_synthetics_group_association.example
+
+         id = "arn:aws:synthetics:us-west-2:123456789012:canary:tf-acc-test-abcd1234,examplename" } Using `pulumi import`, import CloudWatch Synthetics Group Association using the `canary_arn,group_name`. For exampleconsole % pulumi import aws_synthetics_group_association.example arn:aws:synthetics:us-west-2:123456789012:canary:tf-acc-test-abcd1234,examplename
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -176,11 +176,11 @@ class GroupAssociation(pulumi.CustomResource):
 
         ## Import
 
-        CloudWatch Synthetics Group Association can be imported in the form `canary_arn,group_name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:synthetics/groupAssociation:GroupAssociation example arn:aws:synthetics:us-west-2:123456789012:canary:tf-acc-test-abcd1234,examplename
-        ```
+         to = aws_synthetics_group_association.example
+
+         id = "arn:aws:synthetics:us-west-2:123456789012:canary:tf-acc-test-abcd1234,examplename" } Using `pulumi import`, import CloudWatch Synthetics Group Association using the `canary_arn,group_name`. For exampleconsole % pulumi import aws_synthetics_group_association.example arn:aws:synthetics:us-west-2:123456789012:canary:tf-acc-test-abcd1234,examplename
 
         :param str resource_name: The name of the resource.
         :param GroupAssociationArgs args: The arguments to use to populate this resource's properties.

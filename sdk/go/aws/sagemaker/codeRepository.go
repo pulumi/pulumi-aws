@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -51,8 +52,8 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/secretsmanager"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/secretsmanager"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -98,13 +99,11 @@ import (
 //
 // ## Import
 //
-// SageMaker Code Repositories can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_sagemaker_code_repository.test_code_repository
 //
-//	$ pulumi import aws:sagemaker/codeRepository:CodeRepository test_code_repository my-code-repo
-//
-// ```
+//	id = "my-code-repo" } Using `pulumi import`, import SageMaker Code Repositories using the `name`. For exampleconsole % pulumi import aws_sagemaker_code_repository.test_code_repository my-code-repo
 type CodeRepository struct {
 	pulumi.CustomResourceState
 
@@ -133,6 +132,7 @@ func NewCodeRepository(ctx *pulumi.Context,
 	if args.GitConfig == nil {
 		return nil, errors.New("invalid value for required argument 'GitConfig'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CodeRepository
 	err := ctx.RegisterResource("aws:sagemaker/codeRepository:CodeRepository", name, args, &resource, opts...)
 	if err != nil {

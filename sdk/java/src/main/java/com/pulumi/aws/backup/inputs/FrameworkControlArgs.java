@@ -34,14 +34,14 @@ public final class FrameworkControlArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
+     * The name of a control. This name is between 1 and 256 characters.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
+     * @return The name of a control. This name is between 1 and 256 characters.
      * 
      */
     public Output<String> name() {
@@ -121,7 +121,7 @@ public final class FrameworkControlArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
+         * @param name The name of a control. This name is between 1 and 256 characters.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class FrameworkControlArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
+         * @param name The name of a control. This name is between 1 and 256 characters.
          * 
          * @return builder
          * 

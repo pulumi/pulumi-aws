@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codepipeline"
-//	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codepipeline"
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -125,13 +126,11 @@ import (
 //
 // ## Import
 //
-// CodePipeline Webhooks can be imported by their ARN, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_codepipeline_webhook.example
 //
-//	$ pulumi import aws:codepipeline/webhook:Webhook example arn:aws:codepipeline:us-west-2:123456789012:webhook:example
-//
-// ```
+//	id = "arn:aws:codepipeline:us-west-2:123456789012:webhook:example" } Using `pulumi import`, import CodePipeline Webhooks using their ARN. For exampleconsole % pulumi import aws_codepipeline_webhook.example arn:aws:codepipeline:us-west-2:123456789012:webhook:example
 type Webhook struct {
 	pulumi.CustomResourceState
 
@@ -176,6 +175,7 @@ func NewWebhook(ctx *pulumi.Context,
 	if args.TargetPipeline == nil {
 		return nil, errors.New("invalid value for required argument 'TargetPipeline'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Webhook
 	err := ctx.RegisterResource("aws:codepipeline/webhook:Webhook", name, args, &resource, opts...)
 	if err != nil {

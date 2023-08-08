@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/athena"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/athena"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -56,7 +57,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/athena"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/athena"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -85,7 +86,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/athena"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/athena"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -114,7 +115,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/athena"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/athena"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -140,13 +141,11 @@ import (
 //
 // ## Import
 //
-// Data catalogs can be imported using their `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_athena_data_catalog.example
 //
-//	$ pulumi import aws:athena/dataCatalog:DataCatalog example example-data-catalog
-//
-// ```
+//	id = "example-data-catalog" } Using `pulumi import`, import data catalogs using their `name`. For exampleconsole % pulumi import aws_athena_data_catalog.example example-data-catalog
 type DataCatalog struct {
 	pulumi.CustomResourceState
 
@@ -182,6 +181,7 @@ func NewDataCatalog(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DataCatalog
 	err := ctx.RegisterResource("aws:athena/dataCatalog:DataCatalog", name, args, &resource, opts...)
 	if err != nil {

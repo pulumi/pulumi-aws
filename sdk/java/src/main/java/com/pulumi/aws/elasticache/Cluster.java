@@ -190,11 +190,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * ElastiCache Clusters can be imported using the `cluster_id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:elasticache/cluster:Cluster my_cluster my_cluster
- * ```
+ *  to = aws_elasticache_cluster.my_cluster
+ * 
+ *  id = &#34;my_cluster&#34; } Using `pulumi import`, import ElastiCache Clusters using the `cluster_id`. For exampleconsole % pulumi import aws_elasticache_cluster.my_cluster my_cluster
  * 
  */
 @ResourceType(type="aws:elasticache/cluster:Cluster")
@@ -347,10 +347,11 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Version number of the cache engine to be used.
      * If not set, defaults to the latest version.
      * See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
-     * When `engine` is `redis` and the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+     * When `engine` is `redis` and the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+     * When the version is 6, the major and minor version can be set, e.g., `6.2`,
      * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
      * Otherwise, specify the full version desired, e.g., `5.0.6`.
-     * The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
+     * The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
      * 
      */
     @Export(name="engineVersion", refs={String.class}, tree="[0]")
@@ -360,10 +361,11 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * @return Version number of the cache engine to be used.
      * If not set, defaults to the latest version.
      * See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
-     * When `engine` is `redis` and the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+     * When `engine` is `redis` and the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+     * When the version is 6, the major and minor version can be set, e.g., `6.2`,
      * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
      * Otherwise, specify the full version desired, e.g., `5.0.6`.
-     * The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
+     * The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
      * 
      */
     public Output<String> engineVersion() {
@@ -600,24 +602,6 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      */
     public Output<List<String>> securityGroupIds() {
         return this.securityGroupIds;
-    }
-    /**
-     * List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
-     * 
-     * @deprecated
-     * With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
-     * 
-     */
-    @Deprecated /* With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version. */
-    @Export(name="securityGroupNames", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> securityGroupNames;
-
-    /**
-     * @return List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
-     * 
-     */
-    public Output<List<String>> securityGroupNames() {
-        return this.securityGroupNames;
     }
     /**
      * Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshot_arns` forces a new resource.

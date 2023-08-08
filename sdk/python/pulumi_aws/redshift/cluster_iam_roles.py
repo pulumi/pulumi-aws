@@ -149,11 +149,11 @@ class ClusterIamRoles(pulumi.CustomResource):
 
         ## Import
 
-        Redshift Cluster IAM Roless can be imported using the `cluster_identifier`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:redshift/clusterIamRoles:ClusterIamRoles examplegroup1 example
-        ```
+         to = aws_redshift_cluster_iam_roles.examplegroup1
+
+         id = "example" } Using `pulumi import`, import Redshift Cluster IAM Roless using the `cluster_identifier`. For exampleconsole % pulumi import aws_redshift_cluster_iam_roles.examplegroup1 example
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -185,11 +185,11 @@ class ClusterIamRoles(pulumi.CustomResource):
 
         ## Import
 
-        Redshift Cluster IAM Roless can be imported using the `cluster_identifier`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:redshift/clusterIamRoles:ClusterIamRoles examplegroup1 example
-        ```
+         to = aws_redshift_cluster_iam_roles.examplegroup1
+
+         id = "example" } Using `pulumi import`, import Redshift Cluster IAM Roless using the `cluster_identifier`. For exampleconsole % pulumi import aws_redshift_cluster_iam_roles.examplegroup1 example
 
         :param str resource_name: The name of the resource.
         :param ClusterIamRolesArgs args: The arguments to use to populate this resource's properties.

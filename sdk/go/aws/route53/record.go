@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,7 +55,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -115,8 +116,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elb"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elb"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -168,7 +169,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -211,21 +212,15 @@ import (
 //
 // ## Import
 //
-// Route53 Records can be imported using ID of the record, which is the zone identifier, record name, and record type, separated by underscores (`_`)E.g.,
+// Using the ID of the record, which is the zone identifier, record name, and record type, separated by underscores (`_`)terraform import {
 //
-// ```sh
+//	to = aws_route53_record.myrecord
 //
-//	$ pulumi import aws:route53/record:Record myrecord Z4KAPRWWNC7JR_dev.example.com_NS
+//	id = "Z4KAPRWWNC7JR_dev.example.com_NS" } If the record also contains a set identifier, append itterraform import {
 //
-// ```
+//	to = aws_route53_record.myrecord
 //
-//	If the record also contains a set identifier, it should be appended
-//
-// ```sh
-//
-//	$ pulumi import aws:route53/record:Record myrecord Z4KAPRWWNC7JR_dev.example.com_NS_dev
-//
-// ```
+//	id = "Z4KAPRWWNC7JR_dev.example.com_NS_dev" } **Using `pulumi import` to import** Route53 Records using the ID of the record, record name, record type, and set identifier. For exampleUsing the ID of the record, which is the zone identifier, record name, and record type, separated by underscores (`_`)console % pulumi import aws_route53_record.myrecord Z4KAPRWWNC7JR_dev.example.com_NS If the record also contains a set identifier, append itconsole % pulumi import aws_route53_record.myrecord Z4KAPRWWNC7JR_dev.example.com_NS_dev
 type Record struct {
 	pulumi.CustomResourceState
 
@@ -282,6 +277,7 @@ func NewRecord(ctx *pulumi.Context,
 	if args.ZoneId == nil {
 		return nil, errors.New("invalid value for required argument 'ZoneId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Record
 	err := ctx.RegisterResource("aws:route53/record:Record", name, args, &resource, opts...)
 	if err != nil {

@@ -55,11 +55,11 @@ namespace Pulumi.Aws.Neptune
     /// 
     /// ## Import
     /// 
-    /// `aws_neptune_cluster_instance` can be imported by using the instance identifier, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:neptune/clusterInstance:ClusterInstance example my-instance
-    /// ```
+    ///  to = aws_neptune_cluster_instance.example
+    /// 
+    ///  id = "my-instance" } Using `pulumi import`, import `aws_neptune_cluster_instance` using the instance identifier. For exampleconsole % pulumi import aws_neptune_cluster_instance.example my-instance
     /// </summary>
     [AwsResourceType("aws:neptune/clusterInstance:ClusterInstance")]
     public partial class ClusterInstance : global::Pulumi.CustomResource

@@ -194,11 +194,11 @@ class PublicDnsNamespace(pulumi.CustomResource):
 
         ## Import
 
-        Service Discovery Public DNS Namespace can be imported using the namespace ID, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:servicediscovery/publicDnsNamespace:PublicDnsNamespace example 0123456789
-        ```
+         to = aws_service_discovery_public_dns_namespace.example
+
+         id = "0123456789" } Using `pulumi import`, import Service Discovery Public DNS Namespace using the namespace ID. For exampleconsole % pulumi import aws_service_discovery_public_dns_namespace.example 0123456789
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -226,11 +226,11 @@ class PublicDnsNamespace(pulumi.CustomResource):
 
         ## Import
 
-        Service Discovery Public DNS Namespace can be imported using the namespace ID, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:servicediscovery/publicDnsNamespace:PublicDnsNamespace example 0123456789
-        ```
+         to = aws_service_discovery_public_dns_namespace.example
+
+         id = "0123456789" } Using `pulumi import`, import Service Discovery Public DNS Namespace using the namespace ID. For exampleconsole % pulumi import aws_service_discovery_public_dns_namespace.example 0123456789
 
         :param str resource_name: The name of the resource.
         :param PublicDnsNamespaceArgs args: The arguments to use to populate this resource's properties.

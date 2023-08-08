@@ -22,11 +22,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_ec2_transit_gateway_vpc_attachment` can be imported by using the EC2 Transit Gateway Attachment identifier, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:ec2transitgateway/vpcAttachment:VpcAttachment example tgw-attach-12345678
- * ```
+ *  to = aws_ec2_transit_gateway_vpc_attachment.example
+ *
+ *  id = "tgw-attach-12345678" } Using `pulumi import`, import `aws_ec2_transit_gateway_vpc_attachment` using the EC2 Transit Gateway Attachment identifier. For exampleconsole % pulumi import aws_ec2_transit_gateway_vpc_attachment.example tgw-attach-12345678
  */
 export class VpcAttachment extends pulumi.CustomResource {
     /**
@@ -83,11 +83,11 @@ export class VpcAttachment extends pulumi.CustomResource {
     /**
      * Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
      */
-    public readonly transitGatewayDefaultRouteTableAssociation!: pulumi.Output<boolean | undefined>;
+    public readonly transitGatewayDefaultRouteTableAssociation!: pulumi.Output<boolean>;
     /**
      * Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
      */
-    public readonly transitGatewayDefaultRouteTablePropagation!: pulumi.Output<boolean | undefined>;
+    public readonly transitGatewayDefaultRouteTablePropagation!: pulumi.Output<boolean>;
     /**
      * Identifier of EC2 Transit Gateway.
      */

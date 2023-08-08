@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -51,13 +52,11 @@ import (
 //
 // ## Import
 //
-// `aws_vpc_ipv4_cidr_block_association` can be imported by using the VPC CIDR Association ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_vpc_ipv4_cidr_block_association.example
 //
-//	$ pulumi import aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation example vpc-cidr-assoc-xxxxxxxx
-//
-// ```
+//	id = "vpc-cidr-assoc-xxxxxxxx" } Using `pulumi import`, import `aws_vpc_ipv4_cidr_block_association` using the VPC CIDR Association ID. For exampleconsole % pulumi import aws_vpc_ipv4_cidr_block_association.example vpc-cidr-assoc-xxxxxxxx
 type VpcIpv4CidrBlockAssociation struct {
 	pulumi.CustomResourceState
 
@@ -81,6 +80,7 @@ func NewVpcIpv4CidrBlockAssociation(ctx *pulumi.Context,
 	if args.VpcId == nil {
 		return nil, errors.New("invalid value for required argument 'VpcId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcIpv4CidrBlockAssociation
 	err := ctx.RegisterResource("aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation", name, args, &resource, opts...)
 	if err != nil {

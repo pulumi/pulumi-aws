@@ -27,7 +27,7 @@ class UserArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a User resource.
-        :param pulumi.Input[str] role: Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
+        :param pulumi.Input[str] role: Amazon Resource Name (ARN) of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
         :param pulumi.Input[str] server_id: The Server ID of the Transfer Server (e.g., `s-12345678`)
         :param pulumi.Input[str] user_name: The name used for log in to your SFTP server.
         :param pulumi.Input[str] home_directory: The landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `username`.
@@ -57,7 +57,7 @@ class UserArgs:
     @pulumi.getter
     def role(self) -> pulumi.Input[str]:
         """
-        Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
+        Amazon Resource Name (ARN) of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
         """
         return pulumi.get(self, "role")
 
@@ -184,7 +184,7 @@ class _UserState:
         :param pulumi.Input[str] home_directory_type: The type of landing directory (folder) you mapped for your users' home directory. Valid values are `PATH` and `LOGICAL`.
         :param pulumi.Input[str] policy: An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
         :param pulumi.Input['UserPosixProfileArgs'] posix_profile: Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See Posix Profile below.
-        :param pulumi.Input[str] role: Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
+        :param pulumi.Input[str] role: Amazon Resource Name (ARN) of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
         :param pulumi.Input[str] server_id: The Server ID of the Transfer Server (e.g., `s-12345678`)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -289,7 +289,7 @@ class _UserState:
     @pulumi.getter
     def role(self) -> Optional[pulumi.Input[str]]:
         """
-        Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
+        Amazon Resource Name (ARN) of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
         """
         return pulumi.get(self, "role")
 
@@ -364,13 +364,53 @@ class User(pulumi.CustomResource):
         """
         Provides a AWS Transfer User resource. Managing SSH keys can be accomplished with the `transfer.SshKey` resource.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        foo_server = aws.transfer.Server("fooServer",
+            identity_provider_type="SERVICE_MANAGED",
+            tags={
+                "NAME": "tf-acc-test-transfer-server",
+            })
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["transfer.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        foo_role = aws.iam.Role("fooRole", assume_role_policy=assume_role.json)
+        foo_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            sid="AllowFullAccesstoS3",
+            effect="Allow",
+            actions=["s3:*"],
+            resources=["*"],
+        )])
+        foo_role_policy = aws.iam.RolePolicy("fooRolePolicy",
+            role=foo_role.id,
+            policy=foo_policy_document.json)
+        foo_user = aws.transfer.User("fooUser",
+            server_id=foo_server.id,
+            user_name="tftestuser",
+            role=foo_role.arn,
+            home_directory_type="LOGICAL",
+            home_directory_mappings=[aws.transfer.UserHomeDirectoryMappingArgs(
+                entry="/test.pdf",
+                target="/bucket3/test-path/tftestuser.pdf",
+            )])
+        ```
+
         ## Import
 
-        Transfer Users can be imported using the `server_id` and `user_name` separated by `/`.
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:transfer/user:User bar s-12345678/test-username
-        ```
+         to = aws_transfer_user.bar
+
+         id = "s-12345678/test-username" } Using `pulumi import`, import Transfer Users using the `server_id` and `user_name` separated by `/`. For exampleconsole % pulumi import aws_transfer_user.bar s-12345678/test-username
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -379,7 +419,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] home_directory_type: The type of landing directory (folder) you mapped for your users' home directory. Valid values are `PATH` and `LOGICAL`.
         :param pulumi.Input[str] policy: An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
         :param pulumi.Input[pulumi.InputType['UserPosixProfileArgs']] posix_profile: Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See Posix Profile below.
-        :param pulumi.Input[str] role: Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
+        :param pulumi.Input[str] role: Amazon Resource Name (ARN) of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
         :param pulumi.Input[str] server_id: The Server ID of the Transfer Server (e.g., `s-12345678`)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] user_name: The name used for log in to your SFTP server.
@@ -393,13 +433,53 @@ class User(pulumi.CustomResource):
         """
         Provides a AWS Transfer User resource. Managing SSH keys can be accomplished with the `transfer.SshKey` resource.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        foo_server = aws.transfer.Server("fooServer",
+            identity_provider_type="SERVICE_MANAGED",
+            tags={
+                "NAME": "tf-acc-test-transfer-server",
+            })
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["transfer.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        foo_role = aws.iam.Role("fooRole", assume_role_policy=assume_role.json)
+        foo_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            sid="AllowFullAccesstoS3",
+            effect="Allow",
+            actions=["s3:*"],
+            resources=["*"],
+        )])
+        foo_role_policy = aws.iam.RolePolicy("fooRolePolicy",
+            role=foo_role.id,
+            policy=foo_policy_document.json)
+        foo_user = aws.transfer.User("fooUser",
+            server_id=foo_server.id,
+            user_name="tftestuser",
+            role=foo_role.arn,
+            home_directory_type="LOGICAL",
+            home_directory_mappings=[aws.transfer.UserHomeDirectoryMappingArgs(
+                entry="/test.pdf",
+                target="/bucket3/test-path/tftestuser.pdf",
+            )])
+        ```
+
         ## Import
 
-        Transfer Users can be imported using the `server_id` and `user_name` separated by `/`.
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:transfer/user:User bar s-12345678/test-username
-        ```
+         to = aws_transfer_user.bar
+
+         id = "s-12345678/test-username" } Using `pulumi import`, import Transfer Users using the `server_id` and `user_name` separated by `/`. For exampleconsole % pulumi import aws_transfer_user.bar s-12345678/test-username
 
         :param str resource_name: The name of the resource.
         :param UserArgs args: The arguments to use to populate this resource's properties.
@@ -485,7 +565,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] home_directory_type: The type of landing directory (folder) you mapped for your users' home directory. Valid values are `PATH` and `LOGICAL`.
         :param pulumi.Input[str] policy: An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
         :param pulumi.Input[pulumi.InputType['UserPosixProfileArgs']] posix_profile: Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See Posix Profile below.
-        :param pulumi.Input[str] role: Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
+        :param pulumi.Input[str] role: Amazon Resource Name (ARN) of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
         :param pulumi.Input[str] server_id: The Server ID of the Transfer Server (e.g., `s-12345678`)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -560,7 +640,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter
     def role(self) -> pulumi.Output[str]:
         """
-        Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
+        Amazon Resource Name (ARN) of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
         """
         return pulumi.get(self, "role")
 

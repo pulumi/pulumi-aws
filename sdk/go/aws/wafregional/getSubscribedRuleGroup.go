@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/wafregional"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/wafregional"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -61,6 +62,7 @@ import (
 //
 // ```
 func GetSubscribedRuleGroup(ctx *pulumi.Context, args *GetSubscribedRuleGroupArgs, opts ...pulumi.InvokeOption) (*GetSubscribedRuleGroupResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSubscribedRuleGroupResult
 	err := ctx.Invoke("aws:wafregional/getSubscribedRuleGroup:getSubscribedRuleGroup", args, &rv, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,7 +26,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -48,13 +49,11 @@ import (
 //
 // ## Import
 //
-// EMR task instance group can be imported using their EMR Cluster id and Instance Group id separated by a forward-slash `/`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_emr_instance_group.task_group
 //
-//	$ pulumi import aws:emr/instanceGroup:InstanceGroup task_group j-123456ABCDEF/ig-15EK4O09RZLNR
-//
-// ```
+//	id = "j-123456ABCDEF/ig-15EK4O09RZLNR" } Using `pulumi import`, import EMR task instance group using their EMR Cluster id and Instance Group id separated by a forward-slash `/`. For exampleconsole % pulumi import aws_emr_instance_group.task_group j-123456ABCDEF/ig-15EK4O09RZLNR
 type InstanceGroup struct {
 	pulumi.CustomResourceState
 
@@ -70,7 +69,7 @@ type InstanceGroup struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -131,6 +130,7 @@ func NewInstanceGroup(ctx *pulumi.Context,
 	if args.InstanceType == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceType'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource InstanceGroup
 	err := ctx.RegisterResource("aws:emr/instanceGroup:InstanceGroup", name, args, &resource, opts...)
 	if err != nil {
@@ -165,7 +165,7 @@ type instanceGroupState struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -226,7 +226,7 @@ type InstanceGroupState struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -291,7 +291,7 @@ type instanceGroupArgs struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -349,7 +349,7 @@ type InstanceGroupArgs struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -502,7 +502,7 @@ func (o InstanceGroupOutput) ClusterId() pulumi.StringOutput {
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )

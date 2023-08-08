@@ -64,11 +64,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * GameLift Fleets can be imported using the ID, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:gamelift/fleet:Fleet example &lt;fleet-id&gt;
- * ```
+ *  to = aws_gamelift_fleet.example
+ * 
+ *  id = &#34;&lt;fleet-id&gt;&#34; } Using `pulumi import`, import GameLift Fleets using the ID. For exampleconsole % pulumi import aws_gamelift_fleet.example &lt;fleet-id&gt;
  * 
  */
 @ResourceType(type="aws:gamelift/fleet:Fleet")

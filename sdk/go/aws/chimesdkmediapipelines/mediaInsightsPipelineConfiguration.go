@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,9 +23,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/chimesdkmediapipelines"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kinesis"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/chimesdkmediapipelines"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kinesis"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -102,8 +103,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/chimesdkmediapipelines"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/chimesdkmediapipelines"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -188,7 +189,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/chimesdkmediapipelines"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/chimesdkmediapipelines"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -257,7 +258,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/chimesdkmediapipelines"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/chimesdkmediapipelines"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -306,7 +307,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/chimesdkmediapipelines"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/chimesdkmediapipelines"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -364,7 +365,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/chimesdkmediapipelines"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/chimesdkmediapipelines"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -393,13 +394,11 @@ import (
 //
 // ## Import
 //
-// Chime SDK Media Pipelines Media Insights Pipeline Configuration can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_chimesdkmediapipelines_media_insights_pipeline_configuration.example
 //
-//	$ pulumi import aws:chimesdkmediapipelines/mediaInsightsPipelineConfiguration:MediaInsightsPipelineConfiguration example abcdef123456
-//
-// ```
+//	id = "abcdef123456" } Using `pulumi import`, import Chime SDK Media Pipelines Media Insights Pipeline Configuration using the `id`. For exampleconsole % pulumi import aws_chimesdkmediapipelines_media_insights_pipeline_configuration.example abcdef123456
 type MediaInsightsPipelineConfiguration struct {
 	pulumi.CustomResourceState
 
@@ -431,6 +430,7 @@ func NewMediaInsightsPipelineConfiguration(ctx *pulumi.Context,
 	if args.ResourceAccessRoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceAccessRoleArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MediaInsightsPipelineConfiguration
 	err := ctx.RegisterResource("aws:chimesdkmediapipelines/mediaInsightsPipelineConfiguration:MediaInsightsPipelineConfiguration", name, args, &resource, opts...)
 	if err != nil {

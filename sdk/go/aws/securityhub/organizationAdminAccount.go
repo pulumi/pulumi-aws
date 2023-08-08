@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/organizations"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/securityhub"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/organizations"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/securityhub"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -63,13 +64,11 @@ import (
 //
 // ## Import
 //
-// Security Hub Organization Admin Accounts can be imported using the AWS account ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_securityhub_organization_admin_account.example
 //
-//	$ pulumi import aws:securityhub/organizationAdminAccount:OrganizationAdminAccount example 123456789012
-//
-// ```
+//	id = "123456789012" } Using `pulumi import`, import Security Hub Organization Admin Accounts using the AWS account ID. For exampleconsole % pulumi import aws_securityhub_organization_admin_account.example 123456789012
 type OrganizationAdminAccount struct {
 	pulumi.CustomResourceState
 
@@ -87,6 +86,7 @@ func NewOrganizationAdminAccount(ctx *pulumi.Context,
 	if args.AdminAccountId == nil {
 		return nil, errors.New("invalid value for required argument 'AdminAccountId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OrganizationAdminAccount
 	err := ctx.RegisterResource("aws:securityhub/organizationAdminAccount:OrganizationAdminAccount", name, args, &resource, opts...)
 	if err != nil {

@@ -799,7 +799,7 @@ class DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration(dict):
                  document_content_deletion: Optional[bool] = None,
                  target: Optional['outputs.DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget'] = None):
         """
-        :param 'DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionArgs' condition: Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. See Document Attribute Condition.
+        :param 'DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionArgs' condition: Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. See condition.
         :param bool document_content_deletion: `TRUE` to delete content if the condition used for the target attribute is met.
         :param 'DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetArgs' target: Configuration of the target document attribute or metadata field when ingesting documents into Amazon Kendra. You can also include a value. Detailed below.
         """
@@ -814,7 +814,7 @@ class DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration(dict):
     @pulumi.getter
     def condition(self) -> Optional['outputs.DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition']:
         """
-        Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. See Document Attribute Condition.
+        Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. See condition.
         """
         return pulumi.get(self, "condition")
 
@@ -863,7 +863,7 @@ class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditio
         """
         :param str condition_document_attribute_key: The identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
         :param str operator: The condition operator. For example, you can use `Contains` to partially match a string. Valid Values: `GreaterThan` | `GreaterThanOrEquals` | `LessThan` | `LessThanOrEquals` | `Equals` | `NotEquals` | `Contains` | `NotContains` | `Exists` | `NotExists` | `BeginsWith`.
-        :param 'DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueArgs' condition_on_value: The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See Document Attribute Value.
+        :param 'DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueArgs' condition_on_value: The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
         """
         pulumi.set(__self__, "condition_document_attribute_key", condition_document_attribute_key)
         pulumi.set(__self__, "operator", operator)
@@ -890,7 +890,7 @@ class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditio
     @pulumi.getter(name="conditionOnValue")
     def condition_on_value(self) -> Optional['outputs.DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue']:
         """
-        The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See Document Attribute Value.
+        The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
         """
         return pulumi.get(self, "condition_on_value")
 
@@ -998,8 +998,7 @@ class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget(d
                  target_document_attribute_value_deletion: Optional[bool] = None):
         """
         :param str target_document_attribute_key: The identifier of the target document attribute or metadata field. For example, 'Department' could be an identifier for the target attribute or metadata field that includes the department names associated with the documents.
-        :param 'DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueArgs' target_document_attribute_value: The target value you want to create for the target attribute. For example, 'Finance' could be the target value for the target attribute key 'Department'.
-               See Document Attribute Value.
+        :param 'DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueArgs' target_document_attribute_value: The target value you want to create for the target attribute. For example, 'Finance' could be the target value for the target attribute key 'Department'. See target_document_attribute_value.
         :param bool target_document_attribute_value_deletion: `TRUE` to delete the existing target value for your specified target attribute key. You cannot create a target value and set this to `TRUE`. To create a target value (`TargetDocumentAttributeValue`), set this to `FALSE`.
         """
         if target_document_attribute_key is not None:
@@ -1021,8 +1020,7 @@ class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget(d
     @pulumi.getter(name="targetDocumentAttributeValue")
     def target_document_attribute_value(self) -> Optional['outputs.DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue']:
         """
-        The target value you want to create for the target attribute. For example, 'Finance' could be the target value for the target attribute key 'Department'.
-        See Document Attribute Value.
+        The target value you want to create for the target attribute. For example, 'Finance' could be the target value for the target attribute key 'Department'. See target_document_attribute_value.
         """
         return pulumi.get(self, "target_document_attribute_value")
 
@@ -1139,7 +1137,7 @@ class DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigura
         """
         :param str lambda_arn: The Amazon Resource Name (ARN) of a Lambda Function that can manipulate your document metadata fields or attributes and content.
         :param str s3_bucket: Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#cde-data-contracts-lambda).
-        :param 'DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionArgs' invocation_condition: A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See Document Attribute Condition.
+        :param 'DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionArgs' invocation_condition: A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
         """
         pulumi.set(__self__, "lambda_arn", lambda_arn)
         pulumi.set(__self__, "s3_bucket", s3_bucket)
@@ -1166,7 +1164,7 @@ class DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigura
     @pulumi.getter(name="invocationCondition")
     def invocation_condition(self) -> Optional['outputs.DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition']:
         """
-        A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See Document Attribute Condition.
+        A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
         """
         return pulumi.get(self, "invocation_condition")
 
@@ -1199,7 +1197,7 @@ class DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigura
         """
         :param str condition_document_attribute_key: The identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
         :param str operator: The condition operator. For example, you can use `Contains` to partially match a string. Valid Values: `GreaterThan` | `GreaterThanOrEquals` | `LessThan` | `LessThanOrEquals` | `Equals` | `NotEquals` | `Contains` | `NotContains` | `Exists` | `NotExists` | `BeginsWith`.
-        :param 'DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueArgs' condition_on_value: The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See Document Attribute Value.
+        :param 'DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueArgs' condition_on_value: The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
         """
         pulumi.set(__self__, "condition_document_attribute_key", condition_document_attribute_key)
         pulumi.set(__self__, "operator", operator)
@@ -1226,7 +1224,7 @@ class DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigura
     @pulumi.getter(name="conditionOnValue")
     def condition_on_value(self) -> Optional['outputs.DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue']:
         """
-        The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See Document Attribute Value.
+        The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
         """
         return pulumi.get(self, "condition_on_value")
 
@@ -1335,7 +1333,7 @@ class DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurat
         """
         :param str lambda_arn: The Amazon Resource Name (ARN) of a Lambda Function that can manipulate your document metadata fields or attributes and content.
         :param str s3_bucket: Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#cde-data-contracts-lambda).
-        :param 'DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionArgs' invocation_condition: A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See Document Attribute Condition.
+        :param 'DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionArgs' invocation_condition: A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
         """
         pulumi.set(__self__, "lambda_arn", lambda_arn)
         pulumi.set(__self__, "s3_bucket", s3_bucket)
@@ -1362,7 +1360,7 @@ class DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurat
     @pulumi.getter(name="invocationCondition")
     def invocation_condition(self) -> Optional['outputs.DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition']:
         """
-        A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See Document Attribute Condition.
+        A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
         """
         return pulumi.get(self, "invocation_condition")
 
@@ -1395,7 +1393,7 @@ class DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurat
         """
         :param str condition_document_attribute_key: The identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
         :param str operator: The condition operator. For example, you can use `Contains` to partially match a string. Valid Values: `GreaterThan` | `GreaterThanOrEquals` | `LessThan` | `LessThanOrEquals` | `Equals` | `NotEquals` | `Contains` | `NotContains` | `Exists` | `NotExists` | `BeginsWith`.
-        :param 'DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueArgs' condition_on_value: The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See Document Attribute Value.
+        :param 'DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueArgs' condition_on_value: The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
         """
         pulumi.set(__self__, "condition_document_attribute_key", condition_document_attribute_key)
         pulumi.set(__self__, "operator", operator)
@@ -1422,7 +1420,7 @@ class DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurat
     @pulumi.getter(name="conditionOnValue")
     def condition_on_value(self) -> Optional['outputs.DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue']:
         """
-        The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See Document Attribute Value.
+        The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
         """
         return pulumi.get(self, "condition_on_value")
 
@@ -2401,8 +2399,8 @@ class QuerySuggestionsBlockListSourceS3Path(dict):
                  bucket: str,
                  key: str):
         """
-        :param str bucket: The name of the S3 bucket that contains the file.
-        :param str key: The name of the file.
+        :param str bucket: Name of the S3 bucket that contains the file.
+        :param str key: Name of the file.
                
                The following arguments are optional:
         """
@@ -2413,7 +2411,7 @@ class QuerySuggestionsBlockListSourceS3Path(dict):
     @pulumi.getter
     def bucket(self) -> str:
         """
-        The name of the S3 bucket that contains the file.
+        Name of the S3 bucket that contains the file.
         """
         return pulumi.get(self, "bucket")
 
@@ -2421,7 +2419,7 @@ class QuerySuggestionsBlockListSourceS3Path(dict):
     @pulumi.getter
     def key(self) -> str:
         """
-        The name of the file.
+        Name of the file.
 
         The following arguments are optional:
         """
@@ -2612,7 +2610,7 @@ class GetIndexCapacityUnitResult(dict):
                  query_capacity_units: int,
                  storage_capacity_units: int):
         """
-        :param int query_capacity_units: The amount of extra query capacity for an index and GetQuerySuggestions capacity. For more information, refer to [QueryCapacityUnits](https://docs.aws.amazon.com/kendra/latest/dg/API_CapacityUnitsConfiguration.html#Kendra-Type-CapacityUnitsConfiguration-QueryCapacityUnits).
+        :param int query_capacity_units: The amount of extra query capacity for an index and GetQuerySuggestions capacity. For more information, refer to [QueryCapacityUnits](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CapacityUnitsConfiguration.html#Kendra-Type-CapacityUnitsConfiguration-QueryCapacityUnits).
         :param int storage_capacity_units: The amount of extra storage capacity for an index. A single capacity unit provides 30 GB of storage space or 100,000 documents, whichever is reached first. Minimum value of 0.
         """
         pulumi.set(__self__, "query_capacity_units", query_capacity_units)
@@ -2622,7 +2620,7 @@ class GetIndexCapacityUnitResult(dict):
     @pulumi.getter(name="queryCapacityUnits")
     def query_capacity_units(self) -> int:
         """
-        The amount of extra query capacity for an index and GetQuerySuggestions capacity. For more information, refer to [QueryCapacityUnits](https://docs.aws.amazon.com/kendra/latest/dg/API_CapacityUnitsConfiguration.html#Kendra-Type-CapacityUnitsConfiguration-QueryCapacityUnits).
+        The amount of extra query capacity for an index and GetQuerySuggestions capacity. For more information, refer to [QueryCapacityUnits](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CapacityUnitsConfiguration.html#Kendra-Type-CapacityUnitsConfiguration-QueryCapacityUnits).
         """
         return pulumi.get(self, "query_capacity_units")
 
@@ -2695,11 +2693,11 @@ class GetIndexDocumentMetadataConfigurationUpdateRelevanceResult(dict):
                  rank_order: str,
                  values_importance_map: Mapping[str, int]):
         """
-        :param str duration: Time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Duration).
-        :param bool freshness: How "fresh" a document is. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Freshness).
+        :param str duration: Time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-Duration).
+        :param bool freshness: How "fresh" a document is. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-Freshness).
         :param int importance: Relative importance of the field in the search. Larger numbers provide more of a boost than smaller numbers. Minimum value of 1. Maximum value of 10.
-        :param str rank_order: Determines how values should be interpreted. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-RankOrder).
-        :param Mapping[str, int] values_importance_map: A list of values that should be given a different boost when they appear in the result list. For more information, refer to [ValueImportanceMap](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-ValueImportanceMap).
+        :param str rank_order: Determines how values should be interpreted. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-RankOrder).
+        :param Mapping[str, int] values_importance_map: A list of values that should be given a different boost when they appear in the result list. For more information, refer to [ValueImportanceMap](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-ValueImportanceMap).
         """
         pulumi.set(__self__, "duration", duration)
         pulumi.set(__self__, "freshness", freshness)
@@ -2711,7 +2709,7 @@ class GetIndexDocumentMetadataConfigurationUpdateRelevanceResult(dict):
     @pulumi.getter
     def duration(self) -> str:
         """
-        Time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Duration).
+        Time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-Duration).
         """
         return pulumi.get(self, "duration")
 
@@ -2719,7 +2717,7 @@ class GetIndexDocumentMetadataConfigurationUpdateRelevanceResult(dict):
     @pulumi.getter
     def freshness(self) -> bool:
         """
-        How "fresh" a document is. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Freshness).
+        How "fresh" a document is. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-Freshness).
         """
         return pulumi.get(self, "freshness")
 
@@ -2735,7 +2733,7 @@ class GetIndexDocumentMetadataConfigurationUpdateRelevanceResult(dict):
     @pulumi.getter(name="rankOrder")
     def rank_order(self) -> str:
         """
-        Determines how values should be interpreted. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-RankOrder).
+        Determines how values should be interpreted. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-RankOrder).
         """
         return pulumi.get(self, "rank_order")
 
@@ -2743,7 +2741,7 @@ class GetIndexDocumentMetadataConfigurationUpdateRelevanceResult(dict):
     @pulumi.getter(name="valuesImportanceMap")
     def values_importance_map(self) -> Mapping[str, int]:
         """
-        A list of values that should be given a different boost when they appear in the result list. For more information, refer to [ValueImportanceMap](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-ValueImportanceMap).
+        A list of values that should be given a different boost when they appear in the result list. For more information, refer to [ValueImportanceMap](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-ValueImportanceMap).
         """
         return pulumi.get(self, "values_importance_map")
 

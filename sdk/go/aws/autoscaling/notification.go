@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,8 +25,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -93,6 +94,7 @@ func NewNotification(ctx *pulumi.Context,
 	if args.TopicArn == nil {
 		return nil, errors.New("invalid value for required argument 'TopicArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Notification
 	err := ctx.RegisterResource("aws:autoscaling/notification:Notification", name, args, &resource, opts...)
 	if err != nil {

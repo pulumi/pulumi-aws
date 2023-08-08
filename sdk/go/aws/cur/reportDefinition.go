@@ -8,14 +8,13 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Manages Cost and Usage Report Definitions.
 //
 // > *NOTE:* The AWS Cost and Usage Report service is only available in `us-east-1` currently.
-//
-// > *NOTE:* If AWS Organizations is enabled, only the master account can use this resource.
 //
 // ## Example Usage
 //
@@ -24,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cur"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cur"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -38,6 +37,7 @@ import (
 //				},
 //				AdditionalSchemaElements: pulumi.StringArray{
 //					pulumi.String("RESOURCES"),
+//					pulumi.String("SPLIT_COST_ALLOCATION_DATA"),
 //				},
 //				Compression: pulumi.String("GZIP"),
 //				Format:      pulumi.String("textORcsv"),
@@ -57,19 +57,17 @@ import (
 //
 // ## Import
 //
-// Report Definitions can be imported using the `report_name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_cur_report_definition.example_cur_report_definition
 //
-//	$ pulumi import aws:cur/reportDefinition:ReportDefinition example_cur_report_definition example-cur-report-definition
-//
-// ```
+//	id = "example-cur-report-definition" } Using `pulumi import`, import Report Definitions using the `report_name`. For exampleconsole % pulumi import aws_cur_report_definition.example_cur_report_definition example-cur-report-definition
 type ReportDefinition struct {
 	pulumi.CustomResourceState
 
 	// A list of additional artifacts. Valid values are: `REDSHIFT`, `QUICKSIGHT`, `ATHENA`. When ATHENA exists within additional_artifacts, no other artifact type can be declared and reportVersioning must be `OVERWRITE_REPORT`.
 	AdditionalArtifacts pulumi.StringArrayOutput `pulumi:"additionalArtifacts"`
-	// A list of schema elements. Valid values are: `RESOURCES`.
+	// A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
 	AdditionalSchemaElements pulumi.StringArrayOutput `pulumi:"additionalSchemaElements"`
 	// The Amazon Resource Name (ARN) specifying the cur report.
 	Arn pulumi.StringOutput `pulumi:"arn"`
@@ -121,6 +119,7 @@ func NewReportDefinition(ctx *pulumi.Context,
 	if args.TimeUnit == nil {
 		return nil, errors.New("invalid value for required argument 'TimeUnit'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ReportDefinition
 	err := ctx.RegisterResource("aws:cur/reportDefinition:ReportDefinition", name, args, &resource, opts...)
 	if err != nil {
@@ -145,7 +144,7 @@ func GetReportDefinition(ctx *pulumi.Context,
 type reportDefinitionState struct {
 	// A list of additional artifacts. Valid values are: `REDSHIFT`, `QUICKSIGHT`, `ATHENA`. When ATHENA exists within additional_artifacts, no other artifact type can be declared and reportVersioning must be `OVERWRITE_REPORT`.
 	AdditionalArtifacts []string `pulumi:"additionalArtifacts"`
-	// A list of schema elements. Valid values are: `RESOURCES`.
+	// A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
 	AdditionalSchemaElements []string `pulumi:"additionalSchemaElements"`
 	// The Amazon Resource Name (ARN) specifying the cur report.
 	Arn *string `pulumi:"arn"`
@@ -172,7 +171,7 @@ type reportDefinitionState struct {
 type ReportDefinitionState struct {
 	// A list of additional artifacts. Valid values are: `REDSHIFT`, `QUICKSIGHT`, `ATHENA`. When ATHENA exists within additional_artifacts, no other artifact type can be declared and reportVersioning must be `OVERWRITE_REPORT`.
 	AdditionalArtifacts pulumi.StringArrayInput
-	// A list of schema elements. Valid values are: `RESOURCES`.
+	// A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
 	AdditionalSchemaElements pulumi.StringArrayInput
 	// The Amazon Resource Name (ARN) specifying the cur report.
 	Arn pulumi.StringPtrInput
@@ -203,7 +202,7 @@ func (ReportDefinitionState) ElementType() reflect.Type {
 type reportDefinitionArgs struct {
 	// A list of additional artifacts. Valid values are: `REDSHIFT`, `QUICKSIGHT`, `ATHENA`. When ATHENA exists within additional_artifacts, no other artifact type can be declared and reportVersioning must be `OVERWRITE_REPORT`.
 	AdditionalArtifacts []string `pulumi:"additionalArtifacts"`
-	// A list of schema elements. Valid values are: `RESOURCES`.
+	// A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
 	AdditionalSchemaElements []string `pulumi:"additionalSchemaElements"`
 	// Compression format for report. Valid values are: `GZIP`, `ZIP`, `Parquet`. If `Parquet` is used, then format must also be `Parquet`.
 	Compression string `pulumi:"compression"`
@@ -229,7 +228,7 @@ type reportDefinitionArgs struct {
 type ReportDefinitionArgs struct {
 	// A list of additional artifacts. Valid values are: `REDSHIFT`, `QUICKSIGHT`, `ATHENA`. When ATHENA exists within additional_artifacts, no other artifact type can be declared and reportVersioning must be `OVERWRITE_REPORT`.
 	AdditionalArtifacts pulumi.StringArrayInput
-	// A list of schema elements. Valid values are: `RESOURCES`.
+	// A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
 	AdditionalSchemaElements pulumi.StringArrayInput
 	// Compression format for report. Valid values are: `GZIP`, `ZIP`, `Parquet`. If `Parquet` is used, then format must also be `Parquet`.
 	Compression pulumi.StringInput
@@ -343,7 +342,7 @@ func (o ReportDefinitionOutput) AdditionalArtifacts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ReportDefinition) pulumi.StringArrayOutput { return v.AdditionalArtifacts }).(pulumi.StringArrayOutput)
 }
 
-// A list of schema elements. Valid values are: `RESOURCES`.
+// A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
 func (o ReportDefinitionOutput) AdditionalSchemaElements() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ReportDefinition) pulumi.StringArrayOutput { return v.AdditionalSchemaElements }).(pulumi.StringArrayOutput)
 }

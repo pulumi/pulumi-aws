@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/docdb"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/docdb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -47,13 +48,11 @@ import (
 //
 // ## Import
 //
-// DocumentDB Subnet groups can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_docdb_subnet_group.default
 //
-//	$ pulumi import aws:docdb/subnetGroup:SubnetGroup default production-subnet-group
-//
-// ```
+//	id = "production-subnet-group" } Using `pulumi import`, import DocumentDB Subnet groups using the `name`. For exampleconsole % pulumi import aws_docdb_subnet_group.default production-subnet-group
 type SubnetGroup struct {
 	pulumi.CustomResourceState
 
@@ -86,6 +85,7 @@ func NewSubnetGroup(ctx *pulumi.Context,
 	if args.Description == nil {
 		args.Description = pulumi.StringPtr("Managed by Pulumi")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SubnetGroup
 	err := ctx.RegisterResource("aws:docdb/subnetGroup:SubnetGroup", name, args, &resource, opts...)
 	if err != nil {

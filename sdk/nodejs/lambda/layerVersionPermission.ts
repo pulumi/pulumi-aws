@@ -9,6 +9,8 @@ import * as utilities from "../utilities";
  *
  * For information about Lambda Layer Permissions and how to use them, see [Using Resource-based Policies for AWS Lambda][1]
  *
+ * > **NOTE:** Setting `skipDestroy` to `true` means that the AWS Provider will _not_ destroy any layer version permission, even when running `pulumi destroy`. Layer version permissions are thus intentional dangling resources that are _not_ managed by Pulumi and may incur extra expense in your AWS account.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -26,13 +28,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Lambda Layer Permissions can be imported using `layer_name` and `version_number`, separated by a comma (`,`).
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:lambda/layerVersionPermission:LayerVersionPermission example arn:aws:lambda:us-west-2:123456654321:layer:test_layer1,1
- * ```
+ *  to = aws_lambda_layer_version_permission.example
  *
- *  [1]https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html#permissions-resource-xaccountlayer
+ *  id = "arn:aws:lambda:us-west-2:123456654321:layer:test_layer1,1" } Using `pulumi import`, import Lambda Layer Permissions using `layer_name` and `version_number`, separated by a comma (`,`). For exampleconsole % pulumi import aws_lambda_layer_version_permission.example arn:aws:lambda:us-west-2:123456654321:layer:test_layer1,1 [1]https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html#permissions-resource-xaccountlayer
  */
 export class LayerVersionPermission extends pulumi.CustomResource {
     /**
@@ -87,6 +87,10 @@ export class LayerVersionPermission extends pulumi.CustomResource {
      */
     public /*out*/ readonly revisionId!: pulumi.Output<string>;
     /**
+     * Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatibleArchitectures`, `compatibleRuntimes`, `description`, `filename`, `layerName`, `licenseInfo`, `s3Bucket`, `s3Key`, `s3ObjectVersion`, or `sourceCodeHash` forces deletion of the existing layer version and creation of a new layer version.
+     */
+    public readonly skipDestroy!: pulumi.Output<boolean | undefined>;
+    /**
      * The name of Lambda Layer Permission, for example `dev-account` - human readable note about what is this permission for.
      */
     public readonly statementId!: pulumi.Output<string>;
@@ -114,6 +118,7 @@ export class LayerVersionPermission extends pulumi.CustomResource {
             resourceInputs["policy"] = state ? state.policy : undefined;
             resourceInputs["principal"] = state ? state.principal : undefined;
             resourceInputs["revisionId"] = state ? state.revisionId : undefined;
+            resourceInputs["skipDestroy"] = state ? state.skipDestroy : undefined;
             resourceInputs["statementId"] = state ? state.statementId : undefined;
             resourceInputs["versionNumber"] = state ? state.versionNumber : undefined;
         } else {
@@ -137,6 +142,7 @@ export class LayerVersionPermission extends pulumi.CustomResource {
             resourceInputs["layerName"] = args ? args.layerName : undefined;
             resourceInputs["organizationId"] = args ? args.organizationId : undefined;
             resourceInputs["principal"] = args ? args.principal : undefined;
+            resourceInputs["skipDestroy"] = args ? args.skipDestroy : undefined;
             resourceInputs["statementId"] = args ? args.statementId : undefined;
             resourceInputs["versionNumber"] = args ? args.versionNumber : undefined;
             resourceInputs["policy"] = undefined /*out*/;
@@ -176,6 +182,10 @@ export interface LayerVersionPermissionState {
      */
     revisionId?: pulumi.Input<string>;
     /**
+     * Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatibleArchitectures`, `compatibleRuntimes`, `description`, `filename`, `layerName`, `licenseInfo`, `s3Bucket`, `s3Key`, `s3ObjectVersion`, or `sourceCodeHash` forces deletion of the existing layer version and creation of a new layer version.
+     */
+    skipDestroy?: pulumi.Input<boolean>;
+    /**
      * The name of Lambda Layer Permission, for example `dev-account` - human readable note about what is this permission for.
      */
     statementId?: pulumi.Input<string>;
@@ -205,6 +215,10 @@ export interface LayerVersionPermissionArgs {
      * AWS account ID which should be able to use your Lambda Layer. `*` can be used here, if you want to share your Lambda Layer widely.
      */
     principal: pulumi.Input<string>;
+    /**
+     * Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatibleArchitectures`, `compatibleRuntimes`, `description`, `filename`, `layerName`, `licenseInfo`, `s3Bucket`, `s3Key`, `s3ObjectVersion`, or `sourceCodeHash` forces deletion of the existing layer version and creation of a new layer version.
+     */
+    skipDestroy?: pulumi.Input<boolean>;
     /**
      * The name of Lambda Layer Permission, for example `dev-account` - human readable note about what is this permission for.
      */

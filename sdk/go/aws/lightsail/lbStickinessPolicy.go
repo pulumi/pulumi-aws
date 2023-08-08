@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lightsail"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -53,13 +54,11 @@ import (
 //
 // ## Import
 //
-// `aws_lightsail_lb_stickiness_policy` can be imported by using the `lb_name` attribute, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_lightsail_lb_stickiness_policy.test
 //
-//	$ pulumi import aws:lightsail/lbStickinessPolicy:LbStickinessPolicy test example-load-balancer
-//
-// ```
+//	id = "example-load-balancer" } Using `pulumi import`, import `aws_lightsail_lb_stickiness_policy` using the `lb_name` attribute. For exampleconsole % pulumi import aws_lightsail_lb_stickiness_policy.test example-load-balancer
 type LbStickinessPolicy struct {
 	pulumi.CustomResourceState
 
@@ -87,6 +86,7 @@ func NewLbStickinessPolicy(ctx *pulumi.Context,
 	if args.LbName == nil {
 		return nil, errors.New("invalid value for required argument 'LbName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LbStickinessPolicy
 	err := ctx.RegisterResource("aws:lightsail/lbStickinessPolicy:LbStickinessPolicy", name, args, &resource, opts...)
 	if err != nil {

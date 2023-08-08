@@ -10,7 +10,9 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -53,6 +55,38 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ### Public NAT with Secondary Private IP Addresses
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.NatGateway;
+ * import com.pulumi.aws.ec2.NatGatewayArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new NatGateway(&#34;example&#34;, NatGatewayArgs.builder()        
+ *             .allocationId(aws_eip.example().id())
+ *             .subnetId(aws_subnet.example().id())
+ *             .secondaryAllocationIds(aws_eip.secondary().id())
+ *             .secondaryPrivateIpAddresses(&#34;10.0.1.5&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * ### Private NAT
  * ```java
  * package generated_program;
@@ -83,111 +117,184 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ### Private NAT with Secondary Private IP Addresses
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.NatGateway;
+ * import com.pulumi.aws.ec2.NatGatewayArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new NatGateway(&#34;example&#34;, NatGatewayArgs.builder()        
+ *             .connectivityType(&#34;private&#34;)
+ *             .subnetId(aws_subnet.example().id())
+ *             .secondaryPrivateIpAddressCount(7)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * ## Import
  * 
- * NAT Gateways can be imported using the `id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:ec2/natGateway:NatGateway private_gw nat-05dba92075d71c408
- * ```
+ *  to = aws_nat_gateway.private_gw
+ * 
+ *  id = &#34;nat-05dba92075d71c408&#34; } Using `pulumi import`, import NAT Gateways using the `id`. For exampleconsole % pulumi import aws_nat_gateway.private_gw nat-05dba92075d71c408
  * 
  */
 @ResourceType(type="aws:ec2/natGateway:NatGateway")
 public class NatGateway extends com.pulumi.resources.CustomResource {
     /**
-     * The Allocation ID of the Elastic IP address for the gateway. Required for `connectivity_type` of `public`.
+     * The Allocation ID of the Elastic IP address for the NAT Gateway. Required for `connectivity_type` of `public`.
      * 
      */
     @Export(name="allocationId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> allocationId;
 
     /**
-     * @return The Allocation ID of the Elastic IP address for the gateway. Required for `connectivity_type` of `public`.
+     * @return The Allocation ID of the Elastic IP address for the NAT Gateway. Required for `connectivity_type` of `public`.
      * 
      */
     public Output<Optional<String>> allocationId() {
         return Codegen.optional(this.allocationId);
     }
     /**
-     * The association ID of the Elastic IP address that&#39;s associated with the NAT gateway. Only available when `connectivity_type` is `public`.
+     * The association ID of the Elastic IP address that&#39;s associated with the NAT Gateway. Only available when `connectivity_type` is `public`.
      * 
      */
     @Export(name="associationId", refs={String.class}, tree="[0]")
     private Output<String> associationId;
 
     /**
-     * @return The association ID of the Elastic IP address that&#39;s associated with the NAT gateway. Only available when `connectivity_type` is `public`.
+     * @return The association ID of the Elastic IP address that&#39;s associated with the NAT Gateway. Only available when `connectivity_type` is `public`.
      * 
      */
     public Output<String> associationId() {
         return this.associationId;
     }
     /**
-     * Connectivity type for the gateway. Valid values are `private` and `public`. Defaults to `public`.
+     * Connectivity type for the NAT Gateway. Valid values are `private` and `public`. Defaults to `public`.
      * 
      */
     @Export(name="connectivityType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> connectivityType;
 
     /**
-     * @return Connectivity type for the gateway. Valid values are `private` and `public`. Defaults to `public`.
+     * @return Connectivity type for the NAT Gateway. Valid values are `private` and `public`. Defaults to `public`.
      * 
      */
     public Output<Optional<String>> connectivityType() {
         return Codegen.optional(this.connectivityType);
     }
     /**
-     * The ID of the network interface associated with the NAT gateway.
+     * The ID of the network interface associated with the NAT Gateway.
      * 
      */
     @Export(name="networkInterfaceId", refs={String.class}, tree="[0]")
     private Output<String> networkInterfaceId;
 
     /**
-     * @return The ID of the network interface associated with the NAT gateway.
+     * @return The ID of the network interface associated with the NAT Gateway.
      * 
      */
     public Output<String> networkInterfaceId() {
         return this.networkInterfaceId;
     }
     /**
-     * The private IPv4 address to assign to the NAT gateway. If you don&#39;t provide an address, a private IPv4 address will be automatically assigned.
+     * The private IPv4 address to assign to the NAT Gateway. If you don&#39;t provide an address, a private IPv4 address will be automatically assigned.
      * 
      */
     @Export(name="privateIp", refs={String.class}, tree="[0]")
     private Output<String> privateIp;
 
     /**
-     * @return The private IPv4 address to assign to the NAT gateway. If you don&#39;t provide an address, a private IPv4 address will be automatically assigned.
+     * @return The private IPv4 address to assign to the NAT Gateway. If you don&#39;t provide an address, a private IPv4 address will be automatically assigned.
      * 
      */
     public Output<String> privateIp() {
         return this.privateIp;
     }
     /**
-     * The Elastic IP address associated with the NAT gateway.
+     * The Elastic IP address associated with the NAT Gateway.
      * 
      */
     @Export(name="publicIp", refs={String.class}, tree="[0]")
     private Output<String> publicIp;
 
     /**
-     * @return The Elastic IP address associated with the NAT gateway.
+     * @return The Elastic IP address associated with the NAT Gateway.
      * 
      */
     public Output<String> publicIp() {
         return this.publicIp;
     }
     /**
-     * The Subnet ID of the subnet in which to place the gateway.
+     * A list of secondary allocation EIP IDs for this NAT Gateway.
+     * 
+     */
+    @Export(name="secondaryAllocationIds", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> secondaryAllocationIds;
+
+    /**
+     * @return A list of secondary allocation EIP IDs for this NAT Gateway.
+     * 
+     */
+    public Output<Optional<List<String>>> secondaryAllocationIds() {
+        return Codegen.optional(this.secondaryAllocationIds);
+    }
+    /**
+     * [Private NAT Gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
+     * 
+     */
+    @Export(name="secondaryPrivateIpAddressCount", refs={Integer.class}, tree="[0]")
+    private Output<Integer> secondaryPrivateIpAddressCount;
+
+    /**
+     * @return [Private NAT Gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
+     * 
+     */
+    public Output<Integer> secondaryPrivateIpAddressCount() {
+        return this.secondaryPrivateIpAddressCount;
+    }
+    /**
+     * A list of secondary private IPv4 addresses to assign to the NAT Gateway.
+     * 
+     */
+    @Export(name="secondaryPrivateIpAddresses", refs={List.class,String.class}, tree="[0,1]")
+    private Output<List<String>> secondaryPrivateIpAddresses;
+
+    /**
+     * @return A list of secondary private IPv4 addresses to assign to the NAT Gateway.
+     * 
+     */
+    public Output<List<String>> secondaryPrivateIpAddresses() {
+        return this.secondaryPrivateIpAddresses;
+    }
+    /**
+     * The Subnet ID of the subnet in which to place the NAT Gateway.
      * 
      */
     @Export(name="subnetId", refs={String.class}, tree="[0]")
     private Output<String> subnetId;
 
     /**
-     * @return The Subnet ID of the subnet in which to place the gateway.
+     * @return The Subnet ID of the subnet in which to place the NAT Gateway.
      * 
      */
     public Output<String> subnetId() {

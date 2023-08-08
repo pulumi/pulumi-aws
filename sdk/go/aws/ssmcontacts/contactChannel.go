@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssmcontacts"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssmcontacts"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -50,7 +51,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssmcontacts"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssmcontacts"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -82,13 +83,11 @@ import (
 //
 // ## Import
 //
-// Import SSM Contact Channel using the `ARN`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_ssmcontacts_contact_channel.example
 //
-//	$ pulumi import aws:ssmcontacts/contactChannel:ContactChannel example arn:aws:ssm-contacts:us-west-2:123456789012:contact-channel/example
-//
-// ```
+//	id = "arn:aws:ssm-contacts:us-west-2:123456789012:contact-channel/example" } Using `pulumi import`, import SSM Contact Channel using the `ARN`. For exampleconsole % pulumi import aws_ssmcontacts_contact_channel.example arn:aws:ssm-contacts:us-west-2:123456789012:contact-channel/example
 type ContactChannel struct {
 	pulumi.CustomResourceState
 
@@ -122,6 +121,7 @@ func NewContactChannel(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ContactChannel
 	err := ctx.RegisterResource("aws:ssmcontacts/contactChannel:ContactChannel", name, args, &resource, opts...)
 	if err != nil {

@@ -53,11 +53,13 @@ namespace Pulumi.Aws.Route53
     /// 
     /// ## Import
     /// 
-    ///  Route 53 Resolver endpoints can be imported using the Route 53 Resolver endpoint ID, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:route53/resolverEndpoint:ResolverEndpoint foo rslvr-in-abcdef01234567890
-    /// ```
+    ///  to = aws_route53_resolver_endpoint.foo
+    /// 
+    ///  id = "rslvr-in-abcdef01234567890" } Using `pulumi import`, import
+    /// 
+    /// Route 53 Resolver endpoints using the Route 53 Resolver endpoint ID. For exampleconsole % pulumi import aws_route53_resolver_endpoint.foo rslvr-in-abcdef01234567890
     /// </summary>
     [AwsResourceType("aws:route53/resolverEndpoint:ResolverEndpoint")]
     public partial class ResolverEndpoint : global::Pulumi.CustomResource

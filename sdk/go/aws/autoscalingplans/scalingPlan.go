@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,13 +23,11 @@ import (
 //
 // ## Import
 //
-// Auto Scaling scaling plans can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_autoscalingplans_scaling_plan.example
 //
-//	$ pulumi import aws:autoscalingplans/scalingPlan:ScalingPlan example MyScale1
-//
-// ```
+//	id = "MyScale1" } Using `pulumi import`, import Auto Scaling scaling plans using the `name`. For exampleconsole % pulumi import aws_autoscalingplans_scaling_plan.example MyScale1
 type ScalingPlan struct {
 	pulumi.CustomResourceState
 
@@ -55,6 +54,7 @@ func NewScalingPlan(ctx *pulumi.Context,
 	if args.ScalingInstructions == nil {
 		return nil, errors.New("invalid value for required argument 'ScalingInstructions'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ScalingPlan
 	err := ctx.RegisterResource("aws:autoscalingplans/scalingPlan:ScalingPlan", name, args, &resource, opts...)
 	if err != nil {

@@ -203,11 +203,11 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     /// ## Import
     /// 
-    /// Security Hub insights can be imported using the ARN, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:securityhub/insight:Insight example arn:aws:securityhub:us-west-2:1234567890:insight/1234567890/custom/91299ed7-abd0-4e44-a858-d0b15e37141a
-    /// ```
+    ///  to = aws_securityhub_insight.example
+    /// 
+    ///  id = "arn:aws:securityhub:us-west-2:1234567890:insight/1234567890/custom/91299ed7-abd0-4e44-a858-d0b15e37141a" } Using `pulumi import`, import Security Hub insights using the ARN. For exampleconsole % pulumi import aws_securityhub_insight.example arn:aws:securityhub:us-west-2:1234567890:insight/1234567890/custom/91299ed7-abd0-4e44-a858-d0b15e37141a
     /// </summary>
     [AwsResourceType("aws:securityhub/insight:Insight")]
     public partial class Insight : global::Pulumi.CustomResource

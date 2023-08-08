@@ -205,27 +205,27 @@ class InstanceAutomatedBackupsReplication(pulumi.CustomResource):
             engine="postgres",
             engine_version="13.4",
             instance_class="db.t3.micro",
-            name="mydb",
+            db_name="mydb",
             username="masterusername",
             password="mustbeeightcharacters",
             backup_retention_period=7,
             storage_encrypted=True,
             skip_final_snapshot=True)
         default_key = aws.kms.Key("defaultKey", description="Encryption key for automated backups",
-        opts=pulumi.ResourceOptions(provider="aws.replica"))
+        opts=pulumi.ResourceOptions(provider=aws["replica"]))
         default_instance_automated_backups_replication = aws.rds.InstanceAutomatedBackupsReplication("defaultInstanceAutomatedBackupsReplication",
             source_db_instance_arn=default_instance.arn,
             kms_key_id=default_key.arn,
-            opts=pulumi.ResourceOptions(provider="aws.replica"))
+            opts=pulumi.ResourceOptions(provider=aws["replica"]))
         ```
 
         ## Import
 
-        RDS instance automated backups replication can be imported using the `arn`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:rds/instanceAutomatedBackupsReplication:InstanceAutomatedBackupsReplication default arn:aws:rds:us-east-1:123456789012:auto-backup:ab-faaa2mgdj1vmp4xflr7yhsrmtbtob7ltrzzz2my
-        ```
+         to = aws_db_instance_automated_backups_replication.default
+
+         id = "arn:aws:rds:us-east-1:123456789012:auto-backup:ab-faaa2mgdj1vmp4xflr7yhsrmtbtob7ltrzzz2my" } Using `pulumi import`, import RDS instance automated backups replication using the `arn`. For exampleconsole % pulumi import aws_db_instance_automated_backups_replication.default arn:aws:rds:us-east-1:123456789012:auto-backup:ab-faaa2mgdj1vmp4xflr7yhsrmtbtob7ltrzzz2my
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -281,27 +281,27 @@ class InstanceAutomatedBackupsReplication(pulumi.CustomResource):
             engine="postgres",
             engine_version="13.4",
             instance_class="db.t3.micro",
-            name="mydb",
+            db_name="mydb",
             username="masterusername",
             password="mustbeeightcharacters",
             backup_retention_period=7,
             storage_encrypted=True,
             skip_final_snapshot=True)
         default_key = aws.kms.Key("defaultKey", description="Encryption key for automated backups",
-        opts=pulumi.ResourceOptions(provider="aws.replica"))
+        opts=pulumi.ResourceOptions(provider=aws["replica"]))
         default_instance_automated_backups_replication = aws.rds.InstanceAutomatedBackupsReplication("defaultInstanceAutomatedBackupsReplication",
             source_db_instance_arn=default_instance.arn,
             kms_key_id=default_key.arn,
-            opts=pulumi.ResourceOptions(provider="aws.replica"))
+            opts=pulumi.ResourceOptions(provider=aws["replica"]))
         ```
 
         ## Import
 
-        RDS instance automated backups replication can be imported using the `arn`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:rds/instanceAutomatedBackupsReplication:InstanceAutomatedBackupsReplication default arn:aws:rds:us-east-1:123456789012:auto-backup:ab-faaa2mgdj1vmp4xflr7yhsrmtbtob7ltrzzz2my
-        ```
+         to = aws_db_instance_automated_backups_replication.default
+
+         id = "arn:aws:rds:us-east-1:123456789012:auto-backup:ab-faaa2mgdj1vmp4xflr7yhsrmtbtob7ltrzzz2my" } Using `pulumi import`, import RDS instance automated backups replication using the `arn`. For exampleconsole % pulumi import aws_db_instance_automated_backups_replication.default arn:aws:rds:us-east-1:123456789012:auto-backup:ab-faaa2mgdj1vmp4xflr7yhsrmtbtob7ltrzzz2my
 
         :param str resource_name: The name of the resource.
         :param InstanceAutomatedBackupsReplicationArgs args: The arguments to use to populate this resource's properties.

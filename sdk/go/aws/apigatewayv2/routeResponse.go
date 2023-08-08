@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigatewayv2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigatewayv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -45,13 +46,11 @@ import (
 //
 // ## Import
 //
-// `aws_apigatewayv2_route_response` can be imported by using the API identifier, route identifier and route response identifier, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_apigatewayv2_route_response.example
 //
-//	$ pulumi import aws:apigatewayv2/routeResponse:RouteResponse example aabbccddee/1122334/998877
-//
-// ```
+//	id = "aabbccddee/1122334/998877" } Using `pulumi import`, import `aws_apigatewayv2_route_response` using the API identifier, route identifier and route response identifier. For exampleconsole % pulumi import aws_apigatewayv2_route_response.example aabbccddee/1122334/998877
 type RouteResponse struct {
 	pulumi.CustomResourceState
 
@@ -83,6 +82,7 @@ func NewRouteResponse(ctx *pulumi.Context,
 	if args.RouteResponseKey == nil {
 		return nil, errors.New("invalid value for required argument 'RouteResponseKey'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RouteResponse
 	err := ctx.RegisterResource("aws:apigatewayv2/routeResponse:RouteResponse", name, args, &resource, opts...)
 	if err != nil {

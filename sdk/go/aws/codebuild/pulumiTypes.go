@@ -7,8 +7,11 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type ProjectArtifacts struct {
 	// Artifact identifier. Must be the same specified inside the AWS CodeBuild build specification.
@@ -850,7 +853,7 @@ type ProjectEnvironment struct {
 	ComputeType string `pulumi:"computeType"`
 	// Configuration block. Detailed below.
 	EnvironmentVariables []ProjectEnvironmentEnvironmentVariable `pulumi:"environmentVariables"`
-	// Docker image to use for this build project. Valid values include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (e.g `aws/codebuild/standard:2.0`), [Docker Hub images](https://hub.docker.com/) (e.g., `nginx/nginx:latest`), and full Docker repository URIs such as those for ECR (e.g., `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
+	// Docker image to use for this build project. Valid values include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (e.g `aws/codebuild/amazonlinux2-x86_64-standard:4.0`), [Docker Hub images](https://hub.docker.com/) (e.g., `pulumi/pulumi:latest`), and full Docker repository URIs such as those for ECR (e.g., `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
 	Image string `pulumi:"image"`
 	// Type of credentials AWS CodeBuild uses to pull images in your build. Valid values: `CODEBUILD`, `SERVICE_ROLE`. When you use a cross-account or private registry image, you must use SERVICE_ROLE credentials. When you use an AWS CodeBuild curated image, you must use CodeBuild credentials. Defaults to `CODEBUILD`.
 	ImagePullCredentialsType *string `pulumi:"imagePullCredentialsType"`
@@ -880,7 +883,7 @@ type ProjectEnvironmentArgs struct {
 	ComputeType pulumi.StringInput `pulumi:"computeType"`
 	// Configuration block. Detailed below.
 	EnvironmentVariables ProjectEnvironmentEnvironmentVariableArrayInput `pulumi:"environmentVariables"`
-	// Docker image to use for this build project. Valid values include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (e.g `aws/codebuild/standard:2.0`), [Docker Hub images](https://hub.docker.com/) (e.g., `nginx/nginx:latest`), and full Docker repository URIs such as those for ECR (e.g., `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
+	// Docker image to use for this build project. Valid values include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (e.g `aws/codebuild/amazonlinux2-x86_64-standard:4.0`), [Docker Hub images](https://hub.docker.com/) (e.g., `pulumi/pulumi:latest`), and full Docker repository URIs such as those for ECR (e.g., `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
 	Image pulumi.StringInput `pulumi:"image"`
 	// Type of credentials AWS CodeBuild uses to pull images in your build. Valid values: `CODEBUILD`, `SERVICE_ROLE`. When you use a cross-account or private registry image, you must use SERVICE_ROLE credentials. When you use an AWS CodeBuild curated image, you must use CodeBuild credentials. Defaults to `CODEBUILD`.
 	ImagePullCredentialsType pulumi.StringPtrInput `pulumi:"imagePullCredentialsType"`
@@ -984,7 +987,7 @@ func (o ProjectEnvironmentOutput) EnvironmentVariables() ProjectEnvironmentEnvir
 	return o.ApplyT(func(v ProjectEnvironment) []ProjectEnvironmentEnvironmentVariable { return v.EnvironmentVariables }).(ProjectEnvironmentEnvironmentVariableArrayOutput)
 }
 
-// Docker image to use for this build project. Valid values include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (e.g `aws/codebuild/standard:2.0`), [Docker Hub images](https://hub.docker.com/) (e.g., `nginx/nginx:latest`), and full Docker repository URIs such as those for ECR (e.g., `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
+// Docker image to use for this build project. Valid values include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (e.g `aws/codebuild/amazonlinux2-x86_64-standard:4.0`), [Docker Hub images](https://hub.docker.com/) (e.g., `pulumi/pulumi:latest`), and full Docker repository URIs such as those for ECR (e.g., `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
 func (o ProjectEnvironmentOutput) Image() pulumi.StringOutput {
 	return o.ApplyT(func(v ProjectEnvironment) string { return v.Image }).(pulumi.StringOutput)
 }
@@ -1063,7 +1066,7 @@ func (o ProjectEnvironmentPtrOutput) EnvironmentVariables() ProjectEnvironmentEn
 	}).(ProjectEnvironmentEnvironmentVariableArrayOutput)
 }
 
-// Docker image to use for this build project. Valid values include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (e.g `aws/codebuild/standard:2.0`), [Docker Hub images](https://hub.docker.com/) (e.g., `nginx/nginx:latest`), and full Docker repository URIs such as those for ECR (e.g., `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
+// Docker image to use for this build project. Valid values include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (e.g `aws/codebuild/amazonlinux2-x86_64-standard:4.0`), [Docker Hub images](https://hub.docker.com/) (e.g., `pulumi/pulumi:latest`), and full Docker repository URIs such as those for ECR (e.g., `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
 func (o ProjectEnvironmentPtrOutput) Image() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectEnvironment) *string {
 		if v == nil {
@@ -2221,10 +2224,6 @@ func (o ProjectSecondaryArtifactArrayOutput) Index(i pulumi.IntInput) ProjectSec
 }
 
 type ProjectSecondarySource struct {
-	// Configuration block with the authorization settings for AWS CodeBuild to access the source code to be built. This information is for the AWS CodeBuild console's use only. Use the `codebuild.SourceCredential` resource instead. Auth blocks are documented below.
-	//
-	// Deprecated: Use the aws_codebuild_source_credential resource instead
-	Auth *ProjectSecondarySourceAuth `pulumi:"auth"`
 	// Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`. `buildStatusConfig` blocks are documented below.
 	BuildStatusConfig *ProjectSecondarySourceBuildStatusConfig `pulumi:"buildStatusConfig"`
 	// The build spec declaration to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`. It can either be a path to a file residing in the repository to be built or a local file path leveraging the `file()` built-in.
@@ -2241,7 +2240,7 @@ type ProjectSecondarySource struct {
 	ReportBuildStatus *bool `pulumi:"reportBuildStatus"`
 	// An identifier for this project source. The identifier can only contain alphanumeric characters and underscores, and must be less than 128 characters in length.
 	SourceIdentifier string `pulumi:"sourceIdentifier"`
-	// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+	// Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
 	Type string `pulumi:"type"`
 }
 
@@ -2257,10 +2256,6 @@ type ProjectSecondarySourceInput interface {
 }
 
 type ProjectSecondarySourceArgs struct {
-	// Configuration block with the authorization settings for AWS CodeBuild to access the source code to be built. This information is for the AWS CodeBuild console's use only. Use the `codebuild.SourceCredential` resource instead. Auth blocks are documented below.
-	//
-	// Deprecated: Use the aws_codebuild_source_credential resource instead
-	Auth ProjectSecondarySourceAuthPtrInput `pulumi:"auth"`
 	// Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`. `buildStatusConfig` blocks are documented below.
 	BuildStatusConfig ProjectSecondarySourceBuildStatusConfigPtrInput `pulumi:"buildStatusConfig"`
 	// The build spec declaration to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`. It can either be a path to a file residing in the repository to be built or a local file path leveraging the `file()` built-in.
@@ -2277,7 +2272,7 @@ type ProjectSecondarySourceArgs struct {
 	ReportBuildStatus pulumi.BoolPtrInput `pulumi:"reportBuildStatus"`
 	// An identifier for this project source. The identifier can only contain alphanumeric characters and underscores, and must be less than 128 characters in length.
 	SourceIdentifier pulumi.StringInput `pulumi:"sourceIdentifier"`
-	// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+	// Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -2332,13 +2327,6 @@ func (o ProjectSecondarySourceOutput) ToProjectSecondarySourceOutputWithContext(
 	return o
 }
 
-// Configuration block with the authorization settings for AWS CodeBuild to access the source code to be built. This information is for the AWS CodeBuild console's use only. Use the `codebuild.SourceCredential` resource instead. Auth blocks are documented below.
-//
-// Deprecated: Use the aws_codebuild_source_credential resource instead
-func (o ProjectSecondarySourceOutput) Auth() ProjectSecondarySourceAuthPtrOutput {
-	return o.ApplyT(func(v ProjectSecondarySource) *ProjectSecondarySourceAuth { return v.Auth }).(ProjectSecondarySourceAuthPtrOutput)
-}
-
 // Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`. `buildStatusConfig` blocks are documented below.
 func (o ProjectSecondarySourceOutput) BuildStatusConfig() ProjectSecondarySourceBuildStatusConfigPtrOutput {
 	return o.ApplyT(func(v ProjectSecondarySource) *ProjectSecondarySourceBuildStatusConfig { return v.BuildStatusConfig }).(ProjectSecondarySourceBuildStatusConfigPtrOutput)
@@ -2381,7 +2369,7 @@ func (o ProjectSecondarySourceOutput) SourceIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v ProjectSecondarySource) string { return v.SourceIdentifier }).(pulumi.StringOutput)
 }
 
-// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+// Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
 func (o ProjectSecondarySourceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ProjectSecondarySource) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2404,178 +2392,6 @@ func (o ProjectSecondarySourceArrayOutput) Index(i pulumi.IntInput) ProjectSecon
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProjectSecondarySource {
 		return vs[0].([]ProjectSecondarySource)[vs[1].(int)]
 	}).(ProjectSecondarySourceOutput)
-}
-
-type ProjectSecondarySourceAuth struct {
-	// Resource value that applies to the specified authorization type. Use the `codebuild.SourceCredential` resource instead.
-	//
-	// Deprecated: Use the aws_codebuild_source_credential resource instead
-	Resource *string `pulumi:"resource"`
-	// Build output artifact's type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
-	//
-	// Deprecated: Use the aws_codebuild_source_credential resource instead
-	Type string `pulumi:"type"`
-}
-
-// ProjectSecondarySourceAuthInput is an input type that accepts ProjectSecondarySourceAuthArgs and ProjectSecondarySourceAuthOutput values.
-// You can construct a concrete instance of `ProjectSecondarySourceAuthInput` via:
-//
-//	ProjectSecondarySourceAuthArgs{...}
-type ProjectSecondarySourceAuthInput interface {
-	pulumi.Input
-
-	ToProjectSecondarySourceAuthOutput() ProjectSecondarySourceAuthOutput
-	ToProjectSecondarySourceAuthOutputWithContext(context.Context) ProjectSecondarySourceAuthOutput
-}
-
-type ProjectSecondarySourceAuthArgs struct {
-	// Resource value that applies to the specified authorization type. Use the `codebuild.SourceCredential` resource instead.
-	//
-	// Deprecated: Use the aws_codebuild_source_credential resource instead
-	Resource pulumi.StringPtrInput `pulumi:"resource"`
-	// Build output artifact's type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
-	//
-	// Deprecated: Use the aws_codebuild_source_credential resource instead
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ProjectSecondarySourceAuthArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProjectSecondarySourceAuth)(nil)).Elem()
-}
-
-func (i ProjectSecondarySourceAuthArgs) ToProjectSecondarySourceAuthOutput() ProjectSecondarySourceAuthOutput {
-	return i.ToProjectSecondarySourceAuthOutputWithContext(context.Background())
-}
-
-func (i ProjectSecondarySourceAuthArgs) ToProjectSecondarySourceAuthOutputWithContext(ctx context.Context) ProjectSecondarySourceAuthOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProjectSecondarySourceAuthOutput)
-}
-
-func (i ProjectSecondarySourceAuthArgs) ToProjectSecondarySourceAuthPtrOutput() ProjectSecondarySourceAuthPtrOutput {
-	return i.ToProjectSecondarySourceAuthPtrOutputWithContext(context.Background())
-}
-
-func (i ProjectSecondarySourceAuthArgs) ToProjectSecondarySourceAuthPtrOutputWithContext(ctx context.Context) ProjectSecondarySourceAuthPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProjectSecondarySourceAuthOutput).ToProjectSecondarySourceAuthPtrOutputWithContext(ctx)
-}
-
-// ProjectSecondarySourceAuthPtrInput is an input type that accepts ProjectSecondarySourceAuthArgs, ProjectSecondarySourceAuthPtr and ProjectSecondarySourceAuthPtrOutput values.
-// You can construct a concrete instance of `ProjectSecondarySourceAuthPtrInput` via:
-//
-//	        ProjectSecondarySourceAuthArgs{...}
-//
-//	or:
-//
-//	        nil
-type ProjectSecondarySourceAuthPtrInput interface {
-	pulumi.Input
-
-	ToProjectSecondarySourceAuthPtrOutput() ProjectSecondarySourceAuthPtrOutput
-	ToProjectSecondarySourceAuthPtrOutputWithContext(context.Context) ProjectSecondarySourceAuthPtrOutput
-}
-
-type projectSecondarySourceAuthPtrType ProjectSecondarySourceAuthArgs
-
-func ProjectSecondarySourceAuthPtr(v *ProjectSecondarySourceAuthArgs) ProjectSecondarySourceAuthPtrInput {
-	return (*projectSecondarySourceAuthPtrType)(v)
-}
-
-func (*projectSecondarySourceAuthPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProjectSecondarySourceAuth)(nil)).Elem()
-}
-
-func (i *projectSecondarySourceAuthPtrType) ToProjectSecondarySourceAuthPtrOutput() ProjectSecondarySourceAuthPtrOutput {
-	return i.ToProjectSecondarySourceAuthPtrOutputWithContext(context.Background())
-}
-
-func (i *projectSecondarySourceAuthPtrType) ToProjectSecondarySourceAuthPtrOutputWithContext(ctx context.Context) ProjectSecondarySourceAuthPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProjectSecondarySourceAuthPtrOutput)
-}
-
-type ProjectSecondarySourceAuthOutput struct{ *pulumi.OutputState }
-
-func (ProjectSecondarySourceAuthOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProjectSecondarySourceAuth)(nil)).Elem()
-}
-
-func (o ProjectSecondarySourceAuthOutput) ToProjectSecondarySourceAuthOutput() ProjectSecondarySourceAuthOutput {
-	return o
-}
-
-func (o ProjectSecondarySourceAuthOutput) ToProjectSecondarySourceAuthOutputWithContext(ctx context.Context) ProjectSecondarySourceAuthOutput {
-	return o
-}
-
-func (o ProjectSecondarySourceAuthOutput) ToProjectSecondarySourceAuthPtrOutput() ProjectSecondarySourceAuthPtrOutput {
-	return o.ToProjectSecondarySourceAuthPtrOutputWithContext(context.Background())
-}
-
-func (o ProjectSecondarySourceAuthOutput) ToProjectSecondarySourceAuthPtrOutputWithContext(ctx context.Context) ProjectSecondarySourceAuthPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectSecondarySourceAuth) *ProjectSecondarySourceAuth {
-		return &v
-	}).(ProjectSecondarySourceAuthPtrOutput)
-}
-
-// Resource value that applies to the specified authorization type. Use the `codebuild.SourceCredential` resource instead.
-//
-// Deprecated: Use the aws_codebuild_source_credential resource instead
-func (o ProjectSecondarySourceAuthOutput) Resource() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProjectSecondarySourceAuth) *string { return v.Resource }).(pulumi.StringPtrOutput)
-}
-
-// Build output artifact's type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
-//
-// Deprecated: Use the aws_codebuild_source_credential resource instead
-func (o ProjectSecondarySourceAuthOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ProjectSecondarySourceAuth) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type ProjectSecondarySourceAuthPtrOutput struct{ *pulumi.OutputState }
-
-func (ProjectSecondarySourceAuthPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProjectSecondarySourceAuth)(nil)).Elem()
-}
-
-func (o ProjectSecondarySourceAuthPtrOutput) ToProjectSecondarySourceAuthPtrOutput() ProjectSecondarySourceAuthPtrOutput {
-	return o
-}
-
-func (o ProjectSecondarySourceAuthPtrOutput) ToProjectSecondarySourceAuthPtrOutputWithContext(ctx context.Context) ProjectSecondarySourceAuthPtrOutput {
-	return o
-}
-
-func (o ProjectSecondarySourceAuthPtrOutput) Elem() ProjectSecondarySourceAuthOutput {
-	return o.ApplyT(func(v *ProjectSecondarySourceAuth) ProjectSecondarySourceAuth {
-		if v != nil {
-			return *v
-		}
-		var ret ProjectSecondarySourceAuth
-		return ret
-	}).(ProjectSecondarySourceAuthOutput)
-}
-
-// Resource value that applies to the specified authorization type. Use the `codebuild.SourceCredential` resource instead.
-//
-// Deprecated: Use the aws_codebuild_source_credential resource instead
-func (o ProjectSecondarySourceAuthPtrOutput) Resource() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProjectSecondarySourceAuth) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Resource
-	}).(pulumi.StringPtrOutput)
-}
-
-// Build output artifact's type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
-//
-// Deprecated: Use the aws_codebuild_source_credential resource instead
-func (o ProjectSecondarySourceAuthPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProjectSecondarySourceAuth) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
 }
 
 type ProjectSecondarySourceBuildStatusConfig struct {
@@ -2978,10 +2794,6 @@ func (o ProjectSecondarySourceVersionArrayOutput) Index(i pulumi.IntInput) Proje
 }
 
 type ProjectSource struct {
-	// Configuration block with the authorization settings for AWS CodeBuild to access the source code to be built. This information is for the AWS CodeBuild console's use only. Use the `codebuild.SourceCredential` resource instead. Auth blocks are documented below.
-	//
-	// Deprecated: Use the aws_codebuild_source_credential resource instead
-	Auth *ProjectSourceAuth `pulumi:"auth"`
 	// Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`. `buildStatusConfig` blocks are documented below.
 	BuildStatusConfig *ProjectSourceBuildStatusConfig `pulumi:"buildStatusConfig"`
 	// Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
@@ -2996,7 +2808,7 @@ type ProjectSource struct {
 	Location *string `pulumi:"location"`
 	// Whether to report the status of a build's start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
 	ReportBuildStatus *bool `pulumi:"reportBuildStatus"`
-	// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+	// Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
 	Type string `pulumi:"type"`
 }
 
@@ -3012,10 +2824,6 @@ type ProjectSourceInput interface {
 }
 
 type ProjectSourceArgs struct {
-	// Configuration block with the authorization settings for AWS CodeBuild to access the source code to be built. This information is for the AWS CodeBuild console's use only. Use the `codebuild.SourceCredential` resource instead. Auth blocks are documented below.
-	//
-	// Deprecated: Use the aws_codebuild_source_credential resource instead
-	Auth ProjectSourceAuthPtrInput `pulumi:"auth"`
 	// Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`. `buildStatusConfig` blocks are documented below.
 	BuildStatusConfig ProjectSourceBuildStatusConfigPtrInput `pulumi:"buildStatusConfig"`
 	// Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
@@ -3030,7 +2838,7 @@ type ProjectSourceArgs struct {
 	Location pulumi.StringPtrInput `pulumi:"location"`
 	// Whether to report the status of a build's start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
 	ReportBuildStatus pulumi.BoolPtrInput `pulumi:"reportBuildStatus"`
-	// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+	// Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -3111,13 +2919,6 @@ func (o ProjectSourceOutput) ToProjectSourcePtrOutputWithContext(ctx context.Con
 	}).(ProjectSourcePtrOutput)
 }
 
-// Configuration block with the authorization settings for AWS CodeBuild to access the source code to be built. This information is for the AWS CodeBuild console's use only. Use the `codebuild.SourceCredential` resource instead. Auth blocks are documented below.
-//
-// Deprecated: Use the aws_codebuild_source_credential resource instead
-func (o ProjectSourceOutput) Auth() ProjectSourceAuthPtrOutput {
-	return o.ApplyT(func(v ProjectSource) *ProjectSourceAuth { return v.Auth }).(ProjectSourceAuthPtrOutput)
-}
-
 // Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`. `buildStatusConfig` blocks are documented below.
 func (o ProjectSourceOutput) BuildStatusConfig() ProjectSourceBuildStatusConfigPtrOutput {
 	return o.ApplyT(func(v ProjectSource) *ProjectSourceBuildStatusConfig { return v.BuildStatusConfig }).(ProjectSourceBuildStatusConfigPtrOutput)
@@ -3153,7 +2954,7 @@ func (o ProjectSourceOutput) ReportBuildStatus() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ProjectSource) *bool { return v.ReportBuildStatus }).(pulumi.BoolPtrOutput)
 }
 
-// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+// Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
 func (o ProjectSourceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ProjectSource) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -3180,18 +2981,6 @@ func (o ProjectSourcePtrOutput) Elem() ProjectSourceOutput {
 		var ret ProjectSource
 		return ret
 	}).(ProjectSourceOutput)
-}
-
-// Configuration block with the authorization settings for AWS CodeBuild to access the source code to be built. This information is for the AWS CodeBuild console's use only. Use the `codebuild.SourceCredential` resource instead. Auth blocks are documented below.
-//
-// Deprecated: Use the aws_codebuild_source_credential resource instead
-func (o ProjectSourcePtrOutput) Auth() ProjectSourceAuthPtrOutput {
-	return o.ApplyT(func(v *ProjectSource) *ProjectSourceAuth {
-		if v == nil {
-			return nil
-		}
-		return v.Auth
-	}).(ProjectSourceAuthPtrOutput)
 }
 
 // Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`. `buildStatusConfig` blocks are documented below.
@@ -3264,181 +3053,9 @@ func (o ProjectSourcePtrOutput) ReportBuildStatus() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+// Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
 func (o ProjectSourcePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectSource) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
-type ProjectSourceAuth struct {
-	// Resource value that applies to the specified authorization type. Use the `codebuild.SourceCredential` resource instead.
-	//
-	// Deprecated: Use the aws_codebuild_source_credential resource instead
-	Resource *string `pulumi:"resource"`
-	// Build output artifact's type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
-	//
-	// Deprecated: Use the aws_codebuild_source_credential resource instead
-	Type string `pulumi:"type"`
-}
-
-// ProjectSourceAuthInput is an input type that accepts ProjectSourceAuthArgs and ProjectSourceAuthOutput values.
-// You can construct a concrete instance of `ProjectSourceAuthInput` via:
-//
-//	ProjectSourceAuthArgs{...}
-type ProjectSourceAuthInput interface {
-	pulumi.Input
-
-	ToProjectSourceAuthOutput() ProjectSourceAuthOutput
-	ToProjectSourceAuthOutputWithContext(context.Context) ProjectSourceAuthOutput
-}
-
-type ProjectSourceAuthArgs struct {
-	// Resource value that applies to the specified authorization type. Use the `codebuild.SourceCredential` resource instead.
-	//
-	// Deprecated: Use the aws_codebuild_source_credential resource instead
-	Resource pulumi.StringPtrInput `pulumi:"resource"`
-	// Build output artifact's type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
-	//
-	// Deprecated: Use the aws_codebuild_source_credential resource instead
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ProjectSourceAuthArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProjectSourceAuth)(nil)).Elem()
-}
-
-func (i ProjectSourceAuthArgs) ToProjectSourceAuthOutput() ProjectSourceAuthOutput {
-	return i.ToProjectSourceAuthOutputWithContext(context.Background())
-}
-
-func (i ProjectSourceAuthArgs) ToProjectSourceAuthOutputWithContext(ctx context.Context) ProjectSourceAuthOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProjectSourceAuthOutput)
-}
-
-func (i ProjectSourceAuthArgs) ToProjectSourceAuthPtrOutput() ProjectSourceAuthPtrOutput {
-	return i.ToProjectSourceAuthPtrOutputWithContext(context.Background())
-}
-
-func (i ProjectSourceAuthArgs) ToProjectSourceAuthPtrOutputWithContext(ctx context.Context) ProjectSourceAuthPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProjectSourceAuthOutput).ToProjectSourceAuthPtrOutputWithContext(ctx)
-}
-
-// ProjectSourceAuthPtrInput is an input type that accepts ProjectSourceAuthArgs, ProjectSourceAuthPtr and ProjectSourceAuthPtrOutput values.
-// You can construct a concrete instance of `ProjectSourceAuthPtrInput` via:
-//
-//	        ProjectSourceAuthArgs{...}
-//
-//	or:
-//
-//	        nil
-type ProjectSourceAuthPtrInput interface {
-	pulumi.Input
-
-	ToProjectSourceAuthPtrOutput() ProjectSourceAuthPtrOutput
-	ToProjectSourceAuthPtrOutputWithContext(context.Context) ProjectSourceAuthPtrOutput
-}
-
-type projectSourceAuthPtrType ProjectSourceAuthArgs
-
-func ProjectSourceAuthPtr(v *ProjectSourceAuthArgs) ProjectSourceAuthPtrInput {
-	return (*projectSourceAuthPtrType)(v)
-}
-
-func (*projectSourceAuthPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProjectSourceAuth)(nil)).Elem()
-}
-
-func (i *projectSourceAuthPtrType) ToProjectSourceAuthPtrOutput() ProjectSourceAuthPtrOutput {
-	return i.ToProjectSourceAuthPtrOutputWithContext(context.Background())
-}
-
-func (i *projectSourceAuthPtrType) ToProjectSourceAuthPtrOutputWithContext(ctx context.Context) ProjectSourceAuthPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProjectSourceAuthPtrOutput)
-}
-
-type ProjectSourceAuthOutput struct{ *pulumi.OutputState }
-
-func (ProjectSourceAuthOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProjectSourceAuth)(nil)).Elem()
-}
-
-func (o ProjectSourceAuthOutput) ToProjectSourceAuthOutput() ProjectSourceAuthOutput {
-	return o
-}
-
-func (o ProjectSourceAuthOutput) ToProjectSourceAuthOutputWithContext(ctx context.Context) ProjectSourceAuthOutput {
-	return o
-}
-
-func (o ProjectSourceAuthOutput) ToProjectSourceAuthPtrOutput() ProjectSourceAuthPtrOutput {
-	return o.ToProjectSourceAuthPtrOutputWithContext(context.Background())
-}
-
-func (o ProjectSourceAuthOutput) ToProjectSourceAuthPtrOutputWithContext(ctx context.Context) ProjectSourceAuthPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectSourceAuth) *ProjectSourceAuth {
-		return &v
-	}).(ProjectSourceAuthPtrOutput)
-}
-
-// Resource value that applies to the specified authorization type. Use the `codebuild.SourceCredential` resource instead.
-//
-// Deprecated: Use the aws_codebuild_source_credential resource instead
-func (o ProjectSourceAuthOutput) Resource() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProjectSourceAuth) *string { return v.Resource }).(pulumi.StringPtrOutput)
-}
-
-// Build output artifact's type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
-//
-// Deprecated: Use the aws_codebuild_source_credential resource instead
-func (o ProjectSourceAuthOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ProjectSourceAuth) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type ProjectSourceAuthPtrOutput struct{ *pulumi.OutputState }
-
-func (ProjectSourceAuthPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProjectSourceAuth)(nil)).Elem()
-}
-
-func (o ProjectSourceAuthPtrOutput) ToProjectSourceAuthPtrOutput() ProjectSourceAuthPtrOutput {
-	return o
-}
-
-func (o ProjectSourceAuthPtrOutput) ToProjectSourceAuthPtrOutputWithContext(ctx context.Context) ProjectSourceAuthPtrOutput {
-	return o
-}
-
-func (o ProjectSourceAuthPtrOutput) Elem() ProjectSourceAuthOutput {
-	return o.ApplyT(func(v *ProjectSourceAuth) ProjectSourceAuth {
-		if v != nil {
-			return *v
-		}
-		var ret ProjectSourceAuth
-		return ret
-	}).(ProjectSourceAuthOutput)
-}
-
-// Resource value that applies to the specified authorization type. Use the `codebuild.SourceCredential` resource instead.
-//
-// Deprecated: Use the aws_codebuild_source_credential resource instead
-func (o ProjectSourceAuthPtrOutput) Resource() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProjectSourceAuth) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Resource
-	}).(pulumi.StringPtrOutput)
-}
-
-// Build output artifact's type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
-//
-// Deprecated: Use the aws_codebuild_source_credential resource instead
-func (o ProjectSourceAuthPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProjectSourceAuth) *string {
 		if v == nil {
 			return nil
 		}
@@ -4526,8 +4143,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSecondaryArtifactArrayInput)(nil)).Elem(), ProjectSecondaryArtifactArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSecondarySourceInput)(nil)).Elem(), ProjectSecondarySourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSecondarySourceArrayInput)(nil)).Elem(), ProjectSecondarySourceArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSecondarySourceAuthInput)(nil)).Elem(), ProjectSecondarySourceAuthArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSecondarySourceAuthPtrInput)(nil)).Elem(), ProjectSecondarySourceAuthArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSecondarySourceBuildStatusConfigInput)(nil)).Elem(), ProjectSecondarySourceBuildStatusConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSecondarySourceBuildStatusConfigPtrInput)(nil)).Elem(), ProjectSecondarySourceBuildStatusConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSecondarySourceGitSubmodulesConfigInput)(nil)).Elem(), ProjectSecondarySourceGitSubmodulesConfigArgs{})
@@ -4536,8 +4151,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSecondarySourceVersionArrayInput)(nil)).Elem(), ProjectSecondarySourceVersionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSourceInput)(nil)).Elem(), ProjectSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSourcePtrInput)(nil)).Elem(), ProjectSourceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSourceAuthInput)(nil)).Elem(), ProjectSourceAuthArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSourceAuthPtrInput)(nil)).Elem(), ProjectSourceAuthArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSourceBuildStatusConfigInput)(nil)).Elem(), ProjectSourceBuildStatusConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSourceBuildStatusConfigPtrInput)(nil)).Elem(), ProjectSourceBuildStatusConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectSourceGitSubmodulesConfigInput)(nil)).Elem(), ProjectSourceGitSubmodulesConfigArgs{})
@@ -4578,8 +4191,6 @@ func init() {
 	pulumi.RegisterOutputType(ProjectSecondaryArtifactArrayOutput{})
 	pulumi.RegisterOutputType(ProjectSecondarySourceOutput{})
 	pulumi.RegisterOutputType(ProjectSecondarySourceArrayOutput{})
-	pulumi.RegisterOutputType(ProjectSecondarySourceAuthOutput{})
-	pulumi.RegisterOutputType(ProjectSecondarySourceAuthPtrOutput{})
 	pulumi.RegisterOutputType(ProjectSecondarySourceBuildStatusConfigOutput{})
 	pulumi.RegisterOutputType(ProjectSecondarySourceBuildStatusConfigPtrOutput{})
 	pulumi.RegisterOutputType(ProjectSecondarySourceGitSubmodulesConfigOutput{})
@@ -4588,8 +4199,6 @@ func init() {
 	pulumi.RegisterOutputType(ProjectSecondarySourceVersionArrayOutput{})
 	pulumi.RegisterOutputType(ProjectSourceOutput{})
 	pulumi.RegisterOutputType(ProjectSourcePtrOutput{})
-	pulumi.RegisterOutputType(ProjectSourceAuthOutput{})
-	pulumi.RegisterOutputType(ProjectSourceAuthPtrOutput{})
 	pulumi.RegisterOutputType(ProjectSourceBuildStatusConfigOutput{})
 	pulumi.RegisterOutputType(ProjectSourceBuildStatusConfigPtrOutput{})
 	pulumi.RegisterOutputType(ProjectSourceGitSubmodulesConfigOutput{})

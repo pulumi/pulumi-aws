@@ -16,9 +16,7 @@ namespace Pulumi.Aws.AppMesh
     /// 
     /// Because of backward incompatible API changes (read [here](https://github.com/awslabs/aws-app-mesh-examples/issues/92) and [here](https://github.com/awslabs/aws-app-mesh-examples/issues/94)), `aws.appmesh.VirtualRouter` resource definitions created with provider versions earlier than v2.3.0 will need to be modified:
     /// 
-    /// * Remove service `service_names` from the `spec` argument.
-    /// AWS has created a `aws.appmesh.VirtualService` resource for each of service names.
-    /// These resource can be imported using `import`.
+    /// * Remove service `service_names` from the `spec` argument. AWS has created a `aws.appmesh.VirtualService` resource for each service name. Import these resource using `pulumi import`.
     /// 
     /// * Add a `listener` configuration block to the `spec` argument.
     /// 
@@ -39,12 +37,15 @@ namespace Pulumi.Aws.AppMesh
     ///         MeshName = aws_appmesh_mesh.Simple.Id,
     ///         Spec = new Aws.AppMesh.Inputs.VirtualRouterSpecArgs
     ///         {
-    ///             Listener = new Aws.AppMesh.Inputs.VirtualRouterSpecListenerArgs
+    ///             Listeners = new[]
     ///             {
-    ///                 PortMapping = new Aws.AppMesh.Inputs.VirtualRouterSpecListenerPortMappingArgs
+    ///                 new Aws.AppMesh.Inputs.VirtualRouterSpecListenerArgs
     ///                 {
-    ///                     Port = 8080,
-    ///                     Protocol = "http",
+    ///                     PortMapping = new Aws.AppMesh.Inputs.VirtualRouterSpecListenerPortMappingArgs
+    ///                     {
+    ///                         Port = 8080,
+    ///                         Protocol = "http",
+    ///                     },
     ///                 },
     ///             },
     ///         },
@@ -55,11 +56,11 @@ namespace Pulumi.Aws.AppMesh
     /// 
     /// ## Import
     /// 
-    /// App Mesh virtual routers can be imported using `mesh_name` together with the virtual router's `name`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:appmesh/virtualRouter:VirtualRouter serviceb simpleapp/serviceB
-    /// ```
+    ///  to = aws_appmesh_virtual_router.serviceb
+    /// 
+    ///  id = "simpleapp/serviceB" } Using `pulumi import`, import App Mesh virtual routers using `mesh_name` together with the virtual router's `name`. For exampleconsole % pulumi import aws_appmesh_virtual_router.serviceb simpleapp/serviceB
     /// </summary>
     [AwsResourceType("aws:appmesh/virtualRouter:VirtualRouter")]
     public partial class VirtualRouter : global::Pulumi.CustomResource

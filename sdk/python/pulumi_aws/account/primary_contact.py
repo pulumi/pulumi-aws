@@ -478,6 +478,14 @@ class PrimaryContact(pulumi.CustomResource):
             website_url="https://www.examplecorp.com")
         ```
 
+        ## Import
+
+        terraform import {
+
+         to = aws_account_primary_contact.test
+
+         id = "1234567890" } Using `pulumi import`, import the Primary Contact using the `account_id`. For exampleconsole % pulumi import aws_account_primary_contact.test 1234567890
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
@@ -521,6 +529,14 @@ class PrimaryContact(pulumi.CustomResource):
             state_or_region="WA",
             website_url="https://www.examplecorp.com")
         ```
+
+        ## Import
+
+        terraform import {
+
+         to = aws_account_primary_contact.test
+
+         id = "1234567890" } Using `pulumi import`, import the Primary Contact using the `account_id`. For exampleconsole % pulumi import aws_account_primary_contact.test 1234567890
 
         :param str resource_name: The name of the resource.
         :param PrimaryContactArgs args: The arguments to use to populate this resource's properties.

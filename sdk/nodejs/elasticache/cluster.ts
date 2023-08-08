@@ -99,11 +99,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * ElastiCache Clusters can be imported using the `cluster_id`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:elasticache/cluster:Cluster my_cluster my_cluster
- * ```
+ *  to = aws_elasticache_cluster.my_cluster
+ *
+ *  id = "my_cluster" } Using `pulumi import`, import ElastiCache Clusters using the `cluster_id`. For exampleconsole % pulumi import aws_elasticache_cluster.my_cluster my_cluster
  */
 export class Cluster extends pulumi.CustomResource {
     /**
@@ -179,10 +179,11 @@ export class Cluster extends pulumi.CustomResource {
      * Version number of the cache engine to be used.
      * If not set, defaults to the latest version.
      * See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
-     * When `engine` is `redis` and the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+     * When `engine` is `redis` and the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+     * When the version is 6, the major and minor version can be set, e.g., `6.2`,
      * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
      * Otherwise, specify the full version desired, e.g., `5.0.6`.
-     * The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
+     * The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
      */
     public readonly engineVersion!: pulumi.Output<string>;
     /**
@@ -254,12 +255,6 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly securityGroupIds!: pulumi.Output<string[]>;
     /**
-     * List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
-     *
-     * @deprecated With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
-     */
-    public readonly securityGroupNames!: pulumi.Output<string[]>;
-    /**
      * Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshotArns` forces a new resource.
      */
     public readonly snapshotArns!: pulumi.Output<string | undefined>;
@@ -328,7 +323,6 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["preferredOutpostArn"] = state ? state.preferredOutpostArn : undefined;
             resourceInputs["replicationGroupId"] = state ? state.replicationGroupId : undefined;
             resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
-            resourceInputs["securityGroupNames"] = state ? state.securityGroupNames : undefined;
             resourceInputs["snapshotArns"] = state ? state.snapshotArns : undefined;
             resourceInputs["snapshotName"] = state ? state.snapshotName : undefined;
             resourceInputs["snapshotRetentionLimit"] = state ? state.snapshotRetentionLimit : undefined;
@@ -360,7 +354,6 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["preferredOutpostArn"] = args ? args.preferredOutpostArn : undefined;
             resourceInputs["replicationGroupId"] = args ? args.replicationGroupId : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
-            resourceInputs["securityGroupNames"] = args ? args.securityGroupNames : undefined;
             resourceInputs["snapshotArns"] = args ? args.snapshotArns : undefined;
             resourceInputs["snapshotName"] = args ? args.snapshotName : undefined;
             resourceInputs["snapshotRetentionLimit"] = args ? args.snapshotRetentionLimit : undefined;
@@ -429,10 +422,11 @@ export interface ClusterState {
      * Version number of the cache engine to be used.
      * If not set, defaults to the latest version.
      * See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
-     * When `engine` is `redis` and the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+     * When `engine` is `redis` and the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+     * When the version is 6, the major and minor version can be set, e.g., `6.2`,
      * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
      * Otherwise, specify the full version desired, e.g., `5.0.6`.
-     * The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
+     * The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
      */
     engineVersion?: pulumi.Input<string>;
     /**
@@ -504,12 +498,6 @@ export interface ClusterState {
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
-     *
-     * @deprecated With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
-     */
-    securityGroupNames?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
      * Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshotArns` forces a new resource.
      */
     snapshotArns?: pulumi.Input<string>;
@@ -573,10 +561,11 @@ export interface ClusterArgs {
      * Version number of the cache engine to be used.
      * If not set, defaults to the latest version.
      * See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
-     * When `engine` is `redis` and the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+     * When `engine` is `redis` and the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+     * When the version is 6, the major and minor version can be set, e.g., `6.2`,
      * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
      * Otherwise, specify the full version desired, e.g., `5.0.6`.
-     * The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
+     * The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
      */
     engineVersion?: pulumi.Input<string>;
     /**
@@ -643,12 +632,6 @@ export interface ClusterArgs {
      * One or more VPC security groups associated with the cache cluster
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
-     *
-     * @deprecated With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
-     */
-    securityGroupNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshotArns` forces a new resource.
      */

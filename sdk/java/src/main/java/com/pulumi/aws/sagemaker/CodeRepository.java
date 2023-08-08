@@ -108,11 +108,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * SageMaker Code Repositories can be imported using the `name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:sagemaker/codeRepository:CodeRepository test_code_repository my-code-repo
- * ```
+ *  to = aws_sagemaker_code_repository.test_code_repository
+ * 
+ *  id = &#34;my-code-repo&#34; } Using `pulumi import`, import SageMaker Code Repositories using the `name`. For exampleconsole % pulumi import aws_sagemaker_code_repository.test_code_repository my-code-repo
  * 
  */
 @ResourceType(type="aws:sagemaker/codeRepository:CodeRepository")

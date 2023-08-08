@@ -25,6 +25,11 @@ export type Multiplex = import("./multiplex").Multiplex;
 export const Multiplex: typeof import("./multiplex").Multiplex = null as any;
 utilities.lazyLoad(exports, ["Multiplex"], () => require("./multiplex"));
 
+export { MultiplexProgramArgs, MultiplexProgramState } from "./multiplexProgram";
+export type MultiplexProgram = import("./multiplexProgram").MultiplexProgram;
+export const MultiplexProgram: typeof import("./multiplexProgram").MultiplexProgram = null as any;
+utilities.lazyLoad(exports, ["MultiplexProgram"], () => require("./multiplexProgram"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -38,6 +43,8 @@ const _module = {
                 return new InputSecurityGroup(name, <any>undefined, { urn })
             case "aws:medialive/multiplex:Multiplex":
                 return new Multiplex(name, <any>undefined, { urn })
+            case "aws:medialive/multiplexProgram:MultiplexProgram":
+                return new MultiplexProgram(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -47,3 +54,4 @@ pulumi.runtime.registerResourceModule("aws", "medialive/channel", _module)
 pulumi.runtime.registerResourceModule("aws", "medialive/input", _module)
 pulumi.runtime.registerResourceModule("aws", "medialive/inputSecurityGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "medialive/multiplex", _module)
+pulumi.runtime.registerResourceModule("aws", "medialive/multiplexProgram", _module)

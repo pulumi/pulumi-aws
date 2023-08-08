@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +24,7 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/oam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/oam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -80,13 +81,11 @@ import (
 //
 // ## Import
 //
-// CloudWatch Observability Access Manager Sink Policy can be imported using the `sink_identifier`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_oam_sink_policy.example
 //
-//	$ pulumi import aws:oam/sinkPolicy:SinkPolicy example arn:aws:oam:us-west-2:123456789012:sink/sink-id
-//
-// ```
+//	id = "arn:aws:oam:us-west-2:123456789012:sink/sink-id" } Using `pulumi import`, import CloudWatch Observability Access Manager Sink Policy using the `sink_identifier`. For exampleconsole % pulumi import aws_oam_sink_policy.example arn:aws:oam:us-west-2:123456789012:sink/sink-id
 type SinkPolicy struct {
 	pulumi.CustomResourceState
 
@@ -113,6 +112,7 @@ func NewSinkPolicy(ctx *pulumi.Context,
 	if args.SinkIdentifier == nil {
 		return nil, errors.New("invalid value for required argument 'SinkIdentifier'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SinkPolicy
 	err := ctx.RegisterResource("aws:oam/sinkPolicy:SinkPolicy", name, args, &resource, opts...)
 	if err != nil {

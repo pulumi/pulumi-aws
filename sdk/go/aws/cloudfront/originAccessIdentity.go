@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -26,7 +27,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudfront"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -57,7 +58,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudfront"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -93,11 +94,13 @@ import (
 // package main
 //
 // import (
-// "fmt"
 //
-// "github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
@@ -138,13 +141,11 @@ import (
 //
 // ## Import
 //
-// Cloudfront Origin Access Identities can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_cloudfront_origin_access_identity.origin_access
 //
-//	$ pulumi import aws:cloudfront/originAccessIdentity:OriginAccessIdentity origin_access E74FTE3AEXAMPLE
-//
-// ```
+//	id = "E74FTE3AEXAMPLE" } Using `pulumi import`, import Cloudfront Origin Access Identities using the `id`. For exampleconsole % pulumi import aws_cloudfront_origin_access_identity.origin_access E74FTE3AEXAMPLE
 //
 // [2]: http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html
 //
@@ -180,6 +181,7 @@ func NewOriginAccessIdentity(ctx *pulumi.Context,
 		args = &OriginAccessIdentityArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OriginAccessIdentity
 	err := ctx.RegisterResource("aws:cloudfront/originAccessIdentity:OriginAccessIdentity", name, args, &resource, opts...)
 	if err != nil {

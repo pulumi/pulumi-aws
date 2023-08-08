@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 //	"os"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudfront"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,13 +53,11 @@ import (
 //
 // ## Import
 //
-// CloudFront Public Key can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_cloudfront_public_key.example
 //
-//	$ pulumi import aws:cloudfront/publicKey:PublicKey example K3D5EWEUDCCXON
-//
-// ```
+//	id = "K3D5EWEUDCCXON" } Using `pulumi import`, import CloudFront Public Key using the `id`. For exampleconsole % pulumi import aws_cloudfront_public_key.example K3D5EWEUDCCXON
 type PublicKey struct {
 	pulumi.CustomResourceState
 
@@ -88,6 +87,7 @@ func NewPublicKey(ctx *pulumi.Context,
 	if args.EncodedKey == nil {
 		return nil, errors.New("invalid value for required argument 'EncodedKey'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PublicKey
 	err := ctx.RegisterResource("aws:cloudfront/publicKey:PublicKey", name, args, &resource, opts...)
 	if err != nil {

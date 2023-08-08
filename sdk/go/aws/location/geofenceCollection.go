@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/location"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/location"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -41,13 +42,11 @@ import (
 //
 // ## Import
 //
-// Location Geofence Collection can be imported using the `collection_name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_location_geofence_collection.example
 //
-//	$ pulumi import aws:location/geofenceCollection:GeofenceCollection example example
-//
-// ```
+//	id = "example" } Using `pulumi import`, import Location Geofence Collection using the `collection_name`. For exampleconsole % pulumi import aws_location_geofence_collection.example example
 type GeofenceCollection struct {
 	pulumi.CustomResourceState
 
@@ -80,6 +79,7 @@ func NewGeofenceCollection(ctx *pulumi.Context,
 	if args.CollectionName == nil {
 		return nil, errors.New("invalid value for required argument 'CollectionName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource GeofenceCollection
 	err := ctx.RegisterResource("aws:location/geofenceCollection:GeofenceCollection", name, args, &resource, opts...)
 	if err != nil {

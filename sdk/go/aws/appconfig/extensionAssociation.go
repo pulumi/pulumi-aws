@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,9 +21,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appconfig"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appconfig"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -99,13 +100,11 @@ import (
 //
 // ## Import
 //
-// AppConfig Extension Associations can be imported using their extension association ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_appconfig_extension_association.example
 //
-//	$ pulumi import aws:appconfig/extensionAssociation:ExtensionAssociation example 71rxuzt
-//
-// ```
+//	id = "71rxuzt" } Using `pulumi import`, import AppConfig Extension Associations using their extension association ID. For exampleconsole % pulumi import aws_appconfig_extension_association.example 71rxuzt
 type ExtensionAssociation struct {
 	pulumi.CustomResourceState
 
@@ -134,6 +133,7 @@ func NewExtensionAssociation(ctx *pulumi.Context,
 	if args.ResourceArn == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ExtensionAssociation
 	err := ctx.RegisterResource("aws:appconfig/extensionAssociation:ExtensionAssociation", name, args, &resource, opts...)
 	if err != nil {

@@ -343,11 +343,11 @@ class DefaultSecurityGroup(pulumi.CustomResource):
 
         ## Import
 
-        Security Groups can be imported using the `security group id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ec2/defaultSecurityGroup:DefaultSecurityGroup default_sg sg-903004f8
-        ```
+         to = aws_default_security_group.default_sg
+
+         id = "sg-903004f8" } Using `pulumi import`, import Security Groups using the security group `id`. For exampleconsole % pulumi import aws_default_security_group.default_sg sg-903004f8
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -421,11 +421,11 @@ class DefaultSecurityGroup(pulumi.CustomResource):
 
         ## Import
 
-        Security Groups can be imported using the `security group id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ec2/defaultSecurityGroup:DefaultSecurityGroup default_sg sg-903004f8
-        ```
+         to = aws_default_security_group.default_sg
+
+         id = "sg-903004f8" } Using `pulumi import`, import Security Groups using the security group `id`. For exampleconsole % pulumi import aws_default_security_group.default_sg sg-903004f8
 
         :param str resource_name: The name of the resource.
         :param DefaultSecurityGroupArgs args: The arguments to use to populate this resource's properties.

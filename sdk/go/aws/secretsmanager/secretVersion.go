@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/secretsmanager"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/secretsmanager"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -45,13 +46,11 @@ import (
 //
 // ## Import
 //
-// `aws_secretsmanager_secret_version` can be imported by using the secret ID and version ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_secretsmanager_secret_version.example
 //
-//	$ pulumi import aws:secretsmanager/secretVersion:SecretVersion example 'arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456|xxxxx-xxxxxxx-xxxxxxx-xxxxx'
-//
-// ```
+//	id = "arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456|xxxxx-xxxxxxx-xxxxxxx-xxxxx" } Using `pulumi import`, import `aws_secretsmanager_secret_version` using the secret ID and version ID. For exampleconsole % pulumi import aws_secretsmanager_secret_version.example 'arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456|xxxxx-xxxxxxx-xxxxxxx-xxxxx'
 type SecretVersion struct {
 	pulumi.CustomResourceState
 
@@ -92,6 +91,7 @@ func NewSecretVersion(ctx *pulumi.Context,
 		"secretString",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SecretVersion
 	err := ctx.RegisterResource("aws:secretsmanager/secretVersion:SecretVersion", name, args, &resource, opts...)
 	if err != nil {

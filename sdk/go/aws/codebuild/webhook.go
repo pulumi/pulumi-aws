@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,7 +28,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codebuild"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codebuild"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -71,8 +72,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codebuild"
-//	"github.com/pulumi/pulumi-github/sdk/v4/go/github"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codebuild"
+//	"github.com/pulumi/pulumi-github/sdk/v5/go/github"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -109,13 +110,11 @@ import (
 //
 // ## Import
 //
-// CodeBuild Webhooks can be imported using the CodeBuild Project name, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_codebuild_webhook.example
 //
-//	$ pulumi import aws:codebuild/webhook:Webhook example MyProjectName
-//
-// ```
+//	id = "MyProjectName" } Using `pulumi import`, import CodeBuild Webhooks using the CodeBuild Project name. For exampleconsole % pulumi import aws_codebuild_webhook.example MyProjectName
 type Webhook struct {
 	pulumi.CustomResourceState
 
@@ -149,6 +148,7 @@ func NewWebhook(ctx *pulumi.Context,
 		"secret",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Webhook
 	err := ctx.RegisterResource("aws:codebuild/webhook:Webhook", name, args, &resource, opts...)
 	if err != nil {

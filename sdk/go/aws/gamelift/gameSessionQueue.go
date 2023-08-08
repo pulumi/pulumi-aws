@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/gamelift"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/gamelift"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,13 +55,11 @@ import (
 //
 // ## Import
 //
-// GameLift Game Session Queues can be imported by their `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_gamelift_game_session_queue.example
 //
-//	$ pulumi import aws:gamelift/gameSessionQueue:GameSessionQueue example example
-//
-// ```
+//	id = "example" } Using `pulumi import`, import GameLift Game Session Queues using their `name`. For exampleconsole % pulumi import aws_gamelift_game_session_queue.example example
 type GameSessionQueue struct {
 	pulumi.CustomResourceState
 
@@ -91,6 +90,7 @@ func NewGameSessionQueue(ctx *pulumi.Context,
 		args = &GameSessionQueueArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource GameSessionQueue
 	err := ctx.RegisterResource("aws:gamelift/gameSessionQueue:GameSessionQueue", name, args, &resource, opts...)
 	if err != nil {

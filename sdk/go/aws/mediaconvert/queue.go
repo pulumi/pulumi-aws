@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/mediaconvert"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/mediaconvert"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -38,13 +39,11 @@ import (
 //
 // ## Import
 //
-// Media Convert Queue can be imported via the queue name, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_media_convert_queue.test
 //
-//	$ pulumi import aws:mediaconvert/queue:Queue test tf-test-queue
-//
-// ```
+//	id = "tf-test-queue" } Using `pulumi import`, import Media Convert Queue using the queue name. For exampleconsole % pulumi import aws_media_convert_queue.test tf-test-queue
 type Queue struct {
 	pulumi.CustomResourceState
 
@@ -73,6 +72,7 @@ func NewQueue(ctx *pulumi.Context,
 		args = &QueueArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Queue
 	err := ctx.RegisterResource("aws:mediaconvert/queue:Queue", name, args, &resource, opts...)
 	if err != nil {

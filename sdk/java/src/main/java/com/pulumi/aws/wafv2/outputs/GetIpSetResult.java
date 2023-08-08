@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetIpSetResult {
     /**
-     * @return An array of strings that specify one or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation.
+     * @return An array of strings that specifies zero or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation.
      * 
      */
     private List<String> addresses;
@@ -40,7 +40,7 @@ public final class GetIpSetResult {
 
     private GetIpSetResult() {}
     /**
-     * @return An array of strings that specify one or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation.
+     * @return An array of strings that specifies zero or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation.
      * 
      */
     public List<String> addresses() {

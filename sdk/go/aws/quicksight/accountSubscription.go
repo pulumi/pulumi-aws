@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/quicksight"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -44,7 +45,7 @@ import (
 //
 // ## Import
 //
-// Importing is currently not supported on this resource.
+// You cannot import this resource.
 type AccountSubscription struct {
 	pulumi.CustomResourceState
 
@@ -103,6 +104,7 @@ func NewAccountSubscription(ctx *pulumi.Context,
 	if args.NotificationEmail == nil {
 		return nil, errors.New("invalid value for required argument 'NotificationEmail'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AccountSubscription
 	err := ctx.RegisterResource("aws:quicksight/accountSubscription:AccountSubscription", name, args, &resource, opts...)
 	if err != nil {

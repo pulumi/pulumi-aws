@@ -27,7 +27,7 @@ public final class GetServiceNetworkResult {
      */
     private String createdAt;
     /**
-     * @return ID of the service network.
+     * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
@@ -77,7 +77,7 @@ public final class GetServiceNetworkResult {
         return this.createdAt;
     }
     /**
-     * @return ID of the service network.
+     * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     public String id() {

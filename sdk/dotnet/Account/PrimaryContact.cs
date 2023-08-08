@@ -38,6 +38,14 @@ namespace Pulumi.Aws.Account
     /// 
     /// });
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// terraform import {
+    /// 
+    ///  to = aws_account_primary_contact.test
+    /// 
+    ///  id = "1234567890" } Using `pulumi import`, import the Primary Contact using the `account_id`. For exampleconsole % pulumi import aws_account_primary_contact.test 1234567890
     /// </summary>
     [AwsResourceType("aws:account/primaryContact:PrimaryContact")]
     public partial class PrimaryContact : global::Pulumi.CustomResource

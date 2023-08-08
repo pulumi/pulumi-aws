@@ -97,11 +97,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_ce_anomaly_monitor` can be imported using the `id`, e.g.
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:costexplorer/anomalyMonitor:AnomalyMonitor example costAnomalyMonitorARN
- * ```
+ *  to = aws_ce_anomaly_monitor.example
+ * 
+ *  id = &#34;costAnomalyMonitorARN&#34; } Using `pulumi import`, import `aws_ce_anomaly_monitor` using the `id`. For exampleconsole % pulumi import aws_ce_anomaly_monitor.example costAnomalyMonitorARN
  * 
  */
 @ResourceType(type="aws:costexplorer/anomalyMonitor:AnomalyMonitor")

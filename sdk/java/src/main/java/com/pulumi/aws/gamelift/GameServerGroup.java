@@ -143,6 +143,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetPartitionArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.Role;
@@ -192,11 +193,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * GameLift Game Server Group can be imported using the `name`, e.g.
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:gamelift/gameServerGroup:GameServerGroup example example
- * ```
+ *  to = aws_gamelift_game_server_group.example
+ * 
+ *  id = &#34;example&#34; } Using `pulumi import`, import GameLift Game Server Group using the `name`. For exampleconsole % pulumi import aws_gamelift_game_server_group.example example
  * 
  */
 @ResourceType(type="aws:gamelift/gameServerGroup:GameServerGroup")

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53recoverycontrol"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53recoverycontrol"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -38,13 +39,11 @@ import (
 //
 // ## Import
 //
-// Route53 Recovery Control Config cluster can be imported via the cluster ARN, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_route53recoverycontrolconfig_cluster.mycluster
 //
-//	$ pulumi import aws:route53recoverycontrol/cluster:Cluster mycluster arn:aws:route53-recovery-control::313517334327:cluster/f9ae13be-a11e-4ec7-8522-94a70468e6ea
-//
-// ```
+//	id = "arn:aws:route53-recovery-control::313517334327:cluster/f9ae13be-a11e-4ec7-8522-94a70468e6ea" } Using `pulumi import`, import Route53 Recovery Control Config cluster using the cluster ARN. For exampleconsole % pulumi import aws_route53recoverycontrolconfig_cluster.mycluster arn:aws:route53-recovery-control::313517334327:cluster/f9ae13be-a11e-4ec7-8522-94a70468e6ea
 type Cluster struct {
 	pulumi.CustomResourceState
 
@@ -65,6 +64,7 @@ func NewCluster(ctx *pulumi.Context,
 		args = &ClusterArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Cluster
 	err := ctx.RegisterResource("aws:route53recoverycontrol/cluster:Cluster", name, args, &resource, opts...)
 	if err != nil {

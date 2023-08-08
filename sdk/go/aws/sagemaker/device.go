@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -45,13 +46,11 @@ import (
 //
 // ## Import
 //
-// SageMaker Devices can be imported using the `device-fleet-name/device-name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_sagemaker_device.example
 //
-//	$ pulumi import aws:sagemaker/device:Device example my-fleet/my-device
-//
-// ```
+//	id = "my-fleet/my-device" } Using `pulumi import`, import SageMaker Devices using the `device-fleet-name/device-name`. For exampleconsole % pulumi import aws_sagemaker_device.example my-fleet/my-device
 type Device struct {
 	pulumi.CustomResourceState
 
@@ -77,6 +76,7 @@ func NewDevice(ctx *pulumi.Context,
 	if args.DeviceFleetName == nil {
 		return nil, errors.New("invalid value for required argument 'DeviceFleetName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Device
 	err := ctx.RegisterResource("aws:sagemaker/device:Device", name, args, &resource, opts...)
 	if err != nil {

@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Connect{}
 	case "aws:ec2transitgateway/connectPeer:ConnectPeer":
 		r = &ConnectPeer{}
+	case "aws:ec2transitgateway/instanceConnectEndpoint:InstanceConnectEndpoint":
+		r = &InstanceConnectEndpoint{}
 	case "aws:ec2transitgateway/instanceState:InstanceState":
 		r = &InstanceState{}
 	case "aws:ec2transitgateway/multicastDomain:MulticastDomain":
@@ -68,7 +70,7 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 }
 
 func init() {
-	version, err := aws.PkgVersion()
+	version, err := internal.PkgVersion()
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
@@ -80,6 +82,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"ec2transitgateway/connectPeer",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ec2transitgateway/instanceConnectEndpoint",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

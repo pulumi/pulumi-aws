@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +24,7 @@ import (
 //	"encoding/json"
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -133,13 +134,11 @@ import (
 //
 // ## Import
 //
-// AWS API Gateway Usage Plan can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_api_gateway_usage_plan.myusageplan
 //
-//	$ pulumi import aws:apigateway/usagePlan:UsagePlan myusageplan <usage_plan_id>
-//
-// ```
+//	id = "<usage_plan_id>" } Using `pulumi import`, import AWS API Gateway Usage Plan using the `id`. For exampleconsole % pulumi import aws_api_gateway_usage_plan.myusageplan <usage_plan_id>
 type UsagePlan struct {
 	pulumi.CustomResourceState
 
@@ -170,6 +169,7 @@ func NewUsagePlan(ctx *pulumi.Context,
 		args = &UsagePlanArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource UsagePlan
 	err := ctx.RegisterResource("aws:apigateway/usagePlan:UsagePlan", name, args, &resource, opts...)
 	if err != nil {

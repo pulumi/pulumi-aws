@@ -1,4 +1,4 @@
-module github.com/pulumi/pulumi-aws/sdk/v5
+module github.com/pulumi/pulumi-aws/sdk/v6
 
 go 1.17
 

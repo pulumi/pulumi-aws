@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/pricing"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/pricing"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -74,7 +75,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/pricing"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/pricing"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -103,6 +104,7 @@ import (
 //
 // ```
 func GetProduct(ctx *pulumi.Context, args *GetProductArgs, opts ...pulumi.InvokeOption) (*GetProductResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetProductResult
 	err := ctx.Invoke("aws:pricing/getProduct:getProduct", args, &rv, opts...)
 	if err != nil {

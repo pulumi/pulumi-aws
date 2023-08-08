@@ -85,6 +85,9 @@ namespace Pulumi.Aws.GlobalAccelerator
         [Input("arn")]
         public string? Arn { get; set; }
 
+        [Input("id")]
+        public string? Id { get; set; }
+
         /// <summary>
         /// Unique name of the Global Accelerator.
         /// 
@@ -92,14 +95,6 @@ namespace Pulumi.Aws.GlobalAccelerator
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
-
-        [Input("tags")]
-        private Dictionary<string, string>? _tags;
-        public Dictionary<string, string> Tags
-        {
-            get => _tags ?? (_tags = new Dictionary<string, string>());
-            set => _tags = value;
-        }
 
         public GetAcceleratorArgs()
         {
@@ -115,6 +110,9 @@ namespace Pulumi.Aws.GlobalAccelerator
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
         /// <summary>
         /// Unique name of the Global Accelerator.
         /// 
@@ -122,14 +120,6 @@ namespace Pulumi.Aws.GlobalAccelerator
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
 
         public GetAcceleratorInvokeArgs()
         {
@@ -144,11 +134,9 @@ namespace Pulumi.Aws.GlobalAccelerator
         public readonly string Arn;
         public readonly ImmutableArray<Outputs.GetAcceleratorAttributeResult> Attributes;
         public readonly string DnsName;
+        public readonly string DualStackDnsName;
         public readonly bool Enabled;
         public readonly string HostedZoneId;
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
         public readonly string Id;
         public readonly string IpAddressType;
         public readonly ImmutableArray<Outputs.GetAcceleratorIpSetResult> IpSets;
@@ -162,6 +150,8 @@ namespace Pulumi.Aws.GlobalAccelerator
             ImmutableArray<Outputs.GetAcceleratorAttributeResult> attributes,
 
             string dnsName,
+
+            string dualStackDnsName,
 
             bool enabled,
 
@@ -180,6 +170,7 @@ namespace Pulumi.Aws.GlobalAccelerator
             Arn = arn;
             Attributes = attributes;
             DnsName = dnsName;
+            DualStackDnsName = dualStackDnsName;
             Enabled = enabled;
             HostedZoneId = hostedZoneId;
             Id = id;

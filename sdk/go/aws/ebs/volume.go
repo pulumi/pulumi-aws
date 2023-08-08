@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ebs"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ebs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -47,13 +48,11 @@ import (
 //
 // ## Import
 //
-// EBS Volumes can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_ebs_volume.id
 //
-//	$ pulumi import aws:ebs/volume:Volume id vol-049df61146c4d7901
-//
-// ```
+//	id = "vol-049df61146c4d7901" } Using `pulumi import`, import EBS Volumes using the `id`. For exampleconsole % pulumi import aws_ebs_volume.id vol-049df61146c4d7901
 type Volume struct {
 	pulumi.CustomResourceState
 
@@ -99,6 +98,7 @@ func NewVolume(ctx *pulumi.Context,
 	if args.AvailabilityZone == nil {
 		return nil, errors.New("invalid value for required argument 'AvailabilityZone'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Volume
 	err := ctx.RegisterResource("aws:ebs/volume:Volume", name, args, &resource, opts...)
 	if err != nil {

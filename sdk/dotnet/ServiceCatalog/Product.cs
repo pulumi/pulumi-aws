@@ -46,11 +46,11 @@ namespace Pulumi.Aws.ServiceCatalog
     /// 
     /// ## Import
     /// 
-    /// `aws_servicecatalog_product` can be imported using the product ID, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:servicecatalog/product:Product example prod-dnigbtea24ste
-    /// ```
+    ///  to = aws_servicecatalog_product.example
+    /// 
+    ///  id = "prod-dnigbtea24ste" } Using `pulumi import`, import `aws_servicecatalog_product` using the product ID. For exampleconsole % pulumi import aws_servicecatalog_product.example prod-dnigbtea24ste
     /// </summary>
     [AwsResourceType("aws:servicecatalog/product:Product")]
     public partial class Product : global::Pulumi.CustomResource

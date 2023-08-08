@@ -8,12 +8,11 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Provides a Core Network Policy Attachment resource. This puts a Core Network Policy to an existing Core Network and executes the change set, which deploys changes globally based on the policy submitted (Sets the policy to `LIVE`).
-//
-// > **NOTE on Core Networks and Policy Attachments:** For a given policy attachment, this resource is incompatible with using the `networkmanager.CoreNetwork` resource `policyDocument` argument. When using that argument and this resource, both will attempt to manage the core network's policy document and Pulumi will show a permanent difference.
 //
 // > **NOTE:** Deleting this resource will not delete the current policy defined in this resource. Deleting this resource will also not revert the current `LIVE` policy to the previous version.
 //
@@ -25,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkmanager"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkmanager"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -59,7 +58,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkmanager"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkmanager"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -151,7 +150,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkmanager"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkmanager"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -269,13 +268,11 @@ import (
 //
 // ## Import
 //
-// `aws_networkmanager_core_network_policy_attachment` can be imported using the core network ID, e.g.
+// terraform import {
 //
-// ```sh
+//	to = aws_networkmanager_core_network_policy_attachment.example
 //
-//	$ pulumi import aws:networkmanager/coreNetworkPolicyAttachment:CoreNetworkPolicyAttachment example core-network-0d47f6t230mz46dy4
-//
-// ```
+//	id = "core-network-0d47f6t230mz46dy4" } Using `pulumi import`, import `aws_networkmanager_core_network_policy_attachment` using the core network ID. For exampleconsole % pulumi import aws_networkmanager_core_network_policy_attachment.example core-network-0d47f6t230mz46dy4
 type CoreNetworkPolicyAttachment struct {
 	pulumi.CustomResourceState
 
@@ -300,6 +297,7 @@ func NewCoreNetworkPolicyAttachment(ctx *pulumi.Context,
 	if args.PolicyDocument == nil {
 		return nil, errors.New("invalid value for required argument 'PolicyDocument'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CoreNetworkPolicyAttachment
 	err := ctx.RegisterResource("aws:networkmanager/coreNetworkPolicyAttachment:CoreNetworkPolicyAttachment", name, args, &resource, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,9 +26,9 @@ import (
 //	"encoding/json"
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -106,13 +107,11 @@ import (
 //
 // ## Import
 //
-// `aws_route53_hosted_zone_dnssec` resources can be imported by using the Route 53 Hosted Zone identifier, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_route53_hosted_zone_dnssec.example
 //
-//	$ pulumi import aws:route53/hostedZoneDnsSec:HostedZoneDnsSec example Z1D633PJN98FT9
-//
-// ```
+//	id = "Z1D633PJN98FT9" } Using `pulumi import`, import `aws_route53_hosted_zone_dnssec` resources using the Route 53 Hosted Zone identifier. For exampleconsole % pulumi import aws_route53_hosted_zone_dnssec.example Z1D633PJN98FT9
 type HostedZoneDnsSec struct {
 	pulumi.CustomResourceState
 
@@ -134,6 +133,7 @@ func NewHostedZoneDnsSec(ctx *pulumi.Context,
 	if args.HostedZoneId == nil {
 		return nil, errors.New("invalid value for required argument 'HostedZoneId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource HostedZoneDnsSec
 	err := ctx.RegisterResource("aws:route53/hostedZoneDnsSec:HostedZoneDnsSec", name, args, &resource, opts...)
 	if err != nil {

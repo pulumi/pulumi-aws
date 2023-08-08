@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/redshift"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshift"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -43,13 +44,11 @@ import (
 //
 // ## Import
 //
-// Redshift endpoint access can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_redshift_endpoint_access.example
 //
-//	$ pulumi import aws:redshift/endpointAccess:EndpointAccess example example
-//
-// ```
+//	id = "example" } Using `pulumi import`, import Redshift endpoint access using the `name`. For exampleconsole % pulumi import aws_redshift_endpoint_access.example example
 type EndpointAccess struct {
 	pulumi.CustomResourceState
 
@@ -87,6 +86,7 @@ func NewEndpointAccess(ctx *pulumi.Context,
 	if args.SubnetGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'SubnetGroupName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EndpointAccess
 	err := ctx.RegisterResource("aws:redshift/endpointAccess:EndpointAccess", name, args, &resource, opts...)
 	if err != nil {

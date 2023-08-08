@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,8 +23,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -59,13 +60,11 @@ import (
 //
 // ## Import
 //
-// IPAMs can be imported using the `scope_id`, e.g.
+// terraform import {
 //
-// ```sh
+//	to = aws_vpc_ipam_scope.example
 //
-//	$ pulumi import aws:ec2/vpcIpamScope:VpcIpamScope example ipam-scope-0513c69f283d11dfb
-//
-// ```
+//	id = "ipam-scope-0513c69f283d11dfb" } Using `pulumi import`, import IPAMs using the `scope_id`. For exampleconsole % pulumi import aws_vpc_ipam_scope.example ipam-scope-0513c69f283d11dfb
 type VpcIpamScope struct {
 	pulumi.CustomResourceState
 
@@ -97,6 +96,7 @@ func NewVpcIpamScope(ctx *pulumi.Context,
 	if args.IpamId == nil {
 		return nil, errors.New("invalid value for required argument 'IpamId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcIpamScope
 	err := ctx.RegisterResource("aws:ec2/vpcIpamScope:VpcIpamScope", name, args, &resource, opts...)
 	if err != nil {

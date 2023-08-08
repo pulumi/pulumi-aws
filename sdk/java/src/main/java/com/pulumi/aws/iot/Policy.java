@@ -57,11 +57,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * IoT policies can be imported using the `name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:iot/policy:Policy pubsub PubSubToAnyTopic
- * ```
+ *  to = aws_iot_policy.pubsub
+ * 
+ *  id = &#34;PubSubToAnyTopic&#34; } Using `pulumi import`, import IoT policies using the `name`. For exampleconsole % pulumi import aws_iot_policy.pubsub PubSubToAnyTopic
  * 
  */
 @ResourceType(type="aws:iot/policy:Policy")

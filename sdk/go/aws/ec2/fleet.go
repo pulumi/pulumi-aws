@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -28,10 +29,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.NewFleet(ctx, "example", &ec2.FleetArgs{
-//				LaunchTemplateConfig: &ec2.FleetLaunchTemplateConfigArgs{
-//					LaunchTemplateSpecification: &ec2.FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs{
-//						LaunchTemplateId: pulumi.Any(aws_launch_template.Example.Id),
-//						Version:          pulumi.Any(aws_launch_template.Example.Latest_version),
+//				LaunchTemplateConfigs: ec2.FleetLaunchTemplateConfigArray{
+//					&ec2.FleetLaunchTemplateConfigArgs{
+//						LaunchTemplateSpecification: &ec2.FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs{
+//							LaunchTemplateId: pulumi.Any(aws_launch_template.Example.Id),
+//							Version:          pulumi.Any(aws_launch_template.Example.Latest_version),
+//						},
 //					},
 //				},
 //				TargetCapacitySpecification: &ec2.FleetTargetCapacitySpecificationArgs{
@@ -50,13 +53,11 @@ import (
 //
 // ## Import
 //
-// `aws_ec2_fleet` can be imported by using the Fleet identifier, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_ec2_fleet.example
 //
-//	$ pulumi import aws:ec2/fleet:Fleet example fleet-b9b55d27-c5fc-41ac-a6f3-48fcc91f080c
-//
-// ```
+//	id = "fleet-b9b55d27-c5fc-41ac-a6f3-48fcc91f080c" } Using `pulumi import`, import `aws_ec2_fleet` using the Fleet identifier. For exampleconsole % pulumi import aws_ec2_fleet.example fleet-b9b55d27-c5fc-41ac-a6f3-48fcc91f080c
 type Fleet struct {
 	pulumi.CustomResourceState
 
@@ -75,7 +76,7 @@ type Fleet struct {
 	// The number of units fulfilled by this request compared to the set target On-Demand capacity.
 	FulfilledOnDemandCapacity pulumi.Float64Output `pulumi:"fulfilledOnDemandCapacity"`
 	// Nested argument containing EC2 Launch Template configurations. Defined below.
-	LaunchTemplateConfig FleetLaunchTemplateConfigOutput `pulumi:"launchTemplateConfig"`
+	LaunchTemplateConfigs FleetLaunchTemplateConfigArrayOutput `pulumi:"launchTemplateConfigs"`
 	// Nested argument containing On-Demand configurations. Defined below.
 	OnDemandOptions FleetOnDemandOptionsPtrOutput `pulumi:"onDemandOptions"`
 	// Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
@@ -107,12 +108,13 @@ func NewFleet(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.LaunchTemplateConfig == nil {
-		return nil, errors.New("invalid value for required argument 'LaunchTemplateConfig'")
+	if args.LaunchTemplateConfigs == nil {
+		return nil, errors.New("invalid value for required argument 'LaunchTemplateConfigs'")
 	}
 	if args.TargetCapacitySpecification == nil {
 		return nil, errors.New("invalid value for required argument 'TargetCapacitySpecification'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Fleet
 	err := ctx.RegisterResource("aws:ec2/fleet:Fleet", name, args, &resource, opts...)
 	if err != nil {
@@ -150,7 +152,7 @@ type fleetState struct {
 	// The number of units fulfilled by this request compared to the set target On-Demand capacity.
 	FulfilledOnDemandCapacity *float64 `pulumi:"fulfilledOnDemandCapacity"`
 	// Nested argument containing EC2 Launch Template configurations. Defined below.
-	LaunchTemplateConfig *FleetLaunchTemplateConfig `pulumi:"launchTemplateConfig"`
+	LaunchTemplateConfigs []FleetLaunchTemplateConfig `pulumi:"launchTemplateConfigs"`
 	// Nested argument containing On-Demand configurations. Defined below.
 	OnDemandOptions *FleetOnDemandOptions `pulumi:"onDemandOptions"`
 	// Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
@@ -191,7 +193,7 @@ type FleetState struct {
 	// The number of units fulfilled by this request compared to the set target On-Demand capacity.
 	FulfilledOnDemandCapacity pulumi.Float64PtrInput
 	// Nested argument containing EC2 Launch Template configurations. Defined below.
-	LaunchTemplateConfig FleetLaunchTemplateConfigPtrInput
+	LaunchTemplateConfigs FleetLaunchTemplateConfigArrayInput
 	// Nested argument containing On-Demand configurations. Defined below.
 	OnDemandOptions FleetOnDemandOptionsPtrInput
 	// Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
@@ -234,7 +236,7 @@ type fleetArgs struct {
 	// The number of units fulfilled by this request compared to the set target On-Demand capacity.
 	FulfilledOnDemandCapacity *float64 `pulumi:"fulfilledOnDemandCapacity"`
 	// Nested argument containing EC2 Launch Template configurations. Defined below.
-	LaunchTemplateConfig FleetLaunchTemplateConfig `pulumi:"launchTemplateConfig"`
+	LaunchTemplateConfigs []FleetLaunchTemplateConfig `pulumi:"launchTemplateConfigs"`
 	// Nested argument containing On-Demand configurations. Defined below.
 	OnDemandOptions *FleetOnDemandOptions `pulumi:"onDemandOptions"`
 	// Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
@@ -272,7 +274,7 @@ type FleetArgs struct {
 	// The number of units fulfilled by this request compared to the set target On-Demand capacity.
 	FulfilledOnDemandCapacity pulumi.Float64PtrInput
 	// Nested argument containing EC2 Launch Template configurations. Defined below.
-	LaunchTemplateConfig FleetLaunchTemplateConfigInput
+	LaunchTemplateConfigs FleetLaunchTemplateConfigArrayInput
 	// Nested argument containing On-Demand configurations. Defined below.
 	OnDemandOptions FleetOnDemandOptionsPtrInput
 	// Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
@@ -418,8 +420,8 @@ func (o FleetOutput) FulfilledOnDemandCapacity() pulumi.Float64Output {
 }
 
 // Nested argument containing EC2 Launch Template configurations. Defined below.
-func (o FleetOutput) LaunchTemplateConfig() FleetLaunchTemplateConfigOutput {
-	return o.ApplyT(func(v *Fleet) FleetLaunchTemplateConfigOutput { return v.LaunchTemplateConfig }).(FleetLaunchTemplateConfigOutput)
+func (o FleetOutput) LaunchTemplateConfigs() FleetLaunchTemplateConfigArrayOutput {
+	return o.ApplyT(func(v *Fleet) FleetLaunchTemplateConfigArrayOutput { return v.LaunchTemplateConfigs }).(FleetLaunchTemplateConfigArrayOutput)
 }
 
 // Nested argument containing On-Demand configurations. Defined below.

@@ -31,14 +31,14 @@ public final class ManagedPrefixListEntryState extends com.pulumi.resources.Reso
     }
 
     /**
-     * Description of this entry. Due to API limitations, updating only the description of an entry requires recreating the entry.
+     * Description of this entry. Please note that due to API limitations, updating only the description of an entry will require recreating the entry.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return Description of this entry. Due to API limitations, updating only the description of an entry requires recreating the entry.
+     * @return Description of this entry. Please note that due to API limitations, updating only the description of an entry will require recreating the entry.
      * 
      */
     public Optional<Output<String>> description() {
@@ -108,7 +108,7 @@ public final class ManagedPrefixListEntryState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param description Description of this entry. Due to API limitations, updating only the description of an entry requires recreating the entry.
+         * @param description Description of this entry. Please note that due to API limitations, updating only the description of an entry will require recreating the entry.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class ManagedPrefixListEntryState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param description Description of this entry. Due to API limitations, updating only the description of an entry requires recreating the entry.
+         * @param description Description of this entry. Please note that due to API limitations, updating only the description of an entry will require recreating the entry.
          * 
          * @return builder
          * 

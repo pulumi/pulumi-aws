@@ -83,11 +83,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * CloudWatch dashboards can be imported using the `dashboard_name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:cloudwatch/dashboard:Dashboard sample dashboard_name
- * ```
+ *  to = aws_cloudwatch_dashboard.sample
+ * 
+ *  id = &#34;dashboard_name&#34; } Using `pulumi import`, import CloudWatch dashboards using the `dashboard_name`. For exampleconsole % pulumi import aws_cloudwatch_dashboard.sample dashboard_name
  * 
  */
 @ResourceType(type="aws:cloudwatch/dashboard:Dashboard")

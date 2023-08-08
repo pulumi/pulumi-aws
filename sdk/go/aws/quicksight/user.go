@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/quicksight"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -46,7 +47,7 @@ import (
 //
 // ## Import
 //
-// Importing is currently not supported on this resource.
+// You cannot import this resource.
 type User struct {
 	pulumi.CustomResourceState
 
@@ -86,6 +87,7 @@ func NewUser(ctx *pulumi.Context,
 	if args.UserRole == nil {
 		return nil, errors.New("invalid value for required argument 'UserRole'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource User
 	err := ctx.RegisterResource("aws:quicksight/user:User", name, args, &resource, opts...)
 	if err != nil {

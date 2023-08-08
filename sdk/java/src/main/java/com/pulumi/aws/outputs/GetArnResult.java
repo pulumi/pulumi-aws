@@ -15,10 +15,6 @@ public final class GetArnResult {
      */
     private String account;
     private String arn;
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
     private String id;
     /**
      * @return Partition that the resource is in.
@@ -54,10 +50,6 @@ public final class GetArnResult {
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
     public String id() {
         return this.id;
     }

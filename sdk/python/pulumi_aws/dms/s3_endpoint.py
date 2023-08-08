@@ -1751,11 +1751,11 @@ class S3Endpoint(pulumi.CustomResource):
 
         ## Import
 
-        Endpoints can be imported using the `endpoint_id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:dms/s3Endpoint:S3Endpoint example example-dms-endpoint-tf
-        ```
+         to = aws_dms_s3_endpoint.example
+
+         id = "example-dms-endpoint-tf" } Using `pulumi import`, import endpoints using the `endpoint_id`. For exampleconsole % pulumi import aws_dms_s3_endpoint.example example-dms-endpoint-tf
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1898,11 +1898,11 @@ class S3Endpoint(pulumi.CustomResource):
 
         ## Import
 
-        Endpoints can be imported using the `endpoint_id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:dms/s3Endpoint:S3Endpoint example example-dms-endpoint-tf
-        ```
+         to = aws_dms_s3_endpoint.example
+
+         id = "example-dms-endpoint-tf" } Using `pulumi import`, import endpoints using the `endpoint_id`. For exampleconsole % pulumi import aws_dms_s3_endpoint.example example-dms-endpoint-tf
 
         :param str resource_name: The name of the resource.
         :param S3EndpointArgs args: The arguments to use to populate this resource's properties.

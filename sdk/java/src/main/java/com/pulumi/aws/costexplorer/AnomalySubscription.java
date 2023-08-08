@@ -12,7 +12,6 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
-import java.lang.Double;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -24,6 +23,7 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * ### Basic Example
+ * 
  * ```java
  * package generated_program;
  * 
@@ -111,6 +111,7 @@ import javax.annotation.Nullable;
  * }
  * ```
  * ### SNS Example
+ * 
  * ```java
  * package generated_program;
  * 
@@ -210,11 +211,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_ce_anomaly_subscription` can be imported using the `id`, e.g.
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:costexplorer/anomalySubscription:AnomalySubscription example AnomalySubscriptionARN
- * ```
+ *  to = aws_ce_anomaly_subscription.example
+ * 
+ *  id = &#34;AnomalySubscriptionARN&#34; } Using `pulumi import`, import `aws_ce_anomaly_subscription` using the `id`. For exampleconsole % pulumi import aws_ce_anomaly_subscription.example AnomalySubscriptionARN
  * 
  */
 @ResourceType(type="aws:costexplorer/anomalySubscription:AnomalySubscription")
@@ -330,24 +331,6 @@ public class AnomalySubscription extends com.pulumi.resources.CustomResource {
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
-    }
-    /**
-     * The dollar value that triggers a notification if the threshold is exceeded. Depracated, use `threshold_expression` instead.
-     * 
-     * @deprecated
-     * use threshold_expression instead
-     * 
-     */
-    @Deprecated /* use threshold_expression instead */
-    @Export(name="threshold", refs={Double.class}, tree="[0]")
-    private Output<Double> threshold;
-
-    /**
-     * @return The dollar value that triggers a notification if the threshold is exceeded. Depracated, use `threshold_expression` instead.
-     * 
-     */
-    public Output<Double> threshold() {
-        return this.threshold;
     }
     /**
      * An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.

@@ -94,11 +94,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * API Gateway Accounts can be imported using the word `api-gateway-account`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:apigateway/account:Account demo api-gateway-account
- * ```
+ *  to = aws_api_gateway_account.demo
+ * 
+ *  id = &#34;api-gateway-account&#34; } Using `pulumi import`, import API Gateway Accounts using the word `api-gateway-account`. For exampleconsole % pulumi import aws_api_gateway_account.demo api-gateway-account
  * 
  */
 @ResourceType(type="aws:apigateway/account:Account")

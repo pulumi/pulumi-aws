@@ -78,11 +78,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Cloudformation Stacks can be imported using the `name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:cloudformation/stack:Stack stack networking-stack
- * ```
+ *  to = aws_cloudformation_stack.stack
+ * 
+ *  id = &#34;networking-stack&#34; } Using `pulumi import`, import Cloudformation Stacks using the `name`. For exampleconsole % pulumi import aws_cloudformation_stack.stack networking-stack
  * 
  */
 @ResourceType(type="aws:cloudformation/stack:Stack")

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -55,13 +56,11 @@ import (
 //
 // ## Import
 //
-// IAM group policy attachments can be imported using the group name and policy arn separated by `/`.
+// terraform import {
 //
-// ```sh
+//	to = aws_iam_group_policy_attachment.test-attach
 //
-//	$ pulumi import aws:iam/groupPolicyAttachment:GroupPolicyAttachment test-attach test-group/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
-//
-// ```
+//	id = "test-group/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy" } Using `pulumi import`, import IAM group policy attachments using the group name and policy arn separated by `/`. For exampleconsole % pulumi import aws_iam_group_policy_attachment.test-attach test-group/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
 type GroupPolicyAttachment struct {
 	pulumi.CustomResourceState
 
@@ -84,6 +83,7 @@ func NewGroupPolicyAttachment(ctx *pulumi.Context,
 	if args.PolicyArn == nil {
 		return nil, errors.New("invalid value for required argument 'PolicyArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource GroupPolicyAttachment
 	err := ctx.RegisterResource("aws:iam/groupPolicyAttachment:GroupPolicyAttachment", name, args, &resource, opts...)
 	if err != nil {

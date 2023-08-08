@@ -887,8 +887,6 @@ class EndpointS3Settings(dict):
             suggest = "external_table_definition"
         elif key == "ignoreHeaderRows":
             suggest = "ignore_header_rows"
-        elif key == "ignoreHeadersRow":
-            suggest = "ignore_headers_row"
         elif key == "includeOpForFullLoad":
             suggest = "include_op_for_full_load"
         elif key == "maxFileSize":
@@ -949,7 +947,6 @@ class EndpointS3Settings(dict):
                  encryption_mode: Optional[str] = None,
                  external_table_definition: Optional[str] = None,
                  ignore_header_rows: Optional[int] = None,
-                 ignore_headers_row: Optional[int] = None,
                  include_op_for_full_load: Optional[bool] = None,
                  max_file_size: Optional[int] = None,
                  parquet_timestamp_in_millisecond: Optional[bool] = None,
@@ -988,7 +985,6 @@ class EndpointS3Settings(dict):
         :param str encryption_mode: The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
         :param str external_table_definition: JSON document that describes how AWS DMS should interpret the data.
         :param int ignore_header_rows: When this value is set to `1`, DMS ignores the first row header in a .csv file. Default is `0`.
-        :param int ignore_headers_row: Deprecated. This setting has no effect. Will be removed in a future version.
         :param bool include_op_for_full_load: Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
         :param int max_file_size: Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. Default is `1048576` (1 GB).
         :param bool parquet_timestamp_in_millisecond: Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`.
@@ -1052,8 +1048,6 @@ class EndpointS3Settings(dict):
             pulumi.set(__self__, "external_table_definition", external_table_definition)
         if ignore_header_rows is not None:
             pulumi.set(__self__, "ignore_header_rows", ignore_header_rows)
-        if ignore_headers_row is not None:
-            pulumi.set(__self__, "ignore_headers_row", ignore_headers_row)
         if include_op_for_full_load is not None:
             pulumi.set(__self__, "include_op_for_full_load", include_op_for_full_load)
         if max_file_size is not None:
@@ -1278,14 +1272,6 @@ class EndpointS3Settings(dict):
         When this value is set to `1`, DMS ignores the first row header in a .csv file. Default is `0`.
         """
         return pulumi.get(self, "ignore_header_rows")
-
-    @property
-    @pulumi.getter(name="ignoreHeadersRow")
-    def ignore_headers_row(self) -> Optional[int]:
-        """
-        Deprecated. This setting has no effect. Will be removed in a future version.
-        """
-        return pulumi.get(self, "ignore_headers_row")
 
     @property
     @pulumi.getter(name="includeOpForFullLoad")

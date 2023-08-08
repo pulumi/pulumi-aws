@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -51,13 +52,11 @@ import (
 //
 // ## Import
 //
-// Lambda Function Aliases can be imported using the `function_name/alias`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_lambda_alias.test_lambda_alias
 //
-//	$ pulumi import aws:lambda/alias:Alias test_lambda_alias my_test_lambda_function/my_alias
-//
-// ```
+//	id = "my_test_lambda_function/my_alias" } Using `pulumi import`, import Lambda Function Aliases using the `function_name/alias`. For exampleconsole % pulumi import aws_lambda_alias.test_lambda_alias my_test_lambda_function/my_alias
 type Alias struct {
 	pulumi.CustomResourceState
 
@@ -74,8 +73,6 @@ type Alias struct {
 	// Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The Lambda alias' route configuration settings. Fields documented below
-	//
-	// For **routing_config** the following attributes are supported:
 	RoutingConfig AliasRoutingConfigPtrOutput `pulumi:"routingConfig"`
 }
 
@@ -92,6 +89,7 @@ func NewAlias(ctx *pulumi.Context,
 	if args.FunctionVersion == nil {
 		return nil, errors.New("invalid value for required argument 'FunctionVersion'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Alias
 	err := ctx.RegisterResource("aws:lambda/alias:Alias", name, args, &resource, opts...)
 	if err != nil {
@@ -127,8 +125,6 @@ type aliasState struct {
 	// Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
 	Name *string `pulumi:"name"`
 	// The Lambda alias' route configuration settings. Fields documented below
-	//
-	// For **routing_config** the following attributes are supported:
 	RoutingConfig *AliasRoutingConfig `pulumi:"routingConfig"`
 }
 
@@ -146,8 +142,6 @@ type AliasState struct {
 	// Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
 	Name pulumi.StringPtrInput
 	// The Lambda alias' route configuration settings. Fields documented below
-	//
-	// For **routing_config** the following attributes are supported:
 	RoutingConfig AliasRoutingConfigPtrInput
 }
 
@@ -165,8 +159,6 @@ type aliasArgs struct {
 	// Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
 	Name *string `pulumi:"name"`
 	// The Lambda alias' route configuration settings. Fields documented below
-	//
-	// For **routing_config** the following attributes are supported:
 	RoutingConfig *AliasRoutingConfig `pulumi:"routingConfig"`
 }
 
@@ -181,8 +173,6 @@ type AliasArgs struct {
 	// Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
 	Name pulumi.StringPtrInput
 	// The Lambda alias' route configuration settings. Fields documented below
-	//
-	// For **routing_config** the following attributes are supported:
 	RoutingConfig AliasRoutingConfigPtrInput
 }
 
@@ -304,8 +294,6 @@ func (o AliasOutput) Name() pulumi.StringOutput {
 }
 
 // The Lambda alias' route configuration settings. Fields documented below
-//
-// For **routing_config** the following attributes are supported:
 func (o AliasOutput) RoutingConfig() AliasRoutingConfigPtrOutput {
 	return o.ApplyT(func(v *Alias) AliasRoutingConfigPtrOutput { return v.RoutingConfig }).(AliasRoutingConfigPtrOutput)
 }

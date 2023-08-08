@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +24,7 @@ import (
 //	"fmt"
 //	"os"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -126,13 +127,11 @@ import (
 //
 // ## Import
 //
-// Launch Templates can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_launch_template.web
 //
-//	$ pulumi import aws:ec2/launchTemplate:LaunchTemplate web lt-12345678
-//
-// ```
+//	id = "lt-12345678" } Using `pulumi import`, import Launch Templates using the `id`. For exampleconsole % pulumi import aws_launch_template.web lt-12345678
 type LaunchTemplate struct {
 	pulumi.CustomResourceState
 
@@ -234,6 +233,7 @@ func NewLaunchTemplate(ctx *pulumi.Context,
 		args = &LaunchTemplateArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LaunchTemplate
 	err := ctx.RegisterResource("aws:ec2/launchTemplate:LaunchTemplate", name, args, &resource, opts...)
 	if err != nil {

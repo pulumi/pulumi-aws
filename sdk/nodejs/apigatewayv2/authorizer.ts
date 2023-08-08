@@ -42,11 +42,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_apigatewayv2_authorizer` can be imported by using the API identifier and authorizer identifier, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:apigatewayv2/authorizer:Authorizer example aabbccddee/1122334
- * ```
+ *  to = aws_apigatewayv2_authorizer.example
+ *
+ *  id = "aabbccddee/1122334" } Using `pulumi import`, import `aws_apigatewayv2_authorizer` using the API identifier and authorizer identifier. For exampleconsole % pulumi import aws_apigatewayv2_authorizer.example aabbccddee/1122334
  */
 export class Authorizer extends pulumi.CustomResource {
     /**

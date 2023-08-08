@@ -69,15 +69,15 @@ public final class ComputeEnvironmentComputeResourcesArgs extends com.pulumi.res
      * Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn&#39;t specified, the default is ECS_AL2. This parameter isn&#39;t applicable to jobs that are running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
-    @Import(name="ec2Configuration")
-    private @Nullable Output<ComputeEnvironmentComputeResourcesEc2ConfigurationArgs> ec2Configuration;
+    @Import(name="ec2Configurations")
+    private @Nullable Output<List<ComputeEnvironmentComputeResourcesEc2ConfigurationArgs>> ec2Configurations;
 
     /**
      * @return Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn&#39;t specified, the default is ECS_AL2. This parameter isn&#39;t applicable to jobs that are running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
-    public Optional<Output<ComputeEnvironmentComputeResourcesEc2ConfigurationArgs>> ec2Configuration() {
-        return Optional.ofNullable(this.ec2Configuration);
+    public Optional<Output<List<ComputeEnvironmentComputeResourcesEc2ConfigurationArgs>>> ec2Configurations() {
+        return Optional.ofNullable(this.ec2Configurations);
     }
 
     /**
@@ -186,6 +186,21 @@ public final class ComputeEnvironmentComputeResourcesArgs extends com.pulumi.res
     }
 
     /**
+     * The Amazon EC2 placement group to associate with your compute resources.
+     * 
+     */
+    @Import(name="placementGroup")
+    private @Nullable Output<String> placementGroup;
+
+    /**
+     * @return The Amazon EC2 placement group to associate with your compute resources.
+     * 
+     */
+    public Optional<Output<String>> placementGroup() {
+        return Optional.ofNullable(this.placementGroup);
+    }
+
+    /**
      * A list of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
      * 
      */
@@ -266,7 +281,7 @@ public final class ComputeEnvironmentComputeResourcesArgs extends com.pulumi.res
         this.allocationStrategy = $.allocationStrategy;
         this.bidPercentage = $.bidPercentage;
         this.desiredVcpus = $.desiredVcpus;
-        this.ec2Configuration = $.ec2Configuration;
+        this.ec2Configurations = $.ec2Configurations;
         this.ec2KeyPair = $.ec2KeyPair;
         this.imageId = $.imageId;
         this.instanceRole = $.instanceRole;
@@ -274,6 +289,7 @@ public final class ComputeEnvironmentComputeResourcesArgs extends com.pulumi.res
         this.launchTemplate = $.launchTemplate;
         this.maxVcpus = $.maxVcpus;
         this.minVcpus = $.minVcpus;
+        this.placementGroup = $.placementGroup;
         this.securityGroupIds = $.securityGroupIds;
         this.spotIamFleetRole = $.spotIamFleetRole;
         this.subnets = $.subnets;
@@ -363,24 +379,34 @@ public final class ComputeEnvironmentComputeResourcesArgs extends com.pulumi.res
         }
 
         /**
-         * @param ec2Configuration Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn&#39;t specified, the default is ECS_AL2. This parameter isn&#39;t applicable to jobs that are running on Fargate resources, and shouldn&#39;t be specified.
+         * @param ec2Configurations Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn&#39;t specified, the default is ECS_AL2. This parameter isn&#39;t applicable to jobs that are running on Fargate resources, and shouldn&#39;t be specified.
          * 
          * @return builder
          * 
          */
-        public Builder ec2Configuration(@Nullable Output<ComputeEnvironmentComputeResourcesEc2ConfigurationArgs> ec2Configuration) {
-            $.ec2Configuration = ec2Configuration;
+        public Builder ec2Configurations(@Nullable Output<List<ComputeEnvironmentComputeResourcesEc2ConfigurationArgs>> ec2Configurations) {
+            $.ec2Configurations = ec2Configurations;
             return this;
         }
 
         /**
-         * @param ec2Configuration Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn&#39;t specified, the default is ECS_AL2. This parameter isn&#39;t applicable to jobs that are running on Fargate resources, and shouldn&#39;t be specified.
+         * @param ec2Configurations Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn&#39;t specified, the default is ECS_AL2. This parameter isn&#39;t applicable to jobs that are running on Fargate resources, and shouldn&#39;t be specified.
          * 
          * @return builder
          * 
          */
-        public Builder ec2Configuration(ComputeEnvironmentComputeResourcesEc2ConfigurationArgs ec2Configuration) {
-            return ec2Configuration(Output.of(ec2Configuration));
+        public Builder ec2Configurations(List<ComputeEnvironmentComputeResourcesEc2ConfigurationArgs> ec2Configurations) {
+            return ec2Configurations(Output.of(ec2Configurations));
+        }
+
+        /**
+         * @param ec2Configurations Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn&#39;t specified, the default is ECS_AL2. This parameter isn&#39;t applicable to jobs that are running on Fargate resources, and shouldn&#39;t be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ec2Configurations(ComputeEnvironmentComputeResourcesEc2ConfigurationArgs... ec2Configurations) {
+            return ec2Configurations(List.of(ec2Configurations));
         }
 
         /**
@@ -538,6 +564,27 @@ public final class ComputeEnvironmentComputeResourcesArgs extends com.pulumi.res
          */
         public Builder minVcpus(Integer minVcpus) {
             return minVcpus(Output.of(minVcpus));
+        }
+
+        /**
+         * @param placementGroup The Amazon EC2 placement group to associate with your compute resources.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder placementGroup(@Nullable Output<String> placementGroup) {
+            $.placementGroup = placementGroup;
+            return this;
+        }
+
+        /**
+         * @param placementGroup The Amazon EC2 placement group to associate with your compute resources.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder placementGroup(String placementGroup) {
+            return placementGroup(Output.of(placementGroup));
         }
 
         /**

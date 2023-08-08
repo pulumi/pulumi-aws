@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,8 +24,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -82,13 +83,11 @@ import (
 //
 // ## Import
 //
-// `aws_api_gateway_rest_api_policy` can be imported by using the REST API ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_api_gateway_rest_api_policy.example
 //
-//	$ pulumi import aws:apigateway/restApiPolicy:RestApiPolicy example 12345abcde
-//
-// ```
+//	id = "12345abcde" } Using `pulumi import`, import `aws_api_gateway_rest_api_policy` using the REST API ID. For exampleconsole % pulumi import aws_api_gateway_rest_api_policy.example 12345abcde
 type RestApiPolicy struct {
 	pulumi.CustomResourceState
 
@@ -111,6 +110,7 @@ func NewRestApiPolicy(ctx *pulumi.Context,
 	if args.RestApiId == nil {
 		return nil, errors.New("invalid value for required argument 'RestApiId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RestApiPolicy
 	err := ctx.RegisterResource("aws:apigateway/restApiPolicy:RestApiPolicy", name, args, &resource, opts...)
 	if err != nil {

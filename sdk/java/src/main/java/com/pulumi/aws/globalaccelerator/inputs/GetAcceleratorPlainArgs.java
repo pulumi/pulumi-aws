@@ -5,7 +5,6 @@ package com.pulumi.aws.globalaccelerator.inputs;
 
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
-import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -30,6 +29,13 @@ public final class GetAcceleratorPlainArgs extends com.pulumi.resources.InvokeAr
         return Optional.ofNullable(this.arn);
     }
 
+    @Import(name="id")
+    private @Nullable String id;
+
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
+    }
+
     /**
      * Unique name of the Global Accelerator.
      * 
@@ -49,19 +55,12 @@ public final class GetAcceleratorPlainArgs extends com.pulumi.resources.InvokeAr
         return Optional.ofNullable(this.name);
     }
 
-    @Import(name="tags")
-    private @Nullable Map<String,String> tags;
-
-    public Optional<Map<String,String>> tags() {
-        return Optional.ofNullable(this.tags);
-    }
-
     private GetAcceleratorPlainArgs() {}
 
     private GetAcceleratorPlainArgs(GetAcceleratorPlainArgs $) {
         this.arn = $.arn;
+        this.id = $.id;
         this.name = $.name;
-        this.tags = $.tags;
     }
 
     public static Builder builder() {
@@ -93,6 +92,11 @@ public final class GetAcceleratorPlainArgs extends com.pulumi.resources.InvokeAr
             return this;
         }
 
+        public Builder id(@Nullable String id) {
+            $.id = id;
+            return this;
+        }
+
         /**
          * @param name Unique name of the Global Accelerator.
          * 
@@ -103,11 +107,6 @@ public final class GetAcceleratorPlainArgs extends com.pulumi.resources.InvokeAr
          */
         public Builder name(@Nullable String name) {
             $.name = name;
-            return this;
-        }
-
-        public Builder tags(@Nullable Map<String,String> tags) {
-            $.tags = tags;
             return this;
         }
 

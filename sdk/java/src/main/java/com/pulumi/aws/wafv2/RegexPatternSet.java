@@ -65,11 +65,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * WAFv2 Regex Pattern Sets can be imported using `ID/name/scope` e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:wafv2/regexPatternSet:RegexPatternSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
- * ```
+ *  to = aws_wafv2_regex_pattern_set.example
+ * 
+ *  id = &#34;a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL&#34; } Using `pulumi import`, import WAFv2 Regex Pattern Sets using `ID/name/scope`. For exampleconsole % pulumi import aws_wafv2_regex_pattern_set.example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
  * 
  */
 @ResourceType(type="aws:wafv2/regexPatternSet:RegexPatternSet")
@@ -123,14 +123,14 @@ public class RegexPatternSet extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details.
+     * One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details. A maximum of 10 `regular_expression` blocks may be specified.
      * 
      */
     @Export(name="regularExpressions", refs={List.class,RegexPatternSetRegularExpression.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RegexPatternSetRegularExpression>> regularExpressions;
 
     /**
-     * @return One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details.
+     * @return One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details. A maximum of 10 `regular_expression` blocks may be specified.
      * 
      */
     public Output<Optional<List<RegexPatternSetRegularExpression>>> regularExpressions() {

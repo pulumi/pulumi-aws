@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/inspector"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/inspector"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,13 +55,11 @@ import (
 //
 // ## Import
 //
-// `aws_inspector_assessment_template` can be imported by using the template assessment ARN, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_inspector_assessment_template.example
 //
-//	$ pulumi import aws:inspector/assessmentTemplate:AssessmentTemplate example arn:aws:inspector:us-west-2:123456789012:target/0-9IaAzhGR/template/0-WEcjR8CH
-//
-// ```
+//	id = "arn:aws:inspector:us-west-2:123456789012:target/0-9IaAzhGR/template/0-WEcjR8CH" } Using `pulumi import`, import `aws_inspector_assessment_template` using the template assessment ARN. For exampleconsole % pulumi import aws_inspector_assessment_template.example arn:aws:inspector:us-west-2:123456789012:target/0-9IaAzhGR/template/0-WEcjR8CH
 type AssessmentTemplate struct {
 	pulumi.CustomResourceState
 
@@ -98,6 +97,7 @@ func NewAssessmentTemplate(ctx *pulumi.Context,
 	if args.TargetArn == nil {
 		return nil, errors.New("invalid value for required argument 'TargetArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AssessmentTemplate
 	err := ctx.RegisterResource("aws:inspector/assessmentTemplate:AssessmentTemplate", name, args, &resource, opts...)
 	if err != nil {

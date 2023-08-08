@@ -39,19 +39,10 @@ public final class RouteTableRoute {
      */
     private @Nullable String egressOnlyGatewayId;
     /**
-     * @return Identifier of a VPC internet gateway or a virtual private gateway.
+     * @return Identifier of a VPC internet gateway, virtual private gateway, or `local`. `local` routes cannot be created but can be adopted or imported. See the example above.
      * 
      */
     private @Nullable String gatewayId;
-    /**
-     * @return Identifier of an EC2 instance.
-     * 
-     * @deprecated
-     * Use network_interface_id instead
-     * 
-     */
-    @Deprecated /* Use network_interface_id instead */
-    private @Nullable String instanceId;
     /**
      * @return The Ipv6 CIDR block of the route.
      * 
@@ -129,22 +120,11 @@ public final class RouteTableRoute {
         return Optional.ofNullable(this.egressOnlyGatewayId);
     }
     /**
-     * @return Identifier of a VPC internet gateway or a virtual private gateway.
+     * @return Identifier of a VPC internet gateway, virtual private gateway, or `local`. `local` routes cannot be created but can be adopted or imported. See the example above.
      * 
      */
     public Optional<String> gatewayId() {
         return Optional.ofNullable(this.gatewayId);
-    }
-    /**
-     * @return Identifier of an EC2 instance.
-     * 
-     * @deprecated
-     * Use network_interface_id instead
-     * 
-     */
-    @Deprecated /* Use network_interface_id instead */
-    public Optional<String> instanceId() {
-        return Optional.ofNullable(this.instanceId);
     }
     /**
      * @return The Ipv6 CIDR block of the route.
@@ -213,7 +193,6 @@ public final class RouteTableRoute {
         private @Nullable String destinationPrefixListId;
         private @Nullable String egressOnlyGatewayId;
         private @Nullable String gatewayId;
-        private @Nullable String instanceId;
         private @Nullable String ipv6CidrBlock;
         private @Nullable String localGatewayId;
         private @Nullable String natGatewayId;
@@ -230,7 +209,6 @@ public final class RouteTableRoute {
     	      this.destinationPrefixListId = defaults.destinationPrefixListId;
     	      this.egressOnlyGatewayId = defaults.egressOnlyGatewayId;
     	      this.gatewayId = defaults.gatewayId;
-    	      this.instanceId = defaults.instanceId;
     	      this.ipv6CidrBlock = defaults.ipv6CidrBlock;
     	      this.localGatewayId = defaults.localGatewayId;
     	      this.natGatewayId = defaults.natGatewayId;
@@ -268,11 +246,6 @@ public final class RouteTableRoute {
         @CustomType.Setter
         public Builder gatewayId(@Nullable String gatewayId) {
             this.gatewayId = gatewayId;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder instanceId(@Nullable String instanceId) {
-            this.instanceId = instanceId;
             return this;
         }
         @CustomType.Setter
@@ -318,7 +291,6 @@ public final class RouteTableRoute {
             o.destinationPrefixListId = destinationPrefixListId;
             o.egressOnlyGatewayId = egressOnlyGatewayId;
             o.gatewayId = gatewayId;
-            o.instanceId = instanceId;
             o.ipv6CidrBlock = ipv6CidrBlock;
             o.localGatewayId = localGatewayId;
             o.natGatewayId = natGatewayId;

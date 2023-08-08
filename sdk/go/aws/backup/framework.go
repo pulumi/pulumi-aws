@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/backup"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/backup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -124,13 +125,11 @@ import (
 //
 // ## Import
 //
-// Backup Framework can be imported using the `id` which corresponds to the name of the Backup Framework, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_backup_framework.test
 //
-//	$ pulumi import aws:backup/framework:Framework test <id>
-//
-// ```
+//	id = "<id>" } Using `pulumi import`, import Backup Framework using the `id` which corresponds to the name of the Backup Framework. For exampleconsole % pulumi import aws_backup_framework.test <id>
 type Framework struct {
 	pulumi.CustomResourceState
 
@@ -164,6 +163,7 @@ func NewFramework(ctx *pulumi.Context,
 	if args.Controls == nil {
 		return nil, errors.New("invalid value for required argument 'Controls'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Framework
 	err := ctx.RegisterResource("aws:backup/framework:Framework", name, args, &resource, opts...)
 	if err != nil {

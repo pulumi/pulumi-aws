@@ -40,14 +40,32 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * ### Customer-defined Partition Key
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.timestreamwrite.Table("example", {
+ *     databaseName: aws_timestreamwrite_database.example.database_name,
+ *     tableName: "example",
+ *     schema: {
+ *         compositePartitionKey: {
+ *             enforcementInRecord: "REQUIRED",
+ *             name: "attr1",
+ *             type: "DIMENSION",
+ *         },
+ *     },
+ * });
+ * ```
  *
  * ## Import
  *
- * Timestream tables can be imported using the `table_name` and `database_name` separate by a colon (`:`), e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:timestreamwrite/table:Table example ExampleTable:ExampleDatabase
- * ```
+ *  to = aws_timestreamwrite_table.example
+ *
+ *  id = "ExampleTable:ExampleDatabase" } Using `pulumi import`, import Timestream tables using the `table_name` and `database_name` separate by a colon (`:`). For exampleconsole % pulumi import aws_timestreamwrite_table.example ExampleTable:ExampleDatabase
  */
 export class Table extends pulumi.CustomResource {
     /**
@@ -94,6 +112,10 @@ export class Table extends pulumi.CustomResource {
      */
     public readonly retentionProperties!: pulumi.Output<outputs.timestreamwrite.TableRetentionProperties>;
     /**
+     * The schema of the table. See Schema below for more details.
+     */
+    public readonly schema!: pulumi.Output<outputs.timestreamwrite.TableSchema>;
+    /**
      * The name of the Timestream table.
      */
     public readonly tableName!: pulumi.Output<string>;
@@ -123,6 +145,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["databaseName"] = state ? state.databaseName : undefined;
             resourceInputs["magneticStoreWriteProperties"] = state ? state.magneticStoreWriteProperties : undefined;
             resourceInputs["retentionProperties"] = state ? state.retentionProperties : undefined;
+            resourceInputs["schema"] = state ? state.schema : undefined;
             resourceInputs["tableName"] = state ? state.tableName : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -137,6 +160,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
             resourceInputs["magneticStoreWriteProperties"] = args ? args.magneticStoreWriteProperties : undefined;
             resourceInputs["retentionProperties"] = args ? args.retentionProperties : undefined;
+            resourceInputs["schema"] = args ? args.schema : undefined;
             resourceInputs["tableName"] = args ? args.tableName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -168,6 +192,10 @@ export interface TableState {
      */
     retentionProperties?: pulumi.Input<inputs.timestreamwrite.TableRetentionProperties>;
     /**
+     * The schema of the table. See Schema below for more details.
+     */
+    schema?: pulumi.Input<inputs.timestreamwrite.TableSchema>;
+    /**
      * The name of the Timestream table.
      */
     tableName?: pulumi.Input<string>;
@@ -197,6 +225,10 @@ export interface TableArgs {
      * The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magneticStoreRetentionPeriodInDays` default to 73000 and `memoryStoreRetentionPeriodInHours` defaults to 6.
      */
     retentionProperties?: pulumi.Input<inputs.timestreamwrite.TableRetentionProperties>;
+    /**
+     * The schema of the table. See Schema below for more details.
+     */
+    schema?: pulumi.Input<inputs.timestreamwrite.TableSchema>;
     /**
      * The name of the Timestream table.
      */

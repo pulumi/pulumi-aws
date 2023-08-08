@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/docdb"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/docdb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func GetEngineVersion(ctx *pulumi.Context, args *GetEngineVersionArgs, opts ...pulumi.InvokeOption) (*GetEngineVersionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetEngineVersionResult
 	err := ctx.Invoke("aws:docdb/getEngineVersion:getEngineVersion", args, &rv, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,10 +21,11 @@ import (
 //
 // import (
 //
-// "github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/backup"
-// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/backup"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
@@ -83,13 +85,11 @@ import (
 //
 // ## Import
 //
-// Backup vault notifications can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_backup_vault_notifications.test
 //
-//	$ pulumi import aws:backup/vaultNotifications:VaultNotifications test TestVault
-//
-// ```
+//	id = "TestVault" } Using `pulumi import`, import Backup vault notifications using the `name`. For exampleconsole % pulumi import aws_backup_vault_notifications.test TestVault
 type VaultNotifications struct {
 	pulumi.CustomResourceState
 
@@ -119,6 +119,7 @@ func NewVaultNotifications(ctx *pulumi.Context,
 	if args.SnsTopicArn == nil {
 		return nil, errors.New("invalid value for required argument 'SnsTopicArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VaultNotifications
 	err := ctx.RegisterResource("aws:backup/vaultNotifications:VaultNotifications", name, args, &resource, opts...)
 	if err != nil {

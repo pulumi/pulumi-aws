@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/guardduty"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/organizations"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/guardduty"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/organizations"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -57,13 +58,11 @@ import (
 //
 // ## Import
 //
-// GuardDuty Organization Admin Account can be imported using the AWS account ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_guardduty_organization_admin_account.example
 //
-//	$ pulumi import aws:guardduty/organizationAdminAccount:OrganizationAdminAccount example 123456789012
-//
-// ```
+//	id = "123456789012" } Using `pulumi import`, import GuardDuty Organization Admin Account using the AWS account ID. For exampleconsole % pulumi import aws_guardduty_organization_admin_account.example 123456789012
 type OrganizationAdminAccount struct {
 	pulumi.CustomResourceState
 
@@ -81,6 +80,7 @@ func NewOrganizationAdminAccount(ctx *pulumi.Context,
 	if args.AdminAccountId == nil {
 		return nil, errors.New("invalid value for required argument 'AdminAccountId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OrganizationAdminAccount
 	err := ctx.RegisterResource("aws:guardduty/organizationAdminAccount:OrganizationAdminAccount", name, args, &resource, opts...)
 	if err != nil {

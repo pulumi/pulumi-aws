@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/gamelift"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/gamelift"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -46,13 +47,11 @@ import (
 //
 // ## Import
 //
-// GameLift Builds can be imported using the ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_gamelift_build.example
 //
-//	$ pulumi import aws:gamelift/build:Build example <build-id>
-//
-// ```
+//	id = "<build-id>" } Using `pulumi import`, import GameLift Builds using the ID. For exampleconsole % pulumi import aws_gamelift_build.example <build-id>
 type Build struct {
 	pulumi.CustomResourceState
 
@@ -85,6 +84,7 @@ func NewBuild(ctx *pulumi.Context,
 	if args.StorageLocation == nil {
 		return nil, errors.New("invalid value for required argument 'StorageLocation'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Build
 	err := ctx.RegisterResource("aws:gamelift/build:Build", name, args, &resource, opts...)
 	if err != nil {

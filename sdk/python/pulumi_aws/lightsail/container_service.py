@@ -541,11 +541,11 @@ class ContainerService(pulumi.CustomResource):
 
         ## Import
 
-        Lightsail Container Service can be imported using the `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:lightsail/containerService:ContainerService my_container_service container-service-1
-        ```
+         to = aws_lightsail_container_service.my_container_service
+
+         id = "container-service-1" } Using `pulumi import`, import Lightsail Container Service using the `name`. For exampleconsole % pulumi import aws_lightsail_container_service.my_container_service container-service-1
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -641,11 +641,11 @@ class ContainerService(pulumi.CustomResource):
 
         ## Import
 
-        Lightsail Container Service can be imported using the `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:lightsail/containerService:ContainerService my_container_service container-service-1
-        ```
+         to = aws_lightsail_container_service.my_container_service
+
+         id = "container-service-1" } Using `pulumi import`, import Lightsail Container Service using the `name`. For exampleconsole % pulumi import aws_lightsail_container_service.my_container_service container-service-1
 
         :param str resource_name: The name of the resource.
         :param ContainerServiceArgs args: The arguments to use to populate this resource's properties.

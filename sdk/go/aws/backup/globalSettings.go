@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/backup"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/backup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -43,13 +44,11 @@ import (
 //
 // ## Import
 //
-// Backup Global Settings can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_backup_global_settings.example
 //
-//	$ pulumi import aws:backup/globalSettings:GlobalSettings example 123456789012
-//
-// ```
+//	id = "123456789012" } Using `pulumi import`, import Backup Global Settings using the `id`. For exampleconsole % pulumi import aws_backup_global_settings.example 123456789012
 type GlobalSettings struct {
 	pulumi.CustomResourceState
 
@@ -67,6 +66,7 @@ func NewGlobalSettings(ctx *pulumi.Context,
 	if args.GlobalSettings == nil {
 		return nil, errors.New("invalid value for required argument 'GlobalSettings'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource GlobalSettings
 	err := ctx.RegisterResource("aws:backup/globalSettings:GlobalSettings", name, args, &resource, opts...)
 	if err != nil {

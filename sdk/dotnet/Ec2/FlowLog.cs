@@ -148,11 +148,11 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// Flow Logs can be imported using the `id`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:ec2/flowLog:FlowLog test_flow_log fl-1a2b3c4d
-    /// ```
+    ///  to = aws_flow_log.test_flow_log
+    /// 
+    ///  id = "fl-1a2b3c4d" } Using `pulumi import`, import Flow Logs using the `id`. For exampleconsole % pulumi import aws_flow_log.test_flow_log fl-1a2b3c4d
     /// </summary>
     [AwsResourceType("aws:ec2/flowLog:FlowLog")]
     public partial class FlowLog : global::Pulumi.CustomResource
@@ -206,7 +206,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> LogFormat { get; private set; } = null!;
 
         /// <summary>
-        /// *Deprecated:* Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
+        /// **Deprecated:** Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
         /// </summary>
         [Output("logGroupName")]
         public Output<string> LogGroupName { get; private set; } = null!;
@@ -351,7 +351,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? LogFormat { get; set; }
 
         /// <summary>
-        /// *Deprecated:* Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
+        /// **Deprecated:** Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
         /// </summary>
         [Input("logGroupName")]
         public Input<string>? LogGroupName { get; set; }
@@ -464,7 +464,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? LogFormat { get; set; }
 
         /// <summary>
-        /// *Deprecated:* Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
+        /// **Deprecated:** Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
         /// </summary>
         [Input("logGroupName")]
         public Input<string>? LogGroupName { get; set; }

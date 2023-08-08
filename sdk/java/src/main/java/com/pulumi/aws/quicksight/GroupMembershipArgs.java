@@ -61,14 +61,14 @@ public final class GroupMembershipArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The namespace. Defaults to `default`. Currently only `default` is supported.
+     * The namespace that you want the user to be a part of. Defaults to `default`.
      * 
      */
     @Import(name="namespace")
     private @Nullable Output<String> namespace;
 
     /**
-     * @return The namespace. Defaults to `default`. Currently only `default` is supported.
+     * @return The namespace that you want the user to be a part of. Defaults to `default`.
      * 
      */
     public Optional<Output<String>> namespace() {
@@ -166,7 +166,7 @@ public final class GroupMembershipArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param namespace The namespace. Defaults to `default`. Currently only `default` is supported.
+         * @param namespace The namespace that you want the user to be a part of. Defaults to `default`.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class GroupMembershipArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param namespace The namespace. Defaults to `default`. Currently only `default` is supported.
+         * @param namespace The namespace that you want the user to be a part of. Defaults to `default`.
          * 
          * @return builder
          * 

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,9 +21,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssm"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -109,13 +110,11 @@ import (
 //
 // ## Import
 //
-// SSM resource data sync can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_ssm_resource_data_sync.example
 //
-//	$ pulumi import aws:ssm/resourceDataSync:ResourceDataSync example example-name
-//
-// ```
+//	id = "example-name" } Using `pulumi import`, import SSM resource data sync using the `name`. For exampleconsole % pulumi import aws_ssm_resource_data_sync.example example-name
 type ResourceDataSync struct {
 	pulumi.CustomResourceState
 
@@ -135,6 +134,7 @@ func NewResourceDataSync(ctx *pulumi.Context,
 	if args.S3Destination == nil {
 		return nil, errors.New("invalid value for required argument 'S3Destination'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResourceDataSync
 	err := ctx.RegisterResource("aws:ssm/resourceDataSync:ResourceDataSync", name, args, &resource, opts...)
 	if err != nil {

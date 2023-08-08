@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,7 +26,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/inspector2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/inspector2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -66,6 +67,7 @@ func NewOrganizationConfiguration(ctx *pulumi.Context,
 	if args.AutoEnable == nil {
 		return nil, errors.New("invalid value for required argument 'AutoEnable'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OrganizationConfiguration
 	err := ctx.RegisterResource("aws:inspector2/organizationConfiguration:OrganizationConfiguration", name, args, &resource, opts...)
 	if err != nil {

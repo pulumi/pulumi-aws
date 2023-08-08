@@ -812,7 +812,7 @@ class UserPoolClient(pulumi.CustomResource):
         Provides a Cognito User Pool Client resource.
 
         To manage a User Pool Client created by another service, such as when [configuring an OpenSearch Domain to use Cognito authentication](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cognito-auth.html),
-        use the `aws_cognito_managed_user_pool_client` resource instead.
+        use the `cognito.ManagedUserPoolClient` resource instead.
 
         ## Example Usage
         ### Create a basic user pool client
@@ -898,11 +898,11 @@ class UserPoolClient(pulumi.CustomResource):
 
         ## Import
 
-        Cognito User Pool Clients can be imported using the `id` of the Cognito User Pool, and the `id` of the Cognito User Pool Client, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:cognito/userPoolClient:UserPoolClient client us-west-2_abc123/3ho4ek12345678909nh3fmhpko
-        ```
+         to = aws_cognito_user_pool_client.client
+
+         id = "us-west-2_abc123/3ho4ek12345678909nh3fmhpko" } Using `pulumi import`, import Cognito User Pool Clients using the `id` of the Cognito User Pool, and the `id` of the Cognito User Pool Client. For exampleconsole % pulumi import aws_cognito_user_pool_client.client us-west-2_abc123/3ho4ek12345678909nh3fmhpko
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -947,7 +947,7 @@ class UserPoolClient(pulumi.CustomResource):
         Provides a Cognito User Pool Client resource.
 
         To manage a User Pool Client created by another service, such as when [configuring an OpenSearch Domain to use Cognito authentication](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cognito-auth.html),
-        use the `aws_cognito_managed_user_pool_client` resource instead.
+        use the `cognito.ManagedUserPoolClient` resource instead.
 
         ## Example Usage
         ### Create a basic user pool client
@@ -1033,11 +1033,11 @@ class UserPoolClient(pulumi.CustomResource):
 
         ## Import
 
-        Cognito User Pool Clients can be imported using the `id` of the Cognito User Pool, and the `id` of the Cognito User Pool Client, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:cognito/userPoolClient:UserPoolClient client us-west-2_abc123/3ho4ek12345678909nh3fmhpko
-        ```
+         to = aws_cognito_user_pool_client.client
+
+         id = "us-west-2_abc123/3ho4ek12345678909nh3fmhpko" } Using `pulumi import`, import Cognito User Pool Clients using the `id` of the Cognito User Pool, and the `id` of the Cognito User Pool Client. For exampleconsole % pulumi import aws_cognito_user_pool_client.client us-west-2_abc123/3ho4ek12345678909nh3fmhpko
 
         :param str resource_name: The name of the resource.
         :param UserPoolClientArgs args: The arguments to use to populate this resource's properties.
@@ -1215,7 +1215,7 @@ class UserPoolClient(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accessTokenValidity")
-    def access_token_validity(self) -> pulumi.Output[Optional[int]]:
+    def access_token_validity(self) -> pulumi.Output[int]:
         """
         Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used.
         By default, the unit is hours.
@@ -1225,7 +1225,7 @@ class UserPoolClient(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowedOauthFlows")
-    def allowed_oauth_flows(self) -> pulumi.Output[Optional[Sequence[str]]]:
+    def allowed_oauth_flows(self) -> pulumi.Output[Sequence[str]]:
         """
         List of allowed OAuth flows (code, implicit, client_credentials).
         """
@@ -1233,7 +1233,7 @@ class UserPoolClient(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowedOauthFlowsUserPoolClient")
-    def allowed_oauth_flows_user_pool_client(self) -> pulumi.Output[Optional[bool]]:
+    def allowed_oauth_flows_user_pool_client(self) -> pulumi.Output[bool]:
         """
         Whether the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.
         """
@@ -1241,7 +1241,7 @@ class UserPoolClient(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowedOauthScopes")
-    def allowed_oauth_scopes(self) -> pulumi.Output[Optional[Sequence[str]]]:
+    def allowed_oauth_scopes(self) -> pulumi.Output[Sequence[str]]:
         """
         List of allowed OAuth scopes (phone, email, openid, profile, and aws.cognito.signin.user.admin).
         """
@@ -1257,7 +1257,7 @@ class UserPoolClient(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authSessionValidity")
-    def auth_session_validity(self) -> pulumi.Output[Optional[int]]:
+    def auth_session_validity(self) -> pulumi.Output[int]:
         """
         Amazon Cognito creates a session token for each API request in an authentication flow. AuthSessionValidity is the duration, in minutes, of that session token. Your user pool native user must respond to each authentication challenge before the session expires. Valid values between `3` and `15`. Default value is `3`.
         """
@@ -1281,7 +1281,7 @@ class UserPoolClient(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultRedirectUri")
-    def default_redirect_uri(self) -> pulumi.Output[Optional[str]]:
+    def default_redirect_uri(self) -> pulumi.Output[str]:
         """
         Default redirect URI. Must be in the list of callback URLs.
         """
@@ -1289,7 +1289,7 @@ class UserPoolClient(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enablePropagateAdditionalUserContextData")
-    def enable_propagate_additional_user_context_data(self) -> pulumi.Output[Optional[bool]]:
+    def enable_propagate_additional_user_context_data(self) -> pulumi.Output[bool]:
         """
         Activates the propagation of additional user context data.
         """
@@ -1305,7 +1305,7 @@ class UserPoolClient(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="explicitAuthFlows")
-    def explicit_auth_flows(self) -> pulumi.Output[Optional[Sequence[str]]]:
+    def explicit_auth_flows(self) -> pulumi.Output[Sequence[str]]:
         """
         List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
         """
@@ -1321,7 +1321,7 @@ class UserPoolClient(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="idTokenValidity")
-    def id_token_validity(self) -> pulumi.Output[Optional[int]]:
+    def id_token_validity(self) -> pulumi.Output[int]:
         """
         Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used.
         By default, the unit is hours.
@@ -1355,7 +1355,7 @@ class UserPoolClient(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="readAttributes")
-    def read_attributes(self) -> pulumi.Output[Optional[Sequence[str]]]:
+    def read_attributes(self) -> pulumi.Output[Sequence[str]]:
         """
         List of user pool attributes the application client can read from.
         """
@@ -1363,7 +1363,7 @@ class UserPoolClient(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="refreshTokenValidity")
-    def refresh_token_validity(self) -> pulumi.Output[Optional[int]]:
+    def refresh_token_validity(self) -> pulumi.Output[int]:
         """
         Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used.
         By default, the unit is days.
@@ -1373,7 +1373,7 @@ class UserPoolClient(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="supportedIdentityProviders")
-    def supported_identity_providers(self) -> pulumi.Output[Optional[Sequence[str]]]:
+    def supported_identity_providers(self) -> pulumi.Output[Sequence[str]]:
         """
         List of provider names for the identity providers that are supported on this client. Uses the `provider_name` attribute of `cognito.IdentityProvider` resource(s), or the equivalent string(s).
         """
@@ -1399,7 +1399,7 @@ class UserPoolClient(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="writeAttributes")
-    def write_attributes(self) -> pulumi.Output[Optional[Sequence[str]]]:
+    def write_attributes(self) -> pulumi.Output[Sequence[str]]:
         """
         List of user pool attributes the application client can write to.
         """

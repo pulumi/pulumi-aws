@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appsync"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appsync"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -107,7 +108,7 @@ import (
 //
 //	"os"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appsync"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appsync"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -143,13 +144,11 @@ import (
 //
 // ## Import
 //
-// `aws_appsync_function` can be imported using the AppSync API ID and Function ID separated by `-`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_appsync_function.example
 //
-//	$ pulumi import aws:appsync/function:Function example xxxxx-yyyyy
-//
-// ```
+//	id = "xxxxx-yyyyy" } Using `pulumi import`, import `aws_appsync_function` using the AppSync API ID and Function ID separated by `-`. For exampleconsole % pulumi import aws_appsync_function.example xxxxx-yyyyy
 type Function struct {
 	pulumi.CustomResourceState
 
@@ -194,6 +193,7 @@ func NewFunction(ctx *pulumi.Context,
 	if args.DataSource == nil {
 		return nil, errors.New("invalid value for required argument 'DataSource'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Function
 	err := ctx.RegisterResource("aws:appsync/function:Function", name, args, &resource, opts...)
 	if err != nil {

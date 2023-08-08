@@ -130,11 +130,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Certificates can be imported using their ARN, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:acm/certificate:Certificate cert arn:aws:acm:eu-central-1:123456789012:certificate/7e7a28d2-163f-4b8f-b9cd-822f96c08d6a
- * ```
+ *  to = aws_acm_certificate.cert
+ *
+ *  id = "arn:aws:acm:eu-central-1:123456789012:certificate/7e7a28d2-163f-4b8f-b9cd-822f96c08d6a" } Using `pulumi import`, import certificates using their ARN. For exampleconsole % pulumi import aws_acm_certificate.cert arn:aws:acm:eu-central-1:123456789012:certificate/7e7a28d2-163f-4b8f-b9cd-822f96c08d6a
  */
 export class Certificate extends pulumi.CustomResource {
     /**
@@ -257,7 +257,7 @@ export class Certificate extends pulumi.CustomResource {
      */
     public /*out*/ readonly validationEmails!: pulumi.Output<string[]>;
     /**
-     * Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
+     * Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
      */
     public readonly validationMethod!: pulumi.Output<string>;
     /**
@@ -432,7 +432,7 @@ export interface CertificateState {
      */
     validationEmails?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
+     * Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
      */
     validationMethod?: pulumi.Input<string>;
     /**
@@ -493,7 +493,7 @@ export interface CertificateArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
+     * Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
      */
     validationMethod?: pulumi.Input<string>;
     /**

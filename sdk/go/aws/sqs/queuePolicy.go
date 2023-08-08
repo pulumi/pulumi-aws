@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,9 +22,10 @@ import (
 //
 // import (
 //
-// "github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sqs"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sqs"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
@@ -80,13 +82,11 @@ import (
 //
 // ## Import
 //
-// SQS Queue Policies can be imported using the queue URL, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_sqs_queue_policy.test
 //
-//	$ pulumi import aws:sqs/queuePolicy:QueuePolicy test https://queue.amazonaws.com/0123456789012/myqueue
-//
-// ```
+//	id = "https://queue.amazonaws.com/0123456789012/myqueue" } Using `pulumi import`, import SQS Queue Policies using the queue URL. For exampleconsole % pulumi import aws_sqs_queue_policy.test https://queue.amazonaws.com/0123456789012/myqueue
 type QueuePolicy struct {
 	pulumi.CustomResourceState
 
@@ -109,6 +109,7 @@ func NewQueuePolicy(ctx *pulumi.Context,
 	if args.QueueUrl == nil {
 		return nil, errors.New("invalid value for required argument 'QueueUrl'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource QueuePolicy
 	err := ctx.RegisterResource("aws:sqs/queuePolicy:QueuePolicy", name, args, &resource, opts...)
 	if err != nil {

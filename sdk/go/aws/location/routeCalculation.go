@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/location"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/location"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,13 +43,11 @@ import (
 //
 // ## Import
 //
-// `aws_location_route_calculator` can be imported using the route calculator name, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_location_route_calculator.example
 //
-//	$ pulumi import aws:location/routeCalculation:RouteCalculation example example
-//
-// ```
+//	id = "example" } Using `pulumi import`, import `aws_location_route_calculator` using the route calculator name. For exampleconsole % pulumi import aws_location_route_calculator.example example
 type RouteCalculation struct {
 	pulumi.CustomResourceState
 
@@ -85,6 +84,7 @@ func NewRouteCalculation(ctx *pulumi.Context,
 	if args.DataSource == nil {
 		return nil, errors.New("invalid value for required argument 'DataSource'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RouteCalculation
 	err := ctx.RegisterResource("aws:location/routeCalculation:RouteCalculation", name, args, &resource, opts...)
 	if err != nil {

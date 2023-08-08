@@ -94,11 +94,11 @@ namespace Pulumi.Aws.Evidently
     /// 
     /// ## Import
     /// 
-    /// CloudWatch Evidently Project can be imported using the `arn`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:evidently/project:Project example arn:aws:evidently:us-east-1:123456789012:segment/example
-    /// ```
+    ///  to = aws_evidently_project.example
+    /// 
+    ///  id = "arn:aws:evidently:us-east-1:123456789012:segment/example" } Using `pulumi import`, import CloudWatch Evidently Project using the `arn`. For exampleconsole % pulumi import aws_evidently_project.example arn:aws:evidently:us-east-1:123456789012:segment/example
     /// </summary>
     [AwsResourceType("aws:evidently/project:Project")]
     public partial class Project : global::Pulumi.CustomResource

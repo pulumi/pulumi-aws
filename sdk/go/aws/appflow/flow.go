@@ -8,20 +8,175 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Provides an AppFlow flow resource.
 //
-// ## Import
+// ## Example Usage
 //
-// AppFlow flows can be imported using the `arn`, e.g.
+// ```go
+// package main
 //
-// ```sh
+// import (
 //
-//	$ pulumi import aws:appflow/flow:Flow example arn:aws:appflow:us-west-2:123456789012:flow/example-flow
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appflow"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleSourceBucketV2, err := s3.NewBucketV2(ctx, "exampleSourceBucketV2", nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleSourcePolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Sid:    pulumi.StringRef("AllowAppFlowSourceActions"),
+//						Effect: pulumi.StringRef("Allow"),
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "Service",
+//								Identifiers: []string{
+//									"appflow.amazonaws.com",
+//								},
+//							},
+//						},
+//						Actions: []string{
+//							"s3:ListBucket",
+//							"s3:GetObject",
+//						},
+//						Resources: []string{
+//							"arn:aws:s3:::example_source",
+//							"arn:aws:s3:::example_source/*",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleSourceBucketPolicy, err := s3.NewBucketPolicy(ctx, "exampleSourceBucketPolicy", &s3.BucketPolicyArgs{
+//				Bucket: exampleSourceBucketV2.ID(),
+//				Policy: *pulumi.String(exampleSourcePolicyDocument.Json),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketObjectv2(ctx, "exampleBucketObjectv2", &s3.BucketObjectv2Args{
+//				Bucket: exampleSourceBucketV2.ID(),
+//				Key:    pulumi.String("example_source.csv"),
+//				Source: pulumi.NewFileAsset("example_source.csv"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleDestinationBucketV2, err := s3.NewBucketV2(ctx, "exampleDestinationBucketV2", nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleDestinationPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Sid:    pulumi.StringRef("AllowAppFlowDestinationActions"),
+//						Effect: pulumi.StringRef("Allow"),
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "Service",
+//								Identifiers: []string{
+//									"appflow.amazonaws.com",
+//								},
+//							},
+//						},
+//						Actions: []string{
+//							"s3:PutObject",
+//							"s3:AbortMultipartUpload",
+//							"s3:ListMultipartUploadParts",
+//							"s3:ListBucketMultipartUploads",
+//							"s3:GetBucketAcl",
+//							"s3:PutObjectAcl",
+//						},
+//						Resources: []string{
+//							"arn:aws:s3:::example_destination",
+//							"arn:aws:s3:::example_destination/*",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleDestinationBucketPolicy, err := s3.NewBucketPolicy(ctx, "exampleDestinationBucketPolicy", &s3.BucketPolicyArgs{
+//				Bucket: exampleDestinationBucketV2.ID(),
+//				Policy: *pulumi.String(exampleDestinationPolicyDocument.Json),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appflow.NewFlow(ctx, "exampleFlow", &appflow.FlowArgs{
+//				SourceFlowConfig: &appflow.FlowSourceFlowConfigArgs{
+//					ConnectorType: pulumi.String("S3"),
+//					SourceConnectorProperties: &appflow.FlowSourceFlowConfigSourceConnectorPropertiesArgs{
+//						S3: &appflow.FlowSourceFlowConfigSourceConnectorPropertiesS3Args{
+//							BucketName:   exampleSourceBucketPolicy.Bucket,
+//							BucketPrefix: pulumi.String("example"),
+//						},
+//					},
+//				},
+//				DestinationFlowConfigs: appflow.FlowDestinationFlowConfigArray{
+//					&appflow.FlowDestinationFlowConfigArgs{
+//						ConnectorType: pulumi.String("S3"),
+//						DestinationConnectorProperties: &appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesArgs{
+//							S3: &appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesS3Args{
+//								BucketName: exampleDestinationBucketPolicy.Bucket,
+//								S3OutputFormatConfig: &appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs{
+//									PrefixConfig: &appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigArgs{
+//										PrefixType: pulumi.String("PATH"),
+//									},
+//								},
+//							},
+//						},
+//					},
+//				},
+//				Tasks: appflow.FlowTaskArray{
+//					&appflow.FlowTaskArgs{
+//						SourceFields: pulumi.StringArray{
+//							pulumi.String("exampleField"),
+//						},
+//						DestinationField: pulumi.String("exampleField"),
+//						TaskType:         pulumi.String("Map"),
+//						ConnectorOperators: appflow.FlowTaskConnectorOperatorArray{
+//							&appflow.FlowTaskConnectorOperatorArgs{
+//								S3: pulumi.String("NO_OP"),
+//							},
+//						},
+//					},
+//				},
+//				TriggerConfig: &appflow.FlowTriggerConfigArgs{
+//					TriggerType: pulumi.String("OnDemand"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
 //
 // ```
+//
+// ## Import
+//
+// terraform import {
+//
+//	to = aws_appflow_flow.example
+//
+//	id = "arn:aws:appflow:us-west-2:123456789012:flow/example-flow" } Using `pulumi import`, import AppFlow flows using the `arn`. For exampleconsole % pulumi import aws_appflow_flow.example arn:aws:appflow:us-west-2:123456789012:flow/example-flow
 type Flow struct {
 	pulumi.CustomResourceState
 
@@ -66,6 +221,7 @@ func NewFlow(ctx *pulumi.Context,
 	if args.TriggerConfig == nil {
 		return nil, errors.New("invalid value for required argument 'TriggerConfig'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Flow
 	err := ctx.RegisterResource("aws:appflow/flow:Flow", name, args, &resource, opts...)
 	if err != nil {

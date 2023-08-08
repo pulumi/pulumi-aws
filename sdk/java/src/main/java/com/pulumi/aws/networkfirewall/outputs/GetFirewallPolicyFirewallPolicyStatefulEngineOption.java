@@ -10,10 +10,14 @@ import java.util.Objects;
 @CustomType
 public final class GetFirewallPolicyFirewallPolicyStatefulEngineOption {
     private String ruleOrder;
+    private String streamExceptionPolicy;
 
     private GetFirewallPolicyFirewallPolicyStatefulEngineOption() {}
     public String ruleOrder() {
         return this.ruleOrder;
+    }
+    public String streamExceptionPolicy() {
+        return this.streamExceptionPolicy;
     }
 
     public static Builder builder() {
@@ -26,10 +30,12 @@ public final class GetFirewallPolicyFirewallPolicyStatefulEngineOption {
     @CustomType.Builder
     public static final class Builder {
         private String ruleOrder;
+        private String streamExceptionPolicy;
         public Builder() {}
         public Builder(GetFirewallPolicyFirewallPolicyStatefulEngineOption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.ruleOrder = defaults.ruleOrder;
+    	      this.streamExceptionPolicy = defaults.streamExceptionPolicy;
         }
 
         @CustomType.Setter
@@ -37,9 +43,15 @@ public final class GetFirewallPolicyFirewallPolicyStatefulEngineOption {
             this.ruleOrder = Objects.requireNonNull(ruleOrder);
             return this;
         }
+        @CustomType.Setter
+        public Builder streamExceptionPolicy(String streamExceptionPolicy) {
+            this.streamExceptionPolicy = Objects.requireNonNull(streamExceptionPolicy);
+            return this;
+        }
         public GetFirewallPolicyFirewallPolicyStatefulEngineOption build() {
             final var o = new GetFirewallPolicyFirewallPolicyStatefulEngineOption();
             o.ruleOrder = ruleOrder;
+            o.streamExceptionPolicy = streamExceptionPolicy;
             return o;
         }
     }

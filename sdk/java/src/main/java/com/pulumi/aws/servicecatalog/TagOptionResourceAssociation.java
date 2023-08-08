@@ -52,11 +52,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_servicecatalog_tag_option_resource_association` can be imported using the tag option ID and resource ID, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:servicecatalog/tagOptionResourceAssociation:TagOptionResourceAssociation example tag-pjtvyakdlyo3m:prod-dnigbtea24ste
- * ```
+ *  to = aws_servicecatalog_tag_option_resource_association.example
+ * 
+ *  id = &#34;tag-pjtvyakdlyo3m:prod-dnigbtea24ste&#34; } Using `pulumi import`, import `aws_servicecatalog_tag_option_resource_association` using the tag option ID and resource ID. For exampleconsole % pulumi import aws_servicecatalog_tag_option_resource_association.example tag-pjtvyakdlyo3m:prod-dnigbtea24ste
  * 
  */
 @ResourceType(type="aws:servicecatalog/tagOptionResourceAssociation:TagOptionResourceAssociation")

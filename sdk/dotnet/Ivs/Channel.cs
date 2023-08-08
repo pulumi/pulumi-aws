@@ -30,11 +30,11 @@ namespace Pulumi.Aws.Ivs
     /// 
     /// ## Import
     /// 
-    /// IVS (Interactive Video) Channel can be imported using the ARN, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:ivs/channel:Channel example arn:aws:ivs:us-west-2:326937407773:channel/0Y1lcs4U7jk5
-    /// ```
+    ///  to = aws_ivs_channel.example
+    /// 
+    ///  id = "arn:aws:ivs:us-west-2:326937407773:channel/0Y1lcs4U7jk5" } Using `pulumi import`, import IVS (Interactive Video) Channel using the ARN. For exampleconsole % pulumi import aws_ivs_channel.example arn:aws:ivs:us-west-2:326937407773:channel/0Y1lcs4U7jk5
     /// </summary>
     [AwsResourceType("aws:ivs/channel:Channel")]
     public partial class Channel : global::Pulumi.CustomResource

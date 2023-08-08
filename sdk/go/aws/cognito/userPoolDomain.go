@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cognito"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -51,8 +52,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cognito"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -100,13 +101,11 @@ import (
 //
 // ## Import
 //
-// Cognito User Pool Domains can be imported using the `domain`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_cognito_user_pool_domain.main
 //
-//	$ pulumi import aws:cognito/userPoolDomain:UserPoolDomain main auth.example.org
-//
-// ```
+//	id = "auth.example.org" } Using `pulumi import`, import Cognito User Pool Domains using the `domain`. For exampleconsole % pulumi import aws_cognito_user_pool_domain.main auth.example.org
 type UserPoolDomain struct {
 	pulumi.CustomResourceState
 
@@ -143,6 +142,7 @@ func NewUserPoolDomain(ctx *pulumi.Context,
 	if args.UserPoolId == nil {
 		return nil, errors.New("invalid value for required argument 'UserPoolId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource UserPoolDomain
 	err := ctx.RegisterResource("aws:cognito/userPoolDomain:UserPoolDomain", name, args, &resource, opts...)
 	if err != nil {

@@ -35,7 +35,7 @@ public final class ComputeEnvironmentComputeResources {
      * @return Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn&#39;t specified, the default is ECS_AL2. This parameter isn&#39;t applicable to jobs that are running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
-    private @Nullable ComputeEnvironmentComputeResourcesEc2Configuration ec2Configuration;
+    private @Nullable List<ComputeEnvironmentComputeResourcesEc2Configuration> ec2Configurations;
     /**
      * @return The EC2 key pair that is used for instances launched in the compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
      * 
@@ -71,6 +71,11 @@ public final class ComputeEnvironmentComputeResources {
      * 
      */
     private @Nullable Integer minVcpus;
+    /**
+     * @return The Amazon EC2 placement group to associate with your compute resources.
+     * 
+     */
+    private @Nullable String placementGroup;
     /**
      * @return A list of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
      * 
@@ -123,8 +128,8 @@ public final class ComputeEnvironmentComputeResources {
      * @return Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn&#39;t specified, the default is ECS_AL2. This parameter isn&#39;t applicable to jobs that are running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
-    public Optional<ComputeEnvironmentComputeResourcesEc2Configuration> ec2Configuration() {
-        return Optional.ofNullable(this.ec2Configuration);
+    public List<ComputeEnvironmentComputeResourcesEc2Configuration> ec2Configurations() {
+        return this.ec2Configurations == null ? List.of() : this.ec2Configurations;
     }
     /**
      * @return The EC2 key pair that is used for instances launched in the compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
@@ -176,6 +181,13 @@ public final class ComputeEnvironmentComputeResources {
         return Optional.ofNullable(this.minVcpus);
     }
     /**
+     * @return The Amazon EC2 placement group to associate with your compute resources.
+     * 
+     */
+    public Optional<String> placementGroup() {
+        return Optional.ofNullable(this.placementGroup);
+    }
+    /**
      * @return A list of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
      * 
      */
@@ -223,7 +235,7 @@ public final class ComputeEnvironmentComputeResources {
         private @Nullable String allocationStrategy;
         private @Nullable Integer bidPercentage;
         private @Nullable Integer desiredVcpus;
-        private @Nullable ComputeEnvironmentComputeResourcesEc2Configuration ec2Configuration;
+        private @Nullable List<ComputeEnvironmentComputeResourcesEc2Configuration> ec2Configurations;
         private @Nullable String ec2KeyPair;
         private @Nullable String imageId;
         private @Nullable String instanceRole;
@@ -231,6 +243,7 @@ public final class ComputeEnvironmentComputeResources {
         private @Nullable ComputeEnvironmentComputeResourcesLaunchTemplate launchTemplate;
         private Integer maxVcpus;
         private @Nullable Integer minVcpus;
+        private @Nullable String placementGroup;
         private @Nullable List<String> securityGroupIds;
         private @Nullable String spotIamFleetRole;
         private List<String> subnets;
@@ -242,7 +255,7 @@ public final class ComputeEnvironmentComputeResources {
     	      this.allocationStrategy = defaults.allocationStrategy;
     	      this.bidPercentage = defaults.bidPercentage;
     	      this.desiredVcpus = defaults.desiredVcpus;
-    	      this.ec2Configuration = defaults.ec2Configuration;
+    	      this.ec2Configurations = defaults.ec2Configurations;
     	      this.ec2KeyPair = defaults.ec2KeyPair;
     	      this.imageId = defaults.imageId;
     	      this.instanceRole = defaults.instanceRole;
@@ -250,6 +263,7 @@ public final class ComputeEnvironmentComputeResources {
     	      this.launchTemplate = defaults.launchTemplate;
     	      this.maxVcpus = defaults.maxVcpus;
     	      this.minVcpus = defaults.minVcpus;
+    	      this.placementGroup = defaults.placementGroup;
     	      this.securityGroupIds = defaults.securityGroupIds;
     	      this.spotIamFleetRole = defaults.spotIamFleetRole;
     	      this.subnets = defaults.subnets;
@@ -273,9 +287,12 @@ public final class ComputeEnvironmentComputeResources {
             return this;
         }
         @CustomType.Setter
-        public Builder ec2Configuration(@Nullable ComputeEnvironmentComputeResourcesEc2Configuration ec2Configuration) {
-            this.ec2Configuration = ec2Configuration;
+        public Builder ec2Configurations(@Nullable List<ComputeEnvironmentComputeResourcesEc2Configuration> ec2Configurations) {
+            this.ec2Configurations = ec2Configurations;
             return this;
+        }
+        public Builder ec2Configurations(ComputeEnvironmentComputeResourcesEc2Configuration... ec2Configurations) {
+            return ec2Configurations(List.of(ec2Configurations));
         }
         @CustomType.Setter
         public Builder ec2KeyPair(@Nullable String ec2KeyPair) {
@@ -316,6 +333,11 @@ public final class ComputeEnvironmentComputeResources {
             return this;
         }
         @CustomType.Setter
+        public Builder placementGroup(@Nullable String placementGroup) {
+            this.placementGroup = placementGroup;
+            return this;
+        }
+        @CustomType.Setter
         public Builder securityGroupIds(@Nullable List<String> securityGroupIds) {
             this.securityGroupIds = securityGroupIds;
             return this;
@@ -351,7 +373,7 @@ public final class ComputeEnvironmentComputeResources {
             o.allocationStrategy = allocationStrategy;
             o.bidPercentage = bidPercentage;
             o.desiredVcpus = desiredVcpus;
-            o.ec2Configuration = ec2Configuration;
+            o.ec2Configurations = ec2Configurations;
             o.ec2KeyPair = ec2KeyPair;
             o.imageId = imageId;
             o.instanceRole = instanceRole;
@@ -359,6 +381,7 @@ public final class ComputeEnvironmentComputeResources {
             o.launchTemplate = launchTemplate;
             o.maxVcpus = maxVcpus;
             o.minVcpus = minVcpus;
+            o.placementGroup = placementGroup;
             o.securityGroupIds = securityGroupIds;
             o.spotIamFleetRole = spotIamFleetRole;
             o.subnets = subnets;

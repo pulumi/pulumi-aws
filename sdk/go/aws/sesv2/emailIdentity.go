@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sesv2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sesv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -48,7 +49,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sesv2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sesv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -73,7 +74,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sesv2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sesv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -105,7 +106,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sesv2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sesv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -130,13 +131,11 @@ import (
 //
 // ## Import
 //
-// SESv2 (Simple Email V2) Email Identity can be imported using the `email_identity`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_sesv2_email_identity.example
 //
-//	$ pulumi import aws:sesv2/emailIdentity:EmailIdentity example example.com
-//
-// ```
+//	id = "example.com" } Using `pulumi import`, import SESv2 (Simple Email V2) Email Identity using the `email_identity`. For exampleconsole % pulumi import aws_sesv2_email_identity.example example.com
 type EmailIdentity struct {
 	pulumi.CustomResourceState
 
@@ -147,11 +146,14 @@ type EmailIdentity struct {
 	// The configuration of the DKIM authentication settings for an email domain identity.
 	DkimSigningAttributes EmailIdentityDkimSigningAttributesOutput `pulumi:"dkimSigningAttributes"`
 	// The email address or domain to verify.
+	//
+	// The following arguments are optional:
 	EmailIdentity pulumi.StringOutput `pulumi:"emailIdentity"`
 	// The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
 	IdentityType pulumi.StringOutput `pulumi:"identityType"`
-	// (Optional) A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Specifies whether or not the identity is verified.
 	VerifiedForSendingStatus pulumi.BoolOutput `pulumi:"verifiedForSendingStatus"`
@@ -167,6 +169,7 @@ func NewEmailIdentity(ctx *pulumi.Context,
 	if args.EmailIdentity == nil {
 		return nil, errors.New("invalid value for required argument 'EmailIdentity'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EmailIdentity
 	err := ctx.RegisterResource("aws:sesv2/emailIdentity:EmailIdentity", name, args, &resource, opts...)
 	if err != nil {
@@ -196,11 +199,14 @@ type emailIdentityState struct {
 	// The configuration of the DKIM authentication settings for an email domain identity.
 	DkimSigningAttributes *EmailIdentityDkimSigningAttributes `pulumi:"dkimSigningAttributes"`
 	// The email address or domain to verify.
+	//
+	// The following arguments are optional:
 	EmailIdentity *string `pulumi:"emailIdentity"`
 	// The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
 	IdentityType *string `pulumi:"identityType"`
-	// (Optional) A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Specifies whether or not the identity is verified.
 	VerifiedForSendingStatus *bool `pulumi:"verifiedForSendingStatus"`
@@ -214,11 +220,14 @@ type EmailIdentityState struct {
 	// The configuration of the DKIM authentication settings for an email domain identity.
 	DkimSigningAttributes EmailIdentityDkimSigningAttributesPtrInput
 	// The email address or domain to verify.
+	//
+	// The following arguments are optional:
 	EmailIdentity pulumi.StringPtrInput
 	// The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
 	IdentityType pulumi.StringPtrInput
-	// (Optional) A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Specifies whether or not the identity is verified.
 	VerifiedForSendingStatus pulumi.BoolPtrInput
@@ -234,8 +243,10 @@ type emailIdentityArgs struct {
 	// The configuration of the DKIM authentication settings for an email domain identity.
 	DkimSigningAttributes *EmailIdentityDkimSigningAttributes `pulumi:"dkimSigningAttributes"`
 	// The email address or domain to verify.
+	//
+	// The following arguments are optional:
 	EmailIdentity string `pulumi:"emailIdentity"`
-	// (Optional) A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -246,8 +257,10 @@ type EmailIdentityArgs struct {
 	// The configuration of the DKIM authentication settings for an email domain identity.
 	DkimSigningAttributes EmailIdentityDkimSigningAttributesPtrInput
 	// The email address or domain to verify.
+	//
+	// The following arguments are optional:
 	EmailIdentity pulumi.StringInput
-	// (Optional) A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -354,6 +367,8 @@ func (o EmailIdentityOutput) DkimSigningAttributes() EmailIdentityDkimSigningAtt
 }
 
 // The email address or domain to verify.
+//
+// The following arguments are optional:
 func (o EmailIdentityOutput) EmailIdentity() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailIdentity) pulumi.StringOutput { return v.EmailIdentity }).(pulumi.StringOutput)
 }
@@ -363,11 +378,12 @@ func (o EmailIdentityOutput) IdentityType() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailIdentity) pulumi.StringOutput { return v.IdentityType }).(pulumi.StringOutput)
 }
 
-// (Optional) A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o EmailIdentityOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EmailIdentity) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o EmailIdentityOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EmailIdentity) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

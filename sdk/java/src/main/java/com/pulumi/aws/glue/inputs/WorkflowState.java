@@ -6,7 +6,6 @@ package com.pulumi.aws.glue.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
-import java.lang.Object;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -38,13 +37,13 @@ public final class WorkflowState extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="defaultRunProperties")
-    private @Nullable Output<Map<String,Object>> defaultRunProperties;
+    private @Nullable Output<Map<String,String>> defaultRunProperties;
 
     /**
      * @return A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
      * 
      */
-    public Optional<Output<Map<String,Object>>> defaultRunProperties() {
+    public Optional<Output<Map<String,String>>> defaultRunProperties() {
         return Optional.ofNullable(this.defaultRunProperties);
     }
 
@@ -180,7 +179,7 @@ public final class WorkflowState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder defaultRunProperties(@Nullable Output<Map<String,Object>> defaultRunProperties) {
+        public Builder defaultRunProperties(@Nullable Output<Map<String,String>> defaultRunProperties) {
             $.defaultRunProperties = defaultRunProperties;
             return this;
         }
@@ -191,7 +190,7 @@ public final class WorkflowState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder defaultRunProperties(Map<String,Object> defaultRunProperties) {
+        public Builder defaultRunProperties(Map<String,String> defaultRunProperties) {
             return defaultRunProperties(Output.of(defaultRunProperties));
         }
 

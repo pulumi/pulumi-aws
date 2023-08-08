@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -18,7 +19,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -130,13 +131,11 @@ import (
 //
 // ## Import
 //
-// Glue Partition Indexes can be imported with their catalog ID (usually AWS account ID), database name, table name, and index name, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_glue_partition_index.example
 //
-//	$ pulumi import aws:glue/partitionIndex:PartitionIndex example 123456789012:MyDatabase:MyTable:index-name
-//
-// ```
+//	id = "123456789012:MyDatabase:MyTable:index-name" } Using `pulumi import`, import Glue Partition Indexes using the catalog ID (usually AWS account ID), database name, table name, and index name. For exampleconsole % pulumi import aws_glue_partition_index.example 123456789012:MyDatabase:MyTable:index-name
 type PartitionIndex struct {
 	pulumi.CustomResourceState
 
@@ -166,6 +165,7 @@ func NewPartitionIndex(ctx *pulumi.Context,
 	if args.TableName == nil {
 		return nil, errors.New("invalid value for required argument 'TableName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PartitionIndex
 	err := ctx.RegisterResource("aws:glue/partitionIndex:PartitionIndex", name, args, &resource, opts...)
 	if err != nil {

@@ -162,11 +162,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * A QuickSight Data Set can be imported using the AWS account ID and data set ID separated by a comma (`,`) e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:quicksight/dataSet:DataSet example 123456789012,example-id
- * ```
+ *  to = aws_quicksight_data_set.example
+ *
+ *  id = "123456789012,example-id" } Using `pulumi import`, import a QuickSight Data Set using the AWS account ID and data set ID separated by a comma (`,`). For exampleconsole % pulumi import aws_quicksight_data_set.example 123456789012,example-id
  */
 export class DataSet extends pulumi.CustomResource {
     /**
@@ -246,7 +246,7 @@ export class DataSet extends pulumi.CustomResource {
      *
      * The following arguments are optional:
      */
-    public readonly physicalTableMaps!: pulumi.Output<outputs.quicksight.DataSetPhysicalTableMap[]>;
+    public readonly physicalTableMaps!: pulumi.Output<outputs.quicksight.DataSetPhysicalTableMap[] | undefined>;
     /**
      * The refresh properties for the data set. **NOTE**: Only valid when `importMode` is set to `SPICE`. See refresh_properties.
      */
@@ -306,9 +306,6 @@ export class DataSet extends pulumi.CustomResource {
             }
             if ((!args || args.importMode === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'importMode'");
-            }
-            if ((!args || args.physicalTableMaps === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'physicalTableMaps'");
             }
             resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
             resourceInputs["columnGroups"] = args ? args.columnGroups : undefined;
@@ -460,7 +457,7 @@ export interface DataSetArgs {
      *
      * The following arguments are optional:
      */
-    physicalTableMaps: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetPhysicalTableMap>[]>;
+    physicalTableMaps?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetPhysicalTableMap>[]>;
     /**
      * The refresh properties for the data set. **NOTE**: Only valid when `importMode` is set to `SPICE`. See refresh_properties.
      */

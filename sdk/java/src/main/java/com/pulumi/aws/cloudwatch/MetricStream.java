@@ -38,7 +38,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.BucketV2;
  * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
  * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
- * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamS3ConfigurationArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs;
  * import com.pulumi.aws.cloudwatch.MetricStream;
  * import com.pulumi.aws.cloudwatch.MetricStreamArgs;
  * import com.pulumi.aws.cloudwatch.inputs.MetricStreamIncludeFilterArgs;
@@ -92,8 +92,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var s3Stream = new FirehoseDeliveryStream(&#34;s3Stream&#34;, FirehoseDeliveryStreamArgs.builder()        
- *             .destination(&#34;s3&#34;)
- *             .s3Configuration(FirehoseDeliveryStreamS3ConfigurationArgs.builder()
+ *             .destination(&#34;extended_s3&#34;)
+ *             .extendedS3Configuration(FirehoseDeliveryStreamExtendedS3ConfigurationArgs.builder()
  *                 .roleArn(firehoseToS3Role.arn())
  *                 .bucketArn(bucket.arn())
  *                 .build())
@@ -212,11 +212,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * CloudWatch metric streams can be imported using the `name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:cloudwatch/metricStream:MetricStream sample sample-stream-name
- * ```
+ *  to = aws_cloudwatch_metric_stream.sample
+ * 
+ *  id = &#34;sample-stream-name&#34; } Using `pulumi import`, import CloudWatch metric streams using the `name`. For exampleconsole % pulumi import aws_cloudwatch_metric_stream.sample sample-stream-name
  * 
  */
 @ResourceType(type="aws:cloudwatch/metricStream:MetricStream")

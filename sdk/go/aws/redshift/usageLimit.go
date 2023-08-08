@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/redshift"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshift"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -44,13 +45,11 @@ import (
 //
 // ## Import
 //
-// Redshift usage limits can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_redshift_usage_limit.example
 //
-//	$ pulumi import aws:redshift/usageLimit:UsageLimit example example-id
-//
-// ```
+//	id = "example-id" } Using `pulumi import`, import Redshift usage limits using the `id`. For exampleconsole % pulumi import aws_redshift_usage_limit.example example-id
 type UsageLimit struct {
 	pulumi.CustomResourceState
 
@@ -93,6 +92,7 @@ func NewUsageLimit(ctx *pulumi.Context,
 	if args.LimitType == nil {
 		return nil, errors.New("invalid value for required argument 'LimitType'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource UsageLimit
 	err := ctx.RegisterResource("aws:redshift/usageLimit:UsageLimit", name, args, &resource, opts...)
 	if err != nil {

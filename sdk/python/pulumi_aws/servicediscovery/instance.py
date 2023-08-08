@@ -182,11 +182,11 @@ class Instance(pulumi.CustomResource):
 
         ## Import
 
-        Service Discovery Instance can be imported using the service ID and instance ID, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:servicediscovery/instance:Instance example 0123456789/i-0123
-        ```
+         to = aws_service_discovery_instance.example
+
+         id = "0123456789/i-0123" } Using `pulumi import`, import Service Discovery Instance using the service ID and instance ID. For exampleconsole % pulumi import aws_service_discovery_instance.example 0123456789/i-0123
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -253,11 +253,11 @@ class Instance(pulumi.CustomResource):
 
         ## Import
 
-        Service Discovery Instance can be imported using the service ID and instance ID, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:servicediscovery/instance:Instance example 0123456789/i-0123
-        ```
+         to = aws_service_discovery_instance.example
+
+         id = "0123456789/i-0123" } Using `pulumi import`, import Service Discovery Instance using the service ID and instance ID. For exampleconsole % pulumi import aws_service_discovery_instance.example 0123456789/i-0123
 
         :param str resource_name: The name of the resource.
         :param InstanceArgs args: The arguments to use to populate this resource's properties.

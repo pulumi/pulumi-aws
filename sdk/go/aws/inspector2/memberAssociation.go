@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/inspector2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/inspector2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,13 +43,11 @@ import (
 //
 // ## Import
 //
-// Amazon Inspector Member Association can be imported using the `account_id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_inspector2_member_association.example
 //
-//	$ pulumi import aws:inspector2/memberAssociation:MemberAssociation example 123456789012
-//
-// ```
+//	id = "123456789012" } Using `pulumi import`, import Amazon Inspector Member Association using the `account_id`. For exampleconsole % pulumi import aws_inspector2_member_association.example 123456789012
 type MemberAssociation struct {
 	pulumi.CustomResourceState
 
@@ -72,6 +71,7 @@ func NewMemberAssociation(ctx *pulumi.Context,
 	if args.AccountId == nil {
 		return nil, errors.New("invalid value for required argument 'AccountId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MemberAssociation
 	err := ctx.RegisterResource("aws:inspector2/memberAssociation:MemberAssociation", name, args, &resource, opts...)
 	if err != nil {

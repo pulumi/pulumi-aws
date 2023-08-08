@@ -7,8 +7,11 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type RecordAlias struct {
 	// Set to `true` if you want Route 53 to determine whether to respond to DNS queries using this resource record set by checking the health of the resource record set. Some resources have special requirements, see [related part of documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-values.html#rrsets-values-alias-evaluate-target-health).
@@ -126,9 +129,9 @@ func (o RecordAliasArrayOutput) Index(i pulumi.IntInput) RecordAliasOutput {
 }
 
 type RecordCidrRoutingPolicy struct {
-	// The CIDR collection ID. See the `awsRoute53CidrCollection` resource for more details.
+	// The CIDR collection ID. See the `route53.CidrCollection` resource for more details.
 	CollectionId string `pulumi:"collectionId"`
-	// The CIDR collection location name. See the `awsRoute53CidrLocation` resource for more details. A `locationName` with an asterisk `"*"` can be used to create a default CIDR record. `collectionId` is still required for default record.
+	// The CIDR collection location name. See the `route53.CidrLocation` resource for more details. A `locationName` with an asterisk `"*"` can be used to create a default CIDR record. `collectionId` is still required for default record.
 	LocationName string `pulumi:"locationName"`
 }
 
@@ -144,9 +147,9 @@ type RecordCidrRoutingPolicyInput interface {
 }
 
 type RecordCidrRoutingPolicyArgs struct {
-	// The CIDR collection ID. See the `awsRoute53CidrCollection` resource for more details.
+	// The CIDR collection ID. See the `route53.CidrCollection` resource for more details.
 	CollectionId pulumi.StringInput `pulumi:"collectionId"`
-	// The CIDR collection location name. See the `awsRoute53CidrLocation` resource for more details. A `locationName` with an asterisk `"*"` can be used to create a default CIDR record. `collectionId` is still required for default record.
+	// The CIDR collection location name. See the `route53.CidrLocation` resource for more details. A `locationName` with an asterisk `"*"` can be used to create a default CIDR record. `collectionId` is still required for default record.
 	LocationName pulumi.StringInput `pulumi:"locationName"`
 }
 
@@ -227,12 +230,12 @@ func (o RecordCidrRoutingPolicyOutput) ToRecordCidrRoutingPolicyPtrOutputWithCon
 	}).(RecordCidrRoutingPolicyPtrOutput)
 }
 
-// The CIDR collection ID. See the `awsRoute53CidrCollection` resource for more details.
+// The CIDR collection ID. See the `route53.CidrCollection` resource for more details.
 func (o RecordCidrRoutingPolicyOutput) CollectionId() pulumi.StringOutput {
 	return o.ApplyT(func(v RecordCidrRoutingPolicy) string { return v.CollectionId }).(pulumi.StringOutput)
 }
 
-// The CIDR collection location name. See the `awsRoute53CidrLocation` resource for more details. A `locationName` with an asterisk `"*"` can be used to create a default CIDR record. `collectionId` is still required for default record.
+// The CIDR collection location name. See the `route53.CidrLocation` resource for more details. A `locationName` with an asterisk `"*"` can be used to create a default CIDR record. `collectionId` is still required for default record.
 func (o RecordCidrRoutingPolicyOutput) LocationName() pulumi.StringOutput {
 	return o.ApplyT(func(v RecordCidrRoutingPolicy) string { return v.LocationName }).(pulumi.StringOutput)
 }
@@ -261,7 +264,7 @@ func (o RecordCidrRoutingPolicyPtrOutput) Elem() RecordCidrRoutingPolicyOutput {
 	}).(RecordCidrRoutingPolicyOutput)
 }
 
-// The CIDR collection ID. See the `awsRoute53CidrCollection` resource for more details.
+// The CIDR collection ID. See the `route53.CidrCollection` resource for more details.
 func (o RecordCidrRoutingPolicyPtrOutput) CollectionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RecordCidrRoutingPolicy) *string {
 		if v == nil {
@@ -271,7 +274,7 @@ func (o RecordCidrRoutingPolicyPtrOutput) CollectionId() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The CIDR collection location name. See the `awsRoute53CidrLocation` resource for more details. A `locationName` with an asterisk `"*"` can be used to create a default CIDR record. `collectionId` is still required for default record.
+// The CIDR collection location name. See the `route53.CidrLocation` resource for more details. A `locationName` with an asterisk `"*"` can be used to create a default CIDR record. `collectionId` is still required for default record.
 func (o RecordCidrRoutingPolicyPtrOutput) LocationName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RecordCidrRoutingPolicy) *string {
 		if v == nil {

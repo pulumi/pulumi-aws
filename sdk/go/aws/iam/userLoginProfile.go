@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,15 +53,11 @@ import (
 //
 // ## Import
 //
-// IAM User Login Profiles can be imported without password information support via the IAM User name, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_iam_user_login_profile.example
 //
-//	$ pulumi import aws:iam/userLoginProfile:UserLoginProfile example myusername
-//
-// ```
-//
-//	Since this provider has no method to read the PGP or password information during import, use [`ignore_changes` argument](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore them unless password recreation is desired. e.g. terraform resource "aws_iam_user_login_profile" "example" {
+//	id = "myusername" } Using `pulumi import`, import IAM User Login Profiles without password information via the IAM User name. For exampleconsole % pulumi import aws_iam_user_login_profile.example myusername Since TODO has no method to read the PGP or password information during import, use the TODO resource `lifecycle` configuration block `ignore_changes` argument to ignore them (unless you want to recreate a password). For exampleterraform resource "aws_iam_user_login_profile" "example" {
 //
 // # ... other configuration ...
 //
@@ -106,6 +103,7 @@ func NewUserLoginProfile(ctx *pulumi.Context,
 	if args.User == nil {
 		return nil, errors.New("invalid value for required argument 'User'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource UserLoginProfile
 	err := ctx.RegisterResource("aws:iam/userLoginProfile:UserLoginProfile", name, args, &resource, opts...)
 	if err != nil {

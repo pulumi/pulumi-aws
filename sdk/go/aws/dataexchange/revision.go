@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/dataexchange"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dataexchange"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -41,13 +42,11 @@ import (
 //
 // ## Import
 //
-// DataExchange Revisions can be imported by their `data-set-id:revision-id`
+// terraform import {
 //
-// ```sh
+//	to = aws_dataexchange_revision.example
 //
-//	$ pulumi import aws:dataexchange/revision:Revision example 4fa784c7-ccb4-4dbf-ba4f-02198320daa1:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
-//
-// ```
+//	id = "4fa784c7-ccb4-4dbf-ba4f-02198320daa1:4fa784c7-ccb4-4dbf-ba4f-02198320daa1" } Using `pulumi import`, import DataExchange Revisions using their `data-set-id:revision-id`. For exampleconsole % pulumi import aws_dataexchange_revision.example 4fa784c7-ccb4-4dbf-ba4f-02198320daa1:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
 type Revision struct {
 	pulumi.CustomResourceState
 
@@ -75,6 +74,7 @@ func NewRevision(ctx *pulumi.Context,
 	if args.DataSetId == nil {
 		return nil, errors.New("invalid value for required argument 'DataSetId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Revision
 	err := ctx.RegisterResource("aws:dataexchange/revision:Revision", name, args, &resource, opts...)
 	if err != nil {

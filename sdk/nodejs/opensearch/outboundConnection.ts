@@ -36,11 +36,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * AWS Opensearch Outbound Connections can be imported by using the Outbound Connection ID, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:opensearch/outboundConnection:OutboundConnection foo connection-id
- * ```
+ *  to = aws_opensearch_outbound_connection.foo
+ *
+ *  id = "connection-id" } Using `pulumi import`, import AWS Opensearch Outbound Connections using the Outbound Connection ID. For exampleconsole % pulumi import aws_opensearch_outbound_connection.foo connection-id
  */
 export class OutboundConnection extends pulumi.CustomResource {
     /**

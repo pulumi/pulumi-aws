@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -58,13 +59,11 @@ import (
 //
 // ## Import
 //
-// Traffic mirror targets can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_ec2_traffic_mirror_target.target
 //
-//	$ pulumi import aws:ec2/trafficMirrorTarget:TrafficMirrorTarget target tmt-0c13a005422b86606
-//
-// ```
+//	id = "tmt-0c13a005422b86606" } Using `pulumi import`, import traffic mirror targets using the `id`. For exampleconsole % pulumi import aws_ec2_traffic_mirror_target.target tmt-0c13a005422b86606
 type TrafficMirrorTarget struct {
 	pulumi.CustomResourceState
 
@@ -95,6 +94,7 @@ func NewTrafficMirrorTarget(ctx *pulumi.Context,
 		args = &TrafficMirrorTargetArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TrafficMirrorTarget
 	err := ctx.RegisterResource("aws:ec2/trafficMirrorTarget:TrafficMirrorTarget", name, args, &resource, opts...)
 	if err != nil {

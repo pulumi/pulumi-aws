@@ -41,11 +41,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Import SSM Contact using the `ARN`. For example
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:ssmcontacts/contact:Contact example {ARNValue}
- * ```
+ *  to = aws_ssmcontacts_contact.example
+ *
+ *  id = "{ARNValue}" } Using `pulumi import`, import SSM Contact using the `ARN`. For exampleconsole % pulumi import aws_ssmcontacts_contact.example {ARNValue}
  */
 export class Contact extends pulumi.CustomResource {
     /**

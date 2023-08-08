@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/pinpoint"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/pinpoint"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -48,13 +49,11 @@ import (
 //
 // ## Import
 //
-// Pinpoint ADM Channel can be imported using the `application-id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_pinpoint_adm_channel.channel
 //
-//	$ pulumi import aws:pinpoint/admChannel:AdmChannel channel application-id
-//
-// ```
+//	id = "application-id" } Using `pulumi import`, import Pinpoint ADM Channel using the `application-id`. For exampleconsole % pulumi import aws_pinpoint_adm_channel.channel application-id
 type AdmChannel struct {
 	pulumi.CustomResourceState
 
@@ -95,6 +94,7 @@ func NewAdmChannel(ctx *pulumi.Context,
 		"clientSecret",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AdmChannel
 	err := ctx.RegisterResource("aws:pinpoint/admChannel:AdmChannel", name, args, &resource, opts...)
 	if err != nil {

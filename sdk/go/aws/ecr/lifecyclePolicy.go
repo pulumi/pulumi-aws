@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,7 +26,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecr"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecr"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -74,7 +75,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ecr"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecr"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -119,13 +120,11 @@ import (
 //
 // ## Import
 //
-// ECR Lifecycle Policy can be imported using the name of the repository, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_ecr_lifecycle_policy.example
 //
-//	$ pulumi import aws:ecr/lifecyclePolicy:LifecyclePolicy example tf-example
-//
-// ```
+//	id = "tf-example" } Using `pulumi import`, import ECR Lifecycle Policy using the name of the repository. For exampleconsole % pulumi import aws_ecr_lifecycle_policy.example tf-example
 type LifecyclePolicy struct {
 	pulumi.CustomResourceState
 
@@ -150,6 +149,7 @@ func NewLifecyclePolicy(ctx *pulumi.Context,
 	if args.Repository == nil {
 		return nil, errors.New("invalid value for required argument 'Repository'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LifecyclePolicy
 	err := ctx.RegisterResource("aws:ecr/lifecyclePolicy:LifecyclePolicy", name, args, &resource, opts...)
 	if err != nil {

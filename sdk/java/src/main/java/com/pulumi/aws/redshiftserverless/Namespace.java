@@ -51,11 +51,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Redshift Serverless Namespaces can be imported using the `namespace_name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:redshiftserverless/namespace:Namespace example example
- * ```
+ *  to = aws_redshiftserverless_namespace.example
+ * 
+ *  id = &#34;example&#34; } Using `pulumi import`, import Redshift Serverless Namespaces using the `namespace_name`. For exampleconsole % pulumi import aws_redshiftserverless_namespace.example example
  * 
  */
 @ResourceType(type="aws:redshiftserverless/namespace:Namespace")

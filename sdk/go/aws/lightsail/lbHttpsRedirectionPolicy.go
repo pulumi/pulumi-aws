@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lightsail"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -66,13 +67,11 @@ import (
 //
 // ## Import
 //
-// `aws_lightsail_lb_https_redirection_policy` can be imported by using the `lb_name` attribute, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_lightsail_lb_https_redirection_policy.test
 //
-//	$ pulumi import aws:lightsail/lbHttpsRedirectionPolicy:LbHttpsRedirectionPolicy test example-load-balancer
-//
-// ```
+//	id = "example-load-balancer" } Using `pulumi import`, import `aws_lightsail_lb_https_redirection_policy` using the `lb_name` attribute. For exampleconsole % pulumi import aws_lightsail_lb_https_redirection_policy.test example-load-balancer
 type LbHttpsRedirectionPolicy struct {
 	pulumi.CustomResourceState
 
@@ -95,6 +94,7 @@ func NewLbHttpsRedirectionPolicy(ctx *pulumi.Context,
 	if args.LbName == nil {
 		return nil, errors.New("invalid value for required argument 'LbName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LbHttpsRedirectionPolicy
 	err := ctx.RegisterResource("aws:lightsail/lbHttpsRedirectionPolicy:LbHttpsRedirectionPolicy", name, args, &resource, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -18,7 +19,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/redshift"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshift"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,13 +43,11 @@ import (
 //
 // ## Import
 //
-// Redshift Snapshot Schedule can be imported using the `identifier`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_redshift_snapshot_schedule.default
 //
-//	$ pulumi import aws:redshift/snapshotSchedule:SnapshotSchedule default tf-redshift-snapshot-schedule
-//
-// ```
+//	id = "tf-redshift-snapshot-schedule" } Using `pulumi import`, import Redshift Snapshot Schedule using the `identifier`. For exampleconsole % pulumi import aws_redshift_snapshot_schedule.default tf-redshift-snapshot-schedule
 type SnapshotSchedule struct {
 	pulumi.CustomResourceState
 
@@ -81,6 +80,7 @@ func NewSnapshotSchedule(ctx *pulumi.Context,
 	if args.Definitions == nil {
 		return nil, errors.New("invalid value for required argument 'Definitions'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SnapshotSchedule
 	err := ctx.RegisterResource("aws:redshift/snapshotSchedule:SnapshotSchedule", name, args, &resource, opts...)
 	if err != nil {

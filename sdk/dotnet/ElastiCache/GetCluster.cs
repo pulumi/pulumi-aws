@@ -208,10 +208,6 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
         /// <summary>
-        /// List of security group names associated with this cache cluster.
-        /// </summary>
-        public readonly ImmutableArray<string> SecurityGroupNames;
-        /// <summary>
         /// The number of days for which ElastiCache will
         /// retain automatic cache cluster snapshots before deleting them.
         /// </summary>
@@ -274,8 +270,6 @@ namespace Pulumi.Aws.ElastiCache
 
             ImmutableArray<string> securityGroupIds,
 
-            ImmutableArray<string> securityGroupNames,
-
             int snapshotRetentionLimit,
 
             string snapshotWindow,
@@ -305,7 +299,6 @@ namespace Pulumi.Aws.ElastiCache
             PreferredOutpostArn = preferredOutpostArn;
             ReplicationGroupId = replicationGroupId;
             SecurityGroupIds = securityGroupIds;
-            SecurityGroupNames = securityGroupNames;
             SnapshotRetentionLimit = snapshotRetentionLimit;
             SnapshotWindow = snapshotWindow;
             SubnetGroupName = subnetGroupName;

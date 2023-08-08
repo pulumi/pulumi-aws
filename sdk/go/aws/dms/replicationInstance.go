@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,8 +23,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/dms"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dms"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -124,13 +125,11 @@ import (
 //
 // ## Import
 //
-// Replication instances can be imported using the `replication_instance_id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_dms_replication_instance.test
 //
-//	$ pulumi import aws:dms/replicationInstance:ReplicationInstance test test-dms-replication-instance-tf
-//
-// ```
+//	id = "test-dms-replication-instance-tf" } Using `pulumi import`, import replication instances using the `replication_instance_id`. For exampleconsole % pulumi import aws_dms_replication_instance.test test-dms-replication-instance-tf
 type ReplicationInstance struct {
 	pulumi.CustomResourceState
 
@@ -197,6 +196,7 @@ func NewReplicationInstance(ctx *pulumi.Context,
 	if args.ReplicationInstanceId == nil {
 		return nil, errors.New("invalid value for required argument 'ReplicationInstanceId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ReplicationInstance
 	err := ctx.RegisterResource("aws:dms/replicationInstance:ReplicationInstance", name, args, &resource, opts...)
 	if err != nil {

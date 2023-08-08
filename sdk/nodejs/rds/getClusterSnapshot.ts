@@ -83,7 +83,8 @@ export interface GetClusterSnapshotArgs {
      */
     snapshotType?: string;
     /**
-     * Map of tags for the resource.
+     * Mapping of tags, each pair of which must exactly match
+     * a pair on the desired DB cluster snapshot.
      */
     tags?: {[key: string]: string};
 }
@@ -227,7 +228,8 @@ export interface GetClusterSnapshotOutputArgs {
      */
     snapshotType?: pulumi.Input<string>;
     /**
-     * Map of tags for the resource.
+     * Mapping of tags, each pair of which must exactly match
+     * a pair on the desired DB cluster snapshot.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

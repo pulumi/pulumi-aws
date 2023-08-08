@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/qldb"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/qldb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -43,13 +44,11 @@ import (
 //
 // ## Import
 //
-// QLDB Ledgers can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_qldb_ledger.sample-ledger
 //
-//	$ pulumi import aws:qldb/ledger:Ledger sample-ledger sample-ledger
-//
-// ```
+//	id = "sample-ledger" } Using `pulumi import`, import QLDB Ledgers using the `name`. For exampleconsole % pulumi import aws_qldb_ledger.sample-ledger sample-ledger
 type Ledger struct {
 	pulumi.CustomResourceState
 
@@ -79,6 +78,7 @@ func NewLedger(ctx *pulumi.Context,
 	if args.PermissionsMode == nil {
 		return nil, errors.New("invalid value for required argument 'PermissionsMode'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Ledger
 	err := ctx.RegisterResource("aws:qldb/ledger:Ledger", name, args, &resource, opts...)
 	if err != nil {

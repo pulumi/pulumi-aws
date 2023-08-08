@@ -7,8 +7,11 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type EfsLocationEc2Config struct {
 	// List of Amazon Resource Names (ARNs) of the EC2 Security Groups that are associated with the EFS Mount Target.
@@ -1712,6 +1715,8 @@ type TaskOptions struct {
 	LogLevel *string `pulumi:"logLevel"`
 	// A file metadata that indicates the last time a file was modified (written to) before the sync `PREPARING` phase. Value values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
 	Mtime *string `pulumi:"mtime"`
+	// Specifies whether object tags are maintained when transferring between object storage systems. If you want your DataSync task to ignore object tags, specify the NONE value. Valid values: `PRESERVE`, `NONE`. Default value: `PRESERVE`.
+	ObjectTags *string `pulumi:"objectTags"`
 	// Determines whether files at the destination should be overwritten or preserved when copying files. Valid values: `ALWAYS`, `NEVER`. Default: `ALWAYS`.
 	OverwriteMode *string `pulumi:"overwriteMode"`
 	// Determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file. Valid values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
@@ -1720,7 +1725,7 @@ type TaskOptions struct {
 	PreserveDeletedFiles *string `pulumi:"preserveDeletedFiles"`
 	// Whether the DataSync Task should preserve the metadata of block and character devices in the source files system, and recreate the files with that device name and metadata on the destination. The DataSync Task can’t sync the actual contents of such devices, because many of the devices are non-terminal and don’t return an end of file (EOF) marker. Valid values: `NONE`, `PRESERVE`. Default: `NONE` (ignore special devices).
 	PreserveDevices *string `pulumi:"preserveDevices"`
-	// Determines which components of the SMB security descriptor are copied from source to destination objects. This value is only used for transfers between SMB and Amazon FSx for Windows File Server locations, or between two Amazon FSx for Windows File Server locations. Valid values: `NONE`, `OWNER_DACL`, `OWNER_DACL_SACL`.
+	// Determines which components of the SMB security descriptor are copied from source to destination objects. This value is only used for transfers between SMB and Amazon FSx for Windows File Server locations, or between two Amazon FSx for Windows File Server locations. Valid values: `NONE`, `OWNER_DACL`, `OWNER_DACL_SACL`. Default: `OWNER_DACL`.
 	SecurityDescriptorCopyFlags *string `pulumi:"securityDescriptorCopyFlags"`
 	// Determines whether tasks should be queued before executing the tasks. Valid values: `ENABLED`, `DISABLED`. Default `ENABLED`.
 	TaskQueueing *string `pulumi:"taskQueueing"`
@@ -1754,6 +1759,8 @@ type TaskOptionsArgs struct {
 	LogLevel pulumi.StringPtrInput `pulumi:"logLevel"`
 	// A file metadata that indicates the last time a file was modified (written to) before the sync `PREPARING` phase. Value values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
 	Mtime pulumi.StringPtrInput `pulumi:"mtime"`
+	// Specifies whether object tags are maintained when transferring between object storage systems. If you want your DataSync task to ignore object tags, specify the NONE value. Valid values: `PRESERVE`, `NONE`. Default value: `PRESERVE`.
+	ObjectTags pulumi.StringPtrInput `pulumi:"objectTags"`
 	// Determines whether files at the destination should be overwritten or preserved when copying files. Valid values: `ALWAYS`, `NEVER`. Default: `ALWAYS`.
 	OverwriteMode pulumi.StringPtrInput `pulumi:"overwriteMode"`
 	// Determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file. Valid values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
@@ -1762,7 +1769,7 @@ type TaskOptionsArgs struct {
 	PreserveDeletedFiles pulumi.StringPtrInput `pulumi:"preserveDeletedFiles"`
 	// Whether the DataSync Task should preserve the metadata of block and character devices in the source files system, and recreate the files with that device name and metadata on the destination. The DataSync Task can’t sync the actual contents of such devices, because many of the devices are non-terminal and don’t return an end of file (EOF) marker. Valid values: `NONE`, `PRESERVE`. Default: `NONE` (ignore special devices).
 	PreserveDevices pulumi.StringPtrInput `pulumi:"preserveDevices"`
-	// Determines which components of the SMB security descriptor are copied from source to destination objects. This value is only used for transfers between SMB and Amazon FSx for Windows File Server locations, or between two Amazon FSx for Windows File Server locations. Valid values: `NONE`, `OWNER_DACL`, `OWNER_DACL_SACL`.
+	// Determines which components of the SMB security descriptor are copied from source to destination objects. This value is only used for transfers between SMB and Amazon FSx for Windows File Server locations, or between two Amazon FSx for Windows File Server locations. Valid values: `NONE`, `OWNER_DACL`, `OWNER_DACL_SACL`. Default: `OWNER_DACL`.
 	SecurityDescriptorCopyFlags pulumi.StringPtrInput `pulumi:"securityDescriptorCopyFlags"`
 	// Determines whether tasks should be queued before executing the tasks. Valid values: `ENABLED`, `DISABLED`. Default `ENABLED`.
 	TaskQueueing pulumi.StringPtrInput `pulumi:"taskQueueing"`
@@ -1876,6 +1883,11 @@ func (o TaskOptionsOutput) Mtime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskOptions) *string { return v.Mtime }).(pulumi.StringPtrOutput)
 }
 
+// Specifies whether object tags are maintained when transferring between object storage systems. If you want your DataSync task to ignore object tags, specify the NONE value. Valid values: `PRESERVE`, `NONE`. Default value: `PRESERVE`.
+func (o TaskOptionsOutput) ObjectTags() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskOptions) *string { return v.ObjectTags }).(pulumi.StringPtrOutput)
+}
+
 // Determines whether files at the destination should be overwritten or preserved when copying files. Valid values: `ALWAYS`, `NEVER`. Default: `ALWAYS`.
 func (o TaskOptionsOutput) OverwriteMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskOptions) *string { return v.OverwriteMode }).(pulumi.StringPtrOutput)
@@ -1896,7 +1908,7 @@ func (o TaskOptionsOutput) PreserveDevices() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskOptions) *string { return v.PreserveDevices }).(pulumi.StringPtrOutput)
 }
 
-// Determines which components of the SMB security descriptor are copied from source to destination objects. This value is only used for transfers between SMB and Amazon FSx for Windows File Server locations, or between two Amazon FSx for Windows File Server locations. Valid values: `NONE`, `OWNER_DACL`, `OWNER_DACL_SACL`.
+// Determines which components of the SMB security descriptor are copied from source to destination objects. This value is only used for transfers between SMB and Amazon FSx for Windows File Server locations, or between two Amazon FSx for Windows File Server locations. Valid values: `NONE`, `OWNER_DACL`, `OWNER_DACL_SACL`. Default: `OWNER_DACL`.
 func (o TaskOptionsOutput) SecurityDescriptorCopyFlags() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskOptions) *string { return v.SecurityDescriptorCopyFlags }).(pulumi.StringPtrOutput)
 }
@@ -1995,6 +2007,16 @@ func (o TaskOptionsPtrOutput) Mtime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies whether object tags are maintained when transferring between object storage systems. If you want your DataSync task to ignore object tags, specify the NONE value. Valid values: `PRESERVE`, `NONE`. Default value: `PRESERVE`.
+func (o TaskOptionsPtrOutput) ObjectTags() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ObjectTags
+	}).(pulumi.StringPtrOutput)
+}
+
 // Determines whether files at the destination should be overwritten or preserved when copying files. Valid values: `ALWAYS`, `NEVER`. Default: `ALWAYS`.
 func (o TaskOptionsPtrOutput) OverwriteMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskOptions) *string {
@@ -2035,7 +2057,7 @@ func (o TaskOptionsPtrOutput) PreserveDevices() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Determines which components of the SMB security descriptor are copied from source to destination objects. This value is only used for transfers between SMB and Amazon FSx for Windows File Server locations, or between two Amazon FSx for Windows File Server locations. Valid values: `NONE`, `OWNER_DACL`, `OWNER_DACL_SACL`.
+// Determines which components of the SMB security descriptor are copied from source to destination objects. This value is only used for transfers between SMB and Amazon FSx for Windows File Server locations, or between two Amazon FSx for Windows File Server locations. Valid values: `NONE`, `OWNER_DACL`, `OWNER_DACL_SACL`. Default: `OWNER_DACL`.
 func (o TaskOptionsPtrOutput) SecurityDescriptorCopyFlags() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskOptions) *string {
 		if v == nil {

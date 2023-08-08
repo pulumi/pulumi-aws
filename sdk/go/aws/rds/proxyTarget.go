@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -71,7 +72,7 @@ import (
 //				return err
 //			}
 //			_, err = rds.NewProxyTarget(ctx, "exampleProxyTarget", &rds.ProxyTargetArgs{
-//				DbInstanceIdentifier: pulumi.Any(aws_db_instance.Example.Id),
+//				DbInstanceIdentifier: pulumi.Any(aws_db_instance.Example.Identifier),
 //				DbProxyName:          exampleProxy.Name,
 //				TargetGroupName:      exampleProxyDefaultTargetGroup.Name,
 //			})
@@ -86,21 +87,15 @@ import (
 //
 // ## Import
 //
-// RDS DB Proxy Targets can be imported using the `db_proxy_name`, `target_group_name`, target type (e.g., `RDS_INSTANCE` or `TRACKED_CLUSTER`), and resource identifier separated by forward slashes (`/`), e.g., Instances
+// Instancesterraform import {
 //
-// ```sh
+//	to = aws_db_proxy_target.example
 //
-//	$ pulumi import aws:rds/proxyTarget:ProxyTarget example example-proxy/default/RDS_INSTANCE/example-instance
+//	id = "example-proxy/default/RDS_INSTANCE/example-instance" } Provisioned Clustersterraform import {
 //
-// ```
+//	to = aws_db_proxy_target.example
 //
-//	Provisioned Clusters
-//
-// ```sh
-//
-//	$ pulumi import aws:rds/proxyTarget:ProxyTarget example example-proxy/default/TRACKED_CLUSTER/example-cluster
-//
-// ```
+//	id = "example-proxy/default/TRACKED_CLUSTER/example-cluster" } **Using `pulumi import` to import** RDS DB Proxy Targets using the `db_proxy_name`, `target_group_name`, target type (such as `RDS_INSTANCE` or `TRACKED_CLUSTER`), and resource identifier separated by forward slashes (`/`). For exampleInstancesconsole % pulumi import aws_db_proxy_target.example example-proxy/default/RDS_INSTANCE/example-instance Provisioned Clustersconsole % pulumi import aws_db_proxy_target.example example-proxy/default/TRACKED_CLUSTER/example-cluster
 type ProxyTarget struct {
 	pulumi.CustomResourceState
 
@@ -141,6 +136,7 @@ func NewProxyTarget(ctx *pulumi.Context,
 	if args.TargetGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'TargetGroupName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ProxyTarget
 	err := ctx.RegisterResource("aws:rds/proxyTarget:ProxyTarget", name, args, &resource, opts...)
 	if err != nil {

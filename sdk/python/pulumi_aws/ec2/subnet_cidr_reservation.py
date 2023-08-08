@@ -195,11 +195,11 @@ class SubnetCidrReservation(pulumi.CustomResource):
 
         ## Import
 
-        Existing CIDR reservations can be imported using `SUBNET_ID:RESERVATION_ID`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ec2/subnetCidrReservation:SubnetCidrReservation example subnet-01llsxvsxabqiymcz:scr-4mnvz6wb7otksjcs9
-        ```
+         to = aws_ec2_subnet_cidr_reservation.example
+
+         id = "subnet-01llsxvsxabqiymcz:scr-4mnvz6wb7otksjcs9" } Using `pulumi import`, import Existing CIDR reservations using `SUBNET_ID:RESERVATION_ID`. For exampleconsole % pulumi import aws_ec2_subnet_cidr_reservation.example subnet-01llsxvsxabqiymcz:scr-4mnvz6wb7otksjcs9
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -231,11 +231,11 @@ class SubnetCidrReservation(pulumi.CustomResource):
 
         ## Import
 
-        Existing CIDR reservations can be imported using `SUBNET_ID:RESERVATION_ID`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ec2/subnetCidrReservation:SubnetCidrReservation example subnet-01llsxvsxabqiymcz:scr-4mnvz6wb7otksjcs9
-        ```
+         to = aws_ec2_subnet_cidr_reservation.example
+
+         id = "subnet-01llsxvsxabqiymcz:scr-4mnvz6wb7otksjcs9" } Using `pulumi import`, import Existing CIDR reservations using `SUBNET_ID:RESERVATION_ID`. For exampleconsole % pulumi import aws_ec2_subnet_cidr_reservation.example subnet-01llsxvsxabqiymcz:scr-4mnvz6wb7otksjcs9
 
         :param str resource_name: The name of the resource.
         :param SubnetCidrReservationArgs args: The arguments to use to populate this resource's properties.

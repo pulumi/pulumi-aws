@@ -17,6 +17,21 @@ public final class DedicatedHostArgs extends com.pulumi.resources.ResourceArgs {
     public static final DedicatedHostArgs Empty = new DedicatedHostArgs();
 
     /**
+     * The ID of the Outpost hardware asset on which to allocate the Dedicated Hosts. This parameter is supported only if you specify OutpostArn. If you are allocating the Dedicated Hosts in a Region, omit this parameter.
+     * 
+     */
+    @Import(name="assetId")
+    private @Nullable Output<String> assetId;
+
+    /**
+     * @return The ID of the Outpost hardware asset on which to allocate the Dedicated Hosts. This parameter is supported only if you specify OutpostArn. If you are allocating the Dedicated Hosts in a Region, omit this parameter.
+     * 
+     */
+    public Optional<Output<String>> assetId() {
+        return Optional.ofNullable(this.assetId);
+    }
+
+    /**
      * Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID. Valid values: `on`, `off`. Default: `on`.
      * 
      */
@@ -124,6 +139,7 @@ public final class DedicatedHostArgs extends com.pulumi.resources.ResourceArgs {
     private DedicatedHostArgs() {}
 
     private DedicatedHostArgs(DedicatedHostArgs $) {
+        this.assetId = $.assetId;
         this.autoPlacement = $.autoPlacement;
         this.availabilityZone = $.availabilityZone;
         this.hostRecovery = $.hostRecovery;
@@ -149,6 +165,27 @@ public final class DedicatedHostArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(DedicatedHostArgs defaults) {
             $ = new DedicatedHostArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param assetId The ID of the Outpost hardware asset on which to allocate the Dedicated Hosts. This parameter is supported only if you specify OutpostArn. If you are allocating the Dedicated Hosts in a Region, omit this parameter.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder assetId(@Nullable Output<String> assetId) {
+            $.assetId = assetId;
+            return this;
+        }
+
+        /**
+         * @param assetId The ID of the Outpost hardware asset on which to allocate the Dedicated Hosts. This parameter is supported only if you specify OutpostArn. If you are allocating the Dedicated Hosts in a Region, omit this parameter.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder assetId(String assetId) {
+            return assetId(Output.of(assetId));
         }
 
         /**

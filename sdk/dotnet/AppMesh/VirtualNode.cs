@@ -49,12 +49,15 @@ namespace Pulumi.Aws.AppMesh
     ///                     },
     ///                 },
     ///             },
-    ///             Listener = new Aws.AppMesh.Inputs.VirtualNodeSpecListenerArgs
+    ///             Listeners = new[]
     ///             {
-    ///                 PortMapping = new Aws.AppMesh.Inputs.VirtualNodeSpecListenerPortMappingArgs
+    ///                 new Aws.AppMesh.Inputs.VirtualNodeSpecListenerArgs
     ///                 {
-    ///                     Port = 8080,
-    ///                     Protocol = "http",
+    ///                     PortMapping = new Aws.AppMesh.Inputs.VirtualNodeSpecListenerPortMappingArgs
+    ///                     {
+    ///                         Port = 8080,
+    ///                         Protocol = "http",
+    ///                     },
     ///                 },
     ///             },
     ///             ServiceDiscovery = new Aws.AppMesh.Inputs.VirtualNodeSpecServiceDiscoveryArgs
@@ -96,12 +99,15 @@ namespace Pulumi.Aws.AppMesh
     ///                     },
     ///                 },
     ///             },
-    ///             Listener = new Aws.AppMesh.Inputs.VirtualNodeSpecListenerArgs
+    ///             Listeners = new[]
     ///             {
-    ///                 PortMapping = new Aws.AppMesh.Inputs.VirtualNodeSpecListenerPortMappingArgs
+    ///                 new Aws.AppMesh.Inputs.VirtualNodeSpecListenerArgs
     ///                 {
-    ///                     Port = 8080,
-    ///                     Protocol = "http",
+    ///                     PortMapping = new Aws.AppMesh.Inputs.VirtualNodeSpecListenerPortMappingArgs
+    ///                     {
+    ///                         Port = 8080,
+    ///                         Protocol = "http",
+    ///                     },
     ///                 },
     ///             },
     ///             ServiceDiscovery = new Aws.AppMesh.Inputs.VirtualNodeSpecServiceDiscoveryArgs
@@ -146,21 +152,24 @@ namespace Pulumi.Aws.AppMesh
     ///                     },
     ///                 },
     ///             },
-    ///             Listener = new Aws.AppMesh.Inputs.VirtualNodeSpecListenerArgs
+    ///             Listeners = new[]
     ///             {
-    ///                 PortMapping = new Aws.AppMesh.Inputs.VirtualNodeSpecListenerPortMappingArgs
+    ///                 new Aws.AppMesh.Inputs.VirtualNodeSpecListenerArgs
     ///                 {
-    ///                     Port = 8080,
-    ///                     Protocol = "http",
-    ///                 },
-    ///                 HealthCheck = new Aws.AppMesh.Inputs.VirtualNodeSpecListenerHealthCheckArgs
-    ///                 {
-    ///                     Protocol = "http",
-    ///                     Path = "/ping",
-    ///                     HealthyThreshold = 2,
-    ///                     UnhealthyThreshold = 2,
-    ///                     TimeoutMillis = 2000,
-    ///                     IntervalMillis = 5000,
+    ///                     PortMapping = new Aws.AppMesh.Inputs.VirtualNodeSpecListenerPortMappingArgs
+    ///                     {
+    ///                         Port = 8080,
+    ///                         Protocol = "http",
+    ///                     },
+    ///                     HealthCheck = new Aws.AppMesh.Inputs.VirtualNodeSpecListenerHealthCheckArgs
+    ///                     {
+    ///                         Protocol = "http",
+    ///                         Path = "/ping",
+    ///                         HealthyThreshold = 2,
+    ///                         UnhealthyThreshold = 2,
+    ///                         TimeoutMillis = 2000,
+    ///                         IntervalMillis = 5000,
+    ///                     },
     ///                 },
     ///             },
     ///             ServiceDiscovery = new Aws.AppMesh.Inputs.VirtualNodeSpecServiceDiscoveryArgs
@@ -200,12 +209,15 @@ namespace Pulumi.Aws.AppMesh
     ///                     },
     ///                 },
     ///             },
-    ///             Listener = new Aws.AppMesh.Inputs.VirtualNodeSpecListenerArgs
+    ///             Listeners = new[]
     ///             {
-    ///                 PortMapping = new Aws.AppMesh.Inputs.VirtualNodeSpecListenerPortMappingArgs
+    ///                 new Aws.AppMesh.Inputs.VirtualNodeSpecListenerArgs
     ///                 {
-    ///                     Port = 8080,
-    ///                     Protocol = "http",
+    ///                     PortMapping = new Aws.AppMesh.Inputs.VirtualNodeSpecListenerPortMappingArgs
+    ///                     {
+    ///                         Port = 8080,
+    ///                         Protocol = "http",
+    ///                     },
     ///                 },
     ///             },
     ///             ServiceDiscovery = new Aws.AppMesh.Inputs.VirtualNodeSpecServiceDiscoveryArgs
@@ -233,11 +245,11 @@ namespace Pulumi.Aws.AppMesh
     /// 
     /// ## Import
     /// 
-    /// App Mesh virtual nodes can be imported using `mesh_name` together with the virtual node's `name`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:appmesh/virtualNode:VirtualNode serviceb1 simpleapp/serviceBv1
-    /// ```
+    ///  to = aws_appmesh_virtual_node.serviceb1
+    /// 
+    ///  id = "simpleapp/serviceBv1" } Using `pulumi import`, import App Mesh virtual nodes using `mesh_name` together with the virtual node's `name`. For exampleconsole % pulumi import aws_appmesh_virtual_node.serviceb1 simpleapp/serviceBv1
     /// </summary>
     [AwsResourceType("aws:appmesh/virtualNode:VirtualNode")]
     public partial class VirtualNode : global::Pulumi.CustomResource

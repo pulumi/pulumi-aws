@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,8 +23,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkmanager"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkmanager"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -55,13 +56,11 @@ import (
 //
 // ## Import
 //
-// `aws_networkmanager_transit_gateway_registration` can be imported using the global network ID and transit gateway ARN, e.g.
+// terraform import {
 //
-// ```sh
+//	to = aws_networkmanager_transit_gateway_registration.example
 //
-//	$ pulumi import aws:networkmanager/transitGatewayRegistration:TransitGatewayRegistration example global-network-0d47f6t230mz46dy4,arn:aws:ec2:us-west-2:123456789012:transit-gateway/tgw-123abc05e04123abc
-//
-// ```
+//	id = "global-network-0d47f6t230mz46dy4,arn:aws:ec2:us-west-2:123456789012:transit-gateway/tgw-123abc05e04123abc" } Using `pulumi import`, import `aws_networkmanager_transit_gateway_registration` using the global network ID and transit gateway ARN. For exampleconsole % pulumi import aws_networkmanager_transit_gateway_registration.example global-network-0d47f6t230mz46dy4,arn:aws:ec2:us-west-2:123456789012:transit-gateway/tgw-123abc05e04123abc
 type TransitGatewayRegistration struct {
 	pulumi.CustomResourceState
 
@@ -84,6 +83,7 @@ func NewTransitGatewayRegistration(ctx *pulumi.Context,
 	if args.TransitGatewayArn == nil {
 		return nil, errors.New("invalid value for required argument 'TransitGatewayArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TransitGatewayRegistration
 	err := ctx.RegisterResource("aws:networkmanager/transitGatewayRegistration:TransitGatewayRegistration", name, args, &resource, opts...)
 	if err != nil {

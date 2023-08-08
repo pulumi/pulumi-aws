@@ -55,13 +55,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_imagebuilder_components` resources can be imported by using the Amazon Resource Name (ARN), e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:imagebuilder/component:Component example arn:aws:imagebuilder:us-east-1:123456789012:component/example/1.0.0/1
- * ```
+ *  to = aws_imagebuilder_component.example
  * 
- *  Certain resource arguments, such as `uri`, cannot be read via the API and imported into the provider. The provider will display a difference for these arguments the first run after import if declared in the the provider configuration for an imported resource.
+ *  id = &#34;arn:aws:imagebuilder:us-east-1:123456789012:component/example/1.0.0/1&#34; } Using `pulumi import`, import `aws_imagebuilder_components` resources using the Amazon Resource Name (ARN). For exampleconsole % pulumi import aws_imagebuilder_component.example arn:aws:imagebuilder:us-east-1:123456789012:component/example/1.0.0/1 Certain resource arguments, such as `uri`, cannot be read via the API and imported into the provider. The provider will display a difference for these arguments the first run after import if declared in the the provider configuration for an imported resource.
  * 
  */
 @ResourceType(type="aws:imagebuilder/component:Component")

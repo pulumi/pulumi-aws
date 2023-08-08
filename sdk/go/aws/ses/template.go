@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ses"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,13 +43,11 @@ import (
 //
 // ## Import
 //
-// SES templates can be imported using the template name, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_ses_template.MyTemplate
 //
-//	$ pulumi import aws:ses/template:Template MyTemplate MyTemplate
-//
-// ```
+//	id = "MyTemplate" } Using `pulumi import`, import SES templates using the template name. For exampleconsole % pulumi import aws_ses_template.MyTemplate MyTemplate
 type Template struct {
 	pulumi.CustomResourceState
 
@@ -71,6 +70,7 @@ func NewTemplate(ctx *pulumi.Context,
 		args = &TemplateArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Template
 	err := ctx.RegisterResource("aws:ses/template:Template", name, args, &resource, opts...)
 	if err != nil {

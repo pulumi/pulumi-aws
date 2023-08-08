@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,9 +23,9 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/athena"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/athena"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -80,13 +81,11 @@ import (
 //
 // ## Import
 //
-// Athena Named Query can be imported using the query ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_athena_named_query.example
 //
-//	$ pulumi import aws:athena/namedQuery:NamedQuery example 0123456789
-//
-// ```
+//	id = "0123456789" } Using `pulumi import`, import Athena Named Query using the query ID. For exampleconsole % pulumi import aws_athena_named_query.example 0123456789
 type NamedQuery struct {
 	pulumi.CustomResourceState
 
@@ -115,6 +114,7 @@ func NewNamedQuery(ctx *pulumi.Context,
 	if args.Query == nil {
 		return nil, errors.New("invalid value for required argument 'Query'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NamedQuery
 	err := ctx.RegisterResource("aws:athena/namedQuery:NamedQuery", name, args, &resource, opts...)
 	if err != nil {

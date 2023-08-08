@@ -390,11 +390,11 @@ class EventSubscription(pulumi.CustomResource):
 
         ## Import
 
-        `aws_neptune_event_subscription` can be imported by using the event subscription name, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:neptune/eventSubscription:EventSubscription example my-event-subscription
-        ```
+         to = aws_neptune_event_subscription.example
+
+         id = "my-event-subscription" } Using `pulumi import`, import `aws_neptune_event_subscription` using the event subscription name. For exampleconsole % pulumi import aws_neptune_event_subscription.example my-event-subscription
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -459,11 +459,11 @@ class EventSubscription(pulumi.CustomResource):
 
         ## Import
 
-        `aws_neptune_event_subscription` can be imported by using the event subscription name, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:neptune/eventSubscription:EventSubscription example my-event-subscription
-        ```
+         to = aws_neptune_event_subscription.example
+
+         id = "my-event-subscription" } Using `pulumi import`, import `aws_neptune_event_subscription` using the event subscription name. For exampleconsole % pulumi import aws_neptune_event_subscription.example my-event-subscription
 
         :param str resource_name: The name of the resource.
         :param EventSubscriptionArgs args: The arguments to use to populate this resource's properties.

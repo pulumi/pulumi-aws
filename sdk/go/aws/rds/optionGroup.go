@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,7 +26,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -81,13 +82,11 @@ import (
 //
 // ## Import
 //
-// DB Option groups can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_db_option_group.example
 //
-//	$ pulumi import aws:rds/optionGroup:OptionGroup example mysql-option-group
-//
-// ```
+//	id = "mysql-option-group" } Using `pulumi import`, import DB Option groups using the `name`. For exampleconsole % pulumi import aws_db_option_group.example mysql-option-group
 type OptionGroup struct {
 	pulumi.CustomResourceState
 
@@ -127,6 +126,7 @@ func NewOptionGroup(ctx *pulumi.Context,
 	if args.OptionGroupDescription == nil {
 		args.OptionGroupDescription = pulumi.StringPtr("Managed by Pulumi")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OptionGroup
 	err := ctx.RegisterResource("aws:rds/optionGroup:OptionGroup", name, args, &resource, opts...)
 	if err != nil {

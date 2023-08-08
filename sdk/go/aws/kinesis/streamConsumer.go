@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kinesis"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kinesis"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -51,15 +52,11 @@ import (
 //
 // ## Import
 //
-// Kinesis Stream Consumers can be imported using the Amazon Resource Name (ARN) e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_kinesis_stream_consumer.example
 //
-//	$ pulumi import aws:kinesis/streamConsumer:StreamConsumer example arn:aws:kinesis:us-west-2:123456789012:stream/example/consumer/example:1616044553
-//
-// ```
-//
-//	[1]https://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-consumers.html
+//	id = "arn:aws:kinesis:us-west-2:123456789012:stream/example/consumer/example:1616044553" } Using `pulumi import`, import Kinesis Stream Consumers using the Amazon Resource Name (ARN). For exampleconsole % pulumi import aws_kinesis_stream_consumer.example arn:aws:kinesis:us-west-2:123456789012:stream/example/consumer/example:1616044553 [1]https://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-consumers.html
 type StreamConsumer struct {
 	pulumi.CustomResourceState
 
@@ -83,6 +80,7 @@ func NewStreamConsumer(ctx *pulumi.Context,
 	if args.StreamArn == nil {
 		return nil, errors.New("invalid value for required argument 'StreamArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource StreamConsumer
 	err := ctx.RegisterResource("aws:kinesis/streamConsumer:StreamConsumer", name, args, &resource, opts...)
 	if err != nil {

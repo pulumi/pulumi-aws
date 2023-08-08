@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/acmpca"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/acmpca"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -55,7 +56,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/acmpca"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/acmpca"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -89,9 +90,9 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/acmpca"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/acmpca"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -167,13 +168,11 @@ import (
 //
 // ## Import
 //
-// `aws_acmpca_certificate_authority` can be imported by using the certificate authority ARN, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_acmpca_certificate_authority.example
 //
-//	$ pulumi import aws:acmpca/certificateAuthority:CertificateAuthority example arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012
-//
-// ```
+//	id = "arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012" } Using `pulumi import`, import `aws_acmpca_certificate_authority` using the certificate authority ARN. For exampleconsole % pulumi import aws_acmpca_certificate_authority.example arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012
 type CertificateAuthority struct {
 	pulumi.CustomResourceState
 
@@ -201,10 +200,6 @@ type CertificateAuthority struct {
 	RevocationConfiguration CertificateAuthorityRevocationConfigurationPtrOutput `pulumi:"revocationConfiguration"`
 	// Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
 	Serial pulumi.StringOutput `pulumi:"serial"`
-	// (**Deprecated** use the `enabled` attribute instead) Status of the certificate authority.
-	//
-	// Deprecated: The reported value of the "status" attribute is often inaccurate. Use the resource's "enabled" attribute to explicitly set status.
-	Status pulumi.StringOutput `pulumi:"status"`
 	// Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -225,6 +220,7 @@ func NewCertificateAuthority(ctx *pulumi.Context,
 	if args.CertificateAuthorityConfiguration == nil {
 		return nil, errors.New("invalid value for required argument 'CertificateAuthorityConfiguration'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CertificateAuthority
 	err := ctx.RegisterResource("aws:acmpca/certificateAuthority:CertificateAuthority", name, args, &resource, opts...)
 	if err != nil {
@@ -271,10 +267,6 @@ type certificateAuthorityState struct {
 	RevocationConfiguration *CertificateAuthorityRevocationConfiguration `pulumi:"revocationConfiguration"`
 	// Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
 	Serial *string `pulumi:"serial"`
-	// (**Deprecated** use the `enabled` attribute instead) Status of the certificate authority.
-	//
-	// Deprecated: The reported value of the "status" attribute is often inaccurate. Use the resource's "enabled" attribute to explicitly set status.
-	Status *string `pulumi:"status"`
 	// Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -310,10 +302,6 @@ type CertificateAuthorityState struct {
 	RevocationConfiguration CertificateAuthorityRevocationConfigurationPtrInput
 	// Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
 	Serial pulumi.StringPtrInput
-	// (**Deprecated** use the `enabled` attribute instead) Status of the certificate authority.
-	//
-	// Deprecated: The reported value of the "status" attribute is often inaccurate. Use the resource's "enabled" attribute to explicitly set status.
-	Status pulumi.StringPtrInput
 	// Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -516,13 +504,6 @@ func (o CertificateAuthorityOutput) RevocationConfiguration() CertificateAuthori
 // Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
 func (o CertificateAuthorityOutput) Serial() pulumi.StringOutput {
 	return o.ApplyT(func(v *CertificateAuthority) pulumi.StringOutput { return v.Serial }).(pulumi.StringOutput)
-}
-
-// (**Deprecated** use the `enabled` attribute instead) Status of the certificate authority.
-//
-// Deprecated: The reported value of the "status" attribute is often inaccurate. Use the resource's "enabled" attribute to explicitly set status.
-func (o CertificateAuthorityOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *CertificateAuthority) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
 // Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

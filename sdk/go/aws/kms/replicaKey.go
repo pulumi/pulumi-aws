@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -58,13 +59,11 @@ import (
 //
 // ## Import
 //
-// KMS multi-Region replica keys can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_kms_replica_key.example
 //
-//	$ pulumi import aws:kms/replicaKey:ReplicaKey example 1234abcd-12ab-34cd-56ef-1234567890ab
-//
-// ```
+//	id = "1234abcd-12ab-34cd-56ef-1234567890ab" } Using `pulumi import`, import KMS multi-Region replica keys using the `id`. For exampleconsole % pulumi import aws_kms_replica_key.example 1234abcd-12ab-34cd-56ef-1234567890ab
 type ReplicaKey struct {
 	pulumi.CustomResourceState
 
@@ -110,6 +109,7 @@ func NewReplicaKey(ctx *pulumi.Context,
 	if args.PrimaryKeyArn == nil {
 		return nil, errors.New("invalid value for required argument 'PrimaryKeyArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ReplicaKey
 	err := ctx.RegisterResource("aws:kms/replicaKey:ReplicaKey", name, args, &resource, opts...)
 	if err != nil {

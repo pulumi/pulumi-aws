@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,7 +26,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/neptune"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/neptune"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -67,13 +68,11 @@ import (
 //
 // ## Import
 //
-// `aws_neptune_cluster_instance` can be imported by using the instance identifier, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_neptune_cluster_instance.example
 //
-//	$ pulumi import aws:neptune/clusterInstance:ClusterInstance example my-instance
-//
-// ```
+//	id = "my-instance" } Using `pulumi import`, import `aws_neptune_cluster_instance` using the instance identifier. For exampleconsole % pulumi import aws_neptune_cluster_instance.example my-instance
 type ClusterInstance struct {
 	pulumi.CustomResourceState
 
@@ -144,6 +143,7 @@ func NewClusterInstance(ctx *pulumi.Context,
 	if args.InstanceClass == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceClass'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ClusterInstance
 	err := ctx.RegisterResource("aws:neptune/clusterInstance:ClusterInstance", name, args, &resource, opts...)
 	if err != nil {

@@ -33,11 +33,11 @@ namespace Pulumi.Aws.RedshiftServerless
     /// 
     /// ## Import
     /// 
-    /// Redshift Serverless Workgroups can be imported using the `workgroup_name`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:redshiftserverless/workgroup:Workgroup example example
-    /// ```
+    ///  to = aws_redshiftserverless_workgroup.example
+    /// 
+    ///  id = "example" } Using `pulumi import`, import Redshift Serverless Workgroups using the `workgroup_name`. For exampleconsole % pulumi import aws_redshiftserverless_workgroup.example example
     /// </summary>
     [AwsResourceType("aws:redshiftserverless/workgroup:Workgroup")]
     public partial class Workgroup : global::Pulumi.CustomResource

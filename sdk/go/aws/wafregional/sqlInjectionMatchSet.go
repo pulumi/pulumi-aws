@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/wafregional"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/wafregional"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -47,13 +48,11 @@ import (
 //
 // ## Import
 //
-// WAF Regional Sql Injection Match Set can be imported using the id, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_wafregional_sql_injection_match_set.sql_injection_match_set
 //
-//	$ pulumi import aws:wafregional/sqlInjectionMatchSet:SqlInjectionMatchSet sql_injection_match_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
-//
-// ```
+//	id = "a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc" } Using `pulumi import`, import WAF Regional Sql Injection Match Set using the id. For exampleconsole % pulumi import aws_wafregional_sql_injection_match_set.sql_injection_match_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
 type SqlInjectionMatchSet struct {
 	pulumi.CustomResourceState
 
@@ -70,6 +69,7 @@ func NewSqlInjectionMatchSet(ctx *pulumi.Context,
 		args = &SqlInjectionMatchSetArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SqlInjectionMatchSet
 	err := ctx.RegisterResource("aws:wafregional/sqlInjectionMatchSet:SqlInjectionMatchSet", name, args, &resource, opts...)
 	if err != nil {

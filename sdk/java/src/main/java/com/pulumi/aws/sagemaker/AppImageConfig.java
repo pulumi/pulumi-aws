@@ -97,11 +97,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * SageMaker App Image Configs can be imported using the `name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:sagemaker/appImageConfig:AppImageConfig example example
- * ```
+ *  to = aws_sagemaker_app_image_config.example
+ * 
+ *  id = &#34;example&#34; } Using `pulumi import`, import SageMaker App Image Configs using the `name`. For exampleconsole % pulumi import aws_sagemaker_app_image_config.example example
  * 
  */
 @ResourceType(type="aws:sagemaker/appImageConfig:AppImageConfig")

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,8 +25,8 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/fsx"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/fsx"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -88,13 +89,11 @@ import (
 //
 // ## Import
 //
-// FSx Data Repository Associations can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_fsx_data_repository_association.example
 //
-//	$ pulumi import aws:fsx/dataRepositoryAssociation:DataRepositoryAssociation example dra-0b1cfaeca11088b10
-//
-// ```
+//	id = "dra-0b1cfaeca11088b10" } Using `pulumi import`, import FSx Data Repository Associations using the `id`. For exampleconsole % pulumi import aws_fsx_data_repository_association.example dra-0b1cfaeca11088b10
 type DataRepositoryAssociation struct {
 	pulumi.CustomResourceState
 
@@ -138,6 +137,7 @@ func NewDataRepositoryAssociation(ctx *pulumi.Context,
 	if args.FileSystemPath == nil {
 		return nil, errors.New("invalid value for required argument 'FileSystemPath'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DataRepositoryAssociation
 	err := ctx.RegisterResource("aws:fsx/dataRepositoryAssociation:DataRepositoryAssociation", name, args, &resource, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,13 +55,11 @@ import (
 //
 // ## Import
 //
-// Egress-only Internet gateways can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_egress_only_internet_gateway.example
 //
-//	$ pulumi import aws:ec2/egressOnlyInternetGateway:EgressOnlyInternetGateway example eigw-015e0e244e24dfe8a
-//
-// ```
+//	id = "eigw-015e0e244e24dfe8a" } Using `pulumi import`, import Egress-only Internet gateways using the `id`. For exampleconsole % pulumi import aws_egress_only_internet_gateway.example eigw-015e0e244e24dfe8a
 type EgressOnlyInternetGateway struct {
 	pulumi.CustomResourceState
 
@@ -82,6 +81,7 @@ func NewEgressOnlyInternetGateway(ctx *pulumi.Context,
 	if args.VpcId == nil {
 		return nil, errors.New("invalid value for required argument 'VpcId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EgressOnlyInternetGateway
 	err := ctx.RegisterResource("aws:ec2/egressOnlyInternetGateway:EgressOnlyInternetGateway", name, args, &resource, opts...)
 	if err != nil {

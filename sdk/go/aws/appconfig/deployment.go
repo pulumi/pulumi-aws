@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appconfig"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appconfig"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -49,13 +50,11 @@ import (
 //
 // ## Import
 //
-// AppConfig Deployments can be imported by using the application ID, environment ID, and deployment number separated by a slash (`/`), e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_appconfig_deployment.example
 //
-//	$ pulumi import aws:appconfig/deployment:Deployment example 71abcde/11xxxxx/1
-//
-// ```
+//	id = "71abcde/11xxxxx/1" } Using `pulumi import`, import AppConfig Deployments using the application ID, environment ID, and deployment number separated by a slash (`/`). For exampleconsole % pulumi import aws_appconfig_deployment.example 71abcde/11xxxxx/1
 type Deployment struct {
 	pulumi.CustomResourceState
 
@@ -105,6 +104,7 @@ func NewDeployment(ctx *pulumi.Context,
 	if args.EnvironmentId == nil {
 		return nil, errors.New("invalid value for required argument 'EnvironmentId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Deployment
 	err := ctx.RegisterResource("aws:appconfig/deployment:Deployment", name, args, &resource, opts...)
 	if err != nil {

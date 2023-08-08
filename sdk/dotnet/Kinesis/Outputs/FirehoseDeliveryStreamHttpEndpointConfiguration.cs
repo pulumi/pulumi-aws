@@ -54,6 +54,10 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly string? S3BackupMode;
         /// <summary>
+        /// The S3 Configuration. See s3_configuration for more details.
+        /// </summary>
+        public readonly Outputs.FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration S3Configuration;
+        /// <summary>
         /// The HTTP endpoint URL to which Kinesis Firehose sends your data.
         /// </summary>
         public readonly string Url;
@@ -80,6 +84,8 @@ namespace Pulumi.Aws.Kinesis.Outputs
 
             string? s3BackupMode,
 
+            Outputs.FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration s3Configuration,
+
             string url)
         {
             AccessKey = accessKey;
@@ -92,6 +98,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
             RetryDuration = retryDuration;
             RoleArn = roleArn;
             S3BackupMode = s3BackupMode;
+            S3Configuration = s3Configuration;
             Url = url;
         }
     }

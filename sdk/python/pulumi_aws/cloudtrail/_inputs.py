@@ -26,7 +26,7 @@ class EventDataStoreAdvancedEventSelectorArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['EventDataStoreAdvancedEventSelectorFieldSelectorArgs']]] field_selectors: Specifies the selector statements in an advanced event selector. Fields documented below.
-        :param pulumi.Input[str] name: The name of the event data store.
+        :param pulumi.Input[str] name: Specifies the name of the advanced event selector.
         """
         if field_selectors is not None:
             pulumi.set(__self__, "field_selectors", field_selectors)
@@ -49,7 +49,7 @@ class EventDataStoreAdvancedEventSelectorArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the event data store.
+        Specifies the name of the advanced event selector.
         """
         return pulumi.get(self, "name")
 

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/opsworks"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opsworks"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -41,13 +42,11 @@ import (
 //
 // ## Import
 //
-// OpsWorks PHP Application Layers can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_opsworks_php_app_layer.bar
 //
-//	$ pulumi import aws:opsworks/phpAppLayer:PhpAppLayer bar 00000000-0000-0000-0000-000000000000
-//
-// ```
+//	id = "00000000-0000-0000-0000-000000000000" } Using `pulumi import`, import OpsWorks PHP Application Layers using the `id`. For exampleconsole % pulumi import aws_opsworks_php_app_layer.bar 00000000-0000-0000-0000-000000000000
 type PhpAppLayer struct {
 	pulumi.CustomResourceState
 
@@ -110,6 +109,7 @@ func NewPhpAppLayer(ctx *pulumi.Context,
 	if args.StackId == nil {
 		return nil, errors.New("invalid value for required argument 'StackId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PhpAppLayer
 	err := ctx.RegisterResource("aws:opsworks/phpAppLayer:PhpAppLayer", name, args, &resource, opts...)
 	if err != nil {

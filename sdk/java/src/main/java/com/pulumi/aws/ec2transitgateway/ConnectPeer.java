@@ -60,11 +60,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_ec2_transit_gateway_connect_peer` can be imported by using the EC2 Transit Gateway Connect Peer identifier, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:ec2transitgateway/connectPeer:ConnectPeer example tgw-connect-peer-12345678
- * ```
+ *  to = aws_ec2_transit_gateway_connect_peer.example
+ * 
+ *  id = &#34;tgw-connect-peer-12345678&#34; } Using `pulumi import`, import `aws_ec2_transit_gateway_connect_peer` using the EC2 Transit Gateway Connect Peer identifier. For exampleconsole % pulumi import aws_ec2_transit_gateway_connect_peer.example tgw-connect-peer-12345678
  * 
  */
 @ResourceType(type="aws:ec2transitgateway/connectPeer:ConnectPeer")
@@ -96,6 +96,34 @@ public class ConnectPeer extends com.pulumi.resources.CustomResource {
      */
     public Output<String> bgpAsn() {
         return this.bgpAsn;
+    }
+    /**
+     * The IP address assigned to customer device, which is used as BGP IP address.
+     * 
+     */
+    @Export(name="bgpPeerAddress", refs={String.class}, tree="[0]")
+    private Output<String> bgpPeerAddress;
+
+    /**
+     * @return The IP address assigned to customer device, which is used as BGP IP address.
+     * 
+     */
+    public Output<String> bgpPeerAddress() {
+        return this.bgpPeerAddress;
+    }
+    /**
+     * The IP addresses assigned to Transit Gateway, which are used as BGP IP addresses.
+     * 
+     */
+    @Export(name="bgpTransitGatewayAddresses", refs={List.class,String.class}, tree="[0,1]")
+    private Output<List<String>> bgpTransitGatewayAddresses;
+
+    /**
+     * @return The IP addresses assigned to Transit Gateway, which are used as BGP IP addresses.
+     * 
+     */
+    public Output<List<String>> bgpTransitGatewayAddresses() {
+        return this.bgpTransitGatewayAddresses;
     }
     /**
      * The CIDR block that will be used for addressing within the tunnel. It must contain exactly one IPv4 CIDR block and up to one IPv6 CIDR block. The IPv4 CIDR block must be /29 size and must be within 169.254.0.0/16 range, with exception of: 169.254.0.0/29, 169.254.1.0/29, 169.254.2.0/29, 169.254.3.0/29, 169.254.4.0/29, 169.254.5.0/29, 169.254.169.248/29. The IPv6 CIDR block must be /125 size and must be within fd00::/8. The first IP from each CIDR block is assigned for customer gateway, the second and third is for Transit Gateway (An example: from range 169.254.100.0/29, .1 is assigned to customer gateway and .2 and .3 are assigned to Transit Gateway)

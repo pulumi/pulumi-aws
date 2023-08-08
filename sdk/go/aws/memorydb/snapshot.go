@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/memorydb"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/memorydb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -43,13 +44,11 @@ import (
 //
 // ## Import
 //
-// Use the `name` to import a snapshot. For example
+// terraform import {
 //
-// ```sh
+//	to = aws_memorydb_snapshot.example
 //
-//	$ pulumi import aws:memorydb/snapshot:Snapshot example my-snapshot
-//
-// ```
+//	id = "my-snapshot" } Using `pulumi import`, import a snapshot using the `name`. For exampleconsole % pulumi import aws_memorydb_snapshot.example my-snapshot
 type Snapshot struct {
 	pulumi.CustomResourceState
 
@@ -83,6 +82,7 @@ func NewSnapshot(ctx *pulumi.Context,
 	if args.ClusterName == nil {
 		return nil, errors.New("invalid value for required argument 'ClusterName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Snapshot
 	err := ctx.RegisterResource("aws:memorydb/snapshot:Snapshot", name, args, &resource, opts...)
 	if err != nil {

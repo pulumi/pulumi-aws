@@ -35,11 +35,11 @@ namespace Pulumi.Aws.Iam
     /// 
     /// ## Import
     /// 
-    /// IAM Service Specific Credentials can be imported using the `service_name:user_name:service_specific_credential_id`, e.g.
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:iam/serviceSpecificCredential:ServiceSpecificCredential default `codecommit.amazonaws.com:example:some-id`
-    /// ```
+    ///  to = aws_iam_service_specific_credential.default
+    /// 
+    ///  id = "`codecommit.amazonaws.com:example:some-id`" } Using `pulumi import`, import IAM Service Specific Credentials using the `service_name:user_name:service_specific_credential_id`. For exampleconsole % pulumi import aws_iam_service_specific_credential.default `codecommit.amazonaws.com:example:some-id`
     /// </summary>
     [AwsResourceType("aws:iam/serviceSpecificCredential:ServiceSpecificCredential")]
     public partial class ServiceSpecificCredential : global::Pulumi.CustomResource

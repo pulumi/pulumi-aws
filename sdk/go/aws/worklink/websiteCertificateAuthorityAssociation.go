@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 //	"os"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/worklink"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/worklink"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,13 +55,11 @@ import (
 //
 // ## Import
 //
-// WorkLink Website Certificate Authority can be imported using `FLEET-ARN,WEBSITE-CA-ID`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_worklink_website_certificate_authority_association.example
 //
-//	$ pulumi import aws:worklink/websiteCertificateAuthorityAssociation:WebsiteCertificateAuthorityAssociation example arn:aws:worklink::123456789012:fleet/example,abcdefghijk
-//
-// ```
+//	id = "arn:aws:worklink::123456789012:fleet/example,abcdefghijk" } Using `pulumi import`, import WorkLink Website Certificate Authority using `FLEET-ARN,WEBSITE-CA-ID`. For exampleconsole % pulumi import aws_worklink_website_certificate_authority_association.example arn:aws:worklink::123456789012:fleet/example,abcdefghijk
 type WebsiteCertificateAuthorityAssociation struct {
 	pulumi.CustomResourceState
 
@@ -87,6 +86,7 @@ func NewWebsiteCertificateAuthorityAssociation(ctx *pulumi.Context,
 	if args.FleetArn == nil {
 		return nil, errors.New("invalid value for required argument 'FleetArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource WebsiteCertificateAuthorityAssociation
 	err := ctx.RegisterResource("aws:worklink/websiteCertificateAuthorityAssociation:WebsiteCertificateAuthorityAssociation", name, args, &resource, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,9 +22,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkmanager"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkmanager"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -97,13 +98,11 @@ import (
 //
 // ## Import
 //
-// `aws_networkmanager_customer_gateway_association` can be imported using the global network ID and customer gateway ARN, e.g.
+// terraform import {
 //
-// ```sh
+//	to = aws_networkmanager_customer_gateway_association.example
 //
-//	$ pulumi import aws:networkmanager/customerGatewayAssociation:CustomerGatewayAssociation example global-network-0d47f6t230mz46dy4,arn:aws:ec2:us-west-2:123456789012:customer-gateway/cgw-123abc05e04123abc
-//
-// ```
+//	id = "global-network-0d47f6t230mz46dy4,arn:aws:ec2:us-west-2:123456789012:customer-gateway/cgw-123abc05e04123abc" } Using `pulumi import`, import `aws_networkmanager_customer_gateway_association` using the global network ID and customer gateway ARN. For exampleconsole % pulumi import aws_networkmanager_customer_gateway_association.example global-network-0d47f6t230mz46dy4,arn:aws:ec2:us-west-2:123456789012:customer-gateway/cgw-123abc05e04123abc
 type CustomerGatewayAssociation struct {
 	pulumi.CustomResourceState
 
@@ -133,6 +132,7 @@ func NewCustomerGatewayAssociation(ctx *pulumi.Context,
 	if args.GlobalNetworkId == nil {
 		return nil, errors.New("invalid value for required argument 'GlobalNetworkId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CustomerGatewayAssociation
 	err := ctx.RegisterResource("aws:networkmanager/customerGatewayAssociation:CustomerGatewayAssociation", name, args, &resource, opts...)
 	if err != nil {

@@ -24,11 +24,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * OpsWorks Custom Layers can be imported using the `id`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:opsworks/customLayer:CustomLayer bar 00000000-0000-0000-0000-000000000000
- * ```
+ *  to = aws_opsworks_custom_layer.bar
+ *
+ *  id = "00000000-0000-0000-0000-000000000000" } Using `pulumi import`, import OpsWorks Custom Layers using the `id`. For exampleconsole % pulumi import aws_opsworks_custom_layer.bar 00000000-0000-0000-0000-000000000000
  */
 export class CustomLayer extends pulumi.CustomResource {
     /**

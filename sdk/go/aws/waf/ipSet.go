@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/waf"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/waf"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -49,13 +50,11 @@ import (
 //
 // ## Import
 //
-// WAF IPSets can be imported using their ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_waf_ipset.example
 //
-//	$ pulumi import aws:waf/ipSet:IpSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
-//
-// ```
+//	id = "a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc" } Using `pulumi import`, import WAF IPSets using their ID. For exampleconsole % pulumi import aws_waf_ipset.example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
 type IpSet struct {
 	pulumi.CustomResourceState
 
@@ -74,6 +73,7 @@ func NewIpSet(ctx *pulumi.Context,
 		args = &IpSetArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource IpSet
 	err := ctx.RegisterResource("aws:waf/ipSet:IpSet", name, args, &resource, opts...)
 	if err != nil {

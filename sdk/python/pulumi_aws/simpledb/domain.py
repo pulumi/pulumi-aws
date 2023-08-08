@@ -80,11 +80,11 @@ class Domain(pulumi.CustomResource):
 
         ## Import
 
-        SimpleDB Domains can be imported using the `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:simpledb/domain:Domain users users
-        ```
+         to = aws_simpledb_domain.users
+
+         id = "users" } Using `pulumi import`, import SimpleDB Domains using the `name`. For exampleconsole % pulumi import aws_simpledb_domain.users users
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -110,11 +110,11 @@ class Domain(pulumi.CustomResource):
 
         ## Import
 
-        SimpleDB Domains can be imported using the `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:simpledb/domain:Domain users users
-        ```
+         to = aws_simpledb_domain.users
+
+         id = "users" } Using `pulumi import`, import SimpleDB Domains using the `name`. For exampleconsole % pulumi import aws_simpledb_domain.users users
 
         :param str resource_name: The name of the resource.
         :param DomainArgs args: The arguments to use to populate this resource's properties.

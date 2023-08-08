@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +24,7 @@ import (
 //
 //	"os"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -55,13 +56,11 @@ import (
 //
 // ## Import
 //
-// KMS (Key Management) Custom Key Store can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_kms_custom_key_store.example
 //
-//	$ pulumi import aws:kms/customKeyStore:CustomKeyStore example cks-5ebd4ef395a96288e
-//
-// ```
+//	id = "cks-5ebd4ef395a96288e" } Using `pulumi import`, import KMS (Key Management) Custom Key Store using the `id`. For exampleconsole % pulumi import aws_kms_custom_key_store.example cks-5ebd4ef395a96288e
 type CustomKeyStore struct {
 	pulumi.CustomResourceState
 
@@ -94,6 +93,7 @@ func NewCustomKeyStore(ctx *pulumi.Context,
 	if args.TrustAnchorCertificate == nil {
 		return nil, errors.New("invalid value for required argument 'TrustAnchorCertificate'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CustomKeyStore
 	err := ctx.RegisterResource("aws:kms/customKeyStore:CustomKeyStore", name, args, &resource, opts...)
 	if err != nil {

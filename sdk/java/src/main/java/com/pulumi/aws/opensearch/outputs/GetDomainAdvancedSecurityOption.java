@@ -11,7 +11,7 @@ import java.util.Objects;
 public final class GetDomainAdvancedSecurityOption {
     private Boolean anonymousAuthEnabled;
     /**
-     * @return Whether node to node encryption is enabled.
+     * @return Enabled disabled toggle for off-peak update window
      * 
      */
     private Boolean enabled;
@@ -26,7 +26,7 @@ public final class GetDomainAdvancedSecurityOption {
         return this.anonymousAuthEnabled;
     }
     /**
-     * @return Whether node to node encryption is enabled.
+     * @return Enabled disabled toggle for off-peak update window
      * 
      */
     public Boolean enabled() {

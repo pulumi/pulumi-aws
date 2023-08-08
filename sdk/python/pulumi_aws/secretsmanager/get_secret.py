@@ -8,7 +8,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
 
 __all__ = [
     'GetSecretResult',
@@ -22,7 +21,7 @@ class GetSecretResult:
     """
     A collection of values returned by getSecret.
     """
-    def __init__(__self__, arn=None, description=None, id=None, kms_key_id=None, name=None, policy=None, rotation_enabled=None, rotation_lambda_arn=None, rotation_rules=None, tags=None):
+    def __init__(__self__, arn=None, description=None, id=None, kms_key_id=None, name=None, policy=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -41,15 +40,6 @@ class GetSecretResult:
         if policy and not isinstance(policy, str):
             raise TypeError("Expected argument 'policy' to be a str")
         pulumi.set(__self__, "policy", policy)
-        if rotation_enabled and not isinstance(rotation_enabled, bool):
-            raise TypeError("Expected argument 'rotation_enabled' to be a bool")
-        pulumi.set(__self__, "rotation_enabled", rotation_enabled)
-        if rotation_lambda_arn and not isinstance(rotation_lambda_arn, str):
-            raise TypeError("Expected argument 'rotation_lambda_arn' to be a str")
-        pulumi.set(__self__, "rotation_lambda_arn", rotation_lambda_arn)
-        if rotation_rules and not isinstance(rotation_rules, list):
-            raise TypeError("Expected argument 'rotation_rules' to be a list")
-        pulumi.set(__self__, "rotation_rules", rotation_rules)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -100,39 +90,6 @@ class GetSecretResult:
         return pulumi.get(self, "policy")
 
     @property
-    @pulumi.getter(name="rotationEnabled")
-    def rotation_enabled(self) -> bool:
-        """
-        Whether rotation is enabled or not.
-        """
-        warnings.warn("""Use the aws_secretsmanager_secret_rotation data source instead""", DeprecationWarning)
-        pulumi.log.warn("""rotation_enabled is deprecated: Use the aws_secretsmanager_secret_rotation data source instead""")
-
-        return pulumi.get(self, "rotation_enabled")
-
-    @property
-    @pulumi.getter(name="rotationLambdaArn")
-    def rotation_lambda_arn(self) -> str:
-        """
-        Rotation Lambda function ARN if rotation is enabled.
-        """
-        warnings.warn("""Use the aws_secretsmanager_secret_rotation data source instead""", DeprecationWarning)
-        pulumi.log.warn("""rotation_lambda_arn is deprecated: Use the aws_secretsmanager_secret_rotation data source instead""")
-
-        return pulumi.get(self, "rotation_lambda_arn")
-
-    @property
-    @pulumi.getter(name="rotationRules")
-    def rotation_rules(self) -> Sequence['outputs.GetSecretRotationRuleResult']:
-        """
-        Rotation rules if rotation is enabled.
-        """
-        warnings.warn("""Use the aws_secretsmanager_secret_rotation data source instead""", DeprecationWarning)
-        pulumi.log.warn("""rotation_rules is deprecated: Use the aws_secretsmanager_secret_rotation data source instead""")
-
-        return pulumi.get(self, "rotation_rules")
-
-    @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
@@ -153,9 +110,6 @@ class AwaitableGetSecretResult(GetSecretResult):
             kms_key_id=self.kms_key_id,
             name=self.name,
             policy=self.policy,
-            rotation_enabled=self.rotation_enabled,
-            rotation_lambda_arn=self.rotation_lambda_arn,
-            rotation_rules=self.rotation_rules,
             tags=self.tags)
 
 
@@ -200,9 +154,6 @@ def get_secret(arn: Optional[str] = None,
         kms_key_id=pulumi.get(__ret__, 'kms_key_id'),
         name=pulumi.get(__ret__, 'name'),
         policy=pulumi.get(__ret__, 'policy'),
-        rotation_enabled=pulumi.get(__ret__, 'rotation_enabled'),
-        rotation_lambda_arn=pulumi.get(__ret__, 'rotation_lambda_arn'),
-        rotation_rules=pulumi.get(__ret__, 'rotation_rules'),
         tags=pulumi.get(__ret__, 'tags'))
 
 

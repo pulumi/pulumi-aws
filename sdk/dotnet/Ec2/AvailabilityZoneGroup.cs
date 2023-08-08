@@ -35,11 +35,11 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// EC2 Availability Zone Groups can be imported using the group name, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:ec2/availabilityZoneGroup:AvailabilityZoneGroup example us-west-2-lax-1
-    /// ```
+    ///  to = aws_ec2_availability_zone_group.example
+    /// 
+    ///  id = "us-west-2-lax-1" } Using `pulumi import`, import EC2 Availability Zone Groups using the group name. For exampleconsole % pulumi import aws_ec2_availability_zone_group.example us-west-2-lax-1
     /// </summary>
     [AwsResourceType("aws:ec2/availabilityZoneGroup:AvailabilityZoneGroup")]
     public partial class AvailabilityZoneGroup : global::Pulumi.CustomResource

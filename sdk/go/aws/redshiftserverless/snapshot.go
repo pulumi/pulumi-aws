@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/redshiftserverless"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshiftserverless"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,13 +43,11 @@ import (
 //
 // ## Import
 //
-// Redshift Serverless Snapshots can be imported using the `snapshot_name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_redshiftserverless_snapshot.example
 //
-//	$ pulumi import aws:redshiftserverless/snapshot:Snapshot example example
-//
-// ```
+//	id = "example" } Using `pulumi import`, import Redshift Serverless Snapshots using the `snapshot_name`. For exampleconsole % pulumi import aws_redshiftserverless_snapshot.example example
 type Snapshot struct {
 	pulumi.CustomResourceState
 
@@ -87,6 +86,7 @@ func NewSnapshot(ctx *pulumi.Context,
 	if args.SnapshotName == nil {
 		return nil, errors.New("invalid value for required argument 'SnapshotName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Snapshot
 	err := ctx.RegisterResource("aws:redshiftserverless/snapshot:Snapshot", name, args, &resource, opts...)
 	if err != nil {

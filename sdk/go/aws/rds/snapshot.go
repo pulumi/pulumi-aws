@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -32,7 +33,7 @@ import (
 //				Engine:                pulumi.String("mysql"),
 //				EngineVersion:         pulumi.String("5.6.21"),
 //				InstanceClass:         pulumi.String("db.t2.micro"),
-//				Name:                  pulumi.String("baz"),
+//				DbName:                pulumi.String("baz"),
 //				Password:              pulumi.String("barbarbarbar"),
 //				Username:              pulumi.String("foo"),
 //				MaintenanceWindow:     pulumi.String("Fri:09:00-Fri:09:30"),
@@ -43,7 +44,7 @@ import (
 //				return err
 //			}
 //			_, err = rds.NewSnapshot(ctx, "test", &rds.SnapshotArgs{
-//				DbInstanceIdentifier: bar.ID(),
+//				DbInstanceIdentifier: bar.Identifier,
 //				DbSnapshotIdentifier: pulumi.String("testsnapshot1234"),
 //			})
 //			if err != nil {
@@ -57,13 +58,11 @@ import (
 //
 // ## Import
 //
-// `aws_db_snapshot` can be imported by using the snapshot identifier, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_db_snapshot.example
 //
-//	$ pulumi import aws:rds/snapshot:Snapshot example my-snapshot
-//
-// ```
+//	id = "my-snapshot" } Using `pulumi import`, import `aws_db_snapshot` using the snapshot identifier. For exampleconsole % pulumi import aws_db_snapshot.example my-snapshot
 type Snapshot struct {
 	pulumi.CustomResourceState
 
@@ -124,6 +123,7 @@ func NewSnapshot(ctx *pulumi.Context,
 	if args.DbSnapshotIdentifier == nil {
 		return nil, errors.New("invalid value for required argument 'DbSnapshotIdentifier'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Snapshot
 	err := ctx.RegisterResource("aws:rds/snapshot:Snapshot", name, args, &resource, opts...)
 	if err != nil {

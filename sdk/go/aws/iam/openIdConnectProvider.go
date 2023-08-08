@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -47,13 +48,11 @@ import (
 //
 // ## Import
 //
-// IAM OpenID Connect Providers can be imported using the `arn`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_iam_openid_connect_provider.default
 //
-//	$ pulumi import aws:iam/openIdConnectProvider:OpenIdConnectProvider default arn:aws:iam::123456789012:oidc-provider/accounts.google.com
-//
-// ```
+//	id = "arn:aws:iam::123456789012:oidc-provider/accounts.google.com" } Using `pulumi import`, import IAM OpenID Connect Providers using the `arn`. For exampleconsole % pulumi import aws_iam_openid_connect_provider.default arn:aws:iam::123456789012:oidc-provider/accounts.google.com
 type OpenIdConnectProvider struct {
 	pulumi.CustomResourceState
 
@@ -87,6 +86,7 @@ func NewOpenIdConnectProvider(ctx *pulumi.Context,
 	if args.Url == nil {
 		return nil, errors.New("invalid value for required argument 'Url'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OpenIdConnectProvider
 	err := ctx.RegisterResource("aws:iam/openIdConnectProvider:OpenIdConnectProvider", name, args, &resource, opts...)
 	if err != nil {

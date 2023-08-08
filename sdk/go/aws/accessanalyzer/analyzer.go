@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/accessanalyzer"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/accessanalyzer"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -46,8 +47,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/accessanalyzer"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/organizations"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/accessanalyzer"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/organizations"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -79,13 +80,11 @@ import (
 //
 // ## Import
 //
-// Access Analyzer Analyzers can be imported using the `analyzer_name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_accessanalyzer_analyzer.example
 //
-//	$ pulumi import aws:accessanalyzer/analyzer:Analyzer example example
-//
-// ```
+//	id = "example" } Using `pulumi import`, import Access Analyzer Analyzers using the `analyzer_name`. For exampleconsole % pulumi import aws_accessanalyzer_analyzer.example example
 type Analyzer struct {
 	pulumi.CustomResourceState
 
@@ -113,6 +112,7 @@ func NewAnalyzer(ctx *pulumi.Context,
 	if args.AnalyzerName == nil {
 		return nil, errors.New("invalid value for required argument 'AnalyzerName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Analyzer
 	err := ctx.RegisterResource("aws:accessanalyzer/analyzer:Analyzer", name, args, &resource, opts...)
 	if err != nil {

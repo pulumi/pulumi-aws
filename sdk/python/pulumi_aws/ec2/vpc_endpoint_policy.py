@@ -131,11 +131,11 @@ class VpcEndpointPolicy(pulumi.CustomResource):
 
         ## Import
 
-        VPC Endpoint Policies can be imported using the `id`, e.g.
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ec2/vpcEndpointPolicy:VpcEndpointPolicy example vpce-3ecf2a57
-        ```
+         to = aws_vpc_endpoint_policy.example
+
+         id = "vpce-3ecf2a57" } Using `pulumi import`, import VPC Endpoint Policies using the `id`. For exampleconsole % pulumi import aws_vpc_endpoint_policy.example vpce-3ecf2a57
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -181,11 +181,11 @@ class VpcEndpointPolicy(pulumi.CustomResource):
 
         ## Import
 
-        VPC Endpoint Policies can be imported using the `id`, e.g.
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ec2/vpcEndpointPolicy:VpcEndpointPolicy example vpce-3ecf2a57
-        ```
+         to = aws_vpc_endpoint_policy.example
+
+         id = "vpce-3ecf2a57" } Using `pulumi import`, import VPC Endpoint Policies using the `id`. For exampleconsole % pulumi import aws_vpc_endpoint_policy.example vpce-3ecf2a57
 
         :param str resource_name: The name of the resource.
         :param VpcEndpointPolicyArgs args: The arguments to use to populate this resource's properties.

@@ -49,11 +49,11 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// ## Import
     /// 
-    /// `aws_lightsail_disk` can be imported by using the name attribute, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:lightsail/disk:Disk test test
-    /// ```
+    ///  to = aws_lightsail_disk.test
+    /// 
+    ///  id = "test" } Using `pulumi import`, import `aws_lightsail_disk` using the name attribute. For exampleconsole % pulumi import aws_lightsail_disk.test test
     /// </summary>
     [AwsResourceType("aws:lightsail/disk:Disk")]
     public partial class Disk : global::Pulumi.CustomResource

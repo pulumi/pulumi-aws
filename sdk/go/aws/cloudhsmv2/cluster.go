@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,13 +25,11 @@ import (
 //
 // ## Import
 //
-// CloudHSM v2 Clusters can be imported using the `cluster id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_cloudhsm_v2_cluster.test_cluster
 //
-//	$ pulumi import aws:cloudhsmv2/cluster:Cluster test_cluster cluster-aeb282a201
-//
-// ```
+//	id = "cluster-aeb282a201" } Using `pulumi import`, import CloudHSM v2 Clusters using the cluster `id`. For exampleconsole % pulumi import aws_cloudhsm_v2_cluster.test_cluster cluster-aeb282a201
 type Cluster struct {
 	pulumi.CustomResourceState
 
@@ -74,6 +73,7 @@ func NewCluster(ctx *pulumi.Context,
 	if args.SubnetIds == nil {
 		return nil, errors.New("invalid value for required argument 'SubnetIds'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Cluster
 	err := ctx.RegisterResource("aws:cloudhsmv2/cluster:Cluster", name, args, &resource, opts...)
 	if err != nil {

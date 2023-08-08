@@ -349,11 +349,11 @@ class Schema(pulumi.CustomResource):
 
         ## Import
 
-        EventBridge schema can be imported using the `name` and `registry_name`, e.g., console
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:schemas/schema:Schema test name/registry
-        ```
+         to = aws_schemas_schema.test
+
+         id = "name/registry" } Using `pulumi import`, import EventBridge schema using the `name` and `registry_name`. For exampleconsole % pulumi import aws_schemas_schema.test name/registry
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -411,11 +411,11 @@ class Schema(pulumi.CustomResource):
 
         ## Import
 
-        EventBridge schema can be imported using the `name` and `registry_name`, e.g., console
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:schemas/schema:Schema test name/registry
-        ```
+         to = aws_schemas_schema.test
+
+         id = "name/registry" } Using `pulumi import`, import EventBridge schema using the `name` and `registry_name`. For exampleconsole % pulumi import aws_schemas_schema.test name/registry
 
         :param str resource_name: The name of the resource.
         :param SchemaArgs args: The arguments to use to populate this resource's properties.

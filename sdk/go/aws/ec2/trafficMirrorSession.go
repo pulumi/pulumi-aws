@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -63,13 +64,11 @@ import (
 //
 // ## Import
 //
-// Traffic mirror sessions can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_ec2_traffic_mirror_session.session
 //
-//	$ pulumi import aws:ec2/trafficMirrorSession:TrafficMirrorSession session tms-0d8aa3ca35897b82e
-//
-// ```
+//	id = "tms-0d8aa3ca35897b82e" } Using `pulumi import`, import traffic mirror sessions using the `id`. For exampleconsole % pulumi import aws_ec2_traffic_mirror_session.session tms-0d8aa3ca35897b82e
 type TrafficMirrorSession struct {
 	pulumi.CustomResourceState
 
@@ -116,6 +115,7 @@ func NewTrafficMirrorSession(ctx *pulumi.Context,
 	if args.TrafficMirrorTargetId == nil {
 		return nil, errors.New("invalid value for required argument 'TrafficMirrorTargetId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TrafficMirrorSession
 	err := ctx.RegisterResource("aws:ec2/trafficMirrorSession:TrafficMirrorSession", name, args, &resource, opts...)
 	if err != nil {

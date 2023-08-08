@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -69,21 +70,15 @@ import (
 //
 // ## Import
 //
-// S3 bucket logging can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, the S3 bucket logging resource should be imported using the `bucket` e.g.,
+// If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`terraform import {
 //
-// ```sh
+//	to = aws_s3_bucket_logging.example
 //
-//	$ pulumi import aws:s3/bucketLoggingV2:BucketLoggingV2 example bucket-name
+//	id = "bucket-name" } If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`)terraform import {
 //
-// ```
+//	to = aws_s3_bucket_logging.example
 //
-//	If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, the S3 bucket logging resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:s3/bucketLoggingV2:BucketLoggingV2 example bucket-name,123456789012
-//
-// ```
+//	id = "bucket-name,123456789012" } **Using `pulumi import` to import** S3 bucket logging using the `bucket` or using the `bucket` and `expected_bucket_owner` separated by a comma (`,`). For exampleIf the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`console % pulumi import aws_s3_bucket_logging.example bucket-name If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`)console % pulumi import aws_s3_bucket_logging.example bucket-name,123456789012
 type BucketLoggingV2 struct {
 	pulumi.CustomResourceState
 
@@ -115,6 +110,7 @@ func NewBucketLoggingV2(ctx *pulumi.Context,
 	if args.TargetPrefix == nil {
 		return nil, errors.New("invalid value for required argument 'TargetPrefix'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BucketLoggingV2
 	err := ctx.RegisterResource("aws:s3/bucketLoggingV2:BucketLoggingV2", name, args, &resource, opts...)
 	if err != nil {

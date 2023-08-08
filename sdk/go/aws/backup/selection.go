@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,8 +26,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/backup"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/backup"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -85,7 +86,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/backup"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/backup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -118,7 +119,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/backup"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/backup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -175,7 +176,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/backup"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/backup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -206,7 +207,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/backup"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/backup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -233,13 +234,11 @@ import (
 //
 // ## Import
 //
-// Backup selection can be imported using the role plan_id and id separated by `|`.
+// terraform import {
 //
-// ```sh
+//	to = aws_backup_selection.example
 //
-//	$ pulumi import aws:backup/selection:Selection example plan-id|selection-id
-//
-// ```
+//	id = "plan-id|selection-id" } Using `pulumi import`, import Backup selection using the role plan_id and id separated by `|`. For exampleconsole % pulumi import aws_backup_selection.example plan-id|selection-id
 type Selection struct {
 	pulumi.CustomResourceState
 
@@ -272,6 +271,7 @@ func NewSelection(ctx *pulumi.Context,
 	if args.PlanId == nil {
 		return nil, errors.New("invalid value for required argument 'PlanId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Selection
 	err := ctx.RegisterResource("aws:backup/selection:Selection", name, args, &resource, opts...)
 	if err != nil {

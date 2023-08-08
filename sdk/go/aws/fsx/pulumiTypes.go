@@ -7,8 +7,11 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type DataRepositoryAssociationS3 struct {
 	// Specifies the type of updated objects that will be automatically exported from your file system to the linked S3 bucket. See the `events` configuration block.
@@ -963,7 +966,7 @@ func (o FileCacheLustreConfigurationLogConfigurationArrayOutput) Index(i pulumi.
 }
 
 type FileCacheLustreConfigurationMetadataConfiguration struct {
-	// The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
+	// The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
 	StorageCapacity int `pulumi:"storageCapacity"`
 }
 
@@ -979,7 +982,7 @@ type FileCacheLustreConfigurationMetadataConfigurationInput interface {
 }
 
 type FileCacheLustreConfigurationMetadataConfigurationArgs struct {
-	// The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
+	// The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
 	StorageCapacity pulumi.IntInput `pulumi:"storageCapacity"`
 }
 
@@ -1034,7 +1037,7 @@ func (o FileCacheLustreConfigurationMetadataConfigurationOutput) ToFileCacheLust
 	return o
 }
 
-// The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
+// The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
 func (o FileCacheLustreConfigurationMetadataConfigurationOutput) StorageCapacity() pulumi.IntOutput {
 	return o.ApplyT(func(v FileCacheLustreConfigurationMetadataConfiguration) int { return v.StorageCapacity }).(pulumi.IntOutput)
 }
@@ -2794,6 +2797,7 @@ func (o OntapStorageVirtualMachineEndpointSmbArrayOutput) Index(i pulumi.IntInpu
 }
 
 type OntapVolumeTieringPolicy struct {
+	// Specifies the number of days that user data in a volume must remain inactive before it is considered "cold" and moved to the capacity pool. Used with `AUTO` and `SNAPSHOT_ONLY` tiering policies only. Valid values are whole numbers between 2 and 183. Default values are 31 days for `AUTO` and 2 days for `SNAPSHOT_ONLY`.
 	CoolingPeriod *int `pulumi:"coolingPeriod"`
 	// Specifies the tiering policy for the ONTAP volume for moving data to the capacity pool storage. Valid values are `SNAPSHOT_ONLY`, `AUTO`, `ALL`, `NONE`. Default value is `SNAPSHOT_ONLY`.
 	Name *string `pulumi:"name"`
@@ -2811,6 +2815,7 @@ type OntapVolumeTieringPolicyInput interface {
 }
 
 type OntapVolumeTieringPolicyArgs struct {
+	// Specifies the number of days that user data in a volume must remain inactive before it is considered "cold" and moved to the capacity pool. Used with `AUTO` and `SNAPSHOT_ONLY` tiering policies only. Valid values are whole numbers between 2 and 183. Default values are 31 days for `AUTO` and 2 days for `SNAPSHOT_ONLY`.
 	CoolingPeriod pulumi.IntPtrInput `pulumi:"coolingPeriod"`
 	// Specifies the tiering policy for the ONTAP volume for moving data to the capacity pool storage. Valid values are `SNAPSHOT_ONLY`, `AUTO`, `ALL`, `NONE`. Default value is `SNAPSHOT_ONLY`.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -2893,6 +2898,7 @@ func (o OntapVolumeTieringPolicyOutput) ToOntapVolumeTieringPolicyPtrOutputWithC
 	}).(OntapVolumeTieringPolicyPtrOutput)
 }
 
+// Specifies the number of days that user data in a volume must remain inactive before it is considered "cold" and moved to the capacity pool. Used with `AUTO` and `SNAPSHOT_ONLY` tiering policies only. Valid values are whole numbers between 2 and 183. Default values are 31 days for `AUTO` and 2 days for `SNAPSHOT_ONLY`.
 func (o OntapVolumeTieringPolicyOutput) CoolingPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OntapVolumeTieringPolicy) *int { return v.CoolingPeriod }).(pulumi.IntPtrOutput)
 }
@@ -2926,6 +2932,7 @@ func (o OntapVolumeTieringPolicyPtrOutput) Elem() OntapVolumeTieringPolicyOutput
 	}).(OntapVolumeTieringPolicyOutput)
 }
 
+// Specifies the number of days that user data in a volume must remain inactive before it is considered "cold" and moved to the capacity pool. Used with `AUTO` and `SNAPSHOT_ONLY` tiering policies only. Valid values are whole numbers between 2 and 183. Default values are 31 days for `AUTO` and 2 days for `SNAPSHOT_ONLY`.
 func (o OntapVolumeTieringPolicyPtrOutput) CoolingPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OntapVolumeTieringPolicy) *int {
 		if v == nil {

@@ -40,6 +40,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ec2.Vpc;
  * import com.pulumi.aws.ec2.VpcArgs;
  * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
  * import com.pulumi.aws.ec2.VpcPeeringConnection;
  * import com.pulumi.aws.ec2.VpcPeeringConnectionArgs;
  * import com.pulumi.aws.ec2.VpcPeeringConnectionAccepter;
@@ -97,13 +98,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * VPC Peering Connection Accepters can be imported by using the Peering Connection ID, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter example pcx-12345678
- * ```
+ *  to = aws_vpc_peering_connection_accepter.example
  * 
- *  Certain resource arguments, like `auto_accept`, do not have an EC2 API method for reading the information after peering connection creation. If the argument is set in the provider configuration on an imported resource, this provder will always show a difference. To workaround this behavior, either omit the argument from the configuration or use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to hide the difference, e.g. terraform resource &#34;aws_vpc_peering_connection_accepter&#34; &#34;example&#34; {
+ *  id = &#34;pcx-12345678&#34; } Using `pulumi import`, import VPC Peering Connection Accepters using the Peering Connection ID. For exampleconsole % pulumi import aws_vpc_peering_connection_accepter.example pcx-12345678 Certain resource arguments, like `auto_accept`, do not have an EC2 API method for reading the information after peering connection creation. If the argument is set in the TODO configuration on an imported resource, TODO will always show a difference. To workaround this behavior, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For exampleterraform resource &#34;aws_vpc_peering_connection_accepter&#34; &#34;example&#34; {
  * 
  * # ... other configuration ...
  * 

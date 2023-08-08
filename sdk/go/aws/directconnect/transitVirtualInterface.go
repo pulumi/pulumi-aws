@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directconnect"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directconnect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,13 +53,11 @@ import (
 //
 // ## Import
 //
-// Direct Connect transit virtual interfaces can be imported using the `vif id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_dx_transit_virtual_interface.test
 //
-//	$ pulumi import aws:directconnect/transitVirtualInterface:TransitVirtualInterface test dxvif-33cc44dd
-//
-// ```
+//	id = "dxvif-33cc44dd" } Using `pulumi import`, import Direct Connect transit virtual interfaces using the VIF `id`. For exampleconsole % pulumi import aws_dx_transit_virtual_interface.test dxvif-33cc44dd
 type TransitVirtualInterface struct {
 	pulumi.CustomResourceState
 
@@ -120,6 +119,7 @@ func NewTransitVirtualInterface(ctx *pulumi.Context,
 	if args.Vlan == nil {
 		return nil, errors.New("invalid value for required argument 'Vlan'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TransitVirtualInterface
 	err := ctx.RegisterResource("aws:directconnect/transitVirtualInterface:TransitVirtualInterface", name, args, &resource, opts...)
 	if err != nil {

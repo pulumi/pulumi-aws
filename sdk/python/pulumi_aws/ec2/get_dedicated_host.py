@@ -23,10 +23,13 @@ class GetDedicatedHostResult:
     """
     A collection of values returned by getDedicatedHost.
     """
-    def __init__(__self__, arn=None, auto_placement=None, availability_zone=None, cores=None, filters=None, host_id=None, host_recovery=None, id=None, instance_family=None, instance_type=None, outpost_arn=None, owner_id=None, sockets=None, tags=None, total_vcpus=None):
+    def __init__(__self__, arn=None, asset_id=None, auto_placement=None, availability_zone=None, cores=None, filters=None, host_id=None, host_recovery=None, id=None, instance_family=None, instance_type=None, outpost_arn=None, owner_id=None, sockets=None, tags=None, total_vcpus=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if asset_id and not isinstance(asset_id, str):
+            raise TypeError("Expected argument 'asset_id' to be a str")
+        pulumi.set(__self__, "asset_id", asset_id)
         if auto_placement and not isinstance(auto_placement, str):
             raise TypeError("Expected argument 'auto_placement' to be a str")
         pulumi.set(__self__, "auto_placement", auto_placement)
@@ -77,6 +80,14 @@ class GetDedicatedHostResult:
         ARN of the Dedicated Host.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="assetId")
+    def asset_id(self) -> str:
+        """
+        The ID of the Outpost hardware asset on which the Dedicated Host is allocated.
+        """
+        return pulumi.get(self, "asset_id")
 
     @property
     @pulumi.getter(name="autoPlacement")
@@ -189,6 +200,7 @@ class AwaitableGetDedicatedHostResult(GetDedicatedHostResult):
             yield self
         return GetDedicatedHostResult(
             arn=self.arn,
+            asset_id=self.asset_id,
             auto_placement=self.auto_placement,
             availability_zone=self.availability_zone,
             cores=self.cores,
@@ -238,6 +250,7 @@ def get_dedicated_host(filters: Optional[Sequence[pulumi.InputType['GetDedicated
 
     return AwaitableGetDedicatedHostResult(
         arn=pulumi.get(__ret__, 'arn'),
+        asset_id=pulumi.get(__ret__, 'asset_id'),
         auto_placement=pulumi.get(__ret__, 'auto_placement'),
         availability_zone=pulumi.get(__ret__, 'availability_zone'),
         cores=pulumi.get(__ret__, 'cores'),

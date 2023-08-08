@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -60,7 +61,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -99,13 +100,11 @@ import (
 //
 // ## Import
 //
-// S3 bucket intelligent tiering configurations can be imported using `bucket:name`, e.g.
+// terraform import {
 //
-// ```sh
+//	to = aws_s3_bucket_intelligent_tiering_configuration.my-bucket-entire-bucket
 //
-//	$ pulumi import aws:s3/bucketIntelligentTieringConfiguration:BucketIntelligentTieringConfiguration my-bucket-entire-bucket my-bucket:EntireBucket
-//
-// ```
+//	id = "my-bucket:EntireBucket" } Using `pulumi import`, import S3 bucket intelligent tiering configurations using `bucket:name`. For exampleconsole % pulumi import aws_s3_bucket_intelligent_tiering_configuration.my-bucket-entire-bucket my-bucket:EntireBucket
 type BucketIntelligentTieringConfiguration struct {
 	pulumi.CustomResourceState
 
@@ -134,6 +133,7 @@ func NewBucketIntelligentTieringConfiguration(ctx *pulumi.Context,
 	if args.Tierings == nil {
 		return nil, errors.New("invalid value for required argument 'Tierings'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BucketIntelligentTieringConfiguration
 	err := ctx.RegisterResource("aws:s3/bucketIntelligentTieringConfiguration:BucketIntelligentTieringConfiguration", name, args, &resource, opts...)
 	if err != nil {

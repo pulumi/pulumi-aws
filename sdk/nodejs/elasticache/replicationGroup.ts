@@ -164,11 +164,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * ElastiCache Replication Groups can be imported using the `replication_group_id`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:elasticache/replicationGroup:ReplicationGroup my_replication_group replication-group-1
- * ```
+ *  to = aws_elasticache_replication_group.my_replication_group
+ *
+ *  id = "replication-group-1" } Using `pulumi import`, import ElastiCache Replication Groups using the `replication_group_id`. For exampleconsole % pulumi import aws_elasticache_replication_group.my_replication_group replication-group-1
  */
 export class ReplicationGroup extends pulumi.CustomResource {
     /**
@@ -225,19 +225,9 @@ export class ReplicationGroup extends pulumi.CustomResource {
      */
     public readonly automaticFailoverEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * List of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not considered.
-     */
-    public readonly availabilityZones!: pulumi.Output<string[] | undefined>;
-    /**
      * Indicates if cluster mode is enabled.
      */
     public /*out*/ readonly clusterEnabled!: pulumi.Output<boolean>;
-    /**
-     * Create a native Redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed. Note that configuring this block does not enable cluster mode, i.e., data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
-     *
-     * @deprecated Use num_node_groups and replicas_per_node_group instead
-     */
-    public readonly clusterMode!: pulumi.Output<outputs.elasticache.ReplicationGroupClusterMode>;
     /**
      * Address of the replication group configuration endpoint when cluster mode is enabled.
      */
@@ -256,10 +246,11 @@ export class ReplicationGroup extends pulumi.CustomResource {
     public readonly engine!: pulumi.Output<string | undefined>;
     /**
      * Version number of the cache engine to be used for the cache clusters in this replication group.
-     * If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+     * If the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+     * If the version is 6, the major and minor version can be set, e.g., `6.2`,
      * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
      * Otherwise, specify the full version desired, e.g., `5.0.6`.
-     * The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
+     * The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
      */
     public readonly engineVersion!: pulumi.Output<string>;
     /**
@@ -271,7 +262,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
      */
     public readonly finalSnapshotIdentifier!: pulumi.Output<string | undefined>;
     /**
-     * The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `globalReplicationGroupId` is set, the `numNodeGroups` parameter (or the `numNodeGroups` parameter of the deprecated `clusterMode` block) cannot be set.
+     * The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `globalReplicationGroupId` is set, the `numNodeGroups` parameter cannot be set.
      */
     public readonly globalReplicationGroupId!: pulumi.Output<string>;
     /**
@@ -303,7 +294,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
      */
     public readonly notificationTopicArn!: pulumi.Output<string | undefined>;
     /**
-     * Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `numNodeGroups`, the deprecated`numberCacheClusters`, or the deprecated `clusterMode`. Defaults to `1`.
+     * Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `numNodeGroups`. Defaults to `1`.
      */
     public readonly numCacheClusters!: pulumi.Output<number>;
     /**
@@ -311,12 +302,6 @@ export class ReplicationGroup extends pulumi.CustomResource {
      * Changing this number will trigger a resizing operation before other settings modifications.
      */
     public readonly numNodeGroups!: pulumi.Output<number>;
-    /**
-     * Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `numCacheClusters`, `numNodeGroups`, or the deprecated `clusterMode`. Defaults to `1`.
-     *
-     * @deprecated Use num_cache_clusters instead
-     */
-    public readonly numberCacheClusters!: pulumi.Output<number>;
     /**
      * Name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable "cluster mode", i.e., data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
      */
@@ -344,15 +329,9 @@ export class ReplicationGroup extends pulumi.CustomResource {
      */
     public readonly replicasPerNodeGroup!: pulumi.Output<number>;
     /**
-     * User-created description for the replication group. Must not be empty.
+     * Replication group identifier. This parameter is stored as a lowercase string.
      *
      * The following arguments are optional:
-     *
-     * @deprecated Use description instead
-     */
-    public readonly replicationGroupDescription!: pulumi.Output<string>;
-    /**
-     * Replication group identifier. This parameter is stored as a lowercase string.
      */
     public readonly replicationGroupId!: pulumi.Output<string>;
     /**
@@ -419,9 +398,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
             resourceInputs["authToken"] = state ? state.authToken : undefined;
             resourceInputs["autoMinorVersionUpgrade"] = state ? state.autoMinorVersionUpgrade : undefined;
             resourceInputs["automaticFailoverEnabled"] = state ? state.automaticFailoverEnabled : undefined;
-            resourceInputs["availabilityZones"] = state ? state.availabilityZones : undefined;
             resourceInputs["clusterEnabled"] = state ? state.clusterEnabled : undefined;
-            resourceInputs["clusterMode"] = state ? state.clusterMode : undefined;
             resourceInputs["configurationEndpointAddress"] = state ? state.configurationEndpointAddress : undefined;
             resourceInputs["dataTieringEnabled"] = state ? state.dataTieringEnabled : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
@@ -439,14 +416,12 @@ export class ReplicationGroup extends pulumi.CustomResource {
             resourceInputs["notificationTopicArn"] = state ? state.notificationTopicArn : undefined;
             resourceInputs["numCacheClusters"] = state ? state.numCacheClusters : undefined;
             resourceInputs["numNodeGroups"] = state ? state.numNodeGroups : undefined;
-            resourceInputs["numberCacheClusters"] = state ? state.numberCacheClusters : undefined;
             resourceInputs["parameterGroupName"] = state ? state.parameterGroupName : undefined;
             resourceInputs["port"] = state ? state.port : undefined;
             resourceInputs["preferredCacheClusterAzs"] = state ? state.preferredCacheClusterAzs : undefined;
             resourceInputs["primaryEndpointAddress"] = state ? state.primaryEndpointAddress : undefined;
             resourceInputs["readerEndpointAddress"] = state ? state.readerEndpointAddress : undefined;
             resourceInputs["replicasPerNodeGroup"] = state ? state.replicasPerNodeGroup : undefined;
-            resourceInputs["replicationGroupDescription"] = state ? state.replicationGroupDescription : undefined;
             resourceInputs["replicationGroupId"] = state ? state.replicationGroupId : undefined;
             resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
             resourceInputs["securityGroupNames"] = state ? state.securityGroupNames : undefined;
@@ -466,8 +441,6 @@ export class ReplicationGroup extends pulumi.CustomResource {
             resourceInputs["authToken"] = args?.authToken ? pulumi.secret(args.authToken) : undefined;
             resourceInputs["autoMinorVersionUpgrade"] = args ? args.autoMinorVersionUpgrade : undefined;
             resourceInputs["automaticFailoverEnabled"] = args ? args.automaticFailoverEnabled : undefined;
-            resourceInputs["availabilityZones"] = args ? args.availabilityZones : undefined;
-            resourceInputs["clusterMode"] = args ? args.clusterMode : undefined;
             resourceInputs["dataTieringEnabled"] = args ? args.dataTieringEnabled : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["engine"] = args ? args.engine : undefined;
@@ -482,12 +455,10 @@ export class ReplicationGroup extends pulumi.CustomResource {
             resourceInputs["notificationTopicArn"] = args ? args.notificationTopicArn : undefined;
             resourceInputs["numCacheClusters"] = args ? args.numCacheClusters : undefined;
             resourceInputs["numNodeGroups"] = args ? args.numNodeGroups : undefined;
-            resourceInputs["numberCacheClusters"] = args ? args.numberCacheClusters : undefined;
             resourceInputs["parameterGroupName"] = args ? args.parameterGroupName : undefined;
             resourceInputs["port"] = args ? args.port : undefined;
             resourceInputs["preferredCacheClusterAzs"] = args ? args.preferredCacheClusterAzs : undefined;
             resourceInputs["replicasPerNodeGroup"] = args ? args.replicasPerNodeGroup : undefined;
-            resourceInputs["replicationGroupDescription"] = args ? args.replicationGroupDescription : undefined;
             resourceInputs["replicationGroupId"] = args ? args.replicationGroupId : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             resourceInputs["securityGroupNames"] = args ? args.securityGroupNames : undefined;
@@ -546,19 +517,9 @@ export interface ReplicationGroupState {
      */
     automaticFailoverEnabled?: pulumi.Input<boolean>;
     /**
-     * List of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not considered.
-     */
-    availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
      * Indicates if cluster mode is enabled.
      */
     clusterEnabled?: pulumi.Input<boolean>;
-    /**
-     * Create a native Redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed. Note that configuring this block does not enable cluster mode, i.e., data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
-     *
-     * @deprecated Use num_node_groups and replicas_per_node_group instead
-     */
-    clusterMode?: pulumi.Input<inputs.elasticache.ReplicationGroupClusterMode>;
     /**
      * Address of the replication group configuration endpoint when cluster mode is enabled.
      */
@@ -577,10 +538,11 @@ export interface ReplicationGroupState {
     engine?: pulumi.Input<string>;
     /**
      * Version number of the cache engine to be used for the cache clusters in this replication group.
-     * If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+     * If the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+     * If the version is 6, the major and minor version can be set, e.g., `6.2`,
      * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
      * Otherwise, specify the full version desired, e.g., `5.0.6`.
-     * The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
+     * The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
      */
     engineVersion?: pulumi.Input<string>;
     /**
@@ -592,7 +554,7 @@ export interface ReplicationGroupState {
      */
     finalSnapshotIdentifier?: pulumi.Input<string>;
     /**
-     * The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `globalReplicationGroupId` is set, the `numNodeGroups` parameter (or the `numNodeGroups` parameter of the deprecated `clusterMode` block) cannot be set.
+     * The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `globalReplicationGroupId` is set, the `numNodeGroups` parameter cannot be set.
      */
     globalReplicationGroupId?: pulumi.Input<string>;
     /**
@@ -624,7 +586,7 @@ export interface ReplicationGroupState {
      */
     notificationTopicArn?: pulumi.Input<string>;
     /**
-     * Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `numNodeGroups`, the deprecated`numberCacheClusters`, or the deprecated `clusterMode`. Defaults to `1`.
+     * Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `numNodeGroups`. Defaults to `1`.
      */
     numCacheClusters?: pulumi.Input<number>;
     /**
@@ -632,12 +594,6 @@ export interface ReplicationGroupState {
      * Changing this number will trigger a resizing operation before other settings modifications.
      */
     numNodeGroups?: pulumi.Input<number>;
-    /**
-     * Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `numCacheClusters`, `numNodeGroups`, or the deprecated `clusterMode`. Defaults to `1`.
-     *
-     * @deprecated Use num_cache_clusters instead
-     */
-    numberCacheClusters?: pulumi.Input<number>;
     /**
      * Name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable "cluster mode", i.e., data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
      */
@@ -665,15 +621,9 @@ export interface ReplicationGroupState {
      */
     replicasPerNodeGroup?: pulumi.Input<number>;
     /**
-     * User-created description for the replication group. Must not be empty.
+     * Replication group identifier. This parameter is stored as a lowercase string.
      *
      * The following arguments are optional:
-     *
-     * @deprecated Use description instead
-     */
-    replicationGroupDescription?: pulumi.Input<string>;
-    /**
-     * Replication group identifier. This parameter is stored as a lowercase string.
      */
     replicationGroupId?: pulumi.Input<string>;
     /**
@@ -749,16 +699,6 @@ export interface ReplicationGroupArgs {
      */
     automaticFailoverEnabled?: pulumi.Input<boolean>;
     /**
-     * List of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not considered.
-     */
-    availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Create a native Redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed. Note that configuring this block does not enable cluster mode, i.e., data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
-     *
-     * @deprecated Use num_node_groups and replicas_per_node_group instead
-     */
-    clusterMode?: pulumi.Input<inputs.elasticache.ReplicationGroupClusterMode>;
-    /**
      * Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to `true` when using r6gd nodes.
      */
     dataTieringEnabled?: pulumi.Input<boolean>;
@@ -772,10 +712,11 @@ export interface ReplicationGroupArgs {
     engine?: pulumi.Input<string>;
     /**
      * Version number of the cache engine to be used for the cache clusters in this replication group.
-     * If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+     * If the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+     * If the version is 6, the major and minor version can be set, e.g., `6.2`,
      * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
      * Otherwise, specify the full version desired, e.g., `5.0.6`.
-     * The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
+     * The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
      */
     engineVersion?: pulumi.Input<string>;
     /**
@@ -783,7 +724,7 @@ export interface ReplicationGroupArgs {
      */
     finalSnapshotIdentifier?: pulumi.Input<string>;
     /**
-     * The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `globalReplicationGroupId` is set, the `numNodeGroups` parameter (or the `numNodeGroups` parameter of the deprecated `clusterMode` block) cannot be set.
+     * The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `globalReplicationGroupId` is set, the `numNodeGroups` parameter cannot be set.
      */
     globalReplicationGroupId?: pulumi.Input<string>;
     /**
@@ -811,7 +752,7 @@ export interface ReplicationGroupArgs {
      */
     notificationTopicArn?: pulumi.Input<string>;
     /**
-     * Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `numNodeGroups`, the deprecated`numberCacheClusters`, or the deprecated `clusterMode`. Defaults to `1`.
+     * Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `numNodeGroups`. Defaults to `1`.
      */
     numCacheClusters?: pulumi.Input<number>;
     /**
@@ -819,12 +760,6 @@ export interface ReplicationGroupArgs {
      * Changing this number will trigger a resizing operation before other settings modifications.
      */
     numNodeGroups?: pulumi.Input<number>;
-    /**
-     * Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `numCacheClusters`, `numNodeGroups`, or the deprecated `clusterMode`. Defaults to `1`.
-     *
-     * @deprecated Use num_cache_clusters instead
-     */
-    numberCacheClusters?: pulumi.Input<number>;
     /**
      * Name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable "cluster mode", i.e., data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
      */
@@ -844,15 +779,9 @@ export interface ReplicationGroupArgs {
      */
     replicasPerNodeGroup?: pulumi.Input<number>;
     /**
-     * User-created description for the replication group. Must not be empty.
+     * Replication group identifier. This parameter is stored as a lowercase string.
      *
      * The following arguments are optional:
-     *
-     * @deprecated Use description instead
-     */
-    replicationGroupDescription?: pulumi.Input<string>;
-    /**
-     * Replication group identifier. This parameter is stored as a lowercase string.
      */
     replicationGroupId?: pulumi.Input<string>;
     /**

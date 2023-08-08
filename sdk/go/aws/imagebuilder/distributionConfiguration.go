@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/imagebuilder"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/imagebuilder"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -61,13 +62,11 @@ import (
 //
 // ## Import
 //
-// `aws_imagebuilder_distribution_configurations` resources can be imported by using the Amazon Resource Name (ARN), e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_imagebuilder_distribution_configuration.example
 //
-//	$ pulumi import aws:imagebuilder/distributionConfiguration:DistributionConfiguration example arn:aws:imagebuilder:us-east-1:123456789012:distribution-configuration/example
-//
-// ```
+//	id = "arn:aws:imagebuilder:us-east-1:123456789012:distribution-configuration/example" } Using `pulumi import`, import `aws_imagebuilder_distribution_configurations` resources using the Amazon Resource Name (ARN). For exampleconsole % pulumi import aws_imagebuilder_distribution_configuration.example arn:aws:imagebuilder:us-east-1:123456789012:distribution-configuration/example
 type DistributionConfiguration struct {
 	pulumi.CustomResourceState
 
@@ -101,6 +100,7 @@ func NewDistributionConfiguration(ctx *pulumi.Context,
 	if args.Distributions == nil {
 		return nil, errors.New("invalid value for required argument 'Distributions'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DistributionConfiguration
 	err := ctx.RegisterResource("aws:imagebuilder/distributionConfiguration:DistributionConfiguration", name, args, &resource, opts...)
 	if err != nil {

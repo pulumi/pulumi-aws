@@ -32,6 +32,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.Policy;
  * import com.pulumi.aws.iam.PolicyArgs;
  * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetPartitionArgs;
  * import com.pulumi.aws.iam.Role;
  * import com.pulumi.aws.iam.RoleArgs;
  * import com.pulumi.aws.budgets.Budget;
@@ -121,11 +122,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Budgets can be imported using `AccountID:ActionID:BudgetName`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:budgets/budgetAction:BudgetAction myBudget 123456789012:some-id:myBudget`
- * ```
+ *  to = aws_budgets_budget_action.myBudget
+ * 
+ *  id = &#34;123456789012:some-id:myBudget&#34; } Using `pulumi import`, import budget actions using `AccountID:ActionID:BudgetName`. For exampleconsole % pulumi import aws_budgets_budget_action.myBudget 123456789012:some-id:myBudget
  * 
  */
 @ResourceType(type="aws:budgets/budgetAction:BudgetAction")

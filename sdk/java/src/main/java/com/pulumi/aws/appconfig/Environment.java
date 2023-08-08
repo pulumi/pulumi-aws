@@ -66,11 +66,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * AppConfig Environments can be imported by using the environment ID and application ID separated by a colon (`:`), e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:appconfig/environment:Environment example 71abcde:11xxxxx
- * ```
+ *  to = aws_appconfig_environment.example
+ * 
+ *  id = &#34;71abcde:11xxxxx&#34; } Using `pulumi import`, import AppConfig Environments using the environment ID and application ID separated by a colon (`:`). For exampleconsole % pulumi import aws_appconfig_environment.example 71abcde:11xxxxx
  * 
  */
 @ResourceType(type="aws:appconfig/environment:Environment")
@@ -108,14 +108,14 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> description;
+    private Output<String> description;
 
     /**
      * @return Description of the environment. Can be at most 1024 characters.
      * 
      */
-    public Output<Optional<String>> description() {
-        return Codegen.optional(this.description);
+    public Output<String> description() {
+        return this.description;
     }
     /**
      * AppConfig environment ID.

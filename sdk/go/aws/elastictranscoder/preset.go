@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elastictranscoder"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elastictranscoder"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -94,13 +95,11 @@ import (
 //
 // ## Import
 //
-// Elastic Transcoder presets can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_elastictranscoder_preset.basic_preset
 //
-//	$ pulumi import aws:elastictranscoder/preset:Preset basic_preset 1407981661351-cttk8b
-//
-// ```
+//	id = "1407981661351-cttk8b" } Using `pulumi import`, import Elastic Transcoder presets using the `id`. For exampleconsole % pulumi import aws_elastictranscoder_preset.basic_preset 1407981661351-cttk8b
 type Preset struct {
 	pulumi.CustomResourceState
 
@@ -137,6 +136,7 @@ func NewPreset(ctx *pulumi.Context,
 	if args.Container == nil {
 		return nil, errors.New("invalid value for required argument 'Container'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Preset
 	err := ctx.RegisterResource("aws:elastictranscoder/preset:Preset", name, args, &resource, opts...)
 	if err != nil {

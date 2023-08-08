@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -73,21 +74,15 @@ import (
 //
 // ## Import
 //
-// S3 bucket CORS configuration can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, the S3 bucket CORS configuration resource should be imported using the `bucket` e.g.,
+// If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`terraform import {
 //
-// ```sh
+//	to = aws_s3_bucket_cors_configuration.example
 //
-//	$ pulumi import aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2 example bucket-name
+//	id = "bucket-name" } If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`)terraform import {
 //
-// ```
+//	to = aws_s3_bucket_cors_configuration.example
 //
-//	If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, the S3 bucket CORS configuration resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2 example bucket-name,123456789012
-//
-// ```
+//	id = "bucket-name,123456789012" } **Using `pulumi import` to import** S3 bucket CORS configuration using the `bucket` or using the `bucket` and `expected_bucket_owner` separated by a comma (`,`). For exampleIf the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`console % pulumi import aws_s3_bucket_cors_configuration.example bucket-name If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`)console % pulumi import aws_s3_bucket_cors_configuration.example bucket-name,123456789012
 type BucketCorsConfigurationV2 struct {
 	pulumi.CustomResourceState
 
@@ -112,6 +107,7 @@ func NewBucketCorsConfigurationV2(ctx *pulumi.Context,
 	if args.CorsRules == nil {
 		return nil, errors.New("invalid value for required argument 'CorsRules'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BucketCorsConfigurationV2
 	err := ctx.RegisterResource("aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2", name, args, &resource, opts...)
 	if err != nil {

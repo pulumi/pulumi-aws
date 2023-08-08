@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -61,13 +62,11 @@ import (
 //
 // ## Import
 //
-// Amazon Connect Routing Profiles can be imported using the `instance_id` and `routing_profile_id` separated by a colon (`:`), e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_connect_routing_profile.example
 //
-//	$ pulumi import aws:connect/routingProfile:RoutingProfile example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
-//
-// ```
+//	id = "f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5" } Using `pulumi import`, import Amazon Connect Routing Profiles using the `instance_id` and `routing_profile_id` separated by a colon (`:`). For exampleconsole % pulumi import aws_connect_routing_profile.example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
 type RoutingProfile struct {
 	pulumi.CustomResourceState
 
@@ -85,8 +84,6 @@ type RoutingProfile struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// One or more `queueConfigs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queueConfigs` block is documented below.
 	QueueConfigs RoutingProfileQueueConfigArrayOutput `pulumi:"queueConfigs"`
-	// Deprecated: Use the queue_configs instead
-	QueueConfigsAssociateds RoutingProfileQueueConfigsAssociatedArrayOutput `pulumi:"queueConfigsAssociateds"`
 	// The identifier for the Routing Profile.
 	RoutingProfileId pulumi.StringOutput `pulumi:"routingProfileId"`
 	// Tags to apply to the Routing Profile. If configured with a provider
@@ -115,6 +112,7 @@ func NewRoutingProfile(ctx *pulumi.Context,
 	if args.MediaConcurrencies == nil {
 		return nil, errors.New("invalid value for required argument 'MediaConcurrencies'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RoutingProfile
 	err := ctx.RegisterResource("aws:connect/routingProfile:RoutingProfile", name, args, &resource, opts...)
 	if err != nil {
@@ -151,8 +149,6 @@ type routingProfileState struct {
 	Name *string `pulumi:"name"`
 	// One or more `queueConfigs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queueConfigs` block is documented below.
 	QueueConfigs []RoutingProfileQueueConfig `pulumi:"queueConfigs"`
-	// Deprecated: Use the queue_configs instead
-	QueueConfigsAssociateds []RoutingProfileQueueConfigsAssociated `pulumi:"queueConfigsAssociateds"`
 	// The identifier for the Routing Profile.
 	RoutingProfileId *string `pulumi:"routingProfileId"`
 	// Tags to apply to the Routing Profile. If configured with a provider
@@ -177,8 +173,6 @@ type RoutingProfileState struct {
 	Name pulumi.StringPtrInput
 	// One or more `queueConfigs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queueConfigs` block is documented below.
 	QueueConfigs RoutingProfileQueueConfigArrayInput
-	// Deprecated: Use the queue_configs instead
-	QueueConfigsAssociateds RoutingProfileQueueConfigsAssociatedArrayInput
 	// The identifier for the Routing Profile.
 	RoutingProfileId pulumi.StringPtrInput
 	// Tags to apply to the Routing Profile. If configured with a provider
@@ -349,13 +343,6 @@ func (o RoutingProfileOutput) Name() pulumi.StringOutput {
 // One or more `queueConfigs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queueConfigs` block is documented below.
 func (o RoutingProfileOutput) QueueConfigs() RoutingProfileQueueConfigArrayOutput {
 	return o.ApplyT(func(v *RoutingProfile) RoutingProfileQueueConfigArrayOutput { return v.QueueConfigs }).(RoutingProfileQueueConfigArrayOutput)
-}
-
-// Deprecated: Use the queue_configs instead
-func (o RoutingProfileOutput) QueueConfigsAssociateds() RoutingProfileQueueConfigsAssociatedArrayOutput {
-	return o.ApplyT(func(v *RoutingProfile) RoutingProfileQueueConfigsAssociatedArrayOutput {
-		return v.QueueConfigsAssociateds
-	}).(RoutingProfileQueueConfigsAssociatedArrayOutput)
 }
 
 // The identifier for the Routing Profile.

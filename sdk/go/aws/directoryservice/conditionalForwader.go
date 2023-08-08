@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directoryservice"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directoryservice"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -46,13 +47,11 @@ import (
 //
 // ## Import
 //
-// Conditional forwarders can be imported using the directory id and remote_domain_name, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_directory_service_conditional_forwarder.example
 //
-//	$ pulumi import aws:directoryservice/conditionalForwader:ConditionalForwader example d-1234567890:example.com
-//
-// ```
+//	id = "d-1234567890:example.com" } Using `pulumi import`, import conditional forwarders using the directory id and remote_domain_name. For exampleconsole % pulumi import aws_directory_service_conditional_forwarder.example d-1234567890:example.com
 type ConditionalForwader struct {
 	pulumi.CustomResourceState
 
@@ -80,6 +79,7 @@ func NewConditionalForwader(ctx *pulumi.Context,
 	if args.RemoteDomainName == nil {
 		return nil, errors.New("invalid value for required argument 'RemoteDomainName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ConditionalForwader
 	err := ctx.RegisterResource("aws:directoryservice/conditionalForwader:ConditionalForwader", name, args, &resource, opts...)
 	if err != nil {

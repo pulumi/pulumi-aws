@@ -72,17 +72,15 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Individual rules can be imported using `NETWORK_ACL_ID:RULE_NUMBER:PROTOCOL:EGRESS`, where `PROTOCOL` can be a decimal (e.g., 6) or string (e.g., tcp) value. If importing a rule previously provisioned by the provider, the `PROTOCOL` must be the input value used at creation time. For more information on protocol numbers and keywords, see herehttps://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml For example, import a network ACL Rule with an argument like thisconsole
+ * Using the procotol&#39;s string valueterraform import {
  * 
- * ```sh
- *  $ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:tcp:false
- * ```
+ *  to = aws_network_acl_rule.my_rule
  * 
- *  Or by the procotol&#39;s decimal valueconsole
+ *  id = &#34;acl-7aaabd18:100:tcp:false&#34; } Using the procotol&#39;s decimal valueterraform import {
  * 
- * ```sh
- *  $ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:6:false
- * ```
+ *  to = aws_network_acl_rule.my_rule
+ * 
+ *  id = &#34;acl-7aaabd18:100:6:false&#34; } **Using `pulumi import` to import** individual rules using `NETWORK_ACL_ID:RULE_NUMBER:PROTOCOL:EGRESS`, where `PROTOCOL` can be a decimal (such as &#34;6&#34;) or string (such as &#34;tcp&#34;) value. For exampleUsing the procotol&#39;s string valueconsole % pulumi import aws_network_acl_rule.my_rule acl-7aaabd18:100:tcp:false Using the procotol&#39;s decimal valueconsole % pulumi import aws_network_acl_rule.my_rule acl-7aaabd18:100:6:false
  * 
  */
 @ResourceType(type="aws:ec2/networkAclRule:NetworkAclRule")

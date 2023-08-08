@@ -14,14 +14,14 @@ public final class QuerySuggestionsBlockListSourceS3PathArgs extends com.pulumi.
     public static final QuerySuggestionsBlockListSourceS3PathArgs Empty = new QuerySuggestionsBlockListSourceS3PathArgs();
 
     /**
-     * The name of the S3 bucket that contains the file.
+     * Name of the S3 bucket that contains the file.
      * 
      */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
     /**
-     * @return The name of the S3 bucket that contains the file.
+     * @return Name of the S3 bucket that contains the file.
      * 
      */
     public Output<String> bucket() {
@@ -29,7 +29,7 @@ public final class QuerySuggestionsBlockListSourceS3PathArgs extends com.pulumi.
     }
 
     /**
-     * The name of the file.
+     * Name of the file.
      * 
      * The following arguments are optional:
      * 
@@ -38,7 +38,7 @@ public final class QuerySuggestionsBlockListSourceS3PathArgs extends com.pulumi.
     private Output<String> key;
 
     /**
-     * @return The name of the file.
+     * @return Name of the file.
      * 
      * The following arguments are optional:
      * 
@@ -73,7 +73,7 @@ public final class QuerySuggestionsBlockListSourceS3PathArgs extends com.pulumi.
         }
 
         /**
-         * @param bucket The name of the S3 bucket that contains the file.
+         * @param bucket Name of the S3 bucket that contains the file.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class QuerySuggestionsBlockListSourceS3PathArgs extends com.pulumi.
         }
 
         /**
-         * @param bucket The name of the S3 bucket that contains the file.
+         * @param bucket Name of the S3 bucket that contains the file.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class QuerySuggestionsBlockListSourceS3PathArgs extends com.pulumi.
         }
 
         /**
-         * @param key The name of the file.
+         * @param key Name of the file.
          * 
          * The following arguments are optional:
          * 
@@ -107,7 +107,7 @@ public final class QuerySuggestionsBlockListSourceS3PathArgs extends com.pulumi.
         }
 
         /**
-         * @param key The name of the file.
+         * @param key Name of the file.
          * 
          * The following arguments are optional:
          * 

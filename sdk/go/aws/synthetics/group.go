@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/synthetics"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/synthetics"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -39,13 +40,11 @@ import (
 //
 // ## Import
 //
-// CloudWatch Synthetics Group can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_synthetics_group.example
 //
-//	$ pulumi import aws:synthetics/group:Group example example
-//
-// ```
+//	id = "example" } Using `pulumi import`, import CloudWatch Synthetics Group using the `name`. For exampleconsole % pulumi import aws_synthetics_group.example example
 type Group struct {
 	pulumi.CustomResourceState
 
@@ -70,6 +69,7 @@ func NewGroup(ctx *pulumi.Context,
 		args = &GroupArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Group
 	err := ctx.RegisterResource("aws:synthetics/group:Group", name, args, &resource, opts...)
 	if err != nil {

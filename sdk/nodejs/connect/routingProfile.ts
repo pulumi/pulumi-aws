@@ -39,11 +39,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Amazon Connect Routing Profiles can be imported using the `instance_id` and `routing_profile_id` separated by a colon (`:`), e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:connect/routingProfile:RoutingProfile example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
- * ```
+ *  to = aws_connect_routing_profile.example
+ *
+ *  id = "f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5" } Using `pulumi import`, import Amazon Connect Routing Profiles using the `instance_id` and `routing_profile_id` separated by a colon (`:`). For exampleconsole % pulumi import aws_connect_routing_profile.example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
  */
 export class RoutingProfile extends pulumi.CustomResource {
     /**
@@ -102,10 +102,6 @@ export class RoutingProfile extends pulumi.CustomResource {
      */
     public readonly queueConfigs!: pulumi.Output<outputs.connect.RoutingProfileQueueConfig[] | undefined>;
     /**
-     * @deprecated Use the queue_configs instead
-     */
-    public /*out*/ readonly queueConfigsAssociateds!: pulumi.Output<outputs.connect.RoutingProfileQueueConfigsAssociated[]>;
-    /**
      * The identifier for the Routing Profile.
      */
     public /*out*/ readonly routingProfileId!: pulumi.Output<string>;
@@ -139,7 +135,6 @@ export class RoutingProfile extends pulumi.CustomResource {
             resourceInputs["mediaConcurrencies"] = state ? state.mediaConcurrencies : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["queueConfigs"] = state ? state.queueConfigs : undefined;
-            resourceInputs["queueConfigsAssociateds"] = state ? state.queueConfigsAssociateds : undefined;
             resourceInputs["routingProfileId"] = state ? state.routingProfileId : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -165,7 +160,6 @@ export class RoutingProfile extends pulumi.CustomResource {
             resourceInputs["queueConfigs"] = args ? args.queueConfigs : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
-            resourceInputs["queueConfigsAssociateds"] = undefined /*out*/;
             resourceInputs["routingProfileId"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
@@ -206,10 +200,6 @@ export interface RoutingProfileState {
      * One or more `queueConfigs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queueConfigs` block is documented below.
      */
     queueConfigs?: pulumi.Input<pulumi.Input<inputs.connect.RoutingProfileQueueConfig>[]>;
-    /**
-     * @deprecated Use the queue_configs instead
-     */
-    queueConfigsAssociateds?: pulumi.Input<pulumi.Input<inputs.connect.RoutingProfileQueueConfigsAssociated>[]>;
     /**
      * The identifier for the Routing Profile.
      */

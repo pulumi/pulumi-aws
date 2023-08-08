@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,10 +24,10 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/alb"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/wafregional"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/alb"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/wafregional"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -134,8 +135,8 @@ import (
 //	"encoding/json"
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/wafregional"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/wafregional"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -260,13 +261,11 @@ import (
 //
 // ## Import
 //
-// WAF Regional Web ACL Association can be imported using their `web_acl_id:resource_arn`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_wafregional_web_acl_association.foo
 //
-//	$ pulumi import aws:wafregional/webAclAssociation:WebAclAssociation foo web_acl_id:resource_arn
-//
-// ```
+//	id = "web_acl_id:resource_arn" } Using `pulumi import`, import WAF Regional Web ACL Association using their `web_acl_id:resource_arn`. For exampleconsole % pulumi import aws_wafregional_web_acl_association.foo web_acl_id:resource_arn
 type WebAclAssociation struct {
 	pulumi.CustomResourceState
 
@@ -289,6 +288,7 @@ func NewWebAclAssociation(ctx *pulumi.Context,
 	if args.WebAclId == nil {
 		return nil, errors.New("invalid value for required argument 'WebAclId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource WebAclAssociation
 	err := ctx.RegisterResource("aws:wafregional/webAclAssociation:WebAclAssociation", name, args, &resource, opts...)
 	if err != nil {

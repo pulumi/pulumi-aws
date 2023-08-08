@@ -56,7 +56,7 @@ export interface GetServiceNetworkResult {
      */
     readonly createdAt: string;
     /**
-     * ID of the service network.
+     * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
     /**

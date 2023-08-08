@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/location"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/location"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,13 +55,11 @@ import (
 //
 // ## Import
 //
-// Location Tracker Association can be imported using the `tracker_name|consumer_arn`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_location_tracker_association.example
 //
-//	$ pulumi import aws:location/trackerAssociation:TrackerAssociation example "tracker_name|consumer_arn"
-//
-// ```
+//	id = "tracker_name|consumer_arn" } Using `pulumi import`, import Location Tracker Association using the `tracker_name|consumer_arn`. For exampleconsole % pulumi import aws_location_tracker_association.example "tracker_name|consumer_arn"
 type TrackerAssociation struct {
 	pulumi.CustomResourceState
 
@@ -83,6 +82,7 @@ func NewTrackerAssociation(ctx *pulumi.Context,
 	if args.TrackerName == nil {
 		return nil, errors.New("invalid value for required argument 'TrackerName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TrackerAssociation
 	err := ctx.RegisterResource("aws:location/trackerAssociation:TrackerAssociation", name, args, &resource, opts...)
 	if err != nil {

@@ -18,41 +18,14 @@ public final class GetPolicyDocumentArgs extends com.pulumi.resources.InvokeArgs
     public static final GetPolicyDocumentArgs Empty = new GetPolicyDocumentArgs();
 
     /**
-     * IAM policy document whose statements with non-blank `sid`s will override statements with the same `sid` from documents assigned to the `source_json`, `source_policy_documents`, and `override_policy_documents` arguments. Non-overriding statements will be added to the exported document.
-     * 
-     * &gt; **NOTE:** Statements without a `sid` cannot be overridden. In other words, a statement without a `sid` from documents assigned to the `source_json` or `source_policy_documents` arguments cannot be overridden by statements from documents assigned to the `override_json` or `override_policy_documents` arguments.
-     * 
-     * @deprecated
-     * Use the attribute &#34;override_policy_documents&#34; instead.
-     * 
-     */
-    @Deprecated /* Use the attribute ""override_policy_documents"" instead. */
-    @Import(name="overrideJson")
-    private @Nullable Output<String> overrideJson;
-
-    /**
-     * @return IAM policy document whose statements with non-blank `sid`s will override statements with the same `sid` from documents assigned to the `source_json`, `source_policy_documents`, and `override_policy_documents` arguments. Non-overriding statements will be added to the exported document.
-     * 
-     * &gt; **NOTE:** Statements without a `sid` cannot be overridden. In other words, a statement without a `sid` from documents assigned to the `source_json` or `source_policy_documents` arguments cannot be overridden by statements from documents assigned to the `override_json` or `override_policy_documents` arguments.
-     * 
-     * @deprecated
-     * Use the attribute &#34;override_policy_documents&#34; instead.
-     * 
-     */
-    @Deprecated /* Use the attribute ""override_policy_documents"" instead. */
-    public Optional<Output<String>> overrideJson() {
-        return Optional.ofNullable(this.overrideJson);
-    }
-
-    /**
-     * List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank `sid`s will override statements with the same `sid` from earlier documents in the list. Statements with non-blank `sid`s will also override statements with the same `sid` from documents provided in the `source_json` and `source_policy_documents` arguments.  Non-overriding statements will be added to the exported document.
+     * List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank `sid`s will override statements with the same `sid` from earlier documents in the list. Statements with non-blank `sid`s will also override statements with the same `sid` from `source_policy_documents`.  Non-overriding statements will be added to the exported document.
      * 
      */
     @Import(name="overridePolicyDocuments")
     private @Nullable Output<List<String>> overridePolicyDocuments;
 
     /**
-     * @return List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank `sid`s will override statements with the same `sid` from earlier documents in the list. Statements with non-blank `sid`s will also override statements with the same `sid` from documents provided in the `source_json` and `source_policy_documents` arguments.  Non-overriding statements will be added to the exported document.
+     * @return List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank `sid`s will override statements with the same `sid` from earlier documents in the list. Statements with non-blank `sid`s will also override statements with the same `sid` from `source_policy_documents`.  Non-overriding statements will be added to the exported document.
      * 
      */
     public Optional<Output<List<String>>> overridePolicyDocuments() {
@@ -75,37 +48,14 @@ public final class GetPolicyDocumentArgs extends com.pulumi.resources.InvokeArgs
     }
 
     /**
-     * IAM policy document used as a base for the exported policy document. Statements with the same `sid` from documents assigned to the `override_json` and `override_policy_documents` arguments will override source statements.
-     * 
-     * @deprecated
-     * Use the attribute &#34;source_policy_documents&#34; instead.
-     * 
-     */
-    @Deprecated /* Use the attribute ""source_policy_documents"" instead. */
-    @Import(name="sourceJson")
-    private @Nullable Output<String> sourceJson;
-
-    /**
-     * @return IAM policy document used as a base for the exported policy document. Statements with the same `sid` from documents assigned to the `override_json` and `override_policy_documents` arguments will override source statements.
-     * 
-     * @deprecated
-     * Use the attribute &#34;source_policy_documents&#34; instead.
-     * 
-     */
-    @Deprecated /* Use the attribute ""source_policy_documents"" instead. */
-    public Optional<Output<String>> sourceJson() {
-        return Optional.ofNullable(this.sourceJson);
-    }
-
-    /**
-     * List of IAM policy documents that are merged together into the exported document. Statements defined in `source_policy_documents` or `source_json` must have unique `sid`s. Statements with the same `sid` from documents assigned to the `override_json` and `override_policy_documents` arguments will override source statements.
+     * List of IAM policy documents that are merged together into the exported document. Statements defined in `source_policy_documents` must have unique `sid`s. Statements with the same `sid` from `override_policy_documents` will override source statements.
      * 
      */
     @Import(name="sourcePolicyDocuments")
     private @Nullable Output<List<String>> sourcePolicyDocuments;
 
     /**
-     * @return List of IAM policy documents that are merged together into the exported document. Statements defined in `source_policy_documents` or `source_json` must have unique `sid`s. Statements with the same `sid` from documents assigned to the `override_json` and `override_policy_documents` arguments will override source statements.
+     * @return List of IAM policy documents that are merged together into the exported document. Statements defined in `source_policy_documents` must have unique `sid`s. Statements with the same `sid` from `override_policy_documents` will override source statements.
      * 
      */
     public Optional<Output<List<String>>> sourcePolicyDocuments() {
@@ -145,10 +95,8 @@ public final class GetPolicyDocumentArgs extends com.pulumi.resources.InvokeArgs
     private GetPolicyDocumentArgs() {}
 
     private GetPolicyDocumentArgs(GetPolicyDocumentArgs $) {
-        this.overrideJson = $.overrideJson;
         this.overridePolicyDocuments = $.overridePolicyDocuments;
         this.policyId = $.policyId;
-        this.sourceJson = $.sourceJson;
         this.sourcePolicyDocuments = $.sourcePolicyDocuments;
         this.statements = $.statements;
         this.version = $.version;
@@ -173,40 +121,7 @@ public final class GetPolicyDocumentArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param overrideJson IAM policy document whose statements with non-blank `sid`s will override statements with the same `sid` from documents assigned to the `source_json`, `source_policy_documents`, and `override_policy_documents` arguments. Non-overriding statements will be added to the exported document.
-         * 
-         * &gt; **NOTE:** Statements without a `sid` cannot be overridden. In other words, a statement without a `sid` from documents assigned to the `source_json` or `source_policy_documents` arguments cannot be overridden by statements from documents assigned to the `override_json` or `override_policy_documents` arguments.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use the attribute &#34;override_policy_documents&#34; instead.
-         * 
-         */
-        @Deprecated /* Use the attribute ""override_policy_documents"" instead. */
-        public Builder overrideJson(@Nullable Output<String> overrideJson) {
-            $.overrideJson = overrideJson;
-            return this;
-        }
-
-        /**
-         * @param overrideJson IAM policy document whose statements with non-blank `sid`s will override statements with the same `sid` from documents assigned to the `source_json`, `source_policy_documents`, and `override_policy_documents` arguments. Non-overriding statements will be added to the exported document.
-         * 
-         * &gt; **NOTE:** Statements without a `sid` cannot be overridden. In other words, a statement without a `sid` from documents assigned to the `source_json` or `source_policy_documents` arguments cannot be overridden by statements from documents assigned to the `override_json` or `override_policy_documents` arguments.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use the attribute &#34;override_policy_documents&#34; instead.
-         * 
-         */
-        @Deprecated /* Use the attribute ""override_policy_documents"" instead. */
-        public Builder overrideJson(String overrideJson) {
-            return overrideJson(Output.of(overrideJson));
-        }
-
-        /**
-         * @param overridePolicyDocuments List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank `sid`s will override statements with the same `sid` from earlier documents in the list. Statements with non-blank `sid`s will also override statements with the same `sid` from documents provided in the `source_json` and `source_policy_documents` arguments.  Non-overriding statements will be added to the exported document.
+         * @param overridePolicyDocuments List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank `sid`s will override statements with the same `sid` from earlier documents in the list. Statements with non-blank `sid`s will also override statements with the same `sid` from `source_policy_documents`.  Non-overriding statements will be added to the exported document.
          * 
          * @return builder
          * 
@@ -217,7 +132,7 @@ public final class GetPolicyDocumentArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param overridePolicyDocuments List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank `sid`s will override statements with the same `sid` from earlier documents in the list. Statements with non-blank `sid`s will also override statements with the same `sid` from documents provided in the `source_json` and `source_policy_documents` arguments.  Non-overriding statements will be added to the exported document.
+         * @param overridePolicyDocuments List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank `sid`s will override statements with the same `sid` from earlier documents in the list. Statements with non-blank `sid`s will also override statements with the same `sid` from `source_policy_documents`.  Non-overriding statements will be added to the exported document.
          * 
          * @return builder
          * 
@@ -227,7 +142,7 @@ public final class GetPolicyDocumentArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param overridePolicyDocuments List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank `sid`s will override statements with the same `sid` from earlier documents in the list. Statements with non-blank `sid`s will also override statements with the same `sid` from documents provided in the `source_json` and `source_policy_documents` arguments.  Non-overriding statements will be added to the exported document.
+         * @param overridePolicyDocuments List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank `sid`s will override statements with the same `sid` from earlier documents in the list. Statements with non-blank `sid`s will also override statements with the same `sid` from `source_policy_documents`.  Non-overriding statements will be added to the exported document.
          * 
          * @return builder
          * 
@@ -258,36 +173,7 @@ public final class GetPolicyDocumentArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param sourceJson IAM policy document used as a base for the exported policy document. Statements with the same `sid` from documents assigned to the `override_json` and `override_policy_documents` arguments will override source statements.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use the attribute &#34;source_policy_documents&#34; instead.
-         * 
-         */
-        @Deprecated /* Use the attribute ""source_policy_documents"" instead. */
-        public Builder sourceJson(@Nullable Output<String> sourceJson) {
-            $.sourceJson = sourceJson;
-            return this;
-        }
-
-        /**
-         * @param sourceJson IAM policy document used as a base for the exported policy document. Statements with the same `sid` from documents assigned to the `override_json` and `override_policy_documents` arguments will override source statements.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use the attribute &#34;source_policy_documents&#34; instead.
-         * 
-         */
-        @Deprecated /* Use the attribute ""source_policy_documents"" instead. */
-        public Builder sourceJson(String sourceJson) {
-            return sourceJson(Output.of(sourceJson));
-        }
-
-        /**
-         * @param sourcePolicyDocuments List of IAM policy documents that are merged together into the exported document. Statements defined in `source_policy_documents` or `source_json` must have unique `sid`s. Statements with the same `sid` from documents assigned to the `override_json` and `override_policy_documents` arguments will override source statements.
+         * @param sourcePolicyDocuments List of IAM policy documents that are merged together into the exported document. Statements defined in `source_policy_documents` must have unique `sid`s. Statements with the same `sid` from `override_policy_documents` will override source statements.
          * 
          * @return builder
          * 
@@ -298,7 +184,7 @@ public final class GetPolicyDocumentArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param sourcePolicyDocuments List of IAM policy documents that are merged together into the exported document. Statements defined in `source_policy_documents` or `source_json` must have unique `sid`s. Statements with the same `sid` from documents assigned to the `override_json` and `override_policy_documents` arguments will override source statements.
+         * @param sourcePolicyDocuments List of IAM policy documents that are merged together into the exported document. Statements defined in `source_policy_documents` must have unique `sid`s. Statements with the same `sid` from `override_policy_documents` will override source statements.
          * 
          * @return builder
          * 
@@ -308,7 +194,7 @@ public final class GetPolicyDocumentArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param sourcePolicyDocuments List of IAM policy documents that are merged together into the exported document. Statements defined in `source_policy_documents` or `source_json` must have unique `sid`s. Statements with the same `sid` from documents assigned to the `override_json` and `override_policy_documents` arguments will override source statements.
+         * @param sourcePolicyDocuments List of IAM policy documents that are merged together into the exported document. Statements defined in `source_policy_documents` must have unique `sid`s. Statements with the same `sid` from `override_policy_documents` will override source statements.
          * 
          * @return builder
          * 

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,8 +25,8 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ses"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -74,13 +75,11 @@ import (
 //
 // ## Import
 //
-// DKIM tokens can be imported using the `domain` attribute, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_ses_domain_dkim.example
 //
-//	$ pulumi import aws:ses/domainDkim:DomainDkim example example.com
-//
-// ```
+//	id = "example.com" } Using `pulumi import`, import DKIM tokens using the `domain` attribute. For exampleconsole % pulumi import aws_ses_domain_dkim.example example.com
 type DomainDkim struct {
 	pulumi.CustomResourceState
 
@@ -105,6 +104,7 @@ func NewDomainDkim(ctx *pulumi.Context,
 	if args.Domain == nil {
 		return nil, errors.New("invalid value for required argument 'Domain'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DomainDkim
 	err := ctx.RegisterResource("aws:ses/domainDkim:DomainDkim", name, args, &resource, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +24,7 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigatewayv2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigatewayv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -60,13 +61,11 @@ import (
 //
 // ## Import
 //
-// `aws_apigatewayv2_model` can be imported by using the API identifier and model identifier, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_apigatewayv2_model.example
 //
-//	$ pulumi import aws:apigatewayv2/model:Model example aabbccddee/1122334
-//
-// ```
+//	id = "aabbccddee/1122334" } Using `pulumi import`, import `aws_apigatewayv2_model` using the API identifier and model identifier. For exampleconsole % pulumi import aws_apigatewayv2_model.example aabbccddee/1122334
 type Model struct {
 	pulumi.CustomResourceState
 
@@ -98,6 +97,7 @@ func NewModel(ctx *pulumi.Context,
 	if args.Schema == nil {
 		return nil, errors.New("invalid value for required argument 'Schema'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Model
 	err := ctx.RegisterResource("aws:apigatewayv2/model:Model", name, args, &resource, opts...)
 	if err != nil {

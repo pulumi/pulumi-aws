@@ -51,11 +51,11 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ## Import
     /// 
-    /// AWS API Gateway Usage Plan Key can be imported using the `USAGE-PLAN-ID/USAGE-PLAN-KEY-ID`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:apigateway/usagePlanKey:UsagePlanKey key 12345abcde/zzz
-    /// ```
+    ///  to = aws_api_gateway_usage_plan_key.key
+    /// 
+    ///  id = "12345abcde/zzz" } Using `pulumi import`, import AWS API Gateway Usage Plan Key using the `USAGE-PLAN-ID/USAGE-PLAN-KEY-ID`. For exampleconsole % pulumi import aws_api_gateway_usage_plan_key.key 12345abcde/zzz
     /// </summary>
     [AwsResourceType("aws:apigateway/usagePlanKey:UsagePlanKey")]
     public partial class UsagePlanKey : global::Pulumi.CustomResource

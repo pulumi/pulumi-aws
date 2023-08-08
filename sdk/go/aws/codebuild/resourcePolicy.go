@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,8 +24,8 @@ import (
 //	"encoding/json"
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codebuild"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codebuild"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -90,13 +91,11 @@ import (
 //
 // ## Import
 //
-// CodeBuild Resource Policy can be imported using the CodeBuild Resource Policy arn, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_codebuild_resource_policy.example
 //
-//	$ pulumi import aws:codebuild/resourcePolicy:ResourcePolicy example arn:aws:codebuild:us-west-2:123456789:report-group/report-group-name
-//
-// ```
+//	id = "arn:aws:codebuild:us-west-2:123456789:report-group/report-group-name" } Using `pulumi import`, import CodeBuild Resource Policy using the CodeBuild Resource Policy arn. For exampleconsole % pulumi import aws_codebuild_resource_policy.example arn:aws:codebuild:us-west-2:123456789:report-group/report-group-name
 type ResourcePolicy struct {
 	pulumi.CustomResourceState
 
@@ -119,6 +118,7 @@ func NewResourcePolicy(ctx *pulumi.Context,
 	if args.ResourceArn == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResourcePolicy
 	err := ctx.RegisterResource("aws:codebuild/resourcePolicy:ResourcePolicy", name, args, &resource, opts...)
 	if err != nil {

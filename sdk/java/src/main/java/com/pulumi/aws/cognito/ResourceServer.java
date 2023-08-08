@@ -94,11 +94,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_cognito_resource_server` can be imported using their User Pool ID and Identifier, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:cognito/resourceServer:ResourceServer example &#34;us-west-2_abc123|https://example.com&#34;
- * ```
+ *  to = aws_cognito_resource_server.example
+ * 
+ *  id = &#34;us-west-2_abc123|https://example.com&#34; } Using `pulumi import`, import `aws_cognito_resource_server` using their User Pool ID and Identifier. For exampleconsole % pulumi import aws_cognito_resource_server.example &#34;us-west-2_abc123|https://example.com&#34;
  * 
  */
 @ResourceType(type="aws:cognito/resourceServer:ResourceServer")

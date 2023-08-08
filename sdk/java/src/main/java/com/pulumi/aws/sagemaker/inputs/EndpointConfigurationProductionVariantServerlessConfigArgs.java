@@ -7,6 +7,8 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class EndpointConfigurationProductionVariantServerlessConfigArgs extends com.pulumi.resources.ResourceArgs {
@@ -43,11 +45,27 @@ public final class EndpointConfigurationProductionVariantServerlessConfigArgs ex
         return this.memorySizeInMb;
     }
 
+    /**
+     * The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `max_concurrency`. Valid values are between `1` and `200`.
+     * 
+     */
+    @Import(name="provisionedConcurrency")
+    private @Nullable Output<Integer> provisionedConcurrency;
+
+    /**
+     * @return The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `max_concurrency`. Valid values are between `1` and `200`.
+     * 
+     */
+    public Optional<Output<Integer>> provisionedConcurrency() {
+        return Optional.ofNullable(this.provisionedConcurrency);
+    }
+
     private EndpointConfigurationProductionVariantServerlessConfigArgs() {}
 
     private EndpointConfigurationProductionVariantServerlessConfigArgs(EndpointConfigurationProductionVariantServerlessConfigArgs $) {
         this.maxConcurrency = $.maxConcurrency;
         this.memorySizeInMb = $.memorySizeInMb;
+        this.provisionedConcurrency = $.provisionedConcurrency;
     }
 
     public static Builder builder() {
@@ -108,6 +126,27 @@ public final class EndpointConfigurationProductionVariantServerlessConfigArgs ex
          */
         public Builder memorySizeInMb(Integer memorySizeInMb) {
             return memorySizeInMb(Output.of(memorySizeInMb));
+        }
+
+        /**
+         * @param provisionedConcurrency The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `max_concurrency`. Valid values are between `1` and `200`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder provisionedConcurrency(@Nullable Output<Integer> provisionedConcurrency) {
+            $.provisionedConcurrency = provisionedConcurrency;
+            return this;
+        }
+
+        /**
+         * @param provisionedConcurrency The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `max_concurrency`. Valid values are between `1` and `200`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder provisionedConcurrency(Integer provisionedConcurrency) {
+            return provisionedConcurrency(Output.of(provisionedConcurrency));
         }
 
         public EndpointConfigurationProductionVariantServerlessConfigArgs build() {

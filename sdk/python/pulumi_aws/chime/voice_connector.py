@@ -16,24 +16,32 @@ class VoiceConnectorArgs:
     def __init__(__self__, *,
                  require_encryption: pulumi.Input[bool],
                  aws_region: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a VoiceConnector resource.
         :param pulumi.Input[bool] require_encryption: When enabled, requires encryption for the Amazon Chime Voice Connector.
+               
+               The following arguments are optional:
         :param pulumi.Input[str] aws_region: The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
         :param pulumi.Input[str] name: The name of the Amazon Chime Voice Connector.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "require_encryption", require_encryption)
         if aws_region is not None:
             pulumi.set(__self__, "aws_region", aws_region)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="requireEncryption")
     def require_encryption(self) -> pulumi.Input[bool]:
         """
         When enabled, requires encryption for the Amazon Chime Voice Connector.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "require_encryption")
 
@@ -65,21 +73,43 @@ class VoiceConnectorArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
 
 @pulumi.input_type
 class _VoiceConnectorState:
     def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
                  aws_region: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  outbound_host_name: Optional[pulumi.Input[str]] = None,
-                 require_encryption: Optional[pulumi.Input[bool]] = None):
+                 require_encryption: Optional[pulumi.Input[bool]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering VoiceConnector resources.
+        :param pulumi.Input[str] arn: ARN (Amazon Resource Name) of the Amazon Chime Voice Connector.
         :param pulumi.Input[str] aws_region: The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
         :param pulumi.Input[str] name: The name of the Amazon Chime Voice Connector.
         :param pulumi.Input[str] outbound_host_name: The outbound host name for the Amazon Chime Voice Connector.
         :param pulumi.Input[bool] require_encryption: When enabled, requires encryption for the Amazon Chime Voice Connector.
+               
+               The following arguments are optional:
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
         if aws_region is not None:
             pulumi.set(__self__, "aws_region", aws_region)
         if name is not None:
@@ -88,6 +118,22 @@ class _VoiceConnectorState:
             pulumi.set(__self__, "outbound_host_name", outbound_host_name)
         if require_encryption is not None:
             pulumi.set(__self__, "require_encryption", require_encryption)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN (Amazon Resource Name) of the Amazon Chime Voice Connector.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
 
     @property
     @pulumi.getter(name="awsRegion")
@@ -130,12 +176,38 @@ class _VoiceConnectorState:
     def require_encryption(self) -> Optional[pulumi.Input[bool]]:
         """
         When enabled, requires encryption for the Amazon Chime Voice Connector.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "require_encryption")
 
     @require_encryption.setter
     def require_encryption(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "require_encryption", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
 
 class VoiceConnector(pulumi.CustomResource):
@@ -146,6 +218,7 @@ class VoiceConnector(pulumi.CustomResource):
                  aws_region: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  require_encryption: Optional[pulumi.Input[bool]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Enables you to connect your phone system to the telephone network at a substantial cost savings by using SIP trunking.
@@ -163,17 +236,20 @@ class VoiceConnector(pulumi.CustomResource):
 
         ## Import
 
-        Configuration Recorder can be imported using the name, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:chime/voiceConnector:VoiceConnector test example
-        ```
+         to = aws_chime_voice_connector.test
+
+         id = "example" } Using `pulumi import`, import Configuration Recorder using the name. For exampleconsole % pulumi import aws_chime_voice_connector.test example
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] aws_region: The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
         :param pulumi.Input[str] name: The name of the Amazon Chime Voice Connector.
         :param pulumi.Input[bool] require_encryption: When enabled, requires encryption for the Amazon Chime Voice Connector.
+               
+               The following arguments are optional:
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -197,11 +273,11 @@ class VoiceConnector(pulumi.CustomResource):
 
         ## Import
 
-        Configuration Recorder can be imported using the name, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:chime/voiceConnector:VoiceConnector test example
-        ```
+         to = aws_chime_voice_connector.test
+
+         id = "example" } Using `pulumi import`, import Configuration Recorder using the name. For exampleconsole % pulumi import aws_chime_voice_connector.test example
 
         :param str resource_name: The name of the resource.
         :param VoiceConnectorArgs args: The arguments to use to populate this resource's properties.
@@ -221,6 +297,7 @@ class VoiceConnector(pulumi.CustomResource):
                  aws_region: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  require_encryption: Optional[pulumi.Input[bool]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -235,7 +312,10 @@ class VoiceConnector(pulumi.CustomResource):
             if require_encryption is None and not opts.urn:
                 raise TypeError("Missing required property 'require_encryption'")
             __props__.__dict__["require_encryption"] = require_encryption
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["arn"] = None
             __props__.__dict__["outbound_host_name"] = None
+            __props__.__dict__["tags_all"] = None
         super(VoiceConnector, __self__).__init__(
             'aws:chime/voiceConnector:VoiceConnector',
             resource_name,
@@ -246,10 +326,13 @@ class VoiceConnector(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            arn: Optional[pulumi.Input[str]] = None,
             aws_region: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             outbound_host_name: Optional[pulumi.Input[str]] = None,
-            require_encryption: Optional[pulumi.Input[bool]] = None) -> 'VoiceConnector':
+            require_encryption: Optional[pulumi.Input[bool]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'VoiceConnector':
         """
         Get an existing VoiceConnector resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -257,20 +340,36 @@ class VoiceConnector(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: ARN (Amazon Resource Name) of the Amazon Chime Voice Connector.
         :param pulumi.Input[str] aws_region: The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
         :param pulumi.Input[str] name: The name of the Amazon Chime Voice Connector.
         :param pulumi.Input[str] outbound_host_name: The outbound host name for the Amazon Chime Voice Connector.
         :param pulumi.Input[bool] require_encryption: When enabled, requires encryption for the Amazon Chime Voice Connector.
+               
+               The following arguments are optional:
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _VoiceConnectorState.__new__(_VoiceConnectorState)
 
+        __props__.__dict__["arn"] = arn
         __props__.__dict__["aws_region"] = aws_region
         __props__.__dict__["name"] = name
         __props__.__dict__["outbound_host_name"] = outbound_host_name
         __props__.__dict__["require_encryption"] = require_encryption
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["tags_all"] = tags_all
         return VoiceConnector(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Output[str]:
+        """
+        ARN (Amazon Resource Name) of the Amazon Chime Voice Connector.
+        """
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="awsRegion")
@@ -301,6 +400,24 @@ class VoiceConnector(pulumi.CustomResource):
     def require_encryption(self) -> pulumi.Output[bool]:
         """
         When enabled, requires encryption for the Amazon Chime Voice Connector.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "require_encryption")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
 

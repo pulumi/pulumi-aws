@@ -38,11 +38,11 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Import
     /// 
-    /// Monitoring schedules can be imported using the `name`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:sagemaker/monitoringSchedule:MonitoringSchedule test_monitoring_schedule monitoring-schedule-foo
-    /// ```
+    ///  to = aws_sagemaker_monitoring_schedule.test_monitoring_schedule
+    /// 
+    ///  id = "monitoring-schedule-foo" } Using `pulumi import`, import monitoring schedules using the `name`. For exampleconsole % pulumi import aws_sagemaker_monitoring_schedule.test_monitoring_schedule monitoring-schedule-foo
     /// </summary>
     [AwsResourceType("aws:sagemaker/monitoringSchedule:MonitoringSchedule")]
     public partial class MonitoringSchedule : global::Pulumi.CustomResource

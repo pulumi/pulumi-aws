@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -45,13 +46,11 @@ import (
 //
 // ## Import
 //
-// Cloudwatch Log Stream can be imported using the stream's `log_group_name` and `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_cloudwatch_log_stream.foo
 //
-//	$ pulumi import aws:cloudwatch/logStream:LogStream foo Yada:SampleLogStream1234
-//
-// ```
+//	id = "Yada:SampleLogStream1234" } Using `pulumi import`, import Cloudwatch Log Stream using the stream's `log_group_name` and `name`. For exampleconsole % pulumi import aws_cloudwatch_log_stream.foo Yada:SampleLogStream1234
 type LogStream struct {
 	pulumi.CustomResourceState
 
@@ -73,6 +72,7 @@ func NewLogStream(ctx *pulumi.Context,
 	if args.LogGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'LogGroupName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LogStream
 	err := ctx.RegisterResource("aws:cloudwatch/logStream:LogStream", name, args, &resource, opts...)
 	if err != nil {

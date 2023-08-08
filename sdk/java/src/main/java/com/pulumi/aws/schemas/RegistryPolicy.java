@@ -67,11 +67,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * EventBridge Schema Registry Policy can be imported using the `registry_name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:schemas/registryPolicy:RegistryPolicy example example
- * ```
+ *  to = aws_schemas_registry_policy.example
+ * 
+ *  id = &#34;example&#34; } Using `pulumi import`, import EventBridge Schema Registry Policy using the `registry_name`. For exampleconsole % pulumi import aws_schemas_registry_policy.example example
  * 
  */
 @ResourceType(type="aws:schemas/registryPolicy:RegistryPolicy")

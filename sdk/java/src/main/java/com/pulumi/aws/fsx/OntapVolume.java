@@ -97,11 +97,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * FSx ONTAP volume can be imported using the `id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:fsx/ontapVolume:OntapVolume example fsvol-12345678abcdef123
- * ```
+ *  to = aws_fsx_ontap_volume.example
+ * 
+ *  id = &#34;fsvol-12345678abcdef123&#34; } Using `pulumi import`, import FSx ONTAP volume using the `id`. For exampleconsole % pulumi import aws_fsx_ontap_volume.example fsvol-12345678abcdef123
  * 
  */
 @ResourceType(type="aws:fsx/ontapVolume:OntapVolume")
@@ -153,14 +153,14 @@ public class OntapVolume extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="junctionPath", refs={String.class}, tree="[0]")
-    private Output<String> junctionPath;
+    private Output</* @Nullable */ String> junctionPath;
 
     /**
      * @return Specifies the location in the storage virtual machine&#39;s namespace where the volume is mounted. The junction_path must have a leading forward slash, such as `/vol3`
      * 
      */
-    public Output<String> junctionPath() {
-        return this.junctionPath;
+    public Output<Optional<String>> junctionPath() {
+        return Codegen.optional(this.junctionPath);
     }
     /**
      * The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
@@ -177,32 +177,32 @@ public class OntapVolume extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Specifies the type of volume, Valid values are `RW`, `DP`,  and `LS`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
+     * Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
      * 
      */
     @Export(name="ontapVolumeType", refs={String.class}, tree="[0]")
     private Output<String> ontapVolumeType;
 
     /**
-     * @return Specifies the type of volume, Valid values are `RW`, `DP`,  and `LS`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
+     * @return Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
      * 
      */
     public Output<String> ontapVolumeType() {
         return this.ontapVolumeType;
     }
     /**
-     * Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. Default value is `UNIX`.
+     * Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
      * 
      */
     @Export(name="securityStyle", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> securityStyle;
+    private Output<String> securityStyle;
 
     /**
-     * @return Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. Default value is `UNIX`.
+     * @return Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
      * 
      */
-    public Output<Optional<String>> securityStyle() {
-        return Codegen.optional(this.securityStyle);
+    public Output<String> securityStyle() {
+        return this.securityStyle;
     }
     /**
      * Specifies the size of the volume, in megabytes (MB), that you are creating.
@@ -219,18 +219,32 @@ public class OntapVolume extends com.pulumi.resources.CustomResource {
         return this.sizeInMegabytes;
     }
     /**
+     * When enabled, will skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+     * 
+     */
+    @Export(name="skipFinalBackup", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> skipFinalBackup;
+
+    /**
+     * @return When enabled, will skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> skipFinalBackup() {
+        return Codegen.optional(this.skipFinalBackup);
+    }
+    /**
      * Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
      * 
      */
     @Export(name="storageEfficiencyEnabled", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> storageEfficiencyEnabled;
+    private Output</* @Nullable */ Boolean> storageEfficiencyEnabled;
 
     /**
      * @return Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
      * 
      */
-    public Output<Boolean> storageEfficiencyEnabled() {
-        return this.storageEfficiencyEnabled;
+    public Output<Optional<Boolean>> storageEfficiencyEnabled() {
+        return Codegen.optional(this.storageEfficiencyEnabled);
     }
     /**
      * Specifies the storage virtual machine in which to create the volume.

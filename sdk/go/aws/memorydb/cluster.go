@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/memorydb"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/memorydb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -50,13 +51,11 @@ import (
 //
 // ## Import
 //
-// Use the `name` to import a cluster. For example
+// terraform import {
 //
-// ```sh
+//	to = aws_memorydb_cluster.example
 //
-//	$ pulumi import aws:memorydb/cluster:Cluster example my-cluster
-//
-// ```
+//	id = "my-cluster" } Using `pulumi import`, import a cluster using the `name`. For exampleconsole % pulumi import aws_memorydb_cluster.example my-cluster
 type Cluster struct {
 	pulumi.CustomResourceState
 
@@ -134,6 +133,7 @@ func NewCluster(ctx *pulumi.Context,
 	if args.NodeType == nil {
 		return nil, errors.New("invalid value for required argument 'NodeType'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Cluster
 	err := ctx.RegisterResource("aws:memorydb/cluster:Cluster", name, args, &resource, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,13 +43,13 @@ import (
 //
 // ## Import
 //
-//	Route 53 Resolver query logging configuration associations can be imported using the Route 53 Resolver query logging configuration association ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_route53_resolver_query_log_config_association.example
 //
-//	$ pulumi import aws:route53/resolverQueryLogConfigAssociation:ResolverQueryLogConfigAssociation example rqlca-b320624fef3c4d70
+//	id = "rqlca-b320624fef3c4d70" } Using `pulumi import`, import
 //
-// ```
+// Route 53 Resolver query logging configuration associations using the Route 53 Resolver query logging configuration association ID. For exampleconsole % pulumi import aws_route53_resolver_query_log_config_association.example rqlca-b320624fef3c4d70
 type ResolverQueryLogConfigAssociation struct {
 	pulumi.CustomResourceState
 
@@ -71,6 +72,7 @@ func NewResolverQueryLogConfigAssociation(ctx *pulumi.Context,
 	if args.ResourceId == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResolverQueryLogConfigAssociation
 	err := ctx.RegisterResource("aws:route53/resolverQueryLogConfigAssociation:ResolverQueryLogConfigAssociation", name, args, &resource, opts...)
 	if err != nil {

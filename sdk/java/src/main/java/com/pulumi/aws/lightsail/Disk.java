@@ -62,11 +62,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_lightsail_disk` can be imported by using the name attribute, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:lightsail/disk:Disk test test
- * ```
+ *  to = aws_lightsail_disk.test
+ * 
+ *  id = &#34;test&#34; } Using `pulumi import`, import `aws_lightsail_disk` using the name attribute. For exampleconsole % pulumi import aws_lightsail_disk.test test
  * 
  */
 @ResourceType(type="aws:lightsail/disk:Disk")

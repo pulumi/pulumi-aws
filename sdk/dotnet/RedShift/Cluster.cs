@@ -39,11 +39,11 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// ## Import
     /// 
-    /// Redshift Clusters can be imported using the `cluster_identifier`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:redshift/cluster:Cluster myprodcluster tf-redshift-cluster-12345
-    /// ```
+    ///  to = aws_redshift_cluster.myprodcluster
+    /// 
+    ///  id = "tf-redshift-cluster-12345" } Using `pulumi import`, import Redshift Clusters using the `cluster_identifier`. For exampleconsole % pulumi import aws_redshift_cluster.myprodcluster tf-redshift-cluster-12345
     /// </summary>
     [AwsResourceType("aws:redshift/cluster:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource
@@ -61,7 +61,9 @@ namespace Pulumi.Aws.RedShift
         public Output<bool?> ApplyImmediately { get; private set; } = null!;
 
         /// <summary>
-        /// The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored. Possible values are `enabled`, `disabled`, and `auto`. Requires Cluster reboot.
+        /// The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored.
+        /// No longer supported by the AWS API.
+        /// Always returns `auto`.
         /// </summary>
         [Output("aquaConfigurationStatus")]
         public Output<string> AquaConfigurationStatus { get; private set; } = null!;
@@ -97,6 +99,12 @@ namespace Pulumi.Aws.RedShift
         public Output<string> ClusterIdentifier { get; private set; } = null!;
 
         /// <summary>
+        /// The namespace Amazon Resource Name (ARN) of the cluster
+        /// </summary>
+        [Output("clusterNamespaceArn")]
+        public Output<string> ClusterNamespaceArn { get; private set; } = null!;
+
+        /// <summary>
         /// The nodes in the cluster. Cluster node blocks are documented below
         /// </summary>
         [Output("clusterNodes")]
@@ -119,12 +127,6 @@ namespace Pulumi.Aws.RedShift
         /// </summary>
         [Output("clusterRevisionNumber")]
         public Output<string> ClusterRevisionNumber { get; private set; } = null!;
-
-        /// <summary>
-        /// A list of security groups to be associated with this cluster.
-        /// </summary>
-        [Output("clusterSecurityGroups")]
-        public Output<ImmutableArray<string>> ClusterSecurityGroups { get; private set; } = null!;
 
         /// <summary>
         /// The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
@@ -383,7 +385,9 @@ namespace Pulumi.Aws.RedShift
         public Input<bool>? ApplyImmediately { get; set; }
 
         /// <summary>
-        /// The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored. Possible values are `enabled`, `disabled`, and `auto`. Requires Cluster reboot.
+        /// The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored.
+        /// No longer supported by the AWS API.
+        /// Always returns `auto`.
         /// </summary>
         [Input("aquaConfigurationStatus")]
         public Input<string>? AquaConfigurationStatus { get; set; }
@@ -429,19 +433,6 @@ namespace Pulumi.Aws.RedShift
         /// </summary>
         [Input("clusterRevisionNumber")]
         public Input<string>? ClusterRevisionNumber { get; set; }
-
-        [Input("clusterSecurityGroups")]
-        private InputList<string>? _clusterSecurityGroups;
-
-        /// <summary>
-        /// A list of security groups to be associated with this cluster.
-        /// </summary>
-        [Obsolete(@"With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.")]
-        public InputList<string> ClusterSecurityGroups
-        {
-            get => _clusterSecurityGroups ?? (_clusterSecurityGroups = new InputList<string>());
-            set => _clusterSecurityGroups = value;
-        }
 
         /// <summary>
         /// The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
@@ -674,7 +665,9 @@ namespace Pulumi.Aws.RedShift
         public Input<bool>? ApplyImmediately { get; set; }
 
         /// <summary>
-        /// The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored. Possible values are `enabled`, `disabled`, and `auto`. Requires Cluster reboot.
+        /// The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored.
+        /// No longer supported by the AWS API.
+        /// Always returns `auto`.
         /// </summary>
         [Input("aquaConfigurationStatus")]
         public Input<string>? AquaConfigurationStatus { get; set; }
@@ -709,6 +702,12 @@ namespace Pulumi.Aws.RedShift
         [Input("clusterIdentifier")]
         public Input<string>? ClusterIdentifier { get; set; }
 
+        /// <summary>
+        /// The namespace Amazon Resource Name (ARN) of the cluster
+        /// </summary>
+        [Input("clusterNamespaceArn")]
+        public Input<string>? ClusterNamespaceArn { get; set; }
+
         [Input("clusterNodes")]
         private InputList<Inputs.ClusterClusterNodeGetArgs>? _clusterNodes;
 
@@ -738,19 +737,6 @@ namespace Pulumi.Aws.RedShift
         /// </summary>
         [Input("clusterRevisionNumber")]
         public Input<string>? ClusterRevisionNumber { get; set; }
-
-        [Input("clusterSecurityGroups")]
-        private InputList<string>? _clusterSecurityGroups;
-
-        /// <summary>
-        /// A list of security groups to be associated with this cluster.
-        /// </summary>
-        [Obsolete(@"With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.")]
-        public InputList<string> ClusterSecurityGroups
-        {
-            get => _clusterSecurityGroups ?? (_clusterSecurityGroups = new InputList<string>());
-            set => _clusterSecurityGroups = value;
-        }
 
         /// <summary>
         /// The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).

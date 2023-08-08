@@ -120,7 +120,6 @@ class _HoursOfOperationState:
                  arn: Optional[pulumi.Input[str]] = None,
                  configs: Optional[pulumi.Input[Sequence[pulumi.Input['HoursOfOperationConfigArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 hours_of_operation_arn: Optional[pulumi.Input[str]] = None,
                  hours_of_operation_id: Optional[pulumi.Input[str]] = None,
                  instance_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -132,7 +131,6 @@ class _HoursOfOperationState:
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the Hours of Operation.
         :param pulumi.Input[Sequence[pulumi.Input['HoursOfOperationConfigArgs']]] configs: One or more config blocks which define the configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below.
         :param pulumi.Input[str] description: Specifies the description of the Hours of Operation.
-        :param pulumi.Input[str] hours_of_operation_arn: (**Deprecated**) The Amazon Resource Name (ARN) of the Hours of Operation.
         :param pulumi.Input[str] hours_of_operation_id: The identifier for the hours of operation.
         :param pulumi.Input[str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
         :param pulumi.Input[str] name: Specifies the name of the Hours of Operation.
@@ -146,11 +144,6 @@ class _HoursOfOperationState:
             pulumi.set(__self__, "configs", configs)
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if hours_of_operation_arn is not None:
-            warnings.warn("""use 'arn' attribute instead""", DeprecationWarning)
-            pulumi.log.warn("""hours_of_operation_arn is deprecated: use 'arn' attribute instead""")
-        if hours_of_operation_arn is not None:
-            pulumi.set(__self__, "hours_of_operation_arn", hours_of_operation_arn)
         if hours_of_operation_id is not None:
             pulumi.set(__self__, "hours_of_operation_id", hours_of_operation_id)
         if instance_id is not None:
@@ -199,21 +192,6 @@ class _HoursOfOperationState:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter(name="hoursOfOperationArn")
-    def hours_of_operation_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        (**Deprecated**) The Amazon Resource Name (ARN) of the Hours of Operation.
-        """
-        warnings.warn("""use 'arn' attribute instead""", DeprecationWarning)
-        pulumi.log.warn("""hours_of_operation_arn is deprecated: use 'arn' attribute instead""")
-
-        return pulumi.get(self, "hours_of_operation_arn")
-
-    @hours_of_operation_arn.setter
-    def hours_of_operation_arn(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "hours_of_operation_arn", value)
 
     @property
     @pulumi.getter(name="hoursOfOperationId")
@@ -345,11 +323,11 @@ class HoursOfOperation(pulumi.CustomResource):
 
         ## Import
 
-        Amazon Connect Hours of Operations can be imported using the `instance_id` and `hours_of_operation_id` separated by a colon (`:`), e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:connect/hoursOfOperation:HoursOfOperation example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
-        ```
+         to = aws_connect_hours_of_operation.example
+
+         id = "f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5" } Using `pulumi import`, import Amazon Connect Hours of Operations using the `instance_id` and `hours_of_operation_id` separated by a colon (`:`). For exampleconsole % pulumi import aws_connect_hours_of_operation.example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -411,11 +389,11 @@ class HoursOfOperation(pulumi.CustomResource):
 
         ## Import
 
-        Amazon Connect Hours of Operations can be imported using the `instance_id` and `hours_of_operation_id` separated by a colon (`:`), e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:connect/hoursOfOperation:HoursOfOperation example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
-        ```
+         to = aws_connect_hours_of_operation.example
+
+         id = "f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5" } Using `pulumi import`, import Amazon Connect Hours of Operations using the `instance_id` and `hours_of_operation_id` separated by a colon (`:`). For exampleconsole % pulumi import aws_connect_hours_of_operation.example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
 
         :param str resource_name: The name of the resource.
         :param HoursOfOperationArgs args: The arguments to use to populate this resource's properties.
@@ -460,7 +438,6 @@ class HoursOfOperation(pulumi.CustomResource):
                 raise TypeError("Missing required property 'time_zone'")
             __props__.__dict__["time_zone"] = time_zone
             __props__.__dict__["arn"] = None
-            __props__.__dict__["hours_of_operation_arn"] = None
             __props__.__dict__["hours_of_operation_id"] = None
             __props__.__dict__["tags_all"] = None
         super(HoursOfOperation, __self__).__init__(
@@ -476,7 +453,6 @@ class HoursOfOperation(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HoursOfOperationConfigArgs']]]]] = None,
             description: Optional[pulumi.Input[str]] = None,
-            hours_of_operation_arn: Optional[pulumi.Input[str]] = None,
             hours_of_operation_id: Optional[pulumi.Input[str]] = None,
             instance_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -493,7 +469,6 @@ class HoursOfOperation(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the Hours of Operation.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HoursOfOperationConfigArgs']]]] configs: One or more config blocks which define the configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below.
         :param pulumi.Input[str] description: Specifies the description of the Hours of Operation.
-        :param pulumi.Input[str] hours_of_operation_arn: (**Deprecated**) The Amazon Resource Name (ARN) of the Hours of Operation.
         :param pulumi.Input[str] hours_of_operation_id: The identifier for the hours of operation.
         :param pulumi.Input[str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
         :param pulumi.Input[str] name: Specifies the name of the Hours of Operation.
@@ -508,7 +483,6 @@ class HoursOfOperation(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["configs"] = configs
         __props__.__dict__["description"] = description
-        __props__.__dict__["hours_of_operation_arn"] = hours_of_operation_arn
         __props__.__dict__["hours_of_operation_id"] = hours_of_operation_id
         __props__.__dict__["instance_id"] = instance_id
         __props__.__dict__["name"] = name
@@ -540,17 +514,6 @@ class HoursOfOperation(pulumi.CustomResource):
         Specifies the description of the Hours of Operation.
         """
         return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter(name="hoursOfOperationArn")
-    def hours_of_operation_arn(self) -> pulumi.Output[str]:
-        """
-        (**Deprecated**) The Amazon Resource Name (ARN) of the Hours of Operation.
-        """
-        warnings.warn("""use 'arn' attribute instead""", DeprecationWarning)
-        pulumi.log.warn("""hours_of_operation_arn is deprecated: use 'arn' attribute instead""")
-
-        return pulumi.get(self, "hours_of_operation_arn")
 
     @property
     @pulumi.getter(name="hoursOfOperationId")

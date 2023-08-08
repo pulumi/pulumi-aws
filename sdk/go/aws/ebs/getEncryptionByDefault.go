@@ -4,6 +4,7 @@
 package ebs
 
 import (
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -16,7 +17,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ebs"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ebs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -33,6 +34,7 @@ import (
 //
 // ```
 func LookupEncryptionByDefault(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*LookupEncryptionByDefaultResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEncryptionByDefaultResult
 	err := ctx.Invoke("aws:ebs/getEncryptionByDefault:getEncryptionByDefault", nil, &rv, opts...)
 	if err != nil {

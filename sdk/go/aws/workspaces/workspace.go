@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/workspaces"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/workspaces"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -64,13 +65,11 @@ import (
 //
 // ## Import
 //
-// Workspaces can be imported using their ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_workspaces_workspace.example
 //
-//	$ pulumi import aws:workspaces/workspace:Workspace example ws-9z9zmbkhv
-//
-// ```
+//	id = "ws-9z9zmbkhv" } Using `pulumi import`, import Workspaces using their ID. For exampleconsole % pulumi import aws_workspaces_workspace.example ws-9z9zmbkhv
 type Workspace struct {
 	pulumi.CustomResourceState
 
@@ -116,6 +115,7 @@ func NewWorkspace(ctx *pulumi.Context,
 	if args.UserName == nil {
 		return nil, errors.New("invalid value for required argument 'UserName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Workspace
 	err := ctx.RegisterResource("aws:workspaces/workspace:Workspace", name, args, &resource, opts...)
 	if err != nil {

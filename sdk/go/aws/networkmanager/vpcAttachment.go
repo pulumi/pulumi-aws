@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkmanager"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkmanager"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -46,13 +47,11 @@ import (
 //
 // ## Import
 //
-// `aws_networkmanager_vpc_attachment` can be imported using the attachment ID, e.g.
+// terraform import {
 //
-// ```sh
+//	to = aws_networkmanager_vpc_attachment.example
 //
-//	$ pulumi import aws:networkmanager/vpcAttachment:VpcAttachment example attachment-0f8fa60d2238d1bd8
-//
-// ```
+//	id = "attachment-0f8fa60d2238d1bd8" } Using `pulumi import`, import `aws_networkmanager_vpc_attachment` using the attachment ID. For exampleconsole % pulumi import aws_networkmanager_vpc_attachment.example attachment-0f8fa60d2238d1bd8
 type VpcAttachment struct {
 	pulumi.CustomResourceState
 
@@ -106,6 +105,7 @@ func NewVpcAttachment(ctx *pulumi.Context,
 	if args.VpcArn == nil {
 		return nil, errors.New("invalid value for required argument 'VpcArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcAttachment
 	err := ctx.RegisterResource("aws:networkmanager/vpcAttachment:VpcAttachment", name, args, &resource, opts...)
 	if err != nil {

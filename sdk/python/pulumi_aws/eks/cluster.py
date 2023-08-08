@@ -618,11 +618,11 @@ class Cluster(pulumi.CustomResource):
 
         ## Import
 
-        EKS Clusters can be imported using the `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:eks/cluster:Cluster my_cluster my_cluster
-        ```
+         to = aws_eks_cluster.my_cluster
+
+         id = "my_cluster" } Using `pulumi import`, import EKS Clusters using the `name`. For exampleconsole % pulumi import aws_eks_cluster.my_cluster my_cluster
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -741,11 +741,11 @@ class Cluster(pulumi.CustomResource):
 
         ## Import
 
-        EKS Clusters can be imported using the `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:eks/cluster:Cluster my_cluster my_cluster
-        ```
+         to = aws_eks_cluster.my_cluster
+
+         id = "my_cluster" } Using `pulumi import`, import EKS Clusters using the `name`. For exampleconsole % pulumi import aws_eks_cluster.my_cluster my_cluster
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.

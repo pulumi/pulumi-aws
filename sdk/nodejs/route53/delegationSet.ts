@@ -20,11 +20,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Route53 Delegation Sets can be imported using the `delegation set id`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:route53/delegationSet:DelegationSet set1 N1PA6795SAMPLE
- * ```
+ *  to = aws_route53_delegation_set.set1
+ *
+ *  id = "N1PA6795SAMPLE" } Using `pulumi import`, import Route53 Delegation Sets using the delegation set `id`. For exampleconsole % pulumi import aws_route53_delegation_set.set1 N1PA6795SAMPLE
  */
 export class DelegationSet extends pulumi.CustomResource {
     /**

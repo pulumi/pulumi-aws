@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -15,13 +16,11 @@ import (
 //
 // ## Import
 //
-// IPAMs can be imported using the `ipam id`, e.g.
+// terraform import {
 //
-// ```sh
+//	to = aws_vpc_ipam.example
 //
-//	$ pulumi import aws:ec2/vpcIpam:VpcIpam example ipam-0178368ad2146a492
-//
-// ```
+//	id = "ipam-0178368ad2146a492" } Using `pulumi import`, import IPAMs using the IPAM `id`. For exampleconsole % pulumi import aws_vpc_ipam.example ipam-0178368ad2146a492
 type VpcIpam struct {
 	pulumi.CustomResourceState
 
@@ -60,6 +59,7 @@ func NewVpcIpam(ctx *pulumi.Context,
 	if args.OperatingRegions == nil {
 		return nil, errors.New("invalid value for required argument 'OperatingRegions'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcIpam
 	err := ctx.RegisterResource("aws:ec2/vpcIpam:VpcIpam", name, args, &resource, opts...)
 	if err != nil {

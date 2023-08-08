@@ -38,11 +38,14 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
  * import com.pulumi.aws.s3.BucketV2;
  * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.cloudtrail.Trail;
  * import com.pulumi.aws.cloudtrail.TrailArgs;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
+ * import com.pulumi.aws.inputs.GetPartitionArgs;
+ * import com.pulumi.aws.inputs.GetRegionArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.s3.BucketPolicy;
@@ -60,19 +63,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getCallerIdentity();
- * 
- *         var fooBucketV2 = new BucketV2(&#34;fooBucketV2&#34;, BucketV2Args.builder()        
+ *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;, BucketV2Args.builder()        
  *             .forceDestroy(true)
  *             .build());
  * 
- *         var foobar = new Trail(&#34;foobar&#34;, TrailArgs.builder()        
- *             .s3BucketName(fooBucketV2.id())
+ *         var exampleTrail = new Trail(&#34;exampleTrail&#34;, TrailArgs.builder()        
+ *             .s3BucketName(exampleBucketV2.id())
  *             .s3KeyPrefix(&#34;prefix&#34;)
  *             .includeGlobalServiceEvents(false)
  *             .build());
  * 
- *         final var fooPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var currentCallerIdentity = AwsFunctions.getCallerIdentity();
+ * 
+ *         final var currentPartition = AwsFunctions.getPartition();
+ * 
+ *         final var currentRegion = AwsFunctions.getRegion();
+ * 
+ *         final var examplePolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(            
  *                 GetPolicyDocumentStatementArgs.builder()
  *                     .sid(&#34;AWSCloudTrailAclCheck&#34;)
@@ -82,7 +89,12 @@ import javax.annotation.Nullable;
  *                         .identifiers(&#34;cloudtrail.amazonaws.com&#34;)
  *                         .build())
  *                     .actions(&#34;s3:GetBucketAcl&#34;)
- *                     .resources(fooBucketV2.arn())
+ *                     .resources(exampleBucketV2.arn())
+ *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
+ *                         .test(&#34;StringEquals&#34;)
+ *                         .variable(&#34;aws:SourceArn&#34;)
+ *                         .values(String.format(&#34;arn:%s:cloudtrail:%s:%s:trail/example&#34;, currentPartition.applyValue(getPartitionResult -&gt; getPartitionResult.partition()),currentRegion.applyValue(getRegionResult -&gt; getRegionResult.name()),currentCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId())))
+ *                         .build())
  *                     .build(),
  *                 GetPolicyDocumentStatementArgs.builder()
  *                     .sid(&#34;AWSCloudTrailWrite&#34;)
@@ -92,18 +104,24 @@ import javax.annotation.Nullable;
  *                         .identifiers(&#34;cloudtrail.amazonaws.com&#34;)
  *                         .build())
  *                     .actions(&#34;s3:PutObject&#34;)
- *                     .resources(fooBucketV2.arn().applyValue(arn -&gt; String.format(&#34;%s/prefix/AWSLogs/%s/*&#34;, arn,current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))))
- *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
- *                         .test(&#34;StringEquals&#34;)
- *                         .variable(&#34;s3:x-amz-acl&#34;)
- *                         .values(&#34;bucket-owner-full-control&#34;)
- *                         .build())
+ *                     .resources(exampleBucketV2.arn().applyValue(arn -&gt; String.format(&#34;%s/prefix/AWSLogs/%s/*&#34;, arn,currentCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))))
+ *                     .conditions(                    
+ *                         GetPolicyDocumentStatementConditionArgs.builder()
+ *                             .test(&#34;StringEquals&#34;)
+ *                             .variable(&#34;s3:x-amz-acl&#34;)
+ *                             .values(&#34;bucket-owner-full-control&#34;)
+ *                             .build(),
+ *                         GetPolicyDocumentStatementConditionArgs.builder()
+ *                             .test(&#34;StringEquals&#34;)
+ *                             .variable(&#34;aws:SourceArn&#34;)
+ *                             .values(String.format(&#34;arn:%s:cloudtrail:%s:%s:trail/example&#34;, currentPartition.applyValue(getPartitionResult -&gt; getPartitionResult.partition()),currentRegion.applyValue(getRegionResult -&gt; getRegionResult.name()),currentCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId())))
+ *                             .build())
  *                     .build())
  *             .build());
  * 
- *         var fooBucketPolicy = new BucketPolicy(&#34;fooBucketPolicy&#34;, BucketPolicyArgs.builder()        
- *             .bucket(fooBucketV2.id())
- *             .policy(fooPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(fooPolicyDocument -&gt; fooPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *         var exampleBucketPolicy = new BucketPolicy(&#34;exampleBucketPolicy&#34;, BucketPolicyArgs.builder()        
+ *             .bucket(exampleBucketV2.id())
+ *             .policy(examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(examplePolicyDocument -&gt; examplePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }
@@ -351,10 +369,10 @@ import javax.annotation.Nullable;
  *                             .field(&#34;eventName&#34;)
  *                             .build(),
  *                         TrailAdvancedEventSelectorFieldSelectorArgs.builder()
- *                             .equals(                            
+ *                             .field(&#34;resources.ARN&#34;)
+ *                             .startsWith(                            
  *                                 String.format(&#34;%s/&#34;, important_bucket_1.arn()),
  *                                 String.format(&#34;%s/&#34;, important_bucket_2.arn()))
- *                             .field(&#34;resources.ARN&#34;)
  *                             .build(),
  *                         TrailAdvancedEventSelectorFieldSelectorArgs.builder()
  *                             .equals(&#34;false&#34;)
@@ -430,11 +448,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Cloudtrails can be imported using the `name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:cloudtrail/trail:Trail sample my-sample-trail
- * ```
+ *  to = aws_cloudtrail.sample
+ * 
+ *  id = &#34;my-sample-trail&#34; } Using `pulumi import`, import Cloudtrails using the `name`. For exampleconsole % pulumi import aws_cloudtrail.sample my-sample-trail
  * 
  */
 @ResourceType(type="aws:cloudtrail/trail:Trail")

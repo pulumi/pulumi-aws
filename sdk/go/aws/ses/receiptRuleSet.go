@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ses"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ses"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -41,13 +42,11 @@ import (
 //
 // ## Import
 //
-// SES receipt rule sets can be imported using the rule set name.
+// terraform import {
 //
-// ```sh
+//	to = aws_ses_receipt_rule_set.my_rule_set
 //
-//	$ pulumi import aws:ses/receiptRuleSet:ReceiptRuleSet my_rule_set my_rule_set_name
-//
-// ```
+//	id = "my_rule_set_name" } Using `pulumi import`, import SES receipt rule sets using the rule set name. For exampleconsole % pulumi import aws_ses_receipt_rule_set.my_rule_set my_rule_set_name
 type ReceiptRuleSet struct {
 	pulumi.CustomResourceState
 
@@ -67,6 +66,7 @@ func NewReceiptRuleSet(ctx *pulumi.Context,
 	if args.RuleSetName == nil {
 		return nil, errors.New("invalid value for required argument 'RuleSetName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ReceiptRuleSet
 	err := ctx.RegisterResource("aws:ses/receiptRuleSet:ReceiptRuleSet", name, args, &resource, opts...)
 	if err != nil {

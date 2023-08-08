@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lex"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lex"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -45,13 +46,11 @@ import (
 //
 // ## Import
 //
-// Bot aliases can be imported using an ID with the format `bot_name:bot_alias_name`.
+// terraform import {
 //
-// ```sh
+//	to = aws_lex_bot_alias.order_flowers_prod
 //
-//	$ pulumi import aws:lex/botAlias:BotAlias order_flowers_prod OrderFlowers:OrderFlowersProd
-//
-// ```
+//	id = "OrderFlowers:OrderFlowersProd" } Using `pulumi import`, import bot aliases using an ID with the format `bot_name:bot_alias_name`. For exampleconsole % pulumi import aws_lex_bot_alias.order_flowers_prod OrderFlowers:OrderFlowersProd
 type BotAlias struct {
 	pulumi.CustomResourceState
 
@@ -88,6 +87,7 @@ func NewBotAlias(ctx *pulumi.Context,
 	if args.BotVersion == nil {
 		return nil, errors.New("invalid value for required argument 'BotVersion'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BotAlias
 	err := ctx.RegisterResource("aws:lex/botAlias:BotAlias", name, args, &resource, opts...)
 	if err != nil {

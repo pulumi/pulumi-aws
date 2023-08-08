@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/globalaccelerator"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/globalaccelerator"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -61,13 +62,11 @@ import (
 //
 // ## Import
 //
-// Global Accelerator listeners can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_globalaccelerator_listener.example
 //
-//	$ pulumi import aws:globalaccelerator/listener:Listener example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx
-//
-// ```
+//	id = "arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx" } Using `pulumi import`, import Global Accelerator listeners using the `id`. For exampleconsole % pulumi import aws_globalaccelerator_listener.example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx
 type Listener struct {
 	pulumi.CustomResourceState
 
@@ -76,8 +75,6 @@ type Listener struct {
 	// Direct all requests from a user to the same endpoint. Valid values are `NONE`, `SOURCE_IP`. Default: `NONE`. If `NONE`, Global Accelerator uses the "five-tuple" properties of source IP address, source port, destination IP address, destination port, and protocol to select the hash value. If `SOURCE_IP`, Global Accelerator uses the "two-tuple" properties of source (client) IP address and destination IP address to select the hash value.
 	ClientAffinity pulumi.StringPtrOutput `pulumi:"clientAffinity"`
 	// The list of port ranges for the connections from clients to the accelerator. Fields documented below.
-	//
-	// **port_range** supports the following attributes:
 	PortRanges ListenerPortRangeArrayOutput `pulumi:"portRanges"`
 	// The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
 	Protocol pulumi.StringOutput `pulumi:"protocol"`
@@ -99,6 +96,7 @@ func NewListener(ctx *pulumi.Context,
 	if args.Protocol == nil {
 		return nil, errors.New("invalid value for required argument 'Protocol'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Listener
 	err := ctx.RegisterResource("aws:globalaccelerator/listener:Listener", name, args, &resource, opts...)
 	if err != nil {
@@ -126,8 +124,6 @@ type listenerState struct {
 	// Direct all requests from a user to the same endpoint. Valid values are `NONE`, `SOURCE_IP`. Default: `NONE`. If `NONE`, Global Accelerator uses the "five-tuple" properties of source IP address, source port, destination IP address, destination port, and protocol to select the hash value. If `SOURCE_IP`, Global Accelerator uses the "two-tuple" properties of source (client) IP address and destination IP address to select the hash value.
 	ClientAffinity *string `pulumi:"clientAffinity"`
 	// The list of port ranges for the connections from clients to the accelerator. Fields documented below.
-	//
-	// **port_range** supports the following attributes:
 	PortRanges []ListenerPortRange `pulumi:"portRanges"`
 	// The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
 	Protocol *string `pulumi:"protocol"`
@@ -139,8 +135,6 @@ type ListenerState struct {
 	// Direct all requests from a user to the same endpoint. Valid values are `NONE`, `SOURCE_IP`. Default: `NONE`. If `NONE`, Global Accelerator uses the "five-tuple" properties of source IP address, source port, destination IP address, destination port, and protocol to select the hash value. If `SOURCE_IP`, Global Accelerator uses the "two-tuple" properties of source (client) IP address and destination IP address to select the hash value.
 	ClientAffinity pulumi.StringPtrInput
 	// The list of port ranges for the connections from clients to the accelerator. Fields documented below.
-	//
-	// **port_range** supports the following attributes:
 	PortRanges ListenerPortRangeArrayInput
 	// The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
 	Protocol pulumi.StringPtrInput
@@ -156,8 +150,6 @@ type listenerArgs struct {
 	// Direct all requests from a user to the same endpoint. Valid values are `NONE`, `SOURCE_IP`. Default: `NONE`. If `NONE`, Global Accelerator uses the "five-tuple" properties of source IP address, source port, destination IP address, destination port, and protocol to select the hash value. If `SOURCE_IP`, Global Accelerator uses the "two-tuple" properties of source (client) IP address and destination IP address to select the hash value.
 	ClientAffinity *string `pulumi:"clientAffinity"`
 	// The list of port ranges for the connections from clients to the accelerator. Fields documented below.
-	//
-	// **port_range** supports the following attributes:
 	PortRanges []ListenerPortRange `pulumi:"portRanges"`
 	// The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
 	Protocol string `pulumi:"protocol"`
@@ -170,8 +162,6 @@ type ListenerArgs struct {
 	// Direct all requests from a user to the same endpoint. Valid values are `NONE`, `SOURCE_IP`. Default: `NONE`. If `NONE`, Global Accelerator uses the "five-tuple" properties of source IP address, source port, destination IP address, destination port, and protocol to select the hash value. If `SOURCE_IP`, Global Accelerator uses the "two-tuple" properties of source (client) IP address and destination IP address to select the hash value.
 	ClientAffinity pulumi.StringPtrInput
 	// The list of port ranges for the connections from clients to the accelerator. Fields documented below.
-	//
-	// **port_range** supports the following attributes:
 	PortRanges ListenerPortRangeArrayInput
 	// The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
 	Protocol pulumi.StringInput
@@ -275,8 +265,6 @@ func (o ListenerOutput) ClientAffinity() pulumi.StringPtrOutput {
 }
 
 // The list of port ranges for the connections from clients to the accelerator. Fields documented below.
-//
-// **port_range** supports the following attributes:
 func (o ListenerOutput) PortRanges() ListenerPortRangeArrayOutput {
 	return o.ApplyT(func(v *Listener) ListenerPortRangeArrayOutput { return v.PortRanges }).(ListenerPortRangeArrayOutput)
 }

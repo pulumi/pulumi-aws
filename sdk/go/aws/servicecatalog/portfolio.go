@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicecatalog"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicecatalog"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,13 +43,11 @@ import (
 //
 // ## Import
 //
-// Service Catalog Portfolios can be imported using the `service catalog portfolio id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_servicecatalog_portfolio.testfolio
 //
-//	$ pulumi import aws:servicecatalog/portfolio:Portfolio testfolio port-12344321
-//
-// ```
+//	id = "port-12344321" } Using `pulumi import`, import Service Catalog Portfolios using the Service Catalog Portfolio `id`. For exampleconsole % pulumi import aws_servicecatalog_portfolio.testfolio port-12344321
 type Portfolio struct {
 	pulumi.CustomResourceState
 
@@ -76,6 +75,7 @@ func NewPortfolio(ctx *pulumi.Context,
 	if args.ProviderName == nil {
 		return nil, errors.New("invalid value for required argument 'ProviderName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Portfolio
 	err := ctx.RegisterResource("aws:servicecatalog/portfolio:Portfolio", name, args, &resource, opts...)
 	if err != nil {

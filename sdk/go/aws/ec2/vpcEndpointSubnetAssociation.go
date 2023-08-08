@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -28,7 +29,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -50,13 +51,11 @@ import (
 //
 // ## Import
 //
-// VPC Endpoint Subnet Associations can be imported using `vpc_endpoint_id` together with `subnet_id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_vpc_endpoint_subnet_association.example
 //
-//	$ pulumi import aws:ec2/vpcEndpointSubnetAssociation:VpcEndpointSubnetAssociation example vpce-aaaaaaaa/subnet-bbbbbbbbbbbbbbbbb
-//
-// ```
+//	id = "vpce-aaaaaaaa/subnet-bbbbbbbbbbbbbbbbb" } Using `pulumi import`, import VPC Endpoint Subnet Associations using `vpc_endpoint_id` together with `subnet_id`. For exampleconsole % pulumi import aws_vpc_endpoint_subnet_association.example vpce-aaaaaaaa/subnet-bbbbbbbbbbbbbbbbb
 type VpcEndpointSubnetAssociation struct {
 	pulumi.CustomResourceState
 
@@ -79,6 +78,7 @@ func NewVpcEndpointSubnetAssociation(ctx *pulumi.Context,
 	if args.VpcEndpointId == nil {
 		return nil, errors.New("invalid value for required argument 'VpcEndpointId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcEndpointSubnetAssociation
 	err := ctx.RegisterResource("aws:ec2/vpcEndpointSubnetAssociation:VpcEndpointSubnetAssociation", name, args, &resource, opts...)
 	if err != nil {

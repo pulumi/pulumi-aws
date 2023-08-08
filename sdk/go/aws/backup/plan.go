@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/backup"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/backup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -58,13 +59,11 @@ import (
 //
 // ## Import
 //
-// Backup Plan can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_backup_plan.test
 //
-//	$ pulumi import aws:backup/plan:Plan test <id>
-//
-// ```
+//	id = "<id>" } Using `pulumi import`, import Backup Plan using the `id`. For exampleconsole % pulumi import aws_backup_plan.test <id>
 type Plan struct {
 	pulumi.CustomResourceState
 
@@ -94,6 +93,7 @@ func NewPlan(ctx *pulumi.Context,
 	if args.Rules == nil {
 		return nil, errors.New("invalid value for required argument 'Rules'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Plan
 	err := ctx.RegisterResource("aws:backup/plan:Plan", name, args, &resource, opts...)
 	if err != nil {

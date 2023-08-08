@@ -19,7 +19,8 @@ class LayerVersionPermissionArgs:
                  principal: pulumi.Input[str],
                  statement_id: pulumi.Input[str],
                  version_number: pulumi.Input[int],
-                 organization_id: Optional[pulumi.Input[str]] = None):
+                 organization_id: Optional[pulumi.Input[str]] = None,
+                 skip_destroy: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a LayerVersionPermission resource.
         :param pulumi.Input[str] action: Action, which will be allowed. `lambda:GetLayerVersion` value is suggested by AWS documantation.
@@ -28,6 +29,7 @@ class LayerVersionPermissionArgs:
         :param pulumi.Input[str] statement_id: The name of Lambda Layer Permission, for example `dev-account` - human readable note about what is this permission for.
         :param pulumi.Input[int] version_number: Version of Lambda Layer, which you want to grant access to. Note: permissions only apply to a single version of a layer.
         :param pulumi.Input[str] organization_id: An identifier of AWS Organization, which should be able to use your Lambda Layer. `principal` should be equal to `*` if `organization_id` provided.
+        :param pulumi.Input[bool] skip_destroy: Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `filename`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "layer_name", layer_name)
@@ -36,6 +38,8 @@ class LayerVersionPermissionArgs:
         pulumi.set(__self__, "version_number", version_number)
         if organization_id is not None:
             pulumi.set(__self__, "organization_id", organization_id)
+        if skip_destroy is not None:
+            pulumi.set(__self__, "skip_destroy", skip_destroy)
 
     @property
     @pulumi.getter
@@ -109,6 +113,18 @@ class LayerVersionPermissionArgs:
     def organization_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "organization_id", value)
 
+    @property
+    @pulumi.getter(name="skipDestroy")
+    def skip_destroy(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `filename`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
+        """
+        return pulumi.get(self, "skip_destroy")
+
+    @skip_destroy.setter
+    def skip_destroy(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_destroy", value)
+
 
 @pulumi.input_type
 class _LayerVersionPermissionState:
@@ -119,6 +135,7 @@ class _LayerVersionPermissionState:
                  policy: Optional[pulumi.Input[str]] = None,
                  principal: Optional[pulumi.Input[str]] = None,
                  revision_id: Optional[pulumi.Input[str]] = None,
+                 skip_destroy: Optional[pulumi.Input[bool]] = None,
                  statement_id: Optional[pulumi.Input[str]] = None,
                  version_number: Optional[pulumi.Input[int]] = None):
         """
@@ -129,6 +146,7 @@ class _LayerVersionPermissionState:
         :param pulumi.Input[str] policy: Full Lambda Layer Permission policy.
         :param pulumi.Input[str] principal: AWS account ID which should be able to use your Lambda Layer. `*` can be used here, if you want to share your Lambda Layer widely.
         :param pulumi.Input[str] revision_id: A unique identifier for the current revision of the policy.
+        :param pulumi.Input[bool] skip_destroy: Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `filename`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
         :param pulumi.Input[str] statement_id: The name of Lambda Layer Permission, for example `dev-account` - human readable note about what is this permission for.
         :param pulumi.Input[int] version_number: Version of Lambda Layer, which you want to grant access to. Note: permissions only apply to a single version of a layer.
         """
@@ -144,6 +162,8 @@ class _LayerVersionPermissionState:
             pulumi.set(__self__, "principal", principal)
         if revision_id is not None:
             pulumi.set(__self__, "revision_id", revision_id)
+        if skip_destroy is not None:
+            pulumi.set(__self__, "skip_destroy", skip_destroy)
         if statement_id is not None:
             pulumi.set(__self__, "statement_id", statement_id)
         if version_number is not None:
@@ -222,6 +242,18 @@ class _LayerVersionPermissionState:
         pulumi.set(self, "revision_id", value)
 
     @property
+    @pulumi.getter(name="skipDestroy")
+    def skip_destroy(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `filename`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
+        """
+        return pulumi.get(self, "skip_destroy")
+
+    @skip_destroy.setter
+    def skip_destroy(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_destroy", value)
+
+    @property
     @pulumi.getter(name="statementId")
     def statement_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -255,6 +287,7 @@ class LayerVersionPermission(pulumi.CustomResource):
                  layer_name: Optional[pulumi.Input[str]] = None,
                  organization_id: Optional[pulumi.Input[str]] = None,
                  principal: Optional[pulumi.Input[str]] = None,
+                 skip_destroy: Optional[pulumi.Input[bool]] = None,
                  statement_id: Optional[pulumi.Input[str]] = None,
                  version_number: Optional[pulumi.Input[int]] = None,
                  __props__=None):
@@ -262,6 +295,8 @@ class LayerVersionPermission(pulumi.CustomResource):
         Provides a Lambda Layer Version Permission resource. It allows you to share you own Lambda Layers to another account by account ID, to all accounts in AWS organization or even to all AWS accounts.
 
         For information about Lambda Layer Permissions and how to use them, see [Using Resource-based Policies for AWS Lambda][1]
+
+        > **NOTE:** Setting `skip_destroy` to `true` means that the AWS Provider will _not_ destroy any layer version permission, even when running `pulumi destroy`. Layer version permissions are thus intentional dangling resources that are _not_ managed by Pulumi and may incur extra expense in your AWS account.
 
         ## Example Usage
 
@@ -279,13 +314,11 @@ class LayerVersionPermission(pulumi.CustomResource):
 
         ## Import
 
-        Lambda Layer Permissions can be imported using `layer_name` and `version_number`, separated by a comma (`,`).
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:lambda/layerVersionPermission:LayerVersionPermission example arn:aws:lambda:us-west-2:123456654321:layer:test_layer1,1
-        ```
+         to = aws_lambda_layer_version_permission.example
 
-         [1]https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html#permissions-resource-xaccountlayer
+         id = "arn:aws:lambda:us-west-2:123456654321:layer:test_layer1,1" } Using `pulumi import`, import Lambda Layer Permissions using `layer_name` and `version_number`, separated by a comma (`,`). For exampleconsole % pulumi import aws_lambda_layer_version_permission.example arn:aws:lambda:us-west-2:123456654321:layer:test_layer1,1 [1]https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html#permissions-resource-xaccountlayer
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -293,6 +326,7 @@ class LayerVersionPermission(pulumi.CustomResource):
         :param pulumi.Input[str] layer_name: The name or ARN of the Lambda Layer, which you want to grant access to.
         :param pulumi.Input[str] organization_id: An identifier of AWS Organization, which should be able to use your Lambda Layer. `principal` should be equal to `*` if `organization_id` provided.
         :param pulumi.Input[str] principal: AWS account ID which should be able to use your Lambda Layer. `*` can be used here, if you want to share your Lambda Layer widely.
+        :param pulumi.Input[bool] skip_destroy: Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `filename`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
         :param pulumi.Input[str] statement_id: The name of Lambda Layer Permission, for example `dev-account` - human readable note about what is this permission for.
         :param pulumi.Input[int] version_number: Version of Lambda Layer, which you want to grant access to. Note: permissions only apply to a single version of a layer.
         """
@@ -307,6 +341,8 @@ class LayerVersionPermission(pulumi.CustomResource):
 
         For information about Lambda Layer Permissions and how to use them, see [Using Resource-based Policies for AWS Lambda][1]
 
+        > **NOTE:** Setting `skip_destroy` to `true` means that the AWS Provider will _not_ destroy any layer version permission, even when running `pulumi destroy`. Layer version permissions are thus intentional dangling resources that are _not_ managed by Pulumi and may incur extra expense in your AWS account.
+
         ## Example Usage
 
         ```python
@@ -323,13 +359,11 @@ class LayerVersionPermission(pulumi.CustomResource):
 
         ## Import
 
-        Lambda Layer Permissions can be imported using `layer_name` and `version_number`, separated by a comma (`,`).
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:lambda/layerVersionPermission:LayerVersionPermission example arn:aws:lambda:us-west-2:123456654321:layer:test_layer1,1
-        ```
+         to = aws_lambda_layer_version_permission.example
 
-         [1]https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html#permissions-resource-xaccountlayer
+         id = "arn:aws:lambda:us-west-2:123456654321:layer:test_layer1,1" } Using `pulumi import`, import Lambda Layer Permissions using `layer_name` and `version_number`, separated by a comma (`,`). For exampleconsole % pulumi import aws_lambda_layer_version_permission.example arn:aws:lambda:us-west-2:123456654321:layer:test_layer1,1 [1]https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html#permissions-resource-xaccountlayer
 
         :param str resource_name: The name of the resource.
         :param LayerVersionPermissionArgs args: The arguments to use to populate this resource's properties.
@@ -350,6 +384,7 @@ class LayerVersionPermission(pulumi.CustomResource):
                  layer_name: Optional[pulumi.Input[str]] = None,
                  organization_id: Optional[pulumi.Input[str]] = None,
                  principal: Optional[pulumi.Input[str]] = None,
+                 skip_destroy: Optional[pulumi.Input[bool]] = None,
                  statement_id: Optional[pulumi.Input[str]] = None,
                  version_number: Optional[pulumi.Input[int]] = None,
                  __props__=None):
@@ -371,6 +406,7 @@ class LayerVersionPermission(pulumi.CustomResource):
             if principal is None and not opts.urn:
                 raise TypeError("Missing required property 'principal'")
             __props__.__dict__["principal"] = principal
+            __props__.__dict__["skip_destroy"] = skip_destroy
             if statement_id is None and not opts.urn:
                 raise TypeError("Missing required property 'statement_id'")
             __props__.__dict__["statement_id"] = statement_id
@@ -395,6 +431,7 @@ class LayerVersionPermission(pulumi.CustomResource):
             policy: Optional[pulumi.Input[str]] = None,
             principal: Optional[pulumi.Input[str]] = None,
             revision_id: Optional[pulumi.Input[str]] = None,
+            skip_destroy: Optional[pulumi.Input[bool]] = None,
             statement_id: Optional[pulumi.Input[str]] = None,
             version_number: Optional[pulumi.Input[int]] = None) -> 'LayerVersionPermission':
         """
@@ -410,6 +447,7 @@ class LayerVersionPermission(pulumi.CustomResource):
         :param pulumi.Input[str] policy: Full Lambda Layer Permission policy.
         :param pulumi.Input[str] principal: AWS account ID which should be able to use your Lambda Layer. `*` can be used here, if you want to share your Lambda Layer widely.
         :param pulumi.Input[str] revision_id: A unique identifier for the current revision of the policy.
+        :param pulumi.Input[bool] skip_destroy: Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `filename`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
         :param pulumi.Input[str] statement_id: The name of Lambda Layer Permission, for example `dev-account` - human readable note about what is this permission for.
         :param pulumi.Input[int] version_number: Version of Lambda Layer, which you want to grant access to. Note: permissions only apply to a single version of a layer.
         """
@@ -423,6 +461,7 @@ class LayerVersionPermission(pulumi.CustomResource):
         __props__.__dict__["policy"] = policy
         __props__.__dict__["principal"] = principal
         __props__.__dict__["revision_id"] = revision_id
+        __props__.__dict__["skip_destroy"] = skip_destroy
         __props__.__dict__["statement_id"] = statement_id
         __props__.__dict__["version_number"] = version_number
         return LayerVersionPermission(resource_name, opts=opts, __props__=__props__)
@@ -474,6 +513,14 @@ class LayerVersionPermission(pulumi.CustomResource):
         A unique identifier for the current revision of the policy.
         """
         return pulumi.get(self, "revision_id")
+
+    @property
+    @pulumi.getter(name="skipDestroy")
+    def skip_destroy(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `filename`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
+        """
+        return pulumi.get(self, "skip_destroy")
 
     @property
     @pulumi.getter(name="statementId")

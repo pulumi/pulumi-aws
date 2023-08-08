@@ -479,11 +479,11 @@ class Route(pulumi.CustomResource):
 
         ## Import
 
-        `aws_apigatewayv2_route` can be imported by using the API identifier and route identifier, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:apigatewayv2/route:Route example aabbccddee/1122334
-        ```
+         to = aws_apigatewayv2_route.example
+
+         id = "aabbccddee/1122334" } Using `pulumi import`, import `aws_apigatewayv2_route` using the API identifier and route identifier. For exampleconsole % pulumi import aws_apigatewayv2_route.example aabbccddee/1122334
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -547,11 +547,11 @@ class Route(pulumi.CustomResource):
 
         ## Import
 
-        `aws_apigatewayv2_route` can be imported by using the API identifier and route identifier, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:apigatewayv2/route:Route example aabbccddee/1122334
-        ```
+         to = aws_apigatewayv2_route.example
+
+         id = "aabbccddee/1122334" } Using `pulumi import`, import `aws_apigatewayv2_route` using the API identifier and route identifier. For exampleconsole % pulumi import aws_apigatewayv2_route.example aabbccddee/1122334
 
         :param str resource_name: The name of the resource.
         :param RouteArgs args: The arguments to use to populate this resource's properties.

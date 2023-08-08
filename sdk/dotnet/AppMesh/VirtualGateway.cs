@@ -13,6 +13,41 @@ namespace Pulumi.Aws.AppMesh
     /// Provides an AWS App Mesh virtual gateway resource.
     /// 
     /// ## Example Usage
+    /// ### Basic
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.AppMesh.VirtualGateway("example", new()
+    ///     {
+    ///         MeshName = "example-service-mesh",
+    ///         Spec = new Aws.AppMesh.Inputs.VirtualGatewaySpecArgs
+    ///         {
+    ///             Listeners = new[]
+    ///             {
+    ///                 new Aws.AppMesh.Inputs.VirtualGatewaySpecListenerArgs
+    ///                 {
+    ///                     PortMapping = new Aws.AppMesh.Inputs.VirtualGatewaySpecListenerPortMappingArgs
+    ///                     {
+    ///                         Port = 8080,
+    ///                         Protocol = "http",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Environment", "test" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ### Access Logs and TLS
     /// 
     /// ```csharp
@@ -28,23 +63,26 @@ namespace Pulumi.Aws.AppMesh
     ///         MeshName = "example-service-mesh",
     ///         Spec = new Aws.AppMesh.Inputs.VirtualGatewaySpecArgs
     ///         {
-    ///             Listener = new Aws.AppMesh.Inputs.VirtualGatewaySpecListenerArgs
+    ///             Listeners = new[]
     ///             {
-    ///                 PortMapping = new Aws.AppMesh.Inputs.VirtualGatewaySpecListenerPortMappingArgs
+    ///                 new Aws.AppMesh.Inputs.VirtualGatewaySpecListenerArgs
     ///                 {
-    ///                     Port = 8080,
-    ///                     Protocol = "http",
-    ///                 },
-    ///                 Tls = new Aws.AppMesh.Inputs.VirtualGatewaySpecListenerTlsArgs
-    ///                 {
-    ///                     Certificate = new Aws.AppMesh.Inputs.VirtualGatewaySpecListenerTlsCertificateArgs
+    ///                     PortMapping = new Aws.AppMesh.Inputs.VirtualGatewaySpecListenerPortMappingArgs
     ///                     {
-    ///                         Acm = new Aws.AppMesh.Inputs.VirtualGatewaySpecListenerTlsCertificateAcmArgs
-    ///                         {
-    ///                             CertificateArn = aws_acm_certificate.Example.Arn,
-    ///                         },
+    ///                         Port = 8080,
+    ///                         Protocol = "http",
     ///                     },
-    ///                     Mode = "STRICT",
+    ///                     Tls = new Aws.AppMesh.Inputs.VirtualGatewaySpecListenerTlsArgs
+    ///                     {
+    ///                         Certificate = new Aws.AppMesh.Inputs.VirtualGatewaySpecListenerTlsCertificateArgs
+    ///                         {
+    ///                             Acm = new Aws.AppMesh.Inputs.VirtualGatewaySpecListenerTlsCertificateAcmArgs
+    ///                             {
+    ///                                 CertificateArn = aws_acm_certificate.Example.Arn,
+    ///                             },
+    ///                         },
+    ///                         Mode = "STRICT",
+    ///                     },
     ///                 },
     ///             },
     ///             Logging = new Aws.AppMesh.Inputs.VirtualGatewaySpecLoggingArgs
@@ -65,11 +103,11 @@ namespace Pulumi.Aws.AppMesh
     /// 
     /// ## Import
     /// 
-    /// App Mesh virtual gateway can be imported using `mesh_name` together with the virtual gateway's `name`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:appmesh/virtualGateway:VirtualGateway example mesh/gw1
-    /// ```
+    ///  to = aws_appmesh_virtual_gateway.example
+    /// 
+    ///  id = "mesh/gw1" } Using `pulumi import`, import App Mesh virtual gateway using `mesh_name` together with the virtual gateway's `name`. For exampleconsole % pulumi import aws_appmesh_virtual_gateway.example mesh/gw1
     /// </summary>
     [AwsResourceType("aws:appmesh/virtualGateway:VirtualGateway")]
     public partial class VirtualGateway : global::Pulumi.CustomResource

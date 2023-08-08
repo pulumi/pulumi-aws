@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -15,13 +16,11 @@ import (
 //
 // ## Import
 //
-// Cognito Identity Pool Roles Attachment can be imported using the Identity Pool ID and provider name, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_cognito_identity_pool_provider_principal_tag.example
 //
-//	$ pulumi import aws:cognito/identityPoolProviderPrincipalTag:IdentityPoolProviderPrincipalTag example us-west-2_abc123:CorpAD
-//
-// ```
+//	id = "us-west-2_abc123:CorpAD" } Using `pulumi import`, import Cognito Identity Pool Roles Attachment using the Identity Pool ID and provider name. For exampleconsole % pulumi import aws_cognito_identity_pool_provider_principal_tag.example us-west-2_abc123:CorpAD
 type IdentityPoolProviderPrincipalTag struct {
 	pulumi.CustomResourceState
 
@@ -48,6 +47,7 @@ func NewIdentityPoolProviderPrincipalTag(ctx *pulumi.Context,
 	if args.IdentityProviderName == nil {
 		return nil, errors.New("invalid value for required argument 'IdentityProviderName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource IdentityPoolProviderPrincipalTag
 	err := ctx.RegisterResource("aws:cognito/identityPoolProviderPrincipalTag:IdentityPoolProviderPrincipalTag", name, args, &resource, opts...)
 	if err != nil {

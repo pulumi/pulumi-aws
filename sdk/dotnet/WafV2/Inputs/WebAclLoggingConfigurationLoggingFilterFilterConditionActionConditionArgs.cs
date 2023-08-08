@@ -13,7 +13,7 @@ namespace Pulumi.Aws.WafV2.Inputs
     public sealed class WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The action setting that a log record must contain in order to meet the condition. Valid values: `ALLOW`, `BLOCK`, `COUNT`.
+        /// Action setting that a log record must contain in order to meet the condition. Valid values for `action` are `ALLOW`, `BLOCK`, and `COUNT`.
         /// </summary>
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/licensemanager"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/licensemanager"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -47,6 +48,7 @@ import (
 //
 // ```
 func GetReceivedLicenses(ctx *pulumi.Context, args *GetReceivedLicensesArgs, opts ...pulumi.InvokeOption) (*GetReceivedLicensesResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetReceivedLicensesResult
 	err := ctx.Invoke("aws:licensemanager/getReceivedLicenses:getReceivedLicenses", args, &rv, opts...)
 	if err != nil {

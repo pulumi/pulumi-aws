@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -32,7 +33,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appmesh"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appmesh"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -49,10 +50,12 @@ import (
 //							},
 //						},
 //					},
-//					Listener: &appmesh.VirtualNodeSpecListenerArgs{
-//						PortMapping: &appmesh.VirtualNodeSpecListenerPortMappingArgs{
-//							Port:     pulumi.Int(8080),
-//							Protocol: pulumi.String("http"),
+//					Listeners: appmesh.VirtualNodeSpecListenerArray{
+//						&appmesh.VirtualNodeSpecListenerArgs{
+//							PortMapping: &appmesh.VirtualNodeSpecListenerPortMappingArgs{
+//								Port:     pulumi.Int(8080),
+//								Protocol: pulumi.String("http"),
+//							},
 //						},
 //					},
 //					ServiceDiscovery: &appmesh.VirtualNodeSpecServiceDiscoveryArgs{
@@ -77,8 +80,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appmesh"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/servicediscovery"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appmesh"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicediscovery"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -99,10 +102,12 @@ import (
 //							},
 //						},
 //					},
-//					Listener: &appmesh.VirtualNodeSpecListenerArgs{
-//						PortMapping: &appmesh.VirtualNodeSpecListenerPortMappingArgs{
-//							Port:     pulumi.Int(8080),
-//							Protocol: pulumi.String("http"),
+//					Listeners: appmesh.VirtualNodeSpecListenerArray{
+//						&appmesh.VirtualNodeSpecListenerArgs{
+//							PortMapping: &appmesh.VirtualNodeSpecListenerPortMappingArgs{
+//								Port:     pulumi.Int(8080),
+//								Protocol: pulumi.String("http"),
+//							},
 //						},
 //					},
 //					ServiceDiscovery: &appmesh.VirtualNodeSpecServiceDiscoveryArgs{
@@ -131,7 +136,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appmesh"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appmesh"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -148,18 +153,20 @@ import (
 //							},
 //						},
 //					},
-//					Listener: &appmesh.VirtualNodeSpecListenerArgs{
-//						PortMapping: &appmesh.VirtualNodeSpecListenerPortMappingArgs{
-//							Port:     pulumi.Int(8080),
-//							Protocol: pulumi.String("http"),
-//						},
-//						HealthCheck: &appmesh.VirtualNodeSpecListenerHealthCheckArgs{
-//							Protocol:           pulumi.String("http"),
-//							Path:               pulumi.String("/ping"),
-//							HealthyThreshold:   pulumi.Int(2),
-//							UnhealthyThreshold: pulumi.Int(2),
-//							TimeoutMillis:      pulumi.Int(2000),
-//							IntervalMillis:     pulumi.Int(5000),
+//					Listeners: appmesh.VirtualNodeSpecListenerArray{
+//						&appmesh.VirtualNodeSpecListenerArgs{
+//							PortMapping: &appmesh.VirtualNodeSpecListenerPortMappingArgs{
+//								Port:     pulumi.Int(8080),
+//								Protocol: pulumi.String("http"),
+//							},
+//							HealthCheck: &appmesh.VirtualNodeSpecListenerHealthCheckArgs{
+//								Protocol:           pulumi.String("http"),
+//								Path:               pulumi.String("/ping"),
+//								HealthyThreshold:   pulumi.Int(2),
+//								UnhealthyThreshold: pulumi.Int(2),
+//								TimeoutMillis:      pulumi.Int(2000),
+//								IntervalMillis:     pulumi.Int(5000),
+//							},
 //						},
 //					},
 //					ServiceDiscovery: &appmesh.VirtualNodeSpecServiceDiscoveryArgs{
@@ -184,7 +191,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appmesh"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appmesh"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -201,10 +208,12 @@ import (
 //							},
 //						},
 //					},
-//					Listener: &appmesh.VirtualNodeSpecListenerArgs{
-//						PortMapping: &appmesh.VirtualNodeSpecListenerPortMappingArgs{
-//							Port:     pulumi.Int(8080),
-//							Protocol: pulumi.String("http"),
+//					Listeners: appmesh.VirtualNodeSpecListenerArray{
+//						&appmesh.VirtualNodeSpecListenerArgs{
+//							PortMapping: &appmesh.VirtualNodeSpecListenerPortMappingArgs{
+//								Port:     pulumi.Int(8080),
+//								Protocol: pulumi.String("http"),
+//							},
 //						},
 //					},
 //					ServiceDiscovery: &appmesh.VirtualNodeSpecServiceDiscoveryArgs{
@@ -232,13 +241,11 @@ import (
 //
 // ## Import
 //
-// App Mesh virtual nodes can be imported using `mesh_name` together with the virtual node's `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_appmesh_virtual_node.serviceb1
 //
-//	$ pulumi import aws:appmesh/virtualNode:VirtualNode serviceb1 simpleapp/serviceBv1
-//
-// ```
+//	id = "simpleapp/serviceBv1" } Using `pulumi import`, import App Mesh virtual nodes using `mesh_name` together with the virtual node's `name`. For exampleconsole % pulumi import aws_appmesh_virtual_node.serviceb1 simpleapp/serviceBv1
 type VirtualNode struct {
 	pulumi.CustomResourceState
 
@@ -277,6 +284,7 @@ func NewVirtualNode(ctx *pulumi.Context,
 	if args.Spec == nil {
 		return nil, errors.New("invalid value for required argument 'Spec'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VirtualNode
 	err := ctx.RegisterResource("aws:appmesh/virtualNode:VirtualNode", name, args, &resource, opts...)
 	if err != nil {

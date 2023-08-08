@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/shield"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/shield"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,9 +53,9 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/shield"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/shield"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -70,7 +71,7 @@ import (
 //				return err
 //			}
 //			exampleEip, err := ec2.NewEip(ctx, "exampleEip", &ec2.EipArgs{
-//				Vpc: pulumi.Bool(true),
+//				Domain: pulumi.String("vpc"),
 //			})
 //			if err != nil {
 //				return err
@@ -110,7 +111,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/shield"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/shield"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -134,13 +135,11 @@ import (
 //
 // ## Import
 //
-// Shield protection group resources can be imported by specifying their protection group id.
+// terraform import {
 //
-// ```sh
+//	to = aws_shield_protection_group.example
 //
-//	$ pulumi import aws:shield/protectionGroup:ProtectionGroup example example
-//
-// ```
+//	id = "example" } Using `pulumi import`, import Shield protection group resources using their protection group id. For exampleconsole % pulumi import aws_shield_protection_group.example example
 type ProtectionGroup struct {
 	pulumi.CustomResourceState
 
@@ -178,6 +177,7 @@ func NewProtectionGroup(ctx *pulumi.Context,
 	if args.ProtectionGroupId == nil {
 		return nil, errors.New("invalid value for required argument 'ProtectionGroupId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ProtectionGroup
 	err := ctx.RegisterResource("aws:shield/protectionGroup:ProtectionGroup", name, args, &resource, opts...)
 	if err != nil {

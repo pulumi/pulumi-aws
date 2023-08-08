@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,16 +43,16 @@ import (
 //
 // ## Import
 //
-// `aws_ec2_transit_gateway_route_table_association` can be imported by using the EC2 Transit Gateway Route Table identifier, an underscore, and the EC2 Transit Gateway Attachment identifier, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_ec2_transit_gateway_route_table_association.example
 //
-//	$ pulumi import aws:ec2transitgateway/routeTableAssociation:RouteTableAssociation example tgw-rtb-12345678_tgw-attach-87654321
-//
-// ```
+//	id = "tgw-rtb-12345678_tgw-attach-87654321" } Using `pulumi import`, import `aws_ec2_transit_gateway_route_table_association` using the EC2 Transit Gateway Route Table identifier, an underscore, and the EC2 Transit Gateway Attachment identifier. For exampleconsole % pulumi import aws_ec2_transit_gateway_route_table_association.example tgw-rtb-12345678_tgw-attach-87654321
 type RouteTableAssociation struct {
 	pulumi.CustomResourceState
 
+	// Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transitGatewayDefaultRouteTableAssociation` argument of the `ec2transitgateway.VpcAttachment` resource should be used.
+	ReplaceExistingAssociation pulumi.BoolPtrOutput `pulumi:"replaceExistingAssociation"`
 	// Identifier of the resource
 	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
 	// Type of the resource
@@ -75,6 +76,7 @@ func NewRouteTableAssociation(ctx *pulumi.Context,
 	if args.TransitGatewayRouteTableId == nil {
 		return nil, errors.New("invalid value for required argument 'TransitGatewayRouteTableId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RouteTableAssociation
 	err := ctx.RegisterResource("aws:ec2transitgateway/routeTableAssociation:RouteTableAssociation", name, args, &resource, opts...)
 	if err != nil {
@@ -97,6 +99,8 @@ func GetRouteTableAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RouteTableAssociation resources.
 type routeTableAssociationState struct {
+	// Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transitGatewayDefaultRouteTableAssociation` argument of the `ec2transitgateway.VpcAttachment` resource should be used.
+	ReplaceExistingAssociation *bool `pulumi:"replaceExistingAssociation"`
 	// Identifier of the resource
 	ResourceId *string `pulumi:"resourceId"`
 	// Type of the resource
@@ -108,6 +112,8 @@ type routeTableAssociationState struct {
 }
 
 type RouteTableAssociationState struct {
+	// Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transitGatewayDefaultRouteTableAssociation` argument of the `ec2transitgateway.VpcAttachment` resource should be used.
+	ReplaceExistingAssociation pulumi.BoolPtrInput
 	// Identifier of the resource
 	ResourceId pulumi.StringPtrInput
 	// Type of the resource
@@ -123,6 +129,8 @@ func (RouteTableAssociationState) ElementType() reflect.Type {
 }
 
 type routeTableAssociationArgs struct {
+	// Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transitGatewayDefaultRouteTableAssociation` argument of the `ec2transitgateway.VpcAttachment` resource should be used.
+	ReplaceExistingAssociation *bool `pulumi:"replaceExistingAssociation"`
 	// Identifier of EC2 Transit Gateway Attachment.
 	TransitGatewayAttachmentId string `pulumi:"transitGatewayAttachmentId"`
 	// Identifier of EC2 Transit Gateway Route Table.
@@ -131,6 +139,8 @@ type routeTableAssociationArgs struct {
 
 // The set of arguments for constructing a RouteTableAssociation resource.
 type RouteTableAssociationArgs struct {
+	// Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transitGatewayDefaultRouteTableAssociation` argument of the `ec2transitgateway.VpcAttachment` resource should be used.
+	ReplaceExistingAssociation pulumi.BoolPtrInput
 	// Identifier of EC2 Transit Gateway Attachment.
 	TransitGatewayAttachmentId pulumi.StringInput
 	// Identifier of EC2 Transit Gateway Route Table.
@@ -222,6 +232,11 @@ func (o RouteTableAssociationOutput) ToRouteTableAssociationOutput() RouteTableA
 
 func (o RouteTableAssociationOutput) ToRouteTableAssociationOutputWithContext(ctx context.Context) RouteTableAssociationOutput {
 	return o
+}
+
+// Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transitGatewayDefaultRouteTableAssociation` argument of the `ec2transitgateway.VpcAttachment` resource should be used.
+func (o RouteTableAssociationOutput) ReplaceExistingAssociation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RouteTableAssociation) pulumi.BoolPtrOutput { return v.ReplaceExistingAssociation }).(pulumi.BoolPtrOutput)
 }
 
 // Identifier of the resource

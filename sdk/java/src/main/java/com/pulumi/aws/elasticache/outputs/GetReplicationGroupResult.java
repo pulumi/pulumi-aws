@@ -74,15 +74,6 @@ public final class GetReplicationGroupResult {
      */
     private Integer numNodeGroups;
     /**
-     * @return (**Deprecated** use `num_cache_clusters` instead) Number of cache clusters that the replication group has.
-     * 
-     * @deprecated
-     * Use num_cache_clusters instead
-     * 
-     */
-    @Deprecated /* Use num_cache_clusters instead */
-    private Integer numberCacheClusters;
-    /**
      * @return The port number on which the configuration endpoint will accept connections.
      * 
      */
@@ -102,15 +93,6 @@ public final class GetReplicationGroupResult {
      * 
      */
     private Integer replicasPerNodeGroup;
-    /**
-     * @return (**Deprecated** use `description` instead) Description of the replication group.
-     * 
-     * @deprecated
-     * Use description instead
-     * 
-     */
-    @Deprecated /* Use description instead */
-    private String replicationGroupDescription;
     private String replicationGroupId;
     /**
      * @return The number of days for which ElastiCache retains automatic cache cluster snapshots before deleting them.
@@ -209,17 +191,6 @@ public final class GetReplicationGroupResult {
         return this.numNodeGroups;
     }
     /**
-     * @return (**Deprecated** use `num_cache_clusters` instead) Number of cache clusters that the replication group has.
-     * 
-     * @deprecated
-     * Use num_cache_clusters instead
-     * 
-     */
-    @Deprecated /* Use num_cache_clusters instead */
-    public Integer numberCacheClusters() {
-        return this.numberCacheClusters;
-    }
-    /**
      * @return The port number on which the configuration endpoint will accept connections.
      * 
      */
@@ -246,17 +217,6 @@ public final class GetReplicationGroupResult {
      */
     public Integer replicasPerNodeGroup() {
         return this.replicasPerNodeGroup;
-    }
-    /**
-     * @return (**Deprecated** use `description` instead) Description of the replication group.
-     * 
-     * @deprecated
-     * Use description instead
-     * 
-     */
-    @Deprecated /* Use description instead */
-    public String replicationGroupDescription() {
-        return this.replicationGroupDescription;
     }
     public String replicationGroupId() {
         return this.replicationGroupId;
@@ -297,12 +257,10 @@ public final class GetReplicationGroupResult {
         private String nodeType;
         private Integer numCacheClusters;
         private Integer numNodeGroups;
-        private Integer numberCacheClusters;
         private Integer port;
         private String primaryEndpointAddress;
         private String readerEndpointAddress;
         private Integer replicasPerNodeGroup;
-        private String replicationGroupDescription;
         private String replicationGroupId;
         private Integer snapshotRetentionLimit;
         private String snapshotWindow;
@@ -321,12 +279,10 @@ public final class GetReplicationGroupResult {
     	      this.nodeType = defaults.nodeType;
     	      this.numCacheClusters = defaults.numCacheClusters;
     	      this.numNodeGroups = defaults.numNodeGroups;
-    	      this.numberCacheClusters = defaults.numberCacheClusters;
     	      this.port = defaults.port;
     	      this.primaryEndpointAddress = defaults.primaryEndpointAddress;
     	      this.readerEndpointAddress = defaults.readerEndpointAddress;
     	      this.replicasPerNodeGroup = defaults.replicasPerNodeGroup;
-    	      this.replicationGroupDescription = defaults.replicationGroupDescription;
     	      this.replicationGroupId = defaults.replicationGroupId;
     	      this.snapshotRetentionLimit = defaults.snapshotRetentionLimit;
     	      this.snapshotWindow = defaults.snapshotWindow;
@@ -399,11 +355,6 @@ public final class GetReplicationGroupResult {
             return this;
         }
         @CustomType.Setter
-        public Builder numberCacheClusters(Integer numberCacheClusters) {
-            this.numberCacheClusters = Objects.requireNonNull(numberCacheClusters);
-            return this;
-        }
-        @CustomType.Setter
         public Builder port(Integer port) {
             this.port = Objects.requireNonNull(port);
             return this;
@@ -421,11 +372,6 @@ public final class GetReplicationGroupResult {
         @CustomType.Setter
         public Builder replicasPerNodeGroup(Integer replicasPerNodeGroup) {
             this.replicasPerNodeGroup = Objects.requireNonNull(replicasPerNodeGroup);
-            return this;
-        }
-        @CustomType.Setter
-        public Builder replicationGroupDescription(String replicationGroupDescription) {
-            this.replicationGroupDescription = Objects.requireNonNull(replicationGroupDescription);
             return this;
         }
         @CustomType.Setter
@@ -457,12 +403,10 @@ public final class GetReplicationGroupResult {
             o.nodeType = nodeType;
             o.numCacheClusters = numCacheClusters;
             o.numNodeGroups = numNodeGroups;
-            o.numberCacheClusters = numberCacheClusters;
             o.port = port;
             o.primaryEndpointAddress = primaryEndpointAddress;
             o.readerEndpointAddress = readerEndpointAddress;
             o.replicasPerNodeGroup = replicasPerNodeGroup;
-            o.replicationGroupDescription = replicationGroupDescription;
             o.replicationGroupId = replicationGroupId;
             o.snapshotRetentionLimit = snapshotRetentionLimit;
             o.snapshotWindow = snapshotWindow;

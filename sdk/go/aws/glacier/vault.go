@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,9 +22,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/glacier"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glacier"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -84,13 +85,11 @@ import (
 //
 // ## Import
 //
-// Glacier Vaults can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_glacier_vault.archive
 //
-//	$ pulumi import aws:glacier/vault:Vault archive my_archive
-//
-// ```
+//	id = "my_archive" } Using `pulumi import`, import Glacier Vaults using the `name`. For exampleconsole % pulumi import aws_glacier_vault.archive my_archive
 type Vault struct {
 	pulumi.CustomResourceState
 
@@ -118,6 +117,7 @@ func NewVault(ctx *pulumi.Context,
 		args = &VaultArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Vault
 	err := ctx.RegisterResource("aws:glacier/vault:Vault", name, args, &resource, opts...)
 	if err != nil {

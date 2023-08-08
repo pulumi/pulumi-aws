@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -47,13 +48,11 @@ import (
 //
 // ## Import
 //
-// # EventBridge API Destinations can be imported using the `name`, e.g., console
+// terraform import {
 //
-// ```sh
+//	to = aws_cloudwatch_event_api_destination.test
 //
-//	$ pulumi import aws:cloudwatch/eventApiDestination:EventApiDestination test api-destination
-//
-// ```
+//	id = "api-destination" } Using `pulumi import`, import EventBridge API Destinations using the `name`. For exampleconsole % pulumi import aws_cloudwatch_event_api_destination.test api-destination
 type EventApiDestination struct {
 	pulumi.CustomResourceState
 
@@ -89,6 +88,7 @@ func NewEventApiDestination(ctx *pulumi.Context,
 	if args.InvocationEndpoint == nil {
 		return nil, errors.New("invalid value for required argument 'InvocationEndpoint'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EventApiDestination
 	err := ctx.RegisterResource("aws:cloudwatch/eventApiDestination:EventApiDestination", name, args, &resource, opts...)
 	if err != nil {

@@ -172,13 +172,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_api_gateway_deployment` can be imported using `REST-API-ID/DEPLOYMENT-ID`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:apigateway/deployment:Deployment example aabbccddee/1122334
- * ```
+ *  to = aws_api_gateway_deployment.example
  * 
- *  The `stage_name`, `stage_description`, and `variables` arguments cannot be imported. Use the `aws_api_gateway_stage` resource to import and manage stages. The `triggers` argument cannot be imported.
+ *  id = &#34;aabbccddee/1122334&#34; } Using `pulumi import`, import `aws_api_gateway_deployment` using `REST-API-ID/DEPLOYMENT-ID`. For exampleconsole % pulumi import aws_api_gateway_deployment.example aabbccddee/1122334 The `stage_name`, `stage_description`, and `variables` arguments cannot be imported. Use the `aws_api_gateway_stage` resource to import and manage stages. The `triggers` argument cannot be imported.
  * 
  */
 @ResourceType(type="aws:apigateway/deployment:Deployment")

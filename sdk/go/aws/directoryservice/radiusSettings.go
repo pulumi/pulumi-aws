@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directoryservice"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directoryservice"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -50,13 +51,11 @@ import (
 //
 // ## Import
 //
-// RADIUS settings can be imported using the directory ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_directory_service_radius_settings.example
 //
-//	$ pulumi import aws:directoryservice/radiusSettings:RadiusSettings example d-926724cf57
-//
-// ```
+//	id = "d-926724cf57" } Using `pulumi import`, import RADIUS settings using the directory ID. For exampleconsole % pulumi import aws_directory_service_radius_settings.example d-926724cf57
 type RadiusSettings struct {
 	pulumi.CustomResourceState
 
@@ -118,6 +117,7 @@ func NewRadiusSettings(ctx *pulumi.Context,
 		"sharedSecret",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RadiusSettings
 	err := ctx.RegisterResource("aws:directoryservice/radiusSettings:RadiusSettings", name, args, &resource, opts...)
 	if err != nil {

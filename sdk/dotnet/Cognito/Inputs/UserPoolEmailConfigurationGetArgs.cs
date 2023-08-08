@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Cognito.Inputs
         public Input<string>? ConfigurationSet { get; set; }
 
         /// <summary>
-        /// Email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration.
+        /// Email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration. Required to be `DEVELOPER` if `from_email_address` is set.
         /// </summary>
         [Input("emailSendingAccount")]
         public Input<string>? EmailSendingAccount { get; set; }

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kendra"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kendra"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -49,13 +50,11 @@ import (
 //
 // ## Import
 //
-// `aws_kendra_thesaurus` can be imported using the unique identifiers of the thesaurus and index separated by a slash (`/`), e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_kendra_thesaurus.example
 //
-//	$ pulumi import aws:kendra/thesaurus:Thesaurus example thesaurus-123456780/idx-8012925589
-//
-// ```
+//	id = "thesaurus-123456780/idx-8012925589" } Using `pulumi import`, import `aws_kendra_thesaurus` using the unique identifiers of the thesaurus and index separated by a slash (`/`). For exampleconsole % pulumi import aws_kendra_thesaurus.example thesaurus-123456780/idx-8012925589
 type Thesaurus struct {
 	pulumi.CustomResourceState
 
@@ -98,6 +97,7 @@ func NewThesaurus(ctx *pulumi.Context,
 	if args.SourceS3Path == nil {
 		return nil, errors.New("invalid value for required argument 'SourceS3Path'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Thesaurus
 	err := ctx.RegisterResource("aws:kendra/thesaurus:Thesaurus", name, args, &resource, opts...)
 	if err != nil {

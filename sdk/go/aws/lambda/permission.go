@@ -8,12 +8,14 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Gives an external source (like an EventBridge Rule, SNS, or S3) permission to access the Lambda function.
 //
 // ## Example Usage
+// ### Basic Usage
 //
 // ```go
 // package main
@@ -22,8 +24,8 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -85,7 +87,7 @@ import (
 //	}
 //
 // ```
-// ## Usage with SNS
+// ### With SNS
 //
 // ```go
 // package main
@@ -94,9 +96,9 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -161,8 +163,7 @@ import (
 //	}
 //
 // ```
-//
-// ## Specify Lambda permissions for API Gateway REST API
+// ### With API Gateway REST API
 //
 // ```go
 // package main
@@ -171,8 +172,8 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -201,8 +202,7 @@ import (
 //	}
 //
 // ```
-//
-// ## Usage with CloudWatch log group
+// ### With CloudWatch Log Group
 //
 // ```go
 // package main
@@ -211,9 +211,9 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -286,15 +286,14 @@ import (
 //	}
 //
 // ```
-//
-// ## Example function URL cross-account invoke policy
+// ### With Cross-Account Invocation Policy
 //
 // ```go
 // package main
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -323,22 +322,48 @@ import (
 //	}
 //
 // ```
+// ### With `replaceTriggeredBy` Lifecycle Configuration
+//
+// If omitting the `qualifier` argument (which forces re-creation each time a function version is published), a `lifecycle` block can be used to ensure permissions are re-applied on any change to the underlying function.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lambda.NewPermission(ctx, "logging", &lambda.PermissionArgs{
+//				Action:    pulumi.String("lambda:InvokeFunction"),
+//				Function:  pulumi.Any(aws_lambda_function.Example.Function_name),
+//				Principal: pulumi.String("events.amazonaws.com"),
+//				SourceArn: pulumi.String("arn:aws:events:eu-west-1:111122223333:rule/RunDaily"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //
-// Lambda permission statements can be imported using function_name/statement_id, with an optional qualifier, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_lambda_permission.test_lambda_permission
 //
-//	$ pulumi import aws:lambda/permission:Permission test_lambda_permission my_test_lambda_function/AllowExecutionFromCloudWatch
+//	id = "my_test_lambda_function/AllowExecutionFromCloudWatch" } terraform import {
 //
-// ```
+//	to = aws_lambda_permission.test_lambda_permission
 //
-// ```sh
-//
-//	$ pulumi import aws:lambda/permission:Permission test_lambda_permission my_test_lambda_function:qualifier_name/AllowExecutionFromCloudWatch
-//
-// ```
+//	id = "my_test_lambda_function:qualifier_name/AllowExecutionFromCloudWatch" } Using `pulumi import`, import Lambda permission statements using function_name/statement_id with an optional qualifier. For exampleconsole % pulumi import aws_lambda_permission.test_lambda_permission my_test_lambda_function/AllowExecutionFromCloudWatch console % pulumi import aws_lambda_permission.test_lambda_permission my_test_lambda_function:qualifier_name/AllowExecutionFromCloudWatch
 type Permission struct {
 	pulumi.CustomResourceState
 
@@ -390,6 +415,7 @@ func NewPermission(ctx *pulumi.Context,
 	if args.Principal == nil {
 		return nil, errors.New("invalid value for required argument 'Principal'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Permission
 	err := ctx.RegisterResource("aws:lambda/permission:Permission", name, args, &resource, opts...)
 	if err != nil {

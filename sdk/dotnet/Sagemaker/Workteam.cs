@@ -79,11 +79,11 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Import
     /// 
-    /// SageMaker Workteams can be imported using the `workteam_name`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:sagemaker/workteam:Workteam example example
-    /// ```
+    ///  to = aws_sagemaker_workteam.example
+    /// 
+    ///  id = "example" } Using `pulumi import`, import SageMaker Workteams using the `workteam_name`. For exampleconsole % pulumi import aws_sagemaker_workteam.example example
     /// </summary>
     [AwsResourceType("aws:sagemaker/workteam:Workteam")]
     public partial class Workteam : global::Pulumi.CustomResource

@@ -75,11 +75,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * OpenSearch domains can be imported using the `domain_name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:opensearch/domainSamlOptions:DomainSamlOptions example domain_name
- * ```
+ *  to = aws_opensearch_domain_saml_options.example
+ * 
+ *  id = &#34;domain_name&#34; } Using `pulumi import`, import OpenSearch domains using the `domain_name`. For exampleconsole % pulumi import aws_opensearch_domain_saml_options.example domain_name
  * 
  */
 @ResourceType(type="aws:opensearch/domainSamlOptions:DomainSamlOptions")

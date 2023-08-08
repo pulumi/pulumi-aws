@@ -19,11 +19,6 @@ import javax.annotation.Nullable;
 /**
  * Manages an EKS add-on.
  * 
- * &gt; **Note:** Amazon EKS add-on can only be used with Amazon EKS Clusters
- * running version 1.18 with platform version eks.3 or later
- * because add-ons rely on the Server-side Apply Kubernetes feature,
- * which is only available in Kubernetes 1.18 and later.
- * 
  * ## Example Usage
  * ```java
  * package generated_program;
@@ -54,11 +49,9 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ## Example Update add-on usage with resolve_conflicts and PRESERVE
+ * ## Example Update add-on usage with resolve_conflicts_on_update and PRESERVE
  * 
- * `resolve_conflicts` with `PRESERVE` can be used to retain the config changes applied to the add-on with kubectl while upgrading to a newer version of the add-on.
- * 
- * &gt; **Note:** `resolve_conflicts` with `PRESERVE` can only be used for upgrading the add-ons but not during the creation of add-on.
+ * `resolve_conflicts_on_update` with `PRESERVE` can be used to retain the config changes applied to the add-on with kubectl while upgrading to a newer version of the add-on.
  * ```java
  * package generated_program;
  * 
@@ -83,8 +76,8 @@ import javax.annotation.Nullable;
  *         var example = new Addon(&#34;example&#34;, AddonArgs.builder()        
  *             .clusterName(aws_eks_cluster.example().name())
  *             .addonName(&#34;coredns&#34;)
- *             .addonVersion(&#34;v1.8.7-eksbuild.3&#34;)
- *             .resolveConflicts(&#34;PRESERVE&#34;)
+ *             .addonVersion(&#34;v1.10.1-eksbuild.1&#34;)
+ *             .resolveConflictsOnUpdate(&#34;PRESERVE&#34;)
  *             .build());
  * 
  *     }
@@ -131,6 +124,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.eks.Addon;
  * import com.pulumi.aws.eks.AddonArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -145,11 +139,24 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Addon(&#34;example&#34;, AddonArgs.builder()        
- *             .addonName(&#34;coredns&#34;)
- *             .addonVersion(&#34;v1.8.7-eksbuild.3&#34;)
  *             .clusterName(&#34;mycluster&#34;)
- *             .configurationValues(&#34;{\&#34;replicaCount\&#34;:4,\&#34;resources\&#34;:{\&#34;limits\&#34;:{\&#34;cpu\&#34;:\&#34;100m\&#34;,\&#34;memory\&#34;:\&#34;150Mi\&#34;},\&#34;requests\&#34;:{\&#34;cpu\&#34;:\&#34;100m\&#34;,\&#34;memory\&#34;:\&#34;150Mi\&#34;}}}&#34;)
- *             .resolveConflicts(&#34;OVERWRITE&#34;)
+ *             .addonName(&#34;coredns&#34;)
+ *             .addonVersion(&#34;v1.10.1-eksbuild.1&#34;)
+ *             .resolveConflictsOnCreate(&#34;OVERWRITE&#34;)
+ *             .configurationValues(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty(&#34;replicaCount&#34;, 4),
+ *                     jsonProperty(&#34;resources&#34;, jsonObject(
+ *                         jsonProperty(&#34;limits&#34;, jsonObject(
+ *                             jsonProperty(&#34;cpu&#34;, &#34;100m&#34;),
+ *                             jsonProperty(&#34;memory&#34;, &#34;150Mi&#34;)
+ *                         )),
+ *                         jsonProperty(&#34;requests&#34;, jsonObject(
+ *                             jsonProperty(&#34;cpu&#34;, &#34;100m&#34;),
+ *                             jsonProperty(&#34;memory&#34;, &#34;150Mi&#34;)
+ *                         ))
+ *                     ))
+ *                 )))
  *             .build());
  * 
  *     }
@@ -158,11 +165,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * EKS add-on can be imported using the `cluster_name` and `addon_name` separated by a colon (`:`), e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:eks/addon:Addon my_eks_addon my_cluster_name:my_addon_name
- * ```
+ *  to = aws_eks_addon.my_eks_addon
+ * 
+ *  id = &#34;my_cluster_name:my_addon_name&#34; } Using `pulumi import`, import EKS add-on using the `cluster_name` and `addon_name` separated by a colon (`:`). For exampleconsole % pulumi import aws_eks_addon.my_eks_addon my_cluster_name:my_addon_name
  * 
  */
 @ResourceType(type="aws:eks/addon:Addon")
@@ -288,22 +295,50 @@ public class Addon extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.preserve);
     }
     /**
-     * Define how to resolve parameter value conflicts
-     * when migrating an existing add-on to an Amazon EKS add-on or when applying
-     * version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
+     * Define how to resolve parameter value conflicts when migrating an existing add-on to an Amazon EKS add-on or when applying version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. Note that `PRESERVE` is only valid on addon update, not for initial addon creation. If you need to set this to `PRESERVE`, use the `resolve_conflicts_on_create` and `resolve_conflicts_on_update` attributes instead. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
+     * 
+     * @deprecated
+     * The &#34;resolve_conflicts&#34; attribute can&#39;t be set to &#34;PRESERVE&#34; on initial resource creation. Use &#34;resolve_conflicts_on_create&#34; and/or &#34;resolve_conflicts_on_update&#34; instead
      * 
      */
+    @Deprecated /* The ""resolve_conflicts"" attribute can't be set to ""PRESERVE"" on initial resource creation. Use ""resolve_conflicts_on_create"" and/or ""resolve_conflicts_on_update"" instead */
     @Export(name="resolveConflicts", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> resolveConflicts;
 
     /**
-     * @return Define how to resolve parameter value conflicts
-     * when migrating an existing add-on to an Amazon EKS add-on or when applying
-     * version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
+     * @return Define how to resolve parameter value conflicts when migrating an existing add-on to an Amazon EKS add-on or when applying version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. Note that `PRESERVE` is only valid on addon update, not for initial addon creation. If you need to set this to `PRESERVE`, use the `resolve_conflicts_on_create` and `resolve_conflicts_on_update` attributes instead. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
      * 
      */
     public Output<Optional<String>> resolveConflicts() {
         return Codegen.optional(this.resolveConflicts);
+    }
+    /**
+     * How to resolve field value conflicts when migrating a self-managed add-on to an Amazon EKS add-on. Valid values are `NONE` and `OVERWRITE`. For more details see the [CreateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_CreateAddon.html) API Docs.
+     * 
+     */
+    @Export(name="resolveConflictsOnCreate", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> resolveConflictsOnCreate;
+
+    /**
+     * @return How to resolve field value conflicts when migrating a self-managed add-on to an Amazon EKS add-on. Valid values are `NONE` and `OVERWRITE`. For more details see the [CreateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_CreateAddon.html) API Docs.
+     * 
+     */
+    public Output<Optional<String>> resolveConflictsOnCreate() {
+        return Codegen.optional(this.resolveConflictsOnCreate);
+    }
+    /**
+     * How to resolve field value conflicts for an Amazon EKS add-on if you&#39;ve changed a value from the Amazon EKS default value. Valid values are `NONE`, `OVERWRITE`, and `PRESERVE`. For more details see the [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
+     * 
+     */
+    @Export(name="resolveConflictsOnUpdate", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> resolveConflictsOnUpdate;
+
+    /**
+     * @return How to resolve field value conflicts for an Amazon EKS add-on if you&#39;ve changed a value from the Amazon EKS default value. Valid values are `NONE`, `OVERWRITE`, and `PRESERVE`. For more details see the [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
+     * 
+     */
+    public Output<Optional<String>> resolveConflictsOnUpdate() {
+        return Codegen.optional(this.resolveConflictsOnUpdate);
     }
     /**
      * The Amazon Resource Name (ARN) of an

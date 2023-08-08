@@ -8,12 +8,15 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Provides a Lambda Layer Version Permission resource. It allows you to share you own Lambda Layers to another account by account ID, to all accounts in AWS organization or even to all AWS accounts.
 //
 // For information about Lambda Layer Permissions and how to use them, see [Using Resource-based Policies for AWS Lambda][1]
+//
+// > **NOTE:** Setting `skipDestroy` to `true` means that the AWS Provider will _not_ destroy any layer version permission, even when running `pulumi destroy`. Layer version permissions are thus intentional dangling resources that are _not_ managed by Pulumi and may incur extra expense in your AWS account.
 //
 // ## Example Usage
 //
@@ -22,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -47,15 +50,11 @@ import (
 //
 // ## Import
 //
-// Lambda Layer Permissions can be imported using `layer_name` and `version_number`, separated by a comma (`,`).
+// terraform import {
 //
-// ```sh
+//	to = aws_lambda_layer_version_permission.example
 //
-//	$ pulumi import aws:lambda/layerVersionPermission:LayerVersionPermission example arn:aws:lambda:us-west-2:123456654321:layer:test_layer1,1
-//
-// ```
-//
-//	[1]https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html#permissions-resource-xaccountlayer
+//	id = "arn:aws:lambda:us-west-2:123456654321:layer:test_layer1,1" } Using `pulumi import`, import Lambda Layer Permissions using `layer_name` and `version_number`, separated by a comma (`,`). For exampleconsole % pulumi import aws_lambda_layer_version_permission.example arn:aws:lambda:us-west-2:123456654321:layer:test_layer1,1 [1]https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html#permissions-resource-xaccountlayer
 type LayerVersionPermission struct {
 	pulumi.CustomResourceState
 
@@ -71,6 +70,8 @@ type LayerVersionPermission struct {
 	Principal pulumi.StringOutput `pulumi:"principal"`
 	// A unique identifier for the current revision of the policy.
 	RevisionId pulumi.StringOutput `pulumi:"revisionId"`
+	// Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatibleArchitectures`, `compatibleRuntimes`, `description`, `filename`, `layerName`, `licenseInfo`, `s3Bucket`, `s3Key`, `s3ObjectVersion`, or `sourceCodeHash` forces deletion of the existing layer version and creation of a new layer version.
+	SkipDestroy pulumi.BoolPtrOutput `pulumi:"skipDestroy"`
 	// The name of Lambda Layer Permission, for example `dev-account` - human readable note about what is this permission for.
 	StatementId pulumi.StringOutput `pulumi:"statementId"`
 	// Version of Lambda Layer, which you want to grant access to. Note: permissions only apply to a single version of a layer.
@@ -99,6 +100,7 @@ func NewLayerVersionPermission(ctx *pulumi.Context,
 	if args.VersionNumber == nil {
 		return nil, errors.New("invalid value for required argument 'VersionNumber'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LayerVersionPermission
 	err := ctx.RegisterResource("aws:lambda/layerVersionPermission:LayerVersionPermission", name, args, &resource, opts...)
 	if err != nil {
@@ -133,6 +135,8 @@ type layerVersionPermissionState struct {
 	Principal *string `pulumi:"principal"`
 	// A unique identifier for the current revision of the policy.
 	RevisionId *string `pulumi:"revisionId"`
+	// Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatibleArchitectures`, `compatibleRuntimes`, `description`, `filename`, `layerName`, `licenseInfo`, `s3Bucket`, `s3Key`, `s3ObjectVersion`, or `sourceCodeHash` forces deletion of the existing layer version and creation of a new layer version.
+	SkipDestroy *bool `pulumi:"skipDestroy"`
 	// The name of Lambda Layer Permission, for example `dev-account` - human readable note about what is this permission for.
 	StatementId *string `pulumi:"statementId"`
 	// Version of Lambda Layer, which you want to grant access to. Note: permissions only apply to a single version of a layer.
@@ -152,6 +156,8 @@ type LayerVersionPermissionState struct {
 	Principal pulumi.StringPtrInput
 	// A unique identifier for the current revision of the policy.
 	RevisionId pulumi.StringPtrInput
+	// Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatibleArchitectures`, `compatibleRuntimes`, `description`, `filename`, `layerName`, `licenseInfo`, `s3Bucket`, `s3Key`, `s3ObjectVersion`, or `sourceCodeHash` forces deletion of the existing layer version and creation of a new layer version.
+	SkipDestroy pulumi.BoolPtrInput
 	// The name of Lambda Layer Permission, for example `dev-account` - human readable note about what is this permission for.
 	StatementId pulumi.StringPtrInput
 	// Version of Lambda Layer, which you want to grant access to. Note: permissions only apply to a single version of a layer.
@@ -171,6 +177,8 @@ type layerVersionPermissionArgs struct {
 	OrganizationId *string `pulumi:"organizationId"`
 	// AWS account ID which should be able to use your Lambda Layer. `*` can be used here, if you want to share your Lambda Layer widely.
 	Principal string `pulumi:"principal"`
+	// Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatibleArchitectures`, `compatibleRuntimes`, `description`, `filename`, `layerName`, `licenseInfo`, `s3Bucket`, `s3Key`, `s3ObjectVersion`, or `sourceCodeHash` forces deletion of the existing layer version and creation of a new layer version.
+	SkipDestroy *bool `pulumi:"skipDestroy"`
 	// The name of Lambda Layer Permission, for example `dev-account` - human readable note about what is this permission for.
 	StatementId string `pulumi:"statementId"`
 	// Version of Lambda Layer, which you want to grant access to. Note: permissions only apply to a single version of a layer.
@@ -187,6 +195,8 @@ type LayerVersionPermissionArgs struct {
 	OrganizationId pulumi.StringPtrInput
 	// AWS account ID which should be able to use your Lambda Layer. `*` can be used here, if you want to share your Lambda Layer widely.
 	Principal pulumi.StringInput
+	// Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatibleArchitectures`, `compatibleRuntimes`, `description`, `filename`, `layerName`, `licenseInfo`, `s3Bucket`, `s3Key`, `s3ObjectVersion`, or `sourceCodeHash` forces deletion of the existing layer version and creation of a new layer version.
+	SkipDestroy pulumi.BoolPtrInput
 	// The name of Lambda Layer Permission, for example `dev-account` - human readable note about what is this permission for.
 	StatementId pulumi.StringInput
 	// Version of Lambda Layer, which you want to grant access to. Note: permissions only apply to a single version of a layer.
@@ -308,6 +318,11 @@ func (o LayerVersionPermissionOutput) Principal() pulumi.StringOutput {
 // A unique identifier for the current revision of the policy.
 func (o LayerVersionPermissionOutput) RevisionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LayerVersionPermission) pulumi.StringOutput { return v.RevisionId }).(pulumi.StringOutput)
+}
+
+// Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatibleArchitectures`, `compatibleRuntimes`, `description`, `filename`, `layerName`, `licenseInfo`, `s3Bucket`, `s3Key`, `s3ObjectVersion`, or `sourceCodeHash` forces deletion of the existing layer version and creation of a new layer version.
+func (o LayerVersionPermissionOutput) SkipDestroy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LayerVersionPermission) pulumi.BoolPtrOutput { return v.SkipDestroy }).(pulumi.BoolPtrOutput)
 }
 
 // The name of Lambda Layer Permission, for example `dev-account` - human readable note about what is this permission for.

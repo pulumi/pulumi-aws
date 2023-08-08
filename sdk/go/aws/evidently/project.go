@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/evidently"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/evidently"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -48,7 +49,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/evidently"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/evidently"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -81,7 +82,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/evidently"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/evidently"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -111,13 +112,11 @@ import (
 //
 // ## Import
 //
-// CloudWatch Evidently Project can be imported using the `arn`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_evidently_project.example
 //
-//	$ pulumi import aws:evidently/project:Project example arn:aws:evidently:us-east-1:123456789012:segment/example
-//
-// ```
+//	id = "arn:aws:evidently:us-east-1:123456789012:segment/example" } Using `pulumi import`, import CloudWatch Evidently Project using the `arn`. For exampleconsole % pulumi import aws_evidently_project.example arn:aws:evidently:us-east-1:123456789012:segment/example
 type Project struct {
 	pulumi.CustomResourceState
 
@@ -158,6 +157,7 @@ func NewProject(ctx *pulumi.Context,
 		args = &ProjectArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Project
 	err := ctx.RegisterResource("aws:evidently/project:Project", name, args, &resource, opts...)
 	if err != nil {

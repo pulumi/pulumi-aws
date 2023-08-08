@@ -15,6 +15,7 @@ import com.pulumi.aws.opensearch.outputs.DomainEbsOptions;
 import com.pulumi.aws.opensearch.outputs.DomainEncryptAtRest;
 import com.pulumi.aws.opensearch.outputs.DomainLogPublishingOption;
 import com.pulumi.aws.opensearch.outputs.DomainNodeToNodeEncryption;
+import com.pulumi.aws.opensearch.outputs.DomainOffPeakWindowOptions;
 import com.pulumi.aws.opensearch.outputs.DomainSnapshotOptions;
 import com.pulumi.aws.opensearch.outputs.DomainVpcOptions;
 import com.pulumi.core.Output;
@@ -93,6 +94,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.AwsFunctions;
  * import com.pulumi.aws.inputs.GetRegionArgs;
+ * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.opensearch.Domain;
@@ -209,9 +211,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ec2.Ec2Functions;
  * import com.pulumi.aws.ec2.inputs.GetVpcArgs;
- * import com.pulumi.aws.ec2.inputs.GetSubnetIdsArgs;
+ * import com.pulumi.aws.ec2.inputs.GetSubnetsArgs;
  * import com.pulumi.aws.AwsFunctions;
  * import com.pulumi.aws.inputs.GetRegionArgs;
+ * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
  * import com.pulumi.aws.ec2.SecurityGroup;
  * import com.pulumi.aws.ec2.SecurityGroupArgs;
  * import com.pulumi.aws.ec2.inputs.SecurityGroupIngressArgs;
@@ -244,8 +247,11 @@ import javax.annotation.Nullable;
  *             .tags(Map.of(&#34;Name&#34;, vpc))
  *             .build());
  * 
- *         final var exampleSubnetIds = Ec2Functions.getSubnetIds(GetSubnetIdsArgs.builder()
- *             .vpcId(exampleVpc.applyValue(getVpcResult -&gt; getVpcResult.id()))
+ *         final var exampleSubnets = Ec2Functions.getSubnets(GetSubnetsArgs.builder()
+ *             .filters(GetSubnetsFilterArgs.builder()
+ *                 .name(&#34;vpc-id&#34;)
+ *                 .values(exampleVpc.applyValue(getVpcResult -&gt; getVpcResult.id()))
+ *                 .build())
  *             .tags(Map.of(&#34;Tier&#34;, &#34;private&#34;))
  *             .build());
  * 
@@ -288,8 +294,8 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .vpcOptions(DomainVpcOptionsArgs.builder()
  *                 .subnetIds(                
- *                     exampleSubnetIds.applyValue(getSubnetIdsResult -&gt; getSubnetIdsResult.ids()[0]),
- *                     exampleSubnetIds.applyValue(getSubnetIdsResult -&gt; getSubnetIdsResult.ids()[1]))
+ *                     exampleSubnets.applyValue(getSubnetsResult -&gt; getSubnetsResult.ids()[0]),
+ *                     exampleSubnets.applyValue(getSubnetsResult -&gt; getSubnetsResult.ids()[1]))
  *                 .securityGroupIds(exampleSecurityGroup.id())
  *                 .build())
  *             .advancedOptions(Map.of(&#34;rest.action.multi.allow_explicit_index&#34;, &#34;true&#34;))
@@ -434,11 +440,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * OpenSearch domains can be imported using the `domain_name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:opensearch/domain:Domain example domain_name
- * ```
+ *  to = aws_opensearch_domain.example
+ * 
+ *  id = &#34;domain_name&#34; } Using `pulumi import`, import OpenSearch domains using the `domain_name`. For exampleconsole % pulumi import aws_opensearch_domain.example domain_name
  * 
  */
 @ResourceType(type="aws:opensearch/domain:Domain")
@@ -644,28 +650,36 @@ public class Domain extends com.pulumi.resources.CustomResource {
         return this.endpoint;
     }
     /**
-     * Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`. See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains). Defaults to `OpenSearch_1.1`.
+     * Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`.
+     * See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).
+     * Defaults to the lastest version of OpenSearch.
      * 
      */
     @Export(name="engineVersion", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> engineVersion;
+    private Output<String> engineVersion;
 
     /**
-     * @return Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`. See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains). Defaults to `OpenSearch_1.1`.
+     * @return Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`.
+     * See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).
+     * Defaults to the lastest version of OpenSearch.
      * 
      */
-    public Output<Optional<String>> engineVersion() {
-        return Codegen.optional(this.engineVersion);
+    public Output<String> engineVersion() {
+        return this.engineVersion;
     }
     /**
-     * Domain-specific endpoint for kibana without https scheme. OpenSearch Dashboards do not use Kibana, so this attribute will be **DEPRECATED** in a future version.
+     * (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.
+     * 
+     * @deprecated
+     * use &#39;dashboard_endpoint&#39; attribute instead
      * 
      */
+    @Deprecated /* use 'dashboard_endpoint' attribute instead */
     @Export(name="kibanaEndpoint", refs={String.class}, tree="[0]")
     private Output<String> kibanaEndpoint;
 
     /**
-     * @return Domain-specific endpoint for kibana without https scheme. OpenSearch Dashboards do not use Kibana, so this attribute will be **DEPRECATED** in a future version.
+     * @return (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.
      * 
      */
     public Output<String> kibanaEndpoint() {
@@ -698,6 +712,20 @@ public class Domain extends com.pulumi.resources.CustomResource {
      */
     public Output<DomainNodeToNodeEncryption> nodeToNodeEncryption() {
         return this.nodeToNodeEncryption;
+    }
+    /**
+     * Configuration to add Off Peak update options. ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html)). Detailed below.
+     * 
+     */
+    @Export(name="offPeakWindowOptions", refs={DomainOffPeakWindowOptions.class}, tree="[0]")
+    private Output<DomainOffPeakWindowOptions> offPeakWindowOptions;
+
+    /**
+     * @return Configuration to add Off Peak update options. ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html)). Detailed below.
+     * 
+     */
+    public Output<DomainOffPeakWindowOptions> offPeakWindowOptions() {
+        return this.offPeakWindowOptions;
     }
     /**
      * Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.

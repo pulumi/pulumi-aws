@@ -193,11 +193,11 @@ class SamlProvider(pulumi.CustomResource):
 
         ## Import
 
-        IAM SAML Providers can be imported using the `arn`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:iam/samlProvider:SamlProvider default arn:aws:iam::123456789012:saml-provider/SAMLADFS
-        ```
+         to = aws_iam_saml_provider.default
+
+         id = "arn:aws:iam::123456789012:saml-provider/SAMLADFS" } Using `pulumi import`, import IAM SAML Providers using the `arn`. For exampleconsole % pulumi import aws_iam_saml_provider.default arn:aws:iam::123456789012:saml-provider/SAMLADFS
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -225,11 +225,11 @@ class SamlProvider(pulumi.CustomResource):
 
         ## Import
 
-        IAM SAML Providers can be imported using the `arn`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:iam/samlProvider:SamlProvider default arn:aws:iam::123456789012:saml-provider/SAMLADFS
-        ```
+         to = aws_iam_saml_provider.default
+
+         id = "arn:aws:iam::123456789012:saml-provider/SAMLADFS" } Using `pulumi import`, import IAM SAML Providers using the `arn`. For exampleconsole % pulumi import aws_iam_saml_provider.default arn:aws:iam::123456789012:saml-provider/SAMLADFS
 
         :param str resource_name: The name of the resource.
         :param SamlProviderArgs args: The arguments to use to populate this resource's properties.

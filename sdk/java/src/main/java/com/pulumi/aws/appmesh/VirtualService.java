@@ -101,11 +101,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * App Mesh virtual services can be imported using `mesh_name` together with the virtual service&#39;s `name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:appmesh/virtualService:VirtualService servicea simpleapp/servicea.simpleapp.local
- * ```
+ *  to = aws_appmesh_virtual_service.servicea
+ * 
+ *  id = &#34;simpleapp/servicea.simpleapp.local&#34; } Using `pulumi import`, import App Mesh virtual services using `mesh_name` together with the virtual service&#39;s `name`. For exampleconsole % pulumi import aws_appmesh_virtual_service.servicea simpleapp/servicea.simpleapp.local
  * 
  */
 @ResourceType(type="aws:appmesh/virtualService:VirtualService")

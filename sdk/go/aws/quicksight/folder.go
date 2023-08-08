@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/quicksight"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -46,7 +47,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/quicksight"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -86,7 +87,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/quicksight"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -114,13 +115,11 @@ import (
 //
 // ## Import
 //
-// A QuickSight folder can be imported using the AWS account ID and folder ID name separated by a comma (`,`) e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_quicksight_folder.example
 //
-//	$ pulumi import aws:quicksight/folder:Folder example 123456789012,example-id
-//
-// ```
+//	id = "123456789012,example-id" } Using `pulumi import`, import a QuickSight folder using the AWS account ID and folder ID name separated by a comma (`,`). For exampleconsole % pulumi import aws_quicksight_folder.example 123456789012,example-id
 type Folder struct {
 	pulumi.CustomResourceState
 
@@ -162,6 +161,7 @@ func NewFolder(ctx *pulumi.Context,
 	if args.FolderId == nil {
 		return nil, errors.New("invalid value for required argument 'FolderId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Folder
 	err := ctx.RegisterResource("aws:quicksight/folder:Folder", name, args, &resource, opts...)
 	if err != nil {

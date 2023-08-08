@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloud9"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloud9"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,13 +55,11 @@ import (
 //
 // ## Import
 //
-// Cloud9 environment membership can be imported using the `environment-id#user-arn`, e.g.
+// terraform import {
 //
-// ```sh
+//	to = aws_cloud9_environment_membership.test
 //
-//	$ pulumi import aws:cloud9/environmentMembership:EnvironmentMembership test environment-id#user-arn
-//
-// ```
+//	id = "environment-id#user-arn" } Using `pulumi import`, import Cloud9 environment membership using the `environment-id#user-arn`. For exampleconsole % pulumi import aws_cloud9_environment_membership.test environment-id#user-arn
 type EnvironmentMembership struct {
 	pulumi.CustomResourceState
 
@@ -90,6 +89,7 @@ func NewEnvironmentMembership(ctx *pulumi.Context,
 	if args.UserArn == nil {
 		return nil, errors.New("invalid value for required argument 'UserArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EnvironmentMembership
 	err := ctx.RegisterResource("aws:cloud9/environmentMembership:EnvironmentMembership", name, args, &resource, opts...)
 	if err != nil {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudfront"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -69,7 +70,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudfront"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -108,7 +109,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudfront"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -141,13 +142,11 @@ import (
 //
 // ## Import
 //
-// Cloudfront Response Headers Policies can be imported using the `id`, e.g.
+// terraform import {
 //
-// ```sh
+//	to = aws_cloudfront_response_headers_policy.policy
 //
-//	$ pulumi import aws:cloudfront/responseHeadersPolicy:ResponseHeadersPolicy policy 658327ea-f89d-4fab-a63d-7e88639e58f9
-//
-// ```
+//	id = "658327ea-f89d-4fab-a63d-7e88639e58f9" } Using `pulumi import`, import Cloudfront Response Headers Policies using the `id`. For exampleconsole % pulumi import aws_cloudfront_response_headers_policy.policy 658327ea-f89d-4fab-a63d-7e88639e58f9
 type ResponseHeadersPolicy struct {
 	pulumi.CustomResourceState
 
@@ -176,6 +175,7 @@ func NewResponseHeadersPolicy(ctx *pulumi.Context,
 		args = &ResponseHeadersPolicyArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResponseHeadersPolicy
 	err := ctx.RegisterResource("aws:cloudfront/responseHeadersPolicy:ResponseHeadersPolicy", name, args, &resource, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +24,7 @@ import (
 //
 //	"os"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/opensearch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opensearch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -74,13 +75,11 @@ import (
 //
 // ## Import
 //
-// OpenSearch domains can be imported using the `domain_name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_opensearch_domain_saml_options.example
 //
-//	$ pulumi import aws:opensearch/domainSamlOptions:DomainSamlOptions example domain_name
-//
-// ```
+//	id = "domain_name" } Using `pulumi import`, import OpenSearch domains using the `domain_name`. For exampleconsole % pulumi import aws_opensearch_domain_saml_options.example domain_name
 type DomainSamlOptions struct {
 	pulumi.CustomResourceState
 
@@ -102,6 +101,7 @@ func NewDomainSamlOptions(ctx *pulumi.Context,
 	if args.DomainName == nil {
 		return nil, errors.New("invalid value for required argument 'DomainName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DomainSamlOptions
 	err := ctx.RegisterResource("aws:opensearch/domainSamlOptions:DomainSamlOptions", name, args, &resource, opts...)
 	if err != nil {

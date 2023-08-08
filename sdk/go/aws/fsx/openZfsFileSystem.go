@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/fsx"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/fsx"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -47,15 +48,11 @@ import (
 //
 // ## Import
 //
-// FSx File Systems can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_fsx_openzfs_file_system.example
 //
-//	$ pulumi import aws:fsx/openZfsFileSystem:OpenZfsFileSystem example fs-543ab12b1ca672f33
-//
-// ```
-//
-//	Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the provider configuration on an imported resource, the provider will always show a difference. To workaround this behavior, either omit the argument from the provider configuration or use `ignore_changes` to hide the difference, e.g., terraform resource "aws_fsx_openzfs_file_system" "example" {
+//	id = "fs-543ab12b1ca672f33" } Using `pulumi import`, import FSx File Systems using the `id`. For exampleconsole % pulumi import aws_fsx_openzfs_file_system.example fs-543ab12b1ca672f33 Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the TODO configuration on an imported resource, TODO will always show a difference. To workaround this behavior, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For exampleterraform resource "aws_fsx_openzfs_file_system" "example" {
 //
 // # ... other configuration ...
 //
@@ -135,6 +132,7 @@ func NewOpenZfsFileSystem(ctx *pulumi.Context,
 	if args.ThroughputCapacity == nil {
 		return nil, errors.New("invalid value for required argument 'ThroughputCapacity'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OpenZfsFileSystem
 	err := ctx.RegisterResource("aws:fsx/openZfsFileSystem:OpenZfsFileSystem", name, args, &resource, opts...)
 	if err != nil {

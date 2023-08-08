@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/acmpca"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/acmpca"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -88,6 +89,7 @@ func NewPermission(ctx *pulumi.Context,
 	if args.Principal == nil {
 		return nil, errors.New("invalid value for required argument 'Principal'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Permission
 	err := ctx.RegisterResource("aws:acmpca/permission:Permission", name, args, &resource, opts...)
 	if err != nil {

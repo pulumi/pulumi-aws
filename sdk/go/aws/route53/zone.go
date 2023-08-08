@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -47,7 +48,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -92,7 +93,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -117,13 +118,11 @@ import (
 //
 // ## Import
 //
-// Route53 Zones can be imported using the `zone id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_route53_zone.myzone
 //
-//	$ pulumi import aws:route53/zone:Zone myzone Z1D633PJN98FT9
-//
-// ```
+//	id = "Z1D633PJN98FT9" } Using `pulumi import`, import Route53 Zones using the zone `id`. For exampleconsole % pulumi import aws_route53_zone.myzone Z1D633PJN98FT9
 type Zone struct {
 	pulumi.CustomResourceState
 
@@ -162,6 +161,7 @@ func NewZone(ctx *pulumi.Context,
 	if args.Comment == nil {
 		args.Comment = pulumi.StringPtr("Managed by Pulumi")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Zone
 	err := ctx.RegisterResource("aws:route53/zone:Zone", name, args, &resource, opts...)
 	if err != nil {

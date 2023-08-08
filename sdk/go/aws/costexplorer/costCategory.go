@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/costexplorer"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/costexplorer"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -85,13 +86,11 @@ import (
 //
 // ## Import
 //
-// `aws_ce_cost_category` can be imported using the id, e.g.
+// terraform import {
 //
-// ```sh
+//	to = aws_ce_cost_category.example
 //
-//	$ pulumi import aws:costexplorer/costCategory:CostCategory example costCategoryARN
-//
-// ```
+//	id = "costCategoryARN" } Using `pulumi import`, import `aws_ce_cost_category` using the id. For exampleconsole % pulumi import aws_ce_cost_category.example costCategoryARN
 type CostCategory struct {
 	pulumi.CustomResourceState
 
@@ -132,6 +131,7 @@ func NewCostCategory(ctx *pulumi.Context,
 	if args.Rules == nil {
 		return nil, errors.New("invalid value for required argument 'Rules'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CostCategory
 	err := ctx.RegisterResource("aws:costexplorer/costCategory:CostCategory", name, args, &resource, opts...)
 	if err != nil {

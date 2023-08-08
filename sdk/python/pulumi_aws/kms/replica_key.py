@@ -398,11 +398,11 @@ class ReplicaKey(pulumi.CustomResource):
 
         ## Import
 
-        KMS multi-Region replica keys can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:kms/replicaKey:ReplicaKey example 1234abcd-12ab-34cd-56ef-1234567890ab
-        ```
+         to = aws_kms_replica_key.example
+
+         id = "1234abcd-12ab-34cd-56ef-1234567890ab" } Using `pulumi import`, import KMS multi-Region replica keys using the `id`. For exampleconsole % pulumi import aws_kms_replica_key.example 1234abcd-12ab-34cd-56ef-1234567890ab
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -447,11 +447,11 @@ class ReplicaKey(pulumi.CustomResource):
 
         ## Import
 
-        KMS multi-Region replica keys can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:kms/replicaKey:ReplicaKey example 1234abcd-12ab-34cd-56ef-1234567890ab
-        ```
+         to = aws_kms_replica_key.example
+
+         id = "1234abcd-12ab-34cd-56ef-1234567890ab" } Using `pulumi import`, import KMS multi-Region replica keys using the `id`. For exampleconsole % pulumi import aws_kms_replica_key.example 1234abcd-12ab-34cd-56ef-1234567890ab
 
         :param str resource_name: The name of the resource.
         :param ReplicaKeyArgs args: The arguments to use to populate this resource's properties.

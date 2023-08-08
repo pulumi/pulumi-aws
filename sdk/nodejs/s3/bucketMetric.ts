@@ -41,11 +41,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * S3 bucket metric configurations can be imported using `bucket:metric`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:s3/bucketMetric:BucketMetric my-bucket-entire-bucket my-bucket:EntireBucket
- * ```
+ *  to = aws_s3_bucket_metric.my-bucket-entire-bucket
+ *
+ *  id = "my-bucket:EntireBucket" } Using `pulumi import`, import S3 bucket metric configurations using `bucket:metric`. For exampleconsole % pulumi import aws_s3_bucket_metric.my-bucket-entire-bucket my-bucket:EntireBucket
  */
 export class BucketMetric extends pulumi.CustomResource {
     /**

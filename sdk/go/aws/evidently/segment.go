@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/evidently"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/evidently"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -49,7 +50,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/evidently"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/evidently"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -86,7 +87,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/evidently"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/evidently"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -108,13 +109,11 @@ import (
 //
 // ## Import
 //
-// CloudWatch Evidently Segment can be imported using the `arn`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_evidently_segment.example
 //
-//	$ pulumi import aws:evidently/segment:Segment example arn:aws:evidently:us-west-2:123456789012:segment/example
-//
-// ```
+//	id = "arn:aws:evidently:us-west-2:123456789012:segment/example" } Using `pulumi import`, import CloudWatch Evidently Segment using the `arn`. For exampleconsole % pulumi import aws_evidently_segment.example arn:aws:evidently:us-west-2:123456789012:segment/example
 type Segment struct {
 	pulumi.CustomResourceState
 
@@ -150,6 +149,7 @@ func NewSegment(ctx *pulumi.Context,
 	if args.Pattern == nil {
 		return nil, errors.New("invalid value for required argument 'Pattern'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Segment
 	err := ctx.RegisterResource("aws:evidently/segment:Segment", name, args, &resource, opts...)
 	if err != nil {

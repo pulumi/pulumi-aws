@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/fsx"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/fsx"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -49,7 +50,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/fsx"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/fsx"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -82,15 +83,11 @@ import (
 //
 // ## Import
 //
-// FSx Storage Virtual Machine can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_fsx_ontap_storage_virtual_machine.example
 //
-//	$ pulumi import aws:fsx/ontapStorageVirtualMachine:OntapStorageVirtualMachine example svm-12345678abcdef123
-//
-// ```
-//
-//	Certain resource arguments, like `svm_admin_password` and the `self_managed_active_directory` configuation block `password`, do not have a FSx API method for reading the information after creation. If these arguments are set in the provider configuration on an imported resource, the provider will always show a difference. To workaround this behavior, either omit the argument from the provider configuration or use `ignore_changes` to hide the difference, e.g., terraform resource "aws_fsx_ontap_storage_virtual_machine" "example" {
+//	id = "svm-12345678abcdef123" } Using `pulumi import`, import FSx Storage Virtual Machine using the `id`. For exampleconsole % pulumi import aws_fsx_ontap_storage_virtual_machine.example svm-12345678abcdef123 Certain resource arguments, like `svm_admin_password` and the `self_managed_active_directory` configuation block `password`, do not have a FSx API method for reading the information after creation. If these arguments are set in the TODO configuration on an imported resource, TODO will always show a difference. To workaround this behavior, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For exampleterraform resource "aws_fsx_ontap_storage_virtual_machine" "example" {
 //
 // # ... other configuration ...
 //
@@ -146,6 +143,7 @@ func NewOntapStorageVirtualMachine(ctx *pulumi.Context,
 		"svmAdminPassword",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OntapStorageVirtualMachine
 	err := ctx.RegisterResource("aws:fsx/ontapStorageVirtualMachine:OntapStorageVirtualMachine", name, args, &resource, opts...)
 	if err != nil {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,8 +20,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/athena"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/athena"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -46,15 +47,11 @@ import (
 //
 // ## Import
 //
-// Athena Databases can be imported using their name, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_athena_database.example
 //
-//	$ pulumi import aws:athena/database:Database example example
-//
-// ```
-//
-//	Certain resource arguments, like `encryption_configuration` and `bucket`, do not have an API method for reading the information after creation. If the argument is set in the configuration on an imported resource, the provider will always show a difference. To workaround this behavior, either omit the argument from the configuration or use `ignore_changes` to hide the difference, e.g., terraform resource "aws_athena_database" "example" {
+//	id = "example" } Using `pulumi import`, import Athena Databases using their name. For exampleconsole % pulumi import aws_athena_database.example example Certain resource arguments, like `encryption_configuration` and `bucket`, do not have an API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For exampleterraform resource "aws_athena_database" "example" {
 //
 //	name
 //
@@ -97,6 +94,7 @@ func NewDatabase(ctx *pulumi.Context,
 		args = &DatabaseArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Database
 	err := ctx.RegisterResource("aws:athena/database:Database", name, args, &resource, opts...)
 	if err != nil {

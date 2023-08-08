@@ -152,11 +152,11 @@ namespace Pulumi.Aws.Acmpca
     /// 
     /// ## Import
     /// 
-    /// `aws_acmpca_certificate_authority` can be imported by using the certificate authority ARN, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:acmpca/certificateAuthority:CertificateAuthority example arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012
-    /// ```
+    ///  to = aws_acmpca_certificate_authority.example
+    /// 
+    ///  id = "arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012" } Using `pulumi import`, import `aws_acmpca_certificate_authority` using the certificate authority ARN. For exampleconsole % pulumi import aws_acmpca_certificate_authority.example arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012
     /// </summary>
     [AwsResourceType("aws:acmpca/certificateAuthority:CertificateAuthority")]
     public partial class CertificateAuthority : global::Pulumi.CustomResource
@@ -232,12 +232,6 @@ namespace Pulumi.Aws.Acmpca
         /// </summary>
         [Output("serial")]
         public Output<string> Serial { get; private set; } = null!;
-
-        /// <summary>
-        /// (**Deprecated** use the `enabled` attribute instead) Status of the certificate authority.
-        /// </summary>
-        [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
         /// Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -442,12 +436,6 @@ namespace Pulumi.Aws.Acmpca
         /// </summary>
         [Input("serial")]
         public Input<string>? Serial { get; set; }
-
-        /// <summary>
-        /// (**Deprecated** use the `enabled` attribute instead) Status of the certificate authority.
-        /// </summary>
-        [Input("status")]
-        public Input<string>? Status { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

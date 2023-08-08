@@ -15,7 +15,7 @@ __all__ = ['DevEndpointArgs', 'DevEndpoint']
 class DevEndpointArgs:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[str],
-                 arguments: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  extra_jars_s3_path: Optional[pulumi.Input[str]] = None,
                  extra_python_libs_s3_path: Optional[pulumi.Input[str]] = None,
                  glue_version: Optional[pulumi.Input[str]] = None,
@@ -32,7 +32,7 @@ class DevEndpointArgs:
         """
         The set of arguments for constructing a DevEndpoint resource.
         :param pulumi.Input[str] role_arn: The IAM role for this endpoint.
-        :param pulumi.Input[Mapping[str, Any]] arguments: A map of arguments used to configure the endpoint.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] arguments: A map of arguments used to configure the endpoint.
         :param pulumi.Input[str] extra_jars_s3_path: Path to one or more Java Jars in an S3 bucket that should be loaded in this endpoint.
         :param pulumi.Input[str] extra_python_libs_s3_path: Path(s) to one or more Python libraries in an S3 bucket that should be loaded in this endpoint. Multiple values must be complete paths separated by a comma.
         :param pulumi.Input[str] glue_version: Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
@@ -91,14 +91,14 @@ class DevEndpointArgs:
 
     @property
     @pulumi.getter
-    def arguments(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def arguments(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of arguments used to configure the endpoint.
         """
         return pulumi.get(self, "arguments")
 
     @arguments.setter
-    def arguments(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def arguments(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "arguments", value)
 
     @property
@@ -261,7 +261,7 @@ class DevEndpointArgs:
 @pulumi.input_type
 class _DevEndpointState:
     def __init__(__self__, *,
-                 arguments: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  extra_jars_s3_path: Optional[pulumi.Input[str]] = None,
@@ -288,7 +288,7 @@ class _DevEndpointState:
                  zeppelin_remote_spark_interpreter_port: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering DevEndpoint resources.
-        :param pulumi.Input[Mapping[str, Any]] arguments: A map of arguments used to configure the endpoint.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] arguments: A map of arguments used to configure the endpoint.
         :param pulumi.Input[str] arn: The ARN of the endpoint.
         :param pulumi.Input[str] availability_zone: The AWS availability zone where this endpoint is located.
         :param pulumi.Input[str] extra_jars_s3_path: Path to one or more Java Jars in an S3 bucket that should be loaded in this endpoint.
@@ -367,14 +367,14 @@ class _DevEndpointState:
 
     @property
     @pulumi.getter
-    def arguments(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def arguments(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of arguments used to configure the endpoint.
         """
         return pulumi.get(self, "arguments")
 
     @arguments.setter
-    def arguments(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def arguments(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "arguments", value)
 
     @property
@@ -671,7 +671,7 @@ class DevEndpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 arguments: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  extra_jars_s3_path: Optional[pulumi.Input[str]] = None,
                  extra_python_libs_s3_path: Optional[pulumi.Input[str]] = None,
                  glue_version: Optional[pulumi.Input[str]] = None,
@@ -714,15 +714,15 @@ class DevEndpoint(pulumi.CustomResource):
 
         ## Import
 
-        A Glue Development Endpoint can be imported using the `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:glue/devEndpoint:DevEndpoint example foo
-        ```
+         to = aws_glue_dev_endpoint.example
+
+         id = "foo" } Using `pulumi import`, import a Glue Development Endpoint using the `name`. For exampleconsole % pulumi import aws_glue_dev_endpoint.example foo
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, Any]] arguments: A map of arguments used to configure the endpoint.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] arguments: A map of arguments used to configure the endpoint.
         :param pulumi.Input[str] extra_jars_s3_path: Path to one or more Java Jars in an S3 bucket that should be loaded in this endpoint.
         :param pulumi.Input[str] extra_python_libs_s3_path: Path(s) to one or more Python libraries in an S3 bucket that should be loaded in this endpoint. Multiple values must be complete paths separated by a comma.
         :param pulumi.Input[str] glue_version: Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
@@ -771,11 +771,11 @@ class DevEndpoint(pulumi.CustomResource):
 
         ## Import
 
-        A Glue Development Endpoint can be imported using the `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:glue/devEndpoint:DevEndpoint example foo
-        ```
+         to = aws_glue_dev_endpoint.example
+
+         id = "foo" } Using `pulumi import`, import a Glue Development Endpoint using the `name`. For exampleconsole % pulumi import aws_glue_dev_endpoint.example foo
 
         :param str resource_name: The name of the resource.
         :param DevEndpointArgs args: The arguments to use to populate this resource's properties.
@@ -792,7 +792,7 @@ class DevEndpoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 arguments: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  extra_jars_s3_path: Optional[pulumi.Input[str]] = None,
                  extra_python_libs_s3_path: Optional[pulumi.Input[str]] = None,
                  glue_version: Optional[pulumi.Input[str]] = None,
@@ -853,7 +853,7 @@ class DevEndpoint(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arguments: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+            arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             availability_zone: Optional[pulumi.Input[str]] = None,
             extra_jars_s3_path: Optional[pulumi.Input[str]] = None,
@@ -885,7 +885,7 @@ class DevEndpoint(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, Any]] arguments: A map of arguments used to configure the endpoint.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] arguments: A map of arguments used to configure the endpoint.
         :param pulumi.Input[str] arn: The ARN of the endpoint.
         :param pulumi.Input[str] availability_zone: The AWS availability zone where this endpoint is located.
         :param pulumi.Input[str] extra_jars_s3_path: Path to one or more Java Jars in an S3 bucket that should be loaded in this endpoint.
@@ -944,7 +944,7 @@ class DevEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arguments(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def arguments(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of arguments used to configure the endpoint.
         """

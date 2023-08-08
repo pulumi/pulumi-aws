@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/worklink"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/worklink"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -43,8 +44,9 @@ import (
 //
 // import (
 //
-// "github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/worklink"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/worklink"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
@@ -76,7 +78,7 @@ import (
 //
 //	"os"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/worklink"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/worklink"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -108,13 +110,11 @@ import (
 //
 // ## Import
 //
-// WorkLink can be imported using the ARN, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_worklink_fleet.test
 //
-//	$ pulumi import aws:worklink/fleet:Fleet test arn:aws:worklink::123456789012:fleet/example
-//
-// ```
+//	id = "arn:aws:worklink::123456789012:fleet/example" } Using `pulumi import`, import WorkLink using the ARN. For exampleconsole % pulumi import aws_worklink_fleet.test arn:aws:worklink::123456789012:fleet/example
 type Fleet struct {
 	pulumi.CustomResourceState
 
@@ -153,6 +153,7 @@ func NewFleet(ctx *pulumi.Context,
 		args = &FleetArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Fleet
 	err := ctx.RegisterResource("aws:worklink/fleet:Fleet", name, args, &resource, opts...)
 	if err != nil {
