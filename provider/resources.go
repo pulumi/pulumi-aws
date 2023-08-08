@@ -2831,7 +2831,6 @@ func Provider() *tfbridge.ProviderInfo {
 							},
 						},
 					},
-					"name": {Name: "name"},
 					"instance_class": {
 						Type:     "string",
 						AltTypes: []tokens.Type{awsType(rdsMod, "InstanceType", "InstanceType")},
