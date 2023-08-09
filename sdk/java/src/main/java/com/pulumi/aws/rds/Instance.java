@@ -1044,12 +1044,6 @@ public class Instance extends com.pulumi.resources.CustomResource {
     public Output<Boolean> multiAz() {
         return this.multiAz;
     }
-    @Export(name="name", refs={String.class}, tree="[0]")
-    private Output<String> name;
-
-    public Output<String> name() {
-        return this.name;
-    }
     /**
      * The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can&#39;t be changed. See [Oracle Character Sets
      * Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).

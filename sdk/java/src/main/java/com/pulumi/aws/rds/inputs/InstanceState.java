@@ -809,13 +809,6 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.multiAz);
     }
 
-    @Import(name="name")
-    private @Nullable Output<String> name;
-
-    public Optional<Output<String>> name() {
-        return Optional.ofNullable(this.name);
-    }
-
     /**
      * The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can&#39;t be changed. See [Oracle Character Sets
      * Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
@@ -1326,7 +1319,6 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         this.monitoringInterval = $.monitoringInterval;
         this.monitoringRoleArn = $.monitoringRoleArn;
         this.multiAz = $.multiAz;
-        this.name = $.name;
         this.ncharCharacterSetName = $.ncharCharacterSetName;
         this.networkType = $.networkType;
         this.optionGroupName = $.optionGroupName;
@@ -2480,15 +2472,6 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder multiAz(Boolean multiAz) {
             return multiAz(Output.of(multiAz));
-        }
-
-        public Builder name(@Nullable Output<String> name) {
-            $.name = name;
-            return this;
-        }
-
-        public Builder name(String name) {
-            return name(Output.of(name));
         }
 
         /**
