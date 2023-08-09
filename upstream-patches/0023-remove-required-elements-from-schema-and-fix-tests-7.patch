@@ -1,7 +1,7 @@
-From 874aeeea14294aec218c44a02c5618dce8c13523 Mon Sep 17 00:00:00 2001
+From 69d286f54284a4892ea051965b61c859c060b8ae Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel.dbphoto@gmail.com>
 Date: Tue, 28 Mar 2023 19:54:00 +0100
-Subject: [PATCH 24/29] remove required elements from schema and fix tests
+Subject: [PATCH 23/28] remove required elements from schema and fix tests
  (#77)
 
 Co-authored-by: Lee Briggs <lee@leebriggs.co.uk>
