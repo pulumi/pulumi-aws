@@ -26,6 +26,7 @@ import (
 
 	"github.com/aws/aws-sdk-go-v2/feature/ec2/imds"
 	awsbase "github.com/hashicorp/aws-sdk-go-base/v2"
+	tfschema "github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	awsShim "github.com/hashicorp/terraform-provider-aws/shim"
 	"github.com/mitchellh/go-homedir"
 	"github.com/pulumi/pulumi-aws/provider/v6/pkg/version"
@@ -2831,7 +2832,6 @@ func Provider() *tfbridge.ProviderInfo {
 							},
 						},
 					},
-					"name": {Name: "name"},
 					"instance_class": {
 						Type:     "string",
 						AltTypes: []tokens.Type{awsType(rdsMod, "InstanceType", "InstanceType")},
@@ -2840,6 +2840,39 @@ func Provider() *tfbridge.ProviderInfo {
 						Type:     "string",
 						AltTypes: []tokens.Type{awsType(rdsMod, "StorageType", "StorageType")},
 					},
+					"name": {
+						Name: func() string {
+							// We inject `name` into the underlying provider so it shows
+							// up in the schema. It is never observed non-nil by the
+							// upstream provider and we warn when you set it.
+
+							p.ResourcesMap().Get("aws_db_instance").Schema().
+								Set("name", shimv2.NewSchema(&tfschema.Schema{
+									Type:     tfschema.TypeString,
+									Optional: true,
+									ForceNew: true,
+								}))
+							return "name"
+						}(),
+						DeprecationMessage: "This property has been deprecated. " +
+							"Please use 'dbName' instead.",
+					},
+				},
+				PreCheckCallback: func(
+					ctx context.Context, config resource.PropertyMap, meta resource.PropertyMap,
+				) (resource.PropertyMap, error) {
+					if name, ok := config["name"]; ok {
+						// Both `name` and `dbName` are set, so error
+						if _, ok := config["dbName"]; ok {
+							return nil, fmt.Errorf("Cannot specify both name and dbName, " +
+								"please set only dbName")
+						}
+						// Name doesn't actually exist on the underlying provider anymore,
+						// so we make sure it only sees `dbName`, not `name`.
+						config["dbName"] = name
+						delete(config, "name")
+					}
+					return config, nil
 				},
 			},
 			"aws_db_option_group": {
@@ -7095,7 +7128,19 @@ func Provider() *tfbridge.ProviderInfo {
 
 		// We have ensured that this resource is using upstream's generic tagging
 		// mechanism, so override check so it works.
-		prov.Resources[key].PreCheckCallback = applyTags
+		if callback := prov.Resources[key].PreCheckCallback; callback != nil {
+			prov.Resources[key].PreCheckCallback = func(
+				ctx context.Context, config resource.PropertyMap, meta resource.PropertyMap,
+			) (resource.PropertyMap, error) {
+				config, err := callback(ctx, config, meta)
+				if err != nil {
+					return nil, err
+				}
+				return applyTags(ctx, config, meta)
+			}
+		} else {
+			prov.Resources[key].PreCheckCallback = applyTags
+		}
 
 		return true
 	})
