@@ -49,7 +49,9 @@ jobs:
       with:
         repo: pulumi/pulumictl
     - name: Install Pulumi CLI
-      uses: pulumi/action-install-pulumi-cli@v2
+      uses: pulumi/actions@v4
+      with:
+        pulumi-version: v3.77.1
     - name: Setup Node
       uses: actions/setup-node@v2
       with:
@@ -172,7 +174,9 @@ jobs:
         node-version: ${{matrix.nodeversion}}
         registry-url: https://registry.npmjs.org
     - name: Install Pulumi CLI
-      uses: pulumi/action-install-pulumi-cli@v2
+      uses: pulumi/actions@v4
+      with:
+        pulumi-version: v3.77.1
     - if: github.event_name == 'pull_request'
       name: Install Schema Tools
       uses: jaxxstorm/action-install-gh-release@v1.5.0
@@ -255,7 +259,9 @@ jobs:
       with:
         repo: pulumi/pulumictl
     - name: Install Pulumi CLI
-      uses: pulumi/action-install-pulumi-cli@v2
+      uses: pulumi/actions@v4
+      with:
+        pulumi-version: v3.77.1
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
@@ -318,7 +324,9 @@ jobs:
       with:
         repo: pulumi/pulumictl
     - name: Install Pulumi CLI
-      uses: pulumi/action-install-pulumi-cli@v2
+      uses: pulumi/actions@v4
+      with:
+        pulumi-version: v3.77.1
     - name: Setup Java
       uses: actions/setup-java@v3
       with:
@@ -381,7 +389,9 @@ jobs:
       with:
         repo: pulumi/pulumictl
     - name: Install Pulumi CLI
-      uses: pulumi/action-install-pulumi-cli@v2
+      uses: pulumi/actions@v4
+      with:
+        pulumi-version: v3.77.1
     - name: Setup Node
       uses: actions/setup-node@v2
       with:
@@ -506,7 +516,9 @@ jobs:
       with:
         repo: pulumi/pulumictl
     - name: Install Pulumi CLI
-      uses: pulumi/action-install-pulumi-cli@v2
+      uses: pulumi/actions@v4
+      with:
+        pulumi-version: v3.77.1
     - name: Setup Node
       uses: actions/setup-node@v2
       with:
