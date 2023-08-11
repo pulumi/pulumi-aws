@@ -2270,12 +2270,12 @@ github.com/prometheus/procfs v0.7.3/go.mod h1:cz+aTbrPOrUb4q7XlbU9ygM+/jj0fzG6c1
 github.com/prometheus/prometheus v0.35.0/go.mod h1:7HaLx5kEPKJ0GDgbODG0fZgXbQ8K/XjZNJXQmbmgQlY=
 github.com/prometheus/prometheus v0.37.0/go.mod h1:egARUgz+K93zwqsVIAneFlLZefyGOON44WyAp4Xqbbk=
 github.com/prometheus/tsdb v0.7.1/go.mod h1:qhTCs0VvXwvX/y3TZrWD7rabWM+ijKTux40TwIPHuXU=
-github.com/pulumi/pulumi-terraform-bridge/pf v0.15.2 h1:zKAzAHk9AKk+EF9FG4vT9u3jYiZFES/Mjq+s9mgoRs8=
-github.com/pulumi/pulumi-terraform-bridge/pf v0.15.2/go.mod h1:XdOy385fEso7q3NuL+zAS3I1i+X47Bg01AlVD5aJRS4=
+github.com/pulumi/pulumi-terraform-bridge/pf v0.16.0 h1:0Z6cmTjb/1p2z3W4L4e7OwhmsE6FJUbyxTihtyNs9y4=
+github.com/pulumi/pulumi-terraform-bridge/pf v0.16.0/go.mod h1:XdOy385fEso7q3NuL+zAS3I1i+X47Bg01AlVD5aJRS4=
 github.com/pulumi/pulumi-terraform-bridge/testing v0.0.1 h1:SCg1gjfY9N4yn8U8peIUYATifjoDABkyR7H9lmefsfc=
 github.com/pulumi/pulumi-terraform-bridge/testing v0.0.1/go.mod h1:7OeUPH8rpt5ipyj9EFcnXpuzQ8SHL0dyqdfa8nOacdk=
-github.com/pulumi/pulumi-terraform-bridge/v3 v3.56.2 h1:NY9kPxzquV8rW/YYYlu0o7LLF/NmfUGEY/uZ06h/CMw=
-github.com/pulumi/pulumi-terraform-bridge/v3 v3.56.2/go.mod h1:ykaml8e6XS/yI9JOcNZ+6gLirs6EWTB0FmjbT+JyEdU=
+github.com/pulumi/pulumi-terraform-bridge/v3 v3.57.0 h1:munOxi56glme47MT8/wI29o9wrRBJrEQuwjAgm1zviI=
+github.com/pulumi/pulumi-terraform-bridge/v3 v3.57.0/go.mod h1:ykaml8e6XS/yI9JOcNZ+6gLirs6EWTB0FmjbT+JyEdU=
 github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.7-0.20230801203955-5d215c892096 h1:1nzT9XuyTHdcWJboYNMPPdW0B0mQdXYg8Az5tF96MXY=
 github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.7-0.20230801203955-5d215c892096/go.mod h1:1pLAP9kryYta3Xrw99oh7BmxY6PYb+z2m7ENNCJMIRQ=
 github.com/pulumi/pulumi/pkg/v3 v3.76.1 h1:OdQHwI2oB8Q1Es13by63QhDqIdk7Kl4w39UTrX3M44Y=
