@@ -5,10 +5,11 @@ go 1.20
 require (
 	github.com/aws/aws-sdk-go-v2/feature/ec2/imds v1.13.7
 	github.com/hashicorp/aws-sdk-go-base/v2 v2.0.0-beta.32
+	github.com/hashicorp/terraform-plugin-sdk/v2 v2.27.0
 	github.com/hashicorp/terraform-provider-aws/shim v0.0.0
 	github.com/mitchellh/go-homedir v1.1.0
-	github.com/pulumi/pulumi-terraform-bridge/pf v0.15.2
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.56.2
+	github.com/pulumi/pulumi-terraform-bridge/pf v0.16.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.57.0
 	github.com/pulumi/pulumi/pkg/v3 v3.76.1
 	github.com/pulumi/pulumi/sdk/v3 v3.76.1
 	github.com/stretchr/testify v1.8.4
@@ -208,7 +209,6 @@ require (
 	github.com/hashicorp/terraform-plugin-go v0.18.0 // indirect
 	github.com/hashicorp/terraform-plugin-log v0.9.0 // indirect
 	github.com/hashicorp/terraform-plugin-mux v0.11.2 // indirect
-	github.com/hashicorp/terraform-plugin-sdk/v2 v2.27.0 // indirect
 	github.com/hashicorp/terraform-plugin-testing v1.4.0 // indirect
 	github.com/hashicorp/terraform-provider-aws v1.60.1-0.20220923175450-ca71523cdc36 // indirect
 	github.com/hashicorp/terraform-registry-address v0.2.1 // indirect

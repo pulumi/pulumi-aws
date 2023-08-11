@@ -489,7 +489,7 @@ namespace Pulumi.Aws.Rds
         public Output<bool> MultiAz { get; private set; } = null!;
 
         [Output("name")]
-        public Output<string> Name { get; private set; } = null!;
+        public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
         /// The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets

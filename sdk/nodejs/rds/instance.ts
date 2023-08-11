@@ -387,7 +387,10 @@ export class Instance extends pulumi.CustomResource {
      * Specifies if the RDS instance is multi-AZ
      */
     public readonly multiAz!: pulumi.Output<boolean>;
-    public readonly name!: pulumi.Output<string>;
+    /**
+     * @deprecated This property has been deprecated. Please use 'dbName' instead.
+     */
+    public readonly name!: pulumi.Output<string | undefined>;
     /**
      * The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets
      * Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
@@ -934,6 +937,9 @@ export interface InstanceState {
      * Specifies if the RDS instance is multi-AZ
      */
     multiAz?: pulumi.Input<boolean>;
+    /**
+     * @deprecated This property has been deprecated. Please use 'dbName' instead.
+     */
     name?: pulumi.Input<string>;
     /**
      * The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets
@@ -1276,6 +1282,9 @@ export interface InstanceArgs {
      * Specifies if the RDS instance is multi-AZ
      */
     multiAz?: pulumi.Input<boolean>;
+    /**
+     * @deprecated This property has been deprecated. Please use 'dbName' instead.
+     */
     name?: pulumi.Input<string>;
     /**
      * The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets

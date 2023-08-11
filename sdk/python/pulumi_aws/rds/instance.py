@@ -297,6 +297,9 @@ class InstanceArgs:
         if multi_az is not None:
             pulumi.set(__self__, "multi_az", multi_az)
         if name is not None:
+            warnings.warn("""This property has been deprecated. Please use 'dbName' instead.""", DeprecationWarning)
+            pulumi.log.warn("""name is deprecated: This property has been deprecated. Please use 'dbName' instead.""")
+        if name is not None:
             pulumi.set(__self__, "name", name)
         if nchar_character_set_name is not None:
             pulumi.set(__self__, "nchar_character_set_name", nchar_character_set_name)
@@ -850,6 +853,9 @@ class InstanceArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        warnings.warn("""This property has been deprecated. Please use 'dbName' instead.""", DeprecationWarning)
+        pulumi.log.warn("""name is deprecated: This property has been deprecated. Please use 'dbName' instead.""")
+
         return pulumi.get(self, "name")
 
     @name.setter
@@ -1487,6 +1493,9 @@ class _InstanceState:
             pulumi.set(__self__, "monitoring_role_arn", monitoring_role_arn)
         if multi_az is not None:
             pulumi.set(__self__, "multi_az", multi_az)
+        if name is not None:
+            warnings.warn("""This property has been deprecated. Please use 'dbName' instead.""", DeprecationWarning)
+            pulumi.log.warn("""name is deprecated: This property has been deprecated. Please use 'dbName' instead.""")
         if name is not None:
             pulumi.set(__self__, "name", name)
         if nchar_character_set_name is not None:
@@ -2145,6 +2154,9 @@ class _InstanceState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        warnings.warn("""This property has been deprecated. Please use 'dbName' instead.""", DeprecationWarning)
+        pulumi.log.warn("""name is deprecated: This property has been deprecated. Please use 'dbName' instead.""")
+
         return pulumi.get(self, "name")
 
     @name.setter
@@ -3083,6 +3095,9 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["monitoring_interval"] = monitoring_interval
             __props__.__dict__["monitoring_role_arn"] = monitoring_role_arn
             __props__.__dict__["multi_az"] = multi_az
+            if name is not None and not opts.urn:
+                warnings.warn("""This property has been deprecated. Please use 'dbName' instead.""", DeprecationWarning)
+                pulumi.log.warn("""name is deprecated: This property has been deprecated. Please use 'dbName' instead.""")
             __props__.__dict__["name"] = name
             __props__.__dict__["nchar_character_set_name"] = nchar_character_set_name
             __props__.__dict__["network_type"] = network_type
@@ -3859,7 +3874,10 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Output[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
+        warnings.warn("""This property has been deprecated. Please use 'dbName' instead.""", DeprecationWarning)
+        pulumi.log.warn("""name is deprecated: This property has been deprecated. Please use 'dbName' instead.""")
+
         return pulumi.get(self, "name")
 
     @property

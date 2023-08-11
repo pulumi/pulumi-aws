@@ -1,7 +1,7 @@
 From e8393d61f581a747b41f9381d6686e99b8b98540 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Fri, 4 Nov 2022 17:32:49 +0000
-Subject: [PATCH 09/29] Add EKS cluster certificate_authorities (plural)
+Subject: [PATCH 09/28] Add EKS cluster certificate_authorities (plural)
 
 ---
  internal/service/eks/cluster.go | 22 ++++++++++++++++++++++
