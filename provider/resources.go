@@ -7138,9 +7138,7 @@ func Provider() *tfbridge.ProviderInfo {
 // the Terraform provider sees any resource configuration, we can give a consistent,
 // reliable and good experience for Pulumi users.
 func applyTags(
-	ctx context.Context,
-	config resource.PropertyMap,
-	meta resource.PropertyMap,
+	ctx context.Context, config resource.PropertyMap, meta resource.PropertyMap,
 ) (resource.PropertyMap, error) {
 	var defaultTags awsShim.TagConfig
 
