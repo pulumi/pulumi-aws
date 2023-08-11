@@ -7,6 +7,11 @@ require (
 	github.com/pulumi/pulumi/sdk/v3 v3.50.1
 )
 
+retract (
+	v6.0.1 // Contains retractions only.
+	v6.0.0 // Retracted due to https://github.com/pulumi/pulumi-aws/issues/2682
+)
+
 require (
 	github.com/Microsoft/go-winio v0.5.2 // indirect
 	github.com/ProtonMail/go-crypto v0.0.0-20210428141323-04723f9f07d7 // indirect
