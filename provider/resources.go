@@ -2867,6 +2867,7 @@ func Provider() *tfbridge.ProviderInfo {
 							return nil, fmt.Errorf("Cannot specify both name and dbName, " +
 								"please set only dbName")
 						}
+						tfbridge.GetLogger(ctx).Warn(`"name" is deprecated, use "dbName" instead.`)
 						// Name doesn't actually exist on the underlying provider anymore,
 						// so we make sure it only sees `dbName`, not `name`.
 						config["dbName"] = name
