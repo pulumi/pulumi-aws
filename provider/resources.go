@@ -5744,6 +5744,7 @@ func Provider() *tfbridge.ProviderInfo {
 					{Value: "java8", Name: "Java8"},
 					{Value: "java8.al2", Name: "Java8AL2"},
 					{Value: "java11", Name: "Java11"},
+					{Value: "java17", Name: "Java17"},
 					{Value: "ruby2.5", Name: "Ruby2d5", DeprecationMessage: "This runtime is now deprecated"},
 					{Value: "ruby2.7", Name: "Ruby2d7"},
 					{Value: "ruby3.2", Name: "Ruby3d2"},

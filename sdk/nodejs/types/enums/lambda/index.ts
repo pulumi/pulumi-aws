@@ -14,6 +14,7 @@ export const Runtime = {
     Java8: "java8",
     Java8AL2: "java8.al2",
     Java11: "java11",
+    Java17: "java17",
     /**
      * @deprecated This runtime is now deprecated
      */
