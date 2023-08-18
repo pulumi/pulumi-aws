@@ -23,6 +23,7 @@ const (
 	RuntimeJava8         = Runtime("java8")
 	RuntimeJava8AL2      = Runtime("java8.al2")
 	RuntimeJava11        = Runtime("java11")
+	RuntimeJava17        = Runtime("java17")
 	// Deprecated: This runtime is now deprecated
 	RuntimeRuby2d5 = Runtime("ruby2.5")
 	RuntimeRuby2d7 = Runtime("ruby2.7")

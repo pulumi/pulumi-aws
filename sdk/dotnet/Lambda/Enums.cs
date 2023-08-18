@@ -29,6 +29,7 @@ namespace Pulumi.Aws.Lambda
         public static Runtime Java8 { get; } = new Runtime("java8");
         public static Runtime Java8AL2 { get; } = new Runtime("java8.al2");
         public static Runtime Java11 { get; } = new Runtime("java11");
+        public static Runtime Java17 { get; } = new Runtime("java17");
         [Obsolete(@"This runtime is now deprecated")]
         public static Runtime Ruby2d5 { get; } = new Runtime("ruby2.5");
         public static Runtime Ruby2d7 { get; } = new Runtime("ruby2.7");

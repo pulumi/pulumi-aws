@@ -21,6 +21,7 @@ class Runtime(str, Enum):
     JAVA8 = "java8"
     JAVA8_AL2 = "java8.al2"
     JAVA11 = "java11"
+    JAVA17 = "java17"
     RUBY2D5 = "ruby2.5"
     RUBY2D7 = "ruby2.7"
     RUBY3D2 = "ruby3.2"
