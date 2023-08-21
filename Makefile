@@ -7,8 +7,6 @@ PROVIDER_PATH := provider/v6
 VERSION_PATH := $(PROVIDER_PATH)/pkg/version.Version
 TFGEN := pulumi-tfgen-$(PACK)
 PROVIDER := pulumi-resource-$(PACK)
-# We need to set VERSION_PREFIX before we set VERSION
-export VERSION_PREFIX := 6.0.0
 VERSION := $(shell pulumictl get version)
 JAVA_GEN := pulumi-java-gen
 JAVA_GEN_VERSION := v0.9.5
