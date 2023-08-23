@@ -1,0 +1,98 @@
+{
+    "version": 3,
+    "deployment": {
+        "manifest": {
+            "time": "2023-08-23T15:29:53.122255-04:00",
+            "magic": "a332f703d097ddf3757c51955d27edabb0c21d854b619b3824e1c7b46dae5d90",
+            "version": "v3.74.0"
+        },
+        "secrets_providers": {
+            "type": "passphrase",
+            "state": {
+                "salt": "v1:LHkO3exM2iI=:v1:VM4UcCyIySwxJNE0:BYWEL8lZpCviauaGgE2iidJXp9CBdg=="
+            }
+        },
+        "resources": [
+            {
+                "urn": "urn:pulumi:p-it-antons-mac-resources-ef35ba05::resources::pulumi:pulumi:Stack::resources-p-it-antons-mac-resources-ef35ba05",
+                "custom": false,
+                "type": "pulumi:pulumi:Stack",
+                "created": "2023-08-23T19:29:48.44181Z",
+                "modified": "2023-08-23T19:29:48.44181Z"
+            },
+            {
+                "urn": "urn:pulumi:p-it-antons-mac-resources-ef35ba05::resources::pulumi:providers:aws::provider",
+                "custom": true,
+                "id": "01c63279-4799-4a83-a7f2-51ad02d3483a",
+                "type": "pulumi:providers:aws",
+                "inputs": {
+                    "version": "5.42.0"
+                },
+                "outputs": {
+                    "version": "5.42.0"
+                },
+                "parent": "urn:pulumi:p-it-antons-mac-resources-ef35ba05::resources::pulumi:pulumi:Stack::resources-p-it-antons-mac-resources-ef35ba05",
+                "propertyDependencies": {
+                    "version": []
+                },
+                "created": "2023-08-23T19:29:49.753453Z",
+                "modified": "2023-08-23T19:29:49.753453Z"
+            },
+            {
+                "urn": "urn:pulumi:p-it-antons-mac-resources-ef35ba05::resources::aws:s3/bucket:Bucket::s3.bucket.simple",
+                "custom": true,
+                "id": "my-simple-yaml-based-bucket",
+                "type": "aws:s3/bucket:Bucket",
+                "inputs": {
+                    "__defaults": [
+                        "acl",
+                        "forceDestroy"
+                    ],
+                    "acl": "private",
+                    "bucket": "my-simple-yaml-based-bucket",
+                    "forceDestroy": false
+                },
+                "outputs": {
+                    "accelerationStatus": "",
+                    "acl": "private",
+                    "arn": "arn:aws:s3:::my-simple-yaml-based-bucket",
+                    "bucket": "my-simple-yaml-based-bucket",
+                    "bucketDomainName": "my-simple-yaml-based-bucket.s3.amazonaws.com",
+                    "bucketRegionalDomainName": "my-simple-yaml-based-bucket.s3.us-west-2.amazonaws.com",
+                    "corsRules": [],
+                    "forceDestroy": false,
+                    "grants": [],
+                    "hostedZoneId": "Z3BJ6K6RIION7M",
+                    "id": "my-simple-yaml-based-bucket",
+                    "lifecycleRules": [],
+                    "loggings": [],
+                    "objectLockConfiguration": null,
+                    "region": "us-west-2",
+                    "replicationConfiguration": null,
+                    "requestPayer": "BucketOwner",
+                    "serverSideEncryptionConfiguration": {
+                        "rule": {
+                            "applyServerSideEncryptionByDefault": {
+                                "kmsMasterKeyId": "",
+                                "sseAlgorithm": "AES256"
+                            },
+                            "bucketKeyEnabled": false
+                        }
+                    },
+                    "tags": {},
+                    "tagsAll": {},
+                    "versioning": {
+                        "enabled": false,
+                        "mfaDelete": false
+                    },
+                    "website": null
+                },
+                "parent": "urn:pulumi:p-it-antons-mac-resources-ef35ba05::resources::pulumi:pulumi:Stack::resources-p-it-antons-mac-resources-ef35ba05",
+                "provider": "urn:pulumi:p-it-antons-mac-resources-ef35ba05::resources::pulumi:providers:aws::provider::01c63279-4799-4a83-a7f2-51ad02d3483a",
+                "propertyDependencies": {
+                    "bucket": null
+                }
+            }
+        ]
+    }
+}
