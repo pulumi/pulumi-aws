@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"io/fs"
 	"os"
+	"os/exec"
 	"path/filepath"
 	"strings"
 	"testing"
@@ -16,6 +17,10 @@ import (
 	"gopkg.in/yaml.v2"
 
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
+)
+
+const (
+	providerBinary = "pulumi-resource-aws"
 )
 
 var (
@@ -40,13 +45,14 @@ func TestProviderUpgrade(t *testing.T) {
 	}
 
 	if accept {
+		ambientProvider, _ := exec.LookPath(providerBinary)
+		require.Emptyf(t, ambientProvider, "please remove the provider from PATH")
+
 		ensureFolderExists(t, recordingDir)
 		deleteFileIfExists(t, stateFile)
 		deleteFileIfExists(t, grpcFile)
-		env = append(env, fmt.Sprintf("PULUMI_DEBUG_GRPC=%s", grpcFile))
 		test := opts.With(integration.ProgramTestOptions{
-			Dir: testCaseDir,
-			Env: env,
+			Env: append(opts.Env, fmt.Sprintf("PULUMI_DEBUG_GRPC=%s", grpcFile)),
 			ExportStateValidator: func(t *testing.T, state []byte) {
 				writeFile(t, stateFile, state)
 				t.Logf("wrote %s", stateFile)
@@ -56,10 +62,13 @@ func TestProviderUpgrade(t *testing.T) {
 		return
 	}
 
+	ambientProvider, _ := exec.LookPath(providerBinary)
+	require.NotEmptyf(t, ambientProvider, "expected to find a release candidate provider "+
+		"binary in PATH, try to call `make provider` and `export PATH=$PWD/bin:$PATH`")
+
 	previewCounter := 0
 	var pt *integration.ProgramTester
 	test := opts.With(integration.ProgramTestOptions{
-		Dir: testCaseDir,
 		Env: env,
 		PrePulumiCommand: func(verb string) (func(err error) error, error) {
 			if verb != "preview" {
