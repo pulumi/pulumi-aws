@@ -3,11 +3,13 @@
 package tests
 
 import (
+	"encoding/json"
 	"errors"
 	"fmt"
 	"io/fs"
 	"os"
 	"path/filepath"
+	"strings"
 	"testing"
 
 	"github.com/stretchr/testify/require"
@@ -68,7 +70,7 @@ func TestProviderUpgrade(t *testing.T) {
 				return nil, nil
 			}
 			t.Logf("Importing pre-recorded stateFile")
-			pt.RunPulumiCommand("stack", "import", "--file", stateFile)
+			importState(t, pt, stateFile)
 			return nil, nil
 		},
 		SkipRefresh:      true,
@@ -77,6 +79,45 @@ func TestProviderUpgrade(t *testing.T) {
 	pt = integration.ProgramTestManualLifeCycle(t, &test)
 	err = pt.TestLifeCycleInitAndDestroy()
 	require.NoError(t, err)
+}
+
+func importState(t *testing.T, pt *integration.ProgramTester, stateFile string) {
+	tempDir := t.TempDir()
+	newStateFile := filepath.Join(tempDir, "new-state.json")
+	pt.RunPulumiCommand("stack", "export", "--file", newStateFile)
+	stackName := parseStackName(t, readFile(t, newStateFile))
+	fixedState := withUpdatedStackName(t, stackName, readFile(t, stateFile))
+	fixedStateFile := filepath.Join(tempDir, "fixed-state.json")
+	writeFile(t, fixedStateFile, []byte(fixedState))
+	pt.RunPulumiCommand("stack", "import", "--file", fixedStateFile)
+}
+
+func parseStackName(t *testing.T, state string) string {
+	type model struct {
+		Deployment struct {
+			Resources []struct {
+				URN  string `json:"urn"`
+				Type string `json:"type"`
+			} `json:"resources"`
+		} `json:"deployment"`
+	}
+	var m model
+	err := json.Unmarshal([]byte(state), &m)
+	require.NoError(t, err)
+	var stackUrn string
+	for _, r := range m.Deployment.Resources {
+		if r.Type == "pulumi:pulumi:Stack" {
+			stackUrn = r.URN
+		}
+	}
+	require.NotEmptyf(t, stackUrn, "failed to find stack URN")
+	parts := strings.Split(strings.TrimPrefix(stackUrn, "urn:pulumi:"), "::")
+	require.NotEmptyf(t, parts, "failed to parse stack URN: %v", stackUrn)
+	return parts[0]
+}
+
+func withUpdatedStackName(t *testing.T, newStackName string, state string) string {
+	return strings.ReplaceAll(state, parseStackName(t, state), newStackName)
 }
 
 func deleteFileIfExists(t *testing.T, file string) {
