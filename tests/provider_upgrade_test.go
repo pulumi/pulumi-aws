@@ -42,17 +42,24 @@ func TestProviderUpdateQuick(t *testing.T) {
 		require.NoError(t, fmt.Errorf("No pre-recorded gRPC log found, try to run TestProviderUpgradeRecord %w", err))
 	}
 
+	n := 0
 	for _, line := range strings.Split(string(bytes), "\n") {
 		line = strings.TrimSpace(line)
 		if line == "" {
 			continue
 		}
 
+		// This is currently looking at Diff calls. Replaying V5 Diff calls against V6
+		// provider is close but still not quite right. In the upgrade scenario we need to
+		// compute hybrid Diff calls that take olds from V5 Diff calls and news from V6
+		// Check, and ensure that these do not make replace plans.
 		if isPureMethod(t, line) {
 			line = ignoreStables(t, line)
+			n++
 			testutils.Replay(t, providerServer(t), line)
 		}
 	}
+	require.NotEmptyf(t, n, "Need at least one replay test")
 }
 
 func TestProviderUpgradeRecord(t *testing.T) {
