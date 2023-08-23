@@ -128,16 +128,6 @@ func deleteFileIfExists(t *testing.T, file string) {
 	require.NoError(t, err)
 }
 
-func assertMatchesJsonFileContents(t *testing.T, jsonData []byte, expectedFile string) {
-	if accept {
-		ensureFolderExists(t, filepath.Dir(expectedFile))
-		err := os.WriteFile(expectedFile, jsonData, 0755)
-		require.NoError(t, err)
-		return
-	}
-	require.JSONEq(t, readFile(t, expectedFile), string(jsonData))
-}
-
 func writeFile(t *testing.T, file string, data []byte) {
 	ensureFolderExists(t, filepath.Dir(file))
 	err := os.WriteFile(file, data, 0755)
