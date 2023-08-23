@@ -28,9 +28,13 @@ var (
 )
 
 // Recording works, but how do we test state import?
+
 func TestProviderUpgrade(t *testing.T) {
 	testCaseDir := filepath.Join("testdata", "resources")
 	awsVersion := parseProviderVersion(t, filepath.Join(testCaseDir, "Pulumi.yaml"))
+
+	t.Logf("Testing state upgrade from %v states", awsVersion)
+
 	recordingDir := filepath.Join("testdata", "recorded", awsVersion, "resources")
 
 	grpcFile, err := filepath.Abs(filepath.Join(recordingDir, "grpc.json"))
