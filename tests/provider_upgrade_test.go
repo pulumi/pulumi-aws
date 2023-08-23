@@ -3,6 +3,7 @@
 package tests
 
 import (
+	"context"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -16,54 +17,78 @@ import (
 	"github.com/stretchr/testify/require"
 	"gopkg.in/yaml.v2"
 
+	providerRC "github.com/pulumi/pulumi-aws/provider/v5"
+	"github.com/pulumi/pulumi-aws/provider/v5/pkg/version"
+	testutils "github.com/pulumi/pulumi-terraform-bridge/testing/x"
+	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
+	pulumirpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
 )
 
 const (
+	acceptEnvVar   = "PULUMI_ACCEPT"
 	providerBinary = "pulumi-resource-aws"
 )
 
 var (
-	accept bool = os.Getenv("PULUMI_ACCEPT") != ""
+	accept bool = os.Getenv(acceptEnvVar) != ""
 )
 
-// Recording works, but how do we test state import?
+func TestProviderUpdateQuick(t *testing.T) {
+	info := newProviderUpgradeInfo(t)
+
+	bytes, err := os.ReadFile(info.grpcFile)
+	if err != nil {
+		require.NoError(t, fmt.Errorf("No pre-recorded gRPC log found, try to run TestProviderUpgradeRecord %w", err))
+	}
+
+	for _, line := range strings.Split(string(bytes), "\n") {
+		line = strings.TrimSpace(line)
+		if line == "" {
+			continue
+		}
+
+		if isPureMethod(t, line) {
+			line = ignoreStables(t, line)
+			testutils.Replay(t, providerServer(t), line)
+		}
+	}
+}
+
+func TestProviderUpgradeRecord(t *testing.T) {
+	if !accept {
+		t.Skipf("Skipping; to record baselines set %s env var to true", acceptEnvVar)
+	}
+	info := newProviderUpgradeInfo(t)
+	ambientProvider, _ := exec.LookPath(providerBinary)
+	require.Emptyf(t, ambientProvider, "please remove the provider from PATH")
+	ensureFolderExists(t, info.recordingDir)
+	deleteFileIfExists(t, info.stateFile)
+	deleteFileIfExists(t, info.grpcFile)
+	test := info.opts.With(integration.ProgramTestOptions{
+		Env: append(info.opts.Env, fmt.Sprintf("PULUMI_DEBUG_GRPC=%s", info.grpcFile)),
+		ExportStateValidator: func(t *testing.T, state []byte) {
+			writeFile(t, info.stateFile, state)
+			t.Logf("wrote %s", info.stateFile)
+		},
+	})
+	integration.ProgramTest(t, &test)
+	return
+}
 
 func TestProviderUpgrade(t *testing.T) {
-	testCaseDir := filepath.Join("testdata", "resources")
-	awsVersion := parseProviderVersion(t, filepath.Join(testCaseDir, "Pulumi.yaml"))
-
-	t.Logf("Testing state upgrade from %v states", awsVersion)
-
-	recordingDir := filepath.Join("testdata", "recorded", awsVersion, "resources")
-
-	grpcFile, err := filepath.Abs(filepath.Join(recordingDir, "grpc.json"))
-	require.NoError(t, err)
-
-	stateFile, err := filepath.Abs(filepath.Join(recordingDir, "state.json"))
-	require.NoError(t, err)
+	if testing.Short() {
+		t.Skipf("Skipping in -short mode")
+	}
+	if accept {
+		t.Skipf("Skipping because %s env var is set", acceptEnvVar)
+	}
+	info := newProviderUpgradeInfo(t)
+	t.Logf("Baseline provider version: %s", info.baselineProviderVersion)
 
 	env := []string{}
 	opts := integration.ProgramTestOptions{
-		Dir: testCaseDir,
-	}
-
-	if accept {
-		ambientProvider, _ := exec.LookPath(providerBinary)
-		require.Emptyf(t, ambientProvider, "please remove the provider from PATH")
-
-		ensureFolderExists(t, recordingDir)
-		deleteFileIfExists(t, stateFile)
-		deleteFileIfExists(t, grpcFile)
-		test := opts.With(integration.ProgramTestOptions{
-			Env: append(opts.Env, fmt.Sprintf("PULUMI_DEBUG_GRPC=%s", grpcFile)),
-			ExportStateValidator: func(t *testing.T, state []byte) {
-				writeFile(t, stateFile, state)
-				t.Logf("wrote %s", stateFile)
-			},
-		})
-		integration.ProgramTest(t, &test)
-		return
+		Dir: info.testCaseDir,
 	}
 
 	ambientProvider, _ := exec.LookPath(providerBinary)
@@ -83,15 +108,40 @@ func TestProviderUpgrade(t *testing.T) {
 				return nil, nil
 			}
 			t.Logf("Importing pre-recorded stateFile")
-			importState(t, pt, stateFile)
+			importState(t, pt, info.stateFile)
 			return nil, nil
 		},
 		SkipRefresh:      true,
 		SkipExportImport: true,
 	})
 	pt = integration.ProgramTestManualLifeCycle(t, &test)
-	err = pt.TestLifeCycleInitAndDestroy()
+	err := pt.TestLifeCycleInitAndDestroy()
 	require.NoError(t, err)
+}
+
+type providerUpgradeInfo struct {
+	testCaseDir             string
+	recordingDir            string
+	baselineProviderVersion string
+	grpcFile                string
+	stateFile               string
+	opts                    integration.ProgramTestOptions
+}
+
+func newProviderUpgradeInfo(t *testing.T) providerUpgradeInfo {
+	info := providerUpgradeInfo{}
+	info.testCaseDir = filepath.Join("testdata", "resources")
+	info.baselineProviderVersion = parseProviderVersion(t, filepath.Join(info.testCaseDir, "Pulumi.yaml"))
+	info.recordingDir = filepath.Join("testdata", "recorded", info.baselineProviderVersion, "resources")
+	var err error
+	info.grpcFile, err = filepath.Abs(filepath.Join(info.recordingDir, "grpc.json"))
+	require.NoError(t, err)
+	info.stateFile, err = filepath.Abs(filepath.Join(info.recordingDir, "state.json"))
+	require.NoError(t, err)
+	info.opts = integration.ProgramTestOptions{
+		Dir: info.testCaseDir,
+	}
+	return info
 }
 
 func importState(t *testing.T, pt *integration.ProgramTester, stateFile string) {
@@ -179,4 +229,43 @@ func parseProviderVersion(t *testing.T, yamlFile string) string {
 	require.NotEmptyf(t, v, "Failed to parse Pulumi.yaml: "+
 		"resources.provider.options.version is empty")
 	return v
+}
+
+func isPureMethod(t *testing.T, grpcLogEntry string) bool {
+	type model struct {
+		Method string `json:"method"`
+	}
+	var m model
+	err := json.Unmarshal([]byte(grpcLogEntry), &m)
+	require.NoError(t, err)
+	switch m.Method {
+	case "/pulumirpc.ResourceProvider/Diff":
+		return true
+	default:
+		return false
+	}
+}
+
+func ignoreStables(t *testing.T, grpcLogEntry string) string {
+	var v map[string]any
+	err := json.Unmarshal([]byte(grpcLogEntry), &v)
+	require.NoError(t, err)
+	if r, ok := v["response"]; ok {
+		r := r.(map[string]any)
+		if _, ok := r["stables"]; ok {
+			r["stables"] = "*"
+		}
+	}
+	out, err := json.Marshal(v)
+	require.NoError(t, err)
+	return string(out)
+}
+
+func providerServer(t *testing.T) pulumirpc.ResourceProviderServer {
+	ctx := context.Background()
+
+	version.Version = "0.0.1"
+	info := providerRC.Provider()
+
+	return tfbridge.NewProvider(ctx, nil, "aws", version.Version, info.P, info, nil)
 }
