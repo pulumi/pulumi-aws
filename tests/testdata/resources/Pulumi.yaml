@@ -1,15 +1,32 @@
 name: resources
 description: A collection of resource configurations to thoroughly test.
+
 runtime:
   name: yaml
+
 resources:
+
   provider:
     type: pulumi:providers:aws
     options:
       version: 5.42.0
+
   "s3.bucket.simple":
     type: aws:s3/bucket:Bucket
     properties:
       bucket: my-simple-yaml-based-bucket
+    options:
+      provider: ${provider}
+
+  "rdsinstancewithname":
+    type: aws:rds/instance:Instance
+    properties:
+      engine: postgres
+      instanceClass: db.t4g.micro
+      allocatedStorage: 30
+      name: mydbname
+      username: mydbuser
+      password: mypassword
+      skipFinalSnapshot: true
     options:
       provider: ${provider}
