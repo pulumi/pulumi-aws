@@ -144,57 +144,55 @@ jobs:
     - name: Install Go
       uses: actions/setup-go@v4
       with:
-        go-version: ${{matrix.goversion}}
         cache-dependency-path: |
             sdk/go.sum
-    - name: Setup Node
-      uses: actions/setup-node@v2
-      with:
-        node-version: ${{matrix.nodeversion}}
-        registry-url: https://registry.npmjs.org
+        go-version: 1.20.1
     - name: Install pulumictl
       uses: jaxxstorm/action-install-gh-release@v1.5.0
       with:
         repo: pulumi/pulumictl
     - name: Install Pulumi CLI
-      uses: pulumi/actions@v4
-      with:
-        pulumi-version: v3.77.1
+      uses: pulumi/action-install-pulumi-cli@v2
     - if: github.event_name == 'pull_request'
       name: Install Schema Tools
       uses: jaxxstorm/action-install-gh-release@v1.5.0
       with:
-        repo: mikhailshilkov/schema-tools
+        repo: pulumi/schema-tools
     - name: Clear GitHub Actions Ubuntu runner disk space
       uses: jlumbroso/free-disk-space@main
       with:
-        tool-cache: false
-        dotnet: false
         android: true
+        dotnet: false
         haskell: true
-        swap-storage: true
-        # TODO: enable once transient error with azure is resolved
-        # E: Failed to fetch http://azure.archive.ubuntu.com/ubuntu/pool/universe/d/dotnet7/aspnetcore-targeting-pack-7.0_7.0.105-0ubuntu1%7e22.04.1_amd64.deb  404  Not Found [IP: 40.81.13.82 80]
         large-packages: false
+        swap-storage: true
+        tool-cache: false
     - name: Build tfgen & provider binaries
       run: make provider
     - if: github.event_name == 'pull_request'
       name: Check Schema is Valid
-      run: >-
-        echo 'SCHEMA_CHANGES<<EOF' >> $GITHUB_ENV
-
-        schema-tools compare ${{ env.PROVIDER }} master --local-path=provider/cmd/pulumi-resource-${{ env.PROVIDER }}/schema.json >> $GITHUB_ENV
-
-        echo 'EOF' >> $GITHUB_ENV
-    - if: github.event_name == 'pull_request'
+      run: |
+        EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
+        {
+          echo "SCHEMA_CHANGES<<$EOF";
+          schema-tools compare -p ${{ env.PROVIDER }} -o ${{ github.event.repository.default_branch }} -n --local-path=provider/cmd/pulumi-resource-${{ env.PROVIDER }}/schema.json;
+          echo "$EOF";
+        } >> "$GITHUB_ENV"
+    - if: github.event_name == 'pull_request' && github.actor != 'dependabot[bot]'
       name: Comment on PR with Details of Schema Check
-      uses: thollander/actions-comment-pull-request@v1
+      uses: thollander/actions-comment-pull-request@v2
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        message: |
+        comment_tag: schemaCheck
+        message: >+
           ### Does the PR have any schema changes?
 
+
           ${{ env.SCHEMA_CHANGES }}
+
+
+          Maintainer note: consult the [runbook](https://github.com/pulumi/platform-providers-team/blob/main/playbooks/tf-provider-updating.md) for dealing with any breaking changes.
+
     - name: Tar provider binaries
       run: tar -zcf ${{ github.workspace }}/bin/provider.tar.gz -C ${{
         github.workspace }}/bin/ pulumi-resource-${{ env.PROVIDER }}

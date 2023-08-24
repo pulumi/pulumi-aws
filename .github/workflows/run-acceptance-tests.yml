@@ -166,22 +166,15 @@ jobs:
     - name: Install Go
       uses: actions/setup-go@v4
       with:
-        go-version: ${{matrix.goversion}}
         cache-dependency-path: |
             sdk/go.sum
-    - name: Setup Node
-      uses: actions/setup-node@v2
-      with:
-        node-version: ${{matrix.nodeversion}}
-        registry-url: https://registry.npmjs.org
+        go-version: 1.20.1
     - name: Install pulumictl
       uses: jaxxstorm/action-install-gh-release@v1.5.0
       with:
         repo: pulumi/pulumictl
     - name: Install Pulumi CLI
-      uses: pulumi/actions@v4
-      with:
-        pulumi-version: v3.77.1
+      uses: pulumi/action-install-pulumi-cli@v2
     - if: github.event_name == 'pull_request'
       name: Install Schema Tools
       uses: jaxxstorm/action-install-gh-release@v1.5.0
@@ -190,14 +183,12 @@ jobs:
     - name: Clear GitHub Actions Ubuntu runner disk space
       uses: jlumbroso/free-disk-space@main
       with:
-        tool-cache: false
-        dotnet: false
         android: true
+        dotnet: false
         haskell: true
-        swap-storage: true
-        # TODO: enable once transient error with azure is resolved
-        # E: Failed to fetch http://azure.archive.ubuntu.com/ubuntu/pool/universe/d/dotnet7/aspnetcore-targeting-pack-7.0_7.0.105-0ubuntu1%7e22.04.1_amd64.deb  404  Not Found [IP: 40.81.13.82 80]
         large-packages: false
+        swap-storage: true
+        tool-cache: false
     - name: Build tfgen & provider binaries
       run: make provider
     - if: github.event_name == 'pull_request'
