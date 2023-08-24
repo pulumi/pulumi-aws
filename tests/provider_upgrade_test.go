@@ -121,6 +121,24 @@ func TestProviderUpgrade(t *testing.T) {
 		},
 		SkipRefresh:      true,
 		SkipExportImport: true,
+
+		// TODO this test is not quite right. There's two designs for an upgrade test, a
+		// preview-only one design and an full update design. This is currently neither.
+		//
+		// A preview-only design would import V5 state and run pulumi preview on V6 to
+		// assert empty preview. To make this code behave like this we need to run
+		// SkipUpdate: true but this currently messes up with stack name renaming pass that
+		//
+		// SkipUpdate:       true,
+		//
+		// A full update design would provision actual cloud infra on V5 and do a full
+		// pulumi-up on V6. This can be useful if for example update plans are permitted
+		// (only replaces are rejected) but we need to verify that the actual update plans
+		// execute successfully or if the provider update does not touch the infra but
+		// updates the state file and we need to test that.
+		//
+		// What this code does: provision infra on V6, then import V5 state, then do pulumi
+		// up. This mostly works as a preview test, but does unnecessary "up" work.
 	})
 	pt = integration.ProgramTestManualLifeCycle(t, &test)
 	err := pt.TestLifeCycleInitAndDestroy()
