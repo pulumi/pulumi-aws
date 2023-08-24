@@ -71,17 +71,16 @@ jobs:
     - name: Setup Python
       uses: actions/setup-python@v2
       with:
-        python-version: ${{matrix.pythonversion}}
+        python-version: ${{ env.PYTHONVERSION }}
     - name: Setup Java
       uses: actions/setup-java@v3
       with:
         cache: gradle
         distribution: temurin
-        java-version: ${{matrix.javaversion}}
+        java-version: ${{ env.JAVAVERSION }}
     - name: Setup Gradle
       uses: gradle/gradle-build-action@v2
       with:
-        # Pin to known good version until #2262 is resolved
         gradle-version: "7.6"
     - name: Download provider + tfgen binaries
       uses: actions/download-artifact@v2
@@ -97,10 +96,10 @@ jobs:
     - name: Install plugins
       run: make install_plugins
     - name: Update path
-      run: echo "${{ github.workspace }}/bin" >> $GITHUB_PATH
+      run: echo "${{ github.workspace }}/bin" >> "$GITHUB_PATH"
     - name: Set PACKAGE_VERSION to Env
       run: echo "PACKAGE_VERSION=$(pulumictl get version --language generic)" >>
-        $GITHUB_ENV
+        "$GITHUB_ENV"
     - name: Build SDK
       run: make build_${{ matrix.language }}
     - name: Check worktree clean
@@ -123,20 +122,12 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        goversion:
-        - 1.20.x
-        javaversion:
-        - "11"
         language:
         - nodejs
         - python
         - dotnet
         - go
         - java
-        nodeversion:
-        - 16.x
-        pythonversion:
-        - "3.9"
   prerequisites:
     name: prerequisites
     runs-on: ubuntu-latest

@@ -124,20 +124,12 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        goversion:
-        - 1.20.x
-        javaversion:
-        - "11"
         language:
         - nodejs
         - python
         - dotnet
         - go
         - java
-        nodeversion:
-        - 16.x
-        pythonversion:
-        - "3.9"
   comment-notification:
     if: github.event_name == 'repository_dispatch'
     name: comment-notification
@@ -162,8 +154,8 @@ jobs:
     - name: Checkout Repo
       uses: actions/checkout@v3
       with:
-        ref: ${{ env.PR_COMMIT_SHA }}
         submodules: true
+        ref: ${{ env.PR_COMMIT_SHA }}
     - name: Checkout Scripts Repo
       uses: actions/checkout@v3
       with:
@@ -249,15 +241,6 @@ jobs:
         author_name: Failure in building provider prerequisites
         fields: repo,commit,author,action
         status: ${{ job.status }}
-    strategy:
-      fail-fast: true
-      matrix:
-        goversion:
-        - 1.20.x
-        nodeversion:
-        - 16.x
-        pythonversion:
-        - "3.9"
   sentinel:
     if: github.event_name == 'repository_dispatch' ||
       github.event.pull_request.head.repo.full_name == github.repository
@@ -268,28 +251,6 @@ jobs:
     steps:
     - name: Is workflow a success
       run: echo yes
-
-  go_test_shim:
-    if: github.event_name == 'repository_dispatch' ||
-      github.event.pull_request.head.repo.full_name == github.repository
-    name: Run test of provider shim
-    runs-on: ubuntu-latest
-    timeout-minutes: 60
-    steps:
-    - name: Checkout Repo
-      uses: actions/checkout@v3
-      with:
-        ref: ${{ env.PR_COMMIT_SHA }}
-        submodules: true
-    - uses: actions/setup-go@v4
-      with:
-       go-version-file: 'provider/shim/go.mod'
-       cache-dependency-path: 'provider/shim/go.sum'
-    - name: go test
-      run: |
-        cd provider/shim
-        go test -v .
-
   test:
     if: github.event_name == 'repository_dispatch' ||
       github.event.pull_request.head.repo.full_name == github.repository
@@ -303,8 +264,8 @@ jobs:
     - name: Checkout Repo
       uses: actions/checkout@v3
       with:
-        ref: ${{ env.PR_COMMIT_SHA }}
         submodules: true
+        ref: ${{ env.PR_COMMIT_SHA }}
     - name: Checkout Scripts Repo
       uses: actions/checkout@v3
       with:
@@ -315,21 +276,19 @@ jobs:
     - name: Install Go
       uses: actions/setup-go@v4
       with:
-        go-version: ${{matrix.goversion}}
         cache-dependency-path: |
             sdk/go.sum
+        go-version: 1.20.1
     - name: Install pulumictl
       uses: jaxxstorm/action-install-gh-release@v1.5.0
       with:
         repo: pulumi/pulumictl
     - name: Install Pulumi CLI
-      uses: pulumi/actions@v4
-      with:
-        pulumi-version: v3.77.1
+      uses: pulumi/action-install-pulumi-cli@v2
     - name: Setup Node
       uses: actions/setup-node@v2
       with:
-        node-version: ${{matrix.nodeversion}}
+        node-version: ${{ env.NODEVERSION }}
         registry-url: https://registry.npmjs.org
     - name: Setup DotNet
       uses: actions/setup-dotnet@v1
@@ -338,17 +297,16 @@ jobs:
     - name: Setup Python
       uses: actions/setup-python@v2
       with:
-        python-version: ${{matrix.pythonversion}}
+        python-version: ${{ env.PYTHONVERSION }}
     - name: Setup Java
       uses: actions/setup-java@v3
       with:
         cache: gradle
         distribution: temurin
-        java-version: ${{matrix.javaversion}}
+        java-version: ${{ env.JAVAVERSION }}
     - name: Setup Gradle
       uses: gradle/gradle-build-action@v2
       with:
-        # Pin to known good version until #2262 is resolved
         gradle-version: "7.6"
     - name: Download provider + tfgen binaries
       uses: actions/download-artifact@v2
@@ -371,11 +329,18 @@ jobs:
       run: tar -zxf ${{ github.workspace }}/sdk/${{ matrix.language }}.tar.gz -C ${{
         github.workspace }}/sdk/${{ matrix.language }}
     - name: Update path
-      run: echo "${{ github.workspace }}/bin" >> $GITHUB_PATH
+      run: echo "${{ github.workspace }}/bin" >> "$GITHUB_PATH"
     - name: Install Python deps
       run: |-
         pip3 install virtualenv==20.0.23
         pip3 install pipenv
+    - name: Install dependencies
+      run: make install_${{ matrix.language}}_sdk
+    - name: Install gotestfmt
+      uses: GoTestTools/gotestfmt-action@v2
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        version: v2.4.0
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
@@ -385,13 +350,6 @@ jobs:
         role-duration-seconds: 3600
         role-session-name: ${{ env.PROVIDER }}@githubActions
         role-to-assume: ${{ secrets.AWS_CI_ROLE_ARN }}
-    - name: Install dependencies
-      run: make install_${{ matrix.language}}_sdk
-    - name: Install gotestfmt
-      uses: GoTestTools/gotestfmt-action@v2
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        version: v2.4.0
     - name: Run tests
       run: cd examples && go test -v -json -count=1 -cover -timeout 2h -tags=${{
         matrix.language }} -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
@@ -403,29 +361,20 @@ jobs:
         fields: repo,commit,author,action
         status: ${{ job.status }}
     strategy:
-      fail-fast: true
+      fail-fast: false
       matrix:
-        goversion:
-        - 1.20.x
-        javaversion:
-        - "11"
         language:
         - nodejs
         - python
         - dotnet
         - go
         - java
-        nodeversion:
-        - 16.x
-        pythonversion:
-        - "3.9"
 name: run-acceptance-tests
 on:
   pull_request:
     branches:
     - master
     - main
-    - v6
     paths-ignore:
     - CHANGELOG.md
   repository_dispatch:
