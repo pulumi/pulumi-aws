@@ -39,7 +39,8 @@ func TestProviderUpdateQuick(t *testing.T) {
 
 	bytes, err := os.ReadFile(info.grpcFile)
 	if err != nil {
-		require.NoError(t, fmt.Errorf("No pre-recorded gRPC log found, try to run TestProviderUpgradeRecord %w", err))
+		require.NoError(t, fmt.Errorf("No pre-recorded gRPC log found, try to run "+
+			"TestProviderUpgradeRecord %w", err))
 	}
 
 	n := 0
@@ -138,8 +139,10 @@ type providerUpgradeInfo struct {
 func newProviderUpgradeInfo(t *testing.T) providerUpgradeInfo {
 	info := providerUpgradeInfo{}
 	info.testCaseDir = filepath.Join("testdata", "resources")
-	info.baselineProviderVersion = parseProviderVersion(t, filepath.Join(info.testCaseDir, "Pulumi.yaml"))
-	info.recordingDir = filepath.Join("testdata", "recorded", info.baselineProviderVersion, "resources")
+	pyaml := filepath.Join(info.testCaseDir, "Pulumi.yaml")
+	v := parseProviderVersion(t, pyaml)
+	info.baselineProviderVersion = v
+	info.recordingDir = filepath.Join("testdata", "recorded", v, "resources")
 	var err error
 	info.grpcFile, err = filepath.Abs(filepath.Join(info.recordingDir, "grpc.json"))
 	require.NoError(t, err)
