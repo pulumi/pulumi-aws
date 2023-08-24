@@ -34,7 +34,7 @@ var (
 	accept bool = os.Getenv(acceptEnvVar) != ""
 )
 
-func TestProviderUpdateQuick(t *testing.T) {
+func TestProviderUpgradeQuick(t *testing.T) {
 	info := newProviderUpgradeInfo(t)
 
 	bytes, err := os.ReadFile(info.grpcFile)
