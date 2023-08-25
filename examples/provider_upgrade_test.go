@@ -30,14 +30,14 @@ import (
 	"github.com/stretchr/testify/require"
 	"gopkg.in/yaml.v2"
 
-	providerRC "github.com/pulumi/pulumi-aws/provider/v6"
-	"github.com/pulumi/pulumi-aws/provider/v6/pkg/version"
 	pfbridge "github.com/pulumi/pulumi-terraform-bridge/pf/tfbridge"
 	testutils "github.com/pulumi/pulumi-terraform-bridge/testing/x"
-	// "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/cmdutil"
 	pulumirpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
+
+	providerRC "github.com/pulumi/pulumi-aws/provider/v6"
+	"github.com/pulumi/pulumi-aws/provider/v6/pkg/version"
 )
 
 const (
@@ -59,10 +59,7 @@ func TestProviderUpgradeQuick(t *testing.T) {
 	info := newProviderUpgradeInfo(t)
 
 	bytes, err := os.ReadFile(info.grpcFile)
-	if err != nil {
-		require.NoError(t, fmt.Errorf("No pre-recorded gRPC log found, try to run "+
-			"TestProviderUpgradeRecord %w", err))
-	}
+	require.NoErrorf(t, err, "No pre-recorded gRPC log found, try to run TestProviderUpgradeRecord")
 
 	n := 0
 	for _, line := range strings.Split(string(bytes), "\n") {
