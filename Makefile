@@ -130,11 +130,11 @@ test:
 # Tests that the work-in-progress provider causes no replace or update plans for stacks deployed
 # using the last released (baseline) version.
 test.upgrade::
-	cd tests && go test -run TestProviderUpgrade
+	cd examples && go test -run TestProviderUpgrade
 
 # Runs integration tests on the baseline version and updates testdata to record expected behavior.
 test.upgrade.record::
-	cd tests && PULUMI_ACCEPT=1 go test -run TestProviderUpgrade
+	cd examples && PULUMI_ACCEPT=1 go test -run TestProviderUpgrade
 
 tfgen: install_plugins patch_upstream
 	(cd provider && go build $(PULUMI_PROVIDER_BUILD_PARALLELISM) -o $(WORKING_DIR)/bin/$(TFGEN) -ldflags "-X $(PROJECT)/$(VERSION_PATH)=$(VERSION)" $(PROJECT)/$(PROVIDER_PATH)/cmd/$(TFGEN))
