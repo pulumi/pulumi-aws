@@ -264,7 +264,9 @@ jobs:
         status: ${{ job.status }}
   publish:
     name: publish
-    needs: test
+    needs:
+      - test
+      - go_test_shim
     runs-on: pulumi-ubuntu-8core
     steps:
     - name: Checkout Repo
@@ -447,6 +449,26 @@ jobs:
         - dotnet
         - go
         - java
+  go_test_shim:
+      if: github.event_name == 'repository_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
+      name: Run test of provider shim
+      runs-on: ubuntu-latest
+      steps:
+          - name: Checkout Repo
+            uses: actions/checkout@v3
+            with:
+              ref: ${{ env.PR_COMMIT_SHA }}
+              submodules: true
+          - uses: actions/setup-go@v4
+            with:
+              cache-dependency-path: provider/shim/go.sum
+              go-version-file: provider/shim/go.mod
+          - name: go test
+            run: |
+              cd provider/shim
+              go test -v .
+      timeout-minutes: 60
+
 name: main
 on:
   push:
