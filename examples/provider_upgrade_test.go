@@ -6,8 +6,8 @@
 // Experimental provider upgrade tests.
 //
 // The objective of these tests is to make sure the provider release candidate will not generate any
-// Update or Replace tests when used to update Pulumi stacks deployed on a previous baseline version
-// of the provider.
+// Update or Replace plans for Pulumi stacks deployed on a previous baseline version of the
+// provider.
 //
 // Note on build flags above --^ these tests currently uses YAML only but our build workflow matrix
 // does not run YAML-only test a the moment, and it splits tests by language build tag; for this reason
