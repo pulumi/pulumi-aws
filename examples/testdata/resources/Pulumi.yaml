@@ -11,14 +11,14 @@ resources:
     options:
       version: 5.42.0
 
-  "s3.bucket.simple":
+  s3-bucket-simple:
     type: aws:s3/bucket:Bucket
     properties:
-      bucket: my-simple-yaml-based-bucket
+      bucket: testbucket-${pulumi.stack}
     options:
       provider: ${provider}
 
-  "rdsinstancewithname":
+  rds-instance-withname:
     type: aws:rds/instance:Instance
     properties:
       engine: postgres
