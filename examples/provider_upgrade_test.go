@@ -1,7 +1,7 @@
 // Copyright 2016-2023, Pulumi Corporation.  All rights reserved.
 
-//go:build nodejs || all
-// +build nodejs all
+//go:build java || all
+// +build java all
 
 // Experimental provider upgrade tests.
 //
@@ -10,8 +10,8 @@
 // provider.
 //
 // Note on build flags above --^ these tests currently uses YAML only but our build workflow matrix
-// does not run YAML-only test a the moment, and it splits tests by language build tag; for this reason
-// the file is marked as nodejs so that the test runs only once.
+// does not run YAML-only test a the moment, and it splits tests by language build tag; for this
+// reason the file is marked as another language so that the test runs only once.
 
 package examples
 
