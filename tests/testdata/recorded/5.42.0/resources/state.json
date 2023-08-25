@@ -1,0 +1,219 @@
+{
+    "version": 3,
+    "deployment": {
+        "manifest": {
+            "time": "2023-08-24T11:57:58.40981-04:00",
+            "magic": "a332f703d097ddf3757c51955d27edabb0c21d854b619b3824e1c7b46dae5d90",
+            "version": "v3.74.0"
+        },
+        "secrets_providers": {
+            "type": "passphrase",
+            "state": {
+                "salt": "v1:o6knR5xAhoM=:v1:bo8UKLw15qgiLqfw:nv7WdtqJ/eyRcgobvldRUi/vR2uZEw=="
+            }
+        },
+        "resources": [
+            {
+                "urn": "urn:pulumi:p-it-antons-mac-resources-31403197::resources::pulumi:pulumi:Stack::resources-p-it-antons-mac-resources-31403197",
+                "custom": false,
+                "type": "pulumi:pulumi:Stack",
+                "created": "2023-08-24T15:54:31.425454Z",
+                "modified": "2023-08-24T15:54:31.425454Z"
+            },
+            {
+                "urn": "urn:pulumi:p-it-antons-mac-resources-31403197::resources::pulumi:providers:aws::provider",
+                "custom": true,
+                "id": "e95c023e-3b9e-4cbc-b226-aa9253cbfa26",
+                "type": "pulumi:providers:aws",
+                "inputs": {
+                    "version": "5.42.0"
+                },
+                "outputs": {
+                    "version": "5.42.0"
+                },
+                "parent": "urn:pulumi:p-it-antons-mac-resources-31403197::resources::pulumi:pulumi:Stack::resources-p-it-antons-mac-resources-31403197",
+                "propertyDependencies": {
+                    "version": []
+                },
+                "created": "2023-08-24T15:54:32.656816Z",
+                "modified": "2023-08-24T15:54:32.656816Z"
+            },
+            {
+                "urn": "urn:pulumi:p-it-antons-mac-resources-31403197::resources::aws:s3/bucket:Bucket::s3.bucket.simple",
+                "custom": true,
+                "id": "my-simple-yaml-based-bucket",
+                "type": "aws:s3/bucket:Bucket",
+                "inputs": {
+                    "__defaults": [
+                        "acl",
+                        "forceDestroy"
+                    ],
+                    "acl": "private",
+                    "bucket": "my-simple-yaml-based-bucket",
+                    "forceDestroy": false
+                },
+                "outputs": {
+                    "accelerationStatus": "",
+                    "acl": "private",
+                    "arn": "arn:aws:s3:::my-simple-yaml-based-bucket",
+                    "bucket": "my-simple-yaml-based-bucket",
+                    "bucketDomainName": "my-simple-yaml-based-bucket.s3.amazonaws.com",
+                    "bucketRegionalDomainName": "my-simple-yaml-based-bucket.s3.us-west-2.amazonaws.com",
+                    "corsRules": [],
+                    "forceDestroy": false,
+                    "grants": [],
+                    "hostedZoneId": "Z3BJ6K6RIION7M",
+                    "id": "my-simple-yaml-based-bucket",
+                    "lifecycleRules": [],
+                    "loggings": [],
+                    "objectLockConfiguration": null,
+                    "region": "us-west-2",
+                    "replicationConfiguration": null,
+                    "requestPayer": "BucketOwner",
+                    "serverSideEncryptionConfiguration": {
+                        "rule": {
+                            "applyServerSideEncryptionByDefault": {
+                                "kmsMasterKeyId": "",
+                                "sseAlgorithm": "AES256"
+                            },
+                            "bucketKeyEnabled": false
+                        }
+                    },
+                    "tags": {},
+                    "tagsAll": {},
+                    "versioning": {
+                        "enabled": false,
+                        "mfaDelete": false
+                    },
+                    "website": null
+                },
+                "parent": "urn:pulumi:p-it-antons-mac-resources-31403197::resources::pulumi:pulumi:Stack::resources-p-it-antons-mac-resources-31403197",
+                "provider": "urn:pulumi:p-it-antons-mac-resources-31403197::resources::pulumi:providers:aws::provider::e95c023e-3b9e-4cbc-b226-aa9253cbfa26",
+                "propertyDependencies": {
+                    "bucket": null
+                },
+                "created": "2023-08-24T15:54:36.057811Z",
+                "modified": "2023-08-24T15:54:36.057811Z"
+            },
+            {
+                "urn": "urn:pulumi:p-it-antons-mac-resources-31403197::resources::aws:rds/instance:Instance::rdsinstancewithname",
+                "custom": true,
+                "id": "rdsinstancewithname661be1a",
+                "type": "aws:rds/instance:Instance",
+                "inputs": {
+                    "__defaults": [
+                        "applyImmediately",
+                        "autoMinorVersionUpgrade",
+                        "copyTagsToSnapshot",
+                        "deleteAutomatedBackups",
+                        "identifier",
+                        "monitoringInterval",
+                        "performanceInsightsEnabled",
+                        "publiclyAccessible"
+                    ],
+                    "allocatedStorage": 30,
+                    "applyImmediately": false,
+                    "autoMinorVersionUpgrade": true,
+                    "copyTagsToSnapshot": false,
+                    "deleteAutomatedBackups": true,
+                    "engine": "postgres",
+                    "identifier": "rdsinstancewithname661be1a",
+                    "instanceClass": "db.t4g.micro",
+                    "monitoringInterval": 0,
+                    "name": "mydbname",
+                    "password": "mypassword",
+                    "performanceInsightsEnabled": false,
+                    "publiclyAccessible": false,
+                    "skipFinalSnapshot": true,
+                    "username": "mydbuser"
+                },
+                "outputs": {
+                    "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":2400000000000,\"delete\":3600000000000,\"update\":4800000000000},\"schema_version\":\"1\"}",
+                    "address": "rdsinstancewithname661be1a.chuqccm8uxqx.us-west-2.rds.amazonaws.com",
+                    "allocatedStorage": 30,
+                    "applyImmediately": false,
+                    "arn": "arn:aws:rds:us-west-2:616138583583:db:rdsinstancewithname661be1a",
+                    "autoMinorVersionUpgrade": true,
+                    "availabilityZone": "us-west-2d",
+                    "backupRetentionPeriod": 0,
+                    "backupWindow": "08:44-09:14",
+                    "caCertIdentifier": "rds-ca-2019",
+                    "characterSetName": "",
+                    "copyTagsToSnapshot": false,
+                    "customIamInstanceProfile": "",
+                    "customerOwnedIpEnabled": false,
+                    "dbName": "mydbname",
+                    "dbSubnetGroupName": "default",
+                    "deleteAutomatedBackups": true,
+                    "deletionProtection": false,
+                    "domain": "",
+                    "domainIamRoleName": "",
+                    "enabledCloudwatchLogsExports": [],
+                    "endpoint": "rdsinstancewithname661be1a.chuqccm8uxqx.us-west-2.rds.amazonaws.com:5432",
+                    "engine": "postgres",
+                    "engineVersion": "15.3",
+                    "engineVersionActual": "15.3",
+                    "hostedZoneId": "Z1PVIF0B656C1W",
+                    "iamDatabaseAuthenticationEnabled": false,
+                    "id": "rdsinstancewithname661be1a",
+                    "identifier": "rdsinstancewithname661be1a",
+                    "identifierPrefix": "",
+                    "instanceClass": "db.t4g.micro",
+                    "iops": 0,
+                    "kmsKeyId": "",
+                    "latestRestorableTime": "",
+                    "licenseModel": "postgresql-license",
+                    "listenerEndpoints": [],
+                    "maintenanceWindow": "sat:09:46-sat:10:16",
+                    "masterUserSecrets": [],
+                    "maxAllocatedStorage": 0,
+                    "monitoringInterval": 0,
+                    "monitoringRoleArn": "",
+                    "multiAz": false,
+                    "name": "mydbname",
+                    "ncharCharacterSetName": "",
+                    "networkType": "IPV4",
+                    "optionGroupName": "default:postgres-15",
+                    "parameterGroupName": "default.postgres15",
+                    "password": {
+                        "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+                        "ciphertext": "v1:c1q1mRFwb4pmzr70:3ExzVsPKp06nqT/s+Wj2rAKYze6UrJl6tlb0TA=="
+                    },
+                    "performanceInsightsEnabled": false,
+                    "performanceInsightsKmsKeyId": "",
+                    "performanceInsightsRetentionPeriod": 0,
+                    "port": 5432,
+                    "publiclyAccessible": false,
+                    "replicaMode": "",
+                    "replicas": [],
+                    "replicateSourceDb": "",
+                    "resourceId": "db-X2ZNHVMVCWXBO6LUCS4L7ZJ5CU",
+                    "securityGroupNames": [],
+                    "skipFinalSnapshot": true,
+                    "status": "available",
+                    "storageEncrypted": false,
+                    "storageThroughput": 0,
+                    "storageType": "gp2",
+                    "tags": {},
+                    "tagsAll": {},
+                    "timezone": "",
+                    "username": "mydbuser",
+                    "vpcSecurityGroupIds": [
+                        "sg-4d436f12"
+                    ]
+                },
+                "parent": "urn:pulumi:p-it-antons-mac-resources-31403197::resources::pulumi:pulumi:Stack::resources-p-it-antons-mac-resources-31403197",
+                "provider": "urn:pulumi:p-it-antons-mac-resources-31403197::resources::pulumi:providers:aws::provider::e95c023e-3b9e-4cbc-b226-aa9253cbfa26",
+                "propertyDependencies": {
+                    "allocatedStorage": null,
+                    "engine": null,
+                    "instanceClass": null,
+                    "name": null,
+                    "password": null,
+                    "skipFinalSnapshot": null,
+                    "username": null
+                }
+            }
+        ]
+    }
+}
