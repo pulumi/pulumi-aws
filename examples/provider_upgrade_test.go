@@ -46,7 +46,7 @@ const (
 )
 
 var (
-	accept bool = cmdutil.IsTrutyh(acceptEnvVar)
+	accept bool = cmdutil.IsTruthy(acceptEnvVar)
 )
 
 func TestProviderUpgradeQuick(t *testing.T) {
