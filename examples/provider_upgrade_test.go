@@ -36,6 +36,7 @@ import (
 	testutils "github.com/pulumi/pulumi-terraform-bridge/testing/x"
 	// "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/cmdutil"
 	pulumirpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
 )
 
@@ -45,7 +46,7 @@ const (
 )
 
 var (
-	accept bool = os.Getenv(acceptEnvVar) != ""
+	accept bool = cmdutil.IsTrutyh(acceptEnvVar)
 )
 
 func TestProviderUpgradeQuick(t *testing.T) {
