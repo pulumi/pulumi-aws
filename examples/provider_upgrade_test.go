@@ -28,6 +28,8 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/require"
+	jsonpb "google.golang.org/protobuf/encoding/protojson"
+	"google.golang.org/protobuf/reflect/protoreflect"
 	"gopkg.in/yaml.v2"
 
 	providerRC "github.com/pulumi/pulumi-aws/provider/v6"
@@ -49,12 +51,6 @@ var (
 )
 
 func TestProviderUpgradeQuick(t *testing.T) {
-	// This is currently looking at Diff calls. Replaying V5 Diff calls against V6
-	// provider is close but still not quite right. In the upgrade scenario we need to
-	// compute hybrid Diff calls that take olds from V5 Diff calls and news from V6
-	// Check, and ensure that these do not make replace plans.
-	t.Skip("Skipping due to a spurious failure")
-
 	info := newProviderUpgradeInfo(t)
 
 	bytes, err := os.ReadFile(info.grpcFile)
@@ -63,20 +59,20 @@ func TestProviderUpgradeQuick(t *testing.T) {
 			"TestProviderUpgradeRecord %w", err))
 	}
 
-	n := 0
+	eng := &mockPulumiEngine{
+		provider:              providerServer(t),
+		lastCheckRequestByURN: map[string]*pulumirpc.CheckRequest{},
+	}
+
 	for _, line := range strings.Split(string(bytes), "\n") {
 		line = strings.TrimSpace(line)
 		if line == "" {
 			continue
 		}
-
-		if isPureMethod(t, line) {
-			line = ignoreStables(t, line)
-			n++
-			testutils.Replay(t, providerServer(t), line)
-		}
+		line = ignoreStables(t, line)
+		eng.replayGRPCLog(t, line)
 	}
-	require.NotEmptyf(t, n, "Need at least one replay test")
+	require.NotEmptyf(t, eng.verifiedDiffResourceCounter, "Need at least one replay test")
 }
 
 func TestProviderUpgradeRecord(t *testing.T) {
@@ -278,21 +274,6 @@ func parseProviderVersion(t *testing.T, yamlFile string) string {
 	return v
 }
 
-func isPureMethod(t *testing.T, grpcLogEntry string) bool {
-	type model struct {
-		Method string `json:"method"`
-	}
-	var m model
-	err := json.Unmarshal([]byte(grpcLogEntry), &m)
-	require.NoError(t, err)
-	switch m.Method {
-	case "/pulumirpc.ResourceProvider/Diff":
-		return true
-	default:
-		return false
-	}
-}
-
 func ignoreStables(t *testing.T, grpcLogEntry string) string {
 	var v map[string]any
 	err := json.Unmarshal([]byte(grpcLogEntry), &v)
@@ -322,4 +303,68 @@ func providerServer(t *testing.T) pulumirpc.ResourceProviderServer {
 	)(nil)
 	require.NoError(t, err)
 	return p
+}
+
+type mockPulumiEngine struct {
+	provider                    pulumirpc.ResourceProviderServer
+	lastCheckRequestByURN       map[string]*pulumirpc.CheckRequest
+	verifiedDiffResourceCounter int
+}
+
+func (e *mockPulumiEngine) replayGRPCLog(t *testing.T, jsonLog string) {
+	var entry jsonLogEntry
+	err := json.Unmarshal([]byte(jsonLog), &entry)
+	require.NoError(t, err)
+
+	switch entry.Method {
+	case "/pulumirpc.ResourceProvider/Check":
+		req := unmarshalProto(t, entry.Request, new(pulumirpc.CheckRequest))
+		e.recordCheck(t, req)
+	case "/pulumirpc.ResourceProvider/Diff":
+		req := unmarshalProto(t, entry.Request, new(pulumirpc.DiffRequest))
+		e.fixupDiff(t, req)
+		entry.Request = marshalProto(t, req)
+		b, err := json.Marshal(entry)
+		require.NoError(t, err)
+		testutils.Replay(t, e.provider, string(b))
+		e.verifiedDiffResourceCounter++
+		t.Logf("Replayed Diff on %v", req.Urn)
+	}
+}
+
+func (e *mockPulumiEngine) recordCheck(t *testing.T, checkReq *pulumirpc.CheckRequest) {
+	e.lastCheckRequestByURN[checkReq.Urn] = checkReq
+}
+
+func (e *mockPulumiEngine) fixupDiff(t *testing.T, diffReq *pulumirpc.DiffRequest) {
+	ctx := context.Background()
+	lastCheck, ok := e.lastCheckRequestByURN[diffReq.Urn]
+	require.Truef(t, ok, "Diff called for %q but there is no recent Check for this URN", diffReq.Urn)
+
+	// Assuming here that CheckRequest does not depend on the provider version, so that replaying
+	// a pre-recorded Check request from old provider on the new RC provider is reasonable.
+	checkResp, err := e.provider.Check(ctx, lastCheck)
+	require.NoError(t, err)
+
+	// Emulate the real engine would be passing checked inputs into the News field of the
+	// DiffRequest and then replay this updated request against the provider.
+	diffReq.News = checkResp.GetInputs()
+}
+
+type jsonLogEntry struct {
+	Method   string          `json:"method"`
+	Request  json.RawMessage `json:"request,omitempty"`
+	Response json.RawMessage `json:"response,omitempty"`
+}
+
+func unmarshalProto[T protoreflect.ProtoMessage](t *testing.T, data json.RawMessage, req T) T {
+	err := jsonpb.Unmarshal([]byte(data), req)
+	require.NoError(t, err)
+	return req
+}
+
+func marshalProto[T protoreflect.ProtoMessage](t *testing.T, req T) json.RawMessage {
+	bytes, err := jsonpb.Marshal(req)
+	require.NoError(t, err)
+	return bytes
 }
