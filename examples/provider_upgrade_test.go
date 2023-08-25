@@ -98,7 +98,6 @@ func TestProviderUpgradeRecord(t *testing.T) {
 		},
 	})
 	integration.ProgramTest(t, &test)
-	return
 }
 
 func TestProviderUpgrade(t *testing.T) {
