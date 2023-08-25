@@ -2,28 +2,28 @@
     "version": 3,
     "deployment": {
         "manifest": {
-            "time": "2023-08-24T11:57:58.40981-04:00",
+            "time": "2023-08-25T14:20:58.512586-04:00",
             "magic": "a332f703d097ddf3757c51955d27edabb0c21d854b619b3824e1c7b46dae5d90",
             "version": "v3.74.0"
         },
         "secrets_providers": {
             "type": "passphrase",
             "state": {
-                "salt": "v1:o6knR5xAhoM=:v1:bo8UKLw15qgiLqfw:nv7WdtqJ/eyRcgobvldRUi/vR2uZEw=="
+                "salt": "v1:o8lU/imz4LA=:v1:oWEWXtkNYRCqXPGi:kUzf6gkM4r1TmNMUtMSSyf/KClbDAg=="
             }
         },
         "resources": [
             {
-                "urn": "urn:pulumi:p-it-antons-mac-resources-31403197::resources::pulumi:pulumi:Stack::resources-p-it-antons-mac-resources-31403197",
+                "urn": "urn:pulumi:p-it-antons-mac-resources-3a5a9fc3::resources::pulumi:pulumi:Stack::resources-p-it-antons-mac-resources-3a5a9fc3",
                 "custom": false,
                 "type": "pulumi:pulumi:Stack",
-                "created": "2023-08-24T15:54:31.425454Z",
-                "modified": "2023-08-24T15:54:31.425454Z"
+                "created": "2023-08-25T18:13:17.592406Z",
+                "modified": "2023-08-25T18:13:17.592406Z"
             },
             {
-                "urn": "urn:pulumi:p-it-antons-mac-resources-31403197::resources::pulumi:providers:aws::provider",
+                "urn": "urn:pulumi:p-it-antons-mac-resources-3a5a9fc3::resources::pulumi:providers:aws::provider",
                 "custom": true,
-                "id": "e95c023e-3b9e-4cbc-b226-aa9253cbfa26",
+                "id": "c54ee184-5b59-4f73-99bf-a1460e72c8c5",
                 "type": "pulumi:providers:aws",
                 "inputs": {
                     "version": "5.42.0"
@@ -31,15 +31,184 @@
                 "outputs": {
                     "version": "5.42.0"
                 },
-                "parent": "urn:pulumi:p-it-antons-mac-resources-31403197::resources::pulumi:pulumi:Stack::resources-p-it-antons-mac-resources-31403197",
+                "parent": "urn:pulumi:p-it-antons-mac-resources-3a5a9fc3::resources::pulumi:pulumi:Stack::resources-p-it-antons-mac-resources-3a5a9fc3",
                 "propertyDependencies": {
                     "version": []
                 },
-                "created": "2023-08-24T15:54:32.656816Z",
-                "modified": "2023-08-24T15:54:32.656816Z"
+                "created": "2023-08-25T18:13:19.583344Z",
+                "modified": "2023-08-25T18:13:19.583344Z"
             },
             {
-                "urn": "urn:pulumi:p-it-antons-mac-resources-31403197::resources::aws:s3/bucket:Bucket::s3.bucket.simple",
+                "urn": "urn:pulumi:p-it-antons-mac-resources-3a5a9fc3::resources::pulumi:providers:aws::default",
+                "custom": true,
+                "id": "7af2d313-9e50-4e12-a800-1817e911f593",
+                "type": "pulumi:providers:aws",
+                "inputs": {
+                    "version": "5.42.0"
+                },
+                "outputs": {
+                    "version": "5.42.0"
+                },
+                "created": "2023-08-25T18:13:20.614701Z",
+                "modified": "2023-08-25T18:13:20.614701Z"
+            },
+            {
+                "urn": "urn:pulumi:p-it-antons-mac-resources-3a5a9fc3::resources::aws:iam/role:Role::ekscluster1role",
+                "custom": true,
+                "id": "ekscluster1role-f827129",
+                "type": "aws:iam/role:Role",
+                "inputs": {
+                    "__defaults": [
+                        "forceDetachPolicies",
+                        "maxSessionDuration",
+                        "name",
+                        "path"
+                    ],
+                    "assumeRolePolicy": "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Sid\": \"\",\n      \"Effect\": \"Allow\",\n      \"Action\": \"sts:AssumeRole\",\n      \"Principal\": {\n        \"Service\": \"eks.amazonaws.com\"\n      }\n    }\n  ]\n}",
+                    "forceDetachPolicies": false,
+                    "maxSessionDuration": 3600,
+                    "name": "ekscluster1role-f827129",
+                    "path": "/"
+                },
+                "outputs": {
+                    "arn": "arn:aws:iam::616138583583:role/ekscluster1role-f827129",
+                    "assumeRolePolicy": "{\"Statement\":[{\"Action\":\"sts:AssumeRole\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"eks.amazonaws.com\"},\"Sid\":\"\"}],\"Version\":\"2012-10-17\"}",
+                    "createDate": "2023-08-25T18:13:21Z",
+                    "description": "",
+                    "forceDetachPolicies": false,
+                    "id": "ekscluster1role-f827129",
+                    "inlinePolicies": [],
+                    "managedPolicyArns": [],
+                    "maxSessionDuration": 3600,
+                    "name": "ekscluster1role-f827129",
+                    "namePrefix": "",
+                    "path": "/",
+                    "roleLastUseds": [
+                        {
+                            "lastUsedDate": "",
+                            "region": ""
+                        }
+                    ],
+                    "tags": {},
+                    "tagsAll": {},
+                    "uniqueId": "AROAY65FYVYPVCLBFMQAM"
+                },
+                "parent": "urn:pulumi:p-it-antons-mac-resources-3a5a9fc3::resources::pulumi:pulumi:Stack::resources-p-it-antons-mac-resources-3a5a9fc3",
+                "provider": "urn:pulumi:p-it-antons-mac-resources-3a5a9fc3::resources::pulumi:providers:aws::provider::c54ee184-5b59-4f73-99bf-a1460e72c8c5",
+                "propertyDependencies": {
+                    "assumeRolePolicy": null
+                },
+                "created": "2023-08-25T18:13:21.957704Z",
+                "modified": "2023-08-25T18:13:21.957704Z"
+            },
+            {
+                "urn": "urn:pulumi:p-it-antons-mac-resources-3a5a9fc3::resources::aws:iam/rolePolicyAttachment:RolePolicyAttachment::ekscluster1roleattach1",
+                "custom": true,
+                "id": "ekscluster1role-f827129-20230825181322029400000001",
+                "type": "aws:iam/rolePolicyAttachment:RolePolicyAttachment",
+                "inputs": {
+                    "__defaults": [],
+                    "policyArn": "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy",
+                    "role": "ekscluster1role-f827129"
+                },
+                "outputs": {
+                    "id": "ekscluster1role-f827129-20230825181322029400000001",
+                    "policyArn": "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy",
+                    "role": "ekscluster1role-f827129"
+                },
+                "parent": "urn:pulumi:p-it-antons-mac-resources-3a5a9fc3::resources::pulumi:pulumi:Stack::resources-p-it-antons-mac-resources-3a5a9fc3",
+                "dependencies": [
+                    "urn:pulumi:p-it-antons-mac-resources-3a5a9fc3::resources::aws:iam/role:Role::ekscluster1role"
+                ],
+                "provider": "urn:pulumi:p-it-antons-mac-resources-3a5a9fc3::resources::pulumi:providers:aws::provider::c54ee184-5b59-4f73-99bf-a1460e72c8c5",
+                "propertyDependencies": {
+                    "policyArn": null,
+                    "role": [
+                        "urn:pulumi:p-it-antons-mac-resources-3a5a9fc3::resources::aws:iam/role:Role::ekscluster1role"
+                    ]
+                },
+                "created": "2023-08-25T18:13:22.066126Z",
+                "modified": "2023-08-25T18:13:22.066126Z"
+            },
+            {
+                "urn": "urn:pulumi:p-it-antons-mac-resources-3a5a9fc3::resources::aws:iam/rolePolicyAttachment:RolePolicyAttachment::ekscluster1roleattach2",
+                "custom": true,
+                "id": "ekscluster1role-f827129-20230825181322077100000002",
+                "type": "aws:iam/rolePolicyAttachment:RolePolicyAttachment",
+                "inputs": {
+                    "__defaults": [],
+                    "policyArn": "arn:aws:iam::aws:policy/AmazonEKSVPCResourceController",
+                    "role": "ekscluster1role-f827129"
+                },
+                "outputs": {
+                    "id": "ekscluster1role-f827129-20230825181322077100000002",
+                    "policyArn": "arn:aws:iam::aws:policy/AmazonEKSVPCResourceController",
+                    "role": "ekscluster1role-f827129"
+                },
+                "parent": "urn:pulumi:p-it-antons-mac-resources-3a5a9fc3::resources::pulumi:pulumi:Stack::resources-p-it-antons-mac-resources-3a5a9fc3",
+                "dependencies": [
+                    "urn:pulumi:p-it-antons-mac-resources-3a5a9fc3::resources::aws:iam/role:Role::ekscluster1role"
+                ],
+                "provider": "urn:pulumi:p-it-antons-mac-resources-3a5a9fc3::resources::pulumi:providers:aws::provider::c54ee184-5b59-4f73-99bf-a1460e72c8c5",
+                "propertyDependencies": {
+                    "policyArn": null,
+                    "role": [
+                        "urn:pulumi:p-it-antons-mac-resources-3a5a9fc3::resources::aws:iam/role:Role::ekscluster1role"
+                    ]
+                },
+                "created": "2023-08-25T18:13:22.112998Z",
+                "modified": "2023-08-25T18:13:22.112998Z"
+            },
+            {
+                "urn": "urn:pulumi:p-it-antons-mac-resources-3a5a9fc3::resources::aws:ec2/vpc:Vpc::vpc1",
+                "custom": true,
+                "id": "vpc-02e49a1a7226c1954",
+                "type": "aws:ec2/vpc:Vpc",
+                "inputs": {
+                    "__defaults": [
+                        "enableDnsSupport",
+                        "instanceTenancy"
+                    ],
+                    "cidrBlock": "10.192.0.0/16",
+                    "enableDnsSupport": true,
+                    "instanceTenancy": "default"
+                },
+                "outputs": {
+                    "__meta": "{\"schema_version\":\"1\"}",
+                    "arn": "arn:aws:ec2:us-west-2:616138583583:vpc/vpc-02e49a1a7226c1954",
+                    "assignGeneratedIpv6CidrBlock": false,
+                    "cidrBlock": "10.192.0.0/16",
+                    "defaultNetworkAclId": "acl-08e90a66e68a1fed9",
+                    "defaultRouteTableId": "rtb-0284780ee9d2f9af4",
+                    "defaultSecurityGroupId": "sg-0688346da25e5b8cb",
+                    "dhcpOptionsId": "dopt-1649d26e",
+                    "enableClassiclink": false,
+                    "enableClassiclinkDnsSupport": false,
+                    "enableDnsHostnames": false,
+                    "enableDnsSupport": true,
+                    "enableNetworkAddressUsageMetrics": false,
+                    "id": "vpc-02e49a1a7226c1954",
+                    "instanceTenancy": "default",
+                    "ipv6AssociationId": "",
+                    "ipv6CidrBlock": "",
+                    "ipv6CidrBlockNetworkBorderGroup": "",
+                    "ipv6IpamPoolId": "",
+                    "ipv6NetmaskLength": 0,
+                    "mainRouteTableId": "rtb-0284780ee9d2f9af4",
+                    "ownerId": "616138583583",
+                    "tags": {},
+                    "tagsAll": {}
+                },
+                "parent": "urn:pulumi:p-it-antons-mac-resources-3a5a9fc3::resources::pulumi:pulumi:Stack::resources-p-it-antons-mac-resources-3a5a9fc3",
+                "provider": "urn:pulumi:p-it-antons-mac-resources-3a5a9fc3::resources::pulumi:providers:aws::provider::c54ee184-5b59-4f73-99bf-a1460e72c8c5",
+                "propertyDependencies": {
+                    "cidrBlock": null
+                },
+                "created": "2023-08-25T18:13:23.616306Z",
+                "modified": "2023-08-25T18:13:23.616306Z"
+            },
+            {
+                "urn": "urn:pulumi:p-it-antons-mac-resources-3a5a9fc3::resources::aws:s3/bucket:Bucket::s3.bucket.simple",
                 "custom": true,
                 "id": "my-simple-yaml-based-bucket",
                 "type": "aws:s3/bucket:Bucket",
@@ -87,18 +256,146 @@
                     },
                     "website": null
                 },
-                "parent": "urn:pulumi:p-it-antons-mac-resources-31403197::resources::pulumi:pulumi:Stack::resources-p-it-antons-mac-resources-31403197",
-                "provider": "urn:pulumi:p-it-antons-mac-resources-31403197::resources::pulumi:providers:aws::provider::e95c023e-3b9e-4cbc-b226-aa9253cbfa26",
+                "parent": "urn:pulumi:p-it-antons-mac-resources-3a5a9fc3::resources::pulumi:pulumi:Stack::resources-p-it-antons-mac-resources-3a5a9fc3",
+                "provider": "urn:pulumi:p-it-antons-mac-resources-3a5a9fc3::resources::pulumi:providers:aws::provider::c54ee184-5b59-4f73-99bf-a1460e72c8c5",
                 "propertyDependencies": {
                     "bucket": null
                 },
-                "created": "2023-08-24T15:54:36.057811Z",
-                "modified": "2023-08-24T15:54:36.057811Z"
+                "created": "2023-08-25T18:13:23.885117Z",
+                "modified": "2023-08-25T18:13:23.885117Z"
             },
             {
-                "urn": "urn:pulumi:p-it-antons-mac-resources-31403197::resources::aws:rds/instance:Instance::rdsinstancewithname",
+                "urn": "urn:pulumi:p-it-antons-mac-resources-3a5a9fc3::resources::aws:ec2/subnet:Subnet::subnet1",
                 "custom": true,
-                "id": "rdsinstancewithname661be1a",
+                "id": "subnet-0047dc3585e6c49f8",
+                "type": "aws:ec2/subnet:Subnet",
+                "inputs": {
+                    "__defaults": [
+                        "assignIpv6AddressOnCreation",
+                        "enableDns64",
+                        "enableResourceNameDnsARecordOnLaunch",
+                        "enableResourceNameDnsAaaaRecordOnLaunch",
+                        "ipv6Native"
+                    ],
+                    "assignIpv6AddressOnCreation": false,
+                    "availabilityZone": "us-west-2a",
+                    "cidrBlock": "10.192.20.0/24",
+                    "enableDns64": false,
+                    "enableResourceNameDnsARecordOnLaunch": false,
+                    "enableResourceNameDnsAaaaRecordOnLaunch": false,
+                    "ipv6Native": false,
+                    "mapPublicIpOnLaunch": false,
+                    "vpcId": "vpc-02e49a1a7226c1954"
+                },
+                "outputs": {
+                    "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":600000000000,\"delete\":1200000000000},\"schema_version\":\"1\"}",
+                    "arn": "arn:aws:ec2:us-west-2:616138583583:subnet/subnet-0047dc3585e6c49f8",
+                    "assignIpv6AddressOnCreation": false,
+                    "availabilityZone": "us-west-2a",
+                    "availabilityZoneId": "usw2-az2",
+                    "cidrBlock": "10.192.20.0/24",
+                    "customerOwnedIpv4Pool": "",
+                    "enableDns64": false,
+                    "enableLniAtDeviceIndex": 0,
+                    "enableResourceNameDnsARecordOnLaunch": false,
+                    "enableResourceNameDnsAaaaRecordOnLaunch": false,
+                    "id": "subnet-0047dc3585e6c49f8",
+                    "ipv6CidrBlock": "",
+                    "ipv6CidrBlockAssociationId": "",
+                    "ipv6Native": false,
+                    "mapCustomerOwnedIpOnLaunch": false,
+                    "mapPublicIpOnLaunch": false,
+                    "outpostArn": "",
+                    "ownerId": "616138583583",
+                    "privateDnsHostnameTypeOnLaunch": "ip-name",
+                    "tags": {},
+                    "tagsAll": {},
+                    "vpcId": "vpc-02e49a1a7226c1954"
+                },
+                "parent": "urn:pulumi:p-it-antons-mac-resources-3a5a9fc3::resources::pulumi:pulumi:Stack::resources-p-it-antons-mac-resources-3a5a9fc3",
+                "dependencies": [
+                    "urn:pulumi:p-it-antons-mac-resources-3a5a9fc3::resources::aws:ec2/vpc:Vpc::vpc1"
+                ],
+                "provider": "urn:pulumi:p-it-antons-mac-resources-3a5a9fc3::resources::pulumi:providers:aws::provider::c54ee184-5b59-4f73-99bf-a1460e72c8c5",
+                "propertyDependencies": {
+                    "availabilityZone": null,
+                    "cidrBlock": null,
+                    "mapPublicIpOnLaunch": null,
+                    "vpcId": [
+                        "urn:pulumi:p-it-antons-mac-resources-3a5a9fc3::resources::aws:ec2/vpc:Vpc::vpc1"
+                    ]
+                },
+                "created": "2023-08-25T18:13:24.350893Z",
+                "modified": "2023-08-25T18:13:24.350893Z"
+            },
+            {
+                "urn": "urn:pulumi:p-it-antons-mac-resources-3a5a9fc3::resources::aws:ec2/subnet:Subnet::subnet2",
+                "custom": true,
+                "id": "subnet-0e8a59e25b70b9ae0",
+                "type": "aws:ec2/subnet:Subnet",
+                "inputs": {
+                    "__defaults": [
+                        "assignIpv6AddressOnCreation",
+                        "enableDns64",
+                        "enableResourceNameDnsARecordOnLaunch",
+                        "enableResourceNameDnsAaaaRecordOnLaunch",
+                        "ipv6Native"
+                    ],
+                    "assignIpv6AddressOnCreation": false,
+                    "availabilityZone": "us-west-2b",
+                    "cidrBlock": "10.192.21.0/24",
+                    "enableDns64": false,
+                    "enableResourceNameDnsARecordOnLaunch": false,
+                    "enableResourceNameDnsAaaaRecordOnLaunch": false,
+                    "ipv6Native": false,
+                    "mapPublicIpOnLaunch": false,
+                    "vpcId": "vpc-02e49a1a7226c1954"
+                },
+                "outputs": {
+                    "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":600000000000,\"delete\":1200000000000},\"schema_version\":\"1\"}",
+                    "arn": "arn:aws:ec2:us-west-2:616138583583:subnet/subnet-0e8a59e25b70b9ae0",
+                    "assignIpv6AddressOnCreation": false,
+                    "availabilityZone": "us-west-2b",
+                    "availabilityZoneId": "usw2-az1",
+                    "cidrBlock": "10.192.21.0/24",
+                    "customerOwnedIpv4Pool": "",
+                    "enableDns64": false,
+                    "enableLniAtDeviceIndex": 0,
+                    "enableResourceNameDnsARecordOnLaunch": false,
+                    "enableResourceNameDnsAaaaRecordOnLaunch": false,
+                    "id": "subnet-0e8a59e25b70b9ae0",
+                    "ipv6CidrBlock": "",
+                    "ipv6CidrBlockAssociationId": "",
+                    "ipv6Native": false,
+                    "mapCustomerOwnedIpOnLaunch": false,
+                    "mapPublicIpOnLaunch": false,
+                    "outpostArn": "",
+                    "ownerId": "616138583583",
+                    "privateDnsHostnameTypeOnLaunch": "ip-name",
+                    "tags": {},
+                    "tagsAll": {},
+                    "vpcId": "vpc-02e49a1a7226c1954"
+                },
+                "parent": "urn:pulumi:p-it-antons-mac-resources-3a5a9fc3::resources::pulumi:pulumi:Stack::resources-p-it-antons-mac-resources-3a5a9fc3",
+                "dependencies": [
+                    "urn:pulumi:p-it-antons-mac-resources-3a5a9fc3::resources::aws:ec2/vpc:Vpc::vpc1"
+                ],
+                "provider": "urn:pulumi:p-it-antons-mac-resources-3a5a9fc3::resources::pulumi:providers:aws::provider::c54ee184-5b59-4f73-99bf-a1460e72c8c5",
+                "propertyDependencies": {
+                    "availabilityZone": null,
+                    "cidrBlock": null,
+                    "mapPublicIpOnLaunch": null,
+                    "vpcId": [
+                        "urn:pulumi:p-it-antons-mac-resources-3a5a9fc3::resources::aws:ec2/vpc:Vpc::vpc1"
+                    ]
+                },
+                "created": "2023-08-25T18:13:24.443379Z",
+                "modified": "2023-08-25T18:13:24.443379Z"
+            },
+            {
+                "urn": "urn:pulumi:p-it-antons-mac-resources-3a5a9fc3::resources::aws:rds/instance:Instance::rdsinstancewithname",
+                "custom": true,
+                "id": "rdsinstancewithnamedbc3dcf",
                 "type": "aws:rds/instance:Instance",
                 "inputs": {
                     "__defaults": [
@@ -117,7 +414,7 @@
                     "copyTagsToSnapshot": false,
                     "deleteAutomatedBackups": true,
                     "engine": "postgres",
-                    "identifier": "rdsinstancewithname661be1a",
+                    "identifier": "rdsinstancewithnamedbc3dcf",
                     "instanceClass": "db.t4g.micro",
                     "monitoringInterval": 0,
                     "name": "mydbname",
@@ -129,14 +426,14 @@
                 },
                 "outputs": {
                     "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":2400000000000,\"delete\":3600000000000,\"update\":4800000000000},\"schema_version\":\"1\"}",
-                    "address": "rdsinstancewithname661be1a.chuqccm8uxqx.us-west-2.rds.amazonaws.com",
+                    "address": "rdsinstancewithnamedbc3dcf.chuqccm8uxqx.us-west-2.rds.amazonaws.com",
                     "allocatedStorage": 30,
                     "applyImmediately": false,
-                    "arn": "arn:aws:rds:us-west-2:616138583583:db:rdsinstancewithname661be1a",
+                    "arn": "arn:aws:rds:us-west-2:616138583583:db:rdsinstancewithnamedbc3dcf",
                     "autoMinorVersionUpgrade": true,
                     "availabilityZone": "us-west-2d",
                     "backupRetentionPeriod": 0,
-                    "backupWindow": "08:44-09:14",
+                    "backupWindow": "08:11-08:41",
                     "caCertIdentifier": "rds-ca-2019",
                     "characterSetName": "",
                     "copyTagsToSnapshot": false,
@@ -149,14 +446,14 @@
                     "domain": "",
                     "domainIamRoleName": "",
                     "enabledCloudwatchLogsExports": [],
-                    "endpoint": "rdsinstancewithname661be1a.chuqccm8uxqx.us-west-2.rds.amazonaws.com:5432",
+                    "endpoint": "rdsinstancewithnamedbc3dcf.chuqccm8uxqx.us-west-2.rds.amazonaws.com:5432",
                     "engine": "postgres",
                     "engineVersion": "15.3",
                     "engineVersionActual": "15.3",
                     "hostedZoneId": "Z1PVIF0B656C1W",
                     "iamDatabaseAuthenticationEnabled": false,
-                    "id": "rdsinstancewithname661be1a",
-                    "identifier": "rdsinstancewithname661be1a",
+                    "id": "rdsinstancewithnamedbc3dcf",
+                    "identifier": "rdsinstancewithnamedbc3dcf",
                     "identifierPrefix": "",
                     "instanceClass": "db.t4g.micro",
                     "iops": 0,
@@ -164,7 +461,7 @@
                     "latestRestorableTime": "",
                     "licenseModel": "postgresql-license",
                     "listenerEndpoints": [],
-                    "maintenanceWindow": "sat:09:46-sat:10:16",
+                    "maintenanceWindow": "fri:08:50-fri:09:20",
                     "masterUserSecrets": [],
                     "maxAllocatedStorage": 0,
                     "monitoringInterval": 0,
@@ -177,7 +474,7 @@
                     "parameterGroupName": "default.postgres15",
                     "password": {
                         "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
-                        "ciphertext": "v1:c1q1mRFwb4pmzr70:3ExzVsPKp06nqT/s+Wj2rAKYze6UrJl6tlb0TA=="
+                        "ciphertext": "v1:REdHwupnDMucS7EG:hcvmHG6bE8izwKMG1zA3xXMJ9ccWoyEOGUoulw=="
                     },
                     "performanceInsightsEnabled": false,
                     "performanceInsightsKmsKeyId": "",
@@ -187,7 +484,7 @@
                     "replicaMode": "",
                     "replicas": [],
                     "replicateSourceDb": "",
-                    "resourceId": "db-X2ZNHVMVCWXBO6LUCS4L7ZJ5CU",
+                    "resourceId": "db-CE6MASMIZEDI3BKIDI23XZ2MWQ",
                     "securityGroupNames": [],
                     "skipFinalSnapshot": true,
                     "status": "available",
@@ -202,8 +499,8 @@
                         "sg-4d436f12"
                     ]
                 },
-                "parent": "urn:pulumi:p-it-antons-mac-resources-31403197::resources::pulumi:pulumi:Stack::resources-p-it-antons-mac-resources-31403197",
-                "provider": "urn:pulumi:p-it-antons-mac-resources-31403197::resources::pulumi:providers:aws::provider::e95c023e-3b9e-4cbc-b226-aa9253cbfa26",
+                "parent": "urn:pulumi:p-it-antons-mac-resources-3a5a9fc3::resources::pulumi:pulumi:Stack::resources-p-it-antons-mac-resources-3a5a9fc3",
+                "provider": "urn:pulumi:p-it-antons-mac-resources-3a5a9fc3::resources::pulumi:providers:aws::provider::c54ee184-5b59-4f73-99bf-a1460e72c8c5",
                 "propertyDependencies": {
                     "allocatedStorage": null,
                     "engine": null,
@@ -212,6 +509,102 @@
                     "password": null,
                     "skipFinalSnapshot": null,
                     "username": null
+                },
+                "created": "2023-08-25T18:16:46.36722Z",
+                "modified": "2023-08-25T18:16:46.36722Z"
+            },
+            {
+                "urn": "urn:pulumi:p-it-antons-mac-resources-3a5a9fc3::resources::aws:eks/cluster:Cluster::ekscluster1",
+                "custom": true,
+                "id": "ekscluster1-f949bbe",
+                "type": "aws:eks/cluster:Cluster",
+                "inputs": {
+                    "__defaults": [
+                        "name"
+                    ],
+                    "name": "ekscluster1-f949bbe",
+                    "roleArn": "arn:aws:iam::616138583583:role/ekscluster1role-f827129",
+                    "vpcConfig": {
+                        "__defaults": [
+                            "endpointPrivateAccess",
+                            "endpointPublicAccess"
+                        ],
+                        "endpointPrivateAccess": false,
+                        "endpointPublicAccess": true,
+                        "subnetIds": [
+                            "subnet-0047dc3585e6c49f8",
+                            "subnet-0e8a59e25b70b9ae0"
+                        ]
+                    }
+                },
+                "outputs": {
+                    "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":1800000000000,\"delete\":900000000000,\"update\":3600000000000}}",
+                    "arn": "arn:aws:eks:us-west-2:616138583583:cluster/ekscluster1-f949bbe",
+                    "certificateAuthorities": [
+                        {
+                            "data": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURCVENDQWUyZ0F3SUJBZ0lJZGVrNzR3OEUxaVl3RFFZSktvWklodmNOQVFFTEJRQXdGVEVUTUJFR0ExVUUKQXhNS2EzVmlaWEp1WlhSbGN6QWVGdzB5TXpBNE1qVXhPREU0TURWYUZ3MHpNekE0TWpJeE9ERTRNRFZhTUJVeApFekFSQmdOVkJBTVRDbXQxWW1WeWJtVjBaWE13Z2dFaU1BMEdDU3FHU0liM0RRRUJBUVVBQTRJQkR3QXdnZ0VLCkFvSUJBUURFOHhlTzBQc1BlRStGQmRabis0cVBYNDhBaDE0M1g2Ni9Ca3AxYVhObnNMT2t4M3hQcm1sWFAvMGoKUlBwb0QzdWZJUUpMSEZCTWtURloxTm5PRHdRQXRrRmVoUS9PS3Z0SjVpVmhsL2k3VGxBaGJIdjZ2em5yRkxNTQo3T20xMmpIQWZtVGk2UTdWMTZyb3hCQVJUQkFha2wyc1JTV0FaZWx4WVVqbXdWclpTRllvRkNGUFFLdHVmVnovCm9nVEg0K25sWCtPOEhudktVelp1NE5ja1pMM25WSXFaWHJERW1yWlh5cUs4Mnl5YWdSOGRFWjRqRFBWd0dRUnIKUHJjb3BqRDFJUi9vUW52M1ZJRm5FNG42Yi9DU1ZRWGxTV21oaytiY0xsMFBLNmhFRlZuNTdNbWEyeHl4YTdQSwppcnZrbzVVYkUzYmMwVWdNUy9DZHR5bGZodWx6QWdNQkFBR2pXVEJYTUE0R0ExVWREd0VCL3dRRUF3SUNwREFQCkJnTlZIUk1CQWY4RUJUQURBUUgvTUIwR0ExVWREZ1FXQkJUM0o2SW4xcEU5cGVoelZrZG95K29KY0o2bUhUQVYKQmdOVkhSRUVEakFNZ2dwcmRXSmxjbTVsZEdWek1BMEdDU3FHU0liM0RRRUJDd1VBQTRJQkFRQVRpeFBsV2ZXdQo3VXI3YXVTdnQva2g2Z1RLTjdNQ1lIZGhERHM0ZFhGdklKcjB0RGlGNXFFZkZKV2ZaekNTWFRsTTFxeGk5bGFTCllJcEI4TEZzSXZLdUtiUTdja3RZZjE1UmFYTzkzakhjZGxvbmh1RmRNeWs0RFdadzdRYSt1UGFJdUVmRXYxVE4Ka0xCMys0cGxuM1JxM3ZtYjZaOWxoVnNWeEJGY1hqeHE1YjJCdDBlczZMUHpSZ1IreThuekRYLzJsTjJQWCtabwpYR2RHYUhXN045WUdQdFZMbU1qTThqMU5rc3haamNOZ0VhcnBmK2p6WHgxL3RXL3J2SHFZeS84eTRvN3lncTdNCjU5NHR1YitaVnZoM0FwOUloUmwzL1kwdWQ2REpPOHNDNk5KQVV1UFRhd3k4bzF5Ymw0VU9kcnNwTFBqTWVFcTAKbmpWaDR6b3J0ei84Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K"
+                        }
+                    ],
+                    "certificateAuthority": {
+                        "data": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURCVENDQWUyZ0F3SUJBZ0lJZGVrNzR3OEUxaVl3RFFZSktvWklodmNOQVFFTEJRQXdGVEVUTUJFR0ExVUUKQXhNS2EzVmlaWEp1WlhSbGN6QWVGdzB5TXpBNE1qVXhPREU0TURWYUZ3MHpNekE0TWpJeE9ERTRNRFZhTUJVeApFekFSQmdOVkJBTVRDbXQxWW1WeWJtVjBaWE13Z2dFaU1BMEdDU3FHU0liM0RRRUJBUVVBQTRJQkR3QXdnZ0VLCkFvSUJBUURFOHhlTzBQc1BlRStGQmRabis0cVBYNDhBaDE0M1g2Ni9Ca3AxYVhObnNMT2t4M3hQcm1sWFAvMGoKUlBwb0QzdWZJUUpMSEZCTWtURloxTm5PRHdRQXRrRmVoUS9PS3Z0SjVpVmhsL2k3VGxBaGJIdjZ2em5yRkxNTQo3T20xMmpIQWZtVGk2UTdWMTZyb3hCQVJUQkFha2wyc1JTV0FaZWx4WVVqbXdWclpTRllvRkNGUFFLdHVmVnovCm9nVEg0K25sWCtPOEhudktVelp1NE5ja1pMM25WSXFaWHJERW1yWlh5cUs4Mnl5YWdSOGRFWjRqRFBWd0dRUnIKUHJjb3BqRDFJUi9vUW52M1ZJRm5FNG42Yi9DU1ZRWGxTV21oaytiY0xsMFBLNmhFRlZuNTdNbWEyeHl4YTdQSwppcnZrbzVVYkUzYmMwVWdNUy9DZHR5bGZodWx6QWdNQkFBR2pXVEJYTUE0R0ExVWREd0VCL3dRRUF3SUNwREFQCkJnTlZIUk1CQWY4RUJUQURBUUgvTUIwR0ExVWREZ1FXQkJUM0o2SW4xcEU5cGVoelZrZG95K29KY0o2bUhUQVYKQmdOVkhSRUVEakFNZ2dwcmRXSmxjbTVsZEdWek1BMEdDU3FHU0liM0RRRUJDd1VBQTRJQkFRQVRpeFBsV2ZXdQo3VXI3YXVTdnQva2g2Z1RLTjdNQ1lIZGhERHM0ZFhGdklKcjB0RGlGNXFFZkZKV2ZaekNTWFRsTTFxeGk5bGFTCllJcEI4TEZzSXZLdUtiUTdja3RZZjE1UmFYTzkzakhjZGxvbmh1RmRNeWs0RFdadzdRYSt1UGFJdUVmRXYxVE4Ka0xCMys0cGxuM1JxM3ZtYjZaOWxoVnNWeEJGY1hqeHE1YjJCdDBlczZMUHpSZ1IreThuekRYLzJsTjJQWCtabwpYR2RHYUhXN045WUdQdFZMbU1qTThqMU5rc3haamNOZ0VhcnBmK2p6WHgxL3RXL3J2SHFZeS84eTRvN3lncTdNCjU5NHR1YitaVnZoM0FwOUloUmwzL1kwdWQ2REpPOHNDNk5KQVV1UFRhd3k4bzF5Ymw0VU9kcnNwTFBqTWVFcTAKbmpWaDR6b3J0ei84Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K"
+                    },
+                    "createdAt": "2023-08-25 18:13:26.053 +0000 UTC",
+                    "enabledClusterLogTypes": [],
+                    "encryptionConfig": null,
+                    "endpoint": "https://14AD7274D1EE1EDDE303F192FD9B1945.gr7.us-west-2.eks.amazonaws.com",
+                    "id": "ekscluster1-f949bbe",
+                    "identities": [
+                        {
+                            "oidcs": [
+                                {
+                                    "issuer": "https://oidc.eks.us-west-2.amazonaws.com/id/14AD7274D1EE1EDDE303F192FD9B1945"
+                                }
+                            ]
+                        }
+                    ],
+                    "kubernetesNetworkConfig": {
+                        "ipFamily": "ipv4",
+                        "serviceIpv4Cidr": "172.20.0.0/16",
+                        "serviceIpv6Cidr": ""
+                    },
+                    "name": "ekscluster1-f949bbe",
+                    "outpostConfig": null,
+                    "platformVersion": "eks.5",
+                    "roleArn": "arn:aws:iam::616138583583:role/ekscluster1role-f827129",
+                    "status": "ACTIVE",
+                    "tags": {},
+                    "tagsAll": {},
+                    "version": "1.27",
+                    "vpcConfig": {
+                        "clusterSecurityGroupId": "sg-0918c8c4b1a7d9aa2",
+                        "endpointPrivateAccess": false,
+                        "endpointPublicAccess": true,
+                        "publicAccessCidrs": [
+                            "0.0.0.0/0"
+                        ],
+                        "securityGroupIds": [],
+                        "subnetIds": [
+                            "subnet-0047dc3585e6c49f8",
+                            "subnet-0e8a59e25b70b9ae0"
+                        ],
+                        "vpcId": "vpc-02e49a1a7226c1954"
+                    }
+                },
+                "parent": "urn:pulumi:p-it-antons-mac-resources-3a5a9fc3::resources::pulumi:pulumi:Stack::resources-p-it-antons-mac-resources-3a5a9fc3",
+                "dependencies": [
+                    "urn:pulumi:p-it-antons-mac-resources-3a5a9fc3::resources::aws:ec2/subnet:Subnet::subnet1",
+                    "urn:pulumi:p-it-antons-mac-resources-3a5a9fc3::resources::aws:ec2/subnet:Subnet::subnet2",
+                    "urn:pulumi:p-it-antons-mac-resources-3a5a9fc3::resources::aws:iam/role:Role::ekscluster1role"
+                ],
+                "provider": "urn:pulumi:p-it-antons-mac-resources-3a5a9fc3::resources::pulumi:providers:aws::provider::c54ee184-5b59-4f73-99bf-a1460e72c8c5",
+                "propertyDependencies": {
+                    "roleArn": [
+                        "urn:pulumi:p-it-antons-mac-resources-3a5a9fc3::resources::aws:iam/role:Role::ekscluster1role"
+                    ],
+                    "vpcConfig": [
+                        "urn:pulumi:p-it-antons-mac-resources-3a5a9fc3::resources::aws:ec2/subnet:Subnet::subnet1",
+                        "urn:pulumi:p-it-antons-mac-resources-3a5a9fc3::resources::aws:ec2/subnet:Subnet::subnet2"
+                    ]
                 }
             }
         ]
