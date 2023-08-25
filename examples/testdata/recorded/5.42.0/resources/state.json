@@ -2,28 +2,28 @@
     "version": 3,
     "deployment": {
         "manifest": {
-            "time": "2023-08-24T11:57:58.40981-04:00",
+            "time": "2023-08-25T15:27:22.654086-04:00",
             "magic": "a332f703d097ddf3757c51955d27edabb0c21d854b619b3824e1c7b46dae5d90",
             "version": "v3.74.0"
         },
         "secrets_providers": {
             "type": "passphrase",
             "state": {
-                "salt": "v1:o6knR5xAhoM=:v1:bo8UKLw15qgiLqfw:nv7WdtqJ/eyRcgobvldRUi/vR2uZEw=="
+                "salt": "v1:t1lHMbo1Ifc=:v1:RV3VgUwiqVpx3Jem:R6rMn2yx5qUueHXtZo1fTfvGJDlVog=="
             }
         },
         "resources": [
             {
-                "urn": "urn:pulumi:p-it-antons-mac-resources-31403197::resources::pulumi:pulumi:Stack::resources-p-it-antons-mac-resources-31403197",
+                "urn": "urn:pulumi:p-it-antons-mac-resources-a23419c0::resources::pulumi:pulumi:Stack::resources-p-it-antons-mac-resources-a23419c0",
                 "custom": false,
                 "type": "pulumi:pulumi:Stack",
-                "created": "2023-08-24T15:54:31.425454Z",
-                "modified": "2023-08-24T15:54:31.425454Z"
+                "created": "2023-08-25T19:23:24.622869Z",
+                "modified": "2023-08-25T19:23:24.622869Z"
             },
             {
-                "urn": "urn:pulumi:p-it-antons-mac-resources-31403197::resources::pulumi:providers:aws::provider",
+                "urn": "urn:pulumi:p-it-antons-mac-resources-a23419c0::resources::pulumi:providers:aws::provider",
                 "custom": true,
-                "id": "e95c023e-3b9e-4cbc-b226-aa9253cbfa26",
+                "id": "1c7eaa20-f420-4c5f-b66f-8a95de439794",
                 "type": "pulumi:providers:aws",
                 "inputs": {
                     "version": "5.42.0"
@@ -31,17 +31,17 @@
                 "outputs": {
                     "version": "5.42.0"
                 },
-                "parent": "urn:pulumi:p-it-antons-mac-resources-31403197::resources::pulumi:pulumi:Stack::resources-p-it-antons-mac-resources-31403197",
+                "parent": "urn:pulumi:p-it-antons-mac-resources-a23419c0::resources::pulumi:pulumi:Stack::resources-p-it-antons-mac-resources-a23419c0",
                 "propertyDependencies": {
                     "version": []
                 },
-                "created": "2023-08-24T15:54:32.656816Z",
-                "modified": "2023-08-24T15:54:32.656816Z"
+                "created": "2023-08-25T19:23:26.629582Z",
+                "modified": "2023-08-25T19:23:26.629582Z"
             },
             {
-                "urn": "urn:pulumi:p-it-antons-mac-resources-31403197::resources::aws:s3/bucket:Bucket::s3.bucket.simple",
+                "urn": "urn:pulumi:p-it-antons-mac-resources-a23419c0::resources::aws:s3/bucket:Bucket::s3-bucket-simple",
                 "custom": true,
-                "id": "my-simple-yaml-based-bucket",
+                "id": "testbucket-p-it-antons-mac-resources-a23419c0",
                 "type": "aws:s3/bucket:Bucket",
                 "inputs": {
                     "__defaults": [
@@ -49,21 +49,21 @@
                         "forceDestroy"
                     ],
                     "acl": "private",
-                    "bucket": "my-simple-yaml-based-bucket",
+                    "bucket": "testbucket-p-it-antons-mac-resources-a23419c0",
                     "forceDestroy": false
                 },
                 "outputs": {
                     "accelerationStatus": "",
                     "acl": "private",
-                    "arn": "arn:aws:s3:::my-simple-yaml-based-bucket",
-                    "bucket": "my-simple-yaml-based-bucket",
-                    "bucketDomainName": "my-simple-yaml-based-bucket.s3.amazonaws.com",
-                    "bucketRegionalDomainName": "my-simple-yaml-based-bucket.s3.us-west-2.amazonaws.com",
+                    "arn": "arn:aws:s3:::testbucket-p-it-antons-mac-resources-a23419c0",
+                    "bucket": "testbucket-p-it-antons-mac-resources-a23419c0",
+                    "bucketDomainName": "testbucket-p-it-antons-mac-resources-a23419c0.s3.amazonaws.com",
+                    "bucketRegionalDomainName": "testbucket-p-it-antons-mac-resources-a23419c0.s3.us-west-2.amazonaws.com",
                     "corsRules": [],
                     "forceDestroy": false,
                     "grants": [],
                     "hostedZoneId": "Z3BJ6K6RIION7M",
-                    "id": "my-simple-yaml-based-bucket",
+                    "id": "testbucket-p-it-antons-mac-resources-a23419c0",
                     "lifecycleRules": [],
                     "loggings": [],
                     "objectLockConfiguration": null,
@@ -87,18 +87,18 @@
                     },
                     "website": null
                 },
-                "parent": "urn:pulumi:p-it-antons-mac-resources-31403197::resources::pulumi:pulumi:Stack::resources-p-it-antons-mac-resources-31403197",
-                "provider": "urn:pulumi:p-it-antons-mac-resources-31403197::resources::pulumi:providers:aws::provider::e95c023e-3b9e-4cbc-b226-aa9253cbfa26",
+                "parent": "urn:pulumi:p-it-antons-mac-resources-a23419c0::resources::pulumi:pulumi:Stack::resources-p-it-antons-mac-resources-a23419c0",
+                "provider": "urn:pulumi:p-it-antons-mac-resources-a23419c0::resources::pulumi:providers:aws::provider::1c7eaa20-f420-4c5f-b66f-8a95de439794",
                 "propertyDependencies": {
                     "bucket": null
                 },
-                "created": "2023-08-24T15:54:36.057811Z",
-                "modified": "2023-08-24T15:54:36.057811Z"
+                "created": "2023-08-25T19:23:29.940482Z",
+                "modified": "2023-08-25T19:23:29.940482Z"
             },
             {
-                "urn": "urn:pulumi:p-it-antons-mac-resources-31403197::resources::aws:rds/instance:Instance::rdsinstancewithname",
+                "urn": "urn:pulumi:p-it-antons-mac-resources-a23419c0::resources::aws:rds/instance:Instance::rds-instance-withname",
                 "custom": true,
-                "id": "rdsinstancewithname661be1a",
+                "id": "rds-instance-withname90b7051",
                 "type": "aws:rds/instance:Instance",
                 "inputs": {
                     "__defaults": [
@@ -117,7 +117,7 @@
                     "copyTagsToSnapshot": false,
                     "deleteAutomatedBackups": true,
                     "engine": "postgres",
-                    "identifier": "rdsinstancewithname661be1a",
+                    "identifier": "rds-instance-withname90b7051",
                     "instanceClass": "db.t4g.micro",
                     "monitoringInterval": 0,
                     "name": "mydbname",
@@ -129,14 +129,14 @@
                 },
                 "outputs": {
                     "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":2400000000000,\"delete\":3600000000000,\"update\":4800000000000},\"schema_version\":\"1\"}",
-                    "address": "rdsinstancewithname661be1a.chuqccm8uxqx.us-west-2.rds.amazonaws.com",
+                    "address": "rds-instance-withname90b7051.chuqccm8uxqx.us-west-2.rds.amazonaws.com",
                     "allocatedStorage": 30,
                     "applyImmediately": false,
-                    "arn": "arn:aws:rds:us-west-2:616138583583:db:rdsinstancewithname661be1a",
+                    "arn": "arn:aws:rds:us-west-2:616138583583:db:rds-instance-withname90b7051",
                     "autoMinorVersionUpgrade": true,
-                    "availabilityZone": "us-west-2d",
+                    "availabilityZone": "us-west-2c",
                     "backupRetentionPeriod": 0,
-                    "backupWindow": "08:44-09:14",
+                    "backupWindow": "10:39-11:09",
                     "caCertIdentifier": "rds-ca-2019",
                     "characterSetName": "",
                     "copyTagsToSnapshot": false,
@@ -149,14 +149,14 @@
                     "domain": "",
                     "domainIamRoleName": "",
                     "enabledCloudwatchLogsExports": [],
-                    "endpoint": "rdsinstancewithname661be1a.chuqccm8uxqx.us-west-2.rds.amazonaws.com:5432",
+                    "endpoint": "rds-instance-withname90b7051.chuqccm8uxqx.us-west-2.rds.amazonaws.com:5432",
                     "engine": "postgres",
                     "engineVersion": "15.3",
                     "engineVersionActual": "15.3",
                     "hostedZoneId": "Z1PVIF0B656C1W",
                     "iamDatabaseAuthenticationEnabled": false,
-                    "id": "rdsinstancewithname661be1a",
-                    "identifier": "rdsinstancewithname661be1a",
+                    "id": "rds-instance-withname90b7051",
+                    "identifier": "rds-instance-withname90b7051",
                     "identifierPrefix": "",
                     "instanceClass": "db.t4g.micro",
                     "iops": 0,
@@ -164,7 +164,7 @@
                     "latestRestorableTime": "",
                     "licenseModel": "postgresql-license",
                     "listenerEndpoints": [],
-                    "maintenanceWindow": "sat:09:46-sat:10:16",
+                    "maintenanceWindow": "mon:08:47-mon:09:17",
                     "masterUserSecrets": [],
                     "maxAllocatedStorage": 0,
                     "monitoringInterval": 0,
@@ -177,7 +177,7 @@
                     "parameterGroupName": "default.postgres15",
                     "password": {
                         "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
-                        "ciphertext": "v1:c1q1mRFwb4pmzr70:3ExzVsPKp06nqT/s+Wj2rAKYze6UrJl6tlb0TA=="
+                        "ciphertext": "v1:5ObrGPeR4d+c9Q8a:tb/rPF2IOP1k6Gg5cqg6sv5xD5wlUxLzXQ8+aA=="
                     },
                     "performanceInsightsEnabled": false,
                     "performanceInsightsKmsKeyId": "",
@@ -187,7 +187,7 @@
                     "replicaMode": "",
                     "replicas": [],
                     "replicateSourceDb": "",
-                    "resourceId": "db-X2ZNHVMVCWXBO6LUCS4L7ZJ5CU",
+                    "resourceId": "db-JP4D2I5XIGEY267VY4V3NEPYWI",
                     "securityGroupNames": [],
                     "skipFinalSnapshot": true,
                     "status": "available",
@@ -202,8 +202,8 @@
                         "sg-4d436f12"
                     ]
                 },
-                "parent": "urn:pulumi:p-it-antons-mac-resources-31403197::resources::pulumi:pulumi:Stack::resources-p-it-antons-mac-resources-31403197",
-                "provider": "urn:pulumi:p-it-antons-mac-resources-31403197::resources::pulumi:providers:aws::provider::e95c023e-3b9e-4cbc-b226-aa9253cbfa26",
+                "parent": "urn:pulumi:p-it-antons-mac-resources-a23419c0::resources::pulumi:pulumi:Stack::resources-p-it-antons-mac-resources-a23419c0",
+                "provider": "urn:pulumi:p-it-antons-mac-resources-a23419c0::resources::pulumi:providers:aws::provider::1c7eaa20-f420-4c5f-b66f-8a95de439794",
                 "propertyDependencies": {
                     "allocatedStorage": null,
                     "engine": null,
