@@ -3,9 +3,9 @@ module github.com/pulumi/pulumi-aws/tests
 go 1.21.0
 
 require (
-	github.com/pulumi/pulumi-aws/provider/v5 v5.42.0
+	github.com/pulumi/pulumi-aws/provider/v6 v6.0.0-20230821191547-9b14ba69d12f
+	github.com/pulumi/pulumi-terraform-bridge/pf v0.16.0
 	github.com/pulumi/pulumi-terraform-bridge/testing v0.0.1
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.57.0
 	github.com/pulumi/pulumi/pkg/v3 v3.76.1
 	github.com/pulumi/pulumi/sdk/v3 v3.76.1
 	github.com/stretchr/testify v1.8.4
@@ -13,11 +13,11 @@ require (
 )
 
 replace (
-	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20230327102345-3fa930f86570
+	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20230710100801-03a71d0fca3d
 	github.com/hashicorp/terraform-provider-aws => ../upstream
 	github.com/hashicorp/terraform-provider-aws/shim => ../provider/shim
 	github.com/hashicorp/vault => github.com/hashicorp/vault v1.2.0
-	github.com/pulumi/pulumi-aws/provider/v5 => ../provider
+	github.com/pulumi/pulumi-aws/provider/v6 => ../provider
 )
 
 require (
@@ -242,8 +242,7 @@ require (
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/pkg/term v1.1.0 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
-	github.com/pulumi/pulumi-aws/provider/v6 v6.0.0-20230821191547-9b14ba69d12f // indirect
-	github.com/pulumi/pulumi-terraform-bridge/pf v0.16.0 // indirect
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.57.0 // indirect
 	github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.7-0.20230801203955-5d215c892096 // indirect
 	github.com/pulumi/terraform-diff-reader v0.0.2 // indirect
 	github.com/rivo/uniseg v0.4.4 // indirect

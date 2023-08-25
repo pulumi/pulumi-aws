@@ -17,10 +17,11 @@ import (
 	"github.com/stretchr/testify/require"
 	"gopkg.in/yaml.v2"
 
-	providerRC "github.com/pulumi/pulumi-aws/provider/v5"
-	"github.com/pulumi/pulumi-aws/provider/v5/pkg/version"
+	providerRC "github.com/pulumi/pulumi-aws/provider/v6"
+	"github.com/pulumi/pulumi-aws/provider/v6/pkg/version"
+	pfbridge "github.com/pulumi/pulumi-terraform-bridge/pf/tfbridge"
 	testutils "github.com/pulumi/pulumi-terraform-bridge/testing/x"
-	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
+	// "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
 	pulumirpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
 )
@@ -291,9 +292,16 @@ func ignoreStables(t *testing.T, grpcLogEntry string) string {
 
 func providerServer(t *testing.T) pulumirpc.ResourceProviderServer {
 	ctx := context.Background()
-
 	version.Version = "0.0.1"
 	info := providerRC.Provider()
-
-	return tfbridge.NewProvider(ctx, nil, "aws", version.Version, info.P, info, nil)
+	p, err := pfbridge.MakeMuxedServer(ctx, info.Name, *info,
+		/*
+		 * We leave the schema blank. This will result in incorrect calls to
+		 * GetSchema, but otherwise does not effect the provider. It reduces the
+		 * time to test start by minutes.
+		 */
+		[]byte("{}"),
+	)(nil)
+	require.NoError(t, err)
+	return p
 }
