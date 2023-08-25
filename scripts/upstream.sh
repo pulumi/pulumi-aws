@@ -86,7 +86,11 @@ start_rebase() {
   fi
 
   git branch -f local
-  git checkout -B pulumi-patch "${FROM}"
+  if [ -n "$FROM" ]; then
+     git checkout -B pulumi-patch "$FROM"
+  else
+     git checkout -B pulumi-patch
+  fi
   git branch --set-upstream-to=local pulumi-patch
 
   for patch in ../patches/*.patch; do
