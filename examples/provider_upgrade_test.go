@@ -1,6 +1,6 @@
 // Copyright 2016-2023, Pulumi Corporation.  All rights reserved.
 
-package tests
+package examples
 
 import (
 	"context"
