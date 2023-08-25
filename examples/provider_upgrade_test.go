@@ -71,7 +71,7 @@ func TestProviderUpgradeQuick(t *testing.T) {
 			continue
 		}
 
-		if isPureMethod(t, line) {
+		if isDiffRecord(t, line) {
 			line = ignoreStables(t, line)
 			n++
 			testutils.Replay(t, providerServer(t), line)
@@ -276,7 +276,9 @@ func parseProviderVersion(t *testing.T, yamlFile string) string {
 	return v
 }
 
-func isPureMethod(t *testing.T, grpcLogEntry string) bool {
+// Looking at Diff methods only. Other pure methods to consider utilizing are Check and
+// Create,Update in preview=true mode, Configure/CheckConfig.
+func isDiffRecord(t *testing.T, grpcLogEntry string) bool {
 	type model struct {
 		Method string `json:"method"`
 	}
