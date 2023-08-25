@@ -189,14 +189,26 @@ func newProviderUpgradeInfo(t *testing.T) providerUpgradeInfo {
 	return info
 }
 
-func importState(t *testing.T, pt *integration.ProgramTester, stateFile string) {
+func currentStackName(t *testing.T, pt *integration.ProgramTester) string {
 	tempDir := t.TempDir()
-	newStateFile := filepath.Join(tempDir, "new-state.json")
-	pt.RunPulumiCommand("stack", "export", "--file", newStateFile)
-	stackName := parseStackName(t, readFile(t, newStateFile))
-	fixedState := withUpdatedStackName(t, stackName, readFile(t, stateFile))
+	curStateFile := filepath.Join(tempDir, "temp-state.json")
+	pt.RunPulumiCommand("stack", "export", "--file", curStateFile)
+	curState := readFile(t, curStateFile)
+	return parseStackName(t, curState)
+}
+
+func fixupStackName(t *testing.T, pt *integration.ProgramTester, stateFile string) string {
+	tempDir := t.TempDir()
+	stackName := currentStackName(t, pt)
+	state := readFile(t, stateFile)
+	fixedState := withUpdatedStackName(t, stackName, state)
 	fixedStateFile := filepath.Join(tempDir, "fixed-state.json")
 	writeFile(t, fixedStateFile, []byte(fixedState))
+	return fixedStateFile
+}
+
+func importState(t *testing.T, pt *integration.ProgramTester, stateFile string) {
+	fixedStateFile := fixupStackName(t, pt, stateFile)
 	pt.RunPulumiCommand("stack", "import", "--file", fixedStateFile)
 }
 
