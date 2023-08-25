@@ -221,6 +221,7 @@ func parseStackName(t *testing.T, state string) string {
 	require.NotEmptyf(t, stackUrn, "failed to find stack URN")
 	parts := strings.Split(strings.TrimPrefix(stackUrn, "urn:pulumi:"), "::")
 	require.NotEmptyf(t, parts, "failed to parse stack URN: %v", stackUrn)
+	require.NotEmptyf(t, parts[0], "found empty stack URN")
 	return parts[0]
 }
 
