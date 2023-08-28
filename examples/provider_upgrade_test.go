@@ -305,7 +305,26 @@ func providerServer(t *testing.T) pulumirpc.ResourceProviderServer {
 	return p
 }
 
+// Verifies provider upgrades by replaying Diff calls. This is slighly involved. The available
+// information is Check and Diff calls recorded on vPrev version of the provider, and a vNext
+// in-memory version of the provider available to test. The calls cannot be replayed directly,
+// instead Check and Diff calls are paired to do something equivalent to this:
+//
+//	rawInputs := vPrev.Check.inputs
+//	diffNew := vNext.Diff(vPrev.State, vNext.Check(rawInputs))
+//	diffOld := vPrev.Diff(vPrev.State, vPrev.Check(rawInputs))
+//	assert.Equal(t, diffOld, diffNew)
+//
+// Essentially the pre-recorded Check calls are used to extract a gRPC representation of raw
+// resource inputs coming from the user program. This could have been parsed from YAML programs but
+// would require interpolating variables and converting to gRPC-compatible form, parsing Check is
+// easier.
+//
+// Then it is asserted that the vNext version of Diff behaves consistently with the vPrev.Diff on
+// old state and inputs. This simulates the scenario of updating the provider while not making any
+// changes to the program.
 type mockPulumiEngine struct {
+	// vNext in-memory provider
 	provider                    pulumirpc.ResourceProviderServer
 	lastCheckRequestByURN       map[string]*pulumirpc.CheckRequest
 	verifiedDiffResourceCounter int
