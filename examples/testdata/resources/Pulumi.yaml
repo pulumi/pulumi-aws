@@ -103,3 +103,39 @@ resources:
       availabilityZone: us-west-2b
     options:
       provider: ${provider}
+
+  securityGroupAllowTLS1:
+    type: aws:ec2:SecurityGroup
+    properties:
+      description: Allow TLS inbound traffic
+      vpcId: ${vpc1.id}
+      ingress:
+        - description: TLS from VPC
+          fromPort: 443
+          toPort: 443
+          protocol: tcp
+          cidrBlocks:
+            - ${vpc1.cidrBlock}
+      egress:
+        - fromPort: 0
+          toPort: 0
+          protocol: '-1'
+          cidrBlocks:
+            - 0.0.0.0/0
+          ipv6CidrBlocks:
+            - ::/0
+    options:
+      provider: ${provider}
+
+  route53ResolverEndpoint1:
+    type: aws:route53:ResolverEndpoint
+    properties:
+      direction: INBOUND
+      securityGroupIds:
+        - ${securityGroupAllowTLS1.id}
+      ipAddresses:
+        - subnetId: ${subnet1.id}
+        - subnetId: ${subnet2.id}
+          ip: 10.192.21.4
+    options:
+      provider: ${provider}
