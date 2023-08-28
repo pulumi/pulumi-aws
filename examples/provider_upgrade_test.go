@@ -97,6 +97,15 @@ func TestProviderUpgradeRecord(t *testing.T) {
 }
 
 func TestProviderUpgrade(t *testing.T) {
+	// Updating from the current baseline version generates an Update plan on the provider, but
+	// not any of the resources. There are ProgramTest options like AllowEmptyPreviewChanges
+	// that would allow the test to pass, but they stop detecting resource Updates which is not
+	// acceptable. Perpahs there is a way to AllowEmptyPreviewChanges in combination with manual
+	// gRPC log checks to get to check only resources, and not the provider for upgrades.
+	//
+	// In the meanwhile verification relies on TestProviderUpgradeQuick in-memory test.
+	t.Skip("TODO[pulumi/pulumi-aws#2722] skip because of Updates on explicit provider")
+
 	if testing.Short() {
 		t.Skipf("Skipping in -short mode")
 	}
@@ -131,7 +140,10 @@ func TestProviderUpgrade(t *testing.T) {
 			importState(t, pt, info.stateFile)
 			return nil, nil
 		},
-		SkipRefresh:      true,
+
+		// TODO[pulumi/pulumi-aws#2720] EKS Cluster does not refresh cleanly.
+		SkipRefresh: true,
+
 		SkipExportImport: true,
 
 		// TODO this test is not quite right. There's two designs for an upgrade test, a
