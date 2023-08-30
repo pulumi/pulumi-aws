@@ -87,11 +87,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import CodeBuild Source Credential using the CodeBuild Source Credential arn. For example:
  * 
- *  to = aws_codebuild_source_credential.example
- * 
- *  id = &#34;arn:aws:codebuild:us-west-2:123456789:token:github&#34; } Using `pulumi import`, import CodeBuild Source Credential using the CodeBuild Source Credential arn. For exampleconsole % pulumi import aws_codebuild_source_credential.example arn:aws:codebuild:us-west-2:123456789:token:github
+ * ```sh
+ *  $ pulumi import aws:codebuild/sourceCredential:SourceCredential example arn:aws:codebuild:us-west-2:123456789:token:github
+ * ```
  * 
  */
 @ResourceType(type="aws:codebuild/sourceCredential:SourceCredential")

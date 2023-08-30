@@ -56,11 +56,11 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import an existing Security Hub enabled account using the AWS account ID. For example:
     /// 
-    ///  to = aws_securityhub_organization_configuration.example
-    /// 
-    ///  id = "123456789012" } Using `pulumi import`, import an existing Security Hub enabled account using the AWS account ID. For exampleconsole % pulumi import aws_securityhub_organization_configuration.example 123456789012
+    /// ```sh
+    ///  $ pulumi import aws:securityhub/organizationConfiguration:OrganizationConfiguration example 123456789012
+    /// ```
     /// </summary>
     [AwsResourceType("aws:securityhub/organizationConfiguration:OrganizationConfiguration")]
     public partial class OrganizationConfiguration : global::Pulumi.CustomResource

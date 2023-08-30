@@ -145,11 +145,11 @@ class LogDataProtectionPolicy(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import this resource using the `log_group_name`. For example:
 
-         to = aws_cloudwatch_log_data_protection_policy.example
-
-         id = "my-log-group" } Using `pulumi import`, import this resource using the `log_group_name`. For exampleconsole % pulumi import aws_cloudwatch_log_data_protection_policy.example my-log-group
+        ```sh
+         $ pulumi import aws:cloudwatch/logDataProtectionPolicy:LogDataProtectionPolicy example my-log-group
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -210,11 +210,11 @@ class LogDataProtectionPolicy(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import this resource using the `log_group_name`. For example:
 
-         to = aws_cloudwatch_log_data_protection_policy.example
-
-         id = "my-log-group" } Using `pulumi import`, import this resource using the `log_group_name`. For exampleconsole % pulumi import aws_cloudwatch_log_data_protection_policy.example my-log-group
+        ```sh
+         $ pulumi import aws:cloudwatch/logDataProtectionPolicy:LogDataProtectionPolicy example my-log-group
+        ```
 
         :param str resource_name: The name of the resource.
         :param LogDataProtectionPolicyArgs args: The arguments to use to populate this resource's properties.

@@ -46,11 +46,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import `aws_networkmanager_link_association` using the global network ID, link ID and device ID. For example:
 //
-//	to = aws_networkmanager_link_association.example
+// ```sh
 //
-//	id = "global-network-0d47f6t230mz46dy4,link-444555aaabbb11223,device-07f6fd08867abc123" } Using `pulumi import`, import `aws_networkmanager_link_association` using the global network ID, link ID and device ID. For exampleconsole % pulumi import aws_networkmanager_link_association.example global-network-0d47f6t230mz46dy4,link-444555aaabbb11223,device-07f6fd08867abc123
+//	$ pulumi import aws:networkmanager/linkAssociation:LinkAssociation example global-network-0d47f6t230mz46dy4,link-444555aaabbb11223,device-07f6fd08867abc123
+//
+// ```
 type LinkAssociation struct {
 	pulumi.CustomResourceState
 

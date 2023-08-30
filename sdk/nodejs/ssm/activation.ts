@@ -39,11 +39,12 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import AWS SSM Activation using the `id`. For example:
  *
- *  to = aws_ssm_activation.example
- *
- *  id = "e488f2f6-e686-4afb-8a04-ef6dfEXAMPLE" } Using `pulumi import`, import AWS SSM Activation using the `id`. For exampleconsole % pulumi import aws_ssm_activation.example e488f2f6-e686-4afb-8a04-ef6dfEXAMPLE
+ * ```sh
+ *  $ pulumi import aws:ssm/activation:Activation example e488f2f6-e686-4afb-8a04-ef6dfEXAMPLE
+ * ```
+ *  -> __Note:__ The `activation_code` attribute cannot be imported.
  */
 export class Activation extends pulumi.CustomResource {
     /**

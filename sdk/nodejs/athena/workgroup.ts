@@ -31,11 +31,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import Athena Workgroups using their name. For example:
  *
- *  to = aws_athena_workgroup.example
- *
- *  id = "example" } Using `pulumi import`, import Athena Workgroups using their name. For exampleconsole % pulumi import aws_athena_workgroup.example example
+ * ```sh
+ *  $ pulumi import aws:athena/workgroup:Workgroup example example
+ * ```
  */
 export class Workgroup extends pulumi.CustomResource {
     /**

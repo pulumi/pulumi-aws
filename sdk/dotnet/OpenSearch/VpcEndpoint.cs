@@ -46,11 +46,13 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// ## Import
     /// 
-    /// For exampleterraform import {
+    /// For example:
     /// 
-    ///  to = aws_opensearch_vpc_endpoint_connection.example
+    /// Using `pulumi import`, import OpenSearch VPC endpoint connections using the `id`. For example:
     /// 
-    ///  id = "endpoint-id" } Using `pulumi import`, import OpenSearch VPC endpoint connections using the `id`. For exampleconsole % pulumi import aws_opensearch_vpc_endpoint_connection.example endpoint-id
+    /// ```sh
+    ///  $ pulumi import aws:opensearch/vpcEndpoint:VpcEndpoint example endpoint-id
+    /// ```
     /// </summary>
     [AwsResourceType("aws:opensearch/vpcEndpoint:VpcEndpoint")]
     public partial class VpcEndpoint : global::Pulumi.CustomResource

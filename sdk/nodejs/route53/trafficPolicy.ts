@@ -33,11 +33,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import Route53 Traffic Policy using the `id` and `version`. For example:
  *
- *  to = aws_route53_traffic_policy.example
- *
- *  id = "01a52019-d16f-422a-ae72-c306d2b6df7e/1" } Using `pulumi import`, import Route53 Traffic Policy using the `id` and `version`. For exampleconsole % pulumi import aws_route53_traffic_policy.example 01a52019-d16f-422a-ae72-c306d2b6df7e/1
+ * ```sh
+ *  $ pulumi import aws:route53/trafficPolicy:TrafficPolicy example 01a52019-d16f-422a-ae72-c306d2b6df7e/1
+ * ```
  */
 export class TrafficPolicy extends pulumi.CustomResource {
     /**

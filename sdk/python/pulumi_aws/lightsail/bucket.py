@@ -253,11 +253,11 @@ class Bucket(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_lightsail_bucket` using the `name` attribute. For example:
 
-         to = aws_lightsail_bucket.test
-
-         id = "example-bucket" } Using `pulumi import`, import `aws_lightsail_bucket` using the `name` attribute. For exampleconsole % pulumi import aws_lightsail_bucket.test example-bucket
+        ```sh
+         $ pulumi import aws:lightsail/bucket:Bucket test example-bucket
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -285,11 +285,11 @@ class Bucket(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_lightsail_bucket` using the `name` attribute. For example:
 
-         to = aws_lightsail_bucket.test
-
-         id = "example-bucket" } Using `pulumi import`, import `aws_lightsail_bucket` using the `name` attribute. For exampleconsole % pulumi import aws_lightsail_bucket.test example-bucket
+        ```sh
+         $ pulumi import aws:lightsail/bucket:Bucket test example-bucket
+        ```
 
         :param str resource_name: The name of the resource.
         :param BucketArgs args: The arguments to use to populate this resource's properties.

@@ -153,11 +153,11 @@ class NotebookInstanceLifecycleConfiguration(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import models using the `name`. For example:
 
-         to = aws_sagemaker_notebook_instance_lifecycle_configuration.lc
-
-         id = "foo" } Using `pulumi import`, import models using the `name`. For exampleconsole % pulumi import aws_sagemaker_notebook_instance_lifecycle_configuration.lc foo
+        ```sh
+         $ pulumi import aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration lc foo
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -176,11 +176,11 @@ class NotebookInstanceLifecycleConfiguration(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import models using the `name`. For example:
 
-         to = aws_sagemaker_notebook_instance_lifecycle_configuration.lc
-
-         id = "foo" } Using `pulumi import`, import models using the `name`. For exampleconsole % pulumi import aws_sagemaker_notebook_instance_lifecycle_configuration.lc foo
+        ```sh
+         $ pulumi import aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration lc foo
+        ```
 
         :param str resource_name: The name of the resource.
         :param NotebookInstanceLifecycleConfigurationArgs args: The arguments to use to populate this resource's properties.

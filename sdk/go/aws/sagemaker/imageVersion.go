@@ -44,11 +44,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import SageMaker Image Versions using the `name`. For example:
 //
-//	to = aws_sagemaker_image_version.test_image
+// ```sh
 //
-//	id = "my-code-repo" } Using `pulumi import`, import SageMaker Image Versions using the `name`. For exampleconsole % pulumi import aws_sagemaker_image_version.test_image my-code-repo
+//	$ pulumi import aws:sagemaker/imageVersion:ImageVersion test_image my-code-repo
+//
+// ```
 type ImageVersion struct {
 	pulumi.CustomResourceState
 

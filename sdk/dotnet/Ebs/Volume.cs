@@ -39,11 +39,11 @@ namespace Pulumi.Aws.Ebs
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import EBS Volumes using the `id`. For example:
     /// 
-    ///  to = aws_ebs_volume.id
-    /// 
-    ///  id = "vol-049df61146c4d7901" } Using `pulumi import`, import EBS Volumes using the `id`. For exampleconsole % pulumi import aws_ebs_volume.id vol-049df61146c4d7901
+    /// ```sh
+    ///  $ pulumi import aws:ebs/volume:Volume id vol-049df61146c4d7901
+    /// ```
     /// </summary>
     [AwsResourceType("aws:ebs/volume:Volume")]
     public partial class Volume : global::Pulumi.CustomResource

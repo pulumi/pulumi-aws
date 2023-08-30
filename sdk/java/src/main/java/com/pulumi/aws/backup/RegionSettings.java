@@ -66,11 +66,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Backup Region Settings using the `region`. For example:
  * 
- *  to = aws_backup_region_settings.test
- * 
- *  id = &#34;us-west-2&#34; } Using `pulumi import`, import Backup Region Settings using the `region`. For exampleconsole % pulumi import aws_backup_region_settings.test us-west-2
+ * ```sh
+ *  $ pulumi import aws:backup/regionSettings:RegionSettings test us-west-2
+ * ```
  * 
  */
 @ResourceType(type="aws:backup/regionSettings:RegionSettings")

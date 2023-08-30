@@ -53,11 +53,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import KMS aliases using the `name`. For example:
  * 
- *  to = aws_kms_alias.a
- * 
- *  id = &#34;alias/my-key-alias&#34; } Using `pulumi import`, import KMS aliases using the `name`. For exampleconsole % pulumi import aws_kms_alias.a alias/my-key-alias
+ * ```sh
+ *  $ pulumi import aws:kms/alias:Alias a alias/my-key-alias
+ * ```
  * 
  */
 @ResourceType(type="aws:kms/alias:Alias")

@@ -38,11 +38,11 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import SageMaker Projects using the `project_name`. For example:
     /// 
-    ///  to = aws_sagemaker_project.example
-    /// 
-    ///  id = "example" } Using `pulumi import`, import SageMaker Projects using the `project_name`. For exampleconsole % pulumi import aws_sagemaker_project.example example
+    /// ```sh
+    ///  $ pulumi import aws:sagemaker/project:Project example example
+    /// ```
     /// </summary>
     [AwsResourceType("aws:sagemaker/project:Project")]
     public partial class Project : global::Pulumi.CustomResource

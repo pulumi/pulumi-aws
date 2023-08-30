@@ -37,11 +37,11 @@ namespace Pulumi.Aws.GameLift
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import GameLift Scripts using the ID. For example:
     /// 
-    ///  to = aws_gamelift_script.example
-    /// 
-    ///  id = "&lt;script-id&gt;" } Using `pulumi import`, import GameLift Scripts using the ID. For exampleconsole % pulumi import aws_gamelift_script.example &lt;script-id&gt;
+    /// ```sh
+    ///  $ pulumi import aws:gamelift/script:Script example &lt;script-id&gt;
+    /// ```
     /// </summary>
     [AwsResourceType("aws:gamelift/script:Script")]
     public partial class Script : global::Pulumi.CustomResource

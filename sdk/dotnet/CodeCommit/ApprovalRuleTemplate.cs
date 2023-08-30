@@ -53,11 +53,11 @@ namespace Pulumi.Aws.CodeCommit
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import CodeCommit approval rule templates using the `name`. For example:
     /// 
-    ///  to = aws_codecommit_approval_rule_template.imported
-    /// 
-    ///  id = "ExistingApprovalRuleTemplateName" } Using `pulumi import`, import CodeCommit approval rule templates using the `name`. For exampleconsole % pulumi import aws_codecommit_approval_rule_template.imported ExistingApprovalRuleTemplateName
+    /// ```sh
+    ///  $ pulumi import aws:codecommit/approvalRuleTemplate:ApprovalRuleTemplate imported ExistingApprovalRuleTemplateName
+    /// ```
     /// </summary>
     [AwsResourceType("aws:codecommit/approvalRuleTemplate:ApprovalRuleTemplate")]
     public partial class ApprovalRuleTemplate : global::Pulumi.CustomResource

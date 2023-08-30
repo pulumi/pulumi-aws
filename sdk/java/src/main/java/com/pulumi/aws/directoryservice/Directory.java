@@ -207,11 +207,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import DirectoryService directories using the directory `id`. For example:
  * 
- *  to = aws_directory_service_directory.sample
- * 
- *  id = &#34;d-926724cf57&#34; } Using `pulumi import`, import DirectoryService directories using the directory `id`. For exampleconsole % pulumi import aws_directory_service_directory.sample d-926724cf57
+ * ```sh
+ *  $ pulumi import aws:directoryservice/directory:Directory sample d-926724cf57
+ * ```
  * 
  */
 @ResourceType(type="aws:directoryservice/directory:Directory")

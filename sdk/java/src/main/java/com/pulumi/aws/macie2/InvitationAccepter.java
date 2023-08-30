@@ -71,11 +71,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import `aws_macie2_invitation_accepter` using the admin account ID. For example:
  * 
- *  to = aws_macie2_invitation_accepter.example
- * 
- *  id = &#34;123456789012&#34; } Using `pulumi import`, import `aws_macie2_invitation_accepter` using the admin account ID. For exampleconsole % pulumi import aws_macie2_invitation_accepter.example 123456789012
+ * ```sh
+ *  $ pulumi import aws:macie2/invitationAccepter:InvitationAccepter example 123456789012
+ * ```
  * 
  */
 @ResourceType(type="aws:macie2/invitationAccepter:InvitationAccepter")

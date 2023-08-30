@@ -134,11 +134,11 @@ class ResolverFirewallConfig(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Route 53 Resolver DNS Firewall configs using the Route 53 Resolver DNS Firewall config ID. For example:
 
-         to = aws_route53_resolver_firewall_config.example
-
-         id = "rdsc-be1866ecc1683e95" } Using `pulumi import`, import Route 53 Resolver DNS Firewall configs using the Route 53 Resolver DNS Firewall config ID. For exampleconsole % pulumi import aws_route53_resolver_firewall_config.example rdsc-be1866ecc1683e95
+        ```sh
+         $ pulumi import aws:route53/resolverFirewallConfig:ResolverFirewallConfig example rdsc-be1866ecc1683e95
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -171,11 +171,11 @@ class ResolverFirewallConfig(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Route 53 Resolver DNS Firewall configs using the Route 53 Resolver DNS Firewall config ID. For example:
 
-         to = aws_route53_resolver_firewall_config.example
-
-         id = "rdsc-be1866ecc1683e95" } Using `pulumi import`, import Route 53 Resolver DNS Firewall configs using the Route 53 Resolver DNS Firewall config ID. For exampleconsole % pulumi import aws_route53_resolver_firewall_config.example rdsc-be1866ecc1683e95
+        ```sh
+         $ pulumi import aws:route53/resolverFirewallConfig:ResolverFirewallConfig example rdsc-be1866ecc1683e95
+        ```
 
         :param str resource_name: The name of the resource.
         :param ResolverFirewallConfigArgs args: The arguments to use to populate this resource's properties.

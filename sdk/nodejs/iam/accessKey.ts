@@ -43,11 +43,12 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import IAM Access Keys using the identifier. For example:
  *
- *  to = aws_iam_access_key.example
- *
- *  id = "AKIA1234567890" } Using `pulumi import`, import IAM Access Keys using the identifier. For exampleconsole % pulumi import aws_iam_access_key.example AKIA1234567890 Resource attributes such as `encrypted_secret`, `key_fingerprint`, `pgp_key`, `secret`, `ses_smtp_password_v4`, and `encrypted_ses_smtp_password_v4` are not available for imported resources as this information cannot be read from the IAM API.
+ * ```sh
+ *  $ pulumi import aws:iam/accessKey:AccessKey example AKIA1234567890
+ * ```
+ *  Resource attributes such as `encrypted_secret`, `key_fingerprint`, `pgp_key`, `secret`, `ses_smtp_password_v4`, and `encrypted_ses_smtp_password_v4` are not available for imported resources as this information cannot be read from the IAM API.
  */
 export class AccessKey extends pulumi.CustomResource {
     /**

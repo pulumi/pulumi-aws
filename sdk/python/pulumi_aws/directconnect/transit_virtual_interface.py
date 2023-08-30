@@ -525,11 +525,11 @@ class TransitVirtualInterface(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Direct Connect transit virtual interfaces using the VIF `id`. For example:
 
-         to = aws_dx_transit_virtual_interface.test
-
-         id = "dxvif-33cc44dd" } Using `pulumi import`, import Direct Connect transit virtual interfaces using the VIF `id`. For exampleconsole % pulumi import aws_dx_transit_virtual_interface.test dxvif-33cc44dd
+        ```sh
+         $ pulumi import aws:directconnect/transitVirtualInterface:TransitVirtualInterface test dxvif-33cc44dd
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -574,11 +574,11 @@ class TransitVirtualInterface(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Direct Connect transit virtual interfaces using the VIF `id`. For example:
 
-         to = aws_dx_transit_virtual_interface.test
-
-         id = "dxvif-33cc44dd" } Using `pulumi import`, import Direct Connect transit virtual interfaces using the VIF `id`. For exampleconsole % pulumi import aws_dx_transit_virtual_interface.test dxvif-33cc44dd
+        ```sh
+         $ pulumi import aws:directconnect/transitVirtualInterface:TransitVirtualInterface test dxvif-33cc44dd
+        ```
 
         :param str resource_name: The name of the resource.
         :param TransitVirtualInterfaceArgs args: The arguments to use to populate this resource's properties.

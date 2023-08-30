@@ -42,11 +42,11 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import Security Hub product subscriptions using `product_arn,arn`. For example:
     /// 
-    ///  to = aws_securityhub_product_subscription.example
-    /// 
-    ///  id = "arn:aws:securityhub:eu-west-1:733251395267:product/alertlogic/althreatmanagement,arn:aws:securityhub:eu-west-1:123456789012:product-subscription/alertlogic/althreatmanagement" } Using `pulumi import`, import Security Hub product subscriptions using `product_arn,arn`. For exampleconsole % pulumi import aws_securityhub_product_subscription.example arn:aws:securityhub:eu-west-1:733251395267:product/alertlogic/althreatmanagement,arn:aws:securityhub:eu-west-1:123456789012:product-subscription/alertlogic/althreatmanagement
+    /// ```sh
+    ///  $ pulumi import aws:securityhub/productSubscription:ProductSubscription example arn:aws:securityhub:eu-west-1:733251395267:product/alertlogic/althreatmanagement,arn:aws:securityhub:eu-west-1:123456789012:product-subscription/alertlogic/althreatmanagement
+    /// ```
     /// </summary>
     [AwsResourceType("aws:securityhub/productSubscription:ProductSubscription")]
     public partial class ProductSubscription : global::Pulumi.CustomResource

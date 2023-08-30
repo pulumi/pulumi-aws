@@ -70,11 +70,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Network Interfaces using the `id`. For example:
 //
-//	to = aws_network_interface.test
+// ```sh
 //
-//	id = "eni-e5aa89a3" } Using `pulumi import`, import Network Interfaces using the `id`. For exampleconsole % pulumi import aws_network_interface.test eni-e5aa89a3
+//	$ pulumi import aws:ec2/networkInterface:NetworkInterface test eni-e5aa89a3
+//
+// ```
 type NetworkInterface struct {
 	pulumi.CustomResourceState
 

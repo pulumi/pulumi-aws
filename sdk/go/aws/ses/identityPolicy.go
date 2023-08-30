@@ -73,11 +73,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import SES Identity Policies using the identity and policy name, separated by a pipe character (`|`). For example:
 //
-//	to = aws_ses_identity_policy.example
+// ```sh
 //
-//	id = "example.com|example" } Using `pulumi import`, import SES Identity Policies using the identity and policy name, separated by a pipe character (`|`). For exampleconsole % pulumi import aws_ses_identity_policy.example 'example.com|example'
+//	$ pulumi import aws:ses/identityPolicy:IdentityPolicy example 'example.com|example'
+//
+// ```
 type IdentityPolicy struct {
 	pulumi.CustomResourceState
 

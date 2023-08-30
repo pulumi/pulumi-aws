@@ -233,11 +233,11 @@ class Project(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import SageMaker Projects using the `project_name`. For example:
 
-         to = aws_sagemaker_project.example
-
-         id = "example" } Using `pulumi import`, import SageMaker Projects using the `project_name`. For exampleconsole % pulumi import aws_sagemaker_project.example example
+        ```sh
+         $ pulumi import aws:sagemaker/project:Project example example
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -272,11 +272,11 @@ class Project(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import SageMaker Projects using the `project_name`. For example:
 
-         to = aws_sagemaker_project.example
-
-         id = "example" } Using `pulumi import`, import SageMaker Projects using the `project_name`. For exampleconsole % pulumi import aws_sagemaker_project.example example
+        ```sh
+         $ pulumi import aws:sagemaker/project:Project example example
+        ```
 
         :param str resource_name: The name of the resource.
         :param ProjectArgs args: The arguments to use to populate this resource's properties.

@@ -142,11 +142,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import `aws_storagegateway_file_system_association` using the FSx file system association Amazon Resource Name (ARN). For example:
  * 
- *  to = aws_storagegateway_file_system_association.example
- * 
- *  id = &#34;arn:aws:storagegateway:us-east-1:123456789012:fs-association/fsa-0DA347732FDB40125&#34; } Using `pulumi import`, import `aws_storagegateway_file_system_association` using the FSx file system association Amazon Resource Name (ARN). For exampleconsole % pulumi import aws_storagegateway_file_system_association.example arn:aws:storagegateway:us-east-1:123456789012:fs-association/fsa-0DA347732FDB40125
+ * ```sh
+ *  $ pulumi import aws:storagegateway/fileSystemAssociation:FileSystemAssociation example arn:aws:storagegateway:us-east-1:123456789012:fs-association/fsa-0DA347732FDB40125
+ * ```
  * 
  */
 @ResourceType(type="aws:storagegateway/fileSystemAssociation:FileSystemAssociation")

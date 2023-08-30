@@ -196,11 +196,11 @@ class GroupPolicy(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import IAM Group Policies using the `group_name:group_policy_name`. For example:
 
-         to = aws_iam_group_policy.mypolicy
-
-         id = "group_of_mypolicy_name:mypolicy_name" } Using `pulumi import`, import IAM Group Policies using the `group_name:group_policy_name`. For exampleconsole % pulumi import aws_iam_group_policy.mypolicy group_of_mypolicy_name:mypolicy_name
+        ```sh
+         $ pulumi import aws:iam/groupPolicy:GroupPolicy mypolicy group_of_mypolicy_name:mypolicy_name
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -242,11 +242,11 @@ class GroupPolicy(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import IAM Group Policies using the `group_name:group_policy_name`. For example:
 
-         to = aws_iam_group_policy.mypolicy
-
-         id = "group_of_mypolicy_name:mypolicy_name" } Using `pulumi import`, import IAM Group Policies using the `group_name:group_policy_name`. For exampleconsole % pulumi import aws_iam_group_policy.mypolicy group_of_mypolicy_name:mypolicy_name
+        ```sh
+         $ pulumi import aws:iam/groupPolicy:GroupPolicy mypolicy group_of_mypolicy_name:mypolicy_name
+        ```
 
         :param str resource_name: The name of the resource.
         :param GroupPolicyArgs args: The arguments to use to populate this resource's properties.

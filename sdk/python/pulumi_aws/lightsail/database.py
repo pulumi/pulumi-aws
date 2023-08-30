@@ -874,11 +874,11 @@ class Database(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Lightsail Databases using their name. For example:
 
-         to = aws_lightsail_database.foo
-
-         id = "bar" } Using `pulumi import`, import Lightsail Databases using their name. For exampleconsole % pulumi import aws_lightsail_database.foo 'bar'
+        ```sh
+         $ pulumi import aws:lightsail/database:Database foo 'bar'
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1048,11 +1048,11 @@ class Database(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Lightsail Databases using their name. For example:
 
-         to = aws_lightsail_database.foo
-
-         id = "bar" } Using `pulumi import`, import Lightsail Databases using their name. For exampleconsole % pulumi import aws_lightsail_database.foo 'bar'
+        ```sh
+         $ pulumi import aws:lightsail/database:Database foo 'bar'
+        ```
 
         :param str resource_name: The name of the resource.
         :param DatabaseArgs args: The arguments to use to populate this resource's properties.

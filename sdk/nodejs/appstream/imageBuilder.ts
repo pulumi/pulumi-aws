@@ -33,11 +33,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import `aws_appstream_image_builder` using the `name`. For example:
  *
- *  to = aws_appstream_image_builder.example
- *
- *  id = "imageBuilderExample" } Using `pulumi import`, import `aws_appstream_image_builder` using the `name`. For exampleconsole % pulumi import aws_appstream_image_builder.example imageBuilderExample
+ * ```sh
+ *  $ pulumi import aws:appstream/imageBuilder:ImageBuilder example imageBuilderExample
+ * ```
  */
 export class ImageBuilder extends pulumi.CustomResource {
     /**

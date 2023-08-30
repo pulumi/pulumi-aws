@@ -35,11 +35,11 @@ namespace Pulumi.Aws.Emr
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import EMR studio session mappings using `studio-id:identity-type:identity-id`. For example:
     /// 
-    ///  to = aws_emr_studio_session_mapping.example
-    /// 
-    ///  id = "es-xxxxx:USER:xxxxx-xxx-xxx" } Using `pulumi import`, import EMR studio session mappings using `studio-id:identity-type:identity-id`. For exampleconsole % pulumi import aws_emr_studio_session_mapping.example es-xxxxx:USER:xxxxx-xxx-xxx
+    /// ```sh
+    ///  $ pulumi import aws:emr/studioSessionMapping:StudioSessionMapping example es-xxxxx:USER:xxxxx-xxx-xxx
+    /// ```
     /// </summary>
     [AwsResourceType("aws:emr/studioSessionMapping:StudioSessionMapping")]
     public partial class StudioSessionMapping : global::Pulumi.CustomResource

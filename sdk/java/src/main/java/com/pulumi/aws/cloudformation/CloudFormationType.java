@@ -58,11 +58,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import `aws_cloudformation_type` using the type version Amazon Resource Name (ARN). For example:
  * 
- *  to = aws_cloudformation_type.example
- * 
- *  id = &#34;arn:aws:cloudformation:us-east-1:123456789012:type/resource/ExampleCompany-ExampleService-ExampleType/1&#34; } Using `pulumi import`, import `aws_cloudformation_type` using the type version Amazon Resource Name (ARN). For exampleconsole % pulumi import aws_cloudformation_type.example arn:aws:cloudformation:us-east-1:123456789012:type/resource/ExampleCompany-ExampleService-ExampleType/1
+ * ```sh
+ *  $ pulumi import aws:cloudformation/cloudFormationType:CloudFormationType example arn:aws:cloudformation:us-east-1:123456789012:type/resource/ExampleCompany-ExampleService-ExampleType/1
+ * ```
  * 
  */
 @ResourceType(type="aws:cloudformation/cloudFormationType:CloudFormationType")

@@ -45,11 +45,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import `aws_location_map` resources using the map name. For example:
 //
-//	to = aws_location_map.example
+// ```sh
 //
-//	id = "example" } Using `pulumi import`, import `aws_location_map` resources using the map name. For exampleconsole % pulumi import aws_location_map.example example
+//	$ pulumi import aws:location/map:Map example example
+//
+// ```
 type Map struct {
 	pulumi.CustomResourceState
 

@@ -40,11 +40,11 @@ namespace Pulumi.Aws.Iot
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import IOT Authorizers using the name. For example:
     /// 
-    ///  to = aws_iot_authorizer.example
-    /// 
-    ///  id = "example" } Using `pulumi import`, import IOT Authorizers using the name. For exampleconsole % pulumi import aws_iot_authorizer.example example
+    /// ```sh
+    ///  $ pulumi import aws:iot/authorizer:Authorizer example example
+    /// ```
     /// </summary>
     [AwsResourceType("aws:iot/authorizer:Authorizer")]
     public partial class Authorizer : global::Pulumi.CustomResource

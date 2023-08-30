@@ -89,11 +89,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import ECR Public Repository Policy using the repository name. For example:
 //
-//	to = aws_ecrpublic_repository_policy.example
+// ```sh
 //
-//	id = "example" } Using `pulumi import`, import ECR Public Repository Policy using the repository name. For exampleconsole % pulumi import aws_ecrpublic_repository_policy.example example
+//	$ pulumi import aws:ecrpublic/repositoryPolicy:RepositoryPolicy example example
+//
+// ```
 type RepositoryPolicy struct {
 	pulumi.CustomResourceState
 

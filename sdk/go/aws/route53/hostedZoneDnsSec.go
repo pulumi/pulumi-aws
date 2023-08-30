@@ -107,11 +107,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import `aws_route53_hosted_zone_dnssec` resources using the Route 53 Hosted Zone identifier. For example:
 //
-//	to = aws_route53_hosted_zone_dnssec.example
+// ```sh
 //
-//	id = "Z1D633PJN98FT9" } Using `pulumi import`, import `aws_route53_hosted_zone_dnssec` resources using the Route 53 Hosted Zone identifier. For exampleconsole % pulumi import aws_route53_hosted_zone_dnssec.example Z1D633PJN98FT9
+//	$ pulumi import aws:route53/hostedZoneDnsSec:HostedZoneDnsSec example Z1D633PJN98FT9
+//
+// ```
 type HostedZoneDnsSec struct {
 	pulumi.CustomResourceState
 

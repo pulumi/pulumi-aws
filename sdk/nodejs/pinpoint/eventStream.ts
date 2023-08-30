@@ -49,11 +49,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import Pinpoint Event Stream using the `application-id`. For example:
  *
- *  to = aws_pinpoint_event_stream.stream
- *
- *  id = "application-id" } Using `pulumi import`, import Pinpoint Event Stream using the `application-id`. For exampleconsole % pulumi import aws_pinpoint_event_stream.stream application-id
+ * ```sh
+ *  $ pulumi import aws:pinpoint/eventStream:EventStream stream application-id
+ * ```
  */
 export class EventStream extends pulumi.CustomResource {
     /**

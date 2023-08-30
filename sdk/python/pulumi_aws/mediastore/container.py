@@ -161,11 +161,11 @@ class Container(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import MediaStore Container using the MediaStore Container Name. For example:
 
-         to = aws_media_store_container.example
-
-         id = "example" } Using `pulumi import`, import MediaStore Container using the MediaStore Container Name. For exampleconsole % pulumi import aws_media_store_container.example example
+        ```sh
+         $ pulumi import aws:mediastore/container:Container example example
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -192,11 +192,11 @@ class Container(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import MediaStore Container using the MediaStore Container Name. For example:
 
-         to = aws_media_store_container.example
-
-         id = "example" } Using `pulumi import`, import MediaStore Container using the MediaStore Container Name. For exampleconsole % pulumi import aws_media_store_container.example example
+        ```sh
+         $ pulumi import aws:mediastore/container:Container example example
+        ```
 
         :param str resource_name: The name of the resource.
         :param ContainerArgs args: The arguments to use to populate this resource's properties.

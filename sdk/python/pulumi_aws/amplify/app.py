@@ -795,11 +795,12 @@ class App(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Amplify App using Amplify App ID (appId). For example:
 
-         to = aws_amplify_app.example
-
-         id = "d2ypk4k47z8u6" } Using `pulumi import`, import Amplify App using Amplify App ID (appId). For exampleconsole % pulumi import aws_amplify_app.example d2ypk4k47z8u6 App ID can be obtained from App ARN (e.g., `arn:aws:amplify:us-east-1:12345678:apps/d2ypk4k47z8u6`).
+        ```sh
+         $ pulumi import aws:amplify/app:App example d2ypk4k47z8u6
+        ```
+         App ID can be obtained from App ARN (e.g., `arn:aws:amplify:us-east-1:12345678:apps/d2ypk4k47z8u6`).
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -930,11 +931,12 @@ class App(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Amplify App using Amplify App ID (appId). For example:
 
-         to = aws_amplify_app.example
-
-         id = "d2ypk4k47z8u6" } Using `pulumi import`, import Amplify App using Amplify App ID (appId). For exampleconsole % pulumi import aws_amplify_app.example d2ypk4k47z8u6 App ID can be obtained from App ARN (e.g., `arn:aws:amplify:us-east-1:12345678:apps/d2ypk4k47z8u6`).
+        ```sh
+         $ pulumi import aws:amplify/app:App example d2ypk4k47z8u6
+        ```
+         App ID can be obtained from App ARN (e.g., `arn:aws:amplify:us-east-1:12345678:apps/d2ypk4k47z8u6`).
 
         :param str resource_name: The name of the resource.
         :param AppArgs args: The arguments to use to populate this resource's properties.

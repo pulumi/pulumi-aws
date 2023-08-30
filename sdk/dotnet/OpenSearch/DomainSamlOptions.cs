@@ -60,11 +60,11 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import OpenSearch domains using the `domain_name`. For example:
     /// 
-    ///  to = aws_opensearch_domain_saml_options.example
-    /// 
-    ///  id = "domain_name" } Using `pulumi import`, import OpenSearch domains using the `domain_name`. For exampleconsole % pulumi import aws_opensearch_domain_saml_options.example domain_name
+    /// ```sh
+    ///  $ pulumi import aws:opensearch/domainSamlOptions:DomainSamlOptions example domain_name
+    /// ```
     /// </summary>
     [AwsResourceType("aws:opensearch/domainSamlOptions:DomainSamlOptions")]
     public partial class DomainSamlOptions : global::Pulumi.CustomResource

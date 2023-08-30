@@ -53,11 +53,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Inspector Delegated Admin Account using the `account_id`. For example:
  * 
- *  to = aws_inspector2_delegated_admin_account.example
- * 
- *  id = &#34;012345678901&#34; } Using `pulumi import`, import Inspector Delegated Admin Account using the `account_id`. For exampleconsole % pulumi import aws_inspector2_delegated_admin_account.example 012345678901
+ * ```sh
+ *  $ pulumi import aws:inspector2/delegatedAdminAccount:DelegatedAdminAccount example 012345678901
+ * ```
  * 
  */
 @ResourceType(type="aws:inspector2/delegatedAdminAccount:DelegatedAdminAccount")

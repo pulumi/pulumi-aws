@@ -126,11 +126,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import IPAMs using the IPAM pool `id`. For example:
 //
-//	to = aws_vpc_ipam_pool.example
+// ```sh
 //
-//	id = "ipam-pool-0958f95207d978e1e" } Using `pulumi import`, import IPAMs using the IPAM pool `id`. For exampleconsole % pulumi import aws_vpc_ipam_pool.example ipam-pool-0958f95207d978e1e
+//	$ pulumi import aws:ec2/vpcIpamPool:VpcIpamPool example ipam-pool-0958f95207d978e1e
+//
+// ```
 type VpcIpamPool struct {
 	pulumi.CustomResourceState
 

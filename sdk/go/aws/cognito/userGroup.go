@@ -93,11 +93,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Cognito User Groups using the `user_pool_id`/`name` attributes concatenated. For example:
 //
-//	to = aws_cognito_user_group.group
+// ```sh
 //
-//	id = "us-east-1_vG78M4goG/user-group" } Using `pulumi import`, import Cognito User Groups using the `user_pool_id`/`name` attributes concatenated. For exampleconsole % pulumi import aws_cognito_user_group.group us-east-1_vG78M4goG/user-group
+//	$ pulumi import aws:cognito/userGroup:UserGroup group us-east-1_vG78M4goG/user-group
+//
+// ```
 type UserGroup struct {
 	pulumi.CustomResourceState
 

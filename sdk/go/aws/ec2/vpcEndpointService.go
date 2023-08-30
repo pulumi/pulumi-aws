@@ -81,11 +81,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import VPC Endpoint Services using the VPC endpoint service `id`. For example:
 //
-//	to = aws_vpc_endpoint_service.foo
+// ```sh
 //
-//	id = "vpce-svc-0f97a19d3fa8220bc" } Using `pulumi import`, import VPC Endpoint Services using the VPC endpoint service `id`. For exampleconsole % pulumi import aws_vpc_endpoint_service.foo vpce-svc-0f97a19d3fa8220bc
+//	$ pulumi import aws:ec2/vpcEndpointService:VpcEndpointService foo vpce-svc-0f97a19d3fa8220bc
+//
+// ```
 type VpcEndpointService struct {
 	pulumi.CustomResourceState
 

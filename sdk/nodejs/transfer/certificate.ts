@@ -26,11 +26,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import Transfer AS2 Certificate using the `certificate_id`. For example:
  *
- *  to = aws_transfer_certificate.example
- *
- *  id = "c-4221a88afd5f4362a" } Using `pulumi import`, import Transfer AS2 Certificate using the `certificate_id`. For exampleconsole % pulumi import aws_transfer_certificate.example c-4221a88afd5f4362a
+ * ```sh
+ *  $ pulumi import aws:transfer/certificate:Certificate example c-4221a88afd5f4362a
+ * ```
  */
 export class Certificate extends pulumi.CustomResource {
     /**

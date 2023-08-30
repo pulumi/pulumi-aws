@@ -59,11 +59,13 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * For exampleterraform import {
+ * For example:
  * 
- *  to = aws_opensearch_vpc_endpoint_connection.example
+ * Using `pulumi import`, import OpenSearch VPC endpoint connections using the `id`. For example:
  * 
- *  id = &#34;endpoint-id&#34; } Using `pulumi import`, import OpenSearch VPC endpoint connections using the `id`. For exampleconsole % pulumi import aws_opensearch_vpc_endpoint_connection.example endpoint-id
+ * ```sh
+ *  $ pulumi import aws:opensearch/vpcEndpoint:VpcEndpoint example endpoint-id
+ * ```
  * 
  */
 @ResourceType(type="aws:opensearch/vpcEndpoint:VpcEndpoint")

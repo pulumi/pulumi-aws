@@ -79,11 +79,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import SageMaker App Image Configs using the `name`. For example:
 //
-//	to = aws_sagemaker_app_image_config.example
+// ```sh
 //
-//	id = "example" } Using `pulumi import`, import SageMaker App Image Configs using the `name`. For exampleconsole % pulumi import aws_sagemaker_app_image_config.example example
+//	$ pulumi import aws:sagemaker/appImageConfig:AppImageConfig example example
+//
+// ```
 type AppImageConfig struct {
 	pulumi.CustomResourceState
 

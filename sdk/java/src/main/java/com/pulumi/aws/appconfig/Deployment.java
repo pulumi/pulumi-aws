@@ -57,11 +57,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import AppConfig Deployments using the application ID, environment ID, and deployment number separated by a slash (`/`). For example:
  * 
- *  to = aws_appconfig_deployment.example
- * 
- *  id = &#34;71abcde/11xxxxx/1&#34; } Using `pulumi import`, import AppConfig Deployments using the application ID, environment ID, and deployment number separated by a slash (`/`). For exampleconsole % pulumi import aws_appconfig_deployment.example 71abcde/11xxxxx/1
+ * ```sh
+ *  $ pulumi import aws:appconfig/deployment:Deployment example 71abcde/11xxxxx/1
+ * ```
  * 
  */
 @ResourceType(type="aws:appconfig/deployment:Deployment")

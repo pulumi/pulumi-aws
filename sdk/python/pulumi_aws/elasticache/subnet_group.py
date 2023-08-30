@@ -222,11 +222,11 @@ class SubnetGroup(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import ElastiCache Subnet Groups using the `name`. For example:
 
-         to = aws_elasticache_subnet_group.bar
-
-         id = "tf-test-cache-subnet" } Using `pulumi import`, import ElastiCache Subnet Groups using the `name`. For exampleconsole % pulumi import aws_elasticache_subnet_group.bar tf-test-cache-subnet
+        ```sh
+         $ pulumi import aws:elasticache/subnetGroup:SubnetGroup bar tf-test-cache-subnet
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -267,11 +267,11 @@ class SubnetGroup(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import ElastiCache Subnet Groups using the `name`. For example:
 
-         to = aws_elasticache_subnet_group.bar
-
-         id = "tf-test-cache-subnet" } Using `pulumi import`, import ElastiCache Subnet Groups using the `name`. For exampleconsole % pulumi import aws_elasticache_subnet_group.bar tf-test-cache-subnet
+        ```sh
+         $ pulumi import aws:elasticache/subnetGroup:SubnetGroup bar tf-test-cache-subnet
+        ```
 
         :param str resource_name: The name of the resource.
         :param SubnetGroupArgs args: The arguments to use to populate this resource's properties.

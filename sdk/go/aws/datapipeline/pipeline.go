@@ -39,11 +39,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import `aws_datapipeline_pipeline` using the id (Pipeline ID). For example:
 //
-//	to = aws_datapipeline_pipeline.default
+// ```sh
 //
-//	id = "df-1234567890" } Using `pulumi import`, import `aws_datapipeline_pipeline` using the id (Pipeline ID). For exampleconsole % pulumi import aws_datapipeline_pipeline.default df-1234567890
+//	$ pulumi import aws:datapipeline/pipeline:Pipeline default df-1234567890
+//
+// ```
 type Pipeline struct {
 	pulumi.CustomResourceState
 

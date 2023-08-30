@@ -36,15 +36,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import Lambda Layers using `arn`. For example:
  *
- *  to = aws_lambda_layer_version.test_layer
- *
- *  id = "arn:aws:lambda:_REGION_:_ACCOUNT_ID_:layer:_LAYER_NAME_:_LAYER_VERSION_" } Using `pulumi import`, import Lambda Layers using `arn`. For exampleconsole % pulumi import \
- *
- *  aws_lambda_layer_version.test_layer \
- *
- *  arn:aws:lambda:_REGION_:_ACCOUNT_ID_:layer:_LAYER_NAME_:_LAYER_VERSION_
+ * ```sh
+ *  $ pulumi import aws:lambda/layerVersion:LayerVersion test_layer arn:aws:lambda:_REGION_:_ACCOUNT_ID_:layer:_LAYER_NAME_:_LAYER_VERSION_
+ * ```
  */
 export class LayerVersion extends pulumi.CustomResource {
     /**

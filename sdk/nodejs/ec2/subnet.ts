@@ -45,11 +45,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import subnets using the subnet `id`. For example:
  *
- *  to = aws_subnet.public_subnet
- *
- *  id = "subnet-9d4a7b6c" } Using `pulumi import`, import subnets using the subnet `id`. For exampleconsole % pulumi import aws_subnet.public_subnet subnet-9d4a7b6c
+ * ```sh
+ *  $ pulumi import aws:ec2/subnet:Subnet public_subnet subnet-9d4a7b6c
+ * ```
  */
 export class Subnet extends pulumi.CustomResource {
     /**

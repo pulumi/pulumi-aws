@@ -212,11 +212,11 @@ class TrafficPolicyInstance(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Route53 traffic policy instance using its id. For example:
 
-         to = aws_route53_traffic_policy_instance.test
-
-         id = "df579d9a-6396-410e-ac22-e7ad60cf9e7e" } Using `pulumi import`, import Route53 traffic policy instance using its id. For exampleconsole % pulumi import aws_route53_traffic_policy_instance.test df579d9a-6396-410e-ac22-e7ad60cf9e7e
+        ```sh
+         $ pulumi import aws:route53/trafficPolicyInstance:TrafficPolicyInstance test df579d9a-6396-410e-ac22-e7ad60cf9e7e
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -250,11 +250,11 @@ class TrafficPolicyInstance(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Route53 traffic policy instance using its id. For example:
 
-         to = aws_route53_traffic_policy_instance.test
-
-         id = "df579d9a-6396-410e-ac22-e7ad60cf9e7e" } Using `pulumi import`, import Route53 traffic policy instance using its id. For exampleconsole % pulumi import aws_route53_traffic_policy_instance.test df579d9a-6396-410e-ac22-e7ad60cf9e7e
+        ```sh
+         $ pulumi import aws:route53/trafficPolicyInstance:TrafficPolicyInstance test df579d9a-6396-410e-ac22-e7ad60cf9e7e
+        ```
 
         :param str resource_name: The name of the resource.
         :param TrafficPolicyInstanceArgs args: The arguments to use to populate this resource's properties.

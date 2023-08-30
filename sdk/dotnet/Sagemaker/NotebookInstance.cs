@@ -70,11 +70,11 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import SageMaker Notebook Instances using the `name`. For example:
     /// 
-    ///  to = aws_sagemaker_notebook_instance.test_notebook_instance
-    /// 
-    ///  id = "my-notebook-instance" } Using `pulumi import`, import SageMaker Notebook Instances using the `name`. For exampleconsole % pulumi import aws_sagemaker_notebook_instance.test_notebook_instance my-notebook-instance
+    /// ```sh
+    ///  $ pulumi import aws:sagemaker/notebookInstance:NotebookInstance test_notebook_instance my-notebook-instance
+    /// ```
     /// </summary>
     [AwsResourceType("aws:sagemaker/notebookInstance:NotebookInstance")]
     public partial class NotebookInstance : global::Pulumi.CustomResource

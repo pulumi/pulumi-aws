@@ -105,11 +105,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import EKS Fargate Profiles using the `cluster_name` and `fargate_profile_name` separated by a colon (`:`). For example:
  * 
- *  to = aws_eks_fargate_profile.my_fargate_profile
- * 
- *  id = &#34;my_cluster:my_fargate_profile&#34; } Using `pulumi import`, import EKS Fargate Profiles using the `cluster_name` and `fargate_profile_name` separated by a colon (`:`). For exampleconsole % pulumi import aws_eks_fargate_profile.my_fargate_profile my_cluster:my_fargate_profile
+ * ```sh
+ *  $ pulumi import aws:eks/fargateProfile:FargateProfile my_fargate_profile my_cluster:my_fargate_profile
+ * ```
  * 
  */
 @ResourceType(type="aws:eks/fargateProfile:FargateProfile")

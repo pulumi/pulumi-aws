@@ -47,11 +47,11 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import endpoint configurations using the `name`. For example:
     /// 
-    ///  to = aws_sagemaker_endpoint_configuration.test_endpoint_config
-    /// 
-    ///  id = "endpoint-config-foo" } Using `pulumi import`, import endpoint configurations using the `name`. For exampleconsole % pulumi import aws_sagemaker_endpoint_configuration.test_endpoint_config endpoint-config-foo
+    /// ```sh
+    ///  $ pulumi import aws:sagemaker/endpointConfiguration:EndpointConfiguration test_endpoint_config endpoint-config-foo
+    /// ```
     /// </summary>
     [AwsResourceType("aws:sagemaker/endpointConfiguration:EndpointConfiguration")]
     public partial class EndpointConfiguration : global::Pulumi.CustomResource

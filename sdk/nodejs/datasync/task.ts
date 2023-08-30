@@ -49,11 +49,11 @@ import {ARN} from "..";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import `aws_datasync_task` using the DataSync Task Amazon Resource Name (ARN). For example:
  *
- *  to = aws_datasync_task.example
- *
- *  id = "arn:aws:datasync:us-east-1:123456789012:task/task-12345678901234567" } Using `pulumi import`, import `aws_datasync_task` using the DataSync Task Amazon Resource Name (ARN). For exampleconsole % pulumi import aws_datasync_task.example arn:aws:datasync:us-east-1:123456789012:task/task-12345678901234567
+ * ```sh
+ *  $ pulumi import aws:datasync/task:Task example arn:aws:datasync:us-east-1:123456789012:task/task-12345678901234567
+ * ```
  */
 export class Task extends pulumi.CustomResource {
     /**

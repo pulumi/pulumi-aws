@@ -470,11 +470,11 @@ class Snapshot(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_db_snapshot` using the snapshot identifier. For example:
 
-         to = aws_db_snapshot.example
-
-         id = "my-snapshot" } Using `pulumi import`, import `aws_db_snapshot` using the snapshot identifier. For exampleconsole % pulumi import aws_db_snapshot.example my-snapshot
+        ```sh
+         $ pulumi import aws:rds/snapshot:Snapshot example my-snapshot
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -516,11 +516,11 @@ class Snapshot(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_db_snapshot` using the snapshot identifier. For example:
 
-         to = aws_db_snapshot.example
-
-         id = "my-snapshot" } Using `pulumi import`, import `aws_db_snapshot` using the snapshot identifier. For exampleconsole % pulumi import aws_db_snapshot.example my-snapshot
+        ```sh
+         $ pulumi import aws:rds/snapshot:Snapshot example my-snapshot
+        ```
 
         :param str resource_name: The name of the resource.
         :param SnapshotArgs args: The arguments to use to populate this resource's properties.

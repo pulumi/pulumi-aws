@@ -42,11 +42,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import QuickSight Group using the aws account id, namespace and group name separated by `/`. For example:
 //
-//	to = aws_quicksight_group.example
+// ```sh
 //
-//	id = "123456789123/default/tf-example" } Using `pulumi import`, import QuickSight Group using the aws account id, namespace and group name separated by `/`. For exampleconsole % pulumi import aws_quicksight_group.example 123456789123/default/tf-example
+//	$ pulumi import aws:quicksight/group:Group example 123456789123/default/tf-example
+//
+// ```
 type Group struct {
 	pulumi.CustomResourceState
 

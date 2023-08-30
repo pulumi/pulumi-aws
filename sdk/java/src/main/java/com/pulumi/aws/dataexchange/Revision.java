@@ -50,11 +50,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import DataExchange Revisions using their `data-set-id:revision-id`. For example:
  * 
- *  to = aws_dataexchange_revision.example
- * 
- *  id = &#34;4fa784c7-ccb4-4dbf-ba4f-02198320daa1:4fa784c7-ccb4-4dbf-ba4f-02198320daa1&#34; } Using `pulumi import`, import DataExchange Revisions using their `data-set-id:revision-id`. For exampleconsole % pulumi import aws_dataexchange_revision.example 4fa784c7-ccb4-4dbf-ba4f-02198320daa1:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
+ * ```sh
+ *  $ pulumi import aws:dataexchange/revision:Revision example 4fa784c7-ccb4-4dbf-ba4f-02198320daa1:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
+ * ```
  * 
  */
 @ResourceType(type="aws:dataexchange/revision:Revision")

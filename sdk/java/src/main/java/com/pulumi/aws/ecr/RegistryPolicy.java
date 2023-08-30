@@ -71,11 +71,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import ECR Registry Policy using the registry id. For example:
  * 
- *  to = aws_ecr_registry_policy.example
- * 
- *  id = &#34;123456789012&#34; } Using `pulumi import`, import ECR Registry Policy using the registry id. For exampleconsole % pulumi import aws_ecr_registry_policy.example 123456789012
+ * ```sh
+ *  $ pulumi import aws:ecr/registryPolicy:RegistryPolicy example 123456789012
+ * ```
  * 
  */
 @ResourceType(type="aws:ecr/registryPolicy:RegistryPolicy")

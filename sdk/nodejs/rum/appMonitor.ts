@@ -21,11 +21,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import Cloudwatch RUM App Monitor using the `name`. For example:
  *
- *  to = aws_rum_app_monitor.example
- *
- *  id = "example" } Using `pulumi import`, import Cloudwatch RUM App Monitor using the `name`. For exampleconsole % pulumi import aws_rum_app_monitor.example example
+ * ```sh
+ *  $ pulumi import aws:rum/appMonitor:AppMonitor example example
+ * ```
  */
 export class AppMonitor extends pulumi.CustomResource {
     /**

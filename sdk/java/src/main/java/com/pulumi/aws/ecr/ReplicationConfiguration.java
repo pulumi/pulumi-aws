@@ -163,11 +163,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import ECR Replication Configuration using the `registry_id`. For example:
  * 
- *  to = aws_ecr_replication_configuration.service
- * 
- *  id = &#34;012345678912&#34; } Using `pulumi import`, import ECR Replication Configuration using the `registry_id`. For exampleconsole % pulumi import aws_ecr_replication_configuration.service 012345678912
+ * ```sh
+ *  $ pulumi import aws:ecr/replicationConfiguration:ReplicationConfiguration service 012345678912
+ * ```
  * 
  */
 @ResourceType(type="aws:ecr/replicationConfiguration:ReplicationConfiguration")

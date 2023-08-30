@@ -225,11 +225,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import `aws_networkmanager_core_network_policy_attachment` using the core network ID. For example:
  * 
- *  to = aws_networkmanager_core_network_policy_attachment.example
- * 
- *  id = &#34;core-network-0d47f6t230mz46dy4&#34; } Using `pulumi import`, import `aws_networkmanager_core_network_policy_attachment` using the core network ID. For exampleconsole % pulumi import aws_networkmanager_core_network_policy_attachment.example core-network-0d47f6t230mz46dy4
+ * ```sh
+ *  $ pulumi import aws:networkmanager/coreNetworkPolicyAttachment:CoreNetworkPolicyAttachment example core-network-0d47f6t230mz46dy4
+ * ```
  * 
  */
 @ResourceType(type="aws:networkmanager/coreNetworkPolicyAttachment:CoreNetworkPolicyAttachment")

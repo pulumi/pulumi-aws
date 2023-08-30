@@ -264,11 +264,11 @@ class ConfigurationSet(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import SES Configuration Sets using their `name`. For example:
 
-         to = aws_ses_configuration_set.test
-
-         id = "some-configuration-set-test" } Using `pulumi import`, import SES Configuration Sets using their `name`. For exampleconsole % pulumi import aws_ses_configuration_set.test some-configuration-set-test
+        ```sh
+         $ pulumi import aws:ses/configurationSet:ConfigurationSet test some-configuration-set-test
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -310,11 +310,11 @@ class ConfigurationSet(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import SES Configuration Sets using their `name`. For example:
 
-         to = aws_ses_configuration_set.test
-
-         id = "some-configuration-set-test" } Using `pulumi import`, import SES Configuration Sets using their `name`. For exampleconsole % pulumi import aws_ses_configuration_set.test some-configuration-set-test
+        ```sh
+         $ pulumi import aws:ses/configurationSet:ConfigurationSet test some-configuration-set-test
+        ```
 
         :param str resource_name: The name of the resource.
         :param ConfigurationSetArgs args: The arguments to use to populate this resource's properties.

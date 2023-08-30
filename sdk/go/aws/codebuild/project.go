@@ -261,11 +261,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import CodeBuild Project using the `name`. For example:
 //
-//	to = aws_codebuild_project.name
+// ```sh
 //
-//	id = "project-name" } Using `pulumi import`, import CodeBuild Project using the `name`. For exampleconsole % pulumi import aws_codebuild_project.name project-name
+//	$ pulumi import aws:codebuild/project:Project name project-name
+//
+// ```
 type Project struct {
 	pulumi.CustomResourceState
 

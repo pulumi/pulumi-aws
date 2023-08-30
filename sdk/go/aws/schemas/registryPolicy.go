@@ -71,11 +71,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import EventBridge Schema Registry Policy using the `registry_name`. For example:
 //
-//	to = aws_schemas_registry_policy.example
+// ```sh
 //
-//	id = "example" } Using `pulumi import`, import EventBridge Schema Registry Policy using the `registry_name`. For exampleconsole % pulumi import aws_schemas_registry_policy.example example
+//	$ pulumi import aws:schemas/registryPolicy:RegistryPolicy example example
+//
+// ```
 type RegistryPolicy struct {
 	pulumi.CustomResourceState
 

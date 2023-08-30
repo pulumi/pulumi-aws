@@ -116,11 +116,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import IoT Topic Rules using the `name`. For example:
 //
-//	to = aws_iot_topic_rule.rule
+// ```sh
 //
-//	id = "<name>" } Using `pulumi import`, import IoT Topic Rules using the `name`. For exampleconsole % pulumi import aws_iot_topic_rule.rule <name>
+//	$ pulumi import aws:iot/topicRule:TopicRule rule <name>
+//
+// ```
 type TopicRule struct {
 	pulumi.CustomResourceState
 

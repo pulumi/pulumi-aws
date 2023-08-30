@@ -72,11 +72,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Transcribe MedicalVocabulary using the `vocabulary_name`. For example:
 //
-//	to = aws_transcribe_medical_vocabulary.example
+// ```sh
 //
-//	id = "example-name" } Using `pulumi import`, import Transcribe MedicalVocabulary using the `vocabulary_name`. For exampleconsole % pulumi import aws_transcribe_medical_vocabulary.example example-name
+//	$ pulumi import aws:transcribe/medicalVocabulary:MedicalVocabulary example example-name
+//
+// ```
 type MedicalVocabulary struct {
 	pulumi.CustomResourceState
 

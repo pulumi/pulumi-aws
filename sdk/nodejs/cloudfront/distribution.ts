@@ -248,11 +248,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import CloudFront Distributions using the `id`. For example:
  *
- *  to = aws_cloudfront_distribution.distribution
- *
- *  id = "E74FTE3EXAMPLE" } Using `pulumi import`, import CloudFront Distributions using the `id`. For exampleconsole % pulumi import aws_cloudfront_distribution.distribution E74FTE3EXAMPLE
+ * ```sh
+ *  $ pulumi import aws:cloudfront/distribution:Distribution distribution E74FTE3EXAMPLE
+ * ```
  */
 export class Distribution extends pulumi.CustomResource {
     /**

@@ -50,23 +50,15 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import FSx File Systems using the `id`. For example:
 //
-//	to = aws_fsx_lustre_file_system.example
+// ```sh
 //
-//	id = "fs-543ab12b1ca672f33" } Using `pulumi import`, import FSx File Systems using the `id`. For exampleconsole % pulumi import aws_fsx_lustre_file_system.example fs-543ab12b1ca672f33 Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in your program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from your program or use `ignore_changes` to hide the difference. For exampleterraform resource "aws_fsx_lustre_file_system" "example" {
+//	$ pulumi import aws:fsx/lustreFileSystem:LustreFileSystem example fs-543ab12b1ca672f33
 //
-// # ... other configuration ...
+// ```
 //
-//	security_group_ids = [aws_security_group.example.id]
-//
-// # There is no FSx API for reading security_group_ids
-//
-//	lifecycle {
-//
-//	ignore_changes = [security_group_ids]
-//
-//	} }
+//	Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in your program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from your program or use `ignore_changes` to hide the difference. For example:
 type LustreFileSystem struct {
 	pulumi.CustomResourceState
 

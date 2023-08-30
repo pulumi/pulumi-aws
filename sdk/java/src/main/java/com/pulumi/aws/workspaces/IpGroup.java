@@ -66,11 +66,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import WorkSpaces IP groups using their GroupID. For example:
  * 
- *  to = aws_workspaces_ip_group.example
- * 
- *  id = &#34;wsipg-488lrtl3k&#34; } Using `pulumi import`, import WorkSpaces IP groups using their GroupID. For exampleconsole % pulumi import aws_workspaces_ip_group.example wsipg-488lrtl3k
+ * ```sh
+ *  $ pulumi import aws:workspaces/ipGroup:IpGroup example wsipg-488lrtl3k
+ * ```
  * 
  */
 @ResourceType(type="aws:workspaces/ipGroup:IpGroup")

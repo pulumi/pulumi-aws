@@ -1001,11 +1001,11 @@ class EventSourceMapping(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Lambda event source mappings using the `UUID` (event source mapping identifier). For example:
 
-         to = aws_lambda_event_source_mapping.event_source_mapping
-
-         id = "12345kxodurf3443" } Using `pulumi import`, import Lambda event source mappings using the `UUID` (event source mapping identifier). For exampleconsole % pulumi import aws_lambda_event_source_mapping.event_source_mapping 12345kxodurf3443
+        ```sh
+         $ pulumi import aws:lambda/eventSourceMapping:EventSourceMapping event_source_mapping 12345kxodurf3443
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1151,11 +1151,11 @@ class EventSourceMapping(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Lambda event source mappings using the `UUID` (event source mapping identifier). For example:
 
-         to = aws_lambda_event_source_mapping.event_source_mapping
-
-         id = "12345kxodurf3443" } Using `pulumi import`, import Lambda event source mappings using the `UUID` (event source mapping identifier). For exampleconsole % pulumi import aws_lambda_event_source_mapping.event_source_mapping 12345kxodurf3443
+        ```sh
+         $ pulumi import aws:lambda/eventSourceMapping:EventSourceMapping event_source_mapping 12345kxodurf3443
+        ```
 
         :param str resource_name: The name of the resource.
         :param EventSourceMappingArgs args: The arguments to use to populate this resource's properties.

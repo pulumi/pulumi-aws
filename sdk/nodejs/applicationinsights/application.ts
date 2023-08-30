@@ -27,11 +27,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import ApplicationInsights Applications using the `resource_group_name`. For example:
  *
- *  to = aws_applicationinsights_application.some
- *
- *  id = "some-application" } Using `pulumi import`, import ApplicationInsights Applications using the `resource_group_name`. For exampleconsole % pulumi import aws_applicationinsights_application.some some-application
+ * ```sh
+ *  $ pulumi import aws:applicationinsights/application:Application some some-application
+ * ```
  */
 export class Application extends pulumi.CustomResource {
     /**

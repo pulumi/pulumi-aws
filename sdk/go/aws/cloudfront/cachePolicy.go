@@ -71,11 +71,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import CloudFront cache policies using the `id` of the cache policy. For example:
 //
-//	to = aws_cloudfront_cache_policy.policy
+// ```sh
 //
-//	id = "658327ea-f89d-4fab-a63d-7e88639e58f6" } Using `pulumi import`, import CloudFront cache policies using the `id` of the cache policy. For exampleconsole % pulumi import aws_cloudfront_cache_policy.policy 658327ea-f89d-4fab-a63d-7e88639e58f6
+//	$ pulumi import aws:cloudfront/cachePolicy:CachePolicy policy 658327ea-f89d-4fab-a63d-7e88639e58f6
+//
+// ```
 type CachePolicy struct {
 	pulumi.CustomResourceState
 

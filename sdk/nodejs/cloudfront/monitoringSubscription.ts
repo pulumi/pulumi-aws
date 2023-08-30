@@ -28,11 +28,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import CloudFront monitoring subscription using the id. For example:
  *
- *  to = aws_cloudfront_monitoring_subscription.example
- *
- *  id = "E3QYSUHO4VYRGB" } Using `pulumi import`, import CloudFront monitoring subscription using the id. For exampleconsole % pulumi import aws_cloudfront_monitoring_subscription.example E3QYSUHO4VYRGB
+ * ```sh
+ *  $ pulumi import aws:cloudfront/monitoringSubscription:MonitoringSubscription example E3QYSUHO4VYRGB
+ * ```
  */
 export class MonitoringSubscription extends pulumi.CustomResource {
     /**

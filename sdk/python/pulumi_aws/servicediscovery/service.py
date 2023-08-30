@@ -416,11 +416,11 @@ class Service(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Service Discovery Service using the service ID. For example:
 
-         to = aws_service_discovery_service.example
-
-         id = "0123456789" } Using `pulumi import`, import Service Discovery Service using the service ID. For exampleconsole % pulumi import aws_service_discovery_service.example 0123456789
+        ```sh
+         $ pulumi import aws:servicediscovery/service:Service example 0123456789
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -492,11 +492,11 @@ class Service(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Service Discovery Service using the service ID. For example:
 
-         to = aws_service_discovery_service.example
-
-         id = "0123456789" } Using `pulumi import`, import Service Discovery Service using the service ID. For exampleconsole % pulumi import aws_service_discovery_service.example 0123456789
+        ```sh
+         $ pulumi import aws:servicediscovery/service:Service example 0123456789
+        ```
 
         :param str resource_name: The name of the resource.
         :param ServiceArgs args: The arguments to use to populate this resource's properties.

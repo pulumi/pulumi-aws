@@ -57,11 +57,11 @@ namespace Pulumi.Aws.Lex
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import slot types using their name. For example:
     /// 
-    ///  to = aws_lex_slot_type.flower_types
-    /// 
-    ///  id = "FlowerTypes" } Using `pulumi import`, import slot types using their name. For exampleconsole % pulumi import aws_lex_slot_type.flower_types FlowerTypes
+    /// ```sh
+    ///  $ pulumi import aws:lex/slotType:SlotType flower_types FlowerTypes
+    /// ```
     /// </summary>
     [AwsResourceType("aws:lex/slotType:SlotType")]
     public partial class SlotType : global::Pulumi.CustomResource

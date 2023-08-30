@@ -276,11 +276,11 @@ class IamPolicyAssignment(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import QuickSight IAM Policy Assignment using the AWS account ID, namespace, and assignment name separated by commas (`,`). For example:
 
-         to = aws_quicksight_iam_policy_assignment.example
-
-         id = "123456789012,default,example" } Using `pulumi import`, import QuickSight IAM Policy Assignment using the AWS account ID, namespace, and assignment name separated by commas (`,`). For exampleconsole % pulumi import aws_quicksight_iam_policy_assignment.example 123456789012,default,example
+        ```sh
+         $ pulumi import aws:quicksight/iamPolicyAssignment:IamPolicyAssignment example 123456789012,default,example
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -320,11 +320,11 @@ class IamPolicyAssignment(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import QuickSight IAM Policy Assignment using the AWS account ID, namespace, and assignment name separated by commas (`,`). For example:
 
-         to = aws_quicksight_iam_policy_assignment.example
-
-         id = "123456789012,default,example" } Using `pulumi import`, import QuickSight IAM Policy Assignment using the AWS account ID, namespace, and assignment name separated by commas (`,`). For exampleconsole % pulumi import aws_quicksight_iam_policy_assignment.example 123456789012,default,example
+        ```sh
+         $ pulumi import aws:quicksight/iamPolicyAssignment:IamPolicyAssignment example 123456789012,default,example
+        ```
 
         :param str resource_name: The name of the resource.
         :param IamPolicyAssignmentArgs args: The arguments to use to populate this resource's properties.

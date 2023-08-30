@@ -198,11 +198,11 @@ class VaultLockConfiguration(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Backup vault lock configuration using the `name`. For example:
 
-         to = aws_backup_vault_lock_configuration.test
-
-         id = "TestVault" } Using `pulumi import`, import Backup vault lock configuration using the `name`. For exampleconsole % pulumi import aws_backup_vault_lock_configuration.test TestVault
+        ```sh
+         $ pulumi import aws:backup/vaultLockConfiguration:VaultLockConfiguration test TestVault
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -235,11 +235,11 @@ class VaultLockConfiguration(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Backup vault lock configuration using the `name`. For example:
 
-         to = aws_backup_vault_lock_configuration.test
-
-         id = "TestVault" } Using `pulumi import`, import Backup vault lock configuration using the `name`. For exampleconsole % pulumi import aws_backup_vault_lock_configuration.test TestVault
+        ```sh
+         $ pulumi import aws:backup/vaultLockConfiguration:VaultLockConfiguration test TestVault
+        ```
 
         :param str resource_name: The name of the resource.
         :param VaultLockConfigurationArgs args: The arguments to use to populate this resource's properties.

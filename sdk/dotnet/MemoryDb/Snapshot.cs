@@ -34,11 +34,11 @@ namespace Pulumi.Aws.MemoryDb
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import a snapshot using the `name`. For example:
     /// 
-    ///  to = aws_memorydb_snapshot.example
-    /// 
-    ///  id = "my-snapshot" } Using `pulumi import`, import a snapshot using the `name`. For exampleconsole % pulumi import aws_memorydb_snapshot.example my-snapshot
+    /// ```sh
+    ///  $ pulumi import aws:memorydb/snapshot:Snapshot example my-snapshot
+    /// ```
     /// </summary>
     [AwsResourceType("aws:memorydb/snapshot:Snapshot")]
     public partial class Snapshot : global::Pulumi.CustomResource

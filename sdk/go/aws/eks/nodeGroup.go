@@ -161,11 +161,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import EKS Node Groups using the `cluster_name` and `node_group_name` separated by a colon (`:`). For example:
 //
-//	to = aws_eks_node_group.my_node_group
+// ```sh
 //
-//	id = "my_cluster:my_node_group" } Using `pulumi import`, import EKS Node Groups using the `cluster_name` and `node_group_name` separated by a colon (`:`). For exampleconsole % pulumi import aws_eks_node_group.my_node_group my_cluster:my_node_group
+//	$ pulumi import aws:eks/nodeGroup:NodeGroup my_node_group my_cluster:my_node_group
+//
+// ```
 type NodeGroup struct {
 	pulumi.CustomResourceState
 

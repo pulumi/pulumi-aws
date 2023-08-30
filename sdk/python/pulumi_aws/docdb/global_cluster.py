@@ -393,21 +393,12 @@ class GlobalCluster(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_docdb_global_cluster` using the Global Cluster identifier. For example:
 
-         to = aws_docdb_global_cluster.example
-
-         id = "example" } Using `pulumi import`, import `aws_docdb_global_cluster` using the Global Cluster identifier. For exampleconsole % pulumi import aws_docdb_global_cluster.example example Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in your program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from your program or use `ignore_changes` to hide the difference. For exampleterraform resource "aws_docdb_global_cluster" "example" {
-
-        # ... other configuration ...
-
-        # There is no API for reading source_db_cluster_identifier
-
-         lifecycle {
-
-         ignore_changes = [source_db_cluster_identifier]
-
-         } }
+        ```sh
+         $ pulumi import aws:docdb/globalCluster:GlobalCluster example example
+        ```
+         Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in your program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from your program or use `ignore_changes` to hide the difference. For example:
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -490,21 +481,12 @@ class GlobalCluster(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_docdb_global_cluster` using the Global Cluster identifier. For example:
 
-         to = aws_docdb_global_cluster.example
-
-         id = "example" } Using `pulumi import`, import `aws_docdb_global_cluster` using the Global Cluster identifier. For exampleconsole % pulumi import aws_docdb_global_cluster.example example Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in your program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from your program or use `ignore_changes` to hide the difference. For exampleterraform resource "aws_docdb_global_cluster" "example" {
-
-        # ... other configuration ...
-
-        # There is no API for reading source_db_cluster_identifier
-
-         lifecycle {
-
-         ignore_changes = [source_db_cluster_identifier]
-
-         } }
+        ```sh
+         $ pulumi import aws:docdb/globalCluster:GlobalCluster example example
+        ```
+         Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in your program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from your program or use `ignore_changes` to hide the difference. For example:
 
         :param str resource_name: The name of the resource.
         :param GlobalClusterArgs args: The arguments to use to populate this resource's properties.

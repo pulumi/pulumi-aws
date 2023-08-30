@@ -37,11 +37,11 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import Redshift HSM Client Certificates using `hsm_configuration_identifier`. For example:
     /// 
-    ///  to = aws_redshift_hsm_configuration.test
-    /// 
-    ///  id = "example" } Using `pulumi import`, import Redshift HSM Client Certificates using `hsm_configuration_identifier`. For exampleconsole % pulumi import aws_redshift_hsm_configuration.example example
+    /// ```sh
+    ///  $ pulumi import aws:redshift/hsmConfiguration:HsmConfiguration example example
+    /// ```
     /// </summary>
     [AwsResourceType("aws:redshift/hsmConfiguration:HsmConfiguration")]
     public partial class HsmConfiguration : global::Pulumi.CustomResource

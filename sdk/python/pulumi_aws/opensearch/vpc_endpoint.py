@@ -141,11 +141,13 @@ class VpcEndpoint(pulumi.CustomResource):
 
         ## Import
 
-        For exampleterraform import {
+        For example:
 
-         to = aws_opensearch_vpc_endpoint_connection.example
+        Using `pulumi import`, import OpenSearch VPC endpoint connections using the `id`. For example:
 
-         id = "endpoint-id" } Using `pulumi import`, import OpenSearch VPC endpoint connections using the `id`. For exampleconsole % pulumi import aws_opensearch_vpc_endpoint_connection.example endpoint-id
+        ```sh
+         $ pulumi import aws:opensearch/vpcEndpoint:VpcEndpoint example endpoint-id
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -184,11 +186,13 @@ class VpcEndpoint(pulumi.CustomResource):
 
         ## Import
 
-        For exampleterraform import {
+        For example:
 
-         to = aws_opensearch_vpc_endpoint_connection.example
+        Using `pulumi import`, import OpenSearch VPC endpoint connections using the `id`. For example:
 
-         id = "endpoint-id" } Using `pulumi import`, import OpenSearch VPC endpoint connections using the `id`. For exampleconsole % pulumi import aws_opensearch_vpc_endpoint_connection.example endpoint-id
+        ```sh
+         $ pulumi import aws:opensearch/vpcEndpoint:VpcEndpoint example endpoint-id
+        ```
 
         :param str resource_name: The name of the resource.
         :param VpcEndpointArgs args: The arguments to use to populate this resource's properties.

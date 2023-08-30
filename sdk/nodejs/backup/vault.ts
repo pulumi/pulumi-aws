@@ -18,11 +18,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import Backup vault using the `name`. For example:
  *
- *  to = aws_backup_vault.test-vault
- *
- *  id = "TestVault" } Using `pulumi import`, import Backup vault using the `name`. For exampleconsole % pulumi import aws_backup_vault.test-vault TestVault
+ * ```sh
+ *  $ pulumi import aws:backup/vault:Vault test-vault TestVault
+ * ```
  */
 export class Vault extends pulumi.CustomResource {
     /**

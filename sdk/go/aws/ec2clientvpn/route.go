@@ -69,11 +69,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import AWS Client VPN routes using the endpoint ID, target subnet ID, and destination CIDR block. All values are separated by a `,`. For example:
 //
-//	to = aws_ec2_client_vpn_route.example
+// ```sh
 //
-//	id = "cvpn-endpoint-1234567890abcdef,subnet-9876543210fedcba,10.1.0.0/24" } Using `pulumi import`, import AWS Client VPN routes using the endpoint ID, target subnet ID, and destination CIDR block. All values are separated by a `,`. For exampleconsole % pulumi import aws_ec2_client_vpn_route.example cvpn-endpoint-1234567890abcdef,subnet-9876543210fedcba,10.1.0.0/24
+//	$ pulumi import aws:ec2clientvpn/route:Route example cvpn-endpoint-1234567890abcdef,subnet-9876543210fedcba,10.1.0.0/24
+//
+// ```
 type Route struct {
 	pulumi.CustomResourceState
 

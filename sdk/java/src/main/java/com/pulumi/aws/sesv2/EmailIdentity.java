@@ -154,11 +154,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import SESv2 (Simple Email V2) Email Identity using the `email_identity`. For example:
  * 
- *  to = aws_sesv2_email_identity.example
- * 
- *  id = &#34;example.com&#34; } Using `pulumi import`, import SESv2 (Simple Email V2) Email Identity using the `email_identity`. For exampleconsole % pulumi import aws_sesv2_email_identity.example example.com
+ * ```sh
+ *  $ pulumi import aws:sesv2/emailIdentity:EmailIdentity example example.com
+ * ```
  * 
  */
 @ResourceType(type="aws:sesv2/emailIdentity:EmailIdentity")

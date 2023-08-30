@@ -283,11 +283,11 @@ namespace Pulumi.Aws.CodeBuild
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import CodeBuild Project using the `name`. For example:
     /// 
-    ///  to = aws_codebuild_project.name
-    /// 
-    ///  id = "project-name" } Using `pulumi import`, import CodeBuild Project using the `name`. For exampleconsole % pulumi import aws_codebuild_project.name project-name
+    /// ```sh
+    ///  $ pulumi import aws:codebuild/project:Project name project-name
+    /// ```
     /// </summary>
     [AwsResourceType("aws:codebuild/project:Project")]
     public partial class Project : global::Pulumi.CustomResource

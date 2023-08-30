@@ -38,11 +38,11 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import a Spot Datafeed Subscription using the word `spot-datafeed-subscription`. For example:
     /// 
-    ///  to = aws_spot_datafeed_subscription.mysubscription
-    /// 
-    ///  id = "spot-datafeed-subscription" } Using `pulumi import`, import a Spot Datafeed Subscription using the word `spot-datafeed-subscription`. For exampleconsole % pulumi import aws_spot_datafeed_subscription.mysubscription spot-datafeed-subscription
+    /// ```sh
+    ///  $ pulumi import aws:ec2/spotDatafeedSubscription:SpotDatafeedSubscription mysubscription spot-datafeed-subscription
+    /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/spotDatafeedSubscription:SpotDatafeedSubscription")]
     public partial class SpotDatafeedSubscription : global::Pulumi.CustomResource

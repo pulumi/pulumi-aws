@@ -119,11 +119,11 @@ namespace Pulumi.Aws.VpcLattice
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import VPC Lattice Listener Rule using the `example_id_arg`. For example:
     /// 
-    ///  to = aws_vpclattice_listener_rule.example
-    /// 
-    ///  id = "rft-8012925589" } Using `pulumi import`, import VPC Lattice Listener Rule using the `example_id_arg`. For exampleconsole % pulumi import aws_vpclattice_listener_rule.example rft-8012925589
+    /// ```sh
+    ///  $ pulumi import aws:vpclattice/listenerRule:ListenerRule example rft-8012925589
+    /// ```
     /// </summary>
     [AwsResourceType("aws:vpclattice/listenerRule:ListenerRule")]
     public partial class ListenerRule : global::Pulumi.CustomResource

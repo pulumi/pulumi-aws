@@ -75,11 +75,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Cloudformation Stacks using the `name`. For example:
 //
-//	to = aws_cloudformation_stack.stack
+// ```sh
 //
-//	id = "networking-stack" } Using `pulumi import`, import Cloudformation Stacks using the `name`. For exampleconsole % pulumi import aws_cloudformation_stack.stack networking-stack
+//	$ pulumi import aws:cloudformation/stack:Stack stack networking-stack
+//
+// ```
 type Stack struct {
 	pulumi.CustomResourceState
 

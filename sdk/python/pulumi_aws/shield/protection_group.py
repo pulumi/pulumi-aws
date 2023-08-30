@@ -309,11 +309,11 @@ class ProtectionGroup(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Shield protection group resources using their protection group id. For example:
 
-         to = aws_shield_protection_group.example
-
-         id = "example" } Using `pulumi import`, import Shield protection group resources using their protection group id. For exampleconsole % pulumi import aws_shield_protection_group.example example
+        ```sh
+         $ pulumi import aws:shield/protectionGroup:ProtectionGroup example example
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -379,11 +379,11 @@ class ProtectionGroup(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Shield protection group resources using their protection group id. For example:
 
-         to = aws_shield_protection_group.example
-
-         id = "example" } Using `pulumi import`, import Shield protection group resources using their protection group id. For exampleconsole % pulumi import aws_shield_protection_group.example example
+        ```sh
+         $ pulumi import aws:shield/protectionGroup:ProtectionGroup example example
+        ```
 
         :param str resource_name: The name of the resource.
         :param ProtectionGroupArgs args: The arguments to use to populate this resource's properties.

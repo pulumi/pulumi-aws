@@ -89,11 +89,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import FSx Data Repository Associations using the `id`. For example:
 //
-//	to = aws_fsx_data_repository_association.example
+// ```sh
 //
-//	id = "dra-0b1cfaeca11088b10" } Using `pulumi import`, import FSx Data Repository Associations using the `id`. For exampleconsole % pulumi import aws_fsx_data_repository_association.example dra-0b1cfaeca11088b10
+//	$ pulumi import aws:fsx/dataRepositoryAssociation:DataRepositoryAssociation example dra-0b1cfaeca11088b10
+//
+// ```
 type DataRepositoryAssociation struct {
 	pulumi.CustomResourceState
 

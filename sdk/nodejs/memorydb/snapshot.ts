@@ -23,11 +23,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import a snapshot using the `name`. For example:
  *
- *  to = aws_memorydb_snapshot.example
- *
- *  id = "my-snapshot" } Using `pulumi import`, import a snapshot using the `name`. For exampleconsole % pulumi import aws_memorydb_snapshot.example my-snapshot
+ * ```sh
+ *  $ pulumi import aws:memorydb/snapshot:Snapshot example my-snapshot
+ * ```
  */
 export class Snapshot extends pulumi.CustomResource {
     /**

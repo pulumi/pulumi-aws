@@ -71,11 +71,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import `aws_appstream_fleet` using the id. For example:
  * 
- *  to = aws_appstream_fleet.example
- * 
- *  id = &#34;fleetNameExample&#34; } Using `pulumi import`, import `aws_appstream_fleet` using the id. For exampleconsole % pulumi import aws_appstream_fleet.example fleetNameExample
+ * ```sh
+ *  $ pulumi import aws:appstream/fleet:Fleet example fleetNameExample
+ * ```
  * 
  */
 @ResourceType(type="aws:appstream/fleet:Fleet")

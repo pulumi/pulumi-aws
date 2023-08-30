@@ -715,11 +715,11 @@ class Subnet(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import subnets using the subnet `id`. For example:
 
-         to = aws_subnet.public_subnet
-
-         id = "subnet-9d4a7b6c" } Using `pulumi import`, import subnets using the subnet `id`. For exampleconsole % pulumi import aws_subnet.public_subnet subnet-9d4a7b6c
+        ```sh
+         $ pulumi import aws:ec2/subnet:Subnet public_subnet subnet-9d4a7b6c
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -790,11 +790,11 @@ class Subnet(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import subnets using the subnet `id`. For example:
 
-         to = aws_subnet.public_subnet
-
-         id = "subnet-9d4a7b6c" } Using `pulumi import`, import subnets using the subnet `id`. For exampleconsole % pulumi import aws_subnet.public_subnet subnet-9d4a7b6c
+        ```sh
+         $ pulumi import aws:ec2/subnet:Subnet public_subnet subnet-9d4a7b6c
+        ```
 
         :param str resource_name: The name of the resource.
         :param SubnetArgs args: The arguments to use to populate this resource's properties.

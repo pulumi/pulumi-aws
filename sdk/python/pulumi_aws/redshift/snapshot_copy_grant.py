@@ -183,11 +183,11 @@ class SnapshotCopyGrant(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Redshift Snapshot Copy Grants by name. For example:
 
-         to = aws_redshift_snapshot_copy_grant.test
-
-         id = "my-grant" } Using `pulumi import`, import Redshift Snapshot Copy Grants by name. For exampleconsole % pulumi import aws_redshift_snapshot_copy_grant.test my-grant
+        ```sh
+         $ pulumi import aws:redshift/snapshotCopyGrant:SnapshotCopyGrant test my-grant
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -221,11 +221,11 @@ class SnapshotCopyGrant(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Redshift Snapshot Copy Grants by name. For example:
 
-         to = aws_redshift_snapshot_copy_grant.test
-
-         id = "my-grant" } Using `pulumi import`, import Redshift Snapshot Copy Grants by name. For exampleconsole % pulumi import aws_redshift_snapshot_copy_grant.test my-grant
+        ```sh
+         $ pulumi import aws:redshift/snapshotCopyGrant:SnapshotCopyGrant test my-grant
+        ```
 
         :param str resource_name: The name of the resource.
         :param SnapshotCopyGrantArgs args: The arguments to use to populate this resource's properties.

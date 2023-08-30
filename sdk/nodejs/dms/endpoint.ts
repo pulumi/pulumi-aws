@@ -42,11 +42,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import endpoints using the `endpoint_id`. For example:
  *
- *  to = aws_dms_endpoint.test
- *
- *  id = "test-dms-endpoint-tf" } Using `pulumi import`, import endpoints using the `endpoint_id`. For exampleconsole % pulumi import aws_dms_endpoint.test test-dms-endpoint-tf
+ * ```sh
+ *  $ pulumi import aws:dms/endpoint:Endpoint test test-dms-endpoint-tf
+ * ```
  */
 export class Endpoint extends pulumi.CustomResource {
     /**

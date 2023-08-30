@@ -48,11 +48,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Inspector Delegated Admin Account using the `account_id`. For example:
 //
-//	to = aws_inspector2_delegated_admin_account.example
+// ```sh
 //
-//	id = "012345678901" } Using `pulumi import`, import Inspector Delegated Admin Account using the `account_id`. For exampleconsole % pulumi import aws_inspector2_delegated_admin_account.example 012345678901
+//	$ pulumi import aws:inspector2/delegatedAdminAccount:DelegatedAdminAccount example 012345678901
+//
+// ```
 type DelegatedAdminAccount struct {
 	pulumi.CustomResourceState
 

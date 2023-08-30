@@ -211,11 +211,11 @@ class SmsChannel(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import the Pinpoint SMS Channel using the `application_id`. For example:
 
-         to = aws_pinpoint_sms_channel.sms
-
-         id = "application-id" } Using `pulumi import`, import the Pinpoint SMS Channel using the `application_id`. For exampleconsole % pulumi import aws_pinpoint_sms_channel.sms application-id
+        ```sh
+         $ pulumi import aws:pinpoint/smsChannel:SmsChannel sms application-id
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -245,11 +245,11 @@ class SmsChannel(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import the Pinpoint SMS Channel using the `application_id`. For example:
 
-         to = aws_pinpoint_sms_channel.sms
-
-         id = "application-id" } Using `pulumi import`, import the Pinpoint SMS Channel using the `application_id`. For exampleconsole % pulumi import aws_pinpoint_sms_channel.sms application-id
+        ```sh
+         $ pulumi import aws:pinpoint/smsChannel:SmsChannel sms application-id
+        ```
 
         :param str resource_name: The name of the resource.
         :param SmsChannelArgs args: The arguments to use to populate this resource's properties.

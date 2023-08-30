@@ -48,11 +48,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import WAF Regional Sql Injection Match Set using the id. For example:
 //
-//	to = aws_wafregional_sql_injection_match_set.sql_injection_match_set
+// ```sh
 //
-//	id = "a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc" } Using `pulumi import`, import WAF Regional Sql Injection Match Set using the id. For exampleconsole % pulumi import aws_wafregional_sql_injection_match_set.sql_injection_match_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+//	$ pulumi import aws:wafregional/sqlInjectionMatchSet:SqlInjectionMatchSet sql_injection_match_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+//
+// ```
 type SqlInjectionMatchSet struct {
 	pulumi.CustomResourceState
 

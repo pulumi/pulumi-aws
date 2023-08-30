@@ -42,11 +42,11 @@ namespace Pulumi.Aws.DataSync
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import `aws_datasync_location_efs` using the DataSync Task Amazon Resource Name (ARN). For example:
     /// 
-    ///  to = aws_datasync_location_efs.example
-    /// 
-    ///  id = "arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567" } Using `pulumi import`, import `aws_datasync_location_efs` using the DataSync Task Amazon Resource Name (ARN). For exampleconsole % pulumi import aws_datasync_location_efs.example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
+    /// ```sh
+    ///  $ pulumi import aws:datasync/efsLocation:EfsLocation example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
+    /// ```
     /// </summary>
     [AwsResourceType("aws:datasync/efsLocation:EfsLocation")]
     public partial class EfsLocation : global::Pulumi.CustomResource

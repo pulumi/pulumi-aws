@@ -37,11 +37,11 @@ namespace Pulumi.Aws.Pinpoint
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import Pinpoint APNs Sandbox Channel using the `application-id`. For example:
     /// 
-    ///  to = aws_pinpoint_apns_sandbox_channel.apns_sandbox
-    /// 
-    ///  id = "application-id" } Using `pulumi import`, import Pinpoint APNs Sandbox Channel using the `application-id`. For exampleconsole % pulumi import aws_pinpoint_apns_sandbox_channel.apns_sandbox application-id
+    /// ```sh
+    ///  $ pulumi import aws:pinpoint/apnsSandboxChannel:ApnsSandboxChannel apns_sandbox application-id
+    /// ```
     /// </summary>
     [AwsResourceType("aws:pinpoint/apnsSandboxChannel:ApnsSandboxChannel")]
     public partial class ApnsSandboxChannel : global::Pulumi.CustomResource

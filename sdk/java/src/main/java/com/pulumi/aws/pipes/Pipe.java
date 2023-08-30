@@ -266,11 +266,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import pipes using the `name`. For example:
  * 
- *  to = aws_pipes_pipe.example
- * 
- *  id = &#34;my-pipe&#34; } Using `pulumi import`, import pipes using the `name`. For exampleconsole % pulumi import aws_pipes_pipe.example my-pipe
+ * ```sh
+ *  $ pulumi import aws:pipes/pipe:Pipe example my-pipe
+ * ```
  * 
  */
 @ResourceType(type="aws:pipes/pipe:Pipe")

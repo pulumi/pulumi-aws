@@ -66,11 +66,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import GameLift Game Session Queues using their `name`. For example:
  * 
- *  to = aws_gamelift_game_session_queue.example
- * 
- *  id = &#34;example&#34; } Using `pulumi import`, import GameLift Game Session Queues using their `name`. For exampleconsole % pulumi import aws_gamelift_game_session_queue.example example
+ * ```sh
+ *  $ pulumi import aws:gamelift/gameSessionQueue:GameSessionQueue example example
+ * ```
  * 
  */
 @ResourceType(type="aws:gamelift/gameSessionQueue:GameSessionQueue")

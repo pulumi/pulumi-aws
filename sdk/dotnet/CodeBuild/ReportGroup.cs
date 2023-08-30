@@ -86,11 +86,11 @@ namespace Pulumi.Aws.CodeBuild
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import CodeBuild Report Group using the CodeBuild Report Group arn. For example:
     /// 
-    ///  to = aws_codebuild_report_group.example
-    /// 
-    ///  id = "arn:aws:codebuild:us-west-2:123456789:report-group/report-group-name" } Using `pulumi import`, import CodeBuild Report Group using the CodeBuild Report Group arn. For exampleconsole % pulumi import aws_codebuild_report_group.example arn:aws:codebuild:us-west-2:123456789:report-group/report-group-name
+    /// ```sh
+    ///  $ pulumi import aws:codebuild/reportGroup:ReportGroup example arn:aws:codebuild:us-west-2:123456789:report-group/report-group-name
+    /// ```
     /// </summary>
     [AwsResourceType("aws:codebuild/reportGroup:ReportGroup")]
     public partial class ReportGroup : global::Pulumi.CustomResource

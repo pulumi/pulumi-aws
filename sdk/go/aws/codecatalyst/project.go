@@ -45,11 +45,15 @@ import (
 //
 // ## Import
 //
-// For exampleterraform import {
+// For example:
 //
-//	to = aws_codecatalyst_project.example
+// Using `pulumi import`, import CodeCatalyst Project using the `example_id_arg`. For example:
 //
-//	id = "project-id-12345678" } Using `pulumi import`, import CodeCatalyst Project using the `example_id_arg`. For exampleconsole % pulumi import aws_codecatalyst_project.example project-id-12345678
+// ```sh
+//
+//	$ pulumi import aws:codecatalyst/project:Project example project-id-12345678
+//
+// ```
 type Project struct {
 	pulumi.CustomResourceState
 

@@ -327,11 +327,11 @@ class GameSessionQueue(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import GameLift Game Session Queues using their `name`. For example:
 
-         to = aws_gamelift_game_session_queue.example
-
-         id = "example" } Using `pulumi import`, import GameLift Game Session Queues using their `name`. For exampleconsole % pulumi import aws_gamelift_game_session_queue.example example
+        ```sh
+         $ pulumi import aws:gamelift/gameSessionQueue:GameSessionQueue example example
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -378,11 +378,11 @@ class GameSessionQueue(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import GameLift Game Session Queues using their `name`. For example:
 
-         to = aws_gamelift_game_session_queue.example
-
-         id = "example" } Using `pulumi import`, import GameLift Game Session Queues using their `name`. For exampleconsole % pulumi import aws_gamelift_game_session_queue.example example
+        ```sh
+         $ pulumi import aws:gamelift/gameSessionQueue:GameSessionQueue example example
+        ```
 
         :param str resource_name: The name of the resource.
         :param GameSessionQueueArgs args: The arguments to use to populate this resource's properties.

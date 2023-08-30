@@ -329,11 +329,11 @@ class DataQualityRuleset(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Glue Data Quality Ruleset using the `name`. For example:
 
-         to = aws_glue_data_quality_ruleset.example
-
-         id = "exampleName" } Using `pulumi import`, import Glue Data Quality Ruleset using the `name`. For exampleconsole % pulumi import aws_glue_data_quality_ruleset.example exampleName
+        ```sh
+         $ pulumi import aws:glue/dataQualityRuleset:DataQualityRuleset example exampleName
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -399,11 +399,11 @@ class DataQualityRuleset(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Glue Data Quality Ruleset using the `name`. For example:
 
-         to = aws_glue_data_quality_ruleset.example
-
-         id = "exampleName" } Using `pulumi import`, import Glue Data Quality Ruleset using the `name`. For exampleconsole % pulumi import aws_glue_data_quality_ruleset.example exampleName
+        ```sh
+         $ pulumi import aws:glue/dataQualityRuleset:DataQualityRuleset example exampleName
+        ```
 
         :param str resource_name: The name of the resource.
         :param DataQualityRulesetArgs args: The arguments to use to populate this resource's properties.

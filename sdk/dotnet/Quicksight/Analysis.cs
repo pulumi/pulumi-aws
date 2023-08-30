@@ -48,11 +48,11 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import a QuickSight Analysis using the AWS account ID and analysis ID separated by a comma (`,`). For example:
     /// 
-    ///  to = aws_quicksight_analysis.example
-    /// 
-    ///  id = "123456789012,example-id" } Using `pulumi import`, import a QuickSight Analysis using the AWS account ID and analysis ID separated by a comma (`,`). For exampleconsole % pulumi import aws_quicksight_analysis.example 123456789012,example-id
+    /// ```sh
+    ///  $ pulumi import aws:quicksight/analysis:Analysis example 123456789012,example-id
+    /// ```
     /// </summary>
     [AwsResourceType("aws:quicksight/analysis:Analysis")]
     public partial class Analysis : global::Pulumi.CustomResource

@@ -16,11 +16,13 @@ namespace Pulumi.Aws.DataSync
     /// 
     /// ## Import
     /// 
-    /// For exampleterraform import {
+    /// For example:
     /// 
-    ///  to = aws_datasync_location_fsx_ontap_file_system.example
+    /// Using `pulumi import`, import `aws_datasync_location_fsx_ontap_file_system` using the `DataSync-ARN#FSx-ontap-svm-ARN`. For example:
     /// 
-    ///  id = "arn:aws:datasync:us-west-2:123456789012:location/loc-12345678901234567#arn:aws:fsx:us-west-2:123456789012:storage-virtual-machine/svm-12345678abcdef123" } Using `pulumi import`, import `aws_datasync_location_fsx_ontap_file_system` using the `DataSync-ARN#FSx-ontap-svm-ARN`. For exampleconsole % pulumi import aws_datasync_location_fsx_ontap_file_system.example arn:aws:datasync:us-west-2:123456789012:location/loc-12345678901234567#arn:aws:fsx:us-west-2:123456789012:storage-virtual-machine/svm-12345678abcdef123
+    /// ```sh
+    ///  $ pulumi import aws:datasync/locationFsxOntapFileSystem:LocationFsxOntapFileSystem example arn:aws:datasync:us-west-2:123456789012:location/loc-12345678901234567#arn:aws:fsx:us-west-2:123456789012:storage-virtual-machine/svm-12345678abcdef123
+    /// ```
     /// </summary>
     [AwsResourceType("aws:datasync/locationFsxOntapFileSystem:LocationFsxOntapFileSystem")]
     public partial class LocationFsxOntapFileSystem : global::Pulumi.CustomResource

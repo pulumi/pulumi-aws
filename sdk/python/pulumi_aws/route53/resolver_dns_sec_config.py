@@ -131,13 +131,13 @@ class ResolverDnsSecConfig(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import
 
-         to = aws_route53_resolver_dnssec_config.example
+        Route 53 Resolver DNSSEC configs using the Route 53 Resolver DNSSEC config ID. For example:
 
-         id = "rdsc-be1866ecc1683e95" } Using `pulumi import`, import
-
-        Route 53 Resolver DNSSEC configs using the Route 53 Resolver DNSSEC config ID. For exampleconsole % pulumi import aws_route53_resolver_dnssec_config.example rdsc-be1866ecc1683e95
+        ```sh
+         $ pulumi import aws:route53/resolverDnsSecConfig:ResolverDnsSecConfig example rdsc-be1866ecc1683e95
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -167,13 +167,13 @@ class ResolverDnsSecConfig(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import
 
-         to = aws_route53_resolver_dnssec_config.example
+        Route 53 Resolver DNSSEC configs using the Route 53 Resolver DNSSEC config ID. For example:
 
-         id = "rdsc-be1866ecc1683e95" } Using `pulumi import`, import
-
-        Route 53 Resolver DNSSEC configs using the Route 53 Resolver DNSSEC config ID. For exampleconsole % pulumi import aws_route53_resolver_dnssec_config.example rdsc-be1866ecc1683e95
+        ```sh
+         $ pulumi import aws:route53/resolverDnsSecConfig:ResolverDnsSecConfig example rdsc-be1866ecc1683e95
+        ```
 
         :param str resource_name: The name of the resource.
         :param ResolverDnsSecConfigArgs args: The arguments to use to populate this resource's properties.

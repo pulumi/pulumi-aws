@@ -321,11 +321,11 @@ class Thesaurus(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_kendra_thesaurus` using the unique identifiers of the thesaurus and index separated by a slash (`/`). For example:
 
-         to = aws_kendra_thesaurus.example
-
-         id = "thesaurus-123456780/idx-8012925589" } Using `pulumi import`, import `aws_kendra_thesaurus` using the unique identifiers of the thesaurus and index separated by a slash (`/`). For exampleconsole % pulumi import aws_kendra_thesaurus.example thesaurus-123456780/idx-8012925589
+        ```sh
+         $ pulumi import aws:kendra/thesaurus:Thesaurus example thesaurus-123456780/idx-8012925589
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -367,11 +367,11 @@ class Thesaurus(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_kendra_thesaurus` using the unique identifiers of the thesaurus and index separated by a slash (`/`). For example:
 
-         to = aws_kendra_thesaurus.example
-
-         id = "thesaurus-123456780/idx-8012925589" } Using `pulumi import`, import `aws_kendra_thesaurus` using the unique identifiers of the thesaurus and index separated by a slash (`/`). For exampleconsole % pulumi import aws_kendra_thesaurus.example thesaurus-123456780/idx-8012925589
+        ```sh
+         $ pulumi import aws:kendra/thesaurus:Thesaurus example thesaurus-123456780/idx-8012925589
+        ```
 
         :param str resource_name: The name of the resource.
         :param ThesaurusArgs args: The arguments to use to populate this resource's properties.

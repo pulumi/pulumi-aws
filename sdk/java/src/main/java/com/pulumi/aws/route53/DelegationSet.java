@@ -60,11 +60,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Route53 Delegation Sets using the delegation set `id`. For example:
  * 
- *  to = aws_route53_delegation_set.set1
- * 
- *  id = &#34;N1PA6795SAMPLE&#34; } Using `pulumi import`, import Route53 Delegation Sets using the delegation set `id`. For exampleconsole % pulumi import aws_route53_delegation_set.set1 N1PA6795SAMPLE
+ * ```sh
+ *  $ pulumi import aws:route53/delegationSet:DelegationSet set1 N1PA6795SAMPLE
+ * ```
  * 
  */
 @ResourceType(type="aws:route53/delegationSet:DelegationSet")

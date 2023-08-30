@@ -117,11 +117,11 @@ class VpcDhcpOptionsAssociation(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import DHCP associations using the VPC ID associated with the options. For example:
 
-         to = aws_vpc_dhcp_options_association.imported
-
-         id = "vpc-0f001273ec18911b1" } Using `pulumi import`, import DHCP associations using the VPC ID associated with the options. For exampleconsole % pulumi import aws_vpc_dhcp_options_association.imported vpc-0f001273ec18911b1
+        ```sh
+         $ pulumi import aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation imported vpc-0f001273ec18911b1
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -154,11 +154,11 @@ class VpcDhcpOptionsAssociation(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import DHCP associations using the VPC ID associated with the options. For example:
 
-         to = aws_vpc_dhcp_options_association.imported
-
-         id = "vpc-0f001273ec18911b1" } Using `pulumi import`, import DHCP associations using the VPC ID associated with the options. For exampleconsole % pulumi import aws_vpc_dhcp_options_association.imported vpc-0f001273ec18911b1
+        ```sh
+         $ pulumi import aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation imported vpc-0f001273ec18911b1
+        ```
 
         :param str resource_name: The name of the resource.
         :param VpcDhcpOptionsAssociationArgs args: The arguments to use to populate this resource's properties.

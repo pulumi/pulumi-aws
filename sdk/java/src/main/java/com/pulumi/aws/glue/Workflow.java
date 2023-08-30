@@ -76,11 +76,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Glue Workflows using `name`. For example:
  * 
- *  to = aws_glue_workflow.MyWorkflow
- * 
- *  id = &#34;MyWorkflow&#34; } Using `pulumi import`, import Glue Workflows using `name`. For exampleconsole % pulumi import aws_glue_workflow.MyWorkflow MyWorkflow
+ * ```sh
+ *  $ pulumi import aws:glue/workflow:Workflow MyWorkflow MyWorkflow
+ * ```
  * 
  */
 @ResourceType(type="aws:glue/workflow:Workflow")

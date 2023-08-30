@@ -36,11 +36,11 @@ namespace Pulumi.Aws.DirectConnect
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import Direct Connect LAGs using the LAG `id`. For example:
     /// 
-    ///  to = aws_dx_lag.test_lag
-    /// 
-    ///  id = "dxlag-fgnsp5rq" } Using `pulumi import`, import Direct Connect LAGs using the LAG `id`. For exampleconsole % pulumi import aws_dx_lag.test_lag dxlag-fgnsp5rq
+    /// ```sh
+    ///  $ pulumi import aws:directconnect/linkAggregationGroup:LinkAggregationGroup test_lag dxlag-fgnsp5rq
+    /// ```
     /// </summary>
     [AwsResourceType("aws:directconnect/linkAggregationGroup:LinkAggregationGroup")]
     public partial class LinkAggregationGroup : global::Pulumi.CustomResource

@@ -57,11 +57,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import `aws_s3_bucket_public_access_block` using the bucket name. For example:
  * 
- *  to = aws_s3_bucket_public_access_block.example
- * 
- *  id = &#34;my-bucket&#34; } Using `pulumi import`, import `aws_s3_bucket_public_access_block` using the bucket name. For exampleconsole % pulumi import aws_s3_bucket_public_access_block.example my-bucket
+ * ```sh
+ *  $ pulumi import aws:s3/bucketPublicAccessBlock:BucketPublicAccessBlock example my-bucket
+ * ```
  * 
  */
 @ResourceType(type="aws:s3/bucketPublicAccessBlock:BucketPublicAccessBlock")

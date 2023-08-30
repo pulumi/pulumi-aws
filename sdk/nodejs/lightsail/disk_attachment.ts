@@ -38,11 +38,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import `aws_lightsail_disk` using the id attribute. For example:
  *
- *  to = aws_lightsail_disk_attachment.test
- *
- *  id = "test-disk,test-instance" } Using `pulumi import`, import `aws_lightsail_disk` using the id attribute. For exampleconsole % pulumi import aws_lightsail_disk_attachment.test test-disk,test-instance
+ * ```sh
+ *  $ pulumi import aws:lightsail/disk_attachment:Disk_attachment test test-disk,test-instance
+ * ```
  */
 export class Disk_attachment extends pulumi.CustomResource {
     /**

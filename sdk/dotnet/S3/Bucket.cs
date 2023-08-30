@@ -475,7 +475,6 @@ namespace Pulumi.Aws.S3
     /// ```sh
     ///  $ pulumi import aws:s3/bucket:Bucket bucket bucket-name
     /// ```
-    /// 
     ///  The `policy` argument is not imported and will be deprecated in a future version of the provider. Use the `aws_s3_bucket_policy` resource to manage the S3 Bucket Policy instead.
     /// </summary>
     [AwsResourceType("aws:s3/bucket:Bucket")]

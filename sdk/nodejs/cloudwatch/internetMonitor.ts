@@ -21,11 +21,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import Internet Monitor Monitors using the `monitor_name`. For example:
  *
- *  to = aws_internetmonitor_monitor.some
- *
- *  id = "some-monitor" } Using `pulumi import`, import Internet Monitor Monitors using the `monitor_name`. For exampleconsole % pulumi import aws_internetmonitor_monitor.some some-monitor
+ * ```sh
+ *  $ pulumi import aws:cloudwatch/internetMonitor:InternetMonitor some some-monitor
+ * ```
  */
 export class InternetMonitor extends pulumi.CustomResource {
     /**

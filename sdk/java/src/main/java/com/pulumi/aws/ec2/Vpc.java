@@ -148,11 +148,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import VPCs using the VPC `id`. For example:
  * 
- *  to = aws_vpc.test_vpc
- * 
- *  id = &#34;vpc-a01106c2&#34; } Using `pulumi import`, import VPCs using the VPC `id`. For exampleconsole % pulumi import aws_vpc.test_vpc vpc-a01106c2
+ * ```sh
+ *  $ pulumi import aws:ec2/vpc:Vpc test_vpc vpc-a01106c2
+ * ```
  * 
  */
 @ResourceType(type="aws:ec2/vpc:Vpc")

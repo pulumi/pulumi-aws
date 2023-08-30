@@ -84,11 +84,11 @@ namespace Pulumi.Aws.AppConfig
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import AppConfig Extensions using their extension ID. For example:
     /// 
-    ///  to = aws_appconfig_extension.example
-    /// 
-    ///  id = "71rxuzt" } Using `pulumi import`, import AppConfig Extensions using their extension ID. For exampleconsole % pulumi import aws_appconfig_extension.example 71rxuzt
+    /// ```sh
+    ///  $ pulumi import aws:appconfig/extension:Extension example 71rxuzt
+    /// ```
     /// </summary>
     [AwsResourceType("aws:appconfig/extension:Extension")]
     public partial class Extension : global::Pulumi.CustomResource

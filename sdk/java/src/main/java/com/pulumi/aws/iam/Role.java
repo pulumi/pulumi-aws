@@ -303,11 +303,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import IAM Roles using the `name`. For example:
  * 
- *  to = aws_iam_role.developer
- * 
- *  id = &#34;developer_name&#34; } Using `pulumi import`, import IAM Roles using the `name`. For exampleconsole % pulumi import aws_iam_role.developer developer_name
+ * ```sh
+ *  $ pulumi import aws:iam/role:Role developer developer_name
+ * ```
  * 
  */
 @ResourceType(type="aws:iam/role:Role")

@@ -295,11 +295,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import a QuickSight Data Set using the AWS account ID and data set ID separated by a comma (`,`). For example:
  * 
- *  to = aws_quicksight_data_set.example
- * 
- *  id = &#34;123456789012,example-id&#34; } Using `pulumi import`, import a QuickSight Data Set using the AWS account ID and data set ID separated by a comma (`,`). For exampleconsole % pulumi import aws_quicksight_data_set.example 123456789012,example-id
+ * ```sh
+ *  $ pulumi import aws:quicksight/dataSet:DataSet example 123456789012,example-id
+ * ```
  * 
  */
 @ResourceType(type="aws:quicksight/dataSet:DataSet")

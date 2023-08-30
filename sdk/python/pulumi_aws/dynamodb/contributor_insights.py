@@ -112,11 +112,11 @@ class ContributorInsights(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_dynamodb_contributor_insights` using the format `name:table_name/index:index_name`, followed by the account number. For example:
 
-         to = aws_dynamodb_contributor_insights.test
-
-         id = "name:ExampleTableName/index:ExampleIndexName/123456789012" } Using `pulumi import`, import `aws_dynamodb_contributor_insights` using the format `name:table_name/index:index_name`, followed by the account number. For exampleconsole % pulumi import aws_dynamodb_contributor_insights.test name:ExampleTableName/index:ExampleIndexName/123456789012
+        ```sh
+         $ pulumi import aws:dynamodb/contributorInsights:ContributorInsights test name:ExampleTableName/index:ExampleIndexName/123456789012
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -143,11 +143,11 @@ class ContributorInsights(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_dynamodb_contributor_insights` using the format `name:table_name/index:index_name`, followed by the account number. For example:
 
-         to = aws_dynamodb_contributor_insights.test
-
-         id = "name:ExampleTableName/index:ExampleIndexName/123456789012" } Using `pulumi import`, import `aws_dynamodb_contributor_insights` using the format `name:table_name/index:index_name`, followed by the account number. For exampleconsole % pulumi import aws_dynamodb_contributor_insights.test name:ExampleTableName/index:ExampleIndexName/123456789012
+        ```sh
+         $ pulumi import aws:dynamodb/contributorInsights:ContributorInsights test name:ExampleTableName/index:ExampleIndexName/123456789012
+        ```
 
         :param str resource_name: The name of the resource.
         :param ContributorInsightsArgs args: The arguments to use to populate this resource's properties.

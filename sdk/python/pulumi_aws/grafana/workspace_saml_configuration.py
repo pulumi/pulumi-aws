@@ -519,11 +519,11 @@ class WorkspaceSamlConfiguration(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Grafana Workspace SAML configuration using the workspace's `id`. For example:
 
-         to = aws_grafana_workspace_saml_configuration.example
-
-         id = "g-2054c75a02" } Using `pulumi import`, import Grafana Workspace SAML configuration using the workspace's `id`. For exampleconsole % pulumi import aws_grafana_workspace_saml_configuration.example g-2054c75a02
+        ```sh
+         $ pulumi import aws:grafana/workspaceSamlConfiguration:WorkspaceSamlConfiguration example g-2054c75a02
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -584,11 +584,11 @@ class WorkspaceSamlConfiguration(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Grafana Workspace SAML configuration using the workspace's `id`. For example:
 
-         to = aws_grafana_workspace_saml_configuration.example
-
-         id = "g-2054c75a02" } Using `pulumi import`, import Grafana Workspace SAML configuration using the workspace's `id`. For exampleconsole % pulumi import aws_grafana_workspace_saml_configuration.example g-2054c75a02
+        ```sh
+         $ pulumi import aws:grafana/workspaceSamlConfiguration:WorkspaceSamlConfiguration example g-2054c75a02
+        ```
 
         :param str resource_name: The name of the resource.
         :param WorkspaceSamlConfigurationArgs args: The arguments to use to populate this resource's properties.

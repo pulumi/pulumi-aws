@@ -66,11 +66,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Redshift Serverless Resource Policies using the `resource_arn`. For example:
 //
-//	to = aws_redshiftserverless_resource_policy.example
+// ```sh
 //
-//	id = "example" } Using `pulumi import`, import Redshift Serverless Resource Policies using the `resource_arn`. For exampleconsole % pulumi import aws_redshiftserverless_resource_policy.example example
+//	$ pulumi import aws:redshiftserverless/resourcePolicy:ResourcePolicy example example
+//
+// ```
 type ResourcePolicy struct {
 	pulumi.CustomResourceState
 

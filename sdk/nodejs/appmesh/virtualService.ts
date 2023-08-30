@@ -48,11 +48,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import App Mesh virtual services using `mesh_name` together with the virtual service's `name`. For example:
  *
- *  to = aws_appmesh_virtual_service.servicea
- *
- *  id = "simpleapp/servicea.simpleapp.local" } Using `pulumi import`, import App Mesh virtual services using `mesh_name` together with the virtual service's `name`. For exampleconsole % pulumi import aws_appmesh_virtual_service.servicea simpleapp/servicea.simpleapp.local
+ * ```sh
+ *  $ pulumi import aws:appmesh/virtualService:VirtualService servicea simpleapp/servicea.simpleapp.local
+ * ```
  */
 export class VirtualService extends pulumi.CustomResource {
     /**

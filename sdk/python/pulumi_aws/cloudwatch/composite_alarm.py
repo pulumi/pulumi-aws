@@ -390,11 +390,11 @@ class CompositeAlarm(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import a CloudWatch Composite Alarm using the `alarm_name`. For example:
 
-         to = aws_cloudwatch_composite_alarm.test
-
-         id = "my-alarm" } Using `pulumi import`, import a CloudWatch Composite Alarm using the `alarm_name`. For exampleconsole % pulumi import aws_cloudwatch_composite_alarm.test my-alarm
+        ```sh
+         $ pulumi import aws:cloudwatch/compositeAlarm:CompositeAlarm test my-alarm
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -442,11 +442,11 @@ class CompositeAlarm(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import a CloudWatch Composite Alarm using the `alarm_name`. For example:
 
-         to = aws_cloudwatch_composite_alarm.test
-
-         id = "my-alarm" } Using `pulumi import`, import a CloudWatch Composite Alarm using the `alarm_name`. For exampleconsole % pulumi import aws_cloudwatch_composite_alarm.test my-alarm
+        ```sh
+         $ pulumi import aws:cloudwatch/compositeAlarm:CompositeAlarm test my-alarm
+        ```
 
         :param str resource_name: The name of the resource.
         :param CompositeAlarmArgs args: The arguments to use to populate this resource's properties.

@@ -63,11 +63,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import AWS API Gateway Usage Plan Key using the `USAGE-PLAN-ID/USAGE-PLAN-KEY-ID`. For example:
 //
-//	to = aws_api_gateway_usage_plan_key.key
+// ```sh
 //
-//	id = "12345abcde/zzz" } Using `pulumi import`, import AWS API Gateway Usage Plan Key using the `USAGE-PLAN-ID/USAGE-PLAN-KEY-ID`. For exampleconsole % pulumi import aws_api_gateway_usage_plan_key.key 12345abcde/zzz
+//	$ pulumi import aws:apigateway/usagePlanKey:UsagePlanKey key 12345abcde/zzz
+//
+// ```
 type UsagePlanKey struct {
 	pulumi.CustomResourceState
 

@@ -74,11 +74,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import AWS Opensearch Inbound Connection Accepters using the Inbound Connection ID. For example:
  * 
- *  to = aws_opensearch_inbound_connection_accepter.foo
- * 
- *  id = &#34;connection-id&#34; } Using `pulumi import`, import AWS Opensearch Inbound Connection Accepters using the Inbound Connection ID. For exampleconsole % pulumi import aws_opensearch_inbound_connection_accepter.foo connection-id
+ * ```sh
+ *  $ pulumi import aws:opensearch/inboundConnectionAccepter:InboundConnectionAccepter foo connection-id
+ * ```
  * 
  */
 @ResourceType(type="aws:opensearch/inboundConnectionAccepter:InboundConnectionAccepter")

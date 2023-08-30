@@ -96,11 +96,11 @@ class ModelPackageGroupPolicy(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import SageMaker Model Package Groups using the `name`. For example:
 
-         to = aws_sagemaker_model_package_group_policy.example
-
-         id = "example" } Using `pulumi import`, import SageMaker Model Package Groups using the `name`. For exampleconsole % pulumi import aws_sagemaker_model_package_group_policy.example example
+        ```sh
+         $ pulumi import aws:sagemaker/modelPackageGroupPolicy:ModelPackageGroupPolicy example example
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -119,11 +119,11 @@ class ModelPackageGroupPolicy(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import SageMaker Model Package Groups using the `name`. For example:
 
-         to = aws_sagemaker_model_package_group_policy.example
-
-         id = "example" } Using `pulumi import`, import SageMaker Model Package Groups using the `name`. For exampleconsole % pulumi import aws_sagemaker_model_package_group_policy.example example
+        ```sh
+         $ pulumi import aws:sagemaker/modelPackageGroupPolicy:ModelPackageGroupPolicy example example
+        ```
 
         :param str resource_name: The name of the resource.
         :param ModelPackageGroupPolicyArgs args: The arguments to use to populate this resource's properties.

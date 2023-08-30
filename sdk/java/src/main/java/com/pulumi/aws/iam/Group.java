@@ -51,11 +51,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import IAM Groups using the `name`. For example:
  * 
- *  to = aws_iam_group.developers
- * 
- *  id = &#34;developers&#34; } Using `pulumi import`, import IAM Groups using the `name`. For exampleconsole % pulumi import aws_iam_group.developers developers
+ * ```sh
+ *  $ pulumi import aws:iam/group:Group developers developers
+ * ```
  * 
  */
 @ResourceType(type="aws:iam/group:Group")

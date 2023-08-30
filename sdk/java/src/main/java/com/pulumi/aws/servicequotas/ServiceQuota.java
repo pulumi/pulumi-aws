@@ -56,11 +56,15 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * ~&gt; __NOTE:__ This resource does not require explicit import and will assume management of an existing service quota on Pulumi resource creation.
  * 
- *  to = aws_servicequotas_service_quota.example
+ * Using `pulumi import`, import `aws_servicequotas_service_quota` using the service code and quota code, separated by a front slash (`/`). For example:
  * 
- *  id = &#34;vpc/L-F678F1CE&#34; } Using `pulumi import`, import `aws_servicequotas_service_quota` using the service code and quota code, separated by a front slash (`/`). For exampleconsole % pulumi import aws_servicequotas_service_quota.example vpc/L-F678F1CE
+ * ~&gt; __NOTE:__ This resource does not require explicit import and will assume management of an existing service quota on Pulumi resource creation.
+ * 
+ * ```sh
+ *  $ pulumi import aws:servicequotas/serviceQuota:ServiceQuota example vpc/L-F678F1CE
+ * ```
  * 
  */
 @ResourceType(type="aws:servicequotas/serviceQuota:ServiceQuota")

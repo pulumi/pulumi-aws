@@ -24,11 +24,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import EventBridge discoverers using the `id`. For example:
  *
- *  to = aws_schemas_discoverer.test
- *
- *  id = "123" } Using `pulumi import`, import EventBridge discoverers using the `id`. For exampleconsole % pulumi import aws_schemas_discoverer.test 123
+ * ```sh
+ *  $ pulumi import aws:schemas/discoverer:Discoverer test 123
+ * ```
  */
 export class Discoverer extends pulumi.CustomResource {
     /**

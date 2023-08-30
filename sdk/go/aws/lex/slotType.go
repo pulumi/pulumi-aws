@@ -62,11 +62,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import slot types using their name. For example:
 //
-//	to = aws_lex_slot_type.flower_types
+// ```sh
 //
-//	id = "FlowerTypes" } Using `pulumi import`, import slot types using their name. For exampleconsole % pulumi import aws_lex_slot_type.flower_types FlowerTypes
+//	$ pulumi import aws:lex/slotType:SlotType flower_types FlowerTypes
+//
+// ```
 type SlotType struct {
 	pulumi.CustomResourceState
 

@@ -77,11 +77,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import SESv2 (Simple Email V2) Contact List using the `example_id_arg`. For example:
 //
-//	to = aws_sesv2_contact_list.example
+// ```sh
 //
-//	id = "example" } Using `pulumi import`, import SESv2 (Simple Email V2) Contact List using the `example_id_arg`. For exampleconsole % pulumi import aws_sesv2_contact_list.example example
+//	$ pulumi import aws:sesv2/contactList:ContactList example example
+//
+// ```
 type ContactList struct {
 	pulumi.CustomResourceState
 

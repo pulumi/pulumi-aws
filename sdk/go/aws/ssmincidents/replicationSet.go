@@ -157,11 +157,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import an Incident Manager replication. For example:
 //
-//	to = aws_ssmincidents_replication_set.replicationSetName
+// ```sh
 //
-//	id = "import" } Using `pulumi import`, import an Incident Manager replication. For exampleconsole % pulumi import aws_ssmincidents_replication_set.replicationSetName import
+//	$ pulumi import aws:ssmincidents/replicationSet:ReplicationSet replicationSetName import
+//
+// ```
 type ReplicationSet struct {
 	pulumi.CustomResourceState
 

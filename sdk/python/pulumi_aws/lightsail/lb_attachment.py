@@ -128,11 +128,11 @@ class LbAttachment(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_lightsail_lb_attachment` using the name attribute. For example:
 
-         to = aws_lightsail_lb_attachment.test
-
-         id = "example-load-balancer,example-instance" } Using `pulumi import`, import `aws_lightsail_lb_attachment` using the name attribute. For exampleconsole % pulumi import aws_lightsail_lb_attachment.test example-load-balancer,example-instance
+        ```sh
+         $ pulumi import aws:lightsail/lbAttachment:LbAttachment test example-load-balancer,example-instance
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -176,11 +176,11 @@ class LbAttachment(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_lightsail_lb_attachment` using the name attribute. For example:
 
-         to = aws_lightsail_lb_attachment.test
-
-         id = "example-load-balancer,example-instance" } Using `pulumi import`, import `aws_lightsail_lb_attachment` using the name attribute. For exampleconsole % pulumi import aws_lightsail_lb_attachment.test example-load-balancer,example-instance
+        ```sh
+         $ pulumi import aws:lightsail/lbAttachment:LbAttachment test example-load-balancer,example-instance
+        ```
 
         :param str resource_name: The name of the resource.
         :param LbAttachmentArgs args: The arguments to use to populate this resource's properties.

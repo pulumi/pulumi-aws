@@ -106,11 +106,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import CloudWatch Evidently Feature using the feature `name` and `name` or `arn` of the hosting CloudWatch Evidently Project separated by a `:`. For example:
  *
- *  to = aws_evidently_feature.example
- *
- *  id = "exampleFeatureName:arn:aws:evidently:us-east-1:123456789012:project/example" } Using `pulumi import`, import CloudWatch Evidently Feature using the feature `name` and `name` or `arn` of the hosting CloudWatch Evidently Project separated by a `:`. For exampleconsole % pulumi import aws_evidently_feature.example exampleFeatureName:arn:aws:evidently:us-east-1:123456789012:project/example
+ * ```sh
+ *  $ pulumi import aws:evidently/feature:Feature example exampleFeatureName:arn:aws:evidently:us-east-1:123456789012:project/example
+ * ```
  */
 export class Feature extends pulumi.CustomResource {
     /**

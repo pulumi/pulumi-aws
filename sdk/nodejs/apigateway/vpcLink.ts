@@ -12,11 +12,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import API Gateway VPC Link using the `id`. For example:
  *
- *  to = aws_api_gateway_vpc_link.example
- *
- *  id = "12345abcde" } Using `pulumi import`, import API Gateway VPC Link using the `id`. For exampleconsole % pulumi import aws_api_gateway_vpc_link.example 12345abcde
+ * ```sh
+ *  $ pulumi import aws:apigateway/vpcLink:VpcLink example 12345abcde
+ * ```
  */
 export class VpcLink extends pulumi.CustomResource {
     /**

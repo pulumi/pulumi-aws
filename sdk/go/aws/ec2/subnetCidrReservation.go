@@ -44,11 +44,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Existing CIDR reservations using `SUBNET_ID:RESERVATION_ID`. For example:
 //
-//	to = aws_ec2_subnet_cidr_reservation.example
+// ```sh
 //
-//	id = "subnet-01llsxvsxabqiymcz:scr-4mnvz6wb7otksjcs9" } Using `pulumi import`, import Existing CIDR reservations using `SUBNET_ID:RESERVATION_ID`. For exampleconsole % pulumi import aws_ec2_subnet_cidr_reservation.example subnet-01llsxvsxabqiymcz:scr-4mnvz6wb7otksjcs9
+//	$ pulumi import aws:ec2/subnetCidrReservation:SubnetCidrReservation example subnet-01llsxvsxabqiymcz:scr-4mnvz6wb7otksjcs9
+//
+// ```
 type SubnetCidrReservation struct {
 	pulumi.CustomResourceState
 

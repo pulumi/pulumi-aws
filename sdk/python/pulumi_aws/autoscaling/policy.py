@@ -810,11 +810,11 @@ class Policy(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import AutoScaling scaling policy using the role autoscaling_group_name and name separated by `/`. For example:
 
-         to = aws_autoscaling_policy.test-policy
-
-         id = "asg-name/policy-name" } Using `pulumi import`, import AutoScaling scaling policy using the role autoscaling_group_name and name separated by `/`. For exampleconsole % pulumi import aws_autoscaling_policy.test-policy asg-name/policy-name
+        ```sh
+         $ pulumi import aws:autoscaling/policy:Policy test-policy asg-name/policy-name
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1046,11 +1046,11 @@ class Policy(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import AutoScaling scaling policy using the role autoscaling_group_name and name separated by `/`. For example:
 
-         to = aws_autoscaling_policy.test-policy
-
-         id = "asg-name/policy-name" } Using `pulumi import`, import AutoScaling scaling policy using the role autoscaling_group_name and name separated by `/`. For exampleconsole % pulumi import aws_autoscaling_policy.test-policy asg-name/policy-name
+        ```sh
+         $ pulumi import aws:autoscaling/policy:Policy test-policy asg-name/policy-name
+        ```
 
         :param str resource_name: The name of the resource.
         :param PolicyArgs args: The arguments to use to populate this resource's properties.

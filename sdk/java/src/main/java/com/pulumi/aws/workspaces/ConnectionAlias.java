@@ -52,11 +52,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import WorkSpaces Connection Alias using the connection alias ID. For example:
  * 
- *  to = aws_workspaces_connection_alias.example
- * 
- *  id = &#34;rft-8012925589&#34; } Using `pulumi import`, import WorkSpaces Connection Alias using the connection alias ID. For exampleconsole % pulumi import aws_workspaces_connection_alias.example rft-8012925589
+ * ```sh
+ *  $ pulumi import aws:workspaces/connectionAlias:ConnectionAlias example rft-8012925589
+ * ```
  * 
  */
 @ResourceType(type="aws:workspaces/connectionAlias:ConnectionAlias")

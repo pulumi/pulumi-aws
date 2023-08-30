@@ -44,11 +44,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import QLDB Ledgers using the `name`. For example:
 //
-//	to = aws_qldb_ledger.sample-ledger
+// ```sh
 //
-//	id = "sample-ledger" } Using `pulumi import`, import QLDB Ledgers using the `name`. For exampleconsole % pulumi import aws_qldb_ledger.sample-ledger sample-ledger
+//	$ pulumi import aws:qldb/ledger:Ledger sample-ledger sample-ledger
+//
+// ```
 type Ledger struct {
 	pulumi.CustomResourceState
 

@@ -167,11 +167,11 @@ class TagOption(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_servicecatalog_tag_option` using the tag option ID. For example:
 
-         to = aws_servicecatalog_tag_option.example
-
-         id = "tag-pjtvagohlyo3m" } Using `pulumi import`, import `aws_servicecatalog_tag_option` using the tag option ID. For exampleconsole % pulumi import aws_servicecatalog_tag_option.example tag-pjtvagohlyo3m
+        ```sh
+         $ pulumi import aws:servicecatalog/tagOption:TagOption example tag-pjtvagohlyo3m
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -204,11 +204,11 @@ class TagOption(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_servicecatalog_tag_option` using the tag option ID. For example:
 
-         to = aws_servicecatalog_tag_option.example
-
-         id = "tag-pjtvagohlyo3m" } Using `pulumi import`, import `aws_servicecatalog_tag_option` using the tag option ID. For exampleconsole % pulumi import aws_servicecatalog_tag_option.example tag-pjtvagohlyo3m
+        ```sh
+         $ pulumi import aws:servicecatalog/tagOption:TagOption example tag-pjtvagohlyo3m
+        ```
 
         :param str resource_name: The name of the resource.
         :param TagOptionArgs args: The arguments to use to populate this resource's properties.

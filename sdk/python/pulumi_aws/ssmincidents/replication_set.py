@@ -268,11 +268,11 @@ class ReplicationSet(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import an Incident Manager replication. For example:
 
-         to = aws_ssmincidents_replication_set.replicationSetName
-
-         id = "import" } Using `pulumi import`, import an Incident Manager replication. For exampleconsole % pulumi import aws_ssmincidents_replication_set.replicationSetName import
+        ```sh
+         $ pulumi import aws:ssmincidents/replicationSet:ReplicationSet replicationSetName import
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -356,11 +356,11 @@ class ReplicationSet(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import an Incident Manager replication. For example:
 
-         to = aws_ssmincidents_replication_set.replicationSetName
-
-         id = "import" } Using `pulumi import`, import an Incident Manager replication. For exampleconsole % pulumi import aws_ssmincidents_replication_set.replicationSetName import
+        ```sh
+         $ pulumi import aws:ssmincidents/replicationSet:ReplicationSet replicationSetName import
+        ```
 
         :param str resource_name: The name of the resource.
         :param ReplicationSetArgs args: The arguments to use to populate this resource's properties.

@@ -63,11 +63,11 @@ namespace Pulumi.Aws.Auditmanager
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import Audit Manager Assessments using the assessment `id`. For example:
     /// 
-    ///  to = aws_auditmanager_assessment.example
-    /// 
-    ///  id = "abc123-de45" } Using `pulumi import`, import Audit Manager Assessments using the assessment `id`. For exampleconsole % pulumi import aws_auditmanager_assessment.example abc123-de45
+    /// ```sh
+    ///  $ pulumi import aws:auditmanager/assessment:Assessment example abc123-de45
+    /// ```
     /// </summary>
     [AwsResourceType("aws:auditmanager/assessment:Assessment")]
     public partial class Assessment : global::Pulumi.CustomResource

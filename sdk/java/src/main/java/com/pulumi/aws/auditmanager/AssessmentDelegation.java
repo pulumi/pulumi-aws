@@ -53,11 +53,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Audit Manager Assessment Delegation using the `id`. For example:
  * 
- *  to = aws_auditmanager_assessment_delegation.example
- * 
- *  id = &#34;abcdef-123456,arn:aws:iam::012345678901:role/example,example&#34; } Using `pulumi import`, import Audit Manager Assessment Delegation using the `id`. For exampleconsole % pulumi import aws_auditmanager_assessment_delegation.example abcdef-123456,arn:aws:iam::012345678901:role/example,example
+ * ```sh
+ *  $ pulumi import aws:auditmanager/assessmentDelegation:AssessmentDelegation example abcdef-123456,arn:aws:iam::012345678901:role/example,example
+ * ```
  * 
  */
 @ResourceType(type="aws:auditmanager/assessmentDelegation:AssessmentDelegation")

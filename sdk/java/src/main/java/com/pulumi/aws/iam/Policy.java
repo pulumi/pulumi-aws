@@ -61,11 +61,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import IAM Policies using the `arn`. For example:
  * 
- *  to = aws_iam_policy.administrator
- * 
- *  id = &#34;arn:aws:iam::123456789012:policy/UsersManageOwnCredentials&#34; } Using `pulumi import`, import IAM Policies using the `arn`. For exampleconsole % pulumi import aws_iam_policy.administrator arn:aws:iam::123456789012:policy/UsersManageOwnCredentials
+ * ```sh
+ *  $ pulumi import aws:iam/policy:Policy administrator arn:aws:iam::123456789012:policy/UsersManageOwnCredentials
+ * ```
  * 
  */
 @ResourceType(type="aws:iam/policy:Policy")

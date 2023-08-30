@@ -45,11 +45,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import `aws_ec2_transit_gateway_policy_table` using the EC2 Transit Gateway Policy Table identifier. For example:
 //
-//	to = aws_ec2_transit_gateway_policy_table.example
+// ```sh
 //
-//	id = "tgw-rtb-12345678" } Using `pulumi import`, import `aws_ec2_transit_gateway_policy_table` using the EC2 Transit Gateway Policy Table identifier. For exampleconsole % pulumi import aws_ec2_transit_gateway_policy_table.example tgw-rtb-12345678
+//	$ pulumi import aws:ec2transitgateway/policyTable:PolicyTable example tgw-rtb-12345678
+//
+// ```
 type PolicyTable struct {
 	pulumi.CustomResourceState
 

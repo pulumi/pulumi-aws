@@ -71,11 +71,11 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import Network ACLs using the `id`. For example:
     /// 
-    ///  to = aws_network_acl.main
-    /// 
-    ///  id = "acl-7aaabd18" } Using `pulumi import`, import Network ACLs using the `id`. For exampleconsole % pulumi import aws_network_acl.main acl-7aaabd18
+    /// ```sh
+    ///  $ pulumi import aws:ec2/networkAcl:NetworkAcl main acl-7aaabd18
+    /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/networkAcl:NetworkAcl")]
     public partial class NetworkAcl : global::Pulumi.CustomResource

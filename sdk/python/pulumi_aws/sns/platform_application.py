@@ -525,11 +525,11 @@ class PlatformApplication(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import SNS platform applications using the ARN. For example:
 
-         to = aws_sns_platform_application.gcm_application
-
-         id = "arn:aws:sns:us-west-2:0123456789012:app/GCM/gcm_application" } Using `pulumi import`, import SNS platform applications using the ARN. For exampleconsole % pulumi import aws_sns_platform_application.gcm_application arn:aws:sns:us-west-2:0123456789012:app/GCM/gcm_application
+        ```sh
+         $ pulumi import aws:sns/platformApplication:PlatformApplication gcm_application arn:aws:sns:us-west-2:0123456789012:app/GCM/gcm_application
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -596,11 +596,11 @@ class PlatformApplication(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import SNS platform applications using the ARN. For example:
 
-         to = aws_sns_platform_application.gcm_application
-
-         id = "arn:aws:sns:us-west-2:0123456789012:app/GCM/gcm_application" } Using `pulumi import`, import SNS platform applications using the ARN. For exampleconsole % pulumi import aws_sns_platform_application.gcm_application arn:aws:sns:us-west-2:0123456789012:app/GCM/gcm_application
+        ```sh
+         $ pulumi import aws:sns/platformApplication:PlatformApplication gcm_application arn:aws:sns:us-west-2:0123456789012:app/GCM/gcm_application
+        ```
 
         :param str resource_name: The name of the resource.
         :param PlatformApplicationArgs args: The arguments to use to populate this resource's properties.

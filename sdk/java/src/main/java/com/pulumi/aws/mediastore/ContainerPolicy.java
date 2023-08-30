@@ -79,11 +79,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import MediaStore Container Policy using the MediaStore Container Name. For example:
  * 
- *  to = aws_media_store_container_policy.example
- * 
- *  id = &#34;example&#34; } Using `pulumi import`, import MediaStore Container Policy using the MediaStore Container Name. For exampleconsole % pulumi import aws_media_store_container_policy.example example
+ * ```sh
+ *  $ pulumi import aws:mediastore/containerPolicy:ContainerPolicy example example
+ * ```
  * 
  */
 @ResourceType(type="aws:mediastore/containerPolicy:ContainerPolicy")

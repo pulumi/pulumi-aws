@@ -172,11 +172,13 @@ class Project(pulumi.CustomResource):
 
         ## Import
 
-        For exampleterraform import {
+        For example:
 
-         to = aws_codecatalyst_project.example
+        Using `pulumi import`, import CodeCatalyst Project using the `example_id_arg`. For example:
 
-         id = "project-id-12345678" } Using `pulumi import`, import CodeCatalyst Project using the `example_id_arg`. For exampleconsole % pulumi import aws_codecatalyst_project.example project-id-12345678
+        ```sh
+         $ pulumi import aws:codecatalyst/project:Project example project-id-12345678
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -210,11 +212,13 @@ class Project(pulumi.CustomResource):
 
         ## Import
 
-        For exampleterraform import {
+        For example:
 
-         to = aws_codecatalyst_project.example
+        Using `pulumi import`, import CodeCatalyst Project using the `example_id_arg`. For example:
 
-         id = "project-id-12345678" } Using `pulumi import`, import CodeCatalyst Project using the `example_id_arg`. For exampleconsole % pulumi import aws_codecatalyst_project.example project-id-12345678
+        ```sh
+         $ pulumi import aws:codecatalyst/project:Project example project-id-12345678
+        ```
 
         :param str resource_name: The name of the resource.
         :param ProjectArgs args: The arguments to use to populate this resource's properties.

@@ -126,11 +126,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import intents using their name. For example:
  * 
- *  to = aws_lex_intent.order_flowers_intent
- * 
- *  id = &#34;OrderFlowers&#34; } Using `pulumi import`, import intents using their name. For exampleconsole % pulumi import aws_lex_intent.order_flowers_intent OrderFlowers
+ * ```sh
+ *  $ pulumi import aws:lex/intent:Intent order_flowers_intent OrderFlowers
+ * ```
  * 
  */
 @ResourceType(type="aws:lex/intent:Intent")

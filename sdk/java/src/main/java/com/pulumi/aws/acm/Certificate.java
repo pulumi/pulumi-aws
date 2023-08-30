@@ -183,11 +183,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import certificates using their ARN. For example:
  * 
- *  to = aws_acm_certificate.cert
- * 
- *  id = &#34;arn:aws:acm:eu-central-1:123456789012:certificate/7e7a28d2-163f-4b8f-b9cd-822f96c08d6a&#34; } Using `pulumi import`, import certificates using their ARN. For exampleconsole % pulumi import aws_acm_certificate.cert arn:aws:acm:eu-central-1:123456789012:certificate/7e7a28d2-163f-4b8f-b9cd-822f96c08d6a
+ * ```sh
+ *  $ pulumi import aws:acm/certificate:Certificate cert arn:aws:acm:eu-central-1:123456789012:certificate/7e7a28d2-163f-4b8f-b9cd-822f96c08d6a
+ * ```
  * 
  */
 @ResourceType(type="aws:acm/certificate:Certificate")

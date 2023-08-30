@@ -193,11 +193,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import DB Instances using the `identifier`. For example:
 //
-//	to = aws_db_instance.default
+// ```sh
 //
-//	id = "mydb-rds-instance" } Using `pulumi import`, import DB Instances using the `identifier`. For exampleconsole % pulumi import aws_db_instance.default mydb-rds-instance
+//	$ pulumi import aws:rds/instance:Instance default mydb-rds-instance
+//
+// ```
 type Instance struct {
 	pulumi.CustomResourceState
 

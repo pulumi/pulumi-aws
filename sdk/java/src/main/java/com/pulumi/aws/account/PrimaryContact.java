@@ -58,11 +58,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import the Primary Contact using the `account_id`. For example:
  * 
- *  to = aws_account_primary_contact.test
- * 
- *  id = &#34;1234567890&#34; } Using `pulumi import`, import the Primary Contact using the `account_id`. For exampleconsole % pulumi import aws_account_primary_contact.test 1234567890
+ * ```sh
+ *  $ pulumi import aws:account/primaryContact:PrimaryContact test 1234567890
+ * ```
  * 
  */
 @ResourceType(type="aws:account/primaryContact:PrimaryContact")

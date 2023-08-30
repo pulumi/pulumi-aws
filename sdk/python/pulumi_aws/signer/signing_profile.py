@@ -361,11 +361,11 @@ class SigningProfile(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Signer signing profiles using the `name`. For example:
 
-         to = aws_signer_signing_profile.test_signer_signing_profile
-
-         id = "test_sp_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK" } Using `pulumi import`, import Signer signing profiles using the `name`. For exampleconsole % pulumi import aws_signer_signing_profile.test_signer_signing_profile test_sp_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK
+        ```sh
+         $ pulumi import aws:signer/signingProfile:SigningProfile test_signer_signing_profile test_sp_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -406,11 +406,11 @@ class SigningProfile(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Signer signing profiles using the `name`. For example:
 
-         to = aws_signer_signing_profile.test_signer_signing_profile
-
-         id = "test_sp_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK" } Using `pulumi import`, import Signer signing profiles using the `name`. For exampleconsole % pulumi import aws_signer_signing_profile.test_signer_signing_profile test_sp_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK
+        ```sh
+         $ pulumi import aws:signer/signingProfile:SigningProfile test_signer_signing_profile test_sp_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK
+        ```
 
         :param str resource_name: The name of the resource.
         :param SigningProfileArgs args: The arguments to use to populate this resource's properties.

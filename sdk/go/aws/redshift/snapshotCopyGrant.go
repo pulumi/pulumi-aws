@@ -53,11 +53,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Redshift Snapshot Copy Grants by name. For example:
 //
-//	to = aws_redshift_snapshot_copy_grant.test
+// ```sh
 //
-//	id = "my-grant" } Using `pulumi import`, import Redshift Snapshot Copy Grants by name. For exampleconsole % pulumi import aws_redshift_snapshot_copy_grant.test my-grant
+//	$ pulumi import aws:redshift/snapshotCopyGrant:SnapshotCopyGrant test my-grant
+//
+// ```
 type SnapshotCopyGrant struct {
 	pulumi.CustomResourceState
 

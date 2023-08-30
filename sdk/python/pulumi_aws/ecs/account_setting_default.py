@@ -128,11 +128,11 @@ class AccountSettingDefault(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import ECS Account Setting defaults using the `name`. For example:
 
-         to = aws_ecs_account_setting_default.example
-
-         id = "taskLongArnFormat" } Using `pulumi import`, import ECS Account Setting defaults using the `name`. For exampleconsole % pulumi import aws_ecs_account_setting_default.example taskLongArnFormat
+        ```sh
+         $ pulumi import aws:ecs/accountSettingDefault:AccountSettingDefault example taskLongArnFormat
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -163,11 +163,11 @@ class AccountSettingDefault(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import ECS Account Setting defaults using the `name`. For example:
 
-         to = aws_ecs_account_setting_default.example
-
-         id = "taskLongArnFormat" } Using `pulumi import`, import ECS Account Setting defaults using the `name`. For exampleconsole % pulumi import aws_ecs_account_setting_default.example taskLongArnFormat
+        ```sh
+         $ pulumi import aws:ecs/accountSettingDefault:AccountSettingDefault example taskLongArnFormat
+        ```
 
         :param str resource_name: The name of the resource.
         :param AccountSettingDefaultArgs args: The arguments to use to populate this resource's properties.

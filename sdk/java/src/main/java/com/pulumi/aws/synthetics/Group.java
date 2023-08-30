@@ -48,11 +48,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import CloudWatch Synthetics Group using the `name`. For example:
  * 
- *  to = aws_synthetics_group.example
- * 
- *  id = &#34;example&#34; } Using `pulumi import`, import CloudWatch Synthetics Group using the `name`. For exampleconsole % pulumi import aws_synthetics_group.example example
+ * ```sh
+ *  $ pulumi import aws:synthetics/group:Group example example
+ * ```
  * 
  */
 @ResourceType(type="aws:synthetics/group:Group")

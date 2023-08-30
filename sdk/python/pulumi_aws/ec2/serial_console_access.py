@@ -82,11 +82,11 @@ class SerialConsoleAccess(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import serial console access state. For example:
 
-         to = aws_ec2_serial_console_access.example
-
-         id = "default" } Using `pulumi import`, import serial console access state. For exampleconsole % pulumi import aws_ec2_serial_console_access.example default
+        ```sh
+         $ pulumi import aws:ec2/serialConsoleAccess:SerialConsoleAccess example default
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -114,11 +114,11 @@ class SerialConsoleAccess(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import serial console access state. For example:
 
-         to = aws_ec2_serial_console_access.example
-
-         id = "default" } Using `pulumi import`, import serial console access state. For exampleconsole % pulumi import aws_ec2_serial_console_access.example default
+        ```sh
+         $ pulumi import aws:ec2/serialConsoleAccess:SerialConsoleAccess example default
+        ```
 
         :param str resource_name: The name of the resource.
         :param SerialConsoleAccessArgs args: The arguments to use to populate this resource's properties.

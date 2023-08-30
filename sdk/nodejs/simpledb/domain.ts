@@ -18,11 +18,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import SimpleDB Domains using the `name`. For example:
  *
- *  to = aws_simpledb_domain.users
- *
- *  id = "users" } Using `pulumi import`, import SimpleDB Domains using the `name`. For exampleconsole % pulumi import aws_simpledb_domain.users users
+ * ```sh
+ *  $ pulumi import aws:simpledb/domain:Domain users users
+ * ```
  */
 export class Domain extends pulumi.CustomResource {
     /**

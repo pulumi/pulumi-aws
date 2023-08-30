@@ -58,11 +58,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import an Audit Manager Control using the `id`. For example:
  * 
- *  to = aws_auditmanager_control.example
- * 
- *  id = &#34;abc123-de45&#34; } Using `pulumi import`, import an Audit Manager Control using the `id`. For exampleconsole % pulumi import aws_auditmanager_control.example abc123-de45
+ * ```sh
+ *  $ pulumi import aws:auditmanager/control:Control example abc123-de45
+ * ```
  * 
  */
 @ResourceType(type="aws:auditmanager/control:Control")

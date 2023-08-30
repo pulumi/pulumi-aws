@@ -45,11 +45,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import `aws_ec2_carrier_gateway` using the carrier gateway's ID. For example:
 //
-//	to = aws_ec2_carrier_gateway.example
+// ```sh
 //
-//	id = "cgw-12345" } Using `pulumi import`, import `aws_ec2_carrier_gateway` using the carrier gateway's ID. For exampleconsole % pulumi import aws_ec2_carrier_gateway.example cgw-12345
+//	$ pulumi import aws:ec2/carrierGateway:CarrierGateway example cgw-12345
+//
+// ```
 type CarrierGateway struct {
 	pulumi.CustomResourceState
 

@@ -101,11 +101,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Opsworks Instances using the instance `id`. For example:
  * 
- *  to = aws_opsworks_instance.my_instance
- * 
- *  id = &#34;4d6d1710-ded9-42a1-b08e-b043ad7af1e2&#34; } Using `pulumi import`, import Opsworks Instances using the instance `id`. For exampleconsole % pulumi import aws_opsworks_instance.my_instance 4d6d1710-ded9-42a1-b08e-b043ad7af1e2
+ * ```sh
+ *  $ pulumi import aws:opsworks/instance:Instance my_instance 4d6d1710-ded9-42a1-b08e-b043ad7af1e2
+ * ```
  * 
  */
 @ResourceType(type="aws:opsworks/instance:Instance")

@@ -73,11 +73,11 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import SSM Parameters using the parameter store `name`. For example:
     /// 
-    ///  to = aws_ssm_parameter.my_param
-    /// 
-    ///  id = "/my_path/my_paramname" } Using `pulumi import`, import SSM Parameters using the parameter store `name`. For exampleconsole % pulumi import aws_ssm_parameter.my_param /my_path/my_paramname
+    /// ```sh
+    ///  $ pulumi import aws:ssm/parameter:Parameter my_param /my_path/my_paramname
+    /// ```
     /// </summary>
     [AwsResourceType("aws:ssm/parameter:Parameter")]
     public partial class Parameter : global::Pulumi.CustomResource

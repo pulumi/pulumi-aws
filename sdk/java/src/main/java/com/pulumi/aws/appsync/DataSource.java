@@ -116,11 +116,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import `aws_appsync_datasource` using the `api_id`, a hyphen, and `name`. For example:
  * 
- *  to = aws_appsync_datasource.example
- * 
- *  id = &#34;abcdef123456-example&#34; } Using `pulumi import`, import `aws_appsync_datasource` using the `api_id`, a hyphen, and `name`. For exampleconsole % pulumi import aws_appsync_datasource.example abcdef123456-example
+ * ```sh
+ *  $ pulumi import aws:appsync/dataSource:DataSource example abcdef123456-example
+ * ```
  * 
  */
 @ResourceType(type="aws:appsync/dataSource:DataSource")

@@ -64,11 +64,11 @@ namespace Pulumi.Aws.Route53
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import Route53 Resolver rules using the `id`. For example:
     /// 
-    ///  to = aws_route53_resolver_rule.sys
-    /// 
-    ///  id = "rslvr-rr-0123456789abcdef0" } Using `pulumi import`, import Route53 Resolver rules using the `id`. For exampleconsole % pulumi import aws_route53_resolver_rule.sys rslvr-rr-0123456789abcdef0
+    /// ```sh
+    ///  $ pulumi import aws:route53/resolverRule:ResolverRule sys rslvr-rr-0123456789abcdef0
+    /// ```
     /// </summary>
     [AwsResourceType("aws:route53/resolverRule:ResolverRule")]
     public partial class ResolverRule : global::Pulumi.CustomResource

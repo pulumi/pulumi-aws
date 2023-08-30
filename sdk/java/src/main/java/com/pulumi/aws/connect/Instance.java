@@ -121,11 +121,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Connect instances using the `id`. For example:
  * 
- *  to = aws_connect_instance.example
- * 
- *  id = &#34;f1288a1f-6193-445a-b47e-af739b2&#34; } Using `pulumi import`, import Connect instances using the `id`. For exampleconsole % pulumi import aws_connect_instance.example f1288a1f-6193-445a-b47e-af739b2
+ * ```sh
+ *  $ pulumi import aws:connect/instance:Instance example f1288a1f-6193-445a-b47e-af739b2
+ * ```
  * 
  */
 @ResourceType(type="aws:connect/instance:Instance")

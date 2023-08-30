@@ -63,11 +63,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import NAT Gateways using the `id`. For example:
  *
- *  to = aws_nat_gateway.private_gw
- *
- *  id = "nat-05dba92075d71c408" } Using `pulumi import`, import NAT Gateways using the `id`. For exampleconsole % pulumi import aws_nat_gateway.private_gw nat-05dba92075d71c408
+ * ```sh
+ *  $ pulumi import aws:ec2/natGateway:NatGateway private_gw nat-05dba92075d71c408
+ * ```
  */
 export class NatGateway extends pulumi.CustomResource {
     /**

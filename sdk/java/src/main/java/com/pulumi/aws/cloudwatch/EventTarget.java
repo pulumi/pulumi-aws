@@ -562,13 +562,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- *  terraform import {
+ * Using `pulumi import`, import EventBridge Targets using `event_bus_name/rule-name/target-id` (if you omit `event_bus_name`, the `default` event bus will be used). For example:
  * 
- *  to = aws_cloudwatch_event_target.test-event-target
- * 
- *  id = &#34;rule-name/target-id&#34; } Using `pulumi import`, import EventBridge Targets using `event_bus_name/rule-name/target-id` (if you omit `event_bus_name`, the `default` event bus will be used). For example:
- * 
- * console % pulumi import aws_cloudwatch_event_target.test-event-target rule-name/target-id
+ * ```sh
+ *  $ pulumi import aws:cloudwatch/eventTarget:EventTarget test-event-target rule-name/target-id
+ * ```
  * 
  */
 @ResourceType(type="aws:cloudwatch/eventTarget:EventTarget")

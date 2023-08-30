@@ -274,11 +274,11 @@ class TransitGatewayPeering(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_networkmanager_transit_gateway_peering` using the peering ID. For example:
 
-         to = aws_networkmanager_transit_gateway_peering.example
-
-         id = "peering-444555aaabbb11223" } Using `pulumi import`, import `aws_networkmanager_transit_gateway_peering` using the peering ID. For exampleconsole % pulumi import aws_networkmanager_transit_gateway_peering.example peering-444555aaabbb11223
+        ```sh
+         $ pulumi import aws:networkmanager/transitGatewayPeering:TransitGatewayPeering example peering-444555aaabbb11223
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -308,11 +308,11 @@ class TransitGatewayPeering(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_networkmanager_transit_gateway_peering` using the peering ID. For example:
 
-         to = aws_networkmanager_transit_gateway_peering.example
-
-         id = "peering-444555aaabbb11223" } Using `pulumi import`, import `aws_networkmanager_transit_gateway_peering` using the peering ID. For exampleconsole % pulumi import aws_networkmanager_transit_gateway_peering.example peering-444555aaabbb11223
+        ```sh
+         $ pulumi import aws:networkmanager/transitGatewayPeering:TransitGatewayPeering example peering-444555aaabbb11223
+        ```
 
         :param str resource_name: The name of the resource.
         :param TransitGatewayPeeringArgs args: The arguments to use to populate this resource's properties.

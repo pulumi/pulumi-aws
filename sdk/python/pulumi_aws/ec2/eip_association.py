@@ -297,11 +297,11 @@ class EipAssociation(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import EIP Assocations using their association IDs. For example:
 
-         to = aws_eip_association.test
-
-         id = "eipassoc-ab12c345" } Using `pulumi import`, import EIP Assocations using their association IDs. For exampleconsole % pulumi import aws_eip_association.test eipassoc-ab12c345
+        ```sh
+         $ pulumi import aws:ec2/eipAssociation:EipAssociation test eipassoc-ab12c345
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -357,11 +357,11 @@ class EipAssociation(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import EIP Assocations using their association IDs. For example:
 
-         to = aws_eip_association.test
-
-         id = "eipassoc-ab12c345" } Using `pulumi import`, import EIP Assocations using their association IDs. For exampleconsole % pulumi import aws_eip_association.test eipassoc-ab12c345
+        ```sh
+         $ pulumi import aws:ec2/eipAssociation:EipAssociation test eipassoc-ab12c345
+        ```
 
         :param str resource_name: The name of the resource.
         :param EipAssociationArgs args: The arguments to use to populate this resource's properties.

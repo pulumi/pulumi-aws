@@ -32,11 +32,11 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import `aws_ec2_transit_gateway_route_table` using the EC2 Transit Gateway Route Table identifier. For example:
     /// 
-    ///  to = aws_ec2_transit_gateway_route_table.example
-    /// 
-    ///  id = "tgw-rtb-12345678" } Using `pulumi import`, import `aws_ec2_transit_gateway_route_table` using the EC2 Transit Gateway Route Table identifier. For exampleconsole % pulumi import aws_ec2_transit_gateway_route_table.example tgw-rtb-12345678
+    /// ```sh
+    ///  $ pulumi import aws:ec2transitgateway/routeTable:RouteTable example tgw-rtb-12345678
+    /// ```
     /// </summary>
     [AwsResourceType("aws:ec2transitgateway/routeTable:RouteTable")]
     public partial class RouteTable : global::Pulumi.CustomResource

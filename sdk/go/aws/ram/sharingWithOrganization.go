@@ -41,11 +41,15 @@ import (
 //
 // ## Import
 //
-// For exampleterraform import {
+// For example:
 //
-//	to = aws_ram_sharing_with_organization.example
+// Using `pulumi import`, import the resource using the current AWS account ID. For example:
 //
-//	id = "123456789012" } Using `pulumi import`, import the resource using the current AWS account ID. For exampleconsole % pulumi import aws_ram_sharing_with_organization.example 123456789012
+// ```sh
+//
+//	$ pulumi import aws:ram/sharingWithOrganization:SharingWithOrganization example 123456789012
+//
+// ```
 type SharingWithOrganization struct {
 	pulumi.CustomResourceState
 }

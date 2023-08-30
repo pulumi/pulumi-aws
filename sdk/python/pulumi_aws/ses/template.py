@@ -200,11 +200,11 @@ class Template(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import SES templates using the template name. For example:
 
-         to = aws_ses_template.MyTemplate
-
-         id = "MyTemplate" } Using `pulumi import`, import SES templates using the template name. For exampleconsole % pulumi import aws_ses_template.MyTemplate MyTemplate
+        ```sh
+         $ pulumi import aws:ses/template:Template MyTemplate MyTemplate
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -238,11 +238,11 @@ class Template(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import SES templates using the template name. For example:
 
-         to = aws_ses_template.MyTemplate
-
-         id = "MyTemplate" } Using `pulumi import`, import SES templates using the template name. For exampleconsole % pulumi import aws_ses_template.MyTemplate MyTemplate
+        ```sh
+         $ pulumi import aws:ses/template:Template MyTemplate MyTemplate
+        ```
 
         :param str resource_name: The name of the resource.
         :param TemplateArgs args: The arguments to use to populate this resource's properties.

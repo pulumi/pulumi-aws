@@ -44,11 +44,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import VPN Gateways using the VPN gateway `id`. For example:
 //
-//	to = aws_vpn_gateway.testvpngateway
+// ```sh
 //
-//	id = "vgw-9a4cacf3" } Using `pulumi import`, import VPN Gateways using the VPN gateway `id`. For exampleconsole % pulumi import aws_vpn_gateway.testvpngateway vgw-9a4cacf3
+//	$ pulumi import aws:ec2/vpnGateway:VpnGateway testvpngateway vgw-9a4cacf3
+//
+// ```
 type VpnGateway struct {
 	pulumi.CustomResourceState
 

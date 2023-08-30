@@ -79,11 +79,15 @@ import (
 //
 // ## Import
 //
-// For exampleterraform import {
+// For example:
 //
-//	to = aws_msk_cluster_policy.example
+// Using `pulumi import`, import Managed Streaming for Kafka Cluster Policy using the `cluster_arn`. For example:
 //
-//	id = "arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3" } Using `pulumi import`, import Managed Streaming for Kafka Cluster Policy using the `cluster_arn`. For exampleconsole % pulumi import aws_msk_cluster_policy.example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
+// ```sh
+//
+//	$ pulumi import aws:msk/clusterPolicy:ClusterPolicy example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
+//
+// ```
 type ClusterPolicy struct {
 	pulumi.CustomResourceState
 

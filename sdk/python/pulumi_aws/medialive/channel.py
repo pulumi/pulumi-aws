@@ -587,11 +587,11 @@ class Channel(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import MediaLive Channel using the `channel_id`. For example:
 
-         to = aws_medialive_channel.example
-
-         id = "1234567" } Using `pulumi import`, import MediaLive Channel using the `channel_id`. For exampleconsole % pulumi import aws_medialive_channel.example 1234567
+        ```sh
+         $ pulumi import aws:medialive/channel:Channel example 1234567
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -693,11 +693,11 @@ class Channel(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import MediaLive Channel using the `channel_id`. For example:
 
-         to = aws_medialive_channel.example
-
-         id = "1234567" } Using `pulumi import`, import MediaLive Channel using the `channel_id`. For exampleconsole % pulumi import aws_medialive_channel.example 1234567
+        ```sh
+         $ pulumi import aws:medialive/channel:Channel example 1234567
+        ```
 
         :param str resource_name: The name of the resource.
         :param ChannelArgs args: The arguments to use to populate this resource's properties.

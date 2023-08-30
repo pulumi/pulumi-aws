@@ -39,11 +39,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import Athena Named Query using the query ID. For example:
  *
- *  to = aws_athena_named_query.example
- *
- *  id = "0123456789" } Using `pulumi import`, import Athena Named Query using the query ID. For exampleconsole % pulumi import aws_athena_named_query.example 0123456789
+ * ```sh
+ *  $ pulumi import aws:athena/namedQuery:NamedQuery example 0123456789
+ * ```
  */
 export class NamedQuery extends pulumi.CustomResource {
     /**

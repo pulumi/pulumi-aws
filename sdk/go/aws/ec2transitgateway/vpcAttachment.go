@@ -46,11 +46,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import `aws_ec2_transit_gateway_vpc_attachment` using the EC2 Transit Gateway Attachment identifier. For example:
 //
-//	to = aws_ec2_transit_gateway_vpc_attachment.example
+// ```sh
 //
-//	id = "tgw-attach-12345678" } Using `pulumi import`, import `aws_ec2_transit_gateway_vpc_attachment` using the EC2 Transit Gateway Attachment identifier. For exampleconsole % pulumi import aws_ec2_transit_gateway_vpc_attachment.example tgw-attach-12345678
+//	$ pulumi import aws:ec2transitgateway/vpcAttachment:VpcAttachment example tgw-attach-12345678
+//
+// ```
 type VpcAttachment struct {
 	pulumi.CustomResourceState
 

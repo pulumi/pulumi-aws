@@ -25,11 +25,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import VPC Lattice Service using the `id`. For example:
  *
- *  to = aws_vpclattice_service.example
- *
- *  id = "svc-06728e2357ea55f8a" } Using `pulumi import`, import VPC Lattice Service using the `id`. For exampleconsole % pulumi import aws_vpclattice_service.example svc-06728e2357ea55f8a
+ * ```sh
+ *  $ pulumi import aws:vpclattice/service:Service example svc-06728e2357ea55f8a
+ * ```
  */
 export class Service extends pulumi.CustomResource {
     /**

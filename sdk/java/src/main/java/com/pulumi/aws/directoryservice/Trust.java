@@ -135,11 +135,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import the Trust relationship using the directory ID and remote domain name, separated by a `/`. For example:
  * 
- *  to = aws_directory_service_trust.example
- * 
- *  id = &#34;d-926724cf57/directory.example.com&#34; } Using `pulumi import`, import the Trust relationship using the directory ID and remote domain name, separated by a `/`. For exampleconsole % pulumi import aws_directory_service_trust.example d-926724cf57/directory.example.com
+ * ```sh
+ *  $ pulumi import aws:directoryservice/trust:Trust example d-926724cf57/directory.example.com
+ * ```
  * 
  */
 @ResourceType(type="aws:directoryservice/trust:Trust")

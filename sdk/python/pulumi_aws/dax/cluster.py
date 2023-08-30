@@ -681,11 +681,11 @@ class Cluster(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import DAX Clusters using the `cluster_name`. For example:
 
-         to = aws_dax_cluster.my_cluster
-
-         id = "my_cluster" } Using `pulumi import`, import DAX Clusters using the `cluster_name`. For exampleconsole % pulumi import aws_dax_cluster.my_cluster my_cluster [1]http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes
+        ```sh
+         $ pulumi import aws:dax/cluster:Cluster my_cluster my_cluster
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -745,11 +745,11 @@ class Cluster(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import DAX Clusters using the `cluster_name`. For example:
 
-         to = aws_dax_cluster.my_cluster
-
-         id = "my_cluster" } Using `pulumi import`, import DAX Clusters using the `cluster_name`. For exampleconsole % pulumi import aws_dax_cluster.my_cluster my_cluster [1]http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes
+        ```sh
+         $ pulumi import aws:dax/cluster:Cluster my_cluster my_cluster
+        ```
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.

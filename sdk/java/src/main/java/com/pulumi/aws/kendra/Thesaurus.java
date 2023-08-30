@@ -58,11 +58,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import `aws_kendra_thesaurus` using the unique identifiers of the thesaurus and index separated by a slash (`/`). For example:
  * 
- *  to = aws_kendra_thesaurus.example
- * 
- *  id = &#34;thesaurus-123456780/idx-8012925589&#34; } Using `pulumi import`, import `aws_kendra_thesaurus` using the unique identifiers of the thesaurus and index separated by a slash (`/`). For exampleconsole % pulumi import aws_kendra_thesaurus.example thesaurus-123456780/idx-8012925589
+ * ```sh
+ *  $ pulumi import aws:kendra/thesaurus:Thesaurus example thesaurus-123456780/idx-8012925589
+ * ```
  * 
  */
 @ResourceType(type="aws:kendra/thesaurus:Thesaurus")

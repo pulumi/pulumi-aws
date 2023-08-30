@@ -270,11 +270,11 @@ class Cluster(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import ECS clusters using the `name`. For example:
 
-         to = aws_ecs_cluster.stateless
-
-         id = "stateless-app" } Using `pulumi import`, import ECS clusters using the `name`. For exampleconsole % pulumi import aws_ecs_cluster.stateless stateless-app
+        ```sh
+         $ pulumi import aws:ecs/cluster:Cluster stateless stateless-app
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -328,11 +328,11 @@ class Cluster(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import ECS clusters using the `name`. For example:
 
-         to = aws_ecs_cluster.stateless
-
-         id = "stateless-app" } Using `pulumi import`, import ECS clusters using the `name`. For exampleconsole % pulumi import aws_ecs_cluster.stateless stateless-app
+        ```sh
+         $ pulumi import aws:ecs/cluster:Cluster stateless stateless-app
+        ```
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.

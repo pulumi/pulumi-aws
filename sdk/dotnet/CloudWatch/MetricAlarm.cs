@@ -233,11 +233,11 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import CloudWatch Metric Alarm using the `alarm_name`. For example:
     /// 
-    ///  to = aws_cloudwatch_metric_alarm.test
-    /// 
-    ///  id = "alarm-12345" } Using `pulumi import`, import CloudWatch Metric Alarm using the `alarm_name`. For exampleconsole % pulumi import aws_cloudwatch_metric_alarm.test alarm-12345
+    /// ```sh
+    ///  $ pulumi import aws:cloudwatch/metricAlarm:MetricAlarm test alarm-12345
+    /// ```
     /// </summary>
     [AwsResourceType("aws:cloudwatch/metricAlarm:MetricAlarm")]
     public partial class MetricAlarm : global::Pulumi.CustomResource

@@ -48,11 +48,11 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import traffic mirror targets using the `id`. For example:
     /// 
-    ///  to = aws_ec2_traffic_mirror_target.target
-    /// 
-    ///  id = "tmt-0c13a005422b86606" } Using `pulumi import`, import traffic mirror targets using the `id`. For exampleconsole % pulumi import aws_ec2_traffic_mirror_target.target tmt-0c13a005422b86606
+    /// ```sh
+    ///  $ pulumi import aws:ec2/trafficMirrorTarget:TrafficMirrorTarget target tmt-0c13a005422b86606
+    /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/trafficMirrorTarget:TrafficMirrorTarget")]
     public partial class TrafficMirrorTarget : global::Pulumi.CustomResource

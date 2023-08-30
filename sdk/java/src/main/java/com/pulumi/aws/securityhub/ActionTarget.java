@@ -55,11 +55,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Security Hub custom action using the action target ARN. For example:
  * 
- *  to = aws_securityhub_action_target.example
- * 
- *  id = &#34;arn:aws:securityhub:eu-west-1:312940875350:action/custom/a&#34; } Using `pulumi import`, import Security Hub custom action using the action target ARN. For exampleconsole % pulumi import aws_securityhub_action_target.example arn:aws:securityhub:eu-west-1:312940875350:action/custom/a
+ * ```sh
+ *  $ pulumi import aws:securityhub/actionTarget:ActionTarget example arn:aws:securityhub:eu-west-1:312940875350:action/custom/a
+ * ```
  * 
  */
 @ResourceType(type="aws:securityhub/actionTarget:ActionTarget")

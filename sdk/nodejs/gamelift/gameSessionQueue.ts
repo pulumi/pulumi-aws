@@ -37,11 +37,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import GameLift Game Session Queues using their `name`. For example:
  *
- *  to = aws_gamelift_game_session_queue.example
- *
- *  id = "example" } Using `pulumi import`, import GameLift Game Session Queues using their `name`. For exampleconsole % pulumi import aws_gamelift_game_session_queue.example example
+ * ```sh
+ *  $ pulumi import aws:gamelift/gameSessionQueue:GameSessionQueue example example
+ * ```
  */
 export class GameSessionQueue extends pulumi.CustomResource {
     /**

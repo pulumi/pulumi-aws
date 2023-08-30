@@ -46,11 +46,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import CIDR collections using their ID. For example:
  * 
- *  to = aws_route53_cidr_collection.example
- * 
- *  id = &#34;9ac32814-3e67-0932-6048-8d779cc6f511&#34; } Using `pulumi import`, import CIDR collections using their ID. For exampleconsole % pulumi import aws_route53_cidr_collection.example 9ac32814-3e67-0932-6048-8d779cc6f511
+ * ```sh
+ *  $ pulumi import aws:route53/cidrCollection:CidrCollection example 9ac32814-3e67-0932-6048-8d779cc6f511
+ * ```
  * 
  */
 @ResourceType(type="aws:route53/cidrCollection:CidrCollection")

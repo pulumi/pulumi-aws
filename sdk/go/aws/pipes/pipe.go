@@ -201,11 +201,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import pipes using the `name`. For example:
 //
-//	to = aws_pipes_pipe.example
+// ```sh
 //
-//	id = "my-pipe" } Using `pulumi import`, import pipes using the `name`. For exampleconsole % pulumi import aws_pipes_pipe.example my-pipe
+//	$ pulumi import aws:pipes/pipe:Pipe example my-pipe
+//
+// ```
 type Pipe struct {
 	pulumi.CustomResourceState
 

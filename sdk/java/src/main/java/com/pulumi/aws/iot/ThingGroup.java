@@ -68,11 +68,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import IoT Things Groups using the name. For example:
  * 
- *  to = aws_iot_thing_group.example
- * 
- *  id = &#34;example&#34; } Using `pulumi import`, import IoT Things Groups using the name. For exampleconsole % pulumi import aws_iot_thing_group.example example
+ * ```sh
+ *  $ pulumi import aws:iot/thingGroup:ThingGroup example example
+ * ```
  * 
  */
 @ResourceType(type="aws:iot/thingGroup:ThingGroup")

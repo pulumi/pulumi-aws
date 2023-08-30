@@ -44,11 +44,15 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * With an account targetterraform import {
+ * With an account target:
  *
- *  to = aws_organizations_policy_attachment.account
+ * Using `pulumi import`, import `aws_organizations_policy_attachment` using the target ID and policy ID. For example:
  *
- *  id = "123456789012:p-12345678" } Using `pulumi import`, import `aws_organizations_policy_attachment` using the target ID and policy ID. For exampleWith an account targetconsole % pulumi import aws_organizations_policy_attachment.account 123456789012:p-12345678
+ * With an account target:
+ *
+ * ```sh
+ *  $ pulumi import aws:organizations/policyAttachment:PolicyAttachment account 123456789012:p-12345678
+ * ```
  */
 export class PolicyAttachment extends pulumi.CustomResource {
     /**

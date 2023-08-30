@@ -50,11 +50,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import `aws_lightsail_bucket` using the `name` attribute. For example:
  * 
- *  to = aws_lightsail_bucket.test
- * 
- *  id = &#34;example-bucket&#34; } Using `pulumi import`, import `aws_lightsail_bucket` using the `name` attribute. For exampleconsole % pulumi import aws_lightsail_bucket.test example-bucket
+ * ```sh
+ *  $ pulumi import aws:lightsail/bucket:Bucket test example-bucket
+ * ```
  * 
  */
 @ResourceType(type="aws:lightsail/bucket:Bucket")

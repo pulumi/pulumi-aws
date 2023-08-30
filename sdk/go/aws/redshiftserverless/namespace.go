@@ -42,11 +42,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Redshift Serverless Namespaces using the `namespace_name`. For example:
 //
-//	to = aws_redshiftserverless_namespace.example
+// ```sh
 //
-//	id = "example" } Using `pulumi import`, import Redshift Serverless Namespaces using the `namespace_name`. For exampleconsole % pulumi import aws_redshiftserverless_namespace.example example
+//	$ pulumi import aws:redshiftserverless/namespace:Namespace example example
+//
+// ```
 type Namespace struct {
 	pulumi.CustomResourceState
 

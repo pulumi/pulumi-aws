@@ -92,11 +92,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import AppConfig Extension Associations using their extension association ID. For example:
  * 
- *  to = aws_appconfig_extension_association.example
- * 
- *  id = &#34;71rxuzt&#34; } Using `pulumi import`, import AppConfig Extension Associations using their extension association ID. For exampleconsole % pulumi import aws_appconfig_extension_association.example 71rxuzt
+ * ```sh
+ *  $ pulumi import aws:appconfig/extensionAssociation:ExtensionAssociation example 71rxuzt
+ * ```
  * 
  */
 @ResourceType(type="aws:appconfig/extensionAssociation:ExtensionAssociation")

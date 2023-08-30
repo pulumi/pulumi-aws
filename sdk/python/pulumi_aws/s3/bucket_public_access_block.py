@@ -237,11 +237,11 @@ class BucketPublicAccessBlock(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_s3_bucket_public_access_block` using the bucket name. For example:
 
-         to = aws_s3_bucket_public_access_block.example
-
-         id = "my-bucket" } Using `pulumi import`, import `aws_s3_bucket_public_access_block` using the bucket name. For exampleconsole % pulumi import aws_s3_bucket_public_access_block.example my-bucket
+        ```sh
+         $ pulumi import aws:s3/bucketPublicAccessBlock:BucketPublicAccessBlock example my-bucket
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -282,11 +282,11 @@ class BucketPublicAccessBlock(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_s3_bucket_public_access_block` using the bucket name. For example:
 
-         to = aws_s3_bucket_public_access_block.example
-
-         id = "my-bucket" } Using `pulumi import`, import `aws_s3_bucket_public_access_block` using the bucket name. For exampleconsole % pulumi import aws_s3_bucket_public_access_block.example my-bucket
+        ```sh
+         $ pulumi import aws:s3/bucketPublicAccessBlock:BucketPublicAccessBlock example my-bucket
+        ```
 
         :param str resource_name: The name of the resource.
         :param BucketPublicAccessBlockArgs args: The arguments to use to populate this resource's properties.

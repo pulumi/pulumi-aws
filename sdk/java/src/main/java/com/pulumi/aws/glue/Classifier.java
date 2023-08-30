@@ -164,11 +164,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Glue Classifiers using their name. For example:
  * 
- *  to = aws_glue_classifier.MyClassifier
- * 
- *  id = &#34;MyClassifier&#34; } Using `pulumi import`, import Glue Classifiers using their name. For exampleconsole % pulumi import aws_glue_classifier.MyClassifier MyClassifier
+ * ```sh
+ *  $ pulumi import aws:glue/classifier:Classifier MyClassifier MyClassifier
+ * ```
  * 
  */
 @ResourceType(type="aws:glue/classifier:Classifier")

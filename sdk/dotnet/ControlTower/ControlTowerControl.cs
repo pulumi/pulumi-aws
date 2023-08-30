@@ -46,11 +46,11 @@ namespace Pulumi.Aws.ControlTower
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import Control Tower Controls using their `organizational_unit_arn/control_identifier`. For example:
     /// 
-    ///  to = aws_controltower_control.example
-    /// 
-    ///  id = "arn:aws:organizations::123456789101:ou/o-qqaejywet/ou-qg5o-ufbhdtv3,arn:aws:controltower:us-east-1::control/WTDSMKDKDNLE" } Using `pulumi import`, import Control Tower Controls using their `organizational_unit_arn/control_identifier`. For exampleconsole % pulumi import aws_controltower_control.example arn:aws:organizations::123456789101:ou/o-qqaejywet/ou-qg5o-ufbhdtv3,arn:aws:controltower:us-east-1::control/WTDSMKDKDNLE
+    /// ```sh
+    ///  $ pulumi import aws:controltower/controlTowerControl:ControlTowerControl example arn:aws:organizations::123456789101:ou/o-qqaejywet/ou-qg5o-ufbhdtv3,arn:aws:controltower:us-east-1::control/WTDSMKDKDNLE
+    /// ```
     /// </summary>
     [AwsResourceType("aws:controltower/controlTowerControl:ControlTowerControl")]
     public partial class ControlTowerControl : global::Pulumi.CustomResource

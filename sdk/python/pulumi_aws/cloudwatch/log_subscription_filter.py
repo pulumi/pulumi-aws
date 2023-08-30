@@ -247,11 +247,11 @@ class LogSubscriptionFilter(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import CloudWatch Logs subscription filter using the log group name and subscription filter name separated by `|`. For example:
 
-         to = aws_cloudwatch_log_subscription_filter.test_lambdafunction_logfilter
-
-         id = "/aws/lambda/example_lambda_name|test_lambdafunction_logfilter" } Using `pulumi import`, import CloudWatch Logs subscription filter using the log group name and subscription filter name separated by `|`. For exampleconsole % pulumi import aws_cloudwatch_log_subscription_filter.test_lambdafunction_logfilter /aws/lambda/example_lambda_name|test_lambdafunction_logfilter
+        ```sh
+         $ pulumi import aws:cloudwatch/logSubscriptionFilter:LogSubscriptionFilter test_lambdafunction_logfilter /aws/lambda/example_lambda_name|test_lambdafunction_logfilter
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -287,11 +287,11 @@ class LogSubscriptionFilter(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import CloudWatch Logs subscription filter using the log group name and subscription filter name separated by `|`. For example:
 
-         to = aws_cloudwatch_log_subscription_filter.test_lambdafunction_logfilter
-
-         id = "/aws/lambda/example_lambda_name|test_lambdafunction_logfilter" } Using `pulumi import`, import CloudWatch Logs subscription filter using the log group name and subscription filter name separated by `|`. For exampleconsole % pulumi import aws_cloudwatch_log_subscription_filter.test_lambdafunction_logfilter /aws/lambda/example_lambda_name|test_lambdafunction_logfilter
+        ```sh
+         $ pulumi import aws:cloudwatch/logSubscriptionFilter:LogSubscriptionFilter test_lambdafunction_logfilter /aws/lambda/example_lambda_name|test_lambdafunction_logfilter
+        ```
 
         :param str resource_name: The name of the resource.
         :param LogSubscriptionFilterArgs args: The arguments to use to populate this resource's properties.

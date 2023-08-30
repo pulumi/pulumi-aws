@@ -299,11 +299,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import DB Instances using the `identifier`. For example:
  * 
- *  to = aws_db_instance.default
- * 
- *  id = &#34;mydb-rds-instance&#34; } Using `pulumi import`, import DB Instances using the `identifier`. For exampleconsole % pulumi import aws_db_instance.default mydb-rds-instance
+ * ```sh
+ *  $ pulumi import aws:rds/instance:Instance default mydb-rds-instance
+ * ```
  * 
  */
 @ResourceType(type="aws:rds/instance:Instance")

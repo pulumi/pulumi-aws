@@ -58,11 +58,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import an AWS FinSpace Kx Database using the `id` (environment ID and database name, comma-delimited). For example:
 //
-//	to = aws_finspace_kx_database.example
+// ```sh
 //
-//	id = "n3ceo7wqxoxcti5tujqwzs,my-tf-kx-database" } Using `pulumi import`, import an AWS FinSpace Kx Database using the `id` (environment ID and database name, comma-delimited). For exampleconsole % pulumi import aws_finspace_kx_database.example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-database
+//	$ pulumi import aws:finspace/kxDatabase:KxDatabase example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-database
+//
+// ```
 type KxDatabase struct {
 	pulumi.CustomResourceState
 

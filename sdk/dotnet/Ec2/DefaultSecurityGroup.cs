@@ -107,11 +107,11 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import Security Groups using the security group `id`. For example:
     /// 
-    ///  to = aws_default_security_group.default_sg
-    /// 
-    ///  id = "sg-903004f8" } Using `pulumi import`, import Security Groups using the security group `id`. For exampleconsole % pulumi import aws_default_security_group.default_sg sg-903004f8
+    /// ```sh
+    ///  $ pulumi import aws:ec2/defaultSecurityGroup:DefaultSecurityGroup default_sg sg-903004f8
+    /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/defaultSecurityGroup:DefaultSecurityGroup")]
     public partial class DefaultSecurityGroup : global::Pulumi.CustomResource

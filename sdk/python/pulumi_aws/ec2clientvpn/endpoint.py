@@ -634,11 +634,11 @@ class Endpoint(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import AWS Client VPN endpoints using the `id` value found via `aws ec2 describe-client-vpn-endpoints`. For example:
 
-         to = aws_ec2_client_vpn_endpoint.example
-
-         id = "cvpn-endpoint-0ac3a1abbccddd666" } Using `pulumi import`, import AWS Client VPN endpoints using the `id` value found via `aws ec2 describe-client-vpn-endpoints`. For exampleconsole % pulumi import aws_ec2_client_vpn_endpoint.example cvpn-endpoint-0ac3a1abbccddd666
+        ```sh
+         $ pulumi import aws:ec2clientvpn/endpoint:Endpoint example cvpn-endpoint-0ac3a1abbccddd666
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -692,11 +692,11 @@ class Endpoint(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import AWS Client VPN endpoints using the `id` value found via `aws ec2 describe-client-vpn-endpoints`. For example:
 
-         to = aws_ec2_client_vpn_endpoint.example
-
-         id = "cvpn-endpoint-0ac3a1abbccddd666" } Using `pulumi import`, import AWS Client VPN endpoints using the `id` value found via `aws ec2 describe-client-vpn-endpoints`. For exampleconsole % pulumi import aws_ec2_client_vpn_endpoint.example cvpn-endpoint-0ac3a1abbccddd666
+        ```sh
+         $ pulumi import aws:ec2clientvpn/endpoint:Endpoint example cvpn-endpoint-0ac3a1abbccddd666
+        ```
 
         :param str resource_name: The name of the resource.
         :param EndpointArgs args: The arguments to use to populate this resource's properties.

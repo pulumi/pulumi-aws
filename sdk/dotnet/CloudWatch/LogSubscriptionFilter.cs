@@ -36,11 +36,11 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import CloudWatch Logs subscription filter using the log group name and subscription filter name separated by `|`. For example:
     /// 
-    ///  to = aws_cloudwatch_log_subscription_filter.test_lambdafunction_logfilter
-    /// 
-    ///  id = "/aws/lambda/example_lambda_name|test_lambdafunction_logfilter" } Using `pulumi import`, import CloudWatch Logs subscription filter using the log group name and subscription filter name separated by `|`. For exampleconsole % pulumi import aws_cloudwatch_log_subscription_filter.test_lambdafunction_logfilter /aws/lambda/example_lambda_name|test_lambdafunction_logfilter
+    /// ```sh
+    ///  $ pulumi import aws:cloudwatch/logSubscriptionFilter:LogSubscriptionFilter test_lambdafunction_logfilter /aws/lambda/example_lambda_name|test_lambdafunction_logfilter
+    /// ```
     /// </summary>
     [AwsResourceType("aws:cloudwatch/logSubscriptionFilter:LogSubscriptionFilter")]
     public partial class LogSubscriptionFilter : global::Pulumi.CustomResource

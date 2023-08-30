@@ -43,11 +43,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import IOT Things using the name. For example:
 //
-//	to = aws_iot_thing.example
+// ```sh
 //
-//	id = "example" } Using `pulumi import`, import IOT Things using the name. For exampleconsole % pulumi import aws_iot_thing.example example
+//	$ pulumi import aws:iot/thing:Thing example example
+//
+// ```
 type Thing struct {
 	pulumi.CustomResourceState
 

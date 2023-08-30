@@ -39,11 +39,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import Config Organization Custom Rules using the name. For example:
  *
- *  to = aws_config_organization_custom_rule.example
- *
- *  id = "example" } Using `pulumi import`, import Config Organization Custom Rules using the name. For exampleconsole % pulumi import aws_config_organization_custom_rule.example example
+ * ```sh
+ *  $ pulumi import aws:cfg/organizationCustomRule:OrganizationCustomRule example example
+ * ```
  */
 export class OrganizationCustomRule extends pulumi.CustomResource {
     /**

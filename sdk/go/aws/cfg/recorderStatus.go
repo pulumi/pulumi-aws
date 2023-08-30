@@ -125,11 +125,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Configuration Recorder Status using the name of the Configuration Recorder. For example:
 //
-//	to = aws_config_configuration_recorder_status.foo
+// ```sh
 //
-//	id = "example" } Using `pulumi import`, import Configuration Recorder Status using the name of the Configuration Recorder. For exampleconsole % pulumi import aws_config_configuration_recorder_status.foo example
+//	$ pulumi import aws:cfg/recorderStatus:RecorderStatus foo example
+//
+// ```
 type RecorderStatus struct {
 	pulumi.CustomResourceState
 

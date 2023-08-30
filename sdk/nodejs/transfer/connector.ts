@@ -35,11 +35,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import Transfer AS2 Connector using the `connector_id`. For example:
  *
- *  to = aws_transfer_connector.example
- *
- *  id = "c-4221a88afd5f4362a" } Using `pulumi import`, import Transfer AS2 Connector using the `connector_id`. For exampleconsole % pulumi import aws_transfer_connector.example c-4221a88afd5f4362a
+ * ```sh
+ *  $ pulumi import aws:transfer/connector:Connector example c-4221a88afd5f4362a
+ * ```
  */
 export class Connector extends pulumi.CustomResource {
     /**

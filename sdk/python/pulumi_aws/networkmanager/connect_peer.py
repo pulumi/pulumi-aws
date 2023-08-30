@@ -365,11 +365,11 @@ class ConnectPeer(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_networkmanager_connect_peer` using the connect peer ID. For example:
 
-         to = aws_networkmanager_connect_peer.example
-
-         id = "connect-peer-061f3e96275db1acc" } Using `pulumi import`, import `aws_networkmanager_connect_peer` using the connect peer ID. For exampleconsole % pulumi import aws_networkmanager_connect_peer.example connect-peer-061f3e96275db1acc
+        ```sh
+         $ pulumi import aws:networkmanager/connectPeer:ConnectPeer example connect-peer-061f3e96275db1acc
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -395,11 +395,11 @@ class ConnectPeer(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_networkmanager_connect_peer` using the connect peer ID. For example:
 
-         to = aws_networkmanager_connect_peer.example
-
-         id = "connect-peer-061f3e96275db1acc" } Using `pulumi import`, import `aws_networkmanager_connect_peer` using the connect peer ID. For exampleconsole % pulumi import aws_networkmanager_connect_peer.example connect-peer-061f3e96275db1acc
+        ```sh
+         $ pulumi import aws:networkmanager/connectPeer:ConnectPeer example connect-peer-061f3e96275db1acc
+        ```
 
         :param str resource_name: The name of the resource.
         :param ConnectPeerArgs args: The arguments to use to populate this resource's properties.

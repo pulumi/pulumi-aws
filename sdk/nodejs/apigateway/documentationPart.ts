@@ -30,11 +30,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import API Gateway documentation_parts using `REST-API-ID/DOC-PART-ID`. For example:
  *
- *  to = aws_api_gateway_documentation_part.example
- *
- *  id = "5i4e1ko720/3oyy3t" } Using `pulumi import`, import API Gateway documentation_parts using `REST-API-ID/DOC-PART-ID`. For exampleconsole % pulumi import aws_api_gateway_documentation_part.example 5i4e1ko720/3oyy3t
+ * ```sh
+ *  $ pulumi import aws:apigateway/documentationPart:DocumentationPart example 5i4e1ko720/3oyy3t
+ * ```
  */
 export class DocumentationPart extends pulumi.CustomResource {
     /**

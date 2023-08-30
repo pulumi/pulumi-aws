@@ -52,11 +52,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Route 53 Resolver DNS Firewall configs using the Route 53 Resolver DNS Firewall config ID. For example:
 //
-//	to = aws_route53_resolver_firewall_config.example
+// ```sh
 //
-//	id = "rdsc-be1866ecc1683e95" } Using `pulumi import`, import Route 53 Resolver DNS Firewall configs using the Route 53 Resolver DNS Firewall config ID. For exampleconsole % pulumi import aws_route53_resolver_firewall_config.example rdsc-be1866ecc1683e95
+//	$ pulumi import aws:route53/resolverFirewallConfig:ResolverFirewallConfig example rdsc-be1866ecc1683e95
+//
+// ```
 type ResolverFirewallConfig struct {
 	pulumi.CustomResourceState
 

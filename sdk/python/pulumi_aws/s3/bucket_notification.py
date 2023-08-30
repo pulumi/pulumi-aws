@@ -368,11 +368,11 @@ class BucketNotification(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import S3 bucket notification using the `bucket`. For example:
 
-         to = aws_s3_bucket_notification.bucket_notification
-
-         id = "bucket-name" } Using `pulumi import`, import S3 bucket notification using the `bucket`. For exampleconsole % pulumi import aws_s3_bucket_notification.bucket_notification bucket-name
+        ```sh
+         $ pulumi import aws:s3/bucketNotification:BucketNotification bucket_notification bucket-name
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -551,11 +551,11 @@ class BucketNotification(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import S3 bucket notification using the `bucket`. For example:
 
-         to = aws_s3_bucket_notification.bucket_notification
-
-         id = "bucket-name" } Using `pulumi import`, import S3 bucket notification using the `bucket`. For exampleconsole % pulumi import aws_s3_bucket_notification.bucket_notification bucket-name
+        ```sh
+         $ pulumi import aws:s3/bucketNotification:BucketNotification bucket_notification bucket-name
+        ```
 
         :param str resource_name: The name of the resource.
         :param BucketNotificationArgs args: The arguments to use to populate this resource's properties.

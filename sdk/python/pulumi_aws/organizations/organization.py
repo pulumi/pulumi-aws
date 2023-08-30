@@ -269,11 +269,11 @@ class Organization(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import the AWS organization using the `id`. For example:
 
-         to = aws_organizations_organization.my_org
-
-         id = "o-1234567" } Using `pulumi import`, import the AWS organization using the `id`. For exampleconsole % pulumi import aws_organizations_organization.my_org o-1234567
+        ```sh
+         $ pulumi import aws:organizations/organization:Organization my_org o-1234567
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -310,11 +310,11 @@ class Organization(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import the AWS organization using the `id`. For example:
 
-         to = aws_organizations_organization.my_org
-
-         id = "o-1234567" } Using `pulumi import`, import the AWS organization using the `id`. For exampleconsole % pulumi import aws_organizations_organization.my_org o-1234567
+        ```sh
+         $ pulumi import aws:organizations/organization:Organization my_org o-1234567
+        ```
 
         :param str resource_name: The name of the resource.
         :param OrganizationArgs args: The arguments to use to populate this resource's properties.

@@ -111,11 +111,11 @@ namespace Pulumi.Aws.Transfer
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import Transfer SSH Public Key using the `server_id` and `user_name` and `ssh_public_key_id` separated by `/`. For example:
     /// 
-    ///  to = aws_transfer_ssh_key.bar
-    /// 
-    ///  id = "s-12345678/test-username/key-12345" } Using `pulumi import`, import Transfer SSH Public Key using the `server_id` and `user_name` and `ssh_public_key_id` separated by `/`. For exampleconsole % pulumi import aws_transfer_ssh_key.bar s-12345678/test-username/key-12345
+    /// ```sh
+    ///  $ pulumi import aws:transfer/sshKey:SshKey bar s-12345678/test-username/key-12345
+    /// ```
     /// </summary>
     [AwsResourceType("aws:transfer/sshKey:SshKey")]
     public partial class SshKey : global::Pulumi.CustomResource

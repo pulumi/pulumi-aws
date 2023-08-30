@@ -60,11 +60,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import endpoints using the `endpoint_id`. For example:
 //
-//	to = aws_dms_endpoint.test
+// ```sh
 //
-//	id = "test-dms-endpoint-tf" } Using `pulumi import`, import endpoints using the `endpoint_id`. For exampleconsole % pulumi import aws_dms_endpoint.test test-dms-endpoint-tf
+//	$ pulumi import aws:dms/endpoint:Endpoint test test-dms-endpoint-tf
+//
+// ```
 type Endpoint struct {
 	pulumi.CustomResourceState
 

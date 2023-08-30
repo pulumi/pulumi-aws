@@ -58,11 +58,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import AWS WAF SQL Injection Match Set using their ID. For example:
  * 
- *  to = aws_waf_sql_injection_match_set.example
- * 
- *  id = &#34;a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc&#34; } Using `pulumi import`, import AWS WAF SQL Injection Match Set using their ID. For exampleconsole % pulumi import aws_waf_sql_injection_match_set.example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+ * ```sh
+ *  $ pulumi import aws:waf/sqlInjectionMatchSet:SqlInjectionMatchSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+ * ```
  * 
  */
 @ResourceType(type="aws:waf/sqlInjectionMatchSet:SqlInjectionMatchSet")

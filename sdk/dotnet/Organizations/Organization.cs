@@ -41,11 +41,11 @@ namespace Pulumi.Aws.Organizations
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import the AWS organization using the `id`. For example:
     /// 
-    ///  to = aws_organizations_organization.my_org
-    /// 
-    ///  id = "o-1234567" } Using `pulumi import`, import the AWS organization using the `id`. For exampleconsole % pulumi import aws_organizations_organization.my_org o-1234567
+    /// ```sh
+    ///  $ pulumi import aws:organizations/organization:Organization my_org o-1234567
+    /// ```
     /// </summary>
     [AwsResourceType("aws:organizations/organization:Organization")]
     public partial class Organization : global::Pulumi.CustomResource

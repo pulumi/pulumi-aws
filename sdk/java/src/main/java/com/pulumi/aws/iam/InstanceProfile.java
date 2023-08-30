@@ -70,11 +70,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Instance Profiles using the `name`. For example:
  * 
- *  to = aws_iam_instance_profile.test_profile
- * 
- *  id = &#34;app-instance-profile-1&#34; } Using `pulumi import`, import Instance Profiles using the `name`. For exampleconsole % pulumi import aws_iam_instance_profile.test_profile app-instance-profile-1
+ * ```sh
+ *  $ pulumi import aws:iam/instanceProfile:InstanceProfile test_profile app-instance-profile-1
+ * ```
  * 
  */
 @ResourceType(type="aws:iam/instanceProfile:InstanceProfile")

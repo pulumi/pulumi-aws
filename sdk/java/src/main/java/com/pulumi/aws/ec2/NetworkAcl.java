@@ -83,11 +83,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Network ACLs using the `id`. For example:
  * 
- *  to = aws_network_acl.main
- * 
- *  id = &#34;acl-7aaabd18&#34; } Using `pulumi import`, import Network ACLs using the `id`. For exampleconsole % pulumi import aws_network_acl.main acl-7aaabd18
+ * ```sh
+ *  $ pulumi import aws:ec2/networkAcl:NetworkAcl main acl-7aaabd18
+ * ```
  * 
  */
 @ResourceType(type="aws:ec2/networkAcl:NetworkAcl")

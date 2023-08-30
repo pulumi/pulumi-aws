@@ -59,11 +59,12 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import `aws_api_gateway_rest_api` using the REST API ID. For example:
  *
- *  to = aws_api_gateway_rest_api.example
- *
- *  id = "12345abcde" } Using `pulumi import`, import `aws_api_gateway_rest_api` using the REST API ID. For exampleconsole % pulumi import aws_api_gateway_rest_api.example 12345abcde
+ * ```sh
+ *  $ pulumi import aws:apigateway/restApi:RestApi example 12345abcde
+ * ```
+ *  ~> __NOTE:__ Resource import does not currently support the `body` attribute.
  */
 export class RestApi extends pulumi.CustomResource {
     /**

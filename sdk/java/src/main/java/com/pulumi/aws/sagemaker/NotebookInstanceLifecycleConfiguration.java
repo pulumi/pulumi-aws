@@ -19,11 +19,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import models using the `name`. For example:
  * 
- *  to = aws_sagemaker_notebook_instance_lifecycle_configuration.lc
- * 
- *  id = &#34;foo&#34; } Using `pulumi import`, import models using the `name`. For exampleconsole % pulumi import aws_sagemaker_notebook_instance_lifecycle_configuration.lc foo
+ * ```sh
+ *  $ pulumi import aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration lc foo
+ * ```
  * 
  */
 @ResourceType(type="aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration")

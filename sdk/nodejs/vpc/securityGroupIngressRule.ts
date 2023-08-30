@@ -31,11 +31,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import security group ingress rules using the `security_group_rule_id`. For example:
  *
- *  to = aws_vpc_security_group_ingress_rule.example
- *
- *  id = "sgr-02108b27edd666983" } Using `pulumi import`, import security group ingress rules using the `security_group_rule_id`. For exampleconsole % pulumi import aws_vpc_security_group_ingress_rule.example sgr-02108b27edd666983
+ * ```sh
+ *  $ pulumi import aws:vpc/securityGroupIngressRule:SecurityGroupIngressRule example sgr-02108b27edd666983
+ * ```
  */
 export class SecurityGroupIngressRule extends pulumi.CustomResource {
     /**

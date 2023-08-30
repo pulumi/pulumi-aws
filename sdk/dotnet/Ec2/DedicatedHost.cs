@@ -37,11 +37,11 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import hosts using the host `id`. For example:
     /// 
-    ///  to = aws_ec2_host.example
-    /// 
-    ///  id = "h-0385a99d0e4b20cbb" } Using `pulumi import`, import hosts using the host `id`. For exampleconsole % pulumi import aws_ec2_host.example h-0385a99d0e4b20cbb
+    /// ```sh
+    ///  $ pulumi import aws:ec2/dedicatedHost:DedicatedHost example h-0385a99d0e4b20cbb
+    /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/dedicatedHost:DedicatedHost")]
     public partial class DedicatedHost : global::Pulumi.CustomResource

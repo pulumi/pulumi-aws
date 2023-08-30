@@ -39,11 +39,13 @@ namespace Pulumi.Aws.Msk
     /// 
     /// ## Import
     /// 
-    /// For exampleterraform import {
+    /// For example:
     /// 
-    ///  to = aws_msk_vpc_connection.example
+    /// Using `pulumi import`, import MSK configurations using the configuration ARN. For example:
     /// 
-    ///  id = "arn:aws:kafka:eu-west-2:123456789012:vpc-connection/123456789012/example/38173259-79cd-4ee8-87f3-682ea6023f48-2" } Using `pulumi import`, import MSK configurations using the configuration ARN. For exampleconsole % pulumi import aws_msk_vpc_connection.example arn:aws:kafka:eu-west-2:123456789012:vpc-connection/123456789012/example/38173259-79cd-4ee8-87f3-682ea6023f48-2
+    /// ```sh
+    ///  $ pulumi import aws:msk/vpcConnection:VpcConnection example arn:aws:kafka:eu-west-2:123456789012:vpc-connection/123456789012/example/38173259-79cd-4ee8-87f3-682ea6023f48-2
+    /// ```
     /// </summary>
     [AwsResourceType("aws:msk/vpcConnection:VpcConnection")]
     public partial class VpcConnection : global::Pulumi.CustomResource

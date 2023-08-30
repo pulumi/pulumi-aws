@@ -189,11 +189,11 @@ class UserPolicy(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import IAM User Policies using the `user_name:user_policy_name`. For example:
 
-         to = aws_iam_user_policy.mypolicy
-
-         id = "user_of_mypolicy_name:mypolicy_name" } Using `pulumi import`, import IAM User Policies using the `user_name:user_policy_name`. For exampleconsole % pulumi import aws_iam_user_policy.mypolicy user_of_mypolicy_name:mypolicy_name
+        ```sh
+         $ pulumi import aws:iam/userPolicy:UserPolicy mypolicy user_of_mypolicy_name:mypolicy_name
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -234,11 +234,11 @@ class UserPolicy(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import IAM User Policies using the `user_name:user_policy_name`. For example:
 
-         to = aws_iam_user_policy.mypolicy
-
-         id = "user_of_mypolicy_name:mypolicy_name" } Using `pulumi import`, import IAM User Policies using the `user_name:user_policy_name`. For exampleconsole % pulumi import aws_iam_user_policy.mypolicy user_of_mypolicy_name:mypolicy_name
+        ```sh
+         $ pulumi import aws:iam/userPolicy:UserPolicy mypolicy user_of_mypolicy_name:mypolicy_name
+        ```
 
         :param str resource_name: The name of the resource.
         :param UserPolicyArgs args: The arguments to use to populate this resource's properties.

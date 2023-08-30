@@ -79,11 +79,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Transcribe MedicalVocabulary using the `vocabulary_name`. For example:
  * 
- *  to = aws_transcribe_medical_vocabulary.example
- * 
- *  id = &#34;example-name&#34; } Using `pulumi import`, import Transcribe MedicalVocabulary using the `vocabulary_name`. For exampleconsole % pulumi import aws_transcribe_medical_vocabulary.example example-name
+ * ```sh
+ *  $ pulumi import aws:transcribe/medicalVocabulary:MedicalVocabulary example example-name
+ * ```
  * 
  */
 @ResourceType(type="aws:transcribe/medicalVocabulary:MedicalVocabulary")

@@ -22,11 +22,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import Service Discovery Private DNS Namespace using the namespace ID and VPC ID. For example:
  *
- *  to = aws_service_discovery_private_dns_namespace.example
- *
- *  id = "0123456789:vpc-123345" } Using `pulumi import`, import Service Discovery Private DNS Namespace using the namespace ID and VPC ID. For exampleconsole % pulumi import aws_service_discovery_private_dns_namespace.example 0123456789:vpc-123345
+ * ```sh
+ *  $ pulumi import aws:servicediscovery/privateDnsNamespace:PrivateDnsNamespace example 0123456789:vpc-123345
+ * ```
  */
 export class PrivateDnsNamespace extends pulumi.CustomResource {
     /**

@@ -486,11 +486,11 @@ class ReplicationTask(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import replication tasks using the `replication_task_id`. For example:
 
-         to = aws_dms_replication_task.test
-
-         id = "test-dms-replication-task-tf" } Using `pulumi import`, import replication tasks using the `replication_task_id`. For exampleconsole % pulumi import aws_dms_replication_task.test test-dms-replication-task-tf
+        ```sh
+         $ pulumi import aws:dms/replicationTask:ReplicationTask test test-dms-replication-task-tf
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -545,11 +545,11 @@ class ReplicationTask(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import replication tasks using the `replication_task_id`. For example:
 
-         to = aws_dms_replication_task.test
-
-         id = "test-dms-replication-task-tf" } Using `pulumi import`, import replication tasks using the `replication_task_id`. For exampleconsole % pulumi import aws_dms_replication_task.test test-dms-replication-task-tf
+        ```sh
+         $ pulumi import aws:dms/replicationTask:ReplicationTask test test-dms-replication-task-tf
+        ```
 
         :param str resource_name: The name of the resource.
         :param ReplicationTaskArgs args: The arguments to use to populate this resource's properties.

@@ -23,11 +23,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Auto Scaling scaling plans using the `name`. For example:
 //
-//	to = aws_autoscalingplans_scaling_plan.example
+// ```sh
 //
-//	id = "MyScale1" } Using `pulumi import`, import Auto Scaling scaling plans using the `name`. For exampleconsole % pulumi import aws_autoscalingplans_scaling_plan.example MyScale1
+//	$ pulumi import aws:autoscalingplans/scalingPlan:ScalingPlan example MyScale1
+//
+// ```
 type ScalingPlan struct {
 	pulumi.CustomResourceState
 

@@ -64,11 +64,11 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import `aws_cognito_resource_server` using their User Pool ID and Identifier. For example:
     /// 
-    ///  to = aws_cognito_resource_server.example
-    /// 
-    ///  id = "us-west-2_abc123|https://example.com" } Using `pulumi import`, import `aws_cognito_resource_server` using their User Pool ID and Identifier. For exampleconsole % pulumi import aws_cognito_resource_server.example "us-west-2_abc123|https://example.com"
+    /// ```sh
+    ///  $ pulumi import aws:cognito/resourceServer:ResourceServer example "us-west-2_abc123|https://example.com"
+    /// ```
     /// </summary>
     [AwsResourceType("aws:cognito/resourceServer:ResourceServer")]
     public partial class ResourceServer : global::Pulumi.CustomResource

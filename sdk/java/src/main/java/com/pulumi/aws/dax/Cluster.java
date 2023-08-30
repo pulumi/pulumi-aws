@@ -57,11 +57,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import DAX Clusters using the `cluster_name`. For example:
  * 
- *  to = aws_dax_cluster.my_cluster
- * 
- *  id = &#34;my_cluster&#34; } Using `pulumi import`, import DAX Clusters using the `cluster_name`. For exampleconsole % pulumi import aws_dax_cluster.my_cluster my_cluster [1]http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes
+ * ```sh
+ *  $ pulumi import aws:dax/cluster:Cluster my_cluster my_cluster
+ * ```
  * 
  */
 @ResourceType(type="aws:dax/cluster:Cluster")

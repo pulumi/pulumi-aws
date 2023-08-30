@@ -213,11 +213,11 @@ class StudioSessionMapping(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import EMR studio session mappings using `studio-id:identity-type:identity-id`. For example:
 
-         to = aws_emr_studio_session_mapping.example
-
-         id = "es-xxxxx:USER:xxxxx-xxx-xxx" } Using `pulumi import`, import EMR studio session mappings using `studio-id:identity-type:identity-id`. For exampleconsole % pulumi import aws_emr_studio_session_mapping.example es-xxxxx:USER:xxxxx-xxx-xxx
+        ```sh
+         $ pulumi import aws:emr/studioSessionMapping:StudioSessionMapping example es-xxxxx:USER:xxxxx-xxx-xxx
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -251,11 +251,11 @@ class StudioSessionMapping(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import EMR studio session mappings using `studio-id:identity-type:identity-id`. For example:
 
-         to = aws_emr_studio_session_mapping.example
-
-         id = "es-xxxxx:USER:xxxxx-xxx-xxx" } Using `pulumi import`, import EMR studio session mappings using `studio-id:identity-type:identity-id`. For exampleconsole % pulumi import aws_emr_studio_session_mapping.example es-xxxxx:USER:xxxxx-xxx-xxx
+        ```sh
+         $ pulumi import aws:emr/studioSessionMapping:StudioSessionMapping example es-xxxxx:USER:xxxxx-xxx-xxx
+        ```
 
         :param str resource_name: The name of the resource.
         :param StudioSessionMappingArgs args: The arguments to use to populate this resource's properties.

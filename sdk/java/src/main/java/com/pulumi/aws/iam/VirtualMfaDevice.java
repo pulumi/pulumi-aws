@@ -57,11 +57,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import IAM Virtual MFA Devices using the `arn`. For example:
  * 
- *  to = aws_iam_virtual_mfa_device.example
- * 
- *  id = &#34;arn:aws:iam::123456789012:mfa/example&#34; } Using `pulumi import`, import IAM Virtual MFA Devices using the `arn`. For exampleconsole % pulumi import aws_iam_virtual_mfa_device.example arn:aws:iam::123456789012:mfa/example
+ * ```sh
+ *  $ pulumi import aws:iam/virtualMfaDevice:VirtualMfaDevice example arn:aws:iam::123456789012:mfa/example
+ * ```
  * 
  */
 @ResourceType(type="aws:iam/virtualMfaDevice:VirtualMfaDevice")

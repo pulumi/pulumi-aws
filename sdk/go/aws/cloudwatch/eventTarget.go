@@ -620,13 +620,13 @@ import (
 //
 // ## Import
 //
-//	terraform import {
+// Using `pulumi import`, import EventBridge Targets using `event_bus_name/rule-name/target-id` (if you omit `event_bus_name`, the `default` event bus will be used). For example:
 //
-//	to = aws_cloudwatch_event_target.test-event-target
+// ```sh
 //
-//	id = "rule-name/target-id" } Using `pulumi import`, import EventBridge Targets using `event_bus_name/rule-name/target-id` (if you omit `event_bus_name`, the `default` event bus will be used). For example:
+//	$ pulumi import aws:cloudwatch/eventTarget:EventTarget test-event-target rule-name/target-id
 //
-// console % pulumi import aws_cloudwatch_event_target.test-event-target rule-name/target-id
+// ```
 type EventTarget struct {
 	pulumi.CustomResourceState
 

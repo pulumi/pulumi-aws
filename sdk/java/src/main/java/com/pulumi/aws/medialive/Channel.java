@@ -124,11 +124,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import MediaLive Channel using the `channel_id`. For example:
  * 
- *  to = aws_medialive_channel.example
- * 
- *  id = &#34;1234567&#34; } Using `pulumi import`, import MediaLive Channel using the `channel_id`. For exampleconsole % pulumi import aws_medialive_channel.example 1234567
+ * ```sh
+ *  $ pulumi import aws:medialive/channel:Channel example 1234567
+ * ```
  * 
  */
 @ResourceType(type="aws:medialive/channel:Channel")

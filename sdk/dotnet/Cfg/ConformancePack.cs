@@ -110,11 +110,11 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import Config Conformance Packs using the `name`. For example:
     /// 
-    ///  to = aws_config_conformance_pack.example
-    /// 
-    ///  id = "example" } Using `pulumi import`, import Config Conformance Packs using the `name`. For exampleconsole % pulumi import aws_config_conformance_pack.example example
+    /// ```sh
+    ///  $ pulumi import aws:cfg/conformancePack:ConformancePack example example
+    /// ```
     /// </summary>
     [AwsResourceType("aws:cfg/conformancePack:ConformancePack")]
     public partial class ConformancePack : global::Pulumi.CustomResource

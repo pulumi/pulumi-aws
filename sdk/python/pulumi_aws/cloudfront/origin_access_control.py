@@ -232,11 +232,11 @@ class OriginAccessControl(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import CloudFront Origin Access Control using the `id`. For example:
 
-         to = aws_cloudfront_origin_access_control.example
-
-         id = "E327GJI25M56DG" } Using `pulumi import`, import CloudFront Origin Access Control using the `id`. For exampleconsole % pulumi import aws_cloudfront_origin_access_control.example E327GJI25M56DG
+        ```sh
+         $ pulumi import aws:cloudfront/originAccessControl:OriginAccessControl example E327GJI25M56DG
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -273,11 +273,11 @@ class OriginAccessControl(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import CloudFront Origin Access Control using the `id`. For example:
 
-         to = aws_cloudfront_origin_access_control.example
-
-         id = "E327GJI25M56DG" } Using `pulumi import`, import CloudFront Origin Access Control using the `id`. For exampleconsole % pulumi import aws_cloudfront_origin_access_control.example E327GJI25M56DG
+        ```sh
+         $ pulumi import aws:cloudfront/originAccessControl:OriginAccessControl example E327GJI25M56DG
+        ```
 
         :param str resource_name: The name of the resource.
         :param OriginAccessControlArgs args: The arguments to use to populate this resource's properties.

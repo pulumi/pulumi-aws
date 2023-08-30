@@ -311,11 +311,11 @@ class VirtualRouter(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import App Mesh virtual routers using `mesh_name` together with the virtual router's `name`. For example:
 
-         to = aws_appmesh_virtual_router.serviceb
-
-         id = "simpleapp/serviceB" } Using `pulumi import`, import App Mesh virtual routers using `mesh_name` together with the virtual router's `name`. For exampleconsole % pulumi import aws_appmesh_virtual_router.serviceb simpleapp/serviceB
+        ```sh
+         $ pulumi import aws:appmesh/virtualRouter:VirtualRouter serviceb simpleapp/serviceB
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -364,11 +364,11 @@ class VirtualRouter(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import App Mesh virtual routers using `mesh_name` together with the virtual router's `name`. For example:
 
-         to = aws_appmesh_virtual_router.serviceb
-
-         id = "simpleapp/serviceB" } Using `pulumi import`, import App Mesh virtual routers using `mesh_name` together with the virtual router's `name`. For exampleconsole % pulumi import aws_appmesh_virtual_router.serviceb simpleapp/serviceB
+        ```sh
+         $ pulumi import aws:appmesh/virtualRouter:VirtualRouter serviceb simpleapp/serviceB
+        ```
 
         :param str resource_name: The name of the resource.
         :param VirtualRouterArgs args: The arguments to use to populate this resource's properties.

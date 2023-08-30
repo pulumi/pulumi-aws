@@ -180,11 +180,11 @@ class LifecyclePolicy(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import ECR Lifecycle Policy using the name of the repository. For example:
 
-         to = aws_ecr_lifecycle_policy.example
-
-         id = "tf-example" } Using `pulumi import`, import ECR Lifecycle Policy using the name of the repository. For exampleconsole % pulumi import aws_ecr_lifecycle_policy.example tf-example
+        ```sh
+         $ pulumi import aws:ecr/lifecyclePolicy:LifecyclePolicy example tf-example
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -264,11 +264,11 @@ class LifecyclePolicy(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import ECR Lifecycle Policy using the name of the repository. For example:
 
-         to = aws_ecr_lifecycle_policy.example
-
-         id = "tf-example" } Using `pulumi import`, import ECR Lifecycle Policy using the name of the repository. For exampleconsole % pulumi import aws_ecr_lifecycle_policy.example tf-example
+        ```sh
+         $ pulumi import aws:ecr/lifecyclePolicy:LifecyclePolicy example tf-example
+        ```
 
         :param str resource_name: The name of the resource.
         :param LifecyclePolicyArgs args: The arguments to use to populate this resource's properties.

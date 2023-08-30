@@ -92,11 +92,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import SSM Parameters using the parameter store `name`. For example:
 //
-//	to = aws_ssm_parameter.my_param
+// ```sh
 //
-//	id = "/my_path/my_paramname" } Using `pulumi import`, import SSM Parameters using the parameter store `name`. For exampleconsole % pulumi import aws_ssm_parameter.my_param /my_path/my_paramname
+//	$ pulumi import aws:ssm/parameter:Parameter my_param /my_path/my_paramname
+//
+// ```
 type Parameter struct {
 	pulumi.CustomResourceState
 

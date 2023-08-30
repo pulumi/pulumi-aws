@@ -53,11 +53,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import `aws_lightsail_lb_certificate` using the id attribute. For example:
 //
-//	to = aws_lightsail_lb_certificate.test
+// ```sh
 //
-//	id = "example-load-balancer,example-load-balancer-certificate" } Using `pulumi import`, import `aws_lightsail_lb_certificate` using the id attribute. For exampleconsole % pulumi import aws_lightsail_lb_certificate.test example-load-balancer,example-load-balancer-certificate
+//	$ pulumi import aws:lightsail/lbCertificate:LbCertificate test example-load-balancer,example-load-balancer-certificate
+//
+// ```
 type LbCertificate struct {
 	pulumi.CustomResourceState
 

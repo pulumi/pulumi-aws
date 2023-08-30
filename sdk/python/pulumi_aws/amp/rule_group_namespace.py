@@ -152,11 +152,11 @@ class RuleGroupNamespace(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import the prometheus rule group namespace using the arn. For example:
 
-         to = aws_prometheus_rule_group_namespace.demo
-
-         id = "arn:aws:aps:us-west-2:123456789012:rulegroupsnamespace/IDstring/namespace_name" } Using `pulumi import`, import the prometheus rule group namespace using the arn. For exampleconsole % pulumi import aws_prometheus_rule_group_namespace.demo arn:aws:aps:us-west-2:123456789012:rulegroupsnamespace/IDstring/namespace_name
+        ```sh
+         $ pulumi import aws:amp/ruleGroupNamespace:RuleGroupNamespace demo arn:aws:aps:us-west-2:123456789012:rulegroupsnamespace/IDstring/namespace_name
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -192,11 +192,11 @@ class RuleGroupNamespace(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import the prometheus rule group namespace using the arn. For example:
 
-         to = aws_prometheus_rule_group_namespace.demo
-
-         id = "arn:aws:aps:us-west-2:123456789012:rulegroupsnamespace/IDstring/namespace_name" } Using `pulumi import`, import the prometheus rule group namespace using the arn. For exampleconsole % pulumi import aws_prometheus_rule_group_namespace.demo arn:aws:aps:us-west-2:123456789012:rulegroupsnamespace/IDstring/namespace_name
+        ```sh
+         $ pulumi import aws:amp/ruleGroupNamespace:RuleGroupNamespace demo arn:aws:aps:us-west-2:123456789012:rulegroupsnamespace/IDstring/namespace_name
+        ```
 
         :param str resource_name: The name of the resource.
         :param RuleGroupNamespaceArgs args: The arguments to use to populate this resource's properties.

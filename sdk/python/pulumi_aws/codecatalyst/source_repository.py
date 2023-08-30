@@ -188,11 +188,13 @@ class SourceRepository(pulumi.CustomResource):
 
         ## Import
 
-        For exampleterraform import {
+        For example:
 
-         to = aws_codecatalyst_source_repository.example
+        Using `pulumi import`, import CodeCatalyst Source Repository using the `example_id_arg`. For example:
 
-         id = "source_repository-id-12345678" } Using `pulumi import`, import CodeCatalyst Source Repository using the `example_id_arg`. For exampleconsole % pulumi import aws_codecatalyst_source_repository.example source_repository-id-12345678
+        ```sh
+         $ pulumi import aws:codecatalyst/sourceRepository:SourceRepository example source_repository-id-12345678
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -226,11 +228,13 @@ class SourceRepository(pulumi.CustomResource):
 
         ## Import
 
-        For exampleterraform import {
+        For example:
 
-         to = aws_codecatalyst_source_repository.example
+        Using `pulumi import`, import CodeCatalyst Source Repository using the `example_id_arg`. For example:
 
-         id = "source_repository-id-12345678" } Using `pulumi import`, import CodeCatalyst Source Repository using the `example_id_arg`. For exampleconsole % pulumi import aws_codecatalyst_source_repository.example source_repository-id-12345678
+        ```sh
+         $ pulumi import aws:codecatalyst/sourceRepository:SourceRepository example source_repository-id-12345678
+        ```
 
         :param str resource_name: The name of the resource.
         :param SourceRepositoryArgs args: The arguments to use to populate this resource's properties.

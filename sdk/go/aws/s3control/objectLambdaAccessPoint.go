@@ -68,11 +68,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Object Lambda Access Points using the `account_id` and `name`, separated by a colon (`:`). For example:
 //
-//	to = aws_s3control_object_lambda_access_point.example
+// ```sh
 //
-//	id = "123456789012:example" } Using `pulumi import`, import Object Lambda Access Points using the `account_id` and `name`, separated by a colon (`:`). For exampleconsole % pulumi import aws_s3control_object_lambda_access_point.example 123456789012:example
+//	$ pulumi import aws:s3control/objectLambdaAccessPoint:ObjectLambdaAccessPoint example 123456789012:example
+//
+// ```
 type ObjectLambdaAccessPoint struct {
 	pulumi.CustomResourceState
 

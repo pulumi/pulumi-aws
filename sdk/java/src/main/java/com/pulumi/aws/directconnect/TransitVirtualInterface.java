@@ -63,11 +63,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Direct Connect transit virtual interfaces using the VIF `id`. For example:
  * 
- *  to = aws_dx_transit_virtual_interface.test
- * 
- *  id = &#34;dxvif-33cc44dd&#34; } Using `pulumi import`, import Direct Connect transit virtual interfaces using the VIF `id`. For exampleconsole % pulumi import aws_dx_transit_virtual_interface.test dxvif-33cc44dd
+ * ```sh
+ *  $ pulumi import aws:directconnect/transitVirtualInterface:TransitVirtualInterface test dxvif-33cc44dd
+ * ```
  * 
  */
 @ResourceType(type="aws:directconnect/transitVirtualInterface:TransitVirtualInterface")

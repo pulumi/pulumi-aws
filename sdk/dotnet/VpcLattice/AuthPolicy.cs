@@ -61,11 +61,11 @@ namespace Pulumi.Aws.VpcLattice
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import VPC Lattice Auth Policy using the `example_id_arg`. For example:
     /// 
-    ///  to = aws_vpclattice_auth_policy.example
-    /// 
-    ///  id = "rft-8012925589" } Using `pulumi import`, import VPC Lattice Auth Policy using the `example_id_arg`. For exampleconsole % pulumi import aws_vpclattice_auth_policy.example rft-8012925589
+    /// ```sh
+    ///  $ pulumi import aws:vpclattice/authPolicy:AuthPolicy example rft-8012925589
+    /// ```
     /// </summary>
     [AwsResourceType("aws:vpclattice/authPolicy:AuthPolicy")]
     public partial class AuthPolicy : global::Pulumi.CustomResource

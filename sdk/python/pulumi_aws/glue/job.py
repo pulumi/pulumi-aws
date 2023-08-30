@@ -760,11 +760,11 @@ class Job(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Glue Jobs using `name`. For example:
 
-         to = aws_glue_job.MyJob
-
-         id = "MyJob" } Using `pulumi import`, import Glue Jobs using `name`. For exampleconsole % pulumi import aws_glue_job.MyJob MyJob
+        ```sh
+         $ pulumi import aws:glue/job:Job MyJob MyJob
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -879,11 +879,11 @@ class Job(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Glue Jobs using `name`. For example:
 
-         to = aws_glue_job.MyJob
-
-         id = "MyJob" } Using `pulumi import`, import Glue Jobs using `name`. For exampleconsole % pulumi import aws_glue_job.MyJob MyJob
+        ```sh
+         $ pulumi import aws:glue/job:Job MyJob MyJob
+        ```
 
         :param str resource_name: The name of the resource.
         :param JobArgs args: The arguments to use to populate this resource's properties.

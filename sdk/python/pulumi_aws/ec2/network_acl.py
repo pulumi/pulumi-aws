@@ -292,11 +292,11 @@ class NetworkAcl(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Network ACLs using the `id`. For example:
 
-         to = aws_network_acl.main
-
-         id = "acl-7aaabd18" } Using `pulumi import`, import Network ACLs using the `id`. For exampleconsole % pulumi import aws_network_acl.main acl-7aaabd18
+        ```sh
+         $ pulumi import aws:ec2/networkAcl:NetworkAcl main acl-7aaabd18
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -357,11 +357,11 @@ class NetworkAcl(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Network ACLs using the `id`. For example:
 
-         to = aws_network_acl.main
-
-         id = "acl-7aaabd18" } Using `pulumi import`, import Network ACLs using the `id`. For exampleconsole % pulumi import aws_network_acl.main acl-7aaabd18
+        ```sh
+         $ pulumi import aws:ec2/networkAcl:NetworkAcl main acl-7aaabd18
+        ```
 
         :param str resource_name: The name of the resource.
         :param NetworkAclArgs args: The arguments to use to populate this resource's properties.

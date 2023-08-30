@@ -300,11 +300,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Application AutoScaling Policy using the `service-namespace` , `resource-id`, `scalable-dimension` and `policy-name` separated by `/`. For example:
  * 
- *  to = aws_appautoscaling_policy.test-policy
- * 
- *  id = &#34;service-namespace/resource-id/scalable-dimension/policy-name&#34; } Using `pulumi import`, import Application AutoScaling Policy using the `service-namespace` , `resource-id`, `scalable-dimension` and `policy-name` separated by `/`. For exampleconsole % pulumi import aws_appautoscaling_policy.test-policy service-namespace/resource-id/scalable-dimension/policy-name
+ * ```sh
+ *  $ pulumi import aws:appautoscaling/policy:Policy test-policy service-namespace/resource-id/scalable-dimension/policy-name
+ * ```
  * 
  */
 @ResourceType(type="aws:appautoscaling/policy:Policy")

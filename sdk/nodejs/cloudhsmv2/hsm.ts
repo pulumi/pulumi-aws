@@ -26,11 +26,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import HSM modules using their HSM ID. For example:
  *
- *  to = aws_cloudhsm_v2_hsm.bar
- *
- *  id = "hsm-quo8dahtaca" } Using `pulumi import`, import HSM modules using their HSM ID. For exampleconsole % pulumi import aws_cloudhsm_v2_hsm.bar hsm-quo8dahtaca
+ * ```sh
+ *  $ pulumi import aws:cloudhsmv2/hsm:Hsm bar hsm-quo8dahtaca
+ * ```
  */
 export class Hsm extends pulumi.CustomResource {
     /**

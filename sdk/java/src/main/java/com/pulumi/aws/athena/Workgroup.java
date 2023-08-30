@@ -65,11 +65,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Athena Workgroups using their name. For example:
  * 
- *  to = aws_athena_workgroup.example
- * 
- *  id = &#34;example&#34; } Using `pulumi import`, import Athena Workgroups using their name. For exampleconsole % pulumi import aws_athena_workgroup.example example
+ * ```sh
+ *  $ pulumi import aws:athena/workgroup:Workgroup example example
+ * ```
  * 
  */
 @ResourceType(type="aws:athena/workgroup:Workgroup")

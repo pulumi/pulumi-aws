@@ -251,11 +251,11 @@ class RouteCalculation(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_location_route_calculator` using the route calculator name. For example:
 
-         to = aws_location_route_calculator.example
-
-         id = "example" } Using `pulumi import`, import `aws_location_route_calculator` using the route calculator name. For exampleconsole % pulumi import aws_location_route_calculator.example example
+        ```sh
+         $ pulumi import aws:location/routeCalculation:RouteCalculation example example
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -288,11 +288,11 @@ class RouteCalculation(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_location_route_calculator` using the route calculator name. For example:
 
-         to = aws_location_route_calculator.example
-
-         id = "example" } Using `pulumi import`, import `aws_location_route_calculator` using the route calculator name. For exampleconsole % pulumi import aws_location_route_calculator.example example
+        ```sh
+         $ pulumi import aws:location/routeCalculation:RouteCalculation example example
+        ```
 
         :param str resource_name: The name of the resource.
         :param RouteCalculationArgs args: The arguments to use to populate this resource's properties.

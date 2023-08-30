@@ -64,11 +64,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import `aws_kendra_faq` using the unique identifiers of the FAQ and index separated by a slash (`/`). For example:
  *
- *  to = aws_kendra_faq.example
- *
- *  id = "faq-123456780/idx-8012925589" } Using `pulumi import`, import `aws_kendra_faq` using the unique identifiers of the FAQ and index separated by a slash (`/`). For exampleconsole % pulumi import aws_kendra_faq.example faq-123456780/idx-8012925589
+ * ```sh
+ *  $ pulumi import aws:kendra/faq:Faq example faq-123456780/idx-8012925589
+ * ```
  */
 export class Faq extends pulumi.CustomResource {
     /**

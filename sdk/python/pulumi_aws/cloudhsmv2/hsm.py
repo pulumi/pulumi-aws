@@ -231,11 +231,11 @@ class Hsm(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import HSM modules using their HSM ID. For example:
 
-         to = aws_cloudhsm_v2_hsm.bar
-
-         id = "hsm-quo8dahtaca" } Using `pulumi import`, import HSM modules using their HSM ID. For exampleconsole % pulumi import aws_cloudhsm_v2_hsm.bar hsm-quo8dahtaca
+        ```sh
+         $ pulumi import aws:cloudhsmv2/hsm:Hsm bar hsm-quo8dahtaca
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -269,11 +269,11 @@ class Hsm(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import HSM modules using their HSM ID. For example:
 
-         to = aws_cloudhsm_v2_hsm.bar
-
-         id = "hsm-quo8dahtaca" } Using `pulumi import`, import HSM modules using their HSM ID. For exampleconsole % pulumi import aws_cloudhsm_v2_hsm.bar hsm-quo8dahtaca
+        ```sh
+         $ pulumi import aws:cloudhsmv2/hsm:Hsm bar hsm-quo8dahtaca
+        ```
 
         :param str resource_name: The name of the resource.
         :param HsmArgs args: The arguments to use to populate this resource's properties.

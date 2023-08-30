@@ -580,11 +580,11 @@ class Resolver(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_appsync_resolver` using the `api_id`, a hyphen, `type`, a hypen and `field`. For example:
 
-         to = aws_appsync_resolver.example
-
-         id = "abcdef123456-exampleType-exampleField" } Using `pulumi import`, import `aws_appsync_resolver` using the `api_id`, a hyphen, `type`, a hypen and `field`. For exampleconsole % pulumi import aws_appsync_resolver.example abcdef123456-exampleType-exampleField
+        ```sh
+         $ pulumi import aws:appsync/resolver:Resolver example abcdef123456-exampleType-exampleField
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -711,11 +711,11 @@ class Resolver(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_appsync_resolver` using the `api_id`, a hyphen, `type`, a hypen and `field`. For example:
 
-         to = aws_appsync_resolver.example
-
-         id = "abcdef123456-exampleType-exampleField" } Using `pulumi import`, import `aws_appsync_resolver` using the `api_id`, a hyphen, `type`, a hypen and `field`. For exampleconsole % pulumi import aws_appsync_resolver.example abcdef123456-exampleType-exampleField
+        ```sh
+         $ pulumi import aws:appsync/resolver:Resolver example abcdef123456-exampleType-exampleField
+        ```
 
         :param str resource_name: The name of the resource.
         :param ResolverArgs args: The arguments to use to populate this resource's properties.

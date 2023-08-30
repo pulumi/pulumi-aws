@@ -219,11 +219,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import ECS services using the `name` together with ecs cluster `name`. For example:
  * 
- *  to = aws_ecs_service.imported
- * 
- *  id = &#34;cluster-name/service-name&#34; } Using `pulumi import`, import ECS services using the `name` together with ecs cluster `name`. For exampleconsole % pulumi import aws_ecs_service.imported cluster-name/service-name
+ * ```sh
+ *  $ pulumi import aws:ecs/service:Service imported cluster-name/service-name
+ * ```
  * 
  */
 @ResourceType(type="aws:ecs/service:Service")

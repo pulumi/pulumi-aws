@@ -48,11 +48,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import KMS aliases using the `name`. For example:
 //
-//	to = aws_kms_alias.a
+// ```sh
 //
-//	id = "alias/my-key-alias" } Using `pulumi import`, import KMS aliases using the `name`. For exampleconsole % pulumi import aws_kms_alias.a alias/my-key-alias
+//	$ pulumi import aws:kms/alias:Alias a alias/my-key-alias
+//
+// ```
 type Alias struct {
 	pulumi.CustomResourceState
 

@@ -74,11 +74,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import Cloudfront Origin Access Identities using the `id`. For example:
  *
- *  to = aws_cloudfront_origin_access_identity.origin_access
- *
- *  id = "E74FTE3AEXAMPLE" } Using `pulumi import`, import Cloudfront Origin Access Identities using the `id`. For exampleconsole % pulumi import aws_cloudfront_origin_access_identity.origin_access E74FTE3AEXAMPLE
+ * ```sh
+ *  $ pulumi import aws:cloudfront/originAccessIdentity:OriginAccessIdentity origin_access E74FTE3AEXAMPLE
+ * ```
  */
 export class OriginAccessIdentity extends pulumi.CustomResource {
     /**

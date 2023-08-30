@@ -89,11 +89,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import AppConfig Extensions using their extension ID. For example:
 //
-//	to = aws_appconfig_extension.example
+// ```sh
 //
-//	id = "71rxuzt" } Using `pulumi import`, import AppConfig Extensions using their extension ID. For exampleconsole % pulumi import aws_appconfig_extension.example 71rxuzt
+//	$ pulumi import aws:appconfig/extension:Extension example 71rxuzt
+//
+// ```
 type Extension struct {
 	pulumi.CustomResourceState
 

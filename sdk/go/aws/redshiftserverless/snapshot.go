@@ -43,11 +43,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Redshift Serverless Snapshots using the `snapshot_name`. For example:
 //
-//	to = aws_redshiftserverless_snapshot.example
+// ```sh
 //
-//	id = "example" } Using `pulumi import`, import Redshift Serverless Snapshots using the `snapshot_name`. For exampleconsole % pulumi import aws_redshiftserverless_snapshot.example example
+//	$ pulumi import aws:redshiftserverless/snapshot:Snapshot example example
+//
+// ```
 type Snapshot struct {
 	pulumi.CustomResourceState
 

@@ -273,11 +273,11 @@ class PlacementGroup(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import placement groups using the `name`. For example:
 
-         to = aws_placement_group.prod_pg
-
-         id = "production-placement-group" } Using `pulumi import`, import placement groups using the `name`. For exampleconsole % pulumi import aws_placement_group.prod_pg production-placement-group
+        ```sh
+         $ pulumi import aws:ec2/placementGroup:PlacementGroup prod_pg production-placement-group
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -311,11 +311,11 @@ class PlacementGroup(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import placement groups using the `name`. For example:
 
-         to = aws_placement_group.prod_pg
-
-         id = "production-placement-group" } Using `pulumi import`, import placement groups using the `name`. For exampleconsole % pulumi import aws_placement_group.prod_pg production-placement-group
+        ```sh
+         $ pulumi import aws:ec2/placementGroup:PlacementGroup prod_pg production-placement-group
+        ```
 
         :param str resource_name: The name of the resource.
         :param PlacementGroupArgs args: The arguments to use to populate this resource's properties.

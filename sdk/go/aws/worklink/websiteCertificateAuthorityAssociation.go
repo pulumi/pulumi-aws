@@ -55,11 +55,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import WorkLink Website Certificate Authority using `FLEET-ARN,WEBSITE-CA-ID`. For example:
 //
-//	to = aws_worklink_website_certificate_authority_association.example
+// ```sh
 //
-//	id = "arn:aws:worklink::123456789012:fleet/example,abcdefghijk" } Using `pulumi import`, import WorkLink Website Certificate Authority using `FLEET-ARN,WEBSITE-CA-ID`. For exampleconsole % pulumi import aws_worklink_website_certificate_authority_association.example arn:aws:worklink::123456789012:fleet/example,abcdefghijk
+//	$ pulumi import aws:worklink/websiteCertificateAuthorityAssociation:WebsiteCertificateAuthorityAssociation example arn:aws:worklink::123456789012:fleet/example,abcdefghijk
+//
+// ```
 type WebsiteCertificateAuthorityAssociation struct {
 	pulumi.CustomResourceState
 

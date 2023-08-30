@@ -130,11 +130,11 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import Redshift Scheduled Action using the `name`. For example:
     /// 
-    ///  to = aws_redshift_scheduled_action.example
-    /// 
-    ///  id = "tf-redshift-scheduled-action" } Using `pulumi import`, import Redshift Scheduled Action using the `name`. For exampleconsole % pulumi import aws_redshift_scheduled_action.example tf-redshift-scheduled-action
+    /// ```sh
+    ///  $ pulumi import aws:redshift/scheduledAction:ScheduledAction example tf-redshift-scheduled-action
+    /// ```
     /// </summary>
     [AwsResourceType("aws:redshift/scheduledAction:ScheduledAction")]
     public partial class ScheduledAction : global::Pulumi.CustomResource

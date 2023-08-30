@@ -51,11 +51,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Route53 Recovery Readiness recovery groups using the recovery group name. For example:
  * 
- *  to = aws_route53recoveryreadiness_recovery_group.my-high-availability-app
- * 
- *  id = &#34;my-high-availability-app&#34; } Using `pulumi import`, import Route53 Recovery Readiness recovery groups using the recovery group name. For exampleconsole % pulumi import aws_route53recoveryreadiness_recovery_group.my-high-availability-app my-high-availability-app
+ * ```sh
+ *  $ pulumi import aws:route53recoveryreadiness/recoveryGroup:RecoveryGroup my-high-availability-app my-high-availability-app
+ * ```
  * 
  */
 @ResourceType(type="aws:route53recoveryreadiness/recoveryGroup:RecoveryGroup")

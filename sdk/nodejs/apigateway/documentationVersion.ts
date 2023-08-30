@@ -32,11 +32,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import API Gateway documentation versions using `REST-API-ID/VERSION`. For example:
  *
- *  to = aws_api_gateway_documentation_version.example
- *
- *  id = "5i4e1ko720/example-version" } Using `pulumi import`, import API Gateway documentation versions using `REST-API-ID/VERSION`. For exampleconsole % pulumi import aws_api_gateway_documentation_version.example 5i4e1ko720/example-version
+ * ```sh
+ *  $ pulumi import aws:apigateway/documentationVersion:DocumentationVersion example 5i4e1ko720/example-version
+ * ```
  */
 export class DocumentationVersion extends pulumi.CustomResource {
     /**

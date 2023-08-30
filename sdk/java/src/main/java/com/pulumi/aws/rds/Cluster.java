@@ -421,11 +421,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import RDS Clusters using the `cluster_identifier`. For example:
  * 
- *  to = aws_rds_cluster.aurora_cluster
- * 
- *  id = &#34;aurora-prod-cluster&#34; } Using `pulumi import`, import RDS Clusters using the `cluster_identifier`. For exampleconsole % pulumi import aws_rds_cluster.aurora_cluster aurora-prod-cluster
+ * ```sh
+ *  $ pulumi import aws:rds/cluster:Cluster aurora_cluster aurora-prod-cluster
+ * ```
  * 
  */
 @ResourceType(type="aws:rds/cluster:Cluster")

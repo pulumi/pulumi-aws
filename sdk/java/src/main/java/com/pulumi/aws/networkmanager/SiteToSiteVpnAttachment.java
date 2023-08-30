@@ -53,11 +53,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import `aws_networkmanager_site_to_site_vpn_attachment` using the attachment ID. For example:
  * 
- *  to = aws_networkmanager_site_to_site_vpn_attachment.example
- * 
- *  id = &#34;attachment-0f8fa60d2238d1bd8&#34; } Using `pulumi import`, import `aws_networkmanager_site_to_site_vpn_attachment` using the attachment ID. For exampleconsole % pulumi import aws_networkmanager_site_to_site_vpn_attachment.example attachment-0f8fa60d2238d1bd8
+ * ```sh
+ *  $ pulumi import aws:networkmanager/siteToSiteVpnAttachment:SiteToSiteVpnAttachment example attachment-0f8fa60d2238d1bd8
+ * ```
  * 
  */
 @ResourceType(type="aws:networkmanager/siteToSiteVpnAttachment:SiteToSiteVpnAttachment")

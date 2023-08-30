@@ -259,11 +259,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import `aws_api_gateway_method_settings` using `REST-API-ID/STAGE-NAME/METHOD-PATH`. For example:
 //
-//	to = aws_api_gateway_method_settings.example
+// ```sh
 //
-//	id = "12345abcde/example/test/GET" } Using `pulumi import`, import `aws_api_gateway_method_settings` using `REST-API-ID/STAGE-NAME/METHOD-PATH`. For exampleconsole % pulumi import aws_api_gateway_method_settings.example 12345abcde/example/test/GET
+//	$ pulumi import aws:apigateway/methodSettings:MethodSettings example 12345abcde/example/test/GET
+//
+// ```
 type MethodSettings struct {
 	pulumi.CustomResourceState
 

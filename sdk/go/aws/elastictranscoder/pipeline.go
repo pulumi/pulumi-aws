@@ -51,11 +51,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Elastic Transcoder pipelines using the `id`. For example:
 //
-//	to = aws_elastictranscoder_pipeline.basic_pipeline
+// ```sh
 //
-//	id = "1407981661351-cttk8b" } Using `pulumi import`, import Elastic Transcoder pipelines using the `id`. For exampleconsole % pulumi import aws_elastictranscoder_pipeline.basic_pipeline 1407981661351-cttk8b
+//	$ pulumi import aws:elastictranscoder/pipeline:Pipeline basic_pipeline 1407981661351-cttk8b
+//
+// ```
 type Pipeline struct {
 	pulumi.CustomResourceState
 

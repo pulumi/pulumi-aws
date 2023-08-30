@@ -248,11 +248,11 @@ class VirtualMfaDevice(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import IAM Virtual MFA Devices using the `arn`. For example:
 
-         to = aws_iam_virtual_mfa_device.example
-
-         id = "arn:aws:iam::123456789012:mfa/example" } Using `pulumi import`, import IAM Virtual MFA Devices using the `arn`. For exampleconsole % pulumi import aws_iam_virtual_mfa_device.example arn:aws:iam::123456789012:mfa/example
+        ```sh
+         $ pulumi import aws:iam/virtualMfaDevice:VirtualMfaDevice example arn:aws:iam::123456789012:mfa/example
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -287,11 +287,11 @@ class VirtualMfaDevice(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import IAM Virtual MFA Devices using the `arn`. For example:
 
-         to = aws_iam_virtual_mfa_device.example
-
-         id = "arn:aws:iam::123456789012:mfa/example" } Using `pulumi import`, import IAM Virtual MFA Devices using the `arn`. For exampleconsole % pulumi import aws_iam_virtual_mfa_device.example arn:aws:iam::123456789012:mfa/example
+        ```sh
+         $ pulumi import aws:iam/virtualMfaDevice:VirtualMfaDevice example arn:aws:iam::123456789012:mfa/example
+        ```
 
         :param str resource_name: The name of the resource.
         :param VirtualMfaDeviceArgs args: The arguments to use to populate this resource's properties.

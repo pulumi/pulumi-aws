@@ -71,11 +71,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import `aws_apigatewayv2_api` using the API identifier. For example:
 //
-//	to = aws_apigatewayv2_api.example
+// ```sh
 //
-//	id = "aabbccddee" } Using `pulumi import`, import `aws_apigatewayv2_api` using the API identifier. For exampleconsole % pulumi import aws_apigatewayv2_api.example aabbccddee
+//	$ pulumi import aws:apigatewayv2/api:Api example aabbccddee
+//
+// ```
 type Api struct {
 	pulumi.CustomResourceState
 

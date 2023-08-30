@@ -322,11 +322,11 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_networkmanager_transit_gateway_route_table_attachment` using the attachment ID. For example:
 
-         to = aws_networkmanager_transit_gateway_route_table_attachment.example
-
-         id = "attachment-0f8fa60d2238d1bd8" } Using `pulumi import`, import `aws_networkmanager_transit_gateway_route_table_attachment` using the attachment ID. For exampleconsole % pulumi import aws_networkmanager_transit_gateway_route_table_attachment.example attachment-0f8fa60d2238d1bd8
+        ```sh
+         $ pulumi import aws:networkmanager/transitGatewayRouteTableAttachment:TransitGatewayRouteTableAttachment example attachment-0f8fa60d2238d1bd8
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -356,11 +356,11 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_networkmanager_transit_gateway_route_table_attachment` using the attachment ID. For example:
 
-         to = aws_networkmanager_transit_gateway_route_table_attachment.example
-
-         id = "attachment-0f8fa60d2238d1bd8" } Using `pulumi import`, import `aws_networkmanager_transit_gateway_route_table_attachment` using the attachment ID. For exampleconsole % pulumi import aws_networkmanager_transit_gateway_route_table_attachment.example attachment-0f8fa60d2238d1bd8
+        ```sh
+         $ pulumi import aws:networkmanager/transitGatewayRouteTableAttachment:TransitGatewayRouteTableAttachment example attachment-0f8fa60d2238d1bd8
+        ```
 
         :param str resource_name: The name of the resource.
         :param TransitGatewayRouteTableAttachmentArgs args: The arguments to use to populate this resource's properties.

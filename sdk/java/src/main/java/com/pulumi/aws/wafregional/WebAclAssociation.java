@@ -239,11 +239,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import WAF Regional Web ACL Association using their `web_acl_id:resource_arn`. For example:
  * 
- *  to = aws_wafregional_web_acl_association.foo
- * 
- *  id = &#34;web_acl_id:resource_arn&#34; } Using `pulumi import`, import WAF Regional Web ACL Association using their `web_acl_id:resource_arn`. For exampleconsole % pulumi import aws_wafregional_web_acl_association.foo web_acl_id:resource_arn
+ * ```sh
+ *  $ pulumi import aws:wafregional/webAclAssociation:WebAclAssociation foo web_acl_id:resource_arn
+ * ```
  * 
  */
 @ResourceType(type="aws:wafregional/webAclAssociation:WebAclAssociation")

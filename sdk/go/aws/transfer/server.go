@@ -274,11 +274,15 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Transfer Servers using the server `id`. For example:
 //
-//	to = aws_transfer_server.example
+// ```sh
 //
-//	id = "s-12345678" } Using `pulumi import`, import Transfer Servers using the server `id`. For exampleconsole % pulumi import aws_transfer_server.example s-12345678 Certain resource arguments, such as `host_key`, cannot be read via the API and imported into the provider. This provider will display a difference for these arguments the first run after import if declared in the provider configuration for an imported resource.
+//	$ pulumi import aws:transfer/server:Server example s-12345678
+//
+// ```
+//
+//	Certain resource arguments, such as `host_key`, cannot be read via the API and imported into the provider. This provider will display a difference for these arguments the first run after import if declared in the provider configuration for an imported resource.
 type Server struct {
 	pulumi.CustomResourceState
 

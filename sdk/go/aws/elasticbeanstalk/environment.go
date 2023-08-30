@@ -110,11 +110,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Elastic Beanstalk Environments using the `id`. For example:
 //
-//	to = aws_elastic_beanstalk_environment.prodenv
+// ```sh
 //
-//	id = "e-rpqsewtp2j" } Using `pulumi import`, import Elastic Beanstalk Environments using the `id`. For exampleconsole % pulumi import aws_elastic_beanstalk_environment.prodenv e-rpqsewtp2j
+//	$ pulumi import aws:elasticbeanstalk/environment:Environment prodenv e-rpqsewtp2j
+//
+// ```
 type Environment struct {
 	pulumi.CustomResourceState
 

@@ -83,21 +83,12 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import VPC Peering Connection Accepters using the Peering Connection ID. For example:
     /// 
-    ///  to = aws_vpc_peering_connection_accepter.example
-    /// 
-    ///  id = "pcx-12345678" } Using `pulumi import`, import VPC Peering Connection Accepters using the Peering Connection ID. For exampleconsole % pulumi import aws_vpc_peering_connection_accepter.example pcx-12345678 Certain resource arguments, like `auto_accept`, do not have an EC2 API method for reading the information after peering connection creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For exampleterraform resource "aws_vpc_peering_connection_accepter" "example" {
-    /// 
-    /// # ... other configuration ...
-    /// 
-    /// # There is no AWS EC2 API for reading auto_accept
-    /// 
-    ///  lifecycle {
-    /// 
-    ///  ignore_changes = [auto_accept]
-    /// 
-    ///  } }
+    /// ```sh
+    ///  $ pulumi import aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter example pcx-12345678
+    /// ```
+    ///  Certain resource arguments, like `auto_accept`, do not have an EC2 API method for reading the information after peering connection creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
     /// </summary>
     [AwsResourceType("aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter")]
     public partial class VpcPeeringConnectionAccepter : global::Pulumi.CustomResource

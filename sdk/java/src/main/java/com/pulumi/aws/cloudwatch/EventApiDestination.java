@@ -56,11 +56,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import EventBridge API Destinations using the `name`. For example:
  * 
- *  to = aws_cloudwatch_event_api_destination.test
- * 
- *  id = &#34;api-destination&#34; } Using `pulumi import`, import EventBridge API Destinations using the `name`. For exampleconsole % pulumi import aws_cloudwatch_event_api_destination.test api-destination
+ * ```sh
+ *  $ pulumi import aws:cloudwatch/eventApiDestination:EventApiDestination test api-destination
+ * ```
  * 
  */
 @ResourceType(type="aws:cloudwatch/eventApiDestination:EventApiDestination")

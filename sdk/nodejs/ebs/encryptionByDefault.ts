@@ -20,11 +20,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import the default EBS encryption state. For example:
  *
- *  to = aws_ebs_encryption_by_default.example
- *
- *  id = "default" } Using `pulumi import`, import the default EBS encryption state. For exampleconsole % pulumi import aws_ebs_encryption_by_default.example default
+ * ```sh
+ *  $ pulumi import aws:ebs/encryptionByDefault:EncryptionByDefault example default
+ * ```
  */
 export class EncryptionByDefault extends pulumi.CustomResource {
     /**

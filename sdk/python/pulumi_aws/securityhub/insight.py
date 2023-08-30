@@ -247,11 +247,11 @@ class Insight(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Security Hub insights using the ARN. For example:
 
-         to = aws_securityhub_insight.example
-
-         id = "arn:aws:securityhub:us-west-2:1234567890:insight/1234567890/custom/91299ed7-abd0-4e44-a858-d0b15e37141a" } Using `pulumi import`, import Security Hub insights using the ARN. For exampleconsole % pulumi import aws_securityhub_insight.example arn:aws:securityhub:us-west-2:1234567890:insight/1234567890/custom/91299ed7-abd0-4e44-a858-d0b15e37141a
+        ```sh
+         $ pulumi import aws:securityhub/insight:Insight example arn:aws:securityhub:us-west-2:1234567890:insight/1234567890/custom/91299ed7-abd0-4e44-a858-d0b15e37141a
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -364,11 +364,11 @@ class Insight(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Security Hub insights using the ARN. For example:
 
-         to = aws_securityhub_insight.example
-
-         id = "arn:aws:securityhub:us-west-2:1234567890:insight/1234567890/custom/91299ed7-abd0-4e44-a858-d0b15e37141a" } Using `pulumi import`, import Security Hub insights using the ARN. For exampleconsole % pulumi import aws_securityhub_insight.example arn:aws:securityhub:us-west-2:1234567890:insight/1234567890/custom/91299ed7-abd0-4e44-a858-d0b15e37141a
+        ```sh
+         $ pulumi import aws:securityhub/insight:Insight example arn:aws:securityhub:us-west-2:1234567890:insight/1234567890/custom/91299ed7-abd0-4e44-a858-d0b15e37141a
+        ```
 
         :param str resource_name: The name of the resource.
         :param InsightArgs args: The arguments to use to populate this resource's properties.

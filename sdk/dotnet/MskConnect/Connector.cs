@@ -96,11 +96,11 @@ namespace Pulumi.Aws.MskConnect
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import MSK Connect Connector using the connector's `arn`. For example:
     /// 
-    ///  to = aws_mskconnect_connector.example
-    /// 
-    ///  id = "arn:aws:kafkaconnect:eu-central-1:123456789012:connector/example/264edee4-17a3-412e-bd76-6681cfc93805-3" } Using `pulumi import`, import MSK Connect Connector using the connector's `arn`. For exampleconsole % pulumi import aws_mskconnect_connector.example 'arn:aws:kafkaconnect:eu-central-1:123456789012:connector/example/264edee4-17a3-412e-bd76-6681cfc93805-3'
+    /// ```sh
+    ///  $ pulumi import aws:mskconnect/connector:Connector example 'arn:aws:kafkaconnect:eu-central-1:123456789012:connector/example/264edee4-17a3-412e-bd76-6681cfc93805-3'
+    /// ```
     /// </summary>
     [AwsResourceType("aws:mskconnect/connector:Connector")]
     public partial class Connector : global::Pulumi.CustomResource

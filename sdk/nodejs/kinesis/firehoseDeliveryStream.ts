@@ -494,11 +494,12 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import Kinesis Firehose Delivery streams using the stream ARN. For example:
  *
- *  to = aws_kinesis_firehose_delivery_stream.foo
- *
- *  id = "arn:aws:firehose:us-east-1:XXX:deliverystream/example" } Using `pulumi import`, import Kinesis Firehose Delivery streams using the stream ARN. For exampleconsole % pulumi import aws_kinesis_firehose_delivery_stream.foo arn:aws:firehose:us-east-1:XXX:deliverystream/example NoteImport does not work for stream destination `s3`. Consider using `extended_s3` since `s3` destination is deprecated.
+ * ```sh
+ *  $ pulumi import aws:kinesis/firehoseDeliveryStream:FirehoseDeliveryStream foo arn:aws:firehose:us-east-1:XXX:deliverystream/example
+ * ```
+ *  NoteImport does not work for stream destination `s3`. Consider using `extended_s3` since `s3` destination is deprecated.
  */
 export class FirehoseDeliveryStream extends pulumi.CustomResource {
     /**

@@ -693,11 +693,11 @@ class Fleet(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_appstream_fleet` using the id. For example:
 
-         to = aws_appstream_fleet.example
-
-         id = "fleetNameExample" } Using `pulumi import`, import `aws_appstream_fleet` using the id. For exampleconsole % pulumi import aws_appstream_fleet.example fleetNameExample
+        ```sh
+         $ pulumi import aws:appstream/fleet:Fleet example fleetNameExample
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -758,11 +758,11 @@ class Fleet(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_appstream_fleet` using the id. For example:
 
-         to = aws_appstream_fleet.example
-
-         id = "fleetNameExample" } Using `pulumi import`, import `aws_appstream_fleet` using the id. For exampleconsole % pulumi import aws_appstream_fleet.example fleetNameExample
+        ```sh
+         $ pulumi import aws:appstream/fleet:Fleet example fleetNameExample
+        ```
 
         :param str resource_name: The name of the resource.
         :param FleetArgs args: The arguments to use to populate this resource's properties.

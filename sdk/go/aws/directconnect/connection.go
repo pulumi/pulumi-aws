@@ -101,11 +101,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Direct Connect connections using the connection `id`. For example:
 //
-//	to = aws_dx_connection.test_connection
+// ```sh
 //
-//	id = "dxcon-ffre0ec3" } Using `pulumi import`, import Direct Connect connections using the connection `id`. For exampleconsole % pulumi import aws_dx_connection.test_connection dxcon-ffre0ec3
+//	$ pulumi import aws:directconnect/connection:Connection test_connection dxcon-ffre0ec3
+//
+// ```
 type Connection struct {
 	pulumi.CustomResourceState
 

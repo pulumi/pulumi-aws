@@ -30,11 +30,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import EKS Clusters using the `id`. For example:
  *
- *  to = aws_emrcontainers_virtual_cluster.example
- *
- *  id = "a1b2c3d4e5f6g7h8i9j10k11l" } Using `pulumi import`, import EKS Clusters using the `id`. For exampleconsole % pulumi import aws_emrcontainers_virtual_cluster.example a1b2c3d4e5f6g7h8i9j10k11l
+ * ```sh
+ *  $ pulumi import aws:emrcontainers/virtualCluster:VirtualCluster example a1b2c3d4e5f6g7h8i9j10k11l
+ * ```
  */
 export class VirtualCluster extends pulumi.CustomResource {
     /**

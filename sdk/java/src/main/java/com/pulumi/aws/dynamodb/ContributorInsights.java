@@ -49,11 +49,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import `aws_dynamodb_contributor_insights` using the format `name:table_name/index:index_name`, followed by the account number. For example:
  * 
- *  to = aws_dynamodb_contributor_insights.test
- * 
- *  id = &#34;name:ExampleTableName/index:ExampleIndexName/123456789012&#34; } Using `pulumi import`, import `aws_dynamodb_contributor_insights` using the format `name:table_name/index:index_name`, followed by the account number. For exampleconsole % pulumi import aws_dynamodb_contributor_insights.test name:ExampleTableName/index:ExampleIndexName/123456789012
+ * ```sh
+ *  $ pulumi import aws:dynamodb/contributorInsights:ContributorInsights test name:ExampleTableName/index:ExampleIndexName/123456789012
+ * ```
  * 
  */
 @ResourceType(type="aws:dynamodb/contributorInsights:ContributorInsights")

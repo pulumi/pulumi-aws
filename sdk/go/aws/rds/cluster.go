@@ -377,11 +377,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import RDS Clusters using the `cluster_identifier`. For example:
 //
-//	to = aws_rds_cluster.aurora_cluster
+// ```sh
 //
-//	id = "aurora-prod-cluster" } Using `pulumi import`, import RDS Clusters using the `cluster_identifier`. For exampleconsole % pulumi import aws_rds_cluster.aurora_cluster aurora-prod-cluster
+//	$ pulumi import aws:rds/cluster:Cluster aurora_cluster aurora-prod-cluster
+//
+// ```
 type Cluster struct {
 	pulumi.CustomResourceState
 

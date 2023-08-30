@@ -34,11 +34,11 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import Redshift endpoint access using the `name`. For example:
     /// 
-    ///  to = aws_redshift_endpoint_access.example
-    /// 
-    ///  id = "example" } Using `pulumi import`, import Redshift endpoint access using the `name`. For exampleconsole % pulumi import aws_redshift_endpoint_access.example example
+    /// ```sh
+    ///  $ pulumi import aws:redshift/endpointAccess:EndpointAccess example example
+    /// ```
     /// </summary>
     [AwsResourceType("aws:redshift/endpointAccess:EndpointAccess")]
     public partial class EndpointAccess : global::Pulumi.CustomResource

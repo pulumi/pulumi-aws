@@ -84,11 +84,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Grafana Workspace SAML configuration using the workspace's `id`. For example:
 //
-//	to = aws_grafana_workspace_saml_configuration.example
+// ```sh
 //
-//	id = "g-2054c75a02" } Using `pulumi import`, import Grafana Workspace SAML configuration using the workspace's `id`. For exampleconsole % pulumi import aws_grafana_workspace_saml_configuration.example g-2054c75a02
+//	$ pulumi import aws:grafana/workspaceSamlConfiguration:WorkspaceSamlConfiguration example g-2054c75a02
+//
+// ```
 type WorkspaceSamlConfiguration struct {
 	pulumi.CustomResourceState
 

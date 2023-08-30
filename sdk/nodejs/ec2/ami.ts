@@ -40,11 +40,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import `aws_ami` using the ID of the AMI. For example:
  *
- *  to = aws_ami.example
- *
- *  id = "ami-12345678" } Using `pulumi import`, import `aws_ami` using the ID of the AMI. For exampleconsole % pulumi import aws_ami.example ami-12345678
+ * ```sh
+ *  $ pulumi import aws:ec2/ami:Ami example ami-12345678
+ * ```
  */
 export class Ami extends pulumi.CustomResource {
     /**

@@ -109,11 +109,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import CloudWatch Evidently Segment using the `arn`. For example:
 //
-//	to = aws_evidently_segment.example
+// ```sh
 //
-//	id = "arn:aws:evidently:us-west-2:123456789012:segment/example" } Using `pulumi import`, import CloudWatch Evidently Segment using the `arn`. For exampleconsole % pulumi import aws_evidently_segment.example arn:aws:evidently:us-west-2:123456789012:segment/example
+//	$ pulumi import aws:evidently/segment:Segment example arn:aws:evidently:us-west-2:123456789012:segment/example
+//
+// ```
 type Segment struct {
 	pulumi.CustomResourceState
 

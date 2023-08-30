@@ -90,11 +90,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Glue Catalog Databases using the `catalog_id:name`. If you have not set a Catalog ID specify the AWS Account ID that the database is in. For example:
  * 
- *  to = aws_glue_catalog_database.database
- * 
- *  id = &#34;123456789012:my_database&#34; } Using `pulumi import`, import Glue Catalog Databases using the `catalog_id:name`. If you have not set a Catalog ID specify the AWS Account ID that the database is in. For exampleconsole % pulumi import aws_glue_catalog_database.database 123456789012:my_database
+ * ```sh
+ *  $ pulumi import aws:glue/catalogDatabase:CatalogDatabase database 123456789012:my_database
+ * ```
  * 
  */
 @ResourceType(type="aws:glue/catalogDatabase:CatalogDatabase")

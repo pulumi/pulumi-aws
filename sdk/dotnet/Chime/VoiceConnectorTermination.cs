@@ -48,11 +48,11 @@ namespace Pulumi.Aws.Chime
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import Chime Voice Connector Termination using the `voice_connector_id`. For example:
     /// 
-    ///  to = aws_chime_voice_connector_termination.default
-    /// 
-    ///  id = "abcdef1ghij2klmno3pqr4" } Using `pulumi import`, import Chime Voice Connector Termination using the `voice_connector_id`. For exampleconsole % pulumi import aws_chime_voice_connector_termination.default abcdef1ghij2klmno3pqr4
+    /// ```sh
+    ///  $ pulumi import aws:chime/voiceConnectorTermination:VoiceConnectorTermination default abcdef1ghij2klmno3pqr4
+    /// ```
     /// </summary>
     [AwsResourceType("aws:chime/voiceConnectorTermination:VoiceConnectorTermination")]
     public partial class VoiceConnectorTermination : global::Pulumi.CustomResource

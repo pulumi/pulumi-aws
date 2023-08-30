@@ -45,11 +45,11 @@ namespace Pulumi.Aws.GameLift
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import GameLift Fleets using the ID. For example:
     /// 
-    ///  to = aws_gamelift_fleet.example
-    /// 
-    ///  id = "&lt;fleet-id&gt;" } Using `pulumi import`, import GameLift Fleets using the ID. For exampleconsole % pulumi import aws_gamelift_fleet.example &lt;fleet-id&gt;
+    /// ```sh
+    ///  $ pulumi import aws:gamelift/fleet:Fleet example &lt;fleet-id&gt;
+    /// ```
     /// </summary>
     [AwsResourceType("aws:gamelift/fleet:Fleet")]
     public partial class Fleet : global::Pulumi.CustomResource

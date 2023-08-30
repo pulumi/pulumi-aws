@@ -110,11 +110,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import AppFlow flows using the `arn`. For example:
  *
- *  to = aws_appflow_flow.example
- *
- *  id = "arn:aws:appflow:us-west-2:123456789012:flow/example-flow" } Using `pulumi import`, import AppFlow flows using the `arn`. For exampleconsole % pulumi import aws_appflow_flow.example arn:aws:appflow:us-west-2:123456789012:flow/example-flow
+ * ```sh
+ *  $ pulumi import aws:appflow/flow:Flow example arn:aws:appflow:us-west-2:123456789012:flow/example-flow
+ * ```
  */
 export class Flow extends pulumi.CustomResource {
     /**

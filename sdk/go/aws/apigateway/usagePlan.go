@@ -134,11 +134,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import AWS API Gateway Usage Plan using the `id`. For example:
 //
-//	to = aws_api_gateway_usage_plan.myusageplan
+// ```sh
 //
-//	id = "<usage_plan_id>" } Using `pulumi import`, import AWS API Gateway Usage Plan using the `id`. For exampleconsole % pulumi import aws_api_gateway_usage_plan.myusageplan <usage_plan_id>
+//	$ pulumi import aws:apigateway/usagePlan:UsagePlan myusageplan <usage_plan_id>
+//
+// ```
 type UsagePlan struct {
 	pulumi.CustomResourceState
 

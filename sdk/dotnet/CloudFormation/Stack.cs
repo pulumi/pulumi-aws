@@ -70,11 +70,11 @@ namespace Pulumi.Aws.CloudFormation
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import Cloudformation Stacks using the `name`. For example:
     /// 
-    ///  to = aws_cloudformation_stack.stack
-    /// 
-    ///  id = "networking-stack" } Using `pulumi import`, import Cloudformation Stacks using the `name`. For exampleconsole % pulumi import aws_cloudformation_stack.stack networking-stack
+    /// ```sh
+    ///  $ pulumi import aws:cloudformation/stack:Stack stack networking-stack
+    /// ```
     /// </summary>
     [AwsResourceType("aws:cloudformation/stack:Stack")]
     public partial class Stack : global::Pulumi.CustomResource

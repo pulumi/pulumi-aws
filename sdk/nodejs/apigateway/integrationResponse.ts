@@ -60,11 +60,11 @@ import {RestApi} from "./index";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import `aws_api_gateway_integration_response` using `REST-API-ID/RESOURCE-ID/HTTP-METHOD/STATUS-CODE`. For example:
  *
- *  to = aws_api_gateway_integration_response.example
- *
- *  id = "12345abcde/67890fghij/GET/200" } Using `pulumi import`, import `aws_api_gateway_integration_response` using `REST-API-ID/RESOURCE-ID/HTTP-METHOD/STATUS-CODE`. For exampleconsole % pulumi import aws_api_gateway_integration_response.example 12345abcde/67890fghij/GET/200
+ * ```sh
+ *  $ pulumi import aws:apigateway/integrationResponse:IntegrationResponse example 12345abcde/67890fghij/GET/200
+ * ```
  */
 export class IntegrationResponse extends pulumi.CustomResource {
     /**

@@ -52,11 +52,13 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * For exampleterraform import {
+ * For example:
  * 
- *  to = aws_codecatalyst_project.example
+ * Using `pulumi import`, import CodeCatalyst Project using the `example_id_arg`. For example:
  * 
- *  id = &#34;project-id-12345678&#34; } Using `pulumi import`, import CodeCatalyst Project using the `example_id_arg`. For exampleconsole % pulumi import aws_codecatalyst_project.example project-id-12345678
+ * ```sh
+ *  $ pulumi import aws:codecatalyst/project:Project example project-id-12345678
+ * ```
  * 
  */
 @ResourceType(type="aws:codecatalyst/project:Project")

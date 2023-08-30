@@ -161,11 +161,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import SageMaker Flow Definitions using the `flow_definition_name`. For example:
 //
-//	to = aws_sagemaker_flow_definition.example
+// ```sh
 //
-//	id = "example" } Using `pulumi import`, import SageMaker Flow Definitions using the `flow_definition_name`. For exampleconsole % pulumi import aws_sagemaker_flow_definition.example example
+//	$ pulumi import aws:sagemaker/flowDefinition:FlowDefinition example example
+//
+// ```
 type FlowDefinition struct {
 	pulumi.CustomResourceState
 

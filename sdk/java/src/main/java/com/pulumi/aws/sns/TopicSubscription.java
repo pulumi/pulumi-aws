@@ -251,11 +251,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import SNS Topic Subscriptions using the subscription `arn`. For example:
  * 
- *  to = aws_sns_topic_subscription.user_updates_sqs_target
- * 
- *  id = &#34;arn:aws:sns:us-west-2:0123456789012:my-topic:8a21d249-4329-4871-acc6-7be709c6ea7f&#34; } Using `pulumi import`, import SNS Topic Subscriptions using the subscription `arn`. For exampleconsole % pulumi import aws_sns_topic_subscription.user_updates_sqs_target arn:aws:sns:us-west-2:0123456789012:my-topic:8a21d249-4329-4871-acc6-7be709c6ea7f
+ * ```sh
+ *  $ pulumi import aws:sns/topicSubscription:TopicSubscription user_updates_sqs_target arn:aws:sns:us-west-2:0123456789012:my-topic:8a21d249-4329-4871-acc6-7be709c6ea7f
+ * ```
  * 
  */
 @ResourceType(type="aws:sns/topicSubscription:TopicSubscription")

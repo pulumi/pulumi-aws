@@ -42,11 +42,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import `aws_macie2_account` using the id. For example:
 //
-//	to = aws_macie2_account.example
+// ```sh
 //
-//	id = "abcd1" } Using `pulumi import`, import `aws_macie2_account` using the id. For exampleconsole % pulumi import aws_macie2_account.example abcd1
+//	$ pulumi import aws:macie2/account:Account example abcd1
+//
+// ```
 type Account struct {
 	pulumi.CustomResourceState
 

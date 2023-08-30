@@ -37,11 +37,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import WorkSpaces IP groups using their GroupID. For example:
  *
- *  to = aws_workspaces_ip_group.example
- *
- *  id = "wsipg-488lrtl3k" } Using `pulumi import`, import WorkSpaces IP groups using their GroupID. For exampleconsole % pulumi import aws_workspaces_ip_group.example wsipg-488lrtl3k
+ * ```sh
+ *  $ pulumi import aws:workspaces/ipGroup:IpGroup example wsipg-488lrtl3k
+ * ```
  */
 export class IpGroup extends pulumi.CustomResource {
     /**

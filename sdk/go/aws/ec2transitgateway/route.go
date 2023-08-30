@@ -72,11 +72,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import `aws_ec2_transit_gateway_route` using the EC2 Transit Gateway Route Table, an underscore, and the destination. For example:
 //
-//	to = aws_ec2_transit_gateway_route.example
+// ```sh
 //
-//	id = "tgw-rtb-12345678_0.0.0.0/0" } Using `pulumi import`, import `aws_ec2_transit_gateway_route` using the EC2 Transit Gateway Route Table, an underscore, and the destination. For exampleconsole % pulumi import aws_ec2_transit_gateway_route.example tgw-rtb-12345678_0.0.0.0/0
+//	$ pulumi import aws:ec2transitgateway/route:Route example tgw-rtb-12345678_0.0.0.0/0
+//
+// ```
 type Route struct {
 	pulumi.CustomResourceState
 

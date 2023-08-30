@@ -185,11 +185,11 @@ class ObjectLambdaAccessPointPolicy(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Object Lambda Access Point policies using the `account_id` and `name`, separated by a colon (`:`). For example:
 
-         to = aws_s3control_object_lambda_access_point_policy.example
-
-         id = "123456789012:example" } Using `pulumi import`, import Object Lambda Access Point policies using the `account_id` and `name`, separated by a colon (`:`). For exampleconsole % pulumi import aws_s3control_object_lambda_access_point_policy.example 123456789012:example
+        ```sh
+         $ pulumi import aws:s3control/objectLambdaAccessPointPolicy:ObjectLambdaAccessPointPolicy example 123456789012:example
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -241,11 +241,11 @@ class ObjectLambdaAccessPointPolicy(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Object Lambda Access Point policies using the `account_id` and `name`, separated by a colon (`:`). For example:
 
-         to = aws_s3control_object_lambda_access_point_policy.example
-
-         id = "123456789012:example" } Using `pulumi import`, import Object Lambda Access Point policies using the `account_id` and `name`, separated by a colon (`:`). For exampleconsole % pulumi import aws_s3control_object_lambda_access_point_policy.example 123456789012:example
+        ```sh
+         $ pulumi import aws:s3control/objectLambdaAccessPointPolicy:ObjectLambdaAccessPointPolicy example 123456789012:example
+        ```
 
         :param str resource_name: The name of the resource.
         :param ObjectLambdaAccessPointPolicyArgs args: The arguments to use to populate this resource's properties.

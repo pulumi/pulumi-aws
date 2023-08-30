@@ -62,11 +62,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import `aws_ecs_tag` using the ECS resource identifier and key, separated by a comma (`,`). For example:
  * 
- *  to = aws_ecs_tag.example
- * 
- *  id = &#34;arn:aws:ecs:us-east-1:123456789012:cluster/example,Name&#34; } Using `pulumi import`, import `aws_ecs_tag` using the ECS resource identifier and key, separated by a comma (`,`). For exampleconsole % pulumi import aws_ecs_tag.example arn:aws:ecs:us-east-1:123456789012:cluster/example,Name
+ * ```sh
+ *  $ pulumi import aws:ecs/tag:Tag example arn:aws:ecs:us-east-1:123456789012:cluster/example,Name
+ * ```
  * 
  */
 @ResourceType(type="aws:ecs/tag:Tag")

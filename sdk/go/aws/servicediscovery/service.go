@@ -112,11 +112,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Service Discovery Service using the service ID. For example:
 //
-//	to = aws_service_discovery_service.example
+// ```sh
 //
-//	id = "0123456789" } Using `pulumi import`, import Service Discovery Service using the service ID. For exampleconsole % pulumi import aws_service_discovery_service.example 0123456789
+//	$ pulumi import aws:servicediscovery/service:Service example 0123456789
+//
+// ```
 type Service struct {
 	pulumi.CustomResourceState
 

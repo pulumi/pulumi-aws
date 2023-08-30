@@ -37,11 +37,11 @@ namespace Pulumi.Aws.ServiceCatalog
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import `aws_servicecatalog_service_action` using the service action ID. For example:
     /// 
-    ///  to = aws_servicecatalog_service_action.example
-    /// 
-    ///  id = "act-f1w12eperfslh" } Using `pulumi import`, import `aws_servicecatalog_service_action` using the service action ID. For exampleconsole % pulumi import aws_servicecatalog_service_action.example act-f1w12eperfslh
+    /// ```sh
+    ///  $ pulumi import aws:servicecatalog/serviceAction:ServiceAction example act-f1w12eperfslh
+    /// ```
     /// </summary>
     [AwsResourceType("aws:servicecatalog/serviceAction:ServiceAction")]
     public partial class ServiceAction : global::Pulumi.CustomResource

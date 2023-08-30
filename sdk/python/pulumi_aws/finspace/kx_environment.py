@@ -428,11 +428,11 @@ class KxEnvironment(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import an AWS FinSpace Kx Environment using the `id`. For example:
 
-         to = aws_finspace_kx_environment.example
-
-         id = "n3ceo7wqxoxcti5tujqwzs" } Using `pulumi import`, import an AWS FinSpace Kx Environment using the `id`. For exampleconsole % pulumi import aws_finspace_kx_environment.example n3ceo7wqxoxcti5tujqwzs
+        ```sh
+         $ pulumi import aws:finspace/kxEnvironment:KxEnvironment example n3ceo7wqxoxcti5tujqwzs
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -527,11 +527,11 @@ class KxEnvironment(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import an AWS FinSpace Kx Environment using the `id`. For example:
 
-         to = aws_finspace_kx_environment.example
-
-         id = "n3ceo7wqxoxcti5tujqwzs" } Using `pulumi import`, import an AWS FinSpace Kx Environment using the `id`. For exampleconsole % pulumi import aws_finspace_kx_environment.example n3ceo7wqxoxcti5tujqwzs
+        ```sh
+         $ pulumi import aws:finspace/kxEnvironment:KxEnvironment example n3ceo7wqxoxcti5tujqwzs
+        ```
 
         :param str resource_name: The name of the resource.
         :param KxEnvironmentArgs args: The arguments to use to populate this resource's properties.

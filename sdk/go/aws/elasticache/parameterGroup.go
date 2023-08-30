@@ -54,11 +54,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import ElastiCache Parameter Groups using the `name`. For example:
 //
-//	to = aws_elasticache_parameter_group.default
+// ```sh
 //
-//	id = "redis-params" } Using `pulumi import`, import ElastiCache Parameter Groups using the `name`. For exampleconsole % pulumi import aws_elasticache_parameter_group.default redis-params
+//	$ pulumi import aws:elasticache/parameterGroup:ParameterGroup default redis-params
+//
+// ```
 type ParameterGroup struct {
 	pulumi.CustomResourceState
 

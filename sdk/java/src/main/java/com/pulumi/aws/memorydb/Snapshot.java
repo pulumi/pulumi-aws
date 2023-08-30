@@ -54,11 +54,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import a snapshot using the `name`. For example:
  * 
- *  to = aws_memorydb_snapshot.example
- * 
- *  id = &#34;my-snapshot&#34; } Using `pulumi import`, import a snapshot using the `name`. For exampleconsole % pulumi import aws_memorydb_snapshot.example my-snapshot
+ * ```sh
+ *  $ pulumi import aws:memorydb/snapshot:Snapshot example my-snapshot
+ * ```
  * 
  */
 @ResourceType(type="aws:memorydb/snapshot:Snapshot")

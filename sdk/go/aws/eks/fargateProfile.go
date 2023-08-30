@@ -111,11 +111,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import EKS Fargate Profiles using the `cluster_name` and `fargate_profile_name` separated by a colon (`:`). For example:
 //
-//	to = aws_eks_fargate_profile.my_fargate_profile
+// ```sh
 //
-//	id = "my_cluster:my_fargate_profile" } Using `pulumi import`, import EKS Fargate Profiles using the `cluster_name` and `fargate_profile_name` separated by a colon (`:`). For exampleconsole % pulumi import aws_eks_fargate_profile.my_fargate_profile my_cluster:my_fargate_profile
+//	$ pulumi import aws:eks/fargateProfile:FargateProfile my_fargate_profile my_cluster:my_fargate_profile
+//
+// ```
 type FargateProfile struct {
 	pulumi.CustomResourceState
 

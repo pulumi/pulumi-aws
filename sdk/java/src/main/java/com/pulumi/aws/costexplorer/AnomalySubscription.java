@@ -265,11 +265,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import `aws_ce_anomaly_subscription` using the `id`. For example:
  * 
- *  to = aws_ce_anomaly_subscription.example
- * 
- *  id = &#34;AnomalySubscriptionARN&#34; } Using `pulumi import`, import `aws_ce_anomaly_subscription` using the `id`. For exampleconsole % pulumi import aws_ce_anomaly_subscription.example AnomalySubscriptionARN
+ * ```sh
+ *  $ pulumi import aws:costexplorer/anomalySubscription:AnomalySubscription example AnomalySubscriptionARN
+ * ```
  * 
  */
 @ResourceType(type="aws:costexplorer/anomalySubscription:AnomalySubscription")

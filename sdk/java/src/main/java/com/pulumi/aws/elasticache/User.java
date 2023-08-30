@@ -131,11 +131,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import ElastiCache users using the `user_id`. For example:
  * 
- *  to = aws_elasticache_user.my_user
- * 
- *  id = &#34;userId1&#34; } Using `pulumi import`, import ElastiCache users using the `user_id`. For exampleconsole % pulumi import aws_elasticache_user.my_user userId1
+ * ```sh
+ *  $ pulumi import aws:elasticache/user:User my_user userId1
+ * ```
  * 
  */
 @ResourceType(type="aws:elasticache/user:User")

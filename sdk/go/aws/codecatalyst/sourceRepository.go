@@ -44,11 +44,15 @@ import (
 //
 // ## Import
 //
-// For exampleterraform import {
+// For example:
 //
-//	to = aws_codecatalyst_source_repository.example
+// Using `pulumi import`, import CodeCatalyst Source Repository using the `example_id_arg`. For example:
 //
-//	id = "source_repository-id-12345678" } Using `pulumi import`, import CodeCatalyst Source Repository using the `example_id_arg`. For exampleconsole % pulumi import aws_codecatalyst_source_repository.example source_repository-id-12345678
+// ```sh
+//
+//	$ pulumi import aws:codecatalyst/sourceRepository:SourceRepository example source_repository-id-12345678
+//
+// ```
 type SourceRepository struct {
 	pulumi.CustomResourceState
 

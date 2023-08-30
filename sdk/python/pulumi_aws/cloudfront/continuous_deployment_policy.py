@@ -242,11 +242,13 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
 
         ## Import
 
-        For exampleterraform import {
+        For example:
 
-         to = aws_cloudfront_continuous_deployment_policy.example
+        Using `pulumi import`, import CloudFront Continuous Deployment Policy using the `id`. For example:
 
-         id = "abcd-1234" } Using `pulumi import`, import CloudFront Continuous Deployment Policy using the `id`. For exampleconsole % pulumi import aws_cloudfront_continuous_deployment_policy.example abcd-1234
+        ```sh
+         $ pulumi import aws:cloudfront/continuousDeploymentPolicy:ContinuousDeploymentPolicy example abcd-1234
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -337,11 +339,13 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
 
         ## Import
 
-        For exampleterraform import {
+        For example:
 
-         to = aws_cloudfront_continuous_deployment_policy.example
+        Using `pulumi import`, import CloudFront Continuous Deployment Policy using the `id`. For example:
 
-         id = "abcd-1234" } Using `pulumi import`, import CloudFront Continuous Deployment Policy using the `id`. For exampleconsole % pulumi import aws_cloudfront_continuous_deployment_policy.example abcd-1234
+        ```sh
+         $ pulumi import aws:cloudfront/continuousDeploymentPolicy:ContinuousDeploymentPolicy example abcd-1234
+        ```
 
         :param str resource_name: The name of the resource.
         :param ContinuousDeploymentPolicyArgs args: The arguments to use to populate this resource's properties.

@@ -74,11 +74,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import `aws_lightsail_disk` using the id attribute. For example:
 //
-//	to = aws_lightsail_disk_attachment.test
+// ```sh
 //
-//	id = "test-disk,test-instance" } Using `pulumi import`, import `aws_lightsail_disk` using the id attribute. For exampleconsole % pulumi import aws_lightsail_disk_attachment.test test-disk,test-instance
+//	$ pulumi import aws:lightsail/disk_attachment:Disk_attachment test test-disk,test-instance
+//
+// ```
 type Disk_attachment struct {
 	pulumi.CustomResourceState
 

@@ -35,11 +35,11 @@ namespace Pulumi.Aws.Iot
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import IOT Things using the name. For example:
     /// 
-    ///  to = aws_iot_thing.example
-    /// 
-    ///  id = "example" } Using `pulumi import`, import IOT Things using the name. For exampleconsole % pulumi import aws_iot_thing.example example
+    /// ```sh
+    ///  $ pulumi import aws:iot/thing:Thing example example
+    /// ```
     /// </summary>
     [AwsResourceType("aws:iot/thing:Thing")]
     public partial class Thing : global::Pulumi.CustomResource

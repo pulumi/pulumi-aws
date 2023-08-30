@@ -533,11 +533,11 @@ class Parameter(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import SSM Parameters using the parameter store `name`. For example:
 
-         to = aws_ssm_parameter.my_param
-
-         id = "/my_path/my_paramname" } Using `pulumi import`, import SSM Parameters using the parameter store `name`. For exampleconsole % pulumi import aws_ssm_parameter.my_param /my_path/my_paramname
+        ```sh
+         $ pulumi import aws:ssm/parameter:Parameter my_param /my_path/my_paramname
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -608,11 +608,11 @@ class Parameter(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import SSM Parameters using the parameter store `name`. For example:
 
-         to = aws_ssm_parameter.my_param
-
-         id = "/my_path/my_paramname" } Using `pulumi import`, import SSM Parameters using the parameter store `name`. For exampleconsole % pulumi import aws_ssm_parameter.my_param /my_path/my_paramname
+        ```sh
+         $ pulumi import aws:ssm/parameter:Parameter my_param /my_path/my_paramname
+        ```
 
         :param str resource_name: The name of the resource.
         :param ParameterArgs args: The arguments to use to populate this resource's properties.

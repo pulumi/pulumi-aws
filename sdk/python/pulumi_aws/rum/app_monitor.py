@@ -310,11 +310,11 @@ class AppMonitor(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Cloudwatch RUM App Monitor using the `name`. For example:
 
-         to = aws_rum_app_monitor.example
-
-         id = "example" } Using `pulumi import`, import Cloudwatch RUM App Monitor using the `name`. For exampleconsole % pulumi import aws_rum_app_monitor.example example
+        ```sh
+         $ pulumi import aws:rum/appMonitor:AppMonitor example example
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -345,11 +345,11 @@ class AppMonitor(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Cloudwatch RUM App Monitor using the `name`. For example:
 
-         to = aws_rum_app_monitor.example
-
-         id = "example" } Using `pulumi import`, import Cloudwatch RUM App Monitor using the `name`. For exampleconsole % pulumi import aws_rum_app_monitor.example example
+        ```sh
+         $ pulumi import aws:rum/appMonitor:AppMonitor example example
+        ```
 
         :param str resource_name: The name of the resource.
         :param AppMonitorArgs args: The arguments to use to populate this resource's properties.

@@ -61,11 +61,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Redshift Serverless Resource Policies using the `resource_arn`. For example:
  * 
- *  to = aws_redshiftserverless_resource_policy.example
- * 
- *  id = &#34;example&#34; } Using `pulumi import`, import Redshift Serverless Resource Policies using the `resource_arn`. For exampleconsole % pulumi import aws_redshiftserverless_resource_policy.example example
+ * ```sh
+ *  $ pulumi import aws:redshiftserverless/resourcePolicy:ResourcePolicy example example
+ * ```
  * 
  */
 @ResourceType(type="aws:redshiftserverless/resourcePolicy:ResourcePolicy")

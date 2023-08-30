@@ -122,21 +122,12 @@ namespace Pulumi.Aws.Neptune
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import `aws_neptune_global_cluster` using the Global Cluster identifier. For example:
     /// 
-    ///  to = aws_neptune_global_cluster.example
-    /// 
-    ///  id = "example" } Using `pulumi import`, import `aws_neptune_global_cluster` using the Global Cluster identifier. For exampleconsole % pulumi import aws_neptune_global_cluster.example example Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For exampleterraform resource "aws_neptune_global_cluster" "example" {
-    /// 
-    /// # ... other configuration ...
-    /// 
-    /// # There is no API for reading source_db_cluster_identifier
-    /// 
-    ///  lifecycle {
-    /// 
-    ///  ignore_changes = [source_db_cluster_identifier]
-    /// 
-    ///  } }
+    /// ```sh
+    ///  $ pulumi import aws:neptune/globalCluster:GlobalCluster example example
+    /// ```
+    ///  Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
     /// </summary>
     [AwsResourceType("aws:neptune/globalCluster:GlobalCluster")]
     public partial class GlobalCluster : global::Pulumi.CustomResource

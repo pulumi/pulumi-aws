@@ -49,11 +49,11 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import `aws_lightsail_lb_certificate_attachment` using the name attribute. For example:
     /// 
-    ///  to = aws_lightsail_lb_certificate_attachment.test
-    /// 
-    ///  id = "example-load-balancer,example-certificate" } Using `pulumi import`, import `aws_lightsail_lb_certificate_attachment` using the name attribute. For exampleconsole % pulumi import aws_lightsail_lb_certificate_attachment.test example-load-balancer,example-certificate
+    /// ```sh
+    ///  $ pulumi import aws:lightsail/lbCertificateAttachment:LbCertificateAttachment test example-load-balancer,example-certificate
+    /// ```
     /// </summary>
     [AwsResourceType("aws:lightsail/lbCertificateAttachment:LbCertificateAttachment")]
     public partial class LbCertificateAttachment : global::Pulumi.CustomResource
