@@ -3896,7 +3896,17 @@ func Provider() *tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"aws_networkfirewall_resource_policy": {Tok: awsResource(networkFirewallMod, "ResourcePolicy")},
+			"aws_networkfirewall_resource_policy": {
+				Tok: awsResource(networkFirewallMod, "ResourcePolicy"),
+				Docs: &tfbridge.DocInfo{
+					ImportDetails: strings.ReplaceAll(`Using ^pulumi import^, import Network Firewall Resource Policies using the ^resource_arn^. For example:
+
+<break>^^^sh<break>
+$ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example
+<break>^^^<break>
+`, "^", "`"),
+				},
+			},
 
 			// signer
 			"aws_signer_signing_job":                {Tok: awsResource(signerMod, "SigningJob")},
