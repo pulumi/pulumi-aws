@@ -1,4 +1,4 @@
-From 98f10dcdbffb4f304d722ac9339f02f05b837548 Mon Sep 17 00:00:00 2001
+From 122a58103640826a4793ef37353289632b78452b Mon Sep 17 00:00:00 2001
 From: Ian Wahbe <ian@wahbe.com>
 Date: Wed, 2 Aug 2023 14:12:03 +0200
 Subject: [PATCH 28/28] Match the "tags" behavior of other resources

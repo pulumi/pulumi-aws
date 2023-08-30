@@ -1,4 +1,4 @@
-From dd6e070d9c1669bc644f6c58c615606e25fd3250 Mon Sep 17 00:00:00 2001
+From 7c98afcef68bf2140499ae1f7478d1588ba9e1bb Mon Sep 17 00:00:00 2001
 From: Lee Briggs <jaxxstorm@users.noreply.github.com>
 Date: Wed, 21 Dec 2022 12:23:59 -0800
 Subject: [PATCH 16/28] add matchmaking configuration (#72)
@@ -25,7 +25,7 @@ Subject: [PATCH 16/28] add matchmaking configuration (#72)
  create mode 100644 website/docs/r/gamelift_matchmaking_rule_set.html.markdown
 
 diff --git a/internal/provider/provider.go b/internal/provider/provider.go
-index eecd661d79..fa7d69d73d 100644
+index e3e8c2b44c..1b46539c19 100644
 --- a/internal/provider/provider.go
 +++ b/internal/provider/provider.go
 @@ -14,6 +14,7 @@ import (
@@ -36,7 +36,7 @@ index eecd661d79..fa7d69d73d 100644
  	"github.com/hashicorp/terraform-provider-aws/internal/service/s3legacy"
  
  	"github.com/aws/aws-sdk-go-v2/feature/ec2/imds"
-@@ -237,6 +238,9 @@ func New(ctx context.Context) (*schema.Provider, error) {
+@@ -246,6 +247,9 @@ func New(ctx context.Context) (*schema.Provider, error) {
  
  		ResourcesMap: map[string]*schema.Resource{
  			"aws_s3_bucket_legacy": s3legacy.ResourceBucketLegacy(),

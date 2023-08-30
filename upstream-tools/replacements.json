@@ -2640,6 +2640,20 @@
       "new": "Using `pulumi import`, import CloudFront cache policies using the `id` of the cache policy. For example:"
     }
   ],
+  "website/docs/r/cloudfront_continuous_deployment_policy.html.markdown": [
+    {
+      "old": "% terraform import aws_cloudfront_continuous_deployment_policy.example abcd-1234 ",
+      "new": "% pulumi import aws_cloudfront_continuous_deployment_policy.example abcd-1234 "
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import CloudFront Continuous Deployment Policy using the `id`. For example:",
+      "new": "For example:"
+    },
+    {
+      "old": "Using `terraform import`, import CloudFront Continuous Deployment Policy using the `id`. For example:",
+      "new": "Using `pulumi import`, import CloudFront Continuous Deployment Policy using the `id`. For example:"
+    }
+  ],
   "website/docs/r/cloudfront_distribution.html.markdown": [
     {
       "old": "% terraform import aws_cloudfront_distribution.distribution E74FTE3EXAMPLE",
@@ -3392,6 +3406,44 @@
     {
       "old": "Using `terraform import`, import CodeBuild Webhooks using the CodeBuild Project name. For example:",
       "new": "Using `pulumi import`, import CodeBuild Webhooks using the CodeBuild Project name. For example:"
+    }
+  ],
+  "website/docs/r/codecatalyst_dev_environment.html.markdown": [
+    {
+      "old": "    repository_name = \"terraform-provider-aws\"",
+      "new": "    repository_name = \"pulumi-aws\""
+    }
+  ],
+  "website/docs/r/codecatalyst_project.html.markdown": [
+    {
+      "old": "  description  = \"My CodeCatalyst Project created using Terraform\"",
+      "new": "  description  = \"My CodeCatalyst Project created using Pulumi\""
+    },
+    {
+      "old": "% terraform import aws_codecatalyst_project.example project-id-12345678",
+      "new": "% pulumi import aws_codecatalyst_project.example project-id-12345678"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import CodeCatalyst Project using the `example_id_arg`. For example:",
+      "new": "For example:"
+    },
+    {
+      "old": "Using `terraform import`, import CodeCatalyst Project using the `example_id_arg`. For example:",
+      "new": "Using `pulumi import`, import CodeCatalyst Project using the `example_id_arg`. For example:"
+    }
+  ],
+  "website/docs/r/codecatalyst_source_repository.html.markdown": [
+    {
+      "old": "% terraform import aws_codecatalyst_source_repository.example source_repository-id-12345678",
+      "new": "% pulumi import aws_codecatalyst_source_repository.example source_repository-id-12345678"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import CodeCatalyst Source Repository using the `example_id_arg`. For example:",
+      "new": "For example:"
+    },
+    {
+      "old": "Using `terraform import`, import CodeCatalyst Source Repository using the `example_id_arg`. For example:",
+      "new": "Using `pulumi import`, import CodeCatalyst Source Repository using the `example_id_arg`. For example:"
     }
   ],
   "website/docs/r/codecommit_approval_rule_template.html.markdown": [
@@ -4333,6 +4385,20 @@
       "new": "Using `pulumi import`, import `aws_datasync_agent` using the DataSync Agent Amazon Resource Name (ARN). For example:"
     }
   ],
+  "website/docs/r/datasync_location_azure_blob.html.markdown": [
+    {
+      "old": "% terraform import aws_datasync_location_azure_blob.example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567",
+      "new": "% pulumi import aws_datasync_location_azure_blob.example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import `aws_datasync_location_azure_blob` using the Amazon Resource Name (ARN). For example:",
+      "new": "For example:"
+    },
+    {
+      "old": "Using `terraform import`, import `aws_datasync_location_azure_blob` using the Amazon Resource Name (ARN). For example:",
+      "new": "Using `pulumi import`, import `aws_datasync_location_azure_blob` using the Amazon Resource Name (ARN). For example:"
+    }
+  ],
   "website/docs/r/datasync_location_efs.html.markdown": [
     {
       "old": "% terraform import aws_datasync_location_efs.example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567",
@@ -4359,6 +4425,20 @@
     {
       "old": "Using `terraform import`, import `aws_datasync_location_fsx_lustre_file_system` using the `DataSync-ARN#FSx-Lustre-ARN`. For example:",
       "new": "Using `pulumi import`, import `aws_datasync_location_fsx_lustre_file_system` using the `DataSync-ARN#FSx-Lustre-ARN`. For example:"
+    }
+  ],
+  "website/docs/r/datasync_location_fsx_ontap_file_system.html.markdown": [
+    {
+      "old": "% terraform import aws_datasync_location_fsx_ontap_file_system.example arn:aws:datasync:us-west-2:123456789012:location/loc-12345678901234567#arn:aws:fsx:us-west-2:123456789012:storage-virtual-machine/svm-12345678abcdef123",
+      "new": "% pulumi import aws_datasync_location_fsx_ontap_file_system.example arn:aws:datasync:us-west-2:123456789012:location/loc-12345678901234567#arn:aws:fsx:us-west-2:123456789012:storage-virtual-machine/svm-12345678abcdef123"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import `aws_datasync_location_fsx_ontap_file_system` using the `DataSync-ARN#FSx-ontap-svm-ARN`. For example:",
+      "new": "For example:"
+    },
+    {
+      "old": "Using `terraform import`, import `aws_datasync_location_fsx_ontap_file_system` using the `DataSync-ARN#FSx-ontap-svm-ARN`. For example:",
+      "new": "Using `pulumi import`, import `aws_datasync_location_fsx_ontap_file_system` using the `DataSync-ARN#FSx-ontap-svm-ARN`. For example:"
     }
   ],
   "website/docs/r/datasync_location_fsx_openzfs_file_system.html.markdown": [
@@ -5315,7 +5395,7 @@
     },
     {
       "old": "Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the Terraform configuration on an imported resource, Terraform will always show a difference. To workaround this behavior, either omit the argument from the Terraform configuration or use `ignore_changes` to hide the difference. For example:",
-      "new": "Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the TODO configuration on an imported resource, TODO will always show a difference. To workaround this behavior, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For example:"
+      "new": "Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in your program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from your program or use `ignore_changes` to hide the difference. For example:"
     },
     {
       "old": "In Terraform v1.5.0 and later, use an `import` block to import `aws_docdb_global_cluster` using the Global Cluster identifier. For example:",
@@ -5400,7 +5480,7 @@
     },
     {
       "old": "**With `terraform import`**, import Direct Connect Gateway Association Proposals using either a proposal ID or proposal ID, Direct Connect Gateway ID and associated gateway ID separated by `/`. For example:",
-      "new": "**With `TODO import`**, import Direct Connect Gateway Association Proposals using either a proposal ID or proposal ID, Direct Connect Gateway ID and associated gateway ID separated by `/`. For example:"
+      "new": "**With `pulumi import`**, import Direct Connect Gateway Association Proposals using either a proposal ID or proposal ID, Direct Connect Gateway ID and associated gateway ID separated by `/`. For example:"
     },
     {
       "old": "A full example of how to create a VPN Gateway in one AWS account, create a Direct Connect Gateway in a second AWS account, and associate the VPN Gateway with the Direct Connect Gateway via the `aws_dx_gateway_association_proposal` and `aws_dx_gateway_association` resources can be found in the `./examples/dx-gateway-cross-account-vgw-association` directory within the Github Repository.\n"
@@ -7117,7 +7197,7 @@
     },
     {
       "old": "Since the API does not return the actual values for Kerberos configurations, environments with those Terraform configurations will need to use the `lifecycle` configuration block `ignore_changes` argument available to all Terraform resources to prevent perpetual differences. For example:",
-      "new": "Since the API does not return the actual values for Kerberos configurations, environments with those TODO configurations will need to use the `lifecycle` configuration block `ignore_changes` argument available to all TODO resources to prevent perpetual differences. For example:"
+      "new": "Since the API does not return the actual values for Kerberos configurations, environments with those values set will need to use the `lifecycle` resource option `ignore_changes` argument available to all Pulumi resources to prevent perpetual differences. For example:"
     },
     {
       "old": "The default AWS managed EMR service role is called `EMR_DefaultRole` with Amazon managed policy `AmazonEMRServicePolicy_v2` attached. The name of default instance profile role is `EMR_EC2_DefaultRole` with default managed policy `AmazonElasticMapReduceforEC2Role` attached, but it is on the path to deprecation and will not be replaced with another default managed policy. You'll need to create and specify an instance profile to replace the deprecated role and default policy. See the [Configure IAM service roles for Amazon EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-iam-roles.html) guide for more information on these IAM roles. There is also a fully-bootable example Terraform configuration at the bottom of this page.",
@@ -7483,7 +7563,7 @@
     },
     {
       "old": "Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the Terraform configuration on an imported resource, Terraform will always show a difference. To workaround this behavior, either omit the argument from the Terraform configuration or use `ignore_changes` to hide the difference. For example:",
-      "new": "Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the TODO configuration on an imported resource, TODO will always show a difference. To workaround this behavior, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For example:"
+      "new": "Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in your program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from your program or use `ignore_changes` to hide the difference. For example:"
     },
     {
       "old": "In Terraform v1.5.0 and later, use an `import` block to import FSx File Systems using the `id`. For example:",
@@ -7505,7 +7585,7 @@
     },
     {
       "old": "Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the Terraform configuration on an imported resource, Terraform will always show a difference. To workaround this behavior, either omit the argument from the Terraform configuration or use `ignore_changes` to hide the difference. For example:",
-      "new": "Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the TODO configuration on an imported resource, TODO will always show a difference. To workaround this behavior, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For example:"
+      "new": "Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in your program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from your Pulumi program or use `ignore_changes` to hide the difference. For example:"
     },
     {
       "old": "In Terraform v1.5.0 and later, use an `import` block to import FSx File Systems using the `id`. For example:",
@@ -7527,7 +7607,7 @@
     },
     {
       "old": "Certain resource arguments, like `svm_admin_password` and the `self_managed_active_directory` configuation block `password`, do not have a FSx API method for reading the information after creation. If these arguments are set in the Terraform configuration on an imported resource, Terraform will always show a difference. To workaround this behavior, either omit the argument from the Terraform configuration or use `ignore_changes` to hide the difference. For example:",
-      "new": "Certain resource arguments, like `svm_admin_password` and the `self_managed_active_directory` configuation block `password`, do not have a FSx API method for reading the information after creation. If these arguments are set in the TODO configuration on an imported resource, TODO will always show a difference. To workaround this behavior, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For example:"
+      "new": "Certain resource arguments, like `svm_admin_password` and the `self_managed_active_directory` configuation block `password`, do not have a FSx API method for reading the information after creation. If these arguments are set in your Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:"
     },
     {
       "old": "In Terraform v1.5.0 and later, use an `import` block to import FSx Storage Virtual Machine using the `id`. For example:",
@@ -7563,7 +7643,7 @@
     },
     {
       "old": "Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the Terraform configuration on an imported resource, Terraform will always show a difference. To workaround this behavior, either omit the argument from the Terraform configuration or use `ignore_changes` to hide the difference. For example:",
-      "new": "Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the TODO configuration on an imported resource, TODO will always show a difference. To workaround this behavior, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For example:"
+      "new": "Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:"
     },
     {
       "old": "In Terraform v1.5.0 and later, use an `import` block to import FSx File Systems using the `id`. For example:",
@@ -7609,7 +7689,7 @@
     },
     {
       "old": "Certain resource arguments, like `security_group_ids` and the `self_managed_active_directory` configuation block `password`, do not have a FSx API method for reading the information after creation. If these arguments are set in the Terraform configuration on an imported resource, Terraform will always show a difference. To workaround this behavior, either omit the argument from the Terraform configuration or use `ignore_changes` to hide the difference. For example:",
-      "new": "Certain resource arguments, like `security_group_ids` and the `self_managed_active_directory` configuation block `password`, do not have a FSx API method for reading the information after creation. If these arguments are set in the TODO configuration on an imported resource, TODO will always show a difference. To workaround this behavior, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For example:"
+      "new": "Certain resource arguments, like `security_group_ids` and the `self_managed_active_directory` configuation block `password`, do not have a FSx API method for reading the information after creation. If these arguments are set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:"
     },
     {
       "old": "In Terraform v1.5.0 and later, use an `import` block to import FSx File Systems using the `id`. For example:",
@@ -8645,7 +8725,7 @@
     },
     {
       "old": "Since Terraform has no method to read the PGP or password information during import, use the Terraform resource `lifecycle` configuration block `ignore_changes` argument to ignore them (unless you want to recreate a password). For example:",
-      "new": "Since TODO has no method to read the PGP or password information during import, use the TODO resource `lifecycle` configuration block `ignore_changes` argument to ignore them (unless you want to recreate a password). For example:"
+      "new": "Since Pulumi has no method to read the PGP or password information during import, use the Pulumi resource option block `ignore_changes` argument to ignore them (unless you want to recreate a password). For example:"
     },
     {
       "old": "Using `terraform import`, import IAM User Login Profiles without password information via the IAM User name. For example:",
@@ -9391,11 +9471,11 @@
   "website/docs/r/kinesis_stream.html.markdown": [
     {
       "old": "  id = \"terraform-kinesis-test\"",
-      "new": "  id = \"TODO-kinesis-test\""
+      "new": "  id = \"pulumi-kinesis-test\""
     },
     {
       "old": "% terraform import aws_kinesis_stream.test_stream terraform-kinesis-test",
-      "new": "% pulumi import aws_kinesis_stream.test_stream TODO-kinesis-test"
+      "new": "% pulumi import aws_kinesis_stream.test_stream pulumi-kinesis-test"
     },
     {
       "old": "In Terraform v1.5.0 and later, use an `import` block to import Kinesis Streams using the `name`. For example:",
@@ -9423,11 +9503,11 @@
   "website/docs/r/kinesis_video_stream.html.markdown": [
     {
       "old": "  id = \"arn:aws:kinesisvideo:us-west-2:123456789012:stream/terraform-kinesis-test/1554978910975\"",
-      "new": "  id = \"arn:aws:kinesisvideo:us-west-2:123456789012:stream/TODO-kinesis-test/1554978910975\""
+      "new": "  id = \"arn:aws:kinesisvideo:us-west-2:123456789012:stream/pulumi-kinesis-test/1554978910975\""
     },
     {
       "old": "% terraform import aws_kinesis_video_stream.test_stream arn:aws:kinesisvideo:us-west-2:123456789012:stream/terraform-kinesis-test/1554978910975",
-      "new": "% pulumi import aws_kinesis_video_stream.test_stream arn:aws:kinesisvideo:us-west-2:123456789012:stream/TODO-kinesis-test/1554978910975"
+      "new": "% pulumi import aws_kinesis_video_stream.test_stream arn:aws:kinesisvideo:us-west-2:123456789012:stream/pulumi-kinesis-test/1554978910975"
     },
     {
       "old": "In Terraform v1.5.0 and later, use an `import` block to import Kinesis Streams using the `arn`. For example:",
@@ -9863,11 +9943,11 @@
   "website/docs/r/launch_configuration.html.markdown": [
     {
       "old": "  id = \"terraform-lg-123456\"",
-      "new": "  id = \"TODO-lg-123456\""
+      "new": "  id = \"pulumi-lg-123456\""
     },
     {
       "old": "% terraform import aws_launch_configuration.as_conf terraform-lg-123456",
-      "new": "% pulumi import aws_launch_configuration.as_conf TODO-lg-123456"
+      "new": "% pulumi import aws_launch_configuration.as_conf pulumi-lg-123456"
     },
     {
       "old": "-> **Note** When using `aws_launch_configuration` with `aws_autoscaling_group`, it is recommended to use the `name_prefix` (Optional) instead of the `name` (Optional) attribute. This will allow Terraform lifecycles to detect changes to the launch configuration and update the autoscaling group correctly.",
@@ -10851,6 +10931,20 @@
       "new": "Using `pulumi import`, import MSK clusters using the cluster `arn`. For example:"
     }
   ],
+  "website/docs/r/msk_cluster_policy.html.markdown": [
+    {
+      "old": "% terraform import aws_msk_cluster_policy.example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3",
+      "new": "% pulumi import aws_msk_cluster_policy.example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import Managed Streaming for Kafka Cluster Policy using the `cluster_arn. For example:",
+      "new": "For example:"
+    },
+    {
+      "old": "Using `terraform import`, import Managed Streaming for Kafka Cluster Policy using the `cluster_arn`. For example:",
+      "new": "Using `pulumi import`, import Managed Streaming for Kafka Cluster Policy using the `cluster_arn`. For example:"
+    }
+  ],
   "website/docs/r/msk_configuration.html.markdown": [
     {
       "old": "% terraform import aws_msk_configuration.example arn:aws:kafka:us-west-2:123456789012:configuration/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3",
@@ -10895,6 +10989,20 @@
     {
       "old": "Using `terraform import`, import MSK serverless clusters using the cluster `arn`. For example:",
       "new": "Using `pulumi import`, import MSK serverless clusters using the cluster `arn`. For example:"
+    }
+  ],
+  "website/docs/r/msk_vpc_connection.html.markdown": [
+    {
+      "old": "% terraform import aws_msk_vpc_connection.example arn:aws:kafka:eu-west-2:123456789012:vpc-connection/123456789012/example/38173259-79cd-4ee8-87f3-682ea6023f48-2",
+      "new": "% pulumi import aws_msk_vpc_connection.example arn:aws:kafka:eu-west-2:123456789012:vpc-connection/123456789012/example/38173259-79cd-4ee8-87f3-682ea6023f48-2"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import MSK configurations using the configuration ARN. For example:",
+      "new": "For example:"
+    },
+    {
+      "old": "Using `terraform import`, import MSK configurations using the configuration ARN. For example:",
+      "new": "Using `pulumi import`, import MSK configurations using the configuration ARN. For example:"
     }
   ],
   "website/docs/r/mskconnect_connector.html.markdown": [
@@ -11085,7 +11193,7 @@
     },
     {
       "old": "Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the Terraform configuration on an imported resource, Terraform will always show a difference. To workaround this behavior, either omit the argument from the Terraform configuration or use `ignore_changes` to hide the difference. For example:",
-      "new": "Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the TODO configuration on an imported resource, TODO will always show a difference. To workaround this behavior, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For example:"
+      "new": "Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:"
     },
     {
       "old": "In Terraform v1.5.0 and later, use an `import` block to import `aws_neptune_global_cluster` using the Global Cluster identifier. For example:",
@@ -11669,6 +11777,20 @@
       "new": "Using `pulumi import`, import AWS Opensearch Outbound Connections using the Outbound Connection ID. For example:"
     }
   ],
+  "website/docs/r/opensearch_vpc_endpoint.html.markdown": [
+    {
+      "old": "% terraform import aws_opensearch_vpc_endpoint_connection.example endpoint-id",
+      "new": "% pulumi import aws_opensearch_vpc_endpoint_connection.example endpoint-id"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import OpenSearch VPC endpoint connections using the `id`. For example:",
+      "new": "For example:"
+    },
+    {
+      "old": "Using `terraform import`, import OpenSearch VPC endpoint connections using the `id`. For example:",
+      "new": "Using `pulumi import`, import OpenSearch VPC endpoint connections using the `id`. For example:"
+    }
+  ],
   "website/docs/r/opensearchserverless_access_policy.html.markdown": [
     {
       "old": "% terraform import aws_opensearchserverless_access_policy.example example/data",
@@ -11847,7 +11969,7 @@
     },
     {
       "old": "Certain resource arguments, like `role_name`, do not have an Organizations API method for reading the information after account creation. If the argument is set in the Terraform configuration on an imported resource, Terraform will always show a difference. To workaround this behavior, either omit the argument from the Terraform configuration or use `ignore_changes` to hide the difference. For example:",
-      "new": "Certain resource arguments, like `role_name`, do not have an Organizations API method for reading the information after account creation. If the argument is set in the TODO configuration on an imported resource, TODO will always show a difference. To workaround this behavior, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For example:"
+      "new": "Certain resource arguments, like `role_name`, do not have an Organizations API method for reading the information after account creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:"
     },
     {
       "old": "In Terraform v1.5.0 and later, use an `import` block to import the AWS member account using the `account_id`. For example:",
@@ -12474,6 +12596,20 @@
       "new": "Using `pulumi import`, import resource share accepters using the resource share ARN. For example:"
     }
   ],
+  "website/docs/r/ram_sharing_with_organization.markdown": [
+    {
+      "old": "% terraform import aws_ram_sharing_with_organization.example 123456789012",
+      "new": "% pulumi import aws_ram_sharing_with_organization.example 123456789012"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import the resource using the current AWS account ID. For example:",
+      "new": "For example:"
+    },
+    {
+      "old": "Using `terraform import`, import the resource using the current AWS account ID. For example:",
+      "new": "Using `pulumi import`, import the resource using the current AWS account ID. For example:"
+    }
+  ],
   "website/docs/r/rbin_rule.html.markdown": [
     {
       "old": "% terraform import aws_rbin_rule.example examplerule",
@@ -12641,7 +12777,7 @@
     },
     {
       "old": "Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the Terraform configuration on an imported resource, Terraform will always show a difference. To workaround this behavior, either omit the argument from the Terraform configuration or use `ignore_changes` to hide the difference. For example:",
-      "new": "Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the TODO configuration on an imported resource, TODO will always show a difference. To workaround this behavior, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For example:"
+      "new": "Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:"
     },
     {
       "old": "In Terraform v1.5.0 and later, use an `import` block to import `aws_rds_global_cluster` using the RDS Global Cluster identifier. For example:",
@@ -12799,11 +12935,11 @@
   "website/docs/r/redshift_parameter_group.html.markdown": [
     {
       "old": "  id = \"parameter-group-test-terraform\"",
-      "new": "  id = \"parameter-group-test-TODO\""
+      "new": "  id = \"parameter-group-test-pulumi\""
     },
     {
       "old": "% terraform import aws_redshift_parameter_group.paramgroup1 parameter-group-test-terraform",
-      "new": "% pulumi import aws_redshift_parameter_group.paramgroup1 parameter-group-test-TODO"
+      "new": "% pulumi import aws_redshift_parameter_group.paramgroup1 parameter-group-test-pulumi"
     },
     {
       "old": "In Terraform v1.5.0 and later, use an `import` block to import Redshift Parameter Groups using the `name`. For example:",
@@ -13479,11 +13615,11 @@
     },
     {
       "old": "The VPC is _not_ in the same region where you have configured the Terraform AWS Provider:",
-      "new": "The VPC is _not_ in the same region where you have configured the TODO AWS Provider:"
+      "new": "The VPC is _not_ in the same region where you have configured the Pulumi AWS Provider:"
     },
     {
       "old": "The VPC is in the same region where you have configured the Terraform AWS Provider:",
-      "new": "The VPC is in the same region where you have configured the TODO AWS Provider:"
+      "new": "The VPC is in the same region where you have configured the Pulumi AWS Provider:"
     }
   ],
   "website/docs/r/route53domains_registered_domain.html.markdown": [
@@ -13966,6 +14102,10 @@
     {
       "old": "In Terraform v1.5.0 and later, use an `import` block to import S3 bucket lifecycle configuration using the `bucket` or using the `bucket` and `expected_bucket_owner` separated by a comma (`,`). For example:",
       "new": ""
+    },
+    {
+      "old": "Running Terraform operations shortly after creating a lifecycle configuration may result in changes that affect configuration idempotence.",
+      "new": "Running Pulumi operations shortly after creating a lifecycle configuration may result in changes that affect configuration idempotence."
     },
     {
       "old": "Since `prefix` is deprecated by Amazon S3 and will be removed in the next major version of the Terraform AWS Provider, we recommend users either specify `filter` or leave both `filter` and `prefix` unspecified.",
@@ -16225,7 +16365,7 @@
     },
     {
       "old": "The `attachments_source` argument does not have an SSM API method for reading the attachment information detail after creation. If the argument is set in the Terraform configuration on an imported resource, Terraform will always show a difference. To workaround this behavior, either omit the argument from the Terraform configuration or use `ignore_changes` to hide the difference. For example:",
-      "new": "The `attachments_source` argument does not have an SSM API method for reading the attachment information detail after creation. If the argument is set in the TODO configuration on an imported resource, TODO will always show a difference. To workaround this behavior, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For example:"
+      "new": "The `attachments_source` argument does not have an SSM API method for reading the attachment information detail after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:"
     },
     {
       "old": "Using `terraform import`, import SSM Documents using the name. For example:",
@@ -16599,7 +16739,7 @@
     },
     {
       "old": "Certain resource arguments, like `gateway_ip_address` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the Terraform configuration or use `ignore_changes` to hide the difference. For example:",
-      "new": "Certain resource arguments, like `gateway_ip_address` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For example:"
+      "new": "Certain resource arguments, like `gateway_ip_address` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:"
     },
     {
       "old": "In Terraform v1.5.0 and later, use an `import` block to import `aws_storagegateway_gateway` using the gateway Amazon Resource Name (ARN). For example:",
@@ -17216,6 +17356,10 @@
       "new": "% pulumi import aws_vpc_ipam_pool_cidr.example 172.2.0.0/24_ipam-pool-0e634f5a1517cccdc"
     },
     {
+      "old": "% terraform import aws_vpc_ipam_pool_cidr.example 172.20.0.0/24_ipam-pool-0e634f5a1517cccdc",
+      "new": "% pulumi import aws_vpc_ipam_pool_cidr.example 172.20.0.0/24_ipam-pool-0e634f5a1517cccdc"
+    },
+    {
       "old": "* `ipam_pool_cidr_id` - The unique ID generated by AWS for the pool cidr. Typically this is the resource `id` but this attribute was added to the API calls after the fact and is therefore not used as the terraform resource id.",
       "new": "* `ipam_pool_cidr_id` - The unique ID generated by AWS for the pool cidr. Typically this is the resource `id` but this attribute was added to the API calls after the fact and is therefore not used as the resource id."
     },
@@ -17340,7 +17484,7 @@
     },
     {
       "old": "Certain resource arguments, like `auto_accept`, do not have an EC2 API method for reading the information after peering connection creation. If the argument is set in the Terraform configuration on an imported resource, Terraform will always show a difference. To workaround this behavior, either omit the argument from the Terraform configuration or use `ignore_changes` to hide the difference. For example:",
-      "new": "Certain resource arguments, like `auto_accept`, do not have an EC2 API method for reading the information after peering connection creation. If the argument is set in the TODO configuration on an imported resource, TODO will always show a difference. To workaround this behavior, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For example:"
+      "new": "Certain resource arguments, like `auto_accept`, do not have an EC2 API method for reading the information after peering connection creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:"
     },
     {
       "old": "In Terraform v1.5.0 and later, use an `import` block to import VPC Peering Connection Accepters using the Peering Connection ID. For example:",

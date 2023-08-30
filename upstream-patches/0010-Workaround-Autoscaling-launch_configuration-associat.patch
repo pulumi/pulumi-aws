@@ -1,4 +1,4 @@
-From 09d6a55bc11954f1c0cba698e41f627d398e5a78 Mon Sep 17 00:00:00 2001
+From a01b2cce9e6bfb8e2cb22243df15dba7a0a4c54d Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Fri, 4 Nov 2022 17:34:56 +0000
 Subject: [PATCH 10/28] Workaround Autoscaling launch_configuration

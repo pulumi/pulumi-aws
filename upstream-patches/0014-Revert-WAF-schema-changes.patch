@@ -1,4 +1,4 @@
-From 17b4f32928c58f60a55dda0c835c81b13f15f90e Mon Sep 17 00:00:00 2001
+From 4755dccc2899c3843e64a301752a3df64f23470a Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Tue, 15 Nov 2022 13:59:57 +0000
 Subject: [PATCH 14/28] Revert WAF schema changes
@@ -9,7 +9,7 @@ Subject: [PATCH 14/28] Revert WAF schema changes
  1 file changed, 4 insertions(+), 4 deletions(-)
 
 diff --git a/internal/service/wafv2/schemas.go b/internal/service/wafv2/schemas.go
-index 7ded2aac1c..ddcd5e6161 100644
+index 315f501f32..e48ac913dc 100644
 --- a/internal/service/wafv2/schemas.go
 +++ b/internal/service/wafv2/schemas.go
 @@ -52,14 +52,14 @@ func ruleGroupRootStatementSchema(level int) *schema.Schema {

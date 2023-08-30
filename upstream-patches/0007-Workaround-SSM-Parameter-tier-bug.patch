@@ -1,4 +1,4 @@
-From e0b0a5076490e49b810d9bdca99ebd652b429bc8 Mon Sep 17 00:00:00 2001
+From 6588b90c772cf6c67d2f068e2e821f14af2356b8 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Fri, 4 Nov 2022 17:24:42 +0000
 Subject: [PATCH 07/28] Workaround SSM Parameter tier bug

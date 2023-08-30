@@ -1,4 +1,4 @@
-From c3d25a34961b8acc526c61ef47956bc8974abdf4 Mon Sep 17 00:00:00 2001
+From 2031731f80cda5e2ac0a706f9af2db9532b29643 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Thu, 9 Mar 2023 14:50:51 +0000
 Subject: [PATCH 21/28] Fixup gamelift context
