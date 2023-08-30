@@ -93,11 +93,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import EIPs in a VPC using their Allocation ID. For example:
  *
- *  to = aws_eip.bar
- *
- *  id = "eipalloc-00a10e96" } Using `pulumi import`, import EIPs in a VPC using their Allocation ID. For exampleconsole % pulumi import aws_eip.bar eipalloc-00a10e96
+ * ```sh
+ *  $ pulumi import aws:ec2/eip:Eip bar eipalloc-00a10e96
+ * ```
  */
 export class Eip extends pulumi.CustomResource {
     /**

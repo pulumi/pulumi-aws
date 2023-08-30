@@ -31,11 +31,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import `aws_servicecatalog_portfolio_share` using the portfolio share ID. For example:
  *
- *  to = aws_servicecatalog_portfolio_share.example
- *
- *  id = "port-12344321:ACCOUNT:123456789012" } Using `pulumi import`, import `aws_servicecatalog_portfolio_share` using the portfolio share ID. For exampleconsole % pulumi import aws_servicecatalog_portfolio_share.example port-12344321:ACCOUNT:123456789012
+ * ```sh
+ *  $ pulumi import aws:servicecatalog/portfolioShare:PortfolioShare example port-12344321:ACCOUNT:123456789012
+ * ```
  */
 export class PortfolioShare extends pulumi.CustomResource {
     /**

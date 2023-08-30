@@ -137,11 +137,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import CodePipelines using the name. For example:
  *
- *  to = aws_codepipeline.foo
- *
- *  id = "example" } Using `pulumi import`, import CodePipelines using the name. For exampleconsole % pulumi import aws_codepipeline.foo example
+ * ```sh
+ *  $ pulumi import aws:codepipeline/pipeline:Pipeline foo example
+ * ```
  */
 export class Pipeline extends pulumi.CustomResource {
     /**

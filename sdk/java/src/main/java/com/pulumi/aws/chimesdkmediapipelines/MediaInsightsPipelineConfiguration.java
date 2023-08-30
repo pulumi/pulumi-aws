@@ -418,11 +418,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Chime SDK Media Pipelines Media Insights Pipeline Configuration using the `id`. For example:
  * 
- *  to = aws_chimesdkmediapipelines_media_insights_pipeline_configuration.example
- * 
- *  id = &#34;abcdef123456&#34; } Using `pulumi import`, import Chime SDK Media Pipelines Media Insights Pipeline Configuration using the `id`. For exampleconsole % pulumi import aws_chimesdkmediapipelines_media_insights_pipeline_configuration.example abcdef123456
+ * ```sh
+ *  $ pulumi import aws:chimesdkmediapipelines/mediaInsightsPipelineConfiguration:MediaInsightsPipelineConfiguration example abcdef123456
+ * ```
  * 
  */
 @ResourceType(type="aws:chimesdkmediapipelines/mediaInsightsPipelineConfiguration:MediaInsightsPipelineConfiguration")

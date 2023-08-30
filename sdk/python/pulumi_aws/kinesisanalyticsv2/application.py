@@ -629,11 +629,11 @@ class Application(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_kinesisanalyticsv2_application` using the application ARN. For example:
 
-         to = aws_kinesisanalyticsv2_application.example
-
-         id = "arn:aws:kinesisanalytics:us-west-2:123456789012:application/example-sql-application" } Using `pulumi import`, import `aws_kinesisanalyticsv2_application` using the application ARN. For exampleconsole % pulumi import aws_kinesisanalyticsv2_application.example arn:aws:kinesisanalytics:us-west-2:123456789012:application/example-sql-application
+        ```sh
+         $ pulumi import aws:kinesisanalyticsv2/application:Application example arn:aws:kinesisanalytics:us-west-2:123456789012:application/example-sql-application
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -856,11 +856,11 @@ class Application(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_kinesisanalyticsv2_application` using the application ARN. For example:
 
-         to = aws_kinesisanalyticsv2_application.example
-
-         id = "arn:aws:kinesisanalytics:us-west-2:123456789012:application/example-sql-application" } Using `pulumi import`, import `aws_kinesisanalyticsv2_application` using the application ARN. For exampleconsole % pulumi import aws_kinesisanalyticsv2_application.example arn:aws:kinesisanalytics:us-west-2:123456789012:application/example-sql-application
+        ```sh
+         $ pulumi import aws:kinesisanalyticsv2/application:Application example arn:aws:kinesisanalytics:us-west-2:123456789012:application/example-sql-application
+        ```
 
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.

@@ -49,11 +49,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import GuardDuty filters using the detector ID and filter's name separated by a colon. For example:
  *
- *  to = aws_guardduty_filter.MyFilter
- *
- *  id = "00b00fd5aecc0ab60a708659477e9617:MyFilter" } Using `pulumi import`, import GuardDuty filters using the detector ID and filter's name separated by a colon. For exampleconsole % pulumi import aws_guardduty_filter.MyFilter 00b00fd5aecc0ab60a708659477e9617:MyFilter
+ * ```sh
+ *  $ pulumi import aws:guardduty/filter:Filter MyFilter 00b00fd5aecc0ab60a708659477e9617:MyFilter
+ * ```
  */
 export class Filter extends pulumi.CustomResource {
     /**

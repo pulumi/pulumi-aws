@@ -1020,11 +1020,11 @@ class Cluster(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import DocumentDB Clusters using the `cluster_identifier`. For example:
 
-         to = aws_docdb_cluster.docdb_cluster
-
-         id = "docdb-prod-cluster" } Using `pulumi import`, import DocumentDB Clusters using the `cluster_identifier`. For exampleconsole % pulumi import aws_docdb_cluster.docdb_cluster docdb-prod-cluster
+        ```sh
+         $ pulumi import aws:docdb/cluster:Cluster docdb_cluster docdb-prod-cluster
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1099,11 +1099,11 @@ class Cluster(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import DocumentDB Clusters using the `cluster_identifier`. For example:
 
-         to = aws_docdb_cluster.docdb_cluster
-
-         id = "docdb-prod-cluster" } Using `pulumi import`, import DocumentDB Clusters using the `cluster_identifier`. For exampleconsole % pulumi import aws_docdb_cluster.docdb_cluster docdb-prod-cluster
+        ```sh
+         $ pulumi import aws:docdb/cluster:Cluster docdb_cluster docdb-prod-cluster
+        ```
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.

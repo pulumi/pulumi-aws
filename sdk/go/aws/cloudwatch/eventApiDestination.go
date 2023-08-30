@@ -48,11 +48,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import EventBridge API Destinations using the `name`. For example:
 //
-//	to = aws_cloudwatch_event_api_destination.test
+// ```sh
 //
-//	id = "api-destination" } Using `pulumi import`, import EventBridge API Destinations using the `name`. For exampleconsole % pulumi import aws_cloudwatch_event_api_destination.test api-destination
+//	$ pulumi import aws:cloudwatch/eventApiDestination:EventApiDestination test api-destination
+//
+// ```
 type EventApiDestination struct {
 	pulumi.CustomResourceState
 

@@ -57,11 +57,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import IPAMs using the IPAM resource discovery `id`. For example:
 //
-//	to = aws_vpc_ipam_resource_discovery.example
+// ```sh
 //
-//	id = "ipam-res-disco-0178368ad2146a492" } Using `pulumi import`, import IPAMs using the IPAM resource discovery `id`. For exampleconsole % pulumi import aws_vpc_ipam_resource_discovery.example ipam-res-disco-0178368ad2146a492
+//	$ pulumi import aws:ec2/vpcIpamResourceDiscovery:VpcIpamResourceDiscovery example ipam-res-disco-0178368ad2146a492
+//
+// ```
 type VpcIpamResourceDiscovery struct {
 	pulumi.CustomResourceState
 

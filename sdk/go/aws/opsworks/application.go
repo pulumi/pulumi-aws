@@ -83,11 +83,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Opsworks Application using the `id`. For example:
 //
-//	to = aws_opsworks_application.test
+// ```sh
 //
-//	id = "<id>" } Using `pulumi import`, import Opsworks Application using the `id`. For exampleconsole % pulumi import aws_opsworks_application.test <id>
+//	$ pulumi import aws:opsworks/application:Application test <id>
+//
+// ```
 type Application struct {
 	pulumi.CustomResourceState
 

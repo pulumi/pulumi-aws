@@ -89,11 +89,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import data quality job definitions using the `name`. For example:
  * 
- *  to = aws_sagemaker_data_quality_job_definition.test_data_quality_job_definition
- * 
- *  id = &#34;data-quality-job-definition-foo&#34; } Using `pulumi import`, import data quality job definitions using the `name`. For exampleconsole % pulumi import aws_sagemaker_data_quality_job_definition.test_data_quality_job_definition data-quality-job-definition-foo
+ * ```sh
+ *  $ pulumi import aws:sagemaker/dataQualityJobDefinition:DataQualityJobDefinition test_data_quality_job_definition data-quality-job-definition-foo
+ * ```
  * 
  */
 @ResourceType(type="aws:sagemaker/dataQualityJobDefinition:DataQualityJobDefinition")

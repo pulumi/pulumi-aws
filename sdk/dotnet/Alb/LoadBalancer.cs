@@ -142,11 +142,11 @@ namespace Pulumi.Aws.Alb
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import LBs using their ARN. For example:
     /// 
-    ///  to = aws_lb.bar
-    /// 
-    ///  id = "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188" } Using `pulumi import`, import LBs using their ARN. For exampleconsole % pulumi import aws_lb.bar arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188
+    /// ```sh
+    ///  $ pulumi import aws:alb/loadBalancer:LoadBalancer bar arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188
+    /// ```
     /// </summary>
     [AwsResourceType("aws:alb/loadBalancer:LoadBalancer")]
     public partial class LoadBalancer : global::Pulumi.CustomResource

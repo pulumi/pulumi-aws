@@ -22,11 +22,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import SageMaker Studio Lifecycle Configs using the `studio_lifecycle_config_name`. For example:
  * 
- *  to = aws_sagemaker_studio_lifecycle_config.example
- * 
- *  id = &#34;example&#34; } Using `pulumi import`, import SageMaker Studio Lifecycle Configs using the `studio_lifecycle_config_name`. For exampleconsole % pulumi import aws_sagemaker_studio_lifecycle_config.example example
+ * ```sh
+ *  $ pulumi import aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig example example
+ * ```
  * 
  */
 @ResourceType(type="aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig")

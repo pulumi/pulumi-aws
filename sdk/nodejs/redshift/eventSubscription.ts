@@ -38,11 +38,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import Redshift Event Subscriptions using the `name`. For example:
  *
- *  to = aws_redshift_event_subscription.default
- *
- *  id = "redshift-event-sub" } Using `pulumi import`, import Redshift Event Subscriptions using the `name`. For exampleconsole % pulumi import aws_redshift_event_subscription.default redshift-event-sub
+ * ```sh
+ *  $ pulumi import aws:redshift/eventSubscription:EventSubscription default redshift-event-sub
+ * ```
  */
 export class EventSubscription extends pulumi.CustomResource {
     /**

@@ -36,11 +36,11 @@ namespace Pulumi.Aws.Oam
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import CloudWatch Observability Access Manager Sink using the `arn`. For example:
     /// 
-    ///  to = aws_oam_sink.example
-    /// 
-    ///  id = "arn:aws:oam:us-west-2:123456789012:sink/sink-id" } Using `pulumi import`, import CloudWatch Observability Access Manager Sink using the `arn`. For exampleconsole % pulumi import aws_oam_sink.example arn:aws:oam:us-west-2:123456789012:sink/sink-id
+    /// ```sh
+    ///  $ pulumi import aws:oam/sink:Sink example arn:aws:oam:us-west-2:123456789012:sink/sink-id
+    /// ```
     /// </summary>
     [AwsResourceType("aws:oam/sink:Sink")]
     public partial class Sink : global::Pulumi.CustomResource

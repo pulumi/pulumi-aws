@@ -58,11 +58,11 @@ import {EngineType} from "./index";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import RDS Cluster Instances using the `identifier`. For example:
  *
- *  to = aws_rds_cluster_instance.prod_instance_1
- *
- *  id = "aurora-cluster-instance-1" } Using `pulumi import`, import RDS Cluster Instances using the `identifier`. For exampleconsole % pulumi import aws_rds_cluster_instance.prod_instance_1 aurora-cluster-instance-1
+ * ```sh
+ *  $ pulumi import aws:rds/clusterInstance:ClusterInstance prod_instance_1 aurora-cluster-instance-1
+ * ```
  */
 export class ClusterInstance extends pulumi.CustomResource {
     /**

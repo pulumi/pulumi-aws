@@ -341,11 +341,11 @@ class SafetyRule(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Route53 Recovery Control Config Safety Rule using the safety rule ARN. For example:
 
-         to = aws_route53recoverycontrolconfig_safety_rule.myrule
-
-         id = "arn:aws:route53-recovery-control::313517334327:controlpanel/1bfba17df8684f5dab0467b71424f7e8/safetyrule/3bacc77003364c0f" } Using `pulumi import`, import Route53 Recovery Control Config Safety Rule using the safety rule ARN. For exampleconsole % pulumi import aws_route53recoverycontrolconfig_safety_rule.myrule arn:aws:route53-recovery-control::313517334327:controlpanel/1bfba17df8684f5dab0467b71424f7e8/safetyrule/3bacc77003364c0f
+        ```sh
+         $ pulumi import aws:route53recoverycontrol/safetyRule:SafetyRule myrule arn:aws:route53-recovery-control::313517334327:controlpanel/1bfba17df8684f5dab0467b71424f7e8/safetyrule/3bacc77003364c0f
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -403,11 +403,11 @@ class SafetyRule(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Route53 Recovery Control Config Safety Rule using the safety rule ARN. For example:
 
-         to = aws_route53recoverycontrolconfig_safety_rule.myrule
-
-         id = "arn:aws:route53-recovery-control::313517334327:controlpanel/1bfba17df8684f5dab0467b71424f7e8/safetyrule/3bacc77003364c0f" } Using `pulumi import`, import Route53 Recovery Control Config Safety Rule using the safety rule ARN. For exampleconsole % pulumi import aws_route53recoverycontrolconfig_safety_rule.myrule arn:aws:route53-recovery-control::313517334327:controlpanel/1bfba17df8684f5dab0467b71424f7e8/safetyrule/3bacc77003364c0f
+        ```sh
+         $ pulumi import aws:route53recoverycontrol/safetyRule:SafetyRule myrule arn:aws:route53-recovery-control::313517334327:controlpanel/1bfba17df8684f5dab0467b71424f7e8/safetyrule/3bacc77003364c0f
+        ```
 
         :param str resource_name: The name of the resource.
         :param SafetyRuleArgs args: The arguments to use to populate this resource's properties.

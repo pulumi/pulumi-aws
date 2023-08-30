@@ -337,11 +337,11 @@ class Grant(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import KMS Grants using the Key ID and Grant ID separated by a colon (`:`). For example:
 
-         to = aws_kms_grant.test
-
-         id = "1234abcd-12ab-34cd-56ef-1234567890ab:abcde1237f76e4ba7987489ac329fbfba6ad343d6f7075dbd1ef191f0120514" } Using `pulumi import`, import KMS Grants using the Key ID and Grant ID separated by a colon (`:`). For exampleconsole % pulumi import aws_kms_grant.test 1234abcd-12ab-34cd-56ef-1234567890ab:abcde1237f76e4ba7987489ac329fbfba6ad343d6f7075dbd1ef191f0120514
+        ```sh
+         $ pulumi import aws:kms/grant:Grant test 1234abcd-12ab-34cd-56ef-1234567890ab:abcde1237f76e4ba7987489ac329fbfba6ad343d6f7075dbd1ef191f0120514
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -366,11 +366,11 @@ class Grant(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import KMS Grants using the Key ID and Grant ID separated by a colon (`:`). For example:
 
-         to = aws_kms_grant.test
-
-         id = "1234abcd-12ab-34cd-56ef-1234567890ab:abcde1237f76e4ba7987489ac329fbfba6ad343d6f7075dbd1ef191f0120514" } Using `pulumi import`, import KMS Grants using the Key ID and Grant ID separated by a colon (`:`). For exampleconsole % pulumi import aws_kms_grant.test 1234abcd-12ab-34cd-56ef-1234567890ab:abcde1237f76e4ba7987489ac329fbfba6ad343d6f7075dbd1ef191f0120514
+        ```sh
+         $ pulumi import aws:kms/grant:Grant test 1234abcd-12ab-34cd-56ef-1234567890ab:abcde1237f76e4ba7987489ac329fbfba6ad343d6f7075dbd1ef191f0120514
+        ```
 
         :param str resource_name: The name of the resource.
         :param GrantArgs args: The arguments to use to populate this resource's properties.

@@ -162,11 +162,11 @@ class ReceiptFilter(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import SES Receipt Filter using their `name`. For example:
 
-         to = aws_ses_receipt_filter.test
-
-         id = "some-filter" } Using `pulumi import`, import SES Receipt Filter using their `name`. For exampleconsole % pulumi import aws_ses_receipt_filter.test some-filter
+        ```sh
+         $ pulumi import aws:ses/receiptFilter:ReceiptFilter test some-filter
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -196,11 +196,11 @@ class ReceiptFilter(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import SES Receipt Filter using their `name`. For example:
 
-         to = aws_ses_receipt_filter.test
-
-         id = "some-filter" } Using `pulumi import`, import SES Receipt Filter using their `name`. For exampleconsole % pulumi import aws_ses_receipt_filter.test some-filter
+        ```sh
+         $ pulumi import aws:ses/receiptFilter:ReceiptFilter test some-filter
+        ```
 
         :param str resource_name: The name of the resource.
         :param ReceiptFilterArgs args: The arguments to use to populate this resource's properties.

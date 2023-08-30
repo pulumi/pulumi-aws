@@ -513,11 +513,11 @@ class ExportTask(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import a RDS (Relational Database) Export Task using the `export_task_identifier`. For example:
 
-         to = aws_rds_export_task.example
-
-         id = "example" } Using `pulumi import`, import a RDS (Relational Database) Export Task using the `export_task_identifier`. For exampleconsole % pulumi import aws_rds_export_task.example example
+        ```sh
+         $ pulumi import aws:rds/exportTask:ExportTask example example
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -628,11 +628,11 @@ class ExportTask(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import a RDS (Relational Database) Export Task using the `export_task_identifier`. For example:
 
-         to = aws_rds_export_task.example
-
-         id = "example" } Using `pulumi import`, import a RDS (Relational Database) Export Task using the `export_task_identifier`. For exampleconsole % pulumi import aws_rds_export_task.example example
+        ```sh
+         $ pulumi import aws:rds/exportTask:ExportTask example example
+        ```
 
         :param str resource_name: The name of the resource.
         :param ExportTaskArgs args: The arguments to use to populate this resource's properties.

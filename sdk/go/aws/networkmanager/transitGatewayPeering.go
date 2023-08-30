@@ -43,11 +43,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import `aws_networkmanager_transit_gateway_peering` using the peering ID. For example:
 //
-//	to = aws_networkmanager_transit_gateway_peering.example
+// ```sh
 //
-//	id = "peering-444555aaabbb11223" } Using `pulumi import`, import `aws_networkmanager_transit_gateway_peering` using the peering ID. For exampleconsole % pulumi import aws_networkmanager_transit_gateway_peering.example peering-444555aaabbb11223
+//	$ pulumi import aws:networkmanager/transitGatewayPeering:TransitGatewayPeering example peering-444555aaabbb11223
+//
+// ```
 type TransitGatewayPeering struct {
 	pulumi.CustomResourceState
 

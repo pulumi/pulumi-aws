@@ -23,11 +23,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import AppConfig Applications using their application ID. For example:
  *
- *  to = aws_appconfig_application.example
- *
- *  id = "71rxuzt" } Using `pulumi import`, import AppConfig Applications using their application ID. For exampleconsole % pulumi import aws_appconfig_application.example 71rxuzt
+ * ```sh
+ *  $ pulumi import aws:appconfig/application:Application example 71rxuzt
+ * ```
  */
 export class Application extends pulumi.CustomResource {
     /**

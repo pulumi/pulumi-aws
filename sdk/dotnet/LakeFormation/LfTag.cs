@@ -38,11 +38,11 @@ namespace Pulumi.Aws.LakeFormation
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import Lake Formation LF-Tags using the `catalog_id:key`. If you have not set a Catalog ID specify the AWS Account ID that the database is in. For example:
     /// 
-    ///  to = aws_lakeformation_lf_tag.example
-    /// 
-    ///  id = "123456789012:some_key" } Using `pulumi import`, import Lake Formation LF-Tags using the `catalog_id:key`. If you have not set a Catalog ID specify the AWS Account ID that the database is in. For exampleconsole % pulumi import aws_lakeformation_lf_tag.example 123456789012:some_key
+    /// ```sh
+    ///  $ pulumi import aws:lakeformation/lfTag:LfTag example 123456789012:some_key
+    /// ```
     /// </summary>
     [AwsResourceType("aws:lakeformation/lfTag:LfTag")]
     public partial class LfTag : global::Pulumi.CustomResource

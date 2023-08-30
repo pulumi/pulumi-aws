@@ -47,11 +47,15 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import `aws_apigatewayv2_deployment` using the API identifier and deployment identifier. For example:
 //
-//	to = aws_apigatewayv2_deployment.example
+// ```sh
 //
-//	id = "aabbccddee/1122334" } Using `pulumi import`, import `aws_apigatewayv2_deployment` using the API identifier and deployment identifier. For exampleconsole % pulumi import aws_apigatewayv2_deployment.example aabbccddee/1122334 The `triggers` argument cannot be imported.
+//	$ pulumi import aws:apigatewayv2/deployment:Deployment example aabbccddee/1122334
+//
+// ```
+//
+//	The `triggers` argument cannot be imported.
 type Deployment struct {
 	pulumi.CustomResourceState
 

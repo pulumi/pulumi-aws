@@ -54,11 +54,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import `aws_ec2_transit_gateway_vpc_attachment` using the EC2 Transit Gateway Attachment identifier. For example:
  * 
- *  to = aws_ec2_transit_gateway_vpc_attachment.example
- * 
- *  id = &#34;tgw-attach-12345678&#34; } Using `pulumi import`, import `aws_ec2_transit_gateway_vpc_attachment` using the EC2 Transit Gateway Attachment identifier. For exampleconsole % pulumi import aws_ec2_transit_gateway_vpc_attachment.example tgw-attach-12345678
+ * ```sh
+ *  $ pulumi import aws:ec2transitgateway/vpcAttachment:VpcAttachment example tgw-attach-12345678
+ * ```
  * 
  */
 @ResourceType(type="aws:ec2transitgateway/vpcAttachment:VpcAttachment")

@@ -660,15 +660,22 @@ class Launch(pulumi.CustomResource):
 
         ## Import
 
-        Import using the `name` of the launch and `name` of the project separated by a `:`terraform import {
+        Import using the `name` of the launch and `name` of the project separated by a `:`:
 
-         to = aws_evidently_launch.example
+        Import using the `name` of the launch and `arn` of the project separated by a `:`:
 
-         id = "exampleLaunchName:exampleProjectName" } Import using the `name` of the launch and `arn` of the project separated by a `:`terraform import {
+        __Using `pulumi import` to import__ CloudWatch Evidently Launch using the `name` of the launch and `name` of the project or `arn` of the hosting CloudWatch Evidently Project separated by a `:`. For example:
 
-         to = aws_evidently_launch.example
+        Import using the `name` of the launch and `name` of the project separated by a `:`:
 
-         id = "exampleLaunchName:arn:aws:evidently:us-east-1:123456789012:project/exampleProjectName" } **Using `pulumi import` to import** CloudWatch Evidently Launch using the `name` of the launch and `name` of the project or `arn` of the hosting CloudWatch Evidently Project separated by a `:`. For exampleImport using the `name` of the launch and `name` of the project separated by a `:`console % pulumi import aws_evidently_launch.example exampleLaunchName:exampleProjectName Import using the `name` of the launch and `arn` of the project separated by a `:`console % pulumi import aws_evidently_launch.example exampleLaunchName:arn:aws:evidently:us-east-1:123456789012:project/exampleProjectName
+        ```sh
+         $ pulumi import aws:evidently/launch:Launch example exampleLaunchName:exampleProjectName
+        ```
+         Import using the `name` of the launch and `arn` of the project separated by a `:`:
+
+        ```sh
+         $ pulumi import aws:evidently/launch:Launch example exampleLaunchName:arn:aws:evidently:us-east-1:123456789012:project/exampleProjectName
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -922,15 +929,22 @@ class Launch(pulumi.CustomResource):
 
         ## Import
 
-        Import using the `name` of the launch and `name` of the project separated by a `:`terraform import {
+        Import using the `name` of the launch and `name` of the project separated by a `:`:
 
-         to = aws_evidently_launch.example
+        Import using the `name` of the launch and `arn` of the project separated by a `:`:
 
-         id = "exampleLaunchName:exampleProjectName" } Import using the `name` of the launch and `arn` of the project separated by a `:`terraform import {
+        __Using `pulumi import` to import__ CloudWatch Evidently Launch using the `name` of the launch and `name` of the project or `arn` of the hosting CloudWatch Evidently Project separated by a `:`. For example:
 
-         to = aws_evidently_launch.example
+        Import using the `name` of the launch and `name` of the project separated by a `:`:
 
-         id = "exampleLaunchName:arn:aws:evidently:us-east-1:123456789012:project/exampleProjectName" } **Using `pulumi import` to import** CloudWatch Evidently Launch using the `name` of the launch and `name` of the project or `arn` of the hosting CloudWatch Evidently Project separated by a `:`. For exampleImport using the `name` of the launch and `name` of the project separated by a `:`console % pulumi import aws_evidently_launch.example exampleLaunchName:exampleProjectName Import using the `name` of the launch and `arn` of the project separated by a `:`console % pulumi import aws_evidently_launch.example exampleLaunchName:arn:aws:evidently:us-east-1:123456789012:project/exampleProjectName
+        ```sh
+         $ pulumi import aws:evidently/launch:Launch example exampleLaunchName:exampleProjectName
+        ```
+         Import using the `name` of the launch and `arn` of the project separated by a `:`:
+
+        ```sh
+         $ pulumi import aws:evidently/launch:Launch example exampleLaunchName:arn:aws:evidently:us-east-1:123456789012:project/exampleProjectName
+        ```
 
         :param str resource_name: The name of the resource.
         :param LaunchArgs args: The arguments to use to populate this resource's properties.

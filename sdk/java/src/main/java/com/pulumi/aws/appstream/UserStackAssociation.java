@@ -62,11 +62,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import AppStream User Stack Association using the `user_name`, `authentication_type`, and `stack_name`, separated by a slash (`/`). For example:
  * 
- *  to = aws_appstream_user_stack_association.example
- * 
- *  id = &#34;userName/auhtenticationType/stackName&#34; } Using `pulumi import`, import AppStream User Stack Association using the `user_name`, `authentication_type`, and `stack_name`, separated by a slash (`/`). For exampleconsole % pulumi import aws_appstream_user_stack_association.example userName/auhtenticationType/stackName
+ * ```sh
+ *  $ pulumi import aws:appstream/userStackAssociation:UserStackAssociation example userName/auhtenticationType/stackName
+ * ```
  * 
  */
 @ResourceType(type="aws:appstream/userStackAssociation:UserStackAssociation")

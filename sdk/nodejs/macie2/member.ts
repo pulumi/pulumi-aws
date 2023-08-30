@@ -27,11 +27,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import `aws_macie2_member` using the account ID of the member account. For example:
  *
- *  to = aws_macie2_member.example
- *
- *  id = "123456789012" } Using `pulumi import`, import `aws_macie2_member` using the account ID of the member account. For exampleconsole % pulumi import aws_macie2_member.example 123456789012
+ * ```sh
+ *  $ pulumi import aws:macie2/member:Member example 123456789012
+ * ```
  */
 export class Member extends pulumi.CustomResource {
     /**

@@ -129,11 +129,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import `aws_connect_bot_association` using the Amazon Connect instance ID, Lex (V1) bot name, and Lex (V1) bot region separated by colons (`:`). For example:
 //
-//	to = aws_connect_bot_association.example
+// ```sh
 //
-//	id = "aaaaaaaa-bbbb-cccc-dddd-111111111111:Example:us-west-2" } Using `pulumi import`, import `aws_connect_bot_association` using the Amazon Connect instance ID, Lex (V1) bot name, and Lex (V1) bot region separated by colons (`:`). For exampleconsole % pulumi import aws_connect_bot_association.example aaaaaaaa-bbbb-cccc-dddd-111111111111:Example:us-west-2
+//	$ pulumi import aws:connect/botAssociation:BotAssociation example aaaaaaaa-bbbb-cccc-dddd-111111111111:Example:us-west-2
+//
+// ```
 type BotAssociation struct {
 	pulumi.CustomResourceState
 

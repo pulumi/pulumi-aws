@@ -50,11 +50,15 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Key Pairs using the `key_name`. For example:
 //
-//	to = aws_key_pair.deployer
+// ```sh
 //
-//	id = "deployer-key" } Using `pulumi import`, import Key Pairs using the `key_name`. For exampleconsole % pulumi import aws_key_pair.deployer deployer-key
+//	$ pulumi import aws:ec2/keyPair:KeyPair deployer deployer-key
+//
+// ```
+//
+//	~> __NOTE:__ The AWS API does not include the public key in the response, so `pulumi up` will attempt to replace the key pair. There is currently no supported workaround for this limitation.
 type KeyPair struct {
 	pulumi.CustomResourceState
 

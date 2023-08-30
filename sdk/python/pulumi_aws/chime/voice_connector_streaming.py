@@ -261,11 +261,11 @@ class VoiceConnectorStreaming(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Chime Voice Connector Streaming using the `voice_connector_id`. For example:
 
-         to = aws_chime_voice_connector_streaming.default
-
-         id = "abcdef1ghij2klmno3pqr4" } Using `pulumi import`, import Chime Voice Connector Streaming using the `voice_connector_id`. For exampleconsole % pulumi import aws_chime_voice_connector_streaming.default abcdef1ghij2klmno3pqr4
+        ```sh
+         $ pulumi import aws:chime/voiceConnectorStreaming:VoiceConnectorStreaming default abcdef1ghij2klmno3pqr4
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -344,11 +344,11 @@ class VoiceConnectorStreaming(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Chime Voice Connector Streaming using the `voice_connector_id`. For example:
 
-         to = aws_chime_voice_connector_streaming.default
-
-         id = "abcdef1ghij2klmno3pqr4" } Using `pulumi import`, import Chime Voice Connector Streaming using the `voice_connector_id`. For exampleconsole % pulumi import aws_chime_voice_connector_streaming.default abcdef1ghij2klmno3pqr4
+        ```sh
+         $ pulumi import aws:chime/voiceConnectorStreaming:VoiceConnectorStreaming default abcdef1ghij2klmno3pqr4
+        ```
 
         :param str resource_name: The name of the resource.
         :param VoiceConnectorStreamingArgs args: The arguments to use to populate this resource's properties.

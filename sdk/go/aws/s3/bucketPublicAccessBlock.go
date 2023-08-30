@@ -50,11 +50,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import `aws_s3_bucket_public_access_block` using the bucket name. For example:
 //
-//	to = aws_s3_bucket_public_access_block.example
+// ```sh
 //
-//	id = "my-bucket" } Using `pulumi import`, import `aws_s3_bucket_public_access_block` using the bucket name. For exampleconsole % pulumi import aws_s3_bucket_public_access_block.example my-bucket
+//	$ pulumi import aws:s3/bucketPublicAccessBlock:BucketPublicAccessBlock example my-bucket
+//
+// ```
 type BucketPublicAccessBlock struct {
 	pulumi.CustomResourceState
 

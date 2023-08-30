@@ -23,19 +23,29 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using the patch baseline IDterraform import {
+ * Using the patch baseline ID:
  *
- *  to = aws_ssm_default_patch_baseline.example
+ * Using the patch baseline ARN:
  *
- *  id = "pb-1234567890abcdef1" } Using the patch baseline ARNterraform import {
+ * Using the operating system value:
  *
- *  to = aws_ssm_default_patch_baseline.example
+ * __Using `pulumi import` to import__ the Systems Manager Default Patch Baseline using the patch baseline ID, patch baseline ARN, or the operating system value. For example:
  *
- *  id = "arn:aws:ssm:us-west-2:123456789012:patchbaseline/pb-1234567890abcdef1" } Using the operating system valueterraform import {
+ * Using the patch baseline ID:
  *
- *  to = aws_ssm_default_patch_baseline.example
+ * ```sh
+ *  $ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example pb-1234567890abcdef1
+ * ```
+ *  Using the patch baseline ARN:
  *
- *  id = "CENTOS" } **Using `pulumi import` to import** the Systems Manager Default Patch Baseline using the patch baseline ID, patch baseline ARN, or the operating system value. For exampleUsing the patch baseline IDconsole % pulumi import aws_ssm_default_patch_baseline.example pb-1234567890abcdef1 Using the patch baseline ARNconsole % pulumi import aws_ssm_default_patch_baseline.example arn:aws:ssm:us-west-2:123456789012:patchbaseline/pb-1234567890abcdef1 Using the operating system valueconsole % pulumi import aws_ssm_default_patch_baseline.example CENTOS
+ * ```sh
+ *  $ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example arn:aws:ssm:us-west-2:123456789012:patchbaseline/pb-1234567890abcdef1
+ * ```
+ *  Using the operating system value:
+ *
+ * ```sh
+ *  $ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example CENTOS
+ * ```
  */
 export class DefaultPatchBaseline extends pulumi.CustomResource {
     /**

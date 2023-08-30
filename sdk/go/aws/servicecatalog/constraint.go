@@ -58,11 +58,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import `aws_servicecatalog_constraint` using the constraint ID. For example:
 //
-//	to = aws_servicecatalog_constraint.example
+// ```sh
 //
-//	id = "cons-nmdkb6cgxfcrs" } Using `pulumi import`, import `aws_servicecatalog_constraint` using the constraint ID. For exampleconsole % pulumi import aws_servicecatalog_constraint.example cons-nmdkb6cgxfcrs
+//	$ pulumi import aws:servicecatalog/constraint:Constraint example cons-nmdkb6cgxfcrs
+//
+// ```
 type Constraint struct {
 	pulumi.CustomResourceState
 

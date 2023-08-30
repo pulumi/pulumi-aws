@@ -52,11 +52,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import SESv2 (Simple Email V2) Dedicated IP Assignment using the `id`, which is a comma-separated string made up of `ip` and `destination_pool_name`. For example:
  * 
- *  to = aws_sesv2_dedicated_ip_assignment.example
- * 
- *  id = &#34;0.0.0.0,my-pool&#34; } Using `pulumi import`, import SESv2 (Simple Email V2) Dedicated IP Assignment using the `id`, which is a comma-separated string made up of `ip` and `destination_pool_name`. For exampleconsole % pulumi import aws_sesv2_dedicated_ip_assignment.example &#34;0.0.0.0,my-pool&#34;
+ * ```sh
+ *  $ pulumi import aws:sesv2/dedicatedIpAssignment:DedicatedIpAssignment example &#34;0.0.0.0,my-pool&#34;
+ * ```
  * 
  */
 @ResourceType(type="aws:sesv2/dedicatedIpAssignment:DedicatedIpAssignment")

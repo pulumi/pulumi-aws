@@ -406,11 +406,11 @@ class User(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Transfer Users using the `server_id` and `user_name` separated by `/`. For example:
 
-         to = aws_transfer_user.bar
-
-         id = "s-12345678/test-username" } Using `pulumi import`, import Transfer Users using the `server_id` and `user_name` separated by `/`. For exampleconsole % pulumi import aws_transfer_user.bar s-12345678/test-username
+        ```sh
+         $ pulumi import aws:transfer/user:User bar s-12345678/test-username
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -475,11 +475,11 @@ class User(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Transfer Users using the `server_id` and `user_name` separated by `/`. For example:
 
-         to = aws_transfer_user.bar
-
-         id = "s-12345678/test-username" } Using `pulumi import`, import Transfer Users using the `server_id` and `user_name` separated by `/`. For exampleconsole % pulumi import aws_transfer_user.bar s-12345678/test-username
+        ```sh
+         $ pulumi import aws:transfer/user:User bar s-12345678/test-username
+        ```
 
         :param str resource_name: The name of the resource.
         :param UserArgs args: The arguments to use to populate this resource's properties.

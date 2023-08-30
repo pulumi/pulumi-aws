@@ -49,11 +49,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Amazon AppIntegrations Event Integrations using the `name`. For example:
 //
-//	to = aws_appintegrations_event_integration.example
+// ```sh
 //
-//	id = "example-name" } Using `pulumi import`, import Amazon AppIntegrations Event Integrations using the `name`. For exampleconsole % pulumi import aws_appintegrations_event_integration.example example-name
+//	$ pulumi import aws:appconfig/eventIntegration:EventIntegration example example-name
+//
+// ```
 type EventIntegration struct {
 	pulumi.CustomResourceState
 

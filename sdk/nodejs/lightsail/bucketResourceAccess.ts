@@ -9,11 +9,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import `aws_lightsail_bucket_resource_access` using the `id` attribute. For example:
  *
- *  to = aws_lightsail_bucket_resource_access.test
- *
- *  id = "example-bucket,example-instance" } Using `pulumi import`, import `aws_lightsail_bucket_resource_access` using the `id` attribute. For exampleconsole % pulumi import aws_lightsail_bucket_resource_access.test example-bucket,example-instance
+ * ```sh
+ *  $ pulumi import aws:lightsail/bucketResourceAccess:BucketResourceAccess test example-bucket,example-instance
+ * ```
  */
 export class BucketResourceAccess extends pulumi.CustomResource {
     /**

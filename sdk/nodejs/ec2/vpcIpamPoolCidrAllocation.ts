@@ -66,11 +66,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import IPAM allocations using the allocation `id` and `pool id`, separated by `_`. For example:
  *
- *  to = aws_vpc_ipam_pool_cidr_allocation.example
- *
- *  id = "ipam-pool-alloc-0dc6d196509c049ba8b549ff99f639736_ipam-pool-07cfb559e0921fcbe" } Using `pulumi import`, import IPAM allocations using the allocation `id` and `pool id`, separated by `_`. For exampleconsole % pulumi import aws_vpc_ipam_pool_cidr_allocation.example ipam-pool-alloc-0dc6d196509c049ba8b549ff99f639736_ipam-pool-07cfb559e0921fcbe
+ * ```sh
+ *  $ pulumi import aws:ec2/vpcIpamPoolCidrAllocation:VpcIpamPoolCidrAllocation example ipam-pool-alloc-0dc6d196509c049ba8b549ff99f639736_ipam-pool-07cfb559e0921fcbe
+ * ```
  */
 export class VpcIpamPoolCidrAllocation extends pulumi.CustomResource {
     /**

@@ -51,11 +51,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Internet Gateways using the `id`. For example:
  * 
- *  to = aws_internet_gateway.gw
- * 
- *  id = &#34;igw-c0a643a9&#34; } Using `pulumi import`, import Internet Gateways using the `id`. For exampleconsole % pulumi import aws_internet_gateway.gw igw-c0a643a9
+ * ```sh
+ *  $ pulumi import aws:ec2/internetGateway:InternetGateway gw igw-c0a643a9
+ * ```
  * 
  */
 @ResourceType(type="aws:ec2/internetGateway:InternetGateway")

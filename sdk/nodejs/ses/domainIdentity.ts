@@ -34,11 +34,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import SES domain identities using the domain name. For example:
  *
- *  to = aws_ses_domain_identity.example
- *
- *  id = "example.com" } Using `pulumi import`, import SES domain identities using the domain name. For exampleconsole % pulumi import aws_ses_domain_identity.example example.com
+ * ```sh
+ *  $ pulumi import aws:ses/domainIdentity:DomainIdentity example example.com
+ * ```
  */
 export class DomainIdentity extends pulumi.CustomResource {
     /**

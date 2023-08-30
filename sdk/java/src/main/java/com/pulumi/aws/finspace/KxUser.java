@@ -83,11 +83,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import an AWS FinSpace Kx User using the `id` (environment ID and user name, comma-delimited). For example:
  * 
- *  to = aws_finspace_kx_user.example
- * 
- *  id = &#34;n3ceo7wqxoxcti5tujqwzs,my-tf-kx-user&#34; } Using `pulumi import`, import an AWS FinSpace Kx User using the `id` (environment ID and user name, comma-delimited). For exampleconsole % pulumi import aws_finspace_kx_user.example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-user
+ * ```sh
+ *  $ pulumi import aws:finspace/kxUser:KxUser example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-user
+ * ```
  * 
  */
 @ResourceType(type="aws:finspace/kxUser:KxUser")

@@ -384,11 +384,11 @@ class EventSubscription(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import DB Event Subscriptions using the `name`. For example:
 
-         to = aws_db_event_subscription.default
-
-         id = "rds-event-sub" } Using `pulumi import`, import DB Event Subscriptions using the `name`. For exampleconsole % pulumi import aws_db_event_subscription.default rds-event-sub
+        ```sh
+         $ pulumi import aws:rds/eventSubscription:EventSubscription default rds-event-sub
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -447,11 +447,11 @@ class EventSubscription(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import DB Event Subscriptions using the `name`. For example:
 
-         to = aws_db_event_subscription.default
-
-         id = "rds-event-sub" } Using `pulumi import`, import DB Event Subscriptions using the `name`. For exampleconsole % pulumi import aws_db_event_subscription.default rds-event-sub
+        ```sh
+         $ pulumi import aws:rds/eventSubscription:EventSubscription default rds-event-sub
+        ```
 
         :param str resource_name: The name of the resource.
         :param EventSubscriptionArgs args: The arguments to use to populate this resource's properties.

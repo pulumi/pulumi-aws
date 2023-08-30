@@ -142,11 +142,11 @@ class DomainSamlOptions(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Elasticsearch domains using the `domain_name`. For example:
 
-         to = aws_elasticsearch_domain_saml_options.example
-
-         id = "domain_name" } Using `pulumi import`, import Elasticsearch domains using the `domain_name`. For exampleconsole % pulumi import aws_elasticsearch_domain_saml_options.example domain_name
+        ```sh
+         $ pulumi import aws:elasticsearch/domainSamlOptions:DomainSamlOptions example domain_name
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -195,11 +195,11 @@ class DomainSamlOptions(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Elasticsearch domains using the `domain_name`. For example:
 
-         to = aws_elasticsearch_domain_saml_options.example
-
-         id = "domain_name" } Using `pulumi import`, import Elasticsearch domains using the `domain_name`. For exampleconsole % pulumi import aws_elasticsearch_domain_saml_options.example domain_name
+        ```sh
+         $ pulumi import aws:elasticsearch/domainSamlOptions:DomainSamlOptions example domain_name
+        ```
 
         :param str resource_name: The name of the resource.
         :param DomainSamlOptionsArgs args: The arguments to use to populate this resource's properties.

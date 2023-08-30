@@ -28,11 +28,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import `aws_macie2_classification_export_configuration` using the account ID and region. For example:
  *
- *  to = aws_macie2_classification_export_configuration.example
- *
- *  id = "123456789012:us-west-2" } Using `pulumi import`, import `aws_macie2_classification_export_configuration` using the account ID and region. For exampleconsole % pulumi import aws_macie2_classification_export_configuration.example 123456789012:us-west-2
+ * ```sh
+ *  $ pulumi import aws:macie2/classificationExportConfiguration:ClassificationExportConfiguration example 123456789012:us-west-2
+ * ```
  */
 export class ClassificationExportConfiguration extends pulumi.CustomResource {
     /**

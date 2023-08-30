@@ -50,11 +50,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import SageMaker Workteams using the `workteam_name`. For example:
  *
- *  to = aws_sagemaker_workteam.example
- *
- *  id = "example" } Using `pulumi import`, import SageMaker Workteams using the `workteam_name`. For exampleconsole % pulumi import aws_sagemaker_workteam.example example
+ * ```sh
+ *  $ pulumi import aws:sagemaker/workteam:Workteam example example
+ * ```
  */
 export class Workteam extends pulumi.CustomResource {
     /**

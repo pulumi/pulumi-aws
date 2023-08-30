@@ -101,11 +101,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import `aws_api_gateway_integration_response` using `REST-API-ID/RESOURCE-ID/HTTP-METHOD/STATUS-CODE`. For example:
 //
-//	to = aws_api_gateway_integration_response.example
+// ```sh
 //
-//	id = "12345abcde/67890fghij/GET/200" } Using `pulumi import`, import `aws_api_gateway_integration_response` using `REST-API-ID/RESOURCE-ID/HTTP-METHOD/STATUS-CODE`. For exampleconsole % pulumi import aws_api_gateway_integration_response.example 12345abcde/67890fghij/GET/200
+//	$ pulumi import aws:apigateway/integrationResponse:IntegrationResponse example 12345abcde/67890fghij/GET/200
+//
+// ```
 type IntegrationResponse struct {
 	pulumi.CustomResourceState
 

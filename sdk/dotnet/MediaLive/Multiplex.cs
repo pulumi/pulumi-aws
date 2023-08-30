@@ -54,11 +54,11 @@ namespace Pulumi.Aws.MediaLive
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import MediaLive Multiplex using the `id`. For example:
     /// 
-    ///  to = aws_medialive_multiplex.example
-    /// 
-    ///  id = "12345678" } Using `pulumi import`, import MediaLive Multiplex using the `id`. For exampleconsole % pulumi import aws_medialive_multiplex.example 12345678
+    /// ```sh
+    ///  $ pulumi import aws:medialive/multiplex:Multiplex example 12345678
+    /// ```
     /// </summary>
     [AwsResourceType("aws:medialive/multiplex:Multiplex")]
     public partial class Multiplex : global::Pulumi.CustomResource

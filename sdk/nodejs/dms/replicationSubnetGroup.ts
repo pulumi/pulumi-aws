@@ -71,11 +71,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import replication subnet groups using the `replication_subnet_group_id`. For example:
  *
- *  to = aws_dms_replication_subnet_group.test
- *
- *  id = "test-dms-replication-subnet-group-tf" } Using `pulumi import`, import replication subnet groups using the `replication_subnet_group_id`. For exampleconsole % pulumi import aws_dms_replication_subnet_group.test test-dms-replication-subnet-group-tf
+ * ```sh
+ *  $ pulumi import aws:dms/replicationSubnetGroup:ReplicationSubnetGroup test test-dms-replication-subnet-group-tf
+ * ```
  */
 export class ReplicationSubnetGroup extends pulumi.CustomResource {
     /**

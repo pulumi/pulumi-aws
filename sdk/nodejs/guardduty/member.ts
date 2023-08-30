@@ -28,11 +28,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import GuardDuty members using the primary GuardDuty detector ID and member AWS account ID. For example:
  *
- *  to = aws_guardduty_member.MyMember
- *
- *  id = "00b00fd5aecc0ab60a708659477e9617:123456789012" } Using `pulumi import`, import GuardDuty members using the primary GuardDuty detector ID and member AWS account ID. For exampleconsole % pulumi import aws_guardduty_member.MyMember 00b00fd5aecc0ab60a708659477e9617:123456789012
+ * ```sh
+ *  $ pulumi import aws:guardduty/member:Member MyMember 00b00fd5aecc0ab60a708659477e9617:123456789012
+ * ```
  */
 export class Member extends pulumi.CustomResource {
     /**

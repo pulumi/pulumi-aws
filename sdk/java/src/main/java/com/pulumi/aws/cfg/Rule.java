@@ -209,11 +209,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Config Rule using the name. For example:
  * 
- *  to = aws_config_config_rule.foo
- * 
- *  id = &#34;example&#34; } Using `pulumi import`, import Config Rule using the name. For exampleconsole % pulumi import aws_config_config_rule.foo example
+ * ```sh
+ *  $ pulumi import aws:cfg/rule:Rule foo example
+ * ```
  * 
  */
 @ResourceType(type="aws:cfg/rule:Rule")

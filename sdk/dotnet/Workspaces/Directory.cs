@@ -191,11 +191,11 @@ namespace Pulumi.Aws.Workspaces
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import Workspaces directory using the directory ID. For example:
     /// 
-    ///  to = aws_workspaces_directory.main
-    /// 
-    ///  id = "d-4444444444" } Using `pulumi import`, import Workspaces directory using the directory ID. For exampleconsole % pulumi import aws_workspaces_directory.main d-4444444444
+    /// ```sh
+    ///  $ pulumi import aws:workspaces/directory:Directory main d-4444444444
+    /// ```
     /// </summary>
     [AwsResourceType("aws:workspaces/directory:Directory")]
     public partial class Directory : global::Pulumi.CustomResource

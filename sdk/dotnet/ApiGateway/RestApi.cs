@@ -93,11 +93,12 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import `aws_api_gateway_rest_api` using the REST API ID. For example:
     /// 
-    ///  to = aws_api_gateway_rest_api.example
-    /// 
-    ///  id = "12345abcde" } Using `pulumi import`, import `aws_api_gateway_rest_api` using the REST API ID. For exampleconsole % pulumi import aws_api_gateway_rest_api.example 12345abcde
+    /// ```sh
+    ///  $ pulumi import aws:apigateway/restApi:RestApi example 12345abcde
+    /// ```
+    ///  ~&gt; __NOTE:__ Resource import does not currently support the `body` attribute.
     /// </summary>
     [AwsResourceType("aws:apigateway/restApi:RestApi")]
     public partial class RestApi : global::Pulumi.CustomResource

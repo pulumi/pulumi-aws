@@ -101,11 +101,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Cognito User Pool Domains using the `domain`. For example:
 //
-//	to = aws_cognito_user_pool_domain.main
+// ```sh
 //
-//	id = "auth.example.org" } Using `pulumi import`, import Cognito User Pool Domains using the `domain`. For exampleconsole % pulumi import aws_cognito_user_pool_domain.main auth.example.org
+//	$ pulumi import aws:cognito/userPoolDomain:UserPoolDomain main auth.example.org
+//
+// ```
 type UserPoolDomain struct {
 	pulumi.CustomResourceState
 

@@ -77,11 +77,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import MediaLive MultiplexProgram using the `id`, or a combination of "`program_name`/`multiplex_id`". For example:
 //
-//	to = aws_medialive_multiplex_program.example
+// ```sh
 //
-//	id = "example_program/1234567" } Using `pulumi import`, import MediaLive MultiplexProgram using the `id`, or a combination of "`program_name`/`multiplex_id`". For exampleconsole % pulumi import aws_medialive_multiplex_program.example example_program/1234567
+//	$ pulumi import aws:medialive/multiplexProgram:MultiplexProgram example example_program/1234567
+//
+// ```
 type MultiplexProgram struct {
 	pulumi.CustomResourceState
 

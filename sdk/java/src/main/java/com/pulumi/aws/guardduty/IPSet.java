@@ -86,11 +86,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import GuardDuty IPSet using the primary GuardDuty detector ID and IPSet ID. For example:
  * 
- *  to = aws_guardduty_ipset.MyIPSet
- * 
- *  id = &#34;00b00fd5aecc0ab60a708659477e9617:123456789012&#34; } Using `pulumi import`, import GuardDuty IPSet using the primary GuardDuty detector ID and IPSet ID. For exampleconsole % pulumi import aws_guardduty_ipset.MyIPSet 00b00fd5aecc0ab60a708659477e9617:123456789012
+ * ```sh
+ *  $ pulumi import aws:guardduty/iPSet:IPSet MyIPSet 00b00fd5aecc0ab60a708659477e9617:123456789012
+ * ```
  * 
  */
 @ResourceType(type="aws:guardduty/iPSet:IPSet")

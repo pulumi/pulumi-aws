@@ -57,11 +57,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import `aws_datasync_location_s3` using the DataSync Task Amazon Resource Name (ARN). For example:
  * 
- *  to = aws_datasync_location_s3.example
- * 
- *  id = &#34;arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567&#34; } Using `pulumi import`, import `aws_datasync_location_s3` using the DataSync Task Amazon Resource Name (ARN). For exampleconsole % pulumi import aws_datasync_location_s3.example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
+ * ```sh
+ *  $ pulumi import aws:datasync/s3Location:S3Location example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
+ * ```
  * 
  */
 @ResourceType(type="aws:datasync/s3Location:S3Location")

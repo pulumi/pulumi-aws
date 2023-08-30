@@ -55,11 +55,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Location Tracker Association using the `tracker_name|consumer_arn`. For example:
 //
-//	to = aws_location_tracker_association.example
+// ```sh
 //
-//	id = "tracker_name|consumer_arn" } Using `pulumi import`, import Location Tracker Association using the `tracker_name|consumer_arn`. For exampleconsole % pulumi import aws_location_tracker_association.example "tracker_name|consumer_arn"
+//	$ pulumi import aws:location/trackerAssociation:TrackerAssociation example "tracker_name|consumer_arn"
+//
+// ```
 type TrackerAssociation struct {
 	pulumi.CustomResourceState
 

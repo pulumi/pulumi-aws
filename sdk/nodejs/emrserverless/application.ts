@@ -61,11 +61,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import EMR Severless applications using the `id`. For example:
  *
- *  to = aws_emrserverless_application.example
- *
- *  id = "id" } Using `pulumi import`, import EMR Severless applications using the `id`. For exampleconsole % pulumi import aws_emrserverless_application.example id
+ * ```sh
+ *  $ pulumi import aws:emrserverless/application:Application example id
+ * ```
  */
 export class Application extends pulumi.CustomResource {
     /**

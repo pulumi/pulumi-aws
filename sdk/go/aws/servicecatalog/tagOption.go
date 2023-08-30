@@ -44,11 +44,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import `aws_servicecatalog_tag_option` using the tag option ID. For example:
 //
-//	to = aws_servicecatalog_tag_option.example
+// ```sh
 //
-//	id = "tag-pjtvagohlyo3m" } Using `pulumi import`, import `aws_servicecatalog_tag_option` using the tag option ID. For exampleconsole % pulumi import aws_servicecatalog_tag_option.example tag-pjtvagohlyo3m
+//	$ pulumi import aws:servicecatalog/tagOption:TagOption example tag-pjtvagohlyo3m
+//
+// ```
 type TagOption struct {
 	pulumi.CustomResourceState
 

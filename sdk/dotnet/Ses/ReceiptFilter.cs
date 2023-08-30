@@ -33,11 +33,11 @@ namespace Pulumi.Aws.Ses
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import SES Receipt Filter using their `name`. For example:
     /// 
-    ///  to = aws_ses_receipt_filter.test
-    /// 
-    ///  id = "some-filter" } Using `pulumi import`, import SES Receipt Filter using their `name`. For exampleconsole % pulumi import aws_ses_receipt_filter.test some-filter
+    /// ```sh
+    ///  $ pulumi import aws:ses/receiptFilter:ReceiptFilter test some-filter
+    /// ```
     /// </summary>
     [AwsResourceType("aws:ses/receiptFilter:ReceiptFilter")]
     public partial class ReceiptFilter : global::Pulumi.CustomResource

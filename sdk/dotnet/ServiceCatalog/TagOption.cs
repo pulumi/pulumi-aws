@@ -34,11 +34,11 @@ namespace Pulumi.Aws.ServiceCatalog
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import `aws_servicecatalog_tag_option` using the tag option ID. For example:
     /// 
-    ///  to = aws_servicecatalog_tag_option.example
-    /// 
-    ///  id = "tag-pjtvagohlyo3m" } Using `pulumi import`, import `aws_servicecatalog_tag_option` using the tag option ID. For exampleconsole % pulumi import aws_servicecatalog_tag_option.example tag-pjtvagohlyo3m
+    /// ```sh
+    ///  $ pulumi import aws:servicecatalog/tagOption:TagOption example tag-pjtvagohlyo3m
+    /// ```
     /// </summary>
     [AwsResourceType("aws:servicecatalog/tagOption:TagOption")]
     public partial class TagOption : global::Pulumi.CustomResource

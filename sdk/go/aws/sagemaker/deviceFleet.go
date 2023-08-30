@@ -49,11 +49,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import SageMaker Device Fleets using the `name`. For example:
 //
-//	to = aws_sagemaker_device_fleet.example
+// ```sh
 //
-//	id = "my-fleet" } Using `pulumi import`, import SageMaker Device Fleets using the `name`. For exampleconsole % pulumi import aws_sagemaker_device_fleet.example my-fleet
+//	$ pulumi import aws:sagemaker/deviceFleet:DeviceFleet example my-fleet
+//
+// ```
 type DeviceFleet struct {
 	pulumi.CustomResourceState
 

@@ -132,11 +132,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import VPCs using the VPC `id`. For example:
 //
-//	to = aws_vpc.test_vpc
+// ```sh
 //
-//	id = "vpc-a01106c2" } Using `pulumi import`, import VPCs using the VPC `id`. For exampleconsole % pulumi import aws_vpc.test_vpc vpc-a01106c2
+//	$ pulumi import aws:ec2/vpc:Vpc test_vpc vpc-a01106c2
+//
+// ```
 type Vpc struct {
 	pulumi.CustomResourceState
 

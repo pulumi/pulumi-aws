@@ -65,13 +65,13 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import
  * 
- *  to = aws_route53_resolver_endpoint.foo
+ * Route 53 Resolver endpoints using the Route 53 Resolver endpoint ID. For example:
  * 
- *  id = &#34;rslvr-in-abcdef01234567890&#34; } Using `pulumi import`, import
- * 
- * Route 53 Resolver endpoints using the Route 53 Resolver endpoint ID. For exampleconsole % pulumi import aws_route53_resolver_endpoint.foo rslvr-in-abcdef01234567890
+ * ```sh
+ *  $ pulumi import aws:route53/resolverEndpoint:ResolverEndpoint foo rslvr-in-abcdef01234567890
+ * ```
  * 
  */
 @ResourceType(type="aws:route53/resolverEndpoint:ResolverEndpoint")

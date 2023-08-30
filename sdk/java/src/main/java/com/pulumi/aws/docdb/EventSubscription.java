@@ -74,11 +74,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import DocumentDB Event Subscriptions using the `name`. For example:
  * 
- *  to = aws_docdb_event_subscription.example
- * 
- *  id = &#34;event-sub&#34; } Using `pulumi import`, import DocumentDB Event Subscriptions using the `name`. For exampleconsole % pulumi import aws_docdb_event_subscription.example event-sub
+ * ```sh
+ *  $ pulumi import aws:docdb/eventSubscription:EventSubscription example event-sub
+ * ```
  * 
  */
 @ResourceType(type="aws:docdb/eventSubscription:EventSubscription")

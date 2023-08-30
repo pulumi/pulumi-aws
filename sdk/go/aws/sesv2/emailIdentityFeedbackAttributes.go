@@ -50,11 +50,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import SESv2 (Simple Email V2) Email Identity Feedback Attributes using the `email_identity`. For example:
 //
-//	to = aws_sesv2_email_identity_feedback_attributes.example
+// ```sh
 //
-//	id = "example.com" } Using `pulumi import`, import SESv2 (Simple Email V2) Email Identity Feedback Attributes using the `email_identity`. For exampleconsole % pulumi import aws_sesv2_email_identity_feedback_attributes.example example.com
+//	$ pulumi import aws:sesv2/emailIdentityFeedbackAttributes:EmailIdentityFeedbackAttributes example example.com
+//
+// ```
 type EmailIdentityFeedbackAttributes struct {
 	pulumi.CustomResourceState
 

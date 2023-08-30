@@ -360,11 +360,11 @@ class Statement(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Redshift Data Statements using the `id`. For example:
 
-         to = aws_redshiftdata_statement.example
-
-         id = "example" } Using `pulumi import`, import Redshift Data Statements using the `id`. For exampleconsole % pulumi import aws_redshiftdata_statement.example example
+        ```sh
+         $ pulumi import aws:redshiftdata/statement:Statement example example
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -415,11 +415,11 @@ class Statement(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Redshift Data Statements using the `id`. For example:
 
-         to = aws_redshiftdata_statement.example
-
-         id = "example" } Using `pulumi import`, import Redshift Data Statements using the `id`. For exampleconsole % pulumi import aws_redshiftdata_statement.example example
+        ```sh
+         $ pulumi import aws:redshiftdata/statement:Statement example example
+        ```
 
         :param str resource_name: The name of the resource.
         :param StatementArgs args: The arguments to use to populate this resource's properties.

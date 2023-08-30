@@ -82,11 +82,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import `aws_organizations_resource_policy` using the resource policy ID. For example:
  * 
- *  to = aws_organizations_resource_policy.example
- * 
- *  id = &#34;rp-12345678&#34; } Using `pulumi import`, import `aws_organizations_resource_policy` using the resource policy ID. For exampleconsole % pulumi import aws_organizations_resource_policy.example rp-12345678
+ * ```sh
+ *  $ pulumi import aws:organizations/resourcePolicy:ResourcePolicy example rp-12345678
+ * ```
  * 
  */
 @ResourceType(type="aws:organizations/resourcePolicy:ResourcePolicy")

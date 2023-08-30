@@ -49,11 +49,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import a keyspace using the `name`. For example:
  * 
- *  to = aws_keyspaces_keyspace.example
- * 
- *  id = &#34;my_keyspace&#34; } Using `pulumi import`, import a keyspace using the `name`. For exampleconsole % pulumi import aws_keyspaces_keyspace.example my_keyspace
+ * ```sh
+ *  $ pulumi import aws:keyspaces/keyspace:Keyspace example my_keyspace
+ * ```
  * 
  */
 @ResourceType(type="aws:keyspaces/keyspace:Keyspace")

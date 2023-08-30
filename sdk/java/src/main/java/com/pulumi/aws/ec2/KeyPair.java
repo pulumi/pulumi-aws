@@ -58,11 +58,12 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Key Pairs using the `key_name`. For example:
  * 
- *  to = aws_key_pair.deployer
- * 
- *  id = &#34;deployer-key&#34; } Using `pulumi import`, import Key Pairs using the `key_name`. For exampleconsole % pulumi import aws_key_pair.deployer deployer-key
+ * ```sh
+ *  $ pulumi import aws:ec2/keyPair:KeyPair deployer deployer-key
+ * ```
+ *  ~&gt; __NOTE:__ The AWS API does not include the public key in the response, so `pulumi up` will attempt to replace the key pair. There is currently no supported workaround for this limitation.
  * 
  */
 @ResourceType(type="aws:ec2/keyPair:KeyPair")

@@ -77,11 +77,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import VPC Lattice Resource Policy using the `resource_arn`. For example:
  * 
- *  to = aws_vpclattice_resource_policy.example
- * 
- *  id = &#34;rft-8012925589&#34; } Using `pulumi import`, import VPC Lattice Resource Policy using the `resource_arn`. For exampleconsole % pulumi import aws_vpclattice_resource_policy.example rft-8012925589
+ * ```sh
+ *  $ pulumi import aws:vpclattice/resourcePolicy:ResourcePolicy example rft-8012925589
+ * ```
  * 
  */
 @ResourceType(type="aws:vpclattice/resourcePolicy:ResourcePolicy")

@@ -49,11 +49,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import XRay Encryption Config using the region name. For example:
  *
- *  to = aws_xray_encryption_config.example
- *
- *  id = "us-west-2" } Using `pulumi import`, import XRay Encryption Config using the region name. For exampleconsole % pulumi import aws_xray_encryption_config.example us-west-2
+ * ```sh
+ *  $ pulumi import aws:xray/encryptionConfig:EncryptionConfig example us-west-2
+ * ```
  */
 export class EncryptionConfig extends pulumi.CustomResource {
     /**

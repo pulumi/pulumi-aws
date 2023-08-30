@@ -24,11 +24,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import Amplify backend environment using `app_id` and `environment_name`. For example:
  *
- *  to = aws_amplify_backend_environment.example
- *
- *  id = "d2ypk4k47z8u6/example" } Using `pulumi import`, import Amplify backend environment using `app_id` and `environment_name`. For exampleconsole % pulumi import aws_amplify_backend_environment.example d2ypk4k47z8u6/example
+ * ```sh
+ *  $ pulumi import aws:amplify/backendEnvironment:BackendEnvironment example d2ypk4k47z8u6/example
+ * ```
  */
 export class BackendEnvironment extends pulumi.CustomResource {
     /**

@@ -32,11 +32,11 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import Route53 Recovery Readiness recovery groups using the recovery group name. For example:
     /// 
-    ///  to = aws_route53recoveryreadiness_recovery_group.my-high-availability-app
-    /// 
-    ///  id = "my-high-availability-app" } Using `pulumi import`, import Route53 Recovery Readiness recovery groups using the recovery group name. For exampleconsole % pulumi import aws_route53recoveryreadiness_recovery_group.my-high-availability-app my-high-availability-app
+    /// ```sh
+    ///  $ pulumi import aws:route53recoveryreadiness/recoveryGroup:RecoveryGroup my-high-availability-app my-high-availability-app
+    /// ```
     /// </summary>
     [AwsResourceType("aws:route53recoveryreadiness/recoveryGroup:RecoveryGroup")]
     public partial class RecoveryGroup : global::Pulumi.CustomResource

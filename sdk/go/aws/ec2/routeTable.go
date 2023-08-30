@@ -199,11 +199,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Route Tables using the route table `id`. For example:
 //
-//	to = aws_route_table.public_rt
+// ```sh
 //
-//	id = "rtb-4e616f6d69" } Using `pulumi import`, import Route Tables using the route table `id`. For exampleconsole % pulumi import aws_route_table.public_rt rtb-4e616f6d69
+//	$ pulumi import aws:ec2/routeTable:RouteTable public_rt rtb-4e616f6d69
+//
+// ```
 type RouteTable struct {
 	pulumi.CustomResourceState
 

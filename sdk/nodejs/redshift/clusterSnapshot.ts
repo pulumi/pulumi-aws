@@ -9,11 +9,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import Redshift Cluster Snapshots using `snapshot_identifier`. For example:
  *
- *  to = aws_redshift_cluster_snapshot.test
- *
- *  id = "example" } Using `pulumi import`, import Redshift Cluster Snapshots using `snapshot_identifier`. For exampleconsole % pulumi import aws_redshift_cluster_snapshot.test example
+ * ```sh
+ *  $ pulumi import aws:redshift/clusterSnapshot:ClusterSnapshot test example
+ * ```
  */
 export class ClusterSnapshot extends pulumi.CustomResource {
     /**

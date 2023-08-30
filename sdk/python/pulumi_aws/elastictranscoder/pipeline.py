@@ -431,11 +431,11 @@ class Pipeline(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Elastic Transcoder pipelines using the `id`. For example:
 
-         to = aws_elastictranscoder_pipeline.basic_pipeline
-
-         id = "1407981661351-cttk8b" } Using `pulumi import`, import Elastic Transcoder pipelines using the `id`. For exampleconsole % pulumi import aws_elastictranscoder_pipeline.basic_pipeline 1407981661351-cttk8b
+        ```sh
+         $ pulumi import aws:elastictranscoder/pipeline:Pipeline basic_pipeline 1407981661351-cttk8b
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -487,11 +487,11 @@ class Pipeline(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Elastic Transcoder pipelines using the `id`. For example:
 
-         to = aws_elastictranscoder_pipeline.basic_pipeline
-
-         id = "1407981661351-cttk8b" } Using `pulumi import`, import Elastic Transcoder pipelines using the `id`. For exampleconsole % pulumi import aws_elastictranscoder_pipeline.basic_pipeline 1407981661351-cttk8b
+        ```sh
+         $ pulumi import aws:elastictranscoder/pipeline:Pipeline basic_pipeline 1407981661351-cttk8b
+        ```
 
         :param str resource_name: The name of the resource.
         :param PipelineArgs args: The arguments to use to populate this resource's properties.

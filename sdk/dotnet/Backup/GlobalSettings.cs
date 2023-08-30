@@ -35,11 +35,11 @@ namespace Pulumi.Aws.Backup
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import Backup Global Settings using the `id`. For example:
     /// 
-    ///  to = aws_backup_global_settings.example
-    /// 
-    ///  id = "123456789012" } Using `pulumi import`, import Backup Global Settings using the `id`. For exampleconsole % pulumi import aws_backup_global_settings.example 123456789012
+    /// ```sh
+    ///  $ pulumi import aws:backup/globalSettings:GlobalSettings example 123456789012
+    /// ```
     /// </summary>
     [AwsResourceType("aws:backup/globalSettings:GlobalSettings")]
     public partial class GlobalSettings : global::Pulumi.CustomResource

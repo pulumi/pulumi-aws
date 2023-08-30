@@ -40,11 +40,11 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import Internet Gateway Attachments using the `id`. For example:
     /// 
-    ///  to = aws_internet_gateway_attachment.example
-    /// 
-    ///  id = "igw-c0a643a9:vpc-123456" } Using `pulumi import`, import Internet Gateway Attachments using the `id`. For exampleconsole % pulumi import aws_internet_gateway_attachment.example igw-c0a643a9:vpc-123456
+    /// ```sh
+    ///  $ pulumi import aws:ec2/internetGatewayAttachment:InternetGatewayAttachment example igw-c0a643a9:vpc-123456
+    /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/internetGatewayAttachment:InternetGatewayAttachment")]
     public partial class InternetGatewayAttachment : global::Pulumi.CustomResource

@@ -729,11 +729,11 @@ class ProvisionedProduct(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_servicecatalog_provisioned_product` using the provisioned product ID. For example:
 
-         to = aws_servicecatalog_provisioned_product.example
-
-         id = "pp-dnigbtea24ste" } Using `pulumi import`, import `aws_servicecatalog_provisioned_product` using the provisioned product ID. For exampleconsole % pulumi import aws_servicecatalog_provisioned_product.example pp-dnigbtea24ste
+        ```sh
+         $ pulumi import aws:servicecatalog/provisionedProduct:ProvisionedProduct example pp-dnigbtea24ste
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -792,11 +792,11 @@ class ProvisionedProduct(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_servicecatalog_provisioned_product` using the provisioned product ID. For example:
 
-         to = aws_servicecatalog_provisioned_product.example
-
-         id = "pp-dnigbtea24ste" } Using `pulumi import`, import `aws_servicecatalog_provisioned_product` using the provisioned product ID. For exampleconsole % pulumi import aws_servicecatalog_provisioned_product.example pp-dnigbtea24ste
+        ```sh
+         $ pulumi import aws:servicecatalog/provisionedProduct:ProvisionedProduct example pp-dnigbtea24ste
+        ```
 
         :param str resource_name: The name of the resource.
         :param ProvisionedProductArgs args: The arguments to use to populate this resource's properties.

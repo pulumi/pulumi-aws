@@ -34,11 +34,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import App Mesh service meshes using the `name`. For example:
  *
- *  to = aws_appmesh_mesh.simple
- *
- *  id = "simpleapp" } Using `pulumi import`, import App Mesh service meshes using the `name`. For exampleconsole % pulumi import aws_appmesh_mesh.simple simpleapp
+ * ```sh
+ *  $ pulumi import aws:appmesh/mesh:Mesh simple simpleapp
+ * ```
  */
 export class Mesh extends pulumi.CustomResource {
     /**

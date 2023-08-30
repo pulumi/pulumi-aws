@@ -285,11 +285,11 @@ class CustomerGateway(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Customer Gateways using the `id`. For example:
 
-         to = aws_customer_gateway.main
-
-         id = "cgw-b4dc3961" } Using `pulumi import`, import Customer Gateways using the `id`. For exampleconsole % pulumi import aws_customer_gateway.main cgw-b4dc3961
+        ```sh
+         $ pulumi import aws:ec2/customerGateway:CustomerGateway main cgw-b4dc3961
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -327,11 +327,11 @@ class CustomerGateway(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Customer Gateways using the `id`. For example:
 
-         to = aws_customer_gateway.main
-
-         id = "cgw-b4dc3961" } Using `pulumi import`, import Customer Gateways using the `id`. For exampleconsole % pulumi import aws_customer_gateway.main cgw-b4dc3961
+        ```sh
+         $ pulumi import aws:ec2/customerGateway:CustomerGateway main cgw-b4dc3961
+        ```
 
         :param str resource_name: The name of the resource.
         :param CustomerGatewayArgs args: The arguments to use to populate this resource's properties.

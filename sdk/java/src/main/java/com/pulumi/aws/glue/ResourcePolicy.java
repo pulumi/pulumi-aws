@@ -72,11 +72,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Glue Resource Policy using the account ID. For example:
  * 
- *  to = aws_glue_resource_policy.Test
- * 
- *  id = &#34;12356789012&#34; } Using `pulumi import`, import Glue Resource Policy using the account ID. For exampleconsole % pulumi import aws_glue_resource_policy.Test 12356789012
+ * ```sh
+ *  $ pulumi import aws:glue/resourcePolicy:ResourcePolicy Test 12356789012
+ * ```
  * 
  */
 @ResourceType(type="aws:glue/resourcePolicy:ResourcePolicy")

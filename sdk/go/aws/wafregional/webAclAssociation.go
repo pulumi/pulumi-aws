@@ -261,11 +261,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import WAF Regional Web ACL Association using their `web_acl_id:resource_arn`. For example:
 //
-//	to = aws_wafregional_web_acl_association.foo
+// ```sh
 //
-//	id = "web_acl_id:resource_arn" } Using `pulumi import`, import WAF Regional Web ACL Association using their `web_acl_id:resource_arn`. For exampleconsole % pulumi import aws_wafregional_web_acl_association.foo web_acl_id:resource_arn
+//	$ pulumi import aws:wafregional/webAclAssociation:WebAclAssociation foo web_acl_id:resource_arn
+//
+// ```
 type WebAclAssociation struct {
 	pulumi.CustomResourceState
 

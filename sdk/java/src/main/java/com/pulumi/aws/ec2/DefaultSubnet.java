@@ -60,11 +60,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import subnets using the subnet `id`. For example:
  * 
- *  to = aws_default_subnet.public_subnet
- * 
- *  id = &#34;subnet-9d4a7b6c&#34; } Using `pulumi import`, import subnets using the subnet `id`. For exampleconsole % pulumi import aws_default_subnet.public_subnet subnet-9d4a7b6c
+ * ```sh
+ *  $ pulumi import aws:ec2/defaultSubnet:DefaultSubnet public_subnet subnet-9d4a7b6c
+ * ```
  * 
  */
 @ResourceType(type="aws:ec2/defaultSubnet:DefaultSubnet")

@@ -126,11 +126,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import `aws_route53_key_signing_key` resources using the Route 53 Hosted Zone identifier and KMS Key identifier, separated by a comma (`,`). For example:
  * 
- *  to = aws_route53_key_signing_key.example
- * 
- *  id = &#34;Z1D633PJN98FT9,example&#34; } Using `pulumi import`, import `aws_route53_key_signing_key` resources using the Route 53 Hosted Zone identifier and KMS Key identifier, separated by a comma (`,`). For exampleconsole % pulumi import aws_route53_key_signing_key.example Z1D633PJN98FT9,example
+ * ```sh
+ *  $ pulumi import aws:route53/keySigningKey:KeySigningKey example Z1D633PJN98FT9,example
+ * ```
  * 
  */
 @ResourceType(type="aws:route53/keySigningKey:KeySigningKey")

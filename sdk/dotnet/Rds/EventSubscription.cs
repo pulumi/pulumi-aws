@@ -65,11 +65,11 @@ namespace Pulumi.Aws.Rds
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import DB Event Subscriptions using the `name`. For example:
     /// 
-    ///  to = aws_db_event_subscription.default
-    /// 
-    ///  id = "rds-event-sub" } Using `pulumi import`, import DB Event Subscriptions using the `name`. For exampleconsole % pulumi import aws_db_event_subscription.default rds-event-sub
+    /// ```sh
+    ///  $ pulumi import aws:rds/eventSubscription:EventSubscription default rds-event-sub
+    /// ```
     /// </summary>
     [AwsResourceType("aws:rds/eventSubscription:EventSubscription")]
     public partial class EventSubscription : global::Pulumi.CustomResource

@@ -53,11 +53,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Customer Gateways using the `id`. For example:
  * 
- *  to = aws_customer_gateway.main
- * 
- *  id = &#34;cgw-b4dc3961&#34; } Using `pulumi import`, import Customer Gateways using the `id`. For exampleconsole % pulumi import aws_customer_gateway.main cgw-b4dc3961
+ * ```sh
+ *  $ pulumi import aws:ec2/customerGateway:CustomerGateway main cgw-b4dc3961
+ * ```
  * 
  */
 @ResourceType(type="aws:ec2/customerGateway:CustomerGateway")

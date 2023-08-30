@@ -35,11 +35,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import CodeDeploy Applications using the `name`. For example:
  *
- *  to = aws_codedeploy_app.example
- *
- *  id = "my-application" } Using `pulumi import`, import CodeDeploy Applications using the `name`. For exampleconsole % pulumi import aws_codedeploy_app.example my-application
+ * ```sh
+ *  $ pulumi import aws:codedeploy/application:Application example my-application
+ * ```
  */
 export class Application extends pulumi.CustomResource {
     /**

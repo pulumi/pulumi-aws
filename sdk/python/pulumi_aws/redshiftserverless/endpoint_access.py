@@ -244,11 +244,11 @@ class EndpointAccess(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Redshift Serverless Endpoint Access using the `endpoint_name`. For example:
 
-         to = aws_redshiftserverless_endpoint_access.example
-
-         id = "example" } Using `pulumi import`, import Redshift Serverless Endpoint Access using the `endpoint_name`. For exampleconsole % pulumi import aws_redshiftserverless_endpoint_access.example example
+        ```sh
+         $ pulumi import aws:redshiftserverless/endpointAccess:EndpointAccess example example
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -279,11 +279,11 @@ class EndpointAccess(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Redshift Serverless Endpoint Access using the `endpoint_name`. For example:
 
-         to = aws_redshiftserverless_endpoint_access.example
-
-         id = "example" } Using `pulumi import`, import Redshift Serverless Endpoint Access using the `endpoint_name`. For exampleconsole % pulumi import aws_redshiftserverless_endpoint_access.example example
+        ```sh
+         $ pulumi import aws:redshiftserverless/endpointAccess:EndpointAccess example example
+        ```
 
         :param str resource_name: The name of the resource.
         :param EndpointAccessArgs args: The arguments to use to populate this resource's properties.

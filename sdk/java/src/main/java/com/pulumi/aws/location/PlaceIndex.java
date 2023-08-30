@@ -52,11 +52,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import `aws_location_place_index` resources using the place index name. For example:
  * 
- *  to = aws_location_place_index.example
- * 
- *  id = &#34;example&#34; } Using `pulumi import`, import `aws_location_place_index` resources using the place index name. For exampleconsole % pulumi import aws_location_place_index.example example
+ * ```sh
+ *  $ pulumi import aws:location/placeIndex:PlaceIndex example example
+ * ```
  * 
  */
 @ResourceType(type="aws:location/placeIndex:PlaceIndex")

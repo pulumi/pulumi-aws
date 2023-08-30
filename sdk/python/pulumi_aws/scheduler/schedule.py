@@ -502,11 +502,11 @@ class Schedule(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import schedules using the combination `group_name/name`. For example:
 
-         to = aws_scheduler_schedule.example
-
-         id = "my-schedule-group/my-schedule" } Using `pulumi import`, import schedules using the combination `group_name/name`. For exampleconsole % pulumi import aws_scheduler_schedule.example my-schedule-group/my-schedule
+        ```sh
+         $ pulumi import aws:scheduler/schedule:Schedule example my-schedule-group/my-schedule
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -581,11 +581,11 @@ class Schedule(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import schedules using the combination `group_name/name`. For example:
 
-         to = aws_scheduler_schedule.example
-
-         id = "my-schedule-group/my-schedule" } Using `pulumi import`, import schedules using the combination `group_name/name`. For exampleconsole % pulumi import aws_scheduler_schedule.example my-schedule-group/my-schedule
+        ```sh
+         $ pulumi import aws:scheduler/schedule:Schedule example my-schedule-group/my-schedule
+        ```
 
         :param str resource_name: The name of the resource.
         :param ScheduleArgs args: The arguments to use to populate this resource's properties.

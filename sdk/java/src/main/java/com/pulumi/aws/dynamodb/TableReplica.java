@@ -89,11 +89,15 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * ~&gt; __Note:__ When importing, use the region where the initial or _main_ global table resides, _not_ the region of the replica.
  * 
- *  to = aws_dynamodb_table_replica.example
+ * Using `pulumi import`, import DynamoDB table replicas using the `table-name:main-region`. For example:
  * 
- *  id = &#34;TestTable:us-west-2&#34; } Using `pulumi import`, import DynamoDB table replicas using the `table-name:main-region`. For exampleconsole % pulumi import aws_dynamodb_table_replica.example TestTable:us-west-2
+ * ~&gt; __Note:__ When importing, use the region where the initial or _main_ global table resides, _not_ the region of the replica.
+ * 
+ * ```sh
+ *  $ pulumi import aws:dynamodb/tableReplica:TableReplica example TestTable:us-west-2
+ * ```
  * 
  */
 @ResourceType(type="aws:dynamodb/tableReplica:TableReplica")

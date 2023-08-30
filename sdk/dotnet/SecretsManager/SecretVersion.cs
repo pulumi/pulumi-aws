@@ -36,11 +36,11 @@ namespace Pulumi.Aws.SecretsManager
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import `aws_secretsmanager_secret_version` using the secret ID and version ID. For example:
     /// 
-    ///  to = aws_secretsmanager_secret_version.example
-    /// 
-    ///  id = "arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456|xxxxx-xxxxxxx-xxxxxxx-xxxxx" } Using `pulumi import`, import `aws_secretsmanager_secret_version` using the secret ID and version ID. For exampleconsole % pulumi import aws_secretsmanager_secret_version.example 'arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456|xxxxx-xxxxxxx-xxxxxxx-xxxxx'
+    /// ```sh
+    ///  $ pulumi import aws:secretsmanager/secretVersion:SecretVersion example 'arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456|xxxxx-xxxxxxx-xxxxxxx-xxxxx'
+    /// ```
     /// </summary>
     [AwsResourceType("aws:secretsmanager/secretVersion:SecretVersion")]
     public partial class SecretVersion : global::Pulumi.CustomResource

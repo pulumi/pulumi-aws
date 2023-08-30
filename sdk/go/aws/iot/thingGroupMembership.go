@@ -44,11 +44,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import IoT Thing Group Membership using the thing group name and thing name. For example:
 //
-//	to = aws_iot_thing_group_membership.example
+// ```sh
 //
-//	id = "thing_group_name/thing_name" } Using `pulumi import`, import IoT Thing Group Membership using the thing group name and thing name. For exampleconsole % pulumi import aws_iot_thing_group_membership.example thing_group_name/thing_name
+//	$ pulumi import aws:iot/thingGroupMembership:ThingGroupMembership example thing_group_name/thing_name
+//
+// ```
 type ThingGroupMembership struct {
 	pulumi.CustomResourceState
 

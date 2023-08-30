@@ -90,11 +90,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import `aws_neptune_event_subscription` using the event subscription name. For example:
  * 
- *  to = aws_neptune_event_subscription.example
- * 
- *  id = &#34;my-event-subscription&#34; } Using `pulumi import`, import `aws_neptune_event_subscription` using the event subscription name. For exampleconsole % pulumi import aws_neptune_event_subscription.example my-event-subscription
+ * ```sh
+ *  $ pulumi import aws:neptune/eventSubscription:EventSubscription example my-event-subscription
+ * ```
  * 
  */
 @ResourceType(type="aws:neptune/eventSubscription:EventSubscription")

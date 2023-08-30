@@ -86,11 +86,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import CodeStar connections using the ARN. For example:
  * 
- *  to = aws_codestarconnections_connection.test-connection
- * 
- *  id = &#34;arn:aws:codestar-connections:us-west-1:0123456789:connection/79d4d357-a2ee-41e4-b350-2fe39ae59448&#34; } Using `pulumi import`, import CodeStar connections using the ARN. For exampleconsole % pulumi import aws_codestarconnections_connection.test-connection arn:aws:codestar-connections:us-west-1:0123456789:connection/79d4d357-a2ee-41e4-b350-2fe39ae59448
+ * ```sh
+ *  $ pulumi import aws:codestarconnections/connection:Connection test-connection arn:aws:codestar-connections:us-west-1:0123456789:connection/79d4d357-a2ee-41e4-b350-2fe39ae59448
+ * ```
  * 
  */
 @ResourceType(type="aws:codestarconnections/connection:Connection")

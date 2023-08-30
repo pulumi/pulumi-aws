@@ -41,11 +41,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import API Gateway Client Certificates using the id. For example:
 //
-//	to = aws_api_gateway_client_certificate.demo
+// ```sh
 //
-//	id = "ab1cqe" } Using `pulumi import`, import API Gateway Client Certificates using the id. For exampleconsole % pulumi import aws_api_gateway_client_certificate.demo ab1cqe
+//	$ pulumi import aws:apigateway/clientCertificate:ClientCertificate demo ab1cqe
+//
+// ```
 type ClientCertificate struct {
 	pulumi.CustomResourceState
 

@@ -356,11 +356,11 @@ class ScheduledAction(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Redshift Scheduled Action using the `name`. For example:
 
-         to = aws_redshift_scheduled_action.example
-
-         id = "tf-redshift-scheduled-action" } Using `pulumi import`, import Redshift Scheduled Action using the `name`. For exampleconsole % pulumi import aws_redshift_scheduled_action.example tf-redshift-scheduled-action
+        ```sh
+         $ pulumi import aws:redshift/scheduledAction:ScheduledAction example tf-redshift-scheduled-action
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -439,11 +439,11 @@ class ScheduledAction(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Redshift Scheduled Action using the `name`. For example:
 
-         to = aws_redshift_scheduled_action.example
-
-         id = "tf-redshift-scheduled-action" } Using `pulumi import`, import Redshift Scheduled Action using the `name`. For exampleconsole % pulumi import aws_redshift_scheduled_action.example tf-redshift-scheduled-action
+        ```sh
+         $ pulumi import aws:redshift/scheduledAction:ScheduledAction example tf-redshift-scheduled-action
+        ```
 
         :param str resource_name: The name of the resource.
         :param ScheduledActionArgs args: The arguments to use to populate this resource's properties.

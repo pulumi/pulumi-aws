@@ -50,11 +50,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import AppConfig Deployment Strategies using their deployment strategy ID. For example:
 //
-//	to = aws_appconfig_deployment_strategy.example
+// ```sh
 //
-//	id = "11xxxxx" } Using `pulumi import`, import AppConfig Deployment Strategies using their deployment strategy ID. For exampleconsole % pulumi import aws_appconfig_deployment_strategy.example 11xxxxx
+//	$ pulumi import aws:appconfig/deploymentStrategy:DeploymentStrategy example 11xxxxx
+//
+// ```
 type DeploymentStrategy struct {
 	pulumi.CustomResourceState
 

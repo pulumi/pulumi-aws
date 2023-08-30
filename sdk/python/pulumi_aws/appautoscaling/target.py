@@ -380,11 +380,11 @@ class Target(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Application AutoScaling Target using the `service-namespace` , `resource-id` and `scalable-dimension` separated by `/`. For example:
 
-         to = aws_appautoscaling_target.test-target
-
-         id = "service-namespace/resource-id/scalable-dimension" } Using `pulumi import`, import Application AutoScaling Target using the `service-namespace` , `resource-id` and `scalable-dimension` separated by `/`. For exampleconsole % pulumi import aws_appautoscaling_target.test-target service-namespace/resource-id/scalable-dimension
+        ```sh
+         $ pulumi import aws:appautoscaling/target:Target test-target service-namespace/resource-id/scalable-dimension
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -491,11 +491,11 @@ class Target(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Application AutoScaling Target using the `service-namespace` , `resource-id` and `scalable-dimension` separated by `/`. For example:
 
-         to = aws_appautoscaling_target.test-target
-
-         id = "service-namespace/resource-id/scalable-dimension" } Using `pulumi import`, import Application AutoScaling Target using the `service-namespace` , `resource-id` and `scalable-dimension` separated by `/`. For exampleconsole % pulumi import aws_appautoscaling_target.test-target service-namespace/resource-id/scalable-dimension
+        ```sh
+         $ pulumi import aws:appautoscaling/target:Target test-target service-namespace/resource-id/scalable-dimension
+        ```
 
         :param str resource_name: The name of the resource.
         :param TargetArgs args: The arguments to use to populate this resource's properties.

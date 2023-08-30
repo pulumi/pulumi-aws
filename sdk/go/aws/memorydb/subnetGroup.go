@@ -61,11 +61,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import a subnet group using its `name`. For example:
 //
-//	to = aws_memorydb_subnet_group.example
+// ```sh
 //
-//	id = "my-subnet-group" } Using `pulumi import`, import a subnet group using its `name`. For exampleconsole % pulumi import aws_memorydb_subnet_group.example my-subnet-group
+//	$ pulumi import aws:memorydb/subnetGroup:SubnetGroup example my-subnet-group
+//
+// ```
 type SubnetGroup struct {
 	pulumi.CustomResourceState
 

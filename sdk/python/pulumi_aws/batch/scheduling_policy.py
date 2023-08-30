@@ -189,11 +189,11 @@ class SchedulingPolicy(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Batch Scheduling Policy using the `arn`. For example:
 
-         to = aws_batch_scheduling_policy.test_policy
-
-         id = "arn:aws:batch:us-east-1:123456789012:scheduling-policy/sample" } Using `pulumi import`, import Batch Scheduling Policy using the `arn`. For exampleconsole % pulumi import aws_batch_scheduling_policy.test_policy arn:aws:batch:us-east-1:123456789012:scheduling-policy/sample
+        ```sh
+         $ pulumi import aws:batch/schedulingPolicy:SchedulingPolicy test_policy arn:aws:batch:us-east-1:123456789012:scheduling-policy/sample
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -237,11 +237,11 @@ class SchedulingPolicy(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Batch Scheduling Policy using the `arn`. For example:
 
-         to = aws_batch_scheduling_policy.test_policy
-
-         id = "arn:aws:batch:us-east-1:123456789012:scheduling-policy/sample" } Using `pulumi import`, import Batch Scheduling Policy using the `arn`. For exampleconsole % pulumi import aws_batch_scheduling_policy.test_policy arn:aws:batch:us-east-1:123456789012:scheduling-policy/sample
+        ```sh
+         $ pulumi import aws:batch/schedulingPolicy:SchedulingPolicy test_policy arn:aws:batch:us-east-1:123456789012:scheduling-policy/sample
+        ```
 
         :param str resource_name: The name of the resource.
         :param SchedulingPolicyArgs args: The arguments to use to populate this resource's properties.

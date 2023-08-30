@@ -32,11 +32,11 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import Route53 Recovery Readiness cells using the cell name. For example:
     /// 
-    ///  to = aws_route53recoveryreadiness_cell.us-west-2-failover-cell
-    /// 
-    ///  id = "us-west-2-failover-cell" } Using `pulumi import`, import Route53 Recovery Readiness cells using the cell name. For exampleconsole % pulumi import aws_route53recoveryreadiness_cell.us-west-2-failover-cell us-west-2-failover-cell
+    /// ```sh
+    ///  $ pulumi import aws:route53recoveryreadiness/cell:Cell us-west-2-failover-cell us-west-2-failover-cell
+    /// ```
     /// </summary>
     [AwsResourceType("aws:route53recoveryreadiness/cell:Cell")]
     public partial class Cell : global::Pulumi.CustomResource

@@ -52,11 +52,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Amazon AppIntegrations Data Integrations using the `id`. For example:
 //
-//	to = aws_appintegrations_data_integration.example
+// ```sh
 //
-//	id = "12345678-1234-1234-1234-123456789123" } Using `pulumi import`, import Amazon AppIntegrations Data Integrations using the `id`. For exampleconsole % pulumi import aws_appintegrations_data_integration.example 12345678-1234-1234-1234-123456789123
+//	$ pulumi import aws:appintegrations/dataIntegration:DataIntegration example 12345678-1234-1234-1234-123456789123
+//
+// ```
 type DataIntegration struct {
 	pulumi.CustomResourceState
 

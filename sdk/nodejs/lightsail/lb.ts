@@ -24,11 +24,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import `aws_lightsail_lb` using the name attribute. For example:
  *
- *  to = aws_lightsail_lb.test
- *
- *  id = "example-load-balancer" } Using `pulumi import`, import `aws_lightsail_lb` using the name attribute. For exampleconsole % pulumi import aws_lightsail_lb.test example-load-balancer
+ * ```sh
+ *  $ pulumi import aws:lightsail/lb:Lb test example-load-balancer
+ * ```
  */
 export class Lb extends pulumi.CustomResource {
     /**

@@ -362,11 +362,11 @@ class CustomDataIdentifier(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_macie2_custom_data_identifier` using the id. For example:
 
-         to = aws_macie2_custom_data_identifier.example
-
-         id = "abcd1" } Using `pulumi import`, import `aws_macie2_custom_data_identifier` using the id. For exampleconsole % pulumi import aws_macie2_custom_data_identifier.example abcd1
+        ```sh
+         $ pulumi import aws:macie/customDataIdentifier:CustomDataIdentifier example abcd1
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -406,11 +406,11 @@ class CustomDataIdentifier(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_macie2_custom_data_identifier` using the id. For example:
 
-         to = aws_macie2_custom_data_identifier.example
-
-         id = "abcd1" } Using `pulumi import`, import `aws_macie2_custom_data_identifier` using the id. For exampleconsole % pulumi import aws_macie2_custom_data_identifier.example abcd1
+        ```sh
+         $ pulumi import aws:macie/customDataIdentifier:CustomDataIdentifier example abcd1
+        ```
 
         :param str resource_name: The name of the resource.
         :param CustomDataIdentifierArgs args: The arguments to use to populate this resource's properties.

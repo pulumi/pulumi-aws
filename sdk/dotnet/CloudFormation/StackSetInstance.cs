@@ -134,15 +134,18 @@ namespace Pulumi.Aws.CloudFormation
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Import CloudFormation StackSet Instances that target AWS Organizational Units using the StackSet name, a slash (`/`) separated list of organizational unit IDs, and target AWS region separated by commas (`,`):
     /// 
-    ///  to = aws_cloudformation_stack_set_instance.example
+    /// __Using `pulumi import` to import__ CloudFormation StackSet Instances that target an AWS Account ID using the StackSet name, target AWS account ID, and target AWS region separated by commas (`,`). For example:
     /// 
-    ///  id = "example,123456789012,us-east-1" } Import CloudFormation StackSet Instances that target AWS Organizational Units using the StackSet name, a slash (`/`) separated list of organizational unit IDs, and target AWS region separated by commas (`,`)terraform import {
+    /// ```sh
+    ///  $ pulumi import aws:cloudformation/stackSetInstance:StackSetInstance example example,123456789012,us-east-1
+    /// ```
+    ///  Import CloudFormation StackSet Instances that target AWS Organizational Units using the StackSet name, a slash (`/`) separated list of organizational unit IDs, and target AWS region separated by commas (`,`):
     /// 
-    ///  to = aws_cloudformation_stack_set_instance.example
-    /// 
-    ///  id = "example,ou-sdas-123123123/ou-sdas-789789789,us-east-1" } **Using `pulumi import` to import** CloudFormation StackSet Instances that target an AWS Account ID using the StackSet name, target AWS account ID, and target AWS region separated by commas (`,`). For exampleconsole % pulumi import aws_cloudformation_stack_set_instance.example example,123456789012,us-east-1 Import CloudFormation StackSet Instances that target AWS Organizational Units using the StackSet name, a slash (`/`) separated list of organizational unit IDs, and target AWS region separated by commas (`,`)console % pulumi import aws_cloudformation_stack_set_instance.example example,ou-sdas-123123123/ou-sdas-789789789,us-east-1
+    /// ```sh
+    ///  $ pulumi import aws:cloudformation/stackSetInstance:StackSetInstance example example,ou-sdas-123123123/ou-sdas-789789789,us-east-1
+    /// ```
     /// </summary>
     [AwsResourceType("aws:cloudformation/stackSetInstance:StackSetInstance")]
     public partial class StackSetInstance : global::Pulumi.CustomResource

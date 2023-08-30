@@ -87,11 +87,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import IAM role policy attachments using the role name and policy arn separated by `/`. For example:
  * 
- *  to = aws_iam_role_policy_attachment.test-attach
- * 
- *  id = &#34;test-role/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy&#34; } Using `pulumi import`, import IAM role policy attachments using the role name and policy arn separated by `/`. For exampleconsole % pulumi import aws_iam_role_policy_attachment.test-attach test-role/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
+ * ```sh
+ *  $ pulumi import aws:iam/rolePolicyAttachment:RolePolicyAttachment test-attach test-role/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
+ * ```
  * 
  */
 @ResourceType(type="aws:iam/rolePolicyAttachment:RolePolicyAttachment")

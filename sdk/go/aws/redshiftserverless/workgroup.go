@@ -43,11 +43,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Redshift Serverless Workgroups using the `workgroup_name`. For example:
 //
-//	to = aws_redshiftserverless_workgroup.example
+// ```sh
 //
-//	id = "example" } Using `pulumi import`, import Redshift Serverless Workgroups using the `workgroup_name`. For exampleconsole % pulumi import aws_redshiftserverless_workgroup.example example
+//	$ pulumi import aws:redshiftserverless/workgroup:Workgroup example example
+//
+// ```
 type Workgroup struct {
 	pulumi.CustomResourceState
 

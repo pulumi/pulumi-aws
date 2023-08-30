@@ -39,11 +39,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import SimpleDB Domains using the `name`. For example:
 //
-//	to = aws_simpledb_domain.users
+// ```sh
 //
-//	id = "users" } Using `pulumi import`, import SimpleDB Domains using the `name`. For exampleconsole % pulumi import aws_simpledb_domain.users users
+//	$ pulumi import aws:simpledb/domain:Domain users users
+//
+// ```
 type Domain struct {
 	pulumi.CustomResourceState
 

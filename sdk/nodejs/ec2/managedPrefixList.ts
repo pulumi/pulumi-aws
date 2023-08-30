@@ -51,11 +51,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import Prefix Lists using the `id`. For example:
  *
- *  to = aws_ec2_managed_prefix_list.default
- *
- *  id = "pl-0570a1d2d725c16be" } Using `pulumi import`, import Prefix Lists using the `id`. For exampleconsole % pulumi import aws_ec2_managed_prefix_list.default pl-0570a1d2d725c16be
+ * ```sh
+ *  $ pulumi import aws:ec2/managedPrefixList:ManagedPrefixList default pl-0570a1d2d725c16be
+ * ```
  */
 export class ManagedPrefixList extends pulumi.CustomResource {
     /**

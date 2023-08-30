@@ -60,11 +60,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import DAX Parameter Group using the `name`. For example:
  * 
- *  to = aws_dax_parameter_group.example
- * 
- *  id = &#34;my_dax_pg&#34; } Using `pulumi import`, import DAX Parameter Group using the `name`. For exampleconsole % pulumi import aws_dax_parameter_group.example my_dax_pg
+ * ```sh
+ *  $ pulumi import aws:dax/parameterGroup:ParameterGroup example my_dax_pg
+ * ```
  * 
  */
 @ResourceType(type="aws:dax/parameterGroup:ParameterGroup")

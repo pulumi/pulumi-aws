@@ -414,11 +414,11 @@ class NatGateway(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import NAT Gateways using the `id`. For example:
 
-         to = aws_nat_gateway.private_gw
-
-         id = "nat-05dba92075d71c408" } Using `pulumi import`, import NAT Gateways using the `id`. For exampleconsole % pulumi import aws_nat_gateway.private_gw nat-05dba92075d71c408
+        ```sh
+         $ pulumi import aws:ec2/natGateway:NatGateway private_gw nat-05dba92075d71c408
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -491,11 +491,11 @@ class NatGateway(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import NAT Gateways using the `id`. For example:
 
-         to = aws_nat_gateway.private_gw
-
-         id = "nat-05dba92075d71c408" } Using `pulumi import`, import NAT Gateways using the `id`. For exampleconsole % pulumi import aws_nat_gateway.private_gw nat-05dba92075d71c408
+        ```sh
+         $ pulumi import aws:ec2/natGateway:NatGateway private_gw nat-05dba92075d71c408
+        ```
 
         :param str resource_name: The name of the resource.
         :param NatGatewayArgs args: The arguments to use to populate this resource's properties.

@@ -36,11 +36,11 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import VPN Gateways using the VPN gateway `id`. For example:
     /// 
-    ///  to = aws_vpn_gateway.testvpngateway
-    /// 
-    ///  id = "vgw-9a4cacf3" } Using `pulumi import`, import VPN Gateways using the VPN gateway `id`. For exampleconsole % pulumi import aws_vpn_gateway.testvpngateway vgw-9a4cacf3
+    /// ```sh
+    ///  $ pulumi import aws:ec2/vpnGateway:VpnGateway testvpngateway vgw-9a4cacf3
+    /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/vpnGateway:VpnGateway")]
     public partial class VpnGateway : global::Pulumi.CustomResource

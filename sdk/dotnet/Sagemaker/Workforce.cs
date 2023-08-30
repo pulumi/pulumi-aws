@@ -80,11 +80,11 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import SageMaker Workforces using the `workforce_name`. For example:
     /// 
-    ///  to = aws_sagemaker_workforce.example
-    /// 
-    ///  id = "example" } Using `pulumi import`, import SageMaker Workforces using the `workforce_name`. For exampleconsole % pulumi import aws_sagemaker_workforce.example example
+    /// ```sh
+    ///  $ pulumi import aws:sagemaker/workforce:Workforce example example
+    /// ```
     /// </summary>
     [AwsResourceType("aws:sagemaker/workforce:Workforce")]
     public partial class Workforce : global::Pulumi.CustomResource

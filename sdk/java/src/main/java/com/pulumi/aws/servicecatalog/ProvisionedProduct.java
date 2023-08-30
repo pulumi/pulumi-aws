@@ -71,11 +71,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import `aws_servicecatalog_provisioned_product` using the provisioned product ID. For example:
  * 
- *  to = aws_servicecatalog_provisioned_product.example
- * 
- *  id = &#34;pp-dnigbtea24ste&#34; } Using `pulumi import`, import `aws_servicecatalog_provisioned_product` using the provisioned product ID. For exampleconsole % pulumi import aws_servicecatalog_provisioned_product.example pp-dnigbtea24ste
+ * ```sh
+ *  $ pulumi import aws:servicecatalog/provisionedProduct:ProvisionedProduct example pp-dnigbtea24ste
+ * ```
  * 
  */
 @ResourceType(type="aws:servicecatalog/provisionedProduct:ProvisionedProduct")

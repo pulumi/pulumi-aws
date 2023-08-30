@@ -52,11 +52,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import `aws_docdb_cluster_snapshot` using the cluster snapshot identifier. For example:
  * 
- *  to = aws_docdb_cluster_snapshot.example
- * 
- *  id = &#34;my-cluster-snapshot&#34; } Using `pulumi import`, import `aws_docdb_cluster_snapshot` using the cluster snapshot identifier. For exampleconsole % pulumi import aws_docdb_cluster_snapshot.example my-cluster-snapshot
+ * ```sh
+ *  $ pulumi import aws:docdb/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
+ * ```
  * 
  */
 @ResourceType(type="aws:docdb/clusterSnapshot:ClusterSnapshot")

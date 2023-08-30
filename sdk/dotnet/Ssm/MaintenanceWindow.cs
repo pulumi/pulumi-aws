@@ -34,13 +34,13 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import SSM
     /// 
-    ///  to = aws_ssm_maintenance_window.imported-window
+    /// Maintenance Windows using the maintenance window `id`. For example:
     /// 
-    ///  id = "mw-0123456789" } Using `pulumi import`, import SSM
-    /// 
-    /// Maintenance Windows using the maintenance window `id`. For exampleconsole % pulumi import aws_ssm_maintenance_window.imported-window mw-0123456789
+    /// ```sh
+    ///  $ pulumi import aws:ssm/maintenanceWindow:MaintenanceWindow imported-window mw-0123456789
+    /// ```
     /// </summary>
     [AwsResourceType("aws:ssm/maintenanceWindow:MaintenanceWindow")]
     public partial class MaintenanceWindow : global::Pulumi.CustomResource

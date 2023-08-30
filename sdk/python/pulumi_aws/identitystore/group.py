@@ -179,11 +179,11 @@ class Group(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import an Identity Store Group using the combination `identity_store_id/group_id`. For example:
 
-         to = aws_identitystore_group.example
-
-         id = "d-9c6705e95c/b8a1c340-8031-7071-a2fb-7dc540320c30" } Using `pulumi import`, import an Identity Store Group using the combination `identity_store_id/group_id`. For exampleconsole % pulumi import aws_identitystore_group.example d-9c6705e95c/b8a1c340-8031-7071-a2fb-7dc540320c30
+        ```sh
+         $ pulumi import aws:identitystore/group:Group example d-9c6705e95c/b8a1c340-8031-7071-a2fb-7dc540320c30
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -206,11 +206,11 @@ class Group(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import an Identity Store Group using the combination `identity_store_id/group_id`. For example:
 
-         to = aws_identitystore_group.example
-
-         id = "d-9c6705e95c/b8a1c340-8031-7071-a2fb-7dc540320c30" } Using `pulumi import`, import an Identity Store Group using the combination `identity_store_id/group_id`. For exampleconsole % pulumi import aws_identitystore_group.example d-9c6705e95c/b8a1c340-8031-7071-a2fb-7dc540320c30
+        ```sh
+         $ pulumi import aws:identitystore/group:Group example d-9c6705e95c/b8a1c340-8031-7071-a2fb-7dc540320c30
+        ```
 
         :param str resource_name: The name of the resource.
         :param GroupArgs args: The arguments to use to populate this resource's properties.

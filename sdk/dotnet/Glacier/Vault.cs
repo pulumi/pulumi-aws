@@ -81,11 +81,11 @@ namespace Pulumi.Aws.Glacier
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import Glacier Vaults using the `name`. For example:
     /// 
-    ///  to = aws_glacier_vault.archive
-    /// 
-    ///  id = "my_archive" } Using `pulumi import`, import Glacier Vaults using the `name`. For exampleconsole % pulumi import aws_glacier_vault.archive my_archive
+    /// ```sh
+    ///  $ pulumi import aws:glacier/vault:Vault archive my_archive
+    /// ```
     /// </summary>
     [AwsResourceType("aws:glacier/vault:Vault")]
     public partial class Vault : global::Pulumi.CustomResource

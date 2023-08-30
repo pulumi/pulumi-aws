@@ -72,11 +72,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Transcribe Vocabulary using the `vocabulary_name`. For example:
 //
-//	to = aws_transcribe_vocabulary.example
+// ```sh
 //
-//	id = "example-name" } Using `pulumi import`, import Transcribe Vocabulary using the `vocabulary_name`. For exampleconsole % pulumi import aws_transcribe_vocabulary.example example-name
+//	$ pulumi import aws:transcribe/vocabulary:Vocabulary example example-name
+//
+// ```
 type Vocabulary struct {
 	pulumi.CustomResourceState
 

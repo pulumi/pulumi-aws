@@ -279,11 +279,11 @@ class Queue(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Media Convert Queue using the queue name. For example:
 
-         to = aws_media_convert_queue.test
-
-         id = "tf-test-queue" } Using `pulumi import`, import Media Convert Queue using the queue name. For exampleconsole % pulumi import aws_media_convert_queue.test tf-test-queue
+        ```sh
+         $ pulumi import aws:mediaconvert/queue:Queue test tf-test-queue
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -314,11 +314,11 @@ class Queue(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Media Convert Queue using the queue name. For example:
 
-         to = aws_media_convert_queue.test
-
-         id = "tf-test-queue" } Using `pulumi import`, import Media Convert Queue using the queue name. For exampleconsole % pulumi import aws_media_convert_queue.test tf-test-queue
+        ```sh
+         $ pulumi import aws:mediaconvert/queue:Queue test tf-test-queue
+        ```
 
         :param str resource_name: The name of the resource.
         :param QueueArgs args: The arguments to use to populate this resource's properties.

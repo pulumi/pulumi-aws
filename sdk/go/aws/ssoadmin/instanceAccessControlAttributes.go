@@ -16,11 +16,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import SSO Account Assignments using the `instance_arn`. For example:
 //
-//	to = aws_ssoadmin_instance_access_control_attributes.example
+// ```sh
 //
-//	id = "arn:aws:sso:::instance/ssoins-0123456789abcdef" } Using `pulumi import`, import SSO Account Assignments using the `instance_arn`. For exampleconsole % pulumi import aws_ssoadmin_instance_access_control_attributes.example arn:aws:sso:::instance/ssoins-0123456789abcdef
+//	$ pulumi import aws:ssoadmin/instanceAccessControlAttributes:InstanceAccessControlAttributes example arn:aws:sso:::instance/ssoins-0123456789abcdef
+//
+// ```
 type InstanceAccessControlAttributes struct {
 	pulumi.CustomResourceState
 

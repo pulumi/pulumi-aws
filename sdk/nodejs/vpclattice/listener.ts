@@ -83,11 +83,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import VPC Lattice Listener using the `listener_id` of the listener and the `id` of the VPC Lattice service combined with a `/` character. For example:
  *
- *  to = aws_vpclattice_listener.example
- *
- *  id = "svc-1a2b3c4d/listener-987654321" } Using `pulumi import`, import VPC Lattice Listener using the `listener_id` of the listener and the `id` of the VPC Lattice service combined with a `/` character. For exampleconsole % pulumi import aws_vpclattice_listener.example svc-1a2b3c4d/listener-987654321
+ * ```sh
+ *  $ pulumi import aws:vpclattice/listener:Listener example svc-1a2b3c4d/listener-987654321
+ * ```
  */
 export class Listener extends pulumi.CustomResource {
     /**

@@ -64,11 +64,11 @@ import {RestApi} from "./index";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import `aws_api_gateway_method` using `REST-API-ID/RESOURCE-ID/HTTP-METHOD`. For example:
  *
- *  to = aws_api_gateway_method.example
- *
- *  id = "12345abcde/67890fghij/GET" } Using `pulumi import`, import `aws_api_gateway_method` using `REST-API-ID/RESOURCE-ID/HTTP-METHOD`. For exampleconsole % pulumi import aws_api_gateway_method.example 12345abcde/67890fghij/GET
+ * ```sh
+ *  $ pulumi import aws:apigateway/method:Method example 12345abcde/67890fghij/GET
+ * ```
  */
 export class Method extends pulumi.CustomResource {
     /**

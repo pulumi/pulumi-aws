@@ -112,11 +112,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import `aws_apigatewayv2_domain_name` using the domain name. For example:
  * 
- *  to = aws_apigatewayv2_domain_name.example
- * 
- *  id = &#34;ws-api.example.com&#34; } Using `pulumi import`, import `aws_apigatewayv2_domain_name` using the domain name. For exampleconsole % pulumi import aws_apigatewayv2_domain_name.example ws-api.example.com
+ * ```sh
+ *  $ pulumi import aws:apigatewayv2/domainName:DomainName example ws-api.example.com
+ * ```
  * 
  */
 @ResourceType(type="aws:apigatewayv2/domainName:DomainName")

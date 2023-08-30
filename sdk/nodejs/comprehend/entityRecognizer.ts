@@ -47,11 +47,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import Comprehend Entity Recognizer using the ARN. For example:
  *
- *  to = aws_comprehend_entity_recognizer.example
- *
- *  id = "arn:aws:comprehend:us-west-2:123456789012:entity-recognizer/example" } Using `pulumi import`, import Comprehend Entity Recognizer using the ARN. For exampleconsole % pulumi import aws_comprehend_entity_recognizer.example arn:aws:comprehend:us-west-2:123456789012:entity-recognizer/example
+ * ```sh
+ *  $ pulumi import aws:comprehend/entityRecognizer:EntityRecognizer example arn:aws:comprehend:us-west-2:123456789012:entity-recognizer/example
+ * ```
  */
 export class EntityRecognizer extends pulumi.CustomResource {
     /**

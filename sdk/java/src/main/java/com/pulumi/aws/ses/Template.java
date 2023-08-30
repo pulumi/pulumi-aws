@@ -54,11 +54,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import SES templates using the template name. For example:
  * 
- *  to = aws_ses_template.MyTemplate
- * 
- *  id = &#34;MyTemplate&#34; } Using `pulumi import`, import SES templates using the template name. For exampleconsole % pulumi import aws_ses_template.MyTemplate MyTemplate
+ * ```sh
+ *  $ pulumi import aws:ses/template:Template MyTemplate MyTemplate
+ * ```
  * 
  */
 @ResourceType(type="aws:ses/template:Template")

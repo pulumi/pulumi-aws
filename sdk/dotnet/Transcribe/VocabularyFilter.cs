@@ -44,11 +44,11 @@ namespace Pulumi.Aws.Transcribe
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import Transcribe VocabularyFilter using the `vocabulary_filter_name`. For example:
     /// 
-    ///  to = aws_transcribe_vocabulary_filter.example
-    /// 
-    ///  id = "example-name" } Using `pulumi import`, import Transcribe VocabularyFilter using the `vocabulary_filter_name`. For exampleconsole % pulumi import aws_transcribe_vocabulary_filter.example example-name
+    /// ```sh
+    ///  $ pulumi import aws:transcribe/vocabularyFilter:VocabularyFilter example example-name
+    /// ```
     /// </summary>
     [AwsResourceType("aws:transcribe/vocabularyFilter:VocabularyFilter")]
     public partial class VocabularyFilter : global::Pulumi.CustomResource

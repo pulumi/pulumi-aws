@@ -82,11 +82,11 @@ class EncryptionByDefault(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import the default EBS encryption state. For example:
 
-         to = aws_ebs_encryption_by_default.example
-
-         id = "default" } Using `pulumi import`, import the default EBS encryption state. For exampleconsole % pulumi import aws_ebs_encryption_by_default.example default
+        ```sh
+         $ pulumi import aws:ebs/encryptionByDefault:EncryptionByDefault example default
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -114,11 +114,11 @@ class EncryptionByDefault(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import the default EBS encryption state. For example:
 
-         to = aws_ebs_encryption_by_default.example
-
-         id = "default" } Using `pulumi import`, import the default EBS encryption state. For exampleconsole % pulumi import aws_ebs_encryption_by_default.example default
+        ```sh
+         $ pulumi import aws:ebs/encryptionByDefault:EncryptionByDefault example default
+        ```
 
         :param str resource_name: The name of the resource.
         :param EncryptionByDefaultArgs args: The arguments to use to populate this resource's properties.

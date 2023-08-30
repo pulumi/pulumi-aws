@@ -130,11 +130,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Timestream tables using the `table_name` and `database_name` separate by a colon (`:`). For example:
  * 
- *  to = aws_timestreamwrite_table.example
- * 
- *  id = &#34;ExampleTable:ExampleDatabase&#34; } Using `pulumi import`, import Timestream tables using the `table_name` and `database_name` separate by a colon (`:`). For exampleconsole % pulumi import aws_timestreamwrite_table.example ExampleTable:ExampleDatabase
+ * ```sh
+ *  $ pulumi import aws:timestreamwrite/table:Table example ExampleTable:ExampleDatabase
+ * ```
  * 
  */
 @ResourceType(type="aws:timestreamwrite/table:Table")

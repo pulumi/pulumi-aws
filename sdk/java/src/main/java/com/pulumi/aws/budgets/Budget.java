@@ -341,11 +341,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import budgets using `AccountID:ActionID:BudgetName`. For example:
  * 
- *  to = aws_budgets_budget.myBudget
- * 
- *  id = &#34;123456789012:myBudget&#34; } Using `pulumi import`, import budgets using `AccountID:ActionID:BudgetName`. For exampleconsole % pulumi import aws_budgets_budget.myBudget 123456789012:myBudget
+ * ```sh
+ *  $ pulumi import aws:budgets/budget:Budget myBudget 123456789012:myBudget
+ * ```
  * 
  */
 @ResourceType(type="aws:budgets/budget:Budget")

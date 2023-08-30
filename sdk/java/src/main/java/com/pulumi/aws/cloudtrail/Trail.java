@@ -448,11 +448,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Cloudtrails using the `name`. For example:
  * 
- *  to = aws_cloudtrail.sample
- * 
- *  id = &#34;my-sample-trail&#34; } Using `pulumi import`, import Cloudtrails using the `name`. For exampleconsole % pulumi import aws_cloudtrail.sample my-sample-trail
+ * ```sh
+ *  $ pulumi import aws:cloudtrail/trail:Trail sample my-sample-trail
+ * ```
  * 
  */
 @ResourceType(type="aws:cloudtrail/trail:Trail")

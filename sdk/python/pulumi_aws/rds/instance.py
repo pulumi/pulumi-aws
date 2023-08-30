@@ -2697,11 +2697,11 @@ class Instance(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import DB Instances using the `identifier`. For example:
 
-         to = aws_db_instance.default
-
-         id = "mydb-rds-instance" } Using `pulumi import`, import DB Instances using the `identifier`. For exampleconsole % pulumi import aws_db_instance.default mydb-rds-instance
+        ```sh
+         $ pulumi import aws:rds/instance:Instance default mydb-rds-instance
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -2963,11 +2963,11 @@ class Instance(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import DB Instances using the `identifier`. For example:
 
-         to = aws_db_instance.default
-
-         id = "mydb-rds-instance" } Using `pulumi import`, import DB Instances using the `identifier`. For exampleconsole % pulumi import aws_db_instance.default mydb-rds-instance
+        ```sh
+         $ pulumi import aws:rds/instance:Instance default mydb-rds-instance
+        ```
 
         :param str resource_name: The name of the resource.
         :param InstanceArgs args: The arguments to use to populate this resource's properties.

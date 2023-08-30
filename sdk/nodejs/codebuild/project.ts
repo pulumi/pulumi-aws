@@ -190,11 +190,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import CodeBuild Project using the `name`. For example:
  *
- *  to = aws_codebuild_project.name
- *
- *  id = "project-name" } Using `pulumi import`, import CodeBuild Project using the `name`. For exampleconsole % pulumi import aws_codebuild_project.name project-name
+ * ```sh
+ *  $ pulumi import aws:codebuild/project:Project name project-name
+ * ```
  */
 export class Project extends pulumi.CustomResource {
     /**

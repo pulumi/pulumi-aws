@@ -35,11 +35,11 @@ namespace Pulumi.Aws.Backup
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import Backup vault lock configuration using the `name`. For example:
     /// 
-    ///  to = aws_backup_vault_lock_configuration.test
-    /// 
-    ///  id = "TestVault" } Using `pulumi import`, import Backup vault lock configuration using the `name`. For exampleconsole % pulumi import aws_backup_vault_lock_configuration.test TestVault
+    /// ```sh
+    ///  $ pulumi import aws:backup/vaultLockConfiguration:VaultLockConfiguration test TestVault
+    /// ```
     /// </summary>
     [AwsResourceType("aws:backup/vaultLockConfiguration:VaultLockConfiguration")]
     public partial class VaultLockConfiguration : global::Pulumi.CustomResource

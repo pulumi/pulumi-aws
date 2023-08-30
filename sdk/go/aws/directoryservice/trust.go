@@ -130,11 +130,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import the Trust relationship using the directory ID and remote domain name, separated by a `/`. For example:
 //
-//	to = aws_directory_service_trust.example
+// ```sh
 //
-//	id = "d-926724cf57/directory.example.com" } Using `pulumi import`, import the Trust relationship using the directory ID and remote domain name, separated by a `/`. For exampleconsole % pulumi import aws_directory_service_trust.example d-926724cf57/directory.example.com
+//	$ pulumi import aws:directoryservice/trust:Trust example d-926724cf57/directory.example.com
+//
+// ```
 type Trust struct {
 	pulumi.CustomResourceState
 

@@ -63,11 +63,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import AppStream Stack Fleet Association using the `fleet_name` and `stack_name` separated by a slash (`/`). For example:
  * 
- *  to = aws_appstream_fleet_stack_association.example
- * 
- *  id = &#34;fleetName/stackName&#34; } Using `pulumi import`, import AppStream Stack Fleet Association using the `fleet_name` and `stack_name` separated by a slash (`/`). For exampleconsole % pulumi import aws_appstream_fleet_stack_association.example fleetName/stackName
+ * ```sh
+ *  $ pulumi import aws:appstream/fleetStackAssociation:FleetStackAssociation example fleetName/stackName
+ * ```
  * 
  */
 @ResourceType(type="aws:appstream/fleetStackAssociation:FleetStackAssociation")

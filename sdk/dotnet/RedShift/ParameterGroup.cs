@@ -50,11 +50,11 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import Redshift Parameter Groups using the `name`. For example:
     /// 
-    ///  to = aws_redshift_parameter_group.paramgroup1
-    /// 
-    ///  id = "parameter-group-test-TODO" } Using `pulumi import`, import Redshift Parameter Groups using the `name`. For exampleconsole % pulumi import aws_redshift_parameter_group.paramgroup1 parameter-group-test-TODO
+    /// ```sh
+    ///  $ pulumi import aws:redshift/parameterGroup:ParameterGroup paramgroup1 parameter-group-test-TODO
+    /// ```
     /// </summary>
     [AwsResourceType("aws:redshift/parameterGroup:ParameterGroup")]
     public partial class ParameterGroup : global::Pulumi.CustomResource

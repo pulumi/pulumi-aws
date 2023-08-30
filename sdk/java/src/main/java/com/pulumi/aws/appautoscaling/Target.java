@@ -225,11 +225,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Application AutoScaling Target using the `service-namespace` , `resource-id` and `scalable-dimension` separated by `/`. For example:
  * 
- *  to = aws_appautoscaling_target.test-target
- * 
- *  id = &#34;service-namespace/resource-id/scalable-dimension&#34; } Using `pulumi import`, import Application AutoScaling Target using the `service-namespace` , `resource-id` and `scalable-dimension` separated by `/`. For exampleconsole % pulumi import aws_appautoscaling_target.test-target service-namespace/resource-id/scalable-dimension
+ * ```sh
+ *  $ pulumi import aws:appautoscaling/target:Target test-target service-namespace/resource-id/scalable-dimension
+ * ```
  * 
  */
 @ResourceType(type="aws:appautoscaling/target:Target")

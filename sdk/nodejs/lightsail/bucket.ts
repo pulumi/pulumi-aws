@@ -18,11 +18,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import `aws_lightsail_bucket` using the `name` attribute. For example:
  *
- *  to = aws_lightsail_bucket.test
- *
- *  id = "example-bucket" } Using `pulumi import`, import `aws_lightsail_bucket` using the `name` attribute. For exampleconsole % pulumi import aws_lightsail_bucket.test example-bucket
+ * ```sh
+ *  $ pulumi import aws:lightsail/bucket:Bucket test example-bucket
+ * ```
  */
 export class Bucket extends pulumi.CustomResource {
     /**

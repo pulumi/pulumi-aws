@@ -45,11 +45,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import Lambda function URLs using the `function_name` or `function_name/qualifier`. For example:
  *
- *  to = aws_lambda_function_url.test_lambda_url
- *
- *  id = "my_test_lambda_function" } Using `pulumi import`, import Lambda function URLs using the `function_name` or `function_name/qualifier`. For exampleconsole % pulumi import aws_lambda_function_url.test_lambda_url my_test_lambda_function
+ * ```sh
+ *  $ pulumi import aws:lambda/functionUrl:FunctionUrl test_lambda_url my_test_lambda_function
+ * ```
  */
 export class FunctionUrl extends pulumi.CustomResource {
     /**

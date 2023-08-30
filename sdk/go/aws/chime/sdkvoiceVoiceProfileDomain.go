@@ -57,11 +57,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import AWS Chime SDK Voice Profile Domain using the `id`. For example:
 //
-//	to = aws_chimesdkvoice_voice_profile_domain.example
+// ```sh
 //
-//	id = "abcdef123456" } Using `pulumi import`, import AWS Chime SDK Voice Profile Domain using the `id`. For exampleconsole % pulumi import aws_chimesdkvoice_voice_profile_domain.example abcdef123456
+//	$ pulumi import aws:chime/sdkvoiceVoiceProfileDomain:SdkvoiceVoiceProfileDomain example abcdef123456
+//
+// ```
 type SdkvoiceVoiceProfileDomain struct {
 	pulumi.CustomResourceState
 

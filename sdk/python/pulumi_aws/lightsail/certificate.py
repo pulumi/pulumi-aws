@@ -247,11 +247,11 @@ class Certificate(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_lightsail_certificate` using the certificate name. For example:
 
-         to = aws_lightsail_certificate.test
-
-         id = "CertificateName" } Using `pulumi import`, import `aws_lightsail_certificate` using the certificate name. For exampleconsole % pulumi import aws_lightsail_certificate.test CertificateName
+        ```sh
+         $ pulumi import aws:lightsail/certificate:Certificate test CertificateName
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -282,11 +282,11 @@ class Certificate(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_lightsail_certificate` using the certificate name. For example:
 
-         to = aws_lightsail_certificate.test
-
-         id = "CertificateName" } Using `pulumi import`, import `aws_lightsail_certificate` using the certificate name. For exampleconsole % pulumi import aws_lightsail_certificate.test CertificateName
+        ```sh
+         $ pulumi import aws:lightsail/certificate:Certificate test CertificateName
+        ```
 
         :param str resource_name: The name of the resource.
         :param CertificateArgs args: The arguments to use to populate this resource's properties.

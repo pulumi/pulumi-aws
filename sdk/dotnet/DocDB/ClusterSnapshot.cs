@@ -33,11 +33,11 @@ namespace Pulumi.Aws.DocDB
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import `aws_docdb_cluster_snapshot` using the cluster snapshot identifier. For example:
     /// 
-    ///  to = aws_docdb_cluster_snapshot.example
-    /// 
-    ///  id = "my-cluster-snapshot" } Using `pulumi import`, import `aws_docdb_cluster_snapshot` using the cluster snapshot identifier. For exampleconsole % pulumi import aws_docdb_cluster_snapshot.example my-cluster-snapshot
+    /// ```sh
+    ///  $ pulumi import aws:docdb/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
+    /// ```
     /// </summary>
     [AwsResourceType("aws:docdb/clusterSnapshot:ClusterSnapshot")]
     public partial class ClusterSnapshot : global::Pulumi.CustomResource

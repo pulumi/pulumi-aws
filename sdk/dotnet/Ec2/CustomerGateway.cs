@@ -38,11 +38,11 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import Customer Gateways using the `id`. For example:
     /// 
-    ///  to = aws_customer_gateway.main
-    /// 
-    ///  id = "cgw-b4dc3961" } Using `pulumi import`, import Customer Gateways using the `id`. For exampleconsole % pulumi import aws_customer_gateway.main cgw-b4dc3961
+    /// ```sh
+    ///  $ pulumi import aws:ec2/customerGateway:CustomerGateway main cgw-b4dc3961
+    /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/customerGateway:CustomerGateway")]
     public partial class CustomerGateway : global::Pulumi.CustomResource

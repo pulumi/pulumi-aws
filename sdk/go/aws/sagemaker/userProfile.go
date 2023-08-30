@@ -44,11 +44,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import SageMaker User Profiles using the `arn`. For example:
 //
-//	to = aws_sagemaker_user_profile.test_user_profile
+// ```sh
 //
-//	id = "arn:aws:sagemaker:us-west-2:123456789012:user-profile/domain-id/profile-name" } Using `pulumi import`, import SageMaker User Profiles using the `arn`. For exampleconsole % pulumi import aws_sagemaker_user_profile.test_user_profile arn:aws:sagemaker:us-west-2:123456789012:user-profile/domain-id/profile-name
+//	$ pulumi import aws:sagemaker/userProfile:UserProfile test_user_profile arn:aws:sagemaker:us-west-2:123456789012:user-profile/domain-id/profile-name
+//
+// ```
 type UserProfile struct {
 	pulumi.CustomResourceState
 

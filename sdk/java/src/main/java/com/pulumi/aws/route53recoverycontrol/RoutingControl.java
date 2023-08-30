@@ -77,11 +77,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Route53 Recovery Control Config Routing Control using the routing control arn. For example:
  * 
- *  to = aws_route53recoverycontrolconfig_routing_control.mycontrol
- * 
- *  id = &#34;arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8/routingcontrol/d5d90e587870494b&#34; } Using `pulumi import`, import Route53 Recovery Control Config Routing Control using the routing control arn. For exampleconsole % pulumi import aws_route53recoverycontrolconfig_routing_control.mycontrol arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8/routingcontrol/d5d90e587870494b
+ * ```sh
+ *  $ pulumi import aws:route53recoverycontrol/routingControl:RoutingControl mycontrol arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8/routingcontrol/d5d90e587870494b
+ * ```
  * 
  */
 @ResourceType(type="aws:route53recoverycontrol/routingControl:RoutingControl")

@@ -93,11 +93,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import CodeStar notification rule using the ARN. For example:
 //
-//	to = aws_codestarnotifications_notification_rule.foo
+// ```sh
 //
-//	id = "arn:aws:codestar-notifications:us-west-1:0123456789:notificationrule/2cdc68a3-8f7c-4893-b6a5-45b362bd4f2b" } Using `pulumi import`, import CodeStar notification rule using the ARN. For exampleconsole % pulumi import aws_codestarnotifications_notification_rule.foo arn:aws:codestar-notifications:us-west-1:0123456789:notificationrule/2cdc68a3-8f7c-4893-b6a5-45b362bd4f2b
+//	$ pulumi import aws:codestarnotifications/notificationRule:NotificationRule foo arn:aws:codestar-notifications:us-west-1:0123456789:notificationrule/2cdc68a3-8f7c-4893-b6a5-45b362bd4f2b
+//
+// ```
 type NotificationRule struct {
 	pulumi.CustomResourceState
 

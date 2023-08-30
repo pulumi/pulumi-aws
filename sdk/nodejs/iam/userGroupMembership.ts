@@ -37,11 +37,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import IAM user group membership using the user name and group names separated by `/`. For example:
  *
- *  to = aws_iam_user_group_membership.example1
- *
- *  id = "user1/group1/group2" } Using `pulumi import`, import IAM user group membership using the user name and group names separated by `/`. For exampleconsole % pulumi import aws_iam_user_group_membership.example1 user1/group1/group2
+ * ```sh
+ *  $ pulumi import aws:iam/userGroupMembership:UserGroupMembership example1 user1/group1/group2
+ * ```
  */
 export class UserGroupMembership extends pulumi.CustomResource {
     /**

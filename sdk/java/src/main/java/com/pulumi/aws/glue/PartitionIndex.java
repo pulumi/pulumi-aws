@@ -124,11 +124,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Glue Partition Indexes using the catalog ID (usually AWS account ID), database name, table name, and index name. For example:
  * 
- *  to = aws_glue_partition_index.example
- * 
- *  id = &#34;123456789012:MyDatabase:MyTable:index-name&#34; } Using `pulumi import`, import Glue Partition Indexes using the catalog ID (usually AWS account ID), database name, table name, and index name. For exampleconsole % pulumi import aws_glue_partition_index.example 123456789012:MyDatabase:MyTable:index-name
+ * ```sh
+ *  $ pulumi import aws:glue/partitionIndex:PartitionIndex example 123456789012:MyDatabase:MyTable:index-name
+ * ```
  * 
  */
 @ResourceType(type="aws:glue/partitionIndex:PartitionIndex")

@@ -84,11 +84,11 @@ namespace Pulumi.Aws.Evidently
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import CloudWatch Evidently Segment using the `arn`. For example:
     /// 
-    ///  to = aws_evidently_segment.example
-    /// 
-    ///  id = "arn:aws:evidently:us-west-2:123456789012:segment/example" } Using `pulumi import`, import CloudWatch Evidently Segment using the `arn`. For exampleconsole % pulumi import aws_evidently_segment.example arn:aws:evidently:us-west-2:123456789012:segment/example
+    /// ```sh
+    ///  $ pulumi import aws:evidently/segment:Segment example arn:aws:evidently:us-west-2:123456789012:segment/example
+    /// ```
     /// </summary>
     [AwsResourceType("aws:evidently/segment:Segment")]
     public partial class Segment : global::Pulumi.CustomResource

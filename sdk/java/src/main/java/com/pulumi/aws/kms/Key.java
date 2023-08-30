@@ -57,11 +57,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import KMS Keys using the `id`. For example:
  * 
- *  to = aws_kms_key.a
- * 
- *  id = &#34;1234abcd-12ab-34cd-56ef-1234567890ab&#34; } Using `pulumi import`, import KMS Keys using the `id`. For exampleconsole % pulumi import aws_kms_key.a 1234abcd-12ab-34cd-56ef-1234567890ab
+ * ```sh
+ *  $ pulumi import aws:kms/key:Key a 1234abcd-12ab-34cd-56ef-1234567890ab
+ * ```
  * 
  */
 @ResourceType(type="aws:kms/key:Key")

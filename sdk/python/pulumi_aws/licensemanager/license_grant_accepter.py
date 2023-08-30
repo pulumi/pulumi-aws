@@ -207,11 +207,11 @@ class LicenseGrantAccepter(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_licensemanager_grant_accepter` using the grant arn. For example:
 
-         to = aws_licensemanager_grant_accepter.test
-
-         id = "arn:aws:license-manager::123456789012:grant:g-1cf9fba4ba2f42dcab11c686c4b4d329" } Using `pulumi import`, import `aws_licensemanager_grant_accepter` using the grant arn. For exampleconsole % pulumi import aws_licensemanager_grant_accepter.test arn:aws:license-manager::123456789012:grant:g-1cf9fba4ba2f42dcab11c686c4b4d329
+        ```sh
+         $ pulumi import aws:licensemanager/licenseGrantAccepter:LicenseGrantAccepter test arn:aws:license-manager::123456789012:grant:g-1cf9fba4ba2f42dcab11c686c4b4d329
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -237,11 +237,11 @@ class LicenseGrantAccepter(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_licensemanager_grant_accepter` using the grant arn. For example:
 
-         to = aws_licensemanager_grant_accepter.test
-
-         id = "arn:aws:license-manager::123456789012:grant:g-1cf9fba4ba2f42dcab11c686c4b4d329" } Using `pulumi import`, import `aws_licensemanager_grant_accepter` using the grant arn. For exampleconsole % pulumi import aws_licensemanager_grant_accepter.test arn:aws:license-manager::123456789012:grant:g-1cf9fba4ba2f42dcab11c686c4b4d329
+        ```sh
+         $ pulumi import aws:licensemanager/licenseGrantAccepter:LicenseGrantAccepter test arn:aws:license-manager::123456789012:grant:g-1cf9fba4ba2f42dcab11c686c4b4d329
+        ```
 
         :param str resource_name: The name of the resource.
         :param LicenseGrantAccepterArgs args: The arguments to use to populate this resource's properties.

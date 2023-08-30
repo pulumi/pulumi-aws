@@ -21,11 +21,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Cognito Identity Pool Roles Attachment using the Identity Pool ID and provider name. For example:
  * 
- *  to = aws_cognito_identity_pool_provider_principal_tag.example
- * 
- *  id = &#34;us-west-2_abc123:CorpAD&#34; } Using `pulumi import`, import Cognito Identity Pool Roles Attachment using the Identity Pool ID and provider name. For exampleconsole % pulumi import aws_cognito_identity_pool_provider_principal_tag.example us-west-2_abc123:CorpAD
+ * ```sh
+ *  $ pulumi import aws:cognito/identityPoolProviderPrincipalTag:IdentityPoolProviderPrincipalTag example us-west-2_abc123:CorpAD
+ * ```
  * 
  */
 @ResourceType(type="aws:cognito/identityPoolProviderPrincipalTag:IdentityPoolProviderPrincipalTag")

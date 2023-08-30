@@ -34,11 +34,11 @@ namespace Pulumi.Aws.ServiceCatalog
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import `aws_servicecatalog_product_portfolio_association` using the accept language, portfolio ID, and product ID. For example:
     /// 
-    ///  to = aws_servicecatalog_product_portfolio_association.example
-    /// 
-    ///  id = "en:port-68656c6c6f:prod-dnigbtea24ste" } Using `pulumi import`, import `aws_servicecatalog_product_portfolio_association` using the accept language, portfolio ID, and product ID. For exampleconsole % pulumi import aws_servicecatalog_product_portfolio_association.example en:port-68656c6c6f:prod-dnigbtea24ste
+    /// ```sh
+    ///  $ pulumi import aws:servicecatalog/productPortfolioAssociation:ProductPortfolioAssociation example en:port-68656c6c6f:prod-dnigbtea24ste
+    /// ```
     /// </summary>
     [AwsResourceType("aws:servicecatalog/productPortfolioAssociation:ProductPortfolioAssociation")]
     public partial class ProductPortfolioAssociation : global::Pulumi.CustomResource

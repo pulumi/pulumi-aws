@@ -75,11 +75,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import a QuickSight Refresh Schedule using the AWS account ID, data set ID and schedule ID separated by commas (`,`). For example:
  *
- *  to = aws_quicksight_refresh_schedule.example
- *
- *  id = "123456789012,dataset-id,schedule-id" } Using `pulumi import`, import a QuickSight Refresh Schedule using the AWS account ID, data set ID and schedule ID separated by commas (`,`). For exampleconsole % pulumi import aws_quicksight_refresh_schedule.example 123456789012,dataset-id,schedule-id
+ * ```sh
+ *  $ pulumi import aws:quicksight/refreshSchedule:RefreshSchedule example 123456789012,dataset-id,schedule-id
+ * ```
  */
 export class RefreshSchedule extends pulumi.CustomResource {
     /**

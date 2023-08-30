@@ -157,11 +157,11 @@ class ClusterCapacityProviders(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import ECS cluster capacity providers using the `cluster_name` attribute. For example:
 
-         to = aws_ecs_cluster_capacity_providers.example
-
-         id = "my-cluster" } Using `pulumi import`, import ECS cluster capacity providers using the `cluster_name` attribute. For exampleconsole % pulumi import aws_ecs_cluster_capacity_providers.example my-cluster
+        ```sh
+         $ pulumi import aws:ecs/clusterCapacityProviders:ClusterCapacityProviders example my-cluster
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -199,11 +199,11 @@ class ClusterCapacityProviders(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import ECS cluster capacity providers using the `cluster_name` attribute. For example:
 
-         to = aws_ecs_cluster_capacity_providers.example
-
-         id = "my-cluster" } Using `pulumi import`, import ECS cluster capacity providers using the `cluster_name` attribute. For exampleconsole % pulumi import aws_ecs_cluster_capacity_providers.example my-cluster
+        ```sh
+         $ pulumi import aws:ecs/clusterCapacityProviders:ClusterCapacityProviders example my-cluster
+        ```
 
         :param str resource_name: The name of the resource.
         :param ClusterCapacityProvidersArgs args: The arguments to use to populate this resource's properties.

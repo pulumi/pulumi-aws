@@ -234,11 +234,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Backup selection using the role plan_id and id separated by `|`. For example:
 //
-//	to = aws_backup_selection.example
+// ```sh
 //
-//	id = "plan-id|selection-id" } Using `pulumi import`, import Backup selection using the role plan_id and id separated by `|`. For exampleconsole % pulumi import aws_backup_selection.example plan-id|selection-id
+//	$ pulumi import aws:backup/selection:Selection example plan-id|selection-id
+//
+// ```
 type Selection struct {
 	pulumi.CustomResourceState
 

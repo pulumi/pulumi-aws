@@ -386,11 +386,11 @@ class FeatureGroup(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Feature Groups using the `name`. For example:
 
-         to = aws_sagemaker_feature_group.test_feature_group
-
-         id = "feature_group-foo" } Using `pulumi import`, import Feature Groups using the `name`. For exampleconsole % pulumi import aws_sagemaker_feature_group.test_feature_group feature_group-foo
+        ```sh
+         $ pulumi import aws:sagemaker/featureGroup:FeatureGroup test_feature_group feature_group-foo
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -437,11 +437,11 @@ class FeatureGroup(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Feature Groups using the `name`. For example:
 
-         to = aws_sagemaker_feature_group.test_feature_group
-
-         id = "feature_group-foo" } Using `pulumi import`, import Feature Groups using the `name`. For exampleconsole % pulumi import aws_sagemaker_feature_group.test_feature_group feature_group-foo
+        ```sh
+         $ pulumi import aws:sagemaker/featureGroup:FeatureGroup test_feature_group feature_group-foo
+        ```
 
         :param str resource_name: The name of the resource.
         :param FeatureGroupArgs args: The arguments to use to populate this resource's properties.

@@ -160,11 +160,11 @@ class HsmClientCertificate(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Redshift HSM Client Certificates using `hsm_client_certificate_identifier`. For example:
 
-         to = aws_redshift_hsm_client_certificate.test
-
-         id = "example" } Using `pulumi import`, import Redshift HSM Client Certificates using `hsm_client_certificate_identifier`. For exampleconsole % pulumi import aws_redshift_hsm_client_certificate.test example
+        ```sh
+         $ pulumi import aws:redshift/hsmClientCertificate:HsmClientCertificate test example
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -191,11 +191,11 @@ class HsmClientCertificate(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Redshift HSM Client Certificates using `hsm_client_certificate_identifier`. For example:
 
-         to = aws_redshift_hsm_client_certificate.test
-
-         id = "example" } Using `pulumi import`, import Redshift HSM Client Certificates using `hsm_client_certificate_identifier`. For exampleconsole % pulumi import aws_redshift_hsm_client_certificate.test example
+        ```sh
+         $ pulumi import aws:redshift/hsmClientCertificate:HsmClientCertificate test example
+        ```
 
         :param str resource_name: The name of the resource.
         :param HsmClientCertificateArgs args: The arguments to use to populate this resource's properties.

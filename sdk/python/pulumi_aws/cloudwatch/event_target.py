@@ -884,13 +884,11 @@ class EventTarget(pulumi.CustomResource):
 
         ## Import
 
-         terraform import {
+        Using `pulumi import`, import EventBridge Targets using `event_bus_name/rule-name/target-id` (if you omit `event_bus_name`, the `default` event bus will be used). For example:
 
-         to = aws_cloudwatch_event_target.test-event-target
-
-         id = "rule-name/target-id" } Using `pulumi import`, import EventBridge Targets using `event_bus_name/rule-name/target-id` (if you omit `event_bus_name`, the `default` event bus will be used). For example:
-
-        console % pulumi import aws_cloudwatch_event_target.test-event-target rule-name/target-id
+        ```sh
+         $ pulumi import aws:cloudwatch/eventTarget:EventTarget test-event-target rule-name/target-id
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1199,13 +1197,11 @@ class EventTarget(pulumi.CustomResource):
 
         ## Import
 
-         terraform import {
+        Using `pulumi import`, import EventBridge Targets using `event_bus_name/rule-name/target-id` (if you omit `event_bus_name`, the `default` event bus will be used). For example:
 
-         to = aws_cloudwatch_event_target.test-event-target
-
-         id = "rule-name/target-id" } Using `pulumi import`, import EventBridge Targets using `event_bus_name/rule-name/target-id` (if you omit `event_bus_name`, the `default` event bus will be used). For example:
-
-        console % pulumi import aws_cloudwatch_event_target.test-event-target rule-name/target-id
+        ```sh
+         $ pulumi import aws:cloudwatch/eventTarget:EventTarget test-event-target rule-name/target-id
+        ```
 
         :param str resource_name: The name of the resource.
         :param EventTargetArgs args: The arguments to use to populate this resource's properties.

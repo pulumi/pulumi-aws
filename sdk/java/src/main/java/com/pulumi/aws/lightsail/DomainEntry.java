@@ -60,11 +60,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import `aws_lightsail_domain_entry` using the id attribute. For example:
  * 
- *  to = aws_lightsail_domain_entry.example
- * 
- *  id = &#34;www,mydomain.com,A,127.0.0.1&#34; } Using `pulumi import`, import `aws_lightsail_domain_entry` using the id attribute. For exampleconsole % pulumi import aws_lightsail_domain_entry.example www,mydomain.com,A,127.0.0.1
+ * ```sh
+ *  $ pulumi import aws:lightsail/domainEntry:DomainEntry example www,mydomain.com,A,127.0.0.1
+ * ```
  * 
  */
 @ResourceType(type="aws:lightsail/domainEntry:DomainEntry")

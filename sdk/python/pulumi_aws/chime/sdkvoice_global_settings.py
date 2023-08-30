@@ -84,11 +84,11 @@ class SdkvoiceGlobalSettings(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import AWS Chime SDK Voice Global Settings using the `id` (AWS account ID). For example:
 
-         to = aws_chimesdkvoice_global_settings.example
-
-         id = "123456789012" } Using `pulumi import`, import AWS Chime SDK Voice Global Settings using the `id` (AWS account ID). For exampleconsole % pulumi import aws_chimesdkvoice_global_settings.example 123456789012
+        ```sh
+         $ pulumi import aws:chime/sdkvoiceGlobalSettings:SdkvoiceGlobalSettings example 123456789012
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -117,11 +117,11 @@ class SdkvoiceGlobalSettings(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import AWS Chime SDK Voice Global Settings using the `id` (AWS account ID). For example:
 
-         to = aws_chimesdkvoice_global_settings.example
-
-         id = "123456789012" } Using `pulumi import`, import AWS Chime SDK Voice Global Settings using the `id` (AWS account ID). For exampleconsole % pulumi import aws_chimesdkvoice_global_settings.example 123456789012
+        ```sh
+         $ pulumi import aws:chime/sdkvoiceGlobalSettings:SdkvoiceGlobalSettings example 123456789012
+        ```
 
         :param str resource_name: The name of the resource.
         :param SdkvoiceGlobalSettingsArgs args: The arguments to use to populate this resource's properties.

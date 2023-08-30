@@ -216,11 +216,11 @@ class Application(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Elastic Beanstalk Applications using the `name`. For example:
 
-         to = aws_elastic_beanstalk_application.tf_test
-
-         id = "tf-test-name" } Using `pulumi import`, import Elastic Beanstalk Applications using the `name`. For exampleconsole % pulumi import aws_elastic_beanstalk_application.tf_test tf-test-name
+        ```sh
+         $ pulumi import aws:elasticbeanstalk/application:Application tf_test tf-test-name
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -259,11 +259,11 @@ class Application(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Elastic Beanstalk Applications using the `name`. For example:
 
-         to = aws_elastic_beanstalk_application.tf_test
-
-         id = "tf-test-name" } Using `pulumi import`, import Elastic Beanstalk Applications using the `name`. For exampleconsole % pulumi import aws_elastic_beanstalk_application.tf_test tf-test-name
+        ```sh
+         $ pulumi import aws:elasticbeanstalk/application:Application tf_test tf-test-name
+        ```
 
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.

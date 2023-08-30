@@ -193,11 +193,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import GameLift Game Server Group using the `name`. For example:
  * 
- *  to = aws_gamelift_game_server_group.example
- * 
- *  id = &#34;example&#34; } Using `pulumi import`, import GameLift Game Server Group using the `name`. For exampleconsole % pulumi import aws_gamelift_game_server_group.example example
+ * ```sh
+ *  $ pulumi import aws:gamelift/gameServerGroup:GameServerGroup example example
+ * ```
  * 
  */
 @ResourceType(type="aws:gamelift/gameServerGroup:GameServerGroup")

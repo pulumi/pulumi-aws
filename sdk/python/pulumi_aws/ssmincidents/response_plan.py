@@ -409,11 +409,11 @@ class ResponsePlan(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import an Incident Manager response plan using the response plan ARN. You can find the response plan ARN in the AWS Management Console. For example:
 
-         to = aws_ssmincidents_response_plan.responsePlanName
-
-         id = "ARNValue" } Using `pulumi import`, import an Incident Manager response plan using the response plan ARN. You can find the response plan ARN in the AWS Management Console. For exampleconsole % pulumi import aws_ssmincidents_response_plan.responsePlanName ARNValue
+        ```sh
+         $ pulumi import aws:ssmincidents/responsePlan:ResponsePlan responsePlanName ARNValue
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -518,11 +518,11 @@ class ResponsePlan(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import an Incident Manager response plan using the response plan ARN. You can find the response plan ARN in the AWS Management Console. For example:
 
-         to = aws_ssmincidents_response_plan.responsePlanName
-
-         id = "ARNValue" } Using `pulumi import`, import an Incident Manager response plan using the response plan ARN. You can find the response plan ARN in the AWS Management Console. For exampleconsole % pulumi import aws_ssmincidents_response_plan.responsePlanName ARNValue
+        ```sh
+         $ pulumi import aws:ssmincidents/responsePlan:ResponsePlan responsePlanName ARNValue
+        ```
 
         :param str resource_name: The name of the resource.
         :param ResponsePlanArgs args: The arguments to use to populate this resource's properties.

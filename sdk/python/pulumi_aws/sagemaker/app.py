@@ -314,11 +314,11 @@ class App(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import SageMaker Apps using the `id`. For example:
 
-         to = aws_sagemaker_app.example
-
-         id = "arn:aws:sagemaker:us-west-2:012345678912:app/domain-id/user-profile-name/app-type/app-name" } Using `pulumi import`, import SageMaker Apps using the `id`. For exampleconsole % pulumi import aws_sagemaker_app.example arn:aws:sagemaker:us-west-2:012345678912:app/domain-id/user-profile-name/app-type/app-name
+        ```sh
+         $ pulumi import aws:sagemaker/app:App example arn:aws:sagemaker:us-west-2:012345678912:app/domain-id/user-profile-name/app-type/app-name
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -355,11 +355,11 @@ class App(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import SageMaker Apps using the `id`. For example:
 
-         to = aws_sagemaker_app.example
-
-         id = "arn:aws:sagemaker:us-west-2:012345678912:app/domain-id/user-profile-name/app-type/app-name" } Using `pulumi import`, import SageMaker Apps using the `id`. For exampleconsole % pulumi import aws_sagemaker_app.example arn:aws:sagemaker:us-west-2:012345678912:app/domain-id/user-profile-name/app-type/app-name
+        ```sh
+         $ pulumi import aws:sagemaker/app:App example arn:aws:sagemaker:us-west-2:012345678912:app/domain-id/user-profile-name/app-type/app-name
+        ```
 
         :param str resource_name: The name of the resource.
         :param AppArgs args: The arguments to use to populate this resource's properties.

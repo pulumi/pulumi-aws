@@ -268,11 +268,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Lightsail Databases using their name. For example:
  * 
- *  to = aws_lightsail_database.foo
- * 
- *  id = &#34;bar&#34; } Using `pulumi import`, import Lightsail Databases using their name. For exampleconsole % pulumi import aws_lightsail_database.foo &#39;bar&#39;
+ * ```sh
+ *  $ pulumi import aws:lightsail/database:Database foo &#39;bar&#39;
+ * ```
  * 
  */
 @ResourceType(type="aws:lightsail/database:Database")

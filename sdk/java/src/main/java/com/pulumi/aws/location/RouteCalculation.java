@@ -51,11 +51,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import `aws_location_route_calculator` using the route calculator name. For example:
  * 
- *  to = aws_location_route_calculator.example
- * 
- *  id = &#34;example&#34; } Using `pulumi import`, import `aws_location_route_calculator` using the route calculator name. For exampleconsole % pulumi import aws_location_route_calculator.example example
+ * ```sh
+ *  $ pulumi import aws:location/routeCalculation:RouteCalculation example example
+ * ```
  * 
  */
 @ResourceType(type="aws:location/routeCalculation:RouteCalculation")

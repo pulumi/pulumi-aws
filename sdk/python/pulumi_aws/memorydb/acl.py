@@ -232,11 +232,11 @@ class Acl(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import an ACL using the `name`. For example:
 
-         to = aws_memorydb_acl.example
-
-         id = "my-acl" } Using `pulumi import`, import an ACL using the `name`. For exampleconsole % pulumi import aws_memorydb_acl.example my-acl
+        ```sh
+         $ pulumi import aws:memorydb/acl:Acl example my-acl
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -270,11 +270,11 @@ class Acl(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import an ACL using the `name`. For example:
 
-         to = aws_memorydb_acl.example
-
-         id = "my-acl" } Using `pulumi import`, import an ACL using the `name`. For exampleconsole % pulumi import aws_memorydb_acl.example my-acl
+        ```sh
+         $ pulumi import aws:memorydb/acl:Acl example my-acl
+        ```
 
         :param str resource_name: The name of the resource.
         :param AclArgs args: The arguments to use to populate this resource's properties.

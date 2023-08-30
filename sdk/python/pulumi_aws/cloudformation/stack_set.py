@@ -608,11 +608,11 @@ class StackSet(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import CloudFormation StackSets using the `name`. For example:
 
-         to = aws_cloudformation_stack_set.example
-
-         id = "example" } Using `pulumi import`, import CloudFormation StackSets using the `name`. For exampleconsole % pulumi import aws_cloudformation_stack_set.example example
+        ```sh
+         $ pulumi import aws:cloudformation/stackSet:StackSet example example
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -700,11 +700,11 @@ class StackSet(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import CloudFormation StackSets using the `name`. For example:
 
-         to = aws_cloudformation_stack_set.example
-
-         id = "example" } Using `pulumi import`, import CloudFormation StackSets using the `name`. For exampleconsole % pulumi import aws_cloudformation_stack_set.example example
+        ```sh
+         $ pulumi import aws:cloudformation/stackSet:StackSet example example
+        ```
 
         :param str resource_name: The name of the resource.
         :param StackSetArgs args: The arguments to use to populate this resource's properties.

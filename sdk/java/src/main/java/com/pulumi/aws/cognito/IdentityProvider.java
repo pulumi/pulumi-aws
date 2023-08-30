@@ -68,11 +68,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import `aws_cognito_identity_provider` resources using their User Pool ID and Provider Name. For example:
  * 
- *  to = aws_cognito_identity_provider.example
- * 
- *  id = &#34;us-west-2_abc123:CorpAD&#34; } Using `pulumi import`, import `aws_cognito_identity_provider` resources using their User Pool ID and Provider Name. For exampleconsole % pulumi import aws_cognito_identity_provider.example us-west-2_abc123:CorpAD
+ * ```sh
+ *  $ pulumi import aws:cognito/identityProvider:IdentityProvider example us-west-2_abc123:CorpAD
+ * ```
  * 
  */
 @ResourceType(type="aws:cognito/identityProvider:IdentityProvider")

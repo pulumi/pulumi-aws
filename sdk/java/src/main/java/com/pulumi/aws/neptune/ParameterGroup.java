@@ -57,11 +57,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Neptune Parameter Groups using the `name`. For example:
  * 
- *  to = aws_neptune_parameter_group.some_pg
- * 
- *  id = &#34;some-pg&#34; } Using `pulumi import`, import Neptune Parameter Groups using the `name`. For exampleconsole % pulumi import aws_neptune_parameter_group.some_pg some-pg
+ * ```sh
+ *  $ pulumi import aws:neptune/parameterGroup:ParameterGroup some_pg some-pg
+ * ```
  * 
  */
 @ResourceType(type="aws:neptune/parameterGroup:ParameterGroup")

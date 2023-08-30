@@ -16,11 +16,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import `aws_identitystore_group_membership` using the `identity_store_id/membership_id`. For example:
 //
-//	to = aws_identitystore_group_membership.example
+// ```sh
 //
-//	id = "d-0000000000/00000000-0000-0000-0000-000000000000" } Using `pulumi import`, import `aws_identitystore_group_membership` using the `identity_store_id/membership_id`. For exampleconsole % pulumi import aws_identitystore_group_membership.example d-0000000000/00000000-0000-0000-0000-000000000000
+//	$ pulumi import aws:identitystore/groupMembership:GroupMembership example d-0000000000/00000000-0000-0000-0000-000000000000
+//
+// ```
 type GroupMembership struct {
 	pulumi.CustomResourceState
 

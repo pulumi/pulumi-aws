@@ -11,11 +11,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import Transfer AS2 Profile using the `profile_id`. For example:
  *
- *  to = aws_transfer_profile.example
- *
- *  id = "p-4221a88afd5f4362a" } Using `pulumi import`, import Transfer AS2 Profile using the `profile_id`. For exampleconsole % pulumi import aws_transfer_profile.example p-4221a88afd5f4362a
+ * ```sh
+ *  $ pulumi import aws:transfer/profile:Profile example p-4221a88afd5f4362a
+ * ```
  */
 export class Profile extends pulumi.CustomResource {
     /**

@@ -44,11 +44,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import `aws_imagebuilder_image` resources using the Amazon Resource Name (ARN). For example:
 //
-//	to = aws_imagebuilder_image.example
+// ```sh
 //
-//	id = "arn:aws:imagebuilder:us-east-1:123456789012:image/example/1.0.0/1" } Using `pulumi import`, import `aws_imagebuilder_image` resources using the Amazon Resource Name (ARN). For exampleconsole % pulumi import aws_imagebuilder_image.example arn:aws:imagebuilder:us-east-1:123456789012:image/example/1.0.0/1
+//	$ pulumi import aws:imagebuilder/image:Image example arn:aws:imagebuilder:us-east-1:123456789012:image/example/1.0.0/1
+//
+// ```
 type Image struct {
 	pulumi.CustomResourceState
 

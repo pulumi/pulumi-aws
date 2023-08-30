@@ -40,11 +40,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import CloudWatch Synthetics Group using the `name`. For example:
 //
-//	to = aws_synthetics_group.example
+// ```sh
 //
-//	id = "example" } Using `pulumi import`, import CloudWatch Synthetics Group using the `name`. For exampleconsole % pulumi import aws_synthetics_group.example example
+//	$ pulumi import aws:synthetics/group:Group example example
+//
+// ```
 type Group struct {
 	pulumi.CustomResourceState
 

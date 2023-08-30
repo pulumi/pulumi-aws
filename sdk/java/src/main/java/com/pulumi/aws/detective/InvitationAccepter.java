@@ -64,11 +64,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import `aws_detective_invitation_accepter` using the graph ARN. For example:
  * 
- *  to = aws_detective_invitation_accepter.example
- * 
- *  id = &#34;arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d&#34; } Using `pulumi import`, import `aws_detective_invitation_accepter` using the graph ARN. For exampleconsole % pulumi import aws_detective_invitation_accepter.example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d
+ * ```sh
+ *  $ pulumi import aws:detective/invitationAccepter:InvitationAccepter example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d
+ * ```
  * 
  */
 @ResourceType(type="aws:detective/invitationAccepter:InvitationAccepter")

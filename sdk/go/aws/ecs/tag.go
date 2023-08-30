@@ -57,11 +57,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import `aws_ecs_tag` using the ECS resource identifier and key, separated by a comma (`,`). For example:
 //
-//	to = aws_ecs_tag.example
+// ```sh
 //
-//	id = "arn:aws:ecs:us-east-1:123456789012:cluster/example,Name" } Using `pulumi import`, import `aws_ecs_tag` using the ECS resource identifier and key, separated by a comma (`,`). For exampleconsole % pulumi import aws_ecs_tag.example arn:aws:ecs:us-east-1:123456789012:cluster/example,Name
+//	$ pulumi import aws:ecs/tag:Tag example arn:aws:ecs:us-east-1:123456789012:cluster/example,Name
+//
+// ```
 type Tag struct {
 	pulumi.CustomResourceState
 

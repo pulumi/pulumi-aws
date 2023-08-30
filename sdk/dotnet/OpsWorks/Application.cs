@@ -71,11 +71,11 @@ namespace Pulumi.Aws.OpsWorks
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import Opsworks Application using the `id`. For example:
     /// 
-    ///  to = aws_opsworks_application.test
-    /// 
-    ///  id = "&lt;id&gt;" } Using `pulumi import`, import Opsworks Application using the `id`. For exampleconsole % pulumi import aws_opsworks_application.test &lt;id&gt;
+    /// ```sh
+    ///  $ pulumi import aws:opsworks/application:Application test &lt;id&gt;
+    /// ```
     /// </summary>
     [AwsResourceType("aws:opsworks/application:Application")]
     public partial class Application : global::Pulumi.CustomResource

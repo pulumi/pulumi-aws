@@ -23,11 +23,12 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import `aws_apigatewayv2_stage` using the API identifier and stage name. For example:
  *
- *  to = aws_apigatewayv2_stage.example
- *
- *  id = "aabbccddee/example-stage" } Using `pulumi import`, import `aws_apigatewayv2_stage` using the API identifier and stage name. For exampleconsole % pulumi import aws_apigatewayv2_stage.example aabbccddee/example-stage
+ * ```sh
+ *  $ pulumi import aws:apigatewayv2/stage:Stage example aabbccddee/example-stage
+ * ```
+ *  -> __Note:__ The API Gateway managed stage created as part of [_quick_create_](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-basic-concept.html#apigateway-definition-quick-create) cannot be imported.
  */
 export class Stage extends pulumi.CustomResource {
     /**

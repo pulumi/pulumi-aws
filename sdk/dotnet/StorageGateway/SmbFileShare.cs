@@ -60,11 +60,11 @@ namespace Pulumi.Aws.StorageGateway
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import `aws_storagegateway_smb_file_share` using the SMB File Share Amazon Resource Name (ARN). For example:
     /// 
-    ///  to = aws_storagegateway_smb_file_share.example
-    /// 
-    ///  id = "arn:aws:storagegateway:us-east-1:123456789012:share/share-12345678" } Using `pulumi import`, import `aws_storagegateway_smb_file_share` using the SMB File Share Amazon Resource Name (ARN). For exampleconsole % pulumi import aws_storagegateway_smb_file_share.example arn:aws:storagegateway:us-east-1:123456789012:share/share-12345678
+    /// ```sh
+    ///  $ pulumi import aws:storagegateway/smbFileShare:SmbFileShare example arn:aws:storagegateway:us-east-1:123456789012:share/share-12345678
+    /// ```
     /// </summary>
     [AwsResourceType("aws:storagegateway/smbFileShare:SmbFileShare")]
     public partial class SmbFileShare : global::Pulumi.CustomResource

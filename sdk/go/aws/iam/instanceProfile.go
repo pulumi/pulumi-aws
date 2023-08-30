@@ -69,11 +69,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Instance Profiles using the `name`. For example:
 //
-//	to = aws_iam_instance_profile.test_profile
+// ```sh
 //
-//	id = "app-instance-profile-1" } Using `pulumi import`, import Instance Profiles using the `name`. For exampleconsole % pulumi import aws_iam_instance_profile.test_profile app-instance-profile-1
+//	$ pulumi import aws:iam/instanceProfile:InstanceProfile test_profile app-instance-profile-1
+//
+// ```
 type InstanceProfile struct {
 	pulumi.CustomResourceState
 

@@ -161,11 +161,11 @@ class WebsiteCertificateAuthorityAssociation(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import WorkLink Website Certificate Authority using `FLEET-ARN,WEBSITE-CA-ID`. For example:
 
-         to = aws_worklink_website_certificate_authority_association.example
-
-         id = "arn:aws:worklink::123456789012:fleet/example,abcdefghijk" } Using `pulumi import`, import WorkLink Website Certificate Authority using `FLEET-ARN,WEBSITE-CA-ID`. For exampleconsole % pulumi import aws_worklink_website_certificate_authority_association.example arn:aws:worklink::123456789012:fleet/example,abcdefghijk
+        ```sh
+         $ pulumi import aws:worklink/websiteCertificateAuthorityAssociation:WebsiteCertificateAuthorityAssociation example arn:aws:worklink::123456789012:fleet/example,abcdefghijk
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -194,11 +194,11 @@ class WebsiteCertificateAuthorityAssociation(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import WorkLink Website Certificate Authority using `FLEET-ARN,WEBSITE-CA-ID`. For example:
 
-         to = aws_worklink_website_certificate_authority_association.example
-
-         id = "arn:aws:worklink::123456789012:fleet/example,abcdefghijk" } Using `pulumi import`, import WorkLink Website Certificate Authority using `FLEET-ARN,WEBSITE-CA-ID`. For exampleconsole % pulumi import aws_worklink_website_certificate_authority_association.example arn:aws:worklink::123456789012:fleet/example,abcdefghijk
+        ```sh
+         $ pulumi import aws:worklink/websiteCertificateAuthorityAssociation:WebsiteCertificateAuthorityAssociation example arn:aws:worklink::123456789012:fleet/example,abcdefghijk
+        ```
 
         :param str resource_name: The name of the resource.
         :param WebsiteCertificateAuthorityAssociationArgs args: The arguments to use to populate this resource's properties.

@@ -92,11 +92,11 @@ namespace Pulumi.Aws.CostExplorer
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import `aws_ce_cost_category` using the id. For example:
     /// 
-    ///  to = aws_ce_cost_category.example
-    /// 
-    ///  id = "costCategoryARN" } Using `pulumi import`, import `aws_ce_cost_category` using the id. For exampleconsole % pulumi import aws_ce_cost_category.example costCategoryARN
+    /// ```sh
+    ///  $ pulumi import aws:costexplorer/costCategory:CostCategory example costCategoryARN
+    /// ```
     /// </summary>
     [AwsResourceType("aws:costexplorer/costCategory:CostCategory")]
     public partial class CostCategory : global::Pulumi.CustomResource

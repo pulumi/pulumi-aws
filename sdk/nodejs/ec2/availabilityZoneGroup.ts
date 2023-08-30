@@ -23,11 +23,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import EC2 Availability Zone Groups using the group name. For example:
  *
- *  to = aws_ec2_availability_zone_group.example
- *
- *  id = "us-west-2-lax-1" } Using `pulumi import`, import EC2 Availability Zone Groups using the group name. For exampleconsole % pulumi import aws_ec2_availability_zone_group.example us-west-2-lax-1
+ * ```sh
+ *  $ pulumi import aws:ec2/availabilityZoneGroup:AvailabilityZoneGroup example us-west-2-lax-1
+ * ```
  */
 export class AvailabilityZoneGroup extends pulumi.CustomResource {
     /**

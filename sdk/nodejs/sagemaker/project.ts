@@ -28,11 +28,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import SageMaker Projects using the `project_name`. For example:
  *
- *  to = aws_sagemaker_project.example
- *
- *  id = "example" } Using `pulumi import`, import SageMaker Projects using the `project_name`. For exampleconsole % pulumi import aws_sagemaker_project.example example
+ * ```sh
+ *  $ pulumi import aws:sagemaker/project:Project example example
+ * ```
  */
 export class Project extends pulumi.CustomResource {
     /**

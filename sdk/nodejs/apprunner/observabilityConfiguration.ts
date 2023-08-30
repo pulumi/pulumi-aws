@@ -29,11 +29,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import App Runner Observability Configuration using the `arn`. For example:
  *
- *  to = aws_apprunner_observability_configuration.example
- *
- *  id = "arn:aws:apprunner:us-east-1:1234567890:observabilityconfiguration/example/1/d75bc7ea55b71e724fe5c23452fe22a1" } Using `pulumi import`, import App Runner Observability Configuration using the `arn`. For exampleconsole % pulumi import aws_apprunner_observability_configuration.example arn:aws:apprunner:us-east-1:1234567890:observabilityconfiguration/example/1/d75bc7ea55b71e724fe5c23452fe22a1
+ * ```sh
+ *  $ pulumi import aws:apprunner/observabilityConfiguration:ObservabilityConfiguration example arn:aws:apprunner:us-east-1:1234567890:observabilityconfiguration/example/1/d75bc7ea55b71e724fe5c23452fe22a1
+ * ```
  */
 export class ObservabilityConfiguration extends pulumi.CustomResource {
     /**

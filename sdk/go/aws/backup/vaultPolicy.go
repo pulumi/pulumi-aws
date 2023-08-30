@@ -78,11 +78,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Backup vault policy using the `name`. For example:
 //
-//	to = aws_backup_vault_policy.test
+// ```sh
 //
-//	id = "TestVault" } Using `pulumi import`, import Backup vault policy using the `name`. For exampleconsole % pulumi import aws_backup_vault_policy.test TestVault
+//	$ pulumi import aws:backup/vaultPolicy:VaultPolicy test TestVault
+//
+// ```
 type VaultPolicy struct {
 	pulumi.CustomResourceState
 

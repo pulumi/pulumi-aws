@@ -40,11 +40,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import VPC Endpoint Policies using the `id`. For example:
  *
- *  to = aws_vpc_endpoint_policy.example
- *
- *  id = "vpce-3ecf2a57" } Using `pulumi import`, import VPC Endpoint Policies using the `id`. For exampleconsole % pulumi import aws_vpc_endpoint_policy.example vpce-3ecf2a57
+ * ```sh
+ *  $ pulumi import aws:ec2/vpcEndpointPolicy:VpcEndpointPolicy example vpce-3ecf2a57
+ * ```
  */
 export class VpcEndpointPolicy extends pulumi.CustomResource {
     /**

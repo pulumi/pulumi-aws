@@ -47,11 +47,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Route53 Recovery Control Config cluster using the cluster ARN. For example:
  * 
- *  to = aws_route53recoverycontrolconfig_cluster.mycluster
- * 
- *  id = &#34;arn:aws:route53-recovery-control::313517334327:cluster/f9ae13be-a11e-4ec7-8522-94a70468e6ea&#34; } Using `pulumi import`, import Route53 Recovery Control Config cluster using the cluster ARN. For exampleconsole % pulumi import aws_route53recoverycontrolconfig_cluster.mycluster arn:aws:route53-recovery-control::313517334327:cluster/f9ae13be-a11e-4ec7-8522-94a70468e6ea
+ * ```sh
+ *  $ pulumi import aws:route53recoverycontrol/cluster:Cluster mycluster arn:aws:route53-recovery-control::313517334327:cluster/f9ae13be-a11e-4ec7-8522-94a70468e6ea
+ * ```
  * 
  */
 @ResourceType(type="aws:route53recoverycontrol/cluster:Cluster")

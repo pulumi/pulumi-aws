@@ -56,11 +56,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import resource groups using the `name`. For example:
 //
-//	to = aws_resourcegroups_group.foo
+// ```sh
 //
-//	id = "resource-group-name" } Using `pulumi import`, import resource groups using the `name`. For exampleconsole % pulumi import aws_resourcegroups_group.foo resource-group-name
+//	$ pulumi import aws:resourcegroups/group:Group foo resource-group-name
+//
+// ```
 type Group struct {
 	pulumi.CustomResourceState
 

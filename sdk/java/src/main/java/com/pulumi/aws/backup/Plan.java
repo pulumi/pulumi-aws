@@ -67,11 +67,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Backup Plan using the `id`. For example:
  * 
- *  to = aws_backup_plan.test
- * 
- *  id = &#34;&lt;id&gt;&#34; } Using `pulumi import`, import Backup Plan using the `id`. For exampleconsole % pulumi import aws_backup_plan.test &lt;id&gt;
+ * ```sh
+ *  $ pulumi import aws:backup/plan:Plan test &lt;id&gt;
+ * ```
  * 
  */
 @ResourceType(type="aws:backup/plan:Plan")

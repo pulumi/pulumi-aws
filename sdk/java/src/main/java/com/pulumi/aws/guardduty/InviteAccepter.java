@@ -79,11 +79,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import `aws_guardduty_invite_accepter` using the member GuardDuty detector ID. For example:
  * 
- *  to = aws_guardduty_invite_accepter.member
- * 
- *  id = &#34;00b00fd5aecc0ab60a708659477e9617&#34; } Using `pulumi import`, import `aws_guardduty_invite_accepter` using the member GuardDuty detector ID. For exampleconsole % pulumi import aws_guardduty_invite_accepter.member 00b00fd5aecc0ab60a708659477e9617
+ * ```sh
+ *  $ pulumi import aws:guardduty/inviteAccepter:InviteAccepter member 00b00fd5aecc0ab60a708659477e9617
+ * ```
  * 
  */
 @ResourceType(type="aws:guardduty/inviteAccepter:InviteAccepter")

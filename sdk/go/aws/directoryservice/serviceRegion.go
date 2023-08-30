@@ -17,11 +17,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Replicated Regions using directory ID,Region name. For example:
 //
-//	to = aws_directory_service_region.example
+// ```sh
 //
-//	id = "d-9267651497,us-east-2" } Using `pulumi import`, import Replicated Regions using directory ID,Region name. For exampleconsole % pulumi import aws_directory_service_region.example d-9267651497,us-east-2
+//	$ pulumi import aws:directoryservice/serviceRegion:ServiceRegion example d-9267651497,us-east-2
+//
+// ```
 type ServiceRegion struct {
 	pulumi.CustomResourceState
 

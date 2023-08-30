@@ -21,11 +21,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import Cloudwatch Log Groups using the `name`. For example:
  *
- *  to = aws_cloudwatch_log_group.test_group
- *
- *  id = "yada" } Using `pulumi import`, import Cloudwatch Log Groups using the `name`. For exampleconsole % pulumi import aws_cloudwatch_log_group.test_group yada
+ * ```sh
+ *  $ pulumi import aws:cloudwatch/logGroup:LogGroup test_group yada
+ * ```
  */
 export class LogGroup extends pulumi.CustomResource {
     /**

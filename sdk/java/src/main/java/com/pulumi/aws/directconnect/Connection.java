@@ -119,11 +119,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Direct Connect connections using the connection `id`. For example:
  * 
- *  to = aws_dx_connection.test_connection
- * 
- *  id = &#34;dxcon-ffre0ec3&#34; } Using `pulumi import`, import Direct Connect connections using the connection `id`. For exampleconsole % pulumi import aws_dx_connection.test_connection dxcon-ffre0ec3
+ * ```sh
+ *  $ pulumi import aws:directconnect/connection:Connection test_connection dxcon-ffre0ec3
+ * ```
  * 
  */
 @ResourceType(type="aws:directconnect/connection:Connection")

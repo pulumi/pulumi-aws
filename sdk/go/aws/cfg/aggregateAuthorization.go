@@ -43,11 +43,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Config aggregate authorizations using `account_id:region`. For example:
 //
-//	to = aws_config_aggregate_authorization.example
+// ```sh
 //
-//	id = "123456789012:us-east-1" } Using `pulumi import`, import Config aggregate authorizations using `account_id:region`. For exampleconsole % pulumi import aws_config_aggregate_authorization.example 123456789012:us-east-1
+//	$ pulumi import aws:cfg/aggregateAuthorization:AggregateAuthorization example 123456789012:us-east-1
+//
+// ```
 type AggregateAuthorization struct {
 	pulumi.CustomResourceState
 

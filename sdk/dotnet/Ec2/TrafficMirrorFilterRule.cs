@@ -72,11 +72,11 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import traffic mirror rules using the `traffic_mirror_filter_id` and `id` separated by `:`. For example:
     /// 
-    ///  to = aws_ec2_traffic_mirror_filter_rule.rule
-    /// 
-    ///  id = "tmf-0fbb93ddf38198f64:tmfr-05a458f06445d0aee" } Using `pulumi import`, import traffic mirror rules using the `traffic_mirror_filter_id` and `id` separated by `:`. For exampleconsole % pulumi import aws_ec2_traffic_mirror_filter_rule.rule tmf-0fbb93ddf38198f64:tmfr-05a458f06445d0aee
+    /// ```sh
+    ///  $ pulumi import aws:ec2/trafficMirrorFilterRule:TrafficMirrorFilterRule rule tmf-0fbb93ddf38198f64:tmfr-05a458f06445d0aee
+    /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/trafficMirrorFilterRule:TrafficMirrorFilterRule")]
     public partial class TrafficMirrorFilterRule : global::Pulumi.CustomResource

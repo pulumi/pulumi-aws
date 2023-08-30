@@ -36,11 +36,11 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import Cloudwatch Log Groups using the `name`. For example:
     /// 
-    ///  to = aws_cloudwatch_log_group.test_group
-    /// 
-    ///  id = "yada" } Using `pulumi import`, import Cloudwatch Log Groups using the `name`. For exampleconsole % pulumi import aws_cloudwatch_log_group.test_group yada
+    /// ```sh
+    ///  $ pulumi import aws:cloudwatch/logGroup:LogGroup test_group yada
+    /// ```
     /// </summary>
     [AwsResourceType("aws:cloudwatch/logGroup:LogGroup")]
     public partial class LogGroup : global::Pulumi.CustomResource

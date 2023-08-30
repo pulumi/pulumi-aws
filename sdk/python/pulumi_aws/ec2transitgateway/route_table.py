@@ -176,11 +176,11 @@ class RouteTable(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_ec2_transit_gateway_route_table` using the EC2 Transit Gateway Route Table identifier. For example:
 
-         to = aws_ec2_transit_gateway_route_table.example
-
-         id = "tgw-rtb-12345678" } Using `pulumi import`, import `aws_ec2_transit_gateway_route_table` using the EC2 Transit Gateway Route Table identifier. For exampleconsole % pulumi import aws_ec2_transit_gateway_route_table.example tgw-rtb-12345678
+        ```sh
+         $ pulumi import aws:ec2transitgateway/routeTable:RouteTable example tgw-rtb-12345678
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -207,11 +207,11 @@ class RouteTable(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_ec2_transit_gateway_route_table` using the EC2 Transit Gateway Route Table identifier. For example:
 
-         to = aws_ec2_transit_gateway_route_table.example
-
-         id = "tgw-rtb-12345678" } Using `pulumi import`, import `aws_ec2_transit_gateway_route_table` using the EC2 Transit Gateway Route Table identifier. For exampleconsole % pulumi import aws_ec2_transit_gateway_route_table.example tgw-rtb-12345678
+        ```sh
+         $ pulumi import aws:ec2transitgateway/routeTable:RouteTable example tgw-rtb-12345678
+        ```
 
         :param str resource_name: The name of the resource.
         :param RouteTableArgs args: The arguments to use to populate this resource's properties.

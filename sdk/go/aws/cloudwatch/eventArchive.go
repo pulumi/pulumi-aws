@@ -91,11 +91,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import an EventBridge archive using the `name`. For example:
 //
-//	to = aws_cloudwatch_event_archive.imported_event_archive.test
+// ```sh
 //
-//	id = "order-archive" } Using `pulumi import`, import an EventBridge archive using the `name`. For exampleconsole % pulumi import aws_cloudwatch_event_archive.imported_event_archive order-archive
+//	$ pulumi import aws:cloudwatch/eventArchive:EventArchive imported_event_archive order-archive
+//
+// ```
 type EventArchive struct {
 	pulumi.CustomResourceState
 

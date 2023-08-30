@@ -60,11 +60,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import `aws_ec2_transit_gateway_connect` using the EC2 Transit Gateway Connect identifier. For example:
  * 
- *  to = aws_ec2_transit_gateway_connect.example
- * 
- *  id = &#34;tgw-attach-12345678&#34; } Using `pulumi import`, import `aws_ec2_transit_gateway_connect` using the EC2 Transit Gateway Connect identifier. For exampleconsole % pulumi import aws_ec2_transit_gateway_connect.example tgw-attach-12345678
+ * ```sh
+ *  $ pulumi import aws:ec2transitgateway/connect:Connect example tgw-attach-12345678
+ * ```
  * 
  */
 @ResourceType(type="aws:ec2transitgateway/connect:Connect")

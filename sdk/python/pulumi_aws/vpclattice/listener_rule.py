@@ -391,11 +391,11 @@ class ListenerRule(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import VPC Lattice Listener Rule using the `example_id_arg`. For example:
 
-         to = aws_vpclattice_listener_rule.example
-
-         id = "rft-8012925589" } Using `pulumi import`, import VPC Lattice Listener Rule using the `example_id_arg`. For exampleconsole % pulumi import aws_vpclattice_listener_rule.example rft-8012925589
+        ```sh
+         $ pulumi import aws:vpclattice/listenerRule:ListenerRule example rft-8012925589
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -489,11 +489,11 @@ class ListenerRule(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import VPC Lattice Listener Rule using the `example_id_arg`. For example:
 
-         to = aws_vpclattice_listener_rule.example
-
-         id = "rft-8012925589" } Using `pulumi import`, import VPC Lattice Listener Rule using the `example_id_arg`. For exampleconsole % pulumi import aws_vpclattice_listener_rule.example rft-8012925589
+        ```sh
+         $ pulumi import aws:vpclattice/listenerRule:ListenerRule example rft-8012925589
+        ```
 
         :param str resource_name: The name of the resource.
         :param ListenerRuleArgs args: The arguments to use to populate this resource's properties.

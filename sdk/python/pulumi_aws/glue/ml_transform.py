@@ -584,11 +584,11 @@ class MLTransform(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Glue ML Transforms using `id`. For example:
 
-         to = aws_glue_ml_transform.example
-
-         id = "tfm-c2cafbe83b1c575f49eaca9939220e2fcd58e2d5" } Using `pulumi import`, import Glue ML Transforms using `id`. For exampleconsole % pulumi import aws_glue_ml_transform.example tfm-c2cafbe83b1c575f49eaca9939220e2fcd58e2d5
+        ```sh
+         $ pulumi import aws:glue/mLTransform:MLTransform example tfm-c2cafbe83b1c575f49eaca9939220e2fcd58e2d5
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -703,11 +703,11 @@ class MLTransform(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Glue ML Transforms using `id`. For example:
 
-         to = aws_glue_ml_transform.example
-
-         id = "tfm-c2cafbe83b1c575f49eaca9939220e2fcd58e2d5" } Using `pulumi import`, import Glue ML Transforms using `id`. For exampleconsole % pulumi import aws_glue_ml_transform.example tfm-c2cafbe83b1c575f49eaca9939220e2fcd58e2d5
+        ```sh
+         $ pulumi import aws:glue/mLTransform:MLTransform example tfm-c2cafbe83b1c575f49eaca9939220e2fcd58e2d5
+        ```
 
         :param str resource_name: The name of the resource.
         :param MLTransformArgs args: The arguments to use to populate this resource's properties.

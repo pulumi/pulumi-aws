@@ -80,11 +80,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import AMP Workspaces using the identifier. For example:
 //
-//	to = aws_prometheus_workspace.demo
+// ```sh
 //
-//	id = "ws-C6DCB907-F2D7-4D96-957B-66691F865D8B" } Using `pulumi import`, import AMP Workspaces using the identifier. For exampleconsole % pulumi import aws_prometheus_workspace.demo ws-C6DCB907-F2D7-4D96-957B-66691F865D8B
+//	$ pulumi import aws:amp/workspace:Workspace demo ws-C6DCB907-F2D7-4D96-957B-66691F865D8B
+//
+// ```
 type Workspace struct {
 	pulumi.CustomResourceState
 

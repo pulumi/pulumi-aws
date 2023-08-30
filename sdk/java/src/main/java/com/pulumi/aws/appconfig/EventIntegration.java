@@ -57,11 +57,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Amazon AppIntegrations Event Integrations using the `name`. For example:
  * 
- *  to = aws_appintegrations_event_integration.example
- * 
- *  id = &#34;example-name&#34; } Using `pulumi import`, import Amazon AppIntegrations Event Integrations using the `name`. For exampleconsole % pulumi import aws_appintegrations_event_integration.example example-name
+ * ```sh
+ *  $ pulumi import aws:appconfig/eventIntegration:EventIntegration example example-name
+ * ```
  * 
  */
 @ResourceType(type="aws:appconfig/eventIntegration:EventIntegration")

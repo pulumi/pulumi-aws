@@ -296,11 +296,11 @@ class UserProfile(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import SageMaker User Profiles using the `arn`. For example:
 
-         to = aws_sagemaker_user_profile.test_user_profile
-
-         id = "arn:aws:sagemaker:us-west-2:123456789012:user-profile/domain-id/profile-name" } Using `pulumi import`, import SageMaker User Profiles using the `arn`. For exampleconsole % pulumi import aws_sagemaker_user_profile.test_user_profile arn:aws:sagemaker:us-west-2:123456789012:user-profile/domain-id/profile-name
+        ```sh
+         $ pulumi import aws:sagemaker/userProfile:UserProfile test_user_profile arn:aws:sagemaker:us-west-2:123456789012:user-profile/domain-id/profile-name
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -334,11 +334,11 @@ class UserProfile(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import SageMaker User Profiles using the `arn`. For example:
 
-         to = aws_sagemaker_user_profile.test_user_profile
-
-         id = "arn:aws:sagemaker:us-west-2:123456789012:user-profile/domain-id/profile-name" } Using `pulumi import`, import SageMaker User Profiles using the `arn`. For exampleconsole % pulumi import aws_sagemaker_user_profile.test_user_profile arn:aws:sagemaker:us-west-2:123456789012:user-profile/domain-id/profile-name
+        ```sh
+         $ pulumi import aws:sagemaker/userProfile:UserProfile test_user_profile arn:aws:sagemaker:us-west-2:123456789012:user-profile/domain-id/profile-name
+        ```
 
         :param str resource_name: The name of the resource.
         :param UserProfileArgs args: The arguments to use to populate this resource's properties.

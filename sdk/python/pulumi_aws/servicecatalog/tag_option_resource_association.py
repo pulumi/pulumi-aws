@@ -180,11 +180,11 @@ class TagOptionResourceAssociation(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_servicecatalog_tag_option_resource_association` using the tag option ID and resource ID. For example:
 
-         to = aws_servicecatalog_tag_option_resource_association.example
-
-         id = "tag-pjtvyakdlyo3m:prod-dnigbtea24ste" } Using `pulumi import`, import `aws_servicecatalog_tag_option_resource_association` using the tag option ID and resource ID. For exampleconsole % pulumi import aws_servicecatalog_tag_option_resource_association.example tag-pjtvyakdlyo3m:prod-dnigbtea24ste
+        ```sh
+         $ pulumi import aws:servicecatalog/tagOptionResourceAssociation:TagOptionResourceAssociation example tag-pjtvyakdlyo3m:prod-dnigbtea24ste
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -216,11 +216,11 @@ class TagOptionResourceAssociation(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_servicecatalog_tag_option_resource_association` using the tag option ID and resource ID. For example:
 
-         to = aws_servicecatalog_tag_option_resource_association.example
-
-         id = "tag-pjtvyakdlyo3m:prod-dnigbtea24ste" } Using `pulumi import`, import `aws_servicecatalog_tag_option_resource_association` using the tag option ID and resource ID. For exampleconsole % pulumi import aws_servicecatalog_tag_option_resource_association.example tag-pjtvyakdlyo3m:prod-dnigbtea24ste
+        ```sh
+         $ pulumi import aws:servicecatalog/tagOptionResourceAssociation:TagOptionResourceAssociation example tag-pjtvyakdlyo3m:prod-dnigbtea24ste
+        ```
 
         :param str resource_name: The name of the resource.
         :param TagOptionResourceAssociationArgs args: The arguments to use to populate this resource's properties.

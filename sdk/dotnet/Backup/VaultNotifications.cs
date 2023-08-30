@@ -78,11 +78,11 @@ namespace Pulumi.Aws.Backup
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import Backup vault notifications using the `name`. For example:
     /// 
-    ///  to = aws_backup_vault_notifications.test
-    /// 
-    ///  id = "TestVault" } Using `pulumi import`, import Backup vault notifications using the `name`. For exampleconsole % pulumi import aws_backup_vault_notifications.test TestVault
+    /// ```sh
+    ///  $ pulumi import aws:backup/vaultNotifications:VaultNotifications test TestVault
+    /// ```
     /// </summary>
     [AwsResourceType("aws:backup/vaultNotifications:VaultNotifications")]
     public partial class VaultNotifications : global::Pulumi.CustomResource

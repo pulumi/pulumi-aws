@@ -25,11 +25,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import KMS (Key Management) Custom Key Store using the `id`. For example:
  *
- *  to = aws_kms_custom_key_store.example
- *
- *  id = "cks-5ebd4ef395a96288e" } Using `pulumi import`, import KMS (Key Management) Custom Key Store using the `id`. For exampleconsole % pulumi import aws_kms_custom_key_store.example cks-5ebd4ef395a96288e
+ * ```sh
+ *  $ pulumi import aws:kms/customKeyStore:CustomKeyStore example cks-5ebd4ef395a96288e
+ * ```
  */
 export class CustomKeyStore extends pulumi.CustomResource {
     /**

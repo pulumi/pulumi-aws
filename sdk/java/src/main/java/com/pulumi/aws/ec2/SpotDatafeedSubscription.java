@@ -56,11 +56,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import a Spot Datafeed Subscription using the word `spot-datafeed-subscription`. For example:
  * 
- *  to = aws_spot_datafeed_subscription.mysubscription
- * 
- *  id = &#34;spot-datafeed-subscription&#34; } Using `pulumi import`, import a Spot Datafeed Subscription using the word `spot-datafeed-subscription`. For exampleconsole % pulumi import aws_spot_datafeed_subscription.mysubscription spot-datafeed-subscription
+ * ```sh
+ *  $ pulumi import aws:ec2/spotDatafeedSubscription:SpotDatafeedSubscription mysubscription spot-datafeed-subscription
+ * ```
  * 
  */
 @ResourceType(type="aws:ec2/spotDatafeedSubscription:SpotDatafeedSubscription")

@@ -29,11 +29,11 @@ namespace Pulumi.Aws.MediaStore
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import MediaStore Container using the MediaStore Container Name. For example:
     /// 
-    ///  to = aws_media_store_container.example
-    /// 
-    ///  id = "example" } Using `pulumi import`, import MediaStore Container using the MediaStore Container Name. For exampleconsole % pulumi import aws_media_store_container.example example
+    /// ```sh
+    ///  $ pulumi import aws:mediastore/container:Container example example
+    /// ```
     /// </summary>
     [AwsResourceType("aws:mediastore/container:Container")]
     public partial class Container : global::Pulumi.CustomResource

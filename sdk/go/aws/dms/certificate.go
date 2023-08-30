@@ -46,11 +46,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import certificates using the `certificate_id`. For example:
 //
-//	to = aws_dms_certificate.test
+// ```sh
 //
-//	id = "test-dms-certificate-tf" } Using `pulumi import`, import certificates using the `certificate_id`. For exampleconsole % pulumi import aws_dms_certificate.test test-dms-certificate-tf
+//	$ pulumi import aws:dms/certificate:Certificate test test-dms-certificate-tf
+//
+// ```
 type Certificate struct {
 	pulumi.CustomResourceState
 

@@ -75,11 +75,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Elasticsearch domains using the `domain_name`. For example:
 //
-//	to = aws_elasticsearch_domain_saml_options.example
+// ```sh
 //
-//	id = "domain_name" } Using `pulumi import`, import Elasticsearch domains using the `domain_name`. For exampleconsole % pulumi import aws_elasticsearch_domain_saml_options.example domain_name
+//	$ pulumi import aws:elasticsearch/domainSamlOptions:DomainSamlOptions example domain_name
+//
+// ```
 type DomainSamlOptions struct {
 	pulumi.CustomResourceState
 

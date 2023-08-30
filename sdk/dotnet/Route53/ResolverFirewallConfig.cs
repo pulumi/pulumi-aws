@@ -40,11 +40,11 @@ namespace Pulumi.Aws.Route53
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import Route 53 Resolver DNS Firewall configs using the Route 53 Resolver DNS Firewall config ID. For example:
     /// 
-    ///  to = aws_route53_resolver_firewall_config.example
-    /// 
-    ///  id = "rdsc-be1866ecc1683e95" } Using `pulumi import`, import Route 53 Resolver DNS Firewall configs using the Route 53 Resolver DNS Firewall config ID. For exampleconsole % pulumi import aws_route53_resolver_firewall_config.example rdsc-be1866ecc1683e95
+    /// ```sh
+    ///  $ pulumi import aws:route53/resolverFirewallConfig:ResolverFirewallConfig example rdsc-be1866ecc1683e95
+    /// ```
     /// </summary>
     [AwsResourceType("aws:route53/resolverFirewallConfig:ResolverFirewallConfig")]
     public partial class ResolverFirewallConfig : global::Pulumi.CustomResource

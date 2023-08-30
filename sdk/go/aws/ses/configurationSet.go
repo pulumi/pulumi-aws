@@ -66,11 +66,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import SES Configuration Sets using their `name`. For example:
 //
-//	to = aws_ses_configuration_set.test
+// ```sh
 //
-//	id = "some-configuration-set-test" } Using `pulumi import`, import SES Configuration Sets using their `name`. For exampleconsole % pulumi import aws_ses_configuration_set.test some-configuration-set-test
+//	$ pulumi import aws:ses/configurationSet:ConfigurationSet test some-configuration-set-test
+//
+// ```
 type ConfigurationSet struct {
 	pulumi.CustomResourceState
 

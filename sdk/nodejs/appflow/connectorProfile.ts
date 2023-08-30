@@ -16,11 +16,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import AppFlow Connector Profile using the connector profile `arn`. For example:
  *
- *  to = aws_appflow_connector_profile.profile
- *
- *  id = "arn:aws:appflow:us-west-2:123456789012:connectorprofile/example-profile" } Using `pulumi import`, import AppFlow Connector Profile using the connector profile `arn`. For exampleconsole % pulumi import aws_appflow_connector_profile.profile arn:aws:appflow:us-west-2:123456789012:connectorprofile/example-profile [1]https://docs.aws.amazon.com/appflow/1.0/APIReference/Welcome.html [2]https://docs.aws.amazon.com/appflow/1.0/APIReference/API_CreateConnectorProfile.html
+ * ```sh
+ *  $ pulumi import aws:appflow/connectorProfile:ConnectorProfile profile arn:aws:appflow:us-west-2:123456789012:connectorprofile/example-profile
+ * ```
  */
 export class ConnectorProfile extends pulumi.CustomResource {
     /**

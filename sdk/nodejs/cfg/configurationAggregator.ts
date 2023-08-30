@@ -53,11 +53,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import Configuration Aggregators using the name. For example:
  *
- *  to = aws_config_configuration_aggregator.example
- *
- *  id = "foo" } Using `pulumi import`, import Configuration Aggregators using the name. For exampleconsole % pulumi import aws_config_configuration_aggregator.example foo
+ * ```sh
+ *  $ pulumi import aws:cfg/configurationAggregator:ConfigurationAggregator example foo
+ * ```
  */
 export class ConfigurationAggregator extends pulumi.CustomResource {
     /**

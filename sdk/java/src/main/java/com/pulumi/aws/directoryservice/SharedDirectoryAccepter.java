@@ -64,11 +64,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Directory Service Shared Directories using the shared directory ID. For example:
  * 
- *  to = aws_directory_service_shared_directory_accepter.example
- * 
- *  id = &#34;d-9267633ece&#34; } Using `pulumi import`, import Directory Service Shared Directories using the shared directory ID. For exampleconsole % pulumi import aws_directory_service_shared_directory_accepter.example d-9267633ece
+ * ```sh
+ *  $ pulumi import aws:directoryservice/sharedDirectoryAccepter:SharedDirectoryAccepter example d-9267633ece
+ * ```
  * 
  */
 @ResourceType(type="aws:directoryservice/sharedDirectoryAccepter:SharedDirectoryAccepter")

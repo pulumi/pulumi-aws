@@ -53,11 +53,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import EC2 Instance Connect Endpoints using the `id`. For example:
  * 
- *  to = aws_ec2_instance_connect_endpoint.example
- * 
- *  id = &#34;eice-012345678&#34; } Using `pulumi import`, import EC2 Instance Connect Endpoints using the `id`. For exampleconsole % pulumi import aws_ec2_instance_connect_endpoint.example eice-012345678
+ * ```sh
+ *  $ pulumi import aws:ec2transitgateway/instanceConnectEndpoint:InstanceConnectEndpoint example eice-012345678
+ * ```
  * 
  */
 @ResourceType(type="aws:ec2transitgateway/instanceConnectEndpoint:InstanceConnectEndpoint")

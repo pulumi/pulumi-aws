@@ -118,11 +118,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import WorkLink using the ARN. For example:
  * 
- *  to = aws_worklink_fleet.test
- * 
- *  id = &#34;arn:aws:worklink::123456789012:fleet/example&#34; } Using `pulumi import`, import WorkLink using the ARN. For exampleconsole % pulumi import aws_worklink_fleet.test arn:aws:worklink::123456789012:fleet/example
+ * ```sh
+ *  $ pulumi import aws:worklink/fleet:Fleet test arn:aws:worklink::123456789012:fleet/example
+ * ```
  * 
  */
 @ResourceType(type="aws:worklink/fleet:Fleet")

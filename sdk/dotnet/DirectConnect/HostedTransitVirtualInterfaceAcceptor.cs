@@ -73,11 +73,11 @@ namespace Pulumi.Aws.DirectConnect
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import Direct Connect hosted transit virtual interfaces using the VIF `id`. For example:
     /// 
-    ///  to = aws_dx_hosted_transit_virtual_interface_accepter.test
-    /// 
-    ///  id = "dxvif-33cc44dd" } Using `pulumi import`, import Direct Connect hosted transit virtual interfaces using the VIF `id`. For exampleconsole % pulumi import aws_dx_hosted_transit_virtual_interface_accepter.test dxvif-33cc44dd
+    /// ```sh
+    ///  $ pulumi import aws:directconnect/hostedTransitVirtualInterfaceAcceptor:HostedTransitVirtualInterfaceAcceptor test dxvif-33cc44dd
+    /// ```
     /// </summary>
     [AwsResourceType("aws:directconnect/hostedTransitVirtualInterfaceAcceptor:HostedTransitVirtualInterfaceAcceptor")]
     public partial class HostedTransitVirtualInterfaceAcceptor : global::Pulumi.CustomResource

@@ -57,11 +57,11 @@ namespace Pulumi.Aws.CodeBuild
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import CodeBuild Source Credential using the CodeBuild Source Credential arn. For example:
     /// 
-    ///  to = aws_codebuild_source_credential.example
-    /// 
-    ///  id = "arn:aws:codebuild:us-west-2:123456789:token:github" } Using `pulumi import`, import CodeBuild Source Credential using the CodeBuild Source Credential arn. For exampleconsole % pulumi import aws_codebuild_source_credential.example arn:aws:codebuild:us-west-2:123456789:token:github
+    /// ```sh
+    ///  $ pulumi import aws:codebuild/sourceCredential:SourceCredential example arn:aws:codebuild:us-west-2:123456789:token:github
+    /// ```
     /// </summary>
     [AwsResourceType("aws:codebuild/sourceCredential:SourceCredential")]
     public partial class SourceCredential : global::Pulumi.CustomResource

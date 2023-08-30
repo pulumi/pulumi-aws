@@ -424,11 +424,11 @@ class ReservedInstance(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import RDS DB Instance Reservations using the `instance_id`. For example:
 
-         to = aws_rds_reserved_instance.reservation_instance
-
-         id = "CustomReservationID" } Using `pulumi import`, import RDS DB Instance Reservations using the `instance_id`. For exampleconsole % pulumi import aws_rds_reserved_instance.reservation_instance CustomReservationID
+        ```sh
+         $ pulumi import aws:rds/reservedInstance:ReservedInstance reservation_instance CustomReservationID
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -471,11 +471,11 @@ class ReservedInstance(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import RDS DB Instance Reservations using the `instance_id`. For example:
 
-         to = aws_rds_reserved_instance.reservation_instance
-
-         id = "CustomReservationID" } Using `pulumi import`, import RDS DB Instance Reservations using the `instance_id`. For exampleconsole % pulumi import aws_rds_reserved_instance.reservation_instance CustomReservationID
+        ```sh
+         $ pulumi import aws:rds/reservedInstance:ReservedInstance reservation_instance CustomReservationID
+        ```
 
         :param str resource_name: The name of the resource.
         :param ReservedInstanceArgs args: The arguments to use to populate this resource's properties.

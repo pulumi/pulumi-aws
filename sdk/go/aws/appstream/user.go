@@ -45,11 +45,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import `aws_appstream_user` using the `user_name` and `authentication_type` separated by a slash (`/`). For example:
 //
-//	to = aws_appstream_user.example
+// ```sh
 //
-//	id = "UserName/AuthenticationType" } Using `pulumi import`, import `aws_appstream_user` using the `user_name` and `authentication_type` separated by a slash (`/`). For exampleconsole % pulumi import aws_appstream_user.example UserName/AuthenticationType
+//	$ pulumi import aws:appstream/user:User example UserName/AuthenticationType
+//
+// ```
 type User struct {
 	pulumi.CustomResourceState
 

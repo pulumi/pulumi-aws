@@ -48,11 +48,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import bots using their name. For example:
  *
- *  to = aws_lex_bot.order_flowers_bot
- *
- *  id = "OrderFlowers" } Using `pulumi import`, import bots using their name. For exampleconsole % pulumi import aws_lex_bot.order_flowers_bot OrderFlowers
+ * ```sh
+ *  $ pulumi import aws:lex/bot:Bot order_flowers_bot OrderFlowers
+ * ```
  */
 export class Bot extends pulumi.CustomResource {
     /**

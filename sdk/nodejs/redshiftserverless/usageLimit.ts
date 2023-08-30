@@ -26,11 +26,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import Redshift Serverless Usage Limits using the `id`. For example:
  *
- *  to = aws_redshiftserverless_usage_limit.example
- *
- *  id = "example-id" } Using `pulumi import`, import Redshift Serverless Usage Limits using the `id`. For exampleconsole % pulumi import aws_redshiftserverless_usage_limit.example example-id
+ * ```sh
+ *  $ pulumi import aws:redshiftserverless/usageLimit:UsageLimit example example-id
+ * ```
  */
 export class UsageLimit extends pulumi.CustomResource {
     /**

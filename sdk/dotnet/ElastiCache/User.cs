@@ -91,11 +91,11 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import ElastiCache users using the `user_id`. For example:
     /// 
-    ///  to = aws_elasticache_user.my_user
-    /// 
-    ///  id = "userId1" } Using `pulumi import`, import ElastiCache users using the `user_id`. For exampleconsole % pulumi import aws_elasticache_user.my_user userId1
+    /// ```sh
+    ///  $ pulumi import aws:elasticache/user:User my_user userId1
+    /// ```
     /// </summary>
     [AwsResourceType("aws:elasticache/user:User")]
     public partial class User : global::Pulumi.CustomResource

@@ -24,11 +24,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import Cloud9 environment membership using the `environment-id#user-arn`. For example:
  *
- *  to = aws_cloud9_environment_membership.test
- *
- *  id = "environment-id#user-arn" } Using `pulumi import`, import Cloud9 environment membership using the `environment-id#user-arn`. For exampleconsole % pulumi import aws_cloud9_environment_membership.test environment-id#user-arn
+ * ```sh
+ *  $ pulumi import aws:cloud9/environmentMembership:EnvironmentMembership test environment-id#user-arn
+ * ```
  */
 export class EnvironmentMembership extends pulumi.CustomResource {
     /**

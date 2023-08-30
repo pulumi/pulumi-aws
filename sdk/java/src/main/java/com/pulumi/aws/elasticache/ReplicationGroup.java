@@ -280,11 +280,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import ElastiCache Replication Groups using the `replication_group_id`. For example:
  * 
- *  to = aws_elasticache_replication_group.my_replication_group
- * 
- *  id = &#34;replication-group-1&#34; } Using `pulumi import`, import ElastiCache Replication Groups using the `replication_group_id`. For exampleconsole % pulumi import aws_elasticache_replication_group.my_replication_group replication-group-1
+ * ```sh
+ *  $ pulumi import aws:elasticache/replicationGroup:ReplicationGroup my_replication_group replication-group-1
+ * ```
  * 
  */
 @ResourceType(type="aws:elasticache/replicationGroup:ReplicationGroup")

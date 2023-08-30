@@ -229,11 +229,11 @@ class RealtimeLogConfig(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import CloudFront real-time log configurations using the ARN. For example:
 
-         to = aws_cloudfront_realtime_log_config.example
-
-         id = "arn:aws:cloudfront::111122223333:realtime-log-config/ExampleNameForRealtimeLogConfig" } Using `pulumi import`, import CloudFront real-time log configurations using the ARN. For exampleconsole % pulumi import aws_cloudfront_realtime_log_config.example arn:aws:cloudfront::111122223333:realtime-log-config/ExampleNameForRealtimeLogConfig
+        ```sh
+         $ pulumi import aws:cloudfront/realtimeLogConfig:RealtimeLogConfig example arn:aws:cloudfront::111122223333:realtime-log-config/ExampleNameForRealtimeLogConfig
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -297,11 +297,11 @@ class RealtimeLogConfig(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import CloudFront real-time log configurations using the ARN. For example:
 
-         to = aws_cloudfront_realtime_log_config.example
-
-         id = "arn:aws:cloudfront::111122223333:realtime-log-config/ExampleNameForRealtimeLogConfig" } Using `pulumi import`, import CloudFront real-time log configurations using the ARN. For exampleconsole % pulumi import aws_cloudfront_realtime_log_config.example arn:aws:cloudfront::111122223333:realtime-log-config/ExampleNameForRealtimeLogConfig
+        ```sh
+         $ pulumi import aws:cloudfront/realtimeLogConfig:RealtimeLogConfig example arn:aws:cloudfront::111122223333:realtime-log-config/ExampleNameForRealtimeLogConfig
+        ```
 
         :param str resource_name: The name of the resource.
         :param RealtimeLogConfigArgs args: The arguments to use to populate this resource's properties.

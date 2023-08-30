@@ -112,11 +112,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Elastic Transcoder presets using the `id`. For example:
  * 
- *  to = aws_elastictranscoder_preset.basic_preset
- * 
- *  id = &#34;1407981661351-cttk8b&#34; } Using `pulumi import`, import Elastic Transcoder presets using the `id`. For exampleconsole % pulumi import aws_elastictranscoder_preset.basic_preset 1407981661351-cttk8b
+ * ```sh
+ *  $ pulumi import aws:elastictranscoder/preset:Preset basic_preset 1407981661351-cttk8b
+ * ```
  * 
  */
 @ResourceType(type="aws:elastictranscoder/preset:Preset")

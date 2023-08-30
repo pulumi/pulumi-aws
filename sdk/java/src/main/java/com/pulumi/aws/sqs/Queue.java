@@ -220,11 +220,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import SQS Queues using the queue `url`. For example:
  * 
- *  to = aws_sqs_queue.public_queue
- * 
- *  id = &#34;https://queue.amazonaws.com/80398EXAMPLE/MyQueue&#34; } Using `pulumi import`, import SQS Queues using the queue `url`. For exampleconsole % pulumi import aws_sqs_queue.public_queue https://queue.amazonaws.com/80398EXAMPLE/MyQueue
+ * ```sh
+ *  $ pulumi import aws:sqs/queue:Queue public_queue https://queue.amazonaws.com/80398EXAMPLE/MyQueue
+ * ```
  * 
  */
 @ResourceType(type="aws:sqs/queue:Queue")

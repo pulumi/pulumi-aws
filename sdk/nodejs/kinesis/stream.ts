@@ -37,11 +37,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import Kinesis Streams using the `name`. For example:
  *
- *  to = aws_kinesis_stream.test_stream
- *
- *  id = "TODO-kinesis-test" } Using `pulumi import`, import Kinesis Streams using the `name`. For exampleconsole % pulumi import aws_kinesis_stream.test_stream TODO-kinesis-test [1]https://aws.amazon.com/documentation/kinesis/ [2]https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html [3]https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html
+ * ```sh
+ *  $ pulumi import aws:kinesis/stream:Stream test_stream TODO-kinesis-test
+ * ```
  */
 export class Stream extends pulumi.CustomResource {
     /**

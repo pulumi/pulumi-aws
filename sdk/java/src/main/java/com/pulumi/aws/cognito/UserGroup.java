@@ -86,11 +86,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Cognito User Groups using the `user_pool_id`/`name` attributes concatenated. For example:
  * 
- *  to = aws_cognito_user_group.group
- * 
- *  id = &#34;us-east-1_vG78M4goG/user-group&#34; } Using `pulumi import`, import Cognito User Groups using the `user_pool_id`/`name` attributes concatenated. For exampleconsole % pulumi import aws_cognito_user_group.group us-east-1_vG78M4goG/user-group
+ * ```sh
+ *  $ pulumi import aws:cognito/userGroup:UserGroup group us-east-1_vG78M4goG/user-group
+ * ```
  * 
  */
 @ResourceType(type="aws:cognito/userGroup:UserGroup")

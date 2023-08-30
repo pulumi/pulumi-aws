@@ -29,11 +29,11 @@ namespace Pulumi.Aws.MediaConvert
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import Media Convert Queue using the queue name. For example:
     /// 
-    ///  to = aws_media_convert_queue.test
-    /// 
-    ///  id = "tf-test-queue" } Using `pulumi import`, import Media Convert Queue using the queue name. For exampleconsole % pulumi import aws_media_convert_queue.test tf-test-queue
+    /// ```sh
+    ///  $ pulumi import aws:mediaconvert/queue:Queue test tf-test-queue
+    /// ```
     /// </summary>
     [AwsResourceType("aws:mediaconvert/queue:Queue")]
     public partial class Queue : global::Pulumi.CustomResource

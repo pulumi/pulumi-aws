@@ -76,11 +76,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import EKS add-on using the `cluster_name` and `addon_name` separated by a colon (`:`). For example:
  *
- *  to = aws_eks_addon.my_eks_addon
- *
- *  id = "my_cluster_name:my_addon_name" } Using `pulumi import`, import EKS add-on using the `cluster_name` and `addon_name` separated by a colon (`:`). For exampleconsole % pulumi import aws_eks_addon.my_eks_addon my_cluster_name:my_addon_name
+ * ```sh
+ *  $ pulumi import aws:eks/addon:Addon my_eks_addon my_cluster_name:my_addon_name
+ * ```
  */
 export class Addon extends pulumi.CustomResource {
     /**

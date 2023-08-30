@@ -58,11 +58,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import SageMaker Device Fleets using the `name`. For example:
  * 
- *  to = aws_sagemaker_device_fleet.example
- * 
- *  id = &#34;my-fleet&#34; } Using `pulumi import`, import SageMaker Device Fleets using the `name`. For exampleconsole % pulumi import aws_sagemaker_device_fleet.example my-fleet
+ * ```sh
+ *  $ pulumi import aws:sagemaker/deviceFleet:DeviceFleet example my-fleet
+ * ```
  * 
  */
 @ResourceType(type="aws:sagemaker/deviceFleet:DeviceFleet")

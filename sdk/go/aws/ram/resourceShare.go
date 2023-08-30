@@ -44,11 +44,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import resource shares using the `arn` of the resource share. For example:
 //
-//	to = aws_ram_resource_share.example
+// ```sh
 //
-//	id = "arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12" } Using `pulumi import`, import resource shares using the `arn` of the resource share. For exampleconsole % pulumi import aws_ram_resource_share.example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12
+//	$ pulumi import aws:ram/resourceShare:ResourceShare example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12
+//
+// ```
 type ResourceShare struct {
 	pulumi.CustomResourceState
 

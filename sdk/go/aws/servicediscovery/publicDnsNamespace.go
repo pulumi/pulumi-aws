@@ -41,11 +41,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Service Discovery Public DNS Namespace using the namespace ID. For example:
 //
-//	to = aws_service_discovery_public_dns_namespace.example
+// ```sh
 //
-//	id = "0123456789" } Using `pulumi import`, import Service Discovery Public DNS Namespace using the namespace ID. For exampleconsole % pulumi import aws_service_discovery_public_dns_namespace.example 0123456789
+//	$ pulumi import aws:servicediscovery/publicDnsNamespace:PublicDnsNamespace example 0123456789
+//
+// ```
 type PublicDnsNamespace struct {
 	pulumi.CustomResourceState
 

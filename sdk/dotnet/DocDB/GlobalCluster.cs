@@ -120,21 +120,12 @@ namespace Pulumi.Aws.DocDB
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import `aws_docdb_global_cluster` using the Global Cluster identifier. For example:
     /// 
-    ///  to = aws_docdb_global_cluster.example
-    /// 
-    ///  id = "example" } Using `pulumi import`, import `aws_docdb_global_cluster` using the Global Cluster identifier. For exampleconsole % pulumi import aws_docdb_global_cluster.example example Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the TODO configuration on an imported resource, TODO will always show a difference. To workaround this behavior, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For exampleterraform resource "aws_docdb_global_cluster" "example" {
-    /// 
-    /// # ... other configuration ...
-    /// 
-    /// # There is no API for reading source_db_cluster_identifier
-    /// 
-    ///  lifecycle {
-    /// 
-    ///  ignore_changes = [source_db_cluster_identifier]
-    /// 
-    ///  } }
+    /// ```sh
+    ///  $ pulumi import aws:docdb/globalCluster:GlobalCluster example example
+    /// ```
+    ///  Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the TODO configuration on an imported resource, TODO will always show a difference. To workaround this behavior, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For example:
     /// </summary>
     [AwsResourceType("aws:docdb/globalCluster:GlobalCluster")]
     public partial class GlobalCluster : global::Pulumi.CustomResource

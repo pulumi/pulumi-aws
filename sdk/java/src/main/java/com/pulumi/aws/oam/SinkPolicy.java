@@ -79,11 +79,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import CloudWatch Observability Access Manager Sink Policy using the `sink_identifier`. For example:
  * 
- *  to = aws_oam_sink_policy.example
- * 
- *  id = &#34;arn:aws:oam:us-west-2:123456789012:sink/sink-id&#34; } Using `pulumi import`, import CloudWatch Observability Access Manager Sink Policy using the `sink_identifier`. For exampleconsole % pulumi import aws_oam_sink_policy.example arn:aws:oam:us-west-2:123456789012:sink/sink-id
+ * ```sh
+ *  $ pulumi import aws:oam/sinkPolicy:SinkPolicy example arn:aws:oam:us-west-2:123456789012:sink/sink-id
+ * ```
  * 
  */
 @ResourceType(type="aws:oam/sinkPolicy:SinkPolicy")

@@ -99,11 +99,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import `aws_acmpca_certificate_authority` using the certificate authority ARN. For example:
  *
- *  to = aws_acmpca_certificate_authority.example
- *
- *  id = "arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012" } Using `pulumi import`, import `aws_acmpca_certificate_authority` using the certificate authority ARN. For exampleconsole % pulumi import aws_acmpca_certificate_authority.example arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012
+ * ```sh
+ *  $ pulumi import aws:acmpca/certificateAuthority:CertificateAuthority example arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012
+ * ```
  */
 export class CertificateAuthority extends pulumi.CustomResource {
     /**

@@ -37,11 +37,11 @@ namespace Pulumi.Aws.ImageBuilder
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import `aws_imagebuilder_image_pipeline` resources using the Amazon Resource Name (ARN). For example:
     /// 
-    ///  to = aws_imagebuilder_image_pipeline.example
-    /// 
-    ///  id = "arn:aws:imagebuilder:us-east-1:123456789012:image-pipeline/example" } Using `pulumi import`, import `aws_imagebuilder_image_pipeline` resources using the Amazon Resource Name (ARN). For exampleconsole % pulumi import aws_imagebuilder_image_pipeline.example arn:aws:imagebuilder:us-east-1:123456789012:image-pipeline/example
+    /// ```sh
+    ///  $ pulumi import aws:imagebuilder/imagePipeline:ImagePipeline example arn:aws:imagebuilder:us-east-1:123456789012:image-pipeline/example
+    /// ```
     /// </summary>
     [AwsResourceType("aws:imagebuilder/imagePipeline:ImagePipeline")]
     public partial class ImagePipeline : global::Pulumi.CustomResource

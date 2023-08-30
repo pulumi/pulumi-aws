@@ -161,11 +161,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Cloudfront Response Headers Policies using the `id`. For example:
  * 
- *  to = aws_cloudfront_response_headers_policy.policy
- * 
- *  id = &#34;658327ea-f89d-4fab-a63d-7e88639e58f9&#34; } Using `pulumi import`, import Cloudfront Response Headers Policies using the `id`. For exampleconsole % pulumi import aws_cloudfront_response_headers_policy.policy 658327ea-f89d-4fab-a63d-7e88639e58f9
+ * ```sh
+ *  $ pulumi import aws:cloudfront/responseHeadersPolicy:ResponseHeadersPolicy policy 658327ea-f89d-4fab-a63d-7e88639e58f9
+ * ```
  * 
  */
 @ResourceType(type="aws:cloudfront/responseHeadersPolicy:ResponseHeadersPolicy")

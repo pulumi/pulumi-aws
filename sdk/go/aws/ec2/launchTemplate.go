@@ -127,11 +127,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Launch Templates using the `id`. For example:
 //
-//	to = aws_launch_template.web
+// ```sh
 //
-//	id = "lt-12345678" } Using `pulumi import`, import Launch Templates using the `id`. For exampleconsole % pulumi import aws_launch_template.web lt-12345678
+//	$ pulumi import aws:ec2/launchTemplate:LaunchTemplate web lt-12345678
+//
+// ```
 type LaunchTemplate struct {
 	pulumi.CustomResourceState
 

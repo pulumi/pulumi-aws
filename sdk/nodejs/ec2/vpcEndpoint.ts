@@ -80,11 +80,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import VPC Endpoints using the VPC endpoint `id`. For example:
  *
- *  to = aws_vpc_endpoint.endpoint1
- *
- *  id = "vpce-3ecf2a57" } Using `pulumi import`, import VPC Endpoints using the VPC endpoint `id`. For exampleconsole % pulumi import aws_vpc_endpoint.endpoint1 vpce-3ecf2a57
+ * ```sh
+ *  $ pulumi import aws:ec2/vpcEndpoint:VpcEndpoint endpoint1 vpce-3ecf2a57
+ * ```
  */
 export class VpcEndpoint extends pulumi.CustomResource {
     /**

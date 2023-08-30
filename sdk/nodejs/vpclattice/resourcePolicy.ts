@@ -40,11 +40,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import VPC Lattice Resource Policy using the `resource_arn`. For example:
  *
- *  to = aws_vpclattice_resource_policy.example
- *
- *  id = "rft-8012925589" } Using `pulumi import`, import VPC Lattice Resource Policy using the `resource_arn`. For exampleconsole % pulumi import aws_vpclattice_resource_policy.example rft-8012925589
+ * ```sh
+ *  $ pulumi import aws:vpclattice/resourcePolicy:ResourcePolicy example rft-8012925589
+ * ```
  */
 export class ResourcePolicy extends pulumi.CustomResource {
     /**

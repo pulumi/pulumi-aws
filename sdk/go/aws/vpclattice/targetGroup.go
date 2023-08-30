@@ -120,11 +120,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import VPC Lattice Target Group using the `id`. For example:
 //
-//	to = aws_vpclattice_target_group.example
+// ```sh
 //
-//	id = "tg-0c11d4dc16ed96bdb" } Using `pulumi import`, import VPC Lattice Target Group using the `id`. For exampleconsole % pulumi import aws_vpclattice_target_group.example tg-0c11d4dc16ed96bdb
+//	$ pulumi import aws:vpclattice/targetGroup:TargetGroup example tg-0c11d4dc16ed96bdb
+//
+// ```
 type TargetGroup struct {
 	pulumi.CustomResourceState
 

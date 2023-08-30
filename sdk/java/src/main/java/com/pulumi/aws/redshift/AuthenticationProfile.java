@@ -55,11 +55,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Redshift Authentication by `authentication_profile_name`. For example:
  * 
- *  to = aws_redshift_authentication_profile.test
- * 
- *  id = &#34;example&#34; } Using `pulumi import`, import Redshift Authentication by `authentication_profile_name`. For exampleconsole % pulumi import aws_redshift_authentication_profile.test example
+ * ```sh
+ *  $ pulumi import aws:redshift/authenticationProfile:AuthenticationProfile test example
+ * ```
  * 
  */
 @ResourceType(type="aws:redshift/authenticationProfile:AuthenticationProfile")

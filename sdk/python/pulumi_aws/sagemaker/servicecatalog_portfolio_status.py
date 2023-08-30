@@ -81,11 +81,11 @@ class ServicecatalogPortfolioStatus(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import models using the `id`. For example:
 
-         to = aws_sagemaker_servicecatalog_portfolio_status.example
-
-         id = "us-east-1" } Using `pulumi import`, import models using the `id`. For exampleconsole % pulumi import aws_sagemaker_servicecatalog_portfolio_status.example us-east-1
+        ```sh
+         $ pulumi import aws:sagemaker/servicecatalogPortfolioStatus:ServicecatalogPortfolioStatus example us-east-1
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -113,11 +113,11 @@ class ServicecatalogPortfolioStatus(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import models using the `id`. For example:
 
-         to = aws_sagemaker_servicecatalog_portfolio_status.example
-
-         id = "us-east-1" } Using `pulumi import`, import models using the `id`. For exampleconsole % pulumi import aws_sagemaker_servicecatalog_portfolio_status.example us-east-1
+        ```sh
+         $ pulumi import aws:sagemaker/servicecatalogPortfolioStatus:ServicecatalogPortfolioStatus example us-east-1
+        ```
 
         :param str resource_name: The name of the resource.
         :param ServicecatalogPortfolioStatusArgs args: The arguments to use to populate this resource's properties.

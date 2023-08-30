@@ -118,11 +118,11 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import AWS API Gateway Usage Plan using the `id`. For example:
     /// 
-    ///  to = aws_api_gateway_usage_plan.myusageplan
-    /// 
-    ///  id = "&lt;usage_plan_id&gt;" } Using `pulumi import`, import AWS API Gateway Usage Plan using the `id`. For exampleconsole % pulumi import aws_api_gateway_usage_plan.myusageplan &lt;usage_plan_id&gt;
+    /// ```sh
+    ///  $ pulumi import aws:apigateway/usagePlan:UsagePlan myusageplan &lt;usage_plan_id&gt;
+    /// ```
     /// </summary>
     [AwsResourceType("aws:apigateway/usagePlan:UsagePlan")]
     public partial class UsagePlan : global::Pulumi.CustomResource

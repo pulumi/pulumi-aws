@@ -85,11 +85,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import EMR Instance Fleet using the EMR Cluster identifier and Instance Fleet identifier separated by a forward slash (`/`). For example:
 //
-//	to = aws_emr_instance_fleet.example
+// ```sh
 //
-//	id = "j-123456ABCDEF/if-15EK4O09RZLNR" } Using `pulumi import`, import EMR Instance Fleet using the EMR Cluster identifier and Instance Fleet identifier separated by a forward slash (`/`). For exampleconsole % pulumi import aws_emr_instance_fleet.example j-123456ABCDEF/if-15EK4O09RZLNR
+//	$ pulumi import aws:emr/instanceFleet:InstanceFleet example j-123456ABCDEF/if-15EK4O09RZLNR
+//
+// ```
 type InstanceFleet struct {
 	pulumi.CustomResourceState
 

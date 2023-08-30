@@ -56,11 +56,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import OpsWorks static web server Layers using the `id`. For example:
  * 
- *  to = aws_opsworks_static_web_layer.bar
- * 
- *  id = &#34;00000000-0000-0000-0000-000000000000&#34; } Using `pulumi import`, import OpsWorks static web server Layers using the `id`. For exampleconsole % pulumi import aws_opsworks_static_web_layer.bar 00000000-0000-0000-0000-000000000000
+ * ```sh
+ *  $ pulumi import aws:opsworks/staticWebLayer:StaticWebLayer bar 00000000-0000-0000-0000-000000000000
+ * ```
  * 
  */
 @ResourceType(type="aws:opsworks/staticWebLayer:StaticWebLayer")

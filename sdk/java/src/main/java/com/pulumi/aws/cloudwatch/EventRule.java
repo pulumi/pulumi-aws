@@ -89,11 +89,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import EventBridge Rules using the `event_bus_name/rule_name` (if you omit `event_bus_name`, the `default` event bus will be used). For example:
  * 
- *  to = aws_cloudwatch_event_rule.console
- * 
- *  id = &#34;example-event-bus/capture-console-sign-in&#34; } Using `pulumi import`, import EventBridge Rules using the `event_bus_name/rule_name` (if you omit `event_bus_name`, the `default` event bus will be used). For exampleconsole % pulumi import aws_cloudwatch_event_rule.console example-event-bus/capture-console-sign-in
+ * ```sh
+ *  $ pulumi import aws:cloudwatch/eventRule:EventRule console example-event-bus/capture-console-sign-in
+ * ```
  * 
  */
 @ResourceType(type="aws:cloudwatch/eventRule:EventRule")

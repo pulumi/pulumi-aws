@@ -114,11 +114,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Transfer Workflows using the `worflow_id`. For example:
  * 
- *  to = aws_transfer_workflow.example
- * 
- *  id = &#34;example&#34; } Using `pulumi import`, import Transfer Workflows using the `worflow_id`. For exampleconsole % pulumi import aws_transfer_workflow.example example
+ * ```sh
+ *  $ pulumi import aws:transfer/workflow:Workflow example example
+ * ```
  * 
  */
 @ResourceType(type="aws:transfer/workflow:Workflow")

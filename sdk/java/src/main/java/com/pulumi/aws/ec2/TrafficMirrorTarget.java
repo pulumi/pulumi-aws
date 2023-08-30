@@ -64,11 +64,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import traffic mirror targets using the `id`. For example:
  * 
- *  to = aws_ec2_traffic_mirror_target.target
- * 
- *  id = &#34;tmt-0c13a005422b86606&#34; } Using `pulumi import`, import traffic mirror targets using the `id`. For exampleconsole % pulumi import aws_ec2_traffic_mirror_target.target tmt-0c13a005422b86606
+ * ```sh
+ *  $ pulumi import aws:ec2/trafficMirrorTarget:TrafficMirrorTarget target tmt-0c13a005422b86606
+ * ```
  * 
  */
 @ResourceType(type="aws:ec2/trafficMirrorTarget:TrafficMirrorTarget")

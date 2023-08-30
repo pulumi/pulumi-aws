@@ -45,11 +45,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import SWF Domains using the `name`. For example:
 //
-//	to = aws_swf_domain.foo
+// ```sh
 //
-//	id = "test-domain" } Using `pulumi import`, import SWF Domains using the `name`. For exampleconsole % pulumi import aws_swf_domain.foo test-domain
+//	$ pulumi import aws:swf/domain:Domain foo test-domain
+//
+// ```
 type Domain struct {
 	pulumi.CustomResourceState
 

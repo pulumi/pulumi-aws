@@ -58,11 +58,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import CloudFront Functions using the `name`. For example:
  * 
- *  to = aws_cloudfront_function.test
- * 
- *  id = &#34;my_test_function&#34; } Using `pulumi import`, import CloudFront Functions using the `name`. For exampleconsole % pulumi import aws_cloudfront_function.test my_test_function
+ * ```sh
+ *  $ pulumi import aws:cloudfront/function:Function test my_test_function
+ * ```
  * 
  */
 @ResourceType(type="aws:cloudfront/function:Function")

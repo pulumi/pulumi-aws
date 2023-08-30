@@ -261,11 +261,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import AutoScaling scaling policy using the role autoscaling_group_name and name separated by `/`. For example:
 //
-//	to = aws_autoscaling_policy.test-policy
+// ```sh
 //
-//	id = "asg-name/policy-name" } Using `pulumi import`, import AutoScaling scaling policy using the role autoscaling_group_name and name separated by `/`. For exampleconsole % pulumi import aws_autoscaling_policy.test-policy asg-name/policy-name
+//	$ pulumi import aws:autoscaling/policy:Policy test-policy asg-name/policy-name
+//
+// ```
 type Policy struct {
 	pulumi.CustomResourceState
 

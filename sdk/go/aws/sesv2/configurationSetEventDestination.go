@@ -189,11 +189,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import SESv2 (Simple Email V2) Configuration Set Event Destination using the `id` (`configuration_set_name|event_destination_name`). For example:
 //
-//	to = aws_sesv2_configuration_set_event_destination.example
+// ```sh
 //
-//	id = "example_configuration_set|example_event_destination" } Using `pulumi import`, import SESv2 (Simple Email V2) Configuration Set Event Destination using the `id` (`configuration_set_name|event_destination_name`). For exampleconsole % pulumi import aws_sesv2_configuration_set_event_destination.example example_configuration_set|example_event_destination
+//	$ pulumi import aws:sesv2/configurationSetEventDestination:ConfigurationSetEventDestination example example_configuration_set|example_event_destination
+//
+// ```
 type ConfigurationSetEventDestination struct {
 	pulumi.CustomResourceState
 

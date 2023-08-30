@@ -18,11 +18,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import SageMaker Studio Lifecycle Configs using the `studio_lifecycle_config_name`. For example:
 //
-//	to = aws_sagemaker_studio_lifecycle_config.example
+// ```sh
 //
-//	id = "example" } Using `pulumi import`, import SageMaker Studio Lifecycle Configs using the `studio_lifecycle_config_name`. For exampleconsole % pulumi import aws_sagemaker_studio_lifecycle_config.example example
+//	$ pulumi import aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig example example
+//
+// ```
 type StudioLifecycleConfig struct {
 	pulumi.CustomResourceState
 

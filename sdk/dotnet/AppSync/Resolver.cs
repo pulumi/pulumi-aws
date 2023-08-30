@@ -148,11 +148,11 @@ namespace Pulumi.Aws.AppSync
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import `aws_appsync_resolver` using the `api_id`, a hyphen, `type`, a hypen and `field`. For example:
     /// 
-    ///  to = aws_appsync_resolver.example
-    /// 
-    ///  id = "abcdef123456-exampleType-exampleField" } Using `pulumi import`, import `aws_appsync_resolver` using the `api_id`, a hyphen, `type`, a hypen and `field`. For exampleconsole % pulumi import aws_appsync_resolver.example abcdef123456-exampleType-exampleField
+    /// ```sh
+    ///  $ pulumi import aws:appsync/resolver:Resolver example abcdef123456-exampleType-exampleField
+    /// ```
     /// </summary>
     [AwsResourceType("aws:appsync/resolver:Resolver")]
     public partial class Resolver : global::Pulumi.CustomResource

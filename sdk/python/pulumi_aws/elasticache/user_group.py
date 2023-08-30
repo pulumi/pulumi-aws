@@ -226,11 +226,11 @@ class UserGroup(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import ElastiCache user groups using the `user_group_id`. For example:
 
-         to = aws_elasticache_user_group.my_user_group
-
-         id = "userGoupId1" } Using `pulumi import`, import ElastiCache user groups using the `user_group_id`. For exampleconsole % pulumi import aws_elasticache_user_group.my_user_group userGoupId1
+        ```sh
+         $ pulumi import aws:elasticache/userGroup:UserGroup my_user_group userGoupId1
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -270,11 +270,11 @@ class UserGroup(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import ElastiCache user groups using the `user_group_id`. For example:
 
-         to = aws_elasticache_user_group.my_user_group
-
-         id = "userGoupId1" } Using `pulumi import`, import ElastiCache user groups using the `user_group_id`. For exampleconsole % pulumi import aws_elasticache_user_group.my_user_group userGoupId1
+        ```sh
+         $ pulumi import aws:elasticache/userGroup:UserGroup my_user_group userGoupId1
+        ```
 
         :param str resource_name: The name of the resource.
         :param UserGroupArgs args: The arguments to use to populate this resource's properties.

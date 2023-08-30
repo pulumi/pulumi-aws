@@ -163,11 +163,11 @@ class Account(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_macie2_account` using the id. For example:
 
-         to = aws_macie2_account.example
-
-         id = "abcd1" } Using `pulumi import`, import `aws_macie2_account` using the id. For exampleconsole % pulumi import aws_macie2_account.example abcd1
+        ```sh
+         $ pulumi import aws:macie2/account:Account example abcd1
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -196,11 +196,11 @@ class Account(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_macie2_account` using the id. For example:
 
-         to = aws_macie2_account.example
-
-         id = "abcd1" } Using `pulumi import`, import `aws_macie2_account` using the id. For exampleconsole % pulumi import aws_macie2_account.example abcd1
+        ```sh
+         $ pulumi import aws:macie2/account:Account example abcd1
+        ```
 
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.

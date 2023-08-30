@@ -102,11 +102,11 @@ class BucketResourceAccess(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_lightsail_bucket_resource_access` using the `id` attribute. For example:
 
-         to = aws_lightsail_bucket_resource_access.test
-
-         id = "example-bucket,example-instance" } Using `pulumi import`, import `aws_lightsail_bucket_resource_access` using the `id` attribute. For exampleconsole % pulumi import aws_lightsail_bucket_resource_access.test example-bucket,example-instance
+        ```sh
+         $ pulumi import aws:lightsail/bucketResourceAccess:BucketResourceAccess test example-bucket,example-instance
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -124,11 +124,11 @@ class BucketResourceAccess(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_lightsail_bucket_resource_access` using the `id` attribute. For example:
 
-         to = aws_lightsail_bucket_resource_access.test
-
-         id = "example-bucket,example-instance" } Using `pulumi import`, import `aws_lightsail_bucket_resource_access` using the `id` attribute. For exampleconsole % pulumi import aws_lightsail_bucket_resource_access.test example-bucket,example-instance
+        ```sh
+         $ pulumi import aws:lightsail/bucketResourceAccess:BucketResourceAccess test example-bucket,example-instance
+        ```
 
         :param str resource_name: The name of the resource.
         :param BucketResourceAccessArgs args: The arguments to use to populate this resource's properties.

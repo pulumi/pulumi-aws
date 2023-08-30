@@ -624,11 +624,11 @@ class Directory(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import DirectoryService directories using the directory `id`. For example:
 
-         to = aws_directory_service_directory.sample
-
-         id = "d-926724cf57" } Using `pulumi import`, import DirectoryService directories using the directory `id`. For exampleconsole % pulumi import aws_directory_service_directory.sample d-926724cf57
+        ```sh
+         $ pulumi import aws:directoryservice/directory:Directory sample d-926724cf57
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -750,11 +750,11 @@ class Directory(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import DirectoryService directories using the directory `id`. For example:
 
-         to = aws_directory_service_directory.sample
-
-         id = "d-926724cf57" } Using `pulumi import`, import DirectoryService directories using the directory `id`. For exampleconsole % pulumi import aws_directory_service_directory.sample d-926724cf57
+        ```sh
+         $ pulumi import aws:directoryservice/directory:Directory sample d-926724cf57
+        ```
 
         :param str resource_name: The name of the resource.
         :param DirectoryArgs args: The arguments to use to populate this resource's properties.

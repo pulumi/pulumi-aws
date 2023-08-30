@@ -546,15 +546,11 @@ class LayerVersion(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Lambda Layers using `arn`. For example:
 
-         to = aws_lambda_layer_version.test_layer
-
-         id = "arn:aws:lambda:_REGION_:_ACCOUNT_ID_:layer:_LAYER_NAME_:_LAYER_VERSION_" } Using `pulumi import`, import Lambda Layers using `arn`. For exampleconsole % pulumi import \\
-
-         aws_lambda_layer_version.test_layer \\
-
-         arn:aws:lambda:_REGION_:_ACCOUNT_ID_:layer:_LAYER_NAME_:_LAYER_VERSION_
+        ```sh
+         $ pulumi import aws:lambda/layerVersion:LayerVersion test_layer arn:aws:lambda:_REGION_:_ACCOUNT_ID_:layer:_LAYER_NAME_:_LAYER_VERSION_
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -609,15 +605,11 @@ class LayerVersion(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Lambda Layers using `arn`. For example:
 
-         to = aws_lambda_layer_version.test_layer
-
-         id = "arn:aws:lambda:_REGION_:_ACCOUNT_ID_:layer:_LAYER_NAME_:_LAYER_VERSION_" } Using `pulumi import`, import Lambda Layers using `arn`. For exampleconsole % pulumi import \\
-
-         aws_lambda_layer_version.test_layer \\
-
-         arn:aws:lambda:_REGION_:_ACCOUNT_ID_:layer:_LAYER_NAME_:_LAYER_VERSION_
+        ```sh
+         $ pulumi import aws:lambda/layerVersion:LayerVersion test_layer arn:aws:lambda:_REGION_:_ACCOUNT_ID_:layer:_LAYER_NAME_:_LAYER_VERSION_
+        ```
 
         :param str resource_name: The name of the resource.
         :param LayerVersionArgs args: The arguments to use to populate this resource's properties.

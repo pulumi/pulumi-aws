@@ -14,11 +14,13 @@ import (
 
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import IoT topic rule destinations using the `arn`. For example:
 //
-//	to = aws_iot_topic_rule_destination.example
+// ```sh
 //
-//	id = "arn:aws:iot:us-west-2:123456789012:ruledestination/vpc/2ce781c8-68a6-4c52-9c62-63fe489ecc60" } Using `pulumi import`, import IoT topic rule destinations using the `arn`. For exampleconsole % pulumi import aws_iot_topic_rule_destination.example arn:aws:iot:us-west-2:123456789012:ruledestination/vpc/2ce781c8-68a6-4c52-9c62-63fe489ecc60
+//	$ pulumi import aws:iot/topicRuleDestination:TopicRuleDestination example arn:aws:iot:us-west-2:123456789012:ruledestination/vpc/2ce781c8-68a6-4c52-9c62-63fe489ecc60
+//
+// ```
 type TopicRuleDestination struct {
 	pulumi.CustomResourceState
 

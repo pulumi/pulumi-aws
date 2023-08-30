@@ -328,11 +328,11 @@ class SlotType(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import slot types using their name. For example:
 
-         to = aws_lex_slot_type.flower_types
-
-         id = "FlowerTypes" } Using `pulumi import`, import slot types using their name. For exampleconsole % pulumi import aws_lex_slot_type.flower_types FlowerTypes
+        ```sh
+         $ pulumi import aws:lex/slotType:SlotType flower_types FlowerTypes
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -390,11 +390,11 @@ class SlotType(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import slot types using their name. For example:
 
-         to = aws_lex_slot_type.flower_types
-
-         id = "FlowerTypes" } Using `pulumi import`, import slot types using their name. For exampleconsole % pulumi import aws_lex_slot_type.flower_types FlowerTypes
+        ```sh
+         $ pulumi import aws:lex/slotType:SlotType flower_types FlowerTypes
+        ```
 
         :param str resource_name: The name of the resource.
         :param SlotTypeArgs args: The arguments to use to populate this resource's properties.

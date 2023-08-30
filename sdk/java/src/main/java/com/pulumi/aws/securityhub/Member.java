@@ -58,11 +58,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Security Hub members using their account ID. For example:
  * 
- *  to = aws_securityhub_member.example
- * 
- *  id = &#34;123456789012&#34; } Using `pulumi import`, import Security Hub members using their account ID. For exampleconsole % pulumi import aws_securityhub_member.example 123456789012
+ * ```sh
+ *  $ pulumi import aws:securityhub/member:Member example 123456789012
+ * ```
  * 
  */
 @ResourceType(type="aws:securityhub/member:Member")

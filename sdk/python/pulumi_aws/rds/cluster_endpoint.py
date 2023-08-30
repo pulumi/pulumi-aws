@@ -339,11 +339,11 @@ class ClusterEndpoint(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import RDS Clusters Endpoint using the `cluster_endpoint_identifier`. For example:
 
-         to = aws_rds_cluster_endpoint.custom_reader
-
-         id = "aurora-prod-cluster-custom-reader" } Using `pulumi import`, import RDS Clusters Endpoint using the `cluster_endpoint_identifier`. For exampleconsole % pulumi import aws_rds_cluster_endpoint.custom_reader aurora-prod-cluster-custom-reader [1]https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.Endpoints.html#Aurora.Endpoints.Cluster
+        ```sh
+         $ pulumi import aws:rds/clusterEndpoint:ClusterEndpoint custom_reader aurora-prod-cluster-custom-reader
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -423,11 +423,11 @@ class ClusterEndpoint(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import RDS Clusters Endpoint using the `cluster_endpoint_identifier`. For example:
 
-         to = aws_rds_cluster_endpoint.custom_reader
-
-         id = "aurora-prod-cluster-custom-reader" } Using `pulumi import`, import RDS Clusters Endpoint using the `cluster_endpoint_identifier`. For exampleconsole % pulumi import aws_rds_cluster_endpoint.custom_reader aurora-prod-cluster-custom-reader [1]https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.Endpoints.html#Aurora.Endpoints.Cluster
+        ```sh
+         $ pulumi import aws:rds/clusterEndpoint:ClusterEndpoint custom_reader aurora-prod-cluster-custom-reader
+        ```
 
         :param str resource_name: The name of the resource.
         :param ClusterEndpointArgs args: The arguments to use to populate this resource's properties.

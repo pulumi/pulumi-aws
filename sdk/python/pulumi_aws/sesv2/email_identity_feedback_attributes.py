@@ -116,11 +116,11 @@ class EmailIdentityFeedbackAttributes(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import SESv2 (Simple Email V2) Email Identity Feedback Attributes using the `email_identity`. For example:
 
-         to = aws_sesv2_email_identity_feedback_attributes.example
-
-         id = "example.com" } Using `pulumi import`, import SESv2 (Simple Email V2) Email Identity Feedback Attributes using the `email_identity`. For exampleconsole % pulumi import aws_sesv2_email_identity_feedback_attributes.example example.com
+        ```sh
+         $ pulumi import aws:sesv2/emailIdentityFeedbackAttributes:EmailIdentityFeedbackAttributes example example.com
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -151,11 +151,11 @@ class EmailIdentityFeedbackAttributes(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import SESv2 (Simple Email V2) Email Identity Feedback Attributes using the `email_identity`. For example:
 
-         to = aws_sesv2_email_identity_feedback_attributes.example
-
-         id = "example.com" } Using `pulumi import`, import SESv2 (Simple Email V2) Email Identity Feedback Attributes using the `email_identity`. For exampleconsole % pulumi import aws_sesv2_email_identity_feedback_attributes.example example.com
+        ```sh
+         $ pulumi import aws:sesv2/emailIdentityFeedbackAttributes:EmailIdentityFeedbackAttributes example example.com
+        ```
 
         :param str resource_name: The name of the resource.
         :param EmailIdentityFeedbackAttributesArgs args: The arguments to use to populate this resource's properties.

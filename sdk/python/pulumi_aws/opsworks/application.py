@@ -634,11 +634,11 @@ class Application(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Opsworks Application using the `id`. For example:
 
-         to = aws_opsworks_application.test
-
-         id = "<id>" } Using `pulumi import`, import Opsworks Application using the `id`. For exampleconsole % pulumi import aws_opsworks_application.test <id>
+        ```sh
+         $ pulumi import aws:opsworks/application:Application test <id>
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -706,11 +706,11 @@ class Application(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Opsworks Application using the `id`. For example:
 
-         to = aws_opsworks_application.test
-
-         id = "<id>" } Using `pulumi import`, import Opsworks Application using the `id`. For exampleconsole % pulumi import aws_opsworks_application.test <id>
+        ```sh
+         $ pulumi import aws:opsworks/application:Application test <id>
+        ```
 
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.

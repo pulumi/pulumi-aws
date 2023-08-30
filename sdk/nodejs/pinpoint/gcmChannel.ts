@@ -22,11 +22,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import Pinpoint GCM Channel using the `application-id`. For example:
  *
- *  to = aws_pinpoint_gcm_channel.gcm
- *
- *  id = "application-id" } Using `pulumi import`, import Pinpoint GCM Channel using the `application-id`. For exampleconsole % pulumi import aws_pinpoint_gcm_channel.gcm application-id
+ * ```sh
+ *  $ pulumi import aws:pinpoint/gcmChannel:GcmChannel gcm application-id
+ * ```
  */
 export class GcmChannel extends pulumi.CustomResource {
     /**

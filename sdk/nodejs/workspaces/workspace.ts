@@ -43,11 +43,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import Workspaces using their ID. For example:
  *
- *  to = aws_workspaces_workspace.example
- *
- *  id = "ws-9z9zmbkhv" } Using `pulumi import`, import Workspaces using their ID. For exampleconsole % pulumi import aws_workspaces_workspace.example ws-9z9zmbkhv
+ * ```sh
+ *  $ pulumi import aws:workspaces/workspace:Workspace example ws-9z9zmbkhv
+ * ```
  */
 export class Workspace extends pulumi.CustomResource {
     /**

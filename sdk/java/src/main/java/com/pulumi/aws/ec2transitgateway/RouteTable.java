@@ -51,11 +51,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import `aws_ec2_transit_gateway_route_table` using the EC2 Transit Gateway Route Table identifier. For example:
  * 
- *  to = aws_ec2_transit_gateway_route_table.example
- * 
- *  id = &#34;tgw-rtb-12345678&#34; } Using `pulumi import`, import `aws_ec2_transit_gateway_route_table` using the EC2 Transit Gateway Route Table identifier. For exampleconsole % pulumi import aws_ec2_transit_gateway_route_table.example tgw-rtb-12345678
+ * ```sh
+ *  $ pulumi import aws:ec2transitgateway/routeTable:RouteTable example tgw-rtb-12345678
+ * ```
  * 
  */
 @ResourceType(type="aws:ec2transitgateway/routeTable:RouteTable")

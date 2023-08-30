@@ -43,11 +43,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import `aws_location_place_index` resources using the place index name. For example:
 //
-//	to = aws_location_place_index.example
+// ```sh
 //
-//	id = "example" } Using `pulumi import`, import `aws_location_place_index` resources using the place index name. For exampleconsole % pulumi import aws_location_place_index.example example
+//	$ pulumi import aws:location/placeIndex:PlaceIndex example example
+//
+// ```
 type PlaceIndex struct {
 	pulumi.CustomResourceState
 

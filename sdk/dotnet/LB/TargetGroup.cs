@@ -104,11 +104,11 @@ namespace Pulumi.Aws.LB
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import Target Groups using their ARN. For example:
     /// 
-    ///  to = aws_lb_target_group.app_front_end
-    /// 
-    ///  id = "arn:aws:elasticloadbalancing:us-west-2:187416307283:targetgroup/app-front-end/20cfe21448b66314" } Using `pulumi import`, import Target Groups using their ARN. For exampleconsole % pulumi import aws_lb_target_group.app_front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:targetgroup/app-front-end/20cfe21448b66314
+    /// ```sh
+    ///  $ pulumi import aws:lb/targetGroup:TargetGroup app_front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:targetgroup/app-front-end/20cfe21448b66314
+    /// ```
     /// </summary>
     [AwsResourceType("aws:lb/targetGroup:TargetGroup")]
     public partial class TargetGroup : global::Pulumi.CustomResource

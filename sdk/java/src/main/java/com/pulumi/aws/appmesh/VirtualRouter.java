@@ -70,11 +70,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import App Mesh virtual routers using `mesh_name` together with the virtual router&#39;s `name`. For example:
  * 
- *  to = aws_appmesh_virtual_router.serviceb
- * 
- *  id = &#34;simpleapp/serviceB&#34; } Using `pulumi import`, import App Mesh virtual routers using `mesh_name` together with the virtual router&#39;s `name`. For exampleconsole % pulumi import aws_appmesh_virtual_router.serviceb simpleapp/serviceB
+ * ```sh
+ *  $ pulumi import aws:appmesh/virtualRouter:VirtualRouter serviceb simpleapp/serviceB
+ * ```
  * 
  */
 @ResourceType(type="aws:appmesh/virtualRouter:VirtualRouter")

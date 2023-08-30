@@ -180,11 +180,11 @@ class Registry(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import EventBridge schema registries using the `name`. For example:
 
-         to = aws_schemas_registry.test
-
-         id = "my_own_registry" } Using `pulumi import`, import EventBridge schema registries using the `name`. For exampleconsole % pulumi import aws_schemas_registry.test my_own_registry
+        ```sh
+         $ pulumi import aws:schemas/registry:Registry test my_own_registry
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -214,11 +214,11 @@ class Registry(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import EventBridge schema registries using the `name`. For example:
 
-         to = aws_schemas_registry.test
-
-         id = "my_own_registry" } Using `pulumi import`, import EventBridge schema registries using the `name`. For exampleconsole % pulumi import aws_schemas_registry.test my_own_registry
+        ```sh
+         $ pulumi import aws:schemas/registry:Registry test my_own_registry
+        ```
 
         :param str resource_name: The name of the resource.
         :param RegistryArgs args: The arguments to use to populate this resource's properties.

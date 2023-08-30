@@ -71,11 +71,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import DKIM tokens using the `domain` attribute. For example:
  * 
- *  to = aws_ses_domain_dkim.example
- * 
- *  id = &#34;example.com&#34; } Using `pulumi import`, import DKIM tokens using the `domain` attribute. For exampleconsole % pulumi import aws_ses_domain_dkim.example example.com
+ * ```sh
+ *  $ pulumi import aws:ses/domainDkim:DomainDkim example example.com
+ * ```
  * 
  */
 @ResourceType(type="aws:ses/domainDkim:DomainDkim")

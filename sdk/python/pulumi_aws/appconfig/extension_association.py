@@ -201,11 +201,11 @@ class ExtensionAssociation(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import AppConfig Extension Associations using their extension association ID. For example:
 
-         to = aws_appconfig_extension_association.example
-
-         id = "71rxuzt" } Using `pulumi import`, import AppConfig Extension Associations using their extension association ID. For exampleconsole % pulumi import aws_appconfig_extension_association.example 71rxuzt
+        ```sh
+         $ pulumi import aws:appconfig/extensionAssociation:ExtensionAssociation example 71rxuzt
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -258,11 +258,11 @@ class ExtensionAssociation(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import AppConfig Extension Associations using their extension association ID. For example:
 
-         to = aws_appconfig_extension_association.example
-
-         id = "71rxuzt" } Using `pulumi import`, import AppConfig Extension Associations using their extension association ID. For exampleconsole % pulumi import aws_appconfig_extension_association.example 71rxuzt
+        ```sh
+         $ pulumi import aws:appconfig/extensionAssociation:ExtensionAssociation example 71rxuzt
+        ```
 
         :param str resource_name: The name of the resource.
         :param ExtensionAssociationArgs args: The arguments to use to populate this resource's properties.

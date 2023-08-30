@@ -85,11 +85,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import CodeBuild Resource Policy using the CodeBuild Resource Policy arn. For example:
  * 
- *  to = aws_codebuild_resource_policy.example
- * 
- *  id = &#34;arn:aws:codebuild:us-west-2:123456789:report-group/report-group-name&#34; } Using `pulumi import`, import CodeBuild Resource Policy using the CodeBuild Resource Policy arn. For exampleconsole % pulumi import aws_codebuild_resource_policy.example arn:aws:codebuild:us-west-2:123456789:report-group/report-group-name
+ * ```sh
+ *  $ pulumi import aws:codebuild/resourcePolicy:ResourcePolicy example arn:aws:codebuild:us-west-2:123456789:report-group/report-group-name
+ * ```
  * 
  */
 @ResourceType(type="aws:codebuild/resourcePolicy:ResourcePolicy")

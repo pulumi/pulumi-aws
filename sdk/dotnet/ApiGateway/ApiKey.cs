@@ -31,11 +31,11 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import API Gateway Keys using the `id`. For example:
     /// 
-    ///  to = aws_api_gateway_api_key.my_demo_key
-    /// 
-    ///  id = "8bklk8bl1k3sB38D9B3l0enyWT8c09B30lkq0blk" } Using `pulumi import`, import API Gateway Keys using the `id`. For exampleconsole % pulumi import aws_api_gateway_api_key.my_demo_key 8bklk8bl1k3sB38D9B3l0enyWT8c09B30lkq0blk
+    /// ```sh
+    ///  $ pulumi import aws:apigateway/apiKey:ApiKey my_demo_key 8bklk8bl1k3sB38D9B3l0enyWT8c09B30lkq0blk
+    /// ```
     /// </summary>
     [AwsResourceType("aws:apigateway/apiKey:ApiKey")]
     public partial class ApiKey : global::Pulumi.CustomResource

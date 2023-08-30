@@ -35,11 +35,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import `aws_secretsmanager_secret_rotation` using the secret Amazon Resource Name (ARN). For example:
  *
- *  to = aws_secretsmanager_secret_rotation.example
- *
- *  id = "arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456" } Using `pulumi import`, import `aws_secretsmanager_secret_rotation` using the secret Amazon Resource Name (ARN). For exampleconsole % pulumi import aws_secretsmanager_secret_rotation.example arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456
+ * ```sh
+ *  $ pulumi import aws:secretsmanager/secretRotation:SecretRotation example arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456
+ * ```
  */
 export class SecretRotation extends pulumi.CustomResource {
     /**

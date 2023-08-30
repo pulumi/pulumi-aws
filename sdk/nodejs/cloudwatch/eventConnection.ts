@@ -49,11 +49,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import EventBridge EventBridge connection using the `name`. For example:
  *
- *  to = aws_cloudwatch_event_connection.test
- *
- *  id = "ngrok-connection" } Using `pulumi import`, import EventBridge EventBridge connection using the `name`. For exampleconsole % pulumi import aws_cloudwatch_event_connection.test ngrok-connection
+ * ```sh
+ *  $ pulumi import aws:cloudwatch/eventConnection:EventConnection test ngrok-connection
+ * ```
  */
 export class EventConnection extends pulumi.CustomResource {
     /**

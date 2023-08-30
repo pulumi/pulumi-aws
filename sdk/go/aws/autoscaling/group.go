@@ -495,11 +495,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Auto Scaling Groups using the `name`. For example:
 //
-//	to = aws_autoscaling_group.web
+// ```sh
 //
-//	id = "web-asg" } Using `pulumi import`, import Auto Scaling Groups using the `name`. For exampleconsole % pulumi import aws_autoscaling_group.web web-asg
+//	$ pulumi import aws:autoscaling/group:Group web web-asg
+//
+// ```
 type Group struct {
 	pulumi.CustomResourceState
 

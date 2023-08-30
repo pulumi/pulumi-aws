@@ -34,11 +34,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import OpsWorks stacks using the `id`. For example:
  *
- *  to = aws_opsworks_stack.bar
- *
- *  id = "00000000-0000-0000-0000-000000000000" } Using `pulumi import`, import OpsWorks stacks using the `id`. For exampleconsole % pulumi import aws_opsworks_stack.bar 00000000-0000-0000-0000-000000000000
+ * ```sh
+ *  $ pulumi import aws:opsworks/stack:Stack bar 00000000-0000-0000-0000-000000000000
+ * ```
  */
 export class Stack extends pulumi.CustomResource {
     /**

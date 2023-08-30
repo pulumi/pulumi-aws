@@ -1446,19 +1446,12 @@ class Cluster(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import EMR clusters using the `id`. For example:
 
-         to = aws_emr_cluster.cluster
-
-         id = "j-123456ABCDEF" } Using `pulumi import`, import EMR clusters using the `id`. For exampleconsole % pulumi import aws_emr_cluster.cluster j-123456ABCDEF Since the API does not return the actual values for Kerberos configurations, environments with those TODO configurations will need to use the `lifecycle` configuration block `ignore_changes` argument available to all TODO resources to prevent perpetual differences. For exampleterraform resource "aws_emr_cluster" "example" {
-
-        # ... other configuration ...
-
-         lifecycle {
-
-         ignore_changes = [kerberos_attributes]
-
-         } }
+        ```sh
+         $ pulumi import aws:emr/cluster:Cluster cluster j-123456ABCDEF
+        ```
+         Since the API does not return the actual values for Kerberos configurations, environments with those TODO configurations will need to use the `lifecycle` configuration block `ignore_changes` argument available to all TODO resources to prevent perpetual differences. For example:
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1784,19 +1777,12 @@ class Cluster(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import EMR clusters using the `id`. For example:
 
-         to = aws_emr_cluster.cluster
-
-         id = "j-123456ABCDEF" } Using `pulumi import`, import EMR clusters using the `id`. For exampleconsole % pulumi import aws_emr_cluster.cluster j-123456ABCDEF Since the API does not return the actual values for Kerberos configurations, environments with those TODO configurations will need to use the `lifecycle` configuration block `ignore_changes` argument available to all TODO resources to prevent perpetual differences. For exampleterraform resource "aws_emr_cluster" "example" {
-
-        # ... other configuration ...
-
-         lifecycle {
-
-         ignore_changes = [kerberos_attributes]
-
-         } }
+        ```sh
+         $ pulumi import aws:emr/cluster:Cluster cluster j-123456ABCDEF
+        ```
+         Since the API does not return the actual values for Kerberos configurations, environments with those TODO configurations will need to use the `lifecycle` configuration block `ignore_changes` argument available to all TODO resources to prevent perpetual differences. For example:
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.

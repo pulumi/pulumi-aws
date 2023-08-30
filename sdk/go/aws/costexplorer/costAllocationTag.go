@@ -43,11 +43,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import `aws_ce_cost_allocation_tag` using the `id`. For example:
 //
-//	to = aws_ce_cost_allocation_tag.example
+// ```sh
 //
-//	id = "key" } Using `pulumi import`, import `aws_ce_cost_allocation_tag` using the `id`. For exampleconsole % pulumi import aws_ce_cost_allocation_tag.example key
+//	$ pulumi import aws:costexplorer/costAllocationTag:CostAllocationTag example key
+//
+// ```
 type CostAllocationTag struct {
 	pulumi.CustomResourceState
 

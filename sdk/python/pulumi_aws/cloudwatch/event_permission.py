@@ -238,11 +238,11 @@ class EventPermission(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import EventBridge permissions using the `event_bus_name/statement_id` (if you omit `event_bus_name`, the `default` event bus will be used). For example:
 
-         to = aws_cloudwatch_event_permission.DevAccountAccess
-
-         id = "example-event-bus/DevAccountAccess" } Using `pulumi import`, import EventBridge permissions using the `event_bus_name/statement_id` (if you omit `event_bus_name`, the `default` event bus will be used). For exampleconsole % pulumi import aws_cloudwatch_event_permission.DevAccountAccess example-event-bus/DevAccountAccess
+        ```sh
+         $ pulumi import aws:cloudwatch/eventPermission:EventPermission DevAccountAccess example-event-bus/DevAccountAccess
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -295,11 +295,11 @@ class EventPermission(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import EventBridge permissions using the `event_bus_name/statement_id` (if you omit `event_bus_name`, the `default` event bus will be used). For example:
 
-         to = aws_cloudwatch_event_permission.DevAccountAccess
-
-         id = "example-event-bus/DevAccountAccess" } Using `pulumi import`, import EventBridge permissions using the `event_bus_name/statement_id` (if you omit `event_bus_name`, the `default` event bus will be used). For exampleconsole % pulumi import aws_cloudwatch_event_permission.DevAccountAccess example-event-bus/DevAccountAccess
+        ```sh
+         $ pulumi import aws:cloudwatch/eventPermission:EventPermission DevAccountAccess example-event-bus/DevAccountAccess
+        ```
 
         :param str resource_name: The name of the resource.
         :param EventPermissionArgs args: The arguments to use to populate this resource's properties.

@@ -47,11 +47,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import activities using the `arn`. For example:
  * 
- *  to = aws_sfn_activity.foo
- * 
- *  id = &#34;arn:aws:states:eu-west-1:123456789098:activity:bar&#34; } Using `pulumi import`, import activities using the `arn`. For exampleconsole % pulumi import aws_sfn_activity.foo arn:aws:states:eu-west-1:123456789098:activity:bar
+ * ```sh
+ *  $ pulumi import aws:sfn/activity:Activity foo arn:aws:states:eu-west-1:123456789098:activity:bar
+ * ```
  * 
  */
 @ResourceType(type="aws:sfn/activity:Activity")

@@ -210,11 +210,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import OpenSearchServerless Access Policy using the `name` and `type` arguments separated by a slash (`/`). For example:
 //
-//	to = aws_opensearchserverless_access_policy.example
+// ```sh
 //
-//	id = "example/data" } Using `pulumi import`, import OpenSearchServerless Access Policy using the `name` and `type` arguments separated by a slash (`/`). For exampleconsole % pulumi import aws_opensearchserverless_access_policy.example example/data
+//	$ pulumi import aws:opensearch/serverlessAccessPolicy:ServerlessAccessPolicy example example/data
+//
+// ```
 type ServerlessAccessPolicy struct {
 	pulumi.CustomResourceState
 

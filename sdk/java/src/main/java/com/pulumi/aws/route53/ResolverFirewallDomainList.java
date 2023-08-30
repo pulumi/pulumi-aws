@@ -48,13 +48,13 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import
  * 
- *  to = aws_route53_resolver_firewall_domain_list.example
+ * Route 53 Resolver DNS Firewall domain lists using the Route 53 Resolver DNS Firewall domain list ID. For example:
  * 
- *  id = &#34;rslvr-fdl-0123456789abcdef&#34; } Using `pulumi import`, import
- * 
- * Route 53 Resolver DNS Firewall domain lists using the Route 53 Resolver DNS Firewall domain list ID. For exampleconsole % pulumi import aws_route53_resolver_firewall_domain_list.example rslvr-fdl-0123456789abcdef
+ * ```sh
+ *  $ pulumi import aws:route53/resolverFirewallDomainList:ResolverFirewallDomainList example rslvr-fdl-0123456789abcdef
+ * ```
  * 
  */
 @ResourceType(type="aws:route53/resolverFirewallDomainList:ResolverFirewallDomainList")

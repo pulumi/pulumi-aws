@@ -75,11 +75,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import `aws_db_snapshot_copy` using the snapshot identifier. For example:
  * 
- *  to = aws_db_snapshot_copy.example
- * 
- *  id = &#34;my-snapshot&#34; } Using `pulumi import`, import `aws_db_snapshot_copy` using the snapshot identifier. For exampleconsole % pulumi import aws_db_snapshot_copy.example my-snapshot
+ * ```sh
+ *  $ pulumi import aws:rds/snapshotCopy:SnapshotCopy example my-snapshot
+ * ```
  * 
  */
 @ResourceType(type="aws:rds/snapshotCopy:SnapshotCopy")

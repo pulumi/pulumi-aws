@@ -135,11 +135,11 @@ namespace Pulumi.Aws.CodePipeline
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import CodePipeline Webhooks using their ARN. For example:
     /// 
-    ///  to = aws_codepipeline_webhook.example
-    /// 
-    ///  id = "arn:aws:codepipeline:us-west-2:123456789012:webhook:example" } Using `pulumi import`, import CodePipeline Webhooks using their ARN. For exampleconsole % pulumi import aws_codepipeline_webhook.example arn:aws:codepipeline:us-west-2:123456789012:webhook:example
+    /// ```sh
+    ///  $ pulumi import aws:codepipeline/webhook:Webhook example arn:aws:codepipeline:us-west-2:123456789012:webhook:example
+    /// ```
     /// </summary>
     [AwsResourceType("aws:codepipeline/webhook:Webhook")]
     public partial class Webhook : global::Pulumi.CustomResource

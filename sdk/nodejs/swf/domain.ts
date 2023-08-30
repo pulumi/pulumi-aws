@@ -23,11 +23,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import SWF Domains using the `name`. For example:
  *
- *  to = aws_swf_domain.foo
- *
- *  id = "test-domain" } Using `pulumi import`, import SWF Domains using the `name`. For exampleconsole % pulumi import aws_swf_domain.foo test-domain
+ * ```sh
+ *  $ pulumi import aws:swf/domain:Domain foo test-domain
+ * ```
  */
 export class Domain extends pulumi.CustomResource {
     /**

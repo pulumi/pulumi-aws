@@ -68,11 +68,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import GuardDuty Organization Configurations using the GuardDuty Detector ID. For example:
 //
-//	to = aws_guardduty_organization_configuration.example
+// ```sh
 //
-//	id = "00b00fd5aecc0ab60a708659477e9617" } Using `pulumi import`, import GuardDuty Organization Configurations using the GuardDuty Detector ID. For exampleconsole % pulumi import aws_guardduty_organization_configuration.example 00b00fd5aecc0ab60a708659477e9617
+//	$ pulumi import aws:guardduty/organizationConfiguration:OrganizationConfiguration example 00b00fd5aecc0ab60a708659477e9617
+//
+// ```
 type OrganizationConfiguration struct {
 	pulumi.CustomResourceState
 

@@ -280,11 +280,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import AutoScaling scaling policy using the role autoscaling_group_name and name separated by `/`. For example:
  * 
- *  to = aws_autoscaling_policy.test-policy
- * 
- *  id = &#34;asg-name/policy-name&#34; } Using `pulumi import`, import AutoScaling scaling policy using the role autoscaling_group_name and name separated by `/`. For exampleconsole % pulumi import aws_autoscaling_policy.test-policy asg-name/policy-name
+ * ```sh
+ *  $ pulumi import aws:autoscaling/policy:Policy test-policy asg-name/policy-name
+ * ```
  * 
  */
 @ResourceType(type="aws:autoscaling/policy:Policy")

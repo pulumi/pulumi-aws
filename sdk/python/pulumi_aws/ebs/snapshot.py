@@ -415,11 +415,11 @@ class Snapshot(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import EBS Snapshot using the `id`. For example:
 
-         to = aws_ebs_snapshot.id
-
-         id = "snap-049df61146c4d7901" } Using `pulumi import`, import EBS Snapshot using the `id`. For exampleconsole % pulumi import aws_ebs_snapshot.id snap-049df61146c4d7901
+        ```sh
+         $ pulumi import aws:ebs/snapshot:Snapshot id snap-049df61146c4d7901
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -461,11 +461,11 @@ class Snapshot(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import EBS Snapshot using the `id`. For example:
 
-         to = aws_ebs_snapshot.id
-
-         id = "snap-049df61146c4d7901" } Using `pulumi import`, import EBS Snapshot using the `id`. For exampleconsole % pulumi import aws_ebs_snapshot.id snap-049df61146c4d7901
+        ```sh
+         $ pulumi import aws:ebs/snapshot:Snapshot id snap-049df61146c4d7901
+        ```
 
         :param str resource_name: The name of the resource.
         :param SnapshotArgs args: The arguments to use to populate this resource's properties.

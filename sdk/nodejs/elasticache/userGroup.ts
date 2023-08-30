@@ -29,11 +29,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import ElastiCache user groups using the `user_group_id`. For example:
  *
- *  to = aws_elasticache_user_group.my_user_group
- *
- *  id = "userGoupId1" } Using `pulumi import`, import ElastiCache user groups using the `user_group_id`. For exampleconsole % pulumi import aws_elasticache_user_group.my_user_group userGoupId1
+ * ```sh
+ *  $ pulumi import aws:elasticache/userGroup:UserGroup my_user_group userGoupId1
+ * ```
  */
 export class UserGroup extends pulumi.CustomResource {
     /**

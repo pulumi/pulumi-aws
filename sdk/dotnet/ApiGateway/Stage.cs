@@ -130,11 +130,11 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import `aws_api_gateway_stage` using `REST-API-ID/STAGE-NAME`. For example:
     /// 
-    ///  to = aws_api_gateway_stage.example
-    /// 
-    ///  id = "12345abcde/example" } Using `pulumi import`, import `aws_api_gateway_stage` using `REST-API-ID/STAGE-NAME`. For exampleconsole % pulumi import aws_api_gateway_stage.example 12345abcde/example
+    /// ```sh
+    ///  $ pulumi import aws:apigateway/stage:Stage example 12345abcde/example
+    /// ```
     /// </summary>
     [AwsResourceType("aws:apigateway/stage:Stage")]
     public partial class Stage : global::Pulumi.CustomResource

@@ -163,11 +163,11 @@ class LicenseAssociation(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Grafana workspace license association using the workspace's `id`. For example:
 
-         to = aws_grafana_license_association.example
-
-         id = "g-2054c75a02" } Using `pulumi import`, import Grafana workspace license association using the workspace's `id`. For exampleconsole % pulumi import aws_grafana_license_association.example g-2054c75a02
+        ```sh
+         $ pulumi import aws:grafana/licenseAssociation:LicenseAssociation example g-2054c75a02
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -214,11 +214,11 @@ class LicenseAssociation(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Grafana workspace license association using the workspace's `id`. For example:
 
-         to = aws_grafana_license_association.example
-
-         id = "g-2054c75a02" } Using `pulumi import`, import Grafana workspace license association using the workspace's `id`. For exampleconsole % pulumi import aws_grafana_license_association.example g-2054c75a02
+        ```sh
+         $ pulumi import aws:grafana/licenseAssociation:LicenseAssociation example g-2054c75a02
+        ```
 
         :param str resource_name: The name of the resource.
         :param LicenseAssociationArgs args: The arguments to use to populate this resource's properties.

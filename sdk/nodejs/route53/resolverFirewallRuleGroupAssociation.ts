@@ -23,11 +23,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import Route 53 Resolver DNS Firewall rule group associations using the Route 53 Resolver DNS Firewall rule group association ID. For example:
  *
- *  to = aws_route53_resolver_firewall_rule_group_association.example
- *
- *  id = "rslvr-frgassoc-0123456789abcdef" } Using `pulumi import`, import Route 53 Resolver DNS Firewall rule group associations using the Route 53 Resolver DNS Firewall rule group association ID. For exampleconsole % pulumi import aws_route53_resolver_firewall_rule_group_association.example rslvr-frgassoc-0123456789abcdef
+ * ```sh
+ *  $ pulumi import aws:route53/resolverFirewallRuleGroupAssociation:ResolverFirewallRuleGroupAssociation example rslvr-frgassoc-0123456789abcdef
+ * ```
  */
 export class ResolverFirewallRuleGroupAssociation extends pulumi.CustomResource {
     /**

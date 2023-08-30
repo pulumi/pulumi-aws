@@ -84,11 +84,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Athena Named Query using the query ID. For example:
  * 
- *  to = aws_athena_named_query.example
- * 
- *  id = &#34;0123456789&#34; } Using `pulumi import`, import Athena Named Query using the query ID. For exampleconsole % pulumi import aws_athena_named_query.example 0123456789
+ * ```sh
+ *  $ pulumi import aws:athena/namedQuery:NamedQuery example 0123456789
+ * ```
  * 
  */
 @ResourceType(type="aws:athena/namedQuery:NamedQuery")

@@ -18,11 +18,11 @@ namespace Pulumi.Aws.DynamoDB
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import `aws_dynamodb_tag` using the DynamoDB resource identifier and key, separated by a comma (`,`). For example:
     /// 
-    ///  to = aws_dynamodb_tag.example
-    /// 
-    ///  id = "arn:aws:dynamodb:us-east-1:123456789012:table/example,Name" } Using `pulumi import`, import `aws_dynamodb_tag` using the DynamoDB resource identifier and key, separated by a comma (`,`). For exampleconsole % pulumi import aws_dynamodb_tag.example arn:aws:dynamodb:us-east-1:123456789012:table/example,Name
+    /// ```sh
+    ///  $ pulumi import aws:dynamodb/tag:Tag example arn:aws:dynamodb:us-east-1:123456789012:table/example,Name
+    /// ```
     /// </summary>
     [AwsResourceType("aws:dynamodb/tag:Tag")]
     public partial class Tag : global::Pulumi.CustomResource

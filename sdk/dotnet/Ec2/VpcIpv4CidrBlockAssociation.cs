@@ -41,11 +41,11 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import `aws_vpc_ipv4_cidr_block_association` using the VPC CIDR Association ID. For example:
     /// 
-    ///  to = aws_vpc_ipv4_cidr_block_association.example
-    /// 
-    ///  id = "vpc-cidr-assoc-xxxxxxxx" } Using `pulumi import`, import `aws_vpc_ipv4_cidr_block_association` using the VPC CIDR Association ID. For exampleconsole % pulumi import aws_vpc_ipv4_cidr_block_association.example vpc-cidr-assoc-xxxxxxxx
+    /// ```sh
+    ///  $ pulumi import aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation example vpc-cidr-assoc-xxxxxxxx
+    /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation")]
     public partial class VpcIpv4CidrBlockAssociation : global::Pulumi.CustomResource

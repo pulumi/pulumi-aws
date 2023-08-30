@@ -188,11 +188,11 @@ class FolderMembership(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import QuickSight Folder Membership using the AWS account ID, folder ID, member type, and member ID separated by commas (`,`). For example:
 
-         to = aws_quicksight_folder_membership.example
-
-         id = "123456789012,example-folder,DATASET,example-dataset" } Using `pulumi import`, import QuickSight Folder Membership using the AWS account ID, folder ID, member type, and member ID separated by commas (`,`). For exampleconsole % pulumi import aws_quicksight_folder_membership.example 123456789012,example-folder,DATASET,example-dataset
+        ```sh
+         $ pulumi import aws:quicksight/folderMembership:FolderMembership example 123456789012,example-folder,DATASET,example-dataset
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -227,11 +227,11 @@ class FolderMembership(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import QuickSight Folder Membership using the AWS account ID, folder ID, member type, and member ID separated by commas (`,`). For example:
 
-         to = aws_quicksight_folder_membership.example
-
-         id = "123456789012,example-folder,DATASET,example-dataset" } Using `pulumi import`, import QuickSight Folder Membership using the AWS account ID, folder ID, member type, and member ID separated by commas (`,`). For exampleconsole % pulumi import aws_quicksight_folder_membership.example 123456789012,example-folder,DATASET,example-dataset
+        ```sh
+         $ pulumi import aws:quicksight/folderMembership:FolderMembership example 123456789012,example-folder,DATASET,example-dataset
+        ```
 
         :param str resource_name: The name of the resource.
         :param FolderMembershipArgs args: The arguments to use to populate this resource's properties.

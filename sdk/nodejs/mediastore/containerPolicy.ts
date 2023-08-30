@@ -41,11 +41,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import MediaStore Container Policy using the MediaStore Container Name. For example:
  *
- *  to = aws_media_store_container_policy.example
- *
- *  id = "example" } Using `pulumi import`, import MediaStore Container Policy using the MediaStore Container Name. For exampleconsole % pulumi import aws_media_store_container_policy.example example
+ * ```sh
+ *  $ pulumi import aws:mediastore/containerPolicy:ContainerPolicy example example
+ * ```
  */
 export class ContainerPolicy extends pulumi.CustomResource {
     /**

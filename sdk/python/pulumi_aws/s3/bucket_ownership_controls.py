@@ -118,11 +118,11 @@ class BucketOwnershipControls(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import S3 Bucket Ownership Controls using S3 Bucket name. For example:
 
-         to = aws_s3_bucket_ownership_controls.example
-
-         id = "my-bucket" } Using `pulumi import`, import S3 Bucket Ownership Controls using S3 Bucket name. For exampleconsole % pulumi import aws_s3_bucket_ownership_controls.example my-bucket
+        ```sh
+         $ pulumi import aws:s3/bucketOwnershipControls:BucketOwnershipControls example my-bucket
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -154,11 +154,11 @@ class BucketOwnershipControls(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import S3 Bucket Ownership Controls using S3 Bucket name. For example:
 
-         to = aws_s3_bucket_ownership_controls.example
-
-         id = "my-bucket" } Using `pulumi import`, import S3 Bucket Ownership Controls using S3 Bucket name. For exampleconsole % pulumi import aws_s3_bucket_ownership_controls.example my-bucket
+        ```sh
+         $ pulumi import aws:s3/bucketOwnershipControls:BucketOwnershipControls example my-bucket
+        ```
 
         :param str resource_name: The name of the resource.
         :param BucketOwnershipControlsArgs args: The arguments to use to populate this resource's properties.

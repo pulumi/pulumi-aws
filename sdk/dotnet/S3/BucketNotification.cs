@@ -380,11 +380,11 @@ namespace Pulumi.Aws.S3
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import S3 bucket notification using the `bucket`. For example:
     /// 
-    ///  to = aws_s3_bucket_notification.bucket_notification
-    /// 
-    ///  id = "bucket-name" } Using `pulumi import`, import S3 bucket notification using the `bucket`. For exampleconsole % pulumi import aws_s3_bucket_notification.bucket_notification bucket-name
+    /// ```sh
+    ///  $ pulumi import aws:s3/bucketNotification:BucketNotification bucket_notification bucket-name
+    /// ```
     /// </summary>
     [AwsResourceType("aws:s3/bucketNotification:BucketNotification")]
     public partial class BucketNotification : global::Pulumi.CustomResource

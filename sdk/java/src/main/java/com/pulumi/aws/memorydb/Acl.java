@@ -55,11 +55,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import an ACL using the `name`. For example:
  * 
- *  to = aws_memorydb_acl.example
- * 
- *  id = &#34;my-acl&#34; } Using `pulumi import`, import an ACL using the `name`. For exampleconsole % pulumi import aws_memorydb_acl.example my-acl
+ * ```sh
+ *  $ pulumi import aws:memorydb/acl:Acl example my-acl
+ * ```
  * 
  */
 @ResourceType(type="aws:memorydb/acl:Acl")

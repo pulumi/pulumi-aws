@@ -64,11 +64,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import DB proxies using the `name`. For example:
 //
-//	to = aws_db_proxy.example
+// ```sh
 //
-//	id = "example" } Using `pulumi import`, import DB proxies using the `name`. For exampleconsole % pulumi import aws_db_proxy.example example
+//	$ pulumi import aws:rds/proxy:Proxy example example
+//
+// ```
 type Proxy struct {
 	pulumi.CustomResourceState
 

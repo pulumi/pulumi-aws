@@ -112,11 +112,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import CloudWatch Evidently Project using the `arn`. For example:
 //
-//	to = aws_evidently_project.example
+// ```sh
 //
-//	id = "arn:aws:evidently:us-east-1:123456789012:segment/example" } Using `pulumi import`, import CloudWatch Evidently Project using the `arn`. For exampleconsole % pulumi import aws_evidently_project.example arn:aws:evidently:us-east-1:123456789012:segment/example
+//	$ pulumi import aws:evidently/project:Project example arn:aws:evidently:us-east-1:123456789012:segment/example
+//
+// ```
 type Project struct {
 	pulumi.CustomResourceState
 

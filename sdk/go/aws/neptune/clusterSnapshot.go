@@ -43,11 +43,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import `aws_neptune_cluster_snapshot` using the cluster snapshot identifier. For example:
 //
-//	to = aws_neptune_cluster_snapshot.example
+// ```sh
 //
-//	id = "my-cluster-snapshot" } Using `pulumi import`, import `aws_neptune_cluster_snapshot` using the cluster snapshot identifier. For exampleconsole % pulumi import aws_neptune_cluster_snapshot.example my-cluster-snapshot
+//	$ pulumi import aws:neptune/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
+//
+// ```
 type ClusterSnapshot struct {
 	pulumi.CustomResourceState
 

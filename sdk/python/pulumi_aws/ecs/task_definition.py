@@ -912,11 +912,11 @@ class TaskDefinition(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import ECS Task Definitions using their ARNs. For example:
 
-         to = aws_ecs_task_definition.example
-
-         id = "arn:aws:ecs:us-east-1:012345678910:task-definition/mytaskfamily:123" } Using `pulumi import`, import ECS Task Definitions using their ARNs. For exampleconsole % pulumi import aws_ecs_task_definition.example arn:aws:ecs:us-east-1:012345678910:task-definition/mytaskfamily:123
+        ```sh
+         $ pulumi import aws:ecs/taskDefinition:TaskDefinition example arn:aws:ecs:us-east-1:012345678910:task-definition/mytaskfamily:123
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1160,11 +1160,11 @@ class TaskDefinition(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import ECS Task Definitions using their ARNs. For example:
 
-         to = aws_ecs_task_definition.example
-
-         id = "arn:aws:ecs:us-east-1:012345678910:task-definition/mytaskfamily:123" } Using `pulumi import`, import ECS Task Definitions using their ARNs. For exampleconsole % pulumi import aws_ecs_task_definition.example arn:aws:ecs:us-east-1:012345678910:task-definition/mytaskfamily:123
+        ```sh
+         $ pulumi import aws:ecs/taskDefinition:TaskDefinition example arn:aws:ecs:us-east-1:012345678910:task-definition/mytaskfamily:123
+        ```
 
         :param str resource_name: The name of the resource.
         :param TaskDefinitionArgs args: The arguments to use to populate this resource's properties.

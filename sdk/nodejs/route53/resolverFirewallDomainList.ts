@@ -18,13 +18,13 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import
  *
- *  to = aws_route53_resolver_firewall_domain_list.example
+ * Route 53 Resolver DNS Firewall domain lists using the Route 53 Resolver DNS Firewall domain list ID. For example:
  *
- *  id = "rslvr-fdl-0123456789abcdef" } Using `pulumi import`, import
- *
- * Route 53 Resolver DNS Firewall domain lists using the Route 53 Resolver DNS Firewall domain list ID. For exampleconsole % pulumi import aws_route53_resolver_firewall_domain_list.example rslvr-fdl-0123456789abcdef
+ * ```sh
+ *  $ pulumi import aws:route53/resolverFirewallDomainList:ResolverFirewallDomainList example rslvr-fdl-0123456789abcdef
+ * ```
  */
 export class ResolverFirewallDomainList extends pulumi.CustomResource {
     /**

@@ -24,11 +24,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import Pinpoint APNs VoIP Sandbox Channel using the `application-id`. For example:
  *
- *  to = aws_pinpoint_apns_voip_sandbox_channel.apns_voip_sandbox
- *
- *  id = "application-id" } Using `pulumi import`, import Pinpoint APNs VoIP Sandbox Channel using the `application-id`. For exampleconsole % pulumi import aws_pinpoint_apns_voip_sandbox_channel.apns_voip_sandbox application-id
+ * ```sh
+ *  $ pulumi import aws:pinpoint/apnsVoipSandboxChannel:ApnsVoipSandboxChannel apns_voip_sandbox application-id
+ * ```
  */
 export class ApnsVoipSandboxChannel extends pulumi.CustomResource {
     /**

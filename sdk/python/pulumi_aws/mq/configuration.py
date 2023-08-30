@@ -346,11 +346,11 @@ class Configuration(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import MQ Configurations using the configuration ID. For example:
 
-         to = aws_mq_configuration.example
-
-         id = "c-0187d1eb-88c8-475a-9b79-16ef5a10c94f" } Using `pulumi import`, import MQ Configurations using the configuration ID. For exampleconsole % pulumi import aws_mq_configuration.example c-0187d1eb-88c8-475a-9b79-16ef5a10c94f
+        ```sh
+         $ pulumi import aws:mq/configuration:Configuration example c-0187d1eb-88c8-475a-9b79-16ef5a10c94f
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -399,11 +399,11 @@ class Configuration(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import MQ Configurations using the configuration ID. For example:
 
-         to = aws_mq_configuration.example
-
-         id = "c-0187d1eb-88c8-475a-9b79-16ef5a10c94f" } Using `pulumi import`, import MQ Configurations using the configuration ID. For exampleconsole % pulumi import aws_mq_configuration.example c-0187d1eb-88c8-475a-9b79-16ef5a10c94f
+        ```sh
+         $ pulumi import aws:mq/configuration:Configuration example c-0187d1eb-88c8-475a-9b79-16ef5a10c94f
+        ```
 
         :param str resource_name: The name of the resource.
         :param ConfigurationArgs args: The arguments to use to populate this resource's properties.

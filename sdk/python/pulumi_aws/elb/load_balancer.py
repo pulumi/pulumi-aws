@@ -778,11 +778,11 @@ class LoadBalancer(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import ELBs using the `name`. For example:
 
-         to = aws_elb.bar
-
-         id = "elb-production-12345" } Using `pulumi import`, import ELBs using the `name`. For exampleconsole % pulumi import aws_elb.bar elb-production-12345
+        ```sh
+         $ pulumi import aws:elb/loadBalancer:LoadBalancer bar elb-production-12345
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -888,11 +888,11 @@ class LoadBalancer(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import ELBs using the `name`. For example:
 
-         to = aws_elb.bar
-
-         id = "elb-production-12345" } Using `pulumi import`, import ELBs using the `name`. For exampleconsole % pulumi import aws_elb.bar elb-production-12345
+        ```sh
+         $ pulumi import aws:elb/loadBalancer:LoadBalancer bar elb-production-12345
+        ```
 
         :param str resource_name: The name of the resource.
         :param LoadBalancerArgs args: The arguments to use to populate this resource's properties.

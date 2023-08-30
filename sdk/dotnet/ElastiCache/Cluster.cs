@@ -134,11 +134,11 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import ElastiCache Clusters using the `cluster_id`. For example:
     /// 
-    ///  to = aws_elasticache_cluster.my_cluster
-    /// 
-    ///  id = "my_cluster" } Using `pulumi import`, import ElastiCache Clusters using the `cluster_id`. For exampleconsole % pulumi import aws_elasticache_cluster.my_cluster my_cluster
+    /// ```sh
+    ///  $ pulumi import aws:elasticache/cluster:Cluster my_cluster my_cluster
+    /// ```
     /// </summary>
     [AwsResourceType("aws:elasticache/cluster:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource

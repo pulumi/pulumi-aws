@@ -44,11 +44,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import AppConfig Applications using their application ID. For example:
 //
-//	to = aws_appconfig_application.example
+// ```sh
 //
-//	id = "71rxuzt" } Using `pulumi import`, import AppConfig Applications using their application ID. For exampleconsole % pulumi import aws_appconfig_application.example 71rxuzt
+//	$ pulumi import aws:appconfig/application:Application example 71rxuzt
+//
+// ```
 type Application struct {
 	pulumi.CustomResourceState
 

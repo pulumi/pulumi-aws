@@ -627,11 +627,11 @@ class TopicSubscription(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import SNS Topic Subscriptions using the subscription `arn`. For example:
 
-         to = aws_sns_topic_subscription.user_updates_sqs_target
-
-         id = "arn:aws:sns:us-west-2:0123456789012:my-topic:8a21d249-4329-4871-acc6-7be709c6ea7f" } Using `pulumi import`, import SNS Topic Subscriptions using the subscription `arn`. For exampleconsole % pulumi import aws_sns_topic_subscription.user_updates_sqs_target arn:aws:sns:us-west-2:0123456789012:my-topic:8a21d249-4329-4871-acc6-7be709c6ea7f
+        ```sh
+         $ pulumi import aws:sns/topicSubscription:TopicSubscription user_updates_sqs_target arn:aws:sns:us-west-2:0123456789012:my-topic:8a21d249-4329-4871-acc6-7be709c6ea7f
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -817,11 +817,11 @@ class TopicSubscription(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import SNS Topic Subscriptions using the subscription `arn`. For example:
 
-         to = aws_sns_topic_subscription.user_updates_sqs_target
-
-         id = "arn:aws:sns:us-west-2:0123456789012:my-topic:8a21d249-4329-4871-acc6-7be709c6ea7f" } Using `pulumi import`, import SNS Topic Subscriptions using the subscription `arn`. For exampleconsole % pulumi import aws_sns_topic_subscription.user_updates_sqs_target arn:aws:sns:us-west-2:0123456789012:my-topic:8a21d249-4329-4871-acc6-7be709c6ea7f
+        ```sh
+         $ pulumi import aws:sns/topicSubscription:TopicSubscription user_updates_sqs_target arn:aws:sns:us-west-2:0123456789012:my-topic:8a21d249-4329-4871-acc6-7be709c6ea7f
+        ```
 
         :param str resource_name: The name of the resource.
         :param TopicSubscriptionArgs args: The arguments to use to populate this resource's properties.

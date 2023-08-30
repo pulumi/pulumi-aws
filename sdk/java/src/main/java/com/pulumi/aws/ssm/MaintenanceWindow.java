@@ -54,13 +54,13 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import SSM
  * 
- *  to = aws_ssm_maintenance_window.imported-window
+ * Maintenance Windows using the maintenance window `id`. For example:
  * 
- *  id = &#34;mw-0123456789&#34; } Using `pulumi import`, import SSM
- * 
- * Maintenance Windows using the maintenance window `id`. For exampleconsole % pulumi import aws_ssm_maintenance_window.imported-window mw-0123456789
+ * ```sh
+ *  $ pulumi import aws:ssm/maintenanceWindow:MaintenanceWindow imported-window mw-0123456789
+ * ```
  * 
  */
 @ResourceType(type="aws:ssm/maintenanceWindow:MaintenanceWindow")

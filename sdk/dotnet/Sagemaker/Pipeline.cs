@@ -52,11 +52,13 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Import
     /// 
-    /// You can use `pulumi import` to import pipelines using `pipeline_name`. For exampleterraform import {
+    /// You can use `pulumi import` to import pipelines using `pipeline_name`. For example:
     /// 
-    ///  to = aws_sagemaker_pipeline.test_pipeline
+    /// Using `pulumi import`, import pipelines using the `pipeline_name`. For example:
     /// 
-    ///  id = "pipeline" } Using `pulumi import`, import pipelines using the `pipeline_name`. For exampleconsole % pulumi import aws_sagemaker_pipeline.test_pipeline pipeline
+    /// ```sh
+    ///  $ pulumi import aws:sagemaker/pipeline:Pipeline test_pipeline pipeline
+    /// ```
     /// </summary>
     [AwsResourceType("aws:sagemaker/pipeline:Pipeline")]
     public partial class Pipeline : global::Pulumi.CustomResource

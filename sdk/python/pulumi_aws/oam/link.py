@@ -267,11 +267,11 @@ class Link(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import CloudWatch Observability Access Manager Link using the `arn`. For example:
 
-         to = aws_oam_link.example
-
-         id = "arn:aws:oam:us-west-2:123456789012:link/link-id" } Using `pulumi import`, import CloudWatch Observability Access Manager Link using the `arn`. For exampleconsole % pulumi import aws_oam_link.example arn:aws:oam:us-west-2:123456789012:link/link-id
+        ```sh
+         $ pulumi import aws:oam/link:Link example arn:aws:oam:us-west-2:123456789012:link/link-id
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -309,11 +309,11 @@ class Link(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import CloudWatch Observability Access Manager Link using the `arn`. For example:
 
-         to = aws_oam_link.example
-
-         id = "arn:aws:oam:us-west-2:123456789012:link/link-id" } Using `pulumi import`, import CloudWatch Observability Access Manager Link using the `arn`. For exampleconsole % pulumi import aws_oam_link.example arn:aws:oam:us-west-2:123456789012:link/link-id
+        ```sh
+         $ pulumi import aws:oam/link:Link example arn:aws:oam:us-west-2:123456789012:link/link-id
+        ```
 
         :param str resource_name: The name of the resource.
         :param LinkArgs args: The arguments to use to populate this resource's properties.

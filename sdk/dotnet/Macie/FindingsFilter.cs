@@ -56,11 +56,11 @@ namespace Pulumi.Aws.Macie
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import `aws_macie2_findings_filter` using the id. For example:
     /// 
-    ///  to = aws_macie2_findings_filter.example
-    /// 
-    ///  id = "abcd1" } Using `pulumi import`, import `aws_macie2_findings_filter` using the id. For exampleconsole % pulumi import aws_macie2_findings_filter.example abcd1
+    /// ```sh
+    ///  $ pulumi import aws:macie/findingsFilter:FindingsFilter example abcd1
+    /// ```
     /// </summary>
     [AwsResourceType("aws:macie/findingsFilter:FindingsFilter")]
     public partial class FindingsFilter : global::Pulumi.CustomResource

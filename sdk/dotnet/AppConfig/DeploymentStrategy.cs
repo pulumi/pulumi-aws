@@ -41,11 +41,11 @@ namespace Pulumi.Aws.AppConfig
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import AppConfig Deployment Strategies using their deployment strategy ID. For example:
     /// 
-    ///  to = aws_appconfig_deployment_strategy.example
-    /// 
-    ///  id = "11xxxxx" } Using `pulumi import`, import AppConfig Deployment Strategies using their deployment strategy ID. For exampleconsole % pulumi import aws_appconfig_deployment_strategy.example 11xxxxx
+    /// ```sh
+    ///  $ pulumi import aws:appconfig/deploymentStrategy:DeploymentStrategy example 11xxxxx
+    /// ```
     /// </summary>
     [AwsResourceType("aws:appconfig/deploymentStrategy:DeploymentStrategy")]
     public partial class DeploymentStrategy : global::Pulumi.CustomResource
