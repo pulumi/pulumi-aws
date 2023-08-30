@@ -961,7 +961,7 @@ type ChannelEncoderSettingsAudioDescription struct {
 	AudioWatermarkSettings *ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettings `pulumi:"audioWatermarkSettings"`
 	// Audio codec settings. See Audio Codec Settings for more details.
 	CodecSettings *ChannelEncoderSettingsAudioDescriptionCodecSettings `pulumi:"codecSettings"`
-	// When specified this field indicates the three letter language code of the caption track to extract from the source.
+	// Selects a specific three-letter language code from within an audio source.
 	LanguageCode        *string `pulumi:"languageCode"`
 	LanguageCodeControl *string `pulumi:"languageCodeControl"`
 	// The name of this audio description.
@@ -995,7 +995,7 @@ type ChannelEncoderSettingsAudioDescriptionArgs struct {
 	AudioWatermarkSettings ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsPtrInput `pulumi:"audioWatermarkSettings"`
 	// Audio codec settings. See Audio Codec Settings for more details.
 	CodecSettings ChannelEncoderSettingsAudioDescriptionCodecSettingsPtrInput `pulumi:"codecSettings"`
-	// When specified this field indicates the three letter language code of the caption track to extract from the source.
+	// Selects a specific three-letter language code from within an audio source.
 	LanguageCode        pulumi.StringPtrInput `pulumi:"languageCode"`
 	LanguageCodeControl pulumi.StringPtrInput `pulumi:"languageCodeControl"`
 	// The name of this audio description.
@@ -1092,7 +1092,7 @@ func (o ChannelEncoderSettingsAudioDescriptionOutput) CodecSettings() ChannelEnc
 	}).(ChannelEncoderSettingsAudioDescriptionCodecSettingsPtrOutput)
 }
 
-// When specified this field indicates the three letter language code of the caption track to extract from the source.
+// Selects a specific three-letter language code from within an audio source.
 func (o ChannelEncoderSettingsAudioDescriptionOutput) LanguageCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsAudioDescription) *string { return v.LanguageCode }).(pulumi.StringPtrOutput)
 }
@@ -4763,26 +4763,27 @@ type ChannelEncoderSettingsCaptionDescriptionDestinationSettings struct {
 	AribDestinationSettings *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettings `pulumi:"aribDestinationSettings"`
 	// Burn In Destination Settings. See Burn In Destination Settings for more details.
 	BurnInDestinationSettings *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings `pulumi:"burnInDestinationSettings"`
-	// Dvb Sub Destination Settings. See Dvb Sub Destination Settings for more details.
+	// DVB Sub Destination Settings. See DVB Sub Destination Settings for more details.
 	DvbSubDestinationSettings *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings `pulumi:"dvbSubDestinationSettings"`
-	// Ebu Tt D Destination Settings. See Ebu Tt D Destination Settings for more details.
+	// EBU TT D Destination Settings. See EBU TT D Destination Settings for more details.
 	EbuTtDDestinationSettings *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettings `pulumi:"ebuTtDDestinationSettings"`
 	// Embedded Destination Settings.
 	EmbeddedDestinationSettings *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettings `pulumi:"embeddedDestinationSettings"`
-	// Embedded Plus Scte20 Destination Settings.
+	// Embedded Plus SCTE20 Destination Settings.
 	EmbeddedPlusScte20DestinationSettings *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettings `pulumi:"embeddedPlusScte20DestinationSettings"`
-	// Rtmp Caption Info Destination Settings.
+	// RTMP Caption Info Destination Settings.
 	RtmpCaptionInfoDestinationSettings *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettings `pulumi:"rtmpCaptionInfoDestinationSettings"`
-	// Scte20 Plus Embedded Destination Settings.
+	// SCTE20 Plus Embedded Destination Settings.
 	Scte20PlusEmbeddedDestinationSettings *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettings `pulumi:"scte20PlusEmbeddedDestinationSettings"`
-	// Scte27 Destination Settings.
-	Scte27DestinationSettings  *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettings  `pulumi:"scte27DestinationSettings"`
+	// SCTE27 Destination Settings.
+	Scte27DestinationSettings *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettings `pulumi:"scte27DestinationSettings"`
+	// SMPTE TT Destination Settings.
 	SmpteTtDestinationSettings *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettings `pulumi:"smpteTtDestinationSettings"`
 	// Teletext Destination Settings.
 	TeletextDestinationSettings *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettings `pulumi:"teletextDestinationSettings"`
-	// Ttml Destination Settings. See Ttml Destination Settings for more details.
+	// TTML Destination Settings. See TTML Destination Settings for more details.
 	TtmlDestinationSettings *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettings `pulumi:"ttmlDestinationSettings"`
-	// Webvtt Destination Settings. See Webvtt Destination Settings for more details.
+	// WebVTT Destination Settings. See WebVTT Destination Settings for more details.
 	WebvttDestinationSettings *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettings `pulumi:"webvttDestinationSettings"`
 }
 
@@ -4802,26 +4803,27 @@ type ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs struct {
 	AribDestinationSettings ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsPtrInput `pulumi:"aribDestinationSettings"`
 	// Burn In Destination Settings. See Burn In Destination Settings for more details.
 	BurnInDestinationSettings ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrInput `pulumi:"burnInDestinationSettings"`
-	// Dvb Sub Destination Settings. See Dvb Sub Destination Settings for more details.
+	// DVB Sub Destination Settings. See DVB Sub Destination Settings for more details.
 	DvbSubDestinationSettings ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrInput `pulumi:"dvbSubDestinationSettings"`
-	// Ebu Tt D Destination Settings. See Ebu Tt D Destination Settings for more details.
+	// EBU TT D Destination Settings. See EBU TT D Destination Settings for more details.
 	EbuTtDDestinationSettings ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsPtrInput `pulumi:"ebuTtDDestinationSettings"`
 	// Embedded Destination Settings.
 	EmbeddedDestinationSettings ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsPtrInput `pulumi:"embeddedDestinationSettings"`
-	// Embedded Plus Scte20 Destination Settings.
+	// Embedded Plus SCTE20 Destination Settings.
 	EmbeddedPlusScte20DestinationSettings ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsPtrInput `pulumi:"embeddedPlusScte20DestinationSettings"`
-	// Rtmp Caption Info Destination Settings.
+	// RTMP Caption Info Destination Settings.
 	RtmpCaptionInfoDestinationSettings ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsPtrInput `pulumi:"rtmpCaptionInfoDestinationSettings"`
-	// Scte20 Plus Embedded Destination Settings.
+	// SCTE20 Plus Embedded Destination Settings.
 	Scte20PlusEmbeddedDestinationSettings ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsPtrInput `pulumi:"scte20PlusEmbeddedDestinationSettings"`
-	// Scte27 Destination Settings.
-	Scte27DestinationSettings  ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsPtrInput  `pulumi:"scte27DestinationSettings"`
+	// SCTE27 Destination Settings.
+	Scte27DestinationSettings ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsPtrInput `pulumi:"scte27DestinationSettings"`
+	// SMPTE TT Destination Settings.
 	SmpteTtDestinationSettings ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsPtrInput `pulumi:"smpteTtDestinationSettings"`
 	// Teletext Destination Settings.
 	TeletextDestinationSettings ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsPtrInput `pulumi:"teletextDestinationSettings"`
-	// Ttml Destination Settings. See Ttml Destination Settings for more details.
+	// TTML Destination Settings. See TTML Destination Settings for more details.
 	TtmlDestinationSettings ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsPtrInput `pulumi:"ttmlDestinationSettings"`
-	// Webvtt Destination Settings. See Webvtt Destination Settings for more details.
+	// WebVTT Destination Settings. See WebVTT Destination Settings for more details.
 	WebvttDestinationSettings ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsPtrInput `pulumi:"webvttDestinationSettings"`
 }
 
@@ -4916,14 +4918,14 @@ func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsOutput) BurnI
 	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrOutput)
 }
 
-// Dvb Sub Destination Settings. See Dvb Sub Destination Settings for more details.
+// DVB Sub Destination Settings. See DVB Sub Destination Settings for more details.
 func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsOutput) DvbSubDestinationSettings() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings {
 		return v.DvbSubDestinationSettings
 	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrOutput)
 }
 
-// Ebu Tt D Destination Settings. See Ebu Tt D Destination Settings for more details.
+// EBU TT D Destination Settings. See EBU TT D Destination Settings for more details.
 func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsOutput) EbuTtDDestinationSettings() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettings {
 		return v.EbuTtDDestinationSettings
@@ -4937,34 +4939,35 @@ func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsOutput) Embed
 	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsPtrOutput)
 }
 
-// Embedded Plus Scte20 Destination Settings.
+// Embedded Plus SCTE20 Destination Settings.
 func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsOutput) EmbeddedPlusScte20DestinationSettings() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettings {
 		return v.EmbeddedPlusScte20DestinationSettings
 	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsPtrOutput)
 }
 
-// Rtmp Caption Info Destination Settings.
+// RTMP Caption Info Destination Settings.
 func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsOutput) RtmpCaptionInfoDestinationSettings() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettings {
 		return v.RtmpCaptionInfoDestinationSettings
 	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsPtrOutput)
 }
 
-// Scte20 Plus Embedded Destination Settings.
+// SCTE20 Plus Embedded Destination Settings.
 func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsOutput) Scte20PlusEmbeddedDestinationSettings() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettings {
 		return v.Scte20PlusEmbeddedDestinationSettings
 	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsPtrOutput)
 }
 
-// Scte27 Destination Settings.
+// SCTE27 Destination Settings.
 func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsOutput) Scte27DestinationSettings() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettings {
 		return v.Scte27DestinationSettings
 	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsPtrOutput)
 }
 
+// SMPTE TT Destination Settings.
 func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsOutput) SmpteTtDestinationSettings() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettings {
 		return v.SmpteTtDestinationSettings
@@ -4978,14 +4981,14 @@ func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsOutput) Telet
 	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsPtrOutput)
 }
 
-// Ttml Destination Settings. See Ttml Destination Settings for more details.
+// TTML Destination Settings. See TTML Destination Settings for more details.
 func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsOutput) TtmlDestinationSettings() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettings {
 		return v.TtmlDestinationSettings
 	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsPtrOutput)
 }
 
-// Webvtt Destination Settings. See Webvtt Destination Settings for more details.
+// WebVTT Destination Settings. See WebVTT Destination Settings for more details.
 func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsOutput) WebvttDestinationSettings() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsCaptionDescriptionDestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettings {
 		return v.WebvttDestinationSettings
@@ -5036,7 +5039,7 @@ func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutput) Bu
 	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsPtrOutput)
 }
 
-// Dvb Sub Destination Settings. See Dvb Sub Destination Settings for more details.
+// DVB Sub Destination Settings. See DVB Sub Destination Settings for more details.
 func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutput) DvbSubDestinationSettings() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings {
 		if v == nil {
@@ -5046,7 +5049,7 @@ func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutput) Dv
 	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsPtrOutput)
 }
 
-// Ebu Tt D Destination Settings. See Ebu Tt D Destination Settings for more details.
+// EBU TT D Destination Settings. See EBU TT D Destination Settings for more details.
 func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutput) EbuTtDDestinationSettings() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettings {
 		if v == nil {
@@ -5066,7 +5069,7 @@ func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutput) Em
 	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsPtrOutput)
 }
 
-// Embedded Plus Scte20 Destination Settings.
+// Embedded Plus SCTE20 Destination Settings.
 func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutput) EmbeddedPlusScte20DestinationSettings() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettings {
 		if v == nil {
@@ -5076,7 +5079,7 @@ func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutput) Em
 	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsPtrOutput)
 }
 
-// Rtmp Caption Info Destination Settings.
+// RTMP Caption Info Destination Settings.
 func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutput) RtmpCaptionInfoDestinationSettings() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettings {
 		if v == nil {
@@ -5086,7 +5089,7 @@ func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutput) Rt
 	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsPtrOutput)
 }
 
-// Scte20 Plus Embedded Destination Settings.
+// SCTE20 Plus Embedded Destination Settings.
 func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutput) Scte20PlusEmbeddedDestinationSettings() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettings {
 		if v == nil {
@@ -5096,7 +5099,7 @@ func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutput) Sc
 	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsPtrOutput)
 }
 
-// Scte27 Destination Settings.
+// SCTE27 Destination Settings.
 func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutput) Scte27DestinationSettings() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettings {
 		if v == nil {
@@ -5106,6 +5109,7 @@ func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutput) Sc
 	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsPtrOutput)
 }
 
+// SMPTE TT Destination Settings.
 func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutput) SmpteTtDestinationSettings() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettings {
 		if v == nil {
@@ -5125,7 +5129,7 @@ func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutput) Te
 	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsPtrOutput)
 }
 
-// Ttml Destination Settings. See Ttml Destination Settings for more details.
+// TTML Destination Settings. See TTML Destination Settings for more details.
 func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutput) TtmlDestinationSettings() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettings {
 		if v == nil {
@@ -5135,7 +5139,7 @@ func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutput) Tt
 	}).(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsPtrOutput)
 }
 
-// Webvtt Destination Settings. See Webvtt Destination Settings for more details.
+// WebVTT Destination Settings. See WebVTT Destination Settings for more details.
 func (o ChannelEncoderSettingsCaptionDescriptionDestinationSettingsPtrOutput) WebvttDestinationSettings() ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsPtrOutput {
 	return o.ApplyT(func(v *ChannelEncoderSettingsCaptionDescriptionDestinationSettings) *ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettings {
 		if v == nil {
@@ -11306,7 +11310,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsPtrO
 
 type ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMapping struct {
 	CaptionChannel int `pulumi:"captionChannel"`
-	// When specified this field indicates the three letter language code of the caption track to extract from the source.
+	// Selects a specific three-letter language code from within an audio source.
 	LanguageCode string `pulumi:"languageCode"`
 	// Human readable information to indicate captions available for players (eg. English, or Spanish).
 	LanguageDescription string `pulumi:"languageDescription"`
@@ -11325,7 +11329,7 @@ type ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaption
 
 type ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMappingArgs struct {
 	CaptionChannel pulumi.IntInput `pulumi:"captionChannel"`
-	// When specified this field indicates the three letter language code of the caption track to extract from the source.
+	// Selects a specific three-letter language code from within an audio source.
 	LanguageCode pulumi.StringInput `pulumi:"languageCode"`
 	// Human readable information to indicate captions available for players (eg. English, or Spanish).
 	LanguageDescription pulumi.StringInput `pulumi:"languageDescription"`
@@ -11388,7 +11392,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCapt
 	}).(pulumi.IntOutput)
 }
 
-// When specified this field indicates the three letter language code of the caption track to extract from the source.
+// Selects a specific three-letter language code from within an audio source.
 func (o ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMappingOutput) LanguageCode() pulumi.StringOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMapping) string {
 		return v.LanguageCode
@@ -26482,7 +26486,8 @@ type ChannelInputAttachmentInputSettingsAudioSelector struct {
 	// Name of the Channel.
 	//
 	// The following arguments are optional:
-	Name             string                                                            `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// The audio selector settings. See Audio Selector Settings for more details.
 	SelectorSettings *ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings `pulumi:"selectorSettings"`
 }
 
@@ -26501,7 +26506,8 @@ type ChannelInputAttachmentInputSettingsAudioSelectorArgs struct {
 	// Name of the Channel.
 	//
 	// The following arguments are optional:
-	Name             pulumi.StringInput                                                       `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// The audio selector settings. See Audio Selector Settings for more details.
 	SelectorSettings ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsPtrInput `pulumi:"selectorSettings"`
 }
 
@@ -26563,6 +26569,7 @@ func (o ChannelInputAttachmentInputSettingsAudioSelectorOutput) Name() pulumi.St
 	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsAudioSelector) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The audio selector settings. See Audio Selector Settings for more details.
 func (o ChannelInputAttachmentInputSettingsAudioSelectorOutput) SelectorSettings() ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsPtrOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsAudioSelector) *ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings {
 		return v.SelectorSettings
@@ -26590,10 +26597,14 @@ func (o ChannelInputAttachmentInputSettingsAudioSelectorArrayOutput) Index(i pul
 }
 
 type ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings struct {
+	// Audio HLS Rendition Selection. See Audio HLS Rendition Selection for more details.
 	AudioHlsRenditionSelection *ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelection `pulumi:"audioHlsRenditionSelection"`
-	AudioLanguageSelection     *ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelection     `pulumi:"audioLanguageSelection"`
-	AudioPidSelection          *ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelection          `pulumi:"audioPidSelection"`
-	AudioTrackSelection        *ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelection        `pulumi:"audioTrackSelection"`
+	// Audio Language Selection. See Audio Language Selection for more details.
+	AudioLanguageSelection *ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelection `pulumi:"audioLanguageSelection"`
+	// Audio Pid Selection. See Audio PID Selection for more details.
+	AudioPidSelection *ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelection `pulumi:"audioPidSelection"`
+	// Audio Track Selection. See Audio Track Selection for more details.
+	AudioTrackSelection *ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelection `pulumi:"audioTrackSelection"`
 }
 
 // ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsInput is an input type that accepts ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgs and ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsOutput values.
@@ -26608,10 +26619,14 @@ type ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsInput inter
 }
 
 type ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgs struct {
+	// Audio HLS Rendition Selection. See Audio HLS Rendition Selection for more details.
 	AudioHlsRenditionSelection ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelectionPtrInput `pulumi:"audioHlsRenditionSelection"`
-	AudioLanguageSelection     ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelectionPtrInput     `pulumi:"audioLanguageSelection"`
-	AudioPidSelection          ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelectionPtrInput          `pulumi:"audioPidSelection"`
-	AudioTrackSelection        ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionPtrInput        `pulumi:"audioTrackSelection"`
+	// Audio Language Selection. See Audio Language Selection for more details.
+	AudioLanguageSelection ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelectionPtrInput `pulumi:"audioLanguageSelection"`
+	// Audio Pid Selection. See Audio PID Selection for more details.
+	AudioPidSelection ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelectionPtrInput `pulumi:"audioPidSelection"`
+	// Audio Track Selection. See Audio Track Selection for more details.
+	AudioTrackSelection ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionPtrInput `pulumi:"audioTrackSelection"`
 }
 
 func (ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgs) ElementType() reflect.Type {
@@ -26691,24 +26706,28 @@ func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsOutput) 
 	}).(ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsPtrOutput)
 }
 
+// Audio HLS Rendition Selection. See Audio HLS Rendition Selection for more details.
 func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsOutput) AudioHlsRenditionSelection() ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelectionPtrOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings) *ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelection {
 		return v.AudioHlsRenditionSelection
 	}).(ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelectionPtrOutput)
 }
 
+// Audio Language Selection. See Audio Language Selection for more details.
 func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsOutput) AudioLanguageSelection() ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelectionPtrOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings) *ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelection {
 		return v.AudioLanguageSelection
 	}).(ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelectionPtrOutput)
 }
 
+// Audio Pid Selection. See Audio PID Selection for more details.
 func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsOutput) AudioPidSelection() ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelectionPtrOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings) *ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelection {
 		return v.AudioPidSelection
 	}).(ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelectionPtrOutput)
 }
 
+// Audio Track Selection. See Audio Track Selection for more details.
 func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsOutput) AudioTrackSelection() ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionPtrOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings) *ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelection {
 		return v.AudioTrackSelection
@@ -26739,6 +26758,7 @@ func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsPtrOutpu
 	}).(ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsOutput)
 }
 
+// Audio HLS Rendition Selection. See Audio HLS Rendition Selection for more details.
 func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsPtrOutput) AudioHlsRenditionSelection() ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelectionPtrOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings) *ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelection {
 		if v == nil {
@@ -26748,6 +26768,7 @@ func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsPtrOutpu
 	}).(ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelectionPtrOutput)
 }
 
+// Audio Language Selection. See Audio Language Selection for more details.
 func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsPtrOutput) AudioLanguageSelection() ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelectionPtrOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings) *ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelection {
 		if v == nil {
@@ -26757,6 +26778,7 @@ func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsPtrOutpu
 	}).(ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelectionPtrOutput)
 }
 
+// Audio Pid Selection. See Audio PID Selection for more details.
 func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsPtrOutput) AudioPidSelection() ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelectionPtrOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings) *ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelection {
 		if v == nil {
@@ -26766,6 +26788,7 @@ func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsPtrOutpu
 	}).(ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelectionPtrOutput)
 }
 
+// Audio Track Selection. See Audio Track Selection for more details.
 func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsPtrOutput) AudioTrackSelection() ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionPtrOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings) *ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelection {
 		if v == nil {
@@ -26776,10 +26799,9 @@ func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsPtrOutpu
 }
 
 type ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelection struct {
+	// Specifies the GROUP-ID in the #EXT-X-MEDIA tag of the target HLS audio rendition.
 	GroupId string `pulumi:"groupId"`
-	// Name of the Channel.
-	//
-	// The following arguments are optional:
+	// Specifies the NAME in the #EXT-X-MEDIA tag of the target HLS audio rendition.
 	Name string `pulumi:"name"`
 }
 
@@ -26795,10 +26817,9 @@ type ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRen
 }
 
 type ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelectionArgs struct {
+	// Specifies the GROUP-ID in the #EXT-X-MEDIA tag of the target HLS audio rendition.
 	GroupId pulumi.StringInput `pulumi:"groupId"`
-	// Name of the Channel.
-	//
-	// The following arguments are optional:
+	// Specifies the NAME in the #EXT-X-MEDIA tag of the target HLS audio rendition.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -26879,15 +26900,14 @@ func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHls
 	}).(ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelectionPtrOutput)
 }
 
+// Specifies the GROUP-ID in the #EXT-X-MEDIA tag of the target HLS audio rendition.
 func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelectionOutput) GroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelection) string {
 		return v.GroupId
 	}).(pulumi.StringOutput)
 }
 
-// Name of the Channel.
-//
-// The following arguments are optional:
+// Specifies the NAME in the #EXT-X-MEDIA tag of the target HLS audio rendition.
 func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelectionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelection) string {
 		return v.Name
@@ -26918,6 +26938,7 @@ func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHls
 	}).(ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelectionOutput)
 }
 
+// Specifies the GROUP-ID in the #EXT-X-MEDIA tag of the target HLS audio rendition.
 func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelectionPtrOutput) GroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelection) *string {
 		if v == nil {
@@ -26927,9 +26948,7 @@ func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHls
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the Channel.
-//
-// The following arguments are optional:
+// Specifies the NAME in the #EXT-X-MEDIA tag of the target HLS audio rendition.
 func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelectionPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelection) *string {
 		if v == nil {
@@ -26940,8 +26959,9 @@ func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHls
 }
 
 type ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelection struct {
-	// When specified this field indicates the three letter language code of the caption track to extract from the source.
-	LanguageCode            string  `pulumi:"languageCode"`
+	// Selects a specific three-letter language code from within an audio source.
+	LanguageCode string `pulumi:"languageCode"`
+	// When set to “strict”, the transport stream demux strictly identifies audio streams by their language descriptor. If a PMT update occurs such that an audio stream matching the initially selected language is no longer present then mute will be encoded until the language returns. If “loose”, then on a PMT update the demux will choose another audio stream in the program with the same stream type if it can’t find one with the same language.
 	LanguageSelectionPolicy *string `pulumi:"languageSelectionPolicy"`
 }
 
@@ -26957,8 +26977,9 @@ type ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLangua
 }
 
 type ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelectionArgs struct {
-	// When specified this field indicates the three letter language code of the caption track to extract from the source.
-	LanguageCode            pulumi.StringInput    `pulumi:"languageCode"`
+	// Selects a specific three-letter language code from within an audio source.
+	LanguageCode pulumi.StringInput `pulumi:"languageCode"`
+	// When set to “strict”, the transport stream demux strictly identifies audio streams by their language descriptor. If a PMT update occurs such that an audio stream matching the initially selected language is no longer present then mute will be encoded until the language returns. If “loose”, then on a PMT update the demux will choose another audio stream in the program with the same stream type if it can’t find one with the same language.
 	LanguageSelectionPolicy pulumi.StringPtrInput `pulumi:"languageSelectionPolicy"`
 }
 
@@ -27039,13 +27060,14 @@ func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLan
 	}).(ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelectionPtrOutput)
 }
 
-// When specified this field indicates the three letter language code of the caption track to extract from the source.
+// Selects a specific three-letter language code from within an audio source.
 func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelectionOutput) LanguageCode() pulumi.StringOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelection) string {
 		return v.LanguageCode
 	}).(pulumi.StringOutput)
 }
 
+// When set to “strict”, the transport stream demux strictly identifies audio streams by their language descriptor. If a PMT update occurs such that an audio stream matching the initially selected language is no longer present then mute will be encoded until the language returns. If “loose”, then on a PMT update the demux will choose another audio stream in the program with the same stream type if it can’t find one with the same language.
 func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelectionOutput) LanguageSelectionPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelection) *string {
 		return v.LanguageSelectionPolicy
@@ -27076,7 +27098,7 @@ func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLan
 	}).(ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelectionOutput)
 }
 
-// When specified this field indicates the three letter language code of the caption track to extract from the source.
+// Selects a specific three-letter language code from within an audio source.
 func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelectionPtrOutput) LanguageCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelection) *string {
 		if v == nil {
@@ -27086,6 +27108,7 @@ func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLan
 	}).(pulumi.StringPtrOutput)
 }
 
+// When set to “strict”, the transport stream demux strictly identifies audio streams by their language descriptor. If a PMT update occurs such that an audio stream matching the initially selected language is no longer present then mute will be encoded until the language returns. If “loose”, then on a PMT update the demux will choose another audio stream in the program with the same stream type if it can’t find one with the same language.
 func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelectionPtrOutput) LanguageSelectionPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelection) *string {
 		if v == nil {
@@ -27096,6 +27119,7 @@ func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLan
 }
 
 type ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelection struct {
+	// Selects a specific PID from within a source.
 	Pid int `pulumi:"pid"`
 }
 
@@ -27111,6 +27135,7 @@ type ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSel
 }
 
 type ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelectionArgs struct {
+	// Selects a specific PID from within a source.
 	Pid pulumi.IntInput `pulumi:"pid"`
 }
 
@@ -27191,6 +27216,7 @@ func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPid
 	}).(ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelectionPtrOutput)
 }
 
+// Selects a specific PID from within a source.
 func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelectionOutput) Pid() pulumi.IntOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelection) int {
 		return v.Pid
@@ -27221,6 +27247,7 @@ func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPid
 	}).(ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelectionOutput)
 }
 
+// Selects a specific PID from within a source.
 func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelectionPtrOutput) Pid() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelection) *int {
 		if v == nil {
@@ -27231,6 +27258,9 @@ func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPid
 }
 
 type ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelection struct {
+	// Configure decoding options for Dolby E streams - these should be Dolby E frames carried in PCM streams tagged with SMPTE-337. See Dolby E Decode for more details.
+	DolbyEDecode *ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecode `pulumi:"dolbyEDecode"`
+	// Selects one or more unique audio tracks from within a source. See Audio Tracks for more details.
 	Tracks []ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrack `pulumi:"tracks"`
 }
 
@@ -27246,6 +27276,9 @@ type ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackS
 }
 
 type ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionArgs struct {
+	// Configure decoding options for Dolby E streams - these should be Dolby E frames carried in PCM streams tagged with SMPTE-337. See Dolby E Decode for more details.
+	DolbyEDecode ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodePtrInput `pulumi:"dolbyEDecode"`
+	// Selects one or more unique audio tracks from within a source. See Audio Tracks for more details.
 	Tracks ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrackArrayInput `pulumi:"tracks"`
 }
 
@@ -27326,6 +27359,14 @@ func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTra
 	}).(ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionPtrOutput)
 }
 
+// Configure decoding options for Dolby E streams - these should be Dolby E frames carried in PCM streams tagged with SMPTE-337. See Dolby E Decode for more details.
+func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionOutput) DolbyEDecode() ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodePtrOutput {
+	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelection) *ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecode {
+		return v.DolbyEDecode
+	}).(ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodePtrOutput)
+}
+
+// Selects one or more unique audio tracks from within a source. See Audio Tracks for more details.
 func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionOutput) Tracks() ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrackArrayOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelection) []ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrack {
 		return v.Tracks
@@ -27356,6 +27397,17 @@ func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTra
 	}).(ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionOutput)
 }
 
+// Configure decoding options for Dolby E streams - these should be Dolby E frames carried in PCM streams tagged with SMPTE-337. See Dolby E Decode for more details.
+func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionPtrOutput) DolbyEDecode() ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodePtrOutput {
+	return o.ApplyT(func(v *ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelection) *ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecode {
+		if v == nil {
+			return nil
+		}
+		return v.DolbyEDecode
+	}).(ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodePtrOutput)
+}
+
+// Selects one or more unique audio tracks from within a source. See Audio Tracks for more details.
 func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionPtrOutput) Tracks() ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrackArrayOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelection) []ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrack {
 		if v == nil {
@@ -27365,7 +27417,147 @@ func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTra
 	}).(ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrackArrayOutput)
 }
 
+type ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecode struct {
+	// Applies only to Dolby E. Enter the program ID (according to the metadata in the audio) of the Dolby E program to extract from the specified track. One program extracted per audio selector. To select multiple programs, create multiple selectors with the same Track and different Program numbers. “All channels” means to ignore the program IDs and include all the channels in this selector; useful if metadata is known to be incorrect.
+	ProgramSelection string `pulumi:"programSelection"`
+}
+
+// ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeInput is an input type that accepts ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeArgs and ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeOutput values.
+// You can construct a concrete instance of `ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeInput` via:
+//
+//	ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeArgs{...}
+type ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeInput interface {
+	pulumi.Input
+
+	ToChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeOutput() ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeOutput
+	ToChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeOutputWithContext(context.Context) ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeOutput
+}
+
+type ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeArgs struct {
+	// Applies only to Dolby E. Enter the program ID (according to the metadata in the audio) of the Dolby E program to extract from the specified track. One program extracted per audio selector. To select multiple programs, create multiple selectors with the same Track and different Program numbers. “All channels” means to ignore the program IDs and include all the channels in this selector; useful if metadata is known to be incorrect.
+	ProgramSelection pulumi.StringInput `pulumi:"programSelection"`
+}
+
+func (ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecode)(nil)).Elem()
+}
+
+func (i ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeArgs) ToChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeOutput() ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeOutput {
+	return i.ToChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeOutputWithContext(context.Background())
+}
+
+func (i ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeArgs) ToChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeOutputWithContext(ctx context.Context) ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeOutput)
+}
+
+func (i ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeArgs) ToChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodePtrOutput() ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodePtrOutput {
+	return i.ToChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodePtrOutputWithContext(context.Background())
+}
+
+func (i ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeArgs) ToChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodePtrOutputWithContext(ctx context.Context) ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeOutput).ToChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodePtrOutputWithContext(ctx)
+}
+
+// ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodePtrInput is an input type that accepts ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeArgs, ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodePtr and ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodePtrOutput values.
+// You can construct a concrete instance of `ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodePtrInput` via:
+//
+//	        ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodePtrInput interface {
+	pulumi.Input
+
+	ToChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodePtrOutput() ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodePtrOutput
+	ToChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodePtrOutputWithContext(context.Context) ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodePtrOutput
+}
+
+type channelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodePtrType ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeArgs
+
+func ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodePtr(v *ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeArgs) ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodePtrInput {
+	return (*channelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodePtrType)(v)
+}
+
+func (*channelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecode)(nil)).Elem()
+}
+
+func (i *channelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodePtrType) ToChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodePtrOutput() ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodePtrOutput {
+	return i.ToChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodePtrOutputWithContext(context.Background())
+}
+
+func (i *channelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodePtrType) ToChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodePtrOutputWithContext(ctx context.Context) ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodePtrOutput)
+}
+
+type ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeOutput struct{ *pulumi.OutputState }
+
+func (ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecode)(nil)).Elem()
+}
+
+func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeOutput) ToChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeOutput() ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeOutput {
+	return o
+}
+
+func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeOutput) ToChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeOutputWithContext(ctx context.Context) ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeOutput {
+	return o
+}
+
+func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeOutput) ToChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodePtrOutput() ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodePtrOutput {
+	return o.ToChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodePtrOutputWithContext(context.Background())
+}
+
+func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeOutput) ToChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodePtrOutputWithContext(ctx context.Context) ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecode) *ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecode {
+		return &v
+	}).(ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodePtrOutput)
+}
+
+// Applies only to Dolby E. Enter the program ID (according to the metadata in the audio) of the Dolby E program to extract from the specified track. One program extracted per audio selector. To select multiple programs, create multiple selectors with the same Track and different Program numbers. “All channels” means to ignore the program IDs and include all the channels in this selector; useful if metadata is known to be incorrect.
+func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeOutput) ProgramSelection() pulumi.StringOutput {
+	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecode) string {
+		return v.ProgramSelection
+	}).(pulumi.StringOutput)
+}
+
+type ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodePtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecode)(nil)).Elem()
+}
+
+func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodePtrOutput) ToChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodePtrOutput() ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodePtrOutput {
+	return o
+}
+
+func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodePtrOutput) ToChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodePtrOutputWithContext(ctx context.Context) ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodePtrOutput {
+	return o
+}
+
+func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodePtrOutput) Elem() ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeOutput {
+	return o.ApplyT(func(v *ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecode) ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecode {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecode
+		return ret
+	}).(ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeOutput)
+}
+
+// Applies only to Dolby E. Enter the program ID (according to the metadata in the audio) of the Dolby E program to extract from the specified track. One program extracted per audio selector. To select multiple programs, create multiple selectors with the same Track and different Program numbers. “All channels” means to ignore the program IDs and include all the channels in this selector; useful if metadata is known to be incorrect.
+func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodePtrOutput) ProgramSelection() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecode) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ProgramSelection
+	}).(pulumi.StringPtrOutput)
+}
+
 type ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrack struct {
+	// 1-based integer value that maps to a specific audio track.
 	Track int `pulumi:"track"`
 }
 
@@ -27381,6 +27573,7 @@ type ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackS
 }
 
 type ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrackArgs struct {
+	// 1-based integer value that maps to a specific audio track.
 	Track pulumi.IntInput `pulumi:"track"`
 }
 
@@ -27435,6 +27628,7 @@ func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTra
 	return o
 }
 
+// 1-based integer value that maps to a specific audio track.
 func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrackOutput) Track() pulumi.IntOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrack) int {
 		return v.Track
@@ -27462,12 +27656,13 @@ func (o ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTra
 }
 
 type ChannelInputAttachmentInputSettingsCaptionSelector struct {
-	// When specified this field indicates the three letter language code of the caption track to extract from the source.
+	// Selects a specific three-letter language code from within an audio source.
 	LanguageCode *string `pulumi:"languageCode"`
 	// Name of the Channel.
 	//
 	// The following arguments are optional:
-	Name             string                                                              `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// The audio selector settings. See Audio Selector Settings for more details.
 	SelectorSettings *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings `pulumi:"selectorSettings"`
 }
 
@@ -27483,12 +27678,13 @@ type ChannelInputAttachmentInputSettingsCaptionSelectorInput interface {
 }
 
 type ChannelInputAttachmentInputSettingsCaptionSelectorArgs struct {
-	// When specified this field indicates the three letter language code of the caption track to extract from the source.
+	// Selects a specific three-letter language code from within an audio source.
 	LanguageCode pulumi.StringPtrInput `pulumi:"languageCode"`
 	// Name of the Channel.
 	//
 	// The following arguments are optional:
-	Name             pulumi.StringInput                                                         `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// The audio selector settings. See Audio Selector Settings for more details.
 	SelectorSettings ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsPtrInput `pulumi:"selectorSettings"`
 }
 
@@ -27543,7 +27739,7 @@ func (o ChannelInputAttachmentInputSettingsCaptionSelectorOutput) ToChannelInput
 	return o
 }
 
-// When specified this field indicates the three letter language code of the caption track to extract from the source.
+// Selects a specific three-letter language code from within an audio source.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorOutput) LanguageCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsCaptionSelector) *string { return v.LanguageCode }).(pulumi.StringPtrOutput)
 }
@@ -27555,6 +27751,7 @@ func (o ChannelInputAttachmentInputSettingsCaptionSelectorOutput) Name() pulumi.
 	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsCaptionSelector) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The audio selector settings. See Audio Selector Settings for more details.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorOutput) SelectorSettings() ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsPtrOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsCaptionSelector) *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings {
 		return v.SelectorSettings
@@ -27582,12 +27779,20 @@ func (o ChannelInputAttachmentInputSettingsCaptionSelectorArrayOutput) Index(i p
 }
 
 type ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings struct {
+	// Ancillary Source Settings. See Ancillary Source Settings for more details.
 	AncillarySourceSettings *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettings `pulumi:"ancillarySourceSettings"`
-	DvbTdtSettings          *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettings          `pulumi:"dvbTdtSettings"`
-	EmbeddedSourceSettings  *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings  `pulumi:"embeddedSourceSettings"`
-	Scte20SourceSettings    *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettings    `pulumi:"scte20SourceSettings"`
-	Scte27SourceSettings    *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettings    `pulumi:"scte27SourceSettings"`
-	TeletextSourceSettings  *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettings  `pulumi:"teletextSourceSettings"`
+	// Arib Source Settings.
+	AribSourceSettings *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettings `pulumi:"aribSourceSettings"`
+	// DVB Sub Source Settings. See DVB Sub Source Settings for more details.
+	DvbSubSourceSettings *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettings `pulumi:"dvbSubSourceSettings"`
+	// Embedded Source Settings. See Embedded Source Settings for more details.
+	EmbeddedSourceSettings *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings `pulumi:"embeddedSourceSettings"`
+	// SCTE20 Source Settings. See SCTE 20 Source Settings for more details.
+	Scte20SourceSettings *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettings `pulumi:"scte20SourceSettings"`
+	// SCTE27 Source Settings. See SCTE 27 Source Settings for more details.
+	Scte27SourceSettings *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettings `pulumi:"scte27SourceSettings"`
+	// Teletext Source Settings. See Teletext Source Settings for more details.
+	TeletextSourceSettings *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettings `pulumi:"teletextSourceSettings"`
 }
 
 // ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsInput is an input type that accepts ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs and ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsOutput values.
@@ -27602,12 +27807,20 @@ type ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsInput int
 }
 
 type ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs struct {
+	// Ancillary Source Settings. See Ancillary Source Settings for more details.
 	AncillarySourceSettings ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsPtrInput `pulumi:"ancillarySourceSettings"`
-	DvbTdtSettings          ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsPtrInput          `pulumi:"dvbTdtSettings"`
-	EmbeddedSourceSettings  ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsPtrInput  `pulumi:"embeddedSourceSettings"`
-	Scte20SourceSettings    ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsPtrInput    `pulumi:"scte20SourceSettings"`
-	Scte27SourceSettings    ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsPtrInput    `pulumi:"scte27SourceSettings"`
-	TeletextSourceSettings  ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsPtrInput  `pulumi:"teletextSourceSettings"`
+	// Arib Source Settings.
+	AribSourceSettings ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsPtrInput `pulumi:"aribSourceSettings"`
+	// DVB Sub Source Settings. See DVB Sub Source Settings for more details.
+	DvbSubSourceSettings ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsPtrInput `pulumi:"dvbSubSourceSettings"`
+	// Embedded Source Settings. See Embedded Source Settings for more details.
+	EmbeddedSourceSettings ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsPtrInput `pulumi:"embeddedSourceSettings"`
+	// SCTE20 Source Settings. See SCTE 20 Source Settings for more details.
+	Scte20SourceSettings ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsPtrInput `pulumi:"scte20SourceSettings"`
+	// SCTE27 Source Settings. See SCTE 27 Source Settings for more details.
+	Scte27SourceSettings ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsPtrInput `pulumi:"scte27SourceSettings"`
+	// Teletext Source Settings. See Teletext Source Settings for more details.
+	TeletextSourceSettings ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsPtrInput `pulumi:"teletextSourceSettings"`
 }
 
 func (ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs) ElementType() reflect.Type {
@@ -27687,36 +27900,49 @@ func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsOutput
 	}).(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsPtrOutput)
 }
 
+// Ancillary Source Settings. See Ancillary Source Settings for more details.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsOutput) AncillarySourceSettings() ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsPtrOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings) *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettings {
 		return v.AncillarySourceSettings
 	}).(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsPtrOutput)
 }
 
-func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsOutput) DvbTdtSettings() ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsPtrOutput {
-	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings) *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettings {
-		return v.DvbTdtSettings
-	}).(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsPtrOutput)
+// Arib Source Settings.
+func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsOutput) AribSourceSettings() ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsPtrOutput {
+	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings) *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettings {
+		return v.AribSourceSettings
+	}).(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsPtrOutput)
 }
 
+// DVB Sub Source Settings. See DVB Sub Source Settings for more details.
+func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsOutput) DvbSubSourceSettings() ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsPtrOutput {
+	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings) *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettings {
+		return v.DvbSubSourceSettings
+	}).(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsPtrOutput)
+}
+
+// Embedded Source Settings. See Embedded Source Settings for more details.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsOutput) EmbeddedSourceSettings() ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsPtrOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings) *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings {
 		return v.EmbeddedSourceSettings
 	}).(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsPtrOutput)
 }
 
+// SCTE20 Source Settings. See SCTE 20 Source Settings for more details.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsOutput) Scte20SourceSettings() ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsPtrOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings) *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettings {
 		return v.Scte20SourceSettings
 	}).(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsPtrOutput)
 }
 
+// SCTE27 Source Settings. See SCTE 27 Source Settings for more details.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsOutput) Scte27SourceSettings() ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsPtrOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings) *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettings {
 		return v.Scte27SourceSettings
 	}).(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsPtrOutput)
 }
 
+// Teletext Source Settings. See Teletext Source Settings for more details.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsOutput) TeletextSourceSettings() ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsPtrOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings) *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettings {
 		return v.TeletextSourceSettings
@@ -27747,6 +27973,7 @@ func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsPtrOut
 	}).(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsOutput)
 }
 
+// Ancillary Source Settings. See Ancillary Source Settings for more details.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsPtrOutput) AncillarySourceSettings() ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsPtrOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings) *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettings {
 		if v == nil {
@@ -27756,15 +27983,27 @@ func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsPtrOut
 	}).(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsPtrOutput)
 }
 
-func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsPtrOutput) DvbTdtSettings() ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsPtrOutput {
-	return o.ApplyT(func(v *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings) *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettings {
+// Arib Source Settings.
+func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsPtrOutput) AribSourceSettings() ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsPtrOutput {
+	return o.ApplyT(func(v *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings) *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettings {
 		if v == nil {
 			return nil
 		}
-		return v.DvbTdtSettings
-	}).(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsPtrOutput)
+		return v.AribSourceSettings
+	}).(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsPtrOutput)
 }
 
+// DVB Sub Source Settings. See DVB Sub Source Settings for more details.
+func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsPtrOutput) DvbSubSourceSettings() ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsPtrOutput {
+	return o.ApplyT(func(v *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings) *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettings {
+		if v == nil {
+			return nil
+		}
+		return v.DvbSubSourceSettings
+	}).(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsPtrOutput)
+}
+
+// Embedded Source Settings. See Embedded Source Settings for more details.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsPtrOutput) EmbeddedSourceSettings() ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsPtrOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings) *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings {
 		if v == nil {
@@ -27774,6 +28013,7 @@ func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsPtrOut
 	}).(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsPtrOutput)
 }
 
+// SCTE20 Source Settings. See SCTE 20 Source Settings for more details.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsPtrOutput) Scte20SourceSettings() ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsPtrOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings) *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettings {
 		if v == nil {
@@ -27783,6 +28023,7 @@ func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsPtrOut
 	}).(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsPtrOutput)
 }
 
+// SCTE27 Source Settings. See SCTE 27 Source Settings for more details.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsPtrOutput) Scte27SourceSettings() ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsPtrOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings) *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettings {
 		if v == nil {
@@ -27792,6 +28033,7 @@ func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsPtrOut
 	}).(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsPtrOutput)
 }
 
+// Teletext Source Settings. See Teletext Source Settings for more details.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsPtrOutput) TeletextSourceSettings() ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsPtrOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings) *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettings {
 		if v == nil {
@@ -27802,6 +28044,7 @@ func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsPtrOut
 }
 
 type ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettings struct {
+	// Specifies the number (1 to 4) of the captions channel you want to extract from the ancillary captions. If you plan to convert the ancillary captions to another format, complete this field. If you plan to choose Embedded as the captions destination in the output (to pass through all the channels in the ancillary captions), leave this field blank because MediaLive ignores the field.
 	SourceAncillaryChannelNumber *int `pulumi:"sourceAncillaryChannelNumber"`
 }
 
@@ -27817,6 +28060,7 @@ type ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillary
 }
 
 type ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsArgs struct {
+	// Specifies the number (1 to 4) of the captions channel you want to extract from the ancillary captions. If you plan to convert the ancillary captions to another format, complete this field. If you plan to choose Embedded as the captions destination in the output (to pass through all the channels in the ancillary captions), leave this field blank because MediaLive ignores the field.
 	SourceAncillaryChannelNumber pulumi.IntPtrInput `pulumi:"sourceAncillaryChannelNumber"`
 }
 
@@ -27897,6 +28141,7 @@ func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncill
 	}).(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsPtrOutput)
 }
 
+// Specifies the number (1 to 4) of the captions channel you want to extract from the ancillary captions. If you plan to convert the ancillary captions to another format, complete this field. If you plan to choose Embedded as the captions destination in the output (to pass through all the channels in the ancillary captions), leave this field blank because MediaLive ignores the field.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsOutput) SourceAncillaryChannelNumber() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettings) *int {
 		return v.SourceAncillaryChannelNumber
@@ -27927,6 +28172,7 @@ func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncill
 	}).(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsOutput)
 }
 
+// Specifies the number (1 to 4) of the captions channel you want to extract from the ancillary captions. If you plan to convert the ancillary captions to another format, complete this field. If you plan to choose Embedded as the captions destination in the output (to pass through all the channels in the ancillary captions), leave this field blank because MediaLive ignores the field.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsPtrOutput) SourceAncillaryChannelNumber() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettings) *int {
 		if v == nil {
@@ -27936,142 +28182,267 @@ func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncill
 	}).(pulumi.IntPtrOutput)
 }
 
-type ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettings struct {
-	OcrLanguage *string `pulumi:"ocrLanguage"`
-	Pid         *int    `pulumi:"pid"`
+type ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettings struct {
 }
 
-// ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsInput is an input type that accepts ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsArgs and ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsOutput values.
-// You can construct a concrete instance of `ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsInput` via:
+// ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsInput is an input type that accepts ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsArgs and ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsOutput values.
+// You can construct a concrete instance of `ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsInput` via:
 //
-//	ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsArgs{...}
-type ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsInput interface {
+//	ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsArgs{...}
+type ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsInput interface {
 	pulumi.Input
 
-	ToChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsOutput() ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsOutput
-	ToChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsOutputWithContext(context.Context) ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsOutput
+	ToChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsOutput() ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsOutput
+	ToChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsOutputWithContext(context.Context) ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsOutput
 }
 
-type ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsArgs struct {
-	OcrLanguage pulumi.StringPtrInput `pulumi:"ocrLanguage"`
-	Pid         pulumi.IntPtrInput    `pulumi:"pid"`
+type ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsArgs struct {
 }
 
-func (ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettings)(nil)).Elem()
+func (ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettings)(nil)).Elem()
 }
 
-func (i ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsArgs) ToChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsOutput() ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsOutput {
-	return i.ToChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsOutputWithContext(context.Background())
+func (i ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsArgs) ToChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsOutput() ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsOutput {
+	return i.ToChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsOutputWithContext(context.Background())
 }
 
-func (i ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsArgs) ToChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsOutputWithContext(ctx context.Context) ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsOutput)
+func (i ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsArgs) ToChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsOutputWithContext(ctx context.Context) ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsOutput)
 }
 
-func (i ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsArgs) ToChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsPtrOutput() ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsPtrOutput {
-	return i.ToChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsPtrOutputWithContext(context.Background())
+func (i ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsArgs) ToChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsPtrOutput() ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsPtrOutput {
+	return i.ToChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsPtrOutputWithContext(context.Background())
 }
 
-func (i ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsArgs) ToChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsPtrOutputWithContext(ctx context.Context) ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsOutput).ToChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsPtrOutputWithContext(ctx)
+func (i ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsArgs) ToChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsPtrOutputWithContext(ctx context.Context) ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsOutput).ToChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsPtrOutputWithContext(ctx)
 }
 
-// ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsPtrInput is an input type that accepts ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsArgs, ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsPtr and ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsPtrOutput values.
-// You can construct a concrete instance of `ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsPtrInput` via:
+// ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsPtrInput is an input type that accepts ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsArgs, ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsPtr and ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsPtrOutput values.
+// You can construct a concrete instance of `ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsPtrInput` via:
 //
-//	        ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsArgs{...}
+//	        ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsArgs{...}
 //
 //	or:
 //
 //	        nil
-type ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsPtrInput interface {
+type ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsPtrInput interface {
 	pulumi.Input
 
-	ToChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsPtrOutput() ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsPtrOutput
-	ToChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsPtrOutputWithContext(context.Context) ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsPtrOutput
+	ToChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsPtrOutput() ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsPtrOutput
+	ToChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsPtrOutputWithContext(context.Context) ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsPtrOutput
 }
 
-type channelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsPtrType ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsArgs
+type channelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsPtrType ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsArgs
 
-func ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsPtr(v *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsArgs) ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsPtrInput {
-	return (*channelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsPtrType)(v)
+func ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsPtr(v *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsArgs) ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsPtrInput {
+	return (*channelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsPtrType)(v)
 }
 
-func (*channelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettings)(nil)).Elem()
+func (*channelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettings)(nil)).Elem()
 }
 
-func (i *channelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsPtrType) ToChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsPtrOutput() ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsPtrOutput {
-	return i.ToChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsPtrOutputWithContext(context.Background())
+func (i *channelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsPtrType) ToChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsPtrOutput() ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsPtrOutput {
+	return i.ToChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsPtrOutputWithContext(context.Background())
 }
 
-func (i *channelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsPtrType) ToChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsPtrOutputWithContext(ctx context.Context) ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsPtrOutput)
+func (i *channelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsPtrType) ToChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsPtrOutputWithContext(ctx context.Context) ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsPtrOutput)
 }
 
-type ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsOutput struct{ *pulumi.OutputState }
+type ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsOutput struct{ *pulumi.OutputState }
 
-func (ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettings)(nil)).Elem()
+func (ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettings)(nil)).Elem()
 }
 
-func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsOutput) ToChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsOutput() ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsOutput {
+func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsOutput) ToChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsOutput() ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsOutput {
 	return o
 }
 
-func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsOutput) ToChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsOutputWithContext(ctx context.Context) ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsOutput {
+func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsOutput) ToChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsOutputWithContext(ctx context.Context) ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsOutput {
 	return o
 }
 
-func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsOutput) ToChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsPtrOutput() ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsPtrOutput {
-	return o.ToChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsPtrOutputWithContext(context.Background())
+func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsOutput) ToChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsPtrOutput() ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsPtrOutput {
+	return o.ToChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsPtrOutputWithContext(context.Background())
 }
 
-func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsOutput) ToChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsPtrOutputWithContext(ctx context.Context) ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettings) *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettings {
+func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsOutput) ToChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsPtrOutputWithContext(ctx context.Context) ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettings) *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettings {
 		return &v
-	}).(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsPtrOutput)
+	}).(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsPtrOutput)
 }
 
-func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsOutput) OcrLanguage() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettings) *string {
+type ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettings)(nil)).Elem()
+}
+
+func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsPtrOutput) ToChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsPtrOutput() ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsPtrOutput {
+	return o
+}
+
+func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsPtrOutput) ToChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsPtrOutputWithContext(ctx context.Context) ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsPtrOutput {
+	return o
+}
+
+func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsPtrOutput) Elem() ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsOutput {
+	return o.ApplyT(func(v *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettings) ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettings {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettings
+		return ret
+	}).(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsOutput)
+}
+
+type ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettings struct {
+	// If you will configure a WebVTT caption description that references this caption selector, use this field to provide the language to consider when translating the image-based source to text.
+	OcrLanguage *string `pulumi:"ocrLanguage"`
+	// When using DVB-Sub with Burn-In or SMPTE-TT, use this PID for the source content. Unused for DVB-Sub passthrough. All DVB-Sub content is passed through, regardless of selectors.
+	Pid *int `pulumi:"pid"`
+}
+
+// ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsInput is an input type that accepts ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsArgs and ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsOutput values.
+// You can construct a concrete instance of `ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsInput` via:
+//
+//	ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsArgs{...}
+type ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsInput interface {
+	pulumi.Input
+
+	ToChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsOutput() ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsOutput
+	ToChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsOutputWithContext(context.Context) ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsOutput
+}
+
+type ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsArgs struct {
+	// If you will configure a WebVTT caption description that references this caption selector, use this field to provide the language to consider when translating the image-based source to text.
+	OcrLanguage pulumi.StringPtrInput `pulumi:"ocrLanguage"`
+	// When using DVB-Sub with Burn-In or SMPTE-TT, use this PID for the source content. Unused for DVB-Sub passthrough. All DVB-Sub content is passed through, regardless of selectors.
+	Pid pulumi.IntPtrInput `pulumi:"pid"`
+}
+
+func (ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettings)(nil)).Elem()
+}
+
+func (i ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsArgs) ToChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsOutput() ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsOutput {
+	return i.ToChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsOutputWithContext(context.Background())
+}
+
+func (i ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsArgs) ToChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsOutputWithContext(ctx context.Context) ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsOutput)
+}
+
+func (i ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsArgs) ToChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsPtrOutput() ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsPtrOutput {
+	return i.ToChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsArgs) ToChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsPtrOutputWithContext(ctx context.Context) ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsOutput).ToChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsPtrOutputWithContext(ctx)
+}
+
+// ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsPtrInput is an input type that accepts ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsArgs, ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsPtr and ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsPtrOutput values.
+// You can construct a concrete instance of `ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsPtrInput` via:
+//
+//	        ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsPtrInput interface {
+	pulumi.Input
+
+	ToChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsPtrOutput() ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsPtrOutput
+	ToChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsPtrOutputWithContext(context.Context) ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsPtrOutput
+}
+
+type channelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsPtrType ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsArgs
+
+func ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsPtr(v *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsArgs) ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsPtrInput {
+	return (*channelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsPtrType)(v)
+}
+
+func (*channelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettings)(nil)).Elem()
+}
+
+func (i *channelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsPtrType) ToChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsPtrOutput() ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsPtrOutput {
+	return i.ToChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *channelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsPtrType) ToChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsPtrOutputWithContext(ctx context.Context) ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsPtrOutput)
+}
+
+type ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsOutput struct{ *pulumi.OutputState }
+
+func (ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettings)(nil)).Elem()
+}
+
+func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsOutput) ToChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsOutput() ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsOutput {
+	return o
+}
+
+func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsOutput) ToChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsOutputWithContext(ctx context.Context) ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsOutput {
+	return o
+}
+
+func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsOutput) ToChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsPtrOutput() ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsPtrOutput {
+	return o.ToChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsOutput) ToChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsPtrOutputWithContext(ctx context.Context) ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettings) *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettings {
+		return &v
+	}).(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsPtrOutput)
+}
+
+// If you will configure a WebVTT caption description that references this caption selector, use this field to provide the language to consider when translating the image-based source to text.
+func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsOutput) OcrLanguage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettings) *string {
 		return v.OcrLanguage
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsOutput) Pid() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettings) *int {
+// When using DVB-Sub with Burn-In or SMPTE-TT, use this PID for the source content. Unused for DVB-Sub passthrough. All DVB-Sub content is passed through, regardless of selectors.
+func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsOutput) Pid() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettings) *int {
 		return v.Pid
 	}).(pulumi.IntPtrOutput)
 }
 
-type ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsPtrOutput struct{ *pulumi.OutputState }
+type ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsPtrOutput struct{ *pulumi.OutputState }
 
-func (ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettings)(nil)).Elem()
+func (ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettings)(nil)).Elem()
 }
 
-func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsPtrOutput) ToChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsPtrOutput() ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsPtrOutput {
+func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsPtrOutput) ToChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsPtrOutput() ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsPtrOutput {
 	return o
 }
 
-func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsPtrOutput) ToChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsPtrOutputWithContext(ctx context.Context) ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsPtrOutput {
+func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsPtrOutput) ToChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsPtrOutputWithContext(ctx context.Context) ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsPtrOutput {
 	return o
 }
 
-func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsPtrOutput) Elem() ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsOutput {
-	return o.ApplyT(func(v *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettings) ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettings {
+func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsPtrOutput) Elem() ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsOutput {
+	return o.ApplyT(func(v *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettings) ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettings {
 		if v != nil {
 			return *v
 		}
-		var ret ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettings
+		var ret ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettings
 		return ret
-	}).(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsOutput)
+	}).(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsOutput)
 }
 
-func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsPtrOutput) OcrLanguage() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettings) *string {
+// If you will configure a WebVTT caption description that references this caption selector, use this field to provide the language to consider when translating the image-based source to text.
+func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsPtrOutput) OcrLanguage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettings) *string {
 		if v == nil {
 			return nil
 		}
@@ -28079,8 +28450,9 @@ func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdt
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsPtrOutput) Pid() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettings) *int {
+// When using DVB-Sub with Burn-In or SMPTE-TT, use this PID for the source content. Unused for DVB-Sub passthrough. All DVB-Sub content is passed through, regardless of selectors.
+func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsPtrOutput) Pid() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettings) *int {
 		if v == nil {
 			return nil
 		}
@@ -28089,10 +28461,12 @@ func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdt
 }
 
 type ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings struct {
-	Convert608To708        *string `pulumi:"convert608To708"`
-	Scte20Detection        *string `pulumi:"scte20Detection"`
-	Source608ChannelNumber *int    `pulumi:"source608ChannelNumber"`
-	Source608TrackNumber   *int    `pulumi:"source608TrackNumber"`
+	// If upconvert, 608 data is both passed through via the “608 compatibility bytes” fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
+	Convert608To708 *string `pulumi:"convert608To708"`
+	// Set to “auto” to handle streams with intermittent and/or non-aligned SCTE-20 and Embedded captions.
+	Scte20Detection *string `pulumi:"scte20Detection"`
+	// Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
+	Source608ChannelNumber *int `pulumi:"source608ChannelNumber"`
 }
 
 // ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsInput is an input type that accepts ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsArgs and ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsOutput values.
@@ -28107,10 +28481,12 @@ type ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedS
 }
 
 type ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsArgs struct {
-	Convert608To708        pulumi.StringPtrInput `pulumi:"convert608To708"`
-	Scte20Detection        pulumi.StringPtrInput `pulumi:"scte20Detection"`
-	Source608ChannelNumber pulumi.IntPtrInput    `pulumi:"source608ChannelNumber"`
-	Source608TrackNumber   pulumi.IntPtrInput    `pulumi:"source608TrackNumber"`
+	// If upconvert, 608 data is both passed through via the “608 compatibility bytes” fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
+	Convert608To708 pulumi.StringPtrInput `pulumi:"convert608To708"`
+	// Set to “auto” to handle streams with intermittent and/or non-aligned SCTE-20 and Embedded captions.
+	Scte20Detection pulumi.StringPtrInput `pulumi:"scte20Detection"`
+	// Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
+	Source608ChannelNumber pulumi.IntPtrInput `pulumi:"source608ChannelNumber"`
 }
 
 func (ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsArgs) ElementType() reflect.Type {
@@ -28190,27 +28566,24 @@ func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbedd
 	}).(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsPtrOutput)
 }
 
+// If upconvert, 608 data is both passed through via the “608 compatibility bytes” fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsOutput) Convert608To708() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings) *string {
 		return v.Convert608To708
 	}).(pulumi.StringPtrOutput)
 }
 
+// Set to “auto” to handle streams with intermittent and/or non-aligned SCTE-20 and Embedded captions.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsOutput) Scte20Detection() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings) *string {
 		return v.Scte20Detection
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsOutput) Source608ChannelNumber() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings) *int {
 		return v.Source608ChannelNumber
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsOutput) Source608TrackNumber() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings) *int {
-		return v.Source608TrackNumber
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -28238,6 +28611,7 @@ func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbedd
 	}).(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsOutput)
 }
 
+// If upconvert, 608 data is both passed through via the “608 compatibility bytes” fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsPtrOutput) Convert608To708() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings) *string {
 		if v == nil {
@@ -28247,6 +28621,7 @@ func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbedd
 	}).(pulumi.StringPtrOutput)
 }
 
+// Set to “auto” to handle streams with intermittent and/or non-aligned SCTE-20 and Embedded captions.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsPtrOutput) Scte20Detection() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings) *string {
 		if v == nil {
@@ -28256,6 +28631,7 @@ func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbedd
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsPtrOutput) Source608ChannelNumber() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings) *int {
 		if v == nil {
@@ -28265,18 +28641,11 @@ func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbedd
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsPtrOutput) Source608TrackNumber() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Source608TrackNumber
-	}).(pulumi.IntPtrOutput)
-}
-
 type ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettings struct {
-	Convert608To708        *string `pulumi:"convert608To708"`
-	Source608ChannelNumber *int    `pulumi:"source608ChannelNumber"`
+	// If upconvert, 608 data is both passed through via the “608 compatibility bytes” fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
+	Convert608To708 *string `pulumi:"convert608To708"`
+	// Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
+	Source608ChannelNumber *int `pulumi:"source608ChannelNumber"`
 }
 
 // ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsInput is an input type that accepts ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsArgs and ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsOutput values.
@@ -28291,8 +28660,10 @@ type ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20Sou
 }
 
 type ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsArgs struct {
-	Convert608To708        pulumi.StringPtrInput `pulumi:"convert608To708"`
-	Source608ChannelNumber pulumi.IntPtrInput    `pulumi:"source608ChannelNumber"`
+	// If upconvert, 608 data is both passed through via the “608 compatibility bytes” fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
+	Convert608To708 pulumi.StringPtrInput `pulumi:"convert608To708"`
+	// Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
+	Source608ChannelNumber pulumi.IntPtrInput `pulumi:"source608ChannelNumber"`
 }
 
 func (ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsArgs) ElementType() reflect.Type {
@@ -28372,12 +28743,14 @@ func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20
 	}).(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsPtrOutput)
 }
 
+// If upconvert, 608 data is both passed through via the “608 compatibility bytes” fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsOutput) Convert608To708() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettings) *string {
 		return v.Convert608To708
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsOutput) Source608ChannelNumber() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettings) *int {
 		return v.Source608ChannelNumber
@@ -28408,6 +28781,7 @@ func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20
 	}).(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsOutput)
 }
 
+// If upconvert, 608 data is both passed through via the “608 compatibility bytes” fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsPtrOutput) Convert608To708() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettings) *string {
 		if v == nil {
@@ -28417,6 +28791,7 @@ func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsPtrOutput) Source608ChannelNumber() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettings) *int {
 		if v == nil {
@@ -28427,8 +28802,10 @@ func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20
 }
 
 type ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettings struct {
+	// If you will configure a WebVTT caption description that references this caption selector, use this field to provide the language to consider when translating the image-based source to text.
 	OcrLanguage *string `pulumi:"ocrLanguage"`
-	Pid         *int    `pulumi:"pid"`
+	// Selects a specific PID from within a source.
+	Pid *int `pulumi:"pid"`
 }
 
 // ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsInput is an input type that accepts ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsArgs and ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsOutput values.
@@ -28443,8 +28820,10 @@ type ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27Sou
 }
 
 type ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsArgs struct {
+	// If you will configure a WebVTT caption description that references this caption selector, use this field to provide the language to consider when translating the image-based source to text.
 	OcrLanguage pulumi.StringPtrInput `pulumi:"ocrLanguage"`
-	Pid         pulumi.IntPtrInput    `pulumi:"pid"`
+	// Selects a specific PID from within a source.
+	Pid pulumi.IntPtrInput `pulumi:"pid"`
 }
 
 func (ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsArgs) ElementType() reflect.Type {
@@ -28524,12 +28903,14 @@ func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27
 	}).(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsPtrOutput)
 }
 
+// If you will configure a WebVTT caption description that references this caption selector, use this field to provide the language to consider when translating the image-based source to text.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsOutput) OcrLanguage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettings) *string {
 		return v.OcrLanguage
 	}).(pulumi.StringPtrOutput)
 }
 
+// Selects a specific PID from within a source.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsOutput) Pid() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettings) *int {
 		return v.Pid
@@ -28560,6 +28941,7 @@ func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27
 	}).(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsOutput)
 }
 
+// If you will configure a WebVTT caption description that references this caption selector, use this field to provide the language to consider when translating the image-based source to text.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsPtrOutput) OcrLanguage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettings) *string {
 		if v == nil {
@@ -28569,6 +28951,7 @@ func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27
 	}).(pulumi.StringPtrOutput)
 }
 
+// Selects a specific PID from within a source.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsPtrOutput) Pid() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettings) *int {
 		if v == nil {
@@ -28579,8 +28962,10 @@ func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27
 }
 
 type ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettings struct {
+	// Optionally defines a region where TTML style captions will be displayed. See Caption Rectangle for more details.
 	OutputRectangle *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle `pulumi:"outputRectangle"`
-	PageNumber      *string                                                                                                  `pulumi:"pageNumber"`
+	// Specifies the teletext page number within the data stream from which to extract captions. Range of 0x100 (256) to 0x8FF (2303). Unused for passthrough. Should be specified as a hexadecimal string with no “0x” prefix.
+	PageNumber *string `pulumi:"pageNumber"`
 }
 
 // ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsInput is an input type that accepts ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsArgs and ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutput values.
@@ -28595,8 +28980,10 @@ type ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextS
 }
 
 type ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsArgs struct {
+	// Optionally defines a region where TTML style captions will be displayed. See Caption Rectangle for more details.
 	OutputRectangle ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectanglePtrInput `pulumi:"outputRectangle"`
-	PageNumber      pulumi.StringPtrInput                                                                                           `pulumi:"pageNumber"`
+	// Specifies the teletext page number within the data stream from which to extract captions. Range of 0x100 (256) to 0x8FF (2303). Unused for passthrough. Should be specified as a hexadecimal string with no “0x” prefix.
+	PageNumber pulumi.StringPtrInput `pulumi:"pageNumber"`
 }
 
 func (ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsArgs) ElementType() reflect.Type {
@@ -28676,12 +29063,14 @@ func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTelete
 	}).(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsPtrOutput)
 }
 
+// Optionally defines a region where TTML style captions will be displayed. See Caption Rectangle for more details.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutput) OutputRectangle() ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectanglePtrOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettings) *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle {
 		return v.OutputRectangle
 	}).(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectanglePtrOutput)
 }
 
+// Specifies the teletext page number within the data stream from which to extract captions. Range of 0x100 (256) to 0x8FF (2303). Unused for passthrough. Should be specified as a hexadecimal string with no “0x” prefix.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutput) PageNumber() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettings) *string {
 		return v.PageNumber
@@ -28712,6 +29101,7 @@ func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTelete
 	}).(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutput)
 }
 
+// Optionally defines a region where TTML style captions will be displayed. See Caption Rectangle for more details.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsPtrOutput) OutputRectangle() ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectanglePtrOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettings) *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle {
 		if v == nil {
@@ -28721,6 +29111,7 @@ func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTelete
 	}).(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectanglePtrOutput)
 }
 
+// Specifies the teletext page number within the data stream from which to extract captions. Range of 0x100 (256) to 0x8FF (2303). Unused for passthrough. Should be specified as a hexadecimal string with no “0x” prefix.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsPtrOutput) PageNumber() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettings) *string {
 		if v == nil {
@@ -28731,11 +29122,13 @@ func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTelete
 }
 
 type ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle struct {
-	// Output video height in pixels.
-	Height     float64 `pulumi:"height"`
+	// See the description in left\_offset. For height, specify the entire height of the rectangle as a percentage of the underlying frame height. For example, "80" means the rectangle height is 80% of the underlying frame height. The top\_offset and rectangle\_height must add up to 100% or less. This field corresponds to tts:extent - Y in the TTML standard.
+	Height float64 `pulumi:"height"`
+	// Applies only if you plan to convert these source captions to EBU-TT-D or TTML in an output. (Make sure to leave the default if you don’t have either of these formats in the output.) You can define a display rectangle for the captions that is smaller than the underlying video frame. You define the rectangle by specifying the position of the left edge, top edge, bottom edge, and right edge of the rectangle, all within the underlying video frame. The units for the measurements are percentages. If you specify a value for one of these fields, you must specify a value for all of them. For leftOffset, specify the position of the left edge of the rectangle, as a percentage of the underlying frame width, and relative to the left edge of the frame. For example, "10" means the measurement is 10% of the underlying frame width. The rectangle left edge starts at that position from the left edge of the frame. This field corresponds to tts:origin - X in the TTML standard.
 	LeftOffset float64 `pulumi:"leftOffset"`
-	TopOffset  float64 `pulumi:"topOffset"`
-	// Output video width in pixels.
+	// See the description in left\_offset. For top\_offset, specify the position of the top edge of the rectangle, as a percentage of the underlying frame height, and relative to the top edge of the frame. For example, "10" means the measurement is 10% of the underlying frame height. The rectangle top edge starts at that position from the top edge of the frame. This field corresponds to tts:origin - Y in the TTML standard.
+	TopOffset float64 `pulumi:"topOffset"`
+	// See the description in left\_offset. For width, specify the entire width of the rectangle as a percentage of the underlying frame width. For example, "80" means the rectangle width is 80% of the underlying frame width. The left\_offset and rectangle\_width must add up to 100% or less. This field corresponds to tts:extent - X in the TTML standard.
 	Width float64 `pulumi:"width"`
 }
 
@@ -28751,11 +29144,13 @@ type ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextS
 }
 
 type ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleArgs struct {
-	// Output video height in pixels.
-	Height     pulumi.Float64Input `pulumi:"height"`
+	// See the description in left\_offset. For height, specify the entire height of the rectangle as a percentage of the underlying frame height. For example, "80" means the rectangle height is 80% of the underlying frame height. The top\_offset and rectangle\_height must add up to 100% or less. This field corresponds to tts:extent - Y in the TTML standard.
+	Height pulumi.Float64Input `pulumi:"height"`
+	// Applies only if you plan to convert these source captions to EBU-TT-D or TTML in an output. (Make sure to leave the default if you don’t have either of these formats in the output.) You can define a display rectangle for the captions that is smaller than the underlying video frame. You define the rectangle by specifying the position of the left edge, top edge, bottom edge, and right edge of the rectangle, all within the underlying video frame. The units for the measurements are percentages. If you specify a value for one of these fields, you must specify a value for all of them. For leftOffset, specify the position of the left edge of the rectangle, as a percentage of the underlying frame width, and relative to the left edge of the frame. For example, "10" means the measurement is 10% of the underlying frame width. The rectangle left edge starts at that position from the left edge of the frame. This field corresponds to tts:origin - X in the TTML standard.
 	LeftOffset pulumi.Float64Input `pulumi:"leftOffset"`
-	TopOffset  pulumi.Float64Input `pulumi:"topOffset"`
-	// Output video width in pixels.
+	// See the description in left\_offset. For top\_offset, specify the position of the top edge of the rectangle, as a percentage of the underlying frame height, and relative to the top edge of the frame. For example, "10" means the measurement is 10% of the underlying frame height. The rectangle top edge starts at that position from the top edge of the frame. This field corresponds to tts:origin - Y in the TTML standard.
+	TopOffset pulumi.Float64Input `pulumi:"topOffset"`
+	// See the description in left\_offset. For width, specify the entire width of the rectangle as a percentage of the underlying frame width. For example, "80" means the rectangle width is 80% of the underlying frame width. The left\_offset and rectangle\_width must add up to 100% or less. This field corresponds to tts:extent - X in the TTML standard.
 	Width pulumi.Float64Input `pulumi:"width"`
 }
 
@@ -28836,26 +29231,28 @@ func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTelete
 	}).(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectanglePtrOutput)
 }
 
-// Output video height in pixels.
+// See the description in left\_offset. For height, specify the entire height of the rectangle as a percentage of the underlying frame height. For example, "80" means the rectangle height is 80% of the underlying frame height. The top\_offset and rectangle\_height must add up to 100% or less. This field corresponds to tts:extent - Y in the TTML standard.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleOutput) Height() pulumi.Float64Output {
 	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle) float64 {
 		return v.Height
 	}).(pulumi.Float64Output)
 }
 
+// Applies only if you plan to convert these source captions to EBU-TT-D or TTML in an output. (Make sure to leave the default if you don’t have either of these formats in the output.) You can define a display rectangle for the captions that is smaller than the underlying video frame. You define the rectangle by specifying the position of the left edge, top edge, bottom edge, and right edge of the rectangle, all within the underlying video frame. The units for the measurements are percentages. If you specify a value for one of these fields, you must specify a value for all of them. For leftOffset, specify the position of the left edge of the rectangle, as a percentage of the underlying frame width, and relative to the left edge of the frame. For example, "10" means the measurement is 10% of the underlying frame width. The rectangle left edge starts at that position from the left edge of the frame. This field corresponds to tts:origin - X in the TTML standard.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleOutput) LeftOffset() pulumi.Float64Output {
 	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle) float64 {
 		return v.LeftOffset
 	}).(pulumi.Float64Output)
 }
 
+// See the description in left\_offset. For top\_offset, specify the position of the top edge of the rectangle, as a percentage of the underlying frame height, and relative to the top edge of the frame. For example, "10" means the measurement is 10% of the underlying frame height. The rectangle top edge starts at that position from the top edge of the frame. This field corresponds to tts:origin - Y in the TTML standard.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleOutput) TopOffset() pulumi.Float64Output {
 	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle) float64 {
 		return v.TopOffset
 	}).(pulumi.Float64Output)
 }
 
-// Output video width in pixels.
+// See the description in left\_offset. For width, specify the entire width of the rectangle as a percentage of the underlying frame width. For example, "80" means the rectangle width is 80% of the underlying frame width. The left\_offset and rectangle\_width must add up to 100% or less. This field corresponds to tts:extent - X in the TTML standard.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleOutput) Width() pulumi.Float64Output {
 	return o.ApplyT(func(v ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle) float64 {
 		return v.Width
@@ -28886,7 +29283,7 @@ func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTelete
 	}).(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleOutput)
 }
 
-// Output video height in pixels.
+// See the description in left\_offset. For height, specify the entire height of the rectangle as a percentage of the underlying frame height. For example, "80" means the rectangle height is 80% of the underlying frame height. The top\_offset and rectangle\_height must add up to 100% or less. This field corresponds to tts:extent - Y in the TTML standard.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectanglePtrOutput) Height() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle) *float64 {
 		if v == nil {
@@ -28896,6 +29293,7 @@ func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTelete
 	}).(pulumi.Float64PtrOutput)
 }
 
+// Applies only if you plan to convert these source captions to EBU-TT-D or TTML in an output. (Make sure to leave the default if you don’t have either of these formats in the output.) You can define a display rectangle for the captions that is smaller than the underlying video frame. You define the rectangle by specifying the position of the left edge, top edge, bottom edge, and right edge of the rectangle, all within the underlying video frame. The units for the measurements are percentages. If you specify a value for one of these fields, you must specify a value for all of them. For leftOffset, specify the position of the left edge of the rectangle, as a percentage of the underlying frame width, and relative to the left edge of the frame. For example, "10" means the measurement is 10% of the underlying frame width. The rectangle left edge starts at that position from the left edge of the frame. This field corresponds to tts:origin - X in the TTML standard.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectanglePtrOutput) LeftOffset() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle) *float64 {
 		if v == nil {
@@ -28905,6 +29303,7 @@ func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTelete
 	}).(pulumi.Float64PtrOutput)
 }
 
+// See the description in left\_offset. For top\_offset, specify the position of the top edge of the rectangle, as a percentage of the underlying frame height, and relative to the top edge of the frame. For example, "10" means the measurement is 10% of the underlying frame height. The rectangle top edge starts at that position from the top edge of the frame. This field corresponds to tts:origin - Y in the TTML standard.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectanglePtrOutput) TopOffset() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle) *float64 {
 		if v == nil {
@@ -28914,7 +29313,7 @@ func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTelete
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Output video width in pixels.
+// See the description in left\_offset. For width, specify the entire width of the rectangle as a percentage of the underlying frame width. For example, "80" means the rectangle width is 80% of the underlying frame width. The left\_offset and rectangle\_width must add up to 100% or less. This field corresponds to tts:extent - X in the TTML standard.
 func (o ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectanglePtrOutput) Width() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle) *float64 {
 		if v == nil {
@@ -31768,6 +32167,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelectionPtrInput)(nil)).Elem(), ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionInput)(nil)).Elem(), ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionPtrInput)(nil)).Elem(), ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeInput)(nil)).Elem(), ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodePtrInput)(nil)).Elem(), ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrackInput)(nil)).Elem(), ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrackArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrackArrayInput)(nil)).Elem(), ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrackArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelInputAttachmentInputSettingsCaptionSelectorInput)(nil)).Elem(), ChannelInputAttachmentInputSettingsCaptionSelectorArgs{})
@@ -31776,8 +32177,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsPtrInput)(nil)).Elem(), ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsInput)(nil)).Elem(), ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsPtrInput)(nil)).Elem(), ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsInput)(nil)).Elem(), ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsPtrInput)(nil)).Elem(), ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsInput)(nil)).Elem(), ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsPtrInput)(nil)).Elem(), ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsInput)(nil)).Elem(), ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsPtrInput)(nil)).Elem(), ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsInput)(nil)).Elem(), ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsPtrInput)(nil)).Elem(), ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsInput)(nil)).Elem(), ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsArgs{})
@@ -32101,6 +32504,8 @@ func init() {
 	pulumi.RegisterOutputType(ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelectionPtrOutput{})
 	pulumi.RegisterOutputType(ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionOutput{})
 	pulumi.RegisterOutputType(ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionPtrOutput{})
+	pulumi.RegisterOutputType(ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeOutput{})
+	pulumi.RegisterOutputType(ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodePtrOutput{})
 	pulumi.RegisterOutputType(ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrackOutput{})
 	pulumi.RegisterOutputType(ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrackArrayOutput{})
 	pulumi.RegisterOutputType(ChannelInputAttachmentInputSettingsCaptionSelectorOutput{})
@@ -32109,8 +32514,10 @@ func init() {
 	pulumi.RegisterOutputType(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsPtrOutput{})
 	pulumi.RegisterOutputType(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsOutput{})
 	pulumi.RegisterOutputType(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsPtrOutput{})
-	pulumi.RegisterOutputType(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsOutput{})
-	pulumi.RegisterOutputType(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsPtrOutput{})
+	pulumi.RegisterOutputType(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsOutput{})
+	pulumi.RegisterOutputType(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsPtrOutput{})
+	pulumi.RegisterOutputType(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsOutput{})
+	pulumi.RegisterOutputType(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsPtrOutput{})
 	pulumi.RegisterOutputType(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsOutput{})
 	pulumi.RegisterOutputType(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsPtrOutput{})
 	pulumi.RegisterOutputType(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsOutput{})

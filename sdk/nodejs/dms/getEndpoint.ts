@@ -26,11 +26,7 @@ export function getEndpoint(args: GetEndpointArgs, opts?: pulumi.InvokeOptions):
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:dms/getEndpoint:getEndpoint", {
-        "elasticsearchSettings": args.elasticsearchSettings,
         "endpointId": args.endpointId,
-        "extraConnectionAttributes": args.extraConnectionAttributes,
-        "kafkaSettings": args.kafkaSettings,
-        "mongodbSettings": args.mongodbSettings,
         "tags": args.tags,
     }, opts);
 }
@@ -39,14 +35,10 @@ export function getEndpoint(args: GetEndpointArgs, opts?: pulumi.InvokeOptions):
  * A collection of arguments for invoking getEndpoint.
  */
 export interface GetEndpointArgs {
-    elasticsearchSettings?: inputs.dms.GetEndpointElasticsearchSetting[];
     /**
      * Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
      */
     endpointId: string;
-    extraConnectionAttributes?: string;
-    kafkaSettings?: inputs.dms.GetEndpointKafkaSetting[];
-    mongodbSettings?: inputs.dms.GetEndpointMongodbSetting[];
     tags?: {[key: string]: string};
 }
 
@@ -56,20 +48,20 @@ export interface GetEndpointArgs {
 export interface GetEndpointResult {
     readonly certificateArn: string;
     readonly databaseName: string;
-    readonly elasticsearchSettings?: outputs.dms.GetEndpointElasticsearchSetting[];
+    readonly elasticsearchSettings: outputs.dms.GetEndpointElasticsearchSetting[];
     readonly endpointArn: string;
     readonly endpointId: string;
     readonly endpointType: string;
     readonly engineName: string;
-    readonly extraConnectionAttributes?: string;
+    readonly extraConnectionAttributes: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    readonly kafkaSettings?: outputs.dms.GetEndpointKafkaSetting[];
+    readonly kafkaSettings: outputs.dms.GetEndpointKafkaSetting[];
     readonly kinesisSettings: outputs.dms.GetEndpointKinesisSetting[];
     readonly kmsKeyArn: string;
-    readonly mongodbSettings?: outputs.dms.GetEndpointMongodbSetting[];
+    readonly mongodbSettings: outputs.dms.GetEndpointMongodbSetting[];
     readonly password: string;
     readonly port: number;
     readonly redisSettings: outputs.dms.GetEndpointRedisSetting[];
@@ -106,13 +98,9 @@ export function getEndpointOutput(args: GetEndpointOutputArgs, opts?: pulumi.Inv
  * A collection of arguments for invoking getEndpoint.
  */
 export interface GetEndpointOutputArgs {
-    elasticsearchSettings?: pulumi.Input<pulumi.Input<inputs.dms.GetEndpointElasticsearchSettingArgs>[]>;
     /**
      * Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
      */
     endpointId: pulumi.Input<string>;
-    extraConnectionAttributes?: pulumi.Input<string>;
-    kafkaSettings?: pulumi.Input<pulumi.Input<inputs.dms.GetEndpointKafkaSettingArgs>[]>;
-    mongodbSettings?: pulumi.Input<pulumi.Input<inputs.dms.GetEndpointMongodbSettingArgs>[]>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

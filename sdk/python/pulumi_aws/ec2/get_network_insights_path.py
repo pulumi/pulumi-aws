@@ -23,13 +23,16 @@ class GetNetworkInsightsPathResult:
     """
     A collection of values returned by getNetworkInsightsPath.
     """
-    def __init__(__self__, arn=None, destination=None, destination_ip=None, destination_port=None, filters=None, id=None, network_insights_path_id=None, protocol=None, source=None, source_ip=None, tags=None):
+    def __init__(__self__, arn=None, destination=None, destination_arn=None, destination_ip=None, destination_port=None, filters=None, id=None, network_insights_path_id=None, protocol=None, source=None, source_arn=None, source_ip=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if destination and not isinstance(destination, str):
             raise TypeError("Expected argument 'destination' to be a str")
         pulumi.set(__self__, "destination", destination)
+        if destination_arn and not isinstance(destination_arn, str):
+            raise TypeError("Expected argument 'destination_arn' to be a str")
+        pulumi.set(__self__, "destination_arn", destination_arn)
         if destination_ip and not isinstance(destination_ip, str):
             raise TypeError("Expected argument 'destination_ip' to be a str")
         pulumi.set(__self__, "destination_ip", destination_ip)
@@ -51,6 +54,9 @@ class GetNetworkInsightsPathResult:
         if source and not isinstance(source, str):
             raise TypeError("Expected argument 'source' to be a str")
         pulumi.set(__self__, "source", source)
+        if source_arn and not isinstance(source_arn, str):
+            raise TypeError("Expected argument 'source_arn' to be a str")
+        pulumi.set(__self__, "source_arn", source_arn)
         if source_ip and not isinstance(source_ip, str):
             raise TypeError("Expected argument 'source_ip' to be a str")
         pulumi.set(__self__, "source_ip", source_ip)
@@ -73,6 +79,14 @@ class GetNetworkInsightsPathResult:
         AWS resource that is the destination of the path.
         """
         return pulumi.get(self, "destination")
+
+    @property
+    @pulumi.getter(name="destinationArn")
+    def destination_arn(self) -> str:
+        """
+        ARN of the destination.
+        """
+        return pulumi.get(self, "destination_arn")
 
     @property
     @pulumi.getter(name="destinationIp")
@@ -125,6 +139,14 @@ class GetNetworkInsightsPathResult:
         return pulumi.get(self, "source")
 
     @property
+    @pulumi.getter(name="sourceArn")
+    def source_arn(self) -> str:
+        """
+        ARN of the source.
+        """
+        return pulumi.get(self, "source_arn")
+
+    @property
     @pulumi.getter(name="sourceIp")
     def source_ip(self) -> str:
         """
@@ -149,6 +171,7 @@ class AwaitableGetNetworkInsightsPathResult(GetNetworkInsightsPathResult):
         return GetNetworkInsightsPathResult(
             arn=self.arn,
             destination=self.destination,
+            destination_arn=self.destination_arn,
             destination_ip=self.destination_ip,
             destination_port=self.destination_port,
             filters=self.filters,
@@ -156,6 +179,7 @@ class AwaitableGetNetworkInsightsPathResult(GetNetworkInsightsPathResult):
             network_insights_path_id=self.network_insights_path_id,
             protocol=self.protocol,
             source=self.source,
+            source_arn=self.source_arn,
             source_ip=self.source_ip,
             tags=self.tags)
 
@@ -191,6 +215,7 @@ def get_network_insights_path(filters: Optional[Sequence[pulumi.InputType['GetNe
     return AwaitableGetNetworkInsightsPathResult(
         arn=pulumi.get(__ret__, 'arn'),
         destination=pulumi.get(__ret__, 'destination'),
+        destination_arn=pulumi.get(__ret__, 'destination_arn'),
         destination_ip=pulumi.get(__ret__, 'destination_ip'),
         destination_port=pulumi.get(__ret__, 'destination_port'),
         filters=pulumi.get(__ret__, 'filters'),
@@ -198,6 +223,7 @@ def get_network_insights_path(filters: Optional[Sequence[pulumi.InputType['GetNe
         network_insights_path_id=pulumi.get(__ret__, 'network_insights_path_id'),
         protocol=pulumi.get(__ret__, 'protocol'),
         source=pulumi.get(__ret__, 'source'),
+        source_arn=pulumi.get(__ret__, 'source_arn'),
         source_ip=pulumi.get(__ret__, 'source_ip'),
         tags=pulumi.get(__ret__, 'tags'))
 

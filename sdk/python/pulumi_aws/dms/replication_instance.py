@@ -24,6 +24,7 @@ class ReplicationInstanceArgs:
                  engine_version: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  multi_az: Optional[pulumi.Input[bool]] = None,
+                 network_type: Optional[pulumi.Input[str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
                  replication_subnet_group_id: Optional[pulumi.Input[str]] = None,
@@ -46,6 +47,7 @@ class ReplicationInstanceArgs:
         :param pulumi.Input[str] engine_version: The engine version number of the replication instance.
         :param pulumi.Input[str] kms_key_arn: The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
         :param pulumi.Input[bool] multi_az: Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
+        :param pulumi.Input[str] network_type: The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
         :param pulumi.Input[str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
                
                - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
@@ -75,6 +77,8 @@ class ReplicationInstanceArgs:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if multi_az is not None:
             pulumi.set(__self__, "multi_az", multi_az)
+        if network_type is not None:
+            pulumi.set(__self__, "network_type", network_type)
         if preferred_maintenance_window is not None:
             pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
         if publicly_accessible is not None:
@@ -212,6 +216,18 @@ class ReplicationInstanceArgs:
         pulumi.set(self, "multi_az", value)
 
     @property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
+        """
+        return pulumi.get(self, "network_type")
+
+    @network_type.setter
+    def network_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "network_type", value)
+
+    @property
     @pulumi.getter(name="preferredMaintenanceWindow")
     def preferred_maintenance_window(self) -> Optional[pulumi.Input[str]]:
         """
@@ -288,6 +304,7 @@ class _ReplicationInstanceState:
                  engine_version: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  multi_az: Optional[pulumi.Input[bool]] = None,
+                 network_type: Optional[pulumi.Input[str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
                  replication_instance_arn: Optional[pulumi.Input[str]] = None,
@@ -309,6 +326,7 @@ class _ReplicationInstanceState:
         :param pulumi.Input[str] engine_version: The engine version number of the replication instance.
         :param pulumi.Input[str] kms_key_arn: The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
         :param pulumi.Input[bool] multi_az: Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
+        :param pulumi.Input[str] network_type: The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
         :param pulumi.Input[str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
                
                - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
@@ -347,6 +365,8 @@ class _ReplicationInstanceState:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if multi_az is not None:
             pulumi.set(__self__, "multi_az", multi_az)
+        if network_type is not None:
+            pulumi.set(__self__, "network_type", network_type)
         if preferred_maintenance_window is not None:
             pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
         if publicly_accessible is not None:
@@ -465,6 +485,18 @@ class _ReplicationInstanceState:
     @multi_az.setter
     def multi_az(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "multi_az", value)
+
+    @property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
+        """
+        return pulumi.get(self, "network_type")
+
+    @network_type.setter
+    def network_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "network_type", value)
 
     @property
     @pulumi.getter(name="preferredMaintenanceWindow")
@@ -622,6 +654,7 @@ class ReplicationInstance(pulumi.CustomResource):
                  engine_version: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  multi_az: Optional[pulumi.Input[bool]] = None,
+                 network_type: Optional[pulumi.Input[str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
                  replication_instance_class: Optional[pulumi.Input[str]] = None,
@@ -703,6 +736,7 @@ class ReplicationInstance(pulumi.CustomResource):
         :param pulumi.Input[str] engine_version: The engine version number of the replication instance.
         :param pulumi.Input[str] kms_key_arn: The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
         :param pulumi.Input[bool] multi_az: Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
+        :param pulumi.Input[str] network_type: The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
         :param pulumi.Input[str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
                
                - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
@@ -813,6 +847,7 @@ class ReplicationInstance(pulumi.CustomResource):
                  engine_version: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  multi_az: Optional[pulumi.Input[bool]] = None,
+                 network_type: Optional[pulumi.Input[str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
                  replication_instance_class: Optional[pulumi.Input[str]] = None,
@@ -837,6 +872,7 @@ class ReplicationInstance(pulumi.CustomResource):
             __props__.__dict__["engine_version"] = engine_version
             __props__.__dict__["kms_key_arn"] = kms_key_arn
             __props__.__dict__["multi_az"] = multi_az
+            __props__.__dict__["network_type"] = network_type
             __props__.__dict__["preferred_maintenance_window"] = preferred_maintenance_window
             __props__.__dict__["publicly_accessible"] = publicly_accessible
             if replication_instance_class is None and not opts.urn:
@@ -870,6 +906,7 @@ class ReplicationInstance(pulumi.CustomResource):
             engine_version: Optional[pulumi.Input[str]] = None,
             kms_key_arn: Optional[pulumi.Input[str]] = None,
             multi_az: Optional[pulumi.Input[bool]] = None,
+            network_type: Optional[pulumi.Input[str]] = None,
             preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
             publicly_accessible: Optional[pulumi.Input[bool]] = None,
             replication_instance_arn: Optional[pulumi.Input[str]] = None,
@@ -896,6 +933,7 @@ class ReplicationInstance(pulumi.CustomResource):
         :param pulumi.Input[str] engine_version: The engine version number of the replication instance.
         :param pulumi.Input[str] kms_key_arn: The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
         :param pulumi.Input[bool] multi_az: Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
+        :param pulumi.Input[str] network_type: The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
         :param pulumi.Input[str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
                
                - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
@@ -930,6 +968,7 @@ class ReplicationInstance(pulumi.CustomResource):
         __props__.__dict__["engine_version"] = engine_version
         __props__.__dict__["kms_key_arn"] = kms_key_arn
         __props__.__dict__["multi_az"] = multi_az
+        __props__.__dict__["network_type"] = network_type
         __props__.__dict__["preferred_maintenance_window"] = preferred_maintenance_window
         __props__.__dict__["publicly_accessible"] = publicly_accessible
         __props__.__dict__["replication_instance_arn"] = replication_instance_arn
@@ -1006,6 +1045,14 @@ class ReplicationInstance(pulumi.CustomResource):
         Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
         """
         return pulumi.get(self, "multi_az")
+
+    @property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> pulumi.Output[str]:
+        """
+        The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
+        """
+        return pulumi.get(self, "network_type")
 
     @property
     @pulumi.getter(name="preferredMaintenanceWindow")

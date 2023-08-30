@@ -97,7 +97,7 @@ import (
 //			}
 //			_, err = ec2.NewVpcIpamPoolCidr(ctx, "parentTest", &ec2.VpcIpamPoolCidrArgs{
 //				IpamPoolId: parent.ID(),
-//				Cidr:       pulumi.String("172.2.0.0/16"),
+//				Cidr:       pulumi.String("172.20.0.0/16"),
 //			})
 //			if err != nil {
 //				return err
@@ -113,7 +113,7 @@ import (
 //			}
 //			_, err = ec2.NewVpcIpamPoolCidr(ctx, "childTest", &ec2.VpcIpamPoolCidrArgs{
 //				IpamPoolId: child.ID(),
-//				Cidr:       pulumi.String("172.2.0.0/24"),
+//				Cidr:       pulumi.String("172.20.0.0/24"),
 //			})
 //			if err != nil {
 //				return err

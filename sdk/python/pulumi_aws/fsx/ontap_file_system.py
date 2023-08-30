@@ -698,7 +698,7 @@ class OntapFileSystem(pulumi.CustomResource):
 
          to = aws_fsx_ontap_file_system.example
 
-         id = "fs-543ab12b1ca672f33" } Using `pulumi import`, import FSx File Systems using the `id`. For exampleconsole % pulumi import aws_fsx_ontap_file_system.example fs-543ab12b1ca672f33 Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the TODO configuration on an imported resource, TODO will always show a difference. To workaround this behavior, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For exampleterraform resource "aws_fsx_ontap_file_system" "example" {
+         id = "fs-543ab12b1ca672f33" } Using `pulumi import`, import FSx File Systems using the `id`. For exampleconsole % pulumi import aws_fsx_ontap_file_system.example fs-543ab12b1ca672f33 Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in your program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from your Pulumi program or use `ignore_changes` to hide the difference. For exampleterraform resource "aws_fsx_ontap_file_system" "example" {
 
         # ... other configuration ...
 
@@ -764,7 +764,7 @@ class OntapFileSystem(pulumi.CustomResource):
 
          to = aws_fsx_ontap_file_system.example
 
-         id = "fs-543ab12b1ca672f33" } Using `pulumi import`, import FSx File Systems using the `id`. For exampleconsole % pulumi import aws_fsx_ontap_file_system.example fs-543ab12b1ca672f33 Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the TODO configuration on an imported resource, TODO will always show a difference. To workaround this behavior, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For exampleterraform resource "aws_fsx_ontap_file_system" "example" {
+         id = "fs-543ab12b1ca672f33" } Using `pulumi import`, import FSx File Systems using the `id`. For exampleconsole % pulumi import aws_fsx_ontap_file_system.example fs-543ab12b1ca672f33 Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in your program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from your Pulumi program or use `ignore_changes` to hide the difference. For exampleterraform resource "aws_fsx_ontap_file_system" "example" {
 
         # ... other configuration ...
 

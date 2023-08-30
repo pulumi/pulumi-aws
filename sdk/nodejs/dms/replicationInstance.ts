@@ -135,6 +135,10 @@ export class ReplicationInstance extends pulumi.CustomResource {
      */
     public readonly multiAz!: pulumi.Output<boolean>;
     /**
+     * The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
+     */
+    public readonly networkType!: pulumi.Output<string>;
+    /**
      * The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
      *
      * - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
@@ -210,6 +214,7 @@ export class ReplicationInstance extends pulumi.CustomResource {
             resourceInputs["engineVersion"] = state ? state.engineVersion : undefined;
             resourceInputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
             resourceInputs["multiAz"] = state ? state.multiAz : undefined;
+            resourceInputs["networkType"] = state ? state.networkType : undefined;
             resourceInputs["preferredMaintenanceWindow"] = state ? state.preferredMaintenanceWindow : undefined;
             resourceInputs["publiclyAccessible"] = state ? state.publiclyAccessible : undefined;
             resourceInputs["replicationInstanceArn"] = state ? state.replicationInstanceArn : undefined;
@@ -237,6 +242,7 @@ export class ReplicationInstance extends pulumi.CustomResource {
             resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
             resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
             resourceInputs["multiAz"] = args ? args.multiAz : undefined;
+            resourceInputs["networkType"] = args ? args.networkType : undefined;
             resourceInputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
             resourceInputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
             resourceInputs["replicationInstanceClass"] = args ? args.replicationInstanceClass : undefined;
@@ -290,6 +296,10 @@ export interface ReplicationInstanceState {
      * Specifies if the replication instance is a multi-az deployment. You cannot set the `availabilityZone` parameter if the `multiAz` parameter is set to `true`.
      */
     multiAz?: pulumi.Input<boolean>;
+    /**
+     * The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
+     */
+    networkType?: pulumi.Input<string>;
     /**
      * The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
      *
@@ -382,6 +392,10 @@ export interface ReplicationInstanceArgs {
      * Specifies if the replication instance is a multi-az deployment. You cannot set the `availabilityZone` parameter if the `multiAz` parameter is set to `true`.
      */
     multiAz?: pulumi.Input<boolean>;
+    /**
+     * The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
+     */
+    networkType?: pulumi.Input<string>;
     /**
      * The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
      *

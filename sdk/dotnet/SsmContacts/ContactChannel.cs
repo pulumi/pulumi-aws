@@ -100,7 +100,7 @@ namespace Pulumi.Aws.SsmContacts
         public Output<Outputs.ContactChannelDeliveryAddress> DeliveryAddress { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the contact channel.
+        /// Name of the contact channel. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -170,7 +170,7 @@ namespace Pulumi.Aws.SsmContacts
         public Input<Inputs.ContactChannelDeliveryAddressArgs> DeliveryAddress { get; set; } = null!;
 
         /// <summary>
-        /// Name of the contact channel.
+        /// Name of the contact channel. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -214,7 +214,7 @@ namespace Pulumi.Aws.SsmContacts
         public Input<Inputs.ContactChannelDeliveryAddressGetArgs>? DeliveryAddress { get; set; }
 
         /// <summary>
-        /// Name of the contact channel.
+        /// Name of the contact channel. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

@@ -12,6 +12,98 @@ import * as utilities from "../utilities";
  * > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones"](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/) for more details
  *
  * ## Example Usage
+ * ### Basic mysql blueprint
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.lightsail.Database("test", {
+ *     availabilityZone: "us-east-1a",
+ *     blueprintId: "mysql_8_0",
+ *     bundleId: "micro_1_0",
+ *     masterDatabaseName: "testdatabasename",
+ *     masterPassword: "testdatabasepassword",
+ *     masterUsername: "test",
+ *     relationalDatabaseName: "test",
+ * });
+ * ```
+ * ### Basic postrgres blueprint
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.lightsail.Database("test", {
+ *     availabilityZone: "us-east-1a",
+ *     blueprintId: "postgres_12",
+ *     bundleId: "micro_1_0",
+ *     masterDatabaseName: "testdatabasename",
+ *     masterPassword: "testdatabasepassword",
+ *     masterUsername: "test",
+ *     relationalDatabaseName: "test",
+ * });
+ * ```
+ * ### Custom backup and maintenance windows
+ *
+ * Below is an example that sets a custom backup and maintenance window. Times are specified in UTC. This example will allow daily backups to take place between 16:00 and 16:30 each day. This example also requires any maintiance tasks (anything that would cause an outage, including changing some attributes) to take place on Tuesdays between 17:00 and 17:30. An action taken against this database that would cause an outage will wait until this time window to make the requested changes.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.lightsail.Database("test", {
+ *     availabilityZone: "us-east-1a",
+ *     blueprintId: "postgres_12",
+ *     bundleId: "micro_1_0",
+ *     masterDatabaseName: "testdatabasename",
+ *     masterPassword: "testdatabasepassword",
+ *     masterUsername: "test",
+ *     preferredBackupWindow: "16:00-16:30",
+ *     preferredMaintenanceWindow: "Tue:17:00-Tue:17:30",
+ *     relationalDatabaseName: "test",
+ * });
+ * ```
+ * ### Final Snapshots
+ *
+ * To enable creating a final snapshot of your database on deletion, use the `finalSnapshotName` argument to provide a name to be used for the snapshot.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.lightsail.Database("test", {
+ *     availabilityZone: "us-east-1a",
+ *     blueprintId: "postgres_12",
+ *     bundleId: "micro_1_0",
+ *     finalSnapshotName: "MyFinalSnapshot",
+ *     masterDatabaseName: "testdatabasename",
+ *     masterPassword: "testdatabasepassword",
+ *     masterUsername: "test",
+ *     preferredBackupWindow: "16:00-16:30",
+ *     preferredMaintenanceWindow: "Tue:17:00-Tue:17:30",
+ *     relationalDatabaseName: "test",
+ * });
+ * ```
+ * ### Apply Immediately
+ *
+ * To enable applying changes immediately instead of waiting for a maintiance window, use the `applyImmediately` argument.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.lightsail.Database("test", {
+ *     applyImmediately: true,
+ *     availabilityZone: "us-east-1a",
+ *     blueprintId: "postgres_12",
+ *     bundleId: "micro_1_0",
+ *     masterDatabaseName: "testdatabasename",
+ *     masterPassword: "testdatabasepassword",
+ *     masterUsername: "test",
+ *     relationalDatabaseName: "test",
+ * });
+ * ```
  * ## Blueprint Ids
  *
  * A list of all available Lightsail Blueprints for Relational Databases the [aws lightsail get-relational-database-blueprints](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-relational-database-blueprints.html) aws cli command.
@@ -183,6 +275,9 @@ export class Database extends pulumi.CustomResource {
      * The amount of RAM in GB for the database.
      */
     public /*out*/ readonly ramSize!: pulumi.Output<number>;
+    /**
+     * The name to use for your new Lightsail database resource. Names be unique within each AWS Region in your Lightsail account.
+     */
     public readonly relationalDatabaseName!: pulumi.Output<string>;
     /**
      * Describes the secondary Availability Zone of a high availability database. The secondary database is used for failover support of a high availability database.
@@ -394,6 +489,9 @@ export interface DatabaseState {
      * The amount of RAM in GB for the database.
      */
     ramSize?: pulumi.Input<number>;
+    /**
+     * The name to use for your new Lightsail database resource. Names be unique within each AWS Region in your Lightsail account.
+     */
     relationalDatabaseName?: pulumi.Input<string>;
     /**
      * Describes the secondary Availability Zone of a high availability database. The secondary database is used for failover support of a high availability database.
@@ -469,6 +567,9 @@ export interface DatabaseArgs {
      * Specifies the accessibility options for your new database. A value of true specifies a database that is available to resources outside of your Lightsail account. A value of false specifies a database that is available only to your Lightsail resources in the same region as your database.
      */
     publiclyAccessible?: pulumi.Input<boolean>;
+    /**
+     * The name to use for your new Lightsail database resource. Names be unique within each AWS Region in your Lightsail account.
+     */
     relationalDatabaseName: pulumi.Input<string>;
     /**
      * Determines whether a final database snapshot is created before your database is deleted. If true is specified, no database snapshot is created. If false is specified, a database snapshot is created before your database is deleted. You must specify the final relational database snapshot name parameter if the skip final snapshot parameter is false.

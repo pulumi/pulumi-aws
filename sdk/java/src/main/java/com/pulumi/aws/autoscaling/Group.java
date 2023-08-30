@@ -873,6 +873,20 @@ public class Group extends com.pulumi.resources.CustomResource {
         return this.healthCheckType;
     }
     /**
+     * Whether to ignore failed [Auto Scaling scaling activities](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html) while waiting for capacity. The default is `false` -- failed scaling activities cause errors to be returned.
+     * 
+     */
+    @Export(name="ignoreFailedScalingActivities", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> ignoreFailedScalingActivities;
+
+    /**
+     * @return Whether to ignore failed [Auto Scaling scaling activities](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html) while waiting for capacity. The default is `false` -- failed scaling activities cause errors to be returned.
+     * 
+     */
+    public Output<Optional<Boolean>> ignoreFailedScalingActivities() {
+        return Codegen.optional(this.ignoreFailedScalingActivities);
+    }
+    /**
      * One or more
      * [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
      * to attach to the Auto Scaling Group **before** instances are launched. The

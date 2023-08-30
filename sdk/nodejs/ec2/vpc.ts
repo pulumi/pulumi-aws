@@ -50,7 +50,7 @@ import * as utilities from "../utilities";
  * });
  * const testVpcIpamPoolCidr = new aws.ec2.VpcIpamPoolCidr("testVpcIpamPoolCidr", {
  *     ipamPoolId: testVpcIpamPool.id,
- *     cidr: "172.2.0.0/16",
+ *     cidr: "172.20.0.0/16",
  * });
  * const testVpc = new aws.ec2.Vpc("testVpc", {
  *     ipv4IpamPoolId: testVpcIpamPool.id,

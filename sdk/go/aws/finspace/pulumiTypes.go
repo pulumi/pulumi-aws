@@ -1409,6 +1409,8 @@ func (o KxEnvironmentCustomDnsConfigurationArrayOutput) Index(i pulumi.IntInput)
 }
 
 type KxEnvironmentTransitGatewayConfiguration struct {
+	// Rules that define how you manage outbound traffic from kdb network to your internal network. Defined below.
+	AttachmentNetworkAclConfigurations []KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration `pulumi:"attachmentNetworkAclConfigurations"`
 	// Routing CIDR on behalf of KX environment. It could be any “/26 range in the 100.64.0.0 CIDR space. After providing, it will be added to the customer’s transit gateway routing table so that the traffics could be routed to KX network.
 	RoutableCidrSpace string `pulumi:"routableCidrSpace"`
 	// Identifier of the transit gateway created by the customer to connect outbound traffics from KX network to your internal network.
@@ -1427,6 +1429,8 @@ type KxEnvironmentTransitGatewayConfigurationInput interface {
 }
 
 type KxEnvironmentTransitGatewayConfigurationArgs struct {
+	// Rules that define how you manage outbound traffic from kdb network to your internal network. Defined below.
+	AttachmentNetworkAclConfigurations KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArrayInput `pulumi:"attachmentNetworkAclConfigurations"`
 	// Routing CIDR on behalf of KX environment. It could be any “/26 range in the 100.64.0.0 CIDR space. After providing, it will be added to the customer’s transit gateway routing table so that the traffics could be routed to KX network.
 	RoutableCidrSpace pulumi.StringInput `pulumi:"routableCidrSpace"`
 	// Identifier of the transit gateway created by the customer to connect outbound traffics from KX network to your internal network.
@@ -1510,6 +1514,13 @@ func (o KxEnvironmentTransitGatewayConfigurationOutput) ToKxEnvironmentTransitGa
 	}).(KxEnvironmentTransitGatewayConfigurationPtrOutput)
 }
 
+// Rules that define how you manage outbound traffic from kdb network to your internal network. Defined below.
+func (o KxEnvironmentTransitGatewayConfigurationOutput) AttachmentNetworkAclConfigurations() KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArrayOutput {
+	return o.ApplyT(func(v KxEnvironmentTransitGatewayConfiguration) []KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration {
+		return v.AttachmentNetworkAclConfigurations
+	}).(KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArrayOutput)
+}
+
 // Routing CIDR on behalf of KX environment. It could be any “/26 range in the 100.64.0.0 CIDR space. After providing, it will be added to the customer’s transit gateway routing table so that the traffics could be routed to KX network.
 func (o KxEnvironmentTransitGatewayConfigurationOutput) RoutableCidrSpace() pulumi.StringOutput {
 	return o.ApplyT(func(v KxEnvironmentTransitGatewayConfiguration) string { return v.RoutableCidrSpace }).(pulumi.StringOutput)
@@ -1544,6 +1555,16 @@ func (o KxEnvironmentTransitGatewayConfigurationPtrOutput) Elem() KxEnvironmentT
 	}).(KxEnvironmentTransitGatewayConfigurationOutput)
 }
 
+// Rules that define how you manage outbound traffic from kdb network to your internal network. Defined below.
+func (o KxEnvironmentTransitGatewayConfigurationPtrOutput) AttachmentNetworkAclConfigurations() KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArrayOutput {
+	return o.ApplyT(func(v *KxEnvironmentTransitGatewayConfiguration) []KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.AttachmentNetworkAclConfigurations
+	}).(KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArrayOutput)
+}
+
 // Routing CIDR on behalf of KX environment. It could be any “/26 range in the 100.64.0.0 CIDR space. After providing, it will be added to the customer’s transit gateway routing table so that the traffics could be routed to KX network.
 func (o KxEnvironmentTransitGatewayConfigurationPtrOutput) RoutableCidrSpace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KxEnvironmentTransitGatewayConfiguration) *string {
@@ -1562,6 +1583,480 @@ func (o KxEnvironmentTransitGatewayConfigurationPtrOutput) TransitGatewayId() pu
 		}
 		return &v.TransitGatewayId
 	}).(pulumi.StringPtrOutput)
+}
+
+type KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration struct {
+	// The IPv4 network range to allow or deny, in CIDR notation. The specified CIDR block is modified to its canonical form. For example, `100.68.0.18/18` will be converted to `100.68.0.0/18`.
+	CidrBlock string `pulumi:"cidrBlock"`
+	// Defines the ICMP protocol that consists of the ICMP type and code. Defined below.
+	IcmpTypeCode *KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCode `pulumi:"icmpTypeCode"`
+	// Range of ports the rule applies to. Defined below.
+	PortRange *KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRange `pulumi:"portRange"`
+	// Protocol number. A value of `1` means all the protocols.
+	Protocol string `pulumi:"protocol"`
+	// Indicates whether to `allow` or `deny` the traffic that matches the rule.
+	RuleAction string `pulumi:"ruleAction"`
+	// Rule number for the entry. All the network ACL entries are processed in ascending order by rule number.
+	RuleNumber int `pulumi:"ruleNumber"`
+}
+
+// KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationInput is an input type that accepts KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs and KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationOutput values.
+// You can construct a concrete instance of `KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationInput` via:
+//
+//	KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs{...}
+type KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationInput interface {
+	pulumi.Input
+
+	ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationOutput() KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationOutput
+	ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationOutputWithContext(context.Context) KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationOutput
+}
+
+type KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs struct {
+	// The IPv4 network range to allow or deny, in CIDR notation. The specified CIDR block is modified to its canonical form. For example, `100.68.0.18/18` will be converted to `100.68.0.0/18`.
+	CidrBlock pulumi.StringInput `pulumi:"cidrBlock"`
+	// Defines the ICMP protocol that consists of the ICMP type and code. Defined below.
+	IcmpTypeCode KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtrInput `pulumi:"icmpTypeCode"`
+	// Range of ports the rule applies to. Defined below.
+	PortRange KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangePtrInput `pulumi:"portRange"`
+	// Protocol number. A value of `1` means all the protocols.
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+	// Indicates whether to `allow` or `deny` the traffic that matches the rule.
+	RuleAction pulumi.StringInput `pulumi:"ruleAction"`
+	// Rule number for the entry. All the network ACL entries are processed in ascending order by rule number.
+	RuleNumber pulumi.IntInput `pulumi:"ruleNumber"`
+}
+
+func (KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration)(nil)).Elem()
+}
+
+func (i KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs) ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationOutput() KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationOutput {
+	return i.ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationOutputWithContext(context.Background())
+}
+
+func (i KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs) ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationOutputWithContext(ctx context.Context) KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationOutput)
+}
+
+// KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArrayInput is an input type that accepts KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArray and KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArrayOutput values.
+// You can construct a concrete instance of `KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArrayInput` via:
+//
+//	KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArray{ KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs{...} }
+type KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArrayOutput() KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArrayOutput
+	ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArrayOutputWithContext(context.Context) KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArrayOutput
+}
+
+type KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArray []KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationInput
+
+func (KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration)(nil)).Elem()
+}
+
+func (i KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArray) ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArrayOutput() KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArrayOutput {
+	return i.ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArray) ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArrayOutputWithContext(ctx context.Context) KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArrayOutput)
+}
+
+type KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationOutput struct{ *pulumi.OutputState }
+
+func (KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration)(nil)).Elem()
+}
+
+func (o KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationOutput) ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationOutput() KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationOutput {
+	return o
+}
+
+func (o KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationOutput) ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationOutputWithContext(ctx context.Context) KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationOutput {
+	return o
+}
+
+// The IPv4 network range to allow or deny, in CIDR notation. The specified CIDR block is modified to its canonical form. For example, `100.68.0.18/18` will be converted to `100.68.0.0/18`.
+func (o KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationOutput) CidrBlock() pulumi.StringOutput {
+	return o.ApplyT(func(v KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration) string {
+		return v.CidrBlock
+	}).(pulumi.StringOutput)
+}
+
+// Defines the ICMP protocol that consists of the ICMP type and code. Defined below.
+func (o KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationOutput) IcmpTypeCode() KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtrOutput {
+	return o.ApplyT(func(v KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration) *KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCode {
+		return v.IcmpTypeCode
+	}).(KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtrOutput)
+}
+
+// Range of ports the rule applies to. Defined below.
+func (o KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationOutput) PortRange() KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangePtrOutput {
+	return o.ApplyT(func(v KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration) *KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRange {
+		return v.PortRange
+	}).(KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangePtrOutput)
+}
+
+// Protocol number. A value of `1` means all the protocols.
+func (o KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration) string {
+		return v.Protocol
+	}).(pulumi.StringOutput)
+}
+
+// Indicates whether to `allow` or `deny` the traffic that matches the rule.
+func (o KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationOutput) RuleAction() pulumi.StringOutput {
+	return o.ApplyT(func(v KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration) string {
+		return v.RuleAction
+	}).(pulumi.StringOutput)
+}
+
+// Rule number for the entry. All the network ACL entries are processed in ascending order by rule number.
+func (o KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationOutput) RuleNumber() pulumi.IntOutput {
+	return o.ApplyT(func(v KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration) int {
+		return v.RuleNumber
+	}).(pulumi.IntOutput)
+}
+
+type KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration)(nil)).Elem()
+}
+
+func (o KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArrayOutput) ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArrayOutput() KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArrayOutput {
+	return o
+}
+
+func (o KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArrayOutput) ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArrayOutputWithContext(ctx context.Context) KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArrayOutput {
+	return o
+}
+
+func (o KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArrayOutput) Index(i pulumi.IntInput) KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration {
+		return vs[0].([]KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration)[vs[1].(int)]
+	}).(KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationOutput)
+}
+
+type KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCode struct {
+	// ICMP code. A value of `-1` means all codes for the specified ICMP type.
+	Code int `pulumi:"code"`
+	// ICMP type. A value of `-1` means all types.
+	Type int `pulumi:"type"`
+}
+
+// KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeInput is an input type that accepts KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArgs and KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeOutput values.
+// You can construct a concrete instance of `KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeInput` via:
+//
+//	KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArgs{...}
+type KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeInput interface {
+	pulumi.Input
+
+	ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeOutput() KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeOutput
+	ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeOutputWithContext(context.Context) KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeOutput
+}
+
+type KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArgs struct {
+	// ICMP code. A value of `-1` means all codes for the specified ICMP type.
+	Code pulumi.IntInput `pulumi:"code"`
+	// ICMP type. A value of `-1` means all types.
+	Type pulumi.IntInput `pulumi:"type"`
+}
+
+func (KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCode)(nil)).Elem()
+}
+
+func (i KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArgs) ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeOutput() KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeOutput {
+	return i.ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeOutputWithContext(context.Background())
+}
+
+func (i KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArgs) ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeOutputWithContext(ctx context.Context) KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeOutput)
+}
+
+func (i KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArgs) ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtrOutput() KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtrOutput {
+	return i.ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtrOutputWithContext(context.Background())
+}
+
+func (i KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArgs) ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtrOutputWithContext(ctx context.Context) KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeOutput).ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtrOutputWithContext(ctx)
+}
+
+// KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtrInput is an input type that accepts KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArgs, KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtr and KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtrOutput values.
+// You can construct a concrete instance of `KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtrInput` via:
+//
+//	        KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArgs{...}
+//
+//	or:
+//
+//	        nil
+type KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtrInput interface {
+	pulumi.Input
+
+	ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtrOutput() KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtrOutput
+	ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtrOutputWithContext(context.Context) KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtrOutput
+}
+
+type kxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtrType KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArgs
+
+func KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtr(v *KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArgs) KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtrInput {
+	return (*kxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtrType)(v)
+}
+
+func (*kxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCode)(nil)).Elem()
+}
+
+func (i *kxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtrType) ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtrOutput() KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtrOutput {
+	return i.ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtrOutputWithContext(context.Background())
+}
+
+func (i *kxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtrType) ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtrOutputWithContext(ctx context.Context) KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtrOutput)
+}
+
+type KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeOutput struct{ *pulumi.OutputState }
+
+func (KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCode)(nil)).Elem()
+}
+
+func (o KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeOutput) ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeOutput() KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeOutput {
+	return o
+}
+
+func (o KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeOutput) ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeOutputWithContext(ctx context.Context) KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeOutput {
+	return o
+}
+
+func (o KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeOutput) ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtrOutput() KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtrOutput {
+	return o.ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtrOutputWithContext(context.Background())
+}
+
+func (o KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeOutput) ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtrOutputWithContext(ctx context.Context) KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCode) *KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCode {
+		return &v
+	}).(KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtrOutput)
+}
+
+// ICMP code. A value of `-1` means all codes for the specified ICMP type.
+func (o KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeOutput) Code() pulumi.IntOutput {
+	return o.ApplyT(func(v KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCode) int {
+		return v.Code
+	}).(pulumi.IntOutput)
+}
+
+// ICMP type. A value of `-1` means all types.
+func (o KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeOutput) Type() pulumi.IntOutput {
+	return o.ApplyT(func(v KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCode) int {
+		return v.Type
+	}).(pulumi.IntOutput)
+}
+
+type KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtrOutput struct{ *pulumi.OutputState }
+
+func (KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCode)(nil)).Elem()
+}
+
+func (o KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtrOutput) ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtrOutput() KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtrOutput {
+	return o
+}
+
+func (o KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtrOutput) ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtrOutputWithContext(ctx context.Context) KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtrOutput {
+	return o
+}
+
+func (o KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtrOutput) Elem() KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeOutput {
+	return o.ApplyT(func(v *KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCode) KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCode {
+		if v != nil {
+			return *v
+		}
+		var ret KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCode
+		return ret
+	}).(KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeOutput)
+}
+
+// ICMP code. A value of `-1` means all codes for the specified ICMP type.
+func (o KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtrOutput) Code() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCode) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Code
+	}).(pulumi.IntPtrOutput)
+}
+
+// ICMP type. A value of `-1` means all types.
+func (o KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtrOutput) Type() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCode) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.IntPtrOutput)
+}
+
+type KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRange struct {
+	// First port in the range.
+	From int `pulumi:"from"`
+	// Last port in the range.
+	To int `pulumi:"to"`
+}
+
+// KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeInput is an input type that accepts KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeArgs and KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeOutput values.
+// You can construct a concrete instance of `KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeInput` via:
+//
+//	KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeArgs{...}
+type KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeInput interface {
+	pulumi.Input
+
+	ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeOutput() KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeOutput
+	ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeOutputWithContext(context.Context) KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeOutput
+}
+
+type KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeArgs struct {
+	// First port in the range.
+	From pulumi.IntInput `pulumi:"from"`
+	// Last port in the range.
+	To pulumi.IntInput `pulumi:"to"`
+}
+
+func (KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRange)(nil)).Elem()
+}
+
+func (i KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeArgs) ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeOutput() KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeOutput {
+	return i.ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeOutputWithContext(context.Background())
+}
+
+func (i KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeArgs) ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeOutputWithContext(ctx context.Context) KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeOutput)
+}
+
+func (i KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeArgs) ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangePtrOutput() KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangePtrOutput {
+	return i.ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangePtrOutputWithContext(context.Background())
+}
+
+func (i KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeArgs) ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangePtrOutputWithContext(ctx context.Context) KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeOutput).ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangePtrOutputWithContext(ctx)
+}
+
+// KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangePtrInput is an input type that accepts KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeArgs, KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangePtr and KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangePtrOutput values.
+// You can construct a concrete instance of `KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangePtrInput` via:
+//
+//	        KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeArgs{...}
+//
+//	or:
+//
+//	        nil
+type KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangePtrInput interface {
+	pulumi.Input
+
+	ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangePtrOutput() KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangePtrOutput
+	ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangePtrOutputWithContext(context.Context) KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangePtrOutput
+}
+
+type kxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangePtrType KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeArgs
+
+func KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangePtr(v *KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeArgs) KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangePtrInput {
+	return (*kxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangePtrType)(v)
+}
+
+func (*kxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRange)(nil)).Elem()
+}
+
+func (i *kxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangePtrType) ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangePtrOutput() KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangePtrOutput {
+	return i.ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangePtrOutputWithContext(context.Background())
+}
+
+func (i *kxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangePtrType) ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangePtrOutputWithContext(ctx context.Context) KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangePtrOutput)
+}
+
+type KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeOutput struct{ *pulumi.OutputState }
+
+func (KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRange)(nil)).Elem()
+}
+
+func (o KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeOutput) ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeOutput() KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeOutput {
+	return o
+}
+
+func (o KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeOutput) ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeOutputWithContext(ctx context.Context) KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeOutput {
+	return o
+}
+
+func (o KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeOutput) ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangePtrOutput() KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangePtrOutput {
+	return o.ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangePtrOutputWithContext(context.Background())
+}
+
+func (o KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeOutput) ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangePtrOutputWithContext(ctx context.Context) KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRange) *KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRange {
+		return &v
+	}).(KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangePtrOutput)
+}
+
+// First port in the range.
+func (o KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeOutput) From() pulumi.IntOutput {
+	return o.ApplyT(func(v KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRange) int {
+		return v.From
+	}).(pulumi.IntOutput)
+}
+
+// Last port in the range.
+func (o KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeOutput) To() pulumi.IntOutput {
+	return o.ApplyT(func(v KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRange) int {
+		return v.To
+	}).(pulumi.IntOutput)
+}
+
+type KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangePtrOutput struct{ *pulumi.OutputState }
+
+func (KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRange)(nil)).Elem()
+}
+
+func (o KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangePtrOutput) ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangePtrOutput() KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangePtrOutput {
+	return o
+}
+
+func (o KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangePtrOutput) ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangePtrOutputWithContext(ctx context.Context) KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangePtrOutput {
+	return o
+}
+
+func (o KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangePtrOutput) Elem() KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeOutput {
+	return o.ApplyT(func(v *KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRange) KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRange {
+		if v != nil {
+			return *v
+		}
+		var ret KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRange
+		return ret
+	}).(KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeOutput)
+}
+
+// First port in the range.
+func (o KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangePtrOutput) From() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRange) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.From
+	}).(pulumi.IntPtrOutput)
+}
+
+// Last port in the range.
+func (o KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangePtrOutput) To() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRange) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.To
+	}).(pulumi.IntPtrOutput)
 }
 
 func init() {
@@ -1585,6 +2080,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KxEnvironmentCustomDnsConfigurationArrayInput)(nil)).Elem(), KxEnvironmentCustomDnsConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KxEnvironmentTransitGatewayConfigurationInput)(nil)).Elem(), KxEnvironmentTransitGatewayConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KxEnvironmentTransitGatewayConfigurationPtrInput)(nil)).Elem(), KxEnvironmentTransitGatewayConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationInput)(nil)).Elem(), KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArrayInput)(nil)).Elem(), KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeInput)(nil)).Elem(), KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtrInput)(nil)).Elem(), KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeInput)(nil)).Elem(), KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangePtrInput)(nil)).Elem(), KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeArgs{})
 	pulumi.RegisterOutputType(KxClusterAutoScalingConfigurationOutput{})
 	pulumi.RegisterOutputType(KxClusterAutoScalingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(KxClusterCacheStorageConfigurationOutput{})
@@ -1605,4 +2106,10 @@ func init() {
 	pulumi.RegisterOutputType(KxEnvironmentCustomDnsConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(KxEnvironmentTransitGatewayConfigurationOutput{})
 	pulumi.RegisterOutputType(KxEnvironmentTransitGatewayConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationOutput{})
+	pulumi.RegisterOutputType(KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeOutput{})
+	pulumi.RegisterOutputType(KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtrOutput{})
+	pulumi.RegisterOutputType(KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeOutput{})
+	pulumi.RegisterOutputType(KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangePtrOutput{})
 }

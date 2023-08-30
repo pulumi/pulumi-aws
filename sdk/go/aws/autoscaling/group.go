@@ -534,6 +534,8 @@ type Group struct {
 	HealthCheckGracePeriod pulumi.IntPtrOutput `pulumi:"healthCheckGracePeriod"`
 	// "EC2" or "ELB". Controls how health checking is done.
 	HealthCheckType pulumi.StringOutput `pulumi:"healthCheckType"`
+	// Whether to ignore failed [Auto Scaling scaling activities](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html) while waiting for capacity. The default is `false` -- failed scaling activities cause errors to be returned.
+	IgnoreFailedScalingActivities pulumi.BoolPtrOutput `pulumi:"ignoreFailedScalingActivities"`
 	// One or more
 	// [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
 	// to attach to the Auto Scaling Group **before** instances are launched. The
@@ -685,6 +687,8 @@ type groupState struct {
 	HealthCheckGracePeriod *int `pulumi:"healthCheckGracePeriod"`
 	// "EC2" or "ELB". Controls how health checking is done.
 	HealthCheckType *string `pulumi:"healthCheckType"`
+	// Whether to ignore failed [Auto Scaling scaling activities](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html) while waiting for capacity. The default is `false` -- failed scaling activities cause errors to be returned.
+	IgnoreFailedScalingActivities *bool `pulumi:"ignoreFailedScalingActivities"`
 	// One or more
 	// [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
 	// to attach to the Auto Scaling Group **before** instances are launched. The
@@ -801,6 +805,8 @@ type GroupState struct {
 	HealthCheckGracePeriod pulumi.IntPtrInput
 	// "EC2" or "ELB". Controls how health checking is done.
 	HealthCheckType pulumi.StringPtrInput
+	// Whether to ignore failed [Auto Scaling scaling activities](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html) while waiting for capacity. The default is `false` -- failed scaling activities cause errors to be returned.
+	IgnoreFailedScalingActivities pulumi.BoolPtrInput
 	// One or more
 	// [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
 	// to attach to the Auto Scaling Group **before** instances are launched. The
@@ -919,6 +925,8 @@ type groupArgs struct {
 	HealthCheckGracePeriod *int `pulumi:"healthCheckGracePeriod"`
 	// "EC2" or "ELB". Controls how health checking is done.
 	HealthCheckType *string `pulumi:"healthCheckType"`
+	// Whether to ignore failed [Auto Scaling scaling activities](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html) while waiting for capacity. The default is `false` -- failed scaling activities cause errors to be returned.
+	IgnoreFailedScalingActivities *bool `pulumi:"ignoreFailedScalingActivities"`
 	// One or more
 	// [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
 	// to attach to the Auto Scaling Group **before** instances are launched. The
@@ -1030,6 +1038,8 @@ type GroupArgs struct {
 	HealthCheckGracePeriod pulumi.IntPtrInput
 	// "EC2" or "ELB". Controls how health checking is done.
 	HealthCheckType pulumi.StringPtrInput
+	// Whether to ignore failed [Auto Scaling scaling activities](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html) while waiting for capacity. The default is `false` -- failed scaling activities cause errors to be returned.
+	IgnoreFailedScalingActivities pulumi.BoolPtrInput
 	// One or more
 	// [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
 	// to attach to the Auto Scaling Group **before** instances are launched. The
@@ -1265,6 +1275,11 @@ func (o GroupOutput) HealthCheckGracePeriod() pulumi.IntPtrOutput {
 // "EC2" or "ELB". Controls how health checking is done.
 func (o GroupOutput) HealthCheckType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.HealthCheckType }).(pulumi.StringOutput)
+}
+
+// Whether to ignore failed [Auto Scaling scaling activities](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html) while waiting for capacity. The default is `false` -- failed scaling activities cause errors to be returned.
+func (o GroupOutput) IgnoreFailedScalingActivities() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Group) pulumi.BoolPtrOutput { return v.IgnoreFailedScalingActivities }).(pulumi.BoolPtrOutput)
 }
 
 // One or more

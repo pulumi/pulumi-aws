@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ResourceShare{}
 	case "aws:ram/resourceShareAccepter:ResourceShareAccepter":
 		r = &ResourceShareAccepter{}
+	case "aws:ram/sharingWithOrganization:SharingWithOrganization":
+		r = &SharingWithOrganization{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -60,6 +62,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"ram/resourceShareAccepter",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ram/sharingWithOrganization",
 		&module{version},
 	)
 }

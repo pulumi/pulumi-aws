@@ -77,6 +77,10 @@ namespace Pulumi.Aws.DocDB
     ///     }, new CustomResourceOptions
     ///     {
     ///         Provider = aws.Secondary,
+    ///         DependsOn = new[]
+    ///         {
+    ///             primaryCluster,
+    ///         },
     ///     });
     /// 
     ///     var secondaryClusterInstance = new Aws.DocDB.ClusterInstance("secondaryClusterInstance", new()
@@ -124,7 +128,7 @@ namespace Pulumi.Aws.DocDB
     /// 
     ///  to = aws_docdb_global_cluster.example
     /// 
-    ///  id = "example" } Using `pulumi import`, import `aws_docdb_global_cluster` using the Global Cluster identifier. For exampleconsole % pulumi import aws_docdb_global_cluster.example example Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the TODO configuration on an imported resource, TODO will always show a difference. To workaround this behavior, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For exampleterraform resource "aws_docdb_global_cluster" "example" {
+    ///  id = "example" } Using `pulumi import`, import `aws_docdb_global_cluster` using the Global Cluster identifier. For exampleconsole % pulumi import aws_docdb_global_cluster.example example Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in your program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from your program or use `ignore_changes` to hide the difference. For exampleterraform resource "aws_docdb_global_cluster" "example" {
     /// 
     /// # ... other configuration ...
     /// 

@@ -17,14 +17,14 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorArgs extend
     public static final ChannelInputAttachmentInputSettingsCaptionSelectorArgs Empty = new ChannelInputAttachmentInputSettingsCaptionSelectorArgs();
 
     /**
-     * When specified this field indicates the three letter language code of the caption track to extract from the source.
+     * Selects a specific three-letter language code from within an audio source.
      * 
      */
     @Import(name="languageCode")
     private @Nullable Output<String> languageCode;
 
     /**
-     * @return When specified this field indicates the three letter language code of the caption track to extract from the source.
+     * @return Selects a specific three-letter language code from within an audio source.
      * 
      */
     public Optional<Output<String>> languageCode() {
@@ -50,9 +50,17 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorArgs extend
         return this.name;
     }
 
+    /**
+     * The audio selector settings. See Audio Selector Settings for more details.
+     * 
+     */
     @Import(name="selectorSettings")
     private @Nullable Output<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs> selectorSettings;
 
+    /**
+     * @return The audio selector settings. See Audio Selector Settings for more details.
+     * 
+     */
     public Optional<Output<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs>> selectorSettings() {
         return Optional.ofNullable(this.selectorSettings);
     }
@@ -84,7 +92,7 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorArgs extend
         }
 
         /**
-         * @param languageCode When specified this field indicates the three letter language code of the caption track to extract from the source.
+         * @param languageCode Selects a specific three-letter language code from within an audio source.
          * 
          * @return builder
          * 
@@ -95,7 +103,7 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorArgs extend
         }
 
         /**
-         * @param languageCode When specified this field indicates the three letter language code of the caption track to extract from the source.
+         * @param languageCode Selects a specific three-letter language code from within an audio source.
          * 
          * @return builder
          * 
@@ -129,11 +137,23 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorArgs extend
             return name(Output.of(name));
         }
 
+        /**
+         * @param selectorSettings The audio selector settings. See Audio Selector Settings for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder selectorSettings(@Nullable Output<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs> selectorSettings) {
             $.selectorSettings = selectorSettings;
             return this;
         }
 
+        /**
+         * @param selectorSettings The audio selector settings. See Audio Selector Settings for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder selectorSettings(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs selectorSettings) {
             return selectorSettings(Output.of(selectorSettings));
         }

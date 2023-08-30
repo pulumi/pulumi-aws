@@ -110,14 +110,14 @@ public final class ChannelEncoderSettingsAudioDescriptionArgs extends com.pulumi
     }
 
     /**
-     * When specified this field indicates the three letter language code of the caption track to extract from the source.
+     * Selects a specific three-letter language code from within an audio source.
      * 
      */
     @Import(name="languageCode")
     private @Nullable Output<String> languageCode;
 
     /**
-     * @return When specified this field indicates the three letter language code of the caption track to extract from the source.
+     * @return Selects a specific three-letter language code from within an audio source.
      * 
      */
     public Optional<Output<String>> languageCode() {
@@ -329,7 +329,7 @@ public final class ChannelEncoderSettingsAudioDescriptionArgs extends com.pulumi
         }
 
         /**
-         * @param languageCode When specified this field indicates the three letter language code of the caption track to extract from the source.
+         * @param languageCode Selects a specific three-letter language code from within an audio source.
          * 
          * @return builder
          * 
@@ -340,7 +340,7 @@ public final class ChannelEncoderSettingsAudioDescriptionArgs extends com.pulumi
         }
 
         /**
-         * @param languageCode When specified this field indicates the three letter language code of the caption track to extract from the source.
+         * @param languageCode Selects a specific three-letter language code from within an audio source.
          * 
          * @return builder
          * 

@@ -222,6 +222,7 @@ class Endpoints(dict):
                  cloudwatchrum: Optional[str] = None,
                  codeartifact: Optional[str] = None,
                  codebuild: Optional[str] = None,
+                 codecatalyst: Optional[str] = None,
                  codecommit: Optional[str] = None,
                  codedeploy: Optional[str] = None,
                  codegurureviewer: Optional[str] = None,
@@ -519,6 +520,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "codeartifact", codeartifact)
         if codebuild is not None:
             pulumi.set(__self__, "codebuild", codebuild)
+        if codecatalyst is not None:
+            pulumi.set(__self__, "codecatalyst", codecatalyst)
         if codecommit is not None:
             pulumi.set(__self__, "codecommit", codecommit)
         if codedeploy is not None:
@@ -1164,6 +1167,11 @@ class Endpoints(dict):
     @pulumi.getter
     def codebuild(self) -> Optional[str]:
         return pulumi.get(self, "codebuild")
+
+    @property
+    @pulumi.getter
+    def codecatalyst(self) -> Optional[str]:
+        return pulumi.get(self, "codecatalyst")
 
     @property
     @pulumi.getter

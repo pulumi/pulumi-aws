@@ -78,7 +78,8 @@ type LookupImagePipelineResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// ARN of the image recipe.
-	ImageRecipeArn string `pulumi:"imageRecipeArn"`
+	ImageRecipeArn              string                                       `pulumi:"imageRecipeArn"`
+	ImageScanningConfigurations []GetImagePipelineImageScanningConfiguration `pulumi:"imageScanningConfigurations"`
 	// List of an object with image tests configuration.
 	ImageTestsConfigurations []GetImagePipelineImageTestsConfiguration `pulumi:"imageTestsConfigurations"`
 	// ARN of the Image Builder Infrastructure Configuration.
@@ -187,6 +188,12 @@ func (o LookupImagePipelineResultOutput) Id() pulumi.StringOutput {
 // ARN of the image recipe.
 func (o LookupImagePipelineResultOutput) ImageRecipeArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupImagePipelineResult) string { return v.ImageRecipeArn }).(pulumi.StringOutput)
+}
+
+func (o LookupImagePipelineResultOutput) ImageScanningConfigurations() GetImagePipelineImageScanningConfigurationArrayOutput {
+	return o.ApplyT(func(v LookupImagePipelineResult) []GetImagePipelineImageScanningConfiguration {
+		return v.ImageScanningConfigurations
+	}).(GetImagePipelineImageScanningConfigurationArrayOutput)
 }
 
 // List of an object with image tests configuration.

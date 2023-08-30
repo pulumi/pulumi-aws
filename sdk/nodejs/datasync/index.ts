@@ -20,10 +20,20 @@ export type FsxOpenZfsFileSystem = import("./fsxOpenZfsFileSystem").FsxOpenZfsFi
 export const FsxOpenZfsFileSystem: typeof import("./fsxOpenZfsFileSystem").FsxOpenZfsFileSystem = null as any;
 utilities.lazyLoad(exports, ["FsxOpenZfsFileSystem"], () => require("./fsxOpenZfsFileSystem"));
 
+export { LocationAzureBlobArgs, LocationAzureBlobState } from "./locationAzureBlob";
+export type LocationAzureBlob = import("./locationAzureBlob").LocationAzureBlob;
+export const LocationAzureBlob: typeof import("./locationAzureBlob").LocationAzureBlob = null as any;
+utilities.lazyLoad(exports, ["LocationAzureBlob"], () => require("./locationAzureBlob"));
+
 export { LocationFsxLustreArgs, LocationFsxLustreState } from "./locationFsxLustre";
 export type LocationFsxLustre = import("./locationFsxLustre").LocationFsxLustre;
 export const LocationFsxLustre: typeof import("./locationFsxLustre").LocationFsxLustre = null as any;
 utilities.lazyLoad(exports, ["LocationFsxLustre"], () => require("./locationFsxLustre"));
+
+export { LocationFsxOntapFileSystemArgs, LocationFsxOntapFileSystemState } from "./locationFsxOntapFileSystem";
+export type LocationFsxOntapFileSystem = import("./locationFsxOntapFileSystem").LocationFsxOntapFileSystem;
+export const LocationFsxOntapFileSystem: typeof import("./locationFsxOntapFileSystem").LocationFsxOntapFileSystem = null as any;
+utilities.lazyLoad(exports, ["LocationFsxOntapFileSystem"], () => require("./locationFsxOntapFileSystem"));
 
 export { LocationFsxWindowsArgs, LocationFsxWindowsState } from "./locationFsxWindows";
 export type LocationFsxWindows = import("./locationFsxWindows").LocationFsxWindows;
@@ -71,8 +81,12 @@ const _module = {
                 return new EfsLocation(name, <any>undefined, { urn })
             case "aws:datasync/fsxOpenZfsFileSystem:FsxOpenZfsFileSystem":
                 return new FsxOpenZfsFileSystem(name, <any>undefined, { urn })
+            case "aws:datasync/locationAzureBlob:LocationAzureBlob":
+                return new LocationAzureBlob(name, <any>undefined, { urn })
             case "aws:datasync/locationFsxLustre:LocationFsxLustre":
                 return new LocationFsxLustre(name, <any>undefined, { urn })
+            case "aws:datasync/locationFsxOntapFileSystem:LocationFsxOntapFileSystem":
+                return new LocationFsxOntapFileSystem(name, <any>undefined, { urn })
             case "aws:datasync/locationFsxWindows:LocationFsxWindows":
                 return new LocationFsxWindows(name, <any>undefined, { urn })
             case "aws:datasync/locationHdfs:LocationHdfs":
@@ -95,7 +109,9 @@ const _module = {
 pulumi.runtime.registerResourceModule("aws", "datasync/agent", _module)
 pulumi.runtime.registerResourceModule("aws", "datasync/efsLocation", _module)
 pulumi.runtime.registerResourceModule("aws", "datasync/fsxOpenZfsFileSystem", _module)
+pulumi.runtime.registerResourceModule("aws", "datasync/locationAzureBlob", _module)
 pulumi.runtime.registerResourceModule("aws", "datasync/locationFsxLustre", _module)
+pulumi.runtime.registerResourceModule("aws", "datasync/locationFsxOntapFileSystem", _module)
 pulumi.runtime.registerResourceModule("aws", "datasync/locationFsxWindows", _module)
 pulumi.runtime.registerResourceModule("aws", "datasync/locationHdfs", _module)
 pulumi.runtime.registerResourceModule("aws", "datasync/locationObjectStorage", _module)

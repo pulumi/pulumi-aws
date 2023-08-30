@@ -17,6 +17,7 @@ from .get_peering_attachment import *
 from .get_route_table import *
 from .get_route_table_associations import *
 from .get_route_table_propagations import *
+from .get_route_table_routes import *
 from .get_transit_gateway import *
 from .get_vpc_attachment import *
 from .get_vpc_attachments import *

@@ -10,6 +10,7 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'CompositeAlarmActionsSuppressorArgs',
     'EventConnectionAuthParametersArgs',
     'EventConnectionAuthParametersApiKeyArgs',
     'EventConnectionAuthParametersBasicArgs',
@@ -43,6 +44,8 @@ __all__ = [
     'EventTargetRedshiftTargetArgs',
     'EventTargetRetryPolicyArgs',
     'EventTargetRunCommandTargetArgs',
+    'EventTargetSagemakerPipelineTargetArgs',
+    'EventTargetSagemakerPipelineTargetPipelineParameterListArgs',
     'EventTargetSqsTargetArgs',
     'InternetMonitorHealthEventsConfigArgs',
     'InternetMonitorInternetMeasurementsLogDeliveryArgs',
@@ -64,6 +67,58 @@ __all__ = [
     'GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs',
     'GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgs',
 ]
+
+@pulumi.input_type
+class CompositeAlarmActionsSuppressorArgs:
+    def __init__(__self__, *,
+                 alarm: pulumi.Input[str],
+                 extension_period: pulumi.Input[int],
+                 wait_period: pulumi.Input[int]):
+        """
+        :param pulumi.Input[str] alarm: Can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
+        :param pulumi.Input[int] extension_period: The maximum time in seconds that the composite alarm waits after suppressor alarm goes out of the `ALARM` state. After this time, the composite alarm performs its actions.
+        :param pulumi.Input[int] wait_period: The maximum time in seconds that the composite alarm waits for the suppressor alarm to go into the `ALARM` state. After this time, the composite alarm performs its actions.
+        """
+        pulumi.set(__self__, "alarm", alarm)
+        pulumi.set(__self__, "extension_period", extension_period)
+        pulumi.set(__self__, "wait_period", wait_period)
+
+    @property
+    @pulumi.getter
+    def alarm(self) -> pulumi.Input[str]:
+        """
+        Can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
+        """
+        return pulumi.get(self, "alarm")
+
+    @alarm.setter
+    def alarm(self, value: pulumi.Input[str]):
+        pulumi.set(self, "alarm", value)
+
+    @property
+    @pulumi.getter(name="extensionPeriod")
+    def extension_period(self) -> pulumi.Input[int]:
+        """
+        The maximum time in seconds that the composite alarm waits after suppressor alarm goes out of the `ALARM` state. After this time, the composite alarm performs its actions.
+        """
+        return pulumi.get(self, "extension_period")
+
+    @extension_period.setter
+    def extension_period(self, value: pulumi.Input[int]):
+        pulumi.set(self, "extension_period", value)
+
+    @property
+    @pulumi.getter(name="waitPeriod")
+    def wait_period(self) -> pulumi.Input[int]:
+        """
+        The maximum time in seconds that the composite alarm waits for the suppressor alarm to go into the `ALARM` state. After this time, the composite alarm performs its actions.
+        """
+        return pulumi.get(self, "wait_period")
+
+    @wait_period.setter
+    def wait_period(self, value: pulumi.Input[int]):
+        pulumi.set(self, "wait_period", value)
+
 
 @pulumi.input_type
 class EventConnectionAuthParametersArgs:
@@ -1749,6 +1804,66 @@ class EventTargetRunCommandTargetArgs:
     @values.setter
     def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class EventTargetSagemakerPipelineTargetArgs:
+    def __init__(__self__, *,
+                 pipeline_parameter_lists: Optional[pulumi.Input[Sequence[pulumi.Input['EventTargetSagemakerPipelineTargetPipelineParameterListArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['EventTargetSagemakerPipelineTargetPipelineParameterListArgs']]] pipeline_parameter_lists: List of Parameter names and values for SageMaker Model Building Pipeline execution.
+        """
+        if pipeline_parameter_lists is not None:
+            pulumi.set(__self__, "pipeline_parameter_lists", pipeline_parameter_lists)
+
+    @property
+    @pulumi.getter(name="pipelineParameterLists")
+    def pipeline_parameter_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventTargetSagemakerPipelineTargetPipelineParameterListArgs']]]]:
+        """
+        List of Parameter names and values for SageMaker Model Building Pipeline execution.
+        """
+        return pulumi.get(self, "pipeline_parameter_lists")
+
+    @pipeline_parameter_lists.setter
+    def pipeline_parameter_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventTargetSagemakerPipelineTargetPipelineParameterListArgs']]]]):
+        pulumi.set(self, "pipeline_parameter_lists", value)
+
+
+@pulumi.input_type
+class EventTargetSagemakerPipelineTargetPipelineParameterListArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: Name of parameter to start execution of a SageMaker Model Building Pipeline.
+        :param pulumi.Input[str] value: Value of parameter to start execution of a SageMaker Model Building Pipeline.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of parameter to start execution of a SageMaker Model Building Pipeline.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        Value of parameter to start execution of a SageMaker Model Building Pipeline.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

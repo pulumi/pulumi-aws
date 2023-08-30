@@ -389,7 +389,7 @@ import javax.annotation.Nullable;
  * 
  *  to = aws_emr_cluster.cluster
  * 
- *  id = &#34;j-123456ABCDEF&#34; } Using `pulumi import`, import EMR clusters using the `id`. For exampleconsole % pulumi import aws_emr_cluster.cluster j-123456ABCDEF Since the API does not return the actual values for Kerberos configurations, environments with those TODO configurations will need to use the `lifecycle` configuration block `ignore_changes` argument available to all TODO resources to prevent perpetual differences. For exampleterraform resource &#34;aws_emr_cluster&#34; &#34;example&#34; {
+ *  id = &#34;j-123456ABCDEF&#34; } Using `pulumi import`, import EMR clusters using the `id`. For exampleconsole % pulumi import aws_emr_cluster.cluster j-123456ABCDEF Since the API does not return the actual values for Kerberos configurations, environments with those values set will need to use the `lifecycle` resource option `ignore_changes` argument available to all Pulumi resources to prevent perpetual differences. For exampleterraform resource &#34;aws_emr_cluster&#34; &#34;example&#34; {
  * 
  * # ... other configuration ...
  * 

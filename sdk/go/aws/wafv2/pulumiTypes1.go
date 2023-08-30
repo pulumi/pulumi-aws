@@ -13,6 +13,730 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type WebAclRuleStatementRateBasedStatement struct {
+	// Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `FORWARDED_IP` or `IP`. Default: `IP`.
+	AggregateKeyType *string `pulumi:"aggregateKeyType"`
+	// Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. If `aggregateKeyType` is set to `FORWARDED_IP`, this block is required. See `forwardedIpConfig` below for details.
+	ForwardedIpConfig *WebAclRuleStatementRateBasedStatementForwardedIpConfig `pulumi:"forwardedIpConfig"`
+	// Limit on requests per 5-minute period for a single originating IP address.
+	Limit int `pulumi:"limit"`
+	// Optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See `statement` above for details. If `aggregateKeyType` is set to `CONSTANT`, this block is required.
+	ScopeDownStatement *WebAclRuleStatementRateBasedStatementScopeDownStatement `pulumi:"scopeDownStatement"`
+}
+
+// WebAclRuleStatementRateBasedStatementInput is an input type that accepts WebAclRuleStatementRateBasedStatementArgs and WebAclRuleStatementRateBasedStatementOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementRateBasedStatementInput` via:
+//
+//	WebAclRuleStatementRateBasedStatementArgs{...}
+type WebAclRuleStatementRateBasedStatementInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementRateBasedStatementOutput() WebAclRuleStatementRateBasedStatementOutput
+	ToWebAclRuleStatementRateBasedStatementOutputWithContext(context.Context) WebAclRuleStatementRateBasedStatementOutput
+}
+
+type WebAclRuleStatementRateBasedStatementArgs struct {
+	// Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `FORWARDED_IP` or `IP`. Default: `IP`.
+	AggregateKeyType pulumi.StringPtrInput `pulumi:"aggregateKeyType"`
+	// Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. If `aggregateKeyType` is set to `FORWARDED_IP`, this block is required. See `forwardedIpConfig` below for details.
+	ForwardedIpConfig WebAclRuleStatementRateBasedStatementForwardedIpConfigPtrInput `pulumi:"forwardedIpConfig"`
+	// Limit on requests per 5-minute period for a single originating IP address.
+	Limit pulumi.IntInput `pulumi:"limit"`
+	// Optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See `statement` above for details. If `aggregateKeyType` is set to `CONSTANT`, this block is required.
+	ScopeDownStatement WebAclRuleStatementRateBasedStatementScopeDownStatementPtrInput `pulumi:"scopeDownStatement"`
+}
+
+func (WebAclRuleStatementRateBasedStatementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementRateBasedStatement)(nil)).Elem()
+}
+
+func (i WebAclRuleStatementRateBasedStatementArgs) ToWebAclRuleStatementRateBasedStatementOutput() WebAclRuleStatementRateBasedStatementOutput {
+	return i.ToWebAclRuleStatementRateBasedStatementOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementRateBasedStatementArgs) ToWebAclRuleStatementRateBasedStatementOutputWithContext(ctx context.Context) WebAclRuleStatementRateBasedStatementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementRateBasedStatementOutput)
+}
+
+func (i WebAclRuleStatementRateBasedStatementArgs) ToWebAclRuleStatementRateBasedStatementPtrOutput() WebAclRuleStatementRateBasedStatementPtrOutput {
+	return i.ToWebAclRuleStatementRateBasedStatementPtrOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementRateBasedStatementArgs) ToWebAclRuleStatementRateBasedStatementPtrOutputWithContext(ctx context.Context) WebAclRuleStatementRateBasedStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementRateBasedStatementOutput).ToWebAclRuleStatementRateBasedStatementPtrOutputWithContext(ctx)
+}
+
+// WebAclRuleStatementRateBasedStatementPtrInput is an input type that accepts WebAclRuleStatementRateBasedStatementArgs, WebAclRuleStatementRateBasedStatementPtr and WebAclRuleStatementRateBasedStatementPtrOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementRateBasedStatementPtrInput` via:
+//
+//	        WebAclRuleStatementRateBasedStatementArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebAclRuleStatementRateBasedStatementPtrInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementRateBasedStatementPtrOutput() WebAclRuleStatementRateBasedStatementPtrOutput
+	ToWebAclRuleStatementRateBasedStatementPtrOutputWithContext(context.Context) WebAclRuleStatementRateBasedStatementPtrOutput
+}
+
+type webAclRuleStatementRateBasedStatementPtrType WebAclRuleStatementRateBasedStatementArgs
+
+func WebAclRuleStatementRateBasedStatementPtr(v *WebAclRuleStatementRateBasedStatementArgs) WebAclRuleStatementRateBasedStatementPtrInput {
+	return (*webAclRuleStatementRateBasedStatementPtrType)(v)
+}
+
+func (*webAclRuleStatementRateBasedStatementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclRuleStatementRateBasedStatement)(nil)).Elem()
+}
+
+func (i *webAclRuleStatementRateBasedStatementPtrType) ToWebAclRuleStatementRateBasedStatementPtrOutput() WebAclRuleStatementRateBasedStatementPtrOutput {
+	return i.ToWebAclRuleStatementRateBasedStatementPtrOutputWithContext(context.Background())
+}
+
+func (i *webAclRuleStatementRateBasedStatementPtrType) ToWebAclRuleStatementRateBasedStatementPtrOutputWithContext(ctx context.Context) WebAclRuleStatementRateBasedStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementRateBasedStatementPtrOutput)
+}
+
+type WebAclRuleStatementRateBasedStatementOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementRateBasedStatementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementRateBasedStatement)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementRateBasedStatementOutput) ToWebAclRuleStatementRateBasedStatementOutput() WebAclRuleStatementRateBasedStatementOutput {
+	return o
+}
+
+func (o WebAclRuleStatementRateBasedStatementOutput) ToWebAclRuleStatementRateBasedStatementOutputWithContext(ctx context.Context) WebAclRuleStatementRateBasedStatementOutput {
+	return o
+}
+
+func (o WebAclRuleStatementRateBasedStatementOutput) ToWebAclRuleStatementRateBasedStatementPtrOutput() WebAclRuleStatementRateBasedStatementPtrOutput {
+	return o.ToWebAclRuleStatementRateBasedStatementPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclRuleStatementRateBasedStatementOutput) ToWebAclRuleStatementRateBasedStatementPtrOutputWithContext(ctx context.Context) WebAclRuleStatementRateBasedStatementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementRateBasedStatement) *WebAclRuleStatementRateBasedStatement {
+		return &v
+	}).(WebAclRuleStatementRateBasedStatementPtrOutput)
+}
+
+// Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `FORWARDED_IP` or `IP`. Default: `IP`.
+func (o WebAclRuleStatementRateBasedStatementOutput) AggregateKeyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatement) *string { return v.AggregateKeyType }).(pulumi.StringPtrOutput)
+}
+
+// Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. If `aggregateKeyType` is set to `FORWARDED_IP`, this block is required. See `forwardedIpConfig` below for details.
+func (o WebAclRuleStatementRateBasedStatementOutput) ForwardedIpConfig() WebAclRuleStatementRateBasedStatementForwardedIpConfigPtrOutput {
+	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatement) *WebAclRuleStatementRateBasedStatementForwardedIpConfig {
+		return v.ForwardedIpConfig
+	}).(WebAclRuleStatementRateBasedStatementForwardedIpConfigPtrOutput)
+}
+
+// Limit on requests per 5-minute period for a single originating IP address.
+func (o WebAclRuleStatementRateBasedStatementOutput) Limit() pulumi.IntOutput {
+	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatement) int { return v.Limit }).(pulumi.IntOutput)
+}
+
+// Optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See `statement` above for details. If `aggregateKeyType` is set to `CONSTANT`, this block is required.
+func (o WebAclRuleStatementRateBasedStatementOutput) ScopeDownStatement() WebAclRuleStatementRateBasedStatementScopeDownStatementPtrOutput {
+	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatement) *WebAclRuleStatementRateBasedStatementScopeDownStatement {
+		return v.ScopeDownStatement
+	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementPtrOutput)
+}
+
+type WebAclRuleStatementRateBasedStatementPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementRateBasedStatementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclRuleStatementRateBasedStatement)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementRateBasedStatementPtrOutput) ToWebAclRuleStatementRateBasedStatementPtrOutput() WebAclRuleStatementRateBasedStatementPtrOutput {
+	return o
+}
+
+func (o WebAclRuleStatementRateBasedStatementPtrOutput) ToWebAclRuleStatementRateBasedStatementPtrOutputWithContext(ctx context.Context) WebAclRuleStatementRateBasedStatementPtrOutput {
+	return o
+}
+
+func (o WebAclRuleStatementRateBasedStatementPtrOutput) Elem() WebAclRuleStatementRateBasedStatementOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatement) WebAclRuleStatementRateBasedStatement {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclRuleStatementRateBasedStatement
+		return ret
+	}).(WebAclRuleStatementRateBasedStatementOutput)
+}
+
+// Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `FORWARDED_IP` or `IP`. Default: `IP`.
+func (o WebAclRuleStatementRateBasedStatementPtrOutput) AggregateKeyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatement) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AggregateKeyType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. If `aggregateKeyType` is set to `FORWARDED_IP`, this block is required. See `forwardedIpConfig` below for details.
+func (o WebAclRuleStatementRateBasedStatementPtrOutput) ForwardedIpConfig() WebAclRuleStatementRateBasedStatementForwardedIpConfigPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatement) *WebAclRuleStatementRateBasedStatementForwardedIpConfig {
+		if v == nil {
+			return nil
+		}
+		return v.ForwardedIpConfig
+	}).(WebAclRuleStatementRateBasedStatementForwardedIpConfigPtrOutput)
+}
+
+// Limit on requests per 5-minute period for a single originating IP address.
+func (o WebAclRuleStatementRateBasedStatementPtrOutput) Limit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatement) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Limit
+	}).(pulumi.IntPtrOutput)
+}
+
+// Optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See `statement` above for details. If `aggregateKeyType` is set to `CONSTANT`, this block is required.
+func (o WebAclRuleStatementRateBasedStatementPtrOutput) ScopeDownStatement() WebAclRuleStatementRateBasedStatementScopeDownStatementPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatement) *WebAclRuleStatementRateBasedStatementScopeDownStatement {
+		if v == nil {
+			return nil
+		}
+		return v.ScopeDownStatement
+	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementPtrOutput)
+}
+
+type WebAclRuleStatementRateBasedStatementForwardedIpConfig struct {
+	// Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+	FallbackBehavior string `pulumi:"fallbackBehavior"`
+	// Name of the HTTP header to use for the IP address.
+	HeaderName string `pulumi:"headerName"`
+}
+
+// WebAclRuleStatementRateBasedStatementForwardedIpConfigInput is an input type that accepts WebAclRuleStatementRateBasedStatementForwardedIpConfigArgs and WebAclRuleStatementRateBasedStatementForwardedIpConfigOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementRateBasedStatementForwardedIpConfigInput` via:
+//
+//	WebAclRuleStatementRateBasedStatementForwardedIpConfigArgs{...}
+type WebAclRuleStatementRateBasedStatementForwardedIpConfigInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementRateBasedStatementForwardedIpConfigOutput() WebAclRuleStatementRateBasedStatementForwardedIpConfigOutput
+	ToWebAclRuleStatementRateBasedStatementForwardedIpConfigOutputWithContext(context.Context) WebAclRuleStatementRateBasedStatementForwardedIpConfigOutput
+}
+
+type WebAclRuleStatementRateBasedStatementForwardedIpConfigArgs struct {
+	// Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+	FallbackBehavior pulumi.StringInput `pulumi:"fallbackBehavior"`
+	// Name of the HTTP header to use for the IP address.
+	HeaderName pulumi.StringInput `pulumi:"headerName"`
+}
+
+func (WebAclRuleStatementRateBasedStatementForwardedIpConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementRateBasedStatementForwardedIpConfig)(nil)).Elem()
+}
+
+func (i WebAclRuleStatementRateBasedStatementForwardedIpConfigArgs) ToWebAclRuleStatementRateBasedStatementForwardedIpConfigOutput() WebAclRuleStatementRateBasedStatementForwardedIpConfigOutput {
+	return i.ToWebAclRuleStatementRateBasedStatementForwardedIpConfigOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementRateBasedStatementForwardedIpConfigArgs) ToWebAclRuleStatementRateBasedStatementForwardedIpConfigOutputWithContext(ctx context.Context) WebAclRuleStatementRateBasedStatementForwardedIpConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementRateBasedStatementForwardedIpConfigOutput)
+}
+
+func (i WebAclRuleStatementRateBasedStatementForwardedIpConfigArgs) ToWebAclRuleStatementRateBasedStatementForwardedIpConfigPtrOutput() WebAclRuleStatementRateBasedStatementForwardedIpConfigPtrOutput {
+	return i.ToWebAclRuleStatementRateBasedStatementForwardedIpConfigPtrOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementRateBasedStatementForwardedIpConfigArgs) ToWebAclRuleStatementRateBasedStatementForwardedIpConfigPtrOutputWithContext(ctx context.Context) WebAclRuleStatementRateBasedStatementForwardedIpConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementRateBasedStatementForwardedIpConfigOutput).ToWebAclRuleStatementRateBasedStatementForwardedIpConfigPtrOutputWithContext(ctx)
+}
+
+// WebAclRuleStatementRateBasedStatementForwardedIpConfigPtrInput is an input type that accepts WebAclRuleStatementRateBasedStatementForwardedIpConfigArgs, WebAclRuleStatementRateBasedStatementForwardedIpConfigPtr and WebAclRuleStatementRateBasedStatementForwardedIpConfigPtrOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementRateBasedStatementForwardedIpConfigPtrInput` via:
+//
+//	        WebAclRuleStatementRateBasedStatementForwardedIpConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebAclRuleStatementRateBasedStatementForwardedIpConfigPtrInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementRateBasedStatementForwardedIpConfigPtrOutput() WebAclRuleStatementRateBasedStatementForwardedIpConfigPtrOutput
+	ToWebAclRuleStatementRateBasedStatementForwardedIpConfigPtrOutputWithContext(context.Context) WebAclRuleStatementRateBasedStatementForwardedIpConfigPtrOutput
+}
+
+type webAclRuleStatementRateBasedStatementForwardedIpConfigPtrType WebAclRuleStatementRateBasedStatementForwardedIpConfigArgs
+
+func WebAclRuleStatementRateBasedStatementForwardedIpConfigPtr(v *WebAclRuleStatementRateBasedStatementForwardedIpConfigArgs) WebAclRuleStatementRateBasedStatementForwardedIpConfigPtrInput {
+	return (*webAclRuleStatementRateBasedStatementForwardedIpConfigPtrType)(v)
+}
+
+func (*webAclRuleStatementRateBasedStatementForwardedIpConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclRuleStatementRateBasedStatementForwardedIpConfig)(nil)).Elem()
+}
+
+func (i *webAclRuleStatementRateBasedStatementForwardedIpConfigPtrType) ToWebAclRuleStatementRateBasedStatementForwardedIpConfigPtrOutput() WebAclRuleStatementRateBasedStatementForwardedIpConfigPtrOutput {
+	return i.ToWebAclRuleStatementRateBasedStatementForwardedIpConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *webAclRuleStatementRateBasedStatementForwardedIpConfigPtrType) ToWebAclRuleStatementRateBasedStatementForwardedIpConfigPtrOutputWithContext(ctx context.Context) WebAclRuleStatementRateBasedStatementForwardedIpConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementRateBasedStatementForwardedIpConfigPtrOutput)
+}
+
+type WebAclRuleStatementRateBasedStatementForwardedIpConfigOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementRateBasedStatementForwardedIpConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementRateBasedStatementForwardedIpConfig)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementRateBasedStatementForwardedIpConfigOutput) ToWebAclRuleStatementRateBasedStatementForwardedIpConfigOutput() WebAclRuleStatementRateBasedStatementForwardedIpConfigOutput {
+	return o
+}
+
+func (o WebAclRuleStatementRateBasedStatementForwardedIpConfigOutput) ToWebAclRuleStatementRateBasedStatementForwardedIpConfigOutputWithContext(ctx context.Context) WebAclRuleStatementRateBasedStatementForwardedIpConfigOutput {
+	return o
+}
+
+func (o WebAclRuleStatementRateBasedStatementForwardedIpConfigOutput) ToWebAclRuleStatementRateBasedStatementForwardedIpConfigPtrOutput() WebAclRuleStatementRateBasedStatementForwardedIpConfigPtrOutput {
+	return o.ToWebAclRuleStatementRateBasedStatementForwardedIpConfigPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclRuleStatementRateBasedStatementForwardedIpConfigOutput) ToWebAclRuleStatementRateBasedStatementForwardedIpConfigPtrOutputWithContext(ctx context.Context) WebAclRuleStatementRateBasedStatementForwardedIpConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementRateBasedStatementForwardedIpConfig) *WebAclRuleStatementRateBasedStatementForwardedIpConfig {
+		return &v
+	}).(WebAclRuleStatementRateBasedStatementForwardedIpConfigPtrOutput)
+}
+
+// Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+func (o WebAclRuleStatementRateBasedStatementForwardedIpConfigOutput) FallbackBehavior() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementForwardedIpConfig) string { return v.FallbackBehavior }).(pulumi.StringOutput)
+}
+
+// Name of the HTTP header to use for the IP address.
+func (o WebAclRuleStatementRateBasedStatementForwardedIpConfigOutput) HeaderName() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementForwardedIpConfig) string { return v.HeaderName }).(pulumi.StringOutput)
+}
+
+type WebAclRuleStatementRateBasedStatementForwardedIpConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementRateBasedStatementForwardedIpConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclRuleStatementRateBasedStatementForwardedIpConfig)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementRateBasedStatementForwardedIpConfigPtrOutput) ToWebAclRuleStatementRateBasedStatementForwardedIpConfigPtrOutput() WebAclRuleStatementRateBasedStatementForwardedIpConfigPtrOutput {
+	return o
+}
+
+func (o WebAclRuleStatementRateBasedStatementForwardedIpConfigPtrOutput) ToWebAclRuleStatementRateBasedStatementForwardedIpConfigPtrOutputWithContext(ctx context.Context) WebAclRuleStatementRateBasedStatementForwardedIpConfigPtrOutput {
+	return o
+}
+
+func (o WebAclRuleStatementRateBasedStatementForwardedIpConfigPtrOutput) Elem() WebAclRuleStatementRateBasedStatementForwardedIpConfigOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementForwardedIpConfig) WebAclRuleStatementRateBasedStatementForwardedIpConfig {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclRuleStatementRateBasedStatementForwardedIpConfig
+		return ret
+	}).(WebAclRuleStatementRateBasedStatementForwardedIpConfigOutput)
+}
+
+// Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+func (o WebAclRuleStatementRateBasedStatementForwardedIpConfigPtrOutput) FallbackBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementForwardedIpConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FallbackBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the HTTP header to use for the IP address.
+func (o WebAclRuleStatementRateBasedStatementForwardedIpConfigPtrOutput) HeaderName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementForwardedIpConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HeaderName
+	}).(pulumi.StringPtrOutput)
+}
+
+type WebAclRuleStatementRateBasedStatementScopeDownStatement struct {
+	// Logical rule statement used to combine other rule statements with AND logic. See `andStatement` below for details.
+	AndStatement *WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatement `pulumi:"andStatement"`
+	// Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byteMatchStatement` below for details.
+	ByteMatchStatement *WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement `pulumi:"byteMatchStatement"`
+	// Rule statement used to identify web requests based on country of origin. See `geoMatchStatement` below for details.
+	GeoMatchStatement *WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement `pulumi:"geoMatchStatement"`
+	// Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ipSetReferenceStatement` below for details.
+	IpSetReferenceStatement *WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement `pulumi:"ipSetReferenceStatement"`
+	// Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See `labelMatchStatement` below for details.
+	LabelMatchStatement *WebAclRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatement `pulumi:"labelMatchStatement"`
+	// Logical rule statement used to negate the results of another rule statement. See `notStatement` below for details.
+	NotStatement *WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatement `pulumi:"notStatement"`
+	// Logical rule statement used to combine other rule statements with OR logic. See `orStatement` below for details.
+	OrStatement *WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatement `pulumi:"orStatement"`
+	// Rule statement used to search web request components for a match against a single regular expression. See `regexMatchStatement` below for details.
+	RegexMatchStatement *WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement `pulumi:"regexMatchStatement"`
+	// Rule statement used to search web request components for matches with regular expressions. See `regexPatternSetReferenceStatement` below for details.
+	RegexPatternSetReferenceStatement *WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatement `pulumi:"regexPatternSetReferenceStatement"`
+	// Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See `sizeConstraintStatement` below for more details.
+	SizeConstraintStatement *WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement `pulumi:"sizeConstraintStatement"`
+	// An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See `sqliMatchStatement` below for details.
+	SqliMatchStatement *WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement `pulumi:"sqliMatchStatement"`
+	// Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See `xssMatchStatement` below for details.
+	XssMatchStatement *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement `pulumi:"xssMatchStatement"`
+}
+
+// WebAclRuleStatementRateBasedStatementScopeDownStatementInput is an input type that accepts WebAclRuleStatementRateBasedStatementScopeDownStatementArgs and WebAclRuleStatementRateBasedStatementScopeDownStatementOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementRateBasedStatementScopeDownStatementInput` via:
+//
+//	WebAclRuleStatementRateBasedStatementScopeDownStatementArgs{...}
+type WebAclRuleStatementRateBasedStatementScopeDownStatementInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementRateBasedStatementScopeDownStatementOutput() WebAclRuleStatementRateBasedStatementScopeDownStatementOutput
+	ToWebAclRuleStatementRateBasedStatementScopeDownStatementOutputWithContext(context.Context) WebAclRuleStatementRateBasedStatementScopeDownStatementOutput
+}
+
+type WebAclRuleStatementRateBasedStatementScopeDownStatementArgs struct {
+	// Logical rule statement used to combine other rule statements with AND logic. See `andStatement` below for details.
+	AndStatement WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementPtrInput `pulumi:"andStatement"`
+	// Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byteMatchStatement` below for details.
+	ByteMatchStatement WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPtrInput `pulumi:"byteMatchStatement"`
+	// Rule statement used to identify web requests based on country of origin. See `geoMatchStatement` below for details.
+	GeoMatchStatement WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementPtrInput `pulumi:"geoMatchStatement"`
+	// Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ipSetReferenceStatement` below for details.
+	IpSetReferenceStatement WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementPtrInput `pulumi:"ipSetReferenceStatement"`
+	// Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See `labelMatchStatement` below for details.
+	LabelMatchStatement WebAclRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatementPtrInput `pulumi:"labelMatchStatement"`
+	// Logical rule statement used to negate the results of another rule statement. See `notStatement` below for details.
+	NotStatement WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementPtrInput `pulumi:"notStatement"`
+	// Logical rule statement used to combine other rule statements with OR logic. See `orStatement` below for details.
+	OrStatement WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementPtrInput `pulumi:"orStatement"`
+	// Rule statement used to search web request components for a match against a single regular expression. See `regexMatchStatement` below for details.
+	RegexMatchStatement WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPtrInput `pulumi:"regexMatchStatement"`
+	// Rule statement used to search web request components for matches with regular expressions. See `regexPatternSetReferenceStatement` below for details.
+	RegexPatternSetReferenceStatement WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPtrInput `pulumi:"regexPatternSetReferenceStatement"`
+	// Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See `sizeConstraintStatement` below for more details.
+	SizeConstraintStatement WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPtrInput `pulumi:"sizeConstraintStatement"`
+	// An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See `sqliMatchStatement` below for details.
+	SqliMatchStatement WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPtrInput `pulumi:"sqliMatchStatement"`
+	// Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See `xssMatchStatement` below for details.
+	XssMatchStatement WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPtrInput `pulumi:"xssMatchStatement"`
+}
+
+func (WebAclRuleStatementRateBasedStatementScopeDownStatementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatement)(nil)).Elem()
+}
+
+func (i WebAclRuleStatementRateBasedStatementScopeDownStatementArgs) ToWebAclRuleStatementRateBasedStatementScopeDownStatementOutput() WebAclRuleStatementRateBasedStatementScopeDownStatementOutput {
+	return i.ToWebAclRuleStatementRateBasedStatementScopeDownStatementOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementRateBasedStatementScopeDownStatementArgs) ToWebAclRuleStatementRateBasedStatementScopeDownStatementOutputWithContext(ctx context.Context) WebAclRuleStatementRateBasedStatementScopeDownStatementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementRateBasedStatementScopeDownStatementOutput)
+}
+
+func (i WebAclRuleStatementRateBasedStatementScopeDownStatementArgs) ToWebAclRuleStatementRateBasedStatementScopeDownStatementPtrOutput() WebAclRuleStatementRateBasedStatementScopeDownStatementPtrOutput {
+	return i.ToWebAclRuleStatementRateBasedStatementScopeDownStatementPtrOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementRateBasedStatementScopeDownStatementArgs) ToWebAclRuleStatementRateBasedStatementScopeDownStatementPtrOutputWithContext(ctx context.Context) WebAclRuleStatementRateBasedStatementScopeDownStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementRateBasedStatementScopeDownStatementOutput).ToWebAclRuleStatementRateBasedStatementScopeDownStatementPtrOutputWithContext(ctx)
+}
+
+// WebAclRuleStatementRateBasedStatementScopeDownStatementPtrInput is an input type that accepts WebAclRuleStatementRateBasedStatementScopeDownStatementArgs, WebAclRuleStatementRateBasedStatementScopeDownStatementPtr and WebAclRuleStatementRateBasedStatementScopeDownStatementPtrOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementRateBasedStatementScopeDownStatementPtrInput` via:
+//
+//	        WebAclRuleStatementRateBasedStatementScopeDownStatementArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebAclRuleStatementRateBasedStatementScopeDownStatementPtrInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementRateBasedStatementScopeDownStatementPtrOutput() WebAclRuleStatementRateBasedStatementScopeDownStatementPtrOutput
+	ToWebAclRuleStatementRateBasedStatementScopeDownStatementPtrOutputWithContext(context.Context) WebAclRuleStatementRateBasedStatementScopeDownStatementPtrOutput
+}
+
+type webAclRuleStatementRateBasedStatementScopeDownStatementPtrType WebAclRuleStatementRateBasedStatementScopeDownStatementArgs
+
+func WebAclRuleStatementRateBasedStatementScopeDownStatementPtr(v *WebAclRuleStatementRateBasedStatementScopeDownStatementArgs) WebAclRuleStatementRateBasedStatementScopeDownStatementPtrInput {
+	return (*webAclRuleStatementRateBasedStatementScopeDownStatementPtrType)(v)
+}
+
+func (*webAclRuleStatementRateBasedStatementScopeDownStatementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclRuleStatementRateBasedStatementScopeDownStatement)(nil)).Elem()
+}
+
+func (i *webAclRuleStatementRateBasedStatementScopeDownStatementPtrType) ToWebAclRuleStatementRateBasedStatementScopeDownStatementPtrOutput() WebAclRuleStatementRateBasedStatementScopeDownStatementPtrOutput {
+	return i.ToWebAclRuleStatementRateBasedStatementScopeDownStatementPtrOutputWithContext(context.Background())
+}
+
+func (i *webAclRuleStatementRateBasedStatementScopeDownStatementPtrType) ToWebAclRuleStatementRateBasedStatementScopeDownStatementPtrOutputWithContext(ctx context.Context) WebAclRuleStatementRateBasedStatementScopeDownStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementRateBasedStatementScopeDownStatementPtrOutput)
+}
+
+type WebAclRuleStatementRateBasedStatementScopeDownStatementOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementRateBasedStatementScopeDownStatementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatement)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementOutput) ToWebAclRuleStatementRateBasedStatementScopeDownStatementOutput() WebAclRuleStatementRateBasedStatementScopeDownStatementOutput {
+	return o
+}
+
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementOutput) ToWebAclRuleStatementRateBasedStatementScopeDownStatementOutputWithContext(ctx context.Context) WebAclRuleStatementRateBasedStatementScopeDownStatementOutput {
+	return o
+}
+
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementOutput) ToWebAclRuleStatementRateBasedStatementScopeDownStatementPtrOutput() WebAclRuleStatementRateBasedStatementScopeDownStatementPtrOutput {
+	return o.ToWebAclRuleStatementRateBasedStatementScopeDownStatementPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementOutput) ToWebAclRuleStatementRateBasedStatementScopeDownStatementPtrOutputWithContext(ctx context.Context) WebAclRuleStatementRateBasedStatementScopeDownStatementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementRateBasedStatementScopeDownStatement) *WebAclRuleStatementRateBasedStatementScopeDownStatement {
+		return &v
+	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementPtrOutput)
+}
+
+// Logical rule statement used to combine other rule statements with AND logic. See `andStatement` below for details.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementOutput) AndStatement() WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementPtrOutput {
+	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatement) *WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatement {
+		return v.AndStatement
+	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementPtrOutput)
+}
+
+// Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byteMatchStatement` below for details.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementOutput) ByteMatchStatement() WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPtrOutput {
+	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatement) *WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement {
+		return v.ByteMatchStatement
+	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPtrOutput)
+}
+
+// Rule statement used to identify web requests based on country of origin. See `geoMatchStatement` below for details.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementOutput) GeoMatchStatement() WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementPtrOutput {
+	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatement) *WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement {
+		return v.GeoMatchStatement
+	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementPtrOutput)
+}
+
+// Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ipSetReferenceStatement` below for details.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementOutput) IpSetReferenceStatement() WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementPtrOutput {
+	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatement) *WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement {
+		return v.IpSetReferenceStatement
+	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementPtrOutput)
+}
+
+// Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See `labelMatchStatement` below for details.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementOutput) LabelMatchStatement() WebAclRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatementPtrOutput {
+	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatement) *WebAclRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatement {
+		return v.LabelMatchStatement
+	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatementPtrOutput)
+}
+
+// Logical rule statement used to negate the results of another rule statement. See `notStatement` below for details.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementOutput) NotStatement() WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementPtrOutput {
+	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatement) *WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatement {
+		return v.NotStatement
+	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementPtrOutput)
+}
+
+// Logical rule statement used to combine other rule statements with OR logic. See `orStatement` below for details.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementOutput) OrStatement() WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementPtrOutput {
+	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatement) *WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatement {
+		return v.OrStatement
+	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementPtrOutput)
+}
+
+// Rule statement used to search web request components for a match against a single regular expression. See `regexMatchStatement` below for details.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementOutput) RegexMatchStatement() WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPtrOutput {
+	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatement) *WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement {
+		return v.RegexMatchStatement
+	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPtrOutput)
+}
+
+// Rule statement used to search web request components for matches with regular expressions. See `regexPatternSetReferenceStatement` below for details.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementOutput) RegexPatternSetReferenceStatement() WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPtrOutput {
+	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatement) *WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatement {
+		return v.RegexPatternSetReferenceStatement
+	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPtrOutput)
+}
+
+// Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See `sizeConstraintStatement` below for more details.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementOutput) SizeConstraintStatement() WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPtrOutput {
+	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatement) *WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement {
+		return v.SizeConstraintStatement
+	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPtrOutput)
+}
+
+// An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See `sqliMatchStatement` below for details.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementOutput) SqliMatchStatement() WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPtrOutput {
+	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatement) *WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement {
+		return v.SqliMatchStatement
+	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPtrOutput)
+}
+
+// Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See `xssMatchStatement` below for details.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementOutput) XssMatchStatement() WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPtrOutput {
+	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatement) *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement {
+		return v.XssMatchStatement
+	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPtrOutput)
+}
+
+type WebAclRuleStatementRateBasedStatementScopeDownStatementPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementRateBasedStatementScopeDownStatementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclRuleStatementRateBasedStatementScopeDownStatement)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementPtrOutput) ToWebAclRuleStatementRateBasedStatementScopeDownStatementPtrOutput() WebAclRuleStatementRateBasedStatementScopeDownStatementPtrOutput {
+	return o
+}
+
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementPtrOutput) ToWebAclRuleStatementRateBasedStatementScopeDownStatementPtrOutputWithContext(ctx context.Context) WebAclRuleStatementRateBasedStatementScopeDownStatementPtrOutput {
+	return o
+}
+
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementPtrOutput) Elem() WebAclRuleStatementRateBasedStatementScopeDownStatementOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatement) WebAclRuleStatementRateBasedStatementScopeDownStatement {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclRuleStatementRateBasedStatementScopeDownStatement
+		return ret
+	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementOutput)
+}
+
+// Logical rule statement used to combine other rule statements with AND logic. See `andStatement` below for details.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementPtrOutput) AndStatement() WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatement) *WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatement {
+		if v == nil {
+			return nil
+		}
+		return v.AndStatement
+	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementPtrOutput)
+}
+
+// Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byteMatchStatement` below for details.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementPtrOutput) ByteMatchStatement() WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatement) *WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement {
+		if v == nil {
+			return nil
+		}
+		return v.ByteMatchStatement
+	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPtrOutput)
+}
+
+// Rule statement used to identify web requests based on country of origin. See `geoMatchStatement` below for details.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementPtrOutput) GeoMatchStatement() WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatement) *WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement {
+		if v == nil {
+			return nil
+		}
+		return v.GeoMatchStatement
+	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementPtrOutput)
+}
+
+// Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ipSetReferenceStatement` below for details.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementPtrOutput) IpSetReferenceStatement() WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatement) *WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement {
+		if v == nil {
+			return nil
+		}
+		return v.IpSetReferenceStatement
+	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementPtrOutput)
+}
+
+// Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See `labelMatchStatement` below for details.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementPtrOutput) LabelMatchStatement() WebAclRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatementPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatement) *WebAclRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatement {
+		if v == nil {
+			return nil
+		}
+		return v.LabelMatchStatement
+	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatementPtrOutput)
+}
+
+// Logical rule statement used to negate the results of another rule statement. See `notStatement` below for details.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementPtrOutput) NotStatement() WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatement) *WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatement {
+		if v == nil {
+			return nil
+		}
+		return v.NotStatement
+	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementPtrOutput)
+}
+
+// Logical rule statement used to combine other rule statements with OR logic. See `orStatement` below for details.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementPtrOutput) OrStatement() WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatement) *WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatement {
+		if v == nil {
+			return nil
+		}
+		return v.OrStatement
+	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementPtrOutput)
+}
+
+// Rule statement used to search web request components for a match against a single regular expression. See `regexMatchStatement` below for details.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementPtrOutput) RegexMatchStatement() WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatement) *WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement {
+		if v == nil {
+			return nil
+		}
+		return v.RegexMatchStatement
+	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPtrOutput)
+}
+
+// Rule statement used to search web request components for matches with regular expressions. See `regexPatternSetReferenceStatement` below for details.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementPtrOutput) RegexPatternSetReferenceStatement() WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatement) *WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatement {
+		if v == nil {
+			return nil
+		}
+		return v.RegexPatternSetReferenceStatement
+	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPtrOutput)
+}
+
+// Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See `sizeConstraintStatement` below for more details.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementPtrOutput) SizeConstraintStatement() WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatement) *WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement {
+		if v == nil {
+			return nil
+		}
+		return v.SizeConstraintStatement
+	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPtrOutput)
+}
+
+// An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See `sqliMatchStatement` below for details.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementPtrOutput) SqliMatchStatement() WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatement) *WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement {
+		if v == nil {
+			return nil
+		}
+		return v.SqliMatchStatement
+	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPtrOutput)
+}
+
+// Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See `xssMatchStatement` below for details.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementPtrOutput) XssMatchStatement() WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatement) *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement {
+		if v == nil {
+			return nil
+		}
+		return v.XssMatchStatement
+	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPtrOutput)
+}
+
 type WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatement struct {
 	// The statements to combine.
 	Statements []WebAclRuleStatement `pulumi:"statements"`
@@ -23198,6 +23922,8 @@ type WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUse
 	Block *WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlock `pulumi:"block"`
 	// Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
 	Captcha *WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptcha `pulumi:"captcha"`
+	// Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
+	Challenge *WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallenge `pulumi:"challenge"`
 	// Instructs AWS WAF to count the web request and allow it. See `count` below for details.
 	Count *WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCount `pulumi:"count"`
 }
@@ -23220,6 +23946,8 @@ type WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUse
 	Block WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlockPtrInput `pulumi:"block"`
 	// Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
 	Captcha WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaPtrInput `pulumi:"captcha"`
+	// Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
+	Challenge WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengePtrInput `pulumi:"challenge"`
 	// Instructs AWS WAF to count the web request and allow it. See `count` below for details.
 	Count WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountPtrInput `pulumi:"count"`
 }
@@ -23269,6 +23997,13 @@ func (o WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionTo
 	return o.ApplyT(func(v WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUse) *WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptcha {
 		return v.Captcha
 	}).(WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaPtrOutput)
+}
+
+// Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
+func (o WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseOutput) Challenge() WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengePtrOutput {
+	return o.ApplyT(func(v WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUse) *WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallenge {
+		return v.Challenge
+	}).(WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengePtrOutput)
 }
 
 // Instructs AWS WAF to count the web request and allow it. See `count` below for details.
@@ -24482,6 +25217,394 @@ func (o WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionTo
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeader {
 		return vs[0].([]WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeader)[vs[1].(int)]
 	}).(WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeaderOutput)
+}
+
+type WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallenge struct {
+	// Defines custom handling for the web request. See `customRequestHandling` below for details.
+	CustomRequestHandling *WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandling `pulumi:"customRequestHandling"`
+}
+
+// WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeInput is an input type that accepts WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeArgs and WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeInput` via:
+//
+//	WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeArgs{...}
+type WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeOutput() WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeOutput
+	ToWebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeOutputWithContext(context.Context) WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeOutput
+}
+
+type WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeArgs struct {
+	// Defines custom handling for the web request. See `customRequestHandling` below for details.
+	CustomRequestHandling WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingPtrInput `pulumi:"customRequestHandling"`
+}
+
+func (WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallenge)(nil)).Elem()
+}
+
+func (i WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeArgs) ToWebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeOutput() WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeOutput {
+	return i.ToWebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeArgs) ToWebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeOutputWithContext(ctx context.Context) WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeOutput)
+}
+
+func (i WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeArgs) ToWebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengePtrOutput() WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengePtrOutput {
+	return i.ToWebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengePtrOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeArgs) ToWebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengePtrOutputWithContext(ctx context.Context) WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeOutput).ToWebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengePtrOutputWithContext(ctx)
+}
+
+// WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengePtrInput is an input type that accepts WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeArgs, WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengePtr and WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengePtrOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengePtrInput` via:
+//
+//	        WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengePtrInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengePtrOutput() WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengePtrOutput
+	ToWebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengePtrOutputWithContext(context.Context) WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengePtrOutput
+}
+
+type webAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengePtrType WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeArgs
+
+func WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengePtr(v *WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeArgs) WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengePtrInput {
+	return (*webAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengePtrType)(v)
+}
+
+func (*webAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallenge)(nil)).Elem()
+}
+
+func (i *webAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengePtrType) ToWebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengePtrOutput() WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengePtrOutput {
+	return i.ToWebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengePtrOutputWithContext(context.Background())
+}
+
+func (i *webAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengePtrType) ToWebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengePtrOutputWithContext(ctx context.Context) WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengePtrOutput)
+}
+
+type WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallenge)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeOutput) ToWebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeOutput() WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeOutput {
+	return o
+}
+
+func (o WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeOutput) ToWebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeOutputWithContext(ctx context.Context) WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeOutput {
+	return o
+}
+
+func (o WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeOutput) ToWebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengePtrOutput() WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengePtrOutput {
+	return o.ToWebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengePtrOutputWithContext(context.Background())
+}
+
+func (o WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeOutput) ToWebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengePtrOutputWithContext(ctx context.Context) WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallenge) *WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallenge {
+		return &v
+	}).(WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengePtrOutput)
+}
+
+// Defines custom handling for the web request. See `customRequestHandling` below for details.
+func (o WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeOutput) CustomRequestHandling() WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingPtrOutput {
+	return o.ApplyT(func(v WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallenge) *WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandling {
+		return v.CustomRequestHandling
+	}).(WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingPtrOutput)
+}
+
+type WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengePtrOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallenge)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengePtrOutput) ToWebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengePtrOutput() WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengePtrOutput {
+	return o
+}
+
+func (o WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengePtrOutput) ToWebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengePtrOutputWithContext(ctx context.Context) WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengePtrOutput {
+	return o
+}
+
+func (o WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengePtrOutput) Elem() WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallenge) WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallenge {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallenge
+		return ret
+	}).(WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeOutput)
+}
+
+// Defines custom handling for the web request. See `customRequestHandling` below for details.
+func (o WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengePtrOutput) CustomRequestHandling() WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallenge) *WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandling {
+		if v == nil {
+			return nil
+		}
+		return v.CustomRequestHandling
+	}).(WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingPtrOutput)
+}
+
+type WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandling struct {
+	// The `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
+	InsertHeaders []WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeader `pulumi:"insertHeaders"`
+}
+
+// WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInput is an input type that accepts WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingArgs and WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInput` via:
+//
+//	WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingArgs{...}
+type WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingOutput() WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingOutput
+	ToWebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingOutputWithContext(context.Context) WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingOutput
+}
+
+type WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingArgs struct {
+	// The `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
+	InsertHeaders WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArrayInput `pulumi:"insertHeaders"`
+}
+
+func (WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandling)(nil)).Elem()
+}
+
+func (i WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingArgs) ToWebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingOutput() WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingOutput {
+	return i.ToWebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingArgs) ToWebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingOutputWithContext(ctx context.Context) WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingOutput)
+}
+
+func (i WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingArgs) ToWebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingPtrOutput() WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingPtrOutput {
+	return i.ToWebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingPtrOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingArgs) ToWebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingPtrOutputWithContext(ctx context.Context) WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingOutput).ToWebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingPtrOutputWithContext(ctx)
+}
+
+// WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingPtrInput is an input type that accepts WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingArgs, WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingPtr and WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingPtrOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingPtrInput` via:
+//
+//	        WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingPtrInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingPtrOutput() WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingPtrOutput
+	ToWebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingPtrOutputWithContext(context.Context) WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingPtrOutput
+}
+
+type webAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingPtrType WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingArgs
+
+func WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingPtr(v *WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingArgs) WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingPtrInput {
+	return (*webAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingPtrType)(v)
+}
+
+func (*webAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandling)(nil)).Elem()
+}
+
+func (i *webAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingPtrType) ToWebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingPtrOutput() WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingPtrOutput {
+	return i.ToWebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingPtrOutputWithContext(context.Background())
+}
+
+func (i *webAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingPtrType) ToWebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingPtrOutputWithContext(ctx context.Context) WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingPtrOutput)
+}
+
+type WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandling)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingOutput) ToWebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingOutput() WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingOutput {
+	return o
+}
+
+func (o WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingOutput) ToWebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingOutputWithContext(ctx context.Context) WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingOutput {
+	return o
+}
+
+func (o WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingOutput) ToWebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingPtrOutput() WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingPtrOutput {
+	return o.ToWebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingOutput) ToWebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingPtrOutputWithContext(ctx context.Context) WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandling) *WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandling {
+		return &v
+	}).(WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingPtrOutput)
+}
+
+// The `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
+func (o WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingOutput) InsertHeaders() WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArrayOutput {
+	return o.ApplyT(func(v WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandling) []WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeader {
+		return v.InsertHeaders
+	}).(WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArrayOutput)
+}
+
+type WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandling)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingPtrOutput) ToWebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingPtrOutput() WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingPtrOutput {
+	return o
+}
+
+func (o WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingPtrOutput) ToWebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingPtrOutputWithContext(ctx context.Context) WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingPtrOutput {
+	return o
+}
+
+func (o WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingPtrOutput) Elem() WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandling) WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandling {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandling
+		return ret
+	}).(WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingOutput)
+}
+
+// The `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
+func (o WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingPtrOutput) InsertHeaders() WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArrayOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandling) []WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeader {
+		if v == nil {
+			return nil
+		}
+		return v.InsertHeaders
+	}).(WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArrayOutput)
+}
+
+type WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeader struct {
+	// Name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+	Name string `pulumi:"name"`
+	// Value of the custom header.
+	Value string `pulumi:"value"`
+}
+
+// WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderInput is an input type that accepts WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArgs and WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderInput` via:
+//
+//	WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArgs{...}
+type WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderOutput() WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderOutput
+	ToWebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderOutputWithContext(context.Context) WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderOutput
+}
+
+type WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArgs struct {
+	// Name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Value of the custom header.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeader)(nil)).Elem()
+}
+
+func (i WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArgs) ToWebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderOutput() WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderOutput {
+	return i.ToWebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArgs) ToWebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderOutputWithContext(ctx context.Context) WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderOutput)
+}
+
+// WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArrayInput is an input type that accepts WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArray and WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArrayOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArrayInput` via:
+//
+//	WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArray{ WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArgs{...} }
+type WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArrayInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArrayOutput() WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArrayOutput
+	ToWebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArrayOutputWithContext(context.Context) WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArrayOutput
+}
+
+type WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArray []WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderInput
+
+func (WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeader)(nil)).Elem()
+}
+
+func (i WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArray) ToWebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArrayOutput() WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArrayOutput {
+	return i.ToWebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArrayOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArray) ToWebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArrayOutputWithContext(ctx context.Context) WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArrayOutput)
+}
+
+type WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeader)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderOutput) ToWebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderOutput() WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderOutput {
+	return o
+}
+
+func (o WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderOutput) ToWebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderOutputWithContext(ctx context.Context) WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderOutput {
+	return o
+}
+
+// Name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+func (o WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeader) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+// Value of the custom header.
+func (o WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeader) string {
+		return v.Value
+	}).(pulumi.StringOutput)
+}
+
+type WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArrayOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeader)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArrayOutput) ToWebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArrayOutput() WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArrayOutput {
+	return o
+}
+
+func (o WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArrayOutput) ToWebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArrayOutputWithContext(ctx context.Context) WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArrayOutput {
+	return o
+}
+
+func (o WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArrayOutput) Index(i pulumi.IntInput) WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeader {
+		return vs[0].([]WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeader)[vs[1].(int)]
+	}).(WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderOutput)
 }
 
 type WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCount struct {
@@ -33269,6 +34392,12 @@ func (o GetRegexPatternSetRegularExpressionArrayOutput) Index(i pulumi.IntInput)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRateBasedStatementInput)(nil)).Elem(), WebAclRuleStatementRateBasedStatementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRateBasedStatementPtrInput)(nil)).Elem(), WebAclRuleStatementRateBasedStatementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRateBasedStatementForwardedIpConfigInput)(nil)).Elem(), WebAclRuleStatementRateBasedStatementForwardedIpConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRateBasedStatementForwardedIpConfigPtrInput)(nil)).Elem(), WebAclRuleStatementRateBasedStatementForwardedIpConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementInput)(nil)).Elem(), WebAclRuleStatementRateBasedStatementScopeDownStatementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementPtrInput)(nil)).Elem(), WebAclRuleStatementRateBasedStatementScopeDownStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementInput)(nil)).Elem(), WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementPtrInput)(nil)).Elem(), WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementInput)(nil)).Elem(), WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementArgs{})
@@ -33604,6 +34733,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingPtrInput)(nil)).Elem(), WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeaderInput)(nil)).Elem(), WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeaderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeaderArrayInput)(nil)).Elem(), WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeaderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeInput)(nil)).Elem(), WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengePtrInput)(nil)).Elem(), WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInput)(nil)).Elem(), WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingPtrInput)(nil)).Elem(), WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderInput)(nil)).Elem(), WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArrayInput)(nil)).Elem(), WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountInput)(nil)).Elem(), WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountPtrInput)(nil)).Elem(), WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountCustomRequestHandlingInput)(nil)).Elem(), WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountCustomRequestHandlingArgs{})
@@ -33726,6 +34861,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclVisibilityConfigPtrInput)(nil)).Elem(), WebAclVisibilityConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRegexPatternSetRegularExpressionInput)(nil)).Elem(), GetRegexPatternSetRegularExpressionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRegexPatternSetRegularExpressionArrayInput)(nil)).Elem(), GetRegexPatternSetRegularExpressionArray{})
+	pulumi.RegisterOutputType(WebAclRuleStatementRateBasedStatementOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementRateBasedStatementPtrOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementRateBasedStatementForwardedIpConfigOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementRateBasedStatementForwardedIpConfigPtrOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementRateBasedStatementScopeDownStatementOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementRateBasedStatementScopeDownStatementPtrOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementPtrOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementOutput{})
@@ -34061,6 +35202,12 @@ func init() {
 	pulumi.RegisterOutputType(WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingPtrOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeaderOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeaderArrayOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengePtrOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingPtrOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArrayOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountPtrOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountCustomRequestHandlingOutput{})

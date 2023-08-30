@@ -605,7 +605,7 @@ class VpcIpamPool(pulumi.CustomResource):
             ipam_scope_id=example.private_default_scope_id)
         parent_test = aws.ec2.VpcIpamPoolCidr("parentTest",
             ipam_pool_id=parent.id,
-            cidr="172.2.0.0/16")
+            cidr="172.20.0.0/16")
         child = aws.ec2.VpcIpamPool("child",
             address_family="ipv4",
             ipam_scope_id=example.private_default_scope_id,
@@ -613,7 +613,7 @@ class VpcIpamPool(pulumi.CustomResource):
             source_ipam_pool_id=parent.id)
         child_test = aws.ec2.VpcIpamPoolCidr("childTest",
             ipam_pool_id=child.id,
-            cidr="172.2.0.0/24")
+            cidr="172.20.0.0/24")
         ```
 
         ## Import
@@ -684,7 +684,7 @@ class VpcIpamPool(pulumi.CustomResource):
             ipam_scope_id=example.private_default_scope_id)
         parent_test = aws.ec2.VpcIpamPoolCidr("parentTest",
             ipam_pool_id=parent.id,
-            cidr="172.2.0.0/16")
+            cidr="172.20.0.0/16")
         child = aws.ec2.VpcIpamPool("child",
             address_family="ipv4",
             ipam_scope_id=example.private_default_scope_id,
@@ -692,7 +692,7 @@ class VpcIpamPool(pulumi.CustomResource):
             source_ipam_pool_id=parent.id)
         child_test = aws.ec2.VpcIpamPoolCidr("childTest",
             ipam_pool_id=child.id,
-            cidr="172.2.0.0/24")
+            cidr="172.20.0.0/24")
         ```
 
         ## Import

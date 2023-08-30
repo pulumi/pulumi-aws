@@ -25,6 +25,11 @@ public final class GetNetworkInsightsPathResult {
      */
     private String destination;
     /**
+     * @return ARN of the destination.
+     * 
+     */
+    private String destinationArn;
+    /**
      * @return IP address of the AWS resource that is the destination of the path.
      * 
      */
@@ -52,6 +57,11 @@ public final class GetNetworkInsightsPathResult {
      */
     private String source;
     /**
+     * @return ARN of the source.
+     * 
+     */
+    private String sourceArn;
+    /**
      * @return IP address of the AWS resource that is the source of the path.
      * 
      */
@@ -76,6 +86,13 @@ public final class GetNetworkInsightsPathResult {
      */
     public String destination() {
         return this.destination;
+    }
+    /**
+     * @return ARN of the destination.
+     * 
+     */
+    public String destinationArn() {
+        return this.destinationArn;
     }
     /**
      * @return IP address of the AWS resource that is the destination of the path.
@@ -119,6 +136,13 @@ public final class GetNetworkInsightsPathResult {
         return this.source;
     }
     /**
+     * @return ARN of the source.
+     * 
+     */
+    public String sourceArn() {
+        return this.sourceArn;
+    }
+    /**
      * @return IP address of the AWS resource that is the source of the path.
      * 
      */
@@ -144,6 +168,7 @@ public final class GetNetworkInsightsPathResult {
     public static final class Builder {
         private String arn;
         private String destination;
+        private String destinationArn;
         private String destinationIp;
         private Integer destinationPort;
         private @Nullable List<GetNetworkInsightsPathFilter> filters;
@@ -151,6 +176,7 @@ public final class GetNetworkInsightsPathResult {
         private String networkInsightsPathId;
         private String protocol;
         private String source;
+        private String sourceArn;
         private String sourceIp;
         private Map<String,String> tags;
         public Builder() {}
@@ -158,6 +184,7 @@ public final class GetNetworkInsightsPathResult {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
     	      this.destination = defaults.destination;
+    	      this.destinationArn = defaults.destinationArn;
     	      this.destinationIp = defaults.destinationIp;
     	      this.destinationPort = defaults.destinationPort;
     	      this.filters = defaults.filters;
@@ -165,6 +192,7 @@ public final class GetNetworkInsightsPathResult {
     	      this.networkInsightsPathId = defaults.networkInsightsPathId;
     	      this.protocol = defaults.protocol;
     	      this.source = defaults.source;
+    	      this.sourceArn = defaults.sourceArn;
     	      this.sourceIp = defaults.sourceIp;
     	      this.tags = defaults.tags;
         }
@@ -177,6 +205,11 @@ public final class GetNetworkInsightsPathResult {
         @CustomType.Setter
         public Builder destination(String destination) {
             this.destination = Objects.requireNonNull(destination);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder destinationArn(String destinationArn) {
+            this.destinationArn = Objects.requireNonNull(destinationArn);
             return this;
         }
         @CustomType.Setter
@@ -218,6 +251,11 @@ public final class GetNetworkInsightsPathResult {
             return this;
         }
         @CustomType.Setter
+        public Builder sourceArn(String sourceArn) {
+            this.sourceArn = Objects.requireNonNull(sourceArn);
+            return this;
+        }
+        @CustomType.Setter
         public Builder sourceIp(String sourceIp) {
             this.sourceIp = Objects.requireNonNull(sourceIp);
             return this;
@@ -231,6 +269,7 @@ public final class GetNetworkInsightsPathResult {
             final var o = new GetNetworkInsightsPathResult();
             o.arn = arn;
             o.destination = destination;
+            o.destinationArn = destinationArn;
             o.destinationIp = destinationIp;
             o.destinationPort = destinationPort;
             o.filters = filters;
@@ -238,6 +277,7 @@ public final class GetNetworkInsightsPathResult {
             o.networkInsightsPathId = networkInsightsPathId;
             o.protocol = protocol;
             o.source = source;
+            o.sourceArn = sourceArn;
             o.sourceIp = sourceIp;
             o.tags = tags;
             return o;

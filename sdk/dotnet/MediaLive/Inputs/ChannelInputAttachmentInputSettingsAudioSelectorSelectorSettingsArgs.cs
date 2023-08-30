@@ -12,15 +12,27 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Audio HLS Rendition Selection. See Audio HLS Rendition Selection for more details.
+        /// </summary>
         [Input("audioHlsRenditionSelection")]
         public Input<Inputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelectionArgs>? AudioHlsRenditionSelection { get; set; }
 
+        /// <summary>
+        /// Audio Language Selection. See Audio Language Selection for more details.
+        /// </summary>
         [Input("audioLanguageSelection")]
         public Input<Inputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelectionArgs>? AudioLanguageSelection { get; set; }
 
+        /// <summary>
+        /// Audio Pid Selection. See Audio PID Selection for more details.
+        /// </summary>
         [Input("audioPidSelection")]
         public Input<Inputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelectionArgs>? AudioPidSelection { get; set; }
 
+        /// <summary>
+        /// Audio Track Selection. See Audio Track Selection for more details.
+        /// </summary>
         [Input("audioTrackSelection")]
         public Input<Inputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionArgs>? AudioTrackSelection { get; set; }
 

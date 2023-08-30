@@ -13,6 +13,181 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type CompositeAlarmActionsSuppressor struct {
+	// Can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
+	Alarm string `pulumi:"alarm"`
+	// The maximum time in seconds that the composite alarm waits after suppressor alarm goes out of the `ALARM` state. After this time, the composite alarm performs its actions.
+	ExtensionPeriod int `pulumi:"extensionPeriod"`
+	// The maximum time in seconds that the composite alarm waits for the suppressor alarm to go into the `ALARM` state. After this time, the composite alarm performs its actions.
+	WaitPeriod int `pulumi:"waitPeriod"`
+}
+
+// CompositeAlarmActionsSuppressorInput is an input type that accepts CompositeAlarmActionsSuppressorArgs and CompositeAlarmActionsSuppressorOutput values.
+// You can construct a concrete instance of `CompositeAlarmActionsSuppressorInput` via:
+//
+//	CompositeAlarmActionsSuppressorArgs{...}
+type CompositeAlarmActionsSuppressorInput interface {
+	pulumi.Input
+
+	ToCompositeAlarmActionsSuppressorOutput() CompositeAlarmActionsSuppressorOutput
+	ToCompositeAlarmActionsSuppressorOutputWithContext(context.Context) CompositeAlarmActionsSuppressorOutput
+}
+
+type CompositeAlarmActionsSuppressorArgs struct {
+	// Can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
+	Alarm pulumi.StringInput `pulumi:"alarm"`
+	// The maximum time in seconds that the composite alarm waits after suppressor alarm goes out of the `ALARM` state. After this time, the composite alarm performs its actions.
+	ExtensionPeriod pulumi.IntInput `pulumi:"extensionPeriod"`
+	// The maximum time in seconds that the composite alarm waits for the suppressor alarm to go into the `ALARM` state. After this time, the composite alarm performs its actions.
+	WaitPeriod pulumi.IntInput `pulumi:"waitPeriod"`
+}
+
+func (CompositeAlarmActionsSuppressorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CompositeAlarmActionsSuppressor)(nil)).Elem()
+}
+
+func (i CompositeAlarmActionsSuppressorArgs) ToCompositeAlarmActionsSuppressorOutput() CompositeAlarmActionsSuppressorOutput {
+	return i.ToCompositeAlarmActionsSuppressorOutputWithContext(context.Background())
+}
+
+func (i CompositeAlarmActionsSuppressorArgs) ToCompositeAlarmActionsSuppressorOutputWithContext(ctx context.Context) CompositeAlarmActionsSuppressorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CompositeAlarmActionsSuppressorOutput)
+}
+
+func (i CompositeAlarmActionsSuppressorArgs) ToCompositeAlarmActionsSuppressorPtrOutput() CompositeAlarmActionsSuppressorPtrOutput {
+	return i.ToCompositeAlarmActionsSuppressorPtrOutputWithContext(context.Background())
+}
+
+func (i CompositeAlarmActionsSuppressorArgs) ToCompositeAlarmActionsSuppressorPtrOutputWithContext(ctx context.Context) CompositeAlarmActionsSuppressorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CompositeAlarmActionsSuppressorOutput).ToCompositeAlarmActionsSuppressorPtrOutputWithContext(ctx)
+}
+
+// CompositeAlarmActionsSuppressorPtrInput is an input type that accepts CompositeAlarmActionsSuppressorArgs, CompositeAlarmActionsSuppressorPtr and CompositeAlarmActionsSuppressorPtrOutput values.
+// You can construct a concrete instance of `CompositeAlarmActionsSuppressorPtrInput` via:
+//
+//	        CompositeAlarmActionsSuppressorArgs{...}
+//
+//	or:
+//
+//	        nil
+type CompositeAlarmActionsSuppressorPtrInput interface {
+	pulumi.Input
+
+	ToCompositeAlarmActionsSuppressorPtrOutput() CompositeAlarmActionsSuppressorPtrOutput
+	ToCompositeAlarmActionsSuppressorPtrOutputWithContext(context.Context) CompositeAlarmActionsSuppressorPtrOutput
+}
+
+type compositeAlarmActionsSuppressorPtrType CompositeAlarmActionsSuppressorArgs
+
+func CompositeAlarmActionsSuppressorPtr(v *CompositeAlarmActionsSuppressorArgs) CompositeAlarmActionsSuppressorPtrInput {
+	return (*compositeAlarmActionsSuppressorPtrType)(v)
+}
+
+func (*compositeAlarmActionsSuppressorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CompositeAlarmActionsSuppressor)(nil)).Elem()
+}
+
+func (i *compositeAlarmActionsSuppressorPtrType) ToCompositeAlarmActionsSuppressorPtrOutput() CompositeAlarmActionsSuppressorPtrOutput {
+	return i.ToCompositeAlarmActionsSuppressorPtrOutputWithContext(context.Background())
+}
+
+func (i *compositeAlarmActionsSuppressorPtrType) ToCompositeAlarmActionsSuppressorPtrOutputWithContext(ctx context.Context) CompositeAlarmActionsSuppressorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CompositeAlarmActionsSuppressorPtrOutput)
+}
+
+type CompositeAlarmActionsSuppressorOutput struct{ *pulumi.OutputState }
+
+func (CompositeAlarmActionsSuppressorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CompositeAlarmActionsSuppressor)(nil)).Elem()
+}
+
+func (o CompositeAlarmActionsSuppressorOutput) ToCompositeAlarmActionsSuppressorOutput() CompositeAlarmActionsSuppressorOutput {
+	return o
+}
+
+func (o CompositeAlarmActionsSuppressorOutput) ToCompositeAlarmActionsSuppressorOutputWithContext(ctx context.Context) CompositeAlarmActionsSuppressorOutput {
+	return o
+}
+
+func (o CompositeAlarmActionsSuppressorOutput) ToCompositeAlarmActionsSuppressorPtrOutput() CompositeAlarmActionsSuppressorPtrOutput {
+	return o.ToCompositeAlarmActionsSuppressorPtrOutputWithContext(context.Background())
+}
+
+func (o CompositeAlarmActionsSuppressorOutput) ToCompositeAlarmActionsSuppressorPtrOutputWithContext(ctx context.Context) CompositeAlarmActionsSuppressorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CompositeAlarmActionsSuppressor) *CompositeAlarmActionsSuppressor {
+		return &v
+	}).(CompositeAlarmActionsSuppressorPtrOutput)
+}
+
+// Can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
+func (o CompositeAlarmActionsSuppressorOutput) Alarm() pulumi.StringOutput {
+	return o.ApplyT(func(v CompositeAlarmActionsSuppressor) string { return v.Alarm }).(pulumi.StringOutput)
+}
+
+// The maximum time in seconds that the composite alarm waits after suppressor alarm goes out of the `ALARM` state. After this time, the composite alarm performs its actions.
+func (o CompositeAlarmActionsSuppressorOutput) ExtensionPeriod() pulumi.IntOutput {
+	return o.ApplyT(func(v CompositeAlarmActionsSuppressor) int { return v.ExtensionPeriod }).(pulumi.IntOutput)
+}
+
+// The maximum time in seconds that the composite alarm waits for the suppressor alarm to go into the `ALARM` state. After this time, the composite alarm performs its actions.
+func (o CompositeAlarmActionsSuppressorOutput) WaitPeriod() pulumi.IntOutput {
+	return o.ApplyT(func(v CompositeAlarmActionsSuppressor) int { return v.WaitPeriod }).(pulumi.IntOutput)
+}
+
+type CompositeAlarmActionsSuppressorPtrOutput struct{ *pulumi.OutputState }
+
+func (CompositeAlarmActionsSuppressorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CompositeAlarmActionsSuppressor)(nil)).Elem()
+}
+
+func (o CompositeAlarmActionsSuppressorPtrOutput) ToCompositeAlarmActionsSuppressorPtrOutput() CompositeAlarmActionsSuppressorPtrOutput {
+	return o
+}
+
+func (o CompositeAlarmActionsSuppressorPtrOutput) ToCompositeAlarmActionsSuppressorPtrOutputWithContext(ctx context.Context) CompositeAlarmActionsSuppressorPtrOutput {
+	return o
+}
+
+func (o CompositeAlarmActionsSuppressorPtrOutput) Elem() CompositeAlarmActionsSuppressorOutput {
+	return o.ApplyT(func(v *CompositeAlarmActionsSuppressor) CompositeAlarmActionsSuppressor {
+		if v != nil {
+			return *v
+		}
+		var ret CompositeAlarmActionsSuppressor
+		return ret
+	}).(CompositeAlarmActionsSuppressorOutput)
+}
+
+// Can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
+func (o CompositeAlarmActionsSuppressorPtrOutput) Alarm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CompositeAlarmActionsSuppressor) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Alarm
+	}).(pulumi.StringPtrOutput)
+}
+
+// The maximum time in seconds that the composite alarm waits after suppressor alarm goes out of the `ALARM` state. After this time, the composite alarm performs its actions.
+func (o CompositeAlarmActionsSuppressorPtrOutput) ExtensionPeriod() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CompositeAlarmActionsSuppressor) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.ExtensionPeriod
+	}).(pulumi.IntPtrOutput)
+}
+
+// The maximum time in seconds that the composite alarm waits for the suppressor alarm to go into the `ALARM` state. After this time, the composite alarm performs its actions.
+func (o CompositeAlarmActionsSuppressorPtrOutput) WaitPeriod() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CompositeAlarmActionsSuppressor) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.WaitPeriod
+	}).(pulumi.IntPtrOutput)
+}
+
 type EventConnectionAuthParameters struct {
 	// Parameters used for API_KEY authorization. An API key to include in the header for each authentication request. A maximum of 1 are allowed. Conflicts with `basic` and `oauth`. Documented below.
 	ApiKey *EventConnectionAuthParametersApiKey `pulumi:"apiKey"`
@@ -5091,6 +5266,251 @@ func (o EventTargetRunCommandTargetArrayOutput) Index(i pulumi.IntInput) EventTa
 	}).(EventTargetRunCommandTargetOutput)
 }
 
+type EventTargetSagemakerPipelineTarget struct {
+	// List of Parameter names and values for SageMaker Model Building Pipeline execution.
+	PipelineParameterLists []EventTargetSagemakerPipelineTargetPipelineParameterList `pulumi:"pipelineParameterLists"`
+}
+
+// EventTargetSagemakerPipelineTargetInput is an input type that accepts EventTargetSagemakerPipelineTargetArgs and EventTargetSagemakerPipelineTargetOutput values.
+// You can construct a concrete instance of `EventTargetSagemakerPipelineTargetInput` via:
+//
+//	EventTargetSagemakerPipelineTargetArgs{...}
+type EventTargetSagemakerPipelineTargetInput interface {
+	pulumi.Input
+
+	ToEventTargetSagemakerPipelineTargetOutput() EventTargetSagemakerPipelineTargetOutput
+	ToEventTargetSagemakerPipelineTargetOutputWithContext(context.Context) EventTargetSagemakerPipelineTargetOutput
+}
+
+type EventTargetSagemakerPipelineTargetArgs struct {
+	// List of Parameter names and values for SageMaker Model Building Pipeline execution.
+	PipelineParameterLists EventTargetSagemakerPipelineTargetPipelineParameterListArrayInput `pulumi:"pipelineParameterLists"`
+}
+
+func (EventTargetSagemakerPipelineTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventTargetSagemakerPipelineTarget)(nil)).Elem()
+}
+
+func (i EventTargetSagemakerPipelineTargetArgs) ToEventTargetSagemakerPipelineTargetOutput() EventTargetSagemakerPipelineTargetOutput {
+	return i.ToEventTargetSagemakerPipelineTargetOutputWithContext(context.Background())
+}
+
+func (i EventTargetSagemakerPipelineTargetArgs) ToEventTargetSagemakerPipelineTargetOutputWithContext(ctx context.Context) EventTargetSagemakerPipelineTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventTargetSagemakerPipelineTargetOutput)
+}
+
+func (i EventTargetSagemakerPipelineTargetArgs) ToEventTargetSagemakerPipelineTargetPtrOutput() EventTargetSagemakerPipelineTargetPtrOutput {
+	return i.ToEventTargetSagemakerPipelineTargetPtrOutputWithContext(context.Background())
+}
+
+func (i EventTargetSagemakerPipelineTargetArgs) ToEventTargetSagemakerPipelineTargetPtrOutputWithContext(ctx context.Context) EventTargetSagemakerPipelineTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventTargetSagemakerPipelineTargetOutput).ToEventTargetSagemakerPipelineTargetPtrOutputWithContext(ctx)
+}
+
+// EventTargetSagemakerPipelineTargetPtrInput is an input type that accepts EventTargetSagemakerPipelineTargetArgs, EventTargetSagemakerPipelineTargetPtr and EventTargetSagemakerPipelineTargetPtrOutput values.
+// You can construct a concrete instance of `EventTargetSagemakerPipelineTargetPtrInput` via:
+//
+//	        EventTargetSagemakerPipelineTargetArgs{...}
+//
+//	or:
+//
+//	        nil
+type EventTargetSagemakerPipelineTargetPtrInput interface {
+	pulumi.Input
+
+	ToEventTargetSagemakerPipelineTargetPtrOutput() EventTargetSagemakerPipelineTargetPtrOutput
+	ToEventTargetSagemakerPipelineTargetPtrOutputWithContext(context.Context) EventTargetSagemakerPipelineTargetPtrOutput
+}
+
+type eventTargetSagemakerPipelineTargetPtrType EventTargetSagemakerPipelineTargetArgs
+
+func EventTargetSagemakerPipelineTargetPtr(v *EventTargetSagemakerPipelineTargetArgs) EventTargetSagemakerPipelineTargetPtrInput {
+	return (*eventTargetSagemakerPipelineTargetPtrType)(v)
+}
+
+func (*eventTargetSagemakerPipelineTargetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventTargetSagemakerPipelineTarget)(nil)).Elem()
+}
+
+func (i *eventTargetSagemakerPipelineTargetPtrType) ToEventTargetSagemakerPipelineTargetPtrOutput() EventTargetSagemakerPipelineTargetPtrOutput {
+	return i.ToEventTargetSagemakerPipelineTargetPtrOutputWithContext(context.Background())
+}
+
+func (i *eventTargetSagemakerPipelineTargetPtrType) ToEventTargetSagemakerPipelineTargetPtrOutputWithContext(ctx context.Context) EventTargetSagemakerPipelineTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventTargetSagemakerPipelineTargetPtrOutput)
+}
+
+type EventTargetSagemakerPipelineTargetOutput struct{ *pulumi.OutputState }
+
+func (EventTargetSagemakerPipelineTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventTargetSagemakerPipelineTarget)(nil)).Elem()
+}
+
+func (o EventTargetSagemakerPipelineTargetOutput) ToEventTargetSagemakerPipelineTargetOutput() EventTargetSagemakerPipelineTargetOutput {
+	return o
+}
+
+func (o EventTargetSagemakerPipelineTargetOutput) ToEventTargetSagemakerPipelineTargetOutputWithContext(ctx context.Context) EventTargetSagemakerPipelineTargetOutput {
+	return o
+}
+
+func (o EventTargetSagemakerPipelineTargetOutput) ToEventTargetSagemakerPipelineTargetPtrOutput() EventTargetSagemakerPipelineTargetPtrOutput {
+	return o.ToEventTargetSagemakerPipelineTargetPtrOutputWithContext(context.Background())
+}
+
+func (o EventTargetSagemakerPipelineTargetOutput) ToEventTargetSagemakerPipelineTargetPtrOutputWithContext(ctx context.Context) EventTargetSagemakerPipelineTargetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventTargetSagemakerPipelineTarget) *EventTargetSagemakerPipelineTarget {
+		return &v
+	}).(EventTargetSagemakerPipelineTargetPtrOutput)
+}
+
+// List of Parameter names and values for SageMaker Model Building Pipeline execution.
+func (o EventTargetSagemakerPipelineTargetOutput) PipelineParameterLists() EventTargetSagemakerPipelineTargetPipelineParameterListArrayOutput {
+	return o.ApplyT(func(v EventTargetSagemakerPipelineTarget) []EventTargetSagemakerPipelineTargetPipelineParameterList {
+		return v.PipelineParameterLists
+	}).(EventTargetSagemakerPipelineTargetPipelineParameterListArrayOutput)
+}
+
+type EventTargetSagemakerPipelineTargetPtrOutput struct{ *pulumi.OutputState }
+
+func (EventTargetSagemakerPipelineTargetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventTargetSagemakerPipelineTarget)(nil)).Elem()
+}
+
+func (o EventTargetSagemakerPipelineTargetPtrOutput) ToEventTargetSagemakerPipelineTargetPtrOutput() EventTargetSagemakerPipelineTargetPtrOutput {
+	return o
+}
+
+func (o EventTargetSagemakerPipelineTargetPtrOutput) ToEventTargetSagemakerPipelineTargetPtrOutputWithContext(ctx context.Context) EventTargetSagemakerPipelineTargetPtrOutput {
+	return o
+}
+
+func (o EventTargetSagemakerPipelineTargetPtrOutput) Elem() EventTargetSagemakerPipelineTargetOutput {
+	return o.ApplyT(func(v *EventTargetSagemakerPipelineTarget) EventTargetSagemakerPipelineTarget {
+		if v != nil {
+			return *v
+		}
+		var ret EventTargetSagemakerPipelineTarget
+		return ret
+	}).(EventTargetSagemakerPipelineTargetOutput)
+}
+
+// List of Parameter names and values for SageMaker Model Building Pipeline execution.
+func (o EventTargetSagemakerPipelineTargetPtrOutput) PipelineParameterLists() EventTargetSagemakerPipelineTargetPipelineParameterListArrayOutput {
+	return o.ApplyT(func(v *EventTargetSagemakerPipelineTarget) []EventTargetSagemakerPipelineTargetPipelineParameterList {
+		if v == nil {
+			return nil
+		}
+		return v.PipelineParameterLists
+	}).(EventTargetSagemakerPipelineTargetPipelineParameterListArrayOutput)
+}
+
+type EventTargetSagemakerPipelineTargetPipelineParameterList struct {
+	// Name of parameter to start execution of a SageMaker Model Building Pipeline.
+	Name string `pulumi:"name"`
+	// Value of parameter to start execution of a SageMaker Model Building Pipeline.
+	Value string `pulumi:"value"`
+}
+
+// EventTargetSagemakerPipelineTargetPipelineParameterListInput is an input type that accepts EventTargetSagemakerPipelineTargetPipelineParameterListArgs and EventTargetSagemakerPipelineTargetPipelineParameterListOutput values.
+// You can construct a concrete instance of `EventTargetSagemakerPipelineTargetPipelineParameterListInput` via:
+//
+//	EventTargetSagemakerPipelineTargetPipelineParameterListArgs{...}
+type EventTargetSagemakerPipelineTargetPipelineParameterListInput interface {
+	pulumi.Input
+
+	ToEventTargetSagemakerPipelineTargetPipelineParameterListOutput() EventTargetSagemakerPipelineTargetPipelineParameterListOutput
+	ToEventTargetSagemakerPipelineTargetPipelineParameterListOutputWithContext(context.Context) EventTargetSagemakerPipelineTargetPipelineParameterListOutput
+}
+
+type EventTargetSagemakerPipelineTargetPipelineParameterListArgs struct {
+	// Name of parameter to start execution of a SageMaker Model Building Pipeline.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Value of parameter to start execution of a SageMaker Model Building Pipeline.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (EventTargetSagemakerPipelineTargetPipelineParameterListArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventTargetSagemakerPipelineTargetPipelineParameterList)(nil)).Elem()
+}
+
+func (i EventTargetSagemakerPipelineTargetPipelineParameterListArgs) ToEventTargetSagemakerPipelineTargetPipelineParameterListOutput() EventTargetSagemakerPipelineTargetPipelineParameterListOutput {
+	return i.ToEventTargetSagemakerPipelineTargetPipelineParameterListOutputWithContext(context.Background())
+}
+
+func (i EventTargetSagemakerPipelineTargetPipelineParameterListArgs) ToEventTargetSagemakerPipelineTargetPipelineParameterListOutputWithContext(ctx context.Context) EventTargetSagemakerPipelineTargetPipelineParameterListOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventTargetSagemakerPipelineTargetPipelineParameterListOutput)
+}
+
+// EventTargetSagemakerPipelineTargetPipelineParameterListArrayInput is an input type that accepts EventTargetSagemakerPipelineTargetPipelineParameterListArray and EventTargetSagemakerPipelineTargetPipelineParameterListArrayOutput values.
+// You can construct a concrete instance of `EventTargetSagemakerPipelineTargetPipelineParameterListArrayInput` via:
+//
+//	EventTargetSagemakerPipelineTargetPipelineParameterListArray{ EventTargetSagemakerPipelineTargetPipelineParameterListArgs{...} }
+type EventTargetSagemakerPipelineTargetPipelineParameterListArrayInput interface {
+	pulumi.Input
+
+	ToEventTargetSagemakerPipelineTargetPipelineParameterListArrayOutput() EventTargetSagemakerPipelineTargetPipelineParameterListArrayOutput
+	ToEventTargetSagemakerPipelineTargetPipelineParameterListArrayOutputWithContext(context.Context) EventTargetSagemakerPipelineTargetPipelineParameterListArrayOutput
+}
+
+type EventTargetSagemakerPipelineTargetPipelineParameterListArray []EventTargetSagemakerPipelineTargetPipelineParameterListInput
+
+func (EventTargetSagemakerPipelineTargetPipelineParameterListArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventTargetSagemakerPipelineTargetPipelineParameterList)(nil)).Elem()
+}
+
+func (i EventTargetSagemakerPipelineTargetPipelineParameterListArray) ToEventTargetSagemakerPipelineTargetPipelineParameterListArrayOutput() EventTargetSagemakerPipelineTargetPipelineParameterListArrayOutput {
+	return i.ToEventTargetSagemakerPipelineTargetPipelineParameterListArrayOutputWithContext(context.Background())
+}
+
+func (i EventTargetSagemakerPipelineTargetPipelineParameterListArray) ToEventTargetSagemakerPipelineTargetPipelineParameterListArrayOutputWithContext(ctx context.Context) EventTargetSagemakerPipelineTargetPipelineParameterListArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventTargetSagemakerPipelineTargetPipelineParameterListArrayOutput)
+}
+
+type EventTargetSagemakerPipelineTargetPipelineParameterListOutput struct{ *pulumi.OutputState }
+
+func (EventTargetSagemakerPipelineTargetPipelineParameterListOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventTargetSagemakerPipelineTargetPipelineParameterList)(nil)).Elem()
+}
+
+func (o EventTargetSagemakerPipelineTargetPipelineParameterListOutput) ToEventTargetSagemakerPipelineTargetPipelineParameterListOutput() EventTargetSagemakerPipelineTargetPipelineParameterListOutput {
+	return o
+}
+
+func (o EventTargetSagemakerPipelineTargetPipelineParameterListOutput) ToEventTargetSagemakerPipelineTargetPipelineParameterListOutputWithContext(ctx context.Context) EventTargetSagemakerPipelineTargetPipelineParameterListOutput {
+	return o
+}
+
+// Name of parameter to start execution of a SageMaker Model Building Pipeline.
+func (o EventTargetSagemakerPipelineTargetPipelineParameterListOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v EventTargetSagemakerPipelineTargetPipelineParameterList) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Value of parameter to start execution of a SageMaker Model Building Pipeline.
+func (o EventTargetSagemakerPipelineTargetPipelineParameterListOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v EventTargetSagemakerPipelineTargetPipelineParameterList) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type EventTargetSagemakerPipelineTargetPipelineParameterListArrayOutput struct{ *pulumi.OutputState }
+
+func (EventTargetSagemakerPipelineTargetPipelineParameterListArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventTargetSagemakerPipelineTargetPipelineParameterList)(nil)).Elem()
+}
+
+func (o EventTargetSagemakerPipelineTargetPipelineParameterListArrayOutput) ToEventTargetSagemakerPipelineTargetPipelineParameterListArrayOutput() EventTargetSagemakerPipelineTargetPipelineParameterListArrayOutput {
+	return o
+}
+
+func (o EventTargetSagemakerPipelineTargetPipelineParameterListArrayOutput) ToEventTargetSagemakerPipelineTargetPipelineParameterListArrayOutputWithContext(ctx context.Context) EventTargetSagemakerPipelineTargetPipelineParameterListArrayOutput {
+	return o
+}
+
+func (o EventTargetSagemakerPipelineTargetPipelineParameterListArrayOutput) Index(i pulumi.IntInput) EventTargetSagemakerPipelineTargetPipelineParameterListOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventTargetSagemakerPipelineTargetPipelineParameterList {
+		return vs[0].([]EventTargetSagemakerPipelineTargetPipelineParameterList)[vs[1].(int)]
+	}).(EventTargetSagemakerPipelineTargetPipelineParameterListOutput)
+}
+
 type EventTargetSqsTarget struct {
 	// The FIFO message group ID to use as the target.
 	MessageGroupId *string `pulumi:"messageGroupId"`
@@ -7938,6 +8358,8 @@ func (o GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfig
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CompositeAlarmActionsSuppressorInput)(nil)).Elem(), CompositeAlarmActionsSuppressorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CompositeAlarmActionsSuppressorPtrInput)(nil)).Elem(), CompositeAlarmActionsSuppressorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventConnectionAuthParametersInput)(nil)).Elem(), EventConnectionAuthParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventConnectionAuthParametersPtrInput)(nil)).Elem(), EventConnectionAuthParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventConnectionAuthParametersApiKeyInput)(nil)).Elem(), EventConnectionAuthParametersApiKeyArgs{})
@@ -8004,6 +8426,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventTargetRetryPolicyPtrInput)(nil)).Elem(), EventTargetRetryPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventTargetRunCommandTargetInput)(nil)).Elem(), EventTargetRunCommandTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventTargetRunCommandTargetArrayInput)(nil)).Elem(), EventTargetRunCommandTargetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventTargetSagemakerPipelineTargetInput)(nil)).Elem(), EventTargetSagemakerPipelineTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventTargetSagemakerPipelineTargetPtrInput)(nil)).Elem(), EventTargetSagemakerPipelineTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventTargetSagemakerPipelineTargetPipelineParameterListInput)(nil)).Elem(), EventTargetSagemakerPipelineTargetPipelineParameterListArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventTargetSagemakerPipelineTargetPipelineParameterListArrayInput)(nil)).Elem(), EventTargetSagemakerPipelineTargetPipelineParameterListArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventTargetSqsTargetInput)(nil)).Elem(), EventTargetSqsTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventTargetSqsTargetPtrInput)(nil)).Elem(), EventTargetSqsTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InternetMonitorHealthEventsConfigInput)(nil)).Elem(), InternetMonitorHealthEventsConfigArgs{})
@@ -8043,6 +8469,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrInput)(nil)).Elem(), GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigInput)(nil)).Elem(), GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigPtrInput)(nil)).Elem(), GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgs{})
+	pulumi.RegisterOutputType(CompositeAlarmActionsSuppressorOutput{})
+	pulumi.RegisterOutputType(CompositeAlarmActionsSuppressorPtrOutput{})
 	pulumi.RegisterOutputType(EventConnectionAuthParametersOutput{})
 	pulumi.RegisterOutputType(EventConnectionAuthParametersPtrOutput{})
 	pulumi.RegisterOutputType(EventConnectionAuthParametersApiKeyOutput{})
@@ -8109,6 +8537,10 @@ func init() {
 	pulumi.RegisterOutputType(EventTargetRetryPolicyPtrOutput{})
 	pulumi.RegisterOutputType(EventTargetRunCommandTargetOutput{})
 	pulumi.RegisterOutputType(EventTargetRunCommandTargetArrayOutput{})
+	pulumi.RegisterOutputType(EventTargetSagemakerPipelineTargetOutput{})
+	pulumi.RegisterOutputType(EventTargetSagemakerPipelineTargetPtrOutput{})
+	pulumi.RegisterOutputType(EventTargetSagemakerPipelineTargetPipelineParameterListOutput{})
+	pulumi.RegisterOutputType(EventTargetSagemakerPipelineTargetPipelineParameterListArrayOutput{})
 	pulumi.RegisterOutputType(EventTargetSqsTargetOutput{})
 	pulumi.RegisterOutputType(EventTargetSqsTargetPtrOutput{})
 	pulumi.RegisterOutputType(InternetMonitorHealthEventsConfigOutput{})

@@ -64,6 +64,8 @@ type LookupNetworkInsightsPathResult struct {
 	Arn string `pulumi:"arn"`
 	// AWS resource that is the destination of the path.
 	Destination string `pulumi:"destination"`
+	// ARN of the destination.
+	DestinationArn string `pulumi:"destinationArn"`
 	// IP address of the AWS resource that is the destination of the path.
 	DestinationIp string `pulumi:"destinationIp"`
 	// Destination port.
@@ -76,6 +78,8 @@ type LookupNetworkInsightsPathResult struct {
 	Protocol string `pulumi:"protocol"`
 	// AWS resource that is the source of the path.
 	Source string `pulumi:"source"`
+	// ARN of the source.
+	SourceArn string `pulumi:"sourceArn"`
 	// IP address of the AWS resource that is the source of the path.
 	SourceIp string `pulumi:"sourceIp"`
 	// Map of tags assigned to the resource.
@@ -134,6 +138,11 @@ func (o LookupNetworkInsightsPathResultOutput) Destination() pulumi.StringOutput
 	return o.ApplyT(func(v LookupNetworkInsightsPathResult) string { return v.Destination }).(pulumi.StringOutput)
 }
 
+// ARN of the destination.
+func (o LookupNetworkInsightsPathResultOutput) DestinationArn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNetworkInsightsPathResult) string { return v.DestinationArn }).(pulumi.StringOutput)
+}
+
 // IP address of the AWS resource that is the destination of the path.
 func (o LookupNetworkInsightsPathResultOutput) DestinationIp() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNetworkInsightsPathResult) string { return v.DestinationIp }).(pulumi.StringOutput)
@@ -165,6 +174,11 @@ func (o LookupNetworkInsightsPathResultOutput) Protocol() pulumi.StringOutput {
 // AWS resource that is the source of the path.
 func (o LookupNetworkInsightsPathResultOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNetworkInsightsPathResult) string { return v.Source }).(pulumi.StringOutput)
+}
+
+// ARN of the source.
+func (o LookupNetworkInsightsPathResultOutput) SourceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNetworkInsightsPathResult) string { return v.SourceArn }).(pulumi.StringOutput)
 }
 
 // IP address of the AWS resource that is the source of the path.

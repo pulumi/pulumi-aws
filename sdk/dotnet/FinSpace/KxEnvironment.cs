@@ -36,7 +36,7 @@ namespace Pulumi.Aws.FinSpace
     /// 
     /// });
     /// ```
-    /// ### With Network Setup
+    /// ### With Transit Gateway Configuration
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -65,6 +65,68 @@ namespace Pulumi.Aws.FinSpace
     ///         {
     ///             TransitGatewayId = exampleTransitGateway.Id,
     ///             RoutableCidrSpace = "100.64.0.0/26",
+    ///         },
+    ///         CustomDnsConfigurations = new[]
+    ///         {
+    ///             new Aws.FinSpace.Inputs.KxEnvironmentCustomDnsConfigurationArgs
+    ///             {
+    ///                 CustomDnsServerName = "example.finspace.amazonaws.com",
+    ///                 CustomDnsServerIp = "10.0.0.76",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### With Transit Gateway Attachment Network ACL Configuration
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleKey = new Aws.Kms.Key("exampleKey", new()
+    ///     {
+    ///         Description = "Sample KMS Key",
+    ///         DeletionWindowInDays = 7,
+    ///     });
+    /// 
+    ///     var exampleTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("exampleTransitGateway", new()
+    ///     {
+    ///         Description = "example",
+    ///     });
+    /// 
+    ///     var exampleEnv = new Aws.FinSpace.KxEnvironment("exampleEnv", new()
+    ///     {
+    ///         Description = "Environment description",
+    ///         KmsKeyId = exampleKey.Arn,
+    ///         TransitGatewayConfiguration = new Aws.FinSpace.Inputs.KxEnvironmentTransitGatewayConfigurationArgs
+    ///         {
+    ///             TransitGatewayId = exampleTransitGateway.Id,
+    ///             RoutableCidrSpace = "100.64.0.0/26",
+    ///             AttachmentNetworkAclConfigurations = new[]
+    ///             {
+    ///                 new Aws.FinSpace.Inputs.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs
+    ///                 {
+    ///                     RuleNumber = 1,
+    ///                     Protocol = "6",
+    ///                     RuleAction = "allow",
+    ///                     CidrBlock = "0.0.0.0/0",
+    ///                     PortRange = new Aws.FinSpace.Inputs.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeArgs
+    ///                     {
+    ///                         From = 53,
+    ///                         To = 53,
+    ///                     },
+    ///                     IcmpTypeCode = new Aws.FinSpace.Inputs.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArgs
+    ///                     {
+    ///                         Type = -1,
+    ///                         Code = -1,
+    ///                     },
+    ///                 },
+    ///             },
     ///         },
     ///         CustomDnsConfigurations = new[]
     ///         {

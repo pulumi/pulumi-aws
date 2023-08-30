@@ -29,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			exampleFleet, err := appstream.NewFleet(ctx, "exampleFleet", &appstream.FleetArgs{
-//				ImageName:    pulumi.String("Amazon-AppStream2-Sample-Image-02-04-2019"),
+//				ImageName:    pulumi.String("Amazon-AppStream2-Sample-Image-03-11-2023"),
 //				InstanceType: pulumi.String("stream.standard.small"),
 //				ComputeCapacity: &appstream.FleetComputeCapacityArgs{
 //					DesiredInstances: pulumi.Int(1),

@@ -64,9 +64,11 @@ type Connector struct {
 
 	// The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
 	AccessRole pulumi.StringOutput `pulumi:"accessRole"`
+	// The ARN of the connector.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The parameters to configure for the connector object. Fields documented below.
 	As2Config ConnectorAs2ConfigOutput `pulumi:"as2Config"`
-	// The unique identifier for the AS2 profile
+	// The unique identifier for the AS2 profile.
 	ConnectorId pulumi.StringOutput `pulumi:"connectorId"`
 	// The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
 	LoggingRole pulumi.StringPtrOutput `pulumi:"loggingRole"`
@@ -118,9 +120,11 @@ func GetConnector(ctx *pulumi.Context,
 type connectorState struct {
 	// The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
 	AccessRole *string `pulumi:"accessRole"`
+	// The ARN of the connector.
+	Arn *string `pulumi:"arn"`
 	// The parameters to configure for the connector object. Fields documented below.
 	As2Config *ConnectorAs2Config `pulumi:"as2Config"`
-	// The unique identifier for the AS2 profile
+	// The unique identifier for the AS2 profile.
 	ConnectorId *string `pulumi:"connectorId"`
 	// The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
 	LoggingRole *string `pulumi:"loggingRole"`
@@ -134,9 +138,11 @@ type connectorState struct {
 type ConnectorState struct {
 	// The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
 	AccessRole pulumi.StringPtrInput
+	// The ARN of the connector.
+	Arn pulumi.StringPtrInput
 	// The parameters to configure for the connector object. Fields documented below.
 	As2Config ConnectorAs2ConfigPtrInput
-	// The unique identifier for the AS2 profile
+	// The unique identifier for the AS2 profile.
 	ConnectorId pulumi.StringPtrInput
 	// The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
 	LoggingRole pulumi.StringPtrInput
@@ -270,12 +276,17 @@ func (o ConnectorOutput) AccessRole() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.AccessRole }).(pulumi.StringOutput)
 }
 
+// The ARN of the connector.
+func (o ConnectorOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
 // The parameters to configure for the connector object. Fields documented below.
 func (o ConnectorOutput) As2Config() ConnectorAs2ConfigOutput {
 	return o.ApplyT(func(v *Connector) ConnectorAs2ConfigOutput { return v.As2Config }).(ConnectorAs2ConfigOutput)
 }
 
-// The unique identifier for the AS2 profile
+// The unique identifier for the AS2 profile.
 func (o ConnectorOutput) ConnectorId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.ConnectorId }).(pulumi.StringOutput)
 }

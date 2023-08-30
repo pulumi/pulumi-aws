@@ -1117,6 +1117,815 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQue
 	}).(pulumi.StringArrayOutput)
 }
 
+type ContinuousDeploymentPolicyStagingDistributionDnsNames struct {
+	// A list of CloudFront domain names for the staging distribution.
+	Items []string `pulumi:"items"`
+	// Number of CloudFront domain names in the staging distribution.
+	Quantity int `pulumi:"quantity"`
+}
+
+// ContinuousDeploymentPolicyStagingDistributionDnsNamesInput is an input type that accepts ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs and ContinuousDeploymentPolicyStagingDistributionDnsNamesOutput values.
+// You can construct a concrete instance of `ContinuousDeploymentPolicyStagingDistributionDnsNamesInput` via:
+//
+//	ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs{...}
+type ContinuousDeploymentPolicyStagingDistributionDnsNamesInput interface {
+	pulumi.Input
+
+	ToContinuousDeploymentPolicyStagingDistributionDnsNamesOutput() ContinuousDeploymentPolicyStagingDistributionDnsNamesOutput
+	ToContinuousDeploymentPolicyStagingDistributionDnsNamesOutputWithContext(context.Context) ContinuousDeploymentPolicyStagingDistributionDnsNamesOutput
+}
+
+type ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs struct {
+	// A list of CloudFront domain names for the staging distribution.
+	Items pulumi.StringArrayInput `pulumi:"items"`
+	// Number of CloudFront domain names in the staging distribution.
+	Quantity pulumi.IntInput `pulumi:"quantity"`
+}
+
+func (ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContinuousDeploymentPolicyStagingDistributionDnsNames)(nil)).Elem()
+}
+
+func (i ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs) ToContinuousDeploymentPolicyStagingDistributionDnsNamesOutput() ContinuousDeploymentPolicyStagingDistributionDnsNamesOutput {
+	return i.ToContinuousDeploymentPolicyStagingDistributionDnsNamesOutputWithContext(context.Background())
+}
+
+func (i ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs) ToContinuousDeploymentPolicyStagingDistributionDnsNamesOutputWithContext(ctx context.Context) ContinuousDeploymentPolicyStagingDistributionDnsNamesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContinuousDeploymentPolicyStagingDistributionDnsNamesOutput)
+}
+
+func (i ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs) ToContinuousDeploymentPolicyStagingDistributionDnsNamesPtrOutput() ContinuousDeploymentPolicyStagingDistributionDnsNamesPtrOutput {
+	return i.ToContinuousDeploymentPolicyStagingDistributionDnsNamesPtrOutputWithContext(context.Background())
+}
+
+func (i ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs) ToContinuousDeploymentPolicyStagingDistributionDnsNamesPtrOutputWithContext(ctx context.Context) ContinuousDeploymentPolicyStagingDistributionDnsNamesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContinuousDeploymentPolicyStagingDistributionDnsNamesOutput).ToContinuousDeploymentPolicyStagingDistributionDnsNamesPtrOutputWithContext(ctx)
+}
+
+// ContinuousDeploymentPolicyStagingDistributionDnsNamesPtrInput is an input type that accepts ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs, ContinuousDeploymentPolicyStagingDistributionDnsNamesPtr and ContinuousDeploymentPolicyStagingDistributionDnsNamesPtrOutput values.
+// You can construct a concrete instance of `ContinuousDeploymentPolicyStagingDistributionDnsNamesPtrInput` via:
+//
+//	        ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ContinuousDeploymentPolicyStagingDistributionDnsNamesPtrInput interface {
+	pulumi.Input
+
+	ToContinuousDeploymentPolicyStagingDistributionDnsNamesPtrOutput() ContinuousDeploymentPolicyStagingDistributionDnsNamesPtrOutput
+	ToContinuousDeploymentPolicyStagingDistributionDnsNamesPtrOutputWithContext(context.Context) ContinuousDeploymentPolicyStagingDistributionDnsNamesPtrOutput
+}
+
+type continuousDeploymentPolicyStagingDistributionDnsNamesPtrType ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs
+
+func ContinuousDeploymentPolicyStagingDistributionDnsNamesPtr(v *ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs) ContinuousDeploymentPolicyStagingDistributionDnsNamesPtrInput {
+	return (*continuousDeploymentPolicyStagingDistributionDnsNamesPtrType)(v)
+}
+
+func (*continuousDeploymentPolicyStagingDistributionDnsNamesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContinuousDeploymentPolicyStagingDistributionDnsNames)(nil)).Elem()
+}
+
+func (i *continuousDeploymentPolicyStagingDistributionDnsNamesPtrType) ToContinuousDeploymentPolicyStagingDistributionDnsNamesPtrOutput() ContinuousDeploymentPolicyStagingDistributionDnsNamesPtrOutput {
+	return i.ToContinuousDeploymentPolicyStagingDistributionDnsNamesPtrOutputWithContext(context.Background())
+}
+
+func (i *continuousDeploymentPolicyStagingDistributionDnsNamesPtrType) ToContinuousDeploymentPolicyStagingDistributionDnsNamesPtrOutputWithContext(ctx context.Context) ContinuousDeploymentPolicyStagingDistributionDnsNamesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContinuousDeploymentPolicyStagingDistributionDnsNamesPtrOutput)
+}
+
+type ContinuousDeploymentPolicyStagingDistributionDnsNamesOutput struct{ *pulumi.OutputState }
+
+func (ContinuousDeploymentPolicyStagingDistributionDnsNamesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContinuousDeploymentPolicyStagingDistributionDnsNames)(nil)).Elem()
+}
+
+func (o ContinuousDeploymentPolicyStagingDistributionDnsNamesOutput) ToContinuousDeploymentPolicyStagingDistributionDnsNamesOutput() ContinuousDeploymentPolicyStagingDistributionDnsNamesOutput {
+	return o
+}
+
+func (o ContinuousDeploymentPolicyStagingDistributionDnsNamesOutput) ToContinuousDeploymentPolicyStagingDistributionDnsNamesOutputWithContext(ctx context.Context) ContinuousDeploymentPolicyStagingDistributionDnsNamesOutput {
+	return o
+}
+
+func (o ContinuousDeploymentPolicyStagingDistributionDnsNamesOutput) ToContinuousDeploymentPolicyStagingDistributionDnsNamesPtrOutput() ContinuousDeploymentPolicyStagingDistributionDnsNamesPtrOutput {
+	return o.ToContinuousDeploymentPolicyStagingDistributionDnsNamesPtrOutputWithContext(context.Background())
+}
+
+func (o ContinuousDeploymentPolicyStagingDistributionDnsNamesOutput) ToContinuousDeploymentPolicyStagingDistributionDnsNamesPtrOutputWithContext(ctx context.Context) ContinuousDeploymentPolicyStagingDistributionDnsNamesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContinuousDeploymentPolicyStagingDistributionDnsNames) *ContinuousDeploymentPolicyStagingDistributionDnsNames {
+		return &v
+	}).(ContinuousDeploymentPolicyStagingDistributionDnsNamesPtrOutput)
+}
+
+// A list of CloudFront domain names for the staging distribution.
+func (o ContinuousDeploymentPolicyStagingDistributionDnsNamesOutput) Items() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ContinuousDeploymentPolicyStagingDistributionDnsNames) []string { return v.Items }).(pulumi.StringArrayOutput)
+}
+
+// Number of CloudFront domain names in the staging distribution.
+func (o ContinuousDeploymentPolicyStagingDistributionDnsNamesOutput) Quantity() pulumi.IntOutput {
+	return o.ApplyT(func(v ContinuousDeploymentPolicyStagingDistributionDnsNames) int { return v.Quantity }).(pulumi.IntOutput)
+}
+
+type ContinuousDeploymentPolicyStagingDistributionDnsNamesPtrOutput struct{ *pulumi.OutputState }
+
+func (ContinuousDeploymentPolicyStagingDistributionDnsNamesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContinuousDeploymentPolicyStagingDistributionDnsNames)(nil)).Elem()
+}
+
+func (o ContinuousDeploymentPolicyStagingDistributionDnsNamesPtrOutput) ToContinuousDeploymentPolicyStagingDistributionDnsNamesPtrOutput() ContinuousDeploymentPolicyStagingDistributionDnsNamesPtrOutput {
+	return o
+}
+
+func (o ContinuousDeploymentPolicyStagingDistributionDnsNamesPtrOutput) ToContinuousDeploymentPolicyStagingDistributionDnsNamesPtrOutputWithContext(ctx context.Context) ContinuousDeploymentPolicyStagingDistributionDnsNamesPtrOutput {
+	return o
+}
+
+func (o ContinuousDeploymentPolicyStagingDistributionDnsNamesPtrOutput) Elem() ContinuousDeploymentPolicyStagingDistributionDnsNamesOutput {
+	return o.ApplyT(func(v *ContinuousDeploymentPolicyStagingDistributionDnsNames) ContinuousDeploymentPolicyStagingDistributionDnsNames {
+		if v != nil {
+			return *v
+		}
+		var ret ContinuousDeploymentPolicyStagingDistributionDnsNames
+		return ret
+	}).(ContinuousDeploymentPolicyStagingDistributionDnsNamesOutput)
+}
+
+// A list of CloudFront domain names for the staging distribution.
+func (o ContinuousDeploymentPolicyStagingDistributionDnsNamesPtrOutput) Items() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ContinuousDeploymentPolicyStagingDistributionDnsNames) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Items
+	}).(pulumi.StringArrayOutput)
+}
+
+// Number of CloudFront domain names in the staging distribution.
+func (o ContinuousDeploymentPolicyStagingDistributionDnsNamesPtrOutput) Quantity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ContinuousDeploymentPolicyStagingDistributionDnsNames) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Quantity
+	}).(pulumi.IntPtrOutput)
+}
+
+type ContinuousDeploymentPolicyTrafficConfig struct {
+	// Determines which HTTP requests are sent to the staging distribution. See `singleHeaderConfig`.
+	SingleHeaderConfig *ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfig `pulumi:"singleHeaderConfig"`
+	// Contains the percentage of traffic to send to the staging distribution. See `singleWeightConfig`.
+	SingleWeightConfig *ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig `pulumi:"singleWeightConfig"`
+	// Type of traffic configuration. Valid values are `SingleWeight` and `SingleHeader`.
+	Type string `pulumi:"type"`
+}
+
+// ContinuousDeploymentPolicyTrafficConfigInput is an input type that accepts ContinuousDeploymentPolicyTrafficConfigArgs and ContinuousDeploymentPolicyTrafficConfigOutput values.
+// You can construct a concrete instance of `ContinuousDeploymentPolicyTrafficConfigInput` via:
+//
+//	ContinuousDeploymentPolicyTrafficConfigArgs{...}
+type ContinuousDeploymentPolicyTrafficConfigInput interface {
+	pulumi.Input
+
+	ToContinuousDeploymentPolicyTrafficConfigOutput() ContinuousDeploymentPolicyTrafficConfigOutput
+	ToContinuousDeploymentPolicyTrafficConfigOutputWithContext(context.Context) ContinuousDeploymentPolicyTrafficConfigOutput
+}
+
+type ContinuousDeploymentPolicyTrafficConfigArgs struct {
+	// Determines which HTTP requests are sent to the staging distribution. See `singleHeaderConfig`.
+	SingleHeaderConfig ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigPtrInput `pulumi:"singleHeaderConfig"`
+	// Contains the percentage of traffic to send to the staging distribution. See `singleWeightConfig`.
+	SingleWeightConfig ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigPtrInput `pulumi:"singleWeightConfig"`
+	// Type of traffic configuration. Valid values are `SingleWeight` and `SingleHeader`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ContinuousDeploymentPolicyTrafficConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContinuousDeploymentPolicyTrafficConfig)(nil)).Elem()
+}
+
+func (i ContinuousDeploymentPolicyTrafficConfigArgs) ToContinuousDeploymentPolicyTrafficConfigOutput() ContinuousDeploymentPolicyTrafficConfigOutput {
+	return i.ToContinuousDeploymentPolicyTrafficConfigOutputWithContext(context.Background())
+}
+
+func (i ContinuousDeploymentPolicyTrafficConfigArgs) ToContinuousDeploymentPolicyTrafficConfigOutputWithContext(ctx context.Context) ContinuousDeploymentPolicyTrafficConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContinuousDeploymentPolicyTrafficConfigOutput)
+}
+
+func (i ContinuousDeploymentPolicyTrafficConfigArgs) ToContinuousDeploymentPolicyTrafficConfigPtrOutput() ContinuousDeploymentPolicyTrafficConfigPtrOutput {
+	return i.ToContinuousDeploymentPolicyTrafficConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ContinuousDeploymentPolicyTrafficConfigArgs) ToContinuousDeploymentPolicyTrafficConfigPtrOutputWithContext(ctx context.Context) ContinuousDeploymentPolicyTrafficConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContinuousDeploymentPolicyTrafficConfigOutput).ToContinuousDeploymentPolicyTrafficConfigPtrOutputWithContext(ctx)
+}
+
+// ContinuousDeploymentPolicyTrafficConfigPtrInput is an input type that accepts ContinuousDeploymentPolicyTrafficConfigArgs, ContinuousDeploymentPolicyTrafficConfigPtr and ContinuousDeploymentPolicyTrafficConfigPtrOutput values.
+// You can construct a concrete instance of `ContinuousDeploymentPolicyTrafficConfigPtrInput` via:
+//
+//	        ContinuousDeploymentPolicyTrafficConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ContinuousDeploymentPolicyTrafficConfigPtrInput interface {
+	pulumi.Input
+
+	ToContinuousDeploymentPolicyTrafficConfigPtrOutput() ContinuousDeploymentPolicyTrafficConfigPtrOutput
+	ToContinuousDeploymentPolicyTrafficConfigPtrOutputWithContext(context.Context) ContinuousDeploymentPolicyTrafficConfigPtrOutput
+}
+
+type continuousDeploymentPolicyTrafficConfigPtrType ContinuousDeploymentPolicyTrafficConfigArgs
+
+func ContinuousDeploymentPolicyTrafficConfigPtr(v *ContinuousDeploymentPolicyTrafficConfigArgs) ContinuousDeploymentPolicyTrafficConfigPtrInput {
+	return (*continuousDeploymentPolicyTrafficConfigPtrType)(v)
+}
+
+func (*continuousDeploymentPolicyTrafficConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContinuousDeploymentPolicyTrafficConfig)(nil)).Elem()
+}
+
+func (i *continuousDeploymentPolicyTrafficConfigPtrType) ToContinuousDeploymentPolicyTrafficConfigPtrOutput() ContinuousDeploymentPolicyTrafficConfigPtrOutput {
+	return i.ToContinuousDeploymentPolicyTrafficConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *continuousDeploymentPolicyTrafficConfigPtrType) ToContinuousDeploymentPolicyTrafficConfigPtrOutputWithContext(ctx context.Context) ContinuousDeploymentPolicyTrafficConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContinuousDeploymentPolicyTrafficConfigPtrOutput)
+}
+
+type ContinuousDeploymentPolicyTrafficConfigOutput struct{ *pulumi.OutputState }
+
+func (ContinuousDeploymentPolicyTrafficConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContinuousDeploymentPolicyTrafficConfig)(nil)).Elem()
+}
+
+func (o ContinuousDeploymentPolicyTrafficConfigOutput) ToContinuousDeploymentPolicyTrafficConfigOutput() ContinuousDeploymentPolicyTrafficConfigOutput {
+	return o
+}
+
+func (o ContinuousDeploymentPolicyTrafficConfigOutput) ToContinuousDeploymentPolicyTrafficConfigOutputWithContext(ctx context.Context) ContinuousDeploymentPolicyTrafficConfigOutput {
+	return o
+}
+
+func (o ContinuousDeploymentPolicyTrafficConfigOutput) ToContinuousDeploymentPolicyTrafficConfigPtrOutput() ContinuousDeploymentPolicyTrafficConfigPtrOutput {
+	return o.ToContinuousDeploymentPolicyTrafficConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ContinuousDeploymentPolicyTrafficConfigOutput) ToContinuousDeploymentPolicyTrafficConfigPtrOutputWithContext(ctx context.Context) ContinuousDeploymentPolicyTrafficConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContinuousDeploymentPolicyTrafficConfig) *ContinuousDeploymentPolicyTrafficConfig {
+		return &v
+	}).(ContinuousDeploymentPolicyTrafficConfigPtrOutput)
+}
+
+// Determines which HTTP requests are sent to the staging distribution. See `singleHeaderConfig`.
+func (o ContinuousDeploymentPolicyTrafficConfigOutput) SingleHeaderConfig() ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigPtrOutput {
+	return o.ApplyT(func(v ContinuousDeploymentPolicyTrafficConfig) *ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfig {
+		return v.SingleHeaderConfig
+	}).(ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigPtrOutput)
+}
+
+// Contains the percentage of traffic to send to the staging distribution. See `singleWeightConfig`.
+func (o ContinuousDeploymentPolicyTrafficConfigOutput) SingleWeightConfig() ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigPtrOutput {
+	return o.ApplyT(func(v ContinuousDeploymentPolicyTrafficConfig) *ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig {
+		return v.SingleWeightConfig
+	}).(ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigPtrOutput)
+}
+
+// Type of traffic configuration. Valid values are `SingleWeight` and `SingleHeader`.
+func (o ContinuousDeploymentPolicyTrafficConfigOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ContinuousDeploymentPolicyTrafficConfig) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ContinuousDeploymentPolicyTrafficConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ContinuousDeploymentPolicyTrafficConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContinuousDeploymentPolicyTrafficConfig)(nil)).Elem()
+}
+
+func (o ContinuousDeploymentPolicyTrafficConfigPtrOutput) ToContinuousDeploymentPolicyTrafficConfigPtrOutput() ContinuousDeploymentPolicyTrafficConfigPtrOutput {
+	return o
+}
+
+func (o ContinuousDeploymentPolicyTrafficConfigPtrOutput) ToContinuousDeploymentPolicyTrafficConfigPtrOutputWithContext(ctx context.Context) ContinuousDeploymentPolicyTrafficConfigPtrOutput {
+	return o
+}
+
+func (o ContinuousDeploymentPolicyTrafficConfigPtrOutput) Elem() ContinuousDeploymentPolicyTrafficConfigOutput {
+	return o.ApplyT(func(v *ContinuousDeploymentPolicyTrafficConfig) ContinuousDeploymentPolicyTrafficConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ContinuousDeploymentPolicyTrafficConfig
+		return ret
+	}).(ContinuousDeploymentPolicyTrafficConfigOutput)
+}
+
+// Determines which HTTP requests are sent to the staging distribution. See `singleHeaderConfig`.
+func (o ContinuousDeploymentPolicyTrafficConfigPtrOutput) SingleHeaderConfig() ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigPtrOutput {
+	return o.ApplyT(func(v *ContinuousDeploymentPolicyTrafficConfig) *ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfig {
+		if v == nil {
+			return nil
+		}
+		return v.SingleHeaderConfig
+	}).(ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigPtrOutput)
+}
+
+// Contains the percentage of traffic to send to the staging distribution. See `singleWeightConfig`.
+func (o ContinuousDeploymentPolicyTrafficConfigPtrOutput) SingleWeightConfig() ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigPtrOutput {
+	return o.ApplyT(func(v *ContinuousDeploymentPolicyTrafficConfig) *ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig {
+		if v == nil {
+			return nil
+		}
+		return v.SingleWeightConfig
+	}).(ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigPtrOutput)
+}
+
+// Type of traffic configuration. Valid values are `SingleWeight` and `SingleHeader`.
+func (o ContinuousDeploymentPolicyTrafficConfigPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContinuousDeploymentPolicyTrafficConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfig struct {
+	// Request header name to send to the staging distribution. The header must contain the prefix `aws-cf-cd-`.
+	Header string `pulumi:"header"`
+	// Request header value.
+	Value string `pulumi:"value"`
+}
+
+// ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigInput is an input type that accepts ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArgs and ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigOutput values.
+// You can construct a concrete instance of `ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigInput` via:
+//
+//	ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArgs{...}
+type ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigInput interface {
+	pulumi.Input
+
+	ToContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigOutput() ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigOutput
+	ToContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigOutputWithContext(context.Context) ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigOutput
+}
+
+type ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArgs struct {
+	// Request header name to send to the staging distribution. The header must contain the prefix `aws-cf-cd-`.
+	Header pulumi.StringInput `pulumi:"header"`
+	// Request header value.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfig)(nil)).Elem()
+}
+
+func (i ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArgs) ToContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigOutput() ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigOutput {
+	return i.ToContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigOutputWithContext(context.Background())
+}
+
+func (i ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArgs) ToContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigOutputWithContext(ctx context.Context) ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigOutput)
+}
+
+func (i ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArgs) ToContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigPtrOutput() ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigPtrOutput {
+	return i.ToContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArgs) ToContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigPtrOutputWithContext(ctx context.Context) ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigOutput).ToContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigPtrOutputWithContext(ctx)
+}
+
+// ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigPtrInput is an input type that accepts ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArgs, ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigPtr and ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigPtrOutput values.
+// You can construct a concrete instance of `ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigPtrInput` via:
+//
+//	        ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigPtrInput interface {
+	pulumi.Input
+
+	ToContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigPtrOutput() ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigPtrOutput
+	ToContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigPtrOutputWithContext(context.Context) ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigPtrOutput
+}
+
+type continuousDeploymentPolicyTrafficConfigSingleHeaderConfigPtrType ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArgs
+
+func ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigPtr(v *ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArgs) ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigPtrInput {
+	return (*continuousDeploymentPolicyTrafficConfigSingleHeaderConfigPtrType)(v)
+}
+
+func (*continuousDeploymentPolicyTrafficConfigSingleHeaderConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfig)(nil)).Elem()
+}
+
+func (i *continuousDeploymentPolicyTrafficConfigSingleHeaderConfigPtrType) ToContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigPtrOutput() ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigPtrOutput {
+	return i.ToContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *continuousDeploymentPolicyTrafficConfigSingleHeaderConfigPtrType) ToContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigPtrOutputWithContext(ctx context.Context) ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigPtrOutput)
+}
+
+type ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigOutput struct{ *pulumi.OutputState }
+
+func (ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfig)(nil)).Elem()
+}
+
+func (o ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigOutput) ToContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigOutput() ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigOutput {
+	return o
+}
+
+func (o ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigOutput) ToContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigOutputWithContext(ctx context.Context) ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigOutput {
+	return o
+}
+
+func (o ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigOutput) ToContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigPtrOutput() ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigPtrOutput {
+	return o.ToContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigOutput) ToContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigPtrOutputWithContext(ctx context.Context) ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfig) *ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfig {
+		return &v
+	}).(ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigPtrOutput)
+}
+
+// Request header name to send to the staging distribution. The header must contain the prefix `aws-cf-cd-`.
+func (o ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigOutput) Header() pulumi.StringOutput {
+	return o.ApplyT(func(v ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfig) string { return v.Header }).(pulumi.StringOutput)
+}
+
+// Request header value.
+func (o ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfig) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfig)(nil)).Elem()
+}
+
+func (o ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigPtrOutput) ToContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigPtrOutput() ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigPtrOutput {
+	return o
+}
+
+func (o ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigPtrOutput) ToContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigPtrOutputWithContext(ctx context.Context) ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigPtrOutput {
+	return o
+}
+
+func (o ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigPtrOutput) Elem() ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigOutput {
+	return o.ApplyT(func(v *ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfig) ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfig
+		return ret
+	}).(ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigOutput)
+}
+
+// Request header name to send to the staging distribution. The header must contain the prefix `aws-cf-cd-`.
+func (o ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigPtrOutput) Header() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Header
+	}).(pulumi.StringPtrOutput)
+}
+
+// Request header value.
+func (o ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigPtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
+type ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig struct {
+	// Session stickiness provides the ability to define multiple requests from a single viewer as a single session. This prevents the potentially inconsistent experience of sending some of a given user's requests to the staging distribution, while others are sent to the primary distribution. Define the session duration using TTL values. See `sessionStickinessConfig`.
+	SessionStickinessConfig *ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfig `pulumi:"sessionStickinessConfig"`
+	// The percentage of traffic to send to a staging distribution, expressed as a decimal number between `0` and `.15`.
+	Weight float64 `pulumi:"weight"`
+}
+
+// ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigInput is an input type that accepts ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs and ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigOutput values.
+// You can construct a concrete instance of `ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigInput` via:
+//
+//	ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs{...}
+type ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigInput interface {
+	pulumi.Input
+
+	ToContinuousDeploymentPolicyTrafficConfigSingleWeightConfigOutput() ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigOutput
+	ToContinuousDeploymentPolicyTrafficConfigSingleWeightConfigOutputWithContext(context.Context) ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigOutput
+}
+
+type ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs struct {
+	// Session stickiness provides the ability to define multiple requests from a single viewer as a single session. This prevents the potentially inconsistent experience of sending some of a given user's requests to the staging distribution, while others are sent to the primary distribution. Define the session duration using TTL values. See `sessionStickinessConfig`.
+	SessionStickinessConfig ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigPtrInput `pulumi:"sessionStickinessConfig"`
+	// The percentage of traffic to send to a staging distribution, expressed as a decimal number between `0` and `.15`.
+	Weight pulumi.Float64Input `pulumi:"weight"`
+}
+
+func (ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig)(nil)).Elem()
+}
+
+func (i ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs) ToContinuousDeploymentPolicyTrafficConfigSingleWeightConfigOutput() ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigOutput {
+	return i.ToContinuousDeploymentPolicyTrafficConfigSingleWeightConfigOutputWithContext(context.Background())
+}
+
+func (i ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs) ToContinuousDeploymentPolicyTrafficConfigSingleWeightConfigOutputWithContext(ctx context.Context) ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigOutput)
+}
+
+func (i ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs) ToContinuousDeploymentPolicyTrafficConfigSingleWeightConfigPtrOutput() ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigPtrOutput {
+	return i.ToContinuousDeploymentPolicyTrafficConfigSingleWeightConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs) ToContinuousDeploymentPolicyTrafficConfigSingleWeightConfigPtrOutputWithContext(ctx context.Context) ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigOutput).ToContinuousDeploymentPolicyTrafficConfigSingleWeightConfigPtrOutputWithContext(ctx)
+}
+
+// ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigPtrInput is an input type that accepts ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs, ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigPtr and ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigPtrOutput values.
+// You can construct a concrete instance of `ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigPtrInput` via:
+//
+//	        ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigPtrInput interface {
+	pulumi.Input
+
+	ToContinuousDeploymentPolicyTrafficConfigSingleWeightConfigPtrOutput() ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigPtrOutput
+	ToContinuousDeploymentPolicyTrafficConfigSingleWeightConfigPtrOutputWithContext(context.Context) ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigPtrOutput
+}
+
+type continuousDeploymentPolicyTrafficConfigSingleWeightConfigPtrType ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs
+
+func ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigPtr(v *ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs) ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigPtrInput {
+	return (*continuousDeploymentPolicyTrafficConfigSingleWeightConfigPtrType)(v)
+}
+
+func (*continuousDeploymentPolicyTrafficConfigSingleWeightConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig)(nil)).Elem()
+}
+
+func (i *continuousDeploymentPolicyTrafficConfigSingleWeightConfigPtrType) ToContinuousDeploymentPolicyTrafficConfigSingleWeightConfigPtrOutput() ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigPtrOutput {
+	return i.ToContinuousDeploymentPolicyTrafficConfigSingleWeightConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *continuousDeploymentPolicyTrafficConfigSingleWeightConfigPtrType) ToContinuousDeploymentPolicyTrafficConfigSingleWeightConfigPtrOutputWithContext(ctx context.Context) ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigPtrOutput)
+}
+
+type ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigOutput struct{ *pulumi.OutputState }
+
+func (ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig)(nil)).Elem()
+}
+
+func (o ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigOutput) ToContinuousDeploymentPolicyTrafficConfigSingleWeightConfigOutput() ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigOutput {
+	return o
+}
+
+func (o ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigOutput) ToContinuousDeploymentPolicyTrafficConfigSingleWeightConfigOutputWithContext(ctx context.Context) ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigOutput {
+	return o
+}
+
+func (o ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigOutput) ToContinuousDeploymentPolicyTrafficConfigSingleWeightConfigPtrOutput() ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigPtrOutput {
+	return o.ToContinuousDeploymentPolicyTrafficConfigSingleWeightConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigOutput) ToContinuousDeploymentPolicyTrafficConfigSingleWeightConfigPtrOutputWithContext(ctx context.Context) ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig) *ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig {
+		return &v
+	}).(ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigPtrOutput)
+}
+
+// Session stickiness provides the ability to define multiple requests from a single viewer as a single session. This prevents the potentially inconsistent experience of sending some of a given user's requests to the staging distribution, while others are sent to the primary distribution. Define the session duration using TTL values. See `sessionStickinessConfig`.
+func (o ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigOutput) SessionStickinessConfig() ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigPtrOutput {
+	return o.ApplyT(func(v ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig) *ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfig {
+		return v.SessionStickinessConfig
+	}).(ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigPtrOutput)
+}
+
+// The percentage of traffic to send to a staging distribution, expressed as a decimal number between `0` and `.15`.
+func (o ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigOutput) Weight() pulumi.Float64Output {
+	return o.ApplyT(func(v ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig) float64 { return v.Weight }).(pulumi.Float64Output)
+}
+
+type ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig)(nil)).Elem()
+}
+
+func (o ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigPtrOutput) ToContinuousDeploymentPolicyTrafficConfigSingleWeightConfigPtrOutput() ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigPtrOutput {
+	return o
+}
+
+func (o ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigPtrOutput) ToContinuousDeploymentPolicyTrafficConfigSingleWeightConfigPtrOutputWithContext(ctx context.Context) ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigPtrOutput {
+	return o
+}
+
+func (o ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigPtrOutput) Elem() ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigOutput {
+	return o.ApplyT(func(v *ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig) ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig
+		return ret
+	}).(ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigOutput)
+}
+
+// Session stickiness provides the ability to define multiple requests from a single viewer as a single session. This prevents the potentially inconsistent experience of sending some of a given user's requests to the staging distribution, while others are sent to the primary distribution. Define the session duration using TTL values. See `sessionStickinessConfig`.
+func (o ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigPtrOutput) SessionStickinessConfig() ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigPtrOutput {
+	return o.ApplyT(func(v *ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig) *ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfig {
+		if v == nil {
+			return nil
+		}
+		return v.SessionStickinessConfig
+	}).(ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigPtrOutput)
+}
+
+// The percentage of traffic to send to a staging distribution, expressed as a decimal number between `0` and `.15`.
+func (o ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigPtrOutput) Weight() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.Weight
+	}).(pulumi.Float64PtrOutput)
+}
+
+type ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfig struct {
+	// The amount of time in seconds after which sessions will cease if no requests are received. Valid values are `300` – `3600` (5–60 minutes). The value must be less than or equal to `maximumTtl`.
+	IdleTtl int `pulumi:"idleTtl"`
+	// The maximum amount of time in seconds to consider requests from the viewer as being part of the same session. Valid values are `300` – `3600` (5–60 minutes). The value must be greater than or equal to `idleTtl`.
+	MaximumTtl int `pulumi:"maximumTtl"`
+}
+
+// ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigInput is an input type that accepts ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgs and ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigOutput values.
+// You can construct a concrete instance of `ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigInput` via:
+//
+//	ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgs{...}
+type ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigInput interface {
+	pulumi.Input
+
+	ToContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigOutput() ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigOutput
+	ToContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigOutputWithContext(context.Context) ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigOutput
+}
+
+type ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgs struct {
+	// The amount of time in seconds after which sessions will cease if no requests are received. Valid values are `300` – `3600` (5–60 minutes). The value must be less than or equal to `maximumTtl`.
+	IdleTtl pulumi.IntInput `pulumi:"idleTtl"`
+	// The maximum amount of time in seconds to consider requests from the viewer as being part of the same session. Valid values are `300` – `3600` (5–60 minutes). The value must be greater than or equal to `idleTtl`.
+	MaximumTtl pulumi.IntInput `pulumi:"maximumTtl"`
+}
+
+func (ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfig)(nil)).Elem()
+}
+
+func (i ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgs) ToContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigOutput() ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigOutput {
+	return i.ToContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigOutputWithContext(context.Background())
+}
+
+func (i ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgs) ToContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigOutputWithContext(ctx context.Context) ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigOutput)
+}
+
+func (i ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgs) ToContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigPtrOutput() ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigPtrOutput {
+	return i.ToContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgs) ToContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigPtrOutputWithContext(ctx context.Context) ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigOutput).ToContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigPtrOutputWithContext(ctx)
+}
+
+// ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigPtrInput is an input type that accepts ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgs, ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigPtr and ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigPtrOutput values.
+// You can construct a concrete instance of `ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigPtrInput` via:
+//
+//	        ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigPtrInput interface {
+	pulumi.Input
+
+	ToContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigPtrOutput() ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigPtrOutput
+	ToContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigPtrOutputWithContext(context.Context) ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigPtrOutput
+}
+
+type continuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigPtrType ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgs
+
+func ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigPtr(v *ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgs) ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigPtrInput {
+	return (*continuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigPtrType)(v)
+}
+
+func (*continuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfig)(nil)).Elem()
+}
+
+func (i *continuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigPtrType) ToContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigPtrOutput() ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigPtrOutput {
+	return i.ToContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *continuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigPtrType) ToContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigPtrOutputWithContext(ctx context.Context) ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigPtrOutput)
+}
+
+type ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigOutput struct{ *pulumi.OutputState }
+
+func (ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfig)(nil)).Elem()
+}
+
+func (o ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigOutput) ToContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigOutput() ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigOutput {
+	return o
+}
+
+func (o ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigOutput) ToContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigOutputWithContext(ctx context.Context) ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigOutput {
+	return o
+}
+
+func (o ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigOutput) ToContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigPtrOutput() ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigPtrOutput {
+	return o.ToContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigOutput) ToContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigPtrOutputWithContext(ctx context.Context) ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfig) *ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfig {
+		return &v
+	}).(ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigPtrOutput)
+}
+
+// The amount of time in seconds after which sessions will cease if no requests are received. Valid values are `300` – `3600` (5–60 minutes). The value must be less than or equal to `maximumTtl`.
+func (o ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigOutput) IdleTtl() pulumi.IntOutput {
+	return o.ApplyT(func(v ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfig) int {
+		return v.IdleTtl
+	}).(pulumi.IntOutput)
+}
+
+// The maximum amount of time in seconds to consider requests from the viewer as being part of the same session. Valid values are `300` – `3600` (5–60 minutes). The value must be greater than or equal to `idleTtl`.
+func (o ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigOutput) MaximumTtl() pulumi.IntOutput {
+	return o.ApplyT(func(v ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfig) int {
+		return v.MaximumTtl
+	}).(pulumi.IntOutput)
+}
+
+type ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfig)(nil)).Elem()
+}
+
+func (o ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigPtrOutput) ToContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigPtrOutput() ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigPtrOutput {
+	return o
+}
+
+func (o ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigPtrOutput) ToContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigPtrOutputWithContext(ctx context.Context) ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigPtrOutput {
+	return o
+}
+
+func (o ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigPtrOutput) Elem() ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigOutput {
+	return o.ApplyT(func(v *ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfig) ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfig
+		return ret
+	}).(ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigOutput)
+}
+
+// The amount of time in seconds after which sessions will cease if no requests are received. Valid values are `300` – `3600` (5–60 minutes). The value must be less than or equal to `maximumTtl`.
+func (o ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigPtrOutput) IdleTtl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.IdleTtl
+	}).(pulumi.IntPtrOutput)
+}
+
+// The maximum amount of time in seconds to consider requests from the viewer as being part of the same session. Valid values are `300` – `3600` (5–60 minutes). The value must be greater than or equal to `idleTtl`.
+func (o ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigPtrOutput) MaximumTtl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaximumTtl
+	}).(pulumi.IntPtrOutput)
+}
+
 type DistributionCustomErrorResponse struct {
 	// Minimum amount of time you want HTTP error codes to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated.
 	ErrorCachingMinTtl *int `pulumi:"errorCachingMinTtl"`
@@ -13998,6 +14807,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrInput)(nil)).Elem(), CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsInput)(nil)).Elem(), CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrInput)(nil)).Elem(), CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContinuousDeploymentPolicyStagingDistributionDnsNamesInput)(nil)).Elem(), ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContinuousDeploymentPolicyStagingDistributionDnsNamesPtrInput)(nil)).Elem(), ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContinuousDeploymentPolicyTrafficConfigInput)(nil)).Elem(), ContinuousDeploymentPolicyTrafficConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContinuousDeploymentPolicyTrafficConfigPtrInput)(nil)).Elem(), ContinuousDeploymentPolicyTrafficConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigInput)(nil)).Elem(), ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigPtrInput)(nil)).Elem(), ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigInput)(nil)).Elem(), ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigPtrInput)(nil)).Elem(), ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigInput)(nil)).Elem(), ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigPtrInput)(nil)).Elem(), ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionCustomErrorResponseInput)(nil)).Elem(), DistributionCustomErrorResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionCustomErrorResponseArrayInput)(nil)).Elem(), DistributionCustomErrorResponseArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionDefaultCacheBehaviorInput)(nil)).Elem(), DistributionDefaultCacheBehaviorArgs{})
@@ -14200,6 +15019,16 @@ func init() {
 	pulumi.RegisterOutputType(CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutput{})
 	pulumi.RegisterOutputType(CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsOutput{})
 	pulumi.RegisterOutputType(CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrOutput{})
+	pulumi.RegisterOutputType(ContinuousDeploymentPolicyStagingDistributionDnsNamesOutput{})
+	pulumi.RegisterOutputType(ContinuousDeploymentPolicyStagingDistributionDnsNamesPtrOutput{})
+	pulumi.RegisterOutputType(ContinuousDeploymentPolicyTrafficConfigOutput{})
+	pulumi.RegisterOutputType(ContinuousDeploymentPolicyTrafficConfigPtrOutput{})
+	pulumi.RegisterOutputType(ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigOutput{})
+	pulumi.RegisterOutputType(ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigPtrOutput{})
+	pulumi.RegisterOutputType(ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigOutput{})
+	pulumi.RegisterOutputType(ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigPtrOutput{})
+	pulumi.RegisterOutputType(ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigOutput{})
+	pulumi.RegisterOutputType(ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigPtrOutput{})
 	pulumi.RegisterOutputType(DistributionCustomErrorResponseOutput{})
 	pulumi.RegisterOutputType(DistributionCustomErrorResponseArrayOutput{})
 	pulumi.RegisterOutputType(DistributionDefaultCacheBehaviorOutput{})

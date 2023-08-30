@@ -32,7 +32,7 @@ namespace Pulumi.Aws.Pipes
     /// {
     ///     var main = Aws.GetCallerIdentity.Invoke();
     /// 
-    ///     var test = new Aws.Iam.Role("test", new()
+    ///     var exampleRole = new Aws.Iam.Role("exampleRole", new()
     ///     {
     ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
@@ -60,7 +60,7 @@ namespace Pulumi.Aws.Pipes
     /// 
     ///     var sourceRolePolicy = new Aws.Iam.RolePolicy("sourceRolePolicy", new()
     ///     {
-    ///         Role = test.Id,
+    ///         Role = exampleRole.Id,
     ///         Policy = sourceQueue.Arn.Apply(arn =&gt; JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
     ///             ["Version"] = "2012-10-17",
@@ -88,7 +88,7 @@ namespace Pulumi.Aws.Pipes
     /// 
     ///     var targetRolePolicy = new Aws.Iam.RolePolicy("targetRolePolicy", new()
     ///     {
-    ///         Role = test.Id,
+    ///         Role = exampleRole.Id,
     ///         Policy = targetQueue.Arn.Apply(arn =&gt; JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
     ///             ["Version"] = "2012-10-17",
@@ -110,9 +110,9 @@ namespace Pulumi.Aws.Pipes
     ///         })),
     ///     });
     /// 
-    ///     var example = new Aws.Pipes.Pipe("example", new()
+    ///     var examplePipe = new Aws.Pipes.Pipe("examplePipe", new()
     ///     {
-    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///         RoleArn = exampleRole.Arn,
     ///         Source = sourceQueue.Arn,
     ///         Target = targetQueue.Arn,
     ///     }, new CustomResourceOptions

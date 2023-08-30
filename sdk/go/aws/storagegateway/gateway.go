@@ -214,7 +214,7 @@ import (
 //
 //	to = aws_storagegateway_gateway.example
 //
-//	id = "arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678" } Using `pulumi import`, import `aws_storagegateway_gateway` using the gateway Amazon Resource Name (ARN). For exampleconsole % pulumi import aws_storagegateway_gateway.example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678 Certain resource arguments, like `gateway_ip_address` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For exampleterraform resource "aws_storagegateway_gateway" "example" {
+//	id = "arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678" } Using `pulumi import`, import `aws_storagegateway_gateway` using the gateway Amazon Resource Name (ARN). For exampleconsole % pulumi import aws_storagegateway_gateway.example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678 Certain resource arguments, like `gateway_ip_address` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For exampleterraform resource "aws_storagegateway_gateway" "example" {
 //
 // # ... other configuration ...
 //

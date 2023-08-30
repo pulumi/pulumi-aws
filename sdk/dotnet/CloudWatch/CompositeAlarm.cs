@@ -33,6 +33,12 @@ namespace Pulumi.Aws.CloudWatch
     ///         AlarmRule = @$"ALARM({aws_cloudwatch_metric_alarm.Alpha.Alarm_name}) OR
     /// ALARM({aws_cloudwatch_metric_alarm.Bravo.Alarm_name})
     /// ",
+    ///         ActionsSuppressor = new Aws.CloudWatch.Inputs.CompositeAlarmActionsSuppressorArgs
+    ///         {
+    ///             Alarm = "suppressor-alarm",
+    ///             ExtensionPeriod = 10,
+    ///             WaitPeriod = 20,
+    ///         },
     ///     });
     /// 
     /// });
@@ -54,6 +60,12 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         [Output("actionsEnabled")]
         public Output<bool?> ActionsEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Actions will be suppressed if the suppressor alarm is in the ALARM state.
+        /// </summary>
+        [Output("actionsSuppressor")]
+        public Output<Outputs.CompositeAlarmActionsSuppressor?> ActionsSuppressor { get; private set; } = null!;
 
         /// <summary>
         /// The set of actions to execute when this alarm transitions to the `ALARM` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
@@ -161,6 +173,12 @@ namespace Pulumi.Aws.CloudWatch
         [Input("actionsEnabled")]
         public Input<bool>? ActionsEnabled { get; set; }
 
+        /// <summary>
+        /// Actions will be suppressed if the suppressor alarm is in the ALARM state.
+        /// </summary>
+        [Input("actionsSuppressor")]
+        public Input<Inputs.CompositeAlarmActionsSuppressorArgs>? ActionsSuppressor { get; set; }
+
         [Input("alarmActions")]
         private InputList<string>? _alarmActions;
 
@@ -240,6 +258,12 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         [Input("actionsEnabled")]
         public Input<bool>? ActionsEnabled { get; set; }
+
+        /// <summary>
+        /// Actions will be suppressed if the suppressor alarm is in the ALARM state.
+        /// </summary>
+        [Input("actionsSuppressor")]
+        public Input<Inputs.CompositeAlarmActionsSuppressorGetArgs>? ActionsSuppressor { get; set; }
 
         [Input("alarmActions")]
         private InputList<string>? _alarmActions;

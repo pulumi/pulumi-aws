@@ -3435,6 +3435,130 @@ func (o CrawlerDynamodbTargetArrayOutput) Index(i pulumi.IntInput) CrawlerDynamo
 	}).(CrawlerDynamodbTargetOutput)
 }
 
+type CrawlerHudiTarget struct {
+	// The name of the connection to use to connect to the Hudi target.
+	ConnectionName *string `pulumi:"connectionName"`
+	// A list of glob patterns used to exclude from the crawl.
+	Exclusions []string `pulumi:"exclusions"`
+	// The maximum depth of Amazon S3 paths that the crawler can traverse to discover the Hudi metadata folder in your Amazon S3 path. Used to limit the crawler run time. Valid values are between `1` and `20`.
+	MaximumTraversalDepth int `pulumi:"maximumTraversalDepth"`
+	// One or more Amazon S3 paths that contains Hudi metadata folders as s3://bucket/prefix.
+	Paths []string `pulumi:"paths"`
+}
+
+// CrawlerHudiTargetInput is an input type that accepts CrawlerHudiTargetArgs and CrawlerHudiTargetOutput values.
+// You can construct a concrete instance of `CrawlerHudiTargetInput` via:
+//
+//	CrawlerHudiTargetArgs{...}
+type CrawlerHudiTargetInput interface {
+	pulumi.Input
+
+	ToCrawlerHudiTargetOutput() CrawlerHudiTargetOutput
+	ToCrawlerHudiTargetOutputWithContext(context.Context) CrawlerHudiTargetOutput
+}
+
+type CrawlerHudiTargetArgs struct {
+	// The name of the connection to use to connect to the Hudi target.
+	ConnectionName pulumi.StringPtrInput `pulumi:"connectionName"`
+	// A list of glob patterns used to exclude from the crawl.
+	Exclusions pulumi.StringArrayInput `pulumi:"exclusions"`
+	// The maximum depth of Amazon S3 paths that the crawler can traverse to discover the Hudi metadata folder in your Amazon S3 path. Used to limit the crawler run time. Valid values are between `1` and `20`.
+	MaximumTraversalDepth pulumi.IntInput `pulumi:"maximumTraversalDepth"`
+	// One or more Amazon S3 paths that contains Hudi metadata folders as s3://bucket/prefix.
+	Paths pulumi.StringArrayInput `pulumi:"paths"`
+}
+
+func (CrawlerHudiTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerHudiTarget)(nil)).Elem()
+}
+
+func (i CrawlerHudiTargetArgs) ToCrawlerHudiTargetOutput() CrawlerHudiTargetOutput {
+	return i.ToCrawlerHudiTargetOutputWithContext(context.Background())
+}
+
+func (i CrawlerHudiTargetArgs) ToCrawlerHudiTargetOutputWithContext(ctx context.Context) CrawlerHudiTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerHudiTargetOutput)
+}
+
+// CrawlerHudiTargetArrayInput is an input type that accepts CrawlerHudiTargetArray and CrawlerHudiTargetArrayOutput values.
+// You can construct a concrete instance of `CrawlerHudiTargetArrayInput` via:
+//
+//	CrawlerHudiTargetArray{ CrawlerHudiTargetArgs{...} }
+type CrawlerHudiTargetArrayInput interface {
+	pulumi.Input
+
+	ToCrawlerHudiTargetArrayOutput() CrawlerHudiTargetArrayOutput
+	ToCrawlerHudiTargetArrayOutputWithContext(context.Context) CrawlerHudiTargetArrayOutput
+}
+
+type CrawlerHudiTargetArray []CrawlerHudiTargetInput
+
+func (CrawlerHudiTargetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CrawlerHudiTarget)(nil)).Elem()
+}
+
+func (i CrawlerHudiTargetArray) ToCrawlerHudiTargetArrayOutput() CrawlerHudiTargetArrayOutput {
+	return i.ToCrawlerHudiTargetArrayOutputWithContext(context.Background())
+}
+
+func (i CrawlerHudiTargetArray) ToCrawlerHudiTargetArrayOutputWithContext(ctx context.Context) CrawlerHudiTargetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerHudiTargetArrayOutput)
+}
+
+type CrawlerHudiTargetOutput struct{ *pulumi.OutputState }
+
+func (CrawlerHudiTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerHudiTarget)(nil)).Elem()
+}
+
+func (o CrawlerHudiTargetOutput) ToCrawlerHudiTargetOutput() CrawlerHudiTargetOutput {
+	return o
+}
+
+func (o CrawlerHudiTargetOutput) ToCrawlerHudiTargetOutputWithContext(ctx context.Context) CrawlerHudiTargetOutput {
+	return o
+}
+
+// The name of the connection to use to connect to the Hudi target.
+func (o CrawlerHudiTargetOutput) ConnectionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrawlerHudiTarget) *string { return v.ConnectionName }).(pulumi.StringPtrOutput)
+}
+
+// A list of glob patterns used to exclude from the crawl.
+func (o CrawlerHudiTargetOutput) Exclusions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CrawlerHudiTarget) []string { return v.Exclusions }).(pulumi.StringArrayOutput)
+}
+
+// The maximum depth of Amazon S3 paths that the crawler can traverse to discover the Hudi metadata folder in your Amazon S3 path. Used to limit the crawler run time. Valid values are between `1` and `20`.
+func (o CrawlerHudiTargetOutput) MaximumTraversalDepth() pulumi.IntOutput {
+	return o.ApplyT(func(v CrawlerHudiTarget) int { return v.MaximumTraversalDepth }).(pulumi.IntOutput)
+}
+
+// One or more Amazon S3 paths that contains Hudi metadata folders as s3://bucket/prefix.
+func (o CrawlerHudiTargetOutput) Paths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CrawlerHudiTarget) []string { return v.Paths }).(pulumi.StringArrayOutput)
+}
+
+type CrawlerHudiTargetArrayOutput struct{ *pulumi.OutputState }
+
+func (CrawlerHudiTargetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CrawlerHudiTarget)(nil)).Elem()
+}
+
+func (o CrawlerHudiTargetArrayOutput) ToCrawlerHudiTargetArrayOutput() CrawlerHudiTargetArrayOutput {
+	return o
+}
+
+func (o CrawlerHudiTargetArrayOutput) ToCrawlerHudiTargetArrayOutputWithContext(ctx context.Context) CrawlerHudiTargetArrayOutput {
+	return o
+}
+
+func (o CrawlerHudiTargetArrayOutput) Index(i pulumi.IntInput) CrawlerHudiTargetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CrawlerHudiTarget {
+		return vs[0].([]CrawlerHudiTarget)[vs[1].(int)]
+	}).(CrawlerHudiTargetOutput)
+}
+
 type CrawlerIcebergTarget struct {
 	// The name of the connection to use to connect to the Iceberg target.
 	ConnectionName *string `pulumi:"connectionName"`
@@ -10838,6 +10962,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerDeltaTargetArrayInput)(nil)).Elem(), CrawlerDeltaTargetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerDynamodbTargetInput)(nil)).Elem(), CrawlerDynamodbTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerDynamodbTargetArrayInput)(nil)).Elem(), CrawlerDynamodbTargetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerHudiTargetInput)(nil)).Elem(), CrawlerHudiTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerHudiTargetArrayInput)(nil)).Elem(), CrawlerHudiTargetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerIcebergTargetInput)(nil)).Elem(), CrawlerIcebergTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerIcebergTargetArrayInput)(nil)).Elem(), CrawlerIcebergTargetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerJdbcTargetInput)(nil)).Elem(), CrawlerJdbcTargetArgs{})
@@ -10984,6 +11110,8 @@ func init() {
 	pulumi.RegisterOutputType(CrawlerDeltaTargetArrayOutput{})
 	pulumi.RegisterOutputType(CrawlerDynamodbTargetOutput{})
 	pulumi.RegisterOutputType(CrawlerDynamodbTargetArrayOutput{})
+	pulumi.RegisterOutputType(CrawlerHudiTargetOutput{})
+	pulumi.RegisterOutputType(CrawlerHudiTargetArrayOutput{})
 	pulumi.RegisterOutputType(CrawlerIcebergTargetOutput{})
 	pulumi.RegisterOutputType(CrawlerIcebergTargetArrayOutput{})
 	pulumi.RegisterOutputType(CrawlerJdbcTargetOutput{})

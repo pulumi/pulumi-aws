@@ -250,6 +250,25 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid
+     * values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment
+     * variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
+     * 
+     */
+    @Import(name="s3UsEast1RegionalEndpoint")
+    private @Nullable Output<String> s3UsEast1RegionalEndpoint;
+
+    /**
+     * @return Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid
+     * values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment
+     * variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
+     * 
+     */
+    public Optional<Output<String>> s3UsEast1RegionalEndpoint() {
+        return Optional.ofNullable(this.s3UsEast1RegionalEndpoint);
+    }
+
+    /**
      * Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
      * default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
      * Specific to the Amazon S3 service.
@@ -457,6 +476,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         this.profile = $.profile;
         this.region = $.region;
         this.retryMode = $.retryMode;
+        this.s3UsEast1RegionalEndpoint = $.s3UsEast1RegionalEndpoint;
         this.s3UsePathStyle = $.s3UsePathStyle;
         this.secretKey = $.secretKey;
         this.sharedConfigFiles = $.sharedConfigFiles;
@@ -806,6 +826,31 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder retryMode(String retryMode) {
             return retryMode(Output.of(retryMode));
+        }
+
+        /**
+         * @param s3UsEast1RegionalEndpoint Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid
+         * values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment
+         * variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
+         * 
+         * @return builder
+         * 
+         */
+        public Builder s3UsEast1RegionalEndpoint(@Nullable Output<String> s3UsEast1RegionalEndpoint) {
+            $.s3UsEast1RegionalEndpoint = s3UsEast1RegionalEndpoint;
+            return this;
+        }
+
+        /**
+         * @param s3UsEast1RegionalEndpoint Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid
+         * values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment
+         * variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
+         * 
+         * @return builder
+         * 
+         */
+        public Builder s3UsEast1RegionalEndpoint(String s3UsEast1RegionalEndpoint) {
+            return s3UsEast1RegionalEndpoint(Output.of(s3UsEast1RegionalEndpoint));
         }
 
         /**

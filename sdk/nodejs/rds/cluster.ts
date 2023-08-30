@@ -313,6 +313,9 @@ export class Cluster extends pulumi.CustomResource {
      * (Required for Multi-AZ DB cluster) The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the Amazon RDS User Guide.
      */
     public readonly dbClusterInstanceClass!: pulumi.Output<string | undefined>;
+    /**
+     * A cluster parameter group to associate with the cluster.
+     */
     public readonly dbClusterParameterGroupName!: pulumi.Output<string>;
     /**
      * Instance parameter group to associate with all instances of the DB cluster. The `dbInstanceParameterGroupName` parameter is only valid in combination with the `allowMajorVersionUpgrade` parameter.
@@ -322,6 +325,10 @@ export class Cluster extends pulumi.CustomResource {
      * DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` specified on every `aws.rds.ClusterInstance` in the cluster.
      */
     public readonly dbSubnetGroupName!: pulumi.Output<string>;
+    /**
+     * For use with RDS Custom.
+     */
+    public readonly dbSystemId!: pulumi.Output<string>;
     /**
      * If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
      */
@@ -507,6 +514,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["dbClusterParameterGroupName"] = state ? state.dbClusterParameterGroupName : undefined;
             resourceInputs["dbInstanceParameterGroupName"] = state ? state.dbInstanceParameterGroupName : undefined;
             resourceInputs["dbSubnetGroupName"] = state ? state.dbSubnetGroupName : undefined;
+            resourceInputs["dbSystemId"] = state ? state.dbSystemId : undefined;
             resourceInputs["deletionProtection"] = state ? state.deletionProtection : undefined;
             resourceInputs["enableGlobalWriteForwarding"] = state ? state.enableGlobalWriteForwarding : undefined;
             resourceInputs["enableHttpEndpoint"] = state ? state.enableHttpEndpoint : undefined;
@@ -566,6 +574,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["dbClusterParameterGroupName"] = args ? args.dbClusterParameterGroupName : undefined;
             resourceInputs["dbInstanceParameterGroupName"] = args ? args.dbInstanceParameterGroupName : undefined;
             resourceInputs["dbSubnetGroupName"] = args ? args.dbSubnetGroupName : undefined;
+            resourceInputs["dbSystemId"] = args ? args.dbSystemId : undefined;
             resourceInputs["deletionProtection"] = args ? args.deletionProtection : undefined;
             resourceInputs["enableGlobalWriteForwarding"] = args ? args.enableGlobalWriteForwarding : undefined;
             resourceInputs["enableHttpEndpoint"] = args ? args.enableHttpEndpoint : undefined;
@@ -675,6 +684,9 @@ export interface ClusterState {
      * (Required for Multi-AZ DB cluster) The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the Amazon RDS User Guide.
      */
     dbClusterInstanceClass?: pulumi.Input<string>;
+    /**
+     * A cluster parameter group to associate with the cluster.
+     */
     dbClusterParameterGroupName?: pulumi.Input<string>;
     /**
      * Instance parameter group to associate with all instances of the DB cluster. The `dbInstanceParameterGroupName` parameter is only valid in combination with the `allowMajorVersionUpgrade` parameter.
@@ -684,6 +696,10 @@ export interface ClusterState {
      * DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` specified on every `aws.rds.ClusterInstance` in the cluster.
      */
     dbSubnetGroupName?: pulumi.Input<string>;
+    /**
+     * For use with RDS Custom.
+     */
+    dbSystemId?: pulumi.Input<string>;
     /**
      * If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
      */
@@ -892,6 +908,9 @@ export interface ClusterArgs {
      * (Required for Multi-AZ DB cluster) The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the Amazon RDS User Guide.
      */
     dbClusterInstanceClass?: pulumi.Input<string>;
+    /**
+     * A cluster parameter group to associate with the cluster.
+     */
     dbClusterParameterGroupName?: pulumi.Input<string>;
     /**
      * Instance parameter group to associate with all instances of the DB cluster. The `dbInstanceParameterGroupName` parameter is only valid in combination with the `allowMajorVersionUpgrade` parameter.
@@ -901,6 +920,10 @@ export interface ClusterArgs {
      * DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` specified on every `aws.rds.ClusterInstance` in the cluster.
      */
     dbSubnetGroupName?: pulumi.Input<string>;
+    /**
+     * For use with RDS Custom.
+     */
+    dbSystemId?: pulumi.Input<string>;
     /**
      * If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
      */

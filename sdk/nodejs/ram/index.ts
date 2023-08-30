@@ -30,6 +30,11 @@ export type ResourceShareAccepter = import("./resourceShareAccepter").ResourceSh
 export const ResourceShareAccepter: typeof import("./resourceShareAccepter").ResourceShareAccepter = null as any;
 utilities.lazyLoad(exports, ["ResourceShareAccepter"], () => require("./resourceShareAccepter"));
 
+export { SharingWithOrganizationArgs, SharingWithOrganizationState } from "./sharingWithOrganization";
+export type SharingWithOrganization = import("./sharingWithOrganization").SharingWithOrganization;
+export const SharingWithOrganization: typeof import("./sharingWithOrganization").SharingWithOrganization = null as any;
+utilities.lazyLoad(exports, ["SharingWithOrganization"], () => require("./sharingWithOrganization"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -43,6 +48,8 @@ const _module = {
                 return new ResourceShare(name, <any>undefined, { urn })
             case "aws:ram/resourceShareAccepter:ResourceShareAccepter":
                 return new ResourceShareAccepter(name, <any>undefined, { urn })
+            case "aws:ram/sharingWithOrganization:SharingWithOrganization":
+                return new SharingWithOrganization(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -52,3 +59,4 @@ pulumi.runtime.registerResourceModule("aws", "ram/principalAssociation", _module
 pulumi.runtime.registerResourceModule("aws", "ram/resourceAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "ram/resourceShare", _module)
 pulumi.runtime.registerResourceModule("aws", "ram/resourceShareAccepter", _module)
+pulumi.runtime.registerResourceModule("aws", "ram/sharingWithOrganization", _module)

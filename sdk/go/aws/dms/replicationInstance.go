@@ -149,6 +149,8 @@ type ReplicationInstance struct {
 	KmsKeyArn pulumi.StringOutput `pulumi:"kmsKeyArn"`
 	// Specifies if the replication instance is a multi-az deployment. You cannot set the `availabilityZone` parameter if the `multiAz` parameter is set to `true`.
 	MultiAz pulumi.BoolOutput `pulumi:"multiAz"`
+	// The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
+	NetworkType pulumi.StringOutput `pulumi:"networkType"`
 	// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
 	//
 	// - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
@@ -235,6 +237,8 @@ type replicationInstanceState struct {
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Specifies if the replication instance is a multi-az deployment. You cannot set the `availabilityZone` parameter if the `multiAz` parameter is set to `true`.
 	MultiAz *bool `pulumi:"multiAz"`
+	// The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
+	NetworkType *string `pulumi:"networkType"`
 	// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
 	//
 	// - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
@@ -286,6 +290,8 @@ type ReplicationInstanceState struct {
 	KmsKeyArn pulumi.StringPtrInput
 	// Specifies if the replication instance is a multi-az deployment. You cannot set the `availabilityZone` parameter if the `multiAz` parameter is set to `true`.
 	MultiAz pulumi.BoolPtrInput
+	// The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
+	NetworkType pulumi.StringPtrInput
 	// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
 	//
 	// - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
@@ -341,6 +347,8 @@ type replicationInstanceArgs struct {
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Specifies if the replication instance is a multi-az deployment. You cannot set the `availabilityZone` parameter if the `multiAz` parameter is set to `true`.
 	MultiAz *bool `pulumi:"multiAz"`
+	// The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
+	NetworkType *string `pulumi:"networkType"`
 	// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
 	//
 	// - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
@@ -385,6 +393,8 @@ type ReplicationInstanceArgs struct {
 	KmsKeyArn pulumi.StringPtrInput
 	// Specifies if the replication instance is a multi-az deployment. You cannot set the `availabilityZone` parameter if the `multiAz` parameter is set to `true`.
 	MultiAz pulumi.BoolPtrInput
+	// The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
+	NetworkType pulumi.StringPtrInput
 	// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
 	//
 	// - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
@@ -536,6 +546,11 @@ func (o ReplicationInstanceOutput) KmsKeyArn() pulumi.StringOutput {
 // Specifies if the replication instance is a multi-az deployment. You cannot set the `availabilityZone` parameter if the `multiAz` parameter is set to `true`.
 func (o ReplicationInstanceOutput) MultiAz() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ReplicationInstance) pulumi.BoolOutput { return v.MultiAz }).(pulumi.BoolOutput)
+}
+
+// The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
+func (o ReplicationInstanceOutput) NetworkType() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReplicationInstance) pulumi.StringOutput { return v.NetworkType }).(pulumi.StringOutput)
 }
 
 // The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).

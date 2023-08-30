@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.batch;
 
+import com.pulumi.aws.batch.inputs.JobQueueTimeoutsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
@@ -114,6 +115,13 @@ public final class JobQueueArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tags);
     }
 
+    @Import(name="timeouts")
+    private @Nullable Output<JobQueueTimeoutsArgs> timeouts;
+
+    public Optional<Output<JobQueueTimeoutsArgs>> timeouts() {
+        return Optional.ofNullable(this.timeouts);
+    }
+
     private JobQueueArgs() {}
 
     private JobQueueArgs(JobQueueArgs $) {
@@ -123,6 +131,7 @@ public final class JobQueueArgs extends com.pulumi.resources.ResourceArgs {
         this.schedulingPolicyArn = $.schedulingPolicyArn;
         this.state = $.state;
         this.tags = $.tags;
+        this.timeouts = $.timeouts;
     }
 
     public static Builder builder() {
@@ -285,6 +294,15 @@ public final class JobQueueArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        public Builder timeouts(@Nullable Output<JobQueueTimeoutsArgs> timeouts) {
+            $.timeouts = timeouts;
+            return this;
+        }
+
+        public Builder timeouts(JobQueueTimeoutsArgs timeouts) {
+            return timeouts(Output.of(timeouts));
         }
 
         public JobQueueArgs build() {

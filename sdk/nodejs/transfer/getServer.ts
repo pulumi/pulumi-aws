@@ -86,6 +86,9 @@ export interface GetServerResult {
      */
     readonly securityPolicyName: string;
     readonly serverId: string;
+    /**
+     * A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs.
+     */
     readonly structuredLogDestinations: string[];
     /**
      * URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.

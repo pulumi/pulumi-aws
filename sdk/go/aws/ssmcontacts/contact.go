@@ -86,11 +86,11 @@ import (
 type Contact struct {
 	pulumi.CustomResourceState
 
-	// A unique and identifiable alias for the contact or escalation plan.
+	// A unique and identifiable alias for the contact or escalation plan. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), and hyphens (`-`).
 	Alias pulumi.StringOutput `pulumi:"alias"`
 	// The Amazon Resource Name (ARN) of the contact or escalation plan.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Full friendly name of the contact or escalation plan.
+	// Full friendly name of the contact or escalation plan. If set, must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
 	// Map of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -139,11 +139,11 @@ func GetContact(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Contact resources.
 type contactState struct {
-	// A unique and identifiable alias for the contact or escalation plan.
+	// A unique and identifiable alias for the contact or escalation plan. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), and hyphens (`-`).
 	Alias *string `pulumi:"alias"`
 	// The Amazon Resource Name (ARN) of the contact or escalation plan.
 	Arn *string `pulumi:"arn"`
-	// Full friendly name of the contact or escalation plan.
+	// Full friendly name of the contact or escalation plan. If set, must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
 	DisplayName *string `pulumi:"displayName"`
 	// Map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -157,11 +157,11 @@ type contactState struct {
 }
 
 type ContactState struct {
-	// A unique and identifiable alias for the contact or escalation plan.
+	// A unique and identifiable alias for the contact or escalation plan. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), and hyphens (`-`).
 	Alias pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the contact or escalation plan.
 	Arn pulumi.StringPtrInput
-	// Full friendly name of the contact or escalation plan.
+	// Full friendly name of the contact or escalation plan. If set, must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
 	DisplayName pulumi.StringPtrInput
 	// Map of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -179,9 +179,9 @@ func (ContactState) ElementType() reflect.Type {
 }
 
 type contactArgs struct {
-	// A unique and identifiable alias for the contact or escalation plan.
+	// A unique and identifiable alias for the contact or escalation plan. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), and hyphens (`-`).
 	Alias string `pulumi:"alias"`
-	// Full friendly name of the contact or escalation plan.
+	// Full friendly name of the contact or escalation plan. If set, must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
 	DisplayName *string `pulumi:"displayName"`
 	// Map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -194,9 +194,9 @@ type contactArgs struct {
 
 // The set of arguments for constructing a Contact resource.
 type ContactArgs struct {
-	// A unique and identifiable alias for the contact or escalation plan.
+	// A unique and identifiable alias for the contact or escalation plan. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), and hyphens (`-`).
 	Alias pulumi.StringInput
-	// Full friendly name of the contact or escalation plan.
+	// Full friendly name of the contact or escalation plan. If set, must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
 	DisplayName pulumi.StringPtrInput
 	// Map of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -294,7 +294,7 @@ func (o ContactOutput) ToContactOutputWithContext(ctx context.Context) ContactOu
 	return o
 }
 
-// A unique and identifiable alias for the contact or escalation plan.
+// A unique and identifiable alias for the contact or escalation plan. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), and hyphens (`-`).
 func (o ContactOutput) Alias() pulumi.StringOutput {
 	return o.ApplyT(func(v *Contact) pulumi.StringOutput { return v.Alias }).(pulumi.StringOutput)
 }
@@ -304,7 +304,7 @@ func (o ContactOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Contact) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Full friendly name of the contact or escalation plan.
+// Full friendly name of the contact or escalation plan. If set, must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
 func (o ContactOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Contact) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
 }

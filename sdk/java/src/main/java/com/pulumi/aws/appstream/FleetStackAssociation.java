@@ -43,7 +43,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleFleet = new Fleet(&#34;exampleFleet&#34;, FleetArgs.builder()        
- *             .imageName(&#34;Amazon-AppStream2-Sample-Image-02-04-2019&#34;)
+ *             .imageName(&#34;Amazon-AppStream2-Sample-Image-03-11-2023&#34;)
  *             .instanceType(&#34;stream.standard.small&#34;)
  *             .computeCapacity(FleetComputeCapacityArgs.builder()
  *                 .desiredInstances(1)

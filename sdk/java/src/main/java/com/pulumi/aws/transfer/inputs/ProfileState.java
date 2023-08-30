@@ -18,6 +18,21 @@ public final class ProfileState extends com.pulumi.resources.ResourceArgs {
     public static final ProfileState Empty = new ProfileState();
 
     /**
+     * The ARN of the profile.
+     * 
+     */
+    @Import(name="arn")
+    private @Nullable Output<String> arn;
+
+    /**
+     * @return The ARN of the profile.
+     * 
+     */
+    public Optional<Output<String>> arn() {
+        return Optional.ofNullable(this.arn);
+    }
+
+    /**
      * The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
      * 
      */
@@ -48,14 +63,14 @@ public final class ProfileState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The unique identifier for the AS2 profile
+     * The unique identifier for the AS2 profile.
      * 
      */
     @Import(name="profileId")
     private @Nullable Output<String> profileId;
 
     /**
-     * @return The unique identifier for the AS2 profile
+     * @return The unique identifier for the AS2 profile.
      * 
      */
     public Optional<Output<String>> profileId() {
@@ -102,6 +117,7 @@ public final class ProfileState extends com.pulumi.resources.ResourceArgs {
     private ProfileState() {}
 
     private ProfileState(ProfileState $) {
+        this.arn = $.arn;
         this.as2Id = $.as2Id;
         this.certificateIds = $.certificateIds;
         this.profileId = $.profileId;
@@ -126,6 +142,27 @@ public final class ProfileState extends com.pulumi.resources.ResourceArgs {
 
         public Builder(ProfileState defaults) {
             $ = new ProfileState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param arn The ARN of the profile.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(@Nullable Output<String> arn) {
+            $.arn = arn;
+            return this;
+        }
+
+        /**
+         * @param arn The ARN of the profile.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(String arn) {
+            return arn(Output.of(arn));
         }
 
         /**
@@ -181,7 +218,7 @@ public final class ProfileState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param profileId The unique identifier for the AS2 profile
+         * @param profileId The unique identifier for the AS2 profile.
          * 
          * @return builder
          * 
@@ -192,7 +229,7 @@ public final class ProfileState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param profileId The unique identifier for the AS2 profile
+         * @param profileId The unique identifier for the AS2 profile.
          * 
          * @return builder
          * 

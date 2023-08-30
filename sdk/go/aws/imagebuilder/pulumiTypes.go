@@ -2953,6 +2953,316 @@ func (o ImageOutputResourceContainerArrayOutput) Index(i pulumi.IntInput) ImageO
 	}).(ImageOutputResourceContainerOutput)
 }
 
+type ImagePipelineImageScanningConfiguration struct {
+	// Configuration block with ECR configuration for image scanning. Detailed below.
+	EcrConfiguration *ImagePipelineImageScanningConfigurationEcrConfiguration `pulumi:"ecrConfiguration"`
+	// Whether image scans are enabled. Defaults to `false`.
+	ImageScanningEnabled *bool `pulumi:"imageScanningEnabled"`
+}
+
+// ImagePipelineImageScanningConfigurationInput is an input type that accepts ImagePipelineImageScanningConfigurationArgs and ImagePipelineImageScanningConfigurationOutput values.
+// You can construct a concrete instance of `ImagePipelineImageScanningConfigurationInput` via:
+//
+//	ImagePipelineImageScanningConfigurationArgs{...}
+type ImagePipelineImageScanningConfigurationInput interface {
+	pulumi.Input
+
+	ToImagePipelineImageScanningConfigurationOutput() ImagePipelineImageScanningConfigurationOutput
+	ToImagePipelineImageScanningConfigurationOutputWithContext(context.Context) ImagePipelineImageScanningConfigurationOutput
+}
+
+type ImagePipelineImageScanningConfigurationArgs struct {
+	// Configuration block with ECR configuration for image scanning. Detailed below.
+	EcrConfiguration ImagePipelineImageScanningConfigurationEcrConfigurationPtrInput `pulumi:"ecrConfiguration"`
+	// Whether image scans are enabled. Defaults to `false`.
+	ImageScanningEnabled pulumi.BoolPtrInput `pulumi:"imageScanningEnabled"`
+}
+
+func (ImagePipelineImageScanningConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImagePipelineImageScanningConfiguration)(nil)).Elem()
+}
+
+func (i ImagePipelineImageScanningConfigurationArgs) ToImagePipelineImageScanningConfigurationOutput() ImagePipelineImageScanningConfigurationOutput {
+	return i.ToImagePipelineImageScanningConfigurationOutputWithContext(context.Background())
+}
+
+func (i ImagePipelineImageScanningConfigurationArgs) ToImagePipelineImageScanningConfigurationOutputWithContext(ctx context.Context) ImagePipelineImageScanningConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineImageScanningConfigurationOutput)
+}
+
+func (i ImagePipelineImageScanningConfigurationArgs) ToImagePipelineImageScanningConfigurationPtrOutput() ImagePipelineImageScanningConfigurationPtrOutput {
+	return i.ToImagePipelineImageScanningConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ImagePipelineImageScanningConfigurationArgs) ToImagePipelineImageScanningConfigurationPtrOutputWithContext(ctx context.Context) ImagePipelineImageScanningConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineImageScanningConfigurationOutput).ToImagePipelineImageScanningConfigurationPtrOutputWithContext(ctx)
+}
+
+// ImagePipelineImageScanningConfigurationPtrInput is an input type that accepts ImagePipelineImageScanningConfigurationArgs, ImagePipelineImageScanningConfigurationPtr and ImagePipelineImageScanningConfigurationPtrOutput values.
+// You can construct a concrete instance of `ImagePipelineImageScanningConfigurationPtrInput` via:
+//
+//	        ImagePipelineImageScanningConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ImagePipelineImageScanningConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToImagePipelineImageScanningConfigurationPtrOutput() ImagePipelineImageScanningConfigurationPtrOutput
+	ToImagePipelineImageScanningConfigurationPtrOutputWithContext(context.Context) ImagePipelineImageScanningConfigurationPtrOutput
+}
+
+type imagePipelineImageScanningConfigurationPtrType ImagePipelineImageScanningConfigurationArgs
+
+func ImagePipelineImageScanningConfigurationPtr(v *ImagePipelineImageScanningConfigurationArgs) ImagePipelineImageScanningConfigurationPtrInput {
+	return (*imagePipelineImageScanningConfigurationPtrType)(v)
+}
+
+func (*imagePipelineImageScanningConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImagePipelineImageScanningConfiguration)(nil)).Elem()
+}
+
+func (i *imagePipelineImageScanningConfigurationPtrType) ToImagePipelineImageScanningConfigurationPtrOutput() ImagePipelineImageScanningConfigurationPtrOutput {
+	return i.ToImagePipelineImageScanningConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *imagePipelineImageScanningConfigurationPtrType) ToImagePipelineImageScanningConfigurationPtrOutputWithContext(ctx context.Context) ImagePipelineImageScanningConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineImageScanningConfigurationPtrOutput)
+}
+
+type ImagePipelineImageScanningConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ImagePipelineImageScanningConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImagePipelineImageScanningConfiguration)(nil)).Elem()
+}
+
+func (o ImagePipelineImageScanningConfigurationOutput) ToImagePipelineImageScanningConfigurationOutput() ImagePipelineImageScanningConfigurationOutput {
+	return o
+}
+
+func (o ImagePipelineImageScanningConfigurationOutput) ToImagePipelineImageScanningConfigurationOutputWithContext(ctx context.Context) ImagePipelineImageScanningConfigurationOutput {
+	return o
+}
+
+func (o ImagePipelineImageScanningConfigurationOutput) ToImagePipelineImageScanningConfigurationPtrOutput() ImagePipelineImageScanningConfigurationPtrOutput {
+	return o.ToImagePipelineImageScanningConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ImagePipelineImageScanningConfigurationOutput) ToImagePipelineImageScanningConfigurationPtrOutputWithContext(ctx context.Context) ImagePipelineImageScanningConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImagePipelineImageScanningConfiguration) *ImagePipelineImageScanningConfiguration {
+		return &v
+	}).(ImagePipelineImageScanningConfigurationPtrOutput)
+}
+
+// Configuration block with ECR configuration for image scanning. Detailed below.
+func (o ImagePipelineImageScanningConfigurationOutput) EcrConfiguration() ImagePipelineImageScanningConfigurationEcrConfigurationPtrOutput {
+	return o.ApplyT(func(v ImagePipelineImageScanningConfiguration) *ImagePipelineImageScanningConfigurationEcrConfiguration {
+		return v.EcrConfiguration
+	}).(ImagePipelineImageScanningConfigurationEcrConfigurationPtrOutput)
+}
+
+// Whether image scans are enabled. Defaults to `false`.
+func (o ImagePipelineImageScanningConfigurationOutput) ImageScanningEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ImagePipelineImageScanningConfiguration) *bool { return v.ImageScanningEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type ImagePipelineImageScanningConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ImagePipelineImageScanningConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImagePipelineImageScanningConfiguration)(nil)).Elem()
+}
+
+func (o ImagePipelineImageScanningConfigurationPtrOutput) ToImagePipelineImageScanningConfigurationPtrOutput() ImagePipelineImageScanningConfigurationPtrOutput {
+	return o
+}
+
+func (o ImagePipelineImageScanningConfigurationPtrOutput) ToImagePipelineImageScanningConfigurationPtrOutputWithContext(ctx context.Context) ImagePipelineImageScanningConfigurationPtrOutput {
+	return o
+}
+
+func (o ImagePipelineImageScanningConfigurationPtrOutput) Elem() ImagePipelineImageScanningConfigurationOutput {
+	return o.ApplyT(func(v *ImagePipelineImageScanningConfiguration) ImagePipelineImageScanningConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ImagePipelineImageScanningConfiguration
+		return ret
+	}).(ImagePipelineImageScanningConfigurationOutput)
+}
+
+// Configuration block with ECR configuration for image scanning. Detailed below.
+func (o ImagePipelineImageScanningConfigurationPtrOutput) EcrConfiguration() ImagePipelineImageScanningConfigurationEcrConfigurationPtrOutput {
+	return o.ApplyT(func(v *ImagePipelineImageScanningConfiguration) *ImagePipelineImageScanningConfigurationEcrConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.EcrConfiguration
+	}).(ImagePipelineImageScanningConfigurationEcrConfigurationPtrOutput)
+}
+
+// Whether image scans are enabled. Defaults to `false`.
+func (o ImagePipelineImageScanningConfigurationPtrOutput) ImageScanningEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ImagePipelineImageScanningConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ImageScanningEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type ImagePipelineImageScanningConfigurationEcrConfiguration struct {
+	ContainerTags []string `pulumi:"containerTags"`
+	// The name of the repository to scan
+	RepositoryName *string `pulumi:"repositoryName"`
+}
+
+// ImagePipelineImageScanningConfigurationEcrConfigurationInput is an input type that accepts ImagePipelineImageScanningConfigurationEcrConfigurationArgs and ImagePipelineImageScanningConfigurationEcrConfigurationOutput values.
+// You can construct a concrete instance of `ImagePipelineImageScanningConfigurationEcrConfigurationInput` via:
+//
+//	ImagePipelineImageScanningConfigurationEcrConfigurationArgs{...}
+type ImagePipelineImageScanningConfigurationEcrConfigurationInput interface {
+	pulumi.Input
+
+	ToImagePipelineImageScanningConfigurationEcrConfigurationOutput() ImagePipelineImageScanningConfigurationEcrConfigurationOutput
+	ToImagePipelineImageScanningConfigurationEcrConfigurationOutputWithContext(context.Context) ImagePipelineImageScanningConfigurationEcrConfigurationOutput
+}
+
+type ImagePipelineImageScanningConfigurationEcrConfigurationArgs struct {
+	ContainerTags pulumi.StringArrayInput `pulumi:"containerTags"`
+	// The name of the repository to scan
+	RepositoryName pulumi.StringPtrInput `pulumi:"repositoryName"`
+}
+
+func (ImagePipelineImageScanningConfigurationEcrConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImagePipelineImageScanningConfigurationEcrConfiguration)(nil)).Elem()
+}
+
+func (i ImagePipelineImageScanningConfigurationEcrConfigurationArgs) ToImagePipelineImageScanningConfigurationEcrConfigurationOutput() ImagePipelineImageScanningConfigurationEcrConfigurationOutput {
+	return i.ToImagePipelineImageScanningConfigurationEcrConfigurationOutputWithContext(context.Background())
+}
+
+func (i ImagePipelineImageScanningConfigurationEcrConfigurationArgs) ToImagePipelineImageScanningConfigurationEcrConfigurationOutputWithContext(ctx context.Context) ImagePipelineImageScanningConfigurationEcrConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineImageScanningConfigurationEcrConfigurationOutput)
+}
+
+func (i ImagePipelineImageScanningConfigurationEcrConfigurationArgs) ToImagePipelineImageScanningConfigurationEcrConfigurationPtrOutput() ImagePipelineImageScanningConfigurationEcrConfigurationPtrOutput {
+	return i.ToImagePipelineImageScanningConfigurationEcrConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ImagePipelineImageScanningConfigurationEcrConfigurationArgs) ToImagePipelineImageScanningConfigurationEcrConfigurationPtrOutputWithContext(ctx context.Context) ImagePipelineImageScanningConfigurationEcrConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineImageScanningConfigurationEcrConfigurationOutput).ToImagePipelineImageScanningConfigurationEcrConfigurationPtrOutputWithContext(ctx)
+}
+
+// ImagePipelineImageScanningConfigurationEcrConfigurationPtrInput is an input type that accepts ImagePipelineImageScanningConfigurationEcrConfigurationArgs, ImagePipelineImageScanningConfigurationEcrConfigurationPtr and ImagePipelineImageScanningConfigurationEcrConfigurationPtrOutput values.
+// You can construct a concrete instance of `ImagePipelineImageScanningConfigurationEcrConfigurationPtrInput` via:
+//
+//	        ImagePipelineImageScanningConfigurationEcrConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ImagePipelineImageScanningConfigurationEcrConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToImagePipelineImageScanningConfigurationEcrConfigurationPtrOutput() ImagePipelineImageScanningConfigurationEcrConfigurationPtrOutput
+	ToImagePipelineImageScanningConfigurationEcrConfigurationPtrOutputWithContext(context.Context) ImagePipelineImageScanningConfigurationEcrConfigurationPtrOutput
+}
+
+type imagePipelineImageScanningConfigurationEcrConfigurationPtrType ImagePipelineImageScanningConfigurationEcrConfigurationArgs
+
+func ImagePipelineImageScanningConfigurationEcrConfigurationPtr(v *ImagePipelineImageScanningConfigurationEcrConfigurationArgs) ImagePipelineImageScanningConfigurationEcrConfigurationPtrInput {
+	return (*imagePipelineImageScanningConfigurationEcrConfigurationPtrType)(v)
+}
+
+func (*imagePipelineImageScanningConfigurationEcrConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImagePipelineImageScanningConfigurationEcrConfiguration)(nil)).Elem()
+}
+
+func (i *imagePipelineImageScanningConfigurationEcrConfigurationPtrType) ToImagePipelineImageScanningConfigurationEcrConfigurationPtrOutput() ImagePipelineImageScanningConfigurationEcrConfigurationPtrOutput {
+	return i.ToImagePipelineImageScanningConfigurationEcrConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *imagePipelineImageScanningConfigurationEcrConfigurationPtrType) ToImagePipelineImageScanningConfigurationEcrConfigurationPtrOutputWithContext(ctx context.Context) ImagePipelineImageScanningConfigurationEcrConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineImageScanningConfigurationEcrConfigurationPtrOutput)
+}
+
+type ImagePipelineImageScanningConfigurationEcrConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ImagePipelineImageScanningConfigurationEcrConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImagePipelineImageScanningConfigurationEcrConfiguration)(nil)).Elem()
+}
+
+func (o ImagePipelineImageScanningConfigurationEcrConfigurationOutput) ToImagePipelineImageScanningConfigurationEcrConfigurationOutput() ImagePipelineImageScanningConfigurationEcrConfigurationOutput {
+	return o
+}
+
+func (o ImagePipelineImageScanningConfigurationEcrConfigurationOutput) ToImagePipelineImageScanningConfigurationEcrConfigurationOutputWithContext(ctx context.Context) ImagePipelineImageScanningConfigurationEcrConfigurationOutput {
+	return o
+}
+
+func (o ImagePipelineImageScanningConfigurationEcrConfigurationOutput) ToImagePipelineImageScanningConfigurationEcrConfigurationPtrOutput() ImagePipelineImageScanningConfigurationEcrConfigurationPtrOutput {
+	return o.ToImagePipelineImageScanningConfigurationEcrConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ImagePipelineImageScanningConfigurationEcrConfigurationOutput) ToImagePipelineImageScanningConfigurationEcrConfigurationPtrOutputWithContext(ctx context.Context) ImagePipelineImageScanningConfigurationEcrConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImagePipelineImageScanningConfigurationEcrConfiguration) *ImagePipelineImageScanningConfigurationEcrConfiguration {
+		return &v
+	}).(ImagePipelineImageScanningConfigurationEcrConfigurationPtrOutput)
+}
+
+func (o ImagePipelineImageScanningConfigurationEcrConfigurationOutput) ContainerTags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ImagePipelineImageScanningConfigurationEcrConfiguration) []string { return v.ContainerTags }).(pulumi.StringArrayOutput)
+}
+
+// The name of the repository to scan
+func (o ImagePipelineImageScanningConfigurationEcrConfigurationOutput) RepositoryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImagePipelineImageScanningConfigurationEcrConfiguration) *string { return v.RepositoryName }).(pulumi.StringPtrOutput)
+}
+
+type ImagePipelineImageScanningConfigurationEcrConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ImagePipelineImageScanningConfigurationEcrConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImagePipelineImageScanningConfigurationEcrConfiguration)(nil)).Elem()
+}
+
+func (o ImagePipelineImageScanningConfigurationEcrConfigurationPtrOutput) ToImagePipelineImageScanningConfigurationEcrConfigurationPtrOutput() ImagePipelineImageScanningConfigurationEcrConfigurationPtrOutput {
+	return o
+}
+
+func (o ImagePipelineImageScanningConfigurationEcrConfigurationPtrOutput) ToImagePipelineImageScanningConfigurationEcrConfigurationPtrOutputWithContext(ctx context.Context) ImagePipelineImageScanningConfigurationEcrConfigurationPtrOutput {
+	return o
+}
+
+func (o ImagePipelineImageScanningConfigurationEcrConfigurationPtrOutput) Elem() ImagePipelineImageScanningConfigurationEcrConfigurationOutput {
+	return o.ApplyT(func(v *ImagePipelineImageScanningConfigurationEcrConfiguration) ImagePipelineImageScanningConfigurationEcrConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ImagePipelineImageScanningConfigurationEcrConfiguration
+		return ret
+	}).(ImagePipelineImageScanningConfigurationEcrConfigurationOutput)
+}
+
+func (o ImagePipelineImageScanningConfigurationEcrConfigurationPtrOutput) ContainerTags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ImagePipelineImageScanningConfigurationEcrConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerTags
+	}).(pulumi.StringArrayOutput)
+}
+
+// The name of the repository to scan
+func (o ImagePipelineImageScanningConfigurationEcrConfigurationPtrOutput) RepositoryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImagePipelineImageScanningConfigurationEcrConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RepositoryName
+	}).(pulumi.StringPtrOutput)
+}
+
 type ImagePipelineImageTestsConfiguration struct {
 	// Whether image tests are enabled. Defaults to `true`.
 	ImageTestsEnabled *bool `pulumi:"imageTestsEnabled"`
@@ -7112,6 +7422,220 @@ func (o GetImageOutputResourceContainerArrayOutput) Index(i pulumi.IntInput) Get
 	}).(GetImageOutputResourceContainerOutput)
 }
 
+type GetImagePipelineImageScanningConfiguration struct {
+	// List if an object with ecr configuration for image scanning
+	EcrConfigurations []GetImagePipelineImageScanningConfigurationEcrConfiguration `pulumi:"ecrConfigurations"`
+	// Whether image scanning is enabled.
+	ImageScanningEnabled bool `pulumi:"imageScanningEnabled"`
+}
+
+// GetImagePipelineImageScanningConfigurationInput is an input type that accepts GetImagePipelineImageScanningConfigurationArgs and GetImagePipelineImageScanningConfigurationOutput values.
+// You can construct a concrete instance of `GetImagePipelineImageScanningConfigurationInput` via:
+//
+//	GetImagePipelineImageScanningConfigurationArgs{...}
+type GetImagePipelineImageScanningConfigurationInput interface {
+	pulumi.Input
+
+	ToGetImagePipelineImageScanningConfigurationOutput() GetImagePipelineImageScanningConfigurationOutput
+	ToGetImagePipelineImageScanningConfigurationOutputWithContext(context.Context) GetImagePipelineImageScanningConfigurationOutput
+}
+
+type GetImagePipelineImageScanningConfigurationArgs struct {
+	// List if an object with ecr configuration for image scanning
+	EcrConfigurations GetImagePipelineImageScanningConfigurationEcrConfigurationArrayInput `pulumi:"ecrConfigurations"`
+	// Whether image scanning is enabled.
+	ImageScanningEnabled pulumi.BoolInput `pulumi:"imageScanningEnabled"`
+}
+
+func (GetImagePipelineImageScanningConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImagePipelineImageScanningConfiguration)(nil)).Elem()
+}
+
+func (i GetImagePipelineImageScanningConfigurationArgs) ToGetImagePipelineImageScanningConfigurationOutput() GetImagePipelineImageScanningConfigurationOutput {
+	return i.ToGetImagePipelineImageScanningConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetImagePipelineImageScanningConfigurationArgs) ToGetImagePipelineImageScanningConfigurationOutputWithContext(ctx context.Context) GetImagePipelineImageScanningConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImagePipelineImageScanningConfigurationOutput)
+}
+
+// GetImagePipelineImageScanningConfigurationArrayInput is an input type that accepts GetImagePipelineImageScanningConfigurationArray and GetImagePipelineImageScanningConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetImagePipelineImageScanningConfigurationArrayInput` via:
+//
+//	GetImagePipelineImageScanningConfigurationArray{ GetImagePipelineImageScanningConfigurationArgs{...} }
+type GetImagePipelineImageScanningConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetImagePipelineImageScanningConfigurationArrayOutput() GetImagePipelineImageScanningConfigurationArrayOutput
+	ToGetImagePipelineImageScanningConfigurationArrayOutputWithContext(context.Context) GetImagePipelineImageScanningConfigurationArrayOutput
+}
+
+type GetImagePipelineImageScanningConfigurationArray []GetImagePipelineImageScanningConfigurationInput
+
+func (GetImagePipelineImageScanningConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImagePipelineImageScanningConfiguration)(nil)).Elem()
+}
+
+func (i GetImagePipelineImageScanningConfigurationArray) ToGetImagePipelineImageScanningConfigurationArrayOutput() GetImagePipelineImageScanningConfigurationArrayOutput {
+	return i.ToGetImagePipelineImageScanningConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetImagePipelineImageScanningConfigurationArray) ToGetImagePipelineImageScanningConfigurationArrayOutputWithContext(ctx context.Context) GetImagePipelineImageScanningConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImagePipelineImageScanningConfigurationArrayOutput)
+}
+
+type GetImagePipelineImageScanningConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetImagePipelineImageScanningConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImagePipelineImageScanningConfiguration)(nil)).Elem()
+}
+
+func (o GetImagePipelineImageScanningConfigurationOutput) ToGetImagePipelineImageScanningConfigurationOutput() GetImagePipelineImageScanningConfigurationOutput {
+	return o
+}
+
+func (o GetImagePipelineImageScanningConfigurationOutput) ToGetImagePipelineImageScanningConfigurationOutputWithContext(ctx context.Context) GetImagePipelineImageScanningConfigurationOutput {
+	return o
+}
+
+// List if an object with ecr configuration for image scanning
+func (o GetImagePipelineImageScanningConfigurationOutput) EcrConfigurations() GetImagePipelineImageScanningConfigurationEcrConfigurationArrayOutput {
+	return o.ApplyT(func(v GetImagePipelineImageScanningConfiguration) []GetImagePipelineImageScanningConfigurationEcrConfiguration {
+		return v.EcrConfigurations
+	}).(GetImagePipelineImageScanningConfigurationEcrConfigurationArrayOutput)
+}
+
+// Whether image scanning is enabled.
+func (o GetImagePipelineImageScanningConfigurationOutput) ImageScanningEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetImagePipelineImageScanningConfiguration) bool { return v.ImageScanningEnabled }).(pulumi.BoolOutput)
+}
+
+type GetImagePipelineImageScanningConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetImagePipelineImageScanningConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImagePipelineImageScanningConfiguration)(nil)).Elem()
+}
+
+func (o GetImagePipelineImageScanningConfigurationArrayOutput) ToGetImagePipelineImageScanningConfigurationArrayOutput() GetImagePipelineImageScanningConfigurationArrayOutput {
+	return o
+}
+
+func (o GetImagePipelineImageScanningConfigurationArrayOutput) ToGetImagePipelineImageScanningConfigurationArrayOutputWithContext(ctx context.Context) GetImagePipelineImageScanningConfigurationArrayOutput {
+	return o
+}
+
+func (o GetImagePipelineImageScanningConfigurationArrayOutput) Index(i pulumi.IntInput) GetImagePipelineImageScanningConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetImagePipelineImageScanningConfiguration {
+		return vs[0].([]GetImagePipelineImageScanningConfiguration)[vs[1].(int)]
+	}).(GetImagePipelineImageScanningConfigurationOutput)
+}
+
+type GetImagePipelineImageScanningConfigurationEcrConfiguration struct {
+	// Tags that are added to the output containers that are scanned
+	ContainerTags []string `pulumi:"containerTags"`
+	// The name of the container repository that Amazon Inspector scans
+	RepositoryName string `pulumi:"repositoryName"`
+}
+
+// GetImagePipelineImageScanningConfigurationEcrConfigurationInput is an input type that accepts GetImagePipelineImageScanningConfigurationEcrConfigurationArgs and GetImagePipelineImageScanningConfigurationEcrConfigurationOutput values.
+// You can construct a concrete instance of `GetImagePipelineImageScanningConfigurationEcrConfigurationInput` via:
+//
+//	GetImagePipelineImageScanningConfigurationEcrConfigurationArgs{...}
+type GetImagePipelineImageScanningConfigurationEcrConfigurationInput interface {
+	pulumi.Input
+
+	ToGetImagePipelineImageScanningConfigurationEcrConfigurationOutput() GetImagePipelineImageScanningConfigurationEcrConfigurationOutput
+	ToGetImagePipelineImageScanningConfigurationEcrConfigurationOutputWithContext(context.Context) GetImagePipelineImageScanningConfigurationEcrConfigurationOutput
+}
+
+type GetImagePipelineImageScanningConfigurationEcrConfigurationArgs struct {
+	// Tags that are added to the output containers that are scanned
+	ContainerTags pulumi.StringArrayInput `pulumi:"containerTags"`
+	// The name of the container repository that Amazon Inspector scans
+	RepositoryName pulumi.StringInput `pulumi:"repositoryName"`
+}
+
+func (GetImagePipelineImageScanningConfigurationEcrConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImagePipelineImageScanningConfigurationEcrConfiguration)(nil)).Elem()
+}
+
+func (i GetImagePipelineImageScanningConfigurationEcrConfigurationArgs) ToGetImagePipelineImageScanningConfigurationEcrConfigurationOutput() GetImagePipelineImageScanningConfigurationEcrConfigurationOutput {
+	return i.ToGetImagePipelineImageScanningConfigurationEcrConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetImagePipelineImageScanningConfigurationEcrConfigurationArgs) ToGetImagePipelineImageScanningConfigurationEcrConfigurationOutputWithContext(ctx context.Context) GetImagePipelineImageScanningConfigurationEcrConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImagePipelineImageScanningConfigurationEcrConfigurationOutput)
+}
+
+// GetImagePipelineImageScanningConfigurationEcrConfigurationArrayInput is an input type that accepts GetImagePipelineImageScanningConfigurationEcrConfigurationArray and GetImagePipelineImageScanningConfigurationEcrConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetImagePipelineImageScanningConfigurationEcrConfigurationArrayInput` via:
+//
+//	GetImagePipelineImageScanningConfigurationEcrConfigurationArray{ GetImagePipelineImageScanningConfigurationEcrConfigurationArgs{...} }
+type GetImagePipelineImageScanningConfigurationEcrConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetImagePipelineImageScanningConfigurationEcrConfigurationArrayOutput() GetImagePipelineImageScanningConfigurationEcrConfigurationArrayOutput
+	ToGetImagePipelineImageScanningConfigurationEcrConfigurationArrayOutputWithContext(context.Context) GetImagePipelineImageScanningConfigurationEcrConfigurationArrayOutput
+}
+
+type GetImagePipelineImageScanningConfigurationEcrConfigurationArray []GetImagePipelineImageScanningConfigurationEcrConfigurationInput
+
+func (GetImagePipelineImageScanningConfigurationEcrConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImagePipelineImageScanningConfigurationEcrConfiguration)(nil)).Elem()
+}
+
+func (i GetImagePipelineImageScanningConfigurationEcrConfigurationArray) ToGetImagePipelineImageScanningConfigurationEcrConfigurationArrayOutput() GetImagePipelineImageScanningConfigurationEcrConfigurationArrayOutput {
+	return i.ToGetImagePipelineImageScanningConfigurationEcrConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetImagePipelineImageScanningConfigurationEcrConfigurationArray) ToGetImagePipelineImageScanningConfigurationEcrConfigurationArrayOutputWithContext(ctx context.Context) GetImagePipelineImageScanningConfigurationEcrConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImagePipelineImageScanningConfigurationEcrConfigurationArrayOutput)
+}
+
+type GetImagePipelineImageScanningConfigurationEcrConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetImagePipelineImageScanningConfigurationEcrConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImagePipelineImageScanningConfigurationEcrConfiguration)(nil)).Elem()
+}
+
+func (o GetImagePipelineImageScanningConfigurationEcrConfigurationOutput) ToGetImagePipelineImageScanningConfigurationEcrConfigurationOutput() GetImagePipelineImageScanningConfigurationEcrConfigurationOutput {
+	return o
+}
+
+func (o GetImagePipelineImageScanningConfigurationEcrConfigurationOutput) ToGetImagePipelineImageScanningConfigurationEcrConfigurationOutputWithContext(ctx context.Context) GetImagePipelineImageScanningConfigurationEcrConfigurationOutput {
+	return o
+}
+
+// Tags that are added to the output containers that are scanned
+func (o GetImagePipelineImageScanningConfigurationEcrConfigurationOutput) ContainerTags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetImagePipelineImageScanningConfigurationEcrConfiguration) []string { return v.ContainerTags }).(pulumi.StringArrayOutput)
+}
+
+// The name of the container repository that Amazon Inspector scans
+func (o GetImagePipelineImageScanningConfigurationEcrConfigurationOutput) RepositoryName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImagePipelineImageScanningConfigurationEcrConfiguration) string { return v.RepositoryName }).(pulumi.StringOutput)
+}
+
+type GetImagePipelineImageScanningConfigurationEcrConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetImagePipelineImageScanningConfigurationEcrConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImagePipelineImageScanningConfigurationEcrConfiguration)(nil)).Elem()
+}
+
+func (o GetImagePipelineImageScanningConfigurationEcrConfigurationArrayOutput) ToGetImagePipelineImageScanningConfigurationEcrConfigurationArrayOutput() GetImagePipelineImageScanningConfigurationEcrConfigurationArrayOutput {
+	return o
+}
+
+func (o GetImagePipelineImageScanningConfigurationEcrConfigurationArrayOutput) ToGetImagePipelineImageScanningConfigurationEcrConfigurationArrayOutputWithContext(ctx context.Context) GetImagePipelineImageScanningConfigurationEcrConfigurationArrayOutput {
+	return o
+}
+
+func (o GetImagePipelineImageScanningConfigurationEcrConfigurationArrayOutput) Index(i pulumi.IntInput) GetImagePipelineImageScanningConfigurationEcrConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetImagePipelineImageScanningConfigurationEcrConfiguration {
+		return vs[0].([]GetImagePipelineImageScanningConfigurationEcrConfiguration)[vs[1].(int)]
+	}).(GetImagePipelineImageScanningConfigurationEcrConfigurationOutput)
+}
+
 type GetImagePipelineImageTestsConfiguration struct {
 	// Whether image tests are enabled.
 	ImageTestsEnabled bool `pulumi:"imageTestsEnabled"`
@@ -8488,6 +9012,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageOutputResourceAmiArrayInput)(nil)).Elem(), ImageOutputResourceAmiArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageOutputResourceContainerInput)(nil)).Elem(), ImageOutputResourceContainerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageOutputResourceContainerArrayInput)(nil)).Elem(), ImageOutputResourceContainerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineImageScanningConfigurationInput)(nil)).Elem(), ImagePipelineImageScanningConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineImageScanningConfigurationPtrInput)(nil)).Elem(), ImagePipelineImageScanningConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineImageScanningConfigurationEcrConfigurationInput)(nil)).Elem(), ImagePipelineImageScanningConfigurationEcrConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineImageScanningConfigurationEcrConfigurationPtrInput)(nil)).Elem(), ImagePipelineImageScanningConfigurationEcrConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineImageTestsConfigurationInput)(nil)).Elem(), ImagePipelineImageTestsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineImageTestsConfigurationPtrInput)(nil)).Elem(), ImagePipelineImageTestsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineScheduleInput)(nil)).Elem(), ImagePipelineScheduleArgs{})
@@ -8552,6 +9080,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetImageOutputResourceAmiArrayInput)(nil)).Elem(), GetImageOutputResourceAmiArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetImageOutputResourceContainerInput)(nil)).Elem(), GetImageOutputResourceContainerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetImageOutputResourceContainerArrayInput)(nil)).Elem(), GetImageOutputResourceContainerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetImagePipelineImageScanningConfigurationInput)(nil)).Elem(), GetImagePipelineImageScanningConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetImagePipelineImageScanningConfigurationArrayInput)(nil)).Elem(), GetImagePipelineImageScanningConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetImagePipelineImageScanningConfigurationEcrConfigurationInput)(nil)).Elem(), GetImagePipelineImageScanningConfigurationEcrConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetImagePipelineImageScanningConfigurationEcrConfigurationArrayInput)(nil)).Elem(), GetImagePipelineImageScanningConfigurationEcrConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetImagePipelineImageTestsConfigurationInput)(nil)).Elem(), GetImagePipelineImageTestsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetImagePipelineImageTestsConfigurationArrayInput)(nil)).Elem(), GetImagePipelineImageTestsConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetImagePipelineScheduleInput)(nil)).Elem(), GetImagePipelineScheduleArgs{})
@@ -8614,6 +9146,10 @@ func init() {
 	pulumi.RegisterOutputType(ImageOutputResourceAmiArrayOutput{})
 	pulumi.RegisterOutputType(ImageOutputResourceContainerOutput{})
 	pulumi.RegisterOutputType(ImageOutputResourceContainerArrayOutput{})
+	pulumi.RegisterOutputType(ImagePipelineImageScanningConfigurationOutput{})
+	pulumi.RegisterOutputType(ImagePipelineImageScanningConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ImagePipelineImageScanningConfigurationEcrConfigurationOutput{})
+	pulumi.RegisterOutputType(ImagePipelineImageScanningConfigurationEcrConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ImagePipelineImageTestsConfigurationOutput{})
 	pulumi.RegisterOutputType(ImagePipelineImageTestsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ImagePipelineScheduleOutput{})
@@ -8678,6 +9214,10 @@ func init() {
 	pulumi.RegisterOutputType(GetImageOutputResourceAmiArrayOutput{})
 	pulumi.RegisterOutputType(GetImageOutputResourceContainerOutput{})
 	pulumi.RegisterOutputType(GetImageOutputResourceContainerArrayOutput{})
+	pulumi.RegisterOutputType(GetImagePipelineImageScanningConfigurationOutput{})
+	pulumi.RegisterOutputType(GetImagePipelineImageScanningConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetImagePipelineImageScanningConfigurationEcrConfigurationOutput{})
+	pulumi.RegisterOutputType(GetImagePipelineImageScanningConfigurationEcrConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetImagePipelineImageTestsConfigurationOutput{})
 	pulumi.RegisterOutputType(GetImagePipelineImageTestsConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetImagePipelineScheduleOutput{})

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Msk.Inputs
     public sealed class ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Public access type. Valida values: `DISABLED`, `SERVICE_PROVIDED_EIPS`.
+        /// Public access type. Valid values: `DISABLED`, `SERVICE_PROVIDED_EIPS`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

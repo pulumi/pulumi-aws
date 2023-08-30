@@ -707,10 +707,10 @@ class Subnet(pulumi.CustomResource):
 
         secondary_cidr = aws.ec2.VpcIpv4CidrBlockAssociation("secondaryCidr",
             vpc_id=aws_vpc["main"]["id"],
-            cidr_block="172.2.0.0/16")
+            cidr_block="172.20.0.0/16")
         in_secondary_cidr = aws.ec2.Subnet("inSecondaryCidr",
             vpc_id=secondary_cidr.vpc_id,
-            cidr_block="172.2.0.0/24")
+            cidr_block="172.20.0.0/24")
         ```
 
         ## Import
@@ -782,10 +782,10 @@ class Subnet(pulumi.CustomResource):
 
         secondary_cidr = aws.ec2.VpcIpv4CidrBlockAssociation("secondaryCidr",
             vpc_id=aws_vpc["main"]["id"],
-            cidr_block="172.2.0.0/16")
+            cidr_block="172.20.0.0/16")
         in_secondary_cidr = aws.ec2.Subnet("inSecondaryCidr",
             vpc_id=secondary_cidr.vpc_id,
-            cidr_block="172.2.0.0/24")
+            cidr_block="172.20.0.0/24")
         ```
 
         ## Import

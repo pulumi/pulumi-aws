@@ -2789,7 +2789,7 @@ func (o BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrOutpu
 }
 
 type BucketLifecycleConfigurationV2RuleExpiration struct {
-	// Date the object is to be moved or deleted. Should be in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+	// Date the object is to be moved or deleted. The date value must be in [RFC3339 full-date format](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) e.g. `2023-08-22`.
 	Date *string `pulumi:"date"`
 	// Lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
 	Days *int `pulumi:"days"`
@@ -2809,7 +2809,7 @@ type BucketLifecycleConfigurationV2RuleExpirationInput interface {
 }
 
 type BucketLifecycleConfigurationV2RuleExpirationArgs struct {
-	// Date the object is to be moved or deleted. Should be in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+	// Date the object is to be moved or deleted. The date value must be in [RFC3339 full-date format](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) e.g. `2023-08-22`.
 	Date pulumi.StringPtrInput `pulumi:"date"`
 	// Lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
 	Days pulumi.IntPtrInput `pulumi:"days"`
@@ -2894,7 +2894,7 @@ func (o BucketLifecycleConfigurationV2RuleExpirationOutput) ToBucketLifecycleCon
 	}).(BucketLifecycleConfigurationV2RuleExpirationPtrOutput)
 }
 
-// Date the object is to be moved or deleted. Should be in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+// Date the object is to be moved or deleted. The date value must be in [RFC3339 full-date format](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) e.g. `2023-08-22`.
 func (o BucketLifecycleConfigurationV2RuleExpirationOutput) Date() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleExpiration) *string { return v.Date }).(pulumi.StringPtrOutput)
 }
@@ -2933,7 +2933,7 @@ func (o BucketLifecycleConfigurationV2RuleExpirationPtrOutput) Elem() BucketLife
 	}).(BucketLifecycleConfigurationV2RuleExpirationOutput)
 }
 
-// Date the object is to be moved or deleted. Should be in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+// Date the object is to be moved or deleted. The date value must be in [RFC3339 full-date format](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) e.g. `2023-08-22`.
 func (o BucketLifecycleConfigurationV2RuleExpirationPtrOutput) Date() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketLifecycleConfigurationV2RuleExpiration) *string {
 		if v == nil {
@@ -3806,7 +3806,7 @@ func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArrayOutput
 }
 
 type BucketLifecycleConfigurationV2RuleTransition struct {
-	// Date objects are transitioned to the specified storage class. The date value must be in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) and set to midnight UTC e.g. `2023-01-13T00:00:00Z`.
+	// Date objects are transitioned to the specified storage class. The date value must be in [RFC3339 full-date format](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) e.g. `2023-08-22`.
 	Date *string `pulumi:"date"`
 	// Number of days after creation when objects are transitioned to the specified storage class. The value must be a positive integer. If both `days` and `date` are not specified, defaults to `0`. Valid values depend on `storageClass`, see [Transition objects using Amazon S3 Lifecycle](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-transition-general-considerations.html) for more details.
 	Days *int `pulumi:"days"`
@@ -3826,7 +3826,7 @@ type BucketLifecycleConfigurationV2RuleTransitionInput interface {
 }
 
 type BucketLifecycleConfigurationV2RuleTransitionArgs struct {
-	// Date objects are transitioned to the specified storage class. The date value must be in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) and set to midnight UTC e.g. `2023-01-13T00:00:00Z`.
+	// Date objects are transitioned to the specified storage class. The date value must be in [RFC3339 full-date format](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) e.g. `2023-08-22`.
 	Date pulumi.StringPtrInput `pulumi:"date"`
 	// Number of days after creation when objects are transitioned to the specified storage class. The value must be a positive integer. If both `days` and `date` are not specified, defaults to `0`. Valid values depend on `storageClass`, see [Transition objects using Amazon S3 Lifecycle](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-transition-general-considerations.html) for more details.
 	Days pulumi.IntPtrInput `pulumi:"days"`
@@ -3885,7 +3885,7 @@ func (o BucketLifecycleConfigurationV2RuleTransitionOutput) ToBucketLifecycleCon
 	return o
 }
 
-// Date objects are transitioned to the specified storage class. The date value must be in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) and set to midnight UTC e.g. `2023-01-13T00:00:00Z`.
+// Date objects are transitioned to the specified storage class. The date value must be in [RFC3339 full-date format](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) e.g. `2023-08-22`.
 func (o BucketLifecycleConfigurationV2RuleTransitionOutput) Date() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleTransition) *string { return v.Date }).(pulumi.StringPtrOutput)
 }
@@ -10685,7 +10685,7 @@ func (o BucketServerSideEncryptionConfigurationV2RuleArrayOutput) Index(i pulumi
 type BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefault struct {
 	// AWS KMS master key ID used for the SSE-KMS encryption. This can only be used when you set the value of `sseAlgorithm` as `aws:kms`. The default `aws/s3` AWS KMS master key is used if this element is absent while the `sseAlgorithm` is `aws:kms`.
 	KmsMasterKeyId *string `pulumi:"kmsMasterKeyId"`
-	// Server-side encryption algorithm to use. Valid values are `AES256` and `aws:kms`
+	// Server-side encryption algorithm to use. Valid values are `AES256`, `aws:kms`, and `aws:kms:dsse`
 	SseAlgorithm string `pulumi:"sseAlgorithm"`
 }
 
@@ -10703,7 +10703,7 @@ type BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDef
 type BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs struct {
 	// AWS KMS master key ID used for the SSE-KMS encryption. This can only be used when you set the value of `sseAlgorithm` as `aws:kms`. The default `aws/s3` AWS KMS master key is used if this element is absent while the `sseAlgorithm` is `aws:kms`.
 	KmsMasterKeyId pulumi.StringPtrInput `pulumi:"kmsMasterKeyId"`
-	// Server-side encryption algorithm to use. Valid values are `AES256` and `aws:kms`
+	// Server-side encryption algorithm to use. Valid values are `AES256`, `aws:kms`, and `aws:kms:dsse`
 	SseAlgorithm pulumi.StringInput `pulumi:"sseAlgorithm"`
 }
 
@@ -10791,7 +10791,7 @@ func (o BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionBy
 	}).(pulumi.StringPtrOutput)
 }
 
-// Server-side encryption algorithm to use. Valid values are `AES256` and `aws:kms`
+// Server-side encryption algorithm to use. Valid values are `AES256`, `aws:kms`, and `aws:kms:dsse`
 func (o BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultOutput) SseAlgorithm() pulumi.StringOutput {
 	return o.ApplyT(func(v BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefault) string {
 		return v.SseAlgorithm
@@ -10832,7 +10832,7 @@ func (o BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionBy
 	}).(pulumi.StringPtrOutput)
 }
 
-// Server-side encryption algorithm to use. Valid values are `AES256` and `aws:kms`
+// Server-side encryption algorithm to use. Valid values are `AES256`, `aws:kms`, and `aws:kms:dsse`
 func (o BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrOutput) SseAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefault) *string {
 		if v == nil {

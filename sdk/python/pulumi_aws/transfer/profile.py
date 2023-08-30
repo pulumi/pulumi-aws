@@ -84,6 +84,7 @@ class ProfileArgs:
 @pulumi.input_type
 class _ProfileState:
     def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
                  as2_id: Optional[pulumi.Input[str]] = None,
                  certificate_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  profile_id: Optional[pulumi.Input[str]] = None,
@@ -92,12 +93,15 @@ class _ProfileState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Profile resources.
+        :param pulumi.Input[str] arn: The ARN of the profile.
         :param pulumi.Input[str] as2_id: The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] certificate_ids: The list of certificate Ids from the imported certificate operation.
-        :param pulumi.Input[str] profile_id: The unique identifier for the AS2 profile
+        :param pulumi.Input[str] profile_id: The unique identifier for the AS2 profile.
         :param pulumi.Input[str] profile_type: The profile type should be LOCAL or PARTNER.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
         if as2_id is not None:
             pulumi.set(__self__, "as2_id", as2_id)
         if certificate_ids is not None:
@@ -110,6 +114,18 @@ class _ProfileState:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the profile.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
 
     @property
     @pulumi.getter(name="as2Id")
@@ -139,7 +155,7 @@ class _ProfileState:
     @pulumi.getter(name="profileId")
     def profile_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The unique identifier for the AS2 profile
+        The unique identifier for the AS2 profile.
         """
         return pulumi.get(self, "profile_id")
 
@@ -266,6 +282,7 @@ class Profile(pulumi.CustomResource):
                 raise TypeError("Missing required property 'profile_type'")
             __props__.__dict__["profile_type"] = profile_type
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["arn"] = None
             __props__.__dict__["profile_id"] = None
             __props__.__dict__["tags_all"] = None
         super(Profile, __self__).__init__(
@@ -278,6 +295,7 @@ class Profile(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            arn: Optional[pulumi.Input[str]] = None,
             as2_id: Optional[pulumi.Input[str]] = None,
             certificate_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             profile_id: Optional[pulumi.Input[str]] = None,
@@ -291,9 +309,10 @@ class Profile(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The ARN of the profile.
         :param pulumi.Input[str] as2_id: The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] certificate_ids: The list of certificate Ids from the imported certificate operation.
-        :param pulumi.Input[str] profile_id: The unique identifier for the AS2 profile
+        :param pulumi.Input[str] profile_id: The unique identifier for the AS2 profile.
         :param pulumi.Input[str] profile_type: The profile type should be LOCAL or PARTNER.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -301,6 +320,7 @@ class Profile(pulumi.CustomResource):
 
         __props__ = _ProfileState.__new__(_ProfileState)
 
+        __props__.__dict__["arn"] = arn
         __props__.__dict__["as2_id"] = as2_id
         __props__.__dict__["certificate_ids"] = certificate_ids
         __props__.__dict__["profile_id"] = profile_id
@@ -308,6 +328,14 @@ class Profile(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         return Profile(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the profile.
+        """
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="as2Id")
@@ -329,7 +357,7 @@ class Profile(pulumi.CustomResource):
     @pulumi.getter(name="profileId")
     def profile_id(self) -> pulumi.Output[str]:
         """
-        The unique identifier for the AS2 profile
+        The unique identifier for the AS2 profile.
         """
         return pulumi.get(self, "profile_id")
 

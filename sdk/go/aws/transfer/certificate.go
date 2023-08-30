@@ -68,6 +68,8 @@ type Certificate struct {
 
 	// An date when the certificate becomes active
 	ActiveDate pulumi.StringOutput `pulumi:"activeDate"`
+	// The ARN of the certificate
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The valid certificate file required for the transfer.
 	Certificate pulumi.StringOutput `pulumi:"certificate"`
 	// The optional list of certificate that make up the chain for the certificate that is being imported.
@@ -140,6 +142,8 @@ func GetCertificate(ctx *pulumi.Context,
 type certificateState struct {
 	// An date when the certificate becomes active
 	ActiveDate *string `pulumi:"activeDate"`
+	// The ARN of the certificate
+	Arn *string `pulumi:"arn"`
 	// The valid certificate file required for the transfer.
 	Certificate *string `pulumi:"certificate"`
 	// The optional list of certificate that make up the chain for the certificate that is being imported.
@@ -162,6 +166,8 @@ type certificateState struct {
 type CertificateState struct {
 	// An date when the certificate becomes active
 	ActiveDate pulumi.StringPtrInput
+	// The ARN of the certificate
+	Arn pulumi.StringPtrInput
 	// The valid certificate file required for the transfer.
 	Certificate pulumi.StringPtrInput
 	// The optional list of certificate that make up the chain for the certificate that is being imported.
@@ -306,6 +312,11 @@ func (o CertificateOutput) ToCertificateOutputWithContext(ctx context.Context) C
 // An date when the certificate becomes active
 func (o CertificateOutput) ActiveDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.ActiveDate }).(pulumi.StringOutput)
+}
+
+// The ARN of the certificate
+func (o CertificateOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
 // The valid certificate file required for the transfer.

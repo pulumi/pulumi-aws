@@ -276,7 +276,7 @@ class ParameterGroup(pulumi.CustomResource):
 
          to = aws_redshift_parameter_group.paramgroup1
 
-         id = "parameter-group-test-TODO" } Using `pulumi import`, import Redshift Parameter Groups using the `name`. For exampleconsole % pulumi import aws_redshift_parameter_group.paramgroup1 parameter-group-test-TODO
+         id = "parameter-group-test-pulumi" } Using `pulumi import`, import Redshift Parameter Groups using the `name`. For exampleconsole % pulumi import aws_redshift_parameter_group.paramgroup1 parameter-group-test-pulumi
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -327,7 +327,7 @@ class ParameterGroup(pulumi.CustomResource):
 
          to = aws_redshift_parameter_group.paramgroup1
 
-         id = "parameter-group-test-TODO" } Using `pulumi import`, import Redshift Parameter Groups using the `name`. For exampleconsole % pulumi import aws_redshift_parameter_group.paramgroup1 parameter-group-test-TODO
+         id = "parameter-group-test-pulumi" } Using `pulumi import`, import Redshift Parameter Groups using the `name`. For exampleconsole % pulumi import aws_redshift_parameter_group.paramgroup1 parameter-group-test-pulumi
 
         :param str resource_name: The name of the resource.
         :param ParameterGroupArgs args: The arguments to use to populate this resource's properties.

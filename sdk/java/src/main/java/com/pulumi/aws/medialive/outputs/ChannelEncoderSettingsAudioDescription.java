@@ -46,7 +46,7 @@ public final class ChannelEncoderSettingsAudioDescription {
      */
     private @Nullable ChannelEncoderSettingsAudioDescriptionCodecSettings codecSettings;
     /**
-     * @return When specified this field indicates the three letter language code of the caption track to extract from the source.
+     * @return Selects a specific three-letter language code from within an audio source.
      * 
      */
     private @Nullable String languageCode;
@@ -107,7 +107,7 @@ public final class ChannelEncoderSettingsAudioDescription {
         return Optional.ofNullable(this.codecSettings);
     }
     /**
-     * @return When specified this field indicates the three letter language code of the caption track to extract from the source.
+     * @return Selects a specific three-letter language code from within an audio source.
      * 
      */
     public Optional<String> languageCode() {

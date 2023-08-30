@@ -105,7 +105,7 @@ export class EventRule extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`. **Note**: Due to the length of the generated suffix, must be 38 characters or less.
      */
     public readonly namePrefix!: pulumi.Output<string>;
     /**
@@ -198,7 +198,7 @@ export interface EventRuleState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`. **Note**: Due to the length of the generated suffix, must be 38 characters or less.
      */
     namePrefix?: pulumi.Input<string>;
     /**
@@ -245,7 +245,7 @@ export interface EventRuleArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`. **Note**: Due to the length of the generated suffix, must be 38 characters or less.
      */
     namePrefix?: pulumi.Input<string>;
     /**

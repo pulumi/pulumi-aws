@@ -62,6 +62,7 @@ public final class Endpoints {
     private @Nullable String cloudwatchrum;
     private @Nullable String codeartifact;
     private @Nullable String codebuild;
+    private @Nullable String codecatalyst;
     private @Nullable String codecommit;
     private @Nullable String codedeploy;
     private @Nullable String codegurureviewer;
@@ -411,6 +412,9 @@ public final class Endpoints {
     }
     public Optional<String> codebuild() {
         return Optional.ofNullable(this.codebuild);
+    }
+    public Optional<String> codecatalyst() {
+        return Optional.ofNullable(this.codecatalyst);
     }
     public Optional<String> codecommit() {
         return Optional.ofNullable(this.codecommit);
@@ -1058,6 +1062,7 @@ public final class Endpoints {
         private @Nullable String cloudwatchrum;
         private @Nullable String codeartifact;
         private @Nullable String codebuild;
+        private @Nullable String codecatalyst;
         private @Nullable String codecommit;
         private @Nullable String codedeploy;
         private @Nullable String codegurureviewer;
@@ -1307,6 +1312,7 @@ public final class Endpoints {
     	      this.cloudwatchrum = defaults.cloudwatchrum;
     	      this.codeartifact = defaults.codeartifact;
     	      this.codebuild = defaults.codebuild;
+    	      this.codecatalyst = defaults.codecatalyst;
     	      this.codecommit = defaults.codecommit;
     	      this.codedeploy = defaults.codedeploy;
     	      this.codegurureviewer = defaults.codegurureviewer;
@@ -1757,6 +1763,11 @@ public final class Endpoints {
         @CustomType.Setter
         public Builder codebuild(@Nullable String codebuild) {
             this.codebuild = codebuild;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder codecatalyst(@Nullable String codecatalyst) {
+            this.codecatalyst = codecatalyst;
             return this;
         }
         @CustomType.Setter
@@ -2787,6 +2798,7 @@ public final class Endpoints {
             o.cloudwatchrum = cloudwatchrum;
             o.codeartifact = codeartifact;
             o.codebuild = codebuild;
+            o.codecatalyst = codecatalyst;
             o.codecommit = codecommit;
             o.codedeploy = codedeploy;
             o.codegurureviewer = codegurureviewer;

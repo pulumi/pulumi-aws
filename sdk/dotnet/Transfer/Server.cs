@@ -346,7 +346,7 @@ namespace Pulumi.Aws.Transfer
         public Output<string?> SecurityPolicyName { get; private set; } = null!;
 
         /// <summary>
-        /// This is a set of arns of destinations that will receive structured logs from the transfer server
+        /// A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
         /// </summary>
         [Output("structuredLogDestinations")]
         public Output<ImmutableArray<string>> StructuredLogDestinations { get; private set; } = null!;
@@ -563,7 +563,7 @@ namespace Pulumi.Aws.Transfer
         private InputList<string>? _structuredLogDestinations;
 
         /// <summary>
-        /// This is a set of arns of destinations that will receive structured logs from the transfer server
+        /// A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
         /// </summary>
         public InputList<string> StructuredLogDestinations
         {
@@ -757,7 +757,7 @@ namespace Pulumi.Aws.Transfer
         private InputList<string>? _structuredLogDestinations;
 
         /// <summary>
-        /// This is a set of arns of destinations that will receive structured logs from the transfer server
+        /// A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
         /// </summary>
         public InputList<string> StructuredLogDestinations
         {

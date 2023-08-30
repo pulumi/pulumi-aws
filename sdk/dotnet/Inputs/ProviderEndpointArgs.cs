@@ -165,6 +165,9 @@ namespace Pulumi.Aws.Inputs
         [Input("codebuild")]
         public Input<string>? Codebuild { get; set; }
 
+        [Input("codecatalyst")]
+        public Input<string>? Codecatalyst { get; set; }
+
         [Input("codecommit")]
         public Input<string>? Codecommit { get; set; }
 

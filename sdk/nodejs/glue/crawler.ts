@@ -188,6 +188,10 @@ export class Crawler extends pulumi.CustomResource {
      */
     public readonly dynamodbTargets!: pulumi.Output<outputs.glue.CrawlerDynamodbTarget[] | undefined>;
     /**
+     * List nested Hudi target arguments. See Iceberg Target below.
+     */
+    public readonly hudiTargets!: pulumi.Output<outputs.glue.CrawlerHudiTarget[] | undefined>;
+    /**
      * List nested Iceberg target arguments. See Iceberg Target below.
      */
     public readonly icebergTargets!: pulumi.Output<outputs.glue.CrawlerIcebergTarget[] | undefined>;
@@ -269,6 +273,7 @@ export class Crawler extends pulumi.CustomResource {
             resourceInputs["deltaTargets"] = state ? state.deltaTargets : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["dynamodbTargets"] = state ? state.dynamodbTargets : undefined;
+            resourceInputs["hudiTargets"] = state ? state.hudiTargets : undefined;
             resourceInputs["icebergTargets"] = state ? state.icebergTargets : undefined;
             resourceInputs["jdbcTargets"] = state ? state.jdbcTargets : undefined;
             resourceInputs["lakeFormationConfiguration"] = state ? state.lakeFormationConfiguration : undefined;
@@ -299,6 +304,7 @@ export class Crawler extends pulumi.CustomResource {
             resourceInputs["deltaTargets"] = args ? args.deltaTargets : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["dynamodbTargets"] = args ? args.dynamodbTargets : undefined;
+            resourceInputs["hudiTargets"] = args ? args.hudiTargets : undefined;
             resourceInputs["icebergTargets"] = args ? args.icebergTargets : undefined;
             resourceInputs["jdbcTargets"] = args ? args.jdbcTargets : undefined;
             resourceInputs["lakeFormationConfiguration"] = args ? args.lakeFormationConfiguration : undefined;
@@ -354,6 +360,10 @@ export interface CrawlerState {
      * List of nested DynamoDB target arguments. See Dynamodb Target below.
      */
     dynamodbTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerDynamodbTarget>[]>;
+    /**
+     * List nested Hudi target arguments. See Iceberg Target below.
+     */
+    hudiTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerHudiTarget>[]>;
     /**
      * List nested Iceberg target arguments. See Iceberg Target below.
      */
@@ -445,6 +455,10 @@ export interface CrawlerArgs {
      * List of nested DynamoDB target arguments. See Dynamodb Target below.
      */
     dynamodbTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerDynamodbTarget>[]>;
+    /**
+     * List nested Hudi target arguments. See Iceberg Target below.
+     */
+    hudiTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerHudiTarget>[]>;
     /**
      * List nested Iceberg target arguments. See Iceberg Target below.
      */

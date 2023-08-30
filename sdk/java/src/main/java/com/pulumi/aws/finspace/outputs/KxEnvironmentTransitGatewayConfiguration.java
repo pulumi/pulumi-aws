@@ -3,12 +3,20 @@
 
 package com.pulumi.aws.finspace.outputs;
 
+import com.pulumi.aws.finspace.outputs.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class KxEnvironmentTransitGatewayConfiguration {
+    /**
+     * @return Rules that define how you manage outbound traffic from kdb network to your internal network. Defined below.
+     * 
+     */
+    private @Nullable List<KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration> attachmentNetworkAclConfigurations;
     /**
      * @return Routing CIDR on behalf of KX environment. It could be any “/26 range in the 100.64.0.0 CIDR space. After providing, it will be added to the customer’s transit gateway routing table so that the traffics could be routed to KX network.
      * 
@@ -21,6 +29,13 @@ public final class KxEnvironmentTransitGatewayConfiguration {
     private String transitGatewayId;
 
     private KxEnvironmentTransitGatewayConfiguration() {}
+    /**
+     * @return Rules that define how you manage outbound traffic from kdb network to your internal network. Defined below.
+     * 
+     */
+    public List<KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration> attachmentNetworkAclConfigurations() {
+        return this.attachmentNetworkAclConfigurations == null ? List.of() : this.attachmentNetworkAclConfigurations;
+    }
     /**
      * @return Routing CIDR on behalf of KX environment. It could be any “/26 range in the 100.64.0.0 CIDR space. After providing, it will be added to the customer’s transit gateway routing table so that the traffics could be routed to KX network.
      * 
@@ -45,15 +60,25 @@ public final class KxEnvironmentTransitGatewayConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable List<KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration> attachmentNetworkAclConfigurations;
         private String routableCidrSpace;
         private String transitGatewayId;
         public Builder() {}
         public Builder(KxEnvironmentTransitGatewayConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.attachmentNetworkAclConfigurations = defaults.attachmentNetworkAclConfigurations;
     	      this.routableCidrSpace = defaults.routableCidrSpace;
     	      this.transitGatewayId = defaults.transitGatewayId;
         }
 
+        @CustomType.Setter
+        public Builder attachmentNetworkAclConfigurations(@Nullable List<KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration> attachmentNetworkAclConfigurations) {
+            this.attachmentNetworkAclConfigurations = attachmentNetworkAclConfigurations;
+            return this;
+        }
+        public Builder attachmentNetworkAclConfigurations(KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration... attachmentNetworkAclConfigurations) {
+            return attachmentNetworkAclConfigurations(List.of(attachmentNetworkAclConfigurations));
+        }
         @CustomType.Setter
         public Builder routableCidrSpace(String routableCidrSpace) {
             this.routableCidrSpace = Objects.requireNonNull(routableCidrSpace);
@@ -66,6 +91,7 @@ public final class KxEnvironmentTransitGatewayConfiguration {
         }
         public KxEnvironmentTransitGatewayConfiguration build() {
             final var o = new KxEnvironmentTransitGatewayConfiguration();
+            o.attachmentNetworkAclConfigurations = attachmentNetworkAclConfigurations;
             o.routableCidrSpace = routableCidrSpace;
             o.transitGatewayId = transitGatewayId;
             return o;

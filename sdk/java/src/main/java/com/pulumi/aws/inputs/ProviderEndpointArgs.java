@@ -372,6 +372,13 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.codebuild);
     }
 
+    @Import(name="codecatalyst")
+    private @Nullable Output<String> codecatalyst;
+
+    public Optional<Output<String>> codecatalyst() {
+        return Optional.ofNullable(this.codecatalyst);
+    }
+
     @Import(name="codecommit")
     private @Nullable Output<String> codecommit;
 
@@ -1791,6 +1798,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.cloudwatchrum = $.cloudwatchrum;
         this.codeartifact = $.codeartifact;
         this.codebuild = $.codebuild;
+        this.codecatalyst = $.codecatalyst;
         this.codecommit = $.codecommit;
         this.codedeploy = $.codedeploy;
         this.codegurureviewer = $.codegurureviewer;
@@ -2463,6 +2471,15 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
         public Builder codebuild(String codebuild) {
             return codebuild(Output.of(codebuild));
+        }
+
+        public Builder codecatalyst(@Nullable Output<String> codecatalyst) {
+            $.codecatalyst = codecatalyst;
+            return this;
+        }
+
+        public Builder codecatalyst(String codecatalyst) {
+            return codecatalyst(Output.of(codecatalyst));
         }
 
         public Builder codecommit(@Nullable Output<String> codecommit) {

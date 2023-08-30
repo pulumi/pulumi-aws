@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ChannelInputAttachmentInputSettingsCaptionSelector {
     /**
-     * @return When specified this field indicates the three letter language code of the caption track to extract from the source.
+     * @return Selects a specific three-letter language code from within an audio source.
      * 
      */
     private @Nullable String languageCode;
@@ -24,11 +24,15 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelector {
      * 
      */
     private String name;
+    /**
+     * @return The audio selector settings. See Audio Selector Settings for more details.
+     * 
+     */
     private @Nullable ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings selectorSettings;
 
     private ChannelInputAttachmentInputSettingsCaptionSelector() {}
     /**
-     * @return When specified this field indicates the three letter language code of the caption track to extract from the source.
+     * @return Selects a specific three-letter language code from within an audio source.
      * 
      */
     public Optional<String> languageCode() {
@@ -43,6 +47,10 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelector {
     public String name() {
         return this.name;
     }
+    /**
+     * @return The audio selector settings. See Audio Selector Settings for more details.
+     * 
+     */
     public Optional<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings> selectorSettings() {
         return Optional.ofNullable(this.selectorSettings);
     }

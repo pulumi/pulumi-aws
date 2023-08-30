@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * const main = new aws.ec2.Vpc("main", {cidrBlock: "10.0.0.0/16"});
  * const secondaryCidr = new aws.ec2.VpcIpv4CidrBlockAssociation("secondaryCidr", {
  *     vpcId: main.id,
- *     cidrBlock: "172.2.0.0/16",
+ *     cidrBlock: "172.20.0.0/16",
  * });
  * ```
  *

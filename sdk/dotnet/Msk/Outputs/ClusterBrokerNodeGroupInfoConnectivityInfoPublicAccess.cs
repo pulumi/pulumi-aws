@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Msk.Outputs
     public sealed class ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess
     {
         /// <summary>
-        /// Public access type. Valida values: `DISABLED`, `SERVICE_PROVIDED_EIPS`.
+        /// Public access type. Valid values: `DISABLED`, `SERVICE_PROVIDED_EIPS`.
         /// </summary>
         public readonly string? Type;
 

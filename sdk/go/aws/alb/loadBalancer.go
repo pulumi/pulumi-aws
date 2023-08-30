@@ -209,7 +209,7 @@ type LoadBalancer struct {
 	NamePrefix pulumi.StringPtrOutput `pulumi:"namePrefix"`
 	// Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
 	PreserveHostHeader pulumi.BoolPtrOutput `pulumi:"preserveHostHeader"`
-	// A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
+	// A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
 	SecurityGroups pulumi.StringArrayOutput `pulumi:"securityGroups"`
 	// A subnet mapping block as documented below.
 	SubnetMappings LoadBalancerSubnetMappingArrayOutput `pulumi:"subnetMappings"`
@@ -306,7 +306,7 @@ type loadBalancerState struct {
 	NamePrefix *string `pulumi:"namePrefix"`
 	// Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
 	PreserveHostHeader *bool `pulumi:"preserveHostHeader"`
-	// A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
+	// A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// A subnet mapping block as documented below.
 	SubnetMappings []LoadBalancerSubnetMapping `pulumi:"subnetMappings"`
@@ -368,7 +368,7 @@ type LoadBalancerState struct {
 	NamePrefix pulumi.StringPtrInput
 	// Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
 	PreserveHostHeader pulumi.BoolPtrInput
-	// A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
+	// A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
 	SecurityGroups pulumi.StringArrayInput
 	// A subnet mapping block as documented below.
 	SubnetMappings LoadBalancerSubnetMappingArrayInput
@@ -428,7 +428,7 @@ type loadBalancerArgs struct {
 	NamePrefix *string `pulumi:"namePrefix"`
 	// Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
 	PreserveHostHeader *bool `pulumi:"preserveHostHeader"`
-	// A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
+	// A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// A subnet mapping block as documented below.
 	SubnetMappings []LoadBalancerSubnetMapping `pulumi:"subnetMappings"`
@@ -480,7 +480,7 @@ type LoadBalancerArgs struct {
 	NamePrefix pulumi.StringPtrInput
 	// Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
 	PreserveHostHeader pulumi.BoolPtrInput
-	// A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
+	// A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
 	SecurityGroups pulumi.StringArrayInput
 	// A subnet mapping block as documented below.
 	SubnetMappings LoadBalancerSubnetMappingArrayInput
@@ -683,7 +683,7 @@ func (o LoadBalancerOutput) PreserveHostHeader() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.BoolPtrOutput { return v.PreserveHostHeader }).(pulumi.BoolPtrOutput)
 }
 
-// A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
+// A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
 func (o LoadBalancerOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringArrayOutput { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }

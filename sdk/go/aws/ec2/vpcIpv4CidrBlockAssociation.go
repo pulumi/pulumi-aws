@@ -39,7 +39,7 @@ import (
 //			}
 //			_, err = ec2.NewVpcIpv4CidrBlockAssociation(ctx, "secondaryCidr", &ec2.VpcIpv4CidrBlockAssociationArgs{
 //				VpcId:     main.ID(),
-//				CidrBlock: pulumi.String("172.2.0.0/16"),
+//				CidrBlock: pulumi.String("172.20.0.0/16"),
 //			})
 //			if err != nil {
 //				return err

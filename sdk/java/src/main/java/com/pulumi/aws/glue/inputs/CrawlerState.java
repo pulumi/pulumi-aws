@@ -6,6 +6,7 @@ package com.pulumi.aws.glue.inputs;
 import com.pulumi.aws.glue.inputs.CrawlerCatalogTargetArgs;
 import com.pulumi.aws.glue.inputs.CrawlerDeltaTargetArgs;
 import com.pulumi.aws.glue.inputs.CrawlerDynamodbTargetArgs;
+import com.pulumi.aws.glue.inputs.CrawlerHudiTargetArgs;
 import com.pulumi.aws.glue.inputs.CrawlerIcebergTargetArgs;
 import com.pulumi.aws.glue.inputs.CrawlerJdbcTargetArgs;
 import com.pulumi.aws.glue.inputs.CrawlerLakeFormationConfigurationArgs;
@@ -138,6 +139,21 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<List<CrawlerDynamodbTargetArgs>>> dynamodbTargets() {
         return Optional.ofNullable(this.dynamodbTargets);
+    }
+
+    /**
+     * List nested Hudi target arguments. See Iceberg Target below.
+     * 
+     */
+    @Import(name="hudiTargets")
+    private @Nullable Output<List<CrawlerHudiTargetArgs>> hudiTargets;
+
+    /**
+     * @return List nested Hudi target arguments. See Iceberg Target below.
+     * 
+     */
+    public Optional<Output<List<CrawlerHudiTargetArgs>>> hudiTargets() {
+        return Optional.ofNullable(this.hudiTargets);
     }
 
     /**
@@ -376,6 +392,7 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
         this.deltaTargets = $.deltaTargets;
         this.description = $.description;
         this.dynamodbTargets = $.dynamodbTargets;
+        this.hudiTargets = $.hudiTargets;
         this.icebergTargets = $.icebergTargets;
         this.jdbcTargets = $.jdbcTargets;
         this.lakeFormationConfiguration = $.lakeFormationConfiguration;
@@ -599,6 +616,37 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder dynamodbTargets(CrawlerDynamodbTargetArgs... dynamodbTargets) {
             return dynamodbTargets(List.of(dynamodbTargets));
+        }
+
+        /**
+         * @param hudiTargets List nested Hudi target arguments. See Iceberg Target below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hudiTargets(@Nullable Output<List<CrawlerHudiTargetArgs>> hudiTargets) {
+            $.hudiTargets = hudiTargets;
+            return this;
+        }
+
+        /**
+         * @param hudiTargets List nested Hudi target arguments. See Iceberg Target below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hudiTargets(List<CrawlerHudiTargetArgs> hudiTargets) {
+            return hudiTargets(Output.of(hudiTargets));
+        }
+
+        /**
+         * @param hudiTargets List nested Hudi target arguments. See Iceberg Target below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hudiTargets(CrawlerHudiTargetArgs... hudiTargets) {
+            return hudiTargets(List.of(hudiTargets));
         }
 
         /**

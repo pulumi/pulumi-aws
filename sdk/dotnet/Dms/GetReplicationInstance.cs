@@ -146,6 +146,10 @@ namespace Pulumi.Aws.Dms
         /// </summary>
         public readonly bool MultiAz;
         /// <summary>
+        /// The type of IP address protocol used by the replication instance.
+        /// </summary>
+        public readonly string NetworkType;
+        /// <summary>
         /// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
         /// </summary>
         public readonly string PreferredMaintenanceWindow;
@@ -196,6 +200,8 @@ namespace Pulumi.Aws.Dms
 
             bool multiAz,
 
+            string networkType,
+
             string preferredMaintenanceWindow,
 
             bool publiclyAccessible,
@@ -223,6 +229,7 @@ namespace Pulumi.Aws.Dms
             Id = id;
             KmsKeyArn = kmsKeyArn;
             MultiAz = multiAz;
+            NetworkType = networkType;
             PreferredMaintenanceWindow = preferredMaintenanceWindow;
             PubliclyAccessible = publiclyAccessible;
             ReplicationInstanceArn = replicationInstanceArn;

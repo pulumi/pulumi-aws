@@ -20,6 +20,9 @@ __all__ = [
     'KxClusterVpcConfigurationArgs',
     'KxEnvironmentCustomDnsConfigurationArgs',
     'KxEnvironmentTransitGatewayConfigurationArgs',
+    'KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs',
+    'KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArgs',
+    'KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeArgs',
 ]
 
 @pulumi.input_type
@@ -507,13 +510,17 @@ class KxEnvironmentCustomDnsConfigurationArgs:
 class KxEnvironmentTransitGatewayConfigurationArgs:
     def __init__(__self__, *,
                  routable_cidr_space: pulumi.Input[str],
-                 transit_gateway_id: pulumi.Input[str]):
+                 transit_gateway_id: pulumi.Input[str],
+                 attachment_network_acl_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs']]]] = None):
         """
         :param pulumi.Input[str] routable_cidr_space: Routing CIDR on behalf of KX environment. It could be any “/26 range in the 100.64.0.0 CIDR space. After providing, it will be added to the customer’s transit gateway routing table so that the traffics could be routed to KX network.
         :param pulumi.Input[str] transit_gateway_id: Identifier of the transit gateway created by the customer to connect outbound traffics from KX network to your internal network.
+        :param pulumi.Input[Sequence[pulumi.Input['KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs']]] attachment_network_acl_configurations: Rules that define how you manage outbound traffic from kdb network to your internal network. Defined below.
         """
         pulumi.set(__self__, "routable_cidr_space", routable_cidr_space)
         pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
+        if attachment_network_acl_configurations is not None:
+            pulumi.set(__self__, "attachment_network_acl_configurations", attachment_network_acl_configurations)
 
     @property
     @pulumi.getter(name="routableCidrSpace")
@@ -538,5 +545,190 @@ class KxEnvironmentTransitGatewayConfigurationArgs:
     @transit_gateway_id.setter
     def transit_gateway_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "transit_gateway_id", value)
+
+    @property
+    @pulumi.getter(name="attachmentNetworkAclConfigurations")
+    def attachment_network_acl_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs']]]]:
+        """
+        Rules that define how you manage outbound traffic from kdb network to your internal network. Defined below.
+        """
+        return pulumi.get(self, "attachment_network_acl_configurations")
+
+    @attachment_network_acl_configurations.setter
+    def attachment_network_acl_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs']]]]):
+        pulumi.set(self, "attachment_network_acl_configurations", value)
+
+
+@pulumi.input_type
+class KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs:
+    def __init__(__self__, *,
+                 cidr_block: pulumi.Input[str],
+                 protocol: pulumi.Input[str],
+                 rule_action: pulumi.Input[str],
+                 rule_number: pulumi.Input[int],
+                 icmp_type_code: Optional[pulumi.Input['KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArgs']] = None,
+                 port_range: Optional[pulumi.Input['KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeArgs']] = None):
+        """
+        :param pulumi.Input[str] cidr_block: The IPv4 network range to allow or deny, in CIDR notation. The specified CIDR block is modified to its canonical form. For example, `100.68.0.18/18` will be converted to `100.68.0.0/18`.
+        :param pulumi.Input[str] protocol: Protocol number. A value of `1` means all the protocols.
+        :param pulumi.Input[str] rule_action: Indicates whether to `allow` or `deny` the traffic that matches the rule.
+        :param pulumi.Input[int] rule_number: Rule number for the entry. All the network ACL entries are processed in ascending order by rule number.
+        :param pulumi.Input['KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArgs'] icmp_type_code: Defines the ICMP protocol that consists of the ICMP type and code. Defined below.
+        :param pulumi.Input['KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeArgs'] port_range: Range of ports the rule applies to. Defined below.
+        """
+        pulumi.set(__self__, "cidr_block", cidr_block)
+        pulumi.set(__self__, "protocol", protocol)
+        pulumi.set(__self__, "rule_action", rule_action)
+        pulumi.set(__self__, "rule_number", rule_number)
+        if icmp_type_code is not None:
+            pulumi.set(__self__, "icmp_type_code", icmp_type_code)
+        if port_range is not None:
+            pulumi.set(__self__, "port_range", port_range)
+
+    @property
+    @pulumi.getter(name="cidrBlock")
+    def cidr_block(self) -> pulumi.Input[str]:
+        """
+        The IPv4 network range to allow or deny, in CIDR notation. The specified CIDR block is modified to its canonical form. For example, `100.68.0.18/18` will be converted to `100.68.0.0/18`.
+        """
+        return pulumi.get(self, "cidr_block")
+
+    @cidr_block.setter
+    def cidr_block(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cidr_block", value)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> pulumi.Input[str]:
+        """
+        Protocol number. A value of `1` means all the protocols.
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: pulumi.Input[str]):
+        pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter(name="ruleAction")
+    def rule_action(self) -> pulumi.Input[str]:
+        """
+        Indicates whether to `allow` or `deny` the traffic that matches the rule.
+        """
+        return pulumi.get(self, "rule_action")
+
+    @rule_action.setter
+    def rule_action(self, value: pulumi.Input[str]):
+        pulumi.set(self, "rule_action", value)
+
+    @property
+    @pulumi.getter(name="ruleNumber")
+    def rule_number(self) -> pulumi.Input[int]:
+        """
+        Rule number for the entry. All the network ACL entries are processed in ascending order by rule number.
+        """
+        return pulumi.get(self, "rule_number")
+
+    @rule_number.setter
+    def rule_number(self, value: pulumi.Input[int]):
+        pulumi.set(self, "rule_number", value)
+
+    @property
+    @pulumi.getter(name="icmpTypeCode")
+    def icmp_type_code(self) -> Optional[pulumi.Input['KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArgs']]:
+        """
+        Defines the ICMP protocol that consists of the ICMP type and code. Defined below.
+        """
+        return pulumi.get(self, "icmp_type_code")
+
+    @icmp_type_code.setter
+    def icmp_type_code(self, value: Optional[pulumi.Input['KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArgs']]):
+        pulumi.set(self, "icmp_type_code", value)
+
+    @property
+    @pulumi.getter(name="portRange")
+    def port_range(self) -> Optional[pulumi.Input['KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeArgs']]:
+        """
+        Range of ports the rule applies to. Defined below.
+        """
+        return pulumi.get(self, "port_range")
+
+    @port_range.setter
+    def port_range(self, value: Optional[pulumi.Input['KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeArgs']]):
+        pulumi.set(self, "port_range", value)
+
+
+@pulumi.input_type
+class KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArgs:
+    def __init__(__self__, *,
+                 code: pulumi.Input[int],
+                 type: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] code: ICMP code. A value of `-1` means all codes for the specified ICMP type.
+        :param pulumi.Input[int] type: ICMP type. A value of `-1` means all types.
+        """
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def code(self) -> pulumi.Input[int]:
+        """
+        ICMP code. A value of `-1` means all codes for the specified ICMP type.
+        """
+        return pulumi.get(self, "code")
+
+    @code.setter
+    def code(self, value: pulumi.Input[int]):
+        pulumi.set(self, "code", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[int]:
+        """
+        ICMP type. A value of `-1` means all types.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[int]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeArgs:
+    def __init__(__self__, *,
+                 from_: pulumi.Input[int],
+                 to: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] from_: First port in the range.
+        :param pulumi.Input[int] to: Last port in the range.
+        """
+        pulumi.set(__self__, "from_", from_)
+        pulumi.set(__self__, "to", to)
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> pulumi.Input[int]:
+        """
+        First port in the range.
+        """
+        return pulumi.get(self, "from_")
+
+    @from_.setter
+    def from_(self, value: pulumi.Input[int]):
+        pulumi.set(self, "from_", value)
+
+    @property
+    @pulumi.getter
+    def to(self) -> pulumi.Input[int]:
+        """
+        Last port in the range.
+        """
+        return pulumi.get(self, "to")
+
+    @to.setter
+    def to(self, value: pulumi.Input[int]):
+        pulumi.set(self, "to", value)
 
 

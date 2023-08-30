@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  * 
  *  to = aws_kinesis_video_stream.test_stream
  * 
- *  id = &#34;arn:aws:kinesisvideo:us-west-2:123456789012:stream/TODO-kinesis-test/1554978910975&#34; } Using `pulumi import`, import Kinesis Streams using the `arn`. For exampleconsole % pulumi import aws_kinesis_video_stream.test_stream arn:aws:kinesisvideo:us-west-2:123456789012:stream/TODO-kinesis-test/1554978910975 [1]https://aws.amazon.com/documentation/kinesis/ [2]http://www.iana.org/assignments/media-types/media-types.xhtml [3]https://tools.ietf.org/html/rfc6838#section-4.2
+ *  id = &#34;arn:aws:kinesisvideo:us-west-2:123456789012:stream/pulumi-kinesis-test/1554978910975&#34; } Using `pulumi import`, import Kinesis Streams using the `arn`. For exampleconsole % pulumi import aws_kinesis_video_stream.test_stream arn:aws:kinesisvideo:us-west-2:123456789012:stream/pulumi-kinesis-test/1554978910975 [1]https://aws.amazon.com/documentation/kinesis/ [2]http://www.iana.org/assignments/media-types/media-types.xhtml [3]https://tools.ietf.org/html/rfc6838#section-4.2
  * 
  */
 @ResourceType(type="aws:kinesis/videoStream:VideoStream")

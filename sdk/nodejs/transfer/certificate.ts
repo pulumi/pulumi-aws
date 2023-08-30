@@ -65,6 +65,10 @@ export class Certificate extends pulumi.CustomResource {
      */
     public /*out*/ readonly activeDate!: pulumi.Output<string>;
     /**
+     * The ARN of the certificate
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * The valid certificate file required for the transfer.
      */
     public readonly certificate!: pulumi.Output<string>;
@@ -112,6 +116,7 @@ export class Certificate extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as CertificateState | undefined;
             resourceInputs["activeDate"] = state ? state.activeDate : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["certificate"] = state ? state.certificate : undefined;
             resourceInputs["certificateChain"] = state ? state.certificateChain : undefined;
             resourceInputs["certificateId"] = state ? state.certificateId : undefined;
@@ -136,6 +141,7 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["usage"] = args ? args.usage : undefined;
             resourceInputs["activeDate"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["certificateId"] = undefined /*out*/;
             resourceInputs["inactiveDate"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
@@ -155,6 +161,10 @@ export interface CertificateState {
      * An date when the certificate becomes active
      */
     activeDate?: pulumi.Input<string>;
+    /**
+     * The ARN of the certificate
+     */
+    arn?: pulumi.Input<string>;
     /**
      * The valid certificate file required for the transfer.
      */

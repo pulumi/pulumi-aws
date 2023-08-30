@@ -196,6 +196,20 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.copyTagsToSnapshot);
     }
     /**
+     * Instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
+     * 
+     */
+    @Export(name="customIamInstanceProfile", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> customIamInstanceProfile;
+
+    /**
+     * @return Instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
+     * 
+     */
+    public Output<Optional<String>> customIamInstanceProfile() {
+        return Codegen.optional(this.customIamInstanceProfile);
+    }
+    /**
      * Name of the DB parameter group to associate with this instance.
      * 
      */

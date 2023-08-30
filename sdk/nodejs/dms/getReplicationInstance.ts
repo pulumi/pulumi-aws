@@ -71,6 +71,10 @@ export interface GetReplicationInstanceResult {
      */
     readonly multiAz: boolean;
     /**
+     * The type of IP address protocol used by the replication instance.
+     */
+    readonly networkType: string;
+    /**
      * The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
      */
     readonly preferredMaintenanceWindow: string;

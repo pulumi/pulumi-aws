@@ -559,14 +559,14 @@ public class Server extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.securityPolicyName);
     }
     /**
-     * This is a set of arns of destinations that will receive structured logs from the transfer server
+     * A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
      * 
      */
     @Export(name="structuredLogDestinations", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> structuredLogDestinations;
 
     /**
-     * @return This is a set of arns of destinations that will receive structured logs from the transfer server
+     * @return A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
      * 
      */
     public Output<Optional<List<String>>> structuredLogDestinations() {

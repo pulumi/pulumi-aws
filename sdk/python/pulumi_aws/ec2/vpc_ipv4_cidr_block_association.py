@@ -179,7 +179,7 @@ class VpcIpv4CidrBlockAssociation(pulumi.CustomResource):
         main = aws.ec2.Vpc("main", cidr_block="10.0.0.0/16")
         secondary_cidr = aws.ec2.VpcIpv4CidrBlockAssociation("secondaryCidr",
             vpc_id=main.id,
-            cidr_block="172.2.0.0/16")
+            cidr_block="172.20.0.0/16")
         ```
 
         ## Import
@@ -218,7 +218,7 @@ class VpcIpv4CidrBlockAssociation(pulumi.CustomResource):
         main = aws.ec2.Vpc("main", cidr_block="10.0.0.0/16")
         secondary_cidr = aws.ec2.VpcIpv4CidrBlockAssociation("secondaryCidr",
             vpc_id=main.id,
-            cidr_block="172.2.0.0/16")
+            cidr_block="172.20.0.0/16")
         ```
 
         ## Import

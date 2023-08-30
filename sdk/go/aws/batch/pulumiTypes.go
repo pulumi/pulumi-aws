@@ -1314,6 +1314,169 @@ func (o JobDefinitionTimeoutPtrOutput) AttemptDurationSeconds() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
+type JobQueueTimeouts struct {
+	Create *string `pulumi:"create"`
+	Delete *string `pulumi:"delete"`
+	Update *string `pulumi:"update"`
+}
+
+// JobQueueTimeoutsInput is an input type that accepts JobQueueTimeoutsArgs and JobQueueTimeoutsOutput values.
+// You can construct a concrete instance of `JobQueueTimeoutsInput` via:
+//
+//	JobQueueTimeoutsArgs{...}
+type JobQueueTimeoutsInput interface {
+	pulumi.Input
+
+	ToJobQueueTimeoutsOutput() JobQueueTimeoutsOutput
+	ToJobQueueTimeoutsOutputWithContext(context.Context) JobQueueTimeoutsOutput
+}
+
+type JobQueueTimeoutsArgs struct {
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (JobQueueTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobQueueTimeouts)(nil)).Elem()
+}
+
+func (i JobQueueTimeoutsArgs) ToJobQueueTimeoutsOutput() JobQueueTimeoutsOutput {
+	return i.ToJobQueueTimeoutsOutputWithContext(context.Background())
+}
+
+func (i JobQueueTimeoutsArgs) ToJobQueueTimeoutsOutputWithContext(ctx context.Context) JobQueueTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobQueueTimeoutsOutput)
+}
+
+func (i JobQueueTimeoutsArgs) ToJobQueueTimeoutsPtrOutput() JobQueueTimeoutsPtrOutput {
+	return i.ToJobQueueTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i JobQueueTimeoutsArgs) ToJobQueueTimeoutsPtrOutputWithContext(ctx context.Context) JobQueueTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobQueueTimeoutsOutput).ToJobQueueTimeoutsPtrOutputWithContext(ctx)
+}
+
+// JobQueueTimeoutsPtrInput is an input type that accepts JobQueueTimeoutsArgs, JobQueueTimeoutsPtr and JobQueueTimeoutsPtrOutput values.
+// You can construct a concrete instance of `JobQueueTimeoutsPtrInput` via:
+//
+//	        JobQueueTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type JobQueueTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToJobQueueTimeoutsPtrOutput() JobQueueTimeoutsPtrOutput
+	ToJobQueueTimeoutsPtrOutputWithContext(context.Context) JobQueueTimeoutsPtrOutput
+}
+
+type jobQueueTimeoutsPtrType JobQueueTimeoutsArgs
+
+func JobQueueTimeoutsPtr(v *JobQueueTimeoutsArgs) JobQueueTimeoutsPtrInput {
+	return (*jobQueueTimeoutsPtrType)(v)
+}
+
+func (*jobQueueTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobQueueTimeouts)(nil)).Elem()
+}
+
+func (i *jobQueueTimeoutsPtrType) ToJobQueueTimeoutsPtrOutput() JobQueueTimeoutsPtrOutput {
+	return i.ToJobQueueTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *jobQueueTimeoutsPtrType) ToJobQueueTimeoutsPtrOutputWithContext(ctx context.Context) JobQueueTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobQueueTimeoutsPtrOutput)
+}
+
+type JobQueueTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (JobQueueTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobQueueTimeouts)(nil)).Elem()
+}
+
+func (o JobQueueTimeoutsOutput) ToJobQueueTimeoutsOutput() JobQueueTimeoutsOutput {
+	return o
+}
+
+func (o JobQueueTimeoutsOutput) ToJobQueueTimeoutsOutputWithContext(ctx context.Context) JobQueueTimeoutsOutput {
+	return o
+}
+
+func (o JobQueueTimeoutsOutput) ToJobQueueTimeoutsPtrOutput() JobQueueTimeoutsPtrOutput {
+	return o.ToJobQueueTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o JobQueueTimeoutsOutput) ToJobQueueTimeoutsPtrOutputWithContext(ctx context.Context) JobQueueTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobQueueTimeouts) *JobQueueTimeouts {
+		return &v
+	}).(JobQueueTimeoutsPtrOutput)
+}
+
+func (o JobQueueTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobQueueTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+func (o JobQueueTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobQueueTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+func (o JobQueueTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobQueueTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type JobQueueTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (JobQueueTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobQueueTimeouts)(nil)).Elem()
+}
+
+func (o JobQueueTimeoutsPtrOutput) ToJobQueueTimeoutsPtrOutput() JobQueueTimeoutsPtrOutput {
+	return o
+}
+
+func (o JobQueueTimeoutsPtrOutput) ToJobQueueTimeoutsPtrOutputWithContext(ctx context.Context) JobQueueTimeoutsPtrOutput {
+	return o
+}
+
+func (o JobQueueTimeoutsPtrOutput) Elem() JobQueueTimeoutsOutput {
+	return o.ApplyT(func(v *JobQueueTimeouts) JobQueueTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret JobQueueTimeouts
+		return ret
+	}).(JobQueueTimeoutsOutput)
+}
+
+func (o JobQueueTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobQueueTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o JobQueueTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobQueueTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o JobQueueTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobQueueTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 type SchedulingPolicyFairSharePolicy struct {
 	// A value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
 	ComputeReservation *int `pulumi:"computeReservation"`
@@ -1928,6 +2091,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionRetryStrategyEvaluateOnExitArrayInput)(nil)).Elem(), JobDefinitionRetryStrategyEvaluateOnExitArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionTimeoutInput)(nil)).Elem(), JobDefinitionTimeoutArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionTimeoutPtrInput)(nil)).Elem(), JobDefinitionTimeoutArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobQueueTimeoutsInput)(nil)).Elem(), JobQueueTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobQueueTimeoutsPtrInput)(nil)).Elem(), JobQueueTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchedulingPolicyFairSharePolicyInput)(nil)).Elem(), SchedulingPolicyFairSharePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchedulingPolicyFairSharePolicyPtrInput)(nil)).Elem(), SchedulingPolicyFairSharePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchedulingPolicyFairSharePolicyShareDistributionInput)(nil)).Elem(), SchedulingPolicyFairSharePolicyShareDistributionArgs{})
@@ -1952,6 +2117,8 @@ func init() {
 	pulumi.RegisterOutputType(JobDefinitionRetryStrategyEvaluateOnExitArrayOutput{})
 	pulumi.RegisterOutputType(JobDefinitionTimeoutOutput{})
 	pulumi.RegisterOutputType(JobDefinitionTimeoutPtrOutput{})
+	pulumi.RegisterOutputType(JobQueueTimeoutsOutput{})
+	pulumi.RegisterOutputType(JobQueueTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(SchedulingPolicyFairSharePolicyOutput{})
 	pulumi.RegisterOutputType(SchedulingPolicyFairSharePolicyPtrOutput{})
 	pulumi.RegisterOutputType(SchedulingPolicyFairSharePolicyShareDistributionOutput{})

@@ -140,6 +140,9 @@ namespace Pulumi.Aws.Batch
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
+        [Output("timeouts")]
+        public Output<Outputs.JobQueueTimeouts?> Timeouts { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a JobQueue resource with the given unique name, arguments, and options.
@@ -237,6 +240,9 @@ namespace Pulumi.Aws.Batch
             set => _tags = value;
         }
 
+        [Input("timeouts")]
+        public Input<Inputs.JobQueueTimeoutsArgs>? Timeouts { get; set; }
+
         public JobQueueArgs()
         {
         }
@@ -313,6 +319,9 @@ namespace Pulumi.Aws.Batch
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
+
+        [Input("timeouts")]
+        public Input<Inputs.JobQueueTimeoutsGetArgs>? Timeouts { get; set; }
 
         public JobQueueState()
         {

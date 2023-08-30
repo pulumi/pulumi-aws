@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  * 
  *  to = aws_iam_user_login_profile.example
  * 
- *  id = &#34;myusername&#34; } Using `pulumi import`, import IAM User Login Profiles without password information via the IAM User name. For exampleconsole % pulumi import aws_iam_user_login_profile.example myusername Since TODO has no method to read the PGP or password information during import, use the TODO resource `lifecycle` configuration block `ignore_changes` argument to ignore them (unless you want to recreate a password). For exampleterraform resource &#34;aws_iam_user_login_profile&#34; &#34;example&#34; {
+ *  id = &#34;myusername&#34; } Using `pulumi import`, import IAM User Login Profiles without password information via the IAM User name. For exampleconsole % pulumi import aws_iam_user_login_profile.example myusername Since Pulumi has no method to read the PGP or password information during import, use the Pulumi resource option block `ignore_changes` argument to ignore them (unless you want to recreate a password). For exampleterraform resource &#34;aws_iam_user_login_profile&#34; &#34;example&#34; {
  * 
  * # ... other configuration ...
  * 

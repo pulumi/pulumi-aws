@@ -88,6 +88,20 @@ public class Connector extends com.pulumi.resources.CustomResource {
         return this.accessRole;
     }
     /**
+     * The ARN of the connector.
+     * 
+     */
+    @Export(name="arn", refs={String.class}, tree="[0]")
+    private Output<String> arn;
+
+    /**
+     * @return The ARN of the connector.
+     * 
+     */
+    public Output<String> arn() {
+        return this.arn;
+    }
+    /**
      * The parameters to configure for the connector object. Fields documented below.
      * 
      */
@@ -102,14 +116,14 @@ public class Connector extends com.pulumi.resources.CustomResource {
         return this.as2Config;
     }
     /**
-     * The unique identifier for the AS2 profile
+     * The unique identifier for the AS2 profile.
      * 
      */
     @Export(name="connectorId", refs={String.class}, tree="[0]")
     private Output<String> connectorId;
 
     /**
-     * @return The unique identifier for the AS2 profile
+     * @return The unique identifier for the AS2 profile.
      * 
      */
     public Output<String> connectorId() {

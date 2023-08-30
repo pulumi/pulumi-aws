@@ -14,11 +14,13 @@ namespace Pulumi.Aws.SesV2.Inputs
     {
         /// <summary>
         /// The default value of the dimension that is published to Amazon CloudWatch if you don't provide the value of the dimension when you send an email.
-        /// ( `dimension_name` - (Required) The name of an Amazon CloudWatch dimension associated with an email sending metric.
         /// </summary>
         [Input("defaultDimensionValue", required: true)]
         public Input<string> DefaultDimensionValue { get; set; } = null!;
 
+        /// <summary>
+        /// The name of an Amazon CloudWatch dimension associated with an email sending metric.
+        /// </summary>
         [Input("dimensionName", required: true)]
         public Input<string> DimensionName { get; set; } = null!;
 

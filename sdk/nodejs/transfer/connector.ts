@@ -74,11 +74,15 @@ export class Connector extends pulumi.CustomResource {
      */
     public readonly accessRole!: pulumi.Output<string>;
     /**
+     * The ARN of the connector.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * The parameters to configure for the connector object. Fields documented below.
      */
     public readonly as2Config!: pulumi.Output<outputs.transfer.ConnectorAs2Config>;
     /**
-     * The unique identifier for the AS2 profile
+     * The unique identifier for the AS2 profile.
      */
     public /*out*/ readonly connectorId!: pulumi.Output<string>;
     /**
@@ -109,6 +113,7 @@ export class Connector extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ConnectorState | undefined;
             resourceInputs["accessRole"] = state ? state.accessRole : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["as2Config"] = state ? state.as2Config : undefined;
             resourceInputs["connectorId"] = state ? state.connectorId : undefined;
             resourceInputs["loggingRole"] = state ? state.loggingRole : undefined;
@@ -131,6 +136,7 @@ export class Connector extends pulumi.CustomResource {
             resourceInputs["loggingRole"] = args ? args.loggingRole : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["url"] = args ? args.url : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["connectorId"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
@@ -148,11 +154,15 @@ export interface ConnectorState {
      */
     accessRole?: pulumi.Input<string>;
     /**
+     * The ARN of the connector.
+     */
+    arn?: pulumi.Input<string>;
+    /**
      * The parameters to configure for the connector object. Fields documented below.
      */
     as2Config?: pulumi.Input<inputs.transfer.ConnectorAs2Config>;
     /**
-     * The unique identifier for the AS2 profile
+     * The unique identifier for the AS2 profile.
      */
     connectorId?: pulumi.Input<string>;
     /**

@@ -131,6 +131,7 @@ class _AgreementState:
     def __init__(__self__, *,
                  access_role: Optional[pulumi.Input[str]] = None,
                  agreement_id: Optional[pulumi.Input[str]] = None,
+                 arn: Optional[pulumi.Input[str]] = None,
                  base_directory: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  local_profile_id: Optional[pulumi.Input[str]] = None,
@@ -142,7 +143,8 @@ class _AgreementState:
         """
         Input properties used for looking up and filtering Agreement resources.
         :param pulumi.Input[str] access_role: The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
-        :param pulumi.Input[str] agreement_id: The unique identifier for the AS2 agreement
+        :param pulumi.Input[str] agreement_id: The unique identifier for the AS2 agreement.
+        :param pulumi.Input[str] arn: The ARN of the agreement.
         :param pulumi.Input[str] base_directory: The landing directory for the files transferred by using the AS2 protocol.
         :param pulumi.Input[str] description: The Optional description of the transdfer.
         :param pulumi.Input[str] local_profile_id: The unique identifier for the AS2 local profile.
@@ -154,6 +156,8 @@ class _AgreementState:
             pulumi.set(__self__, "access_role", access_role)
         if agreement_id is not None:
             pulumi.set(__self__, "agreement_id", agreement_id)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
         if base_directory is not None:
             pulumi.set(__self__, "base_directory", base_directory)
         if description is not None:
@@ -187,13 +191,25 @@ class _AgreementState:
     @pulumi.getter(name="agreementId")
     def agreement_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The unique identifier for the AS2 agreement
+        The unique identifier for the AS2 agreement.
         """
         return pulumi.get(self, "agreement_id")
 
     @agreement_id.setter
     def agreement_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "agreement_id", value)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the agreement.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
 
     @property
     @pulumi.getter(name="baseDirectory")
@@ -418,6 +434,7 @@ class Agreement(pulumi.CustomResource):
             __props__.__dict__["server_id"] = server_id
             __props__.__dict__["tags"] = tags
             __props__.__dict__["agreement_id"] = None
+            __props__.__dict__["arn"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["tags_all"] = None
         super(Agreement, __self__).__init__(
@@ -432,6 +449,7 @@ class Agreement(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             access_role: Optional[pulumi.Input[str]] = None,
             agreement_id: Optional[pulumi.Input[str]] = None,
+            arn: Optional[pulumi.Input[str]] = None,
             base_directory: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             local_profile_id: Optional[pulumi.Input[str]] = None,
@@ -448,7 +466,8 @@ class Agreement(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_role: The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
-        :param pulumi.Input[str] agreement_id: The unique identifier for the AS2 agreement
+        :param pulumi.Input[str] agreement_id: The unique identifier for the AS2 agreement.
+        :param pulumi.Input[str] arn: The ARN of the agreement.
         :param pulumi.Input[str] base_directory: The landing directory for the files transferred by using the AS2 protocol.
         :param pulumi.Input[str] description: The Optional description of the transdfer.
         :param pulumi.Input[str] local_profile_id: The unique identifier for the AS2 local profile.
@@ -462,6 +481,7 @@ class Agreement(pulumi.CustomResource):
 
         __props__.__dict__["access_role"] = access_role
         __props__.__dict__["agreement_id"] = agreement_id
+        __props__.__dict__["arn"] = arn
         __props__.__dict__["base_directory"] = base_directory
         __props__.__dict__["description"] = description
         __props__.__dict__["local_profile_id"] = local_profile_id
@@ -484,9 +504,17 @@ class Agreement(pulumi.CustomResource):
     @pulumi.getter(name="agreementId")
     def agreement_id(self) -> pulumi.Output[str]:
         """
-        The unique identifier for the AS2 agreement
+        The unique identifier for the AS2 agreement.
         """
         return pulumi.get(self, "agreement_id")
+
+    @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the agreement.
+        """
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="baseDirectory")

@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ### With Network Setup
+ * ### With Transit Gateway Configuration
  * ```java
  * package generated_program;
  * 

@@ -32,6 +32,21 @@ public final class InstanceMetadataOptionsArgs extends com.pulumi.resources.Reso
     }
 
     /**
+     * Whether the IPv6 endpoint for the instance metadata service is enabled. Defaults to `disabled`.
+     * 
+     */
+    @Import(name="httpProtocolIpv6")
+    private @Nullable Output<String> httpProtocolIpv6;
+
+    /**
+     * @return Whether the IPv6 endpoint for the instance metadata service is enabled. Defaults to `disabled`.
+     * 
+     */
+    public Optional<Output<String>> httpProtocolIpv6() {
+        return Optional.ofNullable(this.httpProtocolIpv6);
+    }
+
+    /**
      * Desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Valid values are integer from `1` to `64`. Defaults to `1`.
      * 
      */
@@ -84,6 +99,7 @@ public final class InstanceMetadataOptionsArgs extends com.pulumi.resources.Reso
 
     private InstanceMetadataOptionsArgs(InstanceMetadataOptionsArgs $) {
         this.httpEndpoint = $.httpEndpoint;
+        this.httpProtocolIpv6 = $.httpProtocolIpv6;
         this.httpPutResponseHopLimit = $.httpPutResponseHopLimit;
         this.httpTokens = $.httpTokens;
         this.instanceMetadataTags = $.instanceMetadataTags;
@@ -126,6 +142,27 @@ public final class InstanceMetadataOptionsArgs extends com.pulumi.resources.Reso
          */
         public Builder httpEndpoint(String httpEndpoint) {
             return httpEndpoint(Output.of(httpEndpoint));
+        }
+
+        /**
+         * @param httpProtocolIpv6 Whether the IPv6 endpoint for the instance metadata service is enabled. Defaults to `disabled`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder httpProtocolIpv6(@Nullable Output<String> httpProtocolIpv6) {
+            $.httpProtocolIpv6 = httpProtocolIpv6;
+            return this;
+        }
+
+        /**
+         * @param httpProtocolIpv6 Whether the IPv6 endpoint for the instance metadata service is enabled. Defaults to `disabled`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder httpProtocolIpv6(String httpProtocolIpv6) {
+            return httpProtocolIpv6(Output.of(httpProtocolIpv6));
         }
 
         /**

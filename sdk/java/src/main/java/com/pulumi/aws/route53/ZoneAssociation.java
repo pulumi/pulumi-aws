@@ -76,15 +76,15 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * The VPC is in the same region where you have configured the TODO AWS Providerterraform import {
+ * The VPC is in the same region where you have configured the Pulumi AWS Providerterraform import {
  * 
  *  to = aws_route53_zone_association.example
  * 
- *  id = &#34;Z123456ABCDEFG:vpc-12345678&#34; } The VPC is _not_ in the same region where you have configured the TODO AWS Providerterraform import {
+ *  id = &#34;Z123456ABCDEFG:vpc-12345678&#34; } The VPC is _not_ in the same region where you have configured the Pulumi AWS Providerterraform import {
  * 
  *  to = aws_route53_zone_association.example
  * 
- *  id = &#34;Z123456ABCDEFG:vpc-12345678:us-east-2&#34; } **Using `pulumi import` to import** Route 53 Hosted Zone Associations using the Hosted Zone ID and VPC ID, separated by a colon (`:`). For exampleThe VPC is in the same region where you have configured the TODO AWS Providerconsole % pulumi import aws_route53_zone_association.example Z123456ABCDEFG:vpc-12345678 The VPC is _not_ in the same region where you have configured the TODO AWS Providerconsole % pulumi import aws_route53_zone_association.example Z123456ABCDEFG:vpc-12345678:us-east-2
+ *  id = &#34;Z123456ABCDEFG:vpc-12345678:us-east-2&#34; } **Using `pulumi import` to import** Route 53 Hosted Zone Associations using the Hosted Zone ID and VPC ID, separated by a colon (`:`). For exampleThe VPC is in the same region where you have configured the Pulumi AWS Providerconsole % pulumi import aws_route53_zone_association.example Z123456ABCDEFG:vpc-12345678 The VPC is _not_ in the same region where you have configured the Pulumi AWS Providerconsole % pulumi import aws_route53_zone_association.example Z123456ABCDEFG:vpc-12345678:us-east-2
  * 
  */
 @ResourceType(type="aws:route53/zoneAssociation:ZoneAssociation")

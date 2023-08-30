@@ -16,28 +16,26 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetEndpointResult {
     private String certificateArn;
     private String databaseName;
-    private @Nullable List<GetEndpointElasticsearchSetting> elasticsearchSettings;
+    private List<GetEndpointElasticsearchSetting> elasticsearchSettings;
     private String endpointArn;
     private String endpointId;
     private String endpointType;
     private String engineName;
-    private @Nullable String extraConnectionAttributes;
+    private String extraConnectionAttributes;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    private @Nullable List<GetEndpointKafkaSetting> kafkaSettings;
+    private List<GetEndpointKafkaSetting> kafkaSettings;
     private List<GetEndpointKinesisSetting> kinesisSettings;
     private String kmsKeyArn;
-    private @Nullable List<GetEndpointMongodbSetting> mongodbSettings;
+    private List<GetEndpointMongodbSetting> mongodbSettings;
     private String password;
     private Integer port;
     private List<GetEndpointRedisSetting> redisSettings;
@@ -59,7 +57,7 @@ public final class GetEndpointResult {
         return this.databaseName;
     }
     public List<GetEndpointElasticsearchSetting> elasticsearchSettings() {
-        return this.elasticsearchSettings == null ? List.of() : this.elasticsearchSettings;
+        return this.elasticsearchSettings;
     }
     public String endpointArn() {
         return this.endpointArn;
@@ -73,8 +71,8 @@ public final class GetEndpointResult {
     public String engineName() {
         return this.engineName;
     }
-    public Optional<String> extraConnectionAttributes() {
-        return Optional.ofNullable(this.extraConnectionAttributes);
+    public String extraConnectionAttributes() {
+        return this.extraConnectionAttributes;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -84,7 +82,7 @@ public final class GetEndpointResult {
         return this.id;
     }
     public List<GetEndpointKafkaSetting> kafkaSettings() {
-        return this.kafkaSettings == null ? List.of() : this.kafkaSettings;
+        return this.kafkaSettings;
     }
     public List<GetEndpointKinesisSetting> kinesisSettings() {
         return this.kinesisSettings;
@@ -93,7 +91,7 @@ public final class GetEndpointResult {
         return this.kmsKeyArn;
     }
     public List<GetEndpointMongodbSetting> mongodbSettings() {
-        return this.mongodbSettings == null ? List.of() : this.mongodbSettings;
+        return this.mongodbSettings;
     }
     public String password() {
         return this.password;
@@ -143,17 +141,17 @@ public final class GetEndpointResult {
     public static final class Builder {
         private String certificateArn;
         private String databaseName;
-        private @Nullable List<GetEndpointElasticsearchSetting> elasticsearchSettings;
+        private List<GetEndpointElasticsearchSetting> elasticsearchSettings;
         private String endpointArn;
         private String endpointId;
         private String endpointType;
         private String engineName;
-        private @Nullable String extraConnectionAttributes;
+        private String extraConnectionAttributes;
         private String id;
-        private @Nullable List<GetEndpointKafkaSetting> kafkaSettings;
+        private List<GetEndpointKafkaSetting> kafkaSettings;
         private List<GetEndpointKinesisSetting> kinesisSettings;
         private String kmsKeyArn;
-        private @Nullable List<GetEndpointMongodbSetting> mongodbSettings;
+        private List<GetEndpointMongodbSetting> mongodbSettings;
         private String password;
         private Integer port;
         private List<GetEndpointRedisSetting> redisSettings;
@@ -207,8 +205,8 @@ public final class GetEndpointResult {
             return this;
         }
         @CustomType.Setter
-        public Builder elasticsearchSettings(@Nullable List<GetEndpointElasticsearchSetting> elasticsearchSettings) {
-            this.elasticsearchSettings = elasticsearchSettings;
+        public Builder elasticsearchSettings(List<GetEndpointElasticsearchSetting> elasticsearchSettings) {
+            this.elasticsearchSettings = Objects.requireNonNull(elasticsearchSettings);
             return this;
         }
         public Builder elasticsearchSettings(GetEndpointElasticsearchSetting... elasticsearchSettings) {
@@ -235,8 +233,8 @@ public final class GetEndpointResult {
             return this;
         }
         @CustomType.Setter
-        public Builder extraConnectionAttributes(@Nullable String extraConnectionAttributes) {
-            this.extraConnectionAttributes = extraConnectionAttributes;
+        public Builder extraConnectionAttributes(String extraConnectionAttributes) {
+            this.extraConnectionAttributes = Objects.requireNonNull(extraConnectionAttributes);
             return this;
         }
         @CustomType.Setter
@@ -245,8 +243,8 @@ public final class GetEndpointResult {
             return this;
         }
         @CustomType.Setter
-        public Builder kafkaSettings(@Nullable List<GetEndpointKafkaSetting> kafkaSettings) {
-            this.kafkaSettings = kafkaSettings;
+        public Builder kafkaSettings(List<GetEndpointKafkaSetting> kafkaSettings) {
+            this.kafkaSettings = Objects.requireNonNull(kafkaSettings);
             return this;
         }
         public Builder kafkaSettings(GetEndpointKafkaSetting... kafkaSettings) {
@@ -266,8 +264,8 @@ public final class GetEndpointResult {
             return this;
         }
         @CustomType.Setter
-        public Builder mongodbSettings(@Nullable List<GetEndpointMongodbSetting> mongodbSettings) {
-            this.mongodbSettings = mongodbSettings;
+        public Builder mongodbSettings(List<GetEndpointMongodbSetting> mongodbSettings) {
+            this.mongodbSettings = Objects.requireNonNull(mongodbSettings);
             return this;
         }
         public Builder mongodbSettings(GetEndpointMongodbSetting... mongodbSettings) {

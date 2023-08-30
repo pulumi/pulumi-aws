@@ -1557,6 +1557,248 @@ func (o GetRouteTablePropagationsFilterArrayOutput) Index(i pulumi.IntInput) Get
 	}).(GetRouteTablePropagationsFilterOutput)
 }
 
+type GetRouteTableRoutesFilter struct {
+	// Name of the field to filter by, as defined by
+	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SearchTransitGatewayRoutes.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	Values []string `pulumi:"values"`
+}
+
+// GetRouteTableRoutesFilterInput is an input type that accepts GetRouteTableRoutesFilterArgs and GetRouteTableRoutesFilterOutput values.
+// You can construct a concrete instance of `GetRouteTableRoutesFilterInput` via:
+//
+//	GetRouteTableRoutesFilterArgs{...}
+type GetRouteTableRoutesFilterInput interface {
+	pulumi.Input
+
+	ToGetRouteTableRoutesFilterOutput() GetRouteTableRoutesFilterOutput
+	ToGetRouteTableRoutesFilterOutputWithContext(context.Context) GetRouteTableRoutesFilterOutput
+}
+
+type GetRouteTableRoutesFilterArgs struct {
+	// Name of the field to filter by, as defined by
+	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SearchTransitGatewayRoutes.html).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetRouteTableRoutesFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteTableRoutesFilter)(nil)).Elem()
+}
+
+func (i GetRouteTableRoutesFilterArgs) ToGetRouteTableRoutesFilterOutput() GetRouteTableRoutesFilterOutput {
+	return i.ToGetRouteTableRoutesFilterOutputWithContext(context.Background())
+}
+
+func (i GetRouteTableRoutesFilterArgs) ToGetRouteTableRoutesFilterOutputWithContext(ctx context.Context) GetRouteTableRoutesFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteTableRoutesFilterOutput)
+}
+
+// GetRouteTableRoutesFilterArrayInput is an input type that accepts GetRouteTableRoutesFilterArray and GetRouteTableRoutesFilterArrayOutput values.
+// You can construct a concrete instance of `GetRouteTableRoutesFilterArrayInput` via:
+//
+//	GetRouteTableRoutesFilterArray{ GetRouteTableRoutesFilterArgs{...} }
+type GetRouteTableRoutesFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetRouteTableRoutesFilterArrayOutput() GetRouteTableRoutesFilterArrayOutput
+	ToGetRouteTableRoutesFilterArrayOutputWithContext(context.Context) GetRouteTableRoutesFilterArrayOutput
+}
+
+type GetRouteTableRoutesFilterArray []GetRouteTableRoutesFilterInput
+
+func (GetRouteTableRoutesFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteTableRoutesFilter)(nil)).Elem()
+}
+
+func (i GetRouteTableRoutesFilterArray) ToGetRouteTableRoutesFilterArrayOutput() GetRouteTableRoutesFilterArrayOutput {
+	return i.ToGetRouteTableRoutesFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetRouteTableRoutesFilterArray) ToGetRouteTableRoutesFilterArrayOutputWithContext(ctx context.Context) GetRouteTableRoutesFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteTableRoutesFilterArrayOutput)
+}
+
+type GetRouteTableRoutesFilterOutput struct{ *pulumi.OutputState }
+
+func (GetRouteTableRoutesFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteTableRoutesFilter)(nil)).Elem()
+}
+
+func (o GetRouteTableRoutesFilterOutput) ToGetRouteTableRoutesFilterOutput() GetRouteTableRoutesFilterOutput {
+	return o
+}
+
+func (o GetRouteTableRoutesFilterOutput) ToGetRouteTableRoutesFilterOutputWithContext(ctx context.Context) GetRouteTableRoutesFilterOutput {
+	return o
+}
+
+// Name of the field to filter by, as defined by
+// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SearchTransitGatewayRoutes.html).
+func (o GetRouteTableRoutesFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteTableRoutesFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Set of values that are accepted for the given field.
+func (o GetRouteTableRoutesFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetRouteTableRoutesFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetRouteTableRoutesFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRouteTableRoutesFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteTableRoutesFilter)(nil)).Elem()
+}
+
+func (o GetRouteTableRoutesFilterArrayOutput) ToGetRouteTableRoutesFilterArrayOutput() GetRouteTableRoutesFilterArrayOutput {
+	return o
+}
+
+func (o GetRouteTableRoutesFilterArrayOutput) ToGetRouteTableRoutesFilterArrayOutputWithContext(ctx context.Context) GetRouteTableRoutesFilterArrayOutput {
+	return o
+}
+
+func (o GetRouteTableRoutesFilterArrayOutput) Index(i pulumi.IntInput) GetRouteTableRoutesFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRouteTableRoutesFilter {
+		return vs[0].([]GetRouteTableRoutesFilter)[vs[1].(int)]
+	}).(GetRouteTableRoutesFilterOutput)
+}
+
+type GetRouteTableRoutesRoute struct {
+	// The CIDR used for route destination matches.
+	DestinationCidrBlock string `pulumi:"destinationCidrBlock"`
+	// The ID of the prefix list used for destination matches.
+	PrefixListId string `pulumi:"prefixListId"`
+	// The current state of the route, can be `active`, `deleted`, `pending`, `blackhole`, `deleting`.
+	State string `pulumi:"state"`
+	// The id of the transit gateway route table announcement, most of the time it is an empty string.
+	TransitGatewayRouteTableAnnouncementId string `pulumi:"transitGatewayRouteTableAnnouncementId"`
+	// The type of the route, can be `propagated` or `static`.
+	Type string `pulumi:"type"`
+}
+
+// GetRouteTableRoutesRouteInput is an input type that accepts GetRouteTableRoutesRouteArgs and GetRouteTableRoutesRouteOutput values.
+// You can construct a concrete instance of `GetRouteTableRoutesRouteInput` via:
+//
+//	GetRouteTableRoutesRouteArgs{...}
+type GetRouteTableRoutesRouteInput interface {
+	pulumi.Input
+
+	ToGetRouteTableRoutesRouteOutput() GetRouteTableRoutesRouteOutput
+	ToGetRouteTableRoutesRouteOutputWithContext(context.Context) GetRouteTableRoutesRouteOutput
+}
+
+type GetRouteTableRoutesRouteArgs struct {
+	// The CIDR used for route destination matches.
+	DestinationCidrBlock pulumi.StringInput `pulumi:"destinationCidrBlock"`
+	// The ID of the prefix list used for destination matches.
+	PrefixListId pulumi.StringInput `pulumi:"prefixListId"`
+	// The current state of the route, can be `active`, `deleted`, `pending`, `blackhole`, `deleting`.
+	State pulumi.StringInput `pulumi:"state"`
+	// The id of the transit gateway route table announcement, most of the time it is an empty string.
+	TransitGatewayRouteTableAnnouncementId pulumi.StringInput `pulumi:"transitGatewayRouteTableAnnouncementId"`
+	// The type of the route, can be `propagated` or `static`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetRouteTableRoutesRouteArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteTableRoutesRoute)(nil)).Elem()
+}
+
+func (i GetRouteTableRoutesRouteArgs) ToGetRouteTableRoutesRouteOutput() GetRouteTableRoutesRouteOutput {
+	return i.ToGetRouteTableRoutesRouteOutputWithContext(context.Background())
+}
+
+func (i GetRouteTableRoutesRouteArgs) ToGetRouteTableRoutesRouteOutputWithContext(ctx context.Context) GetRouteTableRoutesRouteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteTableRoutesRouteOutput)
+}
+
+// GetRouteTableRoutesRouteArrayInput is an input type that accepts GetRouteTableRoutesRouteArray and GetRouteTableRoutesRouteArrayOutput values.
+// You can construct a concrete instance of `GetRouteTableRoutesRouteArrayInput` via:
+//
+//	GetRouteTableRoutesRouteArray{ GetRouteTableRoutesRouteArgs{...} }
+type GetRouteTableRoutesRouteArrayInput interface {
+	pulumi.Input
+
+	ToGetRouteTableRoutesRouteArrayOutput() GetRouteTableRoutesRouteArrayOutput
+	ToGetRouteTableRoutesRouteArrayOutputWithContext(context.Context) GetRouteTableRoutesRouteArrayOutput
+}
+
+type GetRouteTableRoutesRouteArray []GetRouteTableRoutesRouteInput
+
+func (GetRouteTableRoutesRouteArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteTableRoutesRoute)(nil)).Elem()
+}
+
+func (i GetRouteTableRoutesRouteArray) ToGetRouteTableRoutesRouteArrayOutput() GetRouteTableRoutesRouteArrayOutput {
+	return i.ToGetRouteTableRoutesRouteArrayOutputWithContext(context.Background())
+}
+
+func (i GetRouteTableRoutesRouteArray) ToGetRouteTableRoutesRouteArrayOutputWithContext(ctx context.Context) GetRouteTableRoutesRouteArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRouteTableRoutesRouteArrayOutput)
+}
+
+type GetRouteTableRoutesRouteOutput struct{ *pulumi.OutputState }
+
+func (GetRouteTableRoutesRouteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRouteTableRoutesRoute)(nil)).Elem()
+}
+
+func (o GetRouteTableRoutesRouteOutput) ToGetRouteTableRoutesRouteOutput() GetRouteTableRoutesRouteOutput {
+	return o
+}
+
+func (o GetRouteTableRoutesRouteOutput) ToGetRouteTableRoutesRouteOutputWithContext(ctx context.Context) GetRouteTableRoutesRouteOutput {
+	return o
+}
+
+// The CIDR used for route destination matches.
+func (o GetRouteTableRoutesRouteOutput) DestinationCidrBlock() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteTableRoutesRoute) string { return v.DestinationCidrBlock }).(pulumi.StringOutput)
+}
+
+// The ID of the prefix list used for destination matches.
+func (o GetRouteTableRoutesRouteOutput) PrefixListId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteTableRoutesRoute) string { return v.PrefixListId }).(pulumi.StringOutput)
+}
+
+// The current state of the route, can be `active`, `deleted`, `pending`, `blackhole`, `deleting`.
+func (o GetRouteTableRoutesRouteOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteTableRoutesRoute) string { return v.State }).(pulumi.StringOutput)
+}
+
+// The id of the transit gateway route table announcement, most of the time it is an empty string.
+func (o GetRouteTableRoutesRouteOutput) TransitGatewayRouteTableAnnouncementId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteTableRoutesRoute) string { return v.TransitGatewayRouteTableAnnouncementId }).(pulumi.StringOutput)
+}
+
+// The type of the route, can be `propagated` or `static`.
+func (o GetRouteTableRoutesRouteOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteTableRoutesRoute) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetRouteTableRoutesRouteArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRouteTableRoutesRouteArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRouteTableRoutesRoute)(nil)).Elem()
+}
+
+func (o GetRouteTableRoutesRouteArrayOutput) ToGetRouteTableRoutesRouteArrayOutput() GetRouteTableRoutesRouteArrayOutput {
+	return o
+}
+
+func (o GetRouteTableRoutesRouteArrayOutput) ToGetRouteTableRoutesRouteArrayOutputWithContext(ctx context.Context) GetRouteTableRoutesRouteArrayOutput {
+	return o
+}
+
+func (o GetRouteTableRoutesRouteArrayOutput) Index(i pulumi.IntInput) GetRouteTableRoutesRouteOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRouteTableRoutesRoute {
+		return vs[0].([]GetRouteTableRoutesRoute)[vs[1].(int)]
+	}).(GetRouteTableRoutesRouteOutput)
+}
+
 type GetTransitGatewayFilter struct {
 	// Name of the field to filter by, as defined by the [underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGateways.html).
 	Name string `pulumi:"name"`
@@ -2010,6 +2252,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteTableFilterArrayInput)(nil)).Elem(), GetRouteTableFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteTablePropagationsFilterInput)(nil)).Elem(), GetRouteTablePropagationsFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteTablePropagationsFilterArrayInput)(nil)).Elem(), GetRouteTablePropagationsFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteTableRoutesFilterInput)(nil)).Elem(), GetRouteTableRoutesFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteTableRoutesFilterArrayInput)(nil)).Elem(), GetRouteTableRoutesFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteTableRoutesRouteInput)(nil)).Elem(), GetRouteTableRoutesRouteArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteTableRoutesRouteArrayInput)(nil)).Elem(), GetRouteTableRoutesRouteArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTransitGatewayFilterInput)(nil)).Elem(), GetTransitGatewayFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTransitGatewayFilterArrayInput)(nil)).Elem(), GetTransitGatewayFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcAttachmentFilterInput)(nil)).Elem(), GetVpcAttachmentFilterArgs{})
@@ -2046,6 +2292,10 @@ func init() {
 	pulumi.RegisterOutputType(GetRouteTableFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetRouteTablePropagationsFilterOutput{})
 	pulumi.RegisterOutputType(GetRouteTablePropagationsFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetRouteTableRoutesFilterOutput{})
+	pulumi.RegisterOutputType(GetRouteTableRoutesFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetRouteTableRoutesRouteOutput{})
+	pulumi.RegisterOutputType(GetRouteTableRoutesRouteArrayOutput{})
 	pulumi.RegisterOutputType(GetTransitGatewayFilterOutput{})
 	pulumi.RegisterOutputType(GetTransitGatewayFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetVpcAttachmentFilterOutput{})

@@ -85,6 +85,11 @@ export type ServerlessVpcEndpoint = import("./serverlessVpcEndpoint").Serverless
 export const ServerlessVpcEndpoint: typeof import("./serverlessVpcEndpoint").ServerlessVpcEndpoint = null as any;
 utilities.lazyLoad(exports, ["ServerlessVpcEndpoint"], () => require("./serverlessVpcEndpoint"));
 
+export { VpcEndpointArgs, VpcEndpointState } from "./vpcEndpoint";
+export type VpcEndpoint = import("./vpcEndpoint").VpcEndpoint;
+export const VpcEndpoint: typeof import("./vpcEndpoint").VpcEndpoint = null as any;
+utilities.lazyLoad(exports, ["VpcEndpoint"], () => require("./vpcEndpoint"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -110,6 +115,8 @@ const _module = {
                 return new ServerlessSecurityPolicy(name, <any>undefined, { urn })
             case "aws:opensearch/serverlessVpcEndpoint:ServerlessVpcEndpoint":
                 return new ServerlessVpcEndpoint(name, <any>undefined, { urn })
+            case "aws:opensearch/vpcEndpoint:VpcEndpoint":
+                return new VpcEndpoint(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -125,3 +132,4 @@ pulumi.runtime.registerResourceModule("aws", "opensearch/serverlessCollection", 
 pulumi.runtime.registerResourceModule("aws", "opensearch/serverlessSecurityConfig", _module)
 pulumi.runtime.registerResourceModule("aws", "opensearch/serverlessSecurityPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "opensearch/serverlessVpcEndpoint", _module)
+pulumi.runtime.registerResourceModule("aws", "opensearch/vpcEndpoint", _module)

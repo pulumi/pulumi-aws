@@ -250,6 +250,8 @@ func (o ClusterBrokerNodeGroupInfoPtrOutput) StorageInfo() ClusterBrokerNodeGrou
 type ClusterBrokerNodeGroupInfoConnectivityInfo struct {
 	// Access control settings for brokers. See below.
 	PublicAccess *ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess `pulumi:"publicAccess"`
+	// VPC connectivity access control for brokers. See below.
+	VpcConnectivity *ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity `pulumi:"vpcConnectivity"`
 }
 
 // ClusterBrokerNodeGroupInfoConnectivityInfoInput is an input type that accepts ClusterBrokerNodeGroupInfoConnectivityInfoArgs and ClusterBrokerNodeGroupInfoConnectivityInfoOutput values.
@@ -266,6 +268,8 @@ type ClusterBrokerNodeGroupInfoConnectivityInfoInput interface {
 type ClusterBrokerNodeGroupInfoConnectivityInfoArgs struct {
 	// Access control settings for brokers. See below.
 	PublicAccess ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrInput `pulumi:"publicAccess"`
+	// VPC connectivity access control for brokers. See below.
+	VpcConnectivity ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityPtrInput `pulumi:"vpcConnectivity"`
 }
 
 func (ClusterBrokerNodeGroupInfoConnectivityInfoArgs) ElementType() reflect.Type {
@@ -352,6 +356,13 @@ func (o ClusterBrokerNodeGroupInfoConnectivityInfoOutput) PublicAccess() Cluster
 	}).(ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutput)
 }
 
+// VPC connectivity access control for brokers. See below.
+func (o ClusterBrokerNodeGroupInfoConnectivityInfoOutput) VpcConnectivity() ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityPtrOutput {
+	return o.ApplyT(func(v ClusterBrokerNodeGroupInfoConnectivityInfo) *ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity {
+		return v.VpcConnectivity
+	}).(ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityPtrOutput)
+}
+
 type ClusterBrokerNodeGroupInfoConnectivityInfoPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterBrokerNodeGroupInfoConnectivityInfoPtrOutput) ElementType() reflect.Type {
@@ -386,8 +397,18 @@ func (o ClusterBrokerNodeGroupInfoConnectivityInfoPtrOutput) PublicAccess() Clus
 	}).(ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutput)
 }
 
+// VPC connectivity access control for brokers. See below.
+func (o ClusterBrokerNodeGroupInfoConnectivityInfoPtrOutput) VpcConnectivity() ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityPtrOutput {
+	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfoConnectivityInfo) *ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity {
+		if v == nil {
+			return nil
+		}
+		return v.VpcConnectivity
+	}).(ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityPtrOutput)
+}
+
 type ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess struct {
-	// Public access type. Valida values: `DISABLED`, `SERVICE_PROVIDED_EIPS`.
+	// Public access type. Valid values: `DISABLED`, `SERVICE_PROVIDED_EIPS`.
 	Type *string `pulumi:"type"`
 }
 
@@ -403,7 +424,7 @@ type ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessInput interface {
 }
 
 type ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs struct {
-	// Public access type. Valida values: `DISABLED`, `SERVICE_PROVIDED_EIPS`.
+	// Public access type. Valid values: `DISABLED`, `SERVICE_PROVIDED_EIPS`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -484,7 +505,7 @@ func (o ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutput) ToClusterB
 	}).(ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutput)
 }
 
-// Public access type. Valida values: `DISABLED`, `SERVICE_PROVIDED_EIPS`.
+// Public access type. Valid values: `DISABLED`, `SERVICE_PROVIDED_EIPS`.
 func (o ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -513,7 +534,7 @@ func (o ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutput) Elem() 
 	}).(ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutput)
 }
 
-// Public access type. Valida values: `DISABLED`, `SERVICE_PROVIDED_EIPS`.
+// Public access type. Valid values: `DISABLED`, `SERVICE_PROVIDED_EIPS`.
 func (o ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess) *string {
 		if v == nil {
@@ -521,6 +542,465 @@ func (o ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutput) Type() 
 		}
 		return v.Type
 	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity struct {
+	// Configuration block for specifying a client authentication. See below.
+	ClientAuthentication *ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication `pulumi:"clientAuthentication"`
+}
+
+// ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityInput is an input type that accepts ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs and ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityOutput values.
+// You can construct a concrete instance of `ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityInput` via:
+//
+//	ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs{...}
+type ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityInput interface {
+	pulumi.Input
+
+	ToClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityOutput() ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityOutput
+	ToClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityOutputWithContext(context.Context) ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityOutput
+}
+
+type ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs struct {
+	// Configuration block for specifying a client authentication. See below.
+	ClientAuthentication ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationPtrInput `pulumi:"clientAuthentication"`
+}
+
+func (ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity)(nil)).Elem()
+}
+
+func (i ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs) ToClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityOutput() ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityOutput {
+	return i.ToClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityOutputWithContext(context.Background())
+}
+
+func (i ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs) ToClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityOutput)
+}
+
+func (i ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs) ToClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityPtrOutput() ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityPtrOutput {
+	return i.ToClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs) ToClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityPtrOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityOutput).ToClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityPtrOutputWithContext(ctx)
+}
+
+// ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityPtrInput is an input type that accepts ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs, ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityPtr and ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityPtrOutput values.
+// You can construct a concrete instance of `ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityPtrInput` via:
+//
+//	        ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityPtrInput interface {
+	pulumi.Input
+
+	ToClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityPtrOutput() ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityPtrOutput
+	ToClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityPtrOutputWithContext(context.Context) ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityPtrOutput
+}
+
+type clusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityPtrType ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs
+
+func ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityPtr(v *ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs) ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityPtrInput {
+	return (*clusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityPtrType)(v)
+}
+
+func (*clusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity)(nil)).Elem()
+}
+
+func (i *clusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityPtrType) ToClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityPtrOutput() ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityPtrOutput {
+	return i.ToClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityPtrType) ToClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityPtrOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityPtrOutput)
+}
+
+type ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityOutput struct{ *pulumi.OutputState }
+
+func (ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity)(nil)).Elem()
+}
+
+func (o ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityOutput) ToClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityOutput() ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityOutput {
+	return o
+}
+
+func (o ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityOutput) ToClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityOutput {
+	return o
+}
+
+func (o ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityOutput) ToClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityPtrOutput() ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityPtrOutput {
+	return o.ToClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityOutput) ToClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityPtrOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity) *ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity {
+		return &v
+	}).(ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityPtrOutput)
+}
+
+// Configuration block for specifying a client authentication. See below.
+func (o ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityOutput) ClientAuthentication() ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationPtrOutput {
+	return o.ApplyT(func(v ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity) *ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication {
+		return v.ClientAuthentication
+	}).(ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationPtrOutput)
+}
+
+type ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity)(nil)).Elem()
+}
+
+func (o ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityPtrOutput) ToClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityPtrOutput() ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityPtrOutput {
+	return o
+}
+
+func (o ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityPtrOutput) ToClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityPtrOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityPtrOutput {
+	return o
+}
+
+func (o ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityPtrOutput) Elem() ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityOutput {
+	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity) ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity
+		return ret
+	}).(ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityOutput)
+}
+
+// Configuration block for specifying a client authentication. See below.
+func (o ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityPtrOutput) ClientAuthentication() ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationPtrOutput {
+	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity) *ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication {
+		if v == nil {
+			return nil
+		}
+		return v.ClientAuthentication
+	}).(ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationPtrOutput)
+}
+
+type ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication struct {
+	// Configuration block for specifying SASL client authentication. See below.
+	Sasl *ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl `pulumi:"sasl"`
+	// Configuration block for specifying TLS client authentication. See below.
+	Tls *bool `pulumi:"tls"`
+}
+
+// ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationInput is an input type that accepts ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs and ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationOutput values.
+// You can construct a concrete instance of `ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationInput` via:
+//
+//	ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs{...}
+type ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationInput interface {
+	pulumi.Input
+
+	ToClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationOutput() ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationOutput
+	ToClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationOutputWithContext(context.Context) ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationOutput
+}
+
+type ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs struct {
+	// Configuration block for specifying SASL client authentication. See below.
+	Sasl ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslPtrInput `pulumi:"sasl"`
+	// Configuration block for specifying TLS client authentication. See below.
+	Tls pulumi.BoolPtrInput `pulumi:"tls"`
+}
+
+func (ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication)(nil)).Elem()
+}
+
+func (i ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs) ToClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationOutput() ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationOutput {
+	return i.ToClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationOutputWithContext(context.Background())
+}
+
+func (i ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs) ToClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationOutput)
+}
+
+func (i ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs) ToClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationPtrOutput() ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationPtrOutput {
+	return i.ToClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs) ToClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationPtrOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationOutput).ToClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationPtrOutputWithContext(ctx)
+}
+
+// ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationPtrInput is an input type that accepts ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs, ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationPtr and ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationPtrOutput values.
+// You can construct a concrete instance of `ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationPtrInput` via:
+//
+//	        ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationPtrInput interface {
+	pulumi.Input
+
+	ToClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationPtrOutput() ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationPtrOutput
+	ToClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationPtrOutputWithContext(context.Context) ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationPtrOutput
+}
+
+type clusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationPtrType ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs
+
+func ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationPtr(v *ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs) ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationPtrInput {
+	return (*clusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationPtrType)(v)
+}
+
+func (*clusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication)(nil)).Elem()
+}
+
+func (i *clusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationPtrType) ToClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationPtrOutput() ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationPtrOutput {
+	return i.ToClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationPtrType) ToClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationPtrOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationPtrOutput)
+}
+
+type ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationOutput struct{ *pulumi.OutputState }
+
+func (ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication)(nil)).Elem()
+}
+
+func (o ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationOutput) ToClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationOutput() ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationOutput {
+	return o
+}
+
+func (o ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationOutput) ToClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationOutput {
+	return o
+}
+
+func (o ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationOutput) ToClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationPtrOutput() ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationPtrOutput {
+	return o.ToClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationOutput) ToClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationPtrOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication) *ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication {
+		return &v
+	}).(ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationPtrOutput)
+}
+
+// Configuration block for specifying SASL client authentication. See below.
+func (o ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationOutput) Sasl() ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslPtrOutput {
+	return o.ApplyT(func(v ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication) *ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl {
+		return v.Sasl
+	}).(ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslPtrOutput)
+}
+
+// Configuration block for specifying TLS client authentication. See below.
+func (o ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationOutput) Tls() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication) *bool {
+		return v.Tls
+	}).(pulumi.BoolPtrOutput)
+}
+
+type ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication)(nil)).Elem()
+}
+
+func (o ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationPtrOutput) ToClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationPtrOutput() ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationPtrOutput {
+	return o
+}
+
+func (o ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationPtrOutput) ToClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationPtrOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationPtrOutput {
+	return o
+}
+
+func (o ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationPtrOutput) Elem() ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationOutput {
+	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication) ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication
+		return ret
+	}).(ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationOutput)
+}
+
+// Configuration block for specifying SASL client authentication. See below.
+func (o ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationPtrOutput) Sasl() ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslPtrOutput {
+	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication) *ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl {
+		if v == nil {
+			return nil
+		}
+		return v.Sasl
+	}).(ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslPtrOutput)
+}
+
+// Configuration block for specifying TLS client authentication. See below.
+func (o ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationPtrOutput) Tls() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Tls
+	}).(pulumi.BoolPtrOutput)
+}
+
+type ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl struct {
+	// Enables SASL/IAM authentication for VPC connectivity.
+	Iam *bool `pulumi:"iam"`
+	// Enables SASL/SCRAM authentication for VPC connectivity.
+	Scram *bool `pulumi:"scram"`
+}
+
+// ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslInput is an input type that accepts ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs and ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslOutput values.
+// You can construct a concrete instance of `ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslInput` via:
+//
+//	ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs{...}
+type ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslInput interface {
+	pulumi.Input
+
+	ToClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslOutput() ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslOutput
+	ToClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslOutputWithContext(context.Context) ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslOutput
+}
+
+type ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs struct {
+	// Enables SASL/IAM authentication for VPC connectivity.
+	Iam pulumi.BoolPtrInput `pulumi:"iam"`
+	// Enables SASL/SCRAM authentication for VPC connectivity.
+	Scram pulumi.BoolPtrInput `pulumi:"scram"`
+}
+
+func (ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl)(nil)).Elem()
+}
+
+func (i ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs) ToClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslOutput() ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslOutput {
+	return i.ToClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslOutputWithContext(context.Background())
+}
+
+func (i ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs) ToClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslOutput)
+}
+
+func (i ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs) ToClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslPtrOutput() ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslPtrOutput {
+	return i.ToClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs) ToClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslPtrOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslOutput).ToClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslPtrOutputWithContext(ctx)
+}
+
+// ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslPtrInput is an input type that accepts ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs, ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslPtr and ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslPtrOutput values.
+// You can construct a concrete instance of `ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslPtrInput` via:
+//
+//	        ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslPtrInput interface {
+	pulumi.Input
+
+	ToClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslPtrOutput() ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslPtrOutput
+	ToClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslPtrOutputWithContext(context.Context) ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslPtrOutput
+}
+
+type clusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslPtrType ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs
+
+func ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslPtr(v *ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs) ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslPtrInput {
+	return (*clusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslPtrType)(v)
+}
+
+func (*clusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl)(nil)).Elem()
+}
+
+func (i *clusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslPtrType) ToClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslPtrOutput() ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslPtrOutput {
+	return i.ToClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslPtrType) ToClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslPtrOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslPtrOutput)
+}
+
+type ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslOutput struct{ *pulumi.OutputState }
+
+func (ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl)(nil)).Elem()
+}
+
+func (o ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslOutput) ToClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslOutput() ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslOutput {
+	return o
+}
+
+func (o ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslOutput) ToClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslOutput {
+	return o
+}
+
+func (o ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslOutput) ToClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslPtrOutput() ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslPtrOutput {
+	return o.ToClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslOutput) ToClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslPtrOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl) *ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl {
+		return &v
+	}).(ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslPtrOutput)
+}
+
+// Enables SASL/IAM authentication for VPC connectivity.
+func (o ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslOutput) Iam() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl) *bool {
+		return v.Iam
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Enables SASL/SCRAM authentication for VPC connectivity.
+func (o ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslOutput) Scram() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl) *bool {
+		return v.Scram
+	}).(pulumi.BoolPtrOutput)
+}
+
+type ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl)(nil)).Elem()
+}
+
+func (o ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslPtrOutput) ToClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslPtrOutput() ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslPtrOutput {
+	return o
+}
+
+func (o ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslPtrOutput) ToClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslPtrOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslPtrOutput {
+	return o
+}
+
+func (o ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslPtrOutput) Elem() ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslOutput {
+	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl) ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl
+		return ret
+	}).(ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslOutput)
+}
+
+// Enables SASL/IAM authentication for VPC connectivity.
+func (o ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslPtrOutput) Iam() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Iam
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Enables SASL/SCRAM authentication for VPC connectivity.
+func (o ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslPtrOutput) Scram() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Scram
+	}).(pulumi.BoolPtrOutput)
 }
 
 type ClusterBrokerNodeGroupInfoStorageInfo struct {
@@ -1156,9 +1636,9 @@ func (o ClusterClientAuthenticationPtrOutput) Unauthenticated() pulumi.BoolPtrOu
 }
 
 type ClusterClientAuthenticationSasl struct {
-	// Enables IAM client authentication. Defaults to `false`.
+	// Enables SASL/IAM authentication for VPC connectivity.
 	Iam *bool `pulumi:"iam"`
-	// Enables SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
+	// Enables SASL/SCRAM authentication for VPC connectivity.
 	Scram *bool `pulumi:"scram"`
 }
 
@@ -1174,9 +1654,9 @@ type ClusterClientAuthenticationSaslInput interface {
 }
 
 type ClusterClientAuthenticationSaslArgs struct {
-	// Enables IAM client authentication. Defaults to `false`.
+	// Enables SASL/IAM authentication for VPC connectivity.
 	Iam pulumi.BoolPtrInput `pulumi:"iam"`
-	// Enables SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
+	// Enables SASL/SCRAM authentication for VPC connectivity.
 	Scram pulumi.BoolPtrInput `pulumi:"scram"`
 }
 
@@ -1257,12 +1737,12 @@ func (o ClusterClientAuthenticationSaslOutput) ToClusterClientAuthenticationSasl
 	}).(ClusterClientAuthenticationSaslPtrOutput)
 }
 
-// Enables IAM client authentication. Defaults to `false`.
+// Enables SASL/IAM authentication for VPC connectivity.
 func (o ClusterClientAuthenticationSaslOutput) Iam() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterClientAuthenticationSasl) *bool { return v.Iam }).(pulumi.BoolPtrOutput)
 }
 
-// Enables SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
+// Enables SASL/SCRAM authentication for VPC connectivity.
 func (o ClusterClientAuthenticationSaslOutput) Scram() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterClientAuthenticationSasl) *bool { return v.Scram }).(pulumi.BoolPtrOutput)
 }
@@ -1291,7 +1771,7 @@ func (o ClusterClientAuthenticationSaslPtrOutput) Elem() ClusterClientAuthentica
 	}).(ClusterClientAuthenticationSaslOutput)
 }
 
-// Enables IAM client authentication. Defaults to `false`.
+// Enables SASL/IAM authentication for VPC connectivity.
 func (o ClusterClientAuthenticationSaslPtrOutput) Iam() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterClientAuthenticationSasl) *bool {
 		if v == nil {
@@ -1301,7 +1781,7 @@ func (o ClusterClientAuthenticationSaslPtrOutput) Iam() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Enables SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
+// Enables SASL/SCRAM authentication for VPC connectivity.
 func (o ClusterClientAuthenticationSaslPtrOutput) Scram() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterClientAuthenticationSasl) *bool {
 		if v == nil {
@@ -3944,6 +4424,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterBrokerNodeGroupInfoConnectivityInfoPtrInput)(nil)).Elem(), ClusterBrokerNodeGroupInfoConnectivityInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessInput)(nil)).Elem(), ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrInput)(nil)).Elem(), ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityInput)(nil)).Elem(), ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityPtrInput)(nil)).Elem(), ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationInput)(nil)).Elem(), ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationPtrInput)(nil)).Elem(), ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslInput)(nil)).Elem(), ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslPtrInput)(nil)).Elem(), ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterBrokerNodeGroupInfoStorageInfoInput)(nil)).Elem(), ClusterBrokerNodeGroupInfoStorageInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterBrokerNodeGroupInfoStorageInfoPtrInput)(nil)).Elem(), ClusterBrokerNodeGroupInfoStorageInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoInput)(nil)).Elem(), ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs{})
@@ -3996,6 +4482,12 @@ func init() {
 	pulumi.RegisterOutputType(ClusterBrokerNodeGroupInfoConnectivityInfoPtrOutput{})
 	pulumi.RegisterOutputType(ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutput{})
 	pulumi.RegisterOutputType(ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutput{})
+	pulumi.RegisterOutputType(ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityOutput{})
+	pulumi.RegisterOutputType(ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityPtrOutput{})
+	pulumi.RegisterOutputType(ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationOutput{})
+	pulumi.RegisterOutputType(ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationPtrOutput{})
+	pulumi.RegisterOutputType(ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslOutput{})
+	pulumi.RegisterOutputType(ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslPtrOutput{})
 	pulumi.RegisterOutputType(ClusterBrokerNodeGroupInfoStorageInfoOutput{})
 	pulumi.RegisterOutputType(ClusterBrokerNodeGroupInfoStorageInfoPtrOutput{})
 	pulumi.RegisterOutputType(ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutput{})

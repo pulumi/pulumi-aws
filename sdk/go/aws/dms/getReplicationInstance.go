@@ -71,6 +71,8 @@ type LookupReplicationInstanceResult struct {
 	KmsKeyArn string `pulumi:"kmsKeyArn"`
 	// Specifies if the replication instance is a multi-az deployment.
 	MultiAz bool `pulumi:"multiAz"`
+	// The type of IP address protocol used by the replication instance.
+	NetworkType string `pulumi:"networkType"`
 	// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
 	PreferredMaintenanceWindow string `pulumi:"preferredMaintenanceWindow"`
 	// Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
@@ -163,6 +165,11 @@ func (o LookupReplicationInstanceResultOutput) KmsKeyArn() pulumi.StringOutput {
 // Specifies if the replication instance is a multi-az deployment.
 func (o LookupReplicationInstanceResultOutput) MultiAz() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupReplicationInstanceResult) bool { return v.MultiAz }).(pulumi.BoolOutput)
+}
+
+// The type of IP address protocol used by the replication instance.
+func (o LookupReplicationInstanceResultOutput) NetworkType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupReplicationInstanceResult) string { return v.NetworkType }).(pulumi.StringOutput)
 }
 
 // The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).

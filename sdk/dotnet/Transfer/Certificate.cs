@@ -54,6 +54,12 @@ namespace Pulumi.Aws.Transfer
         public Output<string> ActiveDate { get; private set; } = null!;
 
         /// <summary>
+        /// The ARN of the certificate
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// The valid certificate file required for the transfer.
         /// </summary>
         [Output("certificate")]
@@ -241,6 +247,12 @@ namespace Pulumi.Aws.Transfer
         /// </summary>
         [Input("activeDate")]
         public Input<string>? ActiveDate { get; set; }
+
+        /// <summary>
+        /// The ARN of the certificate
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
 
         [Input("certificate")]
         private Input<string>? _certificate;

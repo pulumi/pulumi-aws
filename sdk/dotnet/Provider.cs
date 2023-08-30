@@ -72,6 +72,14 @@ namespace Pulumi.Aws
         public Output<string?> RetryMode { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid
+        /// values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment
+        /// variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
+        /// </summary>
+        [Output("s3UsEast1RegionalEndpoint")]
+        public Output<string?> S3UsEast1RegionalEndpoint { get; private set; } = null!;
+
+        /// <summary>
         /// The secret key for API operations. You can retrieve this from the 'Security &amp; Credentials' section of the AWS console.
         /// </summary>
         [Output("secretKey")]
@@ -223,6 +231,14 @@ namespace Pulumi.Aws
         /// </summary>
         [Input("retryMode")]
         public Input<string>? RetryMode { get; set; }
+
+        /// <summary>
+        /// Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid
+        /// values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment
+        /// variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
+        /// </summary>
+        [Input("s3UsEast1RegionalEndpoint")]
+        public Input<string>? S3UsEast1RegionalEndpoint { get; set; }
 
         /// <summary>
         /// Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By

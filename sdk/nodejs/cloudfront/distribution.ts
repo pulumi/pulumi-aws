@@ -15,8 +15,9 @@ import * as utilities from "../utilities";
  * > **NOTE:** CloudFront distributions take about 15 minutes to reach a deployed state after creation or modification. During this time, deletes to resources will be blocked. If you need to delete a distribution that is enabled and you do not want to wait, you need to use the `retainOnDelete` flag.
  *
  * ## Example Usage
+ * ### S3 Origin
  *
- * The following example below creates a CloudFront distribution with an S3 origin.
+ * The example below creates a CloudFront distribution with an S3 origin.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -147,8 +148,9 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * ### With Failover Routing
  *
- * The example below creates a CloudFront distribution with an origin group for failover routing:
+ * The example below creates a CloudFront distribution with an origin group for failover routing.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -196,8 +198,9 @@ import * as utilities from "../utilities";
  * });
  * // ... other configuration ...
  * ```
+ * ### With Managed Caching Policy
  *
- * CloudFront distribution using [managed policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) (ex: CachingDisabled):
+ * The example below creates a CloudFront distribution with an [AWS managed caching policy](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html).
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -296,6 +299,10 @@ export class Distribution extends pulumi.CustomResource {
      */
     public readonly comment!: pulumi.Output<string | undefined>;
     /**
+     * Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `aws.cloudfront.ContinuousDeploymentPolicy` resource for additional details.
+     */
+    public readonly continuousDeploymentPolicyId!: pulumi.Output<string | undefined>;
+    /**
      * One or more custom error response elements (multiples allowed).
      */
     public readonly customErrorResponses!: pulumi.Output<outputs.cloudfront.DistributionCustomErrorResponse[] | undefined>;
@@ -368,6 +375,10 @@ export class Distribution extends pulumi.CustomResource {
      */
     public readonly retainOnDelete!: pulumi.Output<boolean | undefined>;
     /**
+     * A Boolean that indicates whether this is a staging distribution. Defaults to `false`.
+     */
+    public readonly staging!: pulumi.Output<boolean | undefined>;
+    /**
      * Current status of the distribution. `Deployed` if the distribution's information is fully propagated throughout the Amazon CloudFront system.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
@@ -417,6 +428,7 @@ export class Distribution extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["callerReference"] = state ? state.callerReference : undefined;
             resourceInputs["comment"] = state ? state.comment : undefined;
+            resourceInputs["continuousDeploymentPolicyId"] = state ? state.continuousDeploymentPolicyId : undefined;
             resourceInputs["customErrorResponses"] = state ? state.customErrorResponses : undefined;
             resourceInputs["defaultCacheBehavior"] = state ? state.defaultCacheBehavior : undefined;
             resourceInputs["defaultRootObject"] = state ? state.defaultRootObject : undefined;
@@ -435,6 +447,7 @@ export class Distribution extends pulumi.CustomResource {
             resourceInputs["priceClass"] = state ? state.priceClass : undefined;
             resourceInputs["restrictions"] = state ? state.restrictions : undefined;
             resourceInputs["retainOnDelete"] = state ? state.retainOnDelete : undefined;
+            resourceInputs["staging"] = state ? state.staging : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -462,6 +475,7 @@ export class Distribution extends pulumi.CustomResource {
             }
             resourceInputs["aliases"] = args ? args.aliases : undefined;
             resourceInputs["comment"] = args ? args.comment : undefined;
+            resourceInputs["continuousDeploymentPolicyId"] = args ? args.continuousDeploymentPolicyId : undefined;
             resourceInputs["customErrorResponses"] = args ? args.customErrorResponses : undefined;
             resourceInputs["defaultCacheBehavior"] = args ? args.defaultCacheBehavior : undefined;
             resourceInputs["defaultRootObject"] = args ? args.defaultRootObject : undefined;
@@ -475,6 +489,7 @@ export class Distribution extends pulumi.CustomResource {
             resourceInputs["priceClass"] = args ? args.priceClass : undefined;
             resourceInputs["restrictions"] = args ? args.restrictions : undefined;
             resourceInputs["retainOnDelete"] = args ? args.retainOnDelete : undefined;
+            resourceInputs["staging"] = args ? args.staging : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["viewerCertificate"] = args ? args.viewerCertificate : undefined;
             resourceInputs["waitForDeployment"] = args ? args.waitForDeployment : undefined;
@@ -516,6 +531,10 @@ export interface DistributionState {
      * Any comments you want to include about the distribution.
      */
     comment?: pulumi.Input<string>;
+    /**
+     * Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `aws.cloudfront.ContinuousDeploymentPolicy` resource for additional details.
+     */
+    continuousDeploymentPolicyId?: pulumi.Input<string>;
     /**
      * One or more custom error response elements (multiples allowed).
      */
@@ -589,6 +608,10 @@ export interface DistributionState {
      */
     retainOnDelete?: pulumi.Input<boolean>;
     /**
+     * A Boolean that indicates whether this is a staging distribution. Defaults to `false`.
+     */
+    staging?: pulumi.Input<boolean>;
+    /**
      * Current status of the distribution. `Deployed` if the distribution's information is fully propagated throughout the Amazon CloudFront system.
      */
     status?: pulumi.Input<string>;
@@ -634,6 +657,10 @@ export interface DistributionArgs {
      * Any comments you want to include about the distribution.
      */
     comment?: pulumi.Input<string>;
+    /**
+     * Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `aws.cloudfront.ContinuousDeploymentPolicy` resource for additional details.
+     */
+    continuousDeploymentPolicyId?: pulumi.Input<string>;
     /**
      * One or more custom error response elements (multiples allowed).
      */
@@ -686,6 +713,10 @@ export interface DistributionArgs {
      * Disables the distribution instead of deleting it when destroying the resource through the provider. If this is set, the distribution needs to be deleted manually afterwards. Default: `false`.
      */
     retainOnDelete?: pulumi.Input<boolean>;
+    /**
+     * A Boolean that indicates whether this is a staging distribution. Defaults to `false`.
+     */
+    staging?: pulumi.Input<boolean>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

@@ -99,7 +99,7 @@ type ContactChannel struct {
 	ContactId pulumi.StringOutput `pulumi:"contactId"`
 	// Block that contains contact engagement details. See details below.
 	DeliveryAddress ContactChannelDeliveryAddressOutput `pulumi:"deliveryAddress"`
-	// Name of the contact channel.
+	// Name of the contact channel. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Type of the contact channel. One of `SMS`, `VOICE` or `EMAIL`.
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -152,7 +152,7 @@ type contactChannelState struct {
 	ContactId *string `pulumi:"contactId"`
 	// Block that contains contact engagement details. See details below.
 	DeliveryAddress *ContactChannelDeliveryAddress `pulumi:"deliveryAddress"`
-	// Name of the contact channel.
+	// Name of the contact channel. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
 	Name *string `pulumi:"name"`
 	// Type of the contact channel. One of `SMS`, `VOICE` or `EMAIL`.
 	Type *string `pulumi:"type"`
@@ -167,7 +167,7 @@ type ContactChannelState struct {
 	ContactId pulumi.StringPtrInput
 	// Block that contains contact engagement details. See details below.
 	DeliveryAddress ContactChannelDeliveryAddressPtrInput
-	// Name of the contact channel.
+	// Name of the contact channel. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
 	Name pulumi.StringPtrInput
 	// Type of the contact channel. One of `SMS`, `VOICE` or `EMAIL`.
 	Type pulumi.StringPtrInput
@@ -182,7 +182,7 @@ type contactChannelArgs struct {
 	ContactId string `pulumi:"contactId"`
 	// Block that contains contact engagement details. See details below.
 	DeliveryAddress ContactChannelDeliveryAddress `pulumi:"deliveryAddress"`
-	// Name of the contact channel.
+	// Name of the contact channel. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
 	Name *string `pulumi:"name"`
 	// Type of the contact channel. One of `SMS`, `VOICE` or `EMAIL`.
 	Type string `pulumi:"type"`
@@ -194,7 +194,7 @@ type ContactChannelArgs struct {
 	ContactId pulumi.StringInput
 	// Block that contains contact engagement details. See details below.
 	DeliveryAddress ContactChannelDeliveryAddressInput
-	// Name of the contact channel.
+	// Name of the contact channel. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
 	Name pulumi.StringPtrInput
 	// Type of the contact channel. One of `SMS`, `VOICE` or `EMAIL`.
 	Type pulumi.StringInput
@@ -307,7 +307,7 @@ func (o ContactChannelOutput) DeliveryAddress() ContactChannelDeliveryAddressOut
 	return o.ApplyT(func(v *ContactChannel) ContactChannelDeliveryAddressOutput { return v.DeliveryAddress }).(ContactChannelDeliveryAddressOutput)
 }
 
-// Name of the contact channel.
+// Name of the contact channel. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
 func (o ContactChannelOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContactChannel) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

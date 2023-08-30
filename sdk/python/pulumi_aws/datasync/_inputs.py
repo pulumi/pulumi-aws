@@ -14,6 +14,12 @@ __all__ = [
     'FsxOpenZfsFileSystemProtocolArgs',
     'FsxOpenZfsFileSystemProtocolNfsArgs',
     'FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs',
+    'LocationAzureBlobSasConfigurationArgs',
+    'LocationFsxOntapFileSystemProtocolArgs',
+    'LocationFsxOntapFileSystemProtocolNfsArgs',
+    'LocationFsxOntapFileSystemProtocolNfsMountOptionsArgs',
+    'LocationFsxOntapFileSystemProtocolSmbArgs',
+    'LocationFsxOntapFileSystemProtocolSmbMountOptionsArgs',
     'LocationHdfsNameNodeArgs',
     'LocationHdfsQopConfigurationArgs',
     'LocationSmbMountOptionsArgs',
@@ -122,6 +128,203 @@ class FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs:
     def version(self) -> Optional[pulumi.Input[str]]:
         """
         The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0` and `NFS4_1`. Default: `AUTOMATIC`
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
+
+
+@pulumi.input_type
+class LocationAzureBlobSasConfigurationArgs:
+    def __init__(__self__, *,
+                 token: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] token: A SAS token that provides permissions to access your Azure Blob Storage.
+        """
+        pulumi.set(__self__, "token", token)
+
+    @property
+    @pulumi.getter
+    def token(self) -> pulumi.Input[str]:
+        """
+        A SAS token that provides permissions to access your Azure Blob Storage.
+        """
+        return pulumi.get(self, "token")
+
+    @token.setter
+    def token(self, value: pulumi.Input[str]):
+        pulumi.set(self, "token", value)
+
+
+@pulumi.input_type
+class LocationFsxOntapFileSystemProtocolArgs:
+    def __init__(__self__, *,
+                 nfs: Optional[pulumi.Input['LocationFsxOntapFileSystemProtocolNfsArgs']] = None,
+                 smb: Optional[pulumi.Input['LocationFsxOntapFileSystemProtocolSmbArgs']] = None):
+        """
+        :param pulumi.Input['LocationFsxOntapFileSystemProtocolNfsArgs'] nfs: Network File System (NFS) protocol that DataSync uses to access your FSx ONTAP file system. See NFS below.
+        :param pulumi.Input['LocationFsxOntapFileSystemProtocolSmbArgs'] smb: Server Message Block (SMB) protocol that DataSync uses to access your FSx ONTAP file system. See [SMB] (#smb) below.
+        """
+        if nfs is not None:
+            pulumi.set(__self__, "nfs", nfs)
+        if smb is not None:
+            pulumi.set(__self__, "smb", smb)
+
+    @property
+    @pulumi.getter
+    def nfs(self) -> Optional[pulumi.Input['LocationFsxOntapFileSystemProtocolNfsArgs']]:
+        """
+        Network File System (NFS) protocol that DataSync uses to access your FSx ONTAP file system. See NFS below.
+        """
+        return pulumi.get(self, "nfs")
+
+    @nfs.setter
+    def nfs(self, value: Optional[pulumi.Input['LocationFsxOntapFileSystemProtocolNfsArgs']]):
+        pulumi.set(self, "nfs", value)
+
+    @property
+    @pulumi.getter
+    def smb(self) -> Optional[pulumi.Input['LocationFsxOntapFileSystemProtocolSmbArgs']]:
+        """
+        Server Message Block (SMB) protocol that DataSync uses to access your FSx ONTAP file system. See [SMB] (#smb) below.
+        """
+        return pulumi.get(self, "smb")
+
+    @smb.setter
+    def smb(self, value: Optional[pulumi.Input['LocationFsxOntapFileSystemProtocolSmbArgs']]):
+        pulumi.set(self, "smb", value)
+
+
+@pulumi.input_type
+class LocationFsxOntapFileSystemProtocolNfsArgs:
+    def __init__(__self__, *,
+                 mount_options: pulumi.Input['LocationFsxOntapFileSystemProtocolNfsMountOptionsArgs']):
+        """
+        :param pulumi.Input['LocationFsxOntapFileSystemProtocolNfsMountOptionsArgs'] mount_options: Mount options that are available for DataSync to access an NFS location. See NFS Mount Options below.
+        """
+        pulumi.set(__self__, "mount_options", mount_options)
+
+    @property
+    @pulumi.getter(name="mountOptions")
+    def mount_options(self) -> pulumi.Input['LocationFsxOntapFileSystemProtocolNfsMountOptionsArgs']:
+        """
+        Mount options that are available for DataSync to access an NFS location. See NFS Mount Options below.
+        """
+        return pulumi.get(self, "mount_options")
+
+    @mount_options.setter
+    def mount_options(self, value: pulumi.Input['LocationFsxOntapFileSystemProtocolNfsMountOptionsArgs']):
+        pulumi.set(self, "mount_options", value)
+
+
+@pulumi.input_type
+class LocationFsxOntapFileSystemProtocolNfsMountOptionsArgs:
+    def __init__(__self__, *,
+                 version: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] version: The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `NFS3`. Default: `NFS3`
+        """
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `NFS3`. Default: `NFS3`
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
+
+
+@pulumi.input_type
+class LocationFsxOntapFileSystemProtocolSmbArgs:
+    def __init__(__self__, *,
+                 mount_options: pulumi.Input['LocationFsxOntapFileSystemProtocolSmbMountOptionsArgs'],
+                 password: pulumi.Input[str],
+                 user: pulumi.Input[str],
+                 domain: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['LocationFsxOntapFileSystemProtocolSmbMountOptionsArgs'] mount_options: Mount options that are available for DataSync to access an SMB location. See SMB Mount Options below.
+        :param pulumi.Input[str] password: Password of a user who has permission to access your SVM.
+        :param pulumi.Input[str] user: Username that can mount the location and access the files, folders, and metadata that you need in the SVM.
+        :param pulumi.Input[str] domain: Fully qualified domain name of the Microsoft Active Directory (AD) that your storage virtual machine belongs to.
+        """
+        pulumi.set(__self__, "mount_options", mount_options)
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "user", user)
+        if domain is not None:
+            pulumi.set(__self__, "domain", domain)
+
+    @property
+    @pulumi.getter(name="mountOptions")
+    def mount_options(self) -> pulumi.Input['LocationFsxOntapFileSystemProtocolSmbMountOptionsArgs']:
+        """
+        Mount options that are available for DataSync to access an SMB location. See SMB Mount Options below.
+        """
+        return pulumi.get(self, "mount_options")
+
+    @mount_options.setter
+    def mount_options(self, value: pulumi.Input['LocationFsxOntapFileSystemProtocolSmbMountOptionsArgs']):
+        pulumi.set(self, "mount_options", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> pulumi.Input[str]:
+        """
+        Password of a user who has permission to access your SVM.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: pulumi.Input[str]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter
+    def user(self) -> pulumi.Input[str]:
+        """
+        Username that can mount the location and access the files, folders, and metadata that you need in the SVM.
+        """
+        return pulumi.get(self, "user")
+
+    @user.setter
+    def user(self, value: pulumi.Input[str]):
+        pulumi.set(self, "user", value)
+
+    @property
+    @pulumi.getter
+    def domain(self) -> Optional[pulumi.Input[str]]:
+        """
+        Fully qualified domain name of the Microsoft Active Directory (AD) that your storage virtual machine belongs to.
+        """
+        return pulumi.get(self, "domain")
+
+    @domain.setter
+    def domain(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain", value)
+
+
+@pulumi.input_type
+class LocationFsxOntapFileSystemProtocolSmbMountOptionsArgs:
+    def __init__(__self__, *,
+                 version: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] version: The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `NFS3`. Default: `NFS3`
+        """
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `NFS3`. Default: `NFS3`
         """
         return pulumi.get(self, "version")
 

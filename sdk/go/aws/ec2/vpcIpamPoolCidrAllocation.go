@@ -55,14 +55,14 @@ import (
 //			}
 //			exampleVpcIpamPoolCidr, err := ec2.NewVpcIpamPoolCidr(ctx, "exampleVpcIpamPoolCidr", &ec2.VpcIpamPoolCidrArgs{
 //				IpamPoolId: exampleVpcIpamPool.ID(),
-//				Cidr:       pulumi.String("172.2.0.0/16"),
+//				Cidr:       pulumi.String("172.20.0.0/16"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = ec2.NewVpcIpamPoolCidrAllocation(ctx, "exampleVpcIpamPoolCidrAllocation", &ec2.VpcIpamPoolCidrAllocationArgs{
 //				IpamPoolId: exampleVpcIpamPool.ID(),
-//				Cidr:       pulumi.String("172.2.0.0/24"),
+//				Cidr:       pulumi.String("172.20.0.0/24"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleVpcIpamPoolCidr,
 //			}))
@@ -114,7 +114,7 @@ import (
 //			}
 //			exampleVpcIpamPoolCidr, err := ec2.NewVpcIpamPoolCidr(ctx, "exampleVpcIpamPoolCidr", &ec2.VpcIpamPoolCidrArgs{
 //				IpamPoolId: exampleVpcIpamPool.ID(),
-//				Cidr:       pulumi.String("172.2.0.0/16"),
+//				Cidr:       pulumi.String("172.20.0.0/16"),
 //			})
 //			if err != nil {
 //				return err
@@ -123,7 +123,7 @@ import (
 //				IpamPoolId:    exampleVpcIpamPool.ID(),
 //				NetmaskLength: pulumi.Int(28),
 //				DisallowedCidrs: pulumi.StringArray{
-//					pulumi.String("172.2.0.0/28"),
+//					pulumi.String("172.20.0.0/28"),
 //				},
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleVpcIpamPoolCidr,

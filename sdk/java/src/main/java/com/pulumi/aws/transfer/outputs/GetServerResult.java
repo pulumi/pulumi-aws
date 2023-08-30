@@ -66,6 +66,10 @@ public final class GetServerResult {
      */
     private String securityPolicyName;
     private String serverId;
+    /**
+     * @return A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs.
+     * 
+     */
     private List<String> structuredLogDestinations;
     /**
      * @return URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
@@ -154,6 +158,10 @@ public final class GetServerResult {
     public String serverId() {
         return this.serverId;
     }
+    /**
+     * @return A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs.
+     * 
+     */
     public List<String> structuredLogDestinations() {
         return this.structuredLogDestinations;
     }

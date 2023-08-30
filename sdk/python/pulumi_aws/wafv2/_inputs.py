@@ -379,6 +379,9 @@ __all__ = [
     'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaArgs',
     'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingArgs',
     'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeaderArgs',
+    'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeArgs',
+    'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingArgs',
+    'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArgs',
     'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCountArgs',
     'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCountCustomRequestHandlingArgs',
     'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeaderArgs',
@@ -682,6 +685,9 @@ __all__ = [
     'WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaArgs',
     'WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingArgs',
     'WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeaderArgs',
+    'WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeArgs',
+    'WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingArgs',
+    'WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArgs',
     'WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountArgs',
     'WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountCustomRequestHandlingArgs',
     'WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeaderArgs',
@@ -14189,11 +14195,13 @@ class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseA
                  allow: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllowArgs']] = None,
                  block: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockArgs']] = None,
                  captcha: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaArgs']] = None,
+                 challenge: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeArgs']] = None,
                  count: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCountArgs']] = None):
         """
         :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllowArgs'] allow: Specifies that AWS WAF should allow requests by default. See `allow` below for details.
         :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockArgs'] block: Specifies that AWS WAF should block requests by default. See `block` below for details.
         :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaArgs'] captcha: Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
+        :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeArgs'] challenge: Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
         :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCountArgs'] count: Instructs AWS WAF to count the web request and allow it. See `count` below for details.
         """
         if allow is not None:
@@ -14202,6 +14210,8 @@ class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseA
             pulumi.set(__self__, "block", block)
         if captcha is not None:
             pulumi.set(__self__, "captcha", captcha)
+        if challenge is not None:
+            pulumi.set(__self__, "challenge", challenge)
         if count is not None:
             pulumi.set(__self__, "count", count)
 
@@ -14240,6 +14250,18 @@ class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseA
     @captcha.setter
     def captcha(self, value: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaArgs']]):
         pulumi.set(self, "captcha", value)
+
+    @property
+    @pulumi.getter
+    def challenge(self) -> Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeArgs']]:
+        """
+        Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
+        """
+        return pulumi.get(self, "challenge")
+
+    @challenge.setter
+    def challenge(self, value: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeArgs']]):
+        pulumi.set(self, "challenge", value)
 
     @property
     @pulumi.getter
@@ -14497,6 +14519,88 @@ class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseC
 
 @pulumi.input_type
 class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeaderArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: Name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+        :param pulumi.Input[str] value: Value of the custom header.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        Value of the custom header.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeArgs:
+    def __init__(__self__, *,
+                 custom_request_handling: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingArgs']] = None):
+        """
+        :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingArgs'] custom_request_handling: Defines custom handling for the web request. See `custom_request_handling` below for details.
+        """
+        if custom_request_handling is not None:
+            pulumi.set(__self__, "custom_request_handling", custom_request_handling)
+
+    @property
+    @pulumi.getter(name="customRequestHandling")
+    def custom_request_handling(self) -> Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingArgs']]:
+        """
+        Defines custom handling for the web request. See `custom_request_handling` below for details.
+        """
+        return pulumi.get(self, "custom_request_handling")
+
+    @custom_request_handling.setter
+    def custom_request_handling(self, value: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingArgs']]):
+        pulumi.set(self, "custom_request_handling", value)
+
+
+@pulumi.input_type
+class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingArgs:
+    def __init__(__self__, *,
+                 insert_headers: pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArgs']]] insert_headers: The `insert_header` blocks used to define HTTP headers added to the request. See `insert_header` below for details.
+        """
+        pulumi.set(__self__, "insert_headers", insert_headers)
+
+    @property
+    @pulumi.getter(name="insertHeaders")
+    def insert_headers(self) -> pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArgs']]]:
+        """
+        The `insert_header` blocks used to define HTTP headers added to the request. See `insert_header` below for details.
+        """
+        return pulumi.get(self, "insert_headers")
+
+    @insert_headers.setter
+    def insert_headers(self, value: pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArgs']]]):
+        pulumi.set(self, "insert_headers", value)
+
+
+@pulumi.input_type
+class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -25244,11 +25348,13 @@ class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUs
                  allow: Optional[pulumi.Input['WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllowArgs']] = None,
                  block: Optional[pulumi.Input['WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlockArgs']] = None,
                  captcha: Optional[pulumi.Input['WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaArgs']] = None,
+                 challenge: Optional[pulumi.Input['WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeArgs']] = None,
                  count: Optional[pulumi.Input['WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountArgs']] = None):
         """
         :param pulumi.Input['WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllowArgs'] allow: Specifies that AWS WAF should allow requests by default. See `allow` below for details.
         :param pulumi.Input['WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlockArgs'] block: Specifies that AWS WAF should block requests by default. See `block` below for details.
         :param pulumi.Input['WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaArgs'] captcha: Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
+        :param pulumi.Input['WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeArgs'] challenge: Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
         :param pulumi.Input['WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountArgs'] count: Instructs AWS WAF to count the web request and allow it. See `count` below for details.
         """
         if allow is not None:
@@ -25257,6 +25363,8 @@ class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUs
             pulumi.set(__self__, "block", block)
         if captcha is not None:
             pulumi.set(__self__, "captcha", captcha)
+        if challenge is not None:
+            pulumi.set(__self__, "challenge", challenge)
         if count is not None:
             pulumi.set(__self__, "count", count)
 
@@ -25295,6 +25403,18 @@ class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUs
     @captcha.setter
     def captcha(self, value: Optional[pulumi.Input['WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaArgs']]):
         pulumi.set(self, "captcha", value)
+
+    @property
+    @pulumi.getter
+    def challenge(self) -> Optional[pulumi.Input['WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeArgs']]:
+        """
+        Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
+        """
+        return pulumi.get(self, "challenge")
+
+    @challenge.setter
+    def challenge(self, value: Optional[pulumi.Input['WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeArgs']]):
+        pulumi.set(self, "challenge", value)
 
     @property
     @pulumi.getter
@@ -25552,6 +25672,88 @@ class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUs
 
 @pulumi.input_type
 class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeaderArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: Name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+        :param pulumi.Input[str] value: Value of the custom header.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        Value of the custom header.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeArgs:
+    def __init__(__self__, *,
+                 custom_request_handling: Optional[pulumi.Input['WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingArgs']] = None):
+        """
+        :param pulumi.Input['WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingArgs'] custom_request_handling: Defines custom handling for the web request. See `custom_request_handling` below for details.
+        """
+        if custom_request_handling is not None:
+            pulumi.set(__self__, "custom_request_handling", custom_request_handling)
+
+    @property
+    @pulumi.getter(name="customRequestHandling")
+    def custom_request_handling(self) -> Optional[pulumi.Input['WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingArgs']]:
+        """
+        Defines custom handling for the web request. See `custom_request_handling` below for details.
+        """
+        return pulumi.get(self, "custom_request_handling")
+
+    @custom_request_handling.setter
+    def custom_request_handling(self, value: Optional[pulumi.Input['WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingArgs']]):
+        pulumi.set(self, "custom_request_handling", value)
+
+
+@pulumi.input_type
+class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingArgs:
+    def __init__(__self__, *,
+                 insert_headers: pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArgs']]] insert_headers: The `insert_header` blocks used to define HTTP headers added to the request. See `insert_header` below for details.
+        """
+        pulumi.set(__self__, "insert_headers", insert_headers)
+
+    @property
+    @pulumi.getter(name="insertHeaders")
+    def insert_headers(self) -> pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArgs']]]:
+        """
+        The `insert_header` blocks used to define HTTP headers added to the request. See `insert_header` below for details.
+        """
+        return pulumi.get(self, "insert_headers")
+
+    @insert_headers.setter
+    def insert_headers(self, value: pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArgs']]]):
+        pulumi.set(self, "insert_headers", value)
+
+
+@pulumi.input_type
+class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  value: pulumi.Input[str]):

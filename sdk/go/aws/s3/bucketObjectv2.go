@@ -211,7 +211,7 @@ type BucketObjectv2 struct {
 	pulumi.CustomResourceState
 
 	// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`.
-	Acl pulumi.StringPtrOutput `pulumi:"acl"`
+	Acl pulumi.StringOutput `pulumi:"acl"`
 	// Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
 	// Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
@@ -637,8 +637,8 @@ func (o BucketObjectv2Output) ToBucketObjectv2OutputWithContext(ctx context.Cont
 }
 
 // [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`.
-func (o BucketObjectv2Output) Acl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BucketObjectv2) pulumi.StringPtrOutput { return v.Acl }).(pulumi.StringPtrOutput)
+func (o BucketObjectv2Output) Acl() pulumi.StringOutput {
+	return o.ApplyT(func(v *BucketObjectv2) pulumi.StringOutput { return v.Acl }).(pulumi.StringOutput)
 }
 
 // Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.

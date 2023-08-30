@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  * 
  *  to = aws_redshift_parameter_group.paramgroup1
  * 
- *  id = &#34;parameter-group-test-TODO&#34; } Using `pulumi import`, import Redshift Parameter Groups using the `name`. For exampleconsole % pulumi import aws_redshift_parameter_group.paramgroup1 parameter-group-test-TODO
+ *  id = &#34;parameter-group-test-pulumi&#34; } Using `pulumi import`, import Redshift Parameter Groups using the `name`. For exampleconsole % pulumi import aws_redshift_parameter_group.paramgroup1 parameter-group-test-pulumi
  * 
  */
 @ResourceType(type="aws:redshift/parameterGroup:ParameterGroup")

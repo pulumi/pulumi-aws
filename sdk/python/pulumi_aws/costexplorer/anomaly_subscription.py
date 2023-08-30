@@ -299,7 +299,9 @@ class AnomalySubscription(pulumi.CustomResource):
         Provides a CE Anomaly Subscription.
 
         ## Example Usage
-        ### Threshold Expression
+
+        ### Threshold Expression Example
+        ### For a Specific Dimension
 
         ```python
         import pulumi
@@ -318,6 +320,38 @@ class AnomalySubscription(pulumi.CustomResource):
                     values=["100.0"],
                     match_options=["GREATER_THAN_OR_EQUAL"],
                 ),
+            ))
+        ```
+        ### Using an `and` Expression
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.costexplorer.AnomalySubscription("test",
+            frequency="DAILY",
+            monitor_arn_lists=[aws_ce_anomaly_monitor["test"]["arn"]],
+            subscribers=[aws.costexplorer.AnomalySubscriptionSubscriberArgs(
+                type="EMAIL",
+                address="abc@example.com",
+            )],
+            threshold_expression=aws.costexplorer.AnomalySubscriptionThresholdExpressionArgs(
+                ands=[
+                    aws.costexplorer.AnomalySubscriptionThresholdExpressionAndArgs(
+                        dimension=aws.costexplorer.AnomalySubscriptionThresholdExpressionAndDimensionArgs(
+                            key="ANOMALY_TOTAL_IMPACT_ABSOLUTE",
+                            match_options=["GREATER_THAN_OR_EQUAL"],
+                            values=["100"],
+                        ),
+                    ),
+                    aws.costexplorer.AnomalySubscriptionThresholdExpressionAndArgs(
+                        dimension=aws.costexplorer.AnomalySubscriptionThresholdExpressionAndDimensionArgs(
+                            key="ANOMALY_TOTAL_IMPACT_PERCENTAGE",
+                            match_options=["GREATER_THAN_OR_EQUAL"],
+                            values=["50"],
+                        ),
+                    ),
+                ],
             ))
         ```
 
@@ -349,7 +383,9 @@ class AnomalySubscription(pulumi.CustomResource):
         Provides a CE Anomaly Subscription.
 
         ## Example Usage
-        ### Threshold Expression
+
+        ### Threshold Expression Example
+        ### For a Specific Dimension
 
         ```python
         import pulumi
@@ -368,6 +404,38 @@ class AnomalySubscription(pulumi.CustomResource):
                     values=["100.0"],
                     match_options=["GREATER_THAN_OR_EQUAL"],
                 ),
+            ))
+        ```
+        ### Using an `and` Expression
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.costexplorer.AnomalySubscription("test",
+            frequency="DAILY",
+            monitor_arn_lists=[aws_ce_anomaly_monitor["test"]["arn"]],
+            subscribers=[aws.costexplorer.AnomalySubscriptionSubscriberArgs(
+                type="EMAIL",
+                address="abc@example.com",
+            )],
+            threshold_expression=aws.costexplorer.AnomalySubscriptionThresholdExpressionArgs(
+                ands=[
+                    aws.costexplorer.AnomalySubscriptionThresholdExpressionAndArgs(
+                        dimension=aws.costexplorer.AnomalySubscriptionThresholdExpressionAndDimensionArgs(
+                            key="ANOMALY_TOTAL_IMPACT_ABSOLUTE",
+                            match_options=["GREATER_THAN_OR_EQUAL"],
+                            values=["100"],
+                        ),
+                    ),
+                    aws.costexplorer.AnomalySubscriptionThresholdExpressionAndArgs(
+                        dimension=aws.costexplorer.AnomalySubscriptionThresholdExpressionAndDimensionArgs(
+                            key="ANOMALY_TOTAL_IMPACT_PERCENTAGE",
+                            match_options=["GREATER_THAN_OR_EQUAL"],
+                            values=["50"],
+                        ),
+                    ),
+                ],
             ))
         ```
 

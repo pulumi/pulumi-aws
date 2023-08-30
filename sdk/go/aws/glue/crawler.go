@@ -267,6 +267,8 @@ type Crawler struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// List of nested DynamoDB target arguments. See Dynamodb Target below.
 	DynamodbTargets CrawlerDynamodbTargetArrayOutput `pulumi:"dynamodbTargets"`
+	// List nested Hudi target arguments. See Iceberg Target below.
+	HudiTargets CrawlerHudiTargetArrayOutput `pulumi:"hudiTargets"`
 	// List nested Iceberg target arguments. See Iceberg Target below.
 	IcebergTargets CrawlerIcebergTargetArrayOutput `pulumi:"icebergTargets"`
 	// List of nested JBDC target arguments. See JDBC Target below.
@@ -350,6 +352,8 @@ type crawlerState struct {
 	Description *string `pulumi:"description"`
 	// List of nested DynamoDB target arguments. See Dynamodb Target below.
 	DynamodbTargets []CrawlerDynamodbTarget `pulumi:"dynamodbTargets"`
+	// List nested Hudi target arguments. See Iceberg Target below.
+	HudiTargets []CrawlerHudiTarget `pulumi:"hudiTargets"`
 	// List nested Iceberg target arguments. See Iceberg Target below.
 	IcebergTargets []CrawlerIcebergTarget `pulumi:"icebergTargets"`
 	// List of nested JBDC target arguments. See JDBC Target below.
@@ -398,6 +402,8 @@ type CrawlerState struct {
 	Description pulumi.StringPtrInput
 	// List of nested DynamoDB target arguments. See Dynamodb Target below.
 	DynamodbTargets CrawlerDynamodbTargetArrayInput
+	// List nested Hudi target arguments. See Iceberg Target below.
+	HudiTargets CrawlerHudiTargetArrayInput
 	// List nested Iceberg target arguments. See Iceberg Target below.
 	IcebergTargets CrawlerIcebergTargetArrayInput
 	// List of nested JBDC target arguments. See JDBC Target below.
@@ -448,6 +454,8 @@ type crawlerArgs struct {
 	Description *string `pulumi:"description"`
 	// List of nested DynamoDB target arguments. See Dynamodb Target below.
 	DynamodbTargets []CrawlerDynamodbTarget `pulumi:"dynamodbTargets"`
+	// List nested Hudi target arguments. See Iceberg Target below.
+	HudiTargets []CrawlerHudiTarget `pulumi:"hudiTargets"`
 	// List nested Iceberg target arguments. See Iceberg Target below.
 	IcebergTargets []CrawlerIcebergTarget `pulumi:"icebergTargets"`
 	// List of nested JBDC target arguments. See JDBC Target below.
@@ -493,6 +501,8 @@ type CrawlerArgs struct {
 	Description pulumi.StringPtrInput
 	// List of nested DynamoDB target arguments. See Dynamodb Target below.
 	DynamodbTargets CrawlerDynamodbTargetArrayInput
+	// List nested Hudi target arguments. See Iceberg Target below.
+	HudiTargets CrawlerHudiTargetArrayInput
 	// List nested Iceberg target arguments. See Iceberg Target below.
 	IcebergTargets CrawlerIcebergTargetArrayInput
 	// List of nested JBDC target arguments. See JDBC Target below.
@@ -647,6 +657,11 @@ func (o CrawlerOutput) Description() pulumi.StringPtrOutput {
 // List of nested DynamoDB target arguments. See Dynamodb Target below.
 func (o CrawlerOutput) DynamodbTargets() CrawlerDynamodbTargetArrayOutput {
 	return o.ApplyT(func(v *Crawler) CrawlerDynamodbTargetArrayOutput { return v.DynamodbTargets }).(CrawlerDynamodbTargetArrayOutput)
+}
+
+// List nested Hudi target arguments. See Iceberg Target below.
+func (o CrawlerOutput) HudiTargets() CrawlerHudiTargetArrayOutput {
+	return o.ApplyT(func(v *Crawler) CrawlerHudiTargetArrayOutput { return v.HudiTargets }).(CrawlerHudiTargetArrayOutput)
 }
 
 // List nested Iceberg target arguments. See Iceberg Target below.

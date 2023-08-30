@@ -196,7 +196,7 @@ class VpcIpamPoolCidr(pulumi.CustomResource):
 
          to = aws_vpc_ipam_pool_cidr.example
 
-         id = "172.2.0.0/24_ipam-pool-0e634f5a1517cccdc" } Using `pulumi import`, import IPAMs using the `<cidr>_<ipam-pool-id>`. For exampleconsole % pulumi import aws_vpc_ipam_pool_cidr.example 172.2.0.0/24_ipam-pool-0e634f5a1517cccdc
+         id = "172.20.0.0/24_ipam-pool-0e634f5a1517cccdc" } Using `pulumi import`, import IPAMs using the `<cidr>_<ipam-pool-id>`. For exampleconsole % pulumi import aws_vpc_ipam_pool_cidr.example 172.20.0.0/24_ipam-pool-0e634f5a1517cccdc
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -225,7 +225,7 @@ class VpcIpamPoolCidr(pulumi.CustomResource):
 
          to = aws_vpc_ipam_pool_cidr.example
 
-         id = "172.2.0.0/24_ipam-pool-0e634f5a1517cccdc" } Using `pulumi import`, import IPAMs using the `<cidr>_<ipam-pool-id>`. For exampleconsole % pulumi import aws_vpc_ipam_pool_cidr.example 172.2.0.0/24_ipam-pool-0e634f5a1517cccdc
+         id = "172.20.0.0/24_ipam-pool-0e634f5a1517cccdc" } Using `pulumi import`, import IPAMs using the `<cidr>_<ipam-pool-id>`. For exampleconsole % pulumi import aws_vpc_ipam_pool_cidr.example 172.20.0.0/24_ipam-pool-0e634f5a1517cccdc
 
         :param str resource_name: The name of the resource.
         :param VpcIpamPoolCidrArgs args: The arguments to use to populate this resource's properties.

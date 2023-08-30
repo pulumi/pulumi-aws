@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var main = AwsFunctions.getCallerIdentity();
  * 
- *         var test = new Role(&#34;test&#34;, RoleArgs.builder()        
+ *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
  *             .assumeRolePolicy(serializeJson(
  *                 jsonObject(
  *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
@@ -83,7 +83,7 @@ import javax.annotation.Nullable;
  *         var sourceQueue = new Queue(&#34;sourceQueue&#34;);
  * 
  *         var sourceRolePolicy = new RolePolicy(&#34;sourceRolePolicy&#34;, RolePolicyArgs.builder()        
- *             .role(test.id())
+ *             .role(exampleRole.id())
  *             .policy(sourceQueue.arn().applyValue(arn -&gt; serializeJson(
  *                 jsonObject(
  *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
@@ -102,7 +102,7 @@ import javax.annotation.Nullable;
  *         var targetQueue = new Queue(&#34;targetQueue&#34;);
  * 
  *         var targetRolePolicy = new RolePolicy(&#34;targetRolePolicy&#34;, RolePolicyArgs.builder()        
- *             .role(test.id())
+ *             .role(exampleRole.id())
  *             .policy(targetQueue.arn().applyValue(arn -&gt; serializeJson(
  *                 jsonObject(
  *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
@@ -114,8 +114,8 @@ import javax.annotation.Nullable;
  *                 ))))
  *             .build());
  * 
- *         var example = new Pipe(&#34;example&#34;, PipeArgs.builder()        
- *             .roleArn(aws_iam_role.example().arn())
+ *         var examplePipe = new Pipe(&#34;examplePipe&#34;, PipeArgs.builder()        
+ *             .roleArn(exampleRole.arn())
  *             .source(sourceQueue.arn())
  *             .target(targetQueue.arn())
  *             .build(), CustomResourceOptions.builder()
@@ -159,13 +159,20 @@ import javax.annotation.Nullable;
  *             .enrichment(aws_cloudwatch_event_api_destination.example().arn())
  *             .enrichmentParameters(PipeEnrichmentParametersArgs.builder()
  *                 .httpParameters(PipeEnrichmentParametersHttpParametersArgs.builder()
- * %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression))
  *                     .pathParameterValues(&#34;example-path-param&#34;)
- *                     .queryStringParameters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *                     .headerParameters(Map.ofEntries(
+ *                         Map.entry(&#34;example-header&#34;, &#34;example-value&#34;),
+ *                         Map.entry(&#34;second-example-header&#34;, &#34;second-example-value&#34;)
+ *                     ))
+ *                     .queryStringParameters(Map.ofEntries(
+ *                         Map.entry(&#34;example-query-string&#34;, &#34;example-value&#34;),
+ *                         Map.entry(&#34;second-example-query-string&#34;, &#34;second-example-value&#34;)
+ *                     ))
  *                     .build())
- *                 .build());
+ *                 .build())
+ *             .build());
  * 
- *         }
+ *     }
  * }
  * ```
  * ### Filter Usage

@@ -54,7 +54,7 @@ type ObjectCopy struct {
 	pulumi.CustomResourceState
 
 	// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Conflicts with `grant`.
-	Acl pulumi.StringPtrOutput `pulumi:"acl"`
+	Acl pulumi.StringOutput `pulumi:"acl"`
 	// Name of the bucket to put the file in.
 	Bucket           pulumi.StringOutput `pulumi:"bucket"`
 	BucketKeyEnabled pulumi.BoolOutput   `pulumi:"bucketKeyEnabled"`
@@ -644,8 +644,8 @@ func (o ObjectCopyOutput) ToObjectCopyOutputWithContext(ctx context.Context) Obj
 }
 
 // [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Conflicts with `grant`.
-func (o ObjectCopyOutput) Acl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ObjectCopy) pulumi.StringPtrOutput { return v.Acl }).(pulumi.StringPtrOutput)
+func (o ObjectCopyOutput) Acl() pulumi.StringOutput {
+	return o.ApplyT(func(v *ObjectCopy) pulumi.StringOutput { return v.Acl }).(pulumi.StringOutput)
 }
 
 // Name of the bucket to put the file in.

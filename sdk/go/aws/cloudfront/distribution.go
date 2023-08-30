@@ -19,8 +19,9 @@ import (
 // > **NOTE:** CloudFront distributions take about 15 minutes to reach a deployed state after creation or modification. During this time, deletes to resources will be blocked. If you need to delete a distribution that is enabled and you do not want to wait, you need to use the `retainOnDelete` flag.
 //
 // ## Example Usage
+// ### S3 Origin
 //
-// The following example below creates a CloudFront distribution with an S3 origin.
+// The example below creates a CloudFront distribution with an S3 origin.
 //
 // ```go
 // package main
@@ -179,8 +180,9 @@ import (
 //	}
 //
 // ```
+// ### With Failover Routing
 //
-// The example below creates a CloudFront distribution with an origin group for failover routing:
+// The example below creates a CloudFront distribution with an origin group for failover routing.
 //
 // ```go
 // package main
@@ -244,8 +246,9 @@ import (
 //	}
 //
 // ```
+// ### With Managed Caching Policy
 //
-// CloudFront distribution using [managed policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) (ex: CachingDisabled):
+// The example below creates a CloudFront distribution with an [AWS managed caching policy](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html).
 //
 // ```go
 // package main
@@ -325,6 +328,8 @@ type Distribution struct {
 	CallerReference pulumi.StringOutput `pulumi:"callerReference"`
 	// Any comments you want to include about the distribution.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
+	// Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `cloudfront.ContinuousDeploymentPolicy` resource for additional details.
+	ContinuousDeploymentPolicyId pulumi.StringPtrOutput `pulumi:"continuousDeploymentPolicyId"`
 	// One or more custom error response elements (multiples allowed).
 	CustomErrorResponses DistributionCustomErrorResponseArrayOutput `pulumi:"customErrorResponses"`
 	// Default cache behavior for this distribution (maximum one). Requires either `cachePolicyId` (preferred) or `forwardedValues` (deprecated) be set.
@@ -361,6 +366,8 @@ type Distribution struct {
 	Restrictions DistributionRestrictionsOutput `pulumi:"restrictions"`
 	// Disables the distribution instead of deleting it when destroying the resource through the provider. If this is set, the distribution needs to be deleted manually afterwards. Default: `false`.
 	RetainOnDelete pulumi.BoolPtrOutput `pulumi:"retainOnDelete"`
+	// A Boolean that indicates whether this is a staging distribution. Defaults to `false`.
+	Staging pulumi.BoolPtrOutput `pulumi:"staging"`
 	// Current status of the distribution. `Deployed` if the distribution's information is fully propagated throughout the Amazon CloudFront system.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -432,6 +439,8 @@ type distributionState struct {
 	CallerReference *string `pulumi:"callerReference"`
 	// Any comments you want to include about the distribution.
 	Comment *string `pulumi:"comment"`
+	// Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `cloudfront.ContinuousDeploymentPolicy` resource for additional details.
+	ContinuousDeploymentPolicyId *string `pulumi:"continuousDeploymentPolicyId"`
 	// One or more custom error response elements (multiples allowed).
 	CustomErrorResponses []DistributionCustomErrorResponse `pulumi:"customErrorResponses"`
 	// Default cache behavior for this distribution (maximum one). Requires either `cachePolicyId` (preferred) or `forwardedValues` (deprecated) be set.
@@ -468,6 +477,8 @@ type distributionState struct {
 	Restrictions *DistributionRestrictions `pulumi:"restrictions"`
 	// Disables the distribution instead of deleting it when destroying the resource through the provider. If this is set, the distribution needs to be deleted manually afterwards. Default: `false`.
 	RetainOnDelete *bool `pulumi:"retainOnDelete"`
+	// A Boolean that indicates whether this is a staging distribution. Defaults to `false`.
+	Staging *bool `pulumi:"staging"`
 	// Current status of the distribution. `Deployed` if the distribution's information is fully propagated throughout the Amazon CloudFront system.
 	Status *string `pulumi:"status"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -495,6 +506,8 @@ type DistributionState struct {
 	CallerReference pulumi.StringPtrInput
 	// Any comments you want to include about the distribution.
 	Comment pulumi.StringPtrInput
+	// Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `cloudfront.ContinuousDeploymentPolicy` resource for additional details.
+	ContinuousDeploymentPolicyId pulumi.StringPtrInput
 	// One or more custom error response elements (multiples allowed).
 	CustomErrorResponses DistributionCustomErrorResponseArrayInput
 	// Default cache behavior for this distribution (maximum one). Requires either `cachePolicyId` (preferred) or `forwardedValues` (deprecated) be set.
@@ -531,6 +544,8 @@ type DistributionState struct {
 	Restrictions DistributionRestrictionsPtrInput
 	// Disables the distribution instead of deleting it when destroying the resource through the provider. If this is set, the distribution needs to be deleted manually afterwards. Default: `false`.
 	RetainOnDelete pulumi.BoolPtrInput
+	// A Boolean that indicates whether this is a staging distribution. Defaults to `false`.
+	Staging pulumi.BoolPtrInput
 	// Current status of the distribution. `Deployed` if the distribution's information is fully propagated throughout the Amazon CloudFront system.
 	Status pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -558,6 +573,8 @@ type distributionArgs struct {
 	Aliases []string `pulumi:"aliases"`
 	// Any comments you want to include about the distribution.
 	Comment *string `pulumi:"comment"`
+	// Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `cloudfront.ContinuousDeploymentPolicy` resource for additional details.
+	ContinuousDeploymentPolicyId *string `pulumi:"continuousDeploymentPolicyId"`
 	// One or more custom error response elements (multiples allowed).
 	CustomErrorResponses []DistributionCustomErrorResponse `pulumi:"customErrorResponses"`
 	// Default cache behavior for this distribution (maximum one). Requires either `cachePolicyId` (preferred) or `forwardedValues` (deprecated) be set.
@@ -584,6 +601,8 @@ type distributionArgs struct {
 	Restrictions DistributionRestrictions `pulumi:"restrictions"`
 	// Disables the distribution instead of deleting it when destroying the resource through the provider. If this is set, the distribution needs to be deleted manually afterwards. Default: `false`.
 	RetainOnDelete *bool `pulumi:"retainOnDelete"`
+	// A Boolean that indicates whether this is a staging distribution. Defaults to `false`.
+	Staging *bool `pulumi:"staging"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The SSL configuration for this distribution (maximum one).
@@ -600,6 +619,8 @@ type DistributionArgs struct {
 	Aliases pulumi.StringArrayInput
 	// Any comments you want to include about the distribution.
 	Comment pulumi.StringPtrInput
+	// Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `cloudfront.ContinuousDeploymentPolicy` resource for additional details.
+	ContinuousDeploymentPolicyId pulumi.StringPtrInput
 	// One or more custom error response elements (multiples allowed).
 	CustomErrorResponses DistributionCustomErrorResponseArrayInput
 	// Default cache behavior for this distribution (maximum one). Requires either `cachePolicyId` (preferred) or `forwardedValues` (deprecated) be set.
@@ -626,6 +647,8 @@ type DistributionArgs struct {
 	Restrictions DistributionRestrictionsInput
 	// Disables the distribution instead of deleting it when destroying the resource through the provider. If this is set, the distribution needs to be deleted manually afterwards. Default: `false`.
 	RetainOnDelete pulumi.BoolPtrInput
+	// A Boolean that indicates whether this is a staging distribution. Defaults to `false`.
+	Staging pulumi.BoolPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The SSL configuration for this distribution (maximum one).
@@ -743,6 +766,11 @@ func (o DistributionOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Distribution) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
+// Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `cloudfront.ContinuousDeploymentPolicy` resource for additional details.
+func (o DistributionOutput) ContinuousDeploymentPolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Distribution) pulumi.StringPtrOutput { return v.ContinuousDeploymentPolicyId }).(pulumi.StringPtrOutput)
+}
+
 // One or more custom error response elements (multiples allowed).
 func (o DistributionOutput) CustomErrorResponses() DistributionCustomErrorResponseArrayOutput {
 	return o.ApplyT(func(v *Distribution) DistributionCustomErrorResponseArrayOutput { return v.CustomErrorResponses }).(DistributionCustomErrorResponseArrayOutput)
@@ -831,6 +859,11 @@ func (o DistributionOutput) Restrictions() DistributionRestrictionsOutput {
 // Disables the distribution instead of deleting it when destroying the resource through the provider. If this is set, the distribution needs to be deleted manually afterwards. Default: `false`.
 func (o DistributionOutput) RetainOnDelete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Distribution) pulumi.BoolPtrOutput { return v.RetainOnDelete }).(pulumi.BoolPtrOutput)
+}
+
+// A Boolean that indicates whether this is a staging distribution. Defaults to `false`.
+func (o DistributionOutput) Staging() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Distribution) pulumi.BoolPtrOutput { return v.Staging }).(pulumi.BoolPtrOutput)
 }
 
 // Current status of the distribution. `Deployed` if the distribution's information is fully propagated throughout the Amazon CloudFront system.

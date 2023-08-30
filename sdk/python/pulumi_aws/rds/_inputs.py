@@ -155,7 +155,7 @@ class ClusterRestoreToPointInTimeArgs:
                  restore_type: Optional[pulumi.Input[str]] = None,
                  use_latest_restorable_time: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[str] source_cluster_identifier: Identifier of the source database cluster from which to restore.
+        :param pulumi.Input[str] source_cluster_identifier: Identifier of the source database cluster from which to restore. When restoring from a cluster in another AWS account, the identifier is the ARN of that cluster.
         :param pulumi.Input[str] restore_to_time: Date and time in UTC format to restore the database cluster to. Conflicts with `use_latest_restorable_time`.
         :param pulumi.Input[str] restore_type: Type of restore to be performed.
                Valid options are `full-copy` (default) and `copy-on-write`.
@@ -173,7 +173,7 @@ class ClusterRestoreToPointInTimeArgs:
     @pulumi.getter(name="sourceClusterIdentifier")
     def source_cluster_identifier(self) -> pulumi.Input[str]:
         """
-        Identifier of the source database cluster from which to restore.
+        Identifier of the source database cluster from which to restore. When restoring from a cluster in another AWS account, the identifier is the ARN of that cluster.
         """
         return pulumi.get(self, "source_cluster_identifier")
 

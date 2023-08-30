@@ -31,6 +31,7 @@ class GroupArgs:
                  force_delete_warm_pool: Optional[pulumi.Input[bool]] = None,
                  health_check_grace_period: Optional[pulumi.Input[int]] = None,
                  health_check_type: Optional[pulumi.Input[str]] = None,
+                 ignore_failed_scaling_activities: Optional[pulumi.Input[bool]] = None,
                  initial_lifecycle_hooks: Optional[pulumi.Input[Sequence[pulumi.Input['GroupInitialLifecycleHookArgs']]]] = None,
                  instance_refresh: Optional[pulumi.Input['GroupInstanceRefreshArgs']] = None,
                  launch_configuration: Optional[pulumi.Input[str]] = None,
@@ -76,6 +77,7 @@ class GroupArgs:
                behavior and potentially leaves resources dangling.
         :param pulumi.Input[int] health_check_grace_period: Time (in seconds) after instance comes into service before checking health.
         :param pulumi.Input[str] health_check_type: "EC2" or "ELB". Controls how health checking is done.
+        :param pulumi.Input[bool] ignore_failed_scaling_activities: Whether to ignore failed [Auto Scaling scaling activities](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html) while waiting for capacity. The default is `false` -- failed scaling activities cause errors to be returned.
         :param pulumi.Input[Sequence[pulumi.Input['GroupInitialLifecycleHookArgs']]] initial_lifecycle_hooks: One or more
                [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
                to attach to the Auto Scaling Group **before** instances are launched. The
@@ -153,6 +155,8 @@ class GroupArgs:
             pulumi.set(__self__, "health_check_grace_period", health_check_grace_period)
         if health_check_type is not None:
             pulumi.set(__self__, "health_check_type", health_check_type)
+        if ignore_failed_scaling_activities is not None:
+            pulumi.set(__self__, "ignore_failed_scaling_activities", ignore_failed_scaling_activities)
         if initial_lifecycle_hooks is not None:
             pulumi.set(__self__, "initial_lifecycle_hooks", initial_lifecycle_hooks)
         if instance_refresh is not None:
@@ -371,6 +375,18 @@ class GroupArgs:
     @health_check_type.setter
     def health_check_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "health_check_type", value)
+
+    @property
+    @pulumi.getter(name="ignoreFailedScalingActivities")
+    def ignore_failed_scaling_activities(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to ignore failed [Auto Scaling scaling activities](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html) while waiting for capacity. The default is `false` -- failed scaling activities cause errors to be returned.
+        """
+        return pulumi.get(self, "ignore_failed_scaling_activities")
+
+    @ignore_failed_scaling_activities.setter
+    def ignore_failed_scaling_activities(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ignore_failed_scaling_activities", value)
 
     @property
     @pulumi.getter(name="initialLifecycleHooks")
@@ -692,6 +708,7 @@ class _GroupState:
                  force_delete_warm_pool: Optional[pulumi.Input[bool]] = None,
                  health_check_grace_period: Optional[pulumi.Input[int]] = None,
                  health_check_type: Optional[pulumi.Input[str]] = None,
+                 ignore_failed_scaling_activities: Optional[pulumi.Input[bool]] = None,
                  initial_lifecycle_hooks: Optional[pulumi.Input[Sequence[pulumi.Input['GroupInitialLifecycleHookArgs']]]] = None,
                  instance_refresh: Optional[pulumi.Input['GroupInstanceRefreshArgs']] = None,
                  launch_configuration: Optional[pulumi.Input[str]] = None,
@@ -739,6 +756,7 @@ class _GroupState:
                behavior and potentially leaves resources dangling.
         :param pulumi.Input[int] health_check_grace_period: Time (in seconds) after instance comes into service before checking health.
         :param pulumi.Input[str] health_check_type: "EC2" or "ELB". Controls how health checking is done.
+        :param pulumi.Input[bool] ignore_failed_scaling_activities: Whether to ignore failed [Auto Scaling scaling activities](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html) while waiting for capacity. The default is `false` -- failed scaling activities cause errors to be returned.
         :param pulumi.Input[Sequence[pulumi.Input['GroupInitialLifecycleHookArgs']]] initial_lifecycle_hooks: One or more
                [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
                to attach to the Auto Scaling Group **before** instances are launched. The
@@ -821,6 +839,8 @@ class _GroupState:
             pulumi.set(__self__, "health_check_grace_period", health_check_grace_period)
         if health_check_type is not None:
             pulumi.set(__self__, "health_check_type", health_check_type)
+        if ignore_failed_scaling_activities is not None:
+            pulumi.set(__self__, "ignore_failed_scaling_activities", ignore_failed_scaling_activities)
         if initial_lifecycle_hooks is not None:
             pulumi.set(__self__, "initial_lifecycle_hooks", initial_lifecycle_hooks)
         if instance_refresh is not None:
@@ -1034,6 +1054,18 @@ class _GroupState:
     @health_check_type.setter
     def health_check_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "health_check_type", value)
+
+    @property
+    @pulumi.getter(name="ignoreFailedScalingActivities")
+    def ignore_failed_scaling_activities(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to ignore failed [Auto Scaling scaling activities](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html) while waiting for capacity. The default is `false` -- failed scaling activities cause errors to be returned.
+        """
+        return pulumi.get(self, "ignore_failed_scaling_activities")
+
+    @ignore_failed_scaling_activities.setter
+    def ignore_failed_scaling_activities(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ignore_failed_scaling_activities", value)
 
     @property
     @pulumi.getter(name="initialLifecycleHooks")
@@ -1405,6 +1437,7 @@ class Group(pulumi.CustomResource):
                  force_delete_warm_pool: Optional[pulumi.Input[bool]] = None,
                  health_check_grace_period: Optional[pulumi.Input[int]] = None,
                  health_check_type: Optional[pulumi.Input[str]] = None,
+                 ignore_failed_scaling_activities: Optional[pulumi.Input[bool]] = None,
                  initial_lifecycle_hooks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupInitialLifecycleHookArgs']]]]] = None,
                  instance_refresh: Optional[pulumi.Input[pulumi.InputType['GroupInstanceRefreshArgs']]] = None,
                  launch_configuration: Optional[pulumi.Input[str]] = None,
@@ -1760,6 +1793,7 @@ class Group(pulumi.CustomResource):
                behavior and potentially leaves resources dangling.
         :param pulumi.Input[int] health_check_grace_period: Time (in seconds) after instance comes into service before checking health.
         :param pulumi.Input[str] health_check_type: "EC2" or "ELB". Controls how health checking is done.
+        :param pulumi.Input[bool] ignore_failed_scaling_activities: Whether to ignore failed [Auto Scaling scaling activities](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html) while waiting for capacity. The default is `false` -- failed scaling activities cause errors to be returned.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupInitialLifecycleHookArgs']]]] initial_lifecycle_hooks: One or more
                [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
                to attach to the Auto Scaling Group **before** instances are launched. The
@@ -2157,6 +2191,7 @@ class Group(pulumi.CustomResource):
                  force_delete_warm_pool: Optional[pulumi.Input[bool]] = None,
                  health_check_grace_period: Optional[pulumi.Input[int]] = None,
                  health_check_type: Optional[pulumi.Input[str]] = None,
+                 ignore_failed_scaling_activities: Optional[pulumi.Input[bool]] = None,
                  initial_lifecycle_hooks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupInitialLifecycleHookArgs']]]]] = None,
                  instance_refresh: Optional[pulumi.Input[pulumi.InputType['GroupInstanceRefreshArgs']]] = None,
                  launch_configuration: Optional[pulumi.Input[str]] = None,
@@ -2203,6 +2238,7 @@ class Group(pulumi.CustomResource):
             __props__.__dict__["force_delete_warm_pool"] = force_delete_warm_pool
             __props__.__dict__["health_check_grace_period"] = health_check_grace_period
             __props__.__dict__["health_check_type"] = health_check_type
+            __props__.__dict__["ignore_failed_scaling_activities"] = ignore_failed_scaling_activities
             __props__.__dict__["initial_lifecycle_hooks"] = initial_lifecycle_hooks
             __props__.__dict__["instance_refresh"] = instance_refresh
             __props__.__dict__["launch_configuration"] = launch_configuration
@@ -2258,6 +2294,7 @@ class Group(pulumi.CustomResource):
             force_delete_warm_pool: Optional[pulumi.Input[bool]] = None,
             health_check_grace_period: Optional[pulumi.Input[int]] = None,
             health_check_type: Optional[pulumi.Input[str]] = None,
+            ignore_failed_scaling_activities: Optional[pulumi.Input[bool]] = None,
             initial_lifecycle_hooks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupInitialLifecycleHookArgs']]]]] = None,
             instance_refresh: Optional[pulumi.Input[pulumi.InputType['GroupInstanceRefreshArgs']]] = None,
             launch_configuration: Optional[pulumi.Input[str]] = None,
@@ -2310,6 +2347,7 @@ class Group(pulumi.CustomResource):
                behavior and potentially leaves resources dangling.
         :param pulumi.Input[int] health_check_grace_period: Time (in seconds) after instance comes into service before checking health.
         :param pulumi.Input[str] health_check_type: "EC2" or "ELB". Controls how health checking is done.
+        :param pulumi.Input[bool] ignore_failed_scaling_activities: Whether to ignore failed [Auto Scaling scaling activities](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html) while waiting for capacity. The default is `false` -- failed scaling activities cause errors to be returned.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupInitialLifecycleHookArgs']]]] initial_lifecycle_hooks: One or more
                [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
                to attach to the Auto Scaling Group **before** instances are launched. The
@@ -2383,6 +2421,7 @@ class Group(pulumi.CustomResource):
         __props__.__dict__["force_delete_warm_pool"] = force_delete_warm_pool
         __props__.__dict__["health_check_grace_period"] = health_check_grace_period
         __props__.__dict__["health_check_type"] = health_check_type
+        __props__.__dict__["ignore_failed_scaling_activities"] = ignore_failed_scaling_activities
         __props__.__dict__["initial_lifecycle_hooks"] = initial_lifecycle_hooks
         __props__.__dict__["instance_refresh"] = instance_refresh
         __props__.__dict__["launch_configuration"] = launch_configuration
@@ -2518,6 +2557,14 @@ class Group(pulumi.CustomResource):
         "EC2" or "ELB". Controls how health checking is done.
         """
         return pulumi.get(self, "health_check_type")
+
+    @property
+    @pulumi.getter(name="ignoreFailedScalingActivities")
+    def ignore_failed_scaling_activities(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether to ignore failed [Auto Scaling scaling activities](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html) while waiting for capacity. The default is `false` -- failed scaling activities cause errors to be returned.
+        """
+        return pulumi.get(self, "ignore_failed_scaling_activities")
 
     @property
     @pulumi.getter(name="initialLifecycleHooks")

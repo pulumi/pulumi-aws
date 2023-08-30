@@ -119,7 +119,7 @@ type EventRule struct {
 	IsEnabled pulumi.BoolPtrOutput `pulumi:"isEnabled"`
 	// The name of the rule. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`. **Note**: Due to the length of the generated suffix, must be 38 characters or less.
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
 	// The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
 	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
@@ -174,7 +174,7 @@ type eventRuleState struct {
 	IsEnabled *bool `pulumi:"isEnabled"`
 	// The name of the rule. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`. **Note**: Due to the length of the generated suffix, must be 38 characters or less.
 	NamePrefix *string `pulumi:"namePrefix"`
 	// The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
 	RoleArn *string `pulumi:"roleArn"`
@@ -200,7 +200,7 @@ type EventRuleState struct {
 	IsEnabled pulumi.BoolPtrInput
 	// The name of the rule. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringPtrInput
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`. **Note**: Due to the length of the generated suffix, must be 38 characters or less.
 	NamePrefix pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
 	RoleArn pulumi.StringPtrInput
@@ -228,7 +228,7 @@ type eventRuleArgs struct {
 	IsEnabled *bool `pulumi:"isEnabled"`
 	// The name of the rule. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`. **Note**: Due to the length of the generated suffix, must be 38 characters or less.
 	NamePrefix *string `pulumi:"namePrefix"`
 	// The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
 	RoleArn *string `pulumi:"roleArn"`
@@ -251,7 +251,7 @@ type EventRuleArgs struct {
 	IsEnabled pulumi.BoolPtrInput
 	// The name of the rule. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringPtrInput
-	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+	// Creates a unique name beginning with the specified prefix. Conflicts with `name`. **Note**: Due to the length of the generated suffix, must be 38 characters or less.
 	NamePrefix pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
 	RoleArn pulumi.StringPtrInput
@@ -379,7 +379,7 @@ func (o EventRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+// Creates a unique name beginning with the specified prefix. Conflicts with `name`. **Note**: Due to the length of the generated suffix, must be 38 characters or less.
 func (o EventRuleOutput) NamePrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventRule) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
 }

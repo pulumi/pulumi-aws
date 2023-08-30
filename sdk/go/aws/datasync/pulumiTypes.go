@@ -582,6 +582,908 @@ func (o FsxOpenZfsFileSystemProtocolNfsMountOptionsPtrOutput) Version() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
+type LocationAzureBlobSasConfiguration struct {
+	// A SAS token that provides permissions to access your Azure Blob Storage.
+	Token string `pulumi:"token"`
+}
+
+// LocationAzureBlobSasConfigurationInput is an input type that accepts LocationAzureBlobSasConfigurationArgs and LocationAzureBlobSasConfigurationOutput values.
+// You can construct a concrete instance of `LocationAzureBlobSasConfigurationInput` via:
+//
+//	LocationAzureBlobSasConfigurationArgs{...}
+type LocationAzureBlobSasConfigurationInput interface {
+	pulumi.Input
+
+	ToLocationAzureBlobSasConfigurationOutput() LocationAzureBlobSasConfigurationOutput
+	ToLocationAzureBlobSasConfigurationOutputWithContext(context.Context) LocationAzureBlobSasConfigurationOutput
+}
+
+type LocationAzureBlobSasConfigurationArgs struct {
+	// A SAS token that provides permissions to access your Azure Blob Storage.
+	Token pulumi.StringInput `pulumi:"token"`
+}
+
+func (LocationAzureBlobSasConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationAzureBlobSasConfiguration)(nil)).Elem()
+}
+
+func (i LocationAzureBlobSasConfigurationArgs) ToLocationAzureBlobSasConfigurationOutput() LocationAzureBlobSasConfigurationOutput {
+	return i.ToLocationAzureBlobSasConfigurationOutputWithContext(context.Background())
+}
+
+func (i LocationAzureBlobSasConfigurationArgs) ToLocationAzureBlobSasConfigurationOutputWithContext(ctx context.Context) LocationAzureBlobSasConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationAzureBlobSasConfigurationOutput)
+}
+
+func (i LocationAzureBlobSasConfigurationArgs) ToLocationAzureBlobSasConfigurationPtrOutput() LocationAzureBlobSasConfigurationPtrOutput {
+	return i.ToLocationAzureBlobSasConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i LocationAzureBlobSasConfigurationArgs) ToLocationAzureBlobSasConfigurationPtrOutputWithContext(ctx context.Context) LocationAzureBlobSasConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationAzureBlobSasConfigurationOutput).ToLocationAzureBlobSasConfigurationPtrOutputWithContext(ctx)
+}
+
+// LocationAzureBlobSasConfigurationPtrInput is an input type that accepts LocationAzureBlobSasConfigurationArgs, LocationAzureBlobSasConfigurationPtr and LocationAzureBlobSasConfigurationPtrOutput values.
+// You can construct a concrete instance of `LocationAzureBlobSasConfigurationPtrInput` via:
+//
+//	        LocationAzureBlobSasConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type LocationAzureBlobSasConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToLocationAzureBlobSasConfigurationPtrOutput() LocationAzureBlobSasConfigurationPtrOutput
+	ToLocationAzureBlobSasConfigurationPtrOutputWithContext(context.Context) LocationAzureBlobSasConfigurationPtrOutput
+}
+
+type locationAzureBlobSasConfigurationPtrType LocationAzureBlobSasConfigurationArgs
+
+func LocationAzureBlobSasConfigurationPtr(v *LocationAzureBlobSasConfigurationArgs) LocationAzureBlobSasConfigurationPtrInput {
+	return (*locationAzureBlobSasConfigurationPtrType)(v)
+}
+
+func (*locationAzureBlobSasConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationAzureBlobSasConfiguration)(nil)).Elem()
+}
+
+func (i *locationAzureBlobSasConfigurationPtrType) ToLocationAzureBlobSasConfigurationPtrOutput() LocationAzureBlobSasConfigurationPtrOutput {
+	return i.ToLocationAzureBlobSasConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *locationAzureBlobSasConfigurationPtrType) ToLocationAzureBlobSasConfigurationPtrOutputWithContext(ctx context.Context) LocationAzureBlobSasConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationAzureBlobSasConfigurationPtrOutput)
+}
+
+type LocationAzureBlobSasConfigurationOutput struct{ *pulumi.OutputState }
+
+func (LocationAzureBlobSasConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationAzureBlobSasConfiguration)(nil)).Elem()
+}
+
+func (o LocationAzureBlobSasConfigurationOutput) ToLocationAzureBlobSasConfigurationOutput() LocationAzureBlobSasConfigurationOutput {
+	return o
+}
+
+func (o LocationAzureBlobSasConfigurationOutput) ToLocationAzureBlobSasConfigurationOutputWithContext(ctx context.Context) LocationAzureBlobSasConfigurationOutput {
+	return o
+}
+
+func (o LocationAzureBlobSasConfigurationOutput) ToLocationAzureBlobSasConfigurationPtrOutput() LocationAzureBlobSasConfigurationPtrOutput {
+	return o.ToLocationAzureBlobSasConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o LocationAzureBlobSasConfigurationOutput) ToLocationAzureBlobSasConfigurationPtrOutputWithContext(ctx context.Context) LocationAzureBlobSasConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationAzureBlobSasConfiguration) *LocationAzureBlobSasConfiguration {
+		return &v
+	}).(LocationAzureBlobSasConfigurationPtrOutput)
+}
+
+// A SAS token that provides permissions to access your Azure Blob Storage.
+func (o LocationAzureBlobSasConfigurationOutput) Token() pulumi.StringOutput {
+	return o.ApplyT(func(v LocationAzureBlobSasConfiguration) string { return v.Token }).(pulumi.StringOutput)
+}
+
+type LocationAzureBlobSasConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (LocationAzureBlobSasConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationAzureBlobSasConfiguration)(nil)).Elem()
+}
+
+func (o LocationAzureBlobSasConfigurationPtrOutput) ToLocationAzureBlobSasConfigurationPtrOutput() LocationAzureBlobSasConfigurationPtrOutput {
+	return o
+}
+
+func (o LocationAzureBlobSasConfigurationPtrOutput) ToLocationAzureBlobSasConfigurationPtrOutputWithContext(ctx context.Context) LocationAzureBlobSasConfigurationPtrOutput {
+	return o
+}
+
+func (o LocationAzureBlobSasConfigurationPtrOutput) Elem() LocationAzureBlobSasConfigurationOutput {
+	return o.ApplyT(func(v *LocationAzureBlobSasConfiguration) LocationAzureBlobSasConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret LocationAzureBlobSasConfiguration
+		return ret
+	}).(LocationAzureBlobSasConfigurationOutput)
+}
+
+// A SAS token that provides permissions to access your Azure Blob Storage.
+func (o LocationAzureBlobSasConfigurationPtrOutput) Token() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationAzureBlobSasConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Token
+	}).(pulumi.StringPtrOutput)
+}
+
+type LocationFsxOntapFileSystemProtocol struct {
+	// Network File System (NFS) protocol that DataSync uses to access your FSx ONTAP file system. See NFS below.
+	Nfs *LocationFsxOntapFileSystemProtocolNfs `pulumi:"nfs"`
+	// Server Message Block (SMB) protocol that DataSync uses to access your FSx ONTAP file system. See [SMB] (#smb) below.
+	Smb *LocationFsxOntapFileSystemProtocolSmb `pulumi:"smb"`
+}
+
+// LocationFsxOntapFileSystemProtocolInput is an input type that accepts LocationFsxOntapFileSystemProtocolArgs and LocationFsxOntapFileSystemProtocolOutput values.
+// You can construct a concrete instance of `LocationFsxOntapFileSystemProtocolInput` via:
+//
+//	LocationFsxOntapFileSystemProtocolArgs{...}
+type LocationFsxOntapFileSystemProtocolInput interface {
+	pulumi.Input
+
+	ToLocationFsxOntapFileSystemProtocolOutput() LocationFsxOntapFileSystemProtocolOutput
+	ToLocationFsxOntapFileSystemProtocolOutputWithContext(context.Context) LocationFsxOntapFileSystemProtocolOutput
+}
+
+type LocationFsxOntapFileSystemProtocolArgs struct {
+	// Network File System (NFS) protocol that DataSync uses to access your FSx ONTAP file system. See NFS below.
+	Nfs LocationFsxOntapFileSystemProtocolNfsPtrInput `pulumi:"nfs"`
+	// Server Message Block (SMB) protocol that DataSync uses to access your FSx ONTAP file system. See [SMB] (#smb) below.
+	Smb LocationFsxOntapFileSystemProtocolSmbPtrInput `pulumi:"smb"`
+}
+
+func (LocationFsxOntapFileSystemProtocolArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationFsxOntapFileSystemProtocol)(nil)).Elem()
+}
+
+func (i LocationFsxOntapFileSystemProtocolArgs) ToLocationFsxOntapFileSystemProtocolOutput() LocationFsxOntapFileSystemProtocolOutput {
+	return i.ToLocationFsxOntapFileSystemProtocolOutputWithContext(context.Background())
+}
+
+func (i LocationFsxOntapFileSystemProtocolArgs) ToLocationFsxOntapFileSystemProtocolOutputWithContext(ctx context.Context) LocationFsxOntapFileSystemProtocolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationFsxOntapFileSystemProtocolOutput)
+}
+
+func (i LocationFsxOntapFileSystemProtocolArgs) ToLocationFsxOntapFileSystemProtocolPtrOutput() LocationFsxOntapFileSystemProtocolPtrOutput {
+	return i.ToLocationFsxOntapFileSystemProtocolPtrOutputWithContext(context.Background())
+}
+
+func (i LocationFsxOntapFileSystemProtocolArgs) ToLocationFsxOntapFileSystemProtocolPtrOutputWithContext(ctx context.Context) LocationFsxOntapFileSystemProtocolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationFsxOntapFileSystemProtocolOutput).ToLocationFsxOntapFileSystemProtocolPtrOutputWithContext(ctx)
+}
+
+// LocationFsxOntapFileSystemProtocolPtrInput is an input type that accepts LocationFsxOntapFileSystemProtocolArgs, LocationFsxOntapFileSystemProtocolPtr and LocationFsxOntapFileSystemProtocolPtrOutput values.
+// You can construct a concrete instance of `LocationFsxOntapFileSystemProtocolPtrInput` via:
+//
+//	        LocationFsxOntapFileSystemProtocolArgs{...}
+//
+//	or:
+//
+//	        nil
+type LocationFsxOntapFileSystemProtocolPtrInput interface {
+	pulumi.Input
+
+	ToLocationFsxOntapFileSystemProtocolPtrOutput() LocationFsxOntapFileSystemProtocolPtrOutput
+	ToLocationFsxOntapFileSystemProtocolPtrOutputWithContext(context.Context) LocationFsxOntapFileSystemProtocolPtrOutput
+}
+
+type locationFsxOntapFileSystemProtocolPtrType LocationFsxOntapFileSystemProtocolArgs
+
+func LocationFsxOntapFileSystemProtocolPtr(v *LocationFsxOntapFileSystemProtocolArgs) LocationFsxOntapFileSystemProtocolPtrInput {
+	return (*locationFsxOntapFileSystemProtocolPtrType)(v)
+}
+
+func (*locationFsxOntapFileSystemProtocolPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationFsxOntapFileSystemProtocol)(nil)).Elem()
+}
+
+func (i *locationFsxOntapFileSystemProtocolPtrType) ToLocationFsxOntapFileSystemProtocolPtrOutput() LocationFsxOntapFileSystemProtocolPtrOutput {
+	return i.ToLocationFsxOntapFileSystemProtocolPtrOutputWithContext(context.Background())
+}
+
+func (i *locationFsxOntapFileSystemProtocolPtrType) ToLocationFsxOntapFileSystemProtocolPtrOutputWithContext(ctx context.Context) LocationFsxOntapFileSystemProtocolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationFsxOntapFileSystemProtocolPtrOutput)
+}
+
+type LocationFsxOntapFileSystemProtocolOutput struct{ *pulumi.OutputState }
+
+func (LocationFsxOntapFileSystemProtocolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationFsxOntapFileSystemProtocol)(nil)).Elem()
+}
+
+func (o LocationFsxOntapFileSystemProtocolOutput) ToLocationFsxOntapFileSystemProtocolOutput() LocationFsxOntapFileSystemProtocolOutput {
+	return o
+}
+
+func (o LocationFsxOntapFileSystemProtocolOutput) ToLocationFsxOntapFileSystemProtocolOutputWithContext(ctx context.Context) LocationFsxOntapFileSystemProtocolOutput {
+	return o
+}
+
+func (o LocationFsxOntapFileSystemProtocolOutput) ToLocationFsxOntapFileSystemProtocolPtrOutput() LocationFsxOntapFileSystemProtocolPtrOutput {
+	return o.ToLocationFsxOntapFileSystemProtocolPtrOutputWithContext(context.Background())
+}
+
+func (o LocationFsxOntapFileSystemProtocolOutput) ToLocationFsxOntapFileSystemProtocolPtrOutputWithContext(ctx context.Context) LocationFsxOntapFileSystemProtocolPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationFsxOntapFileSystemProtocol) *LocationFsxOntapFileSystemProtocol {
+		return &v
+	}).(LocationFsxOntapFileSystemProtocolPtrOutput)
+}
+
+// Network File System (NFS) protocol that DataSync uses to access your FSx ONTAP file system. See NFS below.
+func (o LocationFsxOntapFileSystemProtocolOutput) Nfs() LocationFsxOntapFileSystemProtocolNfsPtrOutput {
+	return o.ApplyT(func(v LocationFsxOntapFileSystemProtocol) *LocationFsxOntapFileSystemProtocolNfs { return v.Nfs }).(LocationFsxOntapFileSystemProtocolNfsPtrOutput)
+}
+
+// Server Message Block (SMB) protocol that DataSync uses to access your FSx ONTAP file system. See [SMB] (#smb) below.
+func (o LocationFsxOntapFileSystemProtocolOutput) Smb() LocationFsxOntapFileSystemProtocolSmbPtrOutput {
+	return o.ApplyT(func(v LocationFsxOntapFileSystemProtocol) *LocationFsxOntapFileSystemProtocolSmb { return v.Smb }).(LocationFsxOntapFileSystemProtocolSmbPtrOutput)
+}
+
+type LocationFsxOntapFileSystemProtocolPtrOutput struct{ *pulumi.OutputState }
+
+func (LocationFsxOntapFileSystemProtocolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationFsxOntapFileSystemProtocol)(nil)).Elem()
+}
+
+func (o LocationFsxOntapFileSystemProtocolPtrOutput) ToLocationFsxOntapFileSystemProtocolPtrOutput() LocationFsxOntapFileSystemProtocolPtrOutput {
+	return o
+}
+
+func (o LocationFsxOntapFileSystemProtocolPtrOutput) ToLocationFsxOntapFileSystemProtocolPtrOutputWithContext(ctx context.Context) LocationFsxOntapFileSystemProtocolPtrOutput {
+	return o
+}
+
+func (o LocationFsxOntapFileSystemProtocolPtrOutput) Elem() LocationFsxOntapFileSystemProtocolOutput {
+	return o.ApplyT(func(v *LocationFsxOntapFileSystemProtocol) LocationFsxOntapFileSystemProtocol {
+		if v != nil {
+			return *v
+		}
+		var ret LocationFsxOntapFileSystemProtocol
+		return ret
+	}).(LocationFsxOntapFileSystemProtocolOutput)
+}
+
+// Network File System (NFS) protocol that DataSync uses to access your FSx ONTAP file system. See NFS below.
+func (o LocationFsxOntapFileSystemProtocolPtrOutput) Nfs() LocationFsxOntapFileSystemProtocolNfsPtrOutput {
+	return o.ApplyT(func(v *LocationFsxOntapFileSystemProtocol) *LocationFsxOntapFileSystemProtocolNfs {
+		if v == nil {
+			return nil
+		}
+		return v.Nfs
+	}).(LocationFsxOntapFileSystemProtocolNfsPtrOutput)
+}
+
+// Server Message Block (SMB) protocol that DataSync uses to access your FSx ONTAP file system. See [SMB] (#smb) below.
+func (o LocationFsxOntapFileSystemProtocolPtrOutput) Smb() LocationFsxOntapFileSystemProtocolSmbPtrOutput {
+	return o.ApplyT(func(v *LocationFsxOntapFileSystemProtocol) *LocationFsxOntapFileSystemProtocolSmb {
+		if v == nil {
+			return nil
+		}
+		return v.Smb
+	}).(LocationFsxOntapFileSystemProtocolSmbPtrOutput)
+}
+
+type LocationFsxOntapFileSystemProtocolNfs struct {
+	// Mount options that are available for DataSync to access an NFS location. See NFS Mount Options below.
+	MountOptions LocationFsxOntapFileSystemProtocolNfsMountOptions `pulumi:"mountOptions"`
+}
+
+// LocationFsxOntapFileSystemProtocolNfsInput is an input type that accepts LocationFsxOntapFileSystemProtocolNfsArgs and LocationFsxOntapFileSystemProtocolNfsOutput values.
+// You can construct a concrete instance of `LocationFsxOntapFileSystemProtocolNfsInput` via:
+//
+//	LocationFsxOntapFileSystemProtocolNfsArgs{...}
+type LocationFsxOntapFileSystemProtocolNfsInput interface {
+	pulumi.Input
+
+	ToLocationFsxOntapFileSystemProtocolNfsOutput() LocationFsxOntapFileSystemProtocolNfsOutput
+	ToLocationFsxOntapFileSystemProtocolNfsOutputWithContext(context.Context) LocationFsxOntapFileSystemProtocolNfsOutput
+}
+
+type LocationFsxOntapFileSystemProtocolNfsArgs struct {
+	// Mount options that are available for DataSync to access an NFS location. See NFS Mount Options below.
+	MountOptions LocationFsxOntapFileSystemProtocolNfsMountOptionsInput `pulumi:"mountOptions"`
+}
+
+func (LocationFsxOntapFileSystemProtocolNfsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationFsxOntapFileSystemProtocolNfs)(nil)).Elem()
+}
+
+func (i LocationFsxOntapFileSystemProtocolNfsArgs) ToLocationFsxOntapFileSystemProtocolNfsOutput() LocationFsxOntapFileSystemProtocolNfsOutput {
+	return i.ToLocationFsxOntapFileSystemProtocolNfsOutputWithContext(context.Background())
+}
+
+func (i LocationFsxOntapFileSystemProtocolNfsArgs) ToLocationFsxOntapFileSystemProtocolNfsOutputWithContext(ctx context.Context) LocationFsxOntapFileSystemProtocolNfsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationFsxOntapFileSystemProtocolNfsOutput)
+}
+
+func (i LocationFsxOntapFileSystemProtocolNfsArgs) ToLocationFsxOntapFileSystemProtocolNfsPtrOutput() LocationFsxOntapFileSystemProtocolNfsPtrOutput {
+	return i.ToLocationFsxOntapFileSystemProtocolNfsPtrOutputWithContext(context.Background())
+}
+
+func (i LocationFsxOntapFileSystemProtocolNfsArgs) ToLocationFsxOntapFileSystemProtocolNfsPtrOutputWithContext(ctx context.Context) LocationFsxOntapFileSystemProtocolNfsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationFsxOntapFileSystemProtocolNfsOutput).ToLocationFsxOntapFileSystemProtocolNfsPtrOutputWithContext(ctx)
+}
+
+// LocationFsxOntapFileSystemProtocolNfsPtrInput is an input type that accepts LocationFsxOntapFileSystemProtocolNfsArgs, LocationFsxOntapFileSystemProtocolNfsPtr and LocationFsxOntapFileSystemProtocolNfsPtrOutput values.
+// You can construct a concrete instance of `LocationFsxOntapFileSystemProtocolNfsPtrInput` via:
+//
+//	        LocationFsxOntapFileSystemProtocolNfsArgs{...}
+//
+//	or:
+//
+//	        nil
+type LocationFsxOntapFileSystemProtocolNfsPtrInput interface {
+	pulumi.Input
+
+	ToLocationFsxOntapFileSystemProtocolNfsPtrOutput() LocationFsxOntapFileSystemProtocolNfsPtrOutput
+	ToLocationFsxOntapFileSystemProtocolNfsPtrOutputWithContext(context.Context) LocationFsxOntapFileSystemProtocolNfsPtrOutput
+}
+
+type locationFsxOntapFileSystemProtocolNfsPtrType LocationFsxOntapFileSystemProtocolNfsArgs
+
+func LocationFsxOntapFileSystemProtocolNfsPtr(v *LocationFsxOntapFileSystemProtocolNfsArgs) LocationFsxOntapFileSystemProtocolNfsPtrInput {
+	return (*locationFsxOntapFileSystemProtocolNfsPtrType)(v)
+}
+
+func (*locationFsxOntapFileSystemProtocolNfsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationFsxOntapFileSystemProtocolNfs)(nil)).Elem()
+}
+
+func (i *locationFsxOntapFileSystemProtocolNfsPtrType) ToLocationFsxOntapFileSystemProtocolNfsPtrOutput() LocationFsxOntapFileSystemProtocolNfsPtrOutput {
+	return i.ToLocationFsxOntapFileSystemProtocolNfsPtrOutputWithContext(context.Background())
+}
+
+func (i *locationFsxOntapFileSystemProtocolNfsPtrType) ToLocationFsxOntapFileSystemProtocolNfsPtrOutputWithContext(ctx context.Context) LocationFsxOntapFileSystemProtocolNfsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationFsxOntapFileSystemProtocolNfsPtrOutput)
+}
+
+type LocationFsxOntapFileSystemProtocolNfsOutput struct{ *pulumi.OutputState }
+
+func (LocationFsxOntapFileSystemProtocolNfsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationFsxOntapFileSystemProtocolNfs)(nil)).Elem()
+}
+
+func (o LocationFsxOntapFileSystemProtocolNfsOutput) ToLocationFsxOntapFileSystemProtocolNfsOutput() LocationFsxOntapFileSystemProtocolNfsOutput {
+	return o
+}
+
+func (o LocationFsxOntapFileSystemProtocolNfsOutput) ToLocationFsxOntapFileSystemProtocolNfsOutputWithContext(ctx context.Context) LocationFsxOntapFileSystemProtocolNfsOutput {
+	return o
+}
+
+func (o LocationFsxOntapFileSystemProtocolNfsOutput) ToLocationFsxOntapFileSystemProtocolNfsPtrOutput() LocationFsxOntapFileSystemProtocolNfsPtrOutput {
+	return o.ToLocationFsxOntapFileSystemProtocolNfsPtrOutputWithContext(context.Background())
+}
+
+func (o LocationFsxOntapFileSystemProtocolNfsOutput) ToLocationFsxOntapFileSystemProtocolNfsPtrOutputWithContext(ctx context.Context) LocationFsxOntapFileSystemProtocolNfsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationFsxOntapFileSystemProtocolNfs) *LocationFsxOntapFileSystemProtocolNfs {
+		return &v
+	}).(LocationFsxOntapFileSystemProtocolNfsPtrOutput)
+}
+
+// Mount options that are available for DataSync to access an NFS location. See NFS Mount Options below.
+func (o LocationFsxOntapFileSystemProtocolNfsOutput) MountOptions() LocationFsxOntapFileSystemProtocolNfsMountOptionsOutput {
+	return o.ApplyT(func(v LocationFsxOntapFileSystemProtocolNfs) LocationFsxOntapFileSystemProtocolNfsMountOptions {
+		return v.MountOptions
+	}).(LocationFsxOntapFileSystemProtocolNfsMountOptionsOutput)
+}
+
+type LocationFsxOntapFileSystemProtocolNfsPtrOutput struct{ *pulumi.OutputState }
+
+func (LocationFsxOntapFileSystemProtocolNfsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationFsxOntapFileSystemProtocolNfs)(nil)).Elem()
+}
+
+func (o LocationFsxOntapFileSystemProtocolNfsPtrOutput) ToLocationFsxOntapFileSystemProtocolNfsPtrOutput() LocationFsxOntapFileSystemProtocolNfsPtrOutput {
+	return o
+}
+
+func (o LocationFsxOntapFileSystemProtocolNfsPtrOutput) ToLocationFsxOntapFileSystemProtocolNfsPtrOutputWithContext(ctx context.Context) LocationFsxOntapFileSystemProtocolNfsPtrOutput {
+	return o
+}
+
+func (o LocationFsxOntapFileSystemProtocolNfsPtrOutput) Elem() LocationFsxOntapFileSystemProtocolNfsOutput {
+	return o.ApplyT(func(v *LocationFsxOntapFileSystemProtocolNfs) LocationFsxOntapFileSystemProtocolNfs {
+		if v != nil {
+			return *v
+		}
+		var ret LocationFsxOntapFileSystemProtocolNfs
+		return ret
+	}).(LocationFsxOntapFileSystemProtocolNfsOutput)
+}
+
+// Mount options that are available for DataSync to access an NFS location. See NFS Mount Options below.
+func (o LocationFsxOntapFileSystemProtocolNfsPtrOutput) MountOptions() LocationFsxOntapFileSystemProtocolNfsMountOptionsPtrOutput {
+	return o.ApplyT(func(v *LocationFsxOntapFileSystemProtocolNfs) *LocationFsxOntapFileSystemProtocolNfsMountOptions {
+		if v == nil {
+			return nil
+		}
+		return &v.MountOptions
+	}).(LocationFsxOntapFileSystemProtocolNfsMountOptionsPtrOutput)
+}
+
+type LocationFsxOntapFileSystemProtocolNfsMountOptions struct {
+	// The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `NFS3`. Default: `NFS3`
+	Version *string `pulumi:"version"`
+}
+
+// LocationFsxOntapFileSystemProtocolNfsMountOptionsInput is an input type that accepts LocationFsxOntapFileSystemProtocolNfsMountOptionsArgs and LocationFsxOntapFileSystemProtocolNfsMountOptionsOutput values.
+// You can construct a concrete instance of `LocationFsxOntapFileSystemProtocolNfsMountOptionsInput` via:
+//
+//	LocationFsxOntapFileSystemProtocolNfsMountOptionsArgs{...}
+type LocationFsxOntapFileSystemProtocolNfsMountOptionsInput interface {
+	pulumi.Input
+
+	ToLocationFsxOntapFileSystemProtocolNfsMountOptionsOutput() LocationFsxOntapFileSystemProtocolNfsMountOptionsOutput
+	ToLocationFsxOntapFileSystemProtocolNfsMountOptionsOutputWithContext(context.Context) LocationFsxOntapFileSystemProtocolNfsMountOptionsOutput
+}
+
+type LocationFsxOntapFileSystemProtocolNfsMountOptionsArgs struct {
+	// The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `NFS3`. Default: `NFS3`
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (LocationFsxOntapFileSystemProtocolNfsMountOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationFsxOntapFileSystemProtocolNfsMountOptions)(nil)).Elem()
+}
+
+func (i LocationFsxOntapFileSystemProtocolNfsMountOptionsArgs) ToLocationFsxOntapFileSystemProtocolNfsMountOptionsOutput() LocationFsxOntapFileSystemProtocolNfsMountOptionsOutput {
+	return i.ToLocationFsxOntapFileSystemProtocolNfsMountOptionsOutputWithContext(context.Background())
+}
+
+func (i LocationFsxOntapFileSystemProtocolNfsMountOptionsArgs) ToLocationFsxOntapFileSystemProtocolNfsMountOptionsOutputWithContext(ctx context.Context) LocationFsxOntapFileSystemProtocolNfsMountOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationFsxOntapFileSystemProtocolNfsMountOptionsOutput)
+}
+
+func (i LocationFsxOntapFileSystemProtocolNfsMountOptionsArgs) ToLocationFsxOntapFileSystemProtocolNfsMountOptionsPtrOutput() LocationFsxOntapFileSystemProtocolNfsMountOptionsPtrOutput {
+	return i.ToLocationFsxOntapFileSystemProtocolNfsMountOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i LocationFsxOntapFileSystemProtocolNfsMountOptionsArgs) ToLocationFsxOntapFileSystemProtocolNfsMountOptionsPtrOutputWithContext(ctx context.Context) LocationFsxOntapFileSystemProtocolNfsMountOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationFsxOntapFileSystemProtocolNfsMountOptionsOutput).ToLocationFsxOntapFileSystemProtocolNfsMountOptionsPtrOutputWithContext(ctx)
+}
+
+// LocationFsxOntapFileSystemProtocolNfsMountOptionsPtrInput is an input type that accepts LocationFsxOntapFileSystemProtocolNfsMountOptionsArgs, LocationFsxOntapFileSystemProtocolNfsMountOptionsPtr and LocationFsxOntapFileSystemProtocolNfsMountOptionsPtrOutput values.
+// You can construct a concrete instance of `LocationFsxOntapFileSystemProtocolNfsMountOptionsPtrInput` via:
+//
+//	        LocationFsxOntapFileSystemProtocolNfsMountOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type LocationFsxOntapFileSystemProtocolNfsMountOptionsPtrInput interface {
+	pulumi.Input
+
+	ToLocationFsxOntapFileSystemProtocolNfsMountOptionsPtrOutput() LocationFsxOntapFileSystemProtocolNfsMountOptionsPtrOutput
+	ToLocationFsxOntapFileSystemProtocolNfsMountOptionsPtrOutputWithContext(context.Context) LocationFsxOntapFileSystemProtocolNfsMountOptionsPtrOutput
+}
+
+type locationFsxOntapFileSystemProtocolNfsMountOptionsPtrType LocationFsxOntapFileSystemProtocolNfsMountOptionsArgs
+
+func LocationFsxOntapFileSystemProtocolNfsMountOptionsPtr(v *LocationFsxOntapFileSystemProtocolNfsMountOptionsArgs) LocationFsxOntapFileSystemProtocolNfsMountOptionsPtrInput {
+	return (*locationFsxOntapFileSystemProtocolNfsMountOptionsPtrType)(v)
+}
+
+func (*locationFsxOntapFileSystemProtocolNfsMountOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationFsxOntapFileSystemProtocolNfsMountOptions)(nil)).Elem()
+}
+
+func (i *locationFsxOntapFileSystemProtocolNfsMountOptionsPtrType) ToLocationFsxOntapFileSystemProtocolNfsMountOptionsPtrOutput() LocationFsxOntapFileSystemProtocolNfsMountOptionsPtrOutput {
+	return i.ToLocationFsxOntapFileSystemProtocolNfsMountOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *locationFsxOntapFileSystemProtocolNfsMountOptionsPtrType) ToLocationFsxOntapFileSystemProtocolNfsMountOptionsPtrOutputWithContext(ctx context.Context) LocationFsxOntapFileSystemProtocolNfsMountOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationFsxOntapFileSystemProtocolNfsMountOptionsPtrOutput)
+}
+
+type LocationFsxOntapFileSystemProtocolNfsMountOptionsOutput struct{ *pulumi.OutputState }
+
+func (LocationFsxOntapFileSystemProtocolNfsMountOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationFsxOntapFileSystemProtocolNfsMountOptions)(nil)).Elem()
+}
+
+func (o LocationFsxOntapFileSystemProtocolNfsMountOptionsOutput) ToLocationFsxOntapFileSystemProtocolNfsMountOptionsOutput() LocationFsxOntapFileSystemProtocolNfsMountOptionsOutput {
+	return o
+}
+
+func (o LocationFsxOntapFileSystemProtocolNfsMountOptionsOutput) ToLocationFsxOntapFileSystemProtocolNfsMountOptionsOutputWithContext(ctx context.Context) LocationFsxOntapFileSystemProtocolNfsMountOptionsOutput {
+	return o
+}
+
+func (o LocationFsxOntapFileSystemProtocolNfsMountOptionsOutput) ToLocationFsxOntapFileSystemProtocolNfsMountOptionsPtrOutput() LocationFsxOntapFileSystemProtocolNfsMountOptionsPtrOutput {
+	return o.ToLocationFsxOntapFileSystemProtocolNfsMountOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o LocationFsxOntapFileSystemProtocolNfsMountOptionsOutput) ToLocationFsxOntapFileSystemProtocolNfsMountOptionsPtrOutputWithContext(ctx context.Context) LocationFsxOntapFileSystemProtocolNfsMountOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationFsxOntapFileSystemProtocolNfsMountOptions) *LocationFsxOntapFileSystemProtocolNfsMountOptions {
+		return &v
+	}).(LocationFsxOntapFileSystemProtocolNfsMountOptionsPtrOutput)
+}
+
+// The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `NFS3`. Default: `NFS3`
+func (o LocationFsxOntapFileSystemProtocolNfsMountOptionsOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LocationFsxOntapFileSystemProtocolNfsMountOptions) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type LocationFsxOntapFileSystemProtocolNfsMountOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (LocationFsxOntapFileSystemProtocolNfsMountOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationFsxOntapFileSystemProtocolNfsMountOptions)(nil)).Elem()
+}
+
+func (o LocationFsxOntapFileSystemProtocolNfsMountOptionsPtrOutput) ToLocationFsxOntapFileSystemProtocolNfsMountOptionsPtrOutput() LocationFsxOntapFileSystemProtocolNfsMountOptionsPtrOutput {
+	return o
+}
+
+func (o LocationFsxOntapFileSystemProtocolNfsMountOptionsPtrOutput) ToLocationFsxOntapFileSystemProtocolNfsMountOptionsPtrOutputWithContext(ctx context.Context) LocationFsxOntapFileSystemProtocolNfsMountOptionsPtrOutput {
+	return o
+}
+
+func (o LocationFsxOntapFileSystemProtocolNfsMountOptionsPtrOutput) Elem() LocationFsxOntapFileSystemProtocolNfsMountOptionsOutput {
+	return o.ApplyT(func(v *LocationFsxOntapFileSystemProtocolNfsMountOptions) LocationFsxOntapFileSystemProtocolNfsMountOptions {
+		if v != nil {
+			return *v
+		}
+		var ret LocationFsxOntapFileSystemProtocolNfsMountOptions
+		return ret
+	}).(LocationFsxOntapFileSystemProtocolNfsMountOptionsOutput)
+}
+
+// The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `NFS3`. Default: `NFS3`
+func (o LocationFsxOntapFileSystemProtocolNfsMountOptionsPtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationFsxOntapFileSystemProtocolNfsMountOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
+type LocationFsxOntapFileSystemProtocolSmb struct {
+	// Fully qualified domain name of the Microsoft Active Directory (AD) that your storage virtual machine belongs to.
+	Domain *string `pulumi:"domain"`
+	// Mount options that are available for DataSync to access an SMB location. See SMB Mount Options below.
+	MountOptions LocationFsxOntapFileSystemProtocolSmbMountOptions `pulumi:"mountOptions"`
+	// Password of a user who has permission to access your SVM.
+	Password string `pulumi:"password"`
+	// Username that can mount the location and access the files, folders, and metadata that you need in the SVM.
+	User string `pulumi:"user"`
+}
+
+// LocationFsxOntapFileSystemProtocolSmbInput is an input type that accepts LocationFsxOntapFileSystemProtocolSmbArgs and LocationFsxOntapFileSystemProtocolSmbOutput values.
+// You can construct a concrete instance of `LocationFsxOntapFileSystemProtocolSmbInput` via:
+//
+//	LocationFsxOntapFileSystemProtocolSmbArgs{...}
+type LocationFsxOntapFileSystemProtocolSmbInput interface {
+	pulumi.Input
+
+	ToLocationFsxOntapFileSystemProtocolSmbOutput() LocationFsxOntapFileSystemProtocolSmbOutput
+	ToLocationFsxOntapFileSystemProtocolSmbOutputWithContext(context.Context) LocationFsxOntapFileSystemProtocolSmbOutput
+}
+
+type LocationFsxOntapFileSystemProtocolSmbArgs struct {
+	// Fully qualified domain name of the Microsoft Active Directory (AD) that your storage virtual machine belongs to.
+	Domain pulumi.StringPtrInput `pulumi:"domain"`
+	// Mount options that are available for DataSync to access an SMB location. See SMB Mount Options below.
+	MountOptions LocationFsxOntapFileSystemProtocolSmbMountOptionsInput `pulumi:"mountOptions"`
+	// Password of a user who has permission to access your SVM.
+	Password pulumi.StringInput `pulumi:"password"`
+	// Username that can mount the location and access the files, folders, and metadata that you need in the SVM.
+	User pulumi.StringInput `pulumi:"user"`
+}
+
+func (LocationFsxOntapFileSystemProtocolSmbArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationFsxOntapFileSystemProtocolSmb)(nil)).Elem()
+}
+
+func (i LocationFsxOntapFileSystemProtocolSmbArgs) ToLocationFsxOntapFileSystemProtocolSmbOutput() LocationFsxOntapFileSystemProtocolSmbOutput {
+	return i.ToLocationFsxOntapFileSystemProtocolSmbOutputWithContext(context.Background())
+}
+
+func (i LocationFsxOntapFileSystemProtocolSmbArgs) ToLocationFsxOntapFileSystemProtocolSmbOutputWithContext(ctx context.Context) LocationFsxOntapFileSystemProtocolSmbOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationFsxOntapFileSystemProtocolSmbOutput)
+}
+
+func (i LocationFsxOntapFileSystemProtocolSmbArgs) ToLocationFsxOntapFileSystemProtocolSmbPtrOutput() LocationFsxOntapFileSystemProtocolSmbPtrOutput {
+	return i.ToLocationFsxOntapFileSystemProtocolSmbPtrOutputWithContext(context.Background())
+}
+
+func (i LocationFsxOntapFileSystemProtocolSmbArgs) ToLocationFsxOntapFileSystemProtocolSmbPtrOutputWithContext(ctx context.Context) LocationFsxOntapFileSystemProtocolSmbPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationFsxOntapFileSystemProtocolSmbOutput).ToLocationFsxOntapFileSystemProtocolSmbPtrOutputWithContext(ctx)
+}
+
+// LocationFsxOntapFileSystemProtocolSmbPtrInput is an input type that accepts LocationFsxOntapFileSystemProtocolSmbArgs, LocationFsxOntapFileSystemProtocolSmbPtr and LocationFsxOntapFileSystemProtocolSmbPtrOutput values.
+// You can construct a concrete instance of `LocationFsxOntapFileSystemProtocolSmbPtrInput` via:
+//
+//	        LocationFsxOntapFileSystemProtocolSmbArgs{...}
+//
+//	or:
+//
+//	        nil
+type LocationFsxOntapFileSystemProtocolSmbPtrInput interface {
+	pulumi.Input
+
+	ToLocationFsxOntapFileSystemProtocolSmbPtrOutput() LocationFsxOntapFileSystemProtocolSmbPtrOutput
+	ToLocationFsxOntapFileSystemProtocolSmbPtrOutputWithContext(context.Context) LocationFsxOntapFileSystemProtocolSmbPtrOutput
+}
+
+type locationFsxOntapFileSystemProtocolSmbPtrType LocationFsxOntapFileSystemProtocolSmbArgs
+
+func LocationFsxOntapFileSystemProtocolSmbPtr(v *LocationFsxOntapFileSystemProtocolSmbArgs) LocationFsxOntapFileSystemProtocolSmbPtrInput {
+	return (*locationFsxOntapFileSystemProtocolSmbPtrType)(v)
+}
+
+func (*locationFsxOntapFileSystemProtocolSmbPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationFsxOntapFileSystemProtocolSmb)(nil)).Elem()
+}
+
+func (i *locationFsxOntapFileSystemProtocolSmbPtrType) ToLocationFsxOntapFileSystemProtocolSmbPtrOutput() LocationFsxOntapFileSystemProtocolSmbPtrOutput {
+	return i.ToLocationFsxOntapFileSystemProtocolSmbPtrOutputWithContext(context.Background())
+}
+
+func (i *locationFsxOntapFileSystemProtocolSmbPtrType) ToLocationFsxOntapFileSystemProtocolSmbPtrOutputWithContext(ctx context.Context) LocationFsxOntapFileSystemProtocolSmbPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationFsxOntapFileSystemProtocolSmbPtrOutput)
+}
+
+type LocationFsxOntapFileSystemProtocolSmbOutput struct{ *pulumi.OutputState }
+
+func (LocationFsxOntapFileSystemProtocolSmbOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationFsxOntapFileSystemProtocolSmb)(nil)).Elem()
+}
+
+func (o LocationFsxOntapFileSystemProtocolSmbOutput) ToLocationFsxOntapFileSystemProtocolSmbOutput() LocationFsxOntapFileSystemProtocolSmbOutput {
+	return o
+}
+
+func (o LocationFsxOntapFileSystemProtocolSmbOutput) ToLocationFsxOntapFileSystemProtocolSmbOutputWithContext(ctx context.Context) LocationFsxOntapFileSystemProtocolSmbOutput {
+	return o
+}
+
+func (o LocationFsxOntapFileSystemProtocolSmbOutput) ToLocationFsxOntapFileSystemProtocolSmbPtrOutput() LocationFsxOntapFileSystemProtocolSmbPtrOutput {
+	return o.ToLocationFsxOntapFileSystemProtocolSmbPtrOutputWithContext(context.Background())
+}
+
+func (o LocationFsxOntapFileSystemProtocolSmbOutput) ToLocationFsxOntapFileSystemProtocolSmbPtrOutputWithContext(ctx context.Context) LocationFsxOntapFileSystemProtocolSmbPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationFsxOntapFileSystemProtocolSmb) *LocationFsxOntapFileSystemProtocolSmb {
+		return &v
+	}).(LocationFsxOntapFileSystemProtocolSmbPtrOutput)
+}
+
+// Fully qualified domain name of the Microsoft Active Directory (AD) that your storage virtual machine belongs to.
+func (o LocationFsxOntapFileSystemProtocolSmbOutput) Domain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LocationFsxOntapFileSystemProtocolSmb) *string { return v.Domain }).(pulumi.StringPtrOutput)
+}
+
+// Mount options that are available for DataSync to access an SMB location. See SMB Mount Options below.
+func (o LocationFsxOntapFileSystemProtocolSmbOutput) MountOptions() LocationFsxOntapFileSystemProtocolSmbMountOptionsOutput {
+	return o.ApplyT(func(v LocationFsxOntapFileSystemProtocolSmb) LocationFsxOntapFileSystemProtocolSmbMountOptions {
+		return v.MountOptions
+	}).(LocationFsxOntapFileSystemProtocolSmbMountOptionsOutput)
+}
+
+// Password of a user who has permission to access your SVM.
+func (o LocationFsxOntapFileSystemProtocolSmbOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func(v LocationFsxOntapFileSystemProtocolSmb) string { return v.Password }).(pulumi.StringOutput)
+}
+
+// Username that can mount the location and access the files, folders, and metadata that you need in the SVM.
+func (o LocationFsxOntapFileSystemProtocolSmbOutput) User() pulumi.StringOutput {
+	return o.ApplyT(func(v LocationFsxOntapFileSystemProtocolSmb) string { return v.User }).(pulumi.StringOutput)
+}
+
+type LocationFsxOntapFileSystemProtocolSmbPtrOutput struct{ *pulumi.OutputState }
+
+func (LocationFsxOntapFileSystemProtocolSmbPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationFsxOntapFileSystemProtocolSmb)(nil)).Elem()
+}
+
+func (o LocationFsxOntapFileSystemProtocolSmbPtrOutput) ToLocationFsxOntapFileSystemProtocolSmbPtrOutput() LocationFsxOntapFileSystemProtocolSmbPtrOutput {
+	return o
+}
+
+func (o LocationFsxOntapFileSystemProtocolSmbPtrOutput) ToLocationFsxOntapFileSystemProtocolSmbPtrOutputWithContext(ctx context.Context) LocationFsxOntapFileSystemProtocolSmbPtrOutput {
+	return o
+}
+
+func (o LocationFsxOntapFileSystemProtocolSmbPtrOutput) Elem() LocationFsxOntapFileSystemProtocolSmbOutput {
+	return o.ApplyT(func(v *LocationFsxOntapFileSystemProtocolSmb) LocationFsxOntapFileSystemProtocolSmb {
+		if v != nil {
+			return *v
+		}
+		var ret LocationFsxOntapFileSystemProtocolSmb
+		return ret
+	}).(LocationFsxOntapFileSystemProtocolSmbOutput)
+}
+
+// Fully qualified domain name of the Microsoft Active Directory (AD) that your storage virtual machine belongs to.
+func (o LocationFsxOntapFileSystemProtocolSmbPtrOutput) Domain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationFsxOntapFileSystemProtocolSmb) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Domain
+	}).(pulumi.StringPtrOutput)
+}
+
+// Mount options that are available for DataSync to access an SMB location. See SMB Mount Options below.
+func (o LocationFsxOntapFileSystemProtocolSmbPtrOutput) MountOptions() LocationFsxOntapFileSystemProtocolSmbMountOptionsPtrOutput {
+	return o.ApplyT(func(v *LocationFsxOntapFileSystemProtocolSmb) *LocationFsxOntapFileSystemProtocolSmbMountOptions {
+		if v == nil {
+			return nil
+		}
+		return &v.MountOptions
+	}).(LocationFsxOntapFileSystemProtocolSmbMountOptionsPtrOutput)
+}
+
+// Password of a user who has permission to access your SVM.
+func (o LocationFsxOntapFileSystemProtocolSmbPtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationFsxOntapFileSystemProtocolSmb) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
+// Username that can mount the location and access the files, folders, and metadata that you need in the SVM.
+func (o LocationFsxOntapFileSystemProtocolSmbPtrOutput) User() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationFsxOntapFileSystemProtocolSmb) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.User
+	}).(pulumi.StringPtrOutput)
+}
+
+type LocationFsxOntapFileSystemProtocolSmbMountOptions struct {
+	// The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `NFS3`. Default: `NFS3`
+	Version *string `pulumi:"version"`
+}
+
+// LocationFsxOntapFileSystemProtocolSmbMountOptionsInput is an input type that accepts LocationFsxOntapFileSystemProtocolSmbMountOptionsArgs and LocationFsxOntapFileSystemProtocolSmbMountOptionsOutput values.
+// You can construct a concrete instance of `LocationFsxOntapFileSystemProtocolSmbMountOptionsInput` via:
+//
+//	LocationFsxOntapFileSystemProtocolSmbMountOptionsArgs{...}
+type LocationFsxOntapFileSystemProtocolSmbMountOptionsInput interface {
+	pulumi.Input
+
+	ToLocationFsxOntapFileSystemProtocolSmbMountOptionsOutput() LocationFsxOntapFileSystemProtocolSmbMountOptionsOutput
+	ToLocationFsxOntapFileSystemProtocolSmbMountOptionsOutputWithContext(context.Context) LocationFsxOntapFileSystemProtocolSmbMountOptionsOutput
+}
+
+type LocationFsxOntapFileSystemProtocolSmbMountOptionsArgs struct {
+	// The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `NFS3`. Default: `NFS3`
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (LocationFsxOntapFileSystemProtocolSmbMountOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationFsxOntapFileSystemProtocolSmbMountOptions)(nil)).Elem()
+}
+
+func (i LocationFsxOntapFileSystemProtocolSmbMountOptionsArgs) ToLocationFsxOntapFileSystemProtocolSmbMountOptionsOutput() LocationFsxOntapFileSystemProtocolSmbMountOptionsOutput {
+	return i.ToLocationFsxOntapFileSystemProtocolSmbMountOptionsOutputWithContext(context.Background())
+}
+
+func (i LocationFsxOntapFileSystemProtocolSmbMountOptionsArgs) ToLocationFsxOntapFileSystemProtocolSmbMountOptionsOutputWithContext(ctx context.Context) LocationFsxOntapFileSystemProtocolSmbMountOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationFsxOntapFileSystemProtocolSmbMountOptionsOutput)
+}
+
+func (i LocationFsxOntapFileSystemProtocolSmbMountOptionsArgs) ToLocationFsxOntapFileSystemProtocolSmbMountOptionsPtrOutput() LocationFsxOntapFileSystemProtocolSmbMountOptionsPtrOutput {
+	return i.ToLocationFsxOntapFileSystemProtocolSmbMountOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i LocationFsxOntapFileSystemProtocolSmbMountOptionsArgs) ToLocationFsxOntapFileSystemProtocolSmbMountOptionsPtrOutputWithContext(ctx context.Context) LocationFsxOntapFileSystemProtocolSmbMountOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationFsxOntapFileSystemProtocolSmbMountOptionsOutput).ToLocationFsxOntapFileSystemProtocolSmbMountOptionsPtrOutputWithContext(ctx)
+}
+
+// LocationFsxOntapFileSystemProtocolSmbMountOptionsPtrInput is an input type that accepts LocationFsxOntapFileSystemProtocolSmbMountOptionsArgs, LocationFsxOntapFileSystemProtocolSmbMountOptionsPtr and LocationFsxOntapFileSystemProtocolSmbMountOptionsPtrOutput values.
+// You can construct a concrete instance of `LocationFsxOntapFileSystemProtocolSmbMountOptionsPtrInput` via:
+//
+//	        LocationFsxOntapFileSystemProtocolSmbMountOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type LocationFsxOntapFileSystemProtocolSmbMountOptionsPtrInput interface {
+	pulumi.Input
+
+	ToLocationFsxOntapFileSystemProtocolSmbMountOptionsPtrOutput() LocationFsxOntapFileSystemProtocolSmbMountOptionsPtrOutput
+	ToLocationFsxOntapFileSystemProtocolSmbMountOptionsPtrOutputWithContext(context.Context) LocationFsxOntapFileSystemProtocolSmbMountOptionsPtrOutput
+}
+
+type locationFsxOntapFileSystemProtocolSmbMountOptionsPtrType LocationFsxOntapFileSystemProtocolSmbMountOptionsArgs
+
+func LocationFsxOntapFileSystemProtocolSmbMountOptionsPtr(v *LocationFsxOntapFileSystemProtocolSmbMountOptionsArgs) LocationFsxOntapFileSystemProtocolSmbMountOptionsPtrInput {
+	return (*locationFsxOntapFileSystemProtocolSmbMountOptionsPtrType)(v)
+}
+
+func (*locationFsxOntapFileSystemProtocolSmbMountOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationFsxOntapFileSystemProtocolSmbMountOptions)(nil)).Elem()
+}
+
+func (i *locationFsxOntapFileSystemProtocolSmbMountOptionsPtrType) ToLocationFsxOntapFileSystemProtocolSmbMountOptionsPtrOutput() LocationFsxOntapFileSystemProtocolSmbMountOptionsPtrOutput {
+	return i.ToLocationFsxOntapFileSystemProtocolSmbMountOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *locationFsxOntapFileSystemProtocolSmbMountOptionsPtrType) ToLocationFsxOntapFileSystemProtocolSmbMountOptionsPtrOutputWithContext(ctx context.Context) LocationFsxOntapFileSystemProtocolSmbMountOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationFsxOntapFileSystemProtocolSmbMountOptionsPtrOutput)
+}
+
+type LocationFsxOntapFileSystemProtocolSmbMountOptionsOutput struct{ *pulumi.OutputState }
+
+func (LocationFsxOntapFileSystemProtocolSmbMountOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationFsxOntapFileSystemProtocolSmbMountOptions)(nil)).Elem()
+}
+
+func (o LocationFsxOntapFileSystemProtocolSmbMountOptionsOutput) ToLocationFsxOntapFileSystemProtocolSmbMountOptionsOutput() LocationFsxOntapFileSystemProtocolSmbMountOptionsOutput {
+	return o
+}
+
+func (o LocationFsxOntapFileSystemProtocolSmbMountOptionsOutput) ToLocationFsxOntapFileSystemProtocolSmbMountOptionsOutputWithContext(ctx context.Context) LocationFsxOntapFileSystemProtocolSmbMountOptionsOutput {
+	return o
+}
+
+func (o LocationFsxOntapFileSystemProtocolSmbMountOptionsOutput) ToLocationFsxOntapFileSystemProtocolSmbMountOptionsPtrOutput() LocationFsxOntapFileSystemProtocolSmbMountOptionsPtrOutput {
+	return o.ToLocationFsxOntapFileSystemProtocolSmbMountOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o LocationFsxOntapFileSystemProtocolSmbMountOptionsOutput) ToLocationFsxOntapFileSystemProtocolSmbMountOptionsPtrOutputWithContext(ctx context.Context) LocationFsxOntapFileSystemProtocolSmbMountOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationFsxOntapFileSystemProtocolSmbMountOptions) *LocationFsxOntapFileSystemProtocolSmbMountOptions {
+		return &v
+	}).(LocationFsxOntapFileSystemProtocolSmbMountOptionsPtrOutput)
+}
+
+// The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `NFS3`. Default: `NFS3`
+func (o LocationFsxOntapFileSystemProtocolSmbMountOptionsOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LocationFsxOntapFileSystemProtocolSmbMountOptions) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type LocationFsxOntapFileSystemProtocolSmbMountOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (LocationFsxOntapFileSystemProtocolSmbMountOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationFsxOntapFileSystemProtocolSmbMountOptions)(nil)).Elem()
+}
+
+func (o LocationFsxOntapFileSystemProtocolSmbMountOptionsPtrOutput) ToLocationFsxOntapFileSystemProtocolSmbMountOptionsPtrOutput() LocationFsxOntapFileSystemProtocolSmbMountOptionsPtrOutput {
+	return o
+}
+
+func (o LocationFsxOntapFileSystemProtocolSmbMountOptionsPtrOutput) ToLocationFsxOntapFileSystemProtocolSmbMountOptionsPtrOutputWithContext(ctx context.Context) LocationFsxOntapFileSystemProtocolSmbMountOptionsPtrOutput {
+	return o
+}
+
+func (o LocationFsxOntapFileSystemProtocolSmbMountOptionsPtrOutput) Elem() LocationFsxOntapFileSystemProtocolSmbMountOptionsOutput {
+	return o.ApplyT(func(v *LocationFsxOntapFileSystemProtocolSmbMountOptions) LocationFsxOntapFileSystemProtocolSmbMountOptions {
+		if v != nil {
+			return *v
+		}
+		var ret LocationFsxOntapFileSystemProtocolSmbMountOptions
+		return ret
+	}).(LocationFsxOntapFileSystemProtocolSmbMountOptionsOutput)
+}
+
+// The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `NFS3`. Default: `NFS3`
+func (o LocationFsxOntapFileSystemProtocolSmbMountOptionsPtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationFsxOntapFileSystemProtocolSmbMountOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
 type LocationHdfsNameNode struct {
 	// The hostname of the NameNode in the HDFS cluster. This value is the IP address or Domain Name Service (DNS) name of the NameNode. An agent that's installed on-premises uses this hostname to communicate with the NameNode in the network.
 	Hostname string `pulumi:"hostname"`
@@ -2253,6 +3155,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FsxOpenZfsFileSystemProtocolNfsPtrInput)(nil)).Elem(), FsxOpenZfsFileSystemProtocolNfsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FsxOpenZfsFileSystemProtocolNfsMountOptionsInput)(nil)).Elem(), FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FsxOpenZfsFileSystemProtocolNfsMountOptionsPtrInput)(nil)).Elem(), FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationAzureBlobSasConfigurationInput)(nil)).Elem(), LocationAzureBlobSasConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationAzureBlobSasConfigurationPtrInput)(nil)).Elem(), LocationAzureBlobSasConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationFsxOntapFileSystemProtocolInput)(nil)).Elem(), LocationFsxOntapFileSystemProtocolArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationFsxOntapFileSystemProtocolPtrInput)(nil)).Elem(), LocationFsxOntapFileSystemProtocolArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationFsxOntapFileSystemProtocolNfsInput)(nil)).Elem(), LocationFsxOntapFileSystemProtocolNfsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationFsxOntapFileSystemProtocolNfsPtrInput)(nil)).Elem(), LocationFsxOntapFileSystemProtocolNfsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationFsxOntapFileSystemProtocolNfsMountOptionsInput)(nil)).Elem(), LocationFsxOntapFileSystemProtocolNfsMountOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationFsxOntapFileSystemProtocolNfsMountOptionsPtrInput)(nil)).Elem(), LocationFsxOntapFileSystemProtocolNfsMountOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationFsxOntapFileSystemProtocolSmbInput)(nil)).Elem(), LocationFsxOntapFileSystemProtocolSmbArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationFsxOntapFileSystemProtocolSmbPtrInput)(nil)).Elem(), LocationFsxOntapFileSystemProtocolSmbArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationFsxOntapFileSystemProtocolSmbMountOptionsInput)(nil)).Elem(), LocationFsxOntapFileSystemProtocolSmbMountOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationFsxOntapFileSystemProtocolSmbMountOptionsPtrInput)(nil)).Elem(), LocationFsxOntapFileSystemProtocolSmbMountOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationHdfsNameNodeInput)(nil)).Elem(), LocationHdfsNameNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationHdfsNameNodeArrayInput)(nil)).Elem(), LocationHdfsNameNodeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationHdfsQopConfigurationInput)(nil)).Elem(), LocationHdfsQopConfigurationArgs{})
@@ -2281,6 +3195,18 @@ func init() {
 	pulumi.RegisterOutputType(FsxOpenZfsFileSystemProtocolNfsPtrOutput{})
 	pulumi.RegisterOutputType(FsxOpenZfsFileSystemProtocolNfsMountOptionsOutput{})
 	pulumi.RegisterOutputType(FsxOpenZfsFileSystemProtocolNfsMountOptionsPtrOutput{})
+	pulumi.RegisterOutputType(LocationAzureBlobSasConfigurationOutput{})
+	pulumi.RegisterOutputType(LocationAzureBlobSasConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(LocationFsxOntapFileSystemProtocolOutput{})
+	pulumi.RegisterOutputType(LocationFsxOntapFileSystemProtocolPtrOutput{})
+	pulumi.RegisterOutputType(LocationFsxOntapFileSystemProtocolNfsOutput{})
+	pulumi.RegisterOutputType(LocationFsxOntapFileSystemProtocolNfsPtrOutput{})
+	pulumi.RegisterOutputType(LocationFsxOntapFileSystemProtocolNfsMountOptionsOutput{})
+	pulumi.RegisterOutputType(LocationFsxOntapFileSystemProtocolNfsMountOptionsPtrOutput{})
+	pulumi.RegisterOutputType(LocationFsxOntapFileSystemProtocolSmbOutput{})
+	pulumi.RegisterOutputType(LocationFsxOntapFileSystemProtocolSmbPtrOutput{})
+	pulumi.RegisterOutputType(LocationFsxOntapFileSystemProtocolSmbMountOptionsOutput{})
+	pulumi.RegisterOutputType(LocationFsxOntapFileSystemProtocolSmbMountOptionsPtrOutput{})
 	pulumi.RegisterOutputType(LocationHdfsNameNodeOutput{})
 	pulumi.RegisterOutputType(LocationHdfsNameNodeArrayOutput{})
 	pulumi.RegisterOutputType(LocationHdfsQopConfigurationOutput{})

@@ -278,10 +278,10 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
             locale=current.name)
         example_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("exampleVpcIpamPoolCidr",
             ipam_pool_id=example_vpc_ipam_pool.id,
-            cidr="172.2.0.0/16")
+            cidr="172.20.0.0/16")
         example_vpc_ipam_pool_cidr_allocation = aws.ec2.VpcIpamPoolCidrAllocation("exampleVpcIpamPoolCidrAllocation",
             ipam_pool_id=example_vpc_ipam_pool.id,
-            cidr="172.2.0.0/24",
+            cidr="172.20.0.0/24",
             opts=pulumi.ResourceOptions(depends_on=[example_vpc_ipam_pool_cidr]))
         ```
 
@@ -301,11 +301,11 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
             locale=current.name)
         example_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("exampleVpcIpamPoolCidr",
             ipam_pool_id=example_vpc_ipam_pool.id,
-            cidr="172.2.0.0/16")
+            cidr="172.20.0.0/16")
         example_vpc_ipam_pool_cidr_allocation = aws.ec2.VpcIpamPoolCidrAllocation("exampleVpcIpamPoolCidrAllocation",
             ipam_pool_id=example_vpc_ipam_pool.id,
             netmask_length=28,
-            disallowed_cidrs=["172.2.0.0/28"],
+            disallowed_cidrs=["172.20.0.0/28"],
             opts=pulumi.ResourceOptions(depends_on=[example_vpc_ipam_pool_cidr]))
         ```
 
@@ -352,10 +352,10 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
             locale=current.name)
         example_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("exampleVpcIpamPoolCidr",
             ipam_pool_id=example_vpc_ipam_pool.id,
-            cidr="172.2.0.0/16")
+            cidr="172.20.0.0/16")
         example_vpc_ipam_pool_cidr_allocation = aws.ec2.VpcIpamPoolCidrAllocation("exampleVpcIpamPoolCidrAllocation",
             ipam_pool_id=example_vpc_ipam_pool.id,
-            cidr="172.2.0.0/24",
+            cidr="172.20.0.0/24",
             opts=pulumi.ResourceOptions(depends_on=[example_vpc_ipam_pool_cidr]))
         ```
 
@@ -375,11 +375,11 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
             locale=current.name)
         example_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("exampleVpcIpamPoolCidr",
             ipam_pool_id=example_vpc_ipam_pool.id,
-            cidr="172.2.0.0/16")
+            cidr="172.20.0.0/16")
         example_vpc_ipam_pool_cidr_allocation = aws.ec2.VpcIpamPoolCidrAllocation("exampleVpcIpamPoolCidrAllocation",
             ipam_pool_id=example_vpc_ipam_pool.id,
             netmask_length=28,
-            disallowed_cidrs=["172.2.0.0/28"],
+            disallowed_cidrs=["172.20.0.0/28"],
             opts=pulumi.ResourceOptions(depends_on=[example_vpc_ipam_pool_cidr]))
         ```
 

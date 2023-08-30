@@ -178,6 +178,12 @@ namespace Pulumi.Aws.Dms
         public Output<bool> MultiAz { get; private set; } = null!;
 
         /// <summary>
+        /// The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
+        /// </summary>
+        [Output("networkType")]
+        public Output<string> NetworkType { get; private set; } = null!;
+
+        /// <summary>
         /// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
         /// 
         /// - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
@@ -348,6 +354,12 @@ namespace Pulumi.Aws.Dms
         public Input<bool>? MultiAz { get; set; }
 
         /// <summary>
+        /// The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
+        /// </summary>
+        [Input("networkType")]
+        public Input<string>? NetworkType { get; set; }
+
+        /// <summary>
         /// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
         /// 
         /// - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
@@ -466,6 +478,12 @@ namespace Pulumi.Aws.Dms
         /// </summary>
         [Input("multiAz")]
         public Input<bool>? MultiAz { get; set; }
+
+        /// <summary>
+        /// The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
+        /// </summary>
+        [Input("networkType")]
+        public Input<string>? NetworkType { get; set; }
 
         /// <summary>
         /// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).

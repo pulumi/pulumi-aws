@@ -213,7 +213,7 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     public readonly preserveHostHeader!: pulumi.Output<boolean | undefined>;
     /**
-     * A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
+     * A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
      */
     public readonly securityGroups!: pulumi.Output<string[]>;
     /**
@@ -410,7 +410,7 @@ export interface LoadBalancerState {
      */
     preserveHostHeader?: pulumi.Input<boolean>;
     /**
-     * A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
+     * A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
      */
     securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -517,7 +517,7 @@ export interface LoadBalancerArgs {
      */
     preserveHostHeader?: pulumi.Input<boolean>;
     /**
-     * A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
+     * A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
      */
     securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**

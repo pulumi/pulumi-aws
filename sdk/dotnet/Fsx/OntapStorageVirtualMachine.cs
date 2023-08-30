@@ -72,7 +72,7 @@ namespace Pulumi.Aws.Fsx
     /// 
     ///  to = aws_fsx_ontap_storage_virtual_machine.example
     /// 
-    ///  id = "svm-12345678abcdef123" } Using `pulumi import`, import FSx Storage Virtual Machine using the `id`. For exampleconsole % pulumi import aws_fsx_ontap_storage_virtual_machine.example svm-12345678abcdef123 Certain resource arguments, like `svm_admin_password` and the `self_managed_active_directory` configuation block `password`, do not have a FSx API method for reading the information after creation. If these arguments are set in the TODO configuration on an imported resource, TODO will always show a difference. To workaround this behavior, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For exampleterraform resource "aws_fsx_ontap_storage_virtual_machine" "example" {
+    ///  id = "svm-12345678abcdef123" } Using `pulumi import`, import FSx Storage Virtual Machine using the `id`. For exampleconsole % pulumi import aws_fsx_ontap_storage_virtual_machine.example svm-12345678abcdef123 Certain resource arguments, like `svm_admin_password` and the `self_managed_active_directory` configuation block `password`, do not have a FSx API method for reading the information after creation. If these arguments are set in your Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For exampleterraform resource "aws_fsx_ontap_storage_virtual_machine" "example" {
     /// 
     /// # ... other configuration ...
     /// 

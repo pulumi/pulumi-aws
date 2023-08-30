@@ -294,6 +294,7 @@ class ProviderEndpointArgs:
                  cloudwatchrum: Optional[pulumi.Input[str]] = None,
                  codeartifact: Optional[pulumi.Input[str]] = None,
                  codebuild: Optional[pulumi.Input[str]] = None,
+                 codecatalyst: Optional[pulumi.Input[str]] = None,
                  codecommit: Optional[pulumi.Input[str]] = None,
                  codedeploy: Optional[pulumi.Input[str]] = None,
                  codegurureviewer: Optional[pulumi.Input[str]] = None,
@@ -591,6 +592,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "codeartifact", codeartifact)
         if codebuild is not None:
             pulumi.set(__self__, "codebuild", codebuild)
+        if codecatalyst is not None:
+            pulumi.set(__self__, "codecatalyst", codecatalyst)
         if codecommit is not None:
             pulumi.set(__self__, "codecommit", codecommit)
         if codedeploy is not None:
@@ -1440,6 +1443,15 @@ class ProviderEndpointArgs:
     @codebuild.setter
     def codebuild(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "codebuild", value)
+
+    @property
+    @pulumi.getter
+    def codecatalyst(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "codecatalyst")
+
+    @codecatalyst.setter
+    def codecatalyst(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "codecatalyst", value)
 
     @property
     @pulumi.getter

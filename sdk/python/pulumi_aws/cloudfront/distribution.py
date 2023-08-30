@@ -23,6 +23,7 @@ class DistributionArgs:
                  viewer_certificate: pulumi.Input['DistributionViewerCertificateArgs'],
                  aliases: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
+                 continuous_deployment_policy_id: Optional[pulumi.Input[str]] = None,
                  custom_error_responses: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionCustomErrorResponseArgs']]]] = None,
                  default_root_object: Optional[pulumi.Input[str]] = None,
                  http_version: Optional[pulumi.Input[str]] = None,
@@ -32,6 +33,7 @@ class DistributionArgs:
                  origin_groups: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOriginGroupArgs']]]] = None,
                  price_class: Optional[pulumi.Input[str]] = None,
                  retain_on_delete: Optional[pulumi.Input[bool]] = None,
+                 staging: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  wait_for_deployment: Optional[pulumi.Input[bool]] = None,
                  web_acl_id: Optional[pulumi.Input[str]] = None):
@@ -44,6 +46,7 @@ class DistributionArgs:
         :param pulumi.Input['DistributionViewerCertificateArgs'] viewer_certificate: The SSL configuration for this distribution (maximum one).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] aliases: Extra CNAMEs (alternate domain names), if any, for this distribution.
         :param pulumi.Input[str] comment: Any comments you want to include about the distribution.
+        :param pulumi.Input[str] continuous_deployment_policy_id: Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `cloudfront.ContinuousDeploymentPolicy` resource for additional details.
         :param pulumi.Input[Sequence[pulumi.Input['DistributionCustomErrorResponseArgs']]] custom_error_responses: One or more custom error response elements (multiples allowed).
         :param pulumi.Input[str] default_root_object: Object that you want CloudFront to return (for example, index.html) when an end user requests the root URL.
         :param pulumi.Input[str] http_version: Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3` and `http3`. The default is `http2`.
@@ -53,6 +56,7 @@ class DistributionArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DistributionOriginGroupArgs']]] origin_groups: One or more origin_group for this distribution (multiples allowed).
         :param pulumi.Input[str] price_class: Price class for this distribution. One of `PriceClass_All`, `PriceClass_200`, `PriceClass_100`.
         :param pulumi.Input[bool] retain_on_delete: Disables the distribution instead of deleting it when destroying the resource through the provider. If this is set, the distribution needs to be deleted manually afterwards. Default: `false`.
+        :param pulumi.Input[bool] staging: A Boolean that indicates whether this is a staging distribution. Defaults to `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[bool] wait_for_deployment: If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`false` will skip the process. Default: `true`.
         :param pulumi.Input[str] web_acl_id: Unique identifier that specifies the AWS WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of AWS WAF (WAFv2), use the ACL ARN, for example `aws_wafv2_web_acl.example.arn`. To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example `aws_waf_web_acl.example.id`. The WAF Web ACL must exist in the WAF Global (CloudFront) region and the credentials configuring this argument must have `waf:GetWebACL` permissions assigned.
@@ -66,6 +70,8 @@ class DistributionArgs:
             pulumi.set(__self__, "aliases", aliases)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
+        if continuous_deployment_policy_id is not None:
+            pulumi.set(__self__, "continuous_deployment_policy_id", continuous_deployment_policy_id)
         if custom_error_responses is not None:
             pulumi.set(__self__, "custom_error_responses", custom_error_responses)
         if default_root_object is not None:
@@ -84,6 +90,8 @@ class DistributionArgs:
             pulumi.set(__self__, "price_class", price_class)
         if retain_on_delete is not None:
             pulumi.set(__self__, "retain_on_delete", retain_on_delete)
+        if staging is not None:
+            pulumi.set(__self__, "staging", staging)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if wait_for_deployment is not None:
@@ -174,6 +182,18 @@ class DistributionArgs:
     @comment.setter
     def comment(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "comment", value)
+
+    @property
+    @pulumi.getter(name="continuousDeploymentPolicyId")
+    def continuous_deployment_policy_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `cloudfront.ContinuousDeploymentPolicy` resource for additional details.
+        """
+        return pulumi.get(self, "continuous_deployment_policy_id")
+
+    @continuous_deployment_policy_id.setter
+    def continuous_deployment_policy_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "continuous_deployment_policy_id", value)
 
     @property
     @pulumi.getter(name="customErrorResponses")
@@ -285,6 +305,18 @@ class DistributionArgs:
 
     @property
     @pulumi.getter
+    def staging(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A Boolean that indicates whether this is a staging distribution. Defaults to `false`.
+        """
+        return pulumi.get(self, "staging")
+
+    @staging.setter
+    def staging(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "staging", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -327,6 +359,7 @@ class _DistributionState:
                  arn: Optional[pulumi.Input[str]] = None,
                  caller_reference: Optional[pulumi.Input[str]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
+                 continuous_deployment_policy_id: Optional[pulumi.Input[str]] = None,
                  custom_error_responses: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionCustomErrorResponseArgs']]]] = None,
                  default_cache_behavior: Optional[pulumi.Input['DistributionDefaultCacheBehaviorArgs']] = None,
                  default_root_object: Optional[pulumi.Input[str]] = None,
@@ -345,6 +378,7 @@ class _DistributionState:
                  price_class: Optional[pulumi.Input[str]] = None,
                  restrictions: Optional[pulumi.Input['DistributionRestrictionsArgs']] = None,
                  retain_on_delete: Optional[pulumi.Input[bool]] = None,
+                 staging: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -359,6 +393,7 @@ class _DistributionState:
         :param pulumi.Input[str] arn: ARN for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
         :param pulumi.Input[str] caller_reference: Internal value used by CloudFront to allow future updates to the distribution configuration.
         :param pulumi.Input[str] comment: Any comments you want to include about the distribution.
+        :param pulumi.Input[str] continuous_deployment_policy_id: Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `cloudfront.ContinuousDeploymentPolicy` resource for additional details.
         :param pulumi.Input[Sequence[pulumi.Input['DistributionCustomErrorResponseArgs']]] custom_error_responses: One or more custom error response elements (multiples allowed).
         :param pulumi.Input['DistributionDefaultCacheBehaviorArgs'] default_cache_behavior: Default cache behavior for this distribution (maximum one). Requires either `cache_policy_id` (preferred) or `forwarded_values` (deprecated) be set.
         :param pulumi.Input[str] default_root_object: Object that you want CloudFront to return (for example, index.html) when an end user requests the root URL.
@@ -377,6 +412,7 @@ class _DistributionState:
         :param pulumi.Input[str] price_class: Price class for this distribution. One of `PriceClass_All`, `PriceClass_200`, `PriceClass_100`.
         :param pulumi.Input['DistributionRestrictionsArgs'] restrictions: The restriction configuration for this distribution (maximum one).
         :param pulumi.Input[bool] retain_on_delete: Disables the distribution instead of deleting it when destroying the resource through the provider. If this is set, the distribution needs to be deleted manually afterwards. Default: `false`.
+        :param pulumi.Input[bool] staging: A Boolean that indicates whether this is a staging distribution. Defaults to `false`.
         :param pulumi.Input[str] status: Current status of the distribution. `Deployed` if the distribution's information is fully propagated throughout the Amazon CloudFront system.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -394,6 +430,8 @@ class _DistributionState:
             pulumi.set(__self__, "caller_reference", caller_reference)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
+        if continuous_deployment_policy_id is not None:
+            pulumi.set(__self__, "continuous_deployment_policy_id", continuous_deployment_policy_id)
         if custom_error_responses is not None:
             pulumi.set(__self__, "custom_error_responses", custom_error_responses)
         if default_cache_behavior is not None:
@@ -430,6 +468,8 @@ class _DistributionState:
             pulumi.set(__self__, "restrictions", restrictions)
         if retain_on_delete is not None:
             pulumi.set(__self__, "retain_on_delete", retain_on_delete)
+        if staging is not None:
+            pulumi.set(__self__, "staging", staging)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if tags is not None:
@@ -494,6 +534,18 @@ class _DistributionState:
     @comment.setter
     def comment(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "comment", value)
+
+    @property
+    @pulumi.getter(name="continuousDeploymentPolicyId")
+    def continuous_deployment_policy_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `cloudfront.ContinuousDeploymentPolicy` resource for additional details.
+        """
+        return pulumi.get(self, "continuous_deployment_policy_id")
+
+    @continuous_deployment_policy_id.setter
+    def continuous_deployment_policy_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "continuous_deployment_policy_id", value)
 
     @property
     @pulumi.getter(name="customErrorResponses")
@@ -713,6 +765,18 @@ class _DistributionState:
 
     @property
     @pulumi.getter
+    def staging(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A Boolean that indicates whether this is a staging distribution. Defaults to `false`.
+        """
+        return pulumi.get(self, "staging")
+
+    @staging.setter
+    def staging(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "staging", value)
+
+    @property
+    @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
         Current status of the distribution. `Deployed` if the distribution's information is fully propagated throughout the Amazon CloudFront system.
@@ -815,6 +879,7 @@ class Distribution(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aliases: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
+                 continuous_deployment_policy_id: Optional[pulumi.Input[str]] = None,
                  custom_error_responses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionCustomErrorResponseArgs']]]]] = None,
                  default_cache_behavior: Optional[pulumi.Input[pulumi.InputType['DistributionDefaultCacheBehaviorArgs']]] = None,
                  default_root_object: Optional[pulumi.Input[str]] = None,
@@ -828,6 +893,7 @@ class Distribution(pulumi.CustomResource):
                  price_class: Optional[pulumi.Input[str]] = None,
                  restrictions: Optional[pulumi.Input[pulumi.InputType['DistributionRestrictionsArgs']]] = None,
                  retain_on_delete: Optional[pulumi.Input[bool]] = None,
+                 staging: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  viewer_certificate: Optional[pulumi.Input[pulumi.InputType['DistributionViewerCertificateArgs']]] = None,
                  wait_for_deployment: Optional[pulumi.Input[bool]] = None,
@@ -841,8 +907,9 @@ class Distribution(pulumi.CustomResource):
         > **NOTE:** CloudFront distributions take about 15 minutes to reach a deployed state after creation or modification. During this time, deletes to resources will be blocked. If you need to delete a distribution that is enabled and you do not want to wait, you need to use the `retain_on_delete` flag.
 
         ## Example Usage
+        ### S3 Origin
 
-        The following example below creates a CloudFront distribution with an S3 origin.
+        The example below creates a CloudFront distribution with an S3 origin.
 
         ```python
         import pulumi
@@ -971,8 +1038,9 @@ class Distribution(pulumi.CustomResource):
                 cloudfront_default_certificate=True,
             ))
         ```
+        ### With Failover Routing
 
-        The example below creates a CloudFront distribution with an origin group for failover routing:
+        The example below creates a CloudFront distribution with an origin group for failover routing.
 
         ```python
         import pulumi
@@ -1019,8 +1087,9 @@ class Distribution(pulumi.CustomResource):
             ))
         # ... other configuration ...
         ```
+        ### With Managed Caching Policy
 
-        CloudFront distribution using [managed policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) (ex: CachingDisabled):
+        The example below creates a CloudFront distribution with an [AWS managed caching policy](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html).
 
         ```python
         import pulumi
@@ -1077,6 +1146,7 @@ class Distribution(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] aliases: Extra CNAMEs (alternate domain names), if any, for this distribution.
         :param pulumi.Input[str] comment: Any comments you want to include about the distribution.
+        :param pulumi.Input[str] continuous_deployment_policy_id: Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `cloudfront.ContinuousDeploymentPolicy` resource for additional details.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionCustomErrorResponseArgs']]]] custom_error_responses: One or more custom error response elements (multiples allowed).
         :param pulumi.Input[pulumi.InputType['DistributionDefaultCacheBehaviorArgs']] default_cache_behavior: Default cache behavior for this distribution (maximum one). Requires either `cache_policy_id` (preferred) or `forwarded_values` (deprecated) be set.
         :param pulumi.Input[str] default_root_object: Object that you want CloudFront to return (for example, index.html) when an end user requests the root URL.
@@ -1090,6 +1160,7 @@ class Distribution(pulumi.CustomResource):
         :param pulumi.Input[str] price_class: Price class for this distribution. One of `PriceClass_All`, `PriceClass_200`, `PriceClass_100`.
         :param pulumi.Input[pulumi.InputType['DistributionRestrictionsArgs']] restrictions: The restriction configuration for this distribution (maximum one).
         :param pulumi.Input[bool] retain_on_delete: Disables the distribution instead of deleting it when destroying the resource through the provider. If this is set, the distribution needs to be deleted manually afterwards. Default: `false`.
+        :param pulumi.Input[bool] staging: A Boolean that indicates whether this is a staging distribution. Defaults to `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[pulumi.InputType['DistributionViewerCertificateArgs']] viewer_certificate: The SSL configuration for this distribution (maximum one).
         :param pulumi.Input[bool] wait_for_deployment: If enabled, the resource will wait for the distribution status to change from `InProgress` to `Deployed`. Setting this to`false` will skip the process. Default: `true`.
@@ -1109,8 +1180,9 @@ class Distribution(pulumi.CustomResource):
         > **NOTE:** CloudFront distributions take about 15 minutes to reach a deployed state after creation or modification. During this time, deletes to resources will be blocked. If you need to delete a distribution that is enabled and you do not want to wait, you need to use the `retain_on_delete` flag.
 
         ## Example Usage
+        ### S3 Origin
 
-        The following example below creates a CloudFront distribution with an S3 origin.
+        The example below creates a CloudFront distribution with an S3 origin.
 
         ```python
         import pulumi
@@ -1239,8 +1311,9 @@ class Distribution(pulumi.CustomResource):
                 cloudfront_default_certificate=True,
             ))
         ```
+        ### With Failover Routing
 
-        The example below creates a CloudFront distribution with an origin group for failover routing:
+        The example below creates a CloudFront distribution with an origin group for failover routing.
 
         ```python
         import pulumi
@@ -1287,8 +1360,9 @@ class Distribution(pulumi.CustomResource):
             ))
         # ... other configuration ...
         ```
+        ### With Managed Caching Policy
 
-        CloudFront distribution using [managed policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) (ex: CachingDisabled):
+        The example below creates a CloudFront distribution with an [AWS managed caching policy](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html).
 
         ```python
         import pulumi
@@ -1358,6 +1432,7 @@ class Distribution(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aliases: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
+                 continuous_deployment_policy_id: Optional[pulumi.Input[str]] = None,
                  custom_error_responses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionCustomErrorResponseArgs']]]]] = None,
                  default_cache_behavior: Optional[pulumi.Input[pulumi.InputType['DistributionDefaultCacheBehaviorArgs']]] = None,
                  default_root_object: Optional[pulumi.Input[str]] = None,
@@ -1371,6 +1446,7 @@ class Distribution(pulumi.CustomResource):
                  price_class: Optional[pulumi.Input[str]] = None,
                  restrictions: Optional[pulumi.Input[pulumi.InputType['DistributionRestrictionsArgs']]] = None,
                  retain_on_delete: Optional[pulumi.Input[bool]] = None,
+                 staging: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  viewer_certificate: Optional[pulumi.Input[pulumi.InputType['DistributionViewerCertificateArgs']]] = None,
                  wait_for_deployment: Optional[pulumi.Input[bool]] = None,
@@ -1386,6 +1462,7 @@ class Distribution(pulumi.CustomResource):
 
             __props__.__dict__["aliases"] = aliases
             __props__.__dict__["comment"] = comment
+            __props__.__dict__["continuous_deployment_policy_id"] = continuous_deployment_policy_id
             __props__.__dict__["custom_error_responses"] = custom_error_responses
             if default_cache_behavior is None and not opts.urn:
                 raise TypeError("Missing required property 'default_cache_behavior'")
@@ -1407,6 +1484,7 @@ class Distribution(pulumi.CustomResource):
                 raise TypeError("Missing required property 'restrictions'")
             __props__.__dict__["restrictions"] = restrictions
             __props__.__dict__["retain_on_delete"] = retain_on_delete
+            __props__.__dict__["staging"] = staging
             __props__.__dict__["tags"] = tags
             if viewer_certificate is None and not opts.urn:
                 raise TypeError("Missing required property 'viewer_certificate'")
@@ -1438,6 +1516,7 @@ class Distribution(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             caller_reference: Optional[pulumi.Input[str]] = None,
             comment: Optional[pulumi.Input[str]] = None,
+            continuous_deployment_policy_id: Optional[pulumi.Input[str]] = None,
             custom_error_responses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionCustomErrorResponseArgs']]]]] = None,
             default_cache_behavior: Optional[pulumi.Input[pulumi.InputType['DistributionDefaultCacheBehaviorArgs']]] = None,
             default_root_object: Optional[pulumi.Input[str]] = None,
@@ -1456,6 +1535,7 @@ class Distribution(pulumi.CustomResource):
             price_class: Optional[pulumi.Input[str]] = None,
             restrictions: Optional[pulumi.Input[pulumi.InputType['DistributionRestrictionsArgs']]] = None,
             retain_on_delete: Optional[pulumi.Input[bool]] = None,
+            staging: Optional[pulumi.Input[bool]] = None,
             status: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -1475,6 +1555,7 @@ class Distribution(pulumi.CustomResource):
         :param pulumi.Input[str] arn: ARN for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
         :param pulumi.Input[str] caller_reference: Internal value used by CloudFront to allow future updates to the distribution configuration.
         :param pulumi.Input[str] comment: Any comments you want to include about the distribution.
+        :param pulumi.Input[str] continuous_deployment_policy_id: Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `cloudfront.ContinuousDeploymentPolicy` resource for additional details.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionCustomErrorResponseArgs']]]] custom_error_responses: One or more custom error response elements (multiples allowed).
         :param pulumi.Input[pulumi.InputType['DistributionDefaultCacheBehaviorArgs']] default_cache_behavior: Default cache behavior for this distribution (maximum one). Requires either `cache_policy_id` (preferred) or `forwarded_values` (deprecated) be set.
         :param pulumi.Input[str] default_root_object: Object that you want CloudFront to return (for example, index.html) when an end user requests the root URL.
@@ -1493,6 +1574,7 @@ class Distribution(pulumi.CustomResource):
         :param pulumi.Input[str] price_class: Price class for this distribution. One of `PriceClass_All`, `PriceClass_200`, `PriceClass_100`.
         :param pulumi.Input[pulumi.InputType['DistributionRestrictionsArgs']] restrictions: The restriction configuration for this distribution (maximum one).
         :param pulumi.Input[bool] retain_on_delete: Disables the distribution instead of deleting it when destroying the resource through the provider. If this is set, the distribution needs to be deleted manually afterwards. Default: `false`.
+        :param pulumi.Input[bool] staging: A Boolean that indicates whether this is a staging distribution. Defaults to `false`.
         :param pulumi.Input[str] status: Current status of the distribution. `Deployed` if the distribution's information is fully propagated throughout the Amazon CloudFront system.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -1510,6 +1592,7 @@ class Distribution(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["caller_reference"] = caller_reference
         __props__.__dict__["comment"] = comment
+        __props__.__dict__["continuous_deployment_policy_id"] = continuous_deployment_policy_id
         __props__.__dict__["custom_error_responses"] = custom_error_responses
         __props__.__dict__["default_cache_behavior"] = default_cache_behavior
         __props__.__dict__["default_root_object"] = default_root_object
@@ -1528,6 +1611,7 @@ class Distribution(pulumi.CustomResource):
         __props__.__dict__["price_class"] = price_class
         __props__.__dict__["restrictions"] = restrictions
         __props__.__dict__["retain_on_delete"] = retain_on_delete
+        __props__.__dict__["staging"] = staging
         __props__.__dict__["status"] = status
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -1569,6 +1653,14 @@ class Distribution(pulumi.CustomResource):
         Any comments you want to include about the distribution.
         """
         return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter(name="continuousDeploymentPolicyId")
+    def continuous_deployment_policy_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `cloudfront.ContinuousDeploymentPolicy` resource for additional details.
+        """
+        return pulumi.get(self, "continuous_deployment_policy_id")
 
     @property
     @pulumi.getter(name="customErrorResponses")
@@ -1713,6 +1805,14 @@ class Distribution(pulumi.CustomResource):
         Disables the distribution instead of deleting it when destroying the resource through the provider. If this is set, the distribution needs to be deleted manually afterwards. Default: `false`.
         """
         return pulumi.get(self, "retain_on_delete")
+
+    @property
+    @pulumi.getter
+    def staging(self) -> pulumi.Output[Optional[bool]]:
+        """
+        A Boolean that indicates whether this is a staging distribution. Defaults to `false`.
+        """
+        return pulumi.get(self, "staging")
 
     @property
     @pulumi.getter

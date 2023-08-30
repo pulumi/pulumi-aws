@@ -105,6 +105,8 @@ type ClusterInstance struct {
 	ClusterIdentifier pulumi.StringOutput `pulumi:"clusterIdentifier"`
 	// Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
 	CopyTagsToSnapshot pulumi.BoolPtrOutput `pulumi:"copyTagsToSnapshot"`
+	// Instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
+	CustomIamInstanceProfile pulumi.StringPtrOutput `pulumi:"customIamInstanceProfile"`
 	// Name of the DB parameter group to associate with this instance.
 	DbParameterGroupName pulumi.StringOutput `pulumi:"dbParameterGroupName"`
 	// DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` of the attached `rds.Cluster`.
@@ -212,6 +214,8 @@ type clusterInstanceState struct {
 	ClusterIdentifier *string `pulumi:"clusterIdentifier"`
 	// Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
 	CopyTagsToSnapshot *bool `pulumi:"copyTagsToSnapshot"`
+	// Instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
+	CustomIamInstanceProfile *string `pulumi:"customIamInstanceProfile"`
 	// Name of the DB parameter group to associate with this instance.
 	DbParameterGroupName *string `pulumi:"dbParameterGroupName"`
 	// DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` of the attached `rds.Cluster`.
@@ -281,6 +285,8 @@ type ClusterInstanceState struct {
 	ClusterIdentifier pulumi.StringPtrInput
 	// Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
 	CopyTagsToSnapshot pulumi.BoolPtrInput
+	// Instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
+	CustomIamInstanceProfile pulumi.StringPtrInput
 	// Name of the DB parameter group to associate with this instance.
 	DbParameterGroupName pulumi.StringPtrInput
 	// DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` of the attached `rds.Cluster`.
@@ -352,6 +358,8 @@ type clusterInstanceArgs struct {
 	ClusterIdentifier string `pulumi:"clusterIdentifier"`
 	// Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
 	CopyTagsToSnapshot *bool `pulumi:"copyTagsToSnapshot"`
+	// Instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
+	CustomIamInstanceProfile *string `pulumi:"customIamInstanceProfile"`
 	// Name of the DB parameter group to associate with this instance.
 	DbParameterGroupName *string `pulumi:"dbParameterGroupName"`
 	// DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` of the attached `rds.Cluster`.
@@ -402,6 +410,8 @@ type ClusterInstanceArgs struct {
 	ClusterIdentifier pulumi.StringInput
 	// Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
 	CopyTagsToSnapshot pulumi.BoolPtrInput
+	// Instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
+	CustomIamInstanceProfile pulumi.StringPtrInput
 	// Name of the DB parameter group to associate with this instance.
 	DbParameterGroupName pulumi.StringPtrInput
 	// DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` of the attached `rds.Cluster`.
@@ -558,6 +568,11 @@ func (o ClusterInstanceOutput) ClusterIdentifier() pulumi.StringOutput {
 // Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
 func (o ClusterInstanceOutput) CopyTagsToSnapshot() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterInstance) pulumi.BoolPtrOutput { return v.CopyTagsToSnapshot }).(pulumi.BoolPtrOutput)
+}
+
+// Instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
+func (o ClusterInstanceOutput) CustomIamInstanceProfile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterInstance) pulumi.StringPtrOutput { return v.CustomIamInstanceProfile }).(pulumi.StringPtrOutput)
 }
 
 // Name of the DB parameter group to associate with this instance.

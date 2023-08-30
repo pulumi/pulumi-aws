@@ -4400,6 +4400,192 @@ func (o ServerlessVpcEndpointTimeoutsPtrOutput) Update() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+type VpcEndpointVpcOptions struct {
+	AvailabilityZones []string `pulumi:"availabilityZones"`
+	// The list of security group IDs associated with the VPC endpoints for the domain. If you do not provide a security group ID, OpenSearch Service uses the default security group for the VPC.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// A list of subnet IDs associated with the VPC endpoints for the domain. If your domain uses multiple Availability Zones, you need to provide two subnet IDs, one per zone. Otherwise, provide only one.
+	SubnetIds []string `pulumi:"subnetIds"`
+	VpcId     *string  `pulumi:"vpcId"`
+}
+
+// VpcEndpointVpcOptionsInput is an input type that accepts VpcEndpointVpcOptionsArgs and VpcEndpointVpcOptionsOutput values.
+// You can construct a concrete instance of `VpcEndpointVpcOptionsInput` via:
+//
+//	VpcEndpointVpcOptionsArgs{...}
+type VpcEndpointVpcOptionsInput interface {
+	pulumi.Input
+
+	ToVpcEndpointVpcOptionsOutput() VpcEndpointVpcOptionsOutput
+	ToVpcEndpointVpcOptionsOutputWithContext(context.Context) VpcEndpointVpcOptionsOutput
+}
+
+type VpcEndpointVpcOptionsArgs struct {
+	AvailabilityZones pulumi.StringArrayInput `pulumi:"availabilityZones"`
+	// The list of security group IDs associated with the VPC endpoints for the domain. If you do not provide a security group ID, OpenSearch Service uses the default security group for the VPC.
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	// A list of subnet IDs associated with the VPC endpoints for the domain. If your domain uses multiple Availability Zones, you need to provide two subnet IDs, one per zone. Otherwise, provide only one.
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
+	VpcId     pulumi.StringPtrInput   `pulumi:"vpcId"`
+}
+
+func (VpcEndpointVpcOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEndpointVpcOptions)(nil)).Elem()
+}
+
+func (i VpcEndpointVpcOptionsArgs) ToVpcEndpointVpcOptionsOutput() VpcEndpointVpcOptionsOutput {
+	return i.ToVpcEndpointVpcOptionsOutputWithContext(context.Background())
+}
+
+func (i VpcEndpointVpcOptionsArgs) ToVpcEndpointVpcOptionsOutputWithContext(ctx context.Context) VpcEndpointVpcOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointVpcOptionsOutput)
+}
+
+func (i VpcEndpointVpcOptionsArgs) ToVpcEndpointVpcOptionsPtrOutput() VpcEndpointVpcOptionsPtrOutput {
+	return i.ToVpcEndpointVpcOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i VpcEndpointVpcOptionsArgs) ToVpcEndpointVpcOptionsPtrOutputWithContext(ctx context.Context) VpcEndpointVpcOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointVpcOptionsOutput).ToVpcEndpointVpcOptionsPtrOutputWithContext(ctx)
+}
+
+// VpcEndpointVpcOptionsPtrInput is an input type that accepts VpcEndpointVpcOptionsArgs, VpcEndpointVpcOptionsPtr and VpcEndpointVpcOptionsPtrOutput values.
+// You can construct a concrete instance of `VpcEndpointVpcOptionsPtrInput` via:
+//
+//	        VpcEndpointVpcOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type VpcEndpointVpcOptionsPtrInput interface {
+	pulumi.Input
+
+	ToVpcEndpointVpcOptionsPtrOutput() VpcEndpointVpcOptionsPtrOutput
+	ToVpcEndpointVpcOptionsPtrOutputWithContext(context.Context) VpcEndpointVpcOptionsPtrOutput
+}
+
+type vpcEndpointVpcOptionsPtrType VpcEndpointVpcOptionsArgs
+
+func VpcEndpointVpcOptionsPtr(v *VpcEndpointVpcOptionsArgs) VpcEndpointVpcOptionsPtrInput {
+	return (*vpcEndpointVpcOptionsPtrType)(v)
+}
+
+func (*vpcEndpointVpcOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcEndpointVpcOptions)(nil)).Elem()
+}
+
+func (i *vpcEndpointVpcOptionsPtrType) ToVpcEndpointVpcOptionsPtrOutput() VpcEndpointVpcOptionsPtrOutput {
+	return i.ToVpcEndpointVpcOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *vpcEndpointVpcOptionsPtrType) ToVpcEndpointVpcOptionsPtrOutputWithContext(ctx context.Context) VpcEndpointVpcOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointVpcOptionsPtrOutput)
+}
+
+type VpcEndpointVpcOptionsOutput struct{ *pulumi.OutputState }
+
+func (VpcEndpointVpcOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEndpointVpcOptions)(nil)).Elem()
+}
+
+func (o VpcEndpointVpcOptionsOutput) ToVpcEndpointVpcOptionsOutput() VpcEndpointVpcOptionsOutput {
+	return o
+}
+
+func (o VpcEndpointVpcOptionsOutput) ToVpcEndpointVpcOptionsOutputWithContext(ctx context.Context) VpcEndpointVpcOptionsOutput {
+	return o
+}
+
+func (o VpcEndpointVpcOptionsOutput) ToVpcEndpointVpcOptionsPtrOutput() VpcEndpointVpcOptionsPtrOutput {
+	return o.ToVpcEndpointVpcOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o VpcEndpointVpcOptionsOutput) ToVpcEndpointVpcOptionsPtrOutputWithContext(ctx context.Context) VpcEndpointVpcOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcEndpointVpcOptions) *VpcEndpointVpcOptions {
+		return &v
+	}).(VpcEndpointVpcOptionsPtrOutput)
+}
+
+func (o VpcEndpointVpcOptionsOutput) AvailabilityZones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VpcEndpointVpcOptions) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
+}
+
+// The list of security group IDs associated with the VPC endpoints for the domain. If you do not provide a security group ID, OpenSearch Service uses the default security group for the VPC.
+func (o VpcEndpointVpcOptionsOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VpcEndpointVpcOptions) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+// A list of subnet IDs associated with the VPC endpoints for the domain. If your domain uses multiple Availability Zones, you need to provide two subnet IDs, one per zone. Otherwise, provide only one.
+func (o VpcEndpointVpcOptionsOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VpcEndpointVpcOptions) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+func (o VpcEndpointVpcOptionsOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpcEndpointVpcOptions) *string { return v.VpcId }).(pulumi.StringPtrOutput)
+}
+
+type VpcEndpointVpcOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (VpcEndpointVpcOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcEndpointVpcOptions)(nil)).Elem()
+}
+
+func (o VpcEndpointVpcOptionsPtrOutput) ToVpcEndpointVpcOptionsPtrOutput() VpcEndpointVpcOptionsPtrOutput {
+	return o
+}
+
+func (o VpcEndpointVpcOptionsPtrOutput) ToVpcEndpointVpcOptionsPtrOutputWithContext(ctx context.Context) VpcEndpointVpcOptionsPtrOutput {
+	return o
+}
+
+func (o VpcEndpointVpcOptionsPtrOutput) Elem() VpcEndpointVpcOptionsOutput {
+	return o.ApplyT(func(v *VpcEndpointVpcOptions) VpcEndpointVpcOptions {
+		if v != nil {
+			return *v
+		}
+		var ret VpcEndpointVpcOptions
+		return ret
+	}).(VpcEndpointVpcOptionsOutput)
+}
+
+func (o VpcEndpointVpcOptionsPtrOutput) AvailabilityZones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VpcEndpointVpcOptions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AvailabilityZones
+	}).(pulumi.StringArrayOutput)
+}
+
+// The list of security group IDs associated with the VPC endpoints for the domain. If you do not provide a security group ID, OpenSearch Service uses the default security group for the VPC.
+func (o VpcEndpointVpcOptionsPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VpcEndpointVpcOptions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of subnet IDs associated with the VPC endpoints for the domain. If your domain uses multiple Availability Zones, you need to provide two subnet IDs, one per zone. Otherwise, provide only one.
+func (o VpcEndpointVpcOptionsPtrOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VpcEndpointVpcOptions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o VpcEndpointVpcOptionsPtrOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcEndpointVpcOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VpcId
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetDomainAdvancedSecurityOption struct {
 	AnonymousAuthEnabled bool `pulumi:"anonymousAuthEnabled"`
 	// Enabled disabled toggle for off-peak update window
@@ -6636,6 +6822,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessSecurityConfigSamlOptionsPtrInput)(nil)).Elem(), ServerlessSecurityConfigSamlOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessVpcEndpointTimeoutsInput)(nil)).Elem(), ServerlessVpcEndpointTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessVpcEndpointTimeoutsPtrInput)(nil)).Elem(), ServerlessVpcEndpointTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointVpcOptionsInput)(nil)).Elem(), VpcEndpointVpcOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointVpcOptionsPtrInput)(nil)).Elem(), VpcEndpointVpcOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainAdvancedSecurityOptionInput)(nil)).Elem(), GetDomainAdvancedSecurityOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainAdvancedSecurityOptionArrayInput)(nil)).Elem(), GetDomainAdvancedSecurityOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainAutoTuneOptionInput)(nil)).Elem(), GetDomainAutoTuneOptionArgs{})
@@ -6723,6 +6911,8 @@ func init() {
 	pulumi.RegisterOutputType(ServerlessSecurityConfigSamlOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ServerlessVpcEndpointTimeoutsOutput{})
 	pulumi.RegisterOutputType(ServerlessVpcEndpointTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(VpcEndpointVpcOptionsOutput{})
+	pulumi.RegisterOutputType(VpcEndpointVpcOptionsPtrOutput{})
 	pulumi.RegisterOutputType(GetDomainAdvancedSecurityOptionOutput{})
 	pulumi.RegisterOutputType(GetDomainAdvancedSecurityOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetDomainAutoTuneOptionOutput{})

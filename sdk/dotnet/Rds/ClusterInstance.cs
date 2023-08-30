@@ -121,6 +121,12 @@ namespace Pulumi.Aws.Rds
         public Output<bool?> CopyTagsToSnapshot { get; private set; } = null!;
 
         /// <summary>
+        /// Instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
+        /// </summary>
+        [Output("customIamInstanceProfile")]
+        public Output<string?> CustomIamInstanceProfile { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the DB parameter group to associate with this instance.
         /// </summary>
         [Output("dbParameterGroupName")]
@@ -359,6 +365,12 @@ namespace Pulumi.Aws.Rds
         public Input<bool>? CopyTagsToSnapshot { get; set; }
 
         /// <summary>
+        /// Instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
+        /// </summary>
+        [Input("customIamInstanceProfile")]
+        public Input<string>? CustomIamInstanceProfile { get; set; }
+
+        /// <summary>
         /// Name of the DB parameter group to associate with this instance.
         /// </summary>
         [Input("dbParameterGroupName")]
@@ -515,6 +527,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("copyTagsToSnapshot")]
         public Input<bool>? CopyTagsToSnapshot { get; set; }
+
+        /// <summary>
+        /// Instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
+        /// </summary>
+        [Input("customIamInstanceProfile")]
+        public Input<string>? CustomIamInstanceProfile { get; set; }
 
         /// <summary>
         /// Name of the DB parameter group to associate with this instance.

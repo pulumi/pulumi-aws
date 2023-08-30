@@ -663,6 +663,8 @@ type EventTarget struct {
 	Rule pulumi.StringOutput `pulumi:"rule"`
 	// Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
 	RunCommandTargets EventTargetRunCommandTargetArrayOutput `pulumi:"runCommandTargets"`
+	// Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.
+	SagemakerPipelineTarget EventTargetSagemakerPipelineTargetPtrOutput `pulumi:"sagemakerPipelineTarget"`
 	// Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
 	SqsTarget EventTargetSqsTargetPtrOutput `pulumi:"sqsTarget"`
 	// The unique target assignment ID. If missing, will generate a random, unique id.
@@ -738,6 +740,8 @@ type eventTargetState struct {
 	Rule *string `pulumi:"rule"`
 	// Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
 	RunCommandTargets []EventTargetRunCommandTarget `pulumi:"runCommandTargets"`
+	// Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.
+	SagemakerPipelineTarget *EventTargetSagemakerPipelineTarget `pulumi:"sagemakerPipelineTarget"`
 	// Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
 	SqsTarget *EventTargetSqsTarget `pulumi:"sqsTarget"`
 	// The unique target assignment ID. If missing, will generate a random, unique id.
@@ -778,6 +782,8 @@ type EventTargetState struct {
 	Rule pulumi.StringPtrInput
 	// Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
 	RunCommandTargets EventTargetRunCommandTargetArrayInput
+	// Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.
+	SagemakerPipelineTarget EventTargetSagemakerPipelineTargetPtrInput
 	// Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
 	SqsTarget EventTargetSqsTargetPtrInput
 	// The unique target assignment ID. If missing, will generate a random, unique id.
@@ -822,6 +828,8 @@ type eventTargetArgs struct {
 	Rule string `pulumi:"rule"`
 	// Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
 	RunCommandTargets []EventTargetRunCommandTarget `pulumi:"runCommandTargets"`
+	// Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.
+	SagemakerPipelineTarget *EventTargetSagemakerPipelineTarget `pulumi:"sagemakerPipelineTarget"`
 	// Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
 	SqsTarget *EventTargetSqsTarget `pulumi:"sqsTarget"`
 	// The unique target assignment ID. If missing, will generate a random, unique id.
@@ -863,6 +871,8 @@ type EventTargetArgs struct {
 	Rule pulumi.StringInput
 	// Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
 	RunCommandTargets EventTargetRunCommandTargetArrayInput
+	// Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.
+	SagemakerPipelineTarget EventTargetSagemakerPipelineTargetPtrInput
 	// Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
 	SqsTarget EventTargetSqsTargetPtrInput
 	// The unique target assignment ID. If missing, will generate a random, unique id.
@@ -1032,6 +1042,11 @@ func (o EventTargetOutput) Rule() pulumi.StringOutput {
 // Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
 func (o EventTargetOutput) RunCommandTargets() EventTargetRunCommandTargetArrayOutput {
 	return o.ApplyT(func(v *EventTarget) EventTargetRunCommandTargetArrayOutput { return v.RunCommandTargets }).(EventTargetRunCommandTargetArrayOutput)
+}
+
+// Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.
+func (o EventTargetOutput) SagemakerPipelineTarget() EventTargetSagemakerPipelineTargetPtrOutput {
+	return o.ApplyT(func(v *EventTarget) EventTargetSagemakerPipelineTargetPtrOutput { return v.SagemakerPipelineTarget }).(EventTargetSagemakerPipelineTargetPtrOutput)
 }
 
 // Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.

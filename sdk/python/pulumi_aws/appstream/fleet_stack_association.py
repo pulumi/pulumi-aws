@@ -107,7 +107,7 @@ class FleetStackAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_fleet = aws.appstream.Fleet("exampleFleet",
-            image_name="Amazon-AppStream2-Sample-Image-02-04-2019",
+            image_name="Amazon-AppStream2-Sample-Image-03-11-2023",
             instance_type="stream.standard.small",
             compute_capacity=aws.appstream.FleetComputeCapacityArgs(
                 desired_instances=1,
@@ -147,7 +147,7 @@ class FleetStackAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_fleet = aws.appstream.Fleet("exampleFleet",
-            image_name="Amazon-AppStream2-Sample-Image-02-04-2019",
+            image_name="Amazon-AppStream2-Sample-Image-03-11-2023",
             instance_type="stream.standard.small",
             compute_capacity=aws.appstream.FleetComputeCapacityArgs(
                 desired_instances=1,

@@ -63,7 +63,7 @@ import (
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			test, err := iam.NewRole(ctx, "test", &iam.RoleArgs{
+//			exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
 //				AssumeRolePolicy: pulumi.String(json0),
 //			})
 //			if err != nil {
@@ -74,7 +74,7 @@ import (
 //				return err
 //			}
 //			sourceRolePolicy, err := iam.NewRolePolicy(ctx, "sourceRolePolicy", &iam.RolePolicyArgs{
-//				Role: test.ID(),
+//				Role: exampleRole.ID(),
 //				Policy: sourceQueue.Arn.ApplyT(func(arn string) (pulumi.String, error) {
 //					var _zero pulumi.String
 //					tmpJSON1, err := json.Marshal(map[string]interface{}{
@@ -108,7 +108,7 @@ import (
 //				return err
 //			}
 //			targetRolePolicy, err := iam.NewRolePolicy(ctx, "targetRolePolicy", &iam.RolePolicyArgs{
-//				Role: test.ID(),
+//				Role: exampleRole.ID(),
 //				Policy: targetQueue.Arn.ApplyT(func(arn string) (pulumi.String, error) {
 //					var _zero pulumi.String
 //					tmpJSON2, err := json.Marshal(map[string]interface{}{
@@ -135,8 +135,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = pipes.NewPipe(ctx, "example", &pipes.PipeArgs{
-//				RoleArn: pulumi.Any(aws_iam_role.Example.Arn),
+//			_, err = pipes.NewPipe(ctx, "examplePipe", &pipes.PipeArgs{
+//				RoleArn: exampleRole.Arn,
 //				Source:  sourceQueue.Arn,
 //				Target:  targetQueue.Arn,
 //			}, pulumi.DependsOn([]pulumi.Resource{

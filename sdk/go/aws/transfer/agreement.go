@@ -58,8 +58,10 @@ type Agreement struct {
 
 	// The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
 	AccessRole pulumi.StringOutput `pulumi:"accessRole"`
-	// The unique identifier for the AS2 agreement
+	// The unique identifier for the AS2 agreement.
 	AgreementId pulumi.StringOutput `pulumi:"agreementId"`
+	// The ARN of the agreement.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The landing directory for the files transferred by using the AS2 protocol.
 	BaseDirectory pulumi.StringOutput `pulumi:"baseDirectory"`
 	// The Optional description of the transdfer.
@@ -123,8 +125,10 @@ func GetAgreement(ctx *pulumi.Context,
 type agreementState struct {
 	// The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
 	AccessRole *string `pulumi:"accessRole"`
-	// The unique identifier for the AS2 agreement
+	// The unique identifier for the AS2 agreement.
 	AgreementId *string `pulumi:"agreementId"`
+	// The ARN of the agreement.
+	Arn *string `pulumi:"arn"`
 	// The landing directory for the files transferred by using the AS2 protocol.
 	BaseDirectory *string `pulumi:"baseDirectory"`
 	// The Optional description of the transdfer.
@@ -144,8 +148,10 @@ type agreementState struct {
 type AgreementState struct {
 	// The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
 	AccessRole pulumi.StringPtrInput
-	// The unique identifier for the AS2 agreement
+	// The unique identifier for the AS2 agreement.
 	AgreementId pulumi.StringPtrInput
+	// The ARN of the agreement.
+	Arn pulumi.StringPtrInput
 	// The landing directory for the files transferred by using the AS2 protocol.
 	BaseDirectory pulumi.StringPtrInput
 	// The Optional description of the transdfer.
@@ -293,9 +299,14 @@ func (o AgreementOutput) AccessRole() pulumi.StringOutput {
 	return o.ApplyT(func(v *Agreement) pulumi.StringOutput { return v.AccessRole }).(pulumi.StringOutput)
 }
 
-// The unique identifier for the AS2 agreement
+// The unique identifier for the AS2 agreement.
 func (o AgreementOutput) AgreementId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Agreement) pulumi.StringOutput { return v.AgreementId }).(pulumi.StringOutput)
+}
+
+// The ARN of the agreement.
+func (o AgreementOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Agreement) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
 // The landing directory for the files transferred by using the AS2 protocol.

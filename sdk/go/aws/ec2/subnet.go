@@ -65,14 +65,14 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			secondaryCidr, err := ec2.NewVpcIpv4CidrBlockAssociation(ctx, "secondaryCidr", &ec2.VpcIpv4CidrBlockAssociationArgs{
 //				VpcId:     pulumi.Any(aws_vpc.Main.Id),
-//				CidrBlock: pulumi.String("172.2.0.0/16"),
+//				CidrBlock: pulumi.String("172.20.0.0/16"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = ec2.NewSubnet(ctx, "inSecondaryCidr", &ec2.SubnetArgs{
 //				VpcId:     secondaryCidr.VpcId,
-//				CidrBlock: pulumi.String("172.2.0.0/24"),
+//				CidrBlock: pulumi.String("172.20.0.0/24"),
 //			})
 //			if err != nil {
 //				return err

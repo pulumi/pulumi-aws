@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  * 
  *         var secondaryCidr = new VpcIpv4CidrBlockAssociation(&#34;secondaryCidr&#34;, VpcIpv4CidrBlockAssociationArgs.builder()        
  *             .vpcId(main.id())
- *             .cidrBlock(&#34;172.2.0.0/16&#34;)
+ *             .cidrBlock(&#34;172.20.0.0/16&#34;)
  *             .build());
  * 
  *     }

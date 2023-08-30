@@ -9,6 +9,7 @@ import com.pulumi.aws.glue.inputs.CrawlerState;
 import com.pulumi.aws.glue.outputs.CrawlerCatalogTarget;
 import com.pulumi.aws.glue.outputs.CrawlerDeltaTarget;
 import com.pulumi.aws.glue.outputs.CrawlerDynamodbTarget;
+import com.pulumi.aws.glue.outputs.CrawlerHudiTarget;
 import com.pulumi.aws.glue.outputs.CrawlerIcebergTarget;
 import com.pulumi.aws.glue.outputs.CrawlerJdbcTarget;
 import com.pulumi.aws.glue.outputs.CrawlerLakeFormationConfiguration;
@@ -380,6 +381,20 @@ public class Crawler extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<List<CrawlerDynamodbTarget>>> dynamodbTargets() {
         return Codegen.optional(this.dynamodbTargets);
+    }
+    /**
+     * List nested Hudi target arguments. See Iceberg Target below.
+     * 
+     */
+    @Export(name="hudiTargets", refs={List.class,CrawlerHudiTarget.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<CrawlerHudiTarget>> hudiTargets;
+
+    /**
+     * @return List nested Hudi target arguments. See Iceberg Target below.
+     * 
+     */
+    public Output<Optional<List<CrawlerHudiTarget>>> hudiTargets() {
+        return Codegen.optional(this.hudiTargets);
     }
     /**
      * List nested Iceberg target arguments. See Iceberg Target below.

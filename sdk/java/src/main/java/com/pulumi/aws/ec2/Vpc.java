@@ -132,7 +132,7 @@ import javax.annotation.Nullable;
  * 
  *         var testVpcIpamPoolCidr = new VpcIpamPoolCidr(&#34;testVpcIpamPoolCidr&#34;, VpcIpamPoolCidrArgs.builder()        
  *             .ipamPoolId(testVpcIpamPool.id())
- *             .cidr(&#34;172.2.0.0/16&#34;)
+ *             .cidr(&#34;172.20.0.0/16&#34;)
  *             .build());
  * 
  *         var testVpc = new Vpc(&#34;testVpc&#34;, VpcArgs.builder()        

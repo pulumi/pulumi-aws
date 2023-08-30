@@ -65,9 +65,13 @@ export class Agreement extends pulumi.CustomResource {
      */
     public readonly accessRole!: pulumi.Output<string>;
     /**
-     * The unique identifier for the AS2 agreement
+     * The unique identifier for the AS2 agreement.
      */
     public /*out*/ readonly agreementId!: pulumi.Output<string>;
+    /**
+     * The ARN of the agreement.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The landing directory for the files transferred by using the AS2 protocol.
      */
@@ -110,6 +114,7 @@ export class Agreement extends pulumi.CustomResource {
             const state = argsOrState as AgreementState | undefined;
             resourceInputs["accessRole"] = state ? state.accessRole : undefined;
             resourceInputs["agreementId"] = state ? state.agreementId : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["baseDirectory"] = state ? state.baseDirectory : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["localProfileId"] = state ? state.localProfileId : undefined;
@@ -143,6 +148,7 @@ export class Agreement extends pulumi.CustomResource {
             resourceInputs["serverId"] = args ? args.serverId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["agreementId"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
@@ -160,9 +166,13 @@ export interface AgreementState {
      */
     accessRole?: pulumi.Input<string>;
     /**
-     * The unique identifier for the AS2 agreement
+     * The unique identifier for the AS2 agreement.
      */
     agreementId?: pulumi.Input<string>;
+    /**
+     * The ARN of the agreement.
+     */
+    arn?: pulumi.Input<string>;
     /**
      * The landing directory for the files transferred by using the AS2 protocol.
      */

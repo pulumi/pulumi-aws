@@ -31,6 +31,7 @@ __all__ = [
     'CrawlerCatalogTargetArgs',
     'CrawlerDeltaTargetArgs',
     'CrawlerDynamodbTargetArgs',
+    'CrawlerHudiTargetArgs',
     'CrawlerIcebergTargetArgs',
     'CrawlerJdbcTargetArgs',
     'CrawlerLakeFormationConfigurationArgs',
@@ -1398,6 +1399,75 @@ class CrawlerDynamodbTargetArgs:
     @scan_rate.setter
     def scan_rate(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "scan_rate", value)
+
+
+@pulumi.input_type
+class CrawlerHudiTargetArgs:
+    def __init__(__self__, *,
+                 maximum_traversal_depth: pulumi.Input[int],
+                 paths: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 connection_name: Optional[pulumi.Input[str]] = None,
+                 exclusions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[int] maximum_traversal_depth: The maximum depth of Amazon S3 paths that the crawler can traverse to discover the Hudi metadata folder in your Amazon S3 path. Used to limit the crawler run time. Valid values are between `1` and `20`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] paths: One or more Amazon S3 paths that contains Hudi metadata folders as s3://bucket/prefix.
+        :param pulumi.Input[str] connection_name: The name of the connection to use to connect to the Hudi target.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] exclusions: A list of glob patterns used to exclude from the crawl.
+        """
+        pulumi.set(__self__, "maximum_traversal_depth", maximum_traversal_depth)
+        pulumi.set(__self__, "paths", paths)
+        if connection_name is not None:
+            pulumi.set(__self__, "connection_name", connection_name)
+        if exclusions is not None:
+            pulumi.set(__self__, "exclusions", exclusions)
+
+    @property
+    @pulumi.getter(name="maximumTraversalDepth")
+    def maximum_traversal_depth(self) -> pulumi.Input[int]:
+        """
+        The maximum depth of Amazon S3 paths that the crawler can traverse to discover the Hudi metadata folder in your Amazon S3 path. Used to limit the crawler run time. Valid values are between `1` and `20`.
+        """
+        return pulumi.get(self, "maximum_traversal_depth")
+
+    @maximum_traversal_depth.setter
+    def maximum_traversal_depth(self, value: pulumi.Input[int]):
+        pulumi.set(self, "maximum_traversal_depth", value)
+
+    @property
+    @pulumi.getter
+    def paths(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        One or more Amazon S3 paths that contains Hudi metadata folders as s3://bucket/prefix.
+        """
+        return pulumi.get(self, "paths")
+
+    @paths.setter
+    def paths(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "paths", value)
+
+    @property
+    @pulumi.getter(name="connectionName")
+    def connection_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the connection to use to connect to the Hudi target.
+        """
+        return pulumi.get(self, "connection_name")
+
+    @connection_name.setter
+    def connection_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connection_name", value)
+
+    @property
+    @pulumi.getter
+    def exclusions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of glob patterns used to exclude from the crawl.
+        """
+        return pulumi.get(self, "exclusions")
+
+    @exclusions.setter
+    def exclusions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "exclusions", value)
 
 
 @pulumi.input_type

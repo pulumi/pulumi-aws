@@ -381,6 +381,48 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.bootstrapBrokersTls;
     }
     /**
+     * A string containing one or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+     * 
+     */
+    @Export(name="bootstrapBrokersVpcConnectivitySaslIam", refs={String.class}, tree="[0]")
+    private Output<String> bootstrapBrokersVpcConnectivitySaslIam;
+
+    /**
+     * @return A string containing one or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+     * 
+     */
+    public Output<String> bootstrapBrokersVpcConnectivitySaslIam() {
+        return this.bootstrapBrokersVpcConnectivitySaslIam;
+    }
+    /**
+     * A string containing one or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+     * 
+     */
+    @Export(name="bootstrapBrokersVpcConnectivitySaslScram", refs={String.class}, tree="[0]")
+    private Output<String> bootstrapBrokersVpcConnectivitySaslScram;
+
+    /**
+     * @return A string containing one or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+     * 
+     */
+    public Output<String> bootstrapBrokersVpcConnectivitySaslScram() {
+        return this.bootstrapBrokersVpcConnectivitySaslScram;
+    }
+    /**
+     * A string containing one or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+     * 
+     */
+    @Export(name="bootstrapBrokersVpcConnectivityTls", refs={String.class}, tree="[0]")
+    private Output<String> bootstrapBrokersVpcConnectivityTls;
+
+    /**
+     * @return A string containing one or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+     * 
+     */
+    public Output<String> bootstrapBrokersVpcConnectivityTls() {
+        return this.bootstrapBrokersVpcConnectivityTls;
+    }
+    /**
      * Configuration block for the broker nodes of the Kafka cluster.
      * 
      */

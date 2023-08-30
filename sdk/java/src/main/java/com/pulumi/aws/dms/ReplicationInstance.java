@@ -239,6 +239,20 @@ public class ReplicationInstance extends com.pulumi.resources.CustomResource {
         return this.multiAz;
     }
     /**
+     * The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
+     * 
+     */
+    @Export(name="networkType", refs={String.class}, tree="[0]")
+    private Output<String> networkType;
+
+    /**
+     * @return The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
+     * 
+     */
+    public Output<String> networkType() {
+        return this.networkType;
+    }
+    /**
      * The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
      * 
      * - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.

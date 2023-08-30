@@ -110,7 +110,7 @@ import (
 //			}
 //			testVpcIpamPoolCidr, err := ec2.NewVpcIpamPoolCidr(ctx, "testVpcIpamPoolCidr", &ec2.VpcIpamPoolCidrArgs{
 //				IpamPoolId: testVpcIpamPool.ID(),
-//				Cidr:       pulumi.String("172.2.0.0/16"),
+//				Cidr:       pulumi.String("172.20.0.0/16"),
 //			})
 //			if err != nil {
 //				return err

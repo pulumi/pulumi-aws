@@ -102,7 +102,7 @@ import javax.annotation.Nullable;
  * 
  *  to = aws_vpc_peering_connection_accepter.example
  * 
- *  id = &#34;pcx-12345678&#34; } Using `pulumi import`, import VPC Peering Connection Accepters using the Peering Connection ID. For exampleconsole % pulumi import aws_vpc_peering_connection_accepter.example pcx-12345678 Certain resource arguments, like `auto_accept`, do not have an EC2 API method for reading the information after peering connection creation. If the argument is set in the TODO configuration on an imported resource, TODO will always show a difference. To workaround this behavior, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For exampleterraform resource &#34;aws_vpc_peering_connection_accepter&#34; &#34;example&#34; {
+ *  id = &#34;pcx-12345678&#34; } Using `pulumi import`, import VPC Peering Connection Accepters using the Peering Connection ID. For exampleconsole % pulumi import aws_vpc_peering_connection_accepter.example pcx-12345678 Certain resource arguments, like `auto_accept`, do not have an EC2 API method for reading the information after peering connection creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For exampleterraform resource &#34;aws_vpc_peering_connection_accepter&#34; &#34;example&#34; {
  * 
  * # ... other configuration ...
  * 

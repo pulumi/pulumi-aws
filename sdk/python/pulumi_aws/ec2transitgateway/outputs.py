@@ -24,6 +24,8 @@ __all__ = [
     'GetRouteTableAssociationsFilterResult',
     'GetRouteTableFilterResult',
     'GetRouteTablePropagationsFilterResult',
+    'GetRouteTableRoutesFilterResult',
+    'GetRouteTableRoutesRouteResult',
     'GetTransitGatewayFilterResult',
     'GetVpcAttachmentFilterResult',
     'GetVpcAttachmentsFilterResult',
@@ -438,6 +440,99 @@ class GetRouteTablePropagationsFilterResult(dict):
         A Transit Gateway Route Table will be selected if any one of the given values matches.
         """
         return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetRouteTableRoutesFilterResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        """
+        :param str name: Name of the field to filter by, as defined by
+               [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SearchTransitGatewayRoutes.html).
+        :param Sequence[str] values: Set of values that are accepted for the given field.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the field to filter by, as defined by
+        [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SearchTransitGatewayRoutes.html).
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        Set of values that are accepted for the given field.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetRouteTableRoutesRouteResult(dict):
+    def __init__(__self__, *,
+                 destination_cidr_block: str,
+                 prefix_list_id: str,
+                 state: str,
+                 transit_gateway_route_table_announcement_id: str,
+                 type: str):
+        """
+        :param str destination_cidr_block: The CIDR used for route destination matches.
+        :param str prefix_list_id: The ID of the prefix list used for destination matches.
+        :param str state: The current state of the route, can be `active`, `deleted`, `pending`, `blackhole`, `deleting`.
+        :param str transit_gateway_route_table_announcement_id: The id of the transit gateway route table announcement, most of the time it is an empty string.
+        :param str type: The type of the route, can be `propagated` or `static`.
+        """
+        pulumi.set(__self__, "destination_cidr_block", destination_cidr_block)
+        pulumi.set(__self__, "prefix_list_id", prefix_list_id)
+        pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "transit_gateway_route_table_announcement_id", transit_gateway_route_table_announcement_id)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="destinationCidrBlock")
+    def destination_cidr_block(self) -> str:
+        """
+        The CIDR used for route destination matches.
+        """
+        return pulumi.get(self, "destination_cidr_block")
+
+    @property
+    @pulumi.getter(name="prefixListId")
+    def prefix_list_id(self) -> str:
+        """
+        The ID of the prefix list used for destination matches.
+        """
+        return pulumi.get(self, "prefix_list_id")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        The current state of the route, can be `active`, `deleted`, `pending`, `blackhole`, `deleting`.
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="transitGatewayRouteTableAnnouncementId")
+    def transit_gateway_route_table_announcement_id(self) -> str:
+        """
+        The id of the transit gateway route table announcement, most of the time it is an empty string.
+        """
+        return pulumi.get(self, "transit_gateway_route_table_announcement_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the route, can be `propagated` or `static`.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

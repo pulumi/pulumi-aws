@@ -65,6 +65,11 @@ export const getRouteTablePropagations: typeof import("./getRouteTablePropagatio
 export const getRouteTablePropagationsOutput: typeof import("./getRouteTablePropagations").getRouteTablePropagationsOutput = null as any;
 utilities.lazyLoad(exports, ["getRouteTablePropagations","getRouteTablePropagationsOutput"], () => require("./getRouteTablePropagations"));
 
+export { GetRouteTableRoutesArgs, GetRouteTableRoutesResult, GetRouteTableRoutesOutputArgs } from "./getRouteTableRoutes";
+export const getRouteTableRoutes: typeof import("./getRouteTableRoutes").getRouteTableRoutes = null as any;
+export const getRouteTableRoutesOutput: typeof import("./getRouteTableRoutes").getRouteTableRoutesOutput = null as any;
+utilities.lazyLoad(exports, ["getRouteTableRoutes","getRouteTableRoutesOutput"], () => require("./getRouteTableRoutes"));
+
 export { GetTransitGatewayArgs, GetTransitGatewayResult, GetTransitGatewayOutputArgs } from "./getTransitGateway";
 export const getTransitGateway: typeof import("./getTransitGateway").getTransitGateway = null as any;
 export const getTransitGatewayOutput: typeof import("./getTransitGateway").getTransitGatewayOutput = null as any;

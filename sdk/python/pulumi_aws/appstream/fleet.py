@@ -680,7 +680,7 @@ class Fleet(pulumi.CustomResource):
             enable_default_internet_access=False,
             fleet_type="ON_DEMAND",
             idle_disconnect_timeout_in_seconds=60,
-            image_name="Amazon-AppStream2-Sample-Image-02-04-2019",
+            image_name="Amazon-AppStream2-Sample-Image-03-11-2023",
             instance_type="stream.standard.large",
             max_user_duration_in_seconds=600,
             tags={
@@ -745,7 +745,7 @@ class Fleet(pulumi.CustomResource):
             enable_default_internet_access=False,
             fleet_type="ON_DEMAND",
             idle_disconnect_timeout_in_seconds=60,
-            image_name="Amazon-AppStream2-Sample-Image-02-04-2019",
+            image_name="Amazon-AppStream2-Sample-Image-03-11-2023",
             instance_type="stream.standard.large",
             max_user_duration_in_seconds=600,
             tags={

@@ -4,6 +4,7 @@
 package com.pulumi.aws.msk.inputs;
 
 import com.pulumi.aws.msk.inputs.ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs;
+import com.pulumi.aws.msk.inputs.ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.util.Objects;
@@ -30,10 +31,26 @@ public final class ClusterBrokerNodeGroupInfoConnectivityInfoArgs extends com.pu
         return Optional.ofNullable(this.publicAccess);
     }
 
+    /**
+     * VPC connectivity access control for brokers. See below.
+     * 
+     */
+    @Import(name="vpcConnectivity")
+    private @Nullable Output<ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs> vpcConnectivity;
+
+    /**
+     * @return VPC connectivity access control for brokers. See below.
+     * 
+     */
+    public Optional<Output<ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs>> vpcConnectivity() {
+        return Optional.ofNullable(this.vpcConnectivity);
+    }
+
     private ClusterBrokerNodeGroupInfoConnectivityInfoArgs() {}
 
     private ClusterBrokerNodeGroupInfoConnectivityInfoArgs(ClusterBrokerNodeGroupInfoConnectivityInfoArgs $) {
         this.publicAccess = $.publicAccess;
+        this.vpcConnectivity = $.vpcConnectivity;
     }
 
     public static Builder builder() {
@@ -73,6 +90,27 @@ public final class ClusterBrokerNodeGroupInfoConnectivityInfoArgs extends com.pu
          */
         public Builder publicAccess(ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs publicAccess) {
             return publicAccess(Output.of(publicAccess));
+        }
+
+        /**
+         * @param vpcConnectivity VPC connectivity access control for brokers. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder vpcConnectivity(@Nullable Output<ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs> vpcConnectivity) {
+            $.vpcConnectivity = vpcConnectivity;
+            return this;
+        }
+
+        /**
+         * @param vpcConnectivity VPC connectivity access control for brokers. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder vpcConnectivity(ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs vpcConnectivity) {
+            return vpcConnectivity(Output.of(vpcConnectivity));
         }
 
         public ClusterBrokerNodeGroupInfoConnectivityInfoArgs build() {

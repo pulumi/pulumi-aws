@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleKxEnvironment = new aws.finspace.KxEnvironment("exampleKxEnvironment", {kmsKeyId: exampleKey.arn});
  * ```
- * ### With Network Setup
+ * ### With Transit Gateway Configuration
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -40,6 +40,44 @@ import * as utilities from "../utilities";
  *     transitGatewayConfiguration: {
  *         transitGatewayId: exampleTransitGateway.id,
  *         routableCidrSpace: "100.64.0.0/26",
+ *     },
+ *     customDnsConfigurations: [{
+ *         customDnsServerName: "example.finspace.amazonaws.com",
+ *         customDnsServerIp: "10.0.0.76",
+ *     }],
+ * });
+ * ```
+ * ### With Transit Gateway Attachment Network ACL Configuration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleKey = new aws.kms.Key("exampleKey", {
+ *     description: "Sample KMS Key",
+ *     deletionWindowInDays: 7,
+ * });
+ * const exampleTransitGateway = new aws.ec2transitgateway.TransitGateway("exampleTransitGateway", {description: "example"});
+ * const exampleEnv = new aws.finspace.KxEnvironment("exampleEnv", {
+ *     description: "Environment description",
+ *     kmsKeyId: exampleKey.arn,
+ *     transitGatewayConfiguration: {
+ *         transitGatewayId: exampleTransitGateway.id,
+ *         routableCidrSpace: "100.64.0.0/26",
+ *         attachmentNetworkAclConfigurations: [{
+ *             ruleNumber: 1,
+ *             protocol: "6",
+ *             ruleAction: "allow",
+ *             cidrBlock: "0.0.0.0/0",
+ *             portRange: {
+ *                 from: 53,
+ *                 to: 53,
+ *             },
+ *             icmpTypeCode: {
+ *                 type: -1,
+ *                 code: -1,
+ *             },
+ *         }],
  *     },
  *     customDnsConfigurations: [{
  *         customDnsServerName: "example.finspace.amazonaws.com",

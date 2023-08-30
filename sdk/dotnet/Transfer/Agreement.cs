@@ -54,10 +54,16 @@ namespace Pulumi.Aws.Transfer
         public Output<string> AccessRole { get; private set; } = null!;
 
         /// <summary>
-        /// The unique identifier for the AS2 agreement
+        /// The unique identifier for the AS2 agreement.
         /// </summary>
         [Output("agreementId")]
         public Output<string> AgreementId { get; private set; } = null!;
+
+        /// <summary>
+        /// The ARN of the agreement.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
         /// The landing directory for the files transferred by using the AS2 protocol.
@@ -210,10 +216,16 @@ namespace Pulumi.Aws.Transfer
         public Input<string>? AccessRole { get; set; }
 
         /// <summary>
-        /// The unique identifier for the AS2 agreement
+        /// The unique identifier for the AS2 agreement.
         /// </summary>
         [Input("agreementId")]
         public Input<string>? AgreementId { get; set; }
+
+        /// <summary>
+        /// The ARN of the agreement.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
 
         /// <summary>
         /// The landing directory for the files transferred by using the AS2 protocol.

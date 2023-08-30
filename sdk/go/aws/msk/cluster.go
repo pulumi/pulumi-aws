@@ -277,6 +277,12 @@ type Cluster struct {
 	BootstrapBrokersSaslScram pulumi.StringOutput `pulumi:"bootstrapBrokersSaslScram"`
 	// One or more DNS names (or IP addresses) and TLS port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
 	BootstrapBrokersTls pulumi.StringOutput `pulumi:"bootstrapBrokersTls"`
+	// A string containing one or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+	BootstrapBrokersVpcConnectivitySaslIam pulumi.StringOutput `pulumi:"bootstrapBrokersVpcConnectivitySaslIam"`
+	// A string containing one or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+	BootstrapBrokersVpcConnectivitySaslScram pulumi.StringOutput `pulumi:"bootstrapBrokersVpcConnectivitySaslScram"`
+	// A string containing one or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+	BootstrapBrokersVpcConnectivityTls pulumi.StringOutput `pulumi:"bootstrapBrokersVpcConnectivityTls"`
 	// Configuration block for the broker nodes of the Kafka cluster.
 	BrokerNodeGroupInfo ClusterBrokerNodeGroupInfoOutput `pulumi:"brokerNodeGroupInfo"`
 	// Configuration block for specifying a client authentication. See below.
@@ -367,6 +373,12 @@ type clusterState struct {
 	BootstrapBrokersSaslScram *string `pulumi:"bootstrapBrokersSaslScram"`
 	// One or more DNS names (or IP addresses) and TLS port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
 	BootstrapBrokersTls *string `pulumi:"bootstrapBrokersTls"`
+	// A string containing one or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+	BootstrapBrokersVpcConnectivitySaslIam *string `pulumi:"bootstrapBrokersVpcConnectivitySaslIam"`
+	// A string containing one or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+	BootstrapBrokersVpcConnectivitySaslScram *string `pulumi:"bootstrapBrokersVpcConnectivitySaslScram"`
+	// A string containing one or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+	BootstrapBrokersVpcConnectivityTls *string `pulumi:"bootstrapBrokersVpcConnectivityTls"`
 	// Configuration block for the broker nodes of the Kafka cluster.
 	BrokerNodeGroupInfo *ClusterBrokerNodeGroupInfo `pulumi:"brokerNodeGroupInfo"`
 	// Configuration block for specifying a client authentication. See below.
@@ -419,6 +431,12 @@ type ClusterState struct {
 	BootstrapBrokersSaslScram pulumi.StringPtrInput
 	// One or more DNS names (or IP addresses) and TLS port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
 	BootstrapBrokersTls pulumi.StringPtrInput
+	// A string containing one or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+	BootstrapBrokersVpcConnectivitySaslIam pulumi.StringPtrInput
+	// A string containing one or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+	BootstrapBrokersVpcConnectivitySaslScram pulumi.StringPtrInput
+	// A string containing one or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+	BootstrapBrokersVpcConnectivityTls pulumi.StringPtrInput
 	// Configuration block for the broker nodes of the Kafka cluster.
 	BrokerNodeGroupInfo ClusterBrokerNodeGroupInfoPtrInput
 	// Configuration block for specifying a client authentication. See below.
@@ -638,6 +656,21 @@ func (o ClusterOutput) BootstrapBrokersSaslScram() pulumi.StringOutput {
 // One or more DNS names (or IP addresses) and TLS port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
 func (o ClusterOutput) BootstrapBrokersTls() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.BootstrapBrokersTls }).(pulumi.StringOutput)
+}
+
+// A string containing one or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+func (o ClusterOutput) BootstrapBrokersVpcConnectivitySaslIam() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.BootstrapBrokersVpcConnectivitySaslIam }).(pulumi.StringOutput)
+}
+
+// A string containing one or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+func (o ClusterOutput) BootstrapBrokersVpcConnectivitySaslScram() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.BootstrapBrokersVpcConnectivitySaslScram }).(pulumi.StringOutput)
+}
+
+// A string containing one or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+func (o ClusterOutput) BootstrapBrokersVpcConnectivityTls() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.BootstrapBrokersVpcConnectivityTls }).(pulumi.StringOutput)
 }
 
 // Configuration block for the broker nodes of the Kafka cluster.

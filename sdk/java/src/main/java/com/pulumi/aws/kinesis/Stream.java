@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  * 
  *  to = aws_kinesis_stream.test_stream
  * 
- *  id = &#34;TODO-kinesis-test&#34; } Using `pulumi import`, import Kinesis Streams using the `name`. For exampleconsole % pulumi import aws_kinesis_stream.test_stream TODO-kinesis-test [1]https://aws.amazon.com/documentation/kinesis/ [2]https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html [3]https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html
+ *  id = &#34;pulumi-kinesis-test&#34; } Using `pulumi import`, import Kinesis Streams using the `name`. For exampleconsole % pulumi import aws_kinesis_stream.test_stream pulumi-kinesis-test [1]https://aws.amazon.com/documentation/kinesis/ [2]https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html [3]https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html
  * 
  */
 @ResourceType(type="aws:kinesis/stream:Stream")

@@ -307,14 +307,14 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * This is a set of arns of destinations that will receive structured logs from the transfer server
+     * A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
      * 
      */
     @Import(name="structuredLogDestinations")
     private @Nullable Output<List<String>> structuredLogDestinations;
 
     /**
-     * @return This is a set of arns of destinations that will receive structured logs from the transfer server
+     * @return A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
      * 
      */
     public Optional<Output<List<String>>> structuredLogDestinations() {
@@ -838,7 +838,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param structuredLogDestinations This is a set of arns of destinations that will receive structured logs from the transfer server
+         * @param structuredLogDestinations A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
          * 
          * @return builder
          * 
@@ -849,7 +849,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param structuredLogDestinations This is a set of arns of destinations that will receive structured logs from the transfer server
+         * @param structuredLogDestinations A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
          * 
          * @return builder
          * 
@@ -859,7 +859,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param structuredLogDestinations This is a set of arns of destinations that will receive structured logs from the transfer server
+         * @param structuredLogDestinations A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
          * 
          * @return builder
          * 

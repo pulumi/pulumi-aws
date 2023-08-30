@@ -674,6 +674,7 @@ type ProviderEndpoint struct {
 	Cloudwatchrum                        *string `pulumi:"cloudwatchrum"`
 	Codeartifact                         *string `pulumi:"codeartifact"`
 	Codebuild                            *string `pulumi:"codebuild"`
+	Codecatalyst                         *string `pulumi:"codecatalyst"`
 	Codecommit                           *string `pulumi:"codecommit"`
 	Codedeploy                           *string `pulumi:"codedeploy"`
 	Codegurureviewer                     *string `pulumi:"codegurureviewer"`
@@ -934,6 +935,7 @@ type ProviderEndpointArgs struct {
 	Cloudwatchrum                        pulumi.StringPtrInput `pulumi:"cloudwatchrum"`
 	Codeartifact                         pulumi.StringPtrInput `pulumi:"codeartifact"`
 	Codebuild                            pulumi.StringPtrInput `pulumi:"codebuild"`
+	Codecatalyst                         pulumi.StringPtrInput `pulumi:"codecatalyst"`
 	Codecommit                           pulumi.StringPtrInput `pulumi:"codecommit"`
 	Codedeploy                           pulumi.StringPtrInput `pulumi:"codedeploy"`
 	Codegurureviewer                     pulumi.StringPtrInput `pulumi:"codegurureviewer"`
@@ -1384,6 +1386,10 @@ func (o ProviderEndpointOutput) Codeartifact() pulumi.StringPtrOutput {
 
 func (o ProviderEndpointOutput) Codebuild() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Codebuild }).(pulumi.StringPtrOutput)
+}
+
+func (o ProviderEndpointOutput) Codecatalyst() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Codecatalyst }).(pulumi.StringPtrOutput)
 }
 
 func (o ProviderEndpointOutput) Codecommit() pulumi.StringPtrOutput {

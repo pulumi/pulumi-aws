@@ -486,7 +486,7 @@ class Pipe(pulumi.CustomResource):
         import pulumi_aws as aws
 
         main = aws.get_caller_identity()
-        test = aws.iam.Role("test", assume_role_policy=json.dumps({
+        example_role = aws.iam.Role("exampleRole", assume_role_policy=json.dumps({
             "Version": "2012-10-17",
             "Statement": {
                 "Effect": "Allow",
@@ -503,7 +503,7 @@ class Pipe(pulumi.CustomResource):
         }))
         source_queue = aws.sqs.Queue("sourceQueue")
         source_role_policy = aws.iam.RolePolicy("sourceRolePolicy",
-            role=test.id,
+            role=example_role.id,
             policy=source_queue.arn.apply(lambda arn: json.dumps({
                 "Version": "2012-10-17",
                 "Statement": [{
@@ -518,7 +518,7 @@ class Pipe(pulumi.CustomResource):
             })))
         target_queue = aws.sqs.Queue("targetQueue")
         target_role_policy = aws.iam.RolePolicy("targetRolePolicy",
-            role=test.id,
+            role=example_role.id,
             policy=target_queue.arn.apply(lambda arn: json.dumps({
                 "Version": "2012-10-17",
                 "Statement": [{
@@ -527,8 +527,8 @@ class Pipe(pulumi.CustomResource):
                     "Resource": [arn],
                 }],
             })))
-        example = aws.pipes.Pipe("example",
-            role_arn=aws_iam_role["example"]["arn"],
+        example_pipe = aws.pipes.Pipe("examplePipe",
+            role_arn=example_role.arn,
             source=source_queue.arn,
             target=target_queue.arn,
             opts=pulumi.ResourceOptions(depends_on=[
@@ -607,7 +607,7 @@ class Pipe(pulumi.CustomResource):
         import pulumi_aws as aws
 
         main = aws.get_caller_identity()
-        test = aws.iam.Role("test", assume_role_policy=json.dumps({
+        example_role = aws.iam.Role("exampleRole", assume_role_policy=json.dumps({
             "Version": "2012-10-17",
             "Statement": {
                 "Effect": "Allow",
@@ -624,7 +624,7 @@ class Pipe(pulumi.CustomResource):
         }))
         source_queue = aws.sqs.Queue("sourceQueue")
         source_role_policy = aws.iam.RolePolicy("sourceRolePolicy",
-            role=test.id,
+            role=example_role.id,
             policy=source_queue.arn.apply(lambda arn: json.dumps({
                 "Version": "2012-10-17",
                 "Statement": [{
@@ -639,7 +639,7 @@ class Pipe(pulumi.CustomResource):
             })))
         target_queue = aws.sqs.Queue("targetQueue")
         target_role_policy = aws.iam.RolePolicy("targetRolePolicy",
-            role=test.id,
+            role=example_role.id,
             policy=target_queue.arn.apply(lambda arn: json.dumps({
                 "Version": "2012-10-17",
                 "Statement": [{
@@ -648,8 +648,8 @@ class Pipe(pulumi.CustomResource):
                     "Resource": [arn],
                 }],
             })))
-        example = aws.pipes.Pipe("example",
-            role_arn=aws_iam_role["example"]["arn"],
+        example_pipe = aws.pipes.Pipe("examplePipe",
+            role_arn=example_role.arn,
             source=source_queue.arn,
             target=target_queue.arn,
             opts=pulumi.ResourceOptions(depends_on=[

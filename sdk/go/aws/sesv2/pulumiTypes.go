@@ -558,9 +558,9 @@ func (o ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtr
 
 type ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration struct {
 	// The default value of the dimension that is published to Amazon CloudWatch if you don't provide the value of the dimension when you send an email.
-	// ( `dimensionName` - (Required) The name of an Amazon CloudWatch dimension associated with an email sending metric.
 	DefaultDimensionValue string `pulumi:"defaultDimensionValue"`
-	DimensionName         string `pulumi:"dimensionName"`
+	// The name of an Amazon CloudWatch dimension associated with an email sending metric.
+	DimensionName string `pulumi:"dimensionName"`
 	// The location where the Amazon SES API v2 finds the value of a dimension to publish to Amazon CloudWatch. Valid values: `MESSAGE_TAG`, `EMAIL_HEADER`, `LINK_TAG`.
 	DimensionValueSource string `pulumi:"dimensionValueSource"`
 }
@@ -578,9 +578,9 @@ type ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimens
 
 type ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs struct {
 	// The default value of the dimension that is published to Amazon CloudWatch if you don't provide the value of the dimension when you send an email.
-	// ( `dimensionName` - (Required) The name of an Amazon CloudWatch dimension associated with an email sending metric.
 	DefaultDimensionValue pulumi.StringInput `pulumi:"defaultDimensionValue"`
-	DimensionName         pulumi.StringInput `pulumi:"dimensionName"`
+	// The name of an Amazon CloudWatch dimension associated with an email sending metric.
+	DimensionName pulumi.StringInput `pulumi:"dimensionName"`
 	// The location where the Amazon SES API v2 finds the value of a dimension to publish to Amazon CloudWatch. Valid values: `MESSAGE_TAG`, `EMAIL_HEADER`, `LINK_TAG`.
 	DimensionValueSource pulumi.StringInput `pulumi:"dimensionValueSource"`
 }
@@ -637,13 +637,13 @@ func (o ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDim
 }
 
 // The default value of the dimension that is published to Amazon CloudWatch if you don't provide the value of the dimension when you send an email.
-// ( `dimensionName` - (Required) The name of an Amazon CloudWatch dimension associated with an email sending metric.
 func (o ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationOutput) DefaultDimensionValue() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration) string {
 		return v.DefaultDimensionValue
 	}).(pulumi.StringOutput)
 }
 
+// The name of an Amazon CloudWatch dimension associated with an email sending metric.
 func (o ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationOutput) DimensionName() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration) string {
 		return v.DimensionName

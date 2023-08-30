@@ -320,7 +320,7 @@ type Server struct {
 	Protocols pulumi.StringArrayOutput `pulumi:"protocols"`
 	// Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-2022-03` and `TransferSecurityPolicy-2023-05`. Default value is: `TransferSecurityPolicy-2018-11`.
 	SecurityPolicyName pulumi.StringPtrOutput `pulumi:"securityPolicyName"`
-	// This is a set of arns of destinations that will receive structured logs from the transfer server
+	// A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
 	StructuredLogDestinations pulumi.StringArrayOutput `pulumi:"structuredLogDestinations"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -415,7 +415,7 @@ type serverState struct {
 	Protocols []string `pulumi:"protocols"`
 	// Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-2022-03` and `TransferSecurityPolicy-2023-05`. Default value is: `TransferSecurityPolicy-2018-11`.
 	SecurityPolicyName *string `pulumi:"securityPolicyName"`
-	// This is a set of arns of destinations that will receive structured logs from the transfer server
+	// A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
 	StructuredLogDestinations []string `pulumi:"structuredLogDestinations"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -466,7 +466,7 @@ type ServerState struct {
 	Protocols pulumi.StringArrayInput
 	// Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-2022-03` and `TransferSecurityPolicy-2023-05`. Default value is: `TransferSecurityPolicy-2018-11`.
 	SecurityPolicyName pulumi.StringPtrInput
-	// This is a set of arns of destinations that will receive structured logs from the transfer server
+	// A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
 	StructuredLogDestinations pulumi.StringArrayInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -515,7 +515,7 @@ type serverArgs struct {
 	Protocols []string `pulumi:"protocols"`
 	// Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-2022-03` and `TransferSecurityPolicy-2023-05`. Default value is: `TransferSecurityPolicy-2018-11`.
 	SecurityPolicyName *string `pulumi:"securityPolicyName"`
-	// This is a set of arns of destinations that will receive structured logs from the transfer server
+	// A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
 	StructuredLogDestinations []string `pulumi:"structuredLogDestinations"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -559,7 +559,7 @@ type ServerArgs struct {
 	Protocols pulumi.StringArrayInput
 	// Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-2022-03` and `TransferSecurityPolicy-2023-05`. Default value is: `TransferSecurityPolicy-2018-11`.
 	SecurityPolicyName pulumi.StringPtrInput
-	// This is a set of arns of destinations that will receive structured logs from the transfer server
+	// A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
 	StructuredLogDestinations pulumi.StringArrayInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -751,7 +751,7 @@ func (o ServerOutput) SecurityPolicyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.SecurityPolicyName }).(pulumi.StringPtrOutput)
 }
 
-// This is a set of arns of destinations that will receive structured logs from the transfer server
+// A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
 func (o ServerOutput) StructuredLogDestinations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringArrayOutput { return v.StructuredLogDestinations }).(pulumi.StringArrayOutput)
 }

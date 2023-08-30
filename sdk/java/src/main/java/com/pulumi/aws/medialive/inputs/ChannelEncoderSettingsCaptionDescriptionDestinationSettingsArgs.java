@@ -58,14 +58,14 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAr
     }
 
     /**
-     * Dvb Sub Destination Settings. See Dvb Sub Destination Settings for more details.
+     * DVB Sub Destination Settings. See DVB Sub Destination Settings for more details.
      * 
      */
     @Import(name="dvbSubDestinationSettings")
     private @Nullable Output<ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsArgs> dvbSubDestinationSettings;
 
     /**
-     * @return Dvb Sub Destination Settings. See Dvb Sub Destination Settings for more details.
+     * @return DVB Sub Destination Settings. See DVB Sub Destination Settings for more details.
      * 
      */
     public Optional<Output<ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsArgs>> dvbSubDestinationSettings() {
@@ -73,14 +73,14 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAr
     }
 
     /**
-     * Ebu Tt D Destination Settings. See Ebu Tt D Destination Settings for more details.
+     * EBU TT D Destination Settings. See EBU TT D Destination Settings for more details.
      * 
      */
     @Import(name="ebuTtDDestinationSettings")
     private @Nullable Output<ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsArgs> ebuTtDDestinationSettings;
 
     /**
-     * @return Ebu Tt D Destination Settings. See Ebu Tt D Destination Settings for more details.
+     * @return EBU TT D Destination Settings. See EBU TT D Destination Settings for more details.
      * 
      */
     public Optional<Output<ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsArgs>> ebuTtDDestinationSettings() {
@@ -103,14 +103,14 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAr
     }
 
     /**
-     * Embedded Plus Scte20 Destination Settings.
+     * Embedded Plus SCTE20 Destination Settings.
      * 
      */
     @Import(name="embeddedPlusScte20DestinationSettings")
     private @Nullable Output<ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsArgs> embeddedPlusScte20DestinationSettings;
 
     /**
-     * @return Embedded Plus Scte20 Destination Settings.
+     * @return Embedded Plus SCTE20 Destination Settings.
      * 
      */
     public Optional<Output<ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsArgs>> embeddedPlusScte20DestinationSettings() {
@@ -118,14 +118,14 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAr
     }
 
     /**
-     * Rtmp Caption Info Destination Settings.
+     * RTMP Caption Info Destination Settings.
      * 
      */
     @Import(name="rtmpCaptionInfoDestinationSettings")
     private @Nullable Output<ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsArgs> rtmpCaptionInfoDestinationSettings;
 
     /**
-     * @return Rtmp Caption Info Destination Settings.
+     * @return RTMP Caption Info Destination Settings.
      * 
      */
     public Optional<Output<ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsArgs>> rtmpCaptionInfoDestinationSettings() {
@@ -133,14 +133,14 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAr
     }
 
     /**
-     * Scte20 Plus Embedded Destination Settings.
+     * SCTE20 Plus Embedded Destination Settings.
      * 
      */
     @Import(name="scte20PlusEmbeddedDestinationSettings")
     private @Nullable Output<ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsArgs> scte20PlusEmbeddedDestinationSettings;
 
     /**
-     * @return Scte20 Plus Embedded Destination Settings.
+     * @return SCTE20 Plus Embedded Destination Settings.
      * 
      */
     public Optional<Output<ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsArgs>> scte20PlusEmbeddedDestinationSettings() {
@@ -148,23 +148,31 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAr
     }
 
     /**
-     * Scte27 Destination Settings.
+     * SCTE27 Destination Settings.
      * 
      */
     @Import(name="scte27DestinationSettings")
     private @Nullable Output<ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsArgs> scte27DestinationSettings;
 
     /**
-     * @return Scte27 Destination Settings.
+     * @return SCTE27 Destination Settings.
      * 
      */
     public Optional<Output<ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsArgs>> scte27DestinationSettings() {
         return Optional.ofNullable(this.scte27DestinationSettings);
     }
 
+    /**
+     * SMPTE TT Destination Settings.
+     * 
+     */
     @Import(name="smpteTtDestinationSettings")
     private @Nullable Output<ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsArgs> smpteTtDestinationSettings;
 
+    /**
+     * @return SMPTE TT Destination Settings.
+     * 
+     */
     public Optional<Output<ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsArgs>> smpteTtDestinationSettings() {
         return Optional.ofNullable(this.smpteTtDestinationSettings);
     }
@@ -185,14 +193,14 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAr
     }
 
     /**
-     * Ttml Destination Settings. See Ttml Destination Settings for more details.
+     * TTML Destination Settings. See TTML Destination Settings for more details.
      * 
      */
     @Import(name="ttmlDestinationSettings")
     private @Nullable Output<ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsArgs> ttmlDestinationSettings;
 
     /**
-     * @return Ttml Destination Settings. See Ttml Destination Settings for more details.
+     * @return TTML Destination Settings. See TTML Destination Settings for more details.
      * 
      */
     public Optional<Output<ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsArgs>> ttmlDestinationSettings() {
@@ -200,14 +208,14 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAr
     }
 
     /**
-     * Webvtt Destination Settings. See Webvtt Destination Settings for more details.
+     * WebVTT Destination Settings. See WebVTT Destination Settings for more details.
      * 
      */
     @Import(name="webvttDestinationSettings")
     private @Nullable Output<ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsArgs> webvttDestinationSettings;
 
     /**
-     * @return Webvtt Destination Settings. See Webvtt Destination Settings for more details.
+     * @return WebVTT Destination Settings. See WebVTT Destination Settings for more details.
      * 
      */
     public Optional<Output<ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsArgs>> webvttDestinationSettings() {
@@ -293,7 +301,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAr
         }
 
         /**
-         * @param dvbSubDestinationSettings Dvb Sub Destination Settings. See Dvb Sub Destination Settings for more details.
+         * @param dvbSubDestinationSettings DVB Sub Destination Settings. See DVB Sub Destination Settings for more details.
          * 
          * @return builder
          * 
@@ -304,7 +312,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAr
         }
 
         /**
-         * @param dvbSubDestinationSettings Dvb Sub Destination Settings. See Dvb Sub Destination Settings for more details.
+         * @param dvbSubDestinationSettings DVB Sub Destination Settings. See DVB Sub Destination Settings for more details.
          * 
          * @return builder
          * 
@@ -314,7 +322,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAr
         }
 
         /**
-         * @param ebuTtDDestinationSettings Ebu Tt D Destination Settings. See Ebu Tt D Destination Settings for more details.
+         * @param ebuTtDDestinationSettings EBU TT D Destination Settings. See EBU TT D Destination Settings for more details.
          * 
          * @return builder
          * 
@@ -325,7 +333,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAr
         }
 
         /**
-         * @param ebuTtDDestinationSettings Ebu Tt D Destination Settings. See Ebu Tt D Destination Settings for more details.
+         * @param ebuTtDDestinationSettings EBU TT D Destination Settings. See EBU TT D Destination Settings for more details.
          * 
          * @return builder
          * 
@@ -356,7 +364,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAr
         }
 
         /**
-         * @param embeddedPlusScte20DestinationSettings Embedded Plus Scte20 Destination Settings.
+         * @param embeddedPlusScte20DestinationSettings Embedded Plus SCTE20 Destination Settings.
          * 
          * @return builder
          * 
@@ -367,7 +375,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAr
         }
 
         /**
-         * @param embeddedPlusScte20DestinationSettings Embedded Plus Scte20 Destination Settings.
+         * @param embeddedPlusScte20DestinationSettings Embedded Plus SCTE20 Destination Settings.
          * 
          * @return builder
          * 
@@ -377,7 +385,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAr
         }
 
         /**
-         * @param rtmpCaptionInfoDestinationSettings Rtmp Caption Info Destination Settings.
+         * @param rtmpCaptionInfoDestinationSettings RTMP Caption Info Destination Settings.
          * 
          * @return builder
          * 
@@ -388,7 +396,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAr
         }
 
         /**
-         * @param rtmpCaptionInfoDestinationSettings Rtmp Caption Info Destination Settings.
+         * @param rtmpCaptionInfoDestinationSettings RTMP Caption Info Destination Settings.
          * 
          * @return builder
          * 
@@ -398,7 +406,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAr
         }
 
         /**
-         * @param scte20PlusEmbeddedDestinationSettings Scte20 Plus Embedded Destination Settings.
+         * @param scte20PlusEmbeddedDestinationSettings SCTE20 Plus Embedded Destination Settings.
          * 
          * @return builder
          * 
@@ -409,7 +417,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAr
         }
 
         /**
-         * @param scte20PlusEmbeddedDestinationSettings Scte20 Plus Embedded Destination Settings.
+         * @param scte20PlusEmbeddedDestinationSettings SCTE20 Plus Embedded Destination Settings.
          * 
          * @return builder
          * 
@@ -419,7 +427,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAr
         }
 
         /**
-         * @param scte27DestinationSettings Scte27 Destination Settings.
+         * @param scte27DestinationSettings SCTE27 Destination Settings.
          * 
          * @return builder
          * 
@@ -430,7 +438,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAr
         }
 
         /**
-         * @param scte27DestinationSettings Scte27 Destination Settings.
+         * @param scte27DestinationSettings SCTE27 Destination Settings.
          * 
          * @return builder
          * 
@@ -439,11 +447,23 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAr
             return scte27DestinationSettings(Output.of(scte27DestinationSettings));
         }
 
+        /**
+         * @param smpteTtDestinationSettings SMPTE TT Destination Settings.
+         * 
+         * @return builder
+         * 
+         */
         public Builder smpteTtDestinationSettings(@Nullable Output<ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsArgs> smpteTtDestinationSettings) {
             $.smpteTtDestinationSettings = smpteTtDestinationSettings;
             return this;
         }
 
+        /**
+         * @param smpteTtDestinationSettings SMPTE TT Destination Settings.
+         * 
+         * @return builder
+         * 
+         */
         public Builder smpteTtDestinationSettings(ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsArgs smpteTtDestinationSettings) {
             return smpteTtDestinationSettings(Output.of(smpteTtDestinationSettings));
         }
@@ -470,7 +490,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAr
         }
 
         /**
-         * @param ttmlDestinationSettings Ttml Destination Settings. See Ttml Destination Settings for more details.
+         * @param ttmlDestinationSettings TTML Destination Settings. See TTML Destination Settings for more details.
          * 
          * @return builder
          * 
@@ -481,7 +501,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAr
         }
 
         /**
-         * @param ttmlDestinationSettings Ttml Destination Settings. See Ttml Destination Settings for more details.
+         * @param ttmlDestinationSettings TTML Destination Settings. See TTML Destination Settings for more details.
          * 
          * @return builder
          * 
@@ -491,7 +511,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAr
         }
 
         /**
-         * @param webvttDestinationSettings Webvtt Destination Settings. See Webvtt Destination Settings for more details.
+         * @param webvttDestinationSettings WebVTT Destination Settings. See WebVTT Destination Settings for more details.
          * 
          * @return builder
          * 
@@ -502,7 +522,7 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAr
         }
 
         /**
-         * @param webvttDestinationSettings Webvtt Destination Settings. See Webvtt Destination Settings for more details.
+         * @param webvttDestinationSettings WebVTT Destination Settings. See WebVTT Destination Settings for more details.
          * 
          * @return builder
          * 

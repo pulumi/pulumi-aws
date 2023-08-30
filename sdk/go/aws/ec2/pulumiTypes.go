@@ -7286,6 +7286,8 @@ func (o InstanceMaintenanceOptionsPtrOutput) AutoRecovery() pulumi.StringPtrOutp
 type InstanceMetadataOptions struct {
 	// Whether the metadata service is available. Valid values include `enabled` or `disabled`. Defaults to `enabled`.
 	HttpEndpoint *string `pulumi:"httpEndpoint"`
+	// Whether the IPv6 endpoint for the instance metadata service is enabled. Defaults to `disabled`.
+	HttpProtocolIpv6 *string `pulumi:"httpProtocolIpv6"`
 	// Desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Valid values are integer from `1` to `64`. Defaults to `1`.
 	HttpPutResponseHopLimit *int `pulumi:"httpPutResponseHopLimit"`
 	// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`. Defaults to `optional`.
@@ -7310,6 +7312,8 @@ type InstanceMetadataOptionsInput interface {
 type InstanceMetadataOptionsArgs struct {
 	// Whether the metadata service is available. Valid values include `enabled` or `disabled`. Defaults to `enabled`.
 	HttpEndpoint pulumi.StringPtrInput `pulumi:"httpEndpoint"`
+	// Whether the IPv6 endpoint for the instance metadata service is enabled. Defaults to `disabled`.
+	HttpProtocolIpv6 pulumi.StringPtrInput `pulumi:"httpProtocolIpv6"`
 	// Desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Valid values are integer from `1` to `64`. Defaults to `1`.
 	HttpPutResponseHopLimit pulumi.IntPtrInput `pulumi:"httpPutResponseHopLimit"`
 	// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`. Defaults to `optional`.
@@ -7402,6 +7406,11 @@ func (o InstanceMetadataOptionsOutput) HttpEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceMetadataOptions) *string { return v.HttpEndpoint }).(pulumi.StringPtrOutput)
 }
 
+// Whether the IPv6 endpoint for the instance metadata service is enabled. Defaults to `disabled`.
+func (o InstanceMetadataOptionsOutput) HttpProtocolIpv6() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceMetadataOptions) *string { return v.HttpProtocolIpv6 }).(pulumi.StringPtrOutput)
+}
+
 // Desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Valid values are integer from `1` to `64`. Defaults to `1`.
 func (o InstanceMetadataOptionsOutput) HttpPutResponseHopLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InstanceMetadataOptions) *int { return v.HttpPutResponseHopLimit }).(pulumi.IntPtrOutput)
@@ -7450,6 +7459,16 @@ func (o InstanceMetadataOptionsPtrOutput) HttpEndpoint() pulumi.StringPtrOutput 
 			return nil
 		}
 		return v.HttpEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether the IPv6 endpoint for the instance metadata service is enabled. Defaults to `disabled`.
+func (o InstanceMetadataOptionsPtrOutput) HttpProtocolIpv6() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceMetadataOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HttpProtocolIpv6
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -30790,6 +30809,8 @@ func (o SpotInstanceRequestMaintenanceOptionsPtrOutput) AutoRecovery() pulumi.St
 type SpotInstanceRequestMetadataOptions struct {
 	// Whether the metadata service is available. Valid values include `enabled` or `disabled`. Defaults to `enabled`.
 	HttpEndpoint *string `pulumi:"httpEndpoint"`
+	// Whether the IPv6 endpoint for the instance metadata service is enabled. Defaults to `disabled`.
+	HttpProtocolIpv6 *string `pulumi:"httpProtocolIpv6"`
 	// Desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Valid values are integer from `1` to `64`. Defaults to `1`.
 	HttpPutResponseHopLimit *int `pulumi:"httpPutResponseHopLimit"`
 	// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`. Defaults to `optional`.
@@ -30814,6 +30835,8 @@ type SpotInstanceRequestMetadataOptionsInput interface {
 type SpotInstanceRequestMetadataOptionsArgs struct {
 	// Whether the metadata service is available. Valid values include `enabled` or `disabled`. Defaults to `enabled`.
 	HttpEndpoint pulumi.StringPtrInput `pulumi:"httpEndpoint"`
+	// Whether the IPv6 endpoint for the instance metadata service is enabled. Defaults to `disabled`.
+	HttpProtocolIpv6 pulumi.StringPtrInput `pulumi:"httpProtocolIpv6"`
 	// Desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Valid values are integer from `1` to `64`. Defaults to `1`.
 	HttpPutResponseHopLimit pulumi.IntPtrInput `pulumi:"httpPutResponseHopLimit"`
 	// Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`. Defaults to `optional`.
@@ -30906,6 +30929,11 @@ func (o SpotInstanceRequestMetadataOptionsOutput) HttpEndpoint() pulumi.StringPt
 	return o.ApplyT(func(v SpotInstanceRequestMetadataOptions) *string { return v.HttpEndpoint }).(pulumi.StringPtrOutput)
 }
 
+// Whether the IPv6 endpoint for the instance metadata service is enabled. Defaults to `disabled`.
+func (o SpotInstanceRequestMetadataOptionsOutput) HttpProtocolIpv6() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpotInstanceRequestMetadataOptions) *string { return v.HttpProtocolIpv6 }).(pulumi.StringPtrOutput)
+}
+
 // Desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Valid values are integer from `1` to `64`. Defaults to `1`.
 func (o SpotInstanceRequestMetadataOptionsOutput) HttpPutResponseHopLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SpotInstanceRequestMetadataOptions) *int { return v.HttpPutResponseHopLimit }).(pulumi.IntPtrOutput)
@@ -30954,6 +30982,16 @@ func (o SpotInstanceRequestMetadataOptionsPtrOutput) HttpEndpoint() pulumi.Strin
 			return nil
 		}
 		return v.HttpEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether the IPv6 endpoint for the instance metadata service is enabled. Defaults to `disabled`.
+func (o SpotInstanceRequestMetadataOptionsPtrOutput) HttpProtocolIpv6() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotInstanceRequestMetadataOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HttpProtocolIpv6
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -35850,6 +35888,8 @@ func (o GetInstanceMaintenanceOptionArrayOutput) Index(i pulumi.IntInput) GetIns
 type GetInstanceMetadataOption struct {
 	// State of the metadata service: `enabled`, `disabled`.
 	HttpEndpoint string `pulumi:"httpEndpoint"`
+	// Whether the IPv6 endpoint for the instance metadata service is `enabled` or `disabled`
+	HttpProtocolIpv6 string `pulumi:"httpProtocolIpv6"`
 	// Desired HTTP PUT response hop limit for instance metadata requests.
 	HttpPutResponseHopLimit int `pulumi:"httpPutResponseHopLimit"`
 	// If session tokens are required: `optional`, `required`.
@@ -35872,6 +35912,8 @@ type GetInstanceMetadataOptionInput interface {
 type GetInstanceMetadataOptionArgs struct {
 	// State of the metadata service: `enabled`, `disabled`.
 	HttpEndpoint pulumi.StringInput `pulumi:"httpEndpoint"`
+	// Whether the IPv6 endpoint for the instance metadata service is `enabled` or `disabled`
+	HttpProtocolIpv6 pulumi.StringInput `pulumi:"httpProtocolIpv6"`
 	// Desired HTTP PUT response hop limit for instance metadata requests.
 	HttpPutResponseHopLimit pulumi.IntInput `pulumi:"httpPutResponseHopLimit"`
 	// If session tokens are required: `optional`, `required`.
@@ -35934,6 +35976,11 @@ func (o GetInstanceMetadataOptionOutput) ToGetInstanceMetadataOptionOutputWithCo
 // State of the metadata service: `enabled`, `disabled`.
 func (o GetInstanceMetadataOptionOutput) HttpEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceMetadataOption) string { return v.HttpEndpoint }).(pulumi.StringOutput)
+}
+
+// Whether the IPv6 endpoint for the instance metadata service is `enabled` or `disabled`
+func (o GetInstanceMetadataOptionOutput) HttpProtocolIpv6() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInstanceMetadataOption) string { return v.HttpProtocolIpv6 }).(pulumi.StringOutput)
 }
 
 // Desired HTTP PUT response hop limit for instance metadata requests.

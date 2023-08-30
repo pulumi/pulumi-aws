@@ -38,6 +38,11 @@ import (
 //				AlarmActions:     pulumi.Any(aws_sns_topic.Example.Arn),
 //				OkActions:        pulumi.Any(aws_sns_topic.Example.Arn),
 //				AlarmRule:        pulumi.String(fmt.Sprintf("ALARM(%v) OR\nALARM(%v)\n", aws_cloudwatch_metric_alarm.Alpha.Alarm_name, aws_cloudwatch_metric_alarm.Bravo.Alarm_name)),
+//				ActionsSuppressor: &cloudwatch.CompositeAlarmActionsSuppressorArgs{
+//					Alarm:           pulumi.String("suppressor-alarm"),
+//					ExtensionPeriod: pulumi.Int(10),
+//					WaitPeriod:      pulumi.Int(20),
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -60,6 +65,8 @@ type CompositeAlarm struct {
 
 	// Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. Defaults to `true`.
 	ActionsEnabled pulumi.BoolPtrOutput `pulumi:"actionsEnabled"`
+	// Actions will be suppressed if the suppressor alarm is in the ALARM state.
+	ActionsSuppressor CompositeAlarmActionsSuppressorPtrOutput `pulumi:"actionsSuppressor"`
 	// The set of actions to execute when this alarm transitions to the `ALARM` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
 	AlarmActions pulumi.StringArrayOutput `pulumi:"alarmActions"`
 	// The description for the composite alarm.
@@ -118,6 +125,8 @@ func GetCompositeAlarm(ctx *pulumi.Context,
 type compositeAlarmState struct {
 	// Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. Defaults to `true`.
 	ActionsEnabled *bool `pulumi:"actionsEnabled"`
+	// Actions will be suppressed if the suppressor alarm is in the ALARM state.
+	ActionsSuppressor *CompositeAlarmActionsSuppressor `pulumi:"actionsSuppressor"`
 	// The set of actions to execute when this alarm transitions to the `ALARM` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
 	AlarmActions []string `pulumi:"alarmActions"`
 	// The description for the composite alarm.
@@ -141,6 +150,8 @@ type compositeAlarmState struct {
 type CompositeAlarmState struct {
 	// Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. Defaults to `true`.
 	ActionsEnabled pulumi.BoolPtrInput
+	// Actions will be suppressed if the suppressor alarm is in the ALARM state.
+	ActionsSuppressor CompositeAlarmActionsSuppressorPtrInput
 	// The set of actions to execute when this alarm transitions to the `ALARM` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
 	AlarmActions pulumi.StringArrayInput
 	// The description for the composite alarm.
@@ -168,6 +179,8 @@ func (CompositeAlarmState) ElementType() reflect.Type {
 type compositeAlarmArgs struct {
 	// Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. Defaults to `true`.
 	ActionsEnabled *bool `pulumi:"actionsEnabled"`
+	// Actions will be suppressed if the suppressor alarm is in the ALARM state.
+	ActionsSuppressor *CompositeAlarmActionsSuppressor `pulumi:"actionsSuppressor"`
 	// The set of actions to execute when this alarm transitions to the `ALARM` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
 	AlarmActions []string `pulumi:"alarmActions"`
 	// The description for the composite alarm.
@@ -188,6 +201,8 @@ type compositeAlarmArgs struct {
 type CompositeAlarmArgs struct {
 	// Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. Defaults to `true`.
 	ActionsEnabled pulumi.BoolPtrInput
+	// Actions will be suppressed if the suppressor alarm is in the ALARM state.
+	ActionsSuppressor CompositeAlarmActionsSuppressorPtrInput
 	// The set of actions to execute when this alarm transitions to the `ALARM` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
 	AlarmActions pulumi.StringArrayInput
 	// The description for the composite alarm.
@@ -294,6 +309,11 @@ func (o CompositeAlarmOutput) ToCompositeAlarmOutputWithContext(ctx context.Cont
 // Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. Defaults to `true`.
 func (o CompositeAlarmOutput) ActionsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CompositeAlarm) pulumi.BoolPtrOutput { return v.ActionsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Actions will be suppressed if the suppressor alarm is in the ALARM state.
+func (o CompositeAlarmOutput) ActionsSuppressor() CompositeAlarmActionsSuppressorPtrOutput {
+	return o.ApplyT(func(v *CompositeAlarm) CompositeAlarmActionsSuppressorPtrOutput { return v.ActionsSuppressor }).(CompositeAlarmActionsSuppressorPtrOutput)
 }
 
 // The set of actions to execute when this alarm transitions to the `ALARM` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.

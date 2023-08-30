@@ -26,11 +26,13 @@ import (
 type Profile struct {
 	pulumi.CustomResourceState
 
+	// The ARN of the profile.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
 	As2Id pulumi.StringOutput `pulumi:"as2Id"`
 	// The list of certificate Ids from the imported certificate operation.
 	CertificateIds pulumi.StringArrayOutput `pulumi:"certificateIds"`
-	// The unique identifier for the AS2 profile
+	// The unique identifier for the AS2 profile.
 	ProfileId pulumi.StringOutput `pulumi:"profileId"`
 	// The profile type should be LOCAL or PARTNER.
 	ProfileType pulumi.StringOutput `pulumi:"profileType"`
@@ -75,11 +77,13 @@ func GetProfile(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Profile resources.
 type profileState struct {
+	// The ARN of the profile.
+	Arn *string `pulumi:"arn"`
 	// The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
 	As2Id *string `pulumi:"as2Id"`
 	// The list of certificate Ids from the imported certificate operation.
 	CertificateIds []string `pulumi:"certificateIds"`
-	// The unique identifier for the AS2 profile
+	// The unique identifier for the AS2 profile.
 	ProfileId *string `pulumi:"profileId"`
 	// The profile type should be LOCAL or PARTNER.
 	ProfileType *string `pulumi:"profileType"`
@@ -89,11 +93,13 @@ type profileState struct {
 }
 
 type ProfileState struct {
+	// The ARN of the profile.
+	Arn pulumi.StringPtrInput
 	// The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
 	As2Id pulumi.StringPtrInput
 	// The list of certificate Ids from the imported certificate operation.
 	CertificateIds pulumi.StringArrayInput
-	// The unique identifier for the AS2 profile
+	// The unique identifier for the AS2 profile.
 	ProfileId pulumi.StringPtrInput
 	// The profile type should be LOCAL or PARTNER.
 	ProfileType pulumi.StringPtrInput
@@ -216,6 +222,11 @@ func (o ProfileOutput) ToProfileOutputWithContext(ctx context.Context) ProfileOu
 	return o
 }
 
+// The ARN of the profile.
+func (o ProfileOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Profile) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
 // The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
 func (o ProfileOutput) As2Id() pulumi.StringOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringOutput { return v.As2Id }).(pulumi.StringOutput)
@@ -226,7 +237,7 @@ func (o ProfileOutput) CertificateIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringArrayOutput { return v.CertificateIds }).(pulumi.StringArrayOutput)
 }
 
-// The unique identifier for the AS2 profile
+// The unique identifier for the AS2 profile.
 func (o ProfileOutput) ProfileId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringOutput { return v.ProfileId }).(pulumi.StringOutput)
 }
