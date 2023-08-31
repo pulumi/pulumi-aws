@@ -75,7 +75,11 @@ func TestProviderUpgrade(t *testing.T) {
 		checkProviderUpgradeQuick(t)
 	})
 	t.Run("PreviewOnly", func(t *testing.T) {
-		checkProviderUpgradePreviewOnly(t)
+		if accept {
+			t.Skipf("Skipping because baselines were just pre-recorded, which is very slow already")
+		} else {
+			checkProviderUpgradePreviewOnly(t)
+		}
 	})
 	// Full upgrade tests are not supported yet.
 }
