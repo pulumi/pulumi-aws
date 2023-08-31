@@ -127,14 +127,14 @@ test:
 	cd provider/shim && go test -v .
 	cd examples && go test -v -tags=all -parallel $(TESTPARALLELISM) -timeout 2h
 
-# Tests that the work-in-progress provider causes no replace or update plans for stacks deployed
-# using the last released (baseline) version.
 test.upgrade::
 	cd examples && go test -v -tags=all -run TestProviderUpgrade -timeout 2h
 
-# Runs integration tests on the baseline version and updates testdata to record expected behavior.
+test.upgrade.quick::
+	cd examples && go test -v -tags=all -run TestProviderUpgrade/Quick
+
 test.upgrade.record::
-	cd examples && PULUMI_ACCEPT=true go test -v -tags all -run TestProviderUpgradeRecord -timeout 2h
+	cd examples && PULUMI_ACCEPT=true go test -v -tags all -run TestProviderUpgrade -timeout 2h
 
 tfgen: install_plugins upstream
 	(cd provider && go build $(PULUMI_PROVIDER_BUILD_PARALLELISM) -o $(WORKING_DIR)/bin/$(TFGEN) -ldflags "-X $(PROJECT)/$(VERSION_PATH)=$(VERSION)" $(PROJECT)/$(PROVIDER_PATH)/cmd/$(TFGEN))

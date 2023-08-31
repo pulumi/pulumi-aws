@@ -43,10 +43,27 @@ import (
 	"github.com/pulumi/pulumi-aws/provider/v6/pkg/version"
 )
 
-const (
-	providerBinary = "pulumi-resource-aws"
-)
-
+// Check that no update or replace plans are generated for select resources when upgrading stacks
+// from a baseline version of the provider to the current version.
+//
+// To run in Quick mode (no cloud):
+//
+//	go test -run TestProviderUpgrade/Quick
+//
+// To run in PreviewOnly mode, configure cloud credentials and run:
+//
+//	go test -run TestProviderUpgrade/PreviewOnly
+//
+// To re-record baselines, configure cloud credentials and run:
+//
+//	PULUMI_ACCEPT=1 go test -run TestProviderUpgrade
+//
+// You can also use built-in -short flag when unit-testing, which only runs the Quick mode.
+//
+//	go test -short
+//
+// To change the baseline version, edit testdata/resources/Pulumi.yaml provider.options.version, and
+// re-record baselines.
 func TestProviderUpgrade(t *testing.T) {
 	acceptEnvVar := "PULUMI_ACCEPT"
 	accept := cmdutil.IsTruthy(os.Getenv(acceptEnvVar))
@@ -62,6 +79,10 @@ func TestProviderUpgrade(t *testing.T) {
 	})
 	// Full upgrade tests are not supported yet.
 }
+
+const (
+	providerBinary = "pulumi-resource-aws"
+)
 
 func checkProviderUpgradeQuick(t *testing.T) {
 	info := newProviderUpgradeInfo(t)
