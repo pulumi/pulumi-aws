@@ -34,11 +34,11 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import Network Insights Paths using the `id`. For example:
     /// 
-    ///  to = aws_ec2_network_insights_path.test
-    /// 
-    ///  id = "nip-00edfba169923aefd" } Using `pulumi import`, import Network Insights Paths using the `id`. For exampleconsole % pulumi import aws_ec2_network_insights_path.test nip-00edfba169923aefd
+    /// ```sh
+    ///  $ pulumi import aws:ec2/networkInsightsPath:NetworkInsightsPath test nip-00edfba169923aefd
+    /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/networkInsightsPath:NetworkInsightsPath")]
     public partial class NetworkInsightsPath : global::Pulumi.CustomResource

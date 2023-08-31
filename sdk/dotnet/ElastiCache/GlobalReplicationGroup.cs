@@ -105,11 +105,11 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import ElastiCache Global Replication Groups using the `global_replication_group_id`. For example:
     /// 
-    ///  to = aws_elasticache_global_replication_group.my_global_replication_group
-    /// 
-    ///  id = "okuqm-global-replication-group-1" } Using `pulumi import`, import ElastiCache Global Replication Groups using the `global_replication_group_id`. For exampleconsole % pulumi import aws_elasticache_global_replication_group.my_global_replication_group okuqm-global-replication-group-1
+    /// ```sh
+    ///  $ pulumi import aws:elasticache/globalReplicationGroup:GlobalReplicationGroup my_global_replication_group okuqm-global-replication-group-1
+    /// ```
     /// </summary>
     [AwsResourceType("aws:elasticache/globalReplicationGroup:GlobalReplicationGroup")]
     public partial class GlobalReplicationGroup : global::Pulumi.CustomResource

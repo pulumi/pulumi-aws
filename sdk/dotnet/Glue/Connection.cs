@@ -71,11 +71,11 @@ namespace Pulumi.Aws.Glue
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import Glue Connections using the `CATALOG-ID` (AWS account ID if not custom) and `NAME`. For example:
     /// 
-    ///  to = aws_glue_connection.MyConnection
-    /// 
-    ///  id = "123456789012:MyConnection" } Using `pulumi import`, import Glue Connections using the `CATALOG-ID` (AWS account ID if not custom) and `NAME`. For exampleconsole % pulumi import aws_glue_connection.MyConnection 123456789012:MyConnection
+    /// ```sh
+    ///  $ pulumi import aws:glue/connection:Connection MyConnection 123456789012:MyConnection
+    /// ```
     /// </summary>
     [AwsResourceType("aws:glue/connection:Connection")]
     public partial class Connection : global::Pulumi.CustomResource

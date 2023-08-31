@@ -173,11 +173,11 @@ class FileSystemPolicy(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import the EFS file system policies using the `id`. For example:
 
-         to = aws_efs_file_system_policy.foo
-
-         id = "fs-6fa144c6" } Using `pulumi import`, import the EFS file system policies using the `id`. For exampleconsole % pulumi import aws_efs_file_system_policy.foo fs-6fa144c6
+        ```sh
+         $ pulumi import aws:efs/fileSystemPolicy:FileSystemPolicy foo fs-6fa144c6
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -228,11 +228,11 @@ class FileSystemPolicy(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import the EFS file system policies using the `id`. For example:
 
-         to = aws_efs_file_system_policy.foo
-
-         id = "fs-6fa144c6" } Using `pulumi import`, import the EFS file system policies using the `id`. For exampleconsole % pulumi import aws_efs_file_system_policy.foo fs-6fa144c6
+        ```sh
+         $ pulumi import aws:efs/fileSystemPolicy:FileSystemPolicy foo fs-6fa144c6
+        ```
 
         :param str resource_name: The name of the resource.
         :param FileSystemPolicyArgs args: The arguments to use to populate this resource's properties.

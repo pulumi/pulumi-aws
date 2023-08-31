@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import models using the `name`. For example:
     /// 
-    ///  to = aws_sagemaker_notebook_instance_lifecycle_configuration.lc
-    /// 
-    ///  id = "foo" } Using `pulumi import`, import models using the `name`. For exampleconsole % pulumi import aws_sagemaker_notebook_instance_lifecycle_configuration.lc foo
+    /// ```sh
+    ///  $ pulumi import aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration lc foo
+    /// ```
     /// </summary>
     [AwsResourceType("aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration")]
     public partial class NotebookInstanceLifecycleConfiguration : global::Pulumi.CustomResource

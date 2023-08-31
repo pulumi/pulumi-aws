@@ -86,11 +86,11 @@ class OrganizationAdminAccount(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Security Hub Organization Admin Accounts using the AWS account ID. For example:
 
-         to = aws_securityhub_organization_admin_account.example
-
-         id = "123456789012" } Using `pulumi import`, import Security Hub Organization Admin Accounts using the AWS account ID. For exampleconsole % pulumi import aws_securityhub_organization_admin_account.example 123456789012
+        ```sh
+         $ pulumi import aws:securityhub/organizationAdminAccount:OrganizationAdminAccount example 123456789012
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -123,11 +123,11 @@ class OrganizationAdminAccount(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Security Hub Organization Admin Accounts using the AWS account ID. For example:
 
-         to = aws_securityhub_organization_admin_account.example
-
-         id = "123456789012" } Using `pulumi import`, import Security Hub Organization Admin Accounts using the AWS account ID. For exampleconsole % pulumi import aws_securityhub_organization_admin_account.example 123456789012
+        ```sh
+         $ pulumi import aws:securityhub/organizationAdminAccount:OrganizationAdminAccount example 123456789012
+        ```
 
         :param str resource_name: The name of the resource.
         :param OrganizationAdminAccountArgs args: The arguments to use to populate this resource's properties.

@@ -56,11 +56,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import S3 Bucket Ownership Controls using S3 Bucket name. For example:
  * 
- *  to = aws_s3_bucket_ownership_controls.example
- * 
- *  id = &#34;my-bucket&#34; } Using `pulumi import`, import S3 Bucket Ownership Controls using S3 Bucket name. For exampleconsole % pulumi import aws_s3_bucket_ownership_controls.example my-bucket
+ * ```sh
+ *  $ pulumi import aws:s3/bucketOwnershipControls:BucketOwnershipControls example my-bucket
+ * ```
  * 
  */
 @ResourceType(type="aws:s3/bucketOwnershipControls:BucketOwnershipControls")

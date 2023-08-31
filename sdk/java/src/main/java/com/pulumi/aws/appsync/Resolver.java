@@ -176,11 +176,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import `aws_appsync_resolver` using the `api_id`, a hyphen, `type`, a hypen and `field`. For example:
  * 
- *  to = aws_appsync_resolver.example
- * 
- *  id = &#34;abcdef123456-exampleType-exampleField&#34; } Using `pulumi import`, import `aws_appsync_resolver` using the `api_id`, a hyphen, `type`, a hypen and `field`. For exampleconsole % pulumi import aws_appsync_resolver.example abcdef123456-exampleType-exampleField
+ * ```sh
+ *  $ pulumi import aws:appsync/resolver:Resolver example abcdef123456-exampleType-exampleField
+ * ```
  * 
  */
 @ResourceType(type="aws:appsync/resolver:Resolver")

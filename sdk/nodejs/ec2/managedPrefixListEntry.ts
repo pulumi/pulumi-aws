@@ -35,11 +35,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import prefix list entries using `prefix_list_id` and `cidr` separated by a comma (`,`). For example:
  *
- *  to = aws_ec2_managed_prefix_list_entry.default
- *
- *  id = "pl-0570a1d2d725c16be,10.0.3.0/24" } Using `pulumi import`, import prefix list entries using `prefix_list_id` and `cidr` separated by a comma (`,`). For exampleconsole % pulumi import aws_ec2_managed_prefix_list_entry.default pl-0570a1d2d725c16be,10.0.3.0/24
+ * ```sh
+ *  $ pulumi import aws:ec2/managedPrefixListEntry:ManagedPrefixListEntry default pl-0570a1d2d725c16be,10.0.3.0/24
+ * ```
  */
 export class ManagedPrefixListEntry extends pulumi.CustomResource {
     /**

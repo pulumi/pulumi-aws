@@ -35,11 +35,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import `aws_imagebuilder_distribution_configurations` resources using the Amazon Resource Name (ARN). For example:
  *
- *  to = aws_imagebuilder_distribution_configuration.example
- *
- *  id = "arn:aws:imagebuilder:us-east-1:123456789012:distribution-configuration/example" } Using `pulumi import`, import `aws_imagebuilder_distribution_configurations` resources using the Amazon Resource Name (ARN). For exampleconsole % pulumi import aws_imagebuilder_distribution_configuration.example arn:aws:imagebuilder:us-east-1:123456789012:distribution-configuration/example
+ * ```sh
+ *  $ pulumi import aws:imagebuilder/distributionConfiguration:DistributionConfiguration example arn:aws:imagebuilder:us-east-1:123456789012:distribution-configuration/example
+ * ```
  */
 export class DistributionConfiguration extends pulumi.CustomResource {
     /**

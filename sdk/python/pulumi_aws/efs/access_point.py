@@ -240,11 +240,11 @@ class AccessPoint(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import the EFS access points using the `id`. For example:
 
-         to = aws_efs_access_point.test
-
-         id = "fsap-52a643fb" } Using `pulumi import`, import the EFS access points using the `id`. For exampleconsole % pulumi import aws_efs_access_point.test fsap-52a643fb
+        ```sh
+         $ pulumi import aws:efs/accessPoint:AccessPoint test fsap-52a643fb
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -273,11 +273,11 @@ class AccessPoint(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import the EFS access points using the `id`. For example:
 
-         to = aws_efs_access_point.test
-
-         id = "fsap-52a643fb" } Using `pulumi import`, import the EFS access points using the `id`. For exampleconsole % pulumi import aws_efs_access_point.test fsap-52a643fb
+        ```sh
+         $ pulumi import aws:efs/accessPoint:AccessPoint test fsap-52a643fb
+        ```
 
         :param str resource_name: The name of the resource.
         :param AccessPointArgs args: The arguments to use to populate this resource's properties.

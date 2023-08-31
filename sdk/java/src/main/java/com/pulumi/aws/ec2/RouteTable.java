@@ -215,11 +215,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Route Tables using the route table `id`. For example:
  * 
- *  to = aws_route_table.public_rt
- * 
- *  id = &#34;rtb-4e616f6d69&#34; } Using `pulumi import`, import Route Tables using the route table `id`. For exampleconsole % pulumi import aws_route_table.public_rt rtb-4e616f6d69
+ * ```sh
+ *  $ pulumi import aws:ec2/routeTable:RouteTable public_rt rtb-4e616f6d69
+ * ```
  * 
  */
 @ResourceType(type="aws:ec2/routeTable:RouteTable")

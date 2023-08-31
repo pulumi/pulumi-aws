@@ -52,11 +52,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import `aws_servicecatalog_tag_option` using the tag option ID. For example:
  * 
- *  to = aws_servicecatalog_tag_option.example
- * 
- *  id = &#34;tag-pjtvagohlyo3m&#34; } Using `pulumi import`, import `aws_servicecatalog_tag_option` using the tag option ID. For exampleconsole % pulumi import aws_servicecatalog_tag_option.example tag-pjtvagohlyo3m
+ * ```sh
+ *  $ pulumi import aws:servicecatalog/tagOption:TagOption example tag-pjtvagohlyo3m
+ * ```
  * 
  */
 @ResourceType(type="aws:servicecatalog/tagOption:TagOption")

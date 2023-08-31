@@ -50,11 +50,11 @@ namespace Pulumi.Aws.Macie
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import `aws_macie2_custom_data_identifier` using the id. For example:
     /// 
-    ///  to = aws_macie2_custom_data_identifier.example
-    /// 
-    ///  id = "abcd1" } Using `pulumi import`, import `aws_macie2_custom_data_identifier` using the id. For exampleconsole % pulumi import aws_macie2_custom_data_identifier.example abcd1
+    /// ```sh
+    ///  $ pulumi import aws:macie/customDataIdentifier:CustomDataIdentifier example abcd1
+    /// ```
     /// </summary>
     [AwsResourceType("aws:macie/customDataIdentifier:CustomDataIdentifier")]
     public partial class CustomDataIdentifier : global::Pulumi.CustomResource

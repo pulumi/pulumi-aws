@@ -117,11 +117,11 @@ class TransitGatewayRegistration(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_networkmanager_transit_gateway_registration` using the global network ID and transit gateway ARN. For example:
 
-         to = aws_networkmanager_transit_gateway_registration.example
-
-         id = "global-network-0d47f6t230mz46dy4,arn:aws:ec2:us-west-2:123456789012:transit-gateway/tgw-123abc05e04123abc" } Using `pulumi import`, import `aws_networkmanager_transit_gateway_registration` using the global network ID and transit gateway ARN. For exampleconsole % pulumi import aws_networkmanager_transit_gateway_registration.example global-network-0d47f6t230mz46dy4,arn:aws:ec2:us-west-2:123456789012:transit-gateway/tgw-123abc05e04123abc
+        ```sh
+         $ pulumi import aws:networkmanager/transitGatewayRegistration:TransitGatewayRegistration example global-network-0d47f6t230mz46dy4,arn:aws:ec2:us-west-2:123456789012:transit-gateway/tgw-123abc05e04123abc
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -154,11 +154,11 @@ class TransitGatewayRegistration(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_networkmanager_transit_gateway_registration` using the global network ID and transit gateway ARN. For example:
 
-         to = aws_networkmanager_transit_gateway_registration.example
-
-         id = "global-network-0d47f6t230mz46dy4,arn:aws:ec2:us-west-2:123456789012:transit-gateway/tgw-123abc05e04123abc" } Using `pulumi import`, import `aws_networkmanager_transit_gateway_registration` using the global network ID and transit gateway ARN. For exampleconsole % pulumi import aws_networkmanager_transit_gateway_registration.example global-network-0d47f6t230mz46dy4,arn:aws:ec2:us-west-2:123456789012:transit-gateway/tgw-123abc05e04123abc
+        ```sh
+         $ pulumi import aws:networkmanager/transitGatewayRegistration:TransitGatewayRegistration example global-network-0d47f6t230mz46dy4,arn:aws:ec2:us-west-2:123456789012:transit-gateway/tgw-123abc05e04123abc
+        ```
 
         :param str resource_name: The name of the resource.
         :param TransitGatewayRegistrationArgs args: The arguments to use to populate this resource's properties.

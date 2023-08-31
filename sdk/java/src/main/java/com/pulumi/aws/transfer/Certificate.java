@@ -56,11 +56,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Transfer AS2 Certificate using the `certificate_id`. For example:
  * 
- *  to = aws_transfer_certificate.example
- * 
- *  id = &#34;c-4221a88afd5f4362a&#34; } Using `pulumi import`, import Transfer AS2 Certificate using the `certificate_id`. For exampleconsole % pulumi import aws_transfer_certificate.example c-4221a88afd5f4362a
+ * ```sh
+ *  $ pulumi import aws:transfer/certificate:Certificate example c-4221a88afd5f4362a
+ * ```
  * 
  */
 @ResourceType(type="aws:transfer/certificate:Certificate")

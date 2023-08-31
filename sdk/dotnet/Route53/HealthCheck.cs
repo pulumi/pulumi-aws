@@ -123,11 +123,11 @@ namespace Pulumi.Aws.Route53
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import Route53 Health Checks using the health check `id`. For example:
     /// 
-    ///  to = aws_route53_health_check.http_check
-    /// 
-    ///  id = "abcdef11-2222-3333-4444-555555fedcba" } Using `pulumi import`, import Route53 Health Checks using the health check `id`. For exampleconsole % pulumi import aws_route53_health_check.http_check abcdef11-2222-3333-4444-555555fedcba
+    /// ```sh
+    ///  $ pulumi import aws:route53/healthCheck:HealthCheck http_check abcdef11-2222-3333-4444-555555fedcba
+    /// ```
     /// </summary>
     [AwsResourceType("aws:route53/healthCheck:HealthCheck")]
     public partial class HealthCheck : global::Pulumi.CustomResource

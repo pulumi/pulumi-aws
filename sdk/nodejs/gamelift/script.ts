@@ -25,11 +25,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import GameLift Scripts using the ID. For example:
  *
- *  to = aws_gamelift_script.example
- *
- *  id = "<script-id>" } Using `pulumi import`, import GameLift Scripts using the ID. For exampleconsole % pulumi import aws_gamelift_script.example <script-id>
+ * ```sh
+ *  $ pulumi import aws:gamelift/script:Script example <script-id>
+ * ```
  */
 export class Script extends pulumi.CustomResource {
     /**

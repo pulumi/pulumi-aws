@@ -60,11 +60,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import CodeCommit approval rule templates using the `name`. For example:
  * 
- *  to = aws_codecommit_approval_rule_template.imported
- * 
- *  id = &#34;ExistingApprovalRuleTemplateName&#34; } Using `pulumi import`, import CodeCommit approval rule templates using the `name`. For exampleconsole % pulumi import aws_codecommit_approval_rule_template.imported ExistingApprovalRuleTemplateName
+ * ```sh
+ *  $ pulumi import aws:codecommit/approvalRuleTemplate:ApprovalRuleTemplate imported ExistingApprovalRuleTemplateName
+ * ```
  * 
  */
 @ResourceType(type="aws:codecommit/approvalRuleTemplate:ApprovalRuleTemplate")

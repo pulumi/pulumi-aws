@@ -49,11 +49,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import IVS (Interactive Video) Channel using the ARN. For example:
  * 
- *  to = aws_ivs_channel.example
- * 
- *  id = &#34;arn:aws:ivs:us-west-2:326937407773:channel/0Y1lcs4U7jk5&#34; } Using `pulumi import`, import IVS (Interactive Video) Channel using the ARN. For exampleconsole % pulumi import aws_ivs_channel.example arn:aws:ivs:us-west-2:326937407773:channel/0Y1lcs4U7jk5
+ * ```sh
+ *  $ pulumi import aws:ivs/channel:Channel example arn:aws:ivs:us-west-2:326937407773:channel/0Y1lcs4U7jk5
+ * ```
  * 
  */
 @ResourceType(type="aws:ivs/channel:Channel")

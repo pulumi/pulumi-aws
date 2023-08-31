@@ -126,11 +126,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import CodePipeline Webhooks using their ARN. For example:
  * 
- *  to = aws_codepipeline_webhook.example
- * 
- *  id = &#34;arn:aws:codepipeline:us-west-2:123456789012:webhook:example&#34; } Using `pulumi import`, import CodePipeline Webhooks using their ARN. For exampleconsole % pulumi import aws_codepipeline_webhook.example arn:aws:codepipeline:us-west-2:123456789012:webhook:example
+ * ```sh
+ *  $ pulumi import aws:codepipeline/webhook:Webhook example arn:aws:codepipeline:us-west-2:123456789012:webhook:example
+ * ```
  * 
  */
 @ResourceType(type="aws:codepipeline/webhook:Webhook")

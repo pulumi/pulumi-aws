@@ -62,11 +62,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import IAM Policies using the `arn`. For example:
 //
-//	to = aws_iam_policy.administrator
+// ```sh
 //
-//	id = "arn:aws:iam::123456789012:policy/UsersManageOwnCredentials" } Using `pulumi import`, import IAM Policies using the `arn`. For exampleconsole % pulumi import aws_iam_policy.administrator arn:aws:iam::123456789012:policy/UsersManageOwnCredentials
+//	$ pulumi import aws:iam/policy:Policy administrator arn:aws:iam::123456789012:policy/UsersManageOwnCredentials
+//
+// ```
 type Policy struct {
 	pulumi.CustomResourceState
 

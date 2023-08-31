@@ -220,11 +220,11 @@ class Ingestion(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import QuickSight Ingestion using the AWS account ID, data set ID, and ingestion ID separated by commas (`,`). For example:
 
-         to = aws_quicksight_ingestion.example
-
-         id = "123456789012,example-dataset-id,example-ingestion-id" } Using `pulumi import`, import QuickSight Ingestion using the AWS account ID, data set ID, and ingestion ID separated by commas (`,`). For exampleconsole % pulumi import aws_quicksight_ingestion.example 123456789012,example-dataset-id,example-ingestion-id
+        ```sh
+         $ pulumi import aws:quicksight/ingestion:Ingestion example 123456789012,example-dataset-id,example-ingestion-id
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -259,11 +259,11 @@ class Ingestion(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import QuickSight Ingestion using the AWS account ID, data set ID, and ingestion ID separated by commas (`,`). For example:
 
-         to = aws_quicksight_ingestion.example
-
-         id = "123456789012,example-dataset-id,example-ingestion-id" } Using `pulumi import`, import QuickSight Ingestion using the AWS account ID, data set ID, and ingestion ID separated by commas (`,`). For exampleconsole % pulumi import aws_quicksight_ingestion.example 123456789012,example-dataset-id,example-ingestion-id
+        ```sh
+         $ pulumi import aws:quicksight/ingestion:Ingestion example 123456789012,example-dataset-id,example-ingestion-id
+        ```
 
         :param str resource_name: The name of the resource.
         :param IngestionArgs args: The arguments to use to populate this resource's properties.

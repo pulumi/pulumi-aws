@@ -47,11 +47,11 @@ namespace Pulumi.Aws.Chime
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import AWS Chime SDK Voice Profile Domain using the `id`. For example:
     /// 
-    ///  to = aws_chimesdkvoice_voice_profile_domain.example
-    /// 
-    ///  id = "abcdef123456" } Using `pulumi import`, import AWS Chime SDK Voice Profile Domain using the `id`. For exampleconsole % pulumi import aws_chimesdkvoice_voice_profile_domain.example abcdef123456
+    /// ```sh
+    ///  $ pulumi import aws:chime/sdkvoiceVoiceProfileDomain:SdkvoiceVoiceProfileDomain example abcdef123456
+    /// ```
     /// </summary>
     [AwsResourceType("aws:chime/sdkvoiceVoiceProfileDomain:SdkvoiceVoiceProfileDomain")]
     public partial class SdkvoiceVoiceProfileDomain : global::Pulumi.CustomResource

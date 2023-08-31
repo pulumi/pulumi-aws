@@ -50,11 +50,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Service Discovery Public DNS Namespace using the namespace ID. For example:
  * 
- *  to = aws_service_discovery_public_dns_namespace.example
- * 
- *  id = &#34;0123456789&#34; } Using `pulumi import`, import Service Discovery Public DNS Namespace using the namespace ID. For exampleconsole % pulumi import aws_service_discovery_public_dns_namespace.example 0123456789
+ * ```sh
+ *  $ pulumi import aws:servicediscovery/publicDnsNamespace:PublicDnsNamespace example 0123456789
+ * ```
  * 
  */
 @ResourceType(type="aws:servicediscovery/publicDnsNamespace:PublicDnsNamespace")

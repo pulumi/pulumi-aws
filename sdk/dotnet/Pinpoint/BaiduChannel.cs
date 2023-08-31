@@ -36,11 +36,11 @@ namespace Pulumi.Aws.Pinpoint
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import Pinpoint Baidu Channel using the `application-id`. For example:
     /// 
-    ///  to = aws_pinpoint_baidu_channel.channel
-    /// 
-    ///  id = "application-id" } Using `pulumi import`, import Pinpoint Baidu Channel using the `application-id`. For exampleconsole % pulumi import aws_pinpoint_baidu_channel.channel application-id
+    /// ```sh
+    ///  $ pulumi import aws:pinpoint/baiduChannel:BaiduChannel channel application-id
+    /// ```
     /// </summary>
     [AwsResourceType("aws:pinpoint/baiduChannel:BaiduChannel")]
     public partial class BaiduChannel : global::Pulumi.CustomResource

@@ -335,11 +335,11 @@ class Filter(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import GuardDuty filters using the detector ID and filter's name separated by a colon. For example:
 
-         to = aws_guardduty_filter.MyFilter
-
-         id = "00b00fd5aecc0ab60a708659477e9617:MyFilter" } Using `pulumi import`, import GuardDuty filters using the detector ID and filter's name separated by a colon. For exampleconsole % pulumi import aws_guardduty_filter.MyFilter 00b00fd5aecc0ab60a708659477e9617:MyFilter
+        ```sh
+         $ pulumi import aws:guardduty/filter:Filter MyFilter 00b00fd5aecc0ab60a708659477e9617:MyFilter
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -398,11 +398,11 @@ class Filter(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import GuardDuty filters using the detector ID and filter's name separated by a colon. For example:
 
-         to = aws_guardduty_filter.MyFilter
-
-         id = "00b00fd5aecc0ab60a708659477e9617:MyFilter" } Using `pulumi import`, import GuardDuty filters using the detector ID and filter's name separated by a colon. For exampleconsole % pulumi import aws_guardduty_filter.MyFilter 00b00fd5aecc0ab60a708659477e9617:MyFilter
+        ```sh
+         $ pulumi import aws:guardduty/filter:Filter MyFilter 00b00fd5aecc0ab60a708659477e9617:MyFilter
+        ```
 
         :param str resource_name: The name of the resource.
         :param FilterArgs args: The arguments to use to populate this resource's properties.

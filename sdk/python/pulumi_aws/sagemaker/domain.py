@@ -588,11 +588,11 @@ class Domain(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import SageMaker Domains using the `id`. For example:
 
-         to = aws_sagemaker_domain.test_domain
-
-         id = "d-8jgsjtilstu8" } Using `pulumi import`, import SageMaker Domains using the `id`. For exampleconsole % pulumi import aws_sagemaker_domain.test_domain d-8jgsjtilstu8
+        ```sh
+         $ pulumi import aws:sagemaker/domain:Domain test_domain d-8jgsjtilstu8
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -682,11 +682,11 @@ class Domain(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import SageMaker Domains using the `id`. For example:
 
-         to = aws_sagemaker_domain.test_domain
-
-         id = "d-8jgsjtilstu8" } Using `pulumi import`, import SageMaker Domains using the `id`. For exampleconsole % pulumi import aws_sagemaker_domain.test_domain d-8jgsjtilstu8
+        ```sh
+         $ pulumi import aws:sagemaker/domain:Domain test_domain d-8jgsjtilstu8
+        ```
 
         :param str resource_name: The name of the resource.
         :param DomainArgs args: The arguments to use to populate this resource's properties.

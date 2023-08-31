@@ -254,11 +254,11 @@ class SubnetGroup(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Neptune Subnet groups using the `name`. For example:
 
-         to = aws_neptune_subnet_group.default
-
-         id = "production-subnet-group" } Using `pulumi import`, import Neptune Subnet groups using the `name`. For exampleconsole % pulumi import aws_neptune_subnet_group.default production-subnet-group
+        ```sh
+         $ pulumi import aws:neptune/subnetGroup:SubnetGroup default production-subnet-group
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -295,11 +295,11 @@ class SubnetGroup(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Neptune Subnet groups using the `name`. For example:
 
-         to = aws_neptune_subnet_group.default
-
-         id = "production-subnet-group" } Using `pulumi import`, import Neptune Subnet groups using the `name`. For exampleconsole % pulumi import aws_neptune_subnet_group.default production-subnet-group
+        ```sh
+         $ pulumi import aws:neptune/subnetGroup:SubnetGroup default production-subnet-group
+        ```
 
         :param str resource_name: The name of the resource.
         :param SubnetGroupArgs args: The arguments to use to populate this resource's properties.

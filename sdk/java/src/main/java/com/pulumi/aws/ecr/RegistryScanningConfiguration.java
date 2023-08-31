@@ -105,11 +105,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import ECR Scanning Configurations using the `registry_id`. For example:
  * 
- *  to = aws_ecr_registry_scanning_configuration.example
- * 
- *  id = &#34;012345678901&#34; } Using `pulumi import`, import ECR Scanning Configurations using the `registry_id`. For exampleconsole % pulumi import aws_ecr_registry_scanning_configuration.example 012345678901
+ * ```sh
+ *  $ pulumi import aws:ecr/registryScanningConfiguration:RegistryScanningConfiguration example 012345678901
+ * ```
  * 
  */
 @ResourceType(type="aws:ecr/registryScanningConfiguration:RegistryScanningConfiguration")

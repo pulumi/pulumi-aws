@@ -38,11 +38,11 @@ namespace Pulumi.Aws.Detective
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import `aws_detective_member` using the ARN of the graph followed by the account ID of the member account. For example:
     /// 
-    ///  to = aws_detective_member.example
-    /// 
-    ///  id = "arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d/123456789012" } Using `pulumi import`, import `aws_detective_member` using the ARN of the graph followed by the account ID of the member account. For exampleconsole % pulumi import aws_detective_member.example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d/123456789012
+    /// ```sh
+    ///  $ pulumi import aws:detective/member:Member example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d/123456789012
+    /// ```
     /// </summary>
     [AwsResourceType("aws:detective/member:Member")]
     public partial class Member : global::Pulumi.CustomResource

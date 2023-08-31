@@ -271,11 +271,11 @@ class UserPoolUICustomization(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Cognito User Pool UI Customizations using the `user_pool_id` and `client_id` separated by `,`. For example:
 
-         to = aws_cognito_user_pool_ui_customization.example
-
-         id = "us-west-2_ZCTarbt5C,12bu4fuk3mlgqa2rtrujgp6egq" } Using `pulumi import`, import Cognito User Pool UI Customizations using the `user_pool_id` and `client_id` separated by `,`. For exampleconsole % pulumi import aws_cognito_user_pool_ui_customization.example us-west-2_ZCTarbt5C,12bu4fuk3mlgqa2rtrujgp6egq
+        ```sh
+         $ pulumi import aws:cognito/userPoolUICustomization:UserPoolUICustomization example us-west-2_ZCTarbt5C,12bu4fuk3mlgqa2rtrujgp6egq
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -333,11 +333,11 @@ class UserPoolUICustomization(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Cognito User Pool UI Customizations using the `user_pool_id` and `client_id` separated by `,`. For example:
 
-         to = aws_cognito_user_pool_ui_customization.example
-
-         id = "us-west-2_ZCTarbt5C,12bu4fuk3mlgqa2rtrujgp6egq" } Using `pulumi import`, import Cognito User Pool UI Customizations using the `user_pool_id` and `client_id` separated by `,`. For exampleconsole % pulumi import aws_cognito_user_pool_ui_customization.example us-west-2_ZCTarbt5C,12bu4fuk3mlgqa2rtrujgp6egq
+        ```sh
+         $ pulumi import aws:cognito/userPoolUICustomization:UserPoolUICustomization example us-west-2_ZCTarbt5C,12bu4fuk3mlgqa2rtrujgp6egq
+        ```
 
         :param str resource_name: The name of the resource.
         :param UserPoolUICustomizationArgs args: The arguments to use to populate this resource's properties.

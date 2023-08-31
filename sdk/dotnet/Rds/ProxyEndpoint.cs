@@ -35,11 +35,11 @@ namespace Pulumi.Aws.Rds
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import DB proxy endpoints using the `DB-PROXY-NAME/DB-PROXY-ENDPOINT-NAME`. For example:
     /// 
-    ///  to = aws_db_proxy_endpoint.example
-    /// 
-    ///  id = "example/example" } Using `pulumi import`, import DB proxy endpoints using the `DB-PROXY-NAME/DB-PROXY-ENDPOINT-NAME`. For exampleconsole % pulumi import aws_db_proxy_endpoint.example example/example
+    /// ```sh
+    ///  $ pulumi import aws:rds/proxyEndpoint:ProxyEndpoint example example/example
+    /// ```
     /// </summary>
     [AwsResourceType("aws:rds/proxyEndpoint:ProxyEndpoint")]
     public partial class ProxyEndpoint : global::Pulumi.CustomResource

@@ -18,11 +18,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import MediaStore Container using the MediaStore Container Name. For example:
  *
- *  to = aws_media_store_container.example
- *
- *  id = "example" } Using `pulumi import`, import MediaStore Container using the MediaStore Container Name. For exampleconsole % pulumi import aws_media_store_container.example example
+ * ```sh
+ *  $ pulumi import aws:mediastore/container:Container example example
+ * ```
  */
 export class Container extends pulumi.CustomResource {
     /**

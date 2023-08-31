@@ -47,11 +47,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import WorkLink using the ARN. For example:
  *
- *  to = aws_worklink_fleet.test
- *
- *  id = "arn:aws:worklink::123456789012:fleet/example" } Using `pulumi import`, import WorkLink using the ARN. For exampleconsole % pulumi import aws_worklink_fleet.test arn:aws:worklink::123456789012:fleet/example
+ * ```sh
+ *  $ pulumi import aws:worklink/fleet:Fleet test arn:aws:worklink::123456789012:fleet/example
+ * ```
  */
 export class Fleet extends pulumi.CustomResource {
     /**

@@ -37,11 +37,11 @@ namespace Pulumi.Aws.Chime
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import a ChimeSDKVoice SIP Media Application using the `id`. For example:
     /// 
-    ///  to = aws_chimesdkvoice_sip_media_application.example
-    /// 
-    ///  id = "abcdef123456" } Using `pulumi import`, import a ChimeSDKVoice SIP Media Application using the `id`. For exampleconsole % pulumi import aws_chimesdkvoice_sip_media_application.example abcdef123456
+    /// ```sh
+    ///  $ pulumi import aws:chime/sdkvoiceSipMediaApplication:SdkvoiceSipMediaApplication example abcdef123456
+    /// ```
     /// </summary>
     [AwsResourceType("aws:chime/sdkvoiceSipMediaApplication:SdkvoiceSipMediaApplication")]
     public partial class SdkvoiceSipMediaApplication : global::Pulumi.CustomResource

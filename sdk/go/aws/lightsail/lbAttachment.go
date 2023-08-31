@@ -76,11 +76,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import `aws_lightsail_lb_attachment` using the name attribute. For example:
 //
-//	to = aws_lightsail_lb_attachment.test
+// ```sh
 //
-//	id = "example-load-balancer,example-instance" } Using `pulumi import`, import `aws_lightsail_lb_attachment` using the name attribute. For exampleconsole % pulumi import aws_lightsail_lb_attachment.test example-load-balancer,example-instance
+//	$ pulumi import aws:lightsail/lbAttachment:LbAttachment test example-load-balancer,example-instance
+//
+// ```
 type LbAttachment struct {
 	pulumi.CustomResourceState
 

@@ -60,11 +60,11 @@ namespace Pulumi.Aws.Iam
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import IAM Signing Certificates using the `id`. For example:
     /// 
-    ///  to = aws_iam_signing_certificate.certificate
-    /// 
-    ///  id = "IDIDIDIDID:user-name" } Using `pulumi import`, import IAM Signing Certificates using the `id`. For exampleconsole % pulumi import aws_iam_signing_certificate.certificate IDIDIDIDID:user-name
+    /// ```sh
+    ///  $ pulumi import aws:iam/signingCertificate:SigningCertificate certificate IDIDIDIDID:user-name
+    /// ```
     /// </summary>
     [AwsResourceType("aws:iam/signingCertificate:SigningCertificate")]
     public partial class SigningCertificate : global::Pulumi.CustomResource

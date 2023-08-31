@@ -20,11 +20,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import `aws_autoscaling_group_tag` using the ASG name and key, separated by a comma (`,`). For example:
 //
-//	to = aws_autoscaling_group_tag.example
+// ```sh
 //
-//	id = "asg-example,k8s.io/cluster-autoscaler/node-template/label/eks.amazonaws.com/capacityType" } Using `pulumi import`, import `aws_autoscaling_group_tag` using the ASG name and key, separated by a comma (`,`). For exampleconsole % pulumi import aws_autoscaling_group_tag.example asg-example,k8s.io/cluster-autoscaler/node-template/label/eks.amazonaws.com/capacityType
+//	$ pulumi import aws:autoscaling/tag:Tag example asg-example,k8s.io/cluster-autoscaler/node-template/label/eks.amazonaws.com/capacityType
+//
+// ```
 type Tag struct {
 	pulumi.CustomResourceState
 

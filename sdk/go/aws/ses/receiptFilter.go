@@ -43,11 +43,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import SES Receipt Filter using their `name`. For example:
 //
-//	to = aws_ses_receipt_filter.test
+// ```sh
 //
-//	id = "some-filter" } Using `pulumi import`, import SES Receipt Filter using their `name`. For exampleconsole % pulumi import aws_ses_receipt_filter.test some-filter
+//	$ pulumi import aws:ses/receiptFilter:ReceiptFilter test some-filter
+//
+// ```
 type ReceiptFilter struct {
 	pulumi.CustomResourceState
 

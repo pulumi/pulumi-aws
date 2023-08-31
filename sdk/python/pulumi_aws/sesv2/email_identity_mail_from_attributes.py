@@ -150,11 +150,11 @@ class EmailIdentityMailFromAttributes(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import SESv2 (Simple Email V2) Email Identity Mail From Attributes using the `email_identity`. For example:
 
-         to = aws_sesv2_email_identity_mail_from_attributes.example
-
-         id = "example.com" } Using `pulumi import`, import SESv2 (Simple Email V2) Email Identity Mail From Attributes using the `email_identity`. For exampleconsole % pulumi import aws_sesv2_email_identity_mail_from_attributes.example example.com
+        ```sh
+         $ pulumi import aws:sesv2/emailIdentityMailFromAttributes:EmailIdentityMailFromAttributes example example.com
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -187,11 +187,11 @@ class EmailIdentityMailFromAttributes(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import SESv2 (Simple Email V2) Email Identity Mail From Attributes using the `email_identity`. For example:
 
-         to = aws_sesv2_email_identity_mail_from_attributes.example
-
-         id = "example.com" } Using `pulumi import`, import SESv2 (Simple Email V2) Email Identity Mail From Attributes using the `email_identity`. For exampleconsole % pulumi import aws_sesv2_email_identity_mail_from_attributes.example example.com
+        ```sh
+         $ pulumi import aws:sesv2/emailIdentityMailFromAttributes:EmailIdentityMailFromAttributes example example.com
+        ```
 
         :param str resource_name: The name of the resource.
         :param EmailIdentityMailFromAttributesArgs args: The arguments to use to populate this resource's properties.

@@ -58,11 +58,11 @@ namespace Pulumi.Aws.DocDB
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import DocumentDB Cluster Instances using the `identifier`. For example:
     /// 
-    ///  to = aws_docdb_cluster_instance.prod_instance_1
-    /// 
-    ///  id = "aurora-cluster-instance-1" } Using `pulumi import`, import DocumentDB Cluster Instances using the `identifier`. For exampleconsole % pulumi import aws_docdb_cluster_instance.prod_instance_1 aurora-cluster-instance-1
+    /// ```sh
+    ///  $ pulumi import aws:docdb/clusterInstance:ClusterInstance prod_instance_1 aurora-cluster-instance-1
+    /// ```
     /// </summary>
     [AwsResourceType("aws:docdb/clusterInstance:ClusterInstance")]
     public partial class ClusterInstance : global::Pulumi.CustomResource

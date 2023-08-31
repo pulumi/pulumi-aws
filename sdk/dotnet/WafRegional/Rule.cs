@@ -64,11 +64,11 @@ namespace Pulumi.Aws.WafRegional
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import WAF Regional Rule using the id. For example:
     /// 
-    ///  to = aws_wafregional_rule.wafrule
-    /// 
-    ///  id = "a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc" } Using `pulumi import`, import WAF Regional Rule using the id. For exampleconsole % pulumi import aws_wafregional_rule.wafrule a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+    /// ```sh
+    ///  $ pulumi import aws:wafregional/rule:Rule wafrule a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+    /// ```
     /// </summary>
     [AwsResourceType("aws:wafregional/rule:Rule")]
     public partial class Rule : global::Pulumi.CustomResource

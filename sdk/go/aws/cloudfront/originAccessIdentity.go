@@ -141,11 +141,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Cloudfront Origin Access Identities using the `id`. For example:
 //
-//	to = aws_cloudfront_origin_access_identity.origin_access
+// ```sh
 //
-//	id = "E74FTE3AEXAMPLE" } Using `pulumi import`, import Cloudfront Origin Access Identities using the `id`. For exampleconsole % pulumi import aws_cloudfront_origin_access_identity.origin_access E74FTE3AEXAMPLE
+//	$ pulumi import aws:cloudfront/originAccessIdentity:OriginAccessIdentity origin_access E74FTE3AEXAMPLE
+//
+// ```
 //
 // [2]: http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html
 //

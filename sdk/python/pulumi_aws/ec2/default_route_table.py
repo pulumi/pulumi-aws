@@ -286,11 +286,11 @@ class DefaultRouteTable(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Default VPC route tables using the `vpc_id`. For example:
 
-         to = aws_default_route_table.example
-
-         id = "vpc-33cc44dd" } Using `pulumi import`, import Default VPC route tables using the `vpc_id`. For exampleconsole % pulumi import aws_default_route_table.example vpc-33cc44dd [tf-main-route-table-association]/docs/providers/aws/r/main_route_table_association.html
+        ```sh
+         $ pulumi import aws:ec2/defaultRouteTable:DefaultRouteTable example vpc-33cc44dd
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -355,11 +355,11 @@ class DefaultRouteTable(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Default VPC route tables using the `vpc_id`. For example:
 
-         to = aws_default_route_table.example
-
-         id = "vpc-33cc44dd" } Using `pulumi import`, import Default VPC route tables using the `vpc_id`. For exampleconsole % pulumi import aws_default_route_table.example vpc-33cc44dd [tf-main-route-table-association]/docs/providers/aws/r/main_route_table_association.html
+        ```sh
+         $ pulumi import aws:ec2/defaultRouteTable:DefaultRouteTable example vpc-33cc44dd
+        ```
 
         :param str resource_name: The name of the resource.
         :param DefaultRouteTableArgs args: The arguments to use to populate this resource's properties.

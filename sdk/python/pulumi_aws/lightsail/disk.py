@@ -248,11 +248,11 @@ class Disk(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_lightsail_disk` using the name attribute. For example:
 
-         to = aws_lightsail_disk.test
-
-         id = "test" } Using `pulumi import`, import `aws_lightsail_disk` using the name attribute. For exampleconsole % pulumi import aws_lightsail_disk.test test
+        ```sh
+         $ pulumi import aws:lightsail/disk:Disk test test
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -288,11 +288,11 @@ class Disk(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_lightsail_disk` using the name attribute. For example:
 
-         to = aws_lightsail_disk.test
-
-         id = "test" } Using `pulumi import`, import `aws_lightsail_disk` using the name attribute. For exampleconsole % pulumi import aws_lightsail_disk.test test
+        ```sh
+         $ pulumi import aws:lightsail/disk:Disk test test
+        ```
 
         :param str resource_name: The name of the resource.
         :param DiskArgs args: The arguments to use to populate this resource's properties.

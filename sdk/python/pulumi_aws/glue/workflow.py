@@ -264,11 +264,11 @@ class Workflow(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Glue Workflows using `name`. For example:
 
-         to = aws_glue_workflow.MyWorkflow
-
-         id = "MyWorkflow" } Using `pulumi import`, import Glue Workflows using `name`. For exampleconsole % pulumi import aws_glue_workflow.MyWorkflow MyWorkflow
+        ```sh
+         $ pulumi import aws:glue/workflow:Workflow MyWorkflow MyWorkflow
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -318,11 +318,11 @@ class Workflow(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Glue Workflows using `name`. For example:
 
-         to = aws_glue_workflow.MyWorkflow
-
-         id = "MyWorkflow" } Using `pulumi import`, import Glue Workflows using `name`. For exampleconsole % pulumi import aws_glue_workflow.MyWorkflow MyWorkflow
+        ```sh
+         $ pulumi import aws:glue/workflow:Workflow MyWorkflow MyWorkflow
+        ```
 
         :param str resource_name: The name of the resource.
         :param WorkflowArgs args: The arguments to use to populate this resource's properties.

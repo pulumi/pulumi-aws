@@ -49,11 +49,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import DocumentDB Cluster Parameter Groups using the `name`. For example:
 //
-//	to = aws_docdb_cluster_parameter_group.cluster_pg
+// ```sh
 //
-//	id = "production-pg-1" } Using `pulumi import`, import DocumentDB Cluster Parameter Groups using the `name`. For exampleconsole % pulumi import aws_docdb_cluster_parameter_group.cluster_pg production-pg-1
+//	$ pulumi import aws:docdb/clusterParameterGroup:ClusterParameterGroup cluster_pg production-pg-1
+//
+// ```
 type ClusterParameterGroup struct {
 	pulumi.CustomResourceState
 

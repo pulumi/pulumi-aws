@@ -71,11 +71,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import RDS DB Instance Reservations using the `instance_id`. For example:
  * 
- *  to = aws_rds_reserved_instance.reservation_instance
- * 
- *  id = &#34;CustomReservationID&#34; } Using `pulumi import`, import RDS DB Instance Reservations using the `instance_id`. For exampleconsole % pulumi import aws_rds_reserved_instance.reservation_instance CustomReservationID
+ * ```sh
+ *  $ pulumi import aws:rds/reservedInstance:ReservedInstance reservation_instance CustomReservationID
+ * ```
  * 
  */
 @ResourceType(type="aws:rds/reservedInstance:ReservedInstance")

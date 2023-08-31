@@ -74,11 +74,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import `aws_organizations_resource_policy` using the resource policy ID. For example:
 //
-//	to = aws_organizations_resource_policy.example
+// ```sh
 //
-//	id = "rp-12345678" } Using `pulumi import`, import `aws_organizations_resource_policy` using the resource policy ID. For exampleconsole % pulumi import aws_organizations_resource_policy.example rp-12345678
+//	$ pulumi import aws:organizations/resourcePolicy:ResourcePolicy example rp-12345678
+//
+// ```
 type ResourcePolicy struct {
 	pulumi.CustomResourceState
 

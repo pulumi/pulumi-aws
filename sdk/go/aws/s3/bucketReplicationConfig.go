@@ -275,11 +275,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import S3 bucket replication configuration using the `bucket`. For example:
 //
-//	to = aws_s3_bucket_replication_configuration.replication
+// ```sh
 //
-//	id = "bucket-name" } Using `pulumi import`, import S3 bucket replication configuration using the `bucket`. For exampleconsole % pulumi import aws_s3_bucket_replication_configuration.replication bucket-name
+//	$ pulumi import aws:s3/bucketReplicationConfig:BucketReplicationConfig replication bucket-name
+//
+// ```
 type BucketReplicationConfig struct {
 	pulumi.CustomResourceState
 

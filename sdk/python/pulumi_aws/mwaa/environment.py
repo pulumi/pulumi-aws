@@ -968,11 +968,11 @@ class Environment(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import MWAA Environment using `Name`. For example:
 
-         to = aws_mwaa_environment.example
-
-         id = "MyAirflowEnvironment" } Using `pulumi import`, import MWAA Environment using `Name`. For exampleconsole % pulumi import aws_mwaa_environment.example MyAirflowEnvironment
+        ```sh
+         $ pulumi import aws:mwaa/environment:Environment example MyAirflowEnvironment
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1106,11 +1106,11 @@ class Environment(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import MWAA Environment using `Name`. For example:
 
-         to = aws_mwaa_environment.example
-
-         id = "MyAirflowEnvironment" } Using `pulumi import`, import MWAA Environment using `Name`. For exampleconsole % pulumi import aws_mwaa_environment.example MyAirflowEnvironment
+        ```sh
+         $ pulumi import aws:mwaa/environment:Environment example MyAirflowEnvironment
+        ```
 
         :param str resource_name: The name of the resource.
         :param EnvironmentArgs args: The arguments to use to populate this resource's properties.

@@ -534,11 +534,11 @@ class Trigger(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Glue Triggers using `name`. For example:
 
-         to = aws_glue_trigger.MyTrigger
-
-         id = "MyTrigger" } Using `pulumi import`, import Glue Triggers using `name`. For exampleconsole % pulumi import aws_glue_trigger.MyTrigger MyTrigger
+        ```sh
+         $ pulumi import aws:glue/trigger:Trigger MyTrigger MyTrigger
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -650,11 +650,11 @@ class Trigger(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Glue Triggers using `name`. For example:
 
-         to = aws_glue_trigger.MyTrigger
-
-         id = "MyTrigger" } Using `pulumi import`, import Glue Triggers using `name`. For exampleconsole % pulumi import aws_glue_trigger.MyTrigger MyTrigger
+        ```sh
+         $ pulumi import aws:glue/trigger:Trigger MyTrigger MyTrigger
+        ```
 
         :param str resource_name: The name of the resource.
         :param TriggerArgs args: The arguments to use to populate this resource's properties.

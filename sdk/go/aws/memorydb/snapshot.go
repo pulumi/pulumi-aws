@@ -44,11 +44,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import a snapshot using the `name`. For example:
 //
-//	to = aws_memorydb_snapshot.example
+// ```sh
 //
-//	id = "my-snapshot" } Using `pulumi import`, import a snapshot using the `name`. For exampleconsole % pulumi import aws_memorydb_snapshot.example my-snapshot
+//	$ pulumi import aws:memorydb/snapshot:Snapshot example my-snapshot
+//
+// ```
 type Snapshot struct {
 	pulumi.CustomResourceState
 

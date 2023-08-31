@@ -112,11 +112,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import EMR Severless applications using the `id`. For example:
 //
-//	to = aws_emrserverless_application.example
+// ```sh
 //
-//	id = "id" } Using `pulumi import`, import EMR Severless applications using the `id`. For exampleconsole % pulumi import aws_emrserverless_application.example id
+//	$ pulumi import aws:emrserverless/application:Application example id
+//
+// ```
 type Application struct {
 	pulumi.CustomResourceState
 

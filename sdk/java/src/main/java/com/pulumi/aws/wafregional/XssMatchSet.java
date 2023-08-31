@@ -65,11 +65,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import AWS WAF Regional XSS Match using the `id`. For example:
  * 
- *  to = aws_wafregional_xss_match_set.example
- * 
- *  id = &#34;12345abcde&#34; } Using `pulumi import`, import AWS WAF Regional XSS Match using the `id`. For exampleconsole % pulumi import aws_wafregional_xss_match_set.example 12345abcde
+ * ```sh
+ *  $ pulumi import aws:wafregional/xssMatchSet:XssMatchSet example 12345abcde
+ * ```
  * 
  */
 @ResourceType(type="aws:wafregional/xssMatchSet:XssMatchSet")

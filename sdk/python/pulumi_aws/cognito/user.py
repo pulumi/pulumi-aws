@@ -541,11 +541,11 @@ class User(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Cognito User using the `user_pool_id`/`name` attributes concatenated. For example:
 
-         to = aws_cognito_user.user
-
-         id = "us-east-1_vG78M4goG/user" } Using `pulumi import`, import Cognito User using the `user_pool_id`/`name` attributes concatenated. For exampleconsole % pulumi import aws_cognito_user.user us-east-1_vG78M4goG/user
+        ```sh
+         $ pulumi import aws:cognito/user:User user us-east-1_vG78M4goG/user
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -622,11 +622,11 @@ class User(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Cognito User using the `user_pool_id`/`name` attributes concatenated. For example:
 
-         to = aws_cognito_user.user
-
-         id = "us-east-1_vG78M4goG/user" } Using `pulumi import`, import Cognito User using the `user_pool_id`/`name` attributes concatenated. For exampleconsole % pulumi import aws_cognito_user.user us-east-1_vG78M4goG/user
+        ```sh
+         $ pulumi import aws:cognito/user:User user us-east-1_vG78M4goG/user
+        ```
 
         :param str resource_name: The name of the resource.
         :param UserArgs args: The arguments to use to populate this resource's properties.

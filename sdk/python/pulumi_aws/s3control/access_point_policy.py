@@ -151,11 +151,11 @@ class AccessPointPolicy(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Access Point policies using the `access_point_arn`. For example:
 
-         to = aws_s3control_access_point_policy.example
-
-         id = "arn:aws:s3:us-west-2:123456789012:accesspoint/example" } Using `pulumi import`, import Access Point policies using the `access_point_arn`. For exampleconsole % pulumi import aws_s3control_access_point_policy.example arn:aws:s3:us-west-2:123456789012:accesspoint/example
+        ```sh
+         $ pulumi import aws:s3control/accessPointPolicy:AccessPointPolicy example arn:aws:s3:us-west-2:123456789012:accesspoint/example
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -206,11 +206,11 @@ class AccessPointPolicy(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Access Point policies using the `access_point_arn`. For example:
 
-         to = aws_s3control_access_point_policy.example
-
-         id = "arn:aws:s3:us-west-2:123456789012:accesspoint/example" } Using `pulumi import`, import Access Point policies using the `access_point_arn`. For exampleconsole % pulumi import aws_s3control_access_point_policy.example arn:aws:s3:us-west-2:123456789012:accesspoint/example
+        ```sh
+         $ pulumi import aws:s3control/accessPointPolicy:AccessPointPolicy example arn:aws:s3:us-west-2:123456789012:accesspoint/example
+        ```
 
         :param str resource_name: The name of the resource.
         :param AccessPointPolicyArgs args: The arguments to use to populate this resource's properties.

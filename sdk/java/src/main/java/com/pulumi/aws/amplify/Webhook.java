@@ -61,11 +61,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Amplify webhook using a webhook ID. For example:
  * 
- *  to = aws_amplify_webhook.master
- * 
- *  id = &#34;a26b22a0-748b-4b57-b9a0-ae7e601fe4b1&#34; } Using `pulumi import`, import Amplify webhook using a webhook ID. For exampleconsole % pulumi import aws_amplify_webhook.master a26b22a0-748b-4b57-b9a0-ae7e601fe4b1
+ * ```sh
+ *  $ pulumi import aws:amplify/webhook:Webhook master a26b22a0-748b-4b57-b9a0-ae7e601fe4b1
+ * ```
  * 
  */
 @ResourceType(type="aws:amplify/webhook:Webhook")

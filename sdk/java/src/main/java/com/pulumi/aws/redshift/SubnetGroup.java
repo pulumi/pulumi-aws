@@ -76,11 +76,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Redshift subnet groups using the `name`. For example:
  * 
- *  to = aws_redshift_subnet_group.testgroup1
- * 
- *  id = &#34;test-cluster-subnet-group&#34; } Using `pulumi import`, import Redshift subnet groups using the `name`. For exampleconsole % pulumi import aws_redshift_subnet_group.testgroup1 test-cluster-subnet-group
+ * ```sh
+ *  $ pulumi import aws:redshift/subnetGroup:SubnetGroup testgroup1 test-cluster-subnet-group
+ * ```
  * 
  */
 @ResourceType(type="aws:redshift/subnetGroup:SubnetGroup")

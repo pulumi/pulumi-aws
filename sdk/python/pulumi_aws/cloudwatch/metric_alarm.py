@@ -984,11 +984,11 @@ class MetricAlarm(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import CloudWatch Metric Alarm using the `alarm_name`. For example:
 
-         to = aws_cloudwatch_metric_alarm.test
-
-         id = "alarm-12345" } Using `pulumi import`, import CloudWatch Metric Alarm using the `alarm_name`. For exampleconsole % pulumi import aws_cloudwatch_metric_alarm.test alarm-12345
+        ```sh
+         $ pulumi import aws:cloudwatch/metricAlarm:MetricAlarm test alarm-12345
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1187,11 +1187,11 @@ class MetricAlarm(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import CloudWatch Metric Alarm using the `alarm_name`. For example:
 
-         to = aws_cloudwatch_metric_alarm.test
-
-         id = "alarm-12345" } Using `pulumi import`, import CloudWatch Metric Alarm using the `alarm_name`. For exampleconsole % pulumi import aws_cloudwatch_metric_alarm.test alarm-12345
+        ```sh
+         $ pulumi import aws:cloudwatch/metricAlarm:MetricAlarm test alarm-12345
+        ```
 
         :param str resource_name: The name of the resource.
         :param MetricAlarmArgs args: The arguments to use to populate this resource's properties.

@@ -50,11 +50,11 @@ namespace Pulumi.Aws.DirectoryService
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import Directory Service Shared Directories using the owner directory ID/shared directory ID. For example:
     /// 
-    ///  to = aws_directory_service_shared_directory.example
-    /// 
-    ///  id = "d-1234567890/d-9267633ece" } Using `pulumi import`, import Directory Service Shared Directories using the owner directory ID/shared directory ID. For exampleconsole % pulumi import aws_directory_service_shared_directory.example d-1234567890/d-9267633ece
+    /// ```sh
+    ///  $ pulumi import aws:directoryservice/sharedDirectory:SharedDirectory example d-1234567890/d-9267633ece
+    /// ```
     /// </summary>
     [AwsResourceType("aws:directoryservice/sharedDirectory:SharedDirectory")]
     public partial class SharedDirectory : global::Pulumi.CustomResource

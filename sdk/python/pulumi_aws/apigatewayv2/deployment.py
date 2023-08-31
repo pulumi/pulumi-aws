@@ -167,11 +167,12 @@ class Deployment(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_apigatewayv2_deployment` using the API identifier and deployment identifier. For example:
 
-         to = aws_apigatewayv2_deployment.example
-
-         id = "aabbccddee/1122334" } Using `pulumi import`, import `aws_apigatewayv2_deployment` using the API identifier and deployment identifier. For exampleconsole % pulumi import aws_apigatewayv2_deployment.example aabbccddee/1122334 The `triggers` argument cannot be imported.
+        ```sh
+         $ pulumi import aws:apigatewayv2/deployment:Deployment example aabbccddee/1122334
+        ```
+         The `triggers` argument cannot be imported.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -205,11 +206,12 @@ class Deployment(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_apigatewayv2_deployment` using the API identifier and deployment identifier. For example:
 
-         to = aws_apigatewayv2_deployment.example
-
-         id = "aabbccddee/1122334" } Using `pulumi import`, import `aws_apigatewayv2_deployment` using the API identifier and deployment identifier. For exampleconsole % pulumi import aws_apigatewayv2_deployment.example aabbccddee/1122334 The `triggers` argument cannot be imported.
+        ```sh
+         $ pulumi import aws:apigatewayv2/deployment:Deployment example aabbccddee/1122334
+        ```
+         The `triggers` argument cannot be imported.
 
         :param str resource_name: The name of the resource.
         :param DeploymentArgs args: The arguments to use to populate this resource's properties.

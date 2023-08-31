@@ -36,11 +36,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import license configurations using `resource_arn,license_configuration_arn`. For example:
  *
- *  to = aws_licensemanager_association.example
- *
- *  id = "arn:aws:ec2:eu-west-1:123456789012:image/ami-123456789abcdef01,arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef" } Using `pulumi import`, import license configurations using `resource_arn,license_configuration_arn`. For exampleconsole % pulumi import aws_licensemanager_association.example arn:aws:ec2:eu-west-1:123456789012:image/ami-123456789abcdef01,arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
+ * ```sh
+ *  $ pulumi import aws:licensemanager/association:Association example arn:aws:ec2:eu-west-1:123456789012:image/ami-123456789abcdef01,arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
+ * ```
  */
 export class Association extends pulumi.CustomResource {
     /**

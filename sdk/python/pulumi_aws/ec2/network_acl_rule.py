@@ -447,15 +447,24 @@ class NetworkAclRule(pulumi.CustomResource):
 
         ## Import
 
-        Using the procotol's string valueterraform import {
+        __NOTE:__ If importing a rule previously provisioned by the provider, the `PROTOCOL` must be the input value used at creation time. For more information on protocol numbers and keywords, see herehttps://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml.
 
-         to = aws_network_acl_rule.my_rule
+        Using the procotol's string value:
 
-         id = "acl-7aaabd18:100:tcp:false" } Using the procotol's decimal valueterraform import {
+        Using the procotol's decimal value:
 
-         to = aws_network_acl_rule.my_rule
+        __Using `pulumi import` to import__ individual rules using `NETWORK_ACL_ID:RULE_NUMBER:PROTOCOL:EGRESS`, where `PROTOCOL` can be a decimal (such as "6") or string (such as "tcp") value. For example:
 
-         id = "acl-7aaabd18:100:6:false" } **Using `pulumi import` to import** individual rules using `NETWORK_ACL_ID:RULE_NUMBER:PROTOCOL:EGRESS`, where `PROTOCOL` can be a decimal (such as "6") or string (such as "tcp") value. For exampleUsing the procotol's string valueconsole % pulumi import aws_network_acl_rule.my_rule acl-7aaabd18:100:tcp:false Using the procotol's decimal valueconsole % pulumi import aws_network_acl_rule.my_rule acl-7aaabd18:100:6:false
+        Using the procotol's string value:
+
+        ```sh
+         $ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:tcp:false
+        ```
+         Using the procotol's decimal value:
+
+        ```sh
+         $ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:6:false
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -514,15 +523,24 @@ class NetworkAclRule(pulumi.CustomResource):
 
         ## Import
 
-        Using the procotol's string valueterraform import {
+        __NOTE:__ If importing a rule previously provisioned by the provider, the `PROTOCOL` must be the input value used at creation time. For more information on protocol numbers and keywords, see herehttps://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml.
 
-         to = aws_network_acl_rule.my_rule
+        Using the procotol's string value:
 
-         id = "acl-7aaabd18:100:tcp:false" } Using the procotol's decimal valueterraform import {
+        Using the procotol's decimal value:
 
-         to = aws_network_acl_rule.my_rule
+        __Using `pulumi import` to import__ individual rules using `NETWORK_ACL_ID:RULE_NUMBER:PROTOCOL:EGRESS`, where `PROTOCOL` can be a decimal (such as "6") or string (such as "tcp") value. For example:
 
-         id = "acl-7aaabd18:100:6:false" } **Using `pulumi import` to import** individual rules using `NETWORK_ACL_ID:RULE_NUMBER:PROTOCOL:EGRESS`, where `PROTOCOL` can be a decimal (such as "6") or string (such as "tcp") value. For exampleUsing the procotol's string valueconsole % pulumi import aws_network_acl_rule.my_rule acl-7aaabd18:100:tcp:false Using the procotol's decimal valueconsole % pulumi import aws_network_acl_rule.my_rule acl-7aaabd18:100:6:false
+        Using the procotol's string value:
+
+        ```sh
+         $ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:tcp:false
+        ```
+         Using the procotol's decimal value:
+
+        ```sh
+         $ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:6:false
+        ```
 
         :param str resource_name: The name of the resource.
         :param NetworkAclRuleArgs args: The arguments to use to populate this resource's properties.

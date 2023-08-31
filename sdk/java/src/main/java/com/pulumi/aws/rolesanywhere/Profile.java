@@ -76,11 +76,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import `aws_rolesanywhere_profile` using its `id`. For example:
  * 
- *  to = aws_rolesanywhere_profile.example
- * 
- *  id = &#34;db138a85-8925-4f9f-a409-08231233cacf&#34; } Using `pulumi import`, import `aws_rolesanywhere_profile` using its `id`. For exampleconsole % pulumi import aws_rolesanywhere_profile.example db138a85-8925-4f9f-a409-08231233cacf
+ * ```sh
+ *  $ pulumi import aws:rolesanywhere/profile:Profile example db138a85-8925-4f9f-a409-08231233cacf
+ * ```
  * 
  */
 @ResourceType(type="aws:rolesanywhere/profile:Profile")

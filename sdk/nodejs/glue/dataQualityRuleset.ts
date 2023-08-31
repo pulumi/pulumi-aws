@@ -60,11 +60,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import Glue Data Quality Ruleset using the `name`. For example:
  *
- *  to = aws_glue_data_quality_ruleset.example
- *
- *  id = "exampleName" } Using `pulumi import`, import Glue Data Quality Ruleset using the `name`. For exampleconsole % pulumi import aws_glue_data_quality_ruleset.example exampleName
+ * ```sh
+ *  $ pulumi import aws:glue/dataQualityRuleset:DataQualityRuleset example exampleName
+ * ```
  */
 export class DataQualityRuleset extends pulumi.CustomResource {
     /**

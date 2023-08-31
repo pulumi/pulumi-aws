@@ -316,11 +316,11 @@ class VpcAttachmentAccepter(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_ec2_transit_gateway_vpc_attachment_accepter` using the EC2 Transit Gateway Attachment identifier. For example:
 
-         to = aws_ec2_transit_gateway_vpc_attachment_accepter.example
-
-         id = "tgw-attach-12345678" } Using `pulumi import`, import `aws_ec2_transit_gateway_vpc_attachment_accepter` using the EC2 Transit Gateway Attachment identifier. For exampleconsole % pulumi import aws_ec2_transit_gateway_vpc_attachment_accepter.example tgw-attach-12345678
+        ```sh
+         $ pulumi import aws:ec2transitgateway/vpcAttachmentAccepter:VpcAttachmentAccepter example tgw-attach-12345678
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -359,11 +359,11 @@ class VpcAttachmentAccepter(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_ec2_transit_gateway_vpc_attachment_accepter` using the EC2 Transit Gateway Attachment identifier. For example:
 
-         to = aws_ec2_transit_gateway_vpc_attachment_accepter.example
-
-         id = "tgw-attach-12345678" } Using `pulumi import`, import `aws_ec2_transit_gateway_vpc_attachment_accepter` using the EC2 Transit Gateway Attachment identifier. For exampleconsole % pulumi import aws_ec2_transit_gateway_vpc_attachment_accepter.example tgw-attach-12345678
+        ```sh
+         $ pulumi import aws:ec2transitgateway/vpcAttachmentAccepter:VpcAttachmentAccepter example tgw-attach-12345678
+        ```
 
         :param str resource_name: The name of the resource.
         :param VpcAttachmentAccepterArgs args: The arguments to use to populate this resource's properties.

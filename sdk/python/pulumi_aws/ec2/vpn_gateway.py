@@ -215,11 +215,11 @@ class VpnGateway(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import VPN Gateways using the VPN gateway `id`. For example:
 
-         to = aws_vpn_gateway.testvpngateway
-
-         id = "vgw-9a4cacf3" } Using `pulumi import`, import VPN Gateways using the VPN gateway `id`. For exampleconsole % pulumi import aws_vpn_gateway.testvpngateway vgw-9a4cacf3
+        ```sh
+         $ pulumi import aws:ec2/vpnGateway:VpnGateway testvpngateway vgw-9a4cacf3
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -252,11 +252,11 @@ class VpnGateway(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import VPN Gateways using the VPN gateway `id`. For example:
 
-         to = aws_vpn_gateway.testvpngateway
-
-         id = "vgw-9a4cacf3" } Using `pulumi import`, import VPN Gateways using the VPN gateway `id`. For exampleconsole % pulumi import aws_vpn_gateway.testvpngateway vgw-9a4cacf3
+        ```sh
+         $ pulumi import aws:ec2/vpnGateway:VpnGateway testvpngateway vgw-9a4cacf3
+        ```
 
         :param str resource_name: The name of the resource.
         :param VpnGatewayArgs args: The arguments to use to populate this resource's properties.

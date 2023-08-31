@@ -54,11 +54,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import `aws_appstream_image_builder` using the `name`. For example:
 //
-//	to = aws_appstream_image_builder.example
+// ```sh
 //
-//	id = "imageBuilderExample" } Using `pulumi import`, import `aws_appstream_image_builder` using the `name`. For exampleconsole % pulumi import aws_appstream_image_builder.example imageBuilderExample
+//	$ pulumi import aws:appstream/imageBuilder:ImageBuilder example imageBuilderExample
+//
+// ```
 type ImageBuilder struct {
 	pulumi.CustomResourceState
 

@@ -142,11 +142,11 @@ namespace Pulumi.Aws.Backup
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import Backup Framework using the `id` which corresponds to the name of the Backup Framework. For example:
     /// 
-    ///  to = aws_backup_framework.test
-    /// 
-    ///  id = "&lt;id&gt;" } Using `pulumi import`, import Backup Framework using the `id` which corresponds to the name of the Backup Framework. For exampleconsole % pulumi import aws_backup_framework.test &lt;id&gt;
+    /// ```sh
+    ///  $ pulumi import aws:backup/framework:Framework test &lt;id&gt;
+    /// ```
     /// </summary>
     [AwsResourceType("aws:backup/framework:Framework")]
     public partial class Framework : global::Pulumi.CustomResource

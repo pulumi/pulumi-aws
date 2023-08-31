@@ -24,11 +24,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import IPAMs using the IPAM `id`. For example:
  * 
- *  to = aws_vpc_ipam.example
- * 
- *  id = &#34;ipam-0178368ad2146a492&#34; } Using `pulumi import`, import IPAMs using the IPAM `id`. For exampleconsole % pulumi import aws_vpc_ipam.example ipam-0178368ad2146a492
+ * ```sh
+ *  $ pulumi import aws:ec2/vpcIpam:VpcIpam example ipam-0178368ad2146a492
+ * ```
  * 
  */
 @ResourceType(type="aws:ec2/vpcIpam:VpcIpam")

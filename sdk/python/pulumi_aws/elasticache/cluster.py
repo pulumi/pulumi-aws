@@ -1196,11 +1196,11 @@ class Cluster(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import ElastiCache Clusters using the `cluster_id`. For example:
 
-         to = aws_elasticache_cluster.my_cluster
-
-         id = "my_cluster" } Using `pulumi import`, import ElastiCache Clusters using the `cluster_id`. For exampleconsole % pulumi import aws_elasticache_cluster.my_cluster my_cluster
+        ```sh
+         $ pulumi import aws:elasticache/cluster:Cluster my_cluster my_cluster
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1341,11 +1341,11 @@ class Cluster(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import ElastiCache Clusters using the `cluster_id`. For example:
 
-         to = aws_elasticache_cluster.my_cluster
-
-         id = "my_cluster" } Using `pulumi import`, import ElastiCache Clusters using the `cluster_id`. For exampleconsole % pulumi import aws_elasticache_cluster.my_cluster my_cluster
+        ```sh
+         $ pulumi import aws:elasticache/cluster:Cluster my_cluster my_cluster
+        ```
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.

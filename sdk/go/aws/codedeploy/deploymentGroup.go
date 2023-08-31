@@ -255,11 +255,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import CodeDeploy Deployment Groups using `app_name`, a colon, and `deployment_group_name`. For example:
 //
-//	to = aws_codedeploy_deployment_group.example
+// ```sh
 //
-//	id = "my-application:my-deployment-group" } Using `pulumi import`, import CodeDeploy Deployment Groups using `app_name`, a colon, and `deployment_group_name`. For exampleconsole % pulumi import aws_codedeploy_deployment_group.example my-application:my-deployment-group [1]http://docs.aws.amazon.com/codedeploy/latest/userguide/monitoring-sns-event-notifications-create-trigger.html
+//	$ pulumi import aws:codedeploy/deploymentGroup:DeploymentGroup example my-application:my-deployment-group
+//
+// ```
 type DeploymentGroup struct {
 	pulumi.CustomResourceState
 

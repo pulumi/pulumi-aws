@@ -80,11 +80,11 @@ namespace Pulumi.Aws.Rds
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import DB Option groups using the `name`. For example:
     /// 
-    ///  to = aws_db_option_group.example
-    /// 
-    ///  id = "mysql-option-group" } Using `pulumi import`, import DB Option groups using the `name`. For exampleconsole % pulumi import aws_db_option_group.example mysql-option-group
+    /// ```sh
+    ///  $ pulumi import aws:rds/optionGroup:OptionGroup example mysql-option-group
+    /// ```
     /// </summary>
     [AwsResourceType("aws:rds/optionGroup:OptionGroup")]
     public partial class OptionGroup : global::Pulumi.CustomResource

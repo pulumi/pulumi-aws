@@ -75,11 +75,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import CloudFormation StackSets using the `name`. For example:
  *
- *  to = aws_cloudformation_stack_set.example
- *
- *  id = "example" } Using `pulumi import`, import CloudFormation StackSets using the `name`. For exampleconsole % pulumi import aws_cloudformation_stack_set.example example
+ * ```sh
+ *  $ pulumi import aws:cloudformation/stackSet:StackSet example example
+ * ```
  */
 export class StackSet extends pulumi.CustomResource {
     /**

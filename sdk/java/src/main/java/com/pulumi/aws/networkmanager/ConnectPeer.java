@@ -25,11 +25,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import `aws_networkmanager_connect_peer` using the connect peer ID. For example:
  * 
- *  to = aws_networkmanager_connect_peer.example
- * 
- *  id = &#34;connect-peer-061f3e96275db1acc&#34; } Using `pulumi import`, import `aws_networkmanager_connect_peer` using the connect peer ID. For exampleconsole % pulumi import aws_networkmanager_connect_peer.example connect-peer-061f3e96275db1acc
+ * ```sh
+ *  $ pulumi import aws:networkmanager/connectPeer:ConnectPeer example connect-peer-061f3e96275db1acc
+ * ```
  * 
  */
 @ResourceType(type="aws:networkmanager/connectPeer:ConnectPeer")

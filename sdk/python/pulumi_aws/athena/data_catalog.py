@@ -293,11 +293,11 @@ class DataCatalog(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import data catalogs using their `name`. For example:
 
-         to = aws_athena_data_catalog.example
-
-         id = "example-data-catalog" } Using `pulumi import`, import data catalogs using their `name`. For exampleconsole % pulumi import aws_athena_data_catalog.example example-data-catalog
+        ```sh
+         $ pulumi import aws:athena/dataCatalog:DataCatalog example example-data-catalog
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -379,11 +379,11 @@ class DataCatalog(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import data catalogs using their `name`. For example:
 
-         to = aws_athena_data_catalog.example
-
-         id = "example-data-catalog" } Using `pulumi import`, import data catalogs using their `name`. For exampleconsole % pulumi import aws_athena_data_catalog.example example-data-catalog
+        ```sh
+         $ pulumi import aws:athena/dataCatalog:DataCatalog example example-data-catalog
+        ```
 
         :param str resource_name: The name of the resource.
         :param DataCatalogArgs args: The arguments to use to populate this resource's properties.

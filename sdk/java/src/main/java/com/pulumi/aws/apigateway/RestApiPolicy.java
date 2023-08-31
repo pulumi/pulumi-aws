@@ -74,11 +74,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import `aws_api_gateway_rest_api_policy` using the REST API ID. For example:
  * 
- *  to = aws_api_gateway_rest_api_policy.example
- * 
- *  id = &#34;12345abcde&#34; } Using `pulumi import`, import `aws_api_gateway_rest_api_policy` using the REST API ID. For exampleconsole % pulumi import aws_api_gateway_rest_api_policy.example 12345abcde
+ * ```sh
+ *  $ pulumi import aws:apigateway/restApiPolicy:RestApiPolicy example 12345abcde
+ * ```
  * 
  */
 @ResourceType(type="aws:apigateway/restApiPolicy:RestApiPolicy")

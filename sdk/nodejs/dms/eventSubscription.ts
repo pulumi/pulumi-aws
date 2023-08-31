@@ -30,11 +30,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import event subscriptions using the `name`. For example:
  *
- *  to = aws_dms_event_subscription.test
- *
- *  id = "my-awesome-event-subscription" } Using `pulumi import`, import event subscriptions using the `name`. For exampleconsole % pulumi import aws_dms_event_subscription.test my-awesome-event-subscription
+ * ```sh
+ *  $ pulumi import aws:dms/eventSubscription:EventSubscription test my-awesome-event-subscription
+ * ```
  */
 export class EventSubscription extends pulumi.CustomResource {
     /**

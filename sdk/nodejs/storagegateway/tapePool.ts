@@ -21,11 +21,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import `aws_storagegateway_tape_pool` using the volume Amazon Resource Name (ARN). For example:
  *
- *  to = aws_storagegateway_tape_pool.example
- *
- *  id = "arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678" } Using `pulumi import`, import `aws_storagegateway_tape_pool` using the volume Amazon Resource Name (ARN). For exampleconsole % pulumi import aws_storagegateway_tape_pool.example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678
+ * ```sh
+ *  $ pulumi import aws:storagegateway/tapePool:TapePool example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678
+ * ```
  */
 export class TapePool extends pulumi.CustomResource {
     /**

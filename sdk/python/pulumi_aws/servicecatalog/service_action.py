@@ -193,11 +193,11 @@ class ServiceAction(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_servicecatalog_service_action` using the service action ID. For example:
 
-         to = aws_servicecatalog_service_action.example
-
-         id = "act-f1w12eperfslh" } Using `pulumi import`, import `aws_servicecatalog_service_action` using the service action ID. For exampleconsole % pulumi import aws_servicecatalog_service_action.example act-f1w12eperfslh
+        ```sh
+         $ pulumi import aws:servicecatalog/serviceAction:ServiceAction example act-f1w12eperfslh
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -233,11 +233,11 @@ class ServiceAction(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_servicecatalog_service_action` using the service action ID. For example:
 
-         to = aws_servicecatalog_service_action.example
-
-         id = "act-f1w12eperfslh" } Using `pulumi import`, import `aws_servicecatalog_service_action` using the service action ID. For exampleconsole % pulumi import aws_servicecatalog_service_action.example act-f1w12eperfslh
+        ```sh
+         $ pulumi import aws:servicecatalog/serviceAction:ServiceAction example act-f1w12eperfslh
+        ```
 
         :param str resource_name: The name of the resource.
         :param ServiceActionArgs args: The arguments to use to populate this resource's properties.

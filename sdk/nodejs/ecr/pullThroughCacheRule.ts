@@ -24,11 +24,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import a pull-through cache rule using the `ecr_repository_prefix`. For example:
  *
- *  to = aws_ecr_pull_through_cache_rule.example
- *
- *  id = "ecr-public" } Using `pulumi import`, import a pull-through cache rule using the `ecr_repository_prefix`. For exampleconsole % pulumi import aws_ecr_pull_through_cache_rule.example ecr-public
+ * ```sh
+ *  $ pulumi import aws:ecr/pullThroughCacheRule:PullThroughCacheRule example ecr-public
+ * ```
  */
 export class PullThroughCacheRule extends pulumi.CustomResource {
     /**

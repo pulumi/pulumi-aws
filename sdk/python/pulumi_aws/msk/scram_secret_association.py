@@ -151,11 +151,11 @@ class ScramSecretAssociation(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import MSK SCRAM Secret Associations using the `id`. For example:
 
-         to = aws_msk_scram_secret_association.example
-
-         id = "arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3" } Using `pulumi import`, import MSK SCRAM Secret Associations using the `id`. For exampleconsole % pulumi import aws_msk_scram_secret_association.example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
+        ```sh
+         $ pulumi import aws:msk/scramSecretAssociation:ScramSecretAssociation example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -222,11 +222,11 @@ class ScramSecretAssociation(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import MSK SCRAM Secret Associations using the `id`. For example:
 
-         to = aws_msk_scram_secret_association.example
-
-         id = "arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3" } Using `pulumi import`, import MSK SCRAM Secret Associations using the `id`. For exampleconsole % pulumi import aws_msk_scram_secret_association.example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
+        ```sh
+         $ pulumi import aws:msk/scramSecretAssociation:ScramSecretAssociation example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
+        ```
 
         :param str resource_name: The name of the resource.
         :param ScramSecretAssociationArgs args: The arguments to use to populate this resource's properties.

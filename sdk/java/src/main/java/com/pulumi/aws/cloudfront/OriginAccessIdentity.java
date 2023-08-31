@@ -149,11 +149,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Cloudfront Origin Access Identities using the `id`. For example:
  * 
- *  to = aws_cloudfront_origin_access_identity.origin_access
- * 
- *  id = &#34;E74FTE3AEXAMPLE&#34; } Using `pulumi import`, import Cloudfront Origin Access Identities using the `id`. For exampleconsole % pulumi import aws_cloudfront_origin_access_identity.origin_access E74FTE3AEXAMPLE
+ * ```sh
+ *  $ pulumi import aws:cloudfront/originAccessIdentity:OriginAccessIdentity origin_access E74FTE3AEXAMPLE
+ * ```
  * 
  */
 @ResourceType(type="aws:cloudfront/originAccessIdentity:OriginAccessIdentity")

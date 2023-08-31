@@ -39,13 +39,13 @@ namespace Pulumi.Aws.Route53
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import
     /// 
-    ///  to = aws_route53_resolver_dnssec_config.example
+    /// Route 53 Resolver DNSSEC configs using the Route 53 Resolver DNSSEC config ID. For example:
     /// 
-    ///  id = "rdsc-be1866ecc1683e95" } Using `pulumi import`, import
-    /// 
-    /// Route 53 Resolver DNSSEC configs using the Route 53 Resolver DNSSEC config ID. For exampleconsole % pulumi import aws_route53_resolver_dnssec_config.example rdsc-be1866ecc1683e95
+    /// ```sh
+    ///  $ pulumi import aws:route53/resolverDnsSecConfig:ResolverDnsSecConfig example rdsc-be1866ecc1683e95
+    /// ```
     /// </summary>
     [AwsResourceType("aws:route53/resolverDnsSecConfig:ResolverDnsSecConfig")]
     public partial class ResolverDnsSecConfig : global::Pulumi.CustomResource

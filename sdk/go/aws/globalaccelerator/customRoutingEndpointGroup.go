@@ -56,11 +56,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Global Accelerator custom routing endpoint groups using the `id`. For example:
 //
-//	to = aws_globalaccelerator_custom_routing_endpoint_group.example
+// ```sh
 //
-//	id = "arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxx/endpoint-group/xxxxxxxx" } Using `pulumi import`, import Global Accelerator custom routing endpoint groups using the `id`. For exampleconsole % pulumi import aws_globalaccelerator_custom_routing_endpoint_group.example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxx/endpoint-group/xxxxxxxx
+//	$ pulumi import aws:globalaccelerator/customRoutingEndpointGroup:CustomRoutingEndpointGroup example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxx/endpoint-group/xxxxxxxx
+//
+// ```
 type CustomRoutingEndpointGroup struct {
 	pulumi.CustomResourceState
 

@@ -22,11 +22,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import SageMaker Image Versions using the `name`. For example:
  *
- *  to = aws_sagemaker_image_version.test_image
- *
- *  id = "my-code-repo" } Using `pulumi import`, import SageMaker Image Versions using the `name`. For exampleconsole % pulumi import aws_sagemaker_image_version.test_image my-code-repo
+ * ```sh
+ *  $ pulumi import aws:sagemaker/imageVersion:ImageVersion test_image my-code-repo
+ * ```
  */
 export class ImageVersion extends pulumi.CustomResource {
     /**

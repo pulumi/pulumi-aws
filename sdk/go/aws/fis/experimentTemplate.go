@@ -75,11 +75,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import FIS Experiment Templates using the `id`. For example:
 //
-//	to = aws_fis_experiment_template.template
+// ```sh
 //
-//	id = "EXT123AbCdEfGhIjK" } Using `pulumi import`, import FIS Experiment Templates using the `id`. For exampleconsole % pulumi import aws_fis_experiment_template.template EXT123AbCdEfGhIjK
+//	$ pulumi import aws:fis/experimentTemplate:ExperimentTemplate template EXT123AbCdEfGhIjK
+//
+// ```
 type ExperimentTemplate struct {
 	pulumi.CustomResourceState
 

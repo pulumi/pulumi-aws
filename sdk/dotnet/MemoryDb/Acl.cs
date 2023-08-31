@@ -38,11 +38,11 @@ namespace Pulumi.Aws.MemoryDb
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import an ACL using the `name`. For example:
     /// 
-    ///  to = aws_memorydb_acl.example
-    /// 
-    ///  id = "my-acl" } Using `pulumi import`, import an ACL using the `name`. For exampleconsole % pulumi import aws_memorydb_acl.example my-acl
+    /// ```sh
+    ///  $ pulumi import aws:memorydb/acl:Acl example my-acl
+    /// ```
     /// </summary>
     [AwsResourceType("aws:memorydb/acl:Acl")]
     public partial class Acl : global::Pulumi.CustomResource

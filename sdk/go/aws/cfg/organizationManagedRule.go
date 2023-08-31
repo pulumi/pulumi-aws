@@ -58,11 +58,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Config Organization Managed Rules using the name. For example:
 //
-//	to = aws_config_organization_managed_rule.example
+// ```sh
 //
-//	id = "example" } Using `pulumi import`, import Config Organization Managed Rules using the name. For exampleconsole % pulumi import aws_config_organization_managed_rule.example example
+//	$ pulumi import aws:cfg/organizationManagedRule:OrganizationManagedRule example example
+//
+// ```
 type OrganizationManagedRule struct {
 	pulumi.CustomResourceState
 

@@ -57,11 +57,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import IPAMs using the IPAM resource discovery association `id`. For example:
  * 
- *  to = aws_vpc_ipam_resource_discovery_association.example
- * 
- *  id = &#34;ipam-res-disco-assoc-0178368ad2146a492&#34; } Using `pulumi import`, import IPAMs using the IPAM resource discovery association `id`. For exampleconsole % pulumi import aws_vpc_ipam_resource_discovery_association.example ipam-res-disco-assoc-0178368ad2146a492
+ * ```sh
+ *  $ pulumi import aws:ec2/vpcIpamResourceDiscoveryAssociation:VpcIpamResourceDiscoveryAssociation example ipam-res-disco-assoc-0178368ad2146a492
+ * ```
  * 
  */
 @ResourceType(type="aws:ec2/vpcIpamResourceDiscoveryAssociation:VpcIpamResourceDiscoveryAssociation")

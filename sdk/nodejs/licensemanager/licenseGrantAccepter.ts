@@ -18,11 +18,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import `aws_licensemanager_grant_accepter` using the grant arn. For example:
  *
- *  to = aws_licensemanager_grant_accepter.test
- *
- *  id = "arn:aws:license-manager::123456789012:grant:g-1cf9fba4ba2f42dcab11c686c4b4d329" } Using `pulumi import`, import `aws_licensemanager_grant_accepter` using the grant arn. For exampleconsole % pulumi import aws_licensemanager_grant_accepter.test arn:aws:license-manager::123456789012:grant:g-1cf9fba4ba2f42dcab11c686c4b4d329
+ * ```sh
+ *  $ pulumi import aws:licensemanager/licenseGrantAccepter:LicenseGrantAccepter test arn:aws:license-manager::123456789012:grant:g-1cf9fba4ba2f42dcab11c686c4b4d329
+ * ```
  */
 export class LicenseGrantAccepter extends pulumi.CustomResource {
     /**

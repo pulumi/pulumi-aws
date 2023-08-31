@@ -69,11 +69,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import App Mesh service meshes using the `name`. For example:
 //
-//	to = aws_appmesh_mesh.simple
+// ```sh
 //
-//	id = "simpleapp" } Using `pulumi import`, import App Mesh service meshes using the `name`. For exampleconsole % pulumi import aws_appmesh_mesh.simple simpleapp
+//	$ pulumi import aws:appmesh/mesh:Mesh simple simpleapp
+//
+// ```
 type Mesh struct {
 	pulumi.CustomResourceState
 

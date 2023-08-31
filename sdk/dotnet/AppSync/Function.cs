@@ -109,11 +109,11 @@ namespace Pulumi.Aws.AppSync
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import `aws_appsync_function` using the AppSync API ID and Function ID separated by `-`. For example:
     /// 
-    ///  to = aws_appsync_function.example
-    /// 
-    ///  id = "xxxxx-yyyyy" } Using `pulumi import`, import `aws_appsync_function` using the AppSync API ID and Function ID separated by `-`. For exampleconsole % pulumi import aws_appsync_function.example xxxxx-yyyyy
+    /// ```sh
+    ///  $ pulumi import aws:appsync/function:Function example xxxxx-yyyyy
+    /// ```
     /// </summary>
     [AwsResourceType("aws:appsync/function:Function")]
     public partial class Function : global::Pulumi.CustomResource

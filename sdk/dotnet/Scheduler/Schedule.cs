@@ -81,11 +81,11 @@ namespace Pulumi.Aws.Scheduler
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import schedules using the combination `group_name/name`. For example:
     /// 
-    ///  to = aws_scheduler_schedule.example
-    /// 
-    ///  id = "my-schedule-group/my-schedule" } Using `pulumi import`, import schedules using the combination `group_name/name`. For exampleconsole % pulumi import aws_scheduler_schedule.example my-schedule-group/my-schedule
+    /// ```sh
+    ///  $ pulumi import aws:scheduler/schedule:Schedule example my-schedule-group/my-schedule
+    /// ```
     /// </summary>
     [AwsResourceType("aws:scheduler/schedule:Schedule")]
     public partial class Schedule : global::Pulumi.CustomResource

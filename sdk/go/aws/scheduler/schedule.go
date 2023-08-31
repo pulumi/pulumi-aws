@@ -106,11 +106,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import schedules using the combination `group_name/name`. For example:
 //
-//	to = aws_scheduler_schedule.example
+// ```sh
 //
-//	id = "my-schedule-group/my-schedule" } Using `pulumi import`, import schedules using the combination `group_name/name`. For exampleconsole % pulumi import aws_scheduler_schedule.example my-schedule-group/my-schedule
+//	$ pulumi import aws:scheduler/schedule:Schedule example my-schedule-group/my-schedule
+//
+// ```
 type Schedule struct {
 	pulumi.CustomResourceState
 

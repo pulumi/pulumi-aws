@@ -243,23 +243,12 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import `aws_storagegateway_gateway` using the gateway Amazon Resource Name (ARN). For example:
  * 
- *  to = aws_storagegateway_gateway.example
- * 
- *  id = &#34;arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678&#34; } Using `pulumi import`, import `aws_storagegateway_gateway` using the gateway Amazon Resource Name (ARN). For exampleconsole % pulumi import aws_storagegateway_gateway.example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678 Certain resource arguments, like `gateway_ip_address` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For exampleterraform resource &#34;aws_storagegateway_gateway&#34; &#34;example&#34; {
- * 
- * # ... other configuration ...
- * 
- *  gateway_ip_address = aws_instance.sgw.private_ip
- * 
- * # There is no Storage Gateway API for reading gateway_ip_address
- * 
- *  lifecycle {
- * 
- *  ignore_changes = [&#34;gateway_ip_address&#34;]
- * 
- *  } }
+ * ```sh
+ *  $ pulumi import aws:storagegateway/gateway:Gateway example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678
+ * ```
+ *  Certain resource arguments, like `gateway_ip_address` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For example:
  * 
  */
 @ResourceType(type="aws:storagegateway/gateway:Gateway")

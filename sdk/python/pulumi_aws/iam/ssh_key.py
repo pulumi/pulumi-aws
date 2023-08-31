@@ -212,11 +212,11 @@ class SshKey(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import SSH public keys using the `username`, `ssh_public_key_id`, and `encoding`. For example:
 
-         to = aws_iam_user_ssh_key.user
-
-         id = "user:APKAJNCNNJICVN7CFKCA:SSH" } Using `pulumi import`, import SSH public keys using the `username`, `ssh_public_key_id`, and `encoding`. For exampleconsole % pulumi import aws_iam_user_ssh_key.user user:APKAJNCNNJICVN7CFKCA:SSH
+        ```sh
+         $ pulumi import aws:iam/sshKey:SshKey user user:APKAJNCNNJICVN7CFKCA:SSH
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -249,11 +249,11 @@ class SshKey(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import SSH public keys using the `username`, `ssh_public_key_id`, and `encoding`. For example:
 
-         to = aws_iam_user_ssh_key.user
-
-         id = "user:APKAJNCNNJICVN7CFKCA:SSH" } Using `pulumi import`, import SSH public keys using the `username`, `ssh_public_key_id`, and `encoding`. For exampleconsole % pulumi import aws_iam_user_ssh_key.user user:APKAJNCNNJICVN7CFKCA:SSH
+        ```sh
+         $ pulumi import aws:iam/sshKey:SshKey user user:APKAJNCNNJICVN7CFKCA:SSH
+        ```
 
         :param str resource_name: The name of the resource.
         :param SshKeyArgs args: The arguments to use to populate this resource's properties.

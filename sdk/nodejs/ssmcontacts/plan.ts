@@ -83,11 +83,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import SSM Contact Plan using the Contact ARN. For example:
  *
- *  to = aws_ssmcontacts_plan.example
- *
- *  id = "{ARNValue}" } Using `pulumi import`, import SSM Contact Plan using the Contact ARN. For exampleconsole % pulumi import aws_ssmcontacts_plan.example {ARNValue}
+ * ```sh
+ *  $ pulumi import aws:ssmcontacts/plan:Plan example {ARNValue}
+ * ```
  */
 export class Plan extends pulumi.CustomResource {
     /**

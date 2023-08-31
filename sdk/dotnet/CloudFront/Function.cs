@@ -41,11 +41,11 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import CloudFront Functions using the `name`. For example:
     /// 
-    ///  to = aws_cloudfront_function.test
-    /// 
-    ///  id = "my_test_function" } Using `pulumi import`, import CloudFront Functions using the `name`. For exampleconsole % pulumi import aws_cloudfront_function.test my_test_function
+    /// ```sh
+    ///  $ pulumi import aws:cloudfront/function:Function test my_test_function
+    /// ```
     /// </summary>
     [AwsResourceType("aws:cloudfront/function:Function")]
     public partial class Function : global::Pulumi.CustomResource

@@ -98,11 +98,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import a QuickSight Analysis using the AWS account ID and analysis ID separated by a comma (`,`). For example:
  * 
- *  to = aws_quicksight_analysis.example
- * 
- *  id = &#34;123456789012,example-id&#34; } Using `pulumi import`, import a QuickSight Analysis using the AWS account ID and analysis ID separated by a comma (`,`). For exampleconsole % pulumi import aws_quicksight_analysis.example 123456789012,example-id
+ * ```sh
+ *  $ pulumi import aws:quicksight/analysis:Analysis example 123456789012,example-id
+ * ```
  * 
  */
 @ResourceType(type="aws:quicksight/analysis:Analysis")

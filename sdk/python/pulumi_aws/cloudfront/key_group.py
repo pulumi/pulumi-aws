@@ -166,11 +166,11 @@ class KeyGroup(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import CloudFront Key Group using the `id`. For example:
 
-         to = aws_cloudfront_key_group.example
-
-         id = "4b4f2r1c-315d-5c2e-f093-216t50jed10f" } Using `pulumi import`, import CloudFront Key Group using the `id`. For exampleconsole % pulumi import aws_cloudfront_key_group.example 4b4f2r1c-315d-5c2e-f093-216t50jed10f
+        ```sh
+         $ pulumi import aws:cloudfront/keyGroup:KeyGroup example 4b4f2r1c-315d-5c2e-f093-216t50jed10f
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -203,11 +203,11 @@ class KeyGroup(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import CloudFront Key Group using the `id`. For example:
 
-         to = aws_cloudfront_key_group.example
-
-         id = "4b4f2r1c-315d-5c2e-f093-216t50jed10f" } Using `pulumi import`, import CloudFront Key Group using the `id`. For exampleconsole % pulumi import aws_cloudfront_key_group.example 4b4f2r1c-315d-5c2e-f093-216t50jed10f
+        ```sh
+         $ pulumi import aws:cloudfront/keyGroup:KeyGroup example 4b4f2r1c-315d-5c2e-f093-216t50jed10f
+        ```
 
         :param str resource_name: The name of the resource.
         :param KeyGroupArgs args: The arguments to use to populate this resource's properties.

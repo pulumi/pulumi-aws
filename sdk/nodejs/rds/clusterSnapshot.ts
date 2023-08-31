@@ -21,11 +21,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import `aws_db_cluster_snapshot` using the cluster snapshot identifier. For example:
  *
- *  to = aws_db_cluster_snapshot.example
- *
- *  id = "my-cluster-snapshot" } Using `pulumi import`, import `aws_db_cluster_snapshot` using the cluster snapshot identifier. For exampleconsole % pulumi import aws_db_cluster_snapshot.example my-cluster-snapshot
+ * ```sh
+ *  $ pulumi import aws:rds/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
+ * ```
  */
 export class ClusterSnapshot extends pulumi.CustomResource {
     /**

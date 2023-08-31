@@ -220,11 +220,11 @@ class Portfolio(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Service Catalog Portfolios using the Service Catalog Portfolio `id`. For example:
 
-         to = aws_servicecatalog_portfolio.testfolio
-
-         id = "port-12344321" } Using `pulumi import`, import Service Catalog Portfolios using the Service Catalog Portfolio `id`. For exampleconsole % pulumi import aws_servicecatalog_portfolio.testfolio port-12344321
+        ```sh
+         $ pulumi import aws:servicecatalog/portfolio:Portfolio testfolio port-12344321
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -255,11 +255,11 @@ class Portfolio(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Service Catalog Portfolios using the Service Catalog Portfolio `id`. For example:
 
-         to = aws_servicecatalog_portfolio.testfolio
-
-         id = "port-12344321" } Using `pulumi import`, import Service Catalog Portfolios using the Service Catalog Portfolio `id`. For exampleconsole % pulumi import aws_servicecatalog_portfolio.testfolio port-12344321
+        ```sh
+         $ pulumi import aws:servicecatalog/portfolio:Portfolio testfolio port-12344321
+        ```
 
         :param str resource_name: The name of the resource.
         :param PortfolioArgs args: The arguments to use to populate this resource's properties.

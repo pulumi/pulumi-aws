@@ -105,11 +105,11 @@ class InvitationAccepter(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_macie2_invitation_accepter` using the admin account ID. For example:
 
-         to = aws_macie2_invitation_accepter.example
-
-         id = "123456789012" } Using `pulumi import`, import `aws_macie2_invitation_accepter` using the admin account ID. For exampleconsole % pulumi import aws_macie2_invitation_accepter.example 123456789012
+        ```sh
+         $ pulumi import aws:macie2/invitationAccepter:InvitationAccepter example 123456789012
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,11 +145,11 @@ class InvitationAccepter(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_macie2_invitation_accepter` using the admin account ID. For example:
 
-         to = aws_macie2_invitation_accepter.example
-
-         id = "123456789012" } Using `pulumi import`, import `aws_macie2_invitation_accepter` using the admin account ID. For exampleconsole % pulumi import aws_macie2_invitation_accepter.example 123456789012
+        ```sh
+         $ pulumi import aws:macie2/invitationAccepter:InvitationAccepter example 123456789012
+        ```
 
         :param str resource_name: The name of the resource.
         :param InvitationAccepterArgs args: The arguments to use to populate this resource's properties.

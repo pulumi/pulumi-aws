@@ -679,11 +679,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Amazon Kendra Indexes using its `id`. For example:
 //
-//	to = aws_kendra_index.example
+// ```sh
 //
-//	id = "12345678-1234-5678-9123-123456789123" } Using `pulumi import`, import Amazon Kendra Indexes using its `id`. For exampleconsole % pulumi import aws_kendra_index.example 12345678-1234-5678-9123-123456789123
+//	$ pulumi import aws:kendra/index:Index example 12345678-1234-5678-9123-123456789123
+//
+// ```
 type Index struct {
 	pulumi.CustomResourceState
 

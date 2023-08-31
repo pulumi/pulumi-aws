@@ -72,11 +72,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import MSK Connect Custom Plugin using the plugin&#39;s `arn`. For example:
  * 
- *  to = aws_mskconnect_custom_plugin.example
- * 
- *  id = &#34;arn:aws:kafkaconnect:eu-central-1:123456789012:custom-plugin/debezium-example/abcdefgh-1234-5678-9abc-defghijklmno-4&#34; } Using `pulumi import`, import MSK Connect Custom Plugin using the plugin&#39;s `arn`. For exampleconsole % pulumi import aws_mskconnect_custom_plugin.example &#39;arn:aws:kafkaconnect:eu-central-1:123456789012:custom-plugin/debezium-example/abcdefgh-1234-5678-9abc-defghijklmno-4&#39;
+ * ```sh
+ *  $ pulumi import aws:mskconnect/customPlugin:CustomPlugin example &#39;arn:aws:kafkaconnect:eu-central-1:123456789012:custom-plugin/debezium-example/abcdefgh-1234-5678-9abc-defghijklmno-4&#39;
+ * ```
  * 
  */
 @ResourceType(type="aws:mskconnect/customPlugin:CustomPlugin")

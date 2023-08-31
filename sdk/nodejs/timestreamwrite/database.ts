@@ -33,11 +33,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import Timestream databases using the `database_name`. For example:
  *
- *  to = aws_timestreamwrite_database.example
- *
- *  id = "example" } Using `pulumi import`, import Timestream databases using the `database_name`. For exampleconsole % pulumi import aws_timestreamwrite_database.example example
+ * ```sh
+ *  $ pulumi import aws:timestreamwrite/database:Database example example
+ * ```
  */
 export class Database extends pulumi.CustomResource {
     /**

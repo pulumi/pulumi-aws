@@ -455,11 +455,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import OpenSearch domains using the `domain_name`. For example:
 //
-//	to = aws_opensearch_domain.example
+// ```sh
 //
-//	id = "domain_name" } Using `pulumi import`, import OpenSearch domains using the `domain_name`. For exampleconsole % pulumi import aws_opensearch_domain.example domain_name
+//	$ pulumi import aws:opensearch/domain:Domain example domain_name
+//
+// ```
 type Domain struct {
 	pulumi.CustomResourceState
 

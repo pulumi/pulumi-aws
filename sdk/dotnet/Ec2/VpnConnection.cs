@@ -152,11 +152,11 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import VPN Connections using the VPN connection `id`. For example:
     /// 
-    ///  to = aws_vpn_connection.testvpnconnection
-    /// 
-    ///  id = "vpn-40f41529" } Using `pulumi import`, import VPN Connections using the VPN connection `id`. For exampleconsole % pulumi import aws_vpn_connection.testvpnconnection vpn-40f41529
+    /// ```sh
+    ///  $ pulumi import aws:ec2/vpnConnection:VpnConnection testvpnconnection vpn-40f41529
+    /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/vpnConnection:VpnConnection")]
     public partial class VpnConnection : global::Pulumi.CustomResource

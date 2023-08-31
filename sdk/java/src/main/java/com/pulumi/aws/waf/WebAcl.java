@@ -144,11 +144,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import WAF Web ACL using the `id`. For example:
  * 
- *  to = aws_waf_web_acl.main
- * 
- *  id = &#34;0c8e583e-18f3-4c13-9e2a-67c4805d2f94&#34; } Using `pulumi import`, import WAF Web ACL using the `id`. For exampleconsole % pulumi import aws_waf_web_acl.main 0c8e583e-18f3-4c13-9e2a-67c4805d2f94
+ * ```sh
+ *  $ pulumi import aws:waf/webAcl:WebAcl main 0c8e583e-18f3-4c13-9e2a-67c4805d2f94
+ * ```
  * 
  */
 @ResourceType(type="aws:waf/webAcl:WebAcl")

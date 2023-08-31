@@ -112,11 +112,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import MWAA Environment using `Name`. For example:
  *
- *  to = aws_mwaa_environment.example
- *
- *  id = "MyAirflowEnvironment" } Using `pulumi import`, import MWAA Environment using `Name`. For exampleconsole % pulumi import aws_mwaa_environment.example MyAirflowEnvironment
+ * ```sh
+ *  $ pulumi import aws:mwaa/environment:Environment example MyAirflowEnvironment
+ * ```
  */
 export class Environment extends pulumi.CustomResource {
     /**

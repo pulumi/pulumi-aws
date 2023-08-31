@@ -31,11 +31,11 @@ import {PolicyDocument} from "./index";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import IAM Group Policies using the `group_name:group_policy_name`. For example:
  *
- *  to = aws_iam_group_policy.mypolicy
- *
- *  id = "group_of_mypolicy_name:mypolicy_name" } Using `pulumi import`, import IAM Group Policies using the `group_name:group_policy_name`. For exampleconsole % pulumi import aws_iam_group_policy.mypolicy group_of_mypolicy_name:mypolicy_name
+ * ```sh
+ *  $ pulumi import aws:iam/groupPolicy:GroupPolicy mypolicy group_of_mypolicy_name:mypolicy_name
+ * ```
  */
 export class GroupPolicy extends pulumi.CustomResource {
     /**

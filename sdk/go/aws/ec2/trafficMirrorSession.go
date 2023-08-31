@@ -64,11 +64,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import traffic mirror sessions using the `id`. For example:
 //
-//	to = aws_ec2_traffic_mirror_session.session
+// ```sh
 //
-//	id = "tms-0d8aa3ca35897b82e" } Using `pulumi import`, import traffic mirror sessions using the `id`. For exampleconsole % pulumi import aws_ec2_traffic_mirror_session.session tms-0d8aa3ca35897b82e
+//	$ pulumi import aws:ec2/trafficMirrorSession:TrafficMirrorSession session tms-0d8aa3ca35897b82e
+//
+// ```
 type TrafficMirrorSession struct {
 	pulumi.CustomResourceState
 

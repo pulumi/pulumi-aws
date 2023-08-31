@@ -79,11 +79,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import CloudSearch Domains using the `name`. For example:
  * 
- *  to = aws_cloudsearch_domain.example
- * 
- *  id = &#34;example-domain&#34; } Using `pulumi import`, import CloudSearch Domains using the `name`. For exampleconsole % pulumi import aws_cloudsearch_domain.example example-domain
+ * ```sh
+ *  $ pulumi import aws:cloudsearch/domain:Domain example example-domain
+ * ```
  * 
  */
 @ResourceType(type="aws:cloudsearch/domain:Domain")

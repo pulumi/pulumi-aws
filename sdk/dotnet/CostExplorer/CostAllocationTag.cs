@@ -33,11 +33,11 @@ namespace Pulumi.Aws.CostExplorer
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import `aws_ce_cost_allocation_tag` using the `id`. For example:
     /// 
-    ///  to = aws_ce_cost_allocation_tag.example
-    /// 
-    ///  id = "key" } Using `pulumi import`, import `aws_ce_cost_allocation_tag` using the `id`. For exampleconsole % pulumi import aws_ce_cost_allocation_tag.example key
+    /// ```sh
+    ///  $ pulumi import aws:costexplorer/costAllocationTag:CostAllocationTag example key
+    /// ```
     /// </summary>
     [AwsResourceType("aws:costexplorer/costAllocationTag:CostAllocationTag")]
     public partial class CostAllocationTag : global::Pulumi.CustomResource

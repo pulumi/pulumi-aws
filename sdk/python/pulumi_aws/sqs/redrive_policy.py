@@ -127,11 +127,11 @@ class RedrivePolicy(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import SQS Queue Redrive Policies using the queue URL. For example:
 
-         to = aws_sqs_queue_redrive_policy.test
-
-         id = "https://queue.amazonaws.com/0123456789012/myqueue" } Using `pulumi import`, import SQS Queue Redrive Policies using the queue URL. For exampleconsole % pulumi import aws_sqs_queue_redrive_policy.test https://queue.amazonaws.com/0123456789012/myqueue
+        ```sh
+         $ pulumi import aws:sqs/redrivePolicy:RedrivePolicy test https://queue.amazonaws.com/0123456789012/myqueue
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -174,11 +174,11 @@ class RedrivePolicy(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import SQS Queue Redrive Policies using the queue URL. For example:
 
-         to = aws_sqs_queue_redrive_policy.test
-
-         id = "https://queue.amazonaws.com/0123456789012/myqueue" } Using `pulumi import`, import SQS Queue Redrive Policies using the queue URL. For exampleconsole % pulumi import aws_sqs_queue_redrive_policy.test https://queue.amazonaws.com/0123456789012/myqueue
+        ```sh
+         $ pulumi import aws:sqs/redrivePolicy:RedrivePolicy test https://queue.amazonaws.com/0123456789012/myqueue
+        ```
 
         :param str resource_name: The name of the resource.
         :param RedrivePolicyArgs args: The arguments to use to populate this resource's properties.

@@ -36,11 +36,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import EIP Assocations using their association IDs. For example:
  *
- *  to = aws_eip_association.test
- *
- *  id = "eipassoc-ab12c345" } Using `pulumi import`, import EIP Assocations using their association IDs. For exampleconsole % pulumi import aws_eip_association.test eipassoc-ab12c345
+ * ```sh
+ *  $ pulumi import aws:ec2/eipAssociation:EipAssociation test eipassoc-ab12c345
+ * ```
  */
 export class EipAssociation extends pulumi.CustomResource {
     /**

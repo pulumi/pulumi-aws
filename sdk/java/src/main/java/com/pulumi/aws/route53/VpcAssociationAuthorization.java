@@ -87,11 +87,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Route 53 VPC Association Authorizations using the Hosted Zone ID and VPC ID, separated by a colon (`:`). For example:
  * 
- *  to = aws_route53_vpc_association_authorization.example
- * 
- *  id = &#34;Z123456ABCDEFG:vpc-12345678&#34; } Using `pulumi import`, import Route 53 VPC Association Authorizations using the Hosted Zone ID and VPC ID, separated by a colon (`:`). For exampleconsole % pulumi import aws_route53_vpc_association_authorization.example Z123456ABCDEFG:vpc-12345678
+ * ```sh
+ *  $ pulumi import aws:route53/vpcAssociationAuthorization:VpcAssociationAuthorization example Z123456ABCDEFG:vpc-12345678
+ * ```
  * 
  */
 @ResourceType(type="aws:route53/vpcAssociationAuthorization:VpcAssociationAuthorization")

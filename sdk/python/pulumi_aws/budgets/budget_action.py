@@ -429,11 +429,11 @@ class BudgetAction(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import budget actions using `AccountID:ActionID:BudgetName`. For example:
 
-         to = aws_budgets_budget_action.myBudget
-
-         id = "123456789012:some-id:myBudget" } Using `pulumi import`, import budget actions using `AccountID:ActionID:BudgetName`. For exampleconsole % pulumi import aws_budgets_budget_action.myBudget 123456789012:some-id:myBudget
+        ```sh
+         $ pulumi import aws:budgets/budgetAction:BudgetAction myBudget 123456789012:some-id:myBudget
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -510,11 +510,11 @@ class BudgetAction(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import budget actions using `AccountID:ActionID:BudgetName`. For example:
 
-         to = aws_budgets_budget_action.myBudget
-
-         id = "123456789012:some-id:myBudget" } Using `pulumi import`, import budget actions using `AccountID:ActionID:BudgetName`. For exampleconsole % pulumi import aws_budgets_budget_action.myBudget 123456789012:some-id:myBudget
+        ```sh
+         $ pulumi import aws:budgets/budgetAction:BudgetAction myBudget 123456789012:some-id:myBudget
+        ```
 
         :param str resource_name: The name of the resource.
         :param BudgetActionArgs args: The arguments to use to populate this resource's properties.

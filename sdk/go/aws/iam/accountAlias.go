@@ -44,11 +44,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import the current Account Alias using the `account_alias`. For example:
 //
-//	to = aws_iam_account_alias.alias
+// ```sh
 //
-//	id = "my-account-alias" } Using `pulumi import`, import the current Account Alias using the `account_alias`. For exampleconsole % pulumi import aws_iam_account_alias.alias my-account-alias
+//	$ pulumi import aws:iam/accountAlias:AccountAlias alias my-account-alias
+//
+// ```
 type AccountAlias struct {
 	pulumi.CustomResourceState
 

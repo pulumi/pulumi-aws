@@ -36,11 +36,11 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import `aws_apigatewayv2_integration_response` using the API identifier, integration identifier and integration response identifier. For example:
     /// 
-    ///  to = aws_apigatewayv2_integration_response.example
-    /// 
-    ///  id = "aabbccddee/1122334/998877" } Using `pulumi import`, import `aws_apigatewayv2_integration_response` using the API identifier, integration identifier and integration response identifier. For exampleconsole % pulumi import aws_apigatewayv2_integration_response.example aabbccddee/1122334/998877
+    /// ```sh
+    ///  $ pulumi import aws:apigatewayv2/integrationResponse:IntegrationResponse example aabbccddee/1122334/998877
+    /// ```
     /// </summary>
     [AwsResourceType("aws:apigatewayv2/integrationResponse:IntegrationResponse")]
     public partial class IntegrationResponse : global::Pulumi.CustomResource

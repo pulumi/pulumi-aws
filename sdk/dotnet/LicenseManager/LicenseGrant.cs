@@ -14,11 +14,11 @@ namespace Pulumi.Aws.LicenseManager
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import `aws_licensemanager_grant` using the grant arn. For example:
     /// 
-    ///  to = aws_licensemanager_grant.test
-    /// 
-    ///  id = "arn:aws:license-manager::123456789011:grant:g-01d313393d9e443d8664cc054db1e089" } Using `pulumi import`, import `aws_licensemanager_grant` using the grant arn. For exampleconsole % pulumi import aws_licensemanager_grant.test arn:aws:license-manager::123456789011:grant:g-01d313393d9e443d8664cc054db1e089
+    /// ```sh
+    ///  $ pulumi import aws:licensemanager/licenseGrant:LicenseGrant test arn:aws:license-manager::123456789011:grant:g-01d313393d9e443d8664cc054db1e089
+    /// ```
     /// </summary>
     [AwsResourceType("aws:licensemanager/licenseGrant:LicenseGrant")]
     public partial class LicenseGrant : global::Pulumi.CustomResource

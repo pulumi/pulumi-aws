@@ -54,11 +54,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import the prometheus rule group namespace using the arn. For example:
 //
-//	to = aws_prometheus_rule_group_namespace.demo
+// ```sh
 //
-//	id = "arn:aws:aps:us-west-2:123456789012:rulegroupsnamespace/IDstring/namespace_name" } Using `pulumi import`, import the prometheus rule group namespace using the arn. For exampleconsole % pulumi import aws_prometheus_rule_group_namespace.demo arn:aws:aps:us-west-2:123456789012:rulegroupsnamespace/IDstring/namespace_name
+//	$ pulumi import aws:amp/ruleGroupNamespace:RuleGroupNamespace demo arn:aws:aps:us-west-2:123456789012:rulegroupsnamespace/IDstring/namespace_name
+//
+// ```
 type RuleGroupNamespace struct {
 	pulumi.CustomResourceState
 

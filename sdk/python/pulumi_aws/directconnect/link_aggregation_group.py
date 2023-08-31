@@ -361,11 +361,11 @@ class LinkAggregationGroup(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Direct Connect LAGs using the LAG `id`. For example:
 
-         to = aws_dx_lag.test_lag
-
-         id = "dxlag-fgnsp5rq" } Using `pulumi import`, import Direct Connect LAGs using the LAG `id`. For exampleconsole % pulumi import aws_dx_lag.test_lag dxlag-fgnsp5rq
+        ```sh
+         $ pulumi import aws:directconnect/linkAggregationGroup:LinkAggregationGroup test_lag dxlag-fgnsp5rq
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -402,11 +402,11 @@ class LinkAggregationGroup(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Direct Connect LAGs using the LAG `id`. For example:
 
-         to = aws_dx_lag.test_lag
-
-         id = "dxlag-fgnsp5rq" } Using `pulumi import`, import Direct Connect LAGs using the LAG `id`. For exampleconsole % pulumi import aws_dx_lag.test_lag dxlag-fgnsp5rq
+        ```sh
+         $ pulumi import aws:directconnect/linkAggregationGroup:LinkAggregationGroup test_lag dxlag-fgnsp5rq
+        ```
 
         :param str resource_name: The name of the resource.
         :param LinkAggregationGroupArgs args: The arguments to use to populate this resource's properties.

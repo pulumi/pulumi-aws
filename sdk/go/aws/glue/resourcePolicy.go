@@ -81,11 +81,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Glue Resource Policy using the account ID. For example:
 //
-//	to = aws_glue_resource_policy.Test
+// ```sh
 //
-//	id = "12356789012" } Using `pulumi import`, import Glue Resource Policy using the account ID. For exampleconsole % pulumi import aws_glue_resource_policy.Test 12356789012
+//	$ pulumi import aws:glue/resourcePolicy:ResourcePolicy Test 12356789012
+//
+// ```
 type ResourcePolicy struct {
 	pulumi.CustomResourceState
 

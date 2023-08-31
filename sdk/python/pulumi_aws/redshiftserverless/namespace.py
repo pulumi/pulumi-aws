@@ -391,11 +391,11 @@ class Namespace(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Redshift Serverless Namespaces using the `namespace_name`. For example:
 
-         to = aws_redshiftserverless_namespace.example
-
-         id = "example" } Using `pulumi import`, import Redshift Serverless Namespaces using the `namespace_name`. For exampleconsole % pulumi import aws_redshiftserverless_namespace.example example
+        ```sh
+         $ pulumi import aws:redshiftserverless/namespace:Namespace example example
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -429,11 +429,11 @@ class Namespace(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Redshift Serverless Namespaces using the `namespace_name`. For example:
 
-         to = aws_redshiftserverless_namespace.example
-
-         id = "example" } Using `pulumi import`, import Redshift Serverless Namespaces using the `namespace_name`. For exampleconsole % pulumi import aws_redshiftserverless_namespace.example example
+        ```sh
+         $ pulumi import aws:redshiftserverless/namespace:Namespace example example
+        ```
 
         :param str resource_name: The name of the resource.
         :param NamespaceArgs args: The arguments to use to populate this resource's properties.

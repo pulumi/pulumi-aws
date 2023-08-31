@@ -218,11 +218,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import an EventBridge policy using the `event_bus_name`. For example:
 //
-//	to = aws_cloudwatch_event_bus_policy.DevAccountAccess
+// ```sh
 //
-//	id = "example-event-bus" } Using `pulumi import`, import an EventBridge policy using the `event_bus_name`. For exampleconsole % pulumi import aws_cloudwatch_event_bus_policy.DevAccountAccess example-event-bus
+//	$ pulumi import aws:cloudwatch/eventBusPolicy:EventBusPolicy DevAccountAccess example-event-bus
+//
+// ```
 type EventBusPolicy struct {
 	pulumi.CustomResourceState
 

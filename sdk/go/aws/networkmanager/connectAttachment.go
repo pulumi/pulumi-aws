@@ -18,11 +18,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import `aws_networkmanager_connect_attachment` using the attachment ID. For example:
 //
-//	to = aws_networkmanager_connect_attachment.example
+// ```sh
 //
-//	id = "attachment-0f8fa60d2238d1bd8" } Using `pulumi import`, import `aws_networkmanager_connect_attachment` using the attachment ID. For exampleconsole % pulumi import aws_networkmanager_connect_attachment.example attachment-0f8fa60d2238d1bd8
+//	$ pulumi import aws:networkmanager/connectAttachment:ConnectAttachment example attachment-0f8fa60d2238d1bd8
+//
+// ```
 type ConnectAttachment struct {
 	pulumi.CustomResourceState
 

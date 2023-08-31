@@ -162,11 +162,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import FSx Backups using the `id`. For example:
 //
-//	to = aws_fsx_backup.example
+// ```sh
 //
-//	id = "fs-543ab12b1ca672f33" } Using `pulumi import`, import FSx Backups using the `id`. For exampleconsole % pulumi import aws_fsx_backup.example fs-543ab12b1ca672f33
+//	$ pulumi import aws:fsx/backup:Backup example fs-543ab12b1ca672f33
+//
+// ```
 type Backup struct {
 	pulumi.CustomResourceState
 

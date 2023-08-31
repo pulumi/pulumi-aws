@@ -82,11 +82,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Route 53 VPC Association Authorizations using the Hosted Zone ID and VPC ID, separated by a colon (`:`). For example:
 //
-//	to = aws_route53_vpc_association_authorization.example
+// ```sh
 //
-//	id = "Z123456ABCDEFG:vpc-12345678" } Using `pulumi import`, import Route 53 VPC Association Authorizations using the Hosted Zone ID and VPC ID, separated by a colon (`:`). For exampleconsole % pulumi import aws_route53_vpc_association_authorization.example Z123456ABCDEFG:vpc-12345678
+//	$ pulumi import aws:route53/vpcAssociationAuthorization:VpcAssociationAuthorization example Z123456ABCDEFG:vpc-12345678
+//
+// ```
 type VpcAssociationAuthorization struct {
 	pulumi.CustomResourceState
 

@@ -660,11 +660,11 @@ class FlowLog(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Flow Logs using the `id`. For example:
 
-         to = aws_flow_log.test_flow_log
-
-         id = "fl-1a2b3c4d" } Using `pulumi import`, import Flow Logs using the `id`. For exampleconsole % pulumi import aws_flow_log.test_flow_log fl-1a2b3c4d
+        ```sh
+         $ pulumi import aws:ec2/flowLog:FlowLog test_flow_log fl-1a2b3c4d
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -767,11 +767,11 @@ class FlowLog(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Flow Logs using the `id`. For example:
 
-         to = aws_flow_log.test_flow_log
-
-         id = "fl-1a2b3c4d" } Using `pulumi import`, import Flow Logs using the `id`. For exampleconsole % pulumi import aws_flow_log.test_flow_log fl-1a2b3c4d
+        ```sh
+         $ pulumi import aws:ec2/flowLog:FlowLog test_flow_log fl-1a2b3c4d
+        ```
 
         :param str resource_name: The name of the resource.
         :param FlowLogArgs args: The arguments to use to populate this resource's properties.

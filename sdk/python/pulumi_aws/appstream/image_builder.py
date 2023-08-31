@@ -560,11 +560,11 @@ class ImageBuilder(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_appstream_image_builder` using the `name`. For example:
 
-         to = aws_appstream_image_builder.example
-
-         id = "imageBuilderExample" } Using `pulumi import`, import `aws_appstream_image_builder` using the `name`. For exampleconsole % pulumi import aws_appstream_image_builder.example imageBuilderExample
+        ```sh
+         $ pulumi import aws:appstream/imageBuilder:ImageBuilder example imageBuilderExample
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -615,11 +615,11 @@ class ImageBuilder(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_appstream_image_builder` using the `name`. For example:
 
-         to = aws_appstream_image_builder.example
-
-         id = "imageBuilderExample" } Using `pulumi import`, import `aws_appstream_image_builder` using the `name`. For exampleconsole % pulumi import aws_appstream_image_builder.example imageBuilderExample
+        ```sh
+         $ pulumi import aws:appstream/imageBuilder:ImageBuilder example imageBuilderExample
+        ```
 
         :param str resource_name: The name of the resource.
         :param ImageBuilderArgs args: The arguments to use to populate this resource's properties.

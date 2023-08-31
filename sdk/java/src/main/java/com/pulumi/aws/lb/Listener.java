@@ -372,11 +372,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import listeners using their ARN. For example:
  * 
- *  to = aws_lb_listener.front_end
- * 
- *  id = &#34;arn:aws:elasticloadbalancing:us-west-2:187416307283:listener/app/front-end-alb/8e4497da625e2d8a/9ab28ade35828f96&#34; } Using `pulumi import`, import listeners using their ARN. For exampleconsole % pulumi import aws_lb_listener.front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:listener/app/front-end-alb/8e4497da625e2d8a/9ab28ade35828f96
+ * ```sh
+ *  $ pulumi import aws:lb/listener:Listener front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:listener/app/front-end-alb/8e4497da625e2d8a/9ab28ade35828f96
+ * ```
  * 
  */
 @ResourceType(type="aws:lb/listener:Listener")

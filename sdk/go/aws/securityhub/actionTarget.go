@@ -49,11 +49,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Security Hub custom action using the action target ARN. For example:
 //
-//	to = aws_securityhub_action_target.example
+// ```sh
 //
-//	id = "arn:aws:securityhub:eu-west-1:312940875350:action/custom/a" } Using `pulumi import`, import Security Hub custom action using the action target ARN. For exampleconsole % pulumi import aws_securityhub_action_target.example arn:aws:securityhub:eu-west-1:312940875350:action/custom/a
+//	$ pulumi import aws:securityhub/actionTarget:ActionTarget example arn:aws:securityhub:eu-west-1:312940875350:action/custom/a
+//
+// ```
 type ActionTarget struct {
 	pulumi.CustomResourceState
 

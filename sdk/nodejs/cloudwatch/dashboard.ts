@@ -53,11 +53,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import CloudWatch dashboards using the `dashboard_name`. For example:
  *
- *  to = aws_cloudwatch_dashboard.sample
- *
- *  id = "dashboard_name" } Using `pulumi import`, import CloudWatch dashboards using the `dashboard_name`. For exampleconsole % pulumi import aws_cloudwatch_dashboard.sample dashboard_name
+ * ```sh
+ *  $ pulumi import aws:cloudwatch/dashboard:Dashboard sample dashboard_name
+ * ```
  */
 export class Dashboard extends pulumi.CustomResource {
     /**

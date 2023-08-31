@@ -173,11 +173,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Batch Job Definition using the `arn`. For example:
  * 
- *  to = aws_batch_job_definition.test
- * 
- *  id = &#34;arn:aws:batch:us-east-1:123456789012:job-definition/sample&#34; } Using `pulumi import`, import Batch Job Definition using the `arn`. For exampleconsole % pulumi import aws_batch_job_definition.test arn:aws:batch:us-east-1:123456789012:job-definition/sample
+ * ```sh
+ *  $ pulumi import aws:batch/jobDefinition:JobDefinition test arn:aws:batch:us-east-1:123456789012:job-definition/sample
+ * ```
  * 
  */
 @ResourceType(type="aws:batch/jobDefinition:JobDefinition")

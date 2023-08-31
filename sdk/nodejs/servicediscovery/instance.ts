@@ -62,11 +62,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import Service Discovery Instance using the service ID and instance ID. For example:
  *
- *  to = aws_service_discovery_instance.example
- *
- *  id = "0123456789/i-0123" } Using `pulumi import`, import Service Discovery Instance using the service ID and instance ID. For exampleconsole % pulumi import aws_service_discovery_instance.example 0123456789/i-0123
+ * ```sh
+ *  $ pulumi import aws:servicediscovery/instance:Instance example 0123456789/i-0123
+ * ```
  */
 export class Instance extends pulumi.CustomResource {
     /**

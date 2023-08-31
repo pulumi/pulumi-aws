@@ -149,11 +149,11 @@ class ClusterRoleAssociation(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_rds_cluster_role_association` using the DB Cluster Identifier and IAM Role ARN separated by a comma (`,`). For example:
 
-         to = aws_rds_cluster_role_association.example
-
-         id = "my-db-cluster,arn:aws:iam::123456789012:role/my-role" } Using `pulumi import`, import `aws_rds_cluster_role_association` using the DB Cluster Identifier and IAM Role ARN separated by a comma (`,`). For exampleconsole % pulumi import aws_rds_cluster_role_association.example my-db-cluster,arn:aws:iam::123456789012:role/my-role
+        ```sh
+         $ pulumi import aws:rds/clusterRoleAssociation:ClusterRoleAssociation example my-db-cluster,arn:aws:iam::123456789012:role/my-role
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -187,11 +187,11 @@ class ClusterRoleAssociation(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_rds_cluster_role_association` using the DB Cluster Identifier and IAM Role ARN separated by a comma (`,`). For example:
 
-         to = aws_rds_cluster_role_association.example
-
-         id = "my-db-cluster,arn:aws:iam::123456789012:role/my-role" } Using `pulumi import`, import `aws_rds_cluster_role_association` using the DB Cluster Identifier and IAM Role ARN separated by a comma (`,`). For exampleconsole % pulumi import aws_rds_cluster_role_association.example my-db-cluster,arn:aws:iam::123456789012:role/my-role
+        ```sh
+         $ pulumi import aws:rds/clusterRoleAssociation:ClusterRoleAssociation example my-db-cluster,arn:aws:iam::123456789012:role/my-role
+        ```
 
         :param str resource_name: The name of the resource.
         :param ClusterRoleAssociationArgs args: The arguments to use to populate this resource's properties.

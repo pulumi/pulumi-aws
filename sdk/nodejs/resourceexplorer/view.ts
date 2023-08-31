@@ -31,11 +31,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import Resource Explorer views using the `arn`. For example:
  *
- *  to = aws_resourceexplorer2_view.example
- *
- *  id = "arn:aws:resource-explorer-2:us-west-2:123456789012:view/exampleview/e0914f6c-6c27-4b47-b5d4-6b28381a2421" } Using `pulumi import`, import Resource Explorer views using the `arn`. For exampleconsole % pulumi import aws_resourceexplorer2_view.example arn:aws:resource-explorer-2:us-west-2:123456789012:view/exampleview/e0914f6c-6c27-4b47-b5d4-6b28381a2421
+ * ```sh
+ *  $ pulumi import aws:resourceexplorer/view:View example arn:aws:resource-explorer-2:us-west-2:123456789012:view/exampleview/e0914f6c-6c27-4b47-b5d4-6b28381a2421
+ * ```
  */
 export class View extends pulumi.CustomResource {
     /**

@@ -43,11 +43,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import `aws_detective_graph` using the ARN. For example:
 //
-//	to = aws_detective_graph.example
+// ```sh
 //
-//	id = "arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d" } Using `pulumi import`, import `aws_detective_graph` using the ARN. For exampleconsole % pulumi import aws_detective_graph.example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d
+//	$ pulumi import aws:detective/graph:Graph example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d
+//
+// ```
 type Graph struct {
 	pulumi.CustomResourceState
 

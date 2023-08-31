@@ -81,11 +81,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import VPC Endpoint Policies using the `id`. For example:
  * 
- *  to = aws_vpc_endpoint_policy.example
- * 
- *  id = &#34;vpce-3ecf2a57&#34; } Using `pulumi import`, import VPC Endpoint Policies using the `id`. For exampleconsole % pulumi import aws_vpc_endpoint_policy.example vpce-3ecf2a57
+ * ```sh
+ *  $ pulumi import aws:ec2/vpcEndpointPolicy:VpcEndpointPolicy example vpce-3ecf2a57
+ * ```
  * 
  */
 @ResourceType(type="aws:ec2/vpcEndpointPolicy:VpcEndpointPolicy")

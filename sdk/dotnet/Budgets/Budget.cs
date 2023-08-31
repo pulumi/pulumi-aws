@@ -267,11 +267,11 @@ namespace Pulumi.Aws.Budgets
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import budgets using `AccountID:ActionID:BudgetName`. For example:
     /// 
-    ///  to = aws_budgets_budget.myBudget
-    /// 
-    ///  id = "123456789012:myBudget" } Using `pulumi import`, import budgets using `AccountID:ActionID:BudgetName`. For exampleconsole % pulumi import aws_budgets_budget.myBudget 123456789012:myBudget
+    /// ```sh
+    ///  $ pulumi import aws:budgets/budget:Budget myBudget 123456789012:myBudget
+    /// ```
     /// </summary>
     [AwsResourceType("aws:budgets/budget:Budget")]
     public partial class Budget : global::Pulumi.CustomResource

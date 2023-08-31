@@ -240,11 +240,11 @@ class Contact(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import SSM Contact using the `ARN`. For example:
 
-         to = aws_ssmcontacts_contact.example
-
-         id = "{ARNValue}" } Using `pulumi import`, import SSM Contact using the `ARN`. For exampleconsole % pulumi import aws_ssmcontacts_contact.example {ARNValue}
+        ```sh
+         $ pulumi import aws:ssmcontacts/contact:Contact example {ARNValue}
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -295,11 +295,11 @@ class Contact(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import SSM Contact using the `ARN`. For example:
 
-         to = aws_ssmcontacts_contact.example
-
-         id = "{ARNValue}" } Using `pulumi import`, import SSM Contact using the `ARN`. For exampleconsole % pulumi import aws_ssmcontacts_contact.example {ARNValue}
+        ```sh
+         $ pulumi import aws:ssmcontacts/contact:Contact example {ARNValue}
+        ```
 
         :param str resource_name: The name of the resource.
         :param ContactArgs args: The arguments to use to populate this resource's properties.

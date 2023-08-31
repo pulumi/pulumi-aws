@@ -27,11 +27,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import bot aliases using an ID with the format `bot_name:bot_alias_name`. For example:
  *
- *  to = aws_lex_bot_alias.order_flowers_prod
- *
- *  id = "OrderFlowers:OrderFlowersProd" } Using `pulumi import`, import bot aliases using an ID with the format `bot_name:bot_alias_name`. For exampleconsole % pulumi import aws_lex_bot_alias.order_flowers_prod OrderFlowers:OrderFlowersProd
+ * ```sh
+ *  $ pulumi import aws:lex/botAlias:BotAlias order_flowers_prod OrderFlowers:OrderFlowersProd
+ * ```
  */
 export class BotAlias extends pulumi.CustomResource {
     /**

@@ -50,11 +50,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Global Accelerator accelerators using the `arn`. For example:
 //
-//	to = aws_globalaccelerator_accelerator.example
+// ```sh
 //
-//	id = "arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" } Using `pulumi import`, import Global Accelerator accelerators using the `arn`. For exampleconsole % pulumi import aws_globalaccelerator_accelerator.example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+//	$ pulumi import aws:globalaccelerator/accelerator:Accelerator example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+//
+// ```
 type Accelerator struct {
 	pulumi.CustomResourceState
 

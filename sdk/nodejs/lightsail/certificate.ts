@@ -24,11 +24,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import `aws_lightsail_certificate` using the certificate name. For example:
  *
- *  to = aws_lightsail_certificate.test
- *
- *  id = "CertificateName" } Using `pulumi import`, import `aws_lightsail_certificate` using the certificate name. For exampleconsole % pulumi import aws_lightsail_certificate.test CertificateName
+ * ```sh
+ *  $ pulumi import aws:lightsail/certificate:Certificate test CertificateName
+ * ```
  */
 export class Certificate extends pulumi.CustomResource {
     /**

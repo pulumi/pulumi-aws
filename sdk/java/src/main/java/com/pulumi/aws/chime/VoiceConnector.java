@@ -52,11 +52,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Configuration Recorder using the name. For example:
  * 
- *  to = aws_chime_voice_connector.test
- * 
- *  id = &#34;example&#34; } Using `pulumi import`, import Configuration Recorder using the name. For exampleconsole % pulumi import aws_chime_voice_connector.test example
+ * ```sh
+ *  $ pulumi import aws:chime/voiceConnector:VoiceConnector test example
+ * ```
  * 
  */
 @ResourceType(type="aws:chime/voiceConnector:VoiceConnector")

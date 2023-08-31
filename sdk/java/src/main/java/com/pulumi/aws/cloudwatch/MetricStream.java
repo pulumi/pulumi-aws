@@ -212,11 +212,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import CloudWatch metric streams using the `name`. For example:
  * 
- *  to = aws_cloudwatch_metric_stream.sample
- * 
- *  id = &#34;sample-stream-name&#34; } Using `pulumi import`, import CloudWatch metric streams using the `name`. For exampleconsole % pulumi import aws_cloudwatch_metric_stream.sample sample-stream-name
+ * ```sh
+ *  $ pulumi import aws:cloudwatch/metricStream:MetricStream sample sample-stream-name
+ * ```
  * 
  */
 @ResourceType(type="aws:cloudwatch/metricStream:MetricStream")

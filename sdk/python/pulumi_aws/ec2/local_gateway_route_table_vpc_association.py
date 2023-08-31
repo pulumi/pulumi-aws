@@ -184,11 +184,11 @@ class LocalGatewayRouteTableVpcAssociation(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_ec2_local_gateway_route_table_vpc_association` using the Local Gateway Route Table VPC Association identifier. For example:
 
-         to = aws_ec2_local_gateway_route_table_vpc_association.example
-
-         id = "lgw-vpc-assoc-1234567890abcdef" } Using `pulumi import`, import `aws_ec2_local_gateway_route_table_vpc_association` using the Local Gateway Route Table VPC Association identifier. For exampleconsole % pulumi import aws_ec2_local_gateway_route_table_vpc_association.example lgw-vpc-assoc-1234567890abcdef
+        ```sh
+         $ pulumi import aws:ec2/localGatewayRouteTableVpcAssociation:LocalGatewayRouteTableVpcAssociation example lgw-vpc-assoc-1234567890abcdef
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -222,11 +222,11 @@ class LocalGatewayRouteTableVpcAssociation(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_ec2_local_gateway_route_table_vpc_association` using the Local Gateway Route Table VPC Association identifier. For example:
 
-         to = aws_ec2_local_gateway_route_table_vpc_association.example
-
-         id = "lgw-vpc-assoc-1234567890abcdef" } Using `pulumi import`, import `aws_ec2_local_gateway_route_table_vpc_association` using the Local Gateway Route Table VPC Association identifier. For exampleconsole % pulumi import aws_ec2_local_gateway_route_table_vpc_association.example lgw-vpc-assoc-1234567890abcdef
+        ```sh
+         $ pulumi import aws:ec2/localGatewayRouteTableVpcAssociation:LocalGatewayRouteTableVpcAssociation example lgw-vpc-assoc-1234567890abcdef
+        ```
 
         :param str resource_name: The name of the resource.
         :param LocalGatewayRouteTableVpcAssociationArgs args: The arguments to use to populate this resource's properties.

@@ -45,11 +45,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import S3 Control Buckets using Amazon Resource Name (ARN). For example:
 //
-//	to = aws_s3control_bucket.example
+// ```sh
 //
-//	id = "arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example" } Using `pulumi import`, import S3 Control Buckets using Amazon Resource Name (ARN). For exampleconsole % pulumi import aws_s3control_bucket.example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
+//	$ pulumi import aws:s3control/bucket:Bucket example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
+//
+// ```
 type Bucket struct {
 	pulumi.CustomResourceState
 

@@ -26,11 +26,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import IVS (Interactive Video) Recording Configuration using the ARN. For example:
  *
- *  to = aws_ivs_recording_configuration.example
- *
- *  id = "arn:aws:ivs:us-west-2:326937407773:recording-configuration/KAk1sHBl2L47" } Using `pulumi import`, import IVS (Interactive Video) Recording Configuration using the ARN. For exampleconsole % pulumi import aws_ivs_recording_configuration.example arn:aws:ivs:us-west-2:326937407773:recording-configuration/KAk1sHBl2L47
+ * ```sh
+ *  $ pulumi import aws:ivs/recordingConfiguration:RecordingConfiguration example arn:aws:ivs:us-west-2:326937407773:recording-configuration/KAk1sHBl2L47
+ * ```
  */
 export class RecordingConfiguration extends pulumi.CustomResource {
     /**

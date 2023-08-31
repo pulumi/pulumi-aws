@@ -56,11 +56,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import `aws_apigatewayv2_vpc_link` using the VPC Link identifier. For example:
  * 
- *  to = aws_apigatewayv2_vpc_link.example
- * 
- *  id = &#34;aabbccddee&#34; } Using `pulumi import`, import `aws_apigatewayv2_vpc_link` using the VPC Link identifier. For exampleconsole % pulumi import aws_apigatewayv2_vpc_link.example aabbccddee
+ * ```sh
+ *  $ pulumi import aws:apigatewayv2/vpcLink:VpcLink example aabbccddee
+ * ```
  * 
  */
 @ResourceType(type="aws:apigatewayv2/vpcLink:VpcLink")

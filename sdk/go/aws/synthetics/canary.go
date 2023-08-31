@@ -51,11 +51,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Synthetics Canaries using the `name`. For example:
 //
-//	to = aws_synthetics_canary.some
+// ```sh
 //
-//	id = "some-canary" } Using `pulumi import`, import Synthetics Canaries using the `name`. For exampleconsole % pulumi import aws_synthetics_canary.some some-canary
+//	$ pulumi import aws:synthetics/canary:Canary some some-canary
+//
+// ```
 type Canary struct {
 	pulumi.CustomResourceState
 

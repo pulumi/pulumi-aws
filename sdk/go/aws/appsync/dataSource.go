@@ -119,11 +119,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import `aws_appsync_datasource` using the `api_id`, a hyphen, and `name`. For example:
 //
-//	to = aws_appsync_datasource.example
+// ```sh
 //
-//	id = "abcdef123456-example" } Using `pulumi import`, import `aws_appsync_datasource` using the `api_id`, a hyphen, and `name`. For exampleconsole % pulumi import aws_appsync_datasource.example abcdef123456-example
+//	$ pulumi import aws:appsync/dataSource:DataSource example abcdef123456-example
+//
+// ```
 type DataSource struct {
 	pulumi.CustomResourceState
 

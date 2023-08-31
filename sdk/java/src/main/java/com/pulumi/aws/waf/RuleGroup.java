@@ -67,11 +67,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import WAF Rule Group using the id. For example:
  * 
- *  to = aws_waf_rule_group.example
- * 
- *  id = &#34;a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc&#34; } Using `pulumi import`, import WAF Rule Group using the id. For exampleconsole % pulumi import aws_waf_rule_group.example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+ * ```sh
+ *  $ pulumi import aws:waf/ruleGroup:RuleGroup example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+ * ```
  * 
  */
 @ResourceType(type="aws:waf/ruleGroup:RuleGroup")

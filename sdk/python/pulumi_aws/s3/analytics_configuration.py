@@ -210,11 +210,11 @@ class AnalyticsConfiguration(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import S3 bucket analytics configurations using `bucket:analytics`. For example:
 
-         to = aws_s3_bucket_analytics_configuration.my-bucket-entire-bucket
-
-         id = "my-bucket:EntireBucket" } Using `pulumi import`, import S3 bucket analytics configurations using `bucket:analytics`. For exampleconsole % pulumi import aws_s3_bucket_analytics_configuration.my-bucket-entire-bucket my-bucket:EntireBucket
+        ```sh
+         $ pulumi import aws:s3/analyticsConfiguration:AnalyticsConfiguration my-bucket-entire-bucket my-bucket:EntireBucket
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -273,11 +273,11 @@ class AnalyticsConfiguration(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import S3 bucket analytics configurations using `bucket:analytics`. For example:
 
-         to = aws_s3_bucket_analytics_configuration.my-bucket-entire-bucket
-
-         id = "my-bucket:EntireBucket" } Using `pulumi import`, import S3 bucket analytics configurations using `bucket:analytics`. For exampleconsole % pulumi import aws_s3_bucket_analytics_configuration.my-bucket-entire-bucket my-bucket:EntireBucket
+        ```sh
+         $ pulumi import aws:s3/analyticsConfiguration:AnalyticsConfiguration my-bucket-entire-bucket my-bucket:EntireBucket
+        ```
 
         :param str resource_name: The name of the resource.
         :param AnalyticsConfigurationArgs args: The arguments to use to populate this resource's properties.

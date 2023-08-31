@@ -36,13 +36,13 @@ namespace Pulumi.Aws.Route53
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import
     /// 
-    ///  to = aws_route53_resolver_query_log_config.example
+    /// Route 53 Resolver query logging configurations using the Route 53 Resolver query logging configuration ID. For example:
     /// 
-    ///  id = "rqlc-92edc3b1838248bf" } Using `pulumi import`, import
-    /// 
-    /// Route 53 Resolver query logging configurations using the Route 53 Resolver query logging configuration ID. For exampleconsole % pulumi import aws_route53_resolver_query_log_config.example rqlc-92edc3b1838248bf
+    /// ```sh
+    ///  $ pulumi import aws:route53/resolverQueryLogConfig:ResolverQueryLogConfig example rqlc-92edc3b1838248bf
+    /// ```
     /// </summary>
     [AwsResourceType("aws:route53/resolverQueryLogConfig:ResolverQueryLogConfig")]
     public partial class ResolverQueryLogConfig : global::Pulumi.CustomResource

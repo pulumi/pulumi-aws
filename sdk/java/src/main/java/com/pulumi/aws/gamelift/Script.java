@@ -56,11 +56,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import GameLift Scripts using the ID. For example:
  * 
- *  to = aws_gamelift_script.example
- * 
- *  id = &#34;&lt;script-id&gt;&#34; } Using `pulumi import`, import GameLift Scripts using the ID. For exampleconsole % pulumi import aws_gamelift_script.example &lt;script-id&gt;
+ * ```sh
+ *  $ pulumi import aws:gamelift/script:Script example &lt;script-id&gt;
+ * ```
  * 
  */
 @ResourceType(type="aws:gamelift/script:Script")

@@ -87,11 +87,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import `aws_ce_cost_category` using the id. For example:
  * 
- *  to = aws_ce_cost_category.example
- * 
- *  id = &#34;costCategoryARN&#34; } Using `pulumi import`, import `aws_ce_cost_category` using the id. For exampleconsole % pulumi import aws_ce_cost_category.example costCategoryARN
+ * ```sh
+ *  $ pulumi import aws:costexplorer/costCategory:CostCategory example costCategoryARN
+ * ```
  * 
  */
 @ResourceType(type="aws:costexplorer/costCategory:CostCategory")

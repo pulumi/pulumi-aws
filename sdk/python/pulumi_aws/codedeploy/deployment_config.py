@@ -256,11 +256,11 @@ class DeploymentConfig(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import CodeDeploy Deployment Configurations using the `deployment_config_name`. For example:
 
-         to = aws_codedeploy_deployment_config.example
-
-         id = "my-deployment-config" } Using `pulumi import`, import CodeDeploy Deployment Configurations using the `deployment_config_name`. For exampleconsole % pulumi import aws_codedeploy_deployment_config.example my-deployment-config
+        ```sh
+         $ pulumi import aws:codedeploy/deploymentConfig:DeploymentConfig example my-deployment-config
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -348,11 +348,11 @@ class DeploymentConfig(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import CodeDeploy Deployment Configurations using the `deployment_config_name`. For example:
 
-         to = aws_codedeploy_deployment_config.example
-
-         id = "my-deployment-config" } Using `pulumi import`, import CodeDeploy Deployment Configurations using the `deployment_config_name`. For exampleconsole % pulumi import aws_codedeploy_deployment_config.example my-deployment-config
+        ```sh
+         $ pulumi import aws:codedeploy/deploymentConfig:DeploymentConfig example my-deployment-config
+        ```
 
         :param str resource_name: The name of the resource.
         :param DeploymentConfigArgs args: The arguments to use to populate this resource's properties.

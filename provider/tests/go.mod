@@ -12,7 +12,7 @@ replace (
 
 require (
 	github.com/pulumi/pulumi-aws/provider/v6 v6.0.0-00010101000000-000000000000
-	github.com/pulumi/pulumi-terraform-bridge/pf v0.15.2
+	github.com/pulumi/pulumi-terraform-bridge/pf v0.16.0
 	github.com/pulumi/pulumi-terraform-bridge/testing v0.0.1
 	github.com/stretchr/testify v1.8.4
 )
@@ -170,7 +170,7 @@ require (
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/pkg/term v1.1.0 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.56.2 // indirect
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.58.0 // indirect
 	github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.7-0.20230801203955-5d215c892096 // indirect
 	github.com/pulumi/pulumi/pkg/v3 v3.76.1 // indirect
 	github.com/pulumi/pulumi/sdk/v3 v3.76.1 // indirect

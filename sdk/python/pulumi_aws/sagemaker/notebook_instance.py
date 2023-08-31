@@ -668,11 +668,11 @@ class NotebookInstance(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import SageMaker Notebook Instances using the `name`. For example:
 
-         to = aws_sagemaker_notebook_instance.test_notebook_instance
-
-         id = "my-notebook-instance" } Using `pulumi import`, import SageMaker Notebook Instances using the `name`. For exampleconsole % pulumi import aws_sagemaker_notebook_instance.test_notebook_instance my-notebook-instance
+        ```sh
+         $ pulumi import aws:sagemaker/notebookInstance:NotebookInstance test_notebook_instance my-notebook-instance
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -739,11 +739,11 @@ class NotebookInstance(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import SageMaker Notebook Instances using the `name`. For example:
 
-         to = aws_sagemaker_notebook_instance.test_notebook_instance
-
-         id = "my-notebook-instance" } Using `pulumi import`, import SageMaker Notebook Instances using the `name`. For exampleconsole % pulumi import aws_sagemaker_notebook_instance.test_notebook_instance my-notebook-instance
+        ```sh
+         $ pulumi import aws:sagemaker/notebookInstance:NotebookInstance test_notebook_instance my-notebook-instance
+        ```
 
         :param str resource_name: The name of the resource.
         :param NotebookInstanceArgs args: The arguments to use to populate this resource's properties.

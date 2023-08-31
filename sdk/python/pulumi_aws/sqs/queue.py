@@ -756,11 +756,11 @@ class Queue(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import SQS Queues using the queue `url`. For example:
 
-         to = aws_sqs_queue.public_queue
-
-         id = "https://queue.amazonaws.com/80398EXAMPLE/MyQueue" } Using `pulumi import`, import SQS Queues using the queue `url`. For exampleconsole % pulumi import aws_sqs_queue.public_queue https://queue.amazonaws.com/80398EXAMPLE/MyQueue
+        ```sh
+         $ pulumi import aws:sqs/queue:Queue public_queue https://queue.amazonaws.com/80398EXAMPLE/MyQueue
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -870,11 +870,11 @@ class Queue(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import SQS Queues using the queue `url`. For example:
 
-         to = aws_sqs_queue.public_queue
-
-         id = "https://queue.amazonaws.com/80398EXAMPLE/MyQueue" } Using `pulumi import`, import SQS Queues using the queue `url`. For exampleconsole % pulumi import aws_sqs_queue.public_queue https://queue.amazonaws.com/80398EXAMPLE/MyQueue
+        ```sh
+         $ pulumi import aws:sqs/queue:Queue public_queue https://queue.amazonaws.com/80398EXAMPLE/MyQueue
+        ```
 
         :param str resource_name: The name of the resource.
         :param QueueArgs args: The arguments to use to populate this resource's properties.

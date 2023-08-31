@@ -139,11 +139,11 @@ class EncryptionConfig(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import XRay Encryption Config using the region name. For example:
 
-         to = aws_xray_encryption_config.example
-
-         id = "us-west-2" } Using `pulumi import`, import XRay Encryption Config using the region name. For exampleconsole % pulumi import aws_xray_encryption_config.example us-west-2
+        ```sh
+         $ pulumi import aws:xray/encryptionConfig:EncryptionConfig example us-west-2
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -197,11 +197,11 @@ class EncryptionConfig(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import XRay Encryption Config using the region name. For example:
 
-         to = aws_xray_encryption_config.example
-
-         id = "us-west-2" } Using `pulumi import`, import XRay Encryption Config using the region name. For exampleconsole % pulumi import aws_xray_encryption_config.example us-west-2
+        ```sh
+         $ pulumi import aws:xray/encryptionConfig:EncryptionConfig example us-west-2
+        ```
 
         :param str resource_name: The name of the resource.
         :param EncryptionConfigArgs args: The arguments to use to populate this resource's properties.

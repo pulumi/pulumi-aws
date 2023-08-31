@@ -36,11 +36,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import Backup Plan using the `id`. For example:
  *
- *  to = aws_backup_plan.test
- *
- *  id = "<id>" } Using `pulumi import`, import Backup Plan using the `id`. For exampleconsole % pulumi import aws_backup_plan.test <id>
+ * ```sh
+ *  $ pulumi import aws:backup/plan:Plan test <id>
+ * ```
  */
 export class Plan extends pulumi.CustomResource {
     /**

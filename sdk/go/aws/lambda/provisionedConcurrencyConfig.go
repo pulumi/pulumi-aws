@@ -74,11 +74,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import a Lambda Provisioned Concurrency Configuration using the `function_name` and `qualifier` separated by a comma (`,`). For example:
 //
-//	to = aws_lambda_provisioned_concurrency_config.example
+// ```sh
 //
-//	id = "my_function,production" } Using `pulumi import`, import a Lambda Provisioned Concurrency Configuration using the `function_name` and `qualifier` separated by a comma (`,`). For exampleconsole % pulumi import aws_lambda_provisioned_concurrency_config.example my_function,production
+//	$ pulumi import aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig example my_function,production
+//
+// ```
 type ProvisionedConcurrencyConfig struct {
 	pulumi.CustomResourceState
 

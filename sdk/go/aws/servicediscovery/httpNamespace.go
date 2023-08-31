@@ -39,11 +39,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Service Discovery HTTP Namespace using the namespace ID. For example:
 //
-//	to = aws_service_discovery_http_namespace.example
+// ```sh
 //
-//	id = "ns-1234567890" } Using `pulumi import`, import Service Discovery HTTP Namespace using the namespace ID. For exampleconsole % pulumi import aws_service_discovery_http_namespace.example ns-1234567890
+//	$ pulumi import aws:servicediscovery/httpNamespace:HttpNamespace example ns-1234567890
+//
+// ```
 type HttpNamespace struct {
 	pulumi.CustomResourceState
 

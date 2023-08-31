@@ -125,11 +125,11 @@ class LbHttpsRedirectionPolicy(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_lightsail_lb_https_redirection_policy` using the `lb_name` attribute. For example:
 
-         to = aws_lightsail_lb_https_redirection_policy.test
-
-         id = "example-load-balancer" } Using `pulumi import`, import `aws_lightsail_lb_https_redirection_policy` using the `lb_name` attribute. For exampleconsole % pulumi import aws_lightsail_lb_https_redirection_policy.test example-load-balancer
+        ```sh
+         $ pulumi import aws:lightsail/lbHttpsRedirectionPolicy:LbHttpsRedirectionPolicy test example-load-balancer
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -170,11 +170,11 @@ class LbHttpsRedirectionPolicy(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_lightsail_lb_https_redirection_policy` using the `lb_name` attribute. For example:
 
-         to = aws_lightsail_lb_https_redirection_policy.test
-
-         id = "example-load-balancer" } Using `pulumi import`, import `aws_lightsail_lb_https_redirection_policy` using the `lb_name` attribute. For exampleconsole % pulumi import aws_lightsail_lb_https_redirection_policy.test example-load-balancer
+        ```sh
+         $ pulumi import aws:lightsail/lbHttpsRedirectionPolicy:LbHttpsRedirectionPolicy test example-load-balancer
+        ```
 
         :param str resource_name: The name of the resource.
         :param LbHttpsRedirectionPolicyArgs args: The arguments to use to populate this resource's properties.

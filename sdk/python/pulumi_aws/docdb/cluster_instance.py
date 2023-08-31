@@ -784,11 +784,11 @@ class ClusterInstance(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import DocumentDB Cluster Instances using the `identifier`. For example:
 
-         to = aws_docdb_cluster_instance.prod_instance_1
-
-         id = "aurora-cluster-instance-1" } Using `pulumi import`, import DocumentDB Cluster Instances using the `identifier`. For exampleconsole % pulumi import aws_docdb_cluster_instance.prod_instance_1 aurora-cluster-instance-1
+        ```sh
+         $ pulumi import aws:docdb/clusterInstance:ClusterInstance prod_instance_1 aurora-cluster-instance-1
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -865,11 +865,11 @@ class ClusterInstance(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import DocumentDB Cluster Instances using the `identifier`. For example:
 
-         to = aws_docdb_cluster_instance.prod_instance_1
-
-         id = "aurora-cluster-instance-1" } Using `pulumi import`, import DocumentDB Cluster Instances using the `identifier`. For exampleconsole % pulumi import aws_docdb_cluster_instance.prod_instance_1 aurora-cluster-instance-1
+        ```sh
+         $ pulumi import aws:docdb/clusterInstance:ClusterInstance prod_instance_1 aurora-cluster-instance-1
+        ```
 
         :param str resource_name: The name of the resource.
         :param ClusterInstanceArgs args: The arguments to use to populate this resource's properties.

@@ -55,11 +55,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import `aws_servicecatalog_service_action` using the service action ID. For example:
  * 
- *  to = aws_servicecatalog_service_action.example
- * 
- *  id = &#34;act-f1w12eperfslh&#34; } Using `pulumi import`, import `aws_servicecatalog_service_action` using the service action ID. For exampleconsole % pulumi import aws_servicecatalog_service_action.example act-f1w12eperfslh
+ * ```sh
+ *  $ pulumi import aws:servicecatalog/serviceAction:ServiceAction example act-f1w12eperfslh
+ * ```
  * 
  */
 @ResourceType(type="aws:servicecatalog/serviceAction:ServiceAction")

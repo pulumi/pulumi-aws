@@ -77,11 +77,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import S3 bucket policies using the bucket name. For example:
 //
-//	to = aws_s3_bucket_policy.allow_access_from_another_account
+// ```sh
 //
-//	id = "my-tf-test-bucket" } Using `pulumi import`, import S3 bucket policies using the bucket name. For exampleconsole % pulumi import aws_s3_bucket_policy.allow_access_from_another_account my-tf-test-bucket
+//	$ pulumi import aws:s3/bucketPolicy:BucketPolicy allow_access_from_another_account my-tf-test-bucket
+//
+// ```
 type BucketPolicy struct {
 	pulumi.CustomResourceState
 

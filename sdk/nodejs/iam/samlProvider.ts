@@ -19,11 +19,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import IAM SAML Providers using the `arn`. For example:
  *
- *  to = aws_iam_saml_provider.default
- *
- *  id = "arn:aws:iam::123456789012:saml-provider/SAMLADFS" } Using `pulumi import`, import IAM SAML Providers using the `arn`. For exampleconsole % pulumi import aws_iam_saml_provider.default arn:aws:iam::123456789012:saml-provider/SAMLADFS
+ * ```sh
+ *  $ pulumi import aws:iam/samlProvider:SamlProvider default arn:aws:iam::123456789012:saml-provider/SAMLADFS
+ * ```
  */
 export class SamlProvider extends pulumi.CustomResource {
     /**

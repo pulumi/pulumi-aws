@@ -220,11 +220,11 @@ class PublicKey(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import CloudFront Public Key using the `id`. For example:
 
-         to = aws_cloudfront_public_key.example
-
-         id = "K3D5EWEUDCCXON" } Using `pulumi import`, import CloudFront Public Key using the `id`. For exampleconsole % pulumi import aws_cloudfront_public_key.example K3D5EWEUDCCXON
+        ```sh
+         $ pulumi import aws:cloudfront/publicKey:PublicKey example K3D5EWEUDCCXON
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -257,11 +257,11 @@ class PublicKey(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import CloudFront Public Key using the `id`. For example:
 
-         to = aws_cloudfront_public_key.example
-
-         id = "K3D5EWEUDCCXON" } Using `pulumi import`, import CloudFront Public Key using the `id`. For exampleconsole % pulumi import aws_cloudfront_public_key.example K3D5EWEUDCCXON
+        ```sh
+         $ pulumi import aws:cloudfront/publicKey:PublicKey example K3D5EWEUDCCXON
+        ```
 
         :param str resource_name: The name of the resource.
         :param PublicKeyArgs args: The arguments to use to populate this resource's properties.

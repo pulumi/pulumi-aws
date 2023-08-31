@@ -91,11 +91,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import `aws_apigatewayv2_authorizer` using the API identifier and authorizer identifier. For example:
  * 
- *  to = aws_apigatewayv2_authorizer.example
- * 
- *  id = &#34;aabbccddee/1122334&#34; } Using `pulumi import`, import `aws_apigatewayv2_authorizer` using the API identifier and authorizer identifier. For exampleconsole % pulumi import aws_apigatewayv2_authorizer.example aabbccddee/1122334
+ * ```sh
+ *  $ pulumi import aws:apigatewayv2/authorizer:Authorizer example aabbccddee/1122334
+ * ```
  * 
  */
 @ResourceType(type="aws:apigatewayv2/authorizer:Authorizer")

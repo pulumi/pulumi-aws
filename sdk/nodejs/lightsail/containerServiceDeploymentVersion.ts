@@ -51,11 +51,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import Lightsail Container Service Deployment Version using the `service_name` and `version` separated by a slash (`/`). For example:
  *
- *  to = aws_lightsail_container_service_deployment_version.example
- *
- *  id = "container-service-1/1" } Using `pulumi import`, import Lightsail Container Service Deployment Version using the `service_name` and `version` separated by a slash (`/`). For exampleconsole % pulumi import aws_lightsail_container_service_deployment_version.example container-service-1/1
+ * ```sh
+ *  $ pulumi import aws:lightsail/containerServiceDeploymentVersion:ContainerServiceDeploymentVersion example container-service-1/1
+ * ```
  */
 export class ContainerServiceDeploymentVersion extends pulumi.CustomResource {
     /**

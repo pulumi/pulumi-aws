@@ -64,11 +64,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Network Insights Analyses using the `id`. For example:
  * 
- *  to = aws_ec2_network_insights_analysis.test
- * 
- *  id = &#34;nia-0462085c957f11a55&#34; } Using `pulumi import`, import Network Insights Analyses using the `id`. For exampleconsole % pulumi import aws_ec2_network_insights_analysis.test nia-0462085c957f11a55
+ * ```sh
+ *  $ pulumi import aws:ec2/networkInsightsAnalysis:NetworkInsightsAnalysis test nia-0462085c957f11a55
+ * ```
  * 
  */
 @ResourceType(type="aws:ec2/networkInsightsAnalysis:NetworkInsightsAnalysis")

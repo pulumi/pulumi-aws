@@ -467,11 +467,11 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Chime SDK Media Pipelines Media Insights Pipeline Configuration using the `id`. For example:
 
-         to = aws_chimesdkmediapipelines_media_insights_pipeline_configuration.example
-
-         id = "abcdef123456" } Using `pulumi import`, import Chime SDK Media Pipelines Media Insights Pipeline Configuration using the `id`. For exampleconsole % pulumi import aws_chimesdkmediapipelines_media_insights_pipeline_configuration.example abcdef123456
+        ```sh
+         $ pulumi import aws:chimesdkmediapipelines/mediaInsightsPipelineConfiguration:MediaInsightsPipelineConfiguration example abcdef123456
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -728,11 +728,11 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Chime SDK Media Pipelines Media Insights Pipeline Configuration using the `id`. For example:
 
-         to = aws_chimesdkmediapipelines_media_insights_pipeline_configuration.example
-
-         id = "abcdef123456" } Using `pulumi import`, import Chime SDK Media Pipelines Media Insights Pipeline Configuration using the `id`. For exampleconsole % pulumi import aws_chimesdkmediapipelines_media_insights_pipeline_configuration.example abcdef123456
+        ```sh
+         $ pulumi import aws:chimesdkmediapipelines/mediaInsightsPipelineConfiguration:MediaInsightsPipelineConfiguration example abcdef123456
+        ```
 
         :param str resource_name: The name of the resource.
         :param MediaInsightsPipelineConfigurationArgs args: The arguments to use to populate this resource's properties.

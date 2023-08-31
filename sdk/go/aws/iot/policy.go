@@ -60,11 +60,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import IoT policies using the `name`. For example:
 //
-//	to = aws_iot_policy.pubsub
+// ```sh
 //
-//	id = "PubSubToAnyTopic" } Using `pulumi import`, import IoT policies using the `name`. For exampleconsole % pulumi import aws_iot_policy.pubsub PubSubToAnyTopic
+//	$ pulumi import aws:iot/policy:Policy pubsub PubSubToAnyTopic
+//
+// ```
 type Policy struct {
 	pulumi.CustomResourceState
 

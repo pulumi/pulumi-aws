@@ -66,11 +66,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import `aws_transfer_tag` using the Transfer Family resource identifier and key, separated by a comma (`,`). For example:
  * 
- *  to = aws_transfer_tag.example
- * 
- *  id = &#34;arn:aws:transfer:us-east-1:123456789012:server/s-1234567890abcdef0,Name&#34; } Using `pulumi import`, import `aws_transfer_tag` using the Transfer Family resource identifier and key, separated by a comma (`,`). For exampleconsole % pulumi import aws_transfer_tag.example arn:aws:transfer:us-east-1:123456789012:server/s-1234567890abcdef0,Name
+ * ```sh
+ *  $ pulumi import aws:transfer/tag:Tag example arn:aws:transfer:us-east-1:123456789012:server/s-1234567890abcdef0,Name
+ * ```
  * 
  */
 @ResourceType(type="aws:transfer/tag:Tag")

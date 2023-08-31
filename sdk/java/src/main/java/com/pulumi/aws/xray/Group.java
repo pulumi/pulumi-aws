@@ -57,11 +57,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import XRay Groups using the ARN. For example:
  * 
- *  to = aws_xray_group.example
- * 
- *  id = &#34;arn:aws:xray:us-west-2:1234567890:group/example-group/TNGX7SW5U6QY36T4ZMOUA3HVLBYCZTWDIOOXY3CJAXTHSS3YCWUA&#34; } Using `pulumi import`, import XRay Groups using the ARN. For exampleconsole % pulumi import aws_xray_group.example arn:aws:xray:us-west-2:1234567890:group/example-group/TNGX7SW5U6QY36T4ZMOUA3HVLBYCZTWDIOOXY3CJAXTHSS3YCWUA
+ * ```sh
+ *  $ pulumi import aws:xray/group:Group example arn:aws:xray:us-west-2:1234567890:group/example-group/TNGX7SW5U6QY36T4ZMOUA3HVLBYCZTWDIOOXY3CJAXTHSS3YCWUA
+ * ```
  * 
  */
 @ResourceType(type="aws:xray/group:Group")

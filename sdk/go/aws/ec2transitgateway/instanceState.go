@@ -79,11 +79,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import `aws_ec2_instance_state` using the `instance_id` attribute. For example:
 //
-//	to = aws_ec2_instance_state.test
+// ```sh
 //
-//	id = "i-02cae6557dfcf2f96" } Using `pulumi import`, import `aws_ec2_instance_state` using the `instance_id` attribute. For exampleconsole % pulumi import aws_ec2_instance_state.test i-02cae6557dfcf2f96
+//	$ pulumi import aws:ec2transitgateway/instanceState:InstanceState test i-02cae6557dfcf2f96
+//
+// ```
 type InstanceState struct {
 	pulumi.CustomResourceState
 

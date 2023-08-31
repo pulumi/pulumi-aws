@@ -114,11 +114,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import S3 bucket using the `bucket`. For example:
  * 
- *  to = aws_s3_bucket.bucket
- * 
- *  id = &#34;bucket-name&#34; } Using `pulumi import`, import S3 bucket using the `bucket`. For exampleconsole % pulumi import aws_s3_bucket.bucket bucket-name
+ * ```sh
+ *  $ pulumi import aws:s3/bucketV2:BucketV2 bucket bucket-name
+ * ```
  * 
  */
 @ResourceType(type="aws:s3/bucketV2:BucketV2")

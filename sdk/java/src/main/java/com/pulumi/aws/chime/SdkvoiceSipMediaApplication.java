@@ -56,11 +56,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import a ChimeSDKVoice SIP Media Application using the `id`. For example:
  * 
- *  to = aws_chimesdkvoice_sip_media_application.example
- * 
- *  id = &#34;abcdef123456&#34; } Using `pulumi import`, import a ChimeSDKVoice SIP Media Application using the `id`. For exampleconsole % pulumi import aws_chimesdkvoice_sip_media_application.example abcdef123456
+ * ```sh
+ *  $ pulumi import aws:chime/sdkvoiceSipMediaApplication:SdkvoiceSipMediaApplication example abcdef123456
+ * ```
  * 
  */
 @ResourceType(type="aws:chime/sdkvoiceSipMediaApplication:SdkvoiceSipMediaApplication")

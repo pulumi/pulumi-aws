@@ -57,11 +57,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Chime Voice Connector Termination using the `voice_connector_id`. For example:
 //
-//	to = aws_chime_voice_connector_termination.default
+// ```sh
 //
-//	id = "abcdef1ghij2klmno3pqr4" } Using `pulumi import`, import Chime Voice Connector Termination using the `voice_connector_id`. For exampleconsole % pulumi import aws_chime_voice_connector_termination.default abcdef1ghij2klmno3pqr4
+//	$ pulumi import aws:chime/voiceConnectorTermination:VoiceConnectorTermination default abcdef1ghij2klmno3pqr4
+//
+// ```
 type VoiceConnectorTermination struct {
 	pulumi.CustomResourceState
 

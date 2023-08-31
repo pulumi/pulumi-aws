@@ -569,11 +569,11 @@ class InfrastructureConfiguration(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_imagebuilder_infrastructure_configuration` using the Amazon Resource Name (ARN). For example:
 
-         to = aws_imagebuilder_infrastructure_configuration.example
-
-         id = "arn:aws:imagebuilder:us-east-1:123456789012:infrastructure-configuration/example" } Using `pulumi import`, import `aws_imagebuilder_infrastructure_configuration` using the Amazon Resource Name (ARN). For exampleconsole % pulumi import aws_imagebuilder_infrastructure_configuration.example arn:aws:imagebuilder:us-east-1:123456789012:infrastructure-configuration/example
+        ```sh
+         $ pulumi import aws:imagebuilder/infrastructureConfiguration:InfrastructureConfiguration example arn:aws:imagebuilder:us-east-1:123456789012:infrastructure-configuration/example
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -633,11 +633,11 @@ class InfrastructureConfiguration(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_imagebuilder_infrastructure_configuration` using the Amazon Resource Name (ARN). For example:
 
-         to = aws_imagebuilder_infrastructure_configuration.example
-
-         id = "arn:aws:imagebuilder:us-east-1:123456789012:infrastructure-configuration/example" } Using `pulumi import`, import `aws_imagebuilder_infrastructure_configuration` using the Amazon Resource Name (ARN). For exampleconsole % pulumi import aws_imagebuilder_infrastructure_configuration.example arn:aws:imagebuilder:us-east-1:123456789012:infrastructure-configuration/example
+        ```sh
+         $ pulumi import aws:imagebuilder/infrastructureConfiguration:InfrastructureConfiguration example arn:aws:imagebuilder:us-east-1:123456789012:infrastructure-configuration/example
+        ```
 
         :param str resource_name: The name of the resource.
         :param InfrastructureConfigurationArgs args: The arguments to use to populate this resource's properties.

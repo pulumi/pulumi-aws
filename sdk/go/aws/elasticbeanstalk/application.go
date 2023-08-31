@@ -51,11 +51,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Elastic Beanstalk Applications using the `name`. For example:
 //
-//	to = aws_elastic_beanstalk_application.tf_test
+// ```sh
 //
-//	id = "tf-test-name" } Using `pulumi import`, import Elastic Beanstalk Applications using the `name`. For exampleconsole % pulumi import aws_elastic_beanstalk_application.tf_test tf-test-name
+//	$ pulumi import aws:elasticbeanstalk/application:Application tf_test tf-test-name
+//
+// ```
 type Application struct {
 	pulumi.CustomResourceState
 

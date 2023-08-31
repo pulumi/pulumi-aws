@@ -263,11 +263,11 @@ class DomainAssociation(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Amplify domain association using `app_id` and `domain_name`. For example:
 
-         to = aws_amplify_domain_association.app
-
-         id = "d2ypk4k47z8u6/example.com" } Using `pulumi import`, import Amplify domain association using `app_id` and `domain_name`. For exampleconsole % pulumi import aws_amplify_domain_association.app d2ypk4k47z8u6/example.com
+        ```sh
+         $ pulumi import aws:amplify/domainAssociation:DomainAssociation app d2ypk4k47z8u6/example.com
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -317,11 +317,11 @@ class DomainAssociation(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Amplify domain association using `app_id` and `domain_name`. For example:
 
-         to = aws_amplify_domain_association.app
-
-         id = "d2ypk4k47z8u6/example.com" } Using `pulumi import`, import Amplify domain association using `app_id` and `domain_name`. For exampleconsole % pulumi import aws_amplify_domain_association.app d2ypk4k47z8u6/example.com
+        ```sh
+         $ pulumi import aws:amplify/domainAssociation:DomainAssociation app d2ypk4k47z8u6/example.com
+        ```
 
         :param str resource_name: The name of the resource.
         :param DomainAssociationArgs args: The arguments to use to populate this resource's properties.

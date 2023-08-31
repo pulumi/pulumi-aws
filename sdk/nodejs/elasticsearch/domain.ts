@@ -163,11 +163,11 @@ import {PolicyDocument} from "../iam";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import Elasticsearch domains using the `domain_name`. For example:
  *
- *  to = aws_elasticsearch_domain.example
- *
- *  id = "domain_name" } Using `pulumi import`, import Elasticsearch domains using the `domain_name`. For exampleconsole % pulumi import aws_elasticsearch_domain.example domain_name
+ * ```sh
+ *  $ pulumi import aws:elasticsearch/domain:Domain example domain_name
+ * ```
  */
 export class Domain extends pulumi.CustomResource {
     /**

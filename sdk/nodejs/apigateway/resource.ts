@@ -25,11 +25,11 @@ import {RestApi} from "./index";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import `aws_api_gateway_resource` using `REST-API-ID/RESOURCE-ID`. For example:
  *
- *  to = aws_api_gateway_resource.example
- *
- *  id = "12345abcde/67890fghij" } Using `pulumi import`, import `aws_api_gateway_resource` using `REST-API-ID/RESOURCE-ID`. For exampleconsole % pulumi import aws_api_gateway_resource.example 12345abcde/67890fghij
+ * ```sh
+ *  $ pulumi import aws:apigateway/resource:Resource example 12345abcde/67890fghij
+ * ```
  */
 export class Resource extends pulumi.CustomResource {
     /**

@@ -171,11 +171,11 @@ class AccountRegistration(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Audit Manager Account Registration resources using the `id`. For example:
 
-         to = aws_auditmanager_account_registration.example
-
-         id = "us-east-1" } Using `pulumi import`, import Audit Manager Account Registration resources using the `id`. For exampleconsole % pulumi import aws_auditmanager_account_registration.example us-east-1
+        ```sh
+         $ pulumi import aws:auditmanager/accountRegistration:AccountRegistration example us-east-1
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -212,11 +212,11 @@ class AccountRegistration(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Audit Manager Account Registration resources using the `id`. For example:
 
-         to = aws_auditmanager_account_registration.example
-
-         id = "us-east-1" } Using `pulumi import`, import Audit Manager Account Registration resources using the `id`. For exampleconsole % pulumi import aws_auditmanager_account_registration.example us-east-1
+        ```sh
+         $ pulumi import aws:auditmanager/accountRegistration:AccountRegistration example us-east-1
+        ```
 
         :param str resource_name: The name of the resource.
         :param AccountRegistrationArgs args: The arguments to use to populate this resource's properties.

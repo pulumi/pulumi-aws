@@ -66,11 +66,11 @@ import {RestApi} from "./index";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import AWS API Gateway Authorizer using the `REST-API-ID/AUTHORIZER-ID`. For example:
  *
- *  to = aws_api_gateway_authorizer.authorizer
- *
- *  id = "12345abcde/example" } Using `pulumi import`, import AWS API Gateway Authorizer using the `REST-API-ID/AUTHORIZER-ID`. For exampleconsole % pulumi import aws_api_gateway_authorizer.authorizer 12345abcde/example
+ * ```sh
+ *  $ pulumi import aws:apigateway/authorizer:Authorizer authorizer 12345abcde/example
+ * ```
  */
 export class Authorizer extends pulumi.CustomResource {
     /**

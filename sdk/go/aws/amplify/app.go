@@ -197,11 +197,15 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Amplify App using Amplify App ID (appId). For example:
 //
-//	to = aws_amplify_app.example
+// ```sh
 //
-//	id = "d2ypk4k47z8u6" } Using `pulumi import`, import Amplify App using Amplify App ID (appId). For exampleconsole % pulumi import aws_amplify_app.example d2ypk4k47z8u6 App ID can be obtained from App ARN (e.g., `arn:aws:amplify:us-east-1:12345678:apps/d2ypk4k47z8u6`).
+//	$ pulumi import aws:amplify/app:App example d2ypk4k47z8u6
+//
+// ```
+//
+//	App ID can be obtained from App ARN (e.g., `arn:aws:amplify:us-east-1:12345678:apps/d2ypk4k47z8u6`).
 type App struct {
 	pulumi.CustomResourceState
 

@@ -40,11 +40,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import `aws_secretsmanager_secret` using the secret Amazon Resource Name (ARN). For example:
 //
-//	to = aws_secretsmanager_secret.example
+// ```sh
 //
-//	id = "arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456" } Using `pulumi import`, import `aws_secretsmanager_secret` using the secret Amazon Resource Name (ARN). For exampleconsole % pulumi import aws_secretsmanager_secret.example arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456
+//	$ pulumi import aws:secretsmanager/secret:Secret example arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456
+//
+// ```
 type Secret struct {
 	pulumi.CustomResourceState
 

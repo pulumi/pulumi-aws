@@ -31,11 +31,11 @@ namespace Pulumi.Aws.Keyspaces
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import a keyspace using the `name`. For example:
     /// 
-    ///  to = aws_keyspaces_keyspace.example
-    /// 
-    ///  id = "my_keyspace" } Using `pulumi import`, import a keyspace using the `name`. For exampleconsole % pulumi import aws_keyspaces_keyspace.example my_keyspace
+    /// ```sh
+    ///  $ pulumi import aws:keyspaces/keyspace:Keyspace example my_keyspace
+    /// ```
     /// </summary>
     [AwsResourceType("aws:keyspaces/keyspace:Keyspace")]
     public partial class Keyspace : global::Pulumi.CustomResource

@@ -187,11 +187,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import VPN Connections using the VPN connection `id`. For example:
 //
-//	to = aws_vpn_connection.testvpnconnection
+// ```sh
 //
-//	id = "vpn-40f41529" } Using `pulumi import`, import VPN Connections using the VPN connection `id`. For exampleconsole % pulumi import aws_vpn_connection.testvpnconnection vpn-40f41529
+//	$ pulumi import aws:ec2/vpnConnection:VpnConnection testvpnconnection vpn-40f41529
+//
+// ```
 type VpnConnection struct {
 	pulumi.CustomResourceState
 

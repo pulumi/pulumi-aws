@@ -75,11 +75,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import Chime Voice Connector Streaming using the `voice_connector_id`. For example:
  *
- *  to = aws_chime_voice_connector_streaming.default
- *
- *  id = "abcdef1ghij2klmno3pqr4" } Using `pulumi import`, import Chime Voice Connector Streaming using the `voice_connector_id`. For exampleconsole % pulumi import aws_chime_voice_connector_streaming.default abcdef1ghij2klmno3pqr4
+ * ```sh
+ *  $ pulumi import aws:chime/voiceConnectorStreaming:VoiceConnectorStreaming default abcdef1ghij2klmno3pqr4
+ * ```
  */
 export class VoiceConnectorStreaming extends pulumi.CustomResource {
     /**

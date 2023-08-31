@@ -51,11 +51,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Audit Manager Framework using the framework `id`. For example:
 //
-//	to = aws_auditmanager_framework.example
+// ```sh
 //
-//	id = "abc123-de45" } Using `pulumi import`, import Audit Manager Framework using the framework `id`. For exampleconsole % pulumi import aws_auditmanager_framework.example abc123-de45
+//	$ pulumi import aws:auditmanager/framework:Framework example abc123-de45
+//
+// ```
 type Framework struct {
 	pulumi.CustomResourceState
 

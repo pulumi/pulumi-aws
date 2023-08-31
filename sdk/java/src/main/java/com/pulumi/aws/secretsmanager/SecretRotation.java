@@ -63,11 +63,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import `aws_secretsmanager_secret_rotation` using the secret Amazon Resource Name (ARN). For example:
  * 
- *  to = aws_secretsmanager_secret_rotation.example
- * 
- *  id = &#34;arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456&#34; } Using `pulumi import`, import `aws_secretsmanager_secret_rotation` using the secret Amazon Resource Name (ARN). For exampleconsole % pulumi import aws_secretsmanager_secret_rotation.example arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456
+ * ```sh
+ *  $ pulumi import aws:secretsmanager/secretRotation:SecretRotation example arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456
+ * ```
  * 
  */
 @ResourceType(type="aws:secretsmanager/secretRotation:SecretRotation")

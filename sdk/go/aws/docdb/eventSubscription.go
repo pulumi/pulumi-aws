@@ -70,11 +70,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import DocumentDB Event Subscriptions using the `name`. For example:
 //
-//	to = aws_docdb_event_subscription.example
+// ```sh
 //
-//	id = "event-sub" } Using `pulumi import`, import DocumentDB Event Subscriptions using the `name`. For exampleconsole % pulumi import aws_docdb_event_subscription.example event-sub
+//	$ pulumi import aws:docdb/eventSubscription:EventSubscription example event-sub
+//
+// ```
 type EventSubscription struct {
 	pulumi.CustomResourceState
 

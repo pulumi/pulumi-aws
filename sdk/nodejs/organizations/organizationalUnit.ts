@@ -21,11 +21,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import AWS Organizations Organizational Units using the `id`. For example:
  *
- *  to = aws_organizations_organizational_unit.example
- *
- *  id = "ou-1234567" } Using `pulumi import`, import AWS Organizations Organizational Units using the `id`. For exampleconsole % pulumi import aws_organizations_organizational_unit.example ou-1234567
+ * ```sh
+ *  $ pulumi import aws:organizations/organizationalUnit:OrganizationalUnit example ou-1234567
+ * ```
  */
 export class OrganizationalUnit extends pulumi.CustomResource {
     /**

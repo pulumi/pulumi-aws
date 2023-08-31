@@ -206,11 +206,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import VPC Peering resources using the VPC peering `id`. For example:
  * 
- *  to = aws_vpc_peering_connection.test_connection
- * 
- *  id = &#34;pcx-111aaa111&#34; } Using `pulumi import`, import VPC Peering resources using the VPC peering `id`. For exampleconsole % pulumi import aws_vpc_peering_connection.test_connection pcx-111aaa111
+ * ```sh
+ *  $ pulumi import aws:ec2/vpcPeeringConnection:VpcPeeringConnection test_connection pcx-111aaa111
+ * ```
  * 
  */
 @ResourceType(type="aws:ec2/vpcPeeringConnection:VpcPeeringConnection")

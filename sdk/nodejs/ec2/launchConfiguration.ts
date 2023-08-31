@@ -174,11 +174,11 @@ import {InstanceProfile} from "../iam";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import launch configurations using the `name`. For example:
  *
- *  to = aws_launch_configuration.as_conf
- *
- *  id = "TODO-lg-123456" } Using `pulumi import`, import launch configurations using the `name`. For exampleconsole % pulumi import aws_launch_configuration.as_conf TODO-lg-123456
+ * ```sh
+ *  $ pulumi import aws:ec2/launchConfiguration:LaunchConfiguration as_conf TODO-lg-123456
+ * ```
  */
 export class LaunchConfiguration extends pulumi.CustomResource {
     /**

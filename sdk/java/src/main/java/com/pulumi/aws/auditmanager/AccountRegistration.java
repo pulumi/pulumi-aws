@@ -77,11 +77,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Audit Manager Account Registration resources using the `id`. For example:
  * 
- *  to = aws_auditmanager_account_registration.example
- * 
- *  id = &#34;us-east-1&#34; } Using `pulumi import`, import Audit Manager Account Registration resources using the `id`. For exampleconsole % pulumi import aws_auditmanager_account_registration.example us-east-1
+ * ```sh
+ *  $ pulumi import aws:auditmanager/accountRegistration:AccountRegistration example us-east-1
+ * ```
  * 
  */
 @ResourceType(type="aws:auditmanager/accountRegistration:AccountRegistration")

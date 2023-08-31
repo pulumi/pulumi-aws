@@ -70,11 +70,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import slot types using their name. For example:
  * 
- *  to = aws_lex_slot_type.flower_types
- * 
- *  id = &#34;FlowerTypes&#34; } Using `pulumi import`, import slot types using their name. For exampleconsole % pulumi import aws_lex_slot_type.flower_types FlowerTypes
+ * ```sh
+ *  $ pulumi import aws:lex/slotType:SlotType flower_types FlowerTypes
+ * ```
  * 
  */
 @ResourceType(type="aws:lex/slotType:SlotType")

@@ -223,11 +223,11 @@ class ContainerServiceDeploymentVersion(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Lightsail Container Service Deployment Version using the `service_name` and `version` separated by a slash (`/`). For example:
 
-         to = aws_lightsail_container_service_deployment_version.example
-
-         id = "container-service-1/1" } Using `pulumi import`, import Lightsail Container Service Deployment Version using the `service_name` and `version` separated by a slash (`/`). For exampleconsole % pulumi import aws_lightsail_container_service_deployment_version.example container-service-1/1
+        ```sh
+         $ pulumi import aws:lightsail/containerServiceDeploymentVersion:ContainerServiceDeploymentVersion example container-service-1/1
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -284,11 +284,11 @@ class ContainerServiceDeploymentVersion(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Lightsail Container Service Deployment Version using the `service_name` and `version` separated by a slash (`/`). For example:
 
-         to = aws_lightsail_container_service_deployment_version.example
-
-         id = "container-service-1/1" } Using `pulumi import`, import Lightsail Container Service Deployment Version using the `service_name` and `version` separated by a slash (`/`). For exampleconsole % pulumi import aws_lightsail_container_service_deployment_version.example container-service-1/1
+        ```sh
+         $ pulumi import aws:lightsail/containerServiceDeploymentVersion:ContainerServiceDeploymentVersion example container-service-1/1
+        ```
 
         :param str resource_name: The name of the resource.
         :param ContainerServiceDeploymentVersionArgs args: The arguments to use to populate this resource's properties.

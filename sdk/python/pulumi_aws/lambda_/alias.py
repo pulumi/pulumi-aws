@@ -255,11 +255,11 @@ class Alias(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Lambda Function Aliases using the `function_name/alias`. For example:
 
-         to = aws_lambda_alias.test_lambda_alias
-
-         id = "my_test_lambda_function/my_alias" } Using `pulumi import`, import Lambda Function Aliases using the `function_name/alias`. For exampleconsole % pulumi import aws_lambda_alias.test_lambda_alias my_test_lambda_function/my_alias
+        ```sh
+         $ pulumi import aws:lambda/alias:Alias test_lambda_alias my_test_lambda_function/my_alias
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -300,11 +300,11 @@ class Alias(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Lambda Function Aliases using the `function_name/alias`. For example:
 
-         to = aws_lambda_alias.test_lambda_alias
-
-         id = "my_test_lambda_function/my_alias" } Using `pulumi import`, import Lambda Function Aliases using the `function_name/alias`. For exampleconsole % pulumi import aws_lambda_alias.test_lambda_alias my_test_lambda_function/my_alias
+        ```sh
+         $ pulumi import aws:lambda/alias:Alias test_lambda_alias my_test_lambda_function/my_alias
+        ```
 
         :param str resource_name: The name of the resource.
         :param AliasArgs args: The arguments to use to populate this resource's properties.

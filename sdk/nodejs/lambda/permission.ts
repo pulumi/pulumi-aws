@@ -170,15 +170,14 @@ import {Function} from "./index";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import Lambda permission statements using function_name/statement_id with an optional qualifier. For example:
  *
- *  to = aws_lambda_permission.test_lambda_permission
- *
- *  id = "my_test_lambda_function/AllowExecutionFromCloudWatch" } terraform import {
- *
- *  to = aws_lambda_permission.test_lambda_permission
- *
- *  id = "my_test_lambda_function:qualifier_name/AllowExecutionFromCloudWatch" } Using `pulumi import`, import Lambda permission statements using function_name/statement_id with an optional qualifier. For exampleconsole % pulumi import aws_lambda_permission.test_lambda_permission my_test_lambda_function/AllowExecutionFromCloudWatch console % pulumi import aws_lambda_permission.test_lambda_permission my_test_lambda_function:qualifier_name/AllowExecutionFromCloudWatch
+ * ```sh
+ *  $ pulumi import aws:lambda/permission:Permission test_lambda_permission my_test_lambda_function/AllowExecutionFromCloudWatch
+ * ```
+ * ```sh
+ * $ pulumi import aws:lambda/permission:Permission test_lambda_permission my_test_lambda_function:qualifier_name/AllowExecutionFromCloudWatch
+ * ```
  */
 export class Permission extends pulumi.CustomResource {
     /**

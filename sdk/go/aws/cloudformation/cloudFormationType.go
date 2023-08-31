@@ -50,11 +50,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import `aws_cloudformation_type` using the type version Amazon Resource Name (ARN). For example:
 //
-//	to = aws_cloudformation_type.example
+// ```sh
 //
-//	id = "arn:aws:cloudformation:us-east-1:123456789012:type/resource/ExampleCompany-ExampleService-ExampleType/1" } Using `pulumi import`, import `aws_cloudformation_type` using the type version Amazon Resource Name (ARN). For exampleconsole % pulumi import aws_cloudformation_type.example arn:aws:cloudformation:us-east-1:123456789012:type/resource/ExampleCompany-ExampleService-ExampleType/1
+//	$ pulumi import aws:cloudformation/cloudFormationType:CloudFormationType example arn:aws:cloudformation:us-east-1:123456789012:type/resource/ExampleCompany-ExampleService-ExampleType/1
+//
+// ```
 type CloudFormationType struct {
 	pulumi.CustomResourceState
 

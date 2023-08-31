@@ -21,11 +21,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import Route53 Resolver rule associations using the `id`. For example:
  *
- *  to = aws_route53_resolver_rule_association.example
- *
- *  id = "rslvr-rrassoc-97242eaf88example" } Using `pulumi import`, import Route53 Resolver rule associations using the `id`. For exampleconsole % pulumi import aws_route53_resolver_rule_association.example rslvr-rrassoc-97242eaf88example
+ * ```sh
+ *  $ pulumi import aws:route53/resolverRuleAssociation:ResolverRuleAssociation example rslvr-rrassoc-97242eaf88example
+ * ```
  */
 export class ResolverRuleAssociation extends pulumi.CustomResource {
     /**

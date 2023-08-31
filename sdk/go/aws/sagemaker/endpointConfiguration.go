@@ -54,11 +54,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import endpoint configurations using the `name`. For example:
 //
-//	to = aws_sagemaker_endpoint_configuration.test_endpoint_config
+// ```sh
 //
-//	id = "endpoint-config-foo" } Using `pulumi import`, import endpoint configurations using the `name`. For exampleconsole % pulumi import aws_sagemaker_endpoint_configuration.test_endpoint_config endpoint-config-foo
+//	$ pulumi import aws:sagemaker/endpointConfiguration:EndpointConfiguration test_endpoint_config endpoint-config-foo
+//
+// ```
 type EndpointConfiguration struct {
 	pulumi.CustomResourceState
 

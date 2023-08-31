@@ -49,11 +49,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Route53 Resolver rule associations using the `id`. For example:
  * 
- *  to = aws_route53_resolver_rule_association.example
- * 
- *  id = &#34;rslvr-rrassoc-97242eaf88example&#34; } Using `pulumi import`, import Route53 Resolver rule associations using the `id`. For exampleconsole % pulumi import aws_route53_resolver_rule_association.example rslvr-rrassoc-97242eaf88example
+ * ```sh
+ *  $ pulumi import aws:route53/resolverRuleAssociation:ResolverRuleAssociation example rslvr-rrassoc-97242eaf88example
+ * ```
  * 
  */
 @ResourceType(type="aws:route53/resolverRuleAssociation:ResolverRuleAssociation")

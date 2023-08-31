@@ -68,11 +68,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Synthetics Canaries using the `name`. For example:
  * 
- *  to = aws_synthetics_canary.some
- * 
- *  id = &#34;some-canary&#34; } Using `pulumi import`, import Synthetics Canaries using the `name`. For exampleconsole % pulumi import aws_synthetics_canary.some some-canary
+ * ```sh
+ *  $ pulumi import aws:synthetics/canary:Canary some some-canary
+ * ```
  * 
  */
 @ResourceType(type="aws:synthetics/canary:Canary")

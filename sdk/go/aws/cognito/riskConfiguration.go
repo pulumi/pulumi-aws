@@ -47,15 +47,27 @@ import (
 //
 // ## Import
 //
-// Import using the user pool IDterraform import {
+// Import using the user pool ID:
 //
-//	to = aws_cognito_risk_configuration.main
+// Import using the user pool ID and Client ID separated by a `:`:
 //
-//	id = "example" } Import using the user pool ID and Client ID separated by a `:`terraform import {
+// __Using `pulumi import` to import__ Cognito Risk Configurations using the user pool ID or the user pool ID and Client Id separated by a `:`. For example:
 //
-//	to = aws_cognito_risk_configuration.main
+// Import using the user pool ID:
 //
-//	id = "example:example" } **Using `pulumi import` to import** Cognito Risk Configurations using the user pool ID or the user pool ID and Client Id separated by a `:`. For exampleImport using the user pool IDconsole % pulumi import aws_cognito_risk_configuration.main example Import using the user pool ID and Client ID separated by a `:`console % pulumi import aws_cognito_risk_configuration.main example:example
+// ```sh
+//
+//	$ pulumi import aws:cognito/riskConfiguration:RiskConfiguration main example
+//
+// ```
+//
+//	Import using the user pool ID and Client ID separated by a `:`:
+//
+// ```sh
+//
+//	$ pulumi import aws:cognito/riskConfiguration:RiskConfiguration main example:example
+//
+// ```
 type RiskConfiguration struct {
 	pulumi.CustomResourceState
 

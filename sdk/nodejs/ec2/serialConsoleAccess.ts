@@ -20,11 +20,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import serial console access state. For example:
  *
- *  to = aws_ec2_serial_console_access.example
- *
- *  id = "default" } Using `pulumi import`, import serial console access state. For exampleconsole % pulumi import aws_ec2_serial_console_access.example default
+ * ```sh
+ *  $ pulumi import aws:ec2/serialConsoleAccess:SerialConsoleAccess example default
+ * ```
  */
 export class SerialConsoleAccess extends pulumi.CustomResource {
     /**

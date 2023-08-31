@@ -43,11 +43,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import `aws_datasync_agent` using the DataSync Agent Amazon Resource Name (ARN). For example:
 //
-//	to = aws_datasync_agent.example
+// ```sh
 //
-//	id = "arn:aws:datasync:us-east-1:123456789012:agent/agent-12345678901234567" } Using `pulumi import`, import `aws_datasync_agent` using the DataSync Agent Amazon Resource Name (ARN). For exampleconsole % pulumi import aws_datasync_agent.example arn:aws:datasync:us-east-1:123456789012:agent/agent-12345678901234567
+//	$ pulumi import aws:datasync/agent:Agent example arn:aws:datasync:us-east-1:123456789012:agent/agent-12345678901234567
+//
+// ```
 type Agent struct {
 	pulumi.CustomResourceState
 

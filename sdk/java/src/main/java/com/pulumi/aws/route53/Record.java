@@ -214,15 +214,22 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using the ID of the record, which is the zone identifier, record name, and record type, separated by underscores (`_`)terraform import {
+ * Using the ID of the record, which is the zone identifier, record name, and record type, separated by underscores (`_`):
  * 
- *  to = aws_route53_record.myrecord
+ * If the record also contains a set identifier, append it:
  * 
- *  id = &#34;Z4KAPRWWNC7JR_dev.example.com_NS&#34; } If the record also contains a set identifier, append itterraform import {
+ * __Using `pulumi import` to import__ Route53 Records using the ID of the record, record name, record type, and set identifier. For example:
  * 
- *  to = aws_route53_record.myrecord
+ * Using the ID of the record, which is the zone identifier, record name, and record type, separated by underscores (`_`):
  * 
- *  id = &#34;Z4KAPRWWNC7JR_dev.example.com_NS_dev&#34; } **Using `pulumi import` to import** Route53 Records using the ID of the record, record name, record type, and set identifier. For exampleUsing the ID of the record, which is the zone identifier, record name, and record type, separated by underscores (`_`)console % pulumi import aws_route53_record.myrecord Z4KAPRWWNC7JR_dev.example.com_NS If the record also contains a set identifier, append itconsole % pulumi import aws_route53_record.myrecord Z4KAPRWWNC7JR_dev.example.com_NS_dev
+ * ```sh
+ *  $ pulumi import aws:route53/record:Record myrecord Z4KAPRWWNC7JR_dev.example.com_NS
+ * ```
+ *  If the record also contains a set identifier, append it:
+ * 
+ * ```sh
+ *  $ pulumi import aws:route53/record:Record myrecord Z4KAPRWWNC7JR_dev.example.com_NS_dev
+ * ```
  * 
  */
 @ResourceType(type="aws:route53/record:Record")

@@ -160,11 +160,11 @@ class ScalingPlan(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Auto Scaling scaling plans using the `name`. For example:
 
-         to = aws_autoscalingplans_scaling_plan.example
-
-         id = "MyScale1" } Using `pulumi import`, import Auto Scaling scaling plans using the `name`. For exampleconsole % pulumi import aws_autoscalingplans_scaling_plan.example MyScale1
+        ```sh
+         $ pulumi import aws:autoscalingplans/scalingPlan:ScalingPlan example MyScale1
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -190,11 +190,11 @@ class ScalingPlan(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Auto Scaling scaling plans using the `name`. For example:
 
-         to = aws_autoscalingplans_scaling_plan.example
-
-         id = "MyScale1" } Using `pulumi import`, import Auto Scaling scaling plans using the `name`. For exampleconsole % pulumi import aws_autoscalingplans_scaling_plan.example MyScale1
+        ```sh
+         $ pulumi import aws:autoscalingplans/scalingPlan:ScalingPlan example MyScale1
+        ```
 
         :param str resource_name: The name of the resource.
         :param ScalingPlanArgs args: The arguments to use to populate this resource's properties.

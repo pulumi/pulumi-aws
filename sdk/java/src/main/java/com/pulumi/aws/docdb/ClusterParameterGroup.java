@@ -58,11 +58,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import DocumentDB Cluster Parameter Groups using the `name`. For example:
  * 
- *  to = aws_docdb_cluster_parameter_group.cluster_pg
- * 
- *  id = &#34;production-pg-1&#34; } Using `pulumi import`, import DocumentDB Cluster Parameter Groups using the `name`. For exampleconsole % pulumi import aws_docdb_cluster_parameter_group.cluster_pg production-pg-1
+ * ```sh
+ *  $ pulumi import aws:docdb/clusterParameterGroup:ClusterParameterGroup cluster_pg production-pg-1
+ * ```
  * 
  */
 @ResourceType(type="aws:docdb/clusterParameterGroup:ClusterParameterGroup")

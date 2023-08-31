@@ -141,11 +141,15 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * __NOTE:__ Do not use the IPAM Pool Cidr ID as this was introduced after the resource already existed.
  * 
- *  to = aws_vpc_ipam_pool_cidr.example
+ * Using `pulumi import`, import IPAMs using the `&lt;cidr&gt;_&lt;ipam-pool-id&gt;`. For example:
  * 
- *  id = &#34;172.2.0.0/24_ipam-pool-0e634f5a1517cccdc&#34; } Using `pulumi import`, import IPAMs using the `&lt;cidr&gt;_&lt;ipam-pool-id&gt;`. For exampleconsole % pulumi import aws_vpc_ipam_pool_cidr.example 172.2.0.0/24_ipam-pool-0e634f5a1517cccdc
+ * __NOTE:__ Do not use the IPAM Pool Cidr ID as this was introduced after the resource already existed.
+ * 
+ * ```sh
+ *  $ pulumi import aws:ec2/vpcIpamPoolCidr:VpcIpamPoolCidr example 172.2.0.0/24_ipam-pool-0e634f5a1517cccdc
+ * ```
  * 
  */
 @ResourceType(type="aws:ec2/vpcIpamPoolCidr:VpcIpamPoolCidr")

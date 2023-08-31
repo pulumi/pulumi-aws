@@ -41,11 +41,11 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import VPC Endpoint Subnet Associations using `vpc_endpoint_id` together with `subnet_id`. For example:
     /// 
-    ///  to = aws_vpc_endpoint_subnet_association.example
-    /// 
-    ///  id = "vpce-aaaaaaaa/subnet-bbbbbbbbbbbbbbbbb" } Using `pulumi import`, import VPC Endpoint Subnet Associations using `vpc_endpoint_id` together with `subnet_id`. For exampleconsole % pulumi import aws_vpc_endpoint_subnet_association.example vpce-aaaaaaaa/subnet-bbbbbbbbbbbbbbbbb
+    /// ```sh
+    ///  $ pulumi import aws:ec2/vpcEndpointSubnetAssociation:VpcEndpointSubnetAssociation example vpce-aaaaaaaa/subnet-bbbbbbbbbbbbbbbbb
+    /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/vpcEndpointSubnetAssociation:VpcEndpointSubnetAssociation")]
     public partial class VpcEndpointSubnetAssociation : global::Pulumi.CustomResource

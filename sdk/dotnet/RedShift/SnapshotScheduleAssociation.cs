@@ -50,11 +50,11 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import Redshift Snapshot Schedule Association using the `&lt;cluster-identifier&gt;/&lt;schedule-identifier&gt;`. For example:
     /// 
-    ///  to = aws_redshift_snapshot_schedule_association.default
-    /// 
-    ///  id = "tf-redshift-cluster/tf-redshift-snapshot-schedule" } Using `pulumi import`, import Redshift Snapshot Schedule Association using the `&lt;cluster-identifier&gt;/&lt;schedule-identifier&gt;`. For exampleconsole % pulumi import aws_redshift_snapshot_schedule_association.default tf-redshift-cluster/tf-redshift-snapshot-schedule
+    /// ```sh
+    ///  $ pulumi import aws:redshift/snapshotScheduleAssociation:SnapshotScheduleAssociation default tf-redshift-cluster/tf-redshift-snapshot-schedule
+    /// ```
     /// </summary>
     [AwsResourceType("aws:redshift/snapshotScheduleAssociation:SnapshotScheduleAssociation")]
     public partial class SnapshotScheduleAssociation : global::Pulumi.CustomResource

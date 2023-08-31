@@ -199,11 +199,11 @@ class Connection(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import App Runner Connections using the `connection_name`. For example:
 
-         to = aws_apprunner_connection.example
-
-         id = "example" } Using `pulumi import`, import App Runner Connections using the `connection_name`. For exampleconsole % pulumi import aws_apprunner_connection.example example
+        ```sh
+         $ pulumi import aws:apprunner/connection:Connection example example
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -238,11 +238,11 @@ class Connection(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import App Runner Connections using the `connection_name`. For example:
 
-         to = aws_apprunner_connection.example
-
-         id = "example" } Using `pulumi import`, import App Runner Connections using the `connection_name`. For exampleconsole % pulumi import aws_apprunner_connection.example example
+        ```sh
+         $ pulumi import aws:apprunner/connection:Connection example example
+        ```
 
         :param str resource_name: The name of the resource.
         :param ConnectionArgs args: The arguments to use to populate this resource's properties.

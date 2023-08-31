@@ -147,11 +147,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Lightsail Container Service using the `name`. For example:
 //
-//	to = aws_lightsail_container_service.my_container_service
+// ```sh
 //
-//	id = "container-service-1" } Using `pulumi import`, import Lightsail Container Service using the `name`. For exampleconsole % pulumi import aws_lightsail_container_service.my_container_service container-service-1
+//	$ pulumi import aws:lightsail/containerService:ContainerService my_container_service container-service-1
+//
+// ```
 type ContainerService struct {
 	pulumi.CustomResourceState
 

@@ -67,11 +67,11 @@ namespace Pulumi.Aws.EcrPublic
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import ECR Public Repositories using the `repository_name`. For example:
     /// 
-    ///  to = aws_ecrpublic_repository.example
-    /// 
-    ///  id = "example" } Using `pulumi import`, import ECR Public Repositories using the `repository_name`. For exampleconsole % pulumi import aws_ecrpublic_repository.example example
+    /// ```sh
+    ///  $ pulumi import aws:ecrpublic/repository:Repository example example
+    /// ```
     /// </summary>
     [AwsResourceType("aws:ecrpublic/repository:Repository")]
     public partial class Repository : global::Pulumi.CustomResource

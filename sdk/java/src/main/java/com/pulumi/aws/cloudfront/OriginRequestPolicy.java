@@ -76,11 +76,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Cloudfront Origin Request Policies using the `id`. For example:
  * 
- *  to = aws_cloudfront_origin_request_policy.policy
- * 
- *  id = &#34;ccca32ef-dce3-4df3-80df-1bd3000bc4d3&#34; } Using `pulumi import`, import Cloudfront Origin Request Policies using the `id`. For exampleconsole % pulumi import aws_cloudfront_origin_request_policy.policy ccca32ef-dce3-4df3-80df-1bd3000bc4d3
+ * ```sh
+ *  $ pulumi import aws:cloudfront/originRequestPolicy:OriginRequestPolicy policy ccca32ef-dce3-4df3-80df-1bd3000bc4d3
+ * ```
  * 
  */
 @ResourceType(type="aws:cloudfront/originRequestPolicy:OriginRequestPolicy")

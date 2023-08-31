@@ -95,11 +95,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import a QuickSight Template using the AWS account ID and template ID separated by a comma (`,`). For example:
  * 
- *  to = aws_quicksight_template.example
- * 
- *  id = &#34;123456789012,example-id&#34; } Using `pulumi import`, import a QuickSight Template using the AWS account ID and template ID separated by a comma (`,`). For exampleconsole % pulumi import aws_quicksight_template.example 123456789012,example-id
+ * ```sh
+ *  $ pulumi import aws:quicksight/template:Template example 123456789012,example-id
+ * ```
  * 
  */
 @ResourceType(type="aws:quicksight/template:Template")

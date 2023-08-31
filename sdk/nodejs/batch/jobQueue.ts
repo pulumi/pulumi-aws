@@ -50,11 +50,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import Batch Job Queue using the `arn`. For example:
  *
- *  to = aws_batch_job_queue.test_queue
- *
- *  id = "arn:aws:batch:us-east-1:123456789012:job-queue/sample" } Using `pulumi import`, import Batch Job Queue using the `arn`. For exampleconsole % pulumi import aws_batch_job_queue.test_queue arn:aws:batch:us-east-1:123456789012:job-queue/sample
+ * ```sh
+ *  $ pulumi import aws:batch/jobQueue:JobQueue test_queue arn:aws:batch:us-east-1:123456789012:job-queue/sample
+ * ```
  */
 export class JobQueue extends pulumi.CustomResource {
     /**

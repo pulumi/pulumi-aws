@@ -235,11 +235,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Lambda event source mappings using the `UUID` (event source mapping identifier). For example:
 //
-//	to = aws_lambda_event_source_mapping.event_source_mapping
+// ```sh
 //
-//	id = "12345kxodurf3443" } Using `pulumi import`, import Lambda event source mappings using the `UUID` (event source mapping identifier). For exampleconsole % pulumi import aws_lambda_event_source_mapping.event_source_mapping 12345kxodurf3443
+//	$ pulumi import aws:lambda/eventSourceMapping:EventSourceMapping event_source_mapping 12345kxodurf3443
+//
+// ```
 type EventSourceMapping struct {
 	pulumi.CustomResourceState
 

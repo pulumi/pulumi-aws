@@ -444,11 +444,11 @@ class Authorizer(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_apigatewayv2_authorizer` using the API identifier and authorizer identifier. For example:
 
-         to = aws_apigatewayv2_authorizer.example
-
-         id = "aabbccddee/1122334" } Using `pulumi import`, import `aws_apigatewayv2_authorizer` using the API identifier and authorizer identifier. For exampleconsole % pulumi import aws_apigatewayv2_authorizer.example aabbccddee/1122334
+        ```sh
+         $ pulumi import aws:apigatewayv2/authorizer:Authorizer example aabbccddee/1122334
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -514,11 +514,11 @@ class Authorizer(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_apigatewayv2_authorizer` using the API identifier and authorizer identifier. For example:
 
-         to = aws_apigatewayv2_authorizer.example
-
-         id = "aabbccddee/1122334" } Using `pulumi import`, import `aws_apigatewayv2_authorizer` using the API identifier and authorizer identifier. For exampleconsole % pulumi import aws_apigatewayv2_authorizer.example aabbccddee/1122334
+        ```sh
+         $ pulumi import aws:apigatewayv2/authorizer:Authorizer example aabbccddee/1122334
+        ```
 
         :param str resource_name: The name of the resource.
         :param AuthorizerArgs args: The arguments to use to populate this resource's properties.

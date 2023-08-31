@@ -426,11 +426,11 @@ class DataSource(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import a QuickSight data source using the AWS account ID, and data source ID separated by a slash (`/`). For example:
 
-         to = aws_quicksight_data_source.example
-
-         id = "123456789123/my-data-source-id" } Using `pulumi import`, import a QuickSight data source using the AWS account ID, and data source ID separated by a slash (`/`). For exampleconsole % pulumi import aws_quicksight_data_source.example 123456789123/my-data-source-id
+        ```sh
+         $ pulumi import aws:quicksight/dataSource:DataSource example 123456789123/my-data-source-id
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -477,11 +477,11 @@ class DataSource(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import a QuickSight data source using the AWS account ID, and data source ID separated by a slash (`/`). For example:
 
-         to = aws_quicksight_data_source.example
-
-         id = "123456789123/my-data-source-id" } Using `pulumi import`, import a QuickSight data source using the AWS account ID, and data source ID separated by a slash (`/`). For exampleconsole % pulumi import aws_quicksight_data_source.example 123456789123/my-data-source-id
+        ```sh
+         $ pulumi import aws:quicksight/dataSource:DataSource example 123456789123/my-data-source-id
+        ```
 
         :param str resource_name: The name of the resource.
         :param DataSourceArgs args: The arguments to use to populate this resource's properties.

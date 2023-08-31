@@ -83,11 +83,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Timestream databases using the `database_name`. For example:
  * 
- *  to = aws_timestreamwrite_database.example
- * 
- *  id = &#34;example&#34; } Using `pulumi import`, import Timestream databases using the `database_name`. For exampleconsole % pulumi import aws_timestreamwrite_database.example example
+ * ```sh
+ *  $ pulumi import aws:timestreamwrite/database:Database example example
+ * ```
  * 
  */
 @ResourceType(type="aws:timestreamwrite/database:Database")

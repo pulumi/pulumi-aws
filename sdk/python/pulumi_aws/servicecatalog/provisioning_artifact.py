@@ -426,11 +426,11 @@ class ProvisioningArtifact(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_servicecatalog_provisioning_artifact` using the provisioning artifact ID and product ID separated by a colon. For example:
 
-         to = aws_servicecatalog_provisioning_artifact.example
-
-         id = "pa-ij2b6lusy6dec:prod-el3an0rma3" } Using `pulumi import`, import `aws_servicecatalog_provisioning_artifact` using the provisioning artifact ID and product ID separated by a colon. For exampleconsole % pulumi import aws_servicecatalog_provisioning_artifact.example pa-ij2b6lusy6dec:prod-el3an0rma3
+        ```sh
+         $ pulumi import aws:servicecatalog/provisioningArtifact:ProvisioningArtifact example pa-ij2b6lusy6dec:prod-el3an0rma3
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -477,11 +477,11 @@ class ProvisioningArtifact(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_servicecatalog_provisioning_artifact` using the provisioning artifact ID and product ID separated by a colon. For example:
 
-         to = aws_servicecatalog_provisioning_artifact.example
-
-         id = "pa-ij2b6lusy6dec:prod-el3an0rma3" } Using `pulumi import`, import `aws_servicecatalog_provisioning_artifact` using the provisioning artifact ID and product ID separated by a colon. For exampleconsole % pulumi import aws_servicecatalog_provisioning_artifact.example pa-ij2b6lusy6dec:prod-el3an0rma3
+        ```sh
+         $ pulumi import aws:servicecatalog/provisioningArtifact:ProvisioningArtifact example pa-ij2b6lusy6dec:prod-el3an0rma3
+        ```
 
         :param str resource_name: The name of the resource.
         :param ProvisioningArtifactArgs args: The arguments to use to populate this resource's properties.

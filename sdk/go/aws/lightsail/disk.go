@@ -58,11 +58,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import `aws_lightsail_disk` using the name attribute. For example:
 //
-//	to = aws_lightsail_disk.test
+// ```sh
 //
-//	id = "test" } Using `pulumi import`, import `aws_lightsail_disk` using the name attribute. For exampleconsole % pulumi import aws_lightsail_disk.test test
+//	$ pulumi import aws:lightsail/disk:Disk test test
+//
+// ```
 type Disk struct {
 	pulumi.CustomResourceState
 

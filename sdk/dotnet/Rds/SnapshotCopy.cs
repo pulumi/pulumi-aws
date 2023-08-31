@@ -53,11 +53,11 @@ namespace Pulumi.Aws.Rds
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import `aws_db_snapshot_copy` using the snapshot identifier. For example:
     /// 
-    ///  to = aws_db_snapshot_copy.example
-    /// 
-    ///  id = "my-snapshot" } Using `pulumi import`, import `aws_db_snapshot_copy` using the snapshot identifier. For exampleconsole % pulumi import aws_db_snapshot_copy.example my-snapshot
+    /// ```sh
+    ///  $ pulumi import aws:rds/snapshotCopy:SnapshotCopy example my-snapshot
+    /// ```
     /// </summary>
     [AwsResourceType("aws:rds/snapshotCopy:SnapshotCopy")]
     public partial class SnapshotCopy : global::Pulumi.CustomResource

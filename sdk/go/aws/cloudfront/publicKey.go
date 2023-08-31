@@ -53,11 +53,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import CloudFront Public Key using the `id`. For example:
 //
-//	to = aws_cloudfront_public_key.example
+// ```sh
 //
-//	id = "K3D5EWEUDCCXON" } Using `pulumi import`, import CloudFront Public Key using the `id`. For exampleconsole % pulumi import aws_cloudfront_public_key.example K3D5EWEUDCCXON
+//	$ pulumi import aws:cloudfront/publicKey:PublicKey example K3D5EWEUDCCXON
+//
+// ```
 type PublicKey struct {
 	pulumi.CustomResourceState
 

@@ -45,11 +45,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import `aws_imagebuilder_image_recipe` resources using the Amazon Resource Name (ARN). For example:
  *
- *  to = aws_imagebuilder_image_recipe.example
- *
- *  id = "arn:aws:imagebuilder:us-east-1:123456789012:image-recipe/example/1.0.0" } Using `pulumi import`, import `aws_imagebuilder_image_recipe` resources using the Amazon Resource Name (ARN). For exampleconsole % pulumi import aws_imagebuilder_image_recipe.example arn:aws:imagebuilder:us-east-1:123456789012:image-recipe/example/1.0.0
+ * ```sh
+ *  $ pulumi import aws:imagebuilder/imageRecipe:ImageRecipe example arn:aws:imagebuilder:us-east-1:123456789012:image-recipe/example/1.0.0
+ * ```
  */
 export class ImageRecipe extends pulumi.CustomResource {
     /**

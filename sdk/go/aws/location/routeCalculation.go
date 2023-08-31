@@ -43,11 +43,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import `aws_location_route_calculator` using the route calculator name. For example:
 //
-//	to = aws_location_route_calculator.example
+// ```sh
 //
-//	id = "example" } Using `pulumi import`, import `aws_location_route_calculator` using the route calculator name. For exampleconsole % pulumi import aws_location_route_calculator.example example
+//	$ pulumi import aws:location/routeCalculation:RouteCalculation example example
+//
+// ```
 type RouteCalculation struct {
 	pulumi.CustomResourceState
 

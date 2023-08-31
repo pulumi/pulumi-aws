@@ -121,11 +121,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Amazon Connect Phone Numbers using its `id`. For example:
  * 
- *  to = aws_connect_phone_number.example
- * 
- *  id = &#34;12345678-abcd-1234-efgh-9876543210ab&#34; } Using `pulumi import`, import Amazon Connect Phone Numbers using its `id`. For exampleconsole % pulumi import aws_connect_phone_number.example 12345678-abcd-1234-efgh-9876543210ab
+ * ```sh
+ *  $ pulumi import aws:connect/phoneNumber:PhoneNumber example 12345678-abcd-1234-efgh-9876543210ab
+ * ```
  * 
  */
 @ResourceType(type="aws:connect/phoneNumber:PhoneNumber")

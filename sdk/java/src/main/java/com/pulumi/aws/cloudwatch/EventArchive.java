@@ -94,11 +94,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import an EventBridge archive using the `name`. For example:
  * 
- *  to = aws_cloudwatch_event_archive.imported_event_archive.test
- * 
- *  id = &#34;order-archive&#34; } Using `pulumi import`, import an EventBridge archive using the `name`. For exampleconsole % pulumi import aws_cloudwatch_event_archive.imported_event_archive order-archive
+ * ```sh
+ *  $ pulumi import aws:cloudwatch/eventArchive:EventArchive imported_event_archive order-archive
+ * ```
  * 
  */
 @ResourceType(type="aws:cloudwatch/eventArchive:EventArchive")

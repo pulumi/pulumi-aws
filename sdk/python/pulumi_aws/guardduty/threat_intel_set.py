@@ -290,11 +290,11 @@ class ThreatIntelSet(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import GuardDuty ThreatIntelSet using the primary GuardDuty detector ID and ThreatIntelSetID. For example:
 
-         to = aws_guardduty_threatintelset.MyThreatIntelSet
-
-         id = "00b00fd5aecc0ab60a708659477e9617:123456789012" } Using `pulumi import`, import GuardDuty ThreatIntelSet using the primary GuardDuty detector ID and ThreatIntelSetID. For exampleconsole % pulumi import aws_guardduty_threatintelset.MyThreatIntelSet 00b00fd5aecc0ab60a708659477e9617:123456789012
+        ```sh
+         $ pulumi import aws:guardduty/threatIntelSet:ThreatIntelSet MyThreatIntelSet 00b00fd5aecc0ab60a708659477e9617:123456789012
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -342,11 +342,11 @@ class ThreatIntelSet(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import GuardDuty ThreatIntelSet using the primary GuardDuty detector ID and ThreatIntelSetID. For example:
 
-         to = aws_guardduty_threatintelset.MyThreatIntelSet
-
-         id = "00b00fd5aecc0ab60a708659477e9617:123456789012" } Using `pulumi import`, import GuardDuty ThreatIntelSet using the primary GuardDuty detector ID and ThreatIntelSetID. For exampleconsole % pulumi import aws_guardduty_threatintelset.MyThreatIntelSet 00b00fd5aecc0ab60a708659477e9617:123456789012
+        ```sh
+         $ pulumi import aws:guardduty/threatIntelSet:ThreatIntelSet MyThreatIntelSet 00b00fd5aecc0ab60a708659477e9617:123456789012
+        ```
 
         :param str resource_name: The name of the resource.
         :param ThreatIntelSetArgs args: The arguments to use to populate this resource's properties.

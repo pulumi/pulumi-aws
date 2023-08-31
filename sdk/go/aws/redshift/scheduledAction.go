@@ -140,11 +140,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Redshift Scheduled Action using the `name`. For example:
 //
-//	to = aws_redshift_scheduled_action.example
+// ```sh
 //
-//	id = "tf-redshift-scheduled-action" } Using `pulumi import`, import Redshift Scheduled Action using the `name`. For exampleconsole % pulumi import aws_redshift_scheduled_action.example tf-redshift-scheduled-action
+//	$ pulumi import aws:redshift/scheduledAction:ScheduledAction example tf-redshift-scheduled-action
+//
+// ```
 type ScheduledAction struct {
 	pulumi.CustomResourceState
 

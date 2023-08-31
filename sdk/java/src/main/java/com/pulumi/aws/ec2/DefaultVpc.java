@@ -64,11 +64,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Default VPCs using the VPC `id`. For example:
  * 
- *  to = aws_default_vpc.default
- * 
- *  id = &#34;vpc-a01106c2&#34; } Using `pulumi import`, import Default VPCs using the VPC `id`. For exampleconsole % pulumi import aws_default_vpc.default vpc-a01106c2
+ * ```sh
+ *  $ pulumi import aws:ec2/defaultVpc:DefaultVpc default vpc-a01106c2
+ * ```
  * 
  */
 @ResourceType(type="aws:ec2/defaultVpc:DefaultVpc")

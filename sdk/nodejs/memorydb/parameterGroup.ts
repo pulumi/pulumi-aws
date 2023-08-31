@@ -29,11 +29,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import a parameter group using the `name`. For example:
  *
- *  to = aws_memorydb_parameter_group.example
- *
- *  id = "my-parameter-group" } Using `pulumi import`, import a parameter group using the `name`. For exampleconsole % pulumi import aws_memorydb_parameter_group.example my-parameter-group
+ * ```sh
+ *  $ pulumi import aws:memorydb/parameterGroup:ParameterGroup example my-parameter-group
+ * ```
  */
 export class ParameterGroup extends pulumi.CustomResource {
     /**

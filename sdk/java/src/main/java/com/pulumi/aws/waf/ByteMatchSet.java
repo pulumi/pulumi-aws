@@ -61,11 +61,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import WAF Byte Match Set using the id. For example:
  * 
- *  to = aws_waf_byte_match_set.byte_set
- * 
- *  id = &#34;a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc&#34; } Using `pulumi import`, import WAF Byte Match Set using the id. For exampleconsole % pulumi import aws_waf_byte_match_set.byte_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+ * ```sh
+ *  $ pulumi import aws:waf/byteMatchSet:ByteMatchSet byte_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+ * ```
  * 
  */
 @ResourceType(type="aws:waf/byteMatchSet:ByteMatchSet")

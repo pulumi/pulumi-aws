@@ -147,11 +147,11 @@ class UserHierarchyStructure(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Amazon Connect User Hierarchy Structures using the `instance_id`. For example:
 
-         to = aws_connect_user_hierarchy_structure.example
-
-         id = "f1288a1f-6193-445a-b47e-af739b2" } Using `pulumi import`, import Amazon Connect User Hierarchy Structures using the `instance_id`. For exampleconsole % pulumi import aws_connect_user_hierarchy_structure.example f1288a1f-6193-445a-b47e-af739b2
+        ```sh
+         $ pulumi import aws:connect/userHierarchyStructure:UserHierarchyStructure example f1288a1f-6193-445a-b47e-af739b2
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -212,11 +212,11 @@ class UserHierarchyStructure(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Amazon Connect User Hierarchy Structures using the `instance_id`. For example:
 
-         to = aws_connect_user_hierarchy_structure.example
-
-         id = "f1288a1f-6193-445a-b47e-af739b2" } Using `pulumi import`, import Amazon Connect User Hierarchy Structures using the `instance_id`. For exampleconsole % pulumi import aws_connect_user_hierarchy_structure.example f1288a1f-6193-445a-b47e-af739b2
+        ```sh
+         $ pulumi import aws:connect/userHierarchyStructure:UserHierarchyStructure example f1288a1f-6193-445a-b47e-af739b2
+        ```
 
         :param str resource_name: The name of the resource.
         :param UserHierarchyStructureArgs args: The arguments to use to populate this resource's properties.

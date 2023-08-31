@@ -51,11 +51,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import VPC Lattice Service Network using the `id`. For example:
  * 
- *  to = aws_vpclattice_service_network.example
- * 
- *  id = &#34;sn-0158f91c1e3358dba&#34; } Using `pulumi import`, import VPC Lattice Service Network using the `id`. For exampleconsole % pulumi import aws_vpclattice_service_network.example sn-0158f91c1e3358dba
+ * ```sh
+ *  $ pulumi import aws:vpclattice/serviceNetwork:ServiceNetwork example sn-0158f91c1e3358dba
+ * ```
  * 
  */
 @ResourceType(type="aws:vpclattice/serviceNetwork:ServiceNetwork")

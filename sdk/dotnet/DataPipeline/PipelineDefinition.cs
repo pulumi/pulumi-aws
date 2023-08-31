@@ -106,11 +106,11 @@ namespace Pulumi.Aws.DataPipeline
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import `aws_datapipeline_pipeline_definition` using the id. For example:
     /// 
-    ///  to = aws_datapipeline_pipeline_definition.example
-    /// 
-    ///  id = "df-1234567890" } Using `pulumi import`, import `aws_datapipeline_pipeline_definition` using the id. For exampleconsole % pulumi import aws_datapipeline_pipeline_definition.example df-1234567890
+    /// ```sh
+    ///  $ pulumi import aws:datapipeline/pipelineDefinition:PipelineDefinition example df-1234567890
+    /// ```
     /// </summary>
     [AwsResourceType("aws:datapipeline/pipelineDefinition:PipelineDefinition")]
     public partial class PipelineDefinition : global::Pulumi.CustomResource

@@ -21,11 +21,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import `aws_appsync_domain_name_api_association` using the AppSync domain name. For example:
  *
- *  to = aws_appsync_domain_name_api_association.example
- *
- *  id = "example.com" } Using `pulumi import`, import `aws_appsync_domain_name_api_association` using the AppSync domain name. For exampleconsole % pulumi import aws_appsync_domain_name_api_association.example example.com
+ * ```sh
+ *  $ pulumi import aws:appsync/domainNameApiAssociation:DomainNameApiAssociation example example.com
+ * ```
  */
 export class DomainNameApiAssociation extends pulumi.CustomResource {
     /**

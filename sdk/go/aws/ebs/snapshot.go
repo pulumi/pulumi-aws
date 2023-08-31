@@ -55,11 +55,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import EBS Snapshot using the `id`. For example:
 //
-//	to = aws_ebs_snapshot.id
+// ```sh
 //
-//	id = "snap-049df61146c4d7901" } Using `pulumi import`, import EBS Snapshot using the `id`. For exampleconsole % pulumi import aws_ebs_snapshot.id snap-049df61146c4d7901
+//	$ pulumi import aws:ebs/snapshot:Snapshot id snap-049df61146c4d7901
+//
+// ```
 type Snapshot struct {
 	pulumi.CustomResourceState
 

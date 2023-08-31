@@ -33,11 +33,11 @@ namespace Pulumi.Aws.Organizations
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import `aws_organizations_delegated_administrator` using the account ID and its service principal. For example:
     /// 
-    ///  to = aws_organizations_delegated_administrator.example
-    /// 
-    ///  id = "123456789012/config.amazonaws.com" } Using `pulumi import`, import `aws_organizations_delegated_administrator` using the account ID and its service principal. For exampleconsole % pulumi import aws_organizations_delegated_administrator.example 123456789012/config.amazonaws.com
+    /// ```sh
+    ///  $ pulumi import aws:organizations/delegatedAdministrator:DelegatedAdministrator example 123456789012/config.amazonaws.com
+    /// ```
     /// </summary>
     [AwsResourceType("aws:organizations/delegatedAdministrator:DelegatedAdministrator")]
     public partial class DelegatedAdministrator : global::Pulumi.CustomResource

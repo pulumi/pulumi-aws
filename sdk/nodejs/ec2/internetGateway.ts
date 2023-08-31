@@ -23,11 +23,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import Internet Gateways using the `id`. For example:
  *
- *  to = aws_internet_gateway.gw
- *
- *  id = "igw-c0a643a9" } Using `pulumi import`, import Internet Gateways using the `id`. For exampleconsole % pulumi import aws_internet_gateway.gw igw-c0a643a9
+ * ```sh
+ *  $ pulumi import aws:ec2/internetGateway:InternetGateway gw igw-c0a643a9
+ * ```
  */
 export class InternetGateway extends pulumi.CustomResource {
     /**

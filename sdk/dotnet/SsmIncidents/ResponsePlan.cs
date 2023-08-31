@@ -154,11 +154,11 @@ namespace Pulumi.Aws.SsmIncidents
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import an Incident Manager response plan using the response plan ARN. You can find the response plan ARN in the AWS Management Console. For example:
     /// 
-    ///  to = aws_ssmincidents_response_plan.responsePlanName
-    /// 
-    ///  id = "ARNValue" } Using `pulumi import`, import an Incident Manager response plan using the response plan ARN. You can find the response plan ARN in the AWS Management Console. For exampleconsole % pulumi import aws_ssmincidents_response_plan.responsePlanName ARNValue
+    /// ```sh
+    ///  $ pulumi import aws:ssmincidents/responsePlan:ResponsePlan responsePlanName ARNValue
+    /// ```
     /// </summary>
     [AwsResourceType("aws:ssmincidents/responsePlan:ResponsePlan")]
     public partial class ResponsePlan : global::Pulumi.CustomResource

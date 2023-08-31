@@ -48,11 +48,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Service Discovery HTTP Namespace using the namespace ID. For example:
  * 
- *  to = aws_service_discovery_http_namespace.example
- * 
- *  id = &#34;ns-1234567890&#34; } Using `pulumi import`, import Service Discovery HTTP Namespace using the namespace ID. For exampleconsole % pulumi import aws_service_discovery_http_namespace.example ns-1234567890
+ * ```sh
+ *  $ pulumi import aws:servicediscovery/httpNamespace:HttpNamespace example ns-1234567890
+ * ```
  * 
  */
 @ResourceType(type="aws:servicediscovery/httpNamespace:HttpNamespace")

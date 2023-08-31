@@ -211,11 +211,11 @@ class LogDestination(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import CloudWatch Logs destinations using the `name`. For example:
 
-         to = aws_cloudwatch_log_destination.test_destination
-
-         id = "test_destination" } Using `pulumi import`, import CloudWatch Logs destinations using the `name`. For exampleconsole % pulumi import aws_cloudwatch_log_destination.test_destination test_destination
+        ```sh
+         $ pulumi import aws:cloudwatch/logDestination:LogDestination test_destination test_destination
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -246,11 +246,11 @@ class LogDestination(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import CloudWatch Logs destinations using the `name`. For example:
 
-         to = aws_cloudwatch_log_destination.test_destination
-
-         id = "test_destination" } Using `pulumi import`, import CloudWatch Logs destinations using the `name`. For exampleconsole % pulumi import aws_cloudwatch_log_destination.test_destination test_destination
+        ```sh
+         $ pulumi import aws:cloudwatch/logDestination:LogDestination test_destination test_destination
+        ```
 
         :param str resource_name: The name of the resource.
         :param LogDestinationArgs args: The arguments to use to populate this resource's properties.

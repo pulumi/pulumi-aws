@@ -64,11 +64,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import ElastiCache Parameter Groups using the `name`. For example:
  * 
- *  to = aws_elasticache_parameter_group.default
- * 
- *  id = &#34;redis-params&#34; } Using `pulumi import`, import ElastiCache Parameter Groups using the `name`. For exampleconsole % pulumi import aws_elasticache_parameter_group.default redis-params
+ * ```sh
+ *  $ pulumi import aws:elasticache/parameterGroup:ParameterGroup default redis-params
+ * ```
  * 
  */
 @ResourceType(type="aws:elasticache/parameterGroup:ParameterGroup")

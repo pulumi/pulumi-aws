@@ -30,11 +30,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import a QuickSight Template using the AWS account ID and template ID separated by a comma (`,`). For example:
  *
- *  to = aws_quicksight_template.example
- *
- *  id = "123456789012,example-id" } Using `pulumi import`, import a QuickSight Template using the AWS account ID and template ID separated by a comma (`,`). For exampleconsole % pulumi import aws_quicksight_template.example 123456789012,example-id
+ * ```sh
+ *  $ pulumi import aws:quicksight/template:Template example 123456789012,example-id
+ * ```
  */
 export class Template extends pulumi.CustomResource {
     /**

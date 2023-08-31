@@ -71,11 +71,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import AWS Client VPN endpoints using the `id` value found via `aws ec2 describe-client-vpn-endpoints`. For example:
  * 
- *  to = aws_ec2_client_vpn_endpoint.example
- * 
- *  id = &#34;cvpn-endpoint-0ac3a1abbccddd666&#34; } Using `pulumi import`, import AWS Client VPN endpoints using the `id` value found via `aws ec2 describe-client-vpn-endpoints`. For exampleconsole % pulumi import aws_ec2_client_vpn_endpoint.example cvpn-endpoint-0ac3a1abbccddd666
+ * ```sh
+ *  $ pulumi import aws:ec2clientvpn/endpoint:Endpoint example cvpn-endpoint-0ac3a1abbccddd666
+ * ```
  * 
  */
 @ResourceType(type="aws:ec2clientvpn/endpoint:Endpoint")

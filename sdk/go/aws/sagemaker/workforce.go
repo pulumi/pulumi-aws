@@ -101,11 +101,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import SageMaker Workforces using the `workforce_name`. For example:
 //
-//	to = aws_sagemaker_workforce.example
+// ```sh
 //
-//	id = "example" } Using `pulumi import`, import SageMaker Workforces using the `workforce_name`. For exampleconsole % pulumi import aws_sagemaker_workforce.example example
+//	$ pulumi import aws:sagemaker/workforce:Workforce example example
+//
+// ```
 type Workforce struct {
 	pulumi.CustomResourceState
 

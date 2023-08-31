@@ -73,11 +73,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import bots using their name. For example:
 //
-//	to = aws_lex_bot.order_flowers_bot
+// ```sh
 //
-//	id = "OrderFlowers" } Using `pulumi import`, import bots using their name. For exampleconsole % pulumi import aws_lex_bot.order_flowers_bot OrderFlowers
+//	$ pulumi import aws:lex/bot:Bot order_flowers_bot OrderFlowers
+//
+// ```
 type Bot struct {
 	pulumi.CustomResourceState
 

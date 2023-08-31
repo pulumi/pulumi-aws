@@ -47,11 +47,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import GameLift Builds using the ID. For example:
 //
-//	to = aws_gamelift_build.example
+// ```sh
 //
-//	id = "<build-id>" } Using `pulumi import`, import GameLift Builds using the ID. For exampleconsole % pulumi import aws_gamelift_build.example <build-id>
+//	$ pulumi import aws:gamelift/build:Build example <build-id>
+//
+// ```
 type Build struct {
 	pulumi.CustomResourceState
 

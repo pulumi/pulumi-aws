@@ -25,11 +25,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import `aws_s3_account_public_access_block` using the AWS account ID. For example:
  *
- *  to = aws_s3_account_public_access_block.example
- *
- *  id = "123456789012" } Using `pulumi import`, import `aws_s3_account_public_access_block` using the AWS account ID. For exampleconsole % pulumi import aws_s3_account_public_access_block.example 123456789012
+ * ```sh
+ *  $ pulumi import aws:s3/accountPublicAccessBlock:AccountPublicAccessBlock example 123456789012
+ * ```
  */
 export class AccountPublicAccessBlock extends pulumi.CustomResource {
     /**

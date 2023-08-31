@@ -171,11 +171,11 @@ class BlockPublicAccessConfiguration(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import the current EMR Block Public Access Configuration. For example:
 
-         to = aws_emr_block_public_access_configuration.example
-
-         id = "current" } Using `pulumi import`, import the current EMR Block Public Access Configuration. For exampleconsole % pulumi import aws_emr_block_public_access_configuration.example current
+        ```sh
+         $ pulumi import aws:emr/blockPublicAccessConfiguration:BlockPublicAccessConfiguration example current
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -253,11 +253,11 @@ class BlockPublicAccessConfiguration(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import the current EMR Block Public Access Configuration. For example:
 
-         to = aws_emr_block_public_access_configuration.example
-
-         id = "current" } Using `pulumi import`, import the current EMR Block Public Access Configuration. For exampleconsole % pulumi import aws_emr_block_public_access_configuration.example current
+        ```sh
+         $ pulumi import aws:emr/blockPublicAccessConfiguration:BlockPublicAccessConfiguration example current
+        ```
 
         :param str resource_name: The name of the resource.
         :param BlockPublicAccessConfigurationArgs args: The arguments to use to populate this resource's properties.

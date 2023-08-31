@@ -111,11 +111,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import ELBs using the `name`. For example:
  * 
- *  to = aws_elb.bar
- * 
- *  id = &#34;elb-production-12345&#34; } Using `pulumi import`, import ELBs using the `name`. For exampleconsole % pulumi import aws_elb.bar elb-production-12345
+ * ```sh
+ *  $ pulumi import aws:elb/loadBalancer:LoadBalancer bar elb-production-12345
+ * ```
  * 
  */
 @ResourceType(type="aws:elb/loadBalancer:LoadBalancer")

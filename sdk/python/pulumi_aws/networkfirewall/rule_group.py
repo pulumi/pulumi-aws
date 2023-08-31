@@ -469,11 +469,11 @@ class RuleGroup(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Network Firewall Rule Groups using their `arn`. For example:
 
-         to = aws_networkfirewall_rule_group.example
-
-         id = "arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example" } Using `pulumi import`, import Network Firewall Rule Groups using their `arn`. For exampleconsole % pulumi import aws_networkfirewall_rule_group.example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example
+        ```sh
+         $ pulumi import aws:networkfirewall/ruleGroup:RuleGroup example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -616,11 +616,11 @@ class RuleGroup(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Network Firewall Rule Groups using their `arn`. For example:
 
-         to = aws_networkfirewall_rule_group.example
-
-         id = "arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example" } Using `pulumi import`, import Network Firewall Rule Groups using their `arn`. For exampleconsole % pulumi import aws_networkfirewall_rule_group.example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example
+        ```sh
+         $ pulumi import aws:networkfirewall/ruleGroup:RuleGroup example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example
+        ```
 
         :param str resource_name: The name of the resource.
         :param RuleGroupArgs args: The arguments to use to populate this resource's properties.

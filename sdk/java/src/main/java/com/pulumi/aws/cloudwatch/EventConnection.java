@@ -196,11 +196,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import EventBridge EventBridge connection using the `name`. For example:
  * 
- *  to = aws_cloudwatch_event_connection.test
- * 
- *  id = &#34;ngrok-connection&#34; } Using `pulumi import`, import EventBridge EventBridge connection using the `name`. For exampleconsole % pulumi import aws_cloudwatch_event_connection.test ngrok-connection
+ * ```sh
+ *  $ pulumi import aws:cloudwatch/eventConnection:EventConnection test ngrok-connection
+ * ```
  * 
  */
 @ResourceType(type="aws:cloudwatch/eventConnection:EventConnection")

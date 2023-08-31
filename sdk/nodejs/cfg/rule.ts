@@ -109,11 +109,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import Config Rule using the name. For example:
  *
- *  to = aws_config_config_rule.foo
- *
- *  id = "example" } Using `pulumi import`, import Config Rule using the name. For exampleconsole % pulumi import aws_config_config_rule.foo example
+ * ```sh
+ *  $ pulumi import aws:cfg/rule:Rule foo example
+ * ```
  */
 export class Rule extends pulumi.CustomResource {
     /**

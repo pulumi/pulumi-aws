@@ -15,11 +15,11 @@ namespace Pulumi.Aws.Lex
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import intents using their name. For example:
     /// 
-    ///  to = aws_lex_intent.order_flowers_intent
-    /// 
-    ///  id = "OrderFlowers" } Using `pulumi import`, import intents using their name. For exampleconsole % pulumi import aws_lex_intent.order_flowers_intent OrderFlowers
+    /// ```sh
+    ///  $ pulumi import aws:lex/intent:Intent order_flowers_intent OrderFlowers
+    /// ```
     /// </summary>
     [AwsResourceType("aws:lex/intent:Intent")]
     public partial class Intent : global::Pulumi.CustomResource

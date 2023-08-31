@@ -32,11 +32,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import ECR Registry Policy using the registry id. For example:
  *
- *  to = aws_ecr_registry_policy.example
- *
- *  id = "123456789012" } Using `pulumi import`, import ECR Registry Policy using the registry id. For exampleconsole % pulumi import aws_ecr_registry_policy.example 123456789012
+ * ```sh
+ *  $ pulumi import aws:ecr/registryPolicy:RegistryPolicy example 123456789012
+ * ```
  */
 export class RegistryPolicy extends pulumi.CustomResource {
     /**

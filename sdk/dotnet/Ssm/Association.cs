@@ -131,11 +131,11 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import SSM associations using the `association_id`. For example:
     /// 
-    ///  to = aws_ssm_association.test-association
-    /// 
-    ///  id = "10abcdef-0abc-1234-5678-90abcdef123456" } Using `pulumi import`, import SSM associations using the `association_id`. For exampleconsole % pulumi import aws_ssm_association.test-association 10abcdef-0abc-1234-5678-90abcdef123456
+    /// ```sh
+    ///  $ pulumi import aws:ssm/association:Association test-association 10abcdef-0abc-1234-5678-90abcdef123456
+    /// ```
     /// </summary>
     [AwsResourceType("aws:ssm/association:Association")]
     public partial class Association : global::Pulumi.CustomResource

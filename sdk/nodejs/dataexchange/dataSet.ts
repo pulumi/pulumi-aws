@@ -21,11 +21,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import DataExchange DataSets using their ARN. For example:
  *
- *  to = aws_dataexchange_data_set.example
- *
- *  id = "arn:aws:dataexchange:us-west-2:123456789012:data-sets/4fa784c7-ccb4-4dbf-ba4f-02198320daa1" } Using `pulumi import`, import DataExchange DataSets using their ARN. For exampleconsole % pulumi import aws_dataexchange_data_set.example arn:aws:dataexchange:us-west-2:123456789012:data-sets/4fa784c7-ccb4-4dbf-ba4f-02198320daa1
+ * ```sh
+ *  $ pulumi import aws:dataexchange/dataSet:DataSet example arn:aws:dataexchange:us-west-2:123456789012:data-sets/4fa784c7-ccb4-4dbf-ba4f-02198320daa1
+ * ```
  */
 export class DataSet extends pulumi.CustomResource {
     /**

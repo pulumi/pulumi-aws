@@ -67,11 +67,11 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import subnets using the subnet `id`. For example:
     /// 
-    ///  to = aws_subnet.public_subnet
-    /// 
-    ///  id = "subnet-9d4a7b6c" } Using `pulumi import`, import subnets using the subnet `id`. For exampleconsole % pulumi import aws_subnet.public_subnet subnet-9d4a7b6c
+    /// ```sh
+    ///  $ pulumi import aws:ec2/subnet:Subnet public_subnet subnet-9d4a7b6c
+    /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/subnet:Subnet")]
     public partial class Subnet : global::Pulumi.CustomResource

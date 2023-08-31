@@ -67,11 +67,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Security Hub Organization Admin Accounts using the AWS account ID. For example:
  * 
- *  to = aws_securityhub_organization_admin_account.example
- * 
- *  id = &#34;123456789012&#34; } Using `pulumi import`, import Security Hub Organization Admin Accounts using the AWS account ID. For exampleconsole % pulumi import aws_securityhub_organization_admin_account.example 123456789012
+ * ```sh
+ *  $ pulumi import aws:securityhub/organizationAdminAccount:OrganizationAdminAccount example 123456789012
+ * ```
  * 
  */
 @ResourceType(type="aws:securityhub/organizationAdminAccount:OrganizationAdminAccount")

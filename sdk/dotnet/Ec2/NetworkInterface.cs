@@ -64,11 +64,11 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import Network Interfaces using the `id`. For example:
     /// 
-    ///  to = aws_network_interface.test
-    /// 
-    ///  id = "eni-e5aa89a3" } Using `pulumi import`, import Network Interfaces using the `id`. For exampleconsole % pulumi import aws_network_interface.test eni-e5aa89a3
+    /// ```sh
+    ///  $ pulumi import aws:ec2/networkInterface:NetworkInterface test eni-e5aa89a3
+    /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/networkInterface:NetworkInterface")]
     public partial class NetworkInterface : global::Pulumi.CustomResource

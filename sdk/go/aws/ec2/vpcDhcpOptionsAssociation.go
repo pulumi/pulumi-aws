@@ -47,11 +47,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import DHCP associations using the VPC ID associated with the options. For example:
 //
-//	to = aws_vpc_dhcp_options_association.imported
+// ```sh
 //
-//	id = "vpc-0f001273ec18911b1" } Using `pulumi import`, import DHCP associations using the VPC ID associated with the options. For exampleconsole % pulumi import aws_vpc_dhcp_options_association.imported vpc-0f001273ec18911b1
+//	$ pulumi import aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation imported vpc-0f001273ec18911b1
+//
+// ```
 type VpcDhcpOptionsAssociation struct {
 	pulumi.CustomResourceState
 

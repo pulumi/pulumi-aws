@@ -162,11 +162,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import ECR Replication Configuration using the `registry_id`. For example:
 //
-//	to = aws_ecr_replication_configuration.service
+// ```sh
 //
-//	id = "012345678912" } Using `pulumi import`, import ECR Replication Configuration using the `registry_id`. For exampleconsole % pulumi import aws_ecr_replication_configuration.service 012345678912
+//	$ pulumi import aws:ecr/replicationConfiguration:ReplicationConfiguration service 012345678912
+//
+// ```
 type ReplicationConfiguration struct {
 	pulumi.CustomResourceState
 

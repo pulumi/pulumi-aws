@@ -153,11 +153,11 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import VPC Peering resources using the VPC peering `id`. For example:
     /// 
-    ///  to = aws_vpc_peering_connection.test_connection
-    /// 
-    ///  id = "pcx-111aaa111" } Using `pulumi import`, import VPC Peering resources using the VPC peering `id`. For exampleconsole % pulumi import aws_vpc_peering_connection.test_connection pcx-111aaa111
+    /// ```sh
+    ///  $ pulumi import aws:ec2/vpcPeeringConnection:VpcPeeringConnection test_connection pcx-111aaa111
+    /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/vpcPeeringConnection:VpcPeeringConnection")]
     public partial class VpcPeeringConnection : global::Pulumi.CustomResource

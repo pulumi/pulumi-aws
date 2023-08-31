@@ -163,11 +163,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import budgets using `AccountID:ActionID:BudgetName`. For example:
  *
- *  to = aws_budgets_budget.myBudget
- *
- *  id = "123456789012:myBudget" } Using `pulumi import`, import budgets using `AccountID:ActionID:BudgetName`. For exampleconsole % pulumi import aws_budgets_budget.myBudget 123456789012:myBudget
+ * ```sh
+ *  $ pulumi import aws:budgets/budget:Budget myBudget 123456789012:myBudget
+ * ```
  */
 export class Budget extends pulumi.CustomResource {
     /**

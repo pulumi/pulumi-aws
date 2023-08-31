@@ -81,11 +81,11 @@ namespace Pulumi.Aws.CodeArtifact
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import CodeArtifact Repository Permissions Policies using the CodeArtifact Repository ARN. For example:
     /// 
-    ///  to = aws_codeartifact_repository_permissions_policy.example
-    /// 
-    ///  id = "arn:aws:codeartifact:us-west-2:012345678912:repository/tf-acc-test-6968272603913957763/tf-acc-test-6968272603913957763" } Using `pulumi import`, import CodeArtifact Repository Permissions Policies using the CodeArtifact Repository ARN. For exampleconsole % pulumi import aws_codeartifact_repository_permissions_policy.example arn:aws:codeartifact:us-west-2:012345678912:repository/tf-acc-test-6968272603913957763/tf-acc-test-6968272603913957763
+    /// ```sh
+    ///  $ pulumi import aws:codeartifact/repositoryPermissionsPolicy:RepositoryPermissionsPolicy example arn:aws:codeartifact:us-west-2:012345678912:repository/tf-acc-test-6968272603913957763/tf-acc-test-6968272603913957763
+    /// ```
     /// </summary>
     [AwsResourceType("aws:codeartifact/repositoryPermissionsPolicy:RepositoryPermissionsPolicy")]
     public partial class RepositoryPermissionsPolicy : global::Pulumi.CustomResource

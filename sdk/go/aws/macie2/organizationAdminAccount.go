@@ -48,11 +48,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import `aws_macie2_organization_admin_account` using the id. For example:
 //
-//	to = aws_macie2_organization_admin_account.example
+// ```sh
 //
-//	id = "abcd1" } Using `pulumi import`, import `aws_macie2_organization_admin_account` using the id. For exampleconsole % pulumi import aws_macie2_organization_admin_account.example abcd1
+//	$ pulumi import aws:macie2/organizationAdminAccount:OrganizationAdminAccount example abcd1
+//
+// ```
 type OrganizationAdminAccount struct {
 	pulumi.CustomResourceState
 

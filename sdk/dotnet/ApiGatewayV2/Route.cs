@@ -73,11 +73,12 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import `aws_apigatewayv2_route` using the API identifier and route identifier. For example:
     /// 
-    ///  to = aws_apigatewayv2_route.example
-    /// 
-    ///  id = "aabbccddee/1122334" } Using `pulumi import`, import `aws_apigatewayv2_route` using the API identifier and route identifier. For exampleconsole % pulumi import aws_apigatewayv2_route.example aabbccddee/1122334
+    /// ```sh
+    ///  $ pulumi import aws:apigatewayv2/route:Route example aabbccddee/1122334
+    /// ```
+    ///  -&gt; __Note:__ The API Gateway managed route created as part of [_quick_create_](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-basic-concept.html#apigateway-definition-quick-create) cannot be imported.
     /// </summary>
     [AwsResourceType("aws:apigatewayv2/route:Route")]
     public partial class Route : global::Pulumi.CustomResource

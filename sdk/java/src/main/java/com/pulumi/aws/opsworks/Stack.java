@@ -63,11 +63,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import OpsWorks stacks using the `id`. For example:
  * 
- *  to = aws_opsworks_stack.bar
- * 
- *  id = &#34;00000000-0000-0000-0000-000000000000&#34; } Using `pulumi import`, import OpsWorks stacks using the `id`. For exampleconsole % pulumi import aws_opsworks_stack.bar 00000000-0000-0000-0000-000000000000
+ * ```sh
+ *  $ pulumi import aws:opsworks/stack:Stack bar 00000000-0000-0000-0000-000000000000
+ * ```
  * 
  */
 @ResourceType(type="aws:opsworks/stack:Stack")

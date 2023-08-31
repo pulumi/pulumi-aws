@@ -63,11 +63,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Appsync Types using the `id`. For example:
  * 
- *  to = aws_appsync_type.example
- * 
- *  id = &#34;api-id:format:name&#34; } Using `pulumi import`, import Appsync Types using the `id`. For exampleconsole % pulumi import aws_appsync_type.example api-id:format:name
+ * ```sh
+ *  $ pulumi import aws:appsync/type:Type example api-id:format:name
+ * ```
  * 
  */
 @ResourceType(type="aws:appsync/type:Type")

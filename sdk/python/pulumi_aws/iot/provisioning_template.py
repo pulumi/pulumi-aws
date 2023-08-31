@@ -371,11 +371,11 @@ class ProvisioningTemplate(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import IoT fleet provisioning templates using the `name`. For example:
 
-         to = aws_iot_provisioning_template.fleet
-
-         id = "FleetProvisioningTemplate" } Using `pulumi import`, import IoT fleet provisioning templates using the `name`. For exampleconsole % pulumi import aws_iot_provisioning_template.fleet FleetProvisioningTemplate
+        ```sh
+         $ pulumi import aws:iot/provisioningTemplate:ProvisioningTemplate fleet FleetProvisioningTemplate
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -452,11 +452,11 @@ class ProvisioningTemplate(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import IoT fleet provisioning templates using the `name`. For example:
 
-         to = aws_iot_provisioning_template.fleet
-
-         id = "FleetProvisioningTemplate" } Using `pulumi import`, import IoT fleet provisioning templates using the `name`. For exampleconsole % pulumi import aws_iot_provisioning_template.fleet FleetProvisioningTemplate
+        ```sh
+         $ pulumi import aws:iot/provisioningTemplate:ProvisioningTemplate fleet FleetProvisioningTemplate
+        ```
 
         :param str resource_name: The name of the resource.
         :param ProvisioningTemplateArgs args: The arguments to use to populate this resource's properties.

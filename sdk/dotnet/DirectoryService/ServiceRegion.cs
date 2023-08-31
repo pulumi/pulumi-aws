@@ -15,11 +15,11 @@ namespace Pulumi.Aws.DirectoryService
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import Replicated Regions using directory ID,Region name. For example:
     /// 
-    ///  to = aws_directory_service_region.example
-    /// 
-    ///  id = "d-9267651497,us-east-2" } Using `pulumi import`, import Replicated Regions using directory ID,Region name. For exampleconsole % pulumi import aws_directory_service_region.example d-9267651497,us-east-2
+    /// ```sh
+    ///  $ pulumi import aws:directoryservice/serviceRegion:ServiceRegion example d-9267651497,us-east-2
+    /// ```
     /// </summary>
     [AwsResourceType("aws:directoryservice/serviceRegion:ServiceRegion")]
     public partial class ServiceRegion : global::Pulumi.CustomResource

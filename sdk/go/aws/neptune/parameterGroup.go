@@ -48,11 +48,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Neptune Parameter Groups using the `name`. For example:
 //
-//	to = aws_neptune_parameter_group.some_pg
+// ```sh
 //
-//	id = "some-pg" } Using `pulumi import`, import Neptune Parameter Groups using the `name`. For exampleconsole % pulumi import aws_neptune_parameter_group.some_pg some-pg
+//	$ pulumi import aws:neptune/parameterGroup:ParameterGroup some_pg some-pg
+//
+// ```
 type ParameterGroup struct {
 	pulumi.CustomResourceState
 

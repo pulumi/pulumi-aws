@@ -26,11 +26,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import an Audit Manager Control using the `id`. For example:
  *
- *  to = aws_auditmanager_control.example
- *
- *  id = "abc123-de45" } Using `pulumi import`, import an Audit Manager Control using the `id`. For exampleconsole % pulumi import aws_auditmanager_control.example abc123-de45
+ * ```sh
+ *  $ pulumi import aws:auditmanager/control:Control example abc123-de45
+ * ```
  */
 export class Control extends pulumi.CustomResource {
     /**

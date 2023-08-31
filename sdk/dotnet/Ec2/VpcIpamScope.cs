@@ -48,11 +48,11 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import IPAMs using the `scope_id`. For example:
     /// 
-    ///  to = aws_vpc_ipam_scope.example
-    /// 
-    ///  id = "ipam-scope-0513c69f283d11dfb" } Using `pulumi import`, import IPAMs using the `scope_id`. For exampleconsole % pulumi import aws_vpc_ipam_scope.example ipam-scope-0513c69f283d11dfb
+    /// ```sh
+    ///  $ pulumi import aws:ec2/vpcIpamScope:VpcIpamScope example ipam-scope-0513c69f283d11dfb
+    /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/vpcIpamScope:VpcIpamScope")]
     public partial class VpcIpamScope : global::Pulumi.CustomResource

@@ -65,11 +65,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import EventBridge Global Endpoints using the `name`. For example:
 //
-//	to = aws_cloudwatch_event_endpoint.imported_endpoint
+// ```sh
 //
-//	id = "example-endpoint" } Using `pulumi import`, import EventBridge Global Endpoints using the `name`. For exampleconsole % pulumi import aws_cloudwatch_event_endpoint.imported_endpoint example-endpoint
+//	$ pulumi import aws:cloudwatch/eventEndpoint:EventEndpoint imported_endpoint example-endpoint
+//
+// ```
 type EventEndpoint struct {
 	pulumi.CustomResourceState
 

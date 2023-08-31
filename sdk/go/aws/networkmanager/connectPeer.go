@@ -18,11 +18,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import `aws_networkmanager_connect_peer` using the connect peer ID. For example:
 //
-//	to = aws_networkmanager_connect_peer.example
+// ```sh
 //
-//	id = "connect-peer-061f3e96275db1acc" } Using `pulumi import`, import `aws_networkmanager_connect_peer` using the connect peer ID. For exampleconsole % pulumi import aws_networkmanager_connect_peer.example connect-peer-061f3e96275db1acc
+//	$ pulumi import aws:networkmanager/connectPeer:ConnectPeer example connect-peer-061f3e96275db1acc
+//
+// ```
 type ConnectPeer struct {
 	pulumi.CustomResourceState
 

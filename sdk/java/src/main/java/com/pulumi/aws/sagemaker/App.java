@@ -55,11 +55,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import SageMaker Apps using the `id`. For example:
  * 
- *  to = aws_sagemaker_app.example
- * 
- *  id = &#34;arn:aws:sagemaker:us-west-2:012345678912:app/domain-id/user-profile-name/app-type/app-name&#34; } Using `pulumi import`, import SageMaker Apps using the `id`. For exampleconsole % pulumi import aws_sagemaker_app.example arn:aws:sagemaker:us-west-2:012345678912:app/domain-id/user-profile-name/app-type/app-name
+ * ```sh
+ *  $ pulumi import aws:sagemaker/app:App example arn:aws:sagemaker:us-west-2:012345678912:app/domain-id/user-profile-name/app-type/app-name
+ * ```
  * 
  */
 @ResourceType(type="aws:sagemaker/app:App")

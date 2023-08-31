@@ -53,11 +53,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import SageMaker User Profiles using the `arn`. For example:
  * 
- *  to = aws_sagemaker_user_profile.test_user_profile
- * 
- *  id = &#34;arn:aws:sagemaker:us-west-2:123456789012:user-profile/domain-id/profile-name&#34; } Using `pulumi import`, import SageMaker User Profiles using the `arn`. For exampleconsole % pulumi import aws_sagemaker_user_profile.test_user_profile arn:aws:sagemaker:us-west-2:123456789012:user-profile/domain-id/profile-name
+ * ```sh
+ *  $ pulumi import aws:sagemaker/userProfile:UserProfile test_user_profile arn:aws:sagemaker:us-west-2:123456789012:user-profile/domain-id/profile-name
+ * ```
  * 
  */
 @ResourceType(type="aws:sagemaker/userProfile:UserProfile")

@@ -122,11 +122,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import DB Parameter groups using the `name`. For example:
  * 
- *  to = aws_db_parameter_group.rds_pg
- * 
- *  id = &#34;rds-pg&#34; } Using `pulumi import`, import DB Parameter groups using the `name`. For exampleconsole % pulumi import aws_db_parameter_group.rds_pg rds-pg
+ * ```sh
+ *  $ pulumi import aws:rds/parameterGroup:ParameterGroup rds_pg rds-pg
+ * ```
  * 
  */
 @ResourceType(type="aws:rds/parameterGroup:ParameterGroup")

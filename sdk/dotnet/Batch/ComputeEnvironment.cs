@@ -217,11 +217,11 @@ namespace Pulumi.Aws.Batch
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import AWS Batch compute using the `compute_environment_name`. For example:
     /// 
-    ///  to = aws_batch_compute_environment.sample
-    /// 
-    ///  id = "sample" } Using `pulumi import`, import AWS Batch compute using the `compute_environment_name`. For exampleconsole % pulumi import aws_batch_compute_environment.sample sample [1]http://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.html [2]http://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html [3]http://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html
+    /// ```sh
+    ///  $ pulumi import aws:batch/computeEnvironment:ComputeEnvironment sample sample
+    /// ```
     /// </summary>
     [AwsResourceType("aws:batch/computeEnvironment:ComputeEnvironment")]
     public partial class ComputeEnvironment : global::Pulumi.CustomResource

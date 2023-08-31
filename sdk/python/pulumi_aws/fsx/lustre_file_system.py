@@ -891,23 +891,12 @@ class LustreFileSystem(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import FSx File Systems using the `id`. For example:
 
-         to = aws_fsx_lustre_file_system.example
-
-         id = "fs-543ab12b1ca672f33" } Using `pulumi import`, import FSx File Systems using the `id`. For exampleconsole % pulumi import aws_fsx_lustre_file_system.example fs-543ab12b1ca672f33 Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the TODO configuration on an imported resource, TODO will always show a difference. To workaround this behavior, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For exampleterraform resource "aws_fsx_lustre_file_system" "example" {
-
-        # ... other configuration ...
-
-         security_group_ids = [aws_security_group.example.id]
-
-        # There is no FSx API for reading security_group_ids
-
-         lifecycle {
-
-         ignore_changes = [security_group_ids]
-
-         } }
+        ```sh
+         $ pulumi import aws:fsx/lustreFileSystem:LustreFileSystem example fs-543ab12b1ca672f33
+        ```
+         Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the TODO configuration on an imported resource, TODO will always show a difference. To workaround this behavior, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For example:
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -959,23 +948,12 @@ class LustreFileSystem(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import FSx File Systems using the `id`. For example:
 
-         to = aws_fsx_lustre_file_system.example
-
-         id = "fs-543ab12b1ca672f33" } Using `pulumi import`, import FSx File Systems using the `id`. For exampleconsole % pulumi import aws_fsx_lustre_file_system.example fs-543ab12b1ca672f33 Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the TODO configuration on an imported resource, TODO will always show a difference. To workaround this behavior, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For exampleterraform resource "aws_fsx_lustre_file_system" "example" {
-
-        # ... other configuration ...
-
-         security_group_ids = [aws_security_group.example.id]
-
-        # There is no FSx API for reading security_group_ids
-
-         lifecycle {
-
-         ignore_changes = [security_group_ids]
-
-         } }
+        ```sh
+         $ pulumi import aws:fsx/lustreFileSystem:LustreFileSystem example fs-543ab12b1ca672f33
+        ```
+         Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the TODO configuration on an imported resource, TODO will always show a difference. To workaround this behavior, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For example:
 
         :param str resource_name: The name of the resource.
         :param LustreFileSystemArgs args: The arguments to use to populate this resource's properties.

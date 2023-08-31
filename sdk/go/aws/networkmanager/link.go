@@ -48,11 +48,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import `aws_networkmanager_link` using the link ARN. For example:
 //
-//	to = aws_networkmanager_link.example
+// ```sh
 //
-//	id = "arn:aws:networkmanager::123456789012:link/global-network-0d47f6t230mz46dy4/link-444555aaabbb11223" } Using `pulumi import`, import `aws_networkmanager_link` using the link ARN. For exampleconsole % pulumi import aws_networkmanager_link.example arn:aws:networkmanager::123456789012:link/global-network-0d47f6t230mz46dy4/link-444555aaabbb11223
+//	$ pulumi import aws:networkmanager/link:Link example arn:aws:networkmanager::123456789012:link/global-network-0d47f6t230mz46dy4/link-444555aaabbb11223
+//
+// ```
 type Link struct {
 	pulumi.CustomResourceState
 

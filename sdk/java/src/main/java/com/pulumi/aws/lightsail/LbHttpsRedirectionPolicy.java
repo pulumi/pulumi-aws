@@ -72,11 +72,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import `aws_lightsail_lb_https_redirection_policy` using the `lb_name` attribute. For example:
  * 
- *  to = aws_lightsail_lb_https_redirection_policy.test
- * 
- *  id = &#34;example-load-balancer&#34; } Using `pulumi import`, import `aws_lightsail_lb_https_redirection_policy` using the `lb_name` attribute. For exampleconsole % pulumi import aws_lightsail_lb_https_redirection_policy.test example-load-balancer
+ * ```sh
+ *  $ pulumi import aws:lightsail/lbHttpsRedirectionPolicy:LbHttpsRedirectionPolicy test example-load-balancer
+ * ```
  * 
  */
 @ResourceType(type="aws:lightsail/lbHttpsRedirectionPolicy:LbHttpsRedirectionPolicy")

@@ -18,11 +18,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import SageMaker Model Package Groups using the `name`. For example:
 //
-//	to = aws_sagemaker_model_package_group_policy.example
+// ```sh
 //
-//	id = "example" } Using `pulumi import`, import SageMaker Model Package Groups using the `name`. For exampleconsole % pulumi import aws_sagemaker_model_package_group_policy.example example
+//	$ pulumi import aws:sagemaker/modelPackageGroupPolicy:ModelPackageGroupPolicy example example
+//
+// ```
 type ModelPackageGroupPolicy struct {
 	pulumi.CustomResourceState
 

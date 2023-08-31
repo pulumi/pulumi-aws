@@ -369,11 +369,11 @@ class ConfigurationProfile(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import AppConfig Configuration Profiles using the configuration profile ID and application ID separated by a colon (`:`). For example:
 
-         to = aws_appconfig_configuration_profile.example
-
-         id = "71abcde:11xxxxx" } Using `pulumi import`, import AppConfig Configuration Profiles using the configuration profile ID and application ID separated by a colon (`:`). For exampleconsole % pulumi import aws_appconfig_configuration_profile.example 71abcde:11xxxxx
+        ```sh
+         $ pulumi import aws:appconfig/configurationProfile:ConfigurationProfile example 71abcde:11xxxxx
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -416,11 +416,11 @@ class ConfigurationProfile(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import AppConfig Configuration Profiles using the configuration profile ID and application ID separated by a colon (`:`). For example:
 
-         to = aws_appconfig_configuration_profile.example
-
-         id = "71abcde:11xxxxx" } Using `pulumi import`, import AppConfig Configuration Profiles using the configuration profile ID and application ID separated by a colon (`:`). For exampleconsole % pulumi import aws_appconfig_configuration_profile.example 71abcde:11xxxxx
+        ```sh
+         $ pulumi import aws:appconfig/configurationProfile:ConfigurationProfile example 71abcde:11xxxxx
+        ```
 
         :param str resource_name: The name of the resource.
         :param ConfigurationProfileArgs args: The arguments to use to populate this resource's properties.

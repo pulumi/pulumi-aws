@@ -293,11 +293,11 @@ class Certificate(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import ACM PCA Certificates using their ARN. For example:
 
-         to = aws_acmpca_certificate.cert
-
-         id = "arn:aws:acm-pca:eu-west-1:675225743824:certificate-authority/08319ede-83g9-1400-8f21-c7d12b2b6edb/certificate/a4e9c2aa4bcfab625g1b9136464cd3a" } Using `pulumi import`, import ACM PCA Certificates using their ARN. For exampleconsole % pulumi import aws_acmpca_certificate.cert arn:aws:acm-pca:eu-west-1:675225743824:certificate-authority/08319ede-83g9-1400-8f21-c7d12b2b6edb/certificate/a4e9c2aa4bcfab625g1b9136464cd3a
+        ```sh
+         $ pulumi import aws:acmpca/certificate:Certificate cert arn:aws:acm-pca:eu-west-1:675225743824:certificate-authority/08319ede-83g9-1400-8f21-c7d12b2b6edb/certificate/a4e9c2aa4bcfab625g1b9136464cd3a
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -327,11 +327,11 @@ class Certificate(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import ACM PCA Certificates using their ARN. For example:
 
-         to = aws_acmpca_certificate.cert
-
-         id = "arn:aws:acm-pca:eu-west-1:675225743824:certificate-authority/08319ede-83g9-1400-8f21-c7d12b2b6edb/certificate/a4e9c2aa4bcfab625g1b9136464cd3a" } Using `pulumi import`, import ACM PCA Certificates using their ARN. For exampleconsole % pulumi import aws_acmpca_certificate.cert arn:aws:acm-pca:eu-west-1:675225743824:certificate-authority/08319ede-83g9-1400-8f21-c7d12b2b6edb/certificate/a4e9c2aa4bcfab625g1b9136464cd3a
+        ```sh
+         $ pulumi import aws:acmpca/certificate:Certificate cert arn:aws:acm-pca:eu-west-1:675225743824:certificate-authority/08319ede-83g9-1400-8f21-c7d12b2b6edb/certificate/a4e9c2aa4bcfab625g1b9136464cd3a
+        ```
 
         :param str resource_name: The name of the resource.
         :param CertificateArgs args: The arguments to use to populate this resource's properties.

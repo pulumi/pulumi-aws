@@ -53,11 +53,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Media Package Channels using the channel ID. For example:
  * 
- *  to = aws_media_package_channel.kittens
- * 
- *  id = &#34;kittens-channel&#34; } Using `pulumi import`, import Media Package Channels using the channel ID. For exampleconsole % pulumi import aws_media_package_channel.kittens kittens-channel
+ * ```sh
+ *  $ pulumi import aws:mediapackage/channel:Channel kittens kittens-channel
+ * ```
  * 
  */
 @ResourceType(type="aws:mediapackage/channel:Channel")

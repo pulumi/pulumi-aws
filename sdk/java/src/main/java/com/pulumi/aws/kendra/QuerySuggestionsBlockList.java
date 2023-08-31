@@ -59,11 +59,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import the `aws_kendra_query_suggestions_block_list` resource using the unique identifiers of the block list and index separated by a slash (`/`). For example:
  * 
- *  to = aws_kendra_query_suggestions_block_list.example
- * 
- *  id = &#34;blocklist-123456780/idx-8012925589&#34; } Using `pulumi import`, import the `aws_kendra_query_suggestions_block_list` resource using the unique identifiers of the block list and index separated by a slash (`/`). For exampleconsole % pulumi import aws_kendra_query_suggestions_block_list.example blocklist-123456780/idx-8012925589
+ * ```sh
+ *  $ pulumi import aws:kendra/querySuggestionsBlockList:QuerySuggestionsBlockList example blocklist-123456780/idx-8012925589
+ * ```
  * 
  */
 @ResourceType(type="aws:kendra/querySuggestionsBlockList:QuerySuggestionsBlockList")

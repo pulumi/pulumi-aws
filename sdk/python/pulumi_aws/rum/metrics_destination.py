@@ -179,11 +179,11 @@ class MetricsDestination(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Cloudwatch RUM Metrics Destination using the `id`. For example:
 
-         to = aws_rum_metrics_destination.example
-
-         id = "example" } Using `pulumi import`, import Cloudwatch RUM Metrics Destination using the `id`. For exampleconsole % pulumi import aws_rum_metrics_destination.example example
+        ```sh
+         $ pulumi import aws:rum/metricsDestination:MetricsDestination example example
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -214,11 +214,11 @@ class MetricsDestination(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Cloudwatch RUM Metrics Destination using the `id`. For example:
 
-         to = aws_rum_metrics_destination.example
-
-         id = "example" } Using `pulumi import`, import Cloudwatch RUM Metrics Destination using the `id`. For exampleconsole % pulumi import aws_rum_metrics_destination.example example
+        ```sh
+         $ pulumi import aws:rum/metricsDestination:MetricsDestination example example
+        ```
 
         :param str resource_name: The name of the resource.
         :param MetricsDestinationArgs args: The arguments to use to populate this resource's properties.

@@ -107,11 +107,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import Batch Job Definition using the `arn`. For example:
  *
- *  to = aws_batch_job_definition.test
- *
- *  id = "arn:aws:batch:us-east-1:123456789012:job-definition/sample" } Using `pulumi import`, import Batch Job Definition using the `arn`. For exampleconsole % pulumi import aws_batch_job_definition.test arn:aws:batch:us-east-1:123456789012:job-definition/sample
+ * ```sh
+ *  $ pulumi import aws:batch/jobDefinition:JobDefinition test arn:aws:batch:us-east-1:123456789012:job-definition/sample
+ * ```
  */
 export class JobDefinition extends pulumi.CustomResource {
     /**

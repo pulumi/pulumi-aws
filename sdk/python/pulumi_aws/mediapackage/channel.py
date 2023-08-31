@@ -201,11 +201,11 @@ class Channel(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Media Package Channels using the channel ID. For example:
 
-         to = aws_media_package_channel.kittens
-
-         id = "kittens-channel" } Using `pulumi import`, import Media Package Channels using the channel ID. For exampleconsole % pulumi import aws_media_package_channel.kittens kittens-channel
+        ```sh
+         $ pulumi import aws:mediapackage/channel:Channel kittens kittens-channel
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -235,11 +235,11 @@ class Channel(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Media Package Channels using the channel ID. For example:
 
-         to = aws_media_package_channel.kittens
-
-         id = "kittens-channel" } Using `pulumi import`, import Media Package Channels using the channel ID. For exampleconsole % pulumi import aws_media_package_channel.kittens kittens-channel
+        ```sh
+         $ pulumi import aws:mediapackage/channel:Channel kittens kittens-channel
+        ```
 
         :param str resource_name: The name of the resource.
         :param ChannelArgs args: The arguments to use to populate this resource's properties.

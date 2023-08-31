@@ -217,11 +217,11 @@ class Alias(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import GameLift Aliases using the ID. For example:
 
-         to = aws_gamelift_alias.example
-
-         id = "<alias-id>" } Using `pulumi import`, import GameLift Aliases using the ID. For exampleconsole % pulumi import aws_gamelift_alias.example <alias-id>
+        ```sh
+         $ pulumi import aws:gamelift/alias:Alias example <alias-id>
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -255,11 +255,11 @@ class Alias(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import GameLift Aliases using the ID. For example:
 
-         to = aws_gamelift_alias.example
-
-         id = "<alias-id>" } Using `pulumi import`, import GameLift Aliases using the ID. For exampleconsole % pulumi import aws_gamelift_alias.example <alias-id>
+        ```sh
+         $ pulumi import aws:gamelift/alias:Alias example <alias-id>
+        ```
 
         :param str resource_name: The name of the resource.
         :param AliasArgs args: The arguments to use to populate this resource's properties.

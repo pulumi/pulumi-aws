@@ -505,11 +505,11 @@ class Connection(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Direct Connect connections using the connection `id`. For example:
 
-         to = aws_dx_connection.test_connection
-
-         id = "dxcon-ffre0ec3" } Using `pulumi import`, import Direct Connect connections using the connection `id`. For exampleconsole % pulumi import aws_dx_connection.test_connection dxcon-ffre0ec3
+        ```sh
+         $ pulumi import aws:directconnect/connection:Connection test_connection dxcon-ffre0ec3
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -572,11 +572,11 @@ class Connection(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Direct Connect connections using the connection `id`. For example:
 
-         to = aws_dx_connection.test_connection
-
-         id = "dxcon-ffre0ec3" } Using `pulumi import`, import Direct Connect connections using the connection `id`. For exampleconsole % pulumi import aws_dx_connection.test_connection dxcon-ffre0ec3
+        ```sh
+         $ pulumi import aws:directconnect/connection:Connection test_connection dxcon-ffre0ec3
+        ```
 
         :param str resource_name: The name of the resource.
         :param ConnectionArgs args: The arguments to use to populate this resource's properties.

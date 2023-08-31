@@ -210,11 +210,11 @@ class OpenZfsSnapshot(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import FSx OpenZFS snapshot using the `id`. For example:
 
-         to = aws_fsx_openzfs_snapshot.example
-
-         id = "fs-543ab12b1ca672f33" } Using `pulumi import`, import FSx OpenZFS snapshot using the `id`. For exampleconsole % pulumi import aws_fsx_openzfs_snapshot.example fs-543ab12b1ca672f33
+        ```sh
+         $ pulumi import aws:fsx/openZfsSnapshot:OpenZfsSnapshot example fs-543ab12b1ca672f33
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -263,11 +263,11 @@ class OpenZfsSnapshot(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import FSx OpenZFS snapshot using the `id`. For example:
 
-         to = aws_fsx_openzfs_snapshot.example
-
-         id = "fs-543ab12b1ca672f33" } Using `pulumi import`, import FSx OpenZFS snapshot using the `id`. For exampleconsole % pulumi import aws_fsx_openzfs_snapshot.example fs-543ab12b1ca672f33
+        ```sh
+         $ pulumi import aws:fsx/openZfsSnapshot:OpenZfsSnapshot example fs-543ab12b1ca672f33
+        ```
 
         :param str resource_name: The name of the resource.
         :param OpenZfsSnapshotArgs args: The arguments to use to populate this resource's properties.

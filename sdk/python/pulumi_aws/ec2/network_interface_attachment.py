@@ -178,11 +178,11 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Elastic network interface (ENI) Attachments using its Attachment ID. For example:
 
-         to = aws_network_interface_attachment.secondary_nic
-
-         id = "eni-attach-0a33842b4ec347c4c" } Using `pulumi import`, import Elastic network interface (ENI) Attachments using its Attachment ID. For exampleconsole % pulumi import aws_network_interface_attachment.secondary_nic eni-attach-0a33842b4ec347c4c
+        ```sh
+         $ pulumi import aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment secondary_nic eni-attach-0a33842b4ec347c4c
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -213,11 +213,11 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Elastic network interface (ENI) Attachments using its Attachment ID. For example:
 
-         to = aws_network_interface_attachment.secondary_nic
-
-         id = "eni-attach-0a33842b4ec347c4c" } Using `pulumi import`, import Elastic network interface (ENI) Attachments using its Attachment ID. For exampleconsole % pulumi import aws_network_interface_attachment.secondary_nic eni-attach-0a33842b4ec347c4c
+        ```sh
+         $ pulumi import aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment secondary_nic eni-attach-0a33842b4ec347c4c
+        ```
 
         :param str resource_name: The name of the resource.
         :param NetworkInterfaceAttachmentInitArgs args: The arguments to use to populate this resource's properties.

@@ -106,11 +106,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Glacier Vault Locks using the Glacier Vault name. For example:
  * 
- *  to = aws_glacier_vault_lock.example
- * 
- *  id = &#34;example-vault&#34; } Using `pulumi import`, import Glacier Vault Locks using the Glacier Vault name. For exampleconsole % pulumi import aws_glacier_vault_lock.example example-vault
+ * ```sh
+ *  $ pulumi import aws:glacier/vaultLock:VaultLock example example-vault
+ * ```
  * 
  */
 @ResourceType(type="aws:glacier/vaultLock:VaultLock")

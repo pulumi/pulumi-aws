@@ -44,11 +44,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import `aws_servicecatalog_principal_portfolio_association` using the accept language, principal ARN, and portfolio ID, separated by a comma. For example:
 //
-//	to = aws_servicecatalog_principal_portfolio_association.example
+// ```sh
 //
-//	id = "en,arn:aws:iam::123456789012:user/Eleanor,port-68656c6c6f" } Using `pulumi import`, import `aws_servicecatalog_principal_portfolio_association` using the accept language, principal ARN, and portfolio ID, separated by a comma. For exampleconsole % pulumi import aws_servicecatalog_principal_portfolio_association.example en,arn:aws:iam::123456789012:user/Eleanor,port-68656c6c6f
+//	$ pulumi import aws:servicecatalog/principalPortfolioAssociation:PrincipalPortfolioAssociation example en,arn:aws:iam::123456789012:user/Eleanor,port-68656c6c6f
+//
+// ```
 type PrincipalPortfolioAssociation struct {
 	pulumi.CustomResourceState
 

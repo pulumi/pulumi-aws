@@ -52,11 +52,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import GameLift Fleets using the ID. For example:
 //
-//	to = aws_gamelift_fleet.example
+// ```sh
 //
-//	id = "<fleet-id>" } Using `pulumi import`, import GameLift Fleets using the ID. For exampleconsole % pulumi import aws_gamelift_fleet.example <fleet-id>
+//	$ pulumi import aws:gamelift/fleet:Fleet example <fleet-id>
+//
+// ```
 type Fleet struct {
 	pulumi.CustomResourceState
 

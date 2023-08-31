@@ -65,11 +65,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import MQ Brokers using their broker id. For example:
  *
- *  to = aws_mq_broker.example
- *
- *  id = "a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc" } Using `pulumi import`, import MQ Brokers using their broker id. For exampleconsole % pulumi import aws_mq_broker.example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+ * ```sh
+ *  $ pulumi import aws:mq/broker:Broker example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+ * ```
  */
 export class Broker extends pulumi.CustomResource {
     /**

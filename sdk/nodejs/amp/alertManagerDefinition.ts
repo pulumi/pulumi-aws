@@ -27,11 +27,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import the prometheus alert manager definition using the workspace identifier. For example:
  *
- *  to = aws_prometheus_alert_manager_definition.demo
- *
- *  id = "ws-C6DCB907-F2D7-4D96-957B-66691F865D8B" } Using `pulumi import`, import the prometheus alert manager definition using the workspace identifier. For exampleconsole % pulumi import aws_prometheus_alert_manager_definition.demo ws-C6DCB907-F2D7-4D96-957B-66691F865D8B
+ * ```sh
+ *  $ pulumi import aws:amp/alertManagerDefinition:AlertManagerDefinition demo ws-C6DCB907-F2D7-4D96-957B-66691F865D8B
+ * ```
  */
 export class AlertManagerDefinition extends pulumi.CustomResource {
     /**

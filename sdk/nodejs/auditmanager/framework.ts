@@ -27,11 +27,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import Audit Manager Framework using the framework `id`. For example:
  *
- *  to = aws_auditmanager_framework.example
- *
- *  id = "abc123-de45" } Using `pulumi import`, import Audit Manager Framework using the framework `id`. For exampleconsole % pulumi import aws_auditmanager_framework.example abc123-de45
+ * ```sh
+ *  $ pulumi import aws:auditmanager/framework:Framework example abc123-de45
+ * ```
  */
 export class Framework extends pulumi.CustomResource {
     /**

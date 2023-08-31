@@ -176,11 +176,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import MWAA Environment using `Name`. For example:
 //
-//	to = aws_mwaa_environment.example
+// ```sh
 //
-//	id = "MyAirflowEnvironment" } Using `pulumi import`, import MWAA Environment using `Name`. For exampleconsole % pulumi import aws_mwaa_environment.example MyAirflowEnvironment
+//	$ pulumi import aws:mwaa/environment:Environment example MyAirflowEnvironment
+//
+// ```
 type Environment struct {
 	pulumi.CustomResourceState
 

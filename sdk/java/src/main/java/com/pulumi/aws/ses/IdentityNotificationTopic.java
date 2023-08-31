@@ -53,11 +53,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Identity Notification Topics using the ID of the record. The ID is made up as `IDENTITY|TYPE` where `IDENTITY` is the SES Identity and `TYPE` is the Notification Type. For example:
  * 
- *  to = aws_ses_identity_notification_topic.test
- * 
- *  id = &#34;example.com|Bounce&#34; } Using `pulumi import`, import Identity Notification Topics using the ID of the record. The ID is made up as `IDENTITY|TYPE` where `IDENTITY` is the SES Identity and `TYPE` is the Notification Type. For exampleconsole % pulumi import aws_ses_identity_notification_topic.test &#39;example.com|Bounce&#39;
+ * ```sh
+ *  $ pulumi import aws:ses/identityNotificationTopic:IdentityNotificationTopic test &#39;example.com|Bounce&#39;
+ * ```
  * 
  */
 @ResourceType(type="aws:ses/identityNotificationTopic:IdentityNotificationTopic")

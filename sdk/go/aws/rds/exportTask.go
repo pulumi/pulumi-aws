@@ -198,11 +198,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import a RDS (Relational Database) Export Task using the `export_task_identifier`. For example:
 //
-//	to = aws_rds_export_task.example
+// ```sh
 //
-//	id = "example" } Using `pulumi import`, import a RDS (Relational Database) Export Task using the `export_task_identifier`. For exampleconsole % pulumi import aws_rds_export_task.example example
+//	$ pulumi import aws:rds/exportTask:ExportTask example example
+//
+// ```
 type ExportTask struct {
 	pulumi.CustomResourceState
 

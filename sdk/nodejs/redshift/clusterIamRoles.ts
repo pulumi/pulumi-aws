@@ -23,11 +23,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import Redshift Cluster IAM Roless using the `cluster_identifier`. For example:
  *
- *  to = aws_redshift_cluster_iam_roles.examplegroup1
- *
- *  id = "example" } Using `pulumi import`, import Redshift Cluster IAM Roless using the `cluster_identifier`. For exampleconsole % pulumi import aws_redshift_cluster_iam_roles.examplegroup1 example
+ * ```sh
+ *  $ pulumi import aws:redshift/clusterIamRoles:ClusterIamRoles examplegroup1 example
+ * ```
  */
 export class ClusterIamRoles extends pulumi.CustomResource {
     /**

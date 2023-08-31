@@ -65,11 +65,11 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import Configuration Recorder using the name. For example:
     /// 
-    ///  to = aws_config_configuration_recorder.foo
-    /// 
-    ///  id = "example" } Using `pulumi import`, import Configuration Recorder using the name. For exampleconsole % pulumi import aws_config_configuration_recorder.foo example
+    /// ```sh
+    ///  $ pulumi import aws:cfg/recorder:Recorder foo example
+    /// ```
     /// </summary>
     [AwsResourceType("aws:cfg/recorder:Recorder")]
     public partial class Recorder : global::Pulumi.CustomResource

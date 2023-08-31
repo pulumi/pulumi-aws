@@ -53,11 +53,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Redshift endpoint authorization using the `id`. For example:
  * 
- *  to = aws_redshift_endpoint_authorization.example
- * 
- *  id = &#34;01234567910:cluster-example-id&#34; } Using `pulumi import`, import Redshift endpoint authorization using the `id`. For exampleconsole % pulumi import aws_redshift_endpoint_authorization.example 01234567910:cluster-example-id
+ * ```sh
+ *  $ pulumi import aws:redshift/endpointAuthorization:EndpointAuthorization example 01234567910:cluster-example-id
+ * ```
  * 
  */
 @ResourceType(type="aws:redshift/endpointAuthorization:EndpointAuthorization")

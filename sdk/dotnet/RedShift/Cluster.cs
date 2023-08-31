@@ -39,11 +39,11 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import Redshift Clusters using the `cluster_identifier`. For example:
     /// 
-    ///  to = aws_redshift_cluster.myprodcluster
-    /// 
-    ///  id = "tf-redshift-cluster-12345" } Using `pulumi import`, import Redshift Clusters using the `cluster_identifier`. For exampleconsole % pulumi import aws_redshift_cluster.myprodcluster tf-redshift-cluster-12345
+    /// ```sh
+    ///  $ pulumi import aws:redshift/cluster:Cluster myprodcluster tf-redshift-cluster-12345
+    /// ```
     /// </summary>
     [AwsResourceType("aws:redshift/cluster:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource

@@ -116,11 +116,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import SNS platform applications using the ARN. For example:
  * 
- *  to = aws_sns_platform_application.gcm_application
- * 
- *  id = &#34;arn:aws:sns:us-west-2:0123456789012:app/GCM/gcm_application&#34; } Using `pulumi import`, import SNS platform applications using the ARN. For exampleconsole % pulumi import aws_sns_platform_application.gcm_application arn:aws:sns:us-west-2:0123456789012:app/GCM/gcm_application
+ * ```sh
+ *  $ pulumi import aws:sns/platformApplication:PlatformApplication gcm_application arn:aws:sns:us-west-2:0123456789012:app/GCM/gcm_application
+ * ```
  * 
  */
 @ResourceType(type="aws:sns/platformApplication:PlatformApplication")

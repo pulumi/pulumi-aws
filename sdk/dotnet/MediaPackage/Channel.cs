@@ -33,11 +33,11 @@ namespace Pulumi.Aws.MediaPackage
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import Media Package Channels using the channel ID. For example:
     /// 
-    ///  to = aws_media_package_channel.kittens
-    /// 
-    ///  id = "kittens-channel" } Using `pulumi import`, import Media Package Channels using the channel ID. For exampleconsole % pulumi import aws_media_package_channel.kittens kittens-channel
+    /// ```sh
+    ///  $ pulumi import aws:mediapackage/channel:Channel kittens kittens-channel
+    /// ```
     /// </summary>
     [AwsResourceType("aws:mediapackage/channel:Channel")]
     public partial class Channel : global::Pulumi.CustomResource

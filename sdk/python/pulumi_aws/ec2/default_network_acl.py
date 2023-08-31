@@ -366,11 +366,11 @@ class DefaultNetworkAcl(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Default Network ACLs using the `id`. For example:
 
-         to = aws_default_network_acl.sample
-
-         id = "acl-7aaabd18" } Using `pulumi import`, import Default Network ACLs using the `id`. For exampleconsole % pulumi import aws_default_network_acl.sample acl-7aaabd18
+        ```sh
+         $ pulumi import aws:ec2/defaultNetworkAcl:DefaultNetworkAcl sample acl-7aaabd18
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -483,11 +483,11 @@ class DefaultNetworkAcl(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Default Network ACLs using the `id`. For example:
 
-         to = aws_default_network_acl.sample
-
-         id = "acl-7aaabd18" } Using `pulumi import`, import Default Network ACLs using the `id`. For exampleconsole % pulumi import aws_default_network_acl.sample acl-7aaabd18
+        ```sh
+         $ pulumi import aws:ec2/defaultNetworkAcl:DefaultNetworkAcl sample acl-7aaabd18
+        ```
 
         :param str resource_name: The name of the resource.
         :param DefaultNetworkAclArgs args: The arguments to use to populate this resource's properties.

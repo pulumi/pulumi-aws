@@ -34,11 +34,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import Comprehend Document Classifier using the ARN. For example:
  *
- *  to = aws_comprehend_document_classifier.example
- *
- *  id = "arn:aws:comprehend:us-west-2:123456789012:document_classifier/example" } Using `pulumi import`, import Comprehend Document Classifier using the ARN. For exampleconsole % pulumi import aws_comprehend_document_classifier.example arn:aws:comprehend:us-west-2:123456789012:document_classifier/example
+ * ```sh
+ *  $ pulumi import aws:comprehend/documentClassifier:DocumentClassifier example arn:aws:comprehend:us-west-2:123456789012:document_classifier/example
+ * ```
  */
 export class DocumentClassifier extends pulumi.CustomResource {
     /**

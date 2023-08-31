@@ -256,11 +256,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import launch configurations using the `name`. For example:
  * 
- *  to = aws_launch_configuration.as_conf
- * 
- *  id = &#34;TODO-lg-123456&#34; } Using `pulumi import`, import launch configurations using the `name`. For exampleconsole % pulumi import aws_launch_configuration.as_conf TODO-lg-123456
+ * ```sh
+ *  $ pulumi import aws:ec2/launchConfiguration:LaunchConfiguration as_conf TODO-lg-123456
+ * ```
  * 
  */
 @ResourceType(type="aws:ec2/launchConfiguration:LaunchConfiguration")

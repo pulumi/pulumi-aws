@@ -48,11 +48,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Media Convert Queue using the queue name. For example:
  * 
- *  to = aws_media_convert_queue.test
- * 
- *  id = &#34;tf-test-queue&#34; } Using `pulumi import`, import Media Convert Queue using the queue name. For exampleconsole % pulumi import aws_media_convert_queue.test tf-test-queue
+ * ```sh
+ *  $ pulumi import aws:mediaconvert/queue:Queue test tf-test-queue
+ * ```
  * 
  */
 @ResourceType(type="aws:mediaconvert/queue:Queue")

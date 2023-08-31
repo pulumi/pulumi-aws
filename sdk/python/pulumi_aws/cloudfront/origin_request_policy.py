@@ -246,11 +246,11 @@ class OriginRequestPolicy(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Cloudfront Origin Request Policies using the `id`. For example:
 
-         to = aws_cloudfront_origin_request_policy.policy
-
-         id = "ccca32ef-dce3-4df3-80df-1bd3000bc4d3" } Using `pulumi import`, import Cloudfront Origin Request Policies using the `id`. For exampleconsole % pulumi import aws_cloudfront_origin_request_policy.policy ccca32ef-dce3-4df3-80df-1bd3000bc4d3
+        ```sh
+         $ pulumi import aws:cloudfront/originRequestPolicy:OriginRequestPolicy policy ccca32ef-dce3-4df3-80df-1bd3000bc4d3
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -299,11 +299,11 @@ class OriginRequestPolicy(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Cloudfront Origin Request Policies using the `id`. For example:
 
-         to = aws_cloudfront_origin_request_policy.policy
-
-         id = "ccca32ef-dce3-4df3-80df-1bd3000bc4d3" } Using `pulumi import`, import Cloudfront Origin Request Policies using the `id`. For exampleconsole % pulumi import aws_cloudfront_origin_request_policy.policy ccca32ef-dce3-4df3-80df-1bd3000bc4d3
+        ```sh
+         $ pulumi import aws:cloudfront/originRequestPolicy:OriginRequestPolicy policy ccca32ef-dce3-4df3-80df-1bd3000bc4d3
+        ```
 
         :param str resource_name: The name of the resource.
         :param OriginRequestPolicyArgs args: The arguments to use to populate this resource's properties.

@@ -145,11 +145,11 @@ class PolicyTableAssociation(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_ec2_transit_gateway_policy_table_association` using the EC2 Transit Gateway Policy Table identifier, an underscore, and the EC2 Transit Gateway Attachment identifier. For example:
 
-         to = aws_ec2_transit_gateway_policy_table_association.example
-
-         id = "tgw-rtb-12345678_tgw-attach-87654321" } Using `pulumi import`, import `aws_ec2_transit_gateway_policy_table_association` using the EC2 Transit Gateway Policy Table identifier, an underscore, and the EC2 Transit Gateway Attachment identifier. For exampleconsole % pulumi import aws_ec2_transit_gateway_policy_table_association.example tgw-rtb-12345678_tgw-attach-87654321
+        ```sh
+         $ pulumi import aws:ec2transitgateway/policyTableAssociation:PolicyTableAssociation example tgw-rtb-12345678_tgw-attach-87654321
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -178,11 +178,11 @@ class PolicyTableAssociation(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_ec2_transit_gateway_policy_table_association` using the EC2 Transit Gateway Policy Table identifier, an underscore, and the EC2 Transit Gateway Attachment identifier. For example:
 
-         to = aws_ec2_transit_gateway_policy_table_association.example
-
-         id = "tgw-rtb-12345678_tgw-attach-87654321" } Using `pulumi import`, import `aws_ec2_transit_gateway_policy_table_association` using the EC2 Transit Gateway Policy Table identifier, an underscore, and the EC2 Transit Gateway Attachment identifier. For exampleconsole % pulumi import aws_ec2_transit_gateway_policy_table_association.example tgw-rtb-12345678_tgw-attach-87654321
+        ```sh
+         $ pulumi import aws:ec2transitgateway/policyTableAssociation:PolicyTableAssociation example tgw-rtb-12345678_tgw-attach-87654321
+        ```
 
         :param str resource_name: The name of the resource.
         :param PolicyTableAssociationArgs args: The arguments to use to populate this resource's properties.

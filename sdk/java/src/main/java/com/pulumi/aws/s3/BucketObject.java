@@ -222,15 +222,22 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Import using the `id`, which is the bucket name and the key togetherterraform import {
+ * Import using the `id`, which is the bucket name and the key together:
  * 
- *  to = aws_s3_bucket_object.example
+ * Import using S3 URL syntax:
  * 
- *  id = &#34;some-bucket-name/some/key.txt&#34; } Import using S3 URL syntaxterraform import {
+ * __Using `pulumi import` to import__ objects using the `id` or S3 URL. For example:
  * 
- *  to = aws_s3_bucket_object.example
+ * Import using the `id`, which is the bucket name and the key together:
  * 
- *  id = &#34;s3://some-bucket-name/some/key.txt&#34; } **Using `pulumi import` to import** objects using the `id` or S3 URL. For exampleImport using the `id`, which is the bucket name and the key togetherconsole % pulumi import aws_s3_bucket_object.example some-bucket-name/some/key.txt Import using S3 URL syntaxconsole % pulumi import aws_s3_bucket_object.example s3://some-bucket-name/some/key.txt
+ * ```sh
+ *  $ pulumi import aws:s3/bucketObject:BucketObject example some-bucket-name/some/key.txt
+ * ```
+ *  Import using S3 URL syntax:
+ * 
+ * ```sh
+ *  $ pulumi import aws:s3/bucketObject:BucketObject example s3://some-bucket-name/some/key.txt
+ * ```
  * 
  */
 @ResourceType(type="aws:s3/bucketObject:BucketObject")

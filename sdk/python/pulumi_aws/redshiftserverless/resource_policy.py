@@ -124,11 +124,11 @@ class ResourcePolicy(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Redshift Serverless Resource Policies using the `resource_arn`. For example:
 
-         to = aws_redshiftserverless_resource_policy.example
-
-         id = "example" } Using `pulumi import`, import Redshift Serverless Resource Policies using the `resource_arn`. For exampleconsole % pulumi import aws_redshiftserverless_resource_policy.example example
+        ```sh
+         $ pulumi import aws:redshiftserverless/resourcePolicy:ResourcePolicy example example
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -168,11 +168,11 @@ class ResourcePolicy(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Redshift Serverless Resource Policies using the `resource_arn`. For example:
 
-         to = aws_redshiftserverless_resource_policy.example
-
-         id = "example" } Using `pulumi import`, import Redshift Serverless Resource Policies using the `resource_arn`. For exampleconsole % pulumi import aws_redshiftserverless_resource_policy.example example
+        ```sh
+         $ pulumi import aws:redshiftserverless/resourcePolicy:ResourcePolicy example example
+        ```
 
         :param str resource_name: The name of the resource.
         :param ResourcePolicyArgs args: The arguments to use to populate this resource's properties.

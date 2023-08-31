@@ -43,11 +43,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import CloudWatch Logs destinations using the `name`. For example:
 //
-//	to = aws_cloudwatch_log_destination.test_destination
+// ```sh
 //
-//	id = "test_destination" } Using `pulumi import`, import CloudWatch Logs destinations using the `name`. For exampleconsole % pulumi import aws_cloudwatch_log_destination.test_destination test_destination
+//	$ pulumi import aws:cloudwatch/logDestination:LogDestination test_destination test_destination
+//
+// ```
 type LogDestination struct {
 	pulumi.CustomResourceState
 

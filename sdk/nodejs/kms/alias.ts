@@ -21,11 +21,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import KMS aliases using the `name`. For example:
  *
- *  to = aws_kms_alias.a
- *
- *  id = "alias/my-key-alias" } Using `pulumi import`, import KMS aliases using the `name`. For exampleconsole % pulumi import aws_kms_alias.a alias/my-key-alias
+ * ```sh
+ *  $ pulumi import aws:kms/alias:Alias a alias/my-key-alias
+ * ```
  */
 export class Alias extends pulumi.CustomResource {
     /**

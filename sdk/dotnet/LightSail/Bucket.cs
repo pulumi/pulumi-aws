@@ -32,11 +32,11 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import `aws_lightsail_bucket` using the `name` attribute. For example:
     /// 
-    ///  to = aws_lightsail_bucket.test
-    /// 
-    ///  id = "example-bucket" } Using `pulumi import`, import `aws_lightsail_bucket` using the `name` attribute. For exampleconsole % pulumi import aws_lightsail_bucket.test example-bucket
+    /// ```sh
+    ///  $ pulumi import aws:lightsail/bucket:Bucket test example-bucket
+    /// ```
     /// </summary>
     [AwsResourceType("aws:lightsail/bucket:Bucket")]
     public partial class Bucket : global::Pulumi.CustomResource

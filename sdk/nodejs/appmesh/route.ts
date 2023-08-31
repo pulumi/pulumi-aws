@@ -129,11 +129,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import App Mesh virtual routes using `mesh_name` and `virtual_router_name` together with the route's `name`. For example:
  *
- *  to = aws_appmesh_route.serviceb
- *
- *  id = "simpleapp/serviceB/serviceB-route" } Using `pulumi import`, import App Mesh virtual routes using `mesh_name` and `virtual_router_name` together with the route's `name`. For exampleconsole % pulumi import aws_appmesh_route.serviceb simpleapp/serviceB/serviceB-route
+ * ```sh
+ *  $ pulumi import aws:appmesh/route:Route serviceb simpleapp/serviceB/serviceB-route
+ * ```
  */
 export class Route extends pulumi.CustomResource {
     /**

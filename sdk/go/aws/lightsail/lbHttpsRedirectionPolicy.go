@@ -67,11 +67,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import `aws_lightsail_lb_https_redirection_policy` using the `lb_name` attribute. For example:
 //
-//	to = aws_lightsail_lb_https_redirection_policy.test
+// ```sh
 //
-//	id = "example-load-balancer" } Using `pulumi import`, import `aws_lightsail_lb_https_redirection_policy` using the `lb_name` attribute. For exampleconsole % pulumi import aws_lightsail_lb_https_redirection_policy.test example-load-balancer
+//	$ pulumi import aws:lightsail/lbHttpsRedirectionPolicy:LbHttpsRedirectionPolicy test example-load-balancer
+//
+// ```
 type LbHttpsRedirectionPolicy struct {
 	pulumi.CustomResourceState
 

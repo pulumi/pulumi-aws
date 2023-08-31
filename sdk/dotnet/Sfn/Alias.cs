@@ -57,11 +57,11 @@ namespace Pulumi.Aws.Sfn
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import SFN (Step Functions) Alias using the `arn`. For example:
     /// 
-    ///  to = aws_sfn_alias.foo
-    /// 
-    ///  id = "arn:aws:states:us-east-1:123456789098:stateMachine:myStateMachine:foo" } Using `pulumi import`, import SFN (Step Functions) Alias using the `arn`. For exampleconsole % pulumi import aws_sfn_alias.foo arn:aws:states:us-east-1:123456789098:stateMachine:myStateMachine:foo
+    /// ```sh
+    ///  $ pulumi import aws:sfn/alias:Alias foo arn:aws:states:us-east-1:123456789098:stateMachine:myStateMachine:foo
+    /// ```
     /// </summary>
     [AwsResourceType("aws:sfn/alias:Alias")]
     public partial class Alias : global::Pulumi.CustomResource

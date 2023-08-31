@@ -653,11 +653,11 @@ class Distribution(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Lightsail Distribution using the `id`. For example:
 
-         to = aws_lightsail_distribution.example
-
-         id = "rft-8012925589" } Using `pulumi import`, import Lightsail Distribution using the `id`. For exampleconsole % pulumi import aws_lightsail_distribution.example rft-8012925589
+        ```sh
+         $ pulumi import aws:lightsail/distribution:Distribution example rft-8012925589
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -794,11 +794,11 @@ class Distribution(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Lightsail Distribution using the `id`. For example:
 
-         to = aws_lightsail_distribution.example
-
-         id = "rft-8012925589" } Using `pulumi import`, import Lightsail Distribution using the `id`. For exampleconsole % pulumi import aws_lightsail_distribution.example rft-8012925589
+        ```sh
+         $ pulumi import aws:lightsail/distribution:Distribution example rft-8012925589
+        ```
 
         :param str resource_name: The name of the resource.
         :param DistributionArgs args: The arguments to use to populate this resource's properties.

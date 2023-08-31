@@ -37,11 +37,11 @@ namespace Pulumi.Aws.Kms
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import KMS Keys using the `id`. For example:
     /// 
-    ///  to = aws_kms_key.a
-    /// 
-    ///  id = "1234abcd-12ab-34cd-56ef-1234567890ab" } Using `pulumi import`, import KMS Keys using the `id`. For exampleconsole % pulumi import aws_kms_key.a 1234abcd-12ab-34cd-56ef-1234567890ab
+    /// ```sh
+    ///  $ pulumi import aws:kms/key:Key a 1234abcd-12ab-34cd-56ef-1234567890ab
+    /// ```
     /// </summary>
     [AwsResourceType("aws:kms/key:Key")]
     public partial class Key : global::Pulumi.CustomResource

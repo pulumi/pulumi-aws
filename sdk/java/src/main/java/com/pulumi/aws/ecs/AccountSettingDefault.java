@@ -52,11 +52,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import ECS Account Setting defaults using the `name`. For example:
  * 
- *  to = aws_ecs_account_setting_default.example
- * 
- *  id = &#34;taskLongArnFormat&#34; } Using `pulumi import`, import ECS Account Setting defaults using the `name`. For exampleconsole % pulumi import aws_ecs_account_setting_default.example taskLongArnFormat
+ * ```sh
+ *  $ pulumi import aws:ecs/accountSettingDefault:AccountSettingDefault example taskLongArnFormat
+ * ```
  * 
  */
 @ResourceType(type="aws:ecs/accountSettingDefault:AccountSettingDefault")

@@ -57,11 +57,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import IPAMs using the delegate account `id`. For example:
  * 
- *  to = aws_vpc_ipam_organization_admin_account.example
- * 
- *  id = &#34;12345678901&#34; } Using `pulumi import`, import IPAMs using the delegate account `id`. For exampleconsole % pulumi import aws_vpc_ipam_organization_admin_account.example 12345678901
+ * ```sh
+ *  $ pulumi import aws:ec2/vpcIpamOrganizationAdminAccount:VpcIpamOrganizationAdminAccount example 12345678901
+ * ```
  * 
  */
 @ResourceType(type="aws:ec2/vpcIpamOrganizationAdminAccount:VpcIpamOrganizationAdminAccount")

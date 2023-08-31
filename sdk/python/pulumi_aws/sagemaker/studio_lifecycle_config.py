@@ -201,11 +201,11 @@ class StudioLifecycleConfig(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import SageMaker Studio Lifecycle Configs using the `studio_lifecycle_config_name`. For example:
 
-         to = aws_sagemaker_studio_lifecycle_config.example
-
-         id = "example" } Using `pulumi import`, import SageMaker Studio Lifecycle Configs using the `studio_lifecycle_config_name`. For exampleconsole % pulumi import aws_sagemaker_studio_lifecycle_config.example example
+        ```sh
+         $ pulumi import aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig example example
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -227,11 +227,11 @@ class StudioLifecycleConfig(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import SageMaker Studio Lifecycle Configs using the `studio_lifecycle_config_name`. For example:
 
-         to = aws_sagemaker_studio_lifecycle_config.example
-
-         id = "example" } Using `pulumi import`, import SageMaker Studio Lifecycle Configs using the `studio_lifecycle_config_name`. For exampleconsole % pulumi import aws_sagemaker_studio_lifecycle_config.example example
+        ```sh
+         $ pulumi import aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig example example
+        ```
 
         :param str resource_name: The name of the resource.
         :param StudioLifecycleConfigArgs args: The arguments to use to populate this resource's properties.

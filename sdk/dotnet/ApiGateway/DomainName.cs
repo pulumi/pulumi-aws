@@ -117,11 +117,11 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import API Gateway domain names using their `name`. For example:
     /// 
-    ///  to = aws_api_gateway_domain_name.example
-    /// 
-    ///  id = "dev.example.com" } Using `pulumi import`, import API Gateway domain names using their `name`. For exampleconsole % pulumi import aws_api_gateway_domain_name.example dev.example.com
+    /// ```sh
+    ///  $ pulumi import aws:apigateway/domainName:DomainName example dev.example.com
+    /// ```
     /// </summary>
     [AwsResourceType("aws:apigateway/domainName:DomainName")]
     public partial class DomainName : global::Pulumi.CustomResource

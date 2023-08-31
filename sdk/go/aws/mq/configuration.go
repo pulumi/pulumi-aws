@@ -60,11 +60,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import MQ Configurations using the configuration ID. For example:
 //
-//	to = aws_mq_configuration.example
+// ```sh
 //
-//	id = "c-0187d1eb-88c8-475a-9b79-16ef5a10c94f" } Using `pulumi import`, import MQ Configurations using the configuration ID. For exampleconsole % pulumi import aws_mq_configuration.example c-0187d1eb-88c8-475a-9b79-16ef5a10c94f
+//	$ pulumi import aws:mq/configuration:Configuration example c-0187d1eb-88c8-475a-9b79-16ef5a10c94f
+//
+// ```
 type Configuration struct {
 	pulumi.CustomResourceState
 

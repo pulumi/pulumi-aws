@@ -75,11 +75,11 @@ namespace Pulumi.Aws.Neptune
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import `aws_neptune_event_subscription` using the event subscription name. For example:
     /// 
-    ///  to = aws_neptune_event_subscription.example
-    /// 
-    ///  id = "my-event-subscription" } Using `pulumi import`, import `aws_neptune_event_subscription` using the event subscription name. For exampleconsole % pulumi import aws_neptune_event_subscription.example my-event-subscription
+    /// ```sh
+    ///  $ pulumi import aws:neptune/eventSubscription:EventSubscription example my-event-subscription
+    /// ```
     /// </summary>
     [AwsResourceType("aws:neptune/eventSubscription:EventSubscription")]
     public partial class EventSubscription : global::Pulumi.CustomResource

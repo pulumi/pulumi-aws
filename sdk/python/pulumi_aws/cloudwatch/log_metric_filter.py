@@ -190,11 +190,11 @@ class LogMetricFilter(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import CloudWatch Log Metric Filter using the `log_group_name:name`. For example:
 
-         to = aws_cloudwatch_log_metric_filter.test
-
-         id = "/aws/lambda/function:test" } Using `pulumi import`, import CloudWatch Log Metric Filter using the `log_group_name:name`. For exampleconsole % pulumi import aws_cloudwatch_log_metric_filter.test /aws/lambda/function:test
+        ```sh
+         $ pulumi import aws:cloudwatch/logMetricFilter:LogMetricFilter test /aws/lambda/function:test
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -232,11 +232,11 @@ class LogMetricFilter(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import CloudWatch Log Metric Filter using the `log_group_name:name`. For example:
 
-         to = aws_cloudwatch_log_metric_filter.test
-
-         id = "/aws/lambda/function:test" } Using `pulumi import`, import CloudWatch Log Metric Filter using the `log_group_name:name`. For exampleconsole % pulumi import aws_cloudwatch_log_metric_filter.test /aws/lambda/function:test
+        ```sh
+         $ pulumi import aws:cloudwatch/logMetricFilter:LogMetricFilter test /aws/lambda/function:test
+        ```
 
         :param str resource_name: The name of the resource.
         :param LogMetricFilterArgs args: The arguments to use to populate this resource's properties.

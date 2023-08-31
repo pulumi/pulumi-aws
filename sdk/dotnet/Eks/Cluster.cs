@@ -189,11 +189,11 @@ namespace Pulumi.Aws.Eks
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import EKS Clusters using the `name`. For example:
     /// 
-    ///  to = aws_eks_cluster.my_cluster
-    /// 
-    ///  id = "my_cluster" } Using `pulumi import`, import EKS Clusters using the `name`. For exampleconsole % pulumi import aws_eks_cluster.my_cluster my_cluster
+    /// ```sh
+    ///  $ pulumi import aws:eks/cluster:Cluster my_cluster my_cluster
+    /// ```
     /// </summary>
     [AwsResourceType("aws:eks/cluster:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource

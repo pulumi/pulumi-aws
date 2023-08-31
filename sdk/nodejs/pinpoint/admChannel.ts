@@ -24,11 +24,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import Pinpoint ADM Channel using the `application-id`. For example:
  *
- *  to = aws_pinpoint_adm_channel.channel
- *
- *  id = "application-id" } Using `pulumi import`, import Pinpoint ADM Channel using the `application-id`. For exampleconsole % pulumi import aws_pinpoint_adm_channel.channel application-id
+ * ```sh
+ *  $ pulumi import aws:pinpoint/admChannel:AdmChannel channel application-id
+ * ```
  */
 export class AdmChannel extends pulumi.CustomResource {
     /**

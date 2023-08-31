@@ -87,11 +87,11 @@ namespace Pulumi.Aws.S3Control
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import Multi-Region Access Point Policies using the `account_id` and `name` of the Multi-Region Access Point separated by a colon (`:`). For example:
     /// 
-    ///  to = aws_s3control_multi_region_access_point_policy.example
-    /// 
-    ///  id = "123456789012:example" } Using `pulumi import`, import Multi-Region Access Point Policies using the `account_id` and `name` of the Multi-Region Access Point separated by a colon (`:`). For exampleconsole % pulumi import aws_s3control_multi_region_access_point_policy.example 123456789012:example
+    /// ```sh
+    ///  $ pulumi import aws:s3control/multiRegionAccessPointPolicy:MultiRegionAccessPointPolicy example 123456789012:example
+    /// ```
     /// </summary>
     [AwsResourceType("aws:s3control/multiRegionAccessPointPolicy:MultiRegionAccessPointPolicy")]
     public partial class MultiRegionAccessPointPolicy : global::Pulumi.CustomResource

@@ -62,11 +62,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import `aws_transfer_tag` using the Transfer Family resource identifier and key, separated by a comma (`,`). For example:
 //
-//	to = aws_transfer_tag.example
+// ```sh
 //
-//	id = "arn:aws:transfer:us-east-1:123456789012:server/s-1234567890abcdef0,Name" } Using `pulumi import`, import `aws_transfer_tag` using the Transfer Family resource identifier and key, separated by a comma (`,`). For exampleconsole % pulumi import aws_transfer_tag.example arn:aws:transfer:us-east-1:123456789012:server/s-1234567890abcdef0,Name
+//	$ pulumi import aws:transfer/tag:Tag example arn:aws:transfer:us-east-1:123456789012:server/s-1234567890abcdef0,Name
+//
+// ```
 type Tag struct {
 	pulumi.CustomResourceState
 

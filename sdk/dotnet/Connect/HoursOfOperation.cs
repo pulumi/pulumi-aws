@@ -70,11 +70,11 @@ namespace Pulumi.Aws.Connect
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import Amazon Connect Hours of Operations using the `instance_id` and `hours_of_operation_id` separated by a colon (`:`). For example:
     /// 
-    ///  to = aws_connect_hours_of_operation.example
-    /// 
-    ///  id = "f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5" } Using `pulumi import`, import Amazon Connect Hours of Operations using the `instance_id` and `hours_of_operation_id` separated by a colon (`:`). For exampleconsole % pulumi import aws_connect_hours_of_operation.example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
+    /// ```sh
+    ///  $ pulumi import aws:connect/hoursOfOperation:HoursOfOperation example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
+    /// ```
     /// </summary>
     [AwsResourceType("aws:connect/hoursOfOperation:HoursOfOperation")]
     public partial class HoursOfOperation : global::Pulumi.CustomResource

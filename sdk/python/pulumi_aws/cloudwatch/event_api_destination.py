@@ -265,11 +265,11 @@ class EventApiDestination(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import EventBridge API Destinations using the `name`. For example:
 
-         to = aws_cloudwatch_event_api_destination.test
-
-         id = "api-destination" } Using `pulumi import`, import EventBridge API Destinations using the `name`. For exampleconsole % pulumi import aws_cloudwatch_event_api_destination.test api-destination
+        ```sh
+         $ pulumi import aws:cloudwatch/eventApiDestination:EventApiDestination test api-destination
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -307,11 +307,11 @@ class EventApiDestination(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import EventBridge API Destinations using the `name`. For example:
 
-         to = aws_cloudwatch_event_api_destination.test
-
-         id = "api-destination" } Using `pulumi import`, import EventBridge API Destinations using the `name`. For exampleconsole % pulumi import aws_cloudwatch_event_api_destination.test api-destination
+        ```sh
+         $ pulumi import aws:cloudwatch/eventApiDestination:EventApiDestination test api-destination
+        ```
 
         :param str resource_name: The name of the resource.
         :param EventApiDestinationArgs args: The arguments to use to populate this resource's properties.

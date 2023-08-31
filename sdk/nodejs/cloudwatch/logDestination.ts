@@ -21,11 +21,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import CloudWatch Logs destinations using the `name`. For example:
  *
- *  to = aws_cloudwatch_log_destination.test_destination
- *
- *  id = "test_destination" } Using `pulumi import`, import CloudWatch Logs destinations using the `name`. For exampleconsole % pulumi import aws_cloudwatch_log_destination.test_destination test_destination
+ * ```sh
+ *  $ pulumi import aws:cloudwatch/logDestination:LogDestination test_destination test_destination
+ * ```
  */
 export class LogDestination extends pulumi.CustomResource {
     /**

@@ -169,11 +169,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Lightsail Instances using their name. For example:
 //
-//	to = aws_lightsail_instance.gitlab_test
+// ```sh
 //
-//	id = "custom_gitlab" } Using `pulumi import`, import Lightsail Instances using their name. For exampleconsole % pulumi import aws_lightsail_instance.gitlab_test 'custom_gitlab'
+//	$ pulumi import aws:lightsail/instance:Instance gitlab_test 'custom_gitlab'
+//
+// ```
 type Instance struct {
 	pulumi.CustomResourceState
 

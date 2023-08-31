@@ -81,11 +81,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import SESv2 (Simple Email V2) Dedicated IP Pool using the `pool_name`. For example:
  * 
- *  to = aws_sesv2_dedicated_ip_pool.example
- * 
- *  id = &#34;my-pool&#34; } Using `pulumi import`, import SESv2 (Simple Email V2) Dedicated IP Pool using the `pool_name`. For exampleconsole % pulumi import aws_sesv2_dedicated_ip_pool.example my-pool
+ * ```sh
+ *  $ pulumi import aws:sesv2/dedicatedIpPool:DedicatedIpPool example my-pool
+ * ```
  * 
  */
 @ResourceType(type="aws:sesv2/dedicatedIpPool:DedicatedIpPool")

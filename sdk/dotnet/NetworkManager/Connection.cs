@@ -35,11 +35,11 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import `aws_networkmanager_connection` using the connection ARN. For example:
     /// 
-    ///  to = aws_networkmanager_connection.example
-    /// 
-    ///  id = "arn:aws:networkmanager::123456789012:device/global-network-0d47f6t230mz46dy4/connection-07f6fd08867abc123" } Using `pulumi import`, import `aws_networkmanager_connection` using the connection ARN. For exampleconsole % pulumi import aws_networkmanager_connection.example arn:aws:networkmanager::123456789012:device/global-network-0d47f6t230mz46dy4/connection-07f6fd08867abc123
+    /// ```sh
+    ///  $ pulumi import aws:networkmanager/connection:Connection example arn:aws:networkmanager::123456789012:device/global-network-0d47f6t230mz46dy4/connection-07f6fd08867abc123
+    /// ```
     /// </summary>
     [AwsResourceType("aws:networkmanager/connection:Connection")]
     public partial class Connection : global::Pulumi.CustomResource

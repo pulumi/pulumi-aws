@@ -228,11 +228,11 @@ class NamedQuery(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Athena Named Query using the query ID. For example:
 
-         to = aws_athena_named_query.example
-
-         id = "0123456789" } Using `pulumi import`, import Athena Named Query using the query ID. For exampleconsole % pulumi import aws_athena_named_query.example 0123456789
+        ```sh
+         $ pulumi import aws:athena/namedQuery:NamedQuery example 0123456789
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -280,11 +280,11 @@ class NamedQuery(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Athena Named Query using the query ID. For example:
 
-         to = aws_athena_named_query.example
-
-         id = "0123456789" } Using `pulumi import`, import Athena Named Query using the query ID. For exampleconsole % pulumi import aws_athena_named_query.example 0123456789
+        ```sh
+         $ pulumi import aws:athena/namedQuery:NamedQuery example 0123456789
+        ```
 
         :param str resource_name: The name of the resource.
         :param NamedQueryArgs args: The arguments to use to populate this resource's properties.

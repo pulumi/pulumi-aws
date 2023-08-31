@@ -58,11 +58,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Backup Region Settings using the `region`. For example:
 //
-//	to = aws_backup_region_settings.test
+// ```sh
 //
-//	id = "us-west-2" } Using `pulumi import`, import Backup Region Settings using the `region`. For exampleconsole % pulumi import aws_backup_region_settings.test us-west-2
+//	$ pulumi import aws:backup/regionSettings:RegionSettings test us-west-2
+//
+// ```
 type RegionSettings struct {
 	pulumi.CustomResourceState
 

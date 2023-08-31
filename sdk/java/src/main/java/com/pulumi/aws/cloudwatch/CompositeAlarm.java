@@ -61,11 +61,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import a CloudWatch Composite Alarm using the `alarm_name`. For example:
  * 
- *  to = aws_cloudwatch_composite_alarm.test
- * 
- *  id = &#34;my-alarm&#34; } Using `pulumi import`, import a CloudWatch Composite Alarm using the `alarm_name`. For exampleconsole % pulumi import aws_cloudwatch_composite_alarm.test my-alarm
+ * ```sh
+ *  $ pulumi import aws:cloudwatch/compositeAlarm:CompositeAlarm test my-alarm
+ * ```
  * 
  */
 @ResourceType(type="aws:cloudwatch/compositeAlarm:CompositeAlarm")

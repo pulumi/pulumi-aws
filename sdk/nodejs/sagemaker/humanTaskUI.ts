@@ -27,11 +27,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import SageMaker Human Task UIs using the `human_task_ui_name`. For example:
  *
- *  to = aws_sagemaker_human_task_ui.example
- *
- *  id = "example" } Using `pulumi import`, import SageMaker Human Task UIs using the `human_task_ui_name`. For exampleconsole % pulumi import aws_sagemaker_human_task_ui.example example
+ * ```sh
+ *  $ pulumi import aws:sagemaker/humanTaskUI:HumanTaskUI example example
+ * ```
  */
 export class HumanTaskUI extends pulumi.CustomResource {
     /**

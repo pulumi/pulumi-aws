@@ -54,11 +54,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import the Pinpoint SMS Channel using the `application_id`. For example:
  * 
- *  to = aws_pinpoint_sms_channel.sms
- * 
- *  id = &#34;application-id&#34; } Using `pulumi import`, import the Pinpoint SMS Channel using the `application_id`. For exampleconsole % pulumi import aws_pinpoint_sms_channel.sms application-id
+ * ```sh
+ *  $ pulumi import aws:pinpoint/smsChannel:SmsChannel sms application-id
+ * ```
  * 
  */
 @ResourceType(type="aws:pinpoint/smsChannel:SmsChannel")
