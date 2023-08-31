@@ -27,6 +27,7 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	jsonpb "google.golang.org/protobuf/encoding/protojson"
 	"google.golang.org/protobuf/reflect/protoreflect"
@@ -96,6 +97,7 @@ func TestProviderUpgradeRecord(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
+// Preview-only integration test.
 func TestProviderUpgrade(t *testing.T) {
 	// Updating from the current baseline version generates an Update plan on the provider, but
 	// not any of the resources. There are ProgramTest options like AllowEmptyPreviewChanges
@@ -115,58 +117,160 @@ func TestProviderUpgrade(t *testing.T) {
 	info := newProviderUpgradeInfo(t)
 	t.Logf("Baseline provider version: %s", info.baselineProviderVersion)
 
-	env := []string{}
 	opts := integration.ProgramTestOptions{
 		Dir: info.testCaseDir,
+		Env: []string{},
+
+		// Skips are required by programTestHelper.previewOnlyUpgradeTest
+		SkipUpdate:       true,
+		SkipRefresh:      true,
+		SkipExportImport: true,
 	}
 
 	ambientProvider, _ := exec.LookPath(providerBinary)
 	require.NotEmptyf(t, ambientProvider, "expected to find a release candidate provider "+
 		"binary in PATH, try to call `make provider` and `export PATH=$PWD/bin:$PATH`")
 
-	previewCounter := 0
-	var pt *integration.ProgramTester
-	test := opts.With(integration.ProgramTestOptions{
-		Env: env,
-		PrePulumiCommand: func(verb string) (func(err error) error, error) {
-			if verb != "preview" {
-				return nil, nil
-			}
-			previewCounter++
-			if previewCounter != 2 {
-				return nil, nil
-			}
-			t.Logf("Importing pre-recorded stateFile")
-			importState(t, pt, info.stateFile)
-			return nil, nil
-		},
-
-		// TODO[pulumi/pulumi-aws#2720] EKS Cluster does not refresh cleanly.
-		SkipRefresh: true,
-
-		SkipExportImport: true,
-
-		// TODO this test is not quite right. There's two designs for an upgrade test, a
-		// preview-only one design and an full update design. This is currently neither.
-		//
-		// A preview-only design would import V5 state and run pulumi preview on V6 to
-		// assert empty preview. To make this code behave like this we need to run
-		// SkipUpdate: true but this currently messes up with stack name renaming pass that
-		//
-		// SkipUpdate:       true,
-		//
-		// A full update design would provision actual cloud infra on V5 and do a full
-		// pulumi-up on V6. This can be useful if for example update plans are permitted
-		// (only replaces are rejected) but we need to verify that the actual update plans
-		// execute successfully or if the provider update does not touch the infra but
-		// updates the state file and we need to test that.
-		//
-		// What this code does: provision infra on V6, then import V5 state, then do pulumi
-		// up. This mostly works as a preview test, but does unnecessary "up" work.
-	})
-	pt = integration.ProgramTestManualLifeCycle(t, &test)
-	err := pt.TestLifeCycleInitAndDestroy()
+	pth := newProgramTestHelper(t, opts)
+	t.Logf("%v", pth)
+	err := pth.previewOnlyUpgradeTest(info.stateFile)
 	require.NoError(t, err)
+}
+
+type programTestHelper struct {
+	t         *testing.T
+	opts      integration.ProgramTestOptions
+	pt        *integration.ProgramTester
+	stackName string
+}
+
+func newProgramTestHelper(t *testing.T, opts integration.ProgramTestOptions) *programTestHelper {
+	require.Falsef(t, opts.RunUpdateTest, "RunUpdateTest is not supported")
+	require.Emptyf(t, opts.StackName, "Custom StackName is not supported")
+	// Allocate stack name.
+	stackName := opts.GetStackName()
+	require.NotEmptyf(t, opts.StackName, "Expected GetStackName() to allocate a random stack name")
+	pt := integration.ProgramTestManualLifeCycle(t, &opts)
+	return &programTestHelper{
+		t:         t,
+		opts:      opts,
+		pt:        pt,
+		stackName: string(stackName),
+	}
+}
+
+func (pth *programTestHelper) previewOnlyUpgradeTest(stateFile string) error {
+	t := pth.t
+	pt := pth.pt
+	opts := pth.opts
+	return pth.lifecycleInitAndDestroy(func() error {
+		t.Logf("Importing pre-recorded stateFile from the baseline provider version")
+		fixedStateFile := pth.fixupStackName(stateFile)
+		if err := pt.RunPulumiCommand("stack", "import", "--file", fixedStateFile); err != nil {
+			return err
+		}
+
+		t.Logf("Running preview using the new provider version")
+		// Only run preview. There is no dedicated API for that so instead we check that
+		// flags disable everything else. This runs preview twice unfortunately, it's the
+		// second one that needs to run. The second preview is gated by
+		// SkipEmptyPreviewUpdate and is checking that there are no unexpected updates.
+		//
+		// If this code could run just pt.PreviewAndUpdate that would be better but it needs
+		// to access pt.dir which is kept private.
+		require.Falsef(t, opts.SkipPreview, "previewOnlyUpgradeTest is incompatible with SkipPreview")
+		require.True(t, opts.SkipUpdate, "expecting SkipUpdate: true")
+		require.True(t, opts.SkipRefresh, "expecting SkipRefresh: true")
+		require.True(t, opts.SkipExportImport, "expecting SkipExportImport: true")
+		require.Falsef(t, opts.SkipEmptyPreviewUpdate, "expecting SkipEmptyPreviewUpdate: false")
+		require.Emptyf(t, opts.EditDirs, "previewOnlyUpgradeTest is incompatible with EditDirs")
+		if err := pt.TestPreviewUpdateAndEdits(); err != nil {
+			return fmt.Errorf("running test preview: %w", err)
+		}
+		return nil
+	})
+}
+
+func (pth *programTestHelper) fixupStackName(stateFile string) string {
+	t := pth.t
+	stackName := pth.stackName
+	tempDir := t.TempDir()
+	state := readFile(t, stateFile)
+	//t.Logf("prior state: %v", state)
+	fixedState := pth.withUpdatedStackName(stackName, state)
+	fixedStateFile := filepath.Join(tempDir, "fixed-state.json")
+	//t.Logf("fixed state: %v", fixedState)
+	writeFile(t, fixedStateFile, []byte(fixedState))
+	return fixedStateFile
+}
+
+// Behaves just like pt.TestLifeCycleInitAndDestroy() but with custom inner test logic. This
+// function was obtained by inlining TestLifeCycleInitAndDestroy implementation and generalizing it.
+func (pth *programTestHelper) lifecycleInitAndDestroy(customTest func() error) error {
+	assert.Falsef(pth.t, pth.opts.RunUpdateTest, "RunUpdateTest is not supported")
+
+	err := pth.pt.TestLifeCyclePrepare()
+	if err != nil {
+		return fmt.Errorf("copying test to temp dir %s: %w", "<tmpdir>", err)
+	}
+
+	pth.pt.TestFinished = false
+	if pth.opts.DestroyOnCleanup {
+		pth.t.Cleanup(pth.pt.TestCleanUp)
+	} else {
+		defer pth.pt.TestCleanUp()
+	}
+
+	err = pth.pt.TestLifeCycleInitialize()
+	if err != nil {
+		return fmt.Errorf("initializing test project: %w", err)
+	}
+
+	destroyStack := func() {
+		destroyErr := pth.pt.TestLifeCycleDestroy()
+		assert.NoError(pth.t, destroyErr)
+	}
+	if pth.opts.DestroyOnCleanup {
+		// Allow other tests to refer to this stack until the test is complete.
+		pth.t.Cleanup(destroyStack)
+	} else {
+		// Ensure that before we exit, we attempt to destroy and remove the stack.
+		defer destroyStack()
+	}
+
+	if err = customTest(); err != nil {
+		return err
+	}
+
+	pth.pt.TestFinished = true
+	return nil
+}
+
+func (pth *programTestHelper) withUpdatedStackName(newStackName string, state string) string {
+	pth.t.Logf("Replacing %q with %q", pth.parseStackName(state), newStackName)
+	return strings.ReplaceAll(state, pth.parseStackName(state), newStackName)
+}
+
+func (pth *programTestHelper) parseStackName(state string) string {
+	t := pth.t
+	type model struct {
+		Deployment struct {
+			Resources []struct {
+				URN  string `json:"urn"`
+				Type string `json:"type"`
+			} `json:"resources"`
+		} `json:"deployment"`
+	}
+	var m model
+	err := json.Unmarshal([]byte(state), &m)
+	require.NoError(t, err)
+	var stackUrn string
+	for _, r := range m.Deployment.Resources {
+		if r.Type == "pulumi:pulumi:Stack" {
+			stackUrn = r.URN
+		}
+	}
+	return strings.Split(stackUrn, ":")[2]
 }
 
 type providerUpgradeInfo struct {
@@ -194,58 +298,6 @@ func newProviderUpgradeInfo(t *testing.T) providerUpgradeInfo {
 		Dir: info.testCaseDir,
 	}
 	return info
-}
-
-func currentStackName(t *testing.T, pt *integration.ProgramTester) string {
-	tempDir := t.TempDir()
-	curStateFile := filepath.Join(tempDir, "temp-state.json")
-	pt.RunPulumiCommand("stack", "export", "--file", curStateFile)
-	curState := readFile(t, curStateFile)
-	return parseStackName(t, curState)
-}
-
-func fixupStackName(t *testing.T, pt *integration.ProgramTester, stateFile string) string {
-	tempDir := t.TempDir()
-	stackName := currentStackName(t, pt)
-	state := readFile(t, stateFile)
-	fixedState := withUpdatedStackName(t, stackName, state)
-	fixedStateFile := filepath.Join(tempDir, "fixed-state.json")
-	writeFile(t, fixedStateFile, []byte(fixedState))
-	return fixedStateFile
-}
-
-func importState(t *testing.T, pt *integration.ProgramTester, stateFile string) {
-	fixedStateFile := fixupStackName(t, pt, stateFile)
-	pt.RunPulumiCommand("stack", "import", "--file", fixedStateFile)
-}
-
-func parseStackName(t *testing.T, state string) string {
-	type model struct {
-		Deployment struct {
-			Resources []struct {
-				URN  string `json:"urn"`
-				Type string `json:"type"`
-			} `json:"resources"`
-		} `json:"deployment"`
-	}
-	var m model
-	err := json.Unmarshal([]byte(state), &m)
-	require.NoError(t, err)
-	var stackUrn string
-	for _, r := range m.Deployment.Resources {
-		if r.Type == "pulumi:pulumi:Stack" {
-			stackUrn = r.URN
-		}
-	}
-	require.NotEmptyf(t, stackUrn, "failed to find stack URN")
-	parts := strings.Split(strings.TrimPrefix(stackUrn, "urn:pulumi:"), "::")
-	require.NotEmptyf(t, parts, "failed to parse stack URN: %v", stackUrn)
-	require.NotEmptyf(t, parts[0], "found empty stack URN")
-	return parts[0]
-}
-
-func withUpdatedStackName(t *testing.T, newStackName string, state string) string {
-	return strings.ReplaceAll(state, parseStackName(t, state), newStackName)
 }
 
 func deleteFileIfExists(t *testing.T, file string) {
