@@ -44,15 +44,26 @@ import (
 )
 
 const (
-	acceptEnvVar   = "PULUMI_ACCEPT"
 	providerBinary = "pulumi-resource-aws"
 )
 
-var (
-	accept bool = cmdutil.IsTruthy(os.Getenv(acceptEnvVar))
-)
+func TestProviderUpgrade(t *testing.T) {
+	acceptEnvVar := "PULUMI_ACCEPT"
+	accept := cmdutil.IsTruthy(os.Getenv(acceptEnvVar))
+	if accept {
+		t.Logf("Running to ProgramTest re-record baseline behavior as requested by setting %q environment variable", acceptEnvVar)
+		providerUpgradeRecordBaselines(t)
+	}
+	t.Run("Quick", func(t *testing.T) {
+		checkProviderUpgradeQuick(t)
+	})
+	t.Run("PreviewOnly", func(t *testing.T) {
+		checkProviderUpgradePreviewOnly(t)
+	})
+	// Full upgrade tests are not supported yet.
+}
 
-func TestProviderUpgradeQuick(t *testing.T) {
+func checkProviderUpgradeQuick(t *testing.T) {
 	info := newProviderUpgradeInfo(t)
 
 	bytes, err := os.ReadFile(info.grpcFile)
@@ -74,10 +85,7 @@ func TestProviderUpgradeQuick(t *testing.T) {
 	require.NotEmptyf(t, eng.verifiedDiffResourceCounter, "Need at least one replay test")
 }
 
-func TestProviderUpgradeRecord(t *testing.T) {
-	if !accept {
-		t.Skipf("Skipping; to record baselines set %s env var to true", acceptEnvVar)
-	}
+func providerUpgradeRecordBaselines(t *testing.T) {
 	info := newProviderUpgradeInfo(t)
 	ambientProvider, _ := exec.LookPath(providerBinary)
 	require.Emptyf(t, ambientProvider, "please remove the provider from PATH")
@@ -98,7 +106,12 @@ func TestProviderUpgradeRecord(t *testing.T) {
 }
 
 // Preview-only integration test.
-func TestProviderUpgrade(t *testing.T) {
+func checkProviderUpgradePreviewOnly(t *testing.T) {
+	if testing.Short() {
+		t.Skipf("Skipping in -short mode")
+		return
+	}
+
 	// Updating from the current baseline version generates an Update plan on the provider, but
 	// not any of the resources. There are ProgramTest options like AllowEmptyPreviewChanges
 	// that would allow the test to pass, but they stop detecting resource Updates which is not
@@ -108,12 +121,6 @@ func TestProviderUpgrade(t *testing.T) {
 	// In the meanwhile verification relies on TestProviderUpgradeQuick in-memory test.
 	t.Skip("TODO[pulumi/pulumi-aws#2722] skip because of Updates on explicit provider")
 
-	if testing.Short() {
-		t.Skipf("Skipping in -short mode")
-	}
-	if accept {
-		t.Skipf("Skipping because %s env var is set", acceptEnvVar)
-	}
 	info := newProviderUpgradeInfo(t)
 	t.Logf("Baseline provider version: %s", info.baselineProviderVersion)
 
