@@ -496,11 +496,11 @@ class SecurityGroup(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Security Groups using the security group `id`. For example:
 
-         to = aws_security_group.elb_sg
-
-         id = "sg-903004f8" } Using `pulumi import`, import Security Groups using the security group `id`. For exampleconsole % pulumi import aws_security_group.elb_sg sg-903004f8
+        ```sh
+         $ pulumi import aws:ec2/securityGroup:SecurityGroup elb_sg sg-903004f8
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -664,11 +664,11 @@ class SecurityGroup(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Security Groups using the security group `id`. For example:
 
-         to = aws_security_group.elb_sg
-
-         id = "sg-903004f8" } Using `pulumi import`, import Security Groups using the security group `id`. For exampleconsole % pulumi import aws_security_group.elb_sg sg-903004f8
+        ```sh
+         $ pulumi import aws:ec2/securityGroup:SecurityGroup elb_sg sg-903004f8
+        ```
 
         :param str resource_name: The name of the resource.
         :param SecurityGroupArgs args: The arguments to use to populate this resource's properties.

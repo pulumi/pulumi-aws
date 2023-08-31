@@ -162,11 +162,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import DynamoDB tables using the `name`. For example:
  * 
- *  to = aws_dynamodb_table.basic-dynamodb-table
- * 
- *  id = &#34;GameScores&#34; } Using `pulumi import`, import DynamoDB tables using the `name`. For exampleconsole % pulumi import aws_dynamodb_table.basic-dynamodb-table GameScores
+ * ```sh
+ *  $ pulumi import aws:dynamodb/table:Table basic-dynamodb-table GameScores
+ * ```
  * 
  */
 @ResourceType(type="aws:dynamodb/table:Table")

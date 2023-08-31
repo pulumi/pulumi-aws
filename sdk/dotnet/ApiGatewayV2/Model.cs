@@ -48,11 +48,11 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import `aws_apigatewayv2_model` using the API identifier and model identifier. For example:
     /// 
-    ///  to = aws_apigatewayv2_model.example
-    /// 
-    ///  id = "aabbccddee/1122334" } Using `pulumi import`, import `aws_apigatewayv2_model` using the API identifier and model identifier. For exampleconsole % pulumi import aws_apigatewayv2_model.example aabbccddee/1122334
+    /// ```sh
+    ///  $ pulumi import aws:apigatewayv2/model:Model example aabbccddee/1122334
+    /// ```
     /// </summary>
     [AwsResourceType("aws:apigatewayv2/model:Model")]
     public partial class Model : global::Pulumi.CustomResource

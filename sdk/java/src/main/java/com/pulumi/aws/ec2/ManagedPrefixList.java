@@ -79,11 +79,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Prefix Lists using the `id`. For example:
  * 
- *  to = aws_ec2_managed_prefix_list.default
- * 
- *  id = &#34;pl-0570a1d2d725c16be&#34; } Using `pulumi import`, import Prefix Lists using the `id`. For exampleconsole % pulumi import aws_ec2_managed_prefix_list.default pl-0570a1d2d725c16be
+ * ```sh
+ *  $ pulumi import aws:ec2/managedPrefixList:ManagedPrefixList default pl-0570a1d2d725c16be
+ * ```
  * 
  */
 @ResourceType(type="aws:ec2/managedPrefixList:ManagedPrefixList")

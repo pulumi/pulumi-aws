@@ -75,15 +75,27 @@ import (
 //
 // ## Import
 //
-// For an empty `base_path` or, in other words, a root path (`/`)terraform import {
+// For an empty `base_path` or, in other words, a root path (`/`):
 //
-//	to = aws_api_gateway_base_path_mapping.example
+// For a non-root `base_path`:
 //
-//	id = "example.com/" } For a non-root `base_path`terraform import {
+// Using `pulumi import`, import `aws_api_gateway_base_path_mapping` using the domain name and base path. For example:
 //
-//	to = aws_api_gateway_base_path_mapping.example
+// For an empty `base_path` or, in other words, a root path (`/`):
 //
-//	id = "example.com/base-path" } Using `pulumi import`, import `aws_api_gateway_base_path_mapping` using the domain name and base path. For exampleFor an empty `base_path` or, in other words, a root path (`/`)console % pulumi import aws_api_gateway_base_path_mapping.example example.com/ For a non-root `base_path`console % pulumi import aws_api_gateway_base_path_mapping.example example.com/base-path
+// ```sh
+//
+//	$ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/
+//
+// ```
+//
+//	For a non-root `base_path`:
+//
+// ```sh
+//
+//	$ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/base-path
+//
+// ```
 type BasePathMapping struct {
 	pulumi.CustomResourceState
 

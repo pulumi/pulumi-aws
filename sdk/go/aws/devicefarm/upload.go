@@ -49,11 +49,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import DeviceFarm Uploads using their ARN. For example:
 //
-//	to = aws_devicefarm_upload.example
+// ```sh
 //
-//	id = "arn:aws:devicefarm:us-west-2:123456789012:upload:4fa784c7-ccb4-4dbf-ba4f-02198320daa1" } Using `pulumi import`, import DeviceFarm Uploads using their ARN. For exampleconsole % pulumi import aws_devicefarm_upload.example arn:aws:devicefarm:us-west-2:123456789012:upload:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
+//	$ pulumi import aws:devicefarm/upload:Upload example arn:aws:devicefarm:us-west-2:123456789012:upload:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
+//
+// ```
 type Upload struct {
 	pulumi.CustomResourceState
 

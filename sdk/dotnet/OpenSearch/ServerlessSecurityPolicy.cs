@@ -284,11 +284,11 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import OpenSearchServerless Security Policy using the `name` and `type` arguments separated by a slash (`/`). For example:
     /// 
-    ///  to = aws_opensearchserverless_security_policy.example
-    /// 
-    ///  id = "example/encryption" } Using `pulumi import`, import OpenSearchServerless Security Policy using the `name` and `type` arguments separated by a slash (`/`). For exampleconsole % pulumi import aws_opensearchserverless_security_policy.example example/encryption
+    /// ```sh
+    ///  $ pulumi import aws:opensearch/serverlessSecurityPolicy:ServerlessSecurityPolicy example example/encryption
+    /// ```
     /// </summary>
     [AwsResourceType("aws:opensearch/serverlessSecurityPolicy:ServerlessSecurityPolicy")]
     public partial class ServerlessSecurityPolicy : global::Pulumi.CustomResource

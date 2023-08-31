@@ -128,11 +128,11 @@ class UserGroupMembership(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import IAM user group membership using the user name and group names separated by `/`. For example:
 
-         to = aws_iam_user_group_membership.example1
-
-         id = "user1/group1/group2" } Using `pulumi import`, import IAM user group membership using the user name and group names separated by `/`. For exampleconsole % pulumi import aws_iam_user_group_membership.example1 user1/group1/group2
+        ```sh
+         $ pulumi import aws:iam/userGroupMembership:UserGroupMembership example1 user1/group1/group2
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -176,11 +176,11 @@ class UserGroupMembership(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import IAM user group membership using the user name and group names separated by `/`. For example:
 
-         to = aws_iam_user_group_membership.example1
-
-         id = "user1/group1/group2" } Using `pulumi import`, import IAM user group membership using the user name and group names separated by `/`. For exampleconsole % pulumi import aws_iam_user_group_membership.example1 user1/group1/group2
+        ```sh
+         $ pulumi import aws:iam/userGroupMembership:UserGroupMembership example1 user1/group1/group2
+        ```
 
         :param str resource_name: The name of the resource.
         :param UserGroupMembershipArgs args: The arguments to use to populate this resource's properties.

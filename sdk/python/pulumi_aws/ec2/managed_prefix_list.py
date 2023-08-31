@@ -305,11 +305,11 @@ class ManagedPrefixList(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Prefix Lists using the `id`. For example:
 
-         to = aws_ec2_managed_prefix_list.default
-
-         id = "pl-0570a1d2d725c16be" } Using `pulumi import`, import Prefix Lists using the `id`. For exampleconsole % pulumi import aws_ec2_managed_prefix_list.default pl-0570a1d2d725c16be
+        ```sh
+         $ pulumi import aws:ec2/managedPrefixList:ManagedPrefixList default pl-0570a1d2d725c16be
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -368,11 +368,11 @@ class ManagedPrefixList(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Prefix Lists using the `id`. For example:
 
-         to = aws_ec2_managed_prefix_list.default
-
-         id = "pl-0570a1d2d725c16be" } Using `pulumi import`, import Prefix Lists using the `id`. For exampleconsole % pulumi import aws_ec2_managed_prefix_list.default pl-0570a1d2d725c16be
+        ```sh
+         $ pulumi import aws:ec2/managedPrefixList:ManagedPrefixList default pl-0570a1d2d725c16be
+        ```
 
         :param str resource_name: The name of the resource.
         :param ManagedPrefixListArgs args: The arguments to use to populate this resource's properties.

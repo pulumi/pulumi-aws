@@ -125,11 +125,11 @@ class Account(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import API Gateway Accounts using the word `api-gateway-account`. For example:
 
-         to = aws_api_gateway_account.demo
-
-         id = "api-gateway-account" } Using `pulumi import`, import API Gateway Accounts using the word `api-gateway-account`. For exampleconsole % pulumi import aws_api_gateway_account.demo api-gateway-account
+        ```sh
+         $ pulumi import aws:apigateway/account:Account demo api-gateway-account
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -182,11 +182,11 @@ class Account(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import API Gateway Accounts using the word `api-gateway-account`. For example:
 
-         to = aws_api_gateway_account.demo
-
-         id = "api-gateway-account" } Using `pulumi import`, import API Gateway Accounts using the word `api-gateway-account`. For exampleconsole % pulumi import aws_api_gateway_account.demo api-gateway-account
+        ```sh
+         $ pulumi import aws:apigateway/account:Account demo api-gateway-account
+        ```
 
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.

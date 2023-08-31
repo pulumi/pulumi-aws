@@ -61,11 +61,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import IAM user policy attachments using the user name and policy arn separated by `/`. For example:
  * 
- *  to = aws_iam_user_policy_attachment.test-attach
- * 
- *  id = &#34;test-user/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy&#34; } Using `pulumi import`, import IAM user policy attachments using the user name and policy arn separated by `/`. For exampleconsole % pulumi import aws_iam_user_policy_attachment.test-attach test-user/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
+ * ```sh
+ *  $ pulumi import aws:iam/userPolicyAttachment:UserPolicyAttachment test-attach test-user/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
+ * ```
  * 
  */
 @ResourceType(type="aws:iam/userPolicyAttachment:UserPolicyAttachment")

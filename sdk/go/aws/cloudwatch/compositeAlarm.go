@@ -50,11 +50,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import a CloudWatch Composite Alarm using the `alarm_name`. For example:
 //
-//	to = aws_cloudwatch_composite_alarm.test
+// ```sh
 //
-//	id = "my-alarm" } Using `pulumi import`, import a CloudWatch Composite Alarm using the `alarm_name`. For exampleconsole % pulumi import aws_cloudwatch_composite_alarm.test my-alarm
+//	$ pulumi import aws:cloudwatch/compositeAlarm:CompositeAlarm test my-alarm
+//
+// ```
 type CompositeAlarm struct {
 	pulumi.CustomResourceState
 

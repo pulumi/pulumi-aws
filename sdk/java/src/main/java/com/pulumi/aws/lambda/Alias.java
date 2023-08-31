@@ -59,11 +59,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Lambda Function Aliases using the `function_name/alias`. For example:
  * 
- *  to = aws_lambda_alias.test_lambda_alias
- * 
- *  id = &#34;my_test_lambda_function/my_alias&#34; } Using `pulumi import`, import Lambda Function Aliases using the `function_name/alias`. For exampleconsole % pulumi import aws_lambda_alias.test_lambda_alias my_test_lambda_function/my_alias
+ * ```sh
+ *  $ pulumi import aws:lambda/alias:Alias test_lambda_alias my_test_lambda_function/my_alias
+ * ```
  * 
  */
 @ResourceType(type="aws:lambda/alias:Alias")

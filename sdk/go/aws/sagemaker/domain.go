@@ -145,11 +145,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import SageMaker Domains using the `id`. For example:
 //
-//	to = aws_sagemaker_domain.test_domain
+// ```sh
 //
-//	id = "d-8jgsjtilstu8" } Using `pulumi import`, import SageMaker Domains using the `id`. For exampleconsole % pulumi import aws_sagemaker_domain.test_domain d-8jgsjtilstu8
+//	$ pulumi import aws:sagemaker/domain:Domain test_domain d-8jgsjtilstu8
+//
+// ```
 type Domain struct {
 	pulumi.CustomResourceState
 

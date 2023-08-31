@@ -42,11 +42,11 @@ namespace Pulumi.Aws.Route53
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import Route53 Delegation Sets using the delegation set `id`. For example:
     /// 
-    ///  to = aws_route53_delegation_set.set1
-    /// 
-    ///  id = "N1PA6795SAMPLE" } Using `pulumi import`, import Route53 Delegation Sets using the delegation set `id`. For exampleconsole % pulumi import aws_route53_delegation_set.set1 N1PA6795SAMPLE
+    /// ```sh
+    ///  $ pulumi import aws:route53/delegationSet:DelegationSet set1 N1PA6795SAMPLE
+    /// ```
     /// </summary>
     [AwsResourceType("aws:route53/delegationSet:DelegationSet")]
     public partial class DelegationSet : global::Pulumi.CustomResource

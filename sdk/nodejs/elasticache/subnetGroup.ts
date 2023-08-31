@@ -32,11 +32,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import ElastiCache Subnet Groups using the `name`. For example:
  *
- *  to = aws_elasticache_subnet_group.bar
- *
- *  id = "tf-test-cache-subnet" } Using `pulumi import`, import ElastiCache Subnet Groups using the `name`. For exampleconsole % pulumi import aws_elasticache_subnet_group.bar tf-test-cache-subnet
+ * ```sh
+ *  $ pulumi import aws:elasticache/subnetGroup:SubnetGroup bar tf-test-cache-subnet
+ * ```
  */
 export class SubnetGroup extends pulumi.CustomResource {
     /**

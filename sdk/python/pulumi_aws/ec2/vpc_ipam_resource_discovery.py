@@ -237,11 +237,11 @@ class VpcIpamResourceDiscovery(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import IPAMs using the IPAM resource discovery `id`. For example:
 
-         to = aws_vpc_ipam_resource_discovery.example
-
-         id = "ipam-res-disco-0178368ad2146a492" } Using `pulumi import`, import IPAMs using the IPAM resource discovery `id`. For exampleconsole % pulumi import aws_vpc_ipam_resource_discovery.example ipam-res-disco-0178368ad2146a492
+        ```sh
+         $ pulumi import aws:ec2/vpcIpamResourceDiscovery:VpcIpamResourceDiscovery example ipam-res-disco-0178368ad2146a492
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -279,11 +279,11 @@ class VpcIpamResourceDiscovery(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import IPAMs using the IPAM resource discovery `id`. For example:
 
-         to = aws_vpc_ipam_resource_discovery.example
-
-         id = "ipam-res-disco-0178368ad2146a492" } Using `pulumi import`, import IPAMs using the IPAM resource discovery `id`. For exampleconsole % pulumi import aws_vpc_ipam_resource_discovery.example ipam-res-disco-0178368ad2146a492
+        ```sh
+         $ pulumi import aws:ec2/vpcIpamResourceDiscovery:VpcIpamResourceDiscovery example ipam-res-disco-0178368ad2146a492
+        ```
 
         :param str resource_name: The name of the resource.
         :param VpcIpamResourceDiscoveryArgs args: The arguments to use to populate this resource's properties.

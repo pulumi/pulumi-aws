@@ -59,11 +59,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import CloudWatch Log Metric Filter using the `log_group_name:name`. For example:
  * 
- *  to = aws_cloudwatch_log_metric_filter.test
- * 
- *  id = &#34;/aws/lambda/function:test&#34; } Using `pulumi import`, import CloudWatch Log Metric Filter using the `log_group_name:name`. For exampleconsole % pulumi import aws_cloudwatch_log_metric_filter.test /aws/lambda/function:test
+ * ```sh
+ *  $ pulumi import aws:cloudwatch/logMetricFilter:LogMetricFilter test /aws/lambda/function:test
+ * ```
  * 
  */
 @ResourceType(type="aws:cloudwatch/logMetricFilter:LogMetricFilter")

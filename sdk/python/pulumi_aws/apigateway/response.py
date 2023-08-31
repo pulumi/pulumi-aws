@@ -220,11 +220,11 @@ class Response(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_api_gateway_gateway_response` using `REST-API-ID/RESPONSE-TYPE`. For example:
 
-         to = aws_api_gateway_gateway_response.example
-
-         id = "12345abcde/UNAUTHORIZED" } Using `pulumi import`, import `aws_api_gateway_gateway_response` using `REST-API-ID/RESPONSE-TYPE`. For exampleconsole % pulumi import aws_api_gateway_gateway_response.example 12345abcde/UNAUTHORIZED
+        ```sh
+         $ pulumi import aws:apigateway/response:Response example 12345abcde/UNAUTHORIZED
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -264,11 +264,11 @@ class Response(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_api_gateway_gateway_response` using `REST-API-ID/RESPONSE-TYPE`. For example:
 
-         to = aws_api_gateway_gateway_response.example
-
-         id = "12345abcde/UNAUTHORIZED" } Using `pulumi import`, import `aws_api_gateway_gateway_response` using `REST-API-ID/RESPONSE-TYPE`. For exampleconsole % pulumi import aws_api_gateway_gateway_response.example 12345abcde/UNAUTHORIZED
+        ```sh
+         $ pulumi import aws:apigateway/response:Response example 12345abcde/UNAUTHORIZED
+        ```
 
         :param str resource_name: The name of the resource.
         :param ResponseArgs args: The arguments to use to populate this resource's properties.

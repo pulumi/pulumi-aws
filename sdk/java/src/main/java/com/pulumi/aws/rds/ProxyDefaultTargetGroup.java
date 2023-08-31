@@ -82,11 +82,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import DB proxy default target groups using the `db_proxy_name`. For example:
  * 
- *  to = aws_db_proxy_default_target_group.example
- * 
- *  id = &#34;example&#34; } Using `pulumi import`, import DB proxy default target groups using the `db_proxy_name`. For exampleconsole % pulumi import aws_db_proxy_default_target_group.example example
+ * ```sh
+ *  $ pulumi import aws:rds/proxyDefaultTargetGroup:ProxyDefaultTargetGroup example example
+ * ```
  * 
  */
 @ResourceType(type="aws:rds/proxyDefaultTargetGroup:ProxyDefaultTargetGroup")

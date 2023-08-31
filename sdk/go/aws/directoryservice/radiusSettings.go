@@ -51,11 +51,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import RADIUS settings using the directory ID. For example:
 //
-//	to = aws_directory_service_radius_settings.example
+// ```sh
 //
-//	id = "d-926724cf57" } Using `pulumi import`, import RADIUS settings using the directory ID. For exampleconsole % pulumi import aws_directory_service_radius_settings.example d-926724cf57
+//	$ pulumi import aws:directoryservice/radiusSettings:RadiusSettings example d-926724cf57
+//
+// ```
 type RadiusSettings struct {
 	pulumi.CustomResourceState
 

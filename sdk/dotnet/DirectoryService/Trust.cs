@@ -110,11 +110,11 @@ namespace Pulumi.Aws.DirectoryService
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import the Trust relationship using the directory ID and remote domain name, separated by a `/`. For example:
     /// 
-    ///  to = aws_directory_service_trust.example
-    /// 
-    ///  id = "d-926724cf57/directory.example.com" } Using `pulumi import`, import the Trust relationship using the directory ID and remote domain name, separated by a `/`. For exampleconsole % pulumi import aws_directory_service_trust.example d-926724cf57/directory.example.com
+    /// ```sh
+    ///  $ pulumi import aws:directoryservice/trust:Trust example d-926724cf57/directory.example.com
+    /// ```
     /// </summary>
     [AwsResourceType("aws:directoryservice/trust:Trust")]
     public partial class Trust : global::Pulumi.CustomResource

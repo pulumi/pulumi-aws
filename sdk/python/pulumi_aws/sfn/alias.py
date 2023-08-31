@@ -193,11 +193,11 @@ class Alias(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import SFN (Step Functions) Alias using the `arn`. For example:
 
-         to = aws_sfn_alias.foo
-
-         id = "arn:aws:states:us-east-1:123456789098:stateMachine:myStateMachine:foo" } Using `pulumi import`, import SFN (Step Functions) Alias using the `arn`. For exampleconsole % pulumi import aws_sfn_alias.foo arn:aws:states:us-east-1:123456789098:stateMachine:myStateMachine:foo
+        ```sh
+         $ pulumi import aws:sfn/alias:Alias foo arn:aws:states:us-east-1:123456789098:stateMachine:myStateMachine:foo
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -239,11 +239,11 @@ class Alias(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import SFN (Step Functions) Alias using the `arn`. For example:
 
-         to = aws_sfn_alias.foo
-
-         id = "arn:aws:states:us-east-1:123456789098:stateMachine:myStateMachine:foo" } Using `pulumi import`, import SFN (Step Functions) Alias using the `arn`. For exampleconsole % pulumi import aws_sfn_alias.foo arn:aws:states:us-east-1:123456789098:stateMachine:myStateMachine:foo
+        ```sh
+         $ pulumi import aws:sfn/alias:Alias foo arn:aws:states:us-east-1:123456789098:stateMachine:myStateMachine:foo
+        ```
 
         :param str resource_name: The name of the resource.
         :param AliasArgs args: The arguments to use to populate this resource's properties.

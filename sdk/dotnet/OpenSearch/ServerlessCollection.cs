@@ -63,11 +63,11 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import OpenSearchServerless Collection using the `id`. For example:
     /// 
-    ///  to = aws_opensearchserverless_collection.example
-    /// 
-    ///  id = "example" } Using `pulumi import`, import OpenSearchServerless Collection using the `id`. For exampleconsole % pulumi import aws_opensearchserverless_collection.example example
+    /// ```sh
+    ///  $ pulumi import aws:opensearch/serverlessCollection:ServerlessCollection example example
+    /// ```
     /// </summary>
     [AwsResourceType("aws:opensearch/serverlessCollection:ServerlessCollection")]
     public partial class ServerlessCollection : global::Pulumi.CustomResource

@@ -56,11 +56,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import MAIL FROM domain using the `domain` attribute. For example:
  *
- *  to = aws_ses_domain_mail_from.example
- *
- *  id = "example.com" } Using `pulumi import`, import MAIL FROM domain using the `domain` attribute. For exampleconsole % pulumi import aws_ses_domain_mail_from.example example.com
+ * ```sh
+ *  $ pulumi import aws:ses/mailFrom:MailFrom example example.com
+ * ```
  */
 export class MailFrom extends pulumi.CustomResource {
     /**

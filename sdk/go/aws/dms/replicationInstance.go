@@ -125,11 +125,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import replication instances using the `replication_instance_id`. For example:
 //
-//	to = aws_dms_replication_instance.test
+// ```sh
 //
-//	id = "test-dms-replication-instance-tf" } Using `pulumi import`, import replication instances using the `replication_instance_id`. For exampleconsole % pulumi import aws_dms_replication_instance.test test-dms-replication-instance-tf
+//	$ pulumi import aws:dms/replicationInstance:ReplicationInstance test test-dms-replication-instance-tf
+//
+// ```
 type ReplicationInstance struct {
 	pulumi.CustomResourceState
 

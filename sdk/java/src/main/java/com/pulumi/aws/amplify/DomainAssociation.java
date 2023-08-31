@@ -81,11 +81,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Amplify domain association using `app_id` and `domain_name`. For example:
  * 
- *  to = aws_amplify_domain_association.app
- * 
- *  id = &#34;d2ypk4k47z8u6/example.com&#34; } Using `pulumi import`, import Amplify domain association using `app_id` and `domain_name`. For exampleconsole % pulumi import aws_amplify_domain_association.app d2ypk4k47z8u6/example.com
+ * ```sh
+ *  $ pulumi import aws:amplify/domainAssociation:DomainAssociation app d2ypk4k47z8u6/example.com
+ * ```
  * 
  */
 @ResourceType(type="aws:amplify/domainAssociation:DomainAssociation")

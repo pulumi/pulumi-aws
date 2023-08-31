@@ -270,15 +270,28 @@ class BucketObjectLockConfigurationV2(pulumi.CustomResource):
 
         ## Import
 
-        If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`terraform import {
+        If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
+
+        If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
+
+        import {
 
          to = aws_s3_bucket_object_lock_configuration.example
 
-         id = "bucket-name" } If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`)import {
+         id = "bucket-name,123456789012" }
 
-         to = aws_s3_bucket_object_lock_configuration.example
+        __Using `pulumi import` to import__ S3 bucket Object Lock configuration using the `bucket` or using the `bucket` and `expected_bucket_owner` separated by a comma (`,`). For example:
 
-         id = "bucket-name,123456789012" } **Using `pulumi import` to import** S3 bucket Object Lock configuration using the `bucket` or using the `bucket` and `expected_bucket_owner` separated by a comma (`,`). For exampleIf the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`console % pulumi import aws_s3_bucket_object_lock_configuration.example bucket-name If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`)console % pulumi import aws_s3_bucket_object_lock_configuration.example bucket-name,123456789012
+        If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
+
+        ```sh
+         $ pulumi import aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2 example bucket-name
+        ```
+         If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
+
+        ```sh
+         $ pulumi import aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2 example bucket-name,123456789012
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -362,15 +375,28 @@ class BucketObjectLockConfigurationV2(pulumi.CustomResource):
 
         ## Import
 
-        If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`terraform import {
+        If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
+
+        If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
+
+        import {
 
          to = aws_s3_bucket_object_lock_configuration.example
 
-         id = "bucket-name" } If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`)import {
+         id = "bucket-name,123456789012" }
 
-         to = aws_s3_bucket_object_lock_configuration.example
+        __Using `pulumi import` to import__ S3 bucket Object Lock configuration using the `bucket` or using the `bucket` and `expected_bucket_owner` separated by a comma (`,`). For example:
 
-         id = "bucket-name,123456789012" } **Using `pulumi import` to import** S3 bucket Object Lock configuration using the `bucket` or using the `bucket` and `expected_bucket_owner` separated by a comma (`,`). For exampleIf the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`console % pulumi import aws_s3_bucket_object_lock_configuration.example bucket-name If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`)console % pulumi import aws_s3_bucket_object_lock_configuration.example bucket-name,123456789012
+        If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
+
+        ```sh
+         $ pulumi import aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2 example bucket-name
+        ```
+         If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
+
+        ```sh
+         $ pulumi import aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2 example bucket-name,123456789012
+        ```
 
         :param str resource_name: The name of the resource.
         :param BucketObjectLockConfigurationV2Args args: The arguments to use to populate this resource's properties.

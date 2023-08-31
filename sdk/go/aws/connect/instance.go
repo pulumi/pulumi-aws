@@ -105,11 +105,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Connect instances using the `id`. For example:
 //
-//	to = aws_connect_instance.example
+// ```sh
 //
-//	id = "f1288a1f-6193-445a-b47e-af739b2" } Using `pulumi import`, import Connect instances using the `id`. For exampleconsole % pulumi import aws_connect_instance.example f1288a1f-6193-445a-b47e-af739b2
+//	$ pulumi import aws:connect/instance:Instance example f1288a1f-6193-445a-b47e-af739b2
+//
+// ```
 type Instance struct {
 	pulumi.CustomResourceState
 

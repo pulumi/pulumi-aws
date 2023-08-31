@@ -68,11 +68,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Lightsail Databases using their name. For example:
 //
-//	to = aws_lightsail_database.foo
+// ```sh
 //
-//	id = "bar" } Using `pulumi import`, import Lightsail Databases using their name. For exampleconsole % pulumi import aws_lightsail_database.foo 'bar'
+//	$ pulumi import aws:lightsail/database:Database foo 'bar'
+//
+// ```
 type Database struct {
 	pulumi.CustomResourceState
 

@@ -26,11 +26,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import monitoring schedules using the `name`. For example:
  *
- *  to = aws_sagemaker_monitoring_schedule.test_monitoring_schedule
- *
- *  id = "monitoring-schedule-foo" } Using `pulumi import`, import monitoring schedules using the `name`. For exampleconsole % pulumi import aws_sagemaker_monitoring_schedule.test_monitoring_schedule monitoring-schedule-foo
+ * ```sh
+ *  $ pulumi import aws:sagemaker/monitoringSchedule:MonitoringSchedule test_monitoring_schedule monitoring-schedule-foo
+ * ```
  */
 export class MonitoringSchedule extends pulumi.CustomResource {
     /**

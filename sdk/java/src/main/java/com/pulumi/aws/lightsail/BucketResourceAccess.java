@@ -18,11 +18,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import `aws_lightsail_bucket_resource_access` using the `id` attribute. For example:
  * 
- *  to = aws_lightsail_bucket_resource_access.test
- * 
- *  id = &#34;example-bucket,example-instance&#34; } Using `pulumi import`, import `aws_lightsail_bucket_resource_access` using the `id` attribute. For exampleconsole % pulumi import aws_lightsail_bucket_resource_access.test example-bucket,example-instance
+ * ```sh
+ *  $ pulumi import aws:lightsail/bucketResourceAccess:BucketResourceAccess test example-bucket,example-instance
+ * ```
  * 
  */
 @ResourceType(type="aws:lightsail/bucketResourceAccess:BucketResourceAccess")

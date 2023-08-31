@@ -187,11 +187,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Lightsail Instances using their name. For example:
  * 
- *  to = aws_lightsail_instance.gitlab_test
- * 
- *  id = &#34;custom_gitlab&#34; } Using `pulumi import`, import Lightsail Instances using their name. For exampleconsole % pulumi import aws_lightsail_instance.gitlab_test &#39;custom_gitlab&#39;
+ * ```sh
+ *  $ pulumi import aws:lightsail/instance:Instance gitlab_test &#39;custom_gitlab&#39;
+ * ```
  * 
  */
 @ResourceType(type="aws:lightsail/instance:Instance")

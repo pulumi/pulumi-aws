@@ -54,11 +54,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Redshift usage limits using the `id`. For example:
  * 
- *  to = aws_redshift_usage_limit.example
- * 
- *  id = &#34;example-id&#34; } Using `pulumi import`, import Redshift usage limits using the `id`. For exampleconsole % pulumi import aws_redshift_usage_limit.example example-id
+ * ```sh
+ *  $ pulumi import aws:redshift/usageLimit:UsageLimit example example-id
+ * ```
  * 
  */
 @ResourceType(type="aws:redshift/usageLimit:UsageLimit")

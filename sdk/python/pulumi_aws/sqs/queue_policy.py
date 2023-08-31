@@ -130,11 +130,11 @@ class QueuePolicy(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import SQS Queue Policies using the queue URL. For example:
 
-         to = aws_sqs_queue_policy.test
-
-         id = "https://queue.amazonaws.com/0123456789012/myqueue" } Using `pulumi import`, import SQS Queue Policies using the queue URL. For exampleconsole % pulumi import aws_sqs_queue_policy.test https://queue.amazonaws.com/0123456789012/myqueue
+        ```sh
+         $ pulumi import aws:sqs/queuePolicy:QueuePolicy test https://queue.amazonaws.com/0123456789012/myqueue
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -180,11 +180,11 @@ class QueuePolicy(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import SQS Queue Policies using the queue URL. For example:
 
-         to = aws_sqs_queue_policy.test
-
-         id = "https://queue.amazonaws.com/0123456789012/myqueue" } Using `pulumi import`, import SQS Queue Policies using the queue URL. For exampleconsole % pulumi import aws_sqs_queue_policy.test https://queue.amazonaws.com/0123456789012/myqueue
+        ```sh
+         $ pulumi import aws:sqs/queuePolicy:QueuePolicy test https://queue.amazonaws.com/0123456789012/myqueue
+        ```
 
         :param str resource_name: The name of the resource.
         :param QueuePolicyArgs args: The arguments to use to populate this resource's properties.

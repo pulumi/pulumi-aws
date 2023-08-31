@@ -34,11 +34,11 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import Elastic network interface (ENI) Attachments using its Attachment ID. For example:
     /// 
-    ///  to = aws_network_interface_attachment.secondary_nic
-    /// 
-    ///  id = "eni-attach-0a33842b4ec347c4c" } Using `pulumi import`, import Elastic network interface (ENI) Attachments using its Attachment ID. For exampleconsole % pulumi import aws_network_interface_attachment.secondary_nic eni-attach-0a33842b4ec347c4c
+    /// ```sh
+    ///  $ pulumi import aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment secondary_nic eni-attach-0a33842b4ec347c4c
+    /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment")]
     public partial class NetworkInterfaceAttachment : global::Pulumi.CustomResource

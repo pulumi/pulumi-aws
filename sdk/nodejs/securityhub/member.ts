@@ -25,11 +25,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import Security Hub members using their account ID. For example:
  *
- *  to = aws_securityhub_member.example
- *
- *  id = "123456789012" } Using `pulumi import`, import Security Hub members using their account ID. For exampleconsole % pulumi import aws_securityhub_member.example 123456789012
+ * ```sh
+ *  $ pulumi import aws:securityhub/member:Member example 123456789012
+ * ```
  */
 export class Member extends pulumi.CustomResource {
     /**

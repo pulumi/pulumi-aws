@@ -30,11 +30,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import Egress-only Internet gateways using the `id`. For example:
  *
- *  to = aws_egress_only_internet_gateway.example
- *
- *  id = "eigw-015e0e244e24dfe8a" } Using `pulumi import`, import Egress-only Internet gateways using the `id`. For exampleconsole % pulumi import aws_egress_only_internet_gateway.example eigw-015e0e244e24dfe8a
+ * ```sh
+ *  $ pulumi import aws:ec2/egressOnlyInternetGateway:EgressOnlyInternetGateway example eigw-015e0e244e24dfe8a
+ * ```
  */
 export class EgressOnlyInternetGateway extends pulumi.CustomResource {
     /**

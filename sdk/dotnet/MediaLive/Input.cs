@@ -56,11 +56,11 @@ namespace Pulumi.Aws.MediaLive
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import MediaLive Input using the `id`. For example:
     /// 
-    ///  to = aws_medialive_input.example
-    /// 
-    ///  id = "12345678" } Using `pulumi import`, import MediaLive Input using the `id`. For exampleconsole % pulumi import aws_medialive_input.example 12345678
+    /// ```sh
+    ///  $ pulumi import aws:medialive/input:Input example 12345678
+    /// ```
     /// </summary>
     [AwsResourceType("aws:medialive/input:Input")]
     public partial class Input : global::Pulumi.CustomResource

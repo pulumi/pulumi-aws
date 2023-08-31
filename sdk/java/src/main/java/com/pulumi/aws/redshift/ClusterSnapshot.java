@@ -59,11 +59,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Redshift Cluster Snapshots using `snapshot_identifier`. For example:
  * 
- *  to = aws_redshift_cluster_snapshot.test
- * 
- *  id = &#34;example&#34; } Using `pulumi import`, import Redshift Cluster Snapshots using `snapshot_identifier`. For exampleconsole % pulumi import aws_redshift_cluster_snapshot.test example
+ * ```sh
+ *  $ pulumi import aws:redshift/clusterSnapshot:ClusterSnapshot test example
+ * ```
  * 
  */
 @ResourceType(type="aws:redshift/clusterSnapshot:ClusterSnapshot")

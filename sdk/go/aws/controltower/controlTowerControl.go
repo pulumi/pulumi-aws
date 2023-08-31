@@ -62,11 +62,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Control Tower Controls using their `organizational_unit_arn/control_identifier`. For example:
 //
-//	to = aws_controltower_control.example
+// ```sh
 //
-//	id = "arn:aws:organizations::123456789101:ou/o-qqaejywet/ou-qg5o-ufbhdtv3,arn:aws:controltower:us-east-1::control/WTDSMKDKDNLE" } Using `pulumi import`, import Control Tower Controls using their `organizational_unit_arn/control_identifier`. For exampleconsole % pulumi import aws_controltower_control.example arn:aws:organizations::123456789101:ou/o-qqaejywet/ou-qg5o-ufbhdtv3,arn:aws:controltower:us-east-1::control/WTDSMKDKDNLE
+//	$ pulumi import aws:controltower/controlTowerControl:ControlTowerControl example arn:aws:organizations::123456789101:ou/o-qqaejywet/ou-qg5o-ufbhdtv3,arn:aws:controltower:us-east-1::control/WTDSMKDKDNLE
+//
+// ```
 type ControlTowerControl struct {
 	pulumi.CustomResourceState
 

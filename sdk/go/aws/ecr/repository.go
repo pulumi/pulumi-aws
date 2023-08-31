@@ -44,11 +44,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import ECR Repositories using the `name`. For example:
 //
-//	to = aws_ecr_repository.service
+// ```sh
 //
-//	id = "test-service" } Using `pulumi import`, import ECR Repositories using the `name`. For exampleconsole % pulumi import aws_ecr_repository.service test-service
+//	$ pulumi import aws:ecr/repository:Repository service test-service
+//
+// ```
 type Repository struct {
 	pulumi.CustomResourceState
 

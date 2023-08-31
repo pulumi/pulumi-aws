@@ -190,11 +190,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import ElastiCache Clusters using the `cluster_id`. For example:
  * 
- *  to = aws_elasticache_cluster.my_cluster
- * 
- *  id = &#34;my_cluster&#34; } Using `pulumi import`, import ElastiCache Clusters using the `cluster_id`. For exampleconsole % pulumi import aws_elasticache_cluster.my_cluster my_cluster
+ * ```sh
+ *  $ pulumi import aws:elasticache/cluster:Cluster my_cluster my_cluster
+ * ```
  * 
  */
 @ResourceType(type="aws:elasticache/cluster:Cluster")

@@ -52,11 +52,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Redshift Cluster IAM Roless using the `cluster_identifier`. For example:
  * 
- *  to = aws_redshift_cluster_iam_roles.examplegroup1
- * 
- *  id = &#34;example&#34; } Using `pulumi import`, import Redshift Cluster IAM Roless using the `cluster_identifier`. For exampleconsole % pulumi import aws_redshift_cluster_iam_roles.examplegroup1 example
+ * ```sh
+ *  $ pulumi import aws:redshift/clusterIamRoles:ClusterIamRoles examplegroup1 example
+ * ```
  * 
  */
 @ResourceType(type="aws:redshift/clusterIamRoles:ClusterIamRoles")

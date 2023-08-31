@@ -72,11 +72,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import EMR Managed Scaling Policies using the EMR Cluster identifier. For example:
  * 
- *  to = aws_emr_managed_scaling_policy.example
- * 
- *  id = &#34;j-123456ABCDEF&#34; } Using `pulumi import`, import EMR Managed Scaling Policies using the EMR Cluster identifier. For exampleconsole % pulumi import aws_emr_managed_scaling_policy.example j-123456ABCDEF
+ * ```sh
+ *  $ pulumi import aws:emr/managedScalingPolicy:ManagedScalingPolicy example j-123456ABCDEF
+ * ```
  * 
  */
 @ResourceType(type="aws:emr/managedScalingPolicy:ManagedScalingPolicy")

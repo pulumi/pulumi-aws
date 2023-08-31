@@ -73,11 +73,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import the EFS file systems using the `id`. For example:
 //
-//	to = aws_efs_file_system.foo
+// ```sh
 //
-//	id = "fs-6fa144c6" } Using `pulumi import`, import the EFS file systems using the `id`. For exampleconsole % pulumi import aws_efs_file_system.foo fs-6fa144c6
+//	$ pulumi import aws:efs/fileSystem:FileSystem foo fs-6fa144c6
+//
+// ```
 type FileSystem struct {
 	pulumi.CustomResourceState
 

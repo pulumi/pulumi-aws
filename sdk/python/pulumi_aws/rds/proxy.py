@@ -440,11 +440,11 @@ class Proxy(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import DB proxies using the `name`. For example:
 
-         to = aws_db_proxy.example
-
-         id = "example" } Using `pulumi import`, import DB proxies using the `name`. For exampleconsole % pulumi import aws_db_proxy.example example
+        ```sh
+         $ pulumi import aws:rds/proxy:Proxy example example
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -496,11 +496,11 @@ class Proxy(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import DB proxies using the `name`. For example:
 
-         to = aws_db_proxy.example
-
-         id = "example" } Using `pulumi import`, import DB proxies using the `name`. For exampleconsole % pulumi import aws_db_proxy.example example
+        ```sh
+         $ pulumi import aws:rds/proxy:Proxy example example
+        ```
 
         :param str resource_name: The name of the resource.
         :param ProxyArgs args: The arguments to use to populate this resource's properties.

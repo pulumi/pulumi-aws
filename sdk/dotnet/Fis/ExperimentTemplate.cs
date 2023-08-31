@@ -74,11 +74,11 @@ namespace Pulumi.Aws.Fis
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import FIS Experiment Templates using the `id`. For example:
     /// 
-    ///  to = aws_fis_experiment_template.template
-    /// 
-    ///  id = "EXT123AbCdEfGhIjK" } Using `pulumi import`, import FIS Experiment Templates using the `id`. For exampleconsole % pulumi import aws_fis_experiment_template.template EXT123AbCdEfGhIjK
+    /// ```sh
+    ///  $ pulumi import aws:fis/experimentTemplate:ExperimentTemplate template EXT123AbCdEfGhIjK
+    /// ```
     /// </summary>
     [AwsResourceType("aws:fis/experimentTemplate:ExperimentTemplate")]
     public partial class ExperimentTemplate : global::Pulumi.CustomResource

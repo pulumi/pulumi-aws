@@ -132,11 +132,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Route53 Zones using the zone `id`. For example:
  * 
- *  to = aws_route53_zone.myzone
- * 
- *  id = &#34;Z1D633PJN98FT9&#34; } Using `pulumi import`, import Route53 Zones using the zone `id`. For exampleconsole % pulumi import aws_route53_zone.myzone Z1D633PJN98FT9
+ * ```sh
+ *  $ pulumi import aws:route53/zone:Zone myzone Z1D633PJN98FT9
+ * ```
  * 
  */
 @ResourceType(type="aws:route53/zone:Zone")

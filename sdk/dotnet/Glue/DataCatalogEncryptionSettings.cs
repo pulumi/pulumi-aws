@@ -44,11 +44,11 @@ namespace Pulumi.Aws.Glue
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import Glue Data Catalog Encryption Settings using `CATALOG-ID` (AWS account ID if not custom). For example:
     /// 
-    ///  to = aws_glue_data_catalog_encryption_settings.example
-    /// 
-    ///  id = "123456789012" } Using `pulumi import`, import Glue Data Catalog Encryption Settings using `CATALOG-ID` (AWS account ID if not custom). For exampleconsole % pulumi import aws_glue_data_catalog_encryption_settings.example 123456789012
+    /// ```sh
+    ///  $ pulumi import aws:glue/dataCatalogEncryptionSettings:DataCatalogEncryptionSettings example 123456789012
+    /// ```
     /// </summary>
     [AwsResourceType("aws:glue/dataCatalogEncryptionSettings:DataCatalogEncryptionSettings")]
     public partial class DataCatalogEncryptionSettings : global::Pulumi.CustomResource

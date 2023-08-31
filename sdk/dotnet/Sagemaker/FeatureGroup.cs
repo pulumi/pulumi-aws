@@ -49,11 +49,11 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import Feature Groups using the `name`. For example:
     /// 
-    ///  to = aws_sagemaker_feature_group.test_feature_group
-    /// 
-    ///  id = "feature_group-foo" } Using `pulumi import`, import Feature Groups using the `name`. For exampleconsole % pulumi import aws_sagemaker_feature_group.test_feature_group feature_group-foo
+    /// ```sh
+    ///  $ pulumi import aws:sagemaker/featureGroup:FeatureGroup test_feature_group feature_group-foo
+    /// ```
     /// </summary>
     [AwsResourceType("aws:sagemaker/featureGroup:FeatureGroup")]
     public partial class FeatureGroup : global::Pulumi.CustomResource

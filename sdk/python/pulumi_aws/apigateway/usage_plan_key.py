@@ -185,11 +185,11 @@ class UsagePlanKey(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import AWS API Gateway Usage Plan Key using the `USAGE-PLAN-ID/USAGE-PLAN-KEY-ID`. For example:
 
-         to = aws_api_gateway_usage_plan_key.key
-
-         id = "12345abcde/zzz" } Using `pulumi import`, import AWS API Gateway Usage Plan Key using the `USAGE-PLAN-ID/USAGE-PLAN-KEY-ID`. For exampleconsole % pulumi import aws_api_gateway_usage_plan_key.key 12345abcde/zzz
+        ```sh
+         $ pulumi import aws:apigateway/usagePlanKey:UsagePlanKey key 12345abcde/zzz
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -227,11 +227,11 @@ class UsagePlanKey(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import AWS API Gateway Usage Plan Key using the `USAGE-PLAN-ID/USAGE-PLAN-KEY-ID`. For example:
 
-         to = aws_api_gateway_usage_plan_key.key
-
-         id = "12345abcde/zzz" } Using `pulumi import`, import AWS API Gateway Usage Plan Key using the `USAGE-PLAN-ID/USAGE-PLAN-KEY-ID`. For exampleconsole % pulumi import aws_api_gateway_usage_plan_key.key 12345abcde/zzz
+        ```sh
+         $ pulumi import aws:apigateway/usagePlanKey:UsagePlanKey key 12345abcde/zzz
+        ```
 
         :param str resource_name: The name of the resource.
         :param UsagePlanKeyArgs args: The arguments to use to populate this resource's properties.

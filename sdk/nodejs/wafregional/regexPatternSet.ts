@@ -21,11 +21,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import WAF Regional Regex Pattern Set using the id. For example:
  *
- *  to = aws_wafregional_regex_pattern_set.example
- *
- *  id = "a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc" } Using `pulumi import`, import WAF Regional Regex Pattern Set using the id. For exampleconsole % pulumi import aws_wafregional_regex_pattern_set.example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+ * ```sh
+ *  $ pulumi import aws:wafregional/regexPatternSet:RegexPatternSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+ * ```
  */
 export class RegexPatternSet extends pulumi.CustomResource {
     /**

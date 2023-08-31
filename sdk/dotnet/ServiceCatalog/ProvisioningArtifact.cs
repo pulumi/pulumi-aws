@@ -41,11 +41,11 @@ namespace Pulumi.Aws.ServiceCatalog
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import `aws_servicecatalog_provisioning_artifact` using the provisioning artifact ID and product ID separated by a colon. For example:
     /// 
-    ///  to = aws_servicecatalog_provisioning_artifact.example
-    /// 
-    ///  id = "pa-ij2b6lusy6dec:prod-el3an0rma3" } Using `pulumi import`, import `aws_servicecatalog_provisioning_artifact` using the provisioning artifact ID and product ID separated by a colon. For exampleconsole % pulumi import aws_servicecatalog_provisioning_artifact.example pa-ij2b6lusy6dec:prod-el3an0rma3
+    /// ```sh
+    ///  $ pulumi import aws:servicecatalog/provisioningArtifact:ProvisioningArtifact example pa-ij2b6lusy6dec:prod-el3an0rma3
+    /// ```
     /// </summary>
     [AwsResourceType("aws:servicecatalog/provisioningArtifact:ProvisioningArtifact")]
     public partial class ProvisioningArtifact : global::Pulumi.CustomResource

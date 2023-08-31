@@ -12,11 +12,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import Cognito Identity Pool Roles Attachment using the Identity Pool ID. For example:
  *
- *  to = aws_cognito_identity_pool_roles_attachment.example
- *
- *  id = "us-west-2:b64805ad-cb56-40ba-9ffc-f5d8207e6d42" } Using `pulumi import`, import Cognito Identity Pool Roles Attachment using the Identity Pool ID. For exampleconsole % pulumi import aws_cognito_identity_pool_roles_attachment.example us-west-2:b64805ad-cb56-40ba-9ffc-f5d8207e6d42
+ * ```sh
+ *  $ pulumi import aws:cognito/identityPoolRoleAttachment:IdentityPoolRoleAttachment example us-west-2:b64805ad-cb56-40ba-9ffc-f5d8207e6d42
+ * ```
  */
 export class IdentityPoolRoleAttachment extends pulumi.CustomResource {
     /**

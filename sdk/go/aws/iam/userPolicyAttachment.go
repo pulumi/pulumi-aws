@@ -56,11 +56,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import IAM user policy attachments using the user name and policy arn separated by `/`. For example:
 //
-//	to = aws_iam_user_policy_attachment.test-attach
+// ```sh
 //
-//	id = "test-user/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy" } Using `pulumi import`, import IAM user policy attachments using the user name and policy arn separated by `/`. For exampleconsole % pulumi import aws_iam_user_policy_attachment.test-attach test-user/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
+//	$ pulumi import aws:iam/userPolicyAttachment:UserPolicyAttachment test-attach test-user/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
+//
+// ```
 type UserPolicyAttachment struct {
 	pulumi.CustomResourceState
 

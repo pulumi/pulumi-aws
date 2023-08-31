@@ -63,11 +63,11 @@ namespace Pulumi.Aws.RolesAnywhere
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import `aws_rolesanywhere_profile` using its `id`. For example:
     /// 
-    ///  to = aws_rolesanywhere_profile.example
-    /// 
-    ///  id = "db138a85-8925-4f9f-a409-08231233cacf" } Using `pulumi import`, import `aws_rolesanywhere_profile` using its `id`. For exampleconsole % pulumi import aws_rolesanywhere_profile.example db138a85-8925-4f9f-a409-08231233cacf
+    /// ```sh
+    ///  $ pulumi import aws:rolesanywhere/profile:Profile example db138a85-8925-4f9f-a409-08231233cacf
+    /// ```
     /// </summary>
     [AwsResourceType("aws:rolesanywhere/profile:Profile")]
     public partial class Profile : global::Pulumi.CustomResource

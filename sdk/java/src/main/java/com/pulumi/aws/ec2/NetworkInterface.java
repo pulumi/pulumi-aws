@@ -77,11 +77,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Network Interfaces using the `id`. For example:
  * 
- *  to = aws_network_interface.test
- * 
- *  id = &#34;eni-e5aa89a3&#34; } Using `pulumi import`, import Network Interfaces using the `id`. For exampleconsole % pulumi import aws_network_interface.test eni-e5aa89a3
+ * ```sh
+ *  $ pulumi import aws:ec2/networkInterface:NetworkInterface test eni-e5aa89a3
+ * ```
  * 
  */
 @ResourceType(type="aws:ec2/networkInterface:NetworkInterface")

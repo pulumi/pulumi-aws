@@ -86,11 +86,11 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import `aws_networkmanager_customer_gateway_association` using the global network ID and customer gateway ARN. For example:
     /// 
-    ///  to = aws_networkmanager_customer_gateway_association.example
-    /// 
-    ///  id = "global-network-0d47f6t230mz46dy4,arn:aws:ec2:us-west-2:123456789012:customer-gateway/cgw-123abc05e04123abc" } Using `pulumi import`, import `aws_networkmanager_customer_gateway_association` using the global network ID and customer gateway ARN. For exampleconsole % pulumi import aws_networkmanager_customer_gateway_association.example global-network-0d47f6t230mz46dy4,arn:aws:ec2:us-west-2:123456789012:customer-gateway/cgw-123abc05e04123abc
+    /// ```sh
+    ///  $ pulumi import aws:networkmanager/customerGatewayAssociation:CustomerGatewayAssociation example global-network-0d47f6t230mz46dy4,arn:aws:ec2:us-west-2:123456789012:customer-gateway/cgw-123abc05e04123abc
+    /// ```
     /// </summary>
     [AwsResourceType("aws:networkmanager/customerGatewayAssociation:CustomerGatewayAssociation")]
     public partial class CustomerGatewayAssociation : global::Pulumi.CustomResource

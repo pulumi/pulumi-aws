@@ -112,11 +112,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import WAFv2 Web ACL Association using `WEB_ACL_ARN,RESOURCE_ARN`. For example:
  * 
- *  to = aws_wafv2_web_acl_association.example
- * 
- *  id = &#34;arn:aws:wafv2:...7ce849ea,arn:aws:apigateway:...ages/name&#34; } Using `pulumi import`, import WAFv2 Web ACL Association using `WEB_ACL_ARN,RESOURCE_ARN`. For exampleconsole % pulumi import aws_wafv2_web_acl_association.example arn:aws:wafv2:...7ce849ea,arn:aws:apigateway:...ages/name
+ * ```sh
+ *  $ pulumi import aws:wafv2/webAclAssociation:WebAclAssociation example arn:aws:wafv2:...7ce849ea,arn:aws:apigateway:...ages/name
+ * ```
  * 
  */
 @ResourceType(type="aws:wafv2/webAclAssociation:WebAclAssociation")

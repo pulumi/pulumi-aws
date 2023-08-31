@@ -41,11 +41,11 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import IPAMs using the IPAM resource discovery association `id`. For example:
     /// 
-    ///  to = aws_vpc_ipam_resource_discovery_association.example
-    /// 
-    ///  id = "ipam-res-disco-assoc-0178368ad2146a492" } Using `pulumi import`, import IPAMs using the IPAM resource discovery association `id`. For exampleconsole % pulumi import aws_vpc_ipam_resource_discovery_association.example ipam-res-disco-assoc-0178368ad2146a492
+    /// ```sh
+    ///  $ pulumi import aws:ec2/vpcIpamResourceDiscoveryAssociation:VpcIpamResourceDiscoveryAssociation example ipam-res-disco-assoc-0178368ad2146a492
+    /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/vpcIpamResourceDiscoveryAssociation:VpcIpamResourceDiscoveryAssociation")]
     public partial class VpcIpamResourceDiscoveryAssociation : global::Pulumi.CustomResource

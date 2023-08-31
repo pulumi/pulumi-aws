@@ -54,11 +54,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import endpoints using the `name`. For example:
  * 
- *  to = aws_sagemaker_endpoint.test_endpoint
- * 
- *  id = &#34;my-endpoint&#34; } Using `pulumi import`, import endpoints using the `name`. For exampleconsole % pulumi import aws_sagemaker_endpoint.test_endpoint my-endpoint
+ * ```sh
+ *  $ pulumi import aws:sagemaker/endpoint:Endpoint test_endpoint my-endpoint
+ * ```
  * 
  */
 @ResourceType(type="aws:sagemaker/endpoint:Endpoint")

@@ -21,11 +21,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import VPC Endpoint Route Table Associations using `vpc_endpoint_id` together with `route_table_id`. For example:
  *
- *  to = aws_vpc_endpoint_route_table_association.example
- *
- *  id = "vpce-aaaaaaaa/rtb-bbbbbbbb" } Using `pulumi import`, import VPC Endpoint Route Table Associations using `vpc_endpoint_id` together with `route_table_id`. For exampleconsole % pulumi import aws_vpc_endpoint_route_table_association.example vpce-aaaaaaaa/rtb-bbbbbbbb
+ * ```sh
+ *  $ pulumi import aws:ec2/vpcEndpointRouteTableAssociation:VpcEndpointRouteTableAssociation example vpce-aaaaaaaa/rtb-bbbbbbbb
+ * ```
  */
 export class VpcEndpointRouteTableAssociation extends pulumi.CustomResource {
     /**

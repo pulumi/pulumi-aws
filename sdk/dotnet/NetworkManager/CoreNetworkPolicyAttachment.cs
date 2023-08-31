@@ -235,11 +235,11 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import `aws_networkmanager_core_network_policy_attachment` using the core network ID. For example:
     /// 
-    ///  to = aws_networkmanager_core_network_policy_attachment.example
-    /// 
-    ///  id = "core-network-0d47f6t230mz46dy4" } Using `pulumi import`, import `aws_networkmanager_core_network_policy_attachment` using the core network ID. For exampleconsole % pulumi import aws_networkmanager_core_network_policy_attachment.example core-network-0d47f6t230mz46dy4
+    /// ```sh
+    ///  $ pulumi import aws:networkmanager/coreNetworkPolicyAttachment:CoreNetworkPolicyAttachment example core-network-0d47f6t230mz46dy4
+    /// ```
     /// </summary>
     [AwsResourceType("aws:networkmanager/coreNetworkPolicyAttachment:CoreNetworkPolicyAttachment")]
     public partial class CoreNetworkPolicyAttachment : global::Pulumi.CustomResource

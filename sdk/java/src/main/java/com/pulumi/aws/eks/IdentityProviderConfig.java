@@ -57,11 +57,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import EKS Identity Provider Configurations using the `cluster_name` and `identity_provider_config_name` separated by a colon (`:`). For example:
  * 
- *  to = aws_eks_identity_provider_config.my_identity_provider_config
- * 
- *  id = &#34;my_cluster:my_identity_provider_config&#34; } Using `pulumi import`, import EKS Identity Provider Configurations using the `cluster_name` and `identity_provider_config_name` separated by a colon (`:`). For exampleconsole % pulumi import aws_eks_identity_provider_config.my_identity_provider_config my_cluster:my_identity_provider_config
+ * ```sh
+ *  $ pulumi import aws:eks/identityProviderConfig:IdentityProviderConfig my_identity_provider_config my_cluster:my_identity_provider_config
+ * ```
  * 
  */
 @ResourceType(type="aws:eks/identityProviderConfig:IdentityProviderConfig")

@@ -140,11 +140,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import SES event destinations using `configuration_set_name` together with the event destination&#39;s `name`. For example:
  * 
- *  to = aws_ses_event_destination.sns
- * 
- *  id = &#34;some-configuration-set-test/event-destination-sns&#34; } Using `pulumi import`, import SES event destinations using `configuration_set_name` together with the event destination&#39;s `name`. For exampleconsole % pulumi import aws_ses_event_destination.sns some-configuration-set-test/event-destination-sns
+ * ```sh
+ *  $ pulumi import aws:ses/eventDestination:EventDestination sns some-configuration-set-test/event-destination-sns
+ * ```
  * 
  */
 @ResourceType(type="aws:ses/eventDestination:EventDestination")

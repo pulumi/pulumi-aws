@@ -322,11 +322,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import IAM Roles using the `name`. For example:
 //
-//	to = aws_iam_role.developer
+// ```sh
 //
-//	id = "developer_name" } Using `pulumi import`, import IAM Roles using the `name`. For exampleconsole % pulumi import aws_iam_role.developer developer_name
+//	$ pulumi import aws:iam/role:Role developer developer_name
+//
+// ```
 type Role struct {
 	pulumi.CustomResourceState
 

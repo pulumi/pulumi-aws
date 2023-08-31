@@ -49,11 +49,11 @@ namespace Pulumi.Aws.Glue
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import Glue User Defined Functions using the `catalog_id:database_name:function_name`. If you have not set a Catalog ID specify the AWS Account ID that the database is in. For example:
     /// 
-    ///  to = aws_glue_user_defined_function.func
-    /// 
-    ///  id = "123456789012:my_database:my_func" } Using `pulumi import`, import Glue User Defined Functions using the `catalog_id:database_name:function_name`. If you have not set a Catalog ID specify the AWS Account ID that the database is in. For exampleconsole % pulumi import aws_glue_user_defined_function.func 123456789012:my_database:my_func
+    /// ```sh
+    ///  $ pulumi import aws:glue/userDefinedFunction:UserDefinedFunction func 123456789012:my_database:my_func
+    /// ```
     /// </summary>
     [AwsResourceType("aws:glue/userDefinedFunction:UserDefinedFunction")]
     public partial class UserDefinedFunction : global::Pulumi.CustomResource

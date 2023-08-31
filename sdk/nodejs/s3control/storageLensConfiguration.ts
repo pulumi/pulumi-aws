@@ -58,11 +58,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import S3 Storage Lens configurations using the `account_id` and `config_id`, separated by a colon (`:`). For example:
  *
- *  to = aws_s3control_storage_lens_configuration.example
- *
- *  id = "123456789012:example-1" } Using `pulumi import`, import S3 Storage Lens configurations using the `account_id` and `config_id`, separated by a colon (`:`). For exampleconsole % pulumi import aws_s3control_storage_lens_configuration.example 123456789012:example-1
+ * ```sh
+ *  $ pulumi import aws:s3control/storageLensConfiguration:StorageLensConfiguration example 123456789012:example-1
+ * ```
  */
 export class StorageLensConfiguration extends pulumi.CustomResource {
     /**

@@ -296,11 +296,11 @@ class LogGroup(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Cloudwatch Log Groups using the `name`. For example:
 
-         to = aws_cloudwatch_log_group.test_group
-
-         id = "yada" } Using `pulumi import`, import Cloudwatch Log Groups using the `name`. For exampleconsole % pulumi import aws_cloudwatch_log_group.test_group yada
+        ```sh
+         $ pulumi import aws:cloudwatch/logGroup:LogGroup test_group yada
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -338,11 +338,11 @@ class LogGroup(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Cloudwatch Log Groups using the `name`. For example:
 
-         to = aws_cloudwatch_log_group.test_group
-
-         id = "yada" } Using `pulumi import`, import Cloudwatch Log Groups using the `name`. For exampleconsole % pulumi import aws_cloudwatch_log_group.test_group yada
+        ```sh
+         $ pulumi import aws:cloudwatch/logGroup:LogGroup test_group yada
+        ```
 
         :param str resource_name: The name of the resource.
         :param LogGroupArgs args: The arguments to use to populate this resource's properties.

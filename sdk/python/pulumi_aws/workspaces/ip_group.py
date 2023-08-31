@@ -212,11 +212,11 @@ class IpGroup(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import WorkSpaces IP groups using their GroupID. For example:
 
-         to = aws_workspaces_ip_group.example
-
-         id = "wsipg-488lrtl3k" } Using `pulumi import`, import WorkSpaces IP groups using their GroupID. For exampleconsole % pulumi import aws_workspaces_ip_group.example wsipg-488lrtl3k
+        ```sh
+         $ pulumi import aws:workspaces/ipGroup:IpGroup example wsipg-488lrtl3k
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -260,11 +260,11 @@ class IpGroup(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import WorkSpaces IP groups using their GroupID. For example:
 
-         to = aws_workspaces_ip_group.example
-
-         id = "wsipg-488lrtl3k" } Using `pulumi import`, import WorkSpaces IP groups using their GroupID. For exampleconsole % pulumi import aws_workspaces_ip_group.example wsipg-488lrtl3k
+        ```sh
+         $ pulumi import aws:workspaces/ipGroup:IpGroup example wsipg-488lrtl3k
+        ```
 
         :param str resource_name: The name of the resource.
         :param IpGroupArgs args: The arguments to use to populate this resource's properties.

@@ -188,11 +188,11 @@ class ConnectionAlias(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import WorkSpaces Connection Alias using the connection alias ID. For example:
 
-         to = aws_workspaces_connection_alias.example
-
-         id = "rft-8012925589" } Using `pulumi import`, import WorkSpaces Connection Alias using the connection alias ID. For exampleconsole % pulumi import aws_workspaces_connection_alias.example rft-8012925589
+        ```sh
+         $ pulumi import aws:workspaces/connectionAlias:ConnectionAlias example rft-8012925589
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -220,11 +220,11 @@ class ConnectionAlias(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import WorkSpaces Connection Alias using the connection alias ID. For example:
 
-         to = aws_workspaces_connection_alias.example
-
-         id = "rft-8012925589" } Using `pulumi import`, import WorkSpaces Connection Alias using the connection alias ID. For exampleconsole % pulumi import aws_workspaces_connection_alias.example rft-8012925589
+        ```sh
+         $ pulumi import aws:workspaces/connectionAlias:ConnectionAlias example rft-8012925589
+        ```
 
         :param str resource_name: The name of the resource.
         :param ConnectionAliasArgs args: The arguments to use to populate this resource's properties.

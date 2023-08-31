@@ -83,11 +83,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import models using the `name`. For example:
 //
-//	to = aws_sagemaker_model.test_model
+// ```sh
 //
-//	id = "model-foo" } Using `pulumi import`, import models using the `name`. For exampleconsole % pulumi import aws_sagemaker_model.test_model model-foo
+//	$ pulumi import aws:sagemaker/model:Model test_model model-foo
+//
+// ```
 type Model struct {
 	pulumi.CustomResourceState
 

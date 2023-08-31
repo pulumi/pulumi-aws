@@ -35,11 +35,11 @@ namespace Pulumi.Aws.Pinpoint
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import Pinpoint GCM Channel using the `application-id`. For example:
     /// 
-    ///  to = aws_pinpoint_gcm_channel.gcm
-    /// 
-    ///  id = "application-id" } Using `pulumi import`, import Pinpoint GCM Channel using the `application-id`. For exampleconsole % pulumi import aws_pinpoint_gcm_channel.gcm application-id
+    /// ```sh
+    ///  $ pulumi import aws:pinpoint/gcmChannel:GcmChannel gcm application-id
+    /// ```
     /// </summary>
     [AwsResourceType("aws:pinpoint/gcmChannel:GcmChannel")]
     public partial class GcmChannel : global::Pulumi.CustomResource

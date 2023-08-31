@@ -174,11 +174,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import AWS Maintenance Window Task using the `window_id` and `window_task_id` separated by `/`. For example:
 //
-//	to = aws_ssm_maintenance_window_task.task
+// ```sh
 //
-//	id = "<window_id>/<window_task_id>" } Using `pulumi import`, import AWS Maintenance Window Task using the `window_id` and `window_task_id` separated by `/`. For exampleconsole % pulumi import aws_ssm_maintenance_window_task.task <window_id>/<window_task_id>
+//	$ pulumi import aws:ssm/maintenanceWindowTask:MaintenanceWindowTask task <window_id>/<window_task_id>
+//
+// ```
 type MaintenanceWindowTask struct {
 	pulumi.CustomResourceState
 

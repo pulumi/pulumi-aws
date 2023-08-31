@@ -57,11 +57,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import SageMaker Projects using the `project_name`. For example:
  * 
- *  to = aws_sagemaker_project.example
- * 
- *  id = &#34;example&#34; } Using `pulumi import`, import SageMaker Projects using the `project_name`. For exampleconsole % pulumi import aws_sagemaker_project.example example
+ * ```sh
+ *  $ pulumi import aws:sagemaker/project:Project example example
+ * ```
  * 
  */
 @ResourceType(type="aws:sagemaker/project:Project")

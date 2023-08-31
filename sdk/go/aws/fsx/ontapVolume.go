@@ -81,11 +81,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import FSx ONTAP volume using the `id`. For example:
 //
-//	to = aws_fsx_ontap_volume.example
+// ```sh
 //
-//	id = "fsvol-12345678abcdef123" } Using `pulumi import`, import FSx ONTAP volume using the `id`. For exampleconsole % pulumi import aws_fsx_ontap_volume.example fsvol-12345678abcdef123
+//	$ pulumi import aws:fsx/ontapVolume:OntapVolume example fsvol-12345678abcdef123
+//
+// ```
 type OntapVolume struct {
 	pulumi.CustomResourceState
 

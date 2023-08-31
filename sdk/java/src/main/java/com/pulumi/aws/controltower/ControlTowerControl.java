@@ -21,11 +21,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Control Tower Controls using their `organizational_unit_arn/control_identifier`. For example:
  * 
- *  to = aws_controltower_control.example
- * 
- *  id = &#34;arn:aws:organizations::123456789101:ou/o-qqaejywet/ou-qg5o-ufbhdtv3,arn:aws:controltower:us-east-1::control/WTDSMKDKDNLE&#34; } Using `pulumi import`, import Control Tower Controls using their `organizational_unit_arn/control_identifier`. For exampleconsole % pulumi import aws_controltower_control.example arn:aws:organizations::123456789101:ou/o-qqaejywet/ou-qg5o-ufbhdtv3,arn:aws:controltower:us-east-1::control/WTDSMKDKDNLE
+ * ```sh
+ *  $ pulumi import aws:controltower/controlTowerControl:ControlTowerControl example arn:aws:organizations::123456789101:ou/o-qqaejywet/ou-qg5o-ufbhdtv3,arn:aws:controltower:us-east-1::control/WTDSMKDKDNLE
+ * ```
  * 
  */
 @ResourceType(type="aws:controltower/controlTowerControl:ControlTowerControl")

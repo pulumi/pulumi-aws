@@ -62,11 +62,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import `aws_macie2_custom_data_identifier` using the id. For example:
  * 
- *  to = aws_macie2_custom_data_identifier.example
- * 
- *  id = &#34;abcd1&#34; } Using `pulumi import`, import `aws_macie2_custom_data_identifier` using the id. For exampleconsole % pulumi import aws_macie2_custom_data_identifier.example abcd1
+ * ```sh
+ *  $ pulumi import aws:macie/customDataIdentifier:CustomDataIdentifier example abcd1
+ * ```
  * 
  */
 @ResourceType(type="aws:macie/customDataIdentifier:CustomDataIdentifier")

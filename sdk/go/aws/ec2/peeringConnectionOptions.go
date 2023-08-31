@@ -163,11 +163,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import VPC Peering Connection Options using the VPC peering `id`. For example:
 //
-//	to = aws_vpc_peering_connection_options.foo
+// ```sh
 //
-//	id = "pcx-111aaa111" } Using `pulumi import`, import VPC Peering Connection Options using the VPC peering `id`. For exampleconsole % pulumi import aws_vpc_peering_connection_options.foo pcx-111aaa111
+//	$ pulumi import aws:ec2/peeringConnectionOptions:PeeringConnectionOptions foo pcx-111aaa111
+//
+// ```
 type PeeringConnectionOptions struct {
 	pulumi.CustomResourceState
 

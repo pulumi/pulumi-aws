@@ -66,11 +66,11 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import Lightsail Databases using their name. For example:
     /// 
-    ///  to = aws_lightsail_database.foo
-    /// 
-    ///  id = "bar" } Using `pulumi import`, import Lightsail Databases using their name. For exampleconsole % pulumi import aws_lightsail_database.foo 'bar'
+    /// ```sh
+    ///  $ pulumi import aws:lightsail/database:Database foo 'bar'
+    /// ```
     /// </summary>
     [AwsResourceType("aws:lightsail/database:Database")]
     public partial class Database : global::Pulumi.CustomResource

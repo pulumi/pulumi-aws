@@ -32,11 +32,11 @@ namespace Pulumi.Aws.Location
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import Location Geofence Collection using the `collection_name`. For example:
     /// 
-    ///  to = aws_location_geofence_collection.example
-    /// 
-    ///  id = "example" } Using `pulumi import`, import Location Geofence Collection using the `collection_name`. For exampleconsole % pulumi import aws_location_geofence_collection.example example
+    /// ```sh
+    ///  $ pulumi import aws:location/geofenceCollection:GeofenceCollection example example
+    /// ```
     /// </summary>
     [AwsResourceType("aws:location/geofenceCollection:GeofenceCollection")]
     public partial class GeofenceCollection : global::Pulumi.CustomResource

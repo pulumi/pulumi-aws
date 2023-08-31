@@ -393,11 +393,11 @@ class Workspace(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Workspaces using their ID. For example:
 
-         to = aws_workspaces_workspace.example
-
-         id = "ws-9z9zmbkhv" } Using `pulumi import`, import Workspaces using their ID. For exampleconsole % pulumi import aws_workspaces_workspace.example ws-9z9zmbkhv
+        ```sh
+         $ pulumi import aws:workspaces/workspace:Workspace example ws-9z9zmbkhv
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -449,11 +449,11 @@ class Workspace(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Workspaces using their ID. For example:
 
-         to = aws_workspaces_workspace.example
-
-         id = "ws-9z9zmbkhv" } Using `pulumi import`, import Workspaces using their ID. For exampleconsole % pulumi import aws_workspaces_workspace.example ws-9z9zmbkhv
+        ```sh
+         $ pulumi import aws:workspaces/workspace:Workspace example ws-9z9zmbkhv
+        ```
 
         :param str resource_name: The name of the resource.
         :param WorkspaceArgs args: The arguments to use to populate this resource's properties.

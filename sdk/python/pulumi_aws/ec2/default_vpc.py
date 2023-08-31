@@ -471,11 +471,11 @@ class DefaultVpc(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Default VPCs using the VPC `id`. For example:
 
-         to = aws_default_vpc.default
-
-         id = "vpc-a01106c2" } Using `pulumi import`, import Default VPCs using the VPC `id`. For exampleconsole % pulumi import aws_default_vpc.default vpc-a01106c2
+        ```sh
+         $ pulumi import aws:ec2/defaultVpc:DefaultVpc default vpc-a01106c2
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -515,11 +515,11 @@ class DefaultVpc(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Default VPCs using the VPC `id`. For example:
 
-         to = aws_default_vpc.default
-
-         id = "vpc-a01106c2" } Using `pulumi import`, import Default VPCs using the VPC `id`. For exampleconsole % pulumi import aws_default_vpc.default vpc-a01106c2
+        ```sh
+         $ pulumi import aws:ec2/defaultVpc:DefaultVpc default vpc-a01106c2
+        ```
 
         :param str resource_name: The name of the resource.
         :param DefaultVpcArgs args: The arguments to use to populate this resource's properties.

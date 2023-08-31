@@ -95,11 +95,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Elastic Transcoder presets using the `id`. For example:
 //
-//	to = aws_elastictranscoder_preset.basic_preset
+// ```sh
 //
-//	id = "1407981661351-cttk8b" } Using `pulumi import`, import Elastic Transcoder presets using the `id`. For exampleconsole % pulumi import aws_elastictranscoder_preset.basic_preset 1407981661351-cttk8b
+//	$ pulumi import aws:elastictranscoder/preset:Preset basic_preset 1407981661351-cttk8b
+//
+// ```
 type Preset struct {
 	pulumi.CustomResourceState
 

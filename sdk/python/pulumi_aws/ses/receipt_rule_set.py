@@ -95,11 +95,11 @@ class ReceiptRuleSet(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import SES receipt rule sets using the rule set name. For example:
 
-         to = aws_ses_receipt_rule_set.my_rule_set
-
-         id = "my_rule_set_name" } Using `pulumi import`, import SES receipt rule sets using the rule set name. For exampleconsole % pulumi import aws_ses_receipt_rule_set.my_rule_set my_rule_set_name
+        ```sh
+         $ pulumi import aws:ses/receiptRuleSet:ReceiptRuleSet my_rule_set my_rule_set_name
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -125,11 +125,11 @@ class ReceiptRuleSet(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import SES receipt rule sets using the rule set name. For example:
 
-         to = aws_ses_receipt_rule_set.my_rule_set
-
-         id = "my_rule_set_name" } Using `pulumi import`, import SES receipt rule sets using the rule set name. For exampleconsole % pulumi import aws_ses_receipt_rule_set.my_rule_set my_rule_set_name
+        ```sh
+         $ pulumi import aws:ses/receiptRuleSet:ReceiptRuleSet my_rule_set my_rule_set_name
+        ```
 
         :param str resource_name: The name of the resource.
         :param ReceiptRuleSetArgs args: The arguments to use to populate this resource's properties.

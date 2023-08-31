@@ -53,11 +53,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import `aws_rds_cluster_role_association` using the DB Cluster Identifier and IAM Role ARN separated by a comma (`,`). For example:
  * 
- *  to = aws_rds_cluster_role_association.example
- * 
- *  id = &#34;my-db-cluster,arn:aws:iam::123456789012:role/my-role&#34; } Using `pulumi import`, import `aws_rds_cluster_role_association` using the DB Cluster Identifier and IAM Role ARN separated by a comma (`,`). For exampleconsole % pulumi import aws_rds_cluster_role_association.example my-db-cluster,arn:aws:iam::123456789012:role/my-role
+ * ```sh
+ *  $ pulumi import aws:rds/clusterRoleAssociation:ClusterRoleAssociation example my-db-cluster,arn:aws:iam::123456789012:role/my-role
+ * ```
  * 
  */
 @ResourceType(type="aws:rds/clusterRoleAssociation:ClusterRoleAssociation")

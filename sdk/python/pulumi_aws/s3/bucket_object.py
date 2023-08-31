@@ -955,15 +955,22 @@ class BucketObject(pulumi.CustomResource):
 
         ## Import
 
-        Import using the `id`, which is the bucket name and the key togetherterraform import {
+        Import using the `id`, which is the bucket name and the key together:
 
-         to = aws_s3_bucket_object.example
+        Import using S3 URL syntax:
 
-         id = "some-bucket-name/some/key.txt" } Import using S3 URL syntaxterraform import {
+        __Using `pulumi import` to import__ objects using the `id` or S3 URL. For example:
 
-         to = aws_s3_bucket_object.example
+        Import using the `id`, which is the bucket name and the key together:
 
-         id = "s3://some-bucket-name/some/key.txt" } **Using `pulumi import` to import** objects using the `id` or S3 URL. For exampleImport using the `id`, which is the bucket name and the key togetherconsole % pulumi import aws_s3_bucket_object.example some-bucket-name/some/key.txt Import using S3 URL syntaxconsole % pulumi import aws_s3_bucket_object.example s3://some-bucket-name/some/key.txt
+        ```sh
+         $ pulumi import aws:s3/bucketObject:BucketObject example some-bucket-name/some/key.txt
+        ```
+         Import using S3 URL syntax:
+
+        ```sh
+         $ pulumi import aws:s3/bucketObject:BucketObject example s3://some-bucket-name/some/key.txt
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1085,15 +1092,22 @@ class BucketObject(pulumi.CustomResource):
 
         ## Import
 
-        Import using the `id`, which is the bucket name and the key togetherterraform import {
+        Import using the `id`, which is the bucket name and the key together:
 
-         to = aws_s3_bucket_object.example
+        Import using S3 URL syntax:
 
-         id = "some-bucket-name/some/key.txt" } Import using S3 URL syntaxterraform import {
+        __Using `pulumi import` to import__ objects using the `id` or S3 URL. For example:
 
-         to = aws_s3_bucket_object.example
+        Import using the `id`, which is the bucket name and the key together:
 
-         id = "s3://some-bucket-name/some/key.txt" } **Using `pulumi import` to import** objects using the `id` or S3 URL. For exampleImport using the `id`, which is the bucket name and the key togetherconsole % pulumi import aws_s3_bucket_object.example some-bucket-name/some/key.txt Import using S3 URL syntaxconsole % pulumi import aws_s3_bucket_object.example s3://some-bucket-name/some/key.txt
+        ```sh
+         $ pulumi import aws:s3/bucketObject:BucketObject example some-bucket-name/some/key.txt
+        ```
+         Import using S3 URL syntax:
+
+        ```sh
+         $ pulumi import aws:s3/bucketObject:BucketObject example s3://some-bucket-name/some/key.txt
+        ```
 
         :param str resource_name: The name of the resource.
         :param BucketObjectArgs args: The arguments to use to populate this resource's properties.

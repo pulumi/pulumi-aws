@@ -206,11 +206,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import Application AutoScaling Policy using the `service-namespace` , `resource-id`, `scalable-dimension` and `policy-name` separated by `/`. For example:
  *
- *  to = aws_appautoscaling_policy.test-policy
- *
- *  id = "service-namespace/resource-id/scalable-dimension/policy-name" } Using `pulumi import`, import Application AutoScaling Policy using the `service-namespace` , `resource-id`, `scalable-dimension` and `policy-name` separated by `/`. For exampleconsole % pulumi import aws_appautoscaling_policy.test-policy service-namespace/resource-id/scalable-dimension/policy-name
+ * ```sh
+ *  $ pulumi import aws:appautoscaling/policy:Policy test-policy service-namespace/resource-id/scalable-dimension/policy-name
+ * ```
  */
 export class Policy extends pulumi.CustomResource {
     /**

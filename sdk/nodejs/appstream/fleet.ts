@@ -39,11 +39,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import `aws_appstream_fleet` using the id. For example:
  *
- *  to = aws_appstream_fleet.example
- *
- *  id = "fleetNameExample" } Using `pulumi import`, import `aws_appstream_fleet` using the id. For exampleconsole % pulumi import aws_appstream_fleet.example fleetNameExample
+ * ```sh
+ *  $ pulumi import aws:appstream/fleet:Fleet example fleetNameExample
+ * ```
  */
 export class Fleet extends pulumi.CustomResource {
     /**

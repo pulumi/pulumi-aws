@@ -87,11 +87,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Redshift Data Statements using the `id`. For example:
  * 
- *  to = aws_redshiftdata_statement.example
- * 
- *  id = &#34;example&#34; } Using `pulumi import`, import Redshift Data Statements using the `id`. For exampleconsole % pulumi import aws_redshiftdata_statement.example example
+ * ```sh
+ *  $ pulumi import aws:redshiftdata/statement:Statement example example
+ * ```
  * 
  */
 @ResourceType(type="aws:redshiftdata/statement:Statement")

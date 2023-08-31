@@ -147,11 +147,11 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import Lightsail Instances using their name. For example:
     /// 
-    ///  to = aws_lightsail_instance.gitlab_test
-    /// 
-    ///  id = "custom_gitlab" } Using `pulumi import`, import Lightsail Instances using their name. For exampleconsole % pulumi import aws_lightsail_instance.gitlab_test 'custom_gitlab'
+    /// ```sh
+    ///  $ pulumi import aws:lightsail/instance:Instance gitlab_test 'custom_gitlab'
+    /// ```
     /// </summary>
     [AwsResourceType("aws:lightsail/instance:Instance")]
     public partial class Instance : global::Pulumi.CustomResource

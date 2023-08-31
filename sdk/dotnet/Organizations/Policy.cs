@@ -51,11 +51,11 @@ namespace Pulumi.Aws.Organizations
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import `aws_organizations_policy` using the policy ID. For example:
     /// 
-    ///  to = aws_organizations_policy.example
-    /// 
-    ///  id = "p-12345678" } Using `pulumi import`, import `aws_organizations_policy` using the policy ID. For exampleconsole % pulumi import aws_organizations_policy.example p-12345678
+    /// ```sh
+    ///  $ pulumi import aws:organizations/policy:Policy example p-12345678
+    /// ```
     /// </summary>
     [AwsResourceType("aws:organizations/policy:Policy")]
     public partial class Policy : global::Pulumi.CustomResource

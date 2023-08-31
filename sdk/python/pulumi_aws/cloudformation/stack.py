@@ -555,11 +555,11 @@ class Stack(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Cloudformation Stacks using the `name`. For example:
 
-         to = aws_cloudformation_stack.stack
-
-         id = "networking-stack" } Using `pulumi import`, import Cloudformation Stacks using the `name`. For exampleconsole % pulumi import aws_cloudformation_stack.stack networking-stack
+        ```sh
+         $ pulumi import aws:cloudformation/stack:Stack stack networking-stack
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -629,11 +629,11 @@ class Stack(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Cloudformation Stacks using the `name`. For example:
 
-         to = aws_cloudformation_stack.stack
-
-         id = "networking-stack" } Using `pulumi import`, import Cloudformation Stacks using the `name`. For exampleconsole % pulumi import aws_cloudformation_stack.stack networking-stack
+        ```sh
+         $ pulumi import aws:cloudformation/stack:Stack stack networking-stack
+        ```
 
         :param str resource_name: The name of the resource.
         :param StackArgs args: The arguments to use to populate this resource's properties.

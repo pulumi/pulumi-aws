@@ -68,23 +68,12 @@ namespace Pulumi.Aws.Fsx
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import FSx Storage Virtual Machine using the `id`. For example:
     /// 
-    ///  to = aws_fsx_ontap_storage_virtual_machine.example
-    /// 
-    ///  id = "svm-12345678abcdef123" } Using `pulumi import`, import FSx Storage Virtual Machine using the `id`. For exampleconsole % pulumi import aws_fsx_ontap_storage_virtual_machine.example svm-12345678abcdef123 Certain resource arguments, like `svm_admin_password` and the `self_managed_active_directory` configuation block `password`, do not have a FSx API method for reading the information after creation. If these arguments are set in the TODO configuration on an imported resource, TODO will always show a difference. To workaround this behavior, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For exampleterraform resource "aws_fsx_ontap_storage_virtual_machine" "example" {
-    /// 
-    /// # ... other configuration ...
-    /// 
-    ///  svm_admin_password = "avoid-plaintext-passwords"
-    /// 
-    /// # There is no FSx API for reading svm_admin_password
-    /// 
-    ///  lifecycle {
-    /// 
-    ///  ignore_changes = [svm_admin_password]
-    /// 
-    ///  } }
+    /// ```sh
+    ///  $ pulumi import aws:fsx/ontapStorageVirtualMachine:OntapStorageVirtualMachine example svm-12345678abcdef123
+    /// ```
+    ///  Certain resource arguments, like `svm_admin_password` and the `self_managed_active_directory` configuation block `password`, do not have a FSx API method for reading the information after creation. If these arguments are set in the TODO configuration on an imported resource, TODO will always show a difference. To workaround this behavior, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For example:
     /// </summary>
     [AwsResourceType("aws:fsx/ontapStorageVirtualMachine:OntapStorageVirtualMachine")]
     public partial class OntapStorageVirtualMachine : global::Pulumi.CustomResource

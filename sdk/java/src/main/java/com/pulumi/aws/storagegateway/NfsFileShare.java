@@ -57,11 +57,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import `aws_storagegateway_nfs_file_share` using the NFS File Share Amazon Resource Name (ARN). For example:
  * 
- *  to = aws_storagegateway_nfs_file_share.example
- * 
- *  id = &#34;arn:aws:storagegateway:us-east-1:123456789012:share/share-12345678&#34; } Using `pulumi import`, import `aws_storagegateway_nfs_file_share` using the NFS File Share Amazon Resource Name (ARN). For exampleconsole % pulumi import aws_storagegateway_nfs_file_share.example arn:aws:storagegateway:us-east-1:123456789012:share/share-12345678
+ * ```sh
+ *  $ pulumi import aws:storagegateway/nfsFileShare:NfsFileShare example arn:aws:storagegateway:us-east-1:123456789012:share/share-12345678
+ * ```
  * 
  */
 @ResourceType(type="aws:storagegateway/nfsFileShare:NfsFileShare")

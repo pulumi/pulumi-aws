@@ -862,11 +862,11 @@ class Crawler(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Glue Crawlers using `name`. For example:
 
-         to = aws_glue_crawler.MyJob
-
-         id = "MyJob" } Using `pulumi import`, import Glue Crawlers using `name`. For exampleconsole % pulumi import aws_glue_crawler.MyJob MyJob
+        ```sh
+         $ pulumi import aws:glue/crawler:Crawler MyJob MyJob
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1009,11 +1009,11 @@ class Crawler(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Glue Crawlers using `name`. For example:
 
-         to = aws_glue_crawler.MyJob
-
-         id = "MyJob" } Using `pulumi import`, import Glue Crawlers using `name`. For exampleconsole % pulumi import aws_glue_crawler.MyJob MyJob
+        ```sh
+         $ pulumi import aws:glue/crawler:Crawler MyJob MyJob
+        ```
 
         :param str resource_name: The name of the resource.
         :param CrawlerArgs args: The arguments to use to populate this resource's properties.

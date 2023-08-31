@@ -210,11 +210,11 @@ class SourceCredential(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import CodeBuild Source Credential using the CodeBuild Source Credential arn. For example:
 
-         to = aws_codebuild_source_credential.example
-
-         id = "arn:aws:codebuild:us-west-2:123456789:token:github" } Using `pulumi import`, import CodeBuild Source Credential using the CodeBuild Source Credential arn. For exampleconsole % pulumi import aws_codebuild_source_credential.example arn:aws:codebuild:us-west-2:123456789:token:github
+        ```sh
+         $ pulumi import aws:codebuild/sourceCredential:SourceCredential example arn:aws:codebuild:us-west-2:123456789:token:github
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -261,11 +261,11 @@ class SourceCredential(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import CodeBuild Source Credential using the CodeBuild Source Credential arn. For example:
 
-         to = aws_codebuild_source_credential.example
-
-         id = "arn:aws:codebuild:us-west-2:123456789:token:github" } Using `pulumi import`, import CodeBuild Source Credential using the CodeBuild Source Credential arn. For exampleconsole % pulumi import aws_codebuild_source_credential.example arn:aws:codebuild:us-west-2:123456789:token:github
+        ```sh
+         $ pulumi import aws:codebuild/sourceCredential:SourceCredential example arn:aws:codebuild:us-west-2:123456789:token:github
+        ```
 
         :param str resource_name: The name of the resource.
         :param SourceCredentialArgs args: The arguments to use to populate this resource's properties.

@@ -148,11 +148,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Config Organization Conformance Packs using the `name`. For example:
  * 
- *  to = aws_config_organization_conformance_pack.example
- * 
- *  id = &#34;example&#34; } Using `pulumi import`, import Config Organization Conformance Packs using the `name`. For exampleconsole % pulumi import aws_config_organization_conformance_pack.example example
+ * ```sh
+ *  $ pulumi import aws:cfg/organizationConformancePack:OrganizationConformancePack example example
+ * ```
  * 
  */
 @ResourceType(type="aws:cfg/organizationConformancePack:OrganizationConformancePack")

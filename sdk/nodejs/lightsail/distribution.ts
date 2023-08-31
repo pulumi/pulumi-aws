@@ -132,11 +132,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import Lightsail Distribution using the `id`. For example:
  *
- *  to = aws_lightsail_distribution.example
- *
- *  id = "rft-8012925589" } Using `pulumi import`, import Lightsail Distribution using the `id`. For exampleconsole % pulumi import aws_lightsail_distribution.example rft-8012925589
+ * ```sh
+ *  $ pulumi import aws:lightsail/distribution:Distribution example rft-8012925589
+ * ```
  */
 export class Distribution extends pulumi.CustomResource {
     /**

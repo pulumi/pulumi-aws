@@ -38,11 +38,11 @@ namespace Pulumi.Aws.S3
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import S3 Bucket Ownership Controls using S3 Bucket name. For example:
     /// 
-    ///  to = aws_s3_bucket_ownership_controls.example
-    /// 
-    ///  id = "my-bucket" } Using `pulumi import`, import S3 Bucket Ownership Controls using S3 Bucket name. For exampleconsole % pulumi import aws_s3_bucket_ownership_controls.example my-bucket
+    /// ```sh
+    ///  $ pulumi import aws:s3/bucketOwnershipControls:BucketOwnershipControls example my-bucket
+    /// ```
     /// </summary>
     [AwsResourceType("aws:s3/bucketOwnershipControls:BucketOwnershipControls")]
     public partial class BucketOwnershipControls : global::Pulumi.CustomResource

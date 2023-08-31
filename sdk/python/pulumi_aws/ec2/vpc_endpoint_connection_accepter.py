@@ -140,11 +140,11 @@ class VpcEndpointConnectionAccepter(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import VPC Endpoint Services using ID of the connection, which is the `VPC Endpoint Service ID` and `VPC Endpoint ID` separated by underscore (`_`).. For example:
 
-         to = aws_vpc_endpoint_connection_accepter.foo
-
-         id = "vpce-svc-0f97a19d3fa8220bc_vpce-010601a6db371e263" } Using `pulumi import`, import VPC Endpoint Services using ID of the connection, which is the `VPC Endpoint Service ID` and `VPC Endpoint ID` separated by underscore (`_`).. For exampleconsole % pulumi import aws_vpc_endpoint_connection_accepter.foo vpce-svc-0f97a19d3fa8220bc_vpce-010601a6db371e263
+        ```sh
+         $ pulumi import aws:ec2/vpcEndpointConnectionAccepter:VpcEndpointConnectionAccepter foo vpce-svc-0f97a19d3fa8220bc_vpce-010601a6db371e263
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -184,11 +184,11 @@ class VpcEndpointConnectionAccepter(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import VPC Endpoint Services using ID of the connection, which is the `VPC Endpoint Service ID` and `VPC Endpoint ID` separated by underscore (`_`).. For example:
 
-         to = aws_vpc_endpoint_connection_accepter.foo
-
-         id = "vpce-svc-0f97a19d3fa8220bc_vpce-010601a6db371e263" } Using `pulumi import`, import VPC Endpoint Services using ID of the connection, which is the `VPC Endpoint Service ID` and `VPC Endpoint ID` separated by underscore (`_`).. For exampleconsole % pulumi import aws_vpc_endpoint_connection_accepter.foo vpce-svc-0f97a19d3fa8220bc_vpce-010601a6db371e263
+        ```sh
+         $ pulumi import aws:ec2/vpcEndpointConnectionAccepter:VpcEndpointConnectionAccepter foo vpce-svc-0f97a19d3fa8220bc_vpce-010601a6db371e263
+        ```
 
         :param str resource_name: The name of the resource.
         :param VpcEndpointConnectionAccepterArgs args: The arguments to use to populate this resource's properties.

@@ -215,11 +215,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import `aws_kinesisanalyticsv2_application` using the application ARN. For example:
  *
- *  to = aws_kinesisanalyticsv2_application.example
- *
- *  id = "arn:aws:kinesisanalytics:us-west-2:123456789012:application/example-sql-application" } Using `pulumi import`, import `aws_kinesisanalyticsv2_application` using the application ARN. For exampleconsole % pulumi import aws_kinesisanalyticsv2_application.example arn:aws:kinesisanalytics:us-west-2:123456789012:application/example-sql-application
+ * ```sh
+ *  $ pulumi import aws:kinesisanalyticsv2/application:Application example arn:aws:kinesisanalytics:us-west-2:123456789012:application/example-sql-application
+ * ```
  */
 export class Application extends pulumi.CustomResource {
     /**

@@ -102,11 +102,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import Glue Triggers using `name`. For example:
  *
- *  to = aws_glue_trigger.MyTrigger
- *
- *  id = "MyTrigger" } Using `pulumi import`, import Glue Triggers using `name`. For exampleconsole % pulumi import aws_glue_trigger.MyTrigger MyTrigger
+ * ```sh
+ *  $ pulumi import aws:glue/trigger:Trigger MyTrigger MyTrigger
+ * ```
  */
 export class Trigger extends pulumi.CustomResource {
     /**

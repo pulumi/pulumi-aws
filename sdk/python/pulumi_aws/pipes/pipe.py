@@ -560,11 +560,11 @@ class Pipe(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import pipes using the `name`. For example:
 
-         to = aws_pipes_pipe.example
-
-         id = "my-pipe" } Using `pulumi import`, import pipes using the `name`. For exampleconsole % pulumi import aws_pipes_pipe.example my-pipe
+        ```sh
+         $ pulumi import aws:pipes/pipe:Pipe example my-pipe
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -681,11 +681,11 @@ class Pipe(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import pipes using the `name`. For example:
 
-         to = aws_pipes_pipe.example
-
-         id = "my-pipe" } Using `pulumi import`, import pipes using the `name`. For exampleconsole % pulumi import aws_pipes_pipe.example my-pipe
+        ```sh
+         $ pulumi import aws:pipes/pipe:Pipe example my-pipe
+        ```
 
         :param str resource_name: The name of the resource.
         :param PipeArgs args: The arguments to use to populate this resource's properties.

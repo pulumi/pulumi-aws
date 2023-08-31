@@ -25,11 +25,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import hosts using the host `id`. For example:
  *
- *  to = aws_ec2_host.example
- *
- *  id = "h-0385a99d0e4b20cbb" } Using `pulumi import`, import hosts using the host `id`. For exampleconsole % pulumi import aws_ec2_host.example h-0385a99d0e4b20cbb
+ * ```sh
+ *  $ pulumi import aws:ec2/dedicatedHost:DedicatedHost example h-0385a99d0e4b20cbb
+ * ```
  */
 export class DedicatedHost extends pulumi.CustomResource {
     /**

@@ -79,11 +79,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import an Incident Manager replication. For example:
  *
- *  to = aws_ssmincidents_replication_set.replicationSetName
- *
- *  id = "import" } Using `pulumi import`, import an Incident Manager replication. For exampleconsole % pulumi import aws_ssmincidents_replication_set.replicationSetName import
+ * ```sh
+ *  $ pulumi import aws:ssmincidents/replicationSet:ReplicationSet replicationSetName import
+ * ```
  */
 export class ReplicationSet extends pulumi.CustomResource {
     /**

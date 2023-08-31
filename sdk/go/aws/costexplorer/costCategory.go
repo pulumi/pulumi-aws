@@ -86,11 +86,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import `aws_ce_cost_category` using the id. For example:
 //
-//	to = aws_ce_cost_category.example
+// ```sh
 //
-//	id = "costCategoryARN" } Using `pulumi import`, import `aws_ce_cost_category` using the id. For exampleconsole % pulumi import aws_ce_cost_category.example costCategoryARN
+//	$ pulumi import aws:costexplorer/costCategory:CostCategory example costCategoryARN
+//
+// ```
 type CostCategory struct {
 	pulumi.CustomResourceState
 

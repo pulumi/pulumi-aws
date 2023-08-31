@@ -110,11 +110,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import RDS Clusters Endpoint using the `cluster_endpoint_identifier`. For example:
  * 
- *  to = aws_rds_cluster_endpoint.custom_reader
- * 
- *  id = &#34;aurora-prod-cluster-custom-reader&#34; } Using `pulumi import`, import RDS Clusters Endpoint using the `cluster_endpoint_identifier`. For exampleconsole % pulumi import aws_rds_cluster_endpoint.custom_reader aurora-prod-cluster-custom-reader [1]https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.Endpoints.html#Aurora.Endpoints.Cluster
+ * ```sh
+ *  $ pulumi import aws:rds/clusterEndpoint:ClusterEndpoint custom_reader aurora-prod-cluster-custom-reader
+ * ```
  * 
  */
 @ResourceType(type="aws:rds/clusterEndpoint:ClusterEndpoint")

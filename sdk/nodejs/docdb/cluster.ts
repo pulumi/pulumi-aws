@@ -35,11 +35,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import DocumentDB Clusters using the `cluster_identifier`. For example:
  *
- *  to = aws_docdb_cluster.docdb_cluster
- *
- *  id = "docdb-prod-cluster" } Using `pulumi import`, import DocumentDB Clusters using the `cluster_identifier`. For exampleconsole % pulumi import aws_docdb_cluster.docdb_cluster docdb-prod-cluster
+ * ```sh
+ *  $ pulumi import aws:docdb/cluster:Cluster docdb_cluster docdb-prod-cluster
+ * ```
  */
 export class Cluster extends pulumi.CustomResource {
     /**

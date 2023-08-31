@@ -56,11 +56,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import MSK configurations using the configuration ARN. For example:
  * 
- *  to = aws_msk_configuration.example
- * 
- *  id = &#34;arn:aws:kafka:us-west-2:123456789012:configuration/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3&#34; } Using `pulumi import`, import MSK configurations using the configuration ARN. For exampleconsole % pulumi import aws_msk_configuration.example arn:aws:kafka:us-west-2:123456789012:configuration/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
+ * ```sh
+ *  $ pulumi import aws:msk/configuration:Configuration example arn:aws:kafka:us-west-2:123456789012:configuration/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
+ * ```
  * 
  */
 @ResourceType(type="aws:msk/configuration:Configuration")

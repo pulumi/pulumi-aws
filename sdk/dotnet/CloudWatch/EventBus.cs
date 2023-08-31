@@ -52,11 +52,11 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import EventBridge event buses using the `name` (which can also be a partner event source name). For example:
     /// 
-    ///  to = aws_cloudwatch_event_bus.messenger
-    /// 
-    ///  id = "chat-messages" } Using `pulumi import`, import EventBridge event buses using the `name` (which can also be a partner event source name). For exampleconsole % pulumi import aws_cloudwatch_event_bus.messenger chat-messages
+    /// ```sh
+    ///  $ pulumi import aws:cloudwatch/eventBus:EventBus messenger chat-messages
+    /// ```
     /// </summary>
     [AwsResourceType("aws:cloudwatch/eventBus:EventBus")]
     public partial class EventBus : global::Pulumi.CustomResource

@@ -33,11 +33,11 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import placement groups using the `name`. For example:
     /// 
-    ///  to = aws_placement_group.prod_pg
-    /// 
-    ///  id = "production-placement-group" } Using `pulumi import`, import placement groups using the `name`. For exampleconsole % pulumi import aws_placement_group.prod_pg production-placement-group
+    /// ```sh
+    ///  $ pulumi import aws:ec2/placementGroup:PlacementGroup prod_pg production-placement-group
+    /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/placementGroup:PlacementGroup")]
     public partial class PlacementGroup : global::Pulumi.CustomResource

@@ -58,11 +58,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import EMR studios using the `id`. For example:
  * 
- *  to = aws_emr_studio.studio
- * 
- *  id = &#34;es-123456ABCDEF&#34; } Using `pulumi import`, import EMR studios using the `id`. For exampleconsole % pulumi import aws_emr_studio.studio es-123456ABCDEF
+ * ```sh
+ *  $ pulumi import aws:emr/studio:Studio studio es-123456ABCDEF
+ * ```
  * 
  */
 @ResourceType(type="aws:emr/studio:Studio")

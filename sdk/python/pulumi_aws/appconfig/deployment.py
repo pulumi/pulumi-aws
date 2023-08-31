@@ -346,11 +346,11 @@ class Deployment(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import AppConfig Deployments using the application ID, environment ID, and deployment number separated by a slash (`/`). For example:
 
-         to = aws_appconfig_deployment.example
-
-         id = "71abcde/11xxxxx/1" } Using `pulumi import`, import AppConfig Deployments using the application ID, environment ID, and deployment number separated by a slash (`/`). For exampleconsole % pulumi import aws_appconfig_deployment.example 71abcde/11xxxxx/1
+        ```sh
+         $ pulumi import aws:appconfig/deployment:Deployment example 71abcde/11xxxxx/1
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -391,11 +391,11 @@ class Deployment(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import AppConfig Deployments using the application ID, environment ID, and deployment number separated by a slash (`/`). For example:
 
-         to = aws_appconfig_deployment.example
-
-         id = "71abcde/11xxxxx/1" } Using `pulumi import`, import AppConfig Deployments using the application ID, environment ID, and deployment number separated by a slash (`/`). For exampleconsole % pulumi import aws_appconfig_deployment.example 71abcde/11xxxxx/1
+        ```sh
+         $ pulumi import aws:appconfig/deployment:Deployment example 71abcde/11xxxxx/1
+        ```
 
         :param str resource_name: The name of the resource.
         :param DeploymentArgs args: The arguments to use to populate this resource's properties.

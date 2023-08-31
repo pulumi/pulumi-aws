@@ -62,11 +62,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Redshift Snapshot Copy Grants by name. For example:
  * 
- *  to = aws_redshift_snapshot_copy_grant.test
- * 
- *  id = &#34;my-grant&#34; } Using `pulumi import`, import Redshift Snapshot Copy Grants by name. For exampleconsole % pulumi import aws_redshift_snapshot_copy_grant.test my-grant
+ * ```sh
+ *  $ pulumi import aws:redshift/snapshotCopyGrant:SnapshotCopyGrant test my-grant
+ * ```
  * 
  */
 @ResourceType(type="aws:redshift/snapshotCopyGrant:SnapshotCopyGrant")

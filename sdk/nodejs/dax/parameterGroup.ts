@@ -30,11 +30,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import DAX Parameter Group using the `name`. For example:
  *
- *  to = aws_dax_parameter_group.example
- *
- *  id = "my_dax_pg" } Using `pulumi import`, import DAX Parameter Group using the `name`. For exampleconsole % pulumi import aws_dax_parameter_group.example my_dax_pg
+ * ```sh
+ *  $ pulumi import aws:dax/parameterGroup:ParameterGroup example my_dax_pg
+ * ```
  */
 export class ParameterGroup extends pulumi.CustomResource {
     /**

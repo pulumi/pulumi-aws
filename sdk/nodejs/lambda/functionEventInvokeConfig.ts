@@ -82,23 +82,36 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * ARN without qualifier (all versions and aliases)terraform import {
+ * ARN without qualifier (all versions and aliases):
  *
- *  to = aws_lambda_function_event_invoke_config.example
+ * ARN with qualifier:
  *
- *  id = "arn:aws:us-east-1:123456789012:function:my_function" } ARN with qualifierterraform import {
+ * Name without qualifier (all versions and aliases):
  *
- *  to = aws_lambda_function_event_invoke_config.example
+ * Name with qualifier:
  *
- *  id = "arn:aws:us-east-1:123456789012:function:my_function:production" } Name without qualifier (all versions and aliases)terraform import {
+ * __Using `pulumi import` to import__ Lambda Function Event Invoke Configs using the fully qualified Function name or Amazon Resource Name (ARN). For example:
  *
- *  to = aws_lambda_function_event_invoke_config.example
+ * ARN without qualifier (all versions and aliases):
  *
- *  id = "my_function" } Name with qualifierterraform import {
+ * ```sh
+ *  $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:us-east-1:123456789012:function:my_function
+ * ```
+ *  ARN with qualifier:
  *
- *  to = aws_lambda_function_event_invoke_config.example
+ * ```sh
+ *  $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:us-east-1:123456789012:function:my_function:production
+ * ```
+ *  Name without qualifier (all versions and aliases):
  *
- *  id = "my_function:production" } **Using `pulumi import` to import** Lambda Function Event Invoke Configs using the fully qualified Function name or Amazon Resource Name (ARN). For exampleARN without qualifier (all versions and aliases)console % pulumi import aws_lambda_function_event_invoke_config.example arn:aws:us-east-1:123456789012:function:my_function ARN with qualifierconsole % pulumi import aws_lambda_function_event_invoke_config.example arn:aws:us-east-1:123456789012:function:my_function:production Name without qualifier (all versions and aliases)console % pulumi import aws_lambda_function_event_invoke_config.example my_function Name with qualifierconsole % pulumi import aws_lambda_function_event_invoke_config.example my_function:production
+ * ```sh
+ *  $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example my_function
+ * ```
+ *  Name with qualifier:
+ *
+ * ```sh
+ *  $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example my_function:production
+ * ```
  */
 export class FunctionEventInvokeConfig extends pulumi.CustomResource {
     /**

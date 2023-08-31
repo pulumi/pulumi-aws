@@ -140,11 +140,11 @@ class IpSet(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import WAF IPSets using their ID. For example:
 
-         to = aws_waf_ipset.example
-
-         id = "a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc" } Using `pulumi import`, import WAF IPSets using their ID. For exampleconsole % pulumi import aws_waf_ipset.example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+        ```sh
+         $ pulumi import aws:waf/ipSet:IpSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -180,11 +180,11 @@ class IpSet(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import WAF IPSets using their ID. For example:
 
-         to = aws_waf_ipset.example
-
-         id = "a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc" } Using `pulumi import`, import WAF IPSets using their ID. For exampleconsole % pulumi import aws_waf_ipset.example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+        ```sh
+         $ pulumi import aws:waf/ipSet:IpSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+        ```
 
         :param str resource_name: The name of the resource.
         :param IpSetArgs args: The arguments to use to populate this resource's properties.

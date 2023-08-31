@@ -611,11 +611,11 @@ class Fleet(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import GameLift Fleets using the ID. For example:
 
-         to = aws_gamelift_fleet.example
-
-         id = "<fleet-id>" } Using `pulumi import`, import GameLift Fleets using the ID. For exampleconsole % pulumi import aws_gamelift_fleet.example <fleet-id>
+        ```sh
+         $ pulumi import aws:gamelift/fleet:Fleet example <fleet-id>
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -663,11 +663,11 @@ class Fleet(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import GameLift Fleets using the ID. For example:
 
-         to = aws_gamelift_fleet.example
-
-         id = "<fleet-id>" } Using `pulumi import`, import GameLift Fleets using the ID. For exampleconsole % pulumi import aws_gamelift_fleet.example <fleet-id>
+        ```sh
+         $ pulumi import aws:gamelift/fleet:Fleet example <fleet-id>
+        ```
 
         :param str resource_name: The name of the resource.
         :param FleetArgs args: The arguments to use to populate this resource's properties.

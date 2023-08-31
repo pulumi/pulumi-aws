@@ -83,11 +83,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import EventBridge EventBridge connection using the `name`. For example:
 //
-//	to = aws_cloudwatch_event_connection.test
+// ```sh
 //
-//	id = "ngrok-connection" } Using `pulumi import`, import EventBridge EventBridge connection using the `name`. For exampleconsole % pulumi import aws_cloudwatch_event_connection.test ngrok-connection
+//	$ pulumi import aws:cloudwatch/eventConnection:EventConnection test ngrok-connection
+//
+// ```
 type EventConnection struct {
 	pulumi.CustomResourceState
 

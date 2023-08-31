@@ -49,11 +49,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Backup Global Settings using the `id`. For example:
  * 
- *  to = aws_backup_global_settings.example
- * 
- *  id = &#34;123456789012&#34; } Using `pulumi import`, import Backup Global Settings using the `id`. For exampleconsole % pulumi import aws_backup_global_settings.example 123456789012
+ * ```sh
+ *  $ pulumi import aws:backup/globalSettings:GlobalSettings example 123456789012
+ * ```
  * 
  */
 @ResourceType(type="aws:backup/globalSettings:GlobalSettings")

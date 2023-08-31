@@ -81,11 +81,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Grafana Workspace SAML configuration using the workspace&#39;s `id`. For example:
  * 
- *  to = aws_grafana_workspace_saml_configuration.example
- * 
- *  id = &#34;g-2054c75a02&#34; } Using `pulumi import`, import Grafana Workspace SAML configuration using the workspace&#39;s `id`. For exampleconsole % pulumi import aws_grafana_workspace_saml_configuration.example g-2054c75a02
+ * ```sh
+ *  $ pulumi import aws:grafana/workspaceSamlConfiguration:WorkspaceSamlConfiguration example g-2054c75a02
+ * ```
  * 
  */
 @ResourceType(type="aws:grafana/workspaceSamlConfiguration:WorkspaceSamlConfiguration")

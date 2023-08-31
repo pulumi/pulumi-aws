@@ -75,11 +75,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Config Organization Custom Rules using the name. For example:
  * 
- *  to = aws_config_organization_custom_rule.example
- * 
- *  id = &#34;example&#34; } Using `pulumi import`, import Config Organization Custom Rules using the name. For exampleconsole % pulumi import aws_config_organization_custom_rule.example example
+ * ```sh
+ *  $ pulumi import aws:cfg/organizationCustomRule:OrganizationCustomRule example example
+ * ```
  * 
  */
 @ResourceType(type="aws:cfg/organizationCustomRule:OrganizationCustomRule")

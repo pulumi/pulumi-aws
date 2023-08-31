@@ -119,11 +119,11 @@ class BackupPolicy(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import the EFS backup policies using the `id`. For example:
 
-         to = aws_efs_backup_policy.example
-
-         id = "fs-6fa144c6" } Using `pulumi import`, import the EFS backup policies using the `id`. For exampleconsole % pulumi import aws_efs_backup_policy.example fs-6fa144c6
+        ```sh
+         $ pulumi import aws:efs/backupPolicy:BackupPolicy example fs-6fa144c6
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -156,11 +156,11 @@ class BackupPolicy(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import the EFS backup policies using the `id`. For example:
 
-         to = aws_efs_backup_policy.example
-
-         id = "fs-6fa144c6" } Using `pulumi import`, import the EFS backup policies using the `id`. For exampleconsole % pulumi import aws_efs_backup_policy.example fs-6fa144c6
+        ```sh
+         $ pulumi import aws:efs/backupPolicy:BackupPolicy example fs-6fa144c6
+        ```
 
         :param str resource_name: The name of the resource.
         :param BackupPolicyArgs args: The arguments to use to populate this resource's properties.

@@ -1936,11 +1936,11 @@ class Cluster(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import RDS Clusters using the `cluster_identifier`. For example:
 
-         to = aws_rds_cluster.aurora_cluster
-
-         id = "aurora-prod-cluster" } Using `pulumi import`, import RDS Clusters using the `cluster_identifier`. For exampleconsole % pulumi import aws_rds_cluster.aurora_cluster aurora-prod-cluster
+        ```sh
+         $ pulumi import aws:rds/cluster:Cluster aurora_cluster aurora-prod-cluster
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -2200,11 +2200,11 @@ class Cluster(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import RDS Clusters using the `cluster_identifier`. For example:
 
-         to = aws_rds_cluster.aurora_cluster
-
-         id = "aurora-prod-cluster" } Using `pulumi import`, import RDS Clusters using the `cluster_identifier`. For exampleconsole % pulumi import aws_rds_cluster.aurora_cluster aurora-prod-cluster
+        ```sh
+         $ pulumi import aws:rds/cluster:Cluster aurora_cluster aurora-prod-cluster
+        ```
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.

@@ -38,11 +38,11 @@ namespace Pulumi.Aws.GameLift
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import GameLift Builds using the ID. For example:
     /// 
-    ///  to = aws_gamelift_build.example
-    /// 
-    ///  id = "&lt;build-id&gt;" } Using `pulumi import`, import GameLift Builds using the ID. For exampleconsole % pulumi import aws_gamelift_build.example &lt;build-id&gt;
+    /// ```sh
+    ///  $ pulumi import aws:gamelift/build:Build example &lt;build-id&gt;
+    /// ```
     /// </summary>
     [AwsResourceType("aws:gamelift/build:Build")]
     public partial class Build : global::Pulumi.CustomResource

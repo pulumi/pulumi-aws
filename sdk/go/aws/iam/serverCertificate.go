@@ -155,11 +155,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import IAM Server Certificates using the `name`. For example:
 //
-//	to = aws_iam_server_certificate.certificate
+// ```sh
 //
-//	id = "example.com-certificate-until-2018" } Using `pulumi import`, import IAM Server Certificates using the `name`. For exampleconsole % pulumi import aws_iam_server_certificate.certificate example.com-certificate-until-2018 [1]https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html [2]https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingServerCerts.html
+//	$ pulumi import aws:iam/serverCertificate:ServerCertificate certificate example.com-certificate-until-2018
+//
+// ```
 type ServerCertificate struct {
 	pulumi.CustomResourceState
 

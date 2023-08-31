@@ -56,11 +56,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Pinpoint APNs VoIP Sandbox Channel using the `application-id`. For example:
  * 
- *  to = aws_pinpoint_apns_voip_sandbox_channel.apns_voip_sandbox
- * 
- *  id = &#34;application-id&#34; } Using `pulumi import`, import Pinpoint APNs VoIP Sandbox Channel using the `application-id`. For exampleconsole % pulumi import aws_pinpoint_apns_voip_sandbox_channel.apns_voip_sandbox application-id
+ * ```sh
+ *  $ pulumi import aws:pinpoint/apnsVoipSandboxChannel:ApnsVoipSandboxChannel apns_voip_sandbox application-id
+ * ```
  * 
  */
 @ResourceType(type="aws:pinpoint/apnsVoipSandboxChannel:ApnsVoipSandboxChannel")

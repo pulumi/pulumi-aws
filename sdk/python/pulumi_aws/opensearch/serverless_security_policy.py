@@ -339,11 +339,11 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import OpenSearchServerless Security Policy using the `name` and `type` arguments separated by a slash (`/`). For example:
 
-         to = aws_opensearchserverless_security_policy.example
-
-         id = "example/encryption" } Using `pulumi import`, import OpenSearchServerless Security Policy using the `name` and `type` arguments separated by a slash (`/`). For exampleconsole % pulumi import aws_opensearchserverless_security_policy.example example/encryption
+        ```sh
+         $ pulumi import aws:opensearch/serverlessSecurityPolicy:ServerlessSecurityPolicy example example/encryption
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -512,11 +512,11 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import OpenSearchServerless Security Policy using the `name` and `type` arguments separated by a slash (`/`). For example:
 
-         to = aws_opensearchserverless_security_policy.example
-
-         id = "example/encryption" } Using `pulumi import`, import OpenSearchServerless Security Policy using the `name` and `type` arguments separated by a slash (`/`). For exampleconsole % pulumi import aws_opensearchserverless_security_policy.example example/encryption
+        ```sh
+         $ pulumi import aws:opensearch/serverlessSecurityPolicy:ServerlessSecurityPolicy example example/encryption
+        ```
 
         :param str resource_name: The name of the resource.
         :param ServerlessSecurityPolicyArgs args: The arguments to use to populate this resource's properties.

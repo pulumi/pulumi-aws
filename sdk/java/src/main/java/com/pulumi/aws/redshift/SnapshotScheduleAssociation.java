@@ -65,11 +65,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Redshift Snapshot Schedule Association using the `&lt;cluster-identifier&gt;/&lt;schedule-identifier&gt;`. For example:
  * 
- *  to = aws_redshift_snapshot_schedule_association.default
- * 
- *  id = &#34;tf-redshift-cluster/tf-redshift-snapshot-schedule&#34; } Using `pulumi import`, import Redshift Snapshot Schedule Association using the `&lt;cluster-identifier&gt;/&lt;schedule-identifier&gt;`. For exampleconsole % pulumi import aws_redshift_snapshot_schedule_association.default tf-redshift-cluster/tf-redshift-snapshot-schedule
+ * ```sh
+ *  $ pulumi import aws:redshift/snapshotScheduleAssociation:SnapshotScheduleAssociation default tf-redshift-cluster/tf-redshift-snapshot-schedule
+ * ```
  * 
  */
 @ResourceType(type="aws:redshift/snapshotScheduleAssociation:SnapshotScheduleAssociation")

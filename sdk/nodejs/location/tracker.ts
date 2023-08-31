@@ -18,11 +18,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import `aws_location_tracker` resources using the tracker name. For example:
  *
- *  to = aws_location_tracker.example
- *
- *  id = "example" } Using `pulumi import`, import `aws_location_tracker` resources using the tracker name. For exampleconsole % pulumi import aws_location_tracker.example example
+ * ```sh
+ *  $ pulumi import aws:location/tracker:Tracker example example
+ * ```
  */
 export class Tracker extends pulumi.CustomResource {
     /**

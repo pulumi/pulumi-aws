@@ -109,11 +109,11 @@ namespace Pulumi.Aws.Transfer
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import Transfer Users using the `server_id` and `user_name` separated by `/`. For example:
     /// 
-    ///  to = aws_transfer_user.bar
-    /// 
-    ///  id = "s-12345678/test-username" } Using `pulumi import`, import Transfer Users using the `server_id` and `user_name` separated by `/`. For exampleconsole % pulumi import aws_transfer_user.bar s-12345678/test-username
+    /// ```sh
+    ///  $ pulumi import aws:transfer/user:User bar s-12345678/test-username
+    /// ```
     /// </summary>
     [AwsResourceType("aws:transfer/user:User")]
     public partial class User : global::Pulumi.CustomResource

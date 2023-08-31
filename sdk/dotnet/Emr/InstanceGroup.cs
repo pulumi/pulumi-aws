@@ -39,11 +39,11 @@ namespace Pulumi.Aws.Emr
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import EMR task instance group using their EMR Cluster id and Instance Group id separated by a forward-slash `/`. For example:
     /// 
-    ///  to = aws_emr_instance_group.task_group
-    /// 
-    ///  id = "j-123456ABCDEF/ig-15EK4O09RZLNR" } Using `pulumi import`, import EMR task instance group using their EMR Cluster id and Instance Group id separated by a forward-slash `/`. For exampleconsole % pulumi import aws_emr_instance_group.task_group j-123456ABCDEF/ig-15EK4O09RZLNR
+    /// ```sh
+    ///  $ pulumi import aws:emr/instanceGroup:InstanceGroup task_group j-123456ABCDEF/ig-15EK4O09RZLNR
+    /// ```
     /// </summary>
     [AwsResourceType("aws:emr/instanceGroup:InstanceGroup")]
     public partial class InstanceGroup : global::Pulumi.CustomResource

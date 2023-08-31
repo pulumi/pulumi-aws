@@ -273,11 +273,11 @@ class VocabularyFilter(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Transcribe VocabularyFilter using the `vocabulary_filter_name`. For example:
 
-         to = aws_transcribe_vocabulary_filter.example
-
-         id = "example-name" } Using `pulumi import`, import Transcribe VocabularyFilter using the `vocabulary_filter_name`. For exampleconsole % pulumi import aws_transcribe_vocabulary_filter.example example-name
+        ```sh
+         $ pulumi import aws:transcribe/vocabularyFilter:VocabularyFilter example example-name
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -320,11 +320,11 @@ class VocabularyFilter(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Transcribe VocabularyFilter using the `vocabulary_filter_name`. For example:
 
-         to = aws_transcribe_vocabulary_filter.example
-
-         id = "example-name" } Using `pulumi import`, import Transcribe VocabularyFilter using the `vocabulary_filter_name`. For exampleconsole % pulumi import aws_transcribe_vocabulary_filter.example example-name
+        ```sh
+         $ pulumi import aws:transcribe/vocabularyFilter:VocabularyFilter example example-name
+        ```
 
         :param str resource_name: The name of the resource.
         :param VocabularyFilterArgs args: The arguments to use to populate this resource's properties.

@@ -254,11 +254,11 @@ class IdentityProvider(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_cognito_identity_provider` resources using their User Pool ID and Provider Name. For example:
 
-         to = aws_cognito_identity_provider.example
-
-         id = "us-west-2_abc123:CorpAD" } Using `pulumi import`, import `aws_cognito_identity_provider` resources using their User Pool ID and Provider Name. For exampleconsole % pulumi import aws_cognito_identity_provider.example us-west-2_abc123:CorpAD
+        ```sh
+         $ pulumi import aws:cognito/identityProvider:IdentityProvider example us-west-2_abc123:CorpAD
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -302,11 +302,11 @@ class IdentityProvider(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_cognito_identity_provider` resources using their User Pool ID and Provider Name. For example:
 
-         to = aws_cognito_identity_provider.example
-
-         id = "us-west-2_abc123:CorpAD" } Using `pulumi import`, import `aws_cognito_identity_provider` resources using their User Pool ID and Provider Name. For exampleconsole % pulumi import aws_cognito_identity_provider.example us-west-2_abc123:CorpAD
+        ```sh
+         $ pulumi import aws:cognito/identityProvider:IdentityProvider example us-west-2_abc123:CorpAD
+        ```
 
         :param str resource_name: The name of the resource.
         :param IdentityProviderArgs args: The arguments to use to populate this resource's properties.

@@ -110,11 +110,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import CodeBuild Webhooks using the CodeBuild Project name. For example:
 //
-//	to = aws_codebuild_webhook.example
+// ```sh
 //
-//	id = "MyProjectName" } Using `pulumi import`, import CodeBuild Webhooks using the CodeBuild Project name. For exampleconsole % pulumi import aws_codebuild_webhook.example MyProjectName
+//	$ pulumi import aws:codebuild/webhook:Webhook example MyProjectName
+//
+// ```
 type Webhook struct {
 	pulumi.CustomResourceState
 

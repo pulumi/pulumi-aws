@@ -310,11 +310,11 @@ class ConformancePack(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Config Conformance Packs using the `name`. For example:
 
-         to = aws_config_conformance_pack.example
-
-         id = "example" } Using `pulumi import`, import Config Conformance Packs using the `name`. For exampleconsole % pulumi import aws_config_conformance_pack.example example
+        ```sh
+         $ pulumi import aws:cfg/conformancePack:ConformancePack example example
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -392,11 +392,11 @@ class ConformancePack(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Config Conformance Packs using the `name`. For example:
 
-         to = aws_config_conformance_pack.example
-
-         id = "example" } Using `pulumi import`, import Config Conformance Packs using the `name`. For exampleconsole % pulumi import aws_config_conformance_pack.example example
+        ```sh
+         $ pulumi import aws:cfg/conformancePack:ConformancePack example example
+        ```
 
         :param str resource_name: The name of the resource.
         :param ConformancePackArgs args: The arguments to use to populate this resource's properties.

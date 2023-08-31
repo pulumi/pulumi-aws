@@ -73,11 +73,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Glue Workflows using `name`. For example:
 //
-//	to = aws_glue_workflow.MyWorkflow
+// ```sh
 //
-//	id = "MyWorkflow" } Using `pulumi import`, import Glue Workflows using `name`. For exampleconsole % pulumi import aws_glue_workflow.MyWorkflow MyWorkflow
+//	$ pulumi import aws:glue/workflow:Workflow MyWorkflow MyWorkflow
+//
+// ```
 type Workflow struct {
 	pulumi.CustomResourceState
 

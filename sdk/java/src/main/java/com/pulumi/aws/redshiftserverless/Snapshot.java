@@ -52,11 +52,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Redshift Serverless Snapshots using the `snapshot_name`. For example:
  * 
- *  to = aws_redshiftserverless_snapshot.example
- * 
- *  id = &#34;example&#34; } Using `pulumi import`, import Redshift Serverless Snapshots using the `snapshot_name`. For exampleconsole % pulumi import aws_redshiftserverless_snapshot.example example
+ * ```sh
+ *  $ pulumi import aws:redshiftserverless/snapshot:Snapshot example example
+ * ```
  * 
  */
 @ResourceType(type="aws:redshiftserverless/snapshot:Snapshot")

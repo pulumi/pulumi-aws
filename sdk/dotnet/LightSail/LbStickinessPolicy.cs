@@ -44,11 +44,11 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import `aws_lightsail_lb_stickiness_policy` using the `lb_name` attribute. For example:
     /// 
-    ///  to = aws_lightsail_lb_stickiness_policy.test
-    /// 
-    ///  id = "example-load-balancer" } Using `pulumi import`, import `aws_lightsail_lb_stickiness_policy` using the `lb_name` attribute. For exampleconsole % pulumi import aws_lightsail_lb_stickiness_policy.test example-load-balancer
+    /// ```sh
+    ///  $ pulumi import aws:lightsail/lbStickinessPolicy:LbStickinessPolicy test example-load-balancer
+    /// ```
     /// </summary>
     [AwsResourceType("aws:lightsail/lbStickinessPolicy:LbStickinessPolicy")]
     public partial class LbStickinessPolicy : global::Pulumi.CustomResource

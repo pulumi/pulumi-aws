@@ -35,11 +35,11 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import `aws_networkmanager_transit_gateway_connect_peer_association` using the global network ID and customer gateway ARN. For example:
     /// 
-    ///  to = aws_networkmanager_transit_gateway_connect_peer_association.example
-    /// 
-    ///  id = "global-network-0d47f6t230mz46dy4,arn:aws:ec2:us-west-2:123456789012:transit-gateway-connect-peer/tgw-connect-peer-12345678" } Using `pulumi import`, import `aws_networkmanager_transit_gateway_connect_peer_association` using the global network ID and customer gateway ARN. For exampleconsole % pulumi import aws_networkmanager_transit_gateway_connect_peer_association.example global-network-0d47f6t230mz46dy4,arn:aws:ec2:us-west-2:123456789012:transit-gateway-connect-peer/tgw-connect-peer-12345678
+    /// ```sh
+    ///  $ pulumi import aws:networkmanager/transitGatewayConnectPeerAssociation:TransitGatewayConnectPeerAssociation example global-network-0d47f6t230mz46dy4,arn:aws:ec2:us-west-2:123456789012:transit-gateway-connect-peer/tgw-connect-peer-12345678
+    /// ```
     /// </summary>
     [AwsResourceType("aws:networkmanager/transitGatewayConnectPeerAssociation:TransitGatewayConnectPeerAssociation")]
     public partial class TransitGatewayConnectPeerAssociation : global::Pulumi.CustomResource

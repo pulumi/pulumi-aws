@@ -218,11 +218,11 @@ class Model(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_api_gateway_model` using `REST-API-ID/NAME`. For example:
 
-         to = aws_api_gateway_model.example
-
-         id = "12345abcde/example" } Using `pulumi import`, import `aws_api_gateway_model` using `REST-API-ID/NAME`. For exampleconsole % pulumi import aws_api_gateway_model.example 12345abcde/example
+        ```sh
+         $ pulumi import aws:apigateway/model:Model example 12345abcde/example
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -260,11 +260,11 @@ class Model(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_api_gateway_model` using `REST-API-ID/NAME`. For example:
 
-         to = aws_api_gateway_model.example
-
-         id = "12345abcde/example" } Using `pulumi import`, import `aws_api_gateway_model` using `REST-API-ID/NAME`. For exampleconsole % pulumi import aws_api_gateway_model.example 12345abcde/example
+        ```sh
+         $ pulumi import aws:apigateway/model:Model example 12345abcde/example
+        ```
 
         :param str resource_name: The name of the resource.
         :param ModelArgs args: The arguments to use to populate this resource's properties.

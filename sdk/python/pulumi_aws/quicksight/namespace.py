@@ -278,11 +278,11 @@ class Namespace(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import QuickSight Namespace using the AWS account ID and namespace separated by commas (`,`). For example:
 
-         to = aws_quicksight_namespace.example
-
-         id = "123456789012,example" } Using `pulumi import`, import QuickSight Namespace using the AWS account ID and namespace separated by commas (`,`). For exampleconsole % pulumi import aws_quicksight_namespace.example 123456789012,example
+        ```sh
+         $ pulumi import aws:quicksight/namespace:Namespace example 123456789012,example
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -314,11 +314,11 @@ class Namespace(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import QuickSight Namespace using the AWS account ID and namespace separated by commas (`,`). For example:
 
-         to = aws_quicksight_namespace.example
-
-         id = "123456789012,example" } Using `pulumi import`, import QuickSight Namespace using the AWS account ID and namespace separated by commas (`,`). For exampleconsole % pulumi import aws_quicksight_namespace.example 123456789012,example
+        ```sh
+         $ pulumi import aws:quicksight/namespace:Namespace example 123456789012,example
+        ```
 
         :param str resource_name: The name of the resource.
         :param NamespaceArgs args: The arguments to use to populate this resource's properties.

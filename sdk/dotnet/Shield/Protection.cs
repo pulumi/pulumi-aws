@@ -55,11 +55,11 @@ namespace Pulumi.Aws.Shield
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import Shield protection resources using specifying their ID. For example:
     /// 
-    ///  to = aws_shield_protection.example
-    /// 
-    ///  id = "ff9592dc-22f3-4e88-afa1-7b29fde9669a" } Using `pulumi import`, import Shield protection resources using specifying their ID. For exampleconsole % pulumi import aws_shield_protection.example ff9592dc-22f3-4e88-afa1-7b29fde9669a
+    /// ```sh
+    ///  $ pulumi import aws:shield/protection:Protection example ff9592dc-22f3-4e88-afa1-7b29fde9669a
+    /// ```
     /// </summary>
     [AwsResourceType("aws:shield/protection:Protection")]
     public partial class Protection : global::Pulumi.CustomResource

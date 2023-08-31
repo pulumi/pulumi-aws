@@ -18,11 +18,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import CodeArtifact Domain using the CodeArtifact Domain arn. For example:
  *
- *  to = aws_codeartifact_domain.example
- *
- *  id = "arn:aws:codeartifact:us-west-2:012345678912:domain/tf-acc-test-8593714120730241305" } Using `pulumi import`, import CodeArtifact Domain using the CodeArtifact Domain arn. For exampleconsole % pulumi import aws_codeartifact_domain.example arn:aws:codeartifact:us-west-2:012345678912:domain/tf-acc-test-8593714120730241305
+ * ```sh
+ *  $ pulumi import aws:codeartifact/domain:Domain example arn:aws:codeartifact:us-west-2:012345678912:domain/tf-acc-test-8593714120730241305
+ * ```
  */
 export class Domain extends pulumi.CustomResource {
     /**

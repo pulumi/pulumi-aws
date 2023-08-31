@@ -65,11 +65,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import Transcribe LanguageModel using the `model_name`. For example:
  *
- *  to = aws_transcribe_language_model.example
- *
- *  id = "example-name" } Using `pulumi import`, import Transcribe LanguageModel using the `model_name`. For exampleconsole % pulumi import aws_transcribe_language_model.example example-name
+ * ```sh
+ *  $ pulumi import aws:transcribe/languageModel:LanguageModel example example-name
+ * ```
  */
 export class LanguageModel extends pulumi.CustomResource {
     /**

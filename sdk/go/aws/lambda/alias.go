@@ -52,11 +52,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Lambda Function Aliases using the `function_name/alias`. For example:
 //
-//	to = aws_lambda_alias.test_lambda_alias
+// ```sh
 //
-//	id = "my_test_lambda_function/my_alias" } Using `pulumi import`, import Lambda Function Aliases using the `function_name/alias`. For exampleconsole % pulumi import aws_lambda_alias.test_lambda_alias my_test_lambda_function/my_alias
+//	$ pulumi import aws:lambda/alias:Alias test_lambda_alias my_test_lambda_function/my_alias
+//
+// ```
 type Alias struct {
 	pulumi.CustomResourceState
 

@@ -43,11 +43,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Configuration Recorder using the name. For example:
 //
-//	to = aws_chime_voice_connector.test
+// ```sh
 //
-//	id = "example" } Using `pulumi import`, import Configuration Recorder using the name. For exampleconsole % pulumi import aws_chime_voice_connector.test example
+//	$ pulumi import aws:chime/voiceConnector:VoiceConnector test example
+//
+// ```
 type VoiceConnector struct {
 	pulumi.CustomResourceState
 

@@ -76,11 +76,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Direct Connect hosted transit virtual interfaces using the VIF `id`. For example:
 //
-//	to = aws_dx_hosted_transit_virtual_interface_accepter.test
+// ```sh
 //
-//	id = "dxvif-33cc44dd" } Using `pulumi import`, import Direct Connect hosted transit virtual interfaces using the VIF `id`. For exampleconsole % pulumi import aws_dx_hosted_transit_virtual_interface_accepter.test dxvif-33cc44dd
+//	$ pulumi import aws:directconnect/hostedTransitVirtualInterfaceAcceptor:HostedTransitVirtualInterfaceAcceptor test dxvif-33cc44dd
+//
+// ```
 type HostedTransitVirtualInterfaceAcceptor struct {
 	pulumi.CustomResourceState
 

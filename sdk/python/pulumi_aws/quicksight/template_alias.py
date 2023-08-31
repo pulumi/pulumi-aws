@@ -204,11 +204,11 @@ class TemplateAlias(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import QuickSight Template Alias using the AWS account ID, template ID, and alias name separated by a comma (`,`). For example:
 
-         to = aws_quicksight_template_alias.example
-
-         id = "123456789012,example-id,example-alias" } Using `pulumi import`, import QuickSight Template Alias using the AWS account ID, template ID, and alias name separated by a comma (`,`). For exampleconsole % pulumi import aws_quicksight_template_alias.example 123456789012,example-id,example-alias
+        ```sh
+         $ pulumi import aws:quicksight/templateAlias:TemplateAlias example 123456789012,example-id,example-alias
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -243,11 +243,11 @@ class TemplateAlias(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import QuickSight Template Alias using the AWS account ID, template ID, and alias name separated by a comma (`,`). For example:
 
-         to = aws_quicksight_template_alias.example
-
-         id = "123456789012,example-id,example-alias" } Using `pulumi import`, import QuickSight Template Alias using the AWS account ID, template ID, and alias name separated by a comma (`,`). For exampleconsole % pulumi import aws_quicksight_template_alias.example 123456789012,example-id,example-alias
+        ```sh
+         $ pulumi import aws:quicksight/templateAlias:TemplateAlias example 123456789012,example-id,example-alias
+        ```
 
         :param str resource_name: The name of the resource.
         :param TemplateAliasArgs args: The arguments to use to populate this resource's properties.

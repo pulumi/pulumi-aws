@@ -148,11 +148,11 @@ class ResourceDataSync(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import SSM resource data sync using the `name`. For example:
 
-         to = aws_ssm_resource_data_sync.example
-
-         id = "example-name" } Using `pulumi import`, import SSM resource data sync using the `name`. For exampleconsole % pulumi import aws_ssm_resource_data_sync.example example-name
+        ```sh
+         $ pulumi import aws:ssm/resourceDataSync:ResourceDataSync example example-name
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -213,11 +213,11 @@ class ResourceDataSync(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import SSM resource data sync using the `name`. For example:
 
-         to = aws_ssm_resource_data_sync.example
-
-         id = "example-name" } Using `pulumi import`, import SSM resource data sync using the `name`. For exampleconsole % pulumi import aws_ssm_resource_data_sync.example example-name
+        ```sh
+         $ pulumi import aws:ssm/resourceDataSync:ResourceDataSync example example-name
+        ```
 
         :param str resource_name: The name of the resource.
         :param ResourceDataSyncArgs args: The arguments to use to populate this resource's properties.

@@ -21,11 +21,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import the EFS access points using the `id`. For example:
  *
- *  to = aws_efs_access_point.test
- *
- *  id = "fsap-52a643fb" } Using `pulumi import`, import the EFS access points using the `id`. For exampleconsole % pulumi import aws_efs_access_point.test fsap-52a643fb
+ * ```sh
+ *  $ pulumi import aws:efs/accessPoint:AccessPoint test fsap-52a643fb
+ * ```
  */
 export class AccessPoint extends pulumi.CustomResource {
     /**

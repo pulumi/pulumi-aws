@@ -65,11 +65,11 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import VPC Endpoint Services using the VPC endpoint service `id`. For example:
     /// 
-    ///  to = aws_vpc_endpoint_service.foo
-    /// 
-    ///  id = "vpce-svc-0f97a19d3fa8220bc" } Using `pulumi import`, import VPC Endpoint Services using the VPC endpoint service `id`. For exampleconsole % pulumi import aws_vpc_endpoint_service.foo vpce-svc-0f97a19d3fa8220bc
+    /// ```sh
+    ///  $ pulumi import aws:ec2/vpcEndpointService:VpcEndpointService foo vpce-svc-0f97a19d3fa8220bc
+    /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/vpcEndpointService:VpcEndpointService")]
     public partial class VpcEndpointService : global::Pulumi.CustomResource

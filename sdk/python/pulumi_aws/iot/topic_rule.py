@@ -817,11 +817,11 @@ class TopicRule(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import IoT Topic Rules using the `name`. For example:
 
-         to = aws_iot_topic_rule.rule
-
-         id = "<name>" } Using `pulumi import`, import IoT Topic Rules using the `name`. For exampleconsole % pulumi import aws_iot_topic_rule.rule <name>
+        ```sh
+         $ pulumi import aws:iot/topicRule:TopicRule rule <name>
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -886,11 +886,11 @@ class TopicRule(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import IoT Topic Rules using the `name`. For example:
 
-         to = aws_iot_topic_rule.rule
-
-         id = "<name>" } Using `pulumi import`, import IoT Topic Rules using the `name`. For exampleconsole % pulumi import aws_iot_topic_rule.rule <name>
+        ```sh
+         $ pulumi import aws:iot/topicRule:TopicRule rule <name>
+        ```
 
         :param str resource_name: The name of the resource.
         :param TopicRuleArgs args: The arguments to use to populate this resource's properties.

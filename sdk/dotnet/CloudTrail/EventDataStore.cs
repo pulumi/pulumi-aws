@@ -105,11 +105,11 @@ namespace Pulumi.Aws.CloudTrail
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import event data stores using their `arn`. For example:
     /// 
-    ///  to = aws_cloudtrail_event_data_store.example
-    /// 
-    ///  id = "arn:aws:cloudtrail:us-east-1:123456789123:eventdatastore/22333815-4414-412c-b155-dd254033gfhf" } Using `pulumi import`, import event data stores using their `arn`. For exampleconsole % pulumi import aws_cloudtrail_event_data_store.example arn:aws:cloudtrail:us-east-1:123456789123:eventdatastore/22333815-4414-412c-b155-dd254033gfhf
+    /// ```sh
+    ///  $ pulumi import aws:cloudtrail/eventDataStore:EventDataStore example arn:aws:cloudtrail:us-east-1:123456789123:eventdatastore/22333815-4414-412c-b155-dd254033gfhf
+    /// ```
     /// </summary>
     [AwsResourceType("aws:cloudtrail/eventDataStore:EventDataStore")]
     public partial class EventDataStore : global::Pulumi.CustomResource

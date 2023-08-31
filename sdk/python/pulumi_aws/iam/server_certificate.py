@@ -441,11 +441,11 @@ class ServerCertificate(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import IAM Server Certificates using the `name`. For example:
 
-         to = aws_iam_server_certificate.certificate
-
-         id = "example.com-certificate-until-2018" } Using `pulumi import`, import IAM Server Certificates using the `name`. For exampleconsole % pulumi import aws_iam_server_certificate.certificate example.com-certificate-until-2018 [1]https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html [2]https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingServerCerts.html
+        ```sh
+         $ pulumi import aws:iam/serverCertificate:ServerCertificate certificate example.com-certificate-until-2018
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -548,11 +548,11 @@ class ServerCertificate(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import IAM Server Certificates using the `name`. For example:
 
-         to = aws_iam_server_certificate.certificate
-
-         id = "example.com-certificate-until-2018" } Using `pulumi import`, import IAM Server Certificates using the `name`. For exampleconsole % pulumi import aws_iam_server_certificate.certificate example.com-certificate-until-2018 [1]https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html [2]https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingServerCerts.html
+        ```sh
+         $ pulumi import aws:iam/serverCertificate:ServerCertificate certificate example.com-certificate-until-2018
+        ```
 
         :param str resource_name: The name of the resource.
         :param ServerCertificateArgs args: The arguments to use to populate this resource's properties.

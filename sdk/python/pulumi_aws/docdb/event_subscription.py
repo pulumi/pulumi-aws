@@ -369,11 +369,11 @@ class EventSubscription(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import DocumentDB Event Subscriptions using the `name`. For example:
 
-         to = aws_docdb_event_subscription.example
-
-         id = "event-sub" } Using `pulumi import`, import DocumentDB Event Subscriptions using the `name`. For exampleconsole % pulumi import aws_docdb_event_subscription.example event-sub
+        ```sh
+         $ pulumi import aws:docdb/eventSubscription:EventSubscription example event-sub
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -424,11 +424,11 @@ class EventSubscription(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import DocumentDB Event Subscriptions using the `name`. For example:
 
-         to = aws_docdb_event_subscription.example
-
-         id = "event-sub" } Using `pulumi import`, import DocumentDB Event Subscriptions using the `name`. For exampleconsole % pulumi import aws_docdb_event_subscription.example event-sub
+        ```sh
+         $ pulumi import aws:docdb/eventSubscription:EventSubscription example event-sub
+        ```
 
         :param str resource_name: The name of the resource.
         :param EventSubscriptionArgs args: The arguments to use to populate this resource's properties.

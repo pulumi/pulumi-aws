@@ -136,11 +136,11 @@ namespace Pulumi.Aws.MediaLive
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import MediaLive Channel using the `channel_id`. For example:
     /// 
-    ///  to = aws_medialive_channel.example
-    /// 
-    ///  id = "1234567" } Using `pulumi import`, import MediaLive Channel using the `channel_id`. For exampleconsole % pulumi import aws_medialive_channel.example 1234567
+    /// ```sh
+    ///  $ pulumi import aws:medialive/channel:Channel example 1234567
+    /// ```
     /// </summary>
     [AwsResourceType("aws:medialive/channel:Channel")]
     public partial class Channel : global::Pulumi.CustomResource

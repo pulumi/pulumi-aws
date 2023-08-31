@@ -21,11 +21,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import Route53 Recovery Readiness readiness checks using the readiness check name. For example:
  *
- *  to = aws_route53recoveryreadiness_readiness_check.my-cw-alarm-check
- *
- *  id = "example" } Using `pulumi import`, import Route53 Recovery Readiness readiness checks using the readiness check name. For exampleconsole % pulumi import aws_route53recoveryreadiness_readiness_check.my-cw-alarm-check example
+ * ```sh
+ *  $ pulumi import aws:route53recoveryreadiness/readinessCheck:ReadinessCheck my-cw-alarm-check example
+ * ```
  */
 export class ReadinessCheck extends pulumi.CustomResource {
     /**

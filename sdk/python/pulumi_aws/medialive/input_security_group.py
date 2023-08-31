@@ -173,11 +173,11 @@ class InputSecurityGroup(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import MediaLive InputSecurityGroup using the `id`. For example:
 
-         to = aws_medialive_input_security_group.example
-
-         id = "123456" } Using `pulumi import`, import MediaLive InputSecurityGroup using the `id`. For exampleconsole % pulumi import aws_medialive_input_security_group.example 123456
+        ```sh
+         $ pulumi import aws:medialive/inputSecurityGroup:InputSecurityGroup example 123456
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -213,11 +213,11 @@ class InputSecurityGroup(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import MediaLive InputSecurityGroup using the `id`. For example:
 
-         to = aws_medialive_input_security_group.example
-
-         id = "123456" } Using `pulumi import`, import MediaLive InputSecurityGroup using the `id`. For exampleconsole % pulumi import aws_medialive_input_security_group.example 123456
+        ```sh
+         $ pulumi import aws:medialive/inputSecurityGroup:InputSecurityGroup example 123456
+        ```
 
         :param str resource_name: The name of the resource.
         :param InputSecurityGroupArgs args: The arguments to use to populate this resource's properties.

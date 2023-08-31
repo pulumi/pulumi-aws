@@ -63,11 +63,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import `aws_ce_anomaly_subscription` using the `id`. For example:
 //
-//	to = aws_ce_anomaly_subscription.example
+// ```sh
 //
-//	id = "AnomalySubscriptionARN" } Using `pulumi import`, import `aws_ce_anomaly_subscription` using the `id`. For exampleconsole % pulumi import aws_ce_anomaly_subscription.example AnomalySubscriptionARN
+//	$ pulumi import aws:costexplorer/anomalySubscription:AnomalySubscription example AnomalySubscriptionARN
+//
+// ```
 type AnomalySubscription struct {
 	pulumi.CustomResourceState
 

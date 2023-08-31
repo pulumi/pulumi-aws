@@ -202,11 +202,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Workspaces directory using the directory ID. For example:
  * 
- *  to = aws_workspaces_directory.main
- * 
- *  id = &#34;d-4444444444&#34; } Using `pulumi import`, import Workspaces directory using the directory ID. For exampleconsole % pulumi import aws_workspaces_directory.main d-4444444444
+ * ```sh
+ *  $ pulumi import aws:workspaces/directory:Directory main d-4444444444
+ * ```
  * 
  */
 @ResourceType(type="aws:workspaces/directory:Directory")

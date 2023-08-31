@@ -69,11 +69,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import `aws_ami` using the ID of the AMI. For example:
  * 
- *  to = aws_ami.example
- * 
- *  id = &#34;ami-12345678&#34; } Using `pulumi import`, import `aws_ami` using the ID of the AMI. For exampleconsole % pulumi import aws_ami.example ami-12345678
+ * ```sh
+ *  $ pulumi import aws:ec2/ami:Ami example ami-12345678
+ * ```
  * 
  */
 @ResourceType(type="aws:ec2/ami:Ami")

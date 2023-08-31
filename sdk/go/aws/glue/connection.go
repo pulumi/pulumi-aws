@@ -86,11 +86,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Glue Connections using the `CATALOG-ID` (AWS account ID if not custom) and `NAME`. For example:
 //
-//	to = aws_glue_connection.MyConnection
+// ```sh
 //
-//	id = "123456789012:MyConnection" } Using `pulumi import`, import Glue Connections using the `CATALOG-ID` (AWS account ID if not custom) and `NAME`. For exampleconsole % pulumi import aws_glue_connection.MyConnection 123456789012:MyConnection
+//	$ pulumi import aws:glue/connection:Connection MyConnection 123456789012:MyConnection
+//
+// ```
 type Connection struct {
 	pulumi.CustomResourceState
 

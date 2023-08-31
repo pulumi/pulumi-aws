@@ -49,7 +49,7 @@ install_sdks: install_dotnet_sdk install_python_sdk install_nodejs_sdk install_j
 only_build: build
 
 build_dotnet: DOTNET_VERSION := $(shell pulumictl get version --language dotnet)
-build_dotnet: patch_upstream
+build_dotnet: upstream
 	pulumictl get version --language dotnet
 	$(WORKING_DIR)/bin/$(TFGEN) dotnet --overlays provider/overlays/dotnet --out sdk/dotnet/
 	cd sdk/dotnet/ && \
@@ -57,18 +57,18 @@ build_dotnet: patch_upstream
 		echo "$(DOTNET_VERSION)" >version.txt && \
 		dotnet build /p:Version=$(DOTNET_VERSION)
 
-build_go: patch_upstream
+build_go: upstream
 	$(WORKING_DIR)/bin/$(TFGEN) go --overlays provider/overlays/go --out sdk/go/
 
 build_java: PACKAGE_VERSION := $(shell pulumictl get version --language generic)
-build_java: bin/pulumi-java-gen patch_upstream
+build_java: bin/pulumi-java-gen upstream
 	$(WORKING_DIR)/bin/$(JAVA_GEN) generate --schema provider/cmd/$(PROVIDER)/schema.json --out sdk/java  --build gradle-nexus
 	cd sdk/java/ && \
 		echo "module fake_java_module // Exclude this directory from Go tools\n\ngo 1.17" > go.mod && \
 		gradle --console=plain build
 
 build_nodejs: VERSION := $(shell pulumictl get version --language javascript)
-build_nodejs: patch_upstream
+build_nodejs: upstream
 	$(WORKING_DIR)/bin/$(TFGEN) nodejs --overlays provider/overlays/nodejs --out sdk/nodejs/
 	cd sdk/nodejs/ && \
 		echo "module fake_nodejs_module // Exclude this directory from Go tools\n\ngo 1.17" > go.mod && \
@@ -78,7 +78,7 @@ build_nodejs: patch_upstream
 		sed -i.bak -e "s/\$${VERSION}/$(VERSION)/g" ./bin/package.json
 
 build_python: PYPI_VERSION := $(shell pulumictl get version --language python)
-build_python: patch_upstream
+build_python: upstream
 	$(WORKING_DIR)/bin/$(TFGEN) python --overlays provider/overlays/python --out sdk/python/
 	cd sdk/python/ && \
 		echo "module fake_python_module // Exclude this directory from Go tools\n\ngo 1.17" > go.mod && \
@@ -136,7 +136,7 @@ test.upgrade::
 test.upgrade.record::
 	cd examples && PULUMI_ACCEPT=true go test -v -tags all -run TestProviderUpgradeRecord -timeout 2h
 
-tfgen: install_plugins patch_upstream
+tfgen: install_plugins upstream
 	(cd provider && go build $(PULUMI_PROVIDER_BUILD_PARALLELISM) -o $(WORKING_DIR)/bin/$(TFGEN) -ldflags "-X $(PROJECT)/$(VERSION_PATH)=$(VERSION)" $(PROJECT)/$(PROVIDER_PATH)/cmd/$(TFGEN))
 	$(WORKING_DIR)/bin/$(TFGEN) schema --out provider/cmd/$(PROVIDER)
 	(cd provider && VERSION=$(VERSION) go generate cmd/$(PROVIDER)/main.go)
@@ -159,10 +159,16 @@ bin/pulumi-java-gen:
 	fi
 
 init_upstream:
+	@# If the source is set, remove it. We do this since setting the source
+	@# when it is already set is an error.
 	@if [ ! -f "upstream/.git" ]; then \
-			echo "Initializing upstream submodule" ; \
-			(cd upstream && git submodule update --init && git remote add source git@github.com:hashicorp/terraform-provider-aws.git && git fetch source) ; \
-		fi; \
+		echo "Initializing upstream submodule" && \
+		cd upstream && \
+		git submodule update --init && \
+		(git remote rm source || true) && \
+		git remote add source git@github.com:hashicorp/terraform-provider-aws.git && \
+		git fetch source; \
+	fi; \
 
 export_upstream_patches: init_upstream
 ifeq ($(shell cd upstream && git rev-parse --is-shallow-repository), false)
@@ -173,14 +179,14 @@ ifeq ($(shell cd upstream && git rev-parse --is-shallow-repository), false)
 		git format-patch  -o ../upstream-patches --minimal --no-signature HEAD...$${LAST_TAG}
 endif
 
-patch_upstream: init_upstream export_upstream_patches
-	@# Ensure tool is installed
+upstream: init_upstream export_upstream_patches
+	# Ensure tool is installed
 	cd upstream-tools && yarn install --frozen-lockfile
-	@# Reset all changes in the submodule so we're starting from a clean slate
+	# Reset all changes in the submodule so we're starting from a clean slate
 	cd upstream && git checkout . && git clean -fdx
-	@# Apply all automated changed
+	# Apply all automated changes
 	cd upstream-tools && yarn --silent run apply
-	@# Check for any pending replacements
+	# Check for any pending replacements
 	cd upstream-tools && yarn --silent run check
 
 update_upstream: init_upstream
@@ -194,3 +200,7 @@ update_upstream: init_upstream
 		git push origin "patched-$$TAG"
 
 .PHONY: development build build_sdks install_go_sdk install_java_sdk install_python_sdk install_sdks only_build build_dotnet build_go build_java build_nodejs build_python clean cleanup help install_dotnet_sdk install_nodejs_sdk install_plugins lint_provider provider test tfgen
+
+# To better align with other bridged providers, this target has been renamed to upstream
+patch_upstream: upstream
+	@echo "\033[1;33m'$(MAKE) $@' is deprecated, please use '$(MAKE) upstream' instead.\033[1;0m"

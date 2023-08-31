@@ -44,11 +44,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import `aws_kinesisanalyticsv2_application` using `application_name` together with `snapshot_name`. For example:
 //
-//	to = aws_kinesisanalyticsv2_application_snapshot.example
+// ```sh
 //
-//	id = "example-application/example-snapshot" } Using `pulumi import`, import `aws_kinesisanalyticsv2_application` using `application_name` together with `snapshot_name`. For exampleconsole % pulumi import aws_kinesisanalyticsv2_application_snapshot.example example-application/example-snapshot
+//	$ pulumi import aws:kinesisanalyticsv2/applicationSnapshot:ApplicationSnapshot example example-application/example-snapshot
+//
+// ```
 type ApplicationSnapshot struct {
 	pulumi.CustomResourceState
 

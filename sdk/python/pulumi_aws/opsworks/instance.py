@@ -1333,11 +1333,11 @@ class Instance(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Opsworks Instances using the instance `id`. For example:
 
-         to = aws_opsworks_instance.my_instance
-
-         id = "4d6d1710-ded9-42a1-b08e-b043ad7af1e2" } Using `pulumi import`, import Opsworks Instances using the instance `id`. For exampleconsole % pulumi import aws_opsworks_instance.my_instance 4d6d1710-ded9-42a1-b08e-b043ad7af1e2
+        ```sh
+         $ pulumi import aws:opsworks/instance:Instance my_instance 4d6d1710-ded9-42a1-b08e-b043ad7af1e2
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1442,11 +1442,11 @@ class Instance(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Opsworks Instances using the instance `id`. For example:
 
-         to = aws_opsworks_instance.my_instance
-
-         id = "4d6d1710-ded9-42a1-b08e-b043ad7af1e2" } Using `pulumi import`, import Opsworks Instances using the instance `id`. For exampleconsole % pulumi import aws_opsworks_instance.my_instance 4d6d1710-ded9-42a1-b08e-b043ad7af1e2
+        ```sh
+         $ pulumi import aws:opsworks/instance:Instance my_instance 4d6d1710-ded9-42a1-b08e-b043ad7af1e2
+        ```
 
         :param str resource_name: The name of the resource.
         :param InstanceArgs args: The arguments to use to populate this resource's properties.

@@ -157,15 +157,24 @@ class RouteTableAssociation(pulumi.CustomResource):
 
         ## Import
 
-        With EC2 Subnetsterraform import {
+        ~> __NOTE:__ Attempting to associate a route table with a subnet or gateway, where either is already associated, will result in an error (e.g., `Resource.AlreadyAssociatedthe specified association for route table rtb-4176657279 conflicts with an existing association`) unless you first import the original association.
 
-         to = aws_route_table_association.assoc
+        With EC2 Subnets:
 
-         id = "subnet-6777656e646f6c796e/rtb-656c65616e6f72" } With EC2 Internet Gatewaysterraform import {
+        With EC2 Internet Gateways:
 
-         to = aws_route_table_association.assoc
+        __Using `pulumi import` to import__ EC2 Route Table Associations using the associated resource ID and Route Table ID separated by a forward slash (`/`). For example:
 
-         id = "igw-01b3a60780f8d034a/rtb-656c65616e6f72" } **Using `pulumi import` to import** EC2 Route Table Associations using the associated resource ID and Route Table ID separated by a forward slash (`/`). For exampleWith EC2 Subnetsconsole % pulumi import aws_route_table_association.assoc subnet-6777656e646f6c796e/rtb-656c65616e6f72 With EC2 Internet Gatewaysconsole % pulumi import aws_route_table_association.assoc igw-01b3a60780f8d034a/rtb-656c65616e6f72
+        With EC2 Subnets:
+
+        ```sh
+         $ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation assoc subnet-6777656e646f6c796e/rtb-656c65616e6f72
+        ```
+         With EC2 Internet Gateways:
+
+        ```sh
+         $ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation assoc igw-01b3a60780f8d034a/rtb-656c65616e6f72
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -205,15 +214,24 @@ class RouteTableAssociation(pulumi.CustomResource):
 
         ## Import
 
-        With EC2 Subnetsterraform import {
+        ~> __NOTE:__ Attempting to associate a route table with a subnet or gateway, where either is already associated, will result in an error (e.g., `Resource.AlreadyAssociatedthe specified association for route table rtb-4176657279 conflicts with an existing association`) unless you first import the original association.
 
-         to = aws_route_table_association.assoc
+        With EC2 Subnets:
 
-         id = "subnet-6777656e646f6c796e/rtb-656c65616e6f72" } With EC2 Internet Gatewaysterraform import {
+        With EC2 Internet Gateways:
 
-         to = aws_route_table_association.assoc
+        __Using `pulumi import` to import__ EC2 Route Table Associations using the associated resource ID and Route Table ID separated by a forward slash (`/`). For example:
 
-         id = "igw-01b3a60780f8d034a/rtb-656c65616e6f72" } **Using `pulumi import` to import** EC2 Route Table Associations using the associated resource ID and Route Table ID separated by a forward slash (`/`). For exampleWith EC2 Subnetsconsole % pulumi import aws_route_table_association.assoc subnet-6777656e646f6c796e/rtb-656c65616e6f72 With EC2 Internet Gatewaysconsole % pulumi import aws_route_table_association.assoc igw-01b3a60780f8d034a/rtb-656c65616e6f72
+        With EC2 Subnets:
+
+        ```sh
+         $ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation assoc subnet-6777656e646f6c796e/rtb-656c65616e6f72
+        ```
+         With EC2 Internet Gateways:
+
+        ```sh
+         $ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation assoc igw-01b3a60780f8d034a/rtb-656c65616e6f72
+        ```
 
         :param str resource_name: The name of the resource.
         :param RouteTableAssociationArgs args: The arguments to use to populate this resource's properties.

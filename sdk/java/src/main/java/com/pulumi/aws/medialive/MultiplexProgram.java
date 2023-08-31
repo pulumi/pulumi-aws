@@ -84,11 +84,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import MediaLive MultiplexProgram using the `id`, or a combination of &#34;`program_name`/`multiplex_id`&#34;. For example:
  * 
- *  to = aws_medialive_multiplex_program.example
- * 
- *  id = &#34;example_program/1234567&#34; } Using `pulumi import`, import MediaLive MultiplexProgram using the `id`, or a combination of &#34;`program_name`/`multiplex_id`&#34;. For exampleconsole % pulumi import aws_medialive_multiplex_program.example example_program/1234567
+ * ```sh
+ *  $ pulumi import aws:medialive/multiplexProgram:MultiplexProgram example example_program/1234567
+ * ```
  * 
  */
 @ResourceType(type="aws:medialive/multiplexProgram:MultiplexProgram")

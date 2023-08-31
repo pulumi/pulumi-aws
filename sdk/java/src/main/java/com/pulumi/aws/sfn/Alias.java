@@ -68,11 +68,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import SFN (Step Functions) Alias using the `arn`. For example:
  * 
- *  to = aws_sfn_alias.foo
- * 
- *  id = &#34;arn:aws:states:us-east-1:123456789098:stateMachine:myStateMachine:foo&#34; } Using `pulumi import`, import SFN (Step Functions) Alias using the `arn`. For exampleconsole % pulumi import aws_sfn_alias.foo arn:aws:states:us-east-1:123456789098:stateMachine:myStateMachine:foo
+ * ```sh
+ *  $ pulumi import aws:sfn/alias:Alias foo arn:aws:states:us-east-1:123456789098:stateMachine:myStateMachine:foo
+ * ```
  * 
  */
 @ResourceType(type="aws:sfn/alias:Alias")

@@ -54,11 +54,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import bot aliases using an ID with the format `bot_name:bot_alias_name`. For example:
  * 
- *  to = aws_lex_bot_alias.order_flowers_prod
- * 
- *  id = &#34;OrderFlowers:OrderFlowersProd&#34; } Using `pulumi import`, import bot aliases using an ID with the format `bot_name:bot_alias_name`. For exampleconsole % pulumi import aws_lex_bot_alias.order_flowers_prod OrderFlowers:OrderFlowersProd
+ * ```sh
+ *  $ pulumi import aws:lex/botAlias:BotAlias order_flowers_prod OrderFlowers:OrderFlowersProd
+ * ```
  * 
  */
 @ResourceType(type="aws:lex/botAlias:BotAlias")

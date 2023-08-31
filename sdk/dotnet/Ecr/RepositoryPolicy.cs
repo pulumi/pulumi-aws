@@ -77,11 +77,11 @@ namespace Pulumi.Aws.Ecr
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import ECR Repository Policy using the repository name. For example:
     /// 
-    ///  to = aws_ecr_repository_policy.example
-    /// 
-    ///  id = "example" } Using `pulumi import`, import ECR Repository Policy using the repository name. For exampleconsole % pulumi import aws_ecr_repository_policy.example example
+    /// ```sh
+    ///  $ pulumi import aws:ecr/repositoryPolicy:RepositoryPolicy example example
+    /// ```
     /// </summary>
     [AwsResourceType("aws:ecr/repositoryPolicy:RepositoryPolicy")]
     public partial class RepositoryPolicy : global::Pulumi.CustomResource

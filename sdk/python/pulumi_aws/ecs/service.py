@@ -1067,11 +1067,11 @@ class Service(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import ECS services using the `name` together with ecs cluster `name`. For example:
 
-         to = aws_ecs_service.imported
-
-         id = "cluster-name/service-name" } Using `pulumi import`, import ECS services using the `name` together with ecs cluster `name`. For exampleconsole % pulumi import aws_ecs_service.imported cluster-name/service-name
+        ```sh
+         $ pulumi import aws:ecs/service:Service imported cluster-name/service-name
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1196,11 +1196,11 @@ class Service(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import ECS services using the `name` together with ecs cluster `name`. For example:
 
-         to = aws_ecs_service.imported
-
-         id = "cluster-name/service-name" } Using `pulumi import`, import ECS services using the `name` together with ecs cluster `name`. For exampleconsole % pulumi import aws_ecs_service.imported cluster-name/service-name
+        ```sh
+         $ pulumi import aws:ecs/service:Service imported cluster-name/service-name
+        ```
 
         :param str resource_name: The name of the resource.
         :param ServiceArgs args: The arguments to use to populate this resource's properties.

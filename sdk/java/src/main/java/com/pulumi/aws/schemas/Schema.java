@@ -81,11 +81,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import EventBridge schema using the `name` and `registry_name`. For example:
  * 
- *  to = aws_schemas_schema.test
- * 
- *  id = &#34;name/registry&#34; } Using `pulumi import`, import EventBridge schema using the `name` and `registry_name`. For exampleconsole % pulumi import aws_schemas_schema.test name/registry
+ * ```sh
+ *  $ pulumi import aws:schemas/schema:Schema test name/registry
+ * ```
  * 
  */
 @ResourceType(type="aws:schemas/schema:Schema")

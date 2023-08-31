@@ -119,11 +119,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import CodeBuild Webhooks using the CodeBuild Project name. For example:
  * 
- *  to = aws_codebuild_webhook.example
- * 
- *  id = &#34;MyProjectName&#34; } Using `pulumi import`, import CodeBuild Webhooks using the CodeBuild Project name. For exampleconsole % pulumi import aws_codebuild_webhook.example MyProjectName
+ * ```sh
+ *  $ pulumi import aws:codebuild/webhook:Webhook example MyProjectName
+ * ```
  * 
  */
 @ResourceType(type="aws:codebuild/webhook:Webhook")

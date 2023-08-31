@@ -93,11 +93,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import `aws_storagegateway_stored_iscsi_volume` using the volume Amazon Resource Name (ARN). For example:
  * 
- *  to = aws_storagegateway_stored_iscsi_volume.example
- * 
- *  id = &#34;arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678&#34; } Using `pulumi import`, import `aws_storagegateway_stored_iscsi_volume` using the volume Amazon Resource Name (ARN). For exampleconsole % pulumi import aws_storagegateway_stored_iscsi_volume.example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678
+ * ```sh
+ *  $ pulumi import aws:storagegateway/storedIscsiVolume:StoredIscsiVolume example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678
+ * ```
  * 
  */
 @ResourceType(type="aws:storagegateway/storedIscsiVolume:StoredIscsiVolume")

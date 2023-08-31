@@ -201,11 +201,11 @@ class ProvisionedConcurrencyConfig(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import a Lambda Provisioned Concurrency Configuration using the `function_name` and `qualifier` separated by a comma (`,`). For example:
 
-         to = aws_lambda_provisioned_concurrency_config.example
-
-         id = "my_function,production" } Using `pulumi import`, import a Lambda Provisioned Concurrency Configuration using the `function_name` and `qualifier` separated by a comma (`,`). For exampleconsole % pulumi import aws_lambda_provisioned_concurrency_config.example my_function,production
+        ```sh
+         $ pulumi import aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig example my_function,production
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -253,11 +253,11 @@ class ProvisionedConcurrencyConfig(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import a Lambda Provisioned Concurrency Configuration using the `function_name` and `qualifier` separated by a comma (`,`). For example:
 
-         to = aws_lambda_provisioned_concurrency_config.example
-
-         id = "my_function,production" } Using `pulumi import`, import a Lambda Provisioned Concurrency Configuration using the `function_name` and `qualifier` separated by a comma (`,`). For exampleconsole % pulumi import aws_lambda_provisioned_concurrency_config.example my_function,production
+        ```sh
+         $ pulumi import aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig example my_function,production
+        ```
 
         :param str resource_name: The name of the resource.
         :param ProvisionedConcurrencyConfigArgs args: The arguments to use to populate this resource's properties.

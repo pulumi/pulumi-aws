@@ -157,11 +157,11 @@ class ParameterGroup(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import DAX Parameter Group using the `name`. For example:
 
-         to = aws_dax_parameter_group.example
-
-         id = "my_dax_pg" } Using `pulumi import`, import DAX Parameter Group using the `name`. For exampleconsole % pulumi import aws_dax_parameter_group.example my_dax_pg
+        ```sh
+         $ pulumi import aws:dax/parameterGroup:ParameterGroup example my_dax_pg
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -198,11 +198,11 @@ class ParameterGroup(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import DAX Parameter Group using the `name`. For example:
 
-         to = aws_dax_parameter_group.example
-
-         id = "my_dax_pg" } Using `pulumi import`, import DAX Parameter Group using the `name`. For exampleconsole % pulumi import aws_dax_parameter_group.example my_dax_pg
+        ```sh
+         $ pulumi import aws:dax/parameterGroup:ParameterGroup example my_dax_pg
+        ```
 
         :param str resource_name: The name of the resource.
         :param ParameterGroupArgs args: The arguments to use to populate this resource's properties.

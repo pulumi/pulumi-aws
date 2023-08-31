@@ -113,11 +113,11 @@ class ApprovalRuleTemplateAssociation(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import CodeCommit approval rule template associations using the `approval_rule_template_name` and `repository_name` separated by a comma (`,`). For example:
 
-         to = aws_codecommit_approval_rule_template_association.example
-
-         id = "approver-rule-for-example,MyExampleRepo" } Using `pulumi import`, import CodeCommit approval rule template associations using the `approval_rule_template_name` and `repository_name` separated by a comma (`,`). For exampleconsole % pulumi import aws_codecommit_approval_rule_template_association.example approver-rule-for-example,MyExampleRepo
+        ```sh
+         $ pulumi import aws:codecommit/approvalRuleTemplateAssociation:ApprovalRuleTemplateAssociation example approver-rule-for-example,MyExampleRepo
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -146,11 +146,11 @@ class ApprovalRuleTemplateAssociation(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import CodeCommit approval rule template associations using the `approval_rule_template_name` and `repository_name` separated by a comma (`,`). For example:
 
-         to = aws_codecommit_approval_rule_template_association.example
-
-         id = "approver-rule-for-example,MyExampleRepo" } Using `pulumi import`, import CodeCommit approval rule template associations using the `approval_rule_template_name` and `repository_name` separated by a comma (`,`). For exampleconsole % pulumi import aws_codecommit_approval_rule_template_association.example approver-rule-for-example,MyExampleRepo
+        ```sh
+         $ pulumi import aws:codecommit/approvalRuleTemplateAssociation:ApprovalRuleTemplateAssociation example approver-rule-for-example,MyExampleRepo
+        ```
 
         :param str resource_name: The name of the resource.
         :param ApprovalRuleTemplateAssociationArgs args: The arguments to use to populate this resource's properties.

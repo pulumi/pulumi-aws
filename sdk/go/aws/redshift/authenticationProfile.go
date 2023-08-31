@@ -54,11 +54,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Redshift Authentication by `authentication_profile_name`. For example:
 //
-//	to = aws_redshift_authentication_profile.test
+// ```sh
 //
-//	id = "example" } Using `pulumi import`, import Redshift Authentication by `authentication_profile_name`. For exampleconsole % pulumi import aws_redshift_authentication_profile.test example
+//	$ pulumi import aws:redshift/authenticationProfile:AuthenticationProfile test example
+//
+// ```
 type AuthenticationProfile struct {
 	pulumi.CustomResourceState
 

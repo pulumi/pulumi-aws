@@ -31,11 +31,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import Redshift Serverless Resource Policies using the `resource_arn`. For example:
  *
- *  to = aws_redshiftserverless_resource_policy.example
- *
- *  id = "example" } Using `pulumi import`, import Redshift Serverless Resource Policies using the `resource_arn`. For exampleconsole % pulumi import aws_redshiftserverless_resource_policy.example example
+ * ```sh
+ *  $ pulumi import aws:redshiftserverless/resourcePolicy:ResourcePolicy example example
+ * ```
  */
 export class ResourcePolicy extends pulumi.CustomResource {
     /**

@@ -49,11 +49,11 @@ namespace Pulumi.Aws.Waf
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import WAF Rule Group using the id. For example:
     /// 
-    ///  to = aws_waf_rule_group.example
-    /// 
-    ///  id = "a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc" } Using `pulumi import`, import WAF Rule Group using the id. For exampleconsole % pulumi import aws_waf_rule_group.example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+    /// ```sh
+    ///  $ pulumi import aws:waf/ruleGroup:RuleGroup example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+    /// ```
     /// </summary>
     [AwsResourceType("aws:waf/ruleGroup:RuleGroup")]
     public partial class RuleGroup : global::Pulumi.CustomResource

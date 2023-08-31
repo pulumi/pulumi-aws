@@ -84,11 +84,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import `aws_ec2_transit_gateway_prefix_list_reference` using the EC2 Transit Gateway Route Table identifier and EC2 Prefix List identifier, separated by an underscore (`_`). For example:
  * 
- *  to = aws_ec2_transit_gateway_prefix_list_reference.example
- * 
- *  id = &#34;tgw-rtb-12345678_pl-12345678&#34; } Using `pulumi import`, import `aws_ec2_transit_gateway_prefix_list_reference` using the EC2 Transit Gateway Route Table identifier and EC2 Prefix List identifier, separated by an underscore (`_`). For exampleconsole % pulumi import aws_ec2_transit_gateway_prefix_list_reference.example tgw-rtb-12345678_pl-12345678
+ * ```sh
+ *  $ pulumi import aws:ec2transitgateway/prefixListReference:PrefixListReference example tgw-rtb-12345678_pl-12345678
+ * ```
  * 
  */
 @ResourceType(type="aws:ec2transitgateway/prefixListReference:PrefixListReference")

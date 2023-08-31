@@ -196,11 +196,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Spot Fleet Requests using `id`. For example:
 //
-//	to = aws_spot_fleet_request.fleet
+// ```sh
 //
-//	id = "sfr-005e9ec8-5546-4c31-b317-31a62325411e" } Using `pulumi import`, import Spot Fleet Requests using `id`. For exampleconsole % pulumi import aws_spot_fleet_request.fleet sfr-005e9ec8-5546-4c31-b317-31a62325411e
+//	$ pulumi import aws:ec2/spotFleetRequest:SpotFleetRequest fleet sfr-005e9ec8-5546-4c31-b317-31a62325411e
+//
+// ```
 type SpotFleetRequest struct {
 	pulumi.CustomResourceState
 

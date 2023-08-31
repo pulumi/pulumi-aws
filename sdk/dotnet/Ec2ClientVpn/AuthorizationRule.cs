@@ -35,15 +35,22 @@ namespace Pulumi.Aws.Ec2ClientVpn
     /// 
     /// ## Import
     /// 
-    /// Using the endpoint ID and target network CIDRterraform import {
+    /// Using the endpoint ID and target network CIDR:
     /// 
-    ///  to = aws_ec2_client_vpn_authorization_rule.example
+    /// Using the endpoint ID, target network CIDR, and group name:
     /// 
-    ///  id = "cvpn-endpoint-0ac3a1abbccddd666,10.1.0.0/24" } Using the endpoint ID, target network CIDR, and group nameterraform import {
+    /// __Using `pulumi import` to import__ AWS Client VPN authorization rules using the endpoint ID and target network CIDR. If there is a specific group name, include that also. All values are separated by a `,`. For example:
     /// 
-    ///  to = aws_ec2_client_vpn_authorization_rule.example
+    /// Using the endpoint ID and target network CIDR:
     /// 
-    ///  id = "cvpn-endpoint-0ac3a1abbccddd666,10.1.0.0/24,team-a" } **Using `pulumi import` to import** AWS Client VPN authorization rules using the endpoint ID and target network CIDR. If there is a specific group name, include that also. All values are separated by a `,`. For exampleUsing the endpoint ID and target network CIDRconsole % pulumi import aws_ec2_client_vpn_authorization_rule.example cvpn-endpoint-0ac3a1abbccddd666,10.1.0.0/24 Using the endpoint ID, target network CIDR, and group nameconsole % pulumi import aws_ec2_client_vpn_authorization_rule.example cvpn-endpoint-0ac3a1abbccddd666,10.1.0.0/24,team-a
+    /// ```sh
+    ///  $ pulumi import aws:ec2clientvpn/authorizationRule:AuthorizationRule example cvpn-endpoint-0ac3a1abbccddd666,10.1.0.0/24
+    /// ```
+    ///  Using the endpoint ID, target network CIDR, and group name:
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:ec2clientvpn/authorizationRule:AuthorizationRule example cvpn-endpoint-0ac3a1abbccddd666,10.1.0.0/24,team-a
+    /// ```
     /// </summary>
     [AwsResourceType("aws:ec2clientvpn/authorizationRule:AuthorizationRule")]
     public partial class AuthorizationRule : global::Pulumi.CustomResource

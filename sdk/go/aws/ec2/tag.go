@@ -67,11 +67,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import `aws_ec2_tag` using the EC2 resource identifier and key, separated by a comma (`,`). For example:
 //
-//	to = aws_ec2_tag.example
+// ```sh
 //
-//	id = "tgw-attach-1234567890abcdef,Name" } Using `pulumi import`, import `aws_ec2_tag` using the EC2 resource identifier and key, separated by a comma (`,`). For exampleconsole % pulumi import aws_ec2_tag.example tgw-attach-1234567890abcdef,Name
+//	$ pulumi import aws:ec2/tag:Tag example tgw-attach-1234567890abcdef,Name
+//
+// ```
 type Tag struct {
 	pulumi.CustomResourceState
 

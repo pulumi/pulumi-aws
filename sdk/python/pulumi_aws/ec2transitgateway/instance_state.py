@@ -174,11 +174,11 @@ class InstanceState(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_ec2_instance_state` using the `instance_id` attribute. For example:
 
-         to = aws_ec2_instance_state.test
-
-         id = "i-02cae6557dfcf2f96" } Using `pulumi import`, import `aws_ec2_instance_state` using the `instance_id` attribute. For exampleconsole % pulumi import aws_ec2_instance_state.test i-02cae6557dfcf2f96
+        ```sh
+         $ pulumi import aws:ec2transitgateway/instanceState:InstanceState test i-02cae6557dfcf2f96
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -230,11 +230,11 @@ class InstanceState(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_ec2_instance_state` using the `instance_id` attribute. For example:
 
-         to = aws_ec2_instance_state.test
-
-         id = "i-02cae6557dfcf2f96" } Using `pulumi import`, import `aws_ec2_instance_state` using the `instance_id` attribute. For exampleconsole % pulumi import aws_ec2_instance_state.test i-02cae6557dfcf2f96
+        ```sh
+         $ pulumi import aws:ec2transitgateway/instanceState:InstanceState test i-02cae6557dfcf2f96
+        ```
 
         :param str resource_name: The name of the resource.
         :param InstanceStateArgs args: The arguments to use to populate this resource's properties.

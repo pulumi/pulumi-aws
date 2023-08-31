@@ -53,11 +53,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import QLDB Ledgers using the `name`. For example:
  * 
- *  to = aws_qldb_ledger.sample-ledger
- * 
- *  id = &#34;sample-ledger&#34; } Using `pulumi import`, import QLDB Ledgers using the `name`. For exampleconsole % pulumi import aws_qldb_ledger.sample-ledger sample-ledger
+ * ```sh
+ *  $ pulumi import aws:qldb/ledger:Ledger sample-ledger sample-ledger
+ * ```
  * 
  */
 @ResourceType(type="aws:qldb/ledger:Ledger")

@@ -760,11 +760,11 @@ class Environment(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Elastic Beanstalk Environments using the `id`. For example:
 
-         to = aws_elastic_beanstalk_environment.prodenv
-
-         id = "e-rpqsewtp2j" } Using `pulumi import`, import Elastic Beanstalk Environments using the `id`. For exampleconsole % pulumi import aws_elastic_beanstalk_environment.prodenv e-rpqsewtp2j
+        ```sh
+         $ pulumi import aws:elasticbeanstalk/environment:Environment prodenv e-rpqsewtp2j
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -861,11 +861,11 @@ class Environment(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Elastic Beanstalk Environments using the `id`. For example:
 
-         to = aws_elastic_beanstalk_environment.prodenv
-
-         id = "e-rpqsewtp2j" } Using `pulumi import`, import Elastic Beanstalk Environments using the `id`. For exampleconsole % pulumi import aws_elastic_beanstalk_environment.prodenv e-rpqsewtp2j
+        ```sh
+         $ pulumi import aws:elasticbeanstalk/environment:Environment prodenv e-rpqsewtp2j
+        ```
 
         :param str resource_name: The name of the resource.
         :param EnvironmentArgs args: The arguments to use to populate this resource's properties.

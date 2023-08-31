@@ -124,11 +124,11 @@ class KinesisStreamingDestination(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import DynamoDB Kinesis Streaming Destinations using the `table_name` and `stream_arn` separated by `,`. For example:
 
-         to = aws_dynamodb_kinesis_streaming_destination.example
-
-         id = "example,arn:aws:kinesis:us-east-1:111122223333:exampleStreamName" } Using `pulumi import`, import DynamoDB Kinesis Streaming Destinations using the `table_name` and `stream_arn` separated by `,`. For exampleconsole % pulumi import aws_dynamodb_kinesis_streaming_destination.example example,arn:aws:kinesis:us-east-1:111122223333:exampleStreamName
+        ```sh
+         $ pulumi import aws:dynamodb/kinesisStreamingDestination:KinesisStreamingDestination example example,arn:aws:kinesis:us-east-1:111122223333:exampleStreamName
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -165,11 +165,11 @@ class KinesisStreamingDestination(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import DynamoDB Kinesis Streaming Destinations using the `table_name` and `stream_arn` separated by `,`. For example:
 
-         to = aws_dynamodb_kinesis_streaming_destination.example
-
-         id = "example,arn:aws:kinesis:us-east-1:111122223333:exampleStreamName" } Using `pulumi import`, import DynamoDB Kinesis Streaming Destinations using the `table_name` and `stream_arn` separated by `,`. For exampleconsole % pulumi import aws_dynamodb_kinesis_streaming_destination.example example,arn:aws:kinesis:us-east-1:111122223333:exampleStreamName
+        ```sh
+         $ pulumi import aws:dynamodb/kinesisStreamingDestination:KinesisStreamingDestination example example,arn:aws:kinesis:us-east-1:111122223333:exampleStreamName
+        ```
 
         :param str resource_name: The name of the resource.
         :param KinesisStreamingDestinationArgs args: The arguments to use to populate this resource's properties.

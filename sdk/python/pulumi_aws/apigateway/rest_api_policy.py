@@ -131,11 +131,11 @@ class RestApiPolicy(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_api_gateway_rest_api_policy` using the REST API ID. For example:
 
-         to = aws_api_gateway_rest_api_policy.example
-
-         id = "12345abcde" } Using `pulumi import`, import `aws_api_gateway_rest_api_policy` using the REST API ID. For exampleconsole % pulumi import aws_api_gateway_rest_api_policy.example 12345abcde
+        ```sh
+         $ pulumi import aws:apigateway/restApiPolicy:RestApiPolicy example 12345abcde
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -182,11 +182,11 @@ class RestApiPolicy(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_api_gateway_rest_api_policy` using the REST API ID. For example:
 
-         to = aws_api_gateway_rest_api_policy.example
-
-         id = "12345abcde" } Using `pulumi import`, import `aws_api_gateway_rest_api_policy` using the REST API ID. For exampleconsole % pulumi import aws_api_gateway_rest_api_policy.example 12345abcde
+        ```sh
+         $ pulumi import aws:apigateway/restApiPolicy:RestApiPolicy example 12345abcde
+        ```
 
         :param str resource_name: The name of the resource.
         :param RestApiPolicyArgs args: The arguments to use to populate this resource's properties.

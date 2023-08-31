@@ -68,11 +68,11 @@ namespace Pulumi.Aws.Iam
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import IAM Users using the `name`. For example:
     /// 
-    ///  to = aws_iam_user.lb
-    /// 
-    ///  id = "loadbalancer" } Using `pulumi import`, import IAM Users using the `name`. For exampleconsole % pulumi import aws_iam_user.lb loadbalancer
+    /// ```sh
+    ///  $ pulumi import aws:iam/user:User lb loadbalancer
+    /// ```
     /// </summary>
     [AwsResourceType("aws:iam/user:User")]
     public partial class User : global::Pulumi.CustomResource

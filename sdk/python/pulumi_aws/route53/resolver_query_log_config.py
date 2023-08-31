@@ -221,13 +221,13 @@ class ResolverQueryLogConfig(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import
 
-         to = aws_route53_resolver_query_log_config.example
+        Route 53 Resolver query logging configurations using the Route 53 Resolver query logging configuration ID. For example:
 
-         id = "rqlc-92edc3b1838248bf" } Using `pulumi import`, import
-
-        Route 53 Resolver query logging configurations using the Route 53 Resolver query logging configuration ID. For exampleconsole % pulumi import aws_route53_resolver_query_log_config.example rqlc-92edc3b1838248bf
+        ```sh
+         $ pulumi import aws:route53/resolverQueryLogConfig:ResolverQueryLogConfig example rqlc-92edc3b1838248bf
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -260,13 +260,13 @@ class ResolverQueryLogConfig(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import
 
-         to = aws_route53_resolver_query_log_config.example
+        Route 53 Resolver query logging configurations using the Route 53 Resolver query logging configuration ID. For example:
 
-         id = "rqlc-92edc3b1838248bf" } Using `pulumi import`, import
-
-        Route 53 Resolver query logging configurations using the Route 53 Resolver query logging configuration ID. For exampleconsole % pulumi import aws_route53_resolver_query_log_config.example rqlc-92edc3b1838248bf
+        ```sh
+         $ pulumi import aws:route53/resolverQueryLogConfig:ResolverQueryLogConfig example rqlc-92edc3b1838248bf
+        ```
 
         :param str resource_name: The name of the resource.
         :param ResolverQueryLogConfigArgs args: The arguments to use to populate this resource's properties.

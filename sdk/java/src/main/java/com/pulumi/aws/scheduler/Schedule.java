@@ -113,11 +113,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import schedules using the combination `group_name/name`. For example:
  * 
- *  to = aws_scheduler_schedule.example
- * 
- *  id = &#34;my-schedule-group/my-schedule&#34; } Using `pulumi import`, import schedules using the combination `group_name/name`. For exampleconsole % pulumi import aws_scheduler_schedule.example my-schedule-group/my-schedule
+ * ```sh
+ *  $ pulumi import aws:scheduler/schedule:Schedule example my-schedule-group/my-schedule
+ * ```
  * 
  */
 @ResourceType(type="aws:scheduler/schedule:Schedule")

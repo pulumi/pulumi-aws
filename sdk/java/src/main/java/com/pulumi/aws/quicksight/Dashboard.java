@@ -101,11 +101,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import a QuickSight Dashboard using the AWS account ID and dashboard ID separated by a comma (`,`). For example:
  * 
- *  to = aws_quicksight_dashboard.example
- * 
- *  id = &#34;123456789012,example-id&#34; } Using `pulumi import`, import a QuickSight Dashboard using the AWS account ID and dashboard ID separated by a comma (`,`). For exampleconsole % pulumi import aws_quicksight_dashboard.example 123456789012,example-id
+ * ```sh
+ *  $ pulumi import aws:quicksight/dashboard:Dashboard example 123456789012,example-id
+ * ```
  * 
  */
 @ResourceType(type="aws:quicksight/dashboard:Dashboard")

@@ -28,11 +28,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import App Runner vpc connector using the `arn`. For example:
  *
- *  to = aws_apprunner_vpc_connector.example
- *
- *  id = "arn:aws:apprunner:us-east-1:1234567890:vpcconnector/example/1/0a03292a89764e5882c41d8f991c82fe" } Using `pulumi import`, import App Runner vpc connector using the `arn`. For exampleconsole % pulumi import aws_apprunner_vpc_connector.example arn:aws:apprunner:us-east-1:1234567890:vpcconnector/example/1/0a03292a89764e5882c41d8f991c82fe
+ * ```sh
+ *  $ pulumi import aws:apprunner/vpcConnector:VpcConnector example arn:aws:apprunner:us-east-1:1234567890:vpcconnector/example/1/0a03292a89764e5882c41d8f991c82fe
+ * ```
  */
 export class VpcConnector extends pulumi.CustomResource {
     /**

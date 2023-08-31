@@ -161,11 +161,11 @@ class HostedZoneDnsSec(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_route53_hosted_zone_dnssec` resources using the Route 53 Hosted Zone identifier. For example:
 
-         to = aws_route53_hosted_zone_dnssec.example
-
-         id = "Z1D633PJN98FT9" } Using `pulumi import`, import `aws_route53_hosted_zone_dnssec` resources using the Route 53 Hosted Zone identifier. For exampleconsole % pulumi import aws_route53_hosted_zone_dnssec.example Z1D633PJN98FT9
+        ```sh
+         $ pulumi import aws:route53/hostedZoneDnsSec:HostedZoneDnsSec example Z1D633PJN98FT9
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -235,11 +235,11 @@ class HostedZoneDnsSec(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_route53_hosted_zone_dnssec` resources using the Route 53 Hosted Zone identifier. For example:
 
-         to = aws_route53_hosted_zone_dnssec.example
-
-         id = "Z1D633PJN98FT9" } Using `pulumi import`, import `aws_route53_hosted_zone_dnssec` resources using the Route 53 Hosted Zone identifier. For exampleconsole % pulumi import aws_route53_hosted_zone_dnssec.example Z1D633PJN98FT9
+        ```sh
+         $ pulumi import aws:route53/hostedZoneDnsSec:HostedZoneDnsSec example Z1D633PJN98FT9
+        ```
 
         :param str resource_name: The name of the resource.
         :param HostedZoneDnsSecArgs args: The arguments to use to populate this resource's properties.

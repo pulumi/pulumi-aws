@@ -166,11 +166,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import SSM associations using the `association_id`. For example:
  * 
- *  to = aws_ssm_association.test-association
- * 
- *  id = &#34;10abcdef-0abc-1234-5678-90abcdef123456&#34; } Using `pulumi import`, import SSM associations using the `association_id`. For exampleconsole % pulumi import aws_ssm_association.test-association 10abcdef-0abc-1234-5678-90abcdef123456
+ * ```sh
+ *  $ pulumi import aws:ssm/association:Association test-association 10abcdef-0abc-1234-5678-90abcdef123456
+ * ```
  * 
  */
 @ResourceType(type="aws:ssm/association:Association")

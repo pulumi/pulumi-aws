@@ -36,11 +36,11 @@ namespace Pulumi.Aws.Ses
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import SES templates using the template name. For example:
     /// 
-    ///  to = aws_ses_template.MyTemplate
-    /// 
-    ///  id = "MyTemplate" } Using `pulumi import`, import SES templates using the template name. For exampleconsole % pulumi import aws_ses_template.MyTemplate MyTemplate
+    /// ```sh
+    ///  $ pulumi import aws:ses/template:Template MyTemplate MyTemplate
+    /// ```
     /// </summary>
     [AwsResourceType("aws:ses/template:Template")]
     public partial class Template : global::Pulumi.CustomResource

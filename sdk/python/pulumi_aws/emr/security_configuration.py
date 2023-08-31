@@ -181,11 +181,11 @@ class SecurityConfiguration(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import EMR Security Configurations using the `name`. For example:
 
-         to = aws_emr_security_configuration.sc
-
-         id = "example-sc-name" } Using `pulumi import`, import EMR Security Configurations using the `name`. For exampleconsole % pulumi import aws_emr_security_configuration.sc example-sc-name
+        ```sh
+         $ pulumi import aws:emr/securityConfiguration:SecurityConfiguration sc example-sc-name
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -230,11 +230,11 @@ class SecurityConfiguration(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import EMR Security Configurations using the `name`. For example:
 
-         to = aws_emr_security_configuration.sc
-
-         id = "example-sc-name" } Using `pulumi import`, import EMR Security Configurations using the `name`. For exampleconsole % pulumi import aws_emr_security_configuration.sc example-sc-name
+        ```sh
+         $ pulumi import aws:emr/securityConfiguration:SecurityConfiguration sc example-sc-name
+        ```
 
         :param str resource_name: The name of the resource.
         :param SecurityConfigurationArgs args: The arguments to use to populate this resource's properties.

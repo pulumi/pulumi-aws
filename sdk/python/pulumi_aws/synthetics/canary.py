@@ -752,11 +752,11 @@ class Canary(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Synthetics Canaries using the `name`. For example:
 
-         to = aws_synthetics_canary.some
-
-         id = "some-canary" } Using `pulumi import`, import Synthetics Canaries using the `name`. For exampleconsole % pulumi import aws_synthetics_canary.some some-canary
+        ```sh
+         $ pulumi import aws:synthetics/canary:Canary some some-canary
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -811,11 +811,11 @@ class Canary(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Synthetics Canaries using the `name`. For example:
 
-         to = aws_synthetics_canary.some
-
-         id = "some-canary" } Using `pulumi import`, import Synthetics Canaries using the `name`. For exampleconsole % pulumi import aws_synthetics_canary.some some-canary
+        ```sh
+         $ pulumi import aws:synthetics/canary:Canary some some-canary
+        ```
 
         :param str resource_name: The name of the resource.
         :param CanaryArgs args: The arguments to use to populate this resource's properties.

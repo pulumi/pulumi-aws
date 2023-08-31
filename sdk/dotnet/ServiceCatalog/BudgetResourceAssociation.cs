@@ -36,11 +36,11 @@ namespace Pulumi.Aws.ServiceCatalog
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import `aws_servicecatalog_budget_resource_association` using the budget name and resource ID. For example:
     /// 
-    ///  to = aws_servicecatalog_budget_resource_association.example
-    /// 
-    ///  id = "budget-pjtvyakdlyo3m:prod-dnigbtea24ste" } Using `pulumi import`, import `aws_servicecatalog_budget_resource_association` using the budget name and resource ID. For exampleconsole % pulumi import aws_servicecatalog_budget_resource_association.example budget-pjtvyakdlyo3m:prod-dnigbtea24ste
+    /// ```sh
+    ///  $ pulumi import aws:servicecatalog/budgetResourceAssociation:BudgetResourceAssociation example budget-pjtvyakdlyo3m:prod-dnigbtea24ste
+    /// ```
     /// </summary>
     [AwsResourceType("aws:servicecatalog/budgetResourceAssociation:BudgetResourceAssociation")]
     public partial class BudgetResourceAssociation : global::Pulumi.CustomResource

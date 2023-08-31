@@ -52,11 +52,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Kinesis Stream Consumers using the Amazon Resource Name (ARN). For example:
 //
-//	to = aws_kinesis_stream_consumer.example
+// ```sh
 //
-//	id = "arn:aws:kinesis:us-west-2:123456789012:stream/example/consumer/example:1616044553" } Using `pulumi import`, import Kinesis Stream Consumers using the Amazon Resource Name (ARN). For exampleconsole % pulumi import aws_kinesis_stream_consumer.example arn:aws:kinesis:us-west-2:123456789012:stream/example/consumer/example:1616044553 [1]https://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-consumers.html
+//	$ pulumi import aws:kinesis/streamConsumer:StreamConsumer example arn:aws:kinesis:us-west-2:123456789012:stream/example/consumer/example:1616044553
+//
+// ```
 type StreamConsumer struct {
 	pulumi.CustomResourceState
 

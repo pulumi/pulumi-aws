@@ -63,11 +63,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import ECS cluster capacity providers using the `cluster_name` attribute. For example:
  * 
- *  to = aws_ecs_cluster_capacity_providers.example
- * 
- *  id = &#34;my-cluster&#34; } Using `pulumi import`, import ECS cluster capacity providers using the `cluster_name` attribute. For exampleconsole % pulumi import aws_ecs_cluster_capacity_providers.example my-cluster
+ * ```sh
+ *  $ pulumi import aws:ecs/clusterCapacityProviders:ClusterCapacityProviders example my-cluster
+ * ```
  * 
  */
 @ResourceType(type="aws:ecs/clusterCapacityProviders:ClusterCapacityProviders")

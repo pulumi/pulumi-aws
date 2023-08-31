@@ -113,11 +113,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import MSK Connect Connector using the connector&#39;s `arn`. For example:
  * 
- *  to = aws_mskconnect_connector.example
- * 
- *  id = &#34;arn:aws:kafkaconnect:eu-central-1:123456789012:connector/example/264edee4-17a3-412e-bd76-6681cfc93805-3&#34; } Using `pulumi import`, import MSK Connect Connector using the connector&#39;s `arn`. For exampleconsole % pulumi import aws_mskconnect_connector.example &#39;arn:aws:kafkaconnect:eu-central-1:123456789012:connector/example/264edee4-17a3-412e-bd76-6681cfc93805-3&#39;
+ * ```sh
+ *  $ pulumi import aws:mskconnect/connector:Connector example &#39;arn:aws:kafkaconnect:eu-central-1:123456789012:connector/example/264edee4-17a3-412e-bd76-6681cfc93805-3&#39;
+ * ```
  * 
  */
 @ResourceType(type="aws:mskconnect/connector:Connector")

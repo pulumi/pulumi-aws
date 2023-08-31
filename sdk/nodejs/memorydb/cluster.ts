@@ -30,11 +30,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import a cluster using the `name`. For example:
  *
- *  to = aws_memorydb_cluster.example
- *
- *  id = "my-cluster" } Using `pulumi import`, import a cluster using the `name`. For exampleconsole % pulumi import aws_memorydb_cluster.example my-cluster
+ * ```sh
+ *  $ pulumi import aws:memorydb/cluster:Cluster example my-cluster
+ * ```
  */
 export class Cluster extends pulumi.CustomResource {
     /**

@@ -311,11 +311,11 @@ class BucketReplicationConfig(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import S3 bucket replication configuration using the `bucket`. For example:
 
-         to = aws_s3_bucket_replication_configuration.replication
-
-         id = "bucket-name" } Using `pulumi import`, import S3 bucket replication configuration using the `bucket`. For exampleconsole % pulumi import aws_s3_bucket_replication_configuration.replication bucket-name
+        ```sh
+         $ pulumi import aws:s3/bucketReplicationConfig:BucketReplicationConfig replication bucket-name
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -474,11 +474,11 @@ class BucketReplicationConfig(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import S3 bucket replication configuration using the `bucket`. For example:
 
-         to = aws_s3_bucket_replication_configuration.replication
-
-         id = "bucket-name" } Using `pulumi import`, import S3 bucket replication configuration using the `bucket`. For exampleconsole % pulumi import aws_s3_bucket_replication_configuration.replication bucket-name
+        ```sh
+         $ pulumi import aws:s3/bucketReplicationConfig:BucketReplicationConfig replication bucket-name
+        ```
 
         :param str resource_name: The name of the resource.
         :param BucketReplicationConfigArgs args: The arguments to use to populate this resource's properties.

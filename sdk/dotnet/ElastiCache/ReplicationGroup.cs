@@ -217,11 +217,11 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import ElastiCache Replication Groups using the `replication_group_id`. For example:
     /// 
-    ///  to = aws_elasticache_replication_group.my_replication_group
-    /// 
-    ///  id = "replication-group-1" } Using `pulumi import`, import ElastiCache Replication Groups using the `replication_group_id`. For exampleconsole % pulumi import aws_elasticache_replication_group.my_replication_group replication-group-1
+    /// ```sh
+    ///  $ pulumi import aws:elasticache/replicationGroup:ReplicationGroup my_replication_group replication-group-1
+    /// ```
     /// </summary>
     [AwsResourceType("aws:elasticache/replicationGroup:ReplicationGroup")]
     public partial class ReplicationGroup : global::Pulumi.CustomResource

@@ -29,11 +29,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Auto Scaling scaling plans using the `name`. For example:
  * 
- *  to = aws_autoscalingplans_scaling_plan.example
- * 
- *  id = &#34;MyScale1&#34; } Using `pulumi import`, import Auto Scaling scaling plans using the `name`. For exampleconsole % pulumi import aws_autoscalingplans_scaling_plan.example MyScale1
+ * ```sh
+ *  $ pulumi import aws:autoscalingplans/scalingPlan:ScalingPlan example MyScale1
+ * ```
  * 
  */
 @ResourceType(type="aws:autoscalingplans/scalingPlan:ScalingPlan")

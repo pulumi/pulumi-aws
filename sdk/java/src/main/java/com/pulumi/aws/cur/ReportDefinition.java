@@ -64,11 +64,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Report Definitions using the `report_name`. For example:
  * 
- *  to = aws_cur_report_definition.example_cur_report_definition
- * 
- *  id = &#34;example-cur-report-definition&#34; } Using `pulumi import`, import Report Definitions using the `report_name`. For exampleconsole % pulumi import aws_cur_report_definition.example_cur_report_definition example-cur-report-definition
+ * ```sh
+ *  $ pulumi import aws:cur/reportDefinition:ReportDefinition example_cur_report_definition example-cur-report-definition
+ * ```
  * 
  */
 @ResourceType(type="aws:cur/reportDefinition:ReportDefinition")

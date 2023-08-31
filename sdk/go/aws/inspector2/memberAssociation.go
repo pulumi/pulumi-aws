@@ -43,11 +43,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Amazon Inspector Member Association using the `account_id`. For example:
 //
-//	to = aws_inspector2_member_association.example
+// ```sh
 //
-//	id = "123456789012" } Using `pulumi import`, import Amazon Inspector Member Association using the `account_id`. For exampleconsole % pulumi import aws_inspector2_member_association.example 123456789012
+//	$ pulumi import aws:inspector2/memberAssociation:MemberAssociation example 123456789012
+//
+// ```
 type MemberAssociation struct {
 	pulumi.CustomResourceState
 

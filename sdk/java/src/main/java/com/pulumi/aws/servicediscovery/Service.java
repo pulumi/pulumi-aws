@@ -128,11 +128,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Service Discovery Service using the service ID. For example:
  * 
- *  to = aws_service_discovery_service.example
- * 
- *  id = &#34;0123456789&#34; } Using `pulumi import`, import Service Discovery Service using the service ID. For exampleconsole % pulumi import aws_service_discovery_service.example 0123456789
+ * ```sh
+ *  $ pulumi import aws:servicediscovery/service:Service example 0123456789
+ * ```
  * 
  */
 @ResourceType(type="aws:servicediscovery/service:Service")

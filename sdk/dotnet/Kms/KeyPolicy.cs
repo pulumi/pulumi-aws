@@ -57,11 +57,11 @@ namespace Pulumi.Aws.Kms
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import KMS Key Policies using the `key_id`. For example:
     /// 
-    ///  to = aws_kms_key_policy.a
-    /// 
-    ///  id = "1234abcd-12ab-34cd-56ef-1234567890ab" } Using `pulumi import`, import KMS Key Policies using the `key_id`. For exampleconsole % pulumi import aws_kms_key_policy.a 1234abcd-12ab-34cd-56ef-1234567890ab
+    /// ```sh
+    ///  $ pulumi import aws:kms/keyPolicy:KeyPolicy a 1234abcd-12ab-34cd-56ef-1234567890ab
+    /// ```
     /// </summary>
     [AwsResourceType("aws:kms/keyPolicy:KeyPolicy")]
     public partial class KeyPolicy : global::Pulumi.CustomResource

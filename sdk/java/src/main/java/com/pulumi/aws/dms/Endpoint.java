@@ -75,11 +75,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import endpoints using the `endpoint_id`. For example:
  * 
- *  to = aws_dms_endpoint.test
- * 
- *  id = &#34;test-dms-endpoint-tf&#34; } Using `pulumi import`, import endpoints using the `endpoint_id`. For exampleconsole % pulumi import aws_dms_endpoint.test test-dms-endpoint-tf
+ * ```sh
+ *  $ pulumi import aws:dms/endpoint:Endpoint test test-dms-endpoint-tf
+ * ```
  * 
  */
 @ResourceType(type="aws:dms/endpoint:Endpoint")

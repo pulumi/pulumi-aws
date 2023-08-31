@@ -51,11 +51,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import a cluster using the `name`. For example:
 //
-//	to = aws_memorydb_cluster.example
+// ```sh
 //
-//	id = "my-cluster" } Using `pulumi import`, import a cluster using the `name`. For exampleconsole % pulumi import aws_memorydb_cluster.example my-cluster
+//	$ pulumi import aws:memorydb/cluster:Cluster example my-cluster
+//
+// ```
 type Cluster struct {
 	pulumi.CustomResourceState
 

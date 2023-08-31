@@ -327,11 +327,11 @@ class FargateProfile(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import EKS Fargate Profiles using the `cluster_name` and `fargate_profile_name` separated by a colon (`:`). For example:
 
-         to = aws_eks_fargate_profile.my_fargate_profile
-
-         id = "my_cluster:my_fargate_profile" } Using `pulumi import`, import EKS Fargate Profiles using the `cluster_name` and `fargate_profile_name` separated by a colon (`:`). For exampleconsole % pulumi import aws_eks_fargate_profile.my_fargate_profile my_cluster:my_fargate_profile
+        ```sh
+         $ pulumi import aws:eks/fargateProfile:FargateProfile my_fargate_profile my_cluster:my_fargate_profile
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -391,11 +391,11 @@ class FargateProfile(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import EKS Fargate Profiles using the `cluster_name` and `fargate_profile_name` separated by a colon (`:`). For example:
 
-         to = aws_eks_fargate_profile.my_fargate_profile
-
-         id = "my_cluster:my_fargate_profile" } Using `pulumi import`, import EKS Fargate Profiles using the `cluster_name` and `fargate_profile_name` separated by a colon (`:`). For exampleconsole % pulumi import aws_eks_fargate_profile.my_fargate_profile my_cluster:my_fargate_profile
+        ```sh
+         $ pulumi import aws:eks/fargateProfile:FargateProfile my_fargate_profile my_cluster:my_fargate_profile
+        ```
 
         :param str resource_name: The name of the resource.
         :param FargateProfileArgs args: The arguments to use to populate this resource's properties.

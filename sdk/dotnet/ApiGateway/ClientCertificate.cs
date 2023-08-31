@@ -32,11 +32,11 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import API Gateway Client Certificates using the id. For example:
     /// 
-    ///  to = aws_api_gateway_client_certificate.demo
-    /// 
-    ///  id = "ab1cqe" } Using `pulumi import`, import API Gateway Client Certificates using the id. For exampleconsole % pulumi import aws_api_gateway_client_certificate.demo ab1cqe
+    /// ```sh
+    ///  $ pulumi import aws:apigateway/clientCertificate:ClientCertificate demo ab1cqe
+    /// ```
     /// </summary>
     [AwsResourceType("aws:apigateway/clientCertificate:ClientCertificate")]
     public partial class ClientCertificate : global::Pulumi.CustomResource

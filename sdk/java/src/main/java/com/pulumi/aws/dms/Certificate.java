@@ -53,11 +53,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import certificates using the `certificate_id`. For example:
  * 
- *  to = aws_dms_certificate.test
- * 
- *  id = &#34;test-dms-certificate-tf&#34; } Using `pulumi import`, import certificates using the `certificate_id`. For exampleconsole % pulumi import aws_dms_certificate.test test-dms-certificate-tf
+ * ```sh
+ *  $ pulumi import aws:dms/certificate:Certificate test test-dms-certificate-tf
+ * ```
  * 
  */
 @ResourceType(type="aws:dms/certificate:Certificate")

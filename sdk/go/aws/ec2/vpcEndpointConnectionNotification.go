@@ -89,11 +89,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import VPC Endpoint connection notifications using the VPC endpoint connection notification `id`. For example:
 //
-//	to = aws_vpc_endpoint_connection_notification.foo
+// ```sh
 //
-//	id = "vpce-nfn-09e6ed3b4efba2263" } Using `pulumi import`, import VPC Endpoint connection notifications using the VPC endpoint connection notification `id`. For exampleconsole % pulumi import aws_vpc_endpoint_connection_notification.foo vpce-nfn-09e6ed3b4efba2263
+//	$ pulumi import aws:ec2/vpcEndpointConnectionNotification:VpcEndpointConnectionNotification foo vpce-nfn-09e6ed3b4efba2263
+//
+// ```
 type VpcEndpointConnectionNotification struct {
 	pulumi.CustomResourceState
 

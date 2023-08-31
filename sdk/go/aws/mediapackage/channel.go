@@ -43,11 +43,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Media Package Channels using the channel ID. For example:
 //
-//	to = aws_media_package_channel.kittens
+// ```sh
 //
-//	id = "kittens-channel" } Using `pulumi import`, import Media Package Channels using the channel ID. For exampleconsole % pulumi import aws_media_package_channel.kittens kittens-channel
+//	$ pulumi import aws:mediapackage/channel:Channel kittens kittens-channel
+//
+// ```
 type Channel struct {
 	pulumi.CustomResourceState
 

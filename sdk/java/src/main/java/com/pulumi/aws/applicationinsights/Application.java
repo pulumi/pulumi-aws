@@ -68,11 +68,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import ApplicationInsights Applications using the `resource_group_name`. For example:
  * 
- *  to = aws_applicationinsights_application.some
- * 
- *  id = &#34;some-application&#34; } Using `pulumi import`, import ApplicationInsights Applications using the `resource_group_name`. For exampleconsole % pulumi import aws_applicationinsights_application.some some-application
+ * ```sh
+ *  $ pulumi import aws:applicationinsights/application:Application some some-application
+ * ```
  * 
  */
 @ResourceType(type="aws:applicationinsights/application:Application")

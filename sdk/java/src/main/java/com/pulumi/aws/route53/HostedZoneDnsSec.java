@@ -106,11 +106,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import `aws_route53_hosted_zone_dnssec` resources using the Route 53 Hosted Zone identifier. For example:
  * 
- *  to = aws_route53_hosted_zone_dnssec.example
- * 
- *  id = &#34;Z1D633PJN98FT9&#34; } Using `pulumi import`, import `aws_route53_hosted_zone_dnssec` resources using the Route 53 Hosted Zone identifier. For exampleconsole % pulumi import aws_route53_hosted_zone_dnssec.example Z1D633PJN98FT9
+ * ```sh
+ *  $ pulumi import aws:route53/hostedZoneDnsSec:HostedZoneDnsSec example Z1D633PJN98FT9
+ * ```
  * 
  */
 @ResourceType(type="aws:route53/hostedZoneDnsSec:HostedZoneDnsSec")

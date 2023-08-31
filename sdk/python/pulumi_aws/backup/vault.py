@@ -227,11 +227,11 @@ class Vault(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Backup vault using the `name`. For example:
 
-         to = aws_backup_vault.test-vault
-
-         id = "TestVault" } Using `pulumi import`, import Backup vault using the `name`. For exampleconsole % pulumi import aws_backup_vault.test-vault TestVault
+        ```sh
+         $ pulumi import aws:backup/vault:Vault test-vault TestVault
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -260,11 +260,11 @@ class Vault(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Backup vault using the `name`. For example:
 
-         to = aws_backup_vault.test-vault
-
-         id = "TestVault" } Using `pulumi import`, import Backup vault using the `name`. For exampleconsole % pulumi import aws_backup_vault.test-vault TestVault
+        ```sh
+         $ pulumi import aws:backup/vault:Vault test-vault TestVault
+        ```
 
         :param str resource_name: The name of the resource.
         :param VaultArgs args: The arguments to use to populate this resource's properties.

@@ -218,11 +218,11 @@ class Endpoint(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import endpoints using the `name`. For example:
 
-         to = aws_sagemaker_endpoint.test_endpoint
-
-         id = "my-endpoint" } Using `pulumi import`, import endpoints using the `name`. For exampleconsole % pulumi import aws_sagemaker_endpoint.test_endpoint my-endpoint
+        ```sh
+         $ pulumi import aws:sagemaker/endpoint:Endpoint test_endpoint my-endpoint
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -257,11 +257,11 @@ class Endpoint(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import endpoints using the `name`. For example:
 
-         to = aws_sagemaker_endpoint.test_endpoint
-
-         id = "my-endpoint" } Using `pulumi import`, import endpoints using the `name`. For exampleconsole % pulumi import aws_sagemaker_endpoint.test_endpoint my-endpoint
+        ```sh
+         $ pulumi import aws:sagemaker/endpoint:Endpoint test_endpoint my-endpoint
+        ```
 
         :param str resource_name: The name of the resource.
         :param EndpointArgs args: The arguments to use to populate this resource's properties.

@@ -64,11 +64,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import the EFS mount targets using the `id`. For example:
  * 
- *  to = aws_efs_mount_target.alpha
- * 
- *  id = &#34;fsmt-52a643fb&#34; } Using `pulumi import`, import the EFS mount targets using the `id`. For exampleconsole % pulumi import aws_efs_mount_target.alpha fsmt-52a643fb
+ * ```sh
+ *  $ pulumi import aws:efs/mountTarget:MountTarget alpha fsmt-52a643fb
+ * ```
  * 
  */
 @ResourceType(type="aws:efs/mountTarget:MountTarget")

@@ -2182,11 +2182,11 @@ class VpnConnection(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import VPN Connections using the VPN connection `id`. For example:
 
-         to = aws_vpn_connection.testvpnconnection
-
-         id = "vpn-40f41529" } Using `pulumi import`, import VPN Connections using the VPN connection `id`. For exampleconsole % pulumi import aws_vpn_connection.testvpnconnection vpn-40f41529
+        ```sh
+         $ pulumi import aws:ec2/vpnConnection:VpnConnection testvpnconnection vpn-40f41529
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -2330,11 +2330,11 @@ class VpnConnection(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import VPN Connections using the VPN connection `id`. For example:
 
-         to = aws_vpn_connection.testvpnconnection
-
-         id = "vpn-40f41529" } Using `pulumi import`, import VPN Connections using the VPN connection `id`. For exampleconsole % pulumi import aws_vpn_connection.testvpnconnection vpn-40f41529
+        ```sh
+         $ pulumi import aws:ec2/vpnConnection:VpnConnection testvpnconnection vpn-40f41529
+        ```
 
         :param str resource_name: The name of the resource.
         :param VpnConnectionArgs args: The arguments to use to populate this resource's properties.

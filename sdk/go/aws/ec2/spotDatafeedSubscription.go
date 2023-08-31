@@ -51,11 +51,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import a Spot Datafeed Subscription using the word `spot-datafeed-subscription`. For example:
 //
-//	to = aws_spot_datafeed_subscription.mysubscription
+// ```sh
 //
-//	id = "spot-datafeed-subscription" } Using `pulumi import`, import a Spot Datafeed Subscription using the word `spot-datafeed-subscription`. For exampleconsole % pulumi import aws_spot_datafeed_subscription.mysubscription spot-datafeed-subscription
+//	$ pulumi import aws:ec2/spotDatafeedSubscription:SpotDatafeedSubscription mysubscription spot-datafeed-subscription
+//
+// ```
 type SpotDatafeedSubscription struct {
 	pulumi.CustomResourceState
 

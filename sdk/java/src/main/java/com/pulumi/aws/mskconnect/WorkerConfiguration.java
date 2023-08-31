@@ -55,11 +55,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import MSK Connect Worker Configuration using the plugin&#39;s `arn`. For example:
  * 
- *  to = aws_mskconnect_worker_configuration.example
- * 
- *  id = &#34;arn:aws:kafkaconnect:eu-central-1:123456789012:worker-configuration/example/8848493b-7fcc-478c-a646-4a52634e3378-4&#34; } Using `pulumi import`, import MSK Connect Worker Configuration using the plugin&#39;s `arn`. For exampleconsole % pulumi import aws_mskconnect_worker_configuration.example &#39;arn:aws:kafkaconnect:eu-central-1:123456789012:worker-configuration/example/8848493b-7fcc-478c-a646-4a52634e3378-4&#39;
+ * ```sh
+ *  $ pulumi import aws:mskconnect/workerConfiguration:WorkerConfiguration example &#39;arn:aws:kafkaconnect:eu-central-1:123456789012:worker-configuration/example/8848493b-7fcc-478c-a646-4a52634e3378-4&#39;
+ * ```
  * 
  */
 @ResourceType(type="aws:mskconnect/workerConfiguration:WorkerConfiguration")

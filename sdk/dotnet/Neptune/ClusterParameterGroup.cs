@@ -41,11 +41,11 @@ namespace Pulumi.Aws.Neptune
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import Neptune Cluster Parameter Groups using the `name`. For example:
     /// 
-    ///  to = aws_neptune_cluster_parameter_group.cluster_pg
-    /// 
-    ///  id = "production-pg-1" } Using `pulumi import`, import Neptune Cluster Parameter Groups using the `name`. For exampleconsole % pulumi import aws_neptune_cluster_parameter_group.cluster_pg production-pg-1
+    /// ```sh
+    ///  $ pulumi import aws:neptune/clusterParameterGroup:ClusterParameterGroup cluster_pg production-pg-1
+    /// ```
     /// </summary>
     [AwsResourceType("aws:neptune/clusterParameterGroup:ClusterParameterGroup")]
     public partial class ClusterParameterGroup : global::Pulumi.CustomResource

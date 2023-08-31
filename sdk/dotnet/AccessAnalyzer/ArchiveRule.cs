@@ -58,11 +58,11 @@ namespace Pulumi.Aws.AccessAnalyzer
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import AccessAnalyzer ArchiveRule using the `analyzer_name/rule_name`. For example:
     /// 
-    ///  to = aws_accessanalyzer_archive_rule.example
-    /// 
-    ///  id = "example-analyzer/example-rule" } Using `pulumi import`, import AccessAnalyzer ArchiveRule using the `analyzer_name/rule_name`. For exampleconsole % pulumi import aws_accessanalyzer_archive_rule.example example-analyzer/example-rule
+    /// ```sh
+    ///  $ pulumi import aws:accessanalyzer/archiveRule:ArchiveRule example example-analyzer/example-rule
+    /// ```
     /// </summary>
     [AwsResourceType("aws:accessanalyzer/archiveRule:ArchiveRule")]
     public partial class ArchiveRule : global::Pulumi.CustomResource

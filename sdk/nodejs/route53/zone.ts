@@ -58,11 +58,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import Route53 Zones using the zone `id`. For example:
  *
- *  to = aws_route53_zone.myzone
- *
- *  id = "Z1D633PJN98FT9" } Using `pulumi import`, import Route53 Zones using the zone `id`. For exampleconsole % pulumi import aws_route53_zone.myzone Z1D633PJN98FT9
+ * ```sh
+ *  $ pulumi import aws:route53/zone:Zone myzone Z1D633PJN98FT9
+ * ```
  */
 export class Zone extends pulumi.CustomResource {
     /**

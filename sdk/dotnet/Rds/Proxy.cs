@@ -59,11 +59,11 @@ namespace Pulumi.Aws.Rds
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import DB proxies using the `name`. For example:
     /// 
-    ///  to = aws_db_proxy.example
-    /// 
-    ///  id = "example" } Using `pulumi import`, import DB proxies using the `name`. For exampleconsole % pulumi import aws_db_proxy.example example
+    /// ```sh
+    ///  $ pulumi import aws:rds/proxy:Proxy example example
+    /// ```
     /// </summary>
     [AwsResourceType("aws:rds/proxy:Proxy")]
     public partial class Proxy : global::Pulumi.CustomResource

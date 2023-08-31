@@ -37,11 +37,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Security Groups using the security group `id`. For example:
  * 
- *  to = aws_default_security_group.default_sg
- * 
- *  id = &#34;sg-903004f8&#34; } Using `pulumi import`, import Security Groups using the security group `id`. For exampleconsole % pulumi import aws_default_security_group.default_sg sg-903004f8
+ * ```sh
+ *  $ pulumi import aws:ec2/defaultSecurityGroup:DefaultSecurityGroup default_sg sg-903004f8
+ * ```
  * 
  */
 @ResourceType(type="aws:ec2/defaultSecurityGroup:DefaultSecurityGroup")

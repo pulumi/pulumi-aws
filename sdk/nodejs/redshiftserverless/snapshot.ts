@@ -21,11 +21,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import Redshift Serverless Snapshots using the `snapshot_name`. For example:
  *
- *  to = aws_redshiftserverless_snapshot.example
- *
- *  id = "example" } Using `pulumi import`, import Redshift Serverless Snapshots using the `snapshot_name`. For exampleconsole % pulumi import aws_redshiftserverless_snapshot.example example
+ * ```sh
+ *  $ pulumi import aws:redshiftserverless/snapshot:Snapshot example example
+ * ```
  */
 export class Snapshot extends pulumi.CustomResource {
     /**

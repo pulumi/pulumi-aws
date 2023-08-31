@@ -192,11 +192,11 @@ class Route(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_ec2_transit_gateway_route` using the EC2 Transit Gateway Route Table, an underscore, and the destination. For example:
 
-         to = aws_ec2_transit_gateway_route.example
-
-         id = "tgw-rtb-12345678_0.0.0.0/0" } Using `pulumi import`, import `aws_ec2_transit_gateway_route` using the EC2 Transit Gateway Route Table, an underscore, and the destination. For exampleconsole % pulumi import aws_ec2_transit_gateway_route.example tgw-rtb-12345678_0.0.0.0/0
+        ```sh
+         $ pulumi import aws:ec2transitgateway/route:Route example tgw-rtb-12345678_0.0.0.0/0
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -240,11 +240,11 @@ class Route(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_ec2_transit_gateway_route` using the EC2 Transit Gateway Route Table, an underscore, and the destination. For example:
 
-         to = aws_ec2_transit_gateway_route.example
-
-         id = "tgw-rtb-12345678_0.0.0.0/0" } Using `pulumi import`, import `aws_ec2_transit_gateway_route` using the EC2 Transit Gateway Route Table, an underscore, and the destination. For exampleconsole % pulumi import aws_ec2_transit_gateway_route.example tgw-rtb-12345678_0.0.0.0/0
+        ```sh
+         $ pulumi import aws:ec2transitgateway/route:Route example tgw-rtb-12345678_0.0.0.0/0
+        ```
 
         :param str resource_name: The name of the resource.
         :param RouteArgs args: The arguments to use to populate this resource's properties.

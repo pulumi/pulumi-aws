@@ -70,11 +70,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import AWS Opensearch Outbound Connections using the Outbound Connection ID. For example:
  * 
- *  to = aws_opensearch_outbound_connection.foo
- * 
- *  id = &#34;connection-id&#34; } Using `pulumi import`, import AWS Opensearch Outbound Connections using the Outbound Connection ID. For exampleconsole % pulumi import aws_opensearch_outbound_connection.foo connection-id
+ * ```sh
+ *  $ pulumi import aws:opensearch/outboundConnection:OutboundConnection foo connection-id
+ * ```
  * 
  */
 @ResourceType(type="aws:opensearch/outboundConnection:OutboundConnection")

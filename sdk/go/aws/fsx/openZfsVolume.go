@@ -43,11 +43,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import FSx Volumes using the `id`. For example:
 //
-//	to = aws_fsx_openzfs_volume.example
+// ```sh
 //
-//	id = "fsvol-543ab12b1ca672f33" } Using `pulumi import`, import FSx Volumes using the `id`. For exampleconsole % pulumi import aws_fsx_openzfs_volume.example fsvol-543ab12b1ca672f33
+//	$ pulumi import aws:fsx/openZfsVolume:OpenZfsVolume example fsvol-543ab12b1ca672f33
+//
+// ```
 type OpenZfsVolume struct {
 	pulumi.CustomResourceState
 

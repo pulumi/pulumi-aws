@@ -28,11 +28,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import Lambda Layer Permissions using `layer_name` and `version_number`, separated by a comma (`,`). For example:
  *
- *  to = aws_lambda_layer_version_permission.example
- *
- *  id = "arn:aws:lambda:us-west-2:123456654321:layer:test_layer1,1" } Using `pulumi import`, import Lambda Layer Permissions using `layer_name` and `version_number`, separated by a comma (`,`). For exampleconsole % pulumi import aws_lambda_layer_version_permission.example arn:aws:lambda:us-west-2:123456654321:layer:test_layer1,1 [1]https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html#permissions-resource-xaccountlayer
+ * ```sh
+ *  $ pulumi import aws:lambda/layerVersionPermission:LayerVersionPermission example arn:aws:lambda:us-west-2:123456654321:layer:test_layer1,1
+ * ```
  */
 export class LayerVersionPermission extends pulumi.CustomResource {
     /**

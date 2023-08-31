@@ -112,11 +112,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import S3 bucket intelligent tiering configurations using `bucket:name`. For example:
  * 
- *  to = aws_s3_bucket_intelligent_tiering_configuration.my-bucket-entire-bucket
- * 
- *  id = &#34;my-bucket:EntireBucket&#34; } Using `pulumi import`, import S3 bucket intelligent tiering configurations using `bucket:name`. For exampleconsole % pulumi import aws_s3_bucket_intelligent_tiering_configuration.my-bucket-entire-bucket my-bucket:EntireBucket
+ * ```sh
+ *  $ pulumi import aws:s3/bucketIntelligentTieringConfiguration:BucketIntelligentTieringConfiguration my-bucket-entire-bucket my-bucket:EntireBucket
+ * ```
  * 
  */
 @ResourceType(type="aws:s3/bucketIntelligentTieringConfiguration:BucketIntelligentTieringConfiguration")

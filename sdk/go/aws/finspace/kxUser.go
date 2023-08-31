@@ -84,11 +84,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import an AWS FinSpace Kx User using the `id` (environment ID and user name, comma-delimited). For example:
 //
-//	to = aws_finspace_kx_user.example
+// ```sh
 //
-//	id = "n3ceo7wqxoxcti5tujqwzs,my-tf-kx-user" } Using `pulumi import`, import an AWS FinSpace Kx User using the `id` (environment ID and user name, comma-delimited). For exampleconsole % pulumi import aws_finspace_kx_user.example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-user
+//	$ pulumi import aws:finspace/kxUser:KxUser example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-user
+//
+// ```
 type KxUser struct {
 	pulumi.CustomResourceState
 

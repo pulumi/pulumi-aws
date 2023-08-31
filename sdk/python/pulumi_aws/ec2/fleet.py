@@ -650,11 +650,11 @@ class Fleet(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_ec2_fleet` using the Fleet identifier. For example:
 
-         to = aws_ec2_fleet.example
-
-         id = "fleet-b9b55d27-c5fc-41ac-a6f3-48fcc91f080c" } Using `pulumi import`, import `aws_ec2_fleet` using the Fleet identifier. For exampleconsole % pulumi import aws_ec2_fleet.example fleet-b9b55d27-c5fc-41ac-a6f3-48fcc91f080c
+        ```sh
+         $ pulumi import aws:ec2/fleet:Fleet example fleet-b9b55d27-c5fc-41ac-a6f3-48fcc91f080c
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -706,11 +706,11 @@ class Fleet(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_ec2_fleet` using the Fleet identifier. For example:
 
-         to = aws_ec2_fleet.example
-
-         id = "fleet-b9b55d27-c5fc-41ac-a6f3-48fcc91f080c" } Using `pulumi import`, import `aws_ec2_fleet` using the Fleet identifier. For exampleconsole % pulumi import aws_ec2_fleet.example fleet-b9b55d27-c5fc-41ac-a6f3-48fcc91f080c
+        ```sh
+         $ pulumi import aws:ec2/fleet:Fleet example fleet-b9b55d27-c5fc-41ac-a6f3-48fcc91f080c
+        ```
 
         :param str resource_name: The name of the resource.
         :param FleetArgs args: The arguments to use to populate this resource's properties.

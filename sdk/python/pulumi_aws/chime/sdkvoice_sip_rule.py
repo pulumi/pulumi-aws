@@ -227,11 +227,11 @@ class SdkvoiceSipRule(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import a ChimeSDKVoice SIP Rule using the `id`. For example:
 
-         to = aws_chimesdkvoice_sip_rule.example
-
-         id = "abcdef123456" } Using `pulumi import`, import a ChimeSDKVoice SIP Rule using the `id`. For exampleconsole % pulumi import aws_chimesdkvoice_sip_rule.example abcdef123456
+        ```sh
+         $ pulumi import aws:chime/sdkvoiceSipRule:SdkvoiceSipRule example abcdef123456
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -271,11 +271,11 @@ class SdkvoiceSipRule(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import a ChimeSDKVoice SIP Rule using the `id`. For example:
 
-         to = aws_chimesdkvoice_sip_rule.example
-
-         id = "abcdef123456" } Using `pulumi import`, import a ChimeSDKVoice SIP Rule using the `id`. For exampleconsole % pulumi import aws_chimesdkvoice_sip_rule.example abcdef123456
+        ```sh
+         $ pulumi import aws:chime/sdkvoiceSipRule:SdkvoiceSipRule example abcdef123456
+        ```
 
         :param str resource_name: The name of the resource.
         :param SdkvoiceSipRuleArgs args: The arguments to use to populate this resource's properties.

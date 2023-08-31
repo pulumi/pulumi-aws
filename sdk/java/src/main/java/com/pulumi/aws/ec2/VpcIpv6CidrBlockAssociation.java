@@ -59,11 +59,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import `aws_vpc_ipv6_cidr_block_association` using the VPC CIDR Association ID. For example:
  * 
- *  to = aws_vpc_ipv6_cidr_block_association.example
- * 
- *  id = &#34;vpc-cidr-assoc-xxxxxxxx&#34; } Using `pulumi import`, import `aws_vpc_ipv6_cidr_block_association` using the VPC CIDR Association ID. For exampleconsole % pulumi import aws_vpc_ipv6_cidr_block_association.example vpc-cidr-assoc-xxxxxxxx
+ * ```sh
+ *  $ pulumi import aws:ec2/vpcIpv6CidrBlockAssociation:VpcIpv6CidrBlockAssociation example vpc-cidr-assoc-xxxxxxxx
+ * ```
  * 
  */
 @ResourceType(type="aws:ec2/vpcIpv6CidrBlockAssociation:VpcIpv6CidrBlockAssociation")

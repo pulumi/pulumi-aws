@@ -442,11 +442,11 @@ class PublicVirtualInterface(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Direct Connect public virtual interfaces using the VIF `id`. For example:
 
-         to = aws_dx_public_virtual_interface.test
-
-         id = "dxvif-33cc44dd" } Using `pulumi import`, import Direct Connect public virtual interfaces using the VIF `id`. For exampleconsole % pulumi import aws_dx_public_virtual_interface.test dxvif-33cc44dd
+        ```sh
+         $ pulumi import aws:directconnect/publicVirtualInterface:PublicVirtualInterface test dxvif-33cc44dd
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -491,11 +491,11 @@ class PublicVirtualInterface(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Direct Connect public virtual interfaces using the VIF `id`. For example:
 
-         to = aws_dx_public_virtual_interface.test
-
-         id = "dxvif-33cc44dd" } Using `pulumi import`, import Direct Connect public virtual interfaces using the VIF `id`. For exampleconsole % pulumi import aws_dx_public_virtual_interface.test dxvif-33cc44dd
+        ```sh
+         $ pulumi import aws:directconnect/publicVirtualInterface:PublicVirtualInterface test dxvif-33cc44dd
+        ```
 
         :param str resource_name: The name of the resource.
         :param PublicVirtualInterfaceArgs args: The arguments to use to populate this resource's properties.

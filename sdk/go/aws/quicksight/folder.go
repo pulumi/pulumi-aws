@@ -115,11 +115,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import a QuickSight folder using the AWS account ID and folder ID name separated by a comma (`,`). For example:
 //
-//	to = aws_quicksight_folder.example
+// ```sh
 //
-//	id = "123456789012,example-id" } Using `pulumi import`, import a QuickSight folder using the AWS account ID and folder ID name separated by a comma (`,`). For exampleconsole % pulumi import aws_quicksight_folder.example 123456789012,example-id
+//	$ pulumi import aws:quicksight/folder:Folder example 123456789012,example-id
+//
+// ```
 type Folder struct {
 	pulumi.CustomResourceState
 

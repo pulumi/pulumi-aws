@@ -42,11 +42,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Route53 Recovery Control Config Control Panel using the control panel arn. For example:
 //
-//	to = aws_route53recoverycontrolconfig_control_panel.mypanel
+// ```sh
 //
-//	id = "arn:aws:route53-recovery-control::313517334327:controlpanel/1bfba17df8684f5dab0467b71424f7e8" } Using `pulumi import`, import Route53 Recovery Control Config Control Panel using the control panel arn. For exampleconsole % pulumi import aws_route53recoverycontrolconfig_control_panel.mypanel arn:aws:route53-recovery-control::313517334327:controlpanel/1bfba17df8684f5dab0467b71424f7e8
+//	$ pulumi import aws:route53recoverycontrol/controlPanel:ControlPanel mypanel arn:aws:route53-recovery-control::313517334327:controlpanel/1bfba17df8684f5dab0467b71424f7e8
+//
+// ```
 type ControlPanel struct {
 	pulumi.CustomResourceState
 

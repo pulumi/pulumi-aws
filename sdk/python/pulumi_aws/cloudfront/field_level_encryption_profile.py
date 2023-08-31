@@ -192,11 +192,11 @@ class FieldLevelEncryptionProfile(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Cloudfront Field Level Encryption Profile using the `id`. For example:
 
-         to = aws_cloudfront_field_level_encryption_profile.profile
-
-         id = "K3D5EWEUDCCXON" } Using `pulumi import`, import Cloudfront Field Level Encryption Profile using the `id`. For exampleconsole % pulumi import aws_cloudfront_field_level_encryption_profile.profile K3D5EWEUDCCXON
+        ```sh
+         $ pulumi import aws:cloudfront/fieldLevelEncryptionProfile:FieldLevelEncryptionProfile profile K3D5EWEUDCCXON
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -237,11 +237,11 @@ class FieldLevelEncryptionProfile(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Cloudfront Field Level Encryption Profile using the `id`. For example:
 
-         to = aws_cloudfront_field_level_encryption_profile.profile
-
-         id = "K3D5EWEUDCCXON" } Using `pulumi import`, import Cloudfront Field Level Encryption Profile using the `id`. For exampleconsole % pulumi import aws_cloudfront_field_level_encryption_profile.profile K3D5EWEUDCCXON
+        ```sh
+         $ pulumi import aws:cloudfront/fieldLevelEncryptionProfile:FieldLevelEncryptionProfile profile K3D5EWEUDCCXON
+        ```
 
         :param str resource_name: The name of the resource.
         :param FieldLevelEncryptionProfileArgs args: The arguments to use to populate this resource's properties.

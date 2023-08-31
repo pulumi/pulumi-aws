@@ -72,11 +72,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Amplify domain association using `app_id` and `domain_name`. For example:
 //
-//	to = aws_amplify_domain_association.app
+// ```sh
 //
-//	id = "d2ypk4k47z8u6/example.com" } Using `pulumi import`, import Amplify domain association using `app_id` and `domain_name`. For exampleconsole % pulumi import aws_amplify_domain_association.app d2ypk4k47z8u6/example.com
+//	$ pulumi import aws:amplify/domainAssociation:DomainAssociation app d2ypk4k47z8u6/example.com
+//
+// ```
 type DomainAssociation struct {
 	pulumi.CustomResourceState
 

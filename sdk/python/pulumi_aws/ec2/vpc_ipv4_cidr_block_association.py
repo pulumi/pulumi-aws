@@ -184,11 +184,11 @@ class VpcIpv4CidrBlockAssociation(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_vpc_ipv4_cidr_block_association` using the VPC CIDR Association ID. For example:
 
-         to = aws_vpc_ipv4_cidr_block_association.example
-
-         id = "vpc-cidr-assoc-xxxxxxxx" } Using `pulumi import`, import `aws_vpc_ipv4_cidr_block_association` using the VPC CIDR Association ID. For exampleconsole % pulumi import aws_vpc_ipv4_cidr_block_association.example vpc-cidr-assoc-xxxxxxxx
+        ```sh
+         $ pulumi import aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation example vpc-cidr-assoc-xxxxxxxx
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -223,11 +223,11 @@ class VpcIpv4CidrBlockAssociation(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_vpc_ipv4_cidr_block_association` using the VPC CIDR Association ID. For example:
 
-         to = aws_vpc_ipv4_cidr_block_association.example
-
-         id = "vpc-cidr-assoc-xxxxxxxx" } Using `pulumi import`, import `aws_vpc_ipv4_cidr_block_association` using the VPC CIDR Association ID. For exampleconsole % pulumi import aws_vpc_ipv4_cidr_block_association.example vpc-cidr-assoc-xxxxxxxx
+        ```sh
+         $ pulumi import aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation example vpc-cidr-assoc-xxxxxxxx
+        ```
 
         :param str resource_name: The name of the resource.
         :param VpcIpv4CidrBlockAssociationArgs args: The arguments to use to populate this resource's properties.

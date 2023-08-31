@@ -352,11 +352,11 @@ class InternetMonitor(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Internet Monitor Monitors using the `monitor_name`. For example:
 
-         to = aws_internetmonitor_monitor.some
-
-         id = "some-monitor" } Using `pulumi import`, import Internet Monitor Monitors using the `monitor_name`. For exampleconsole % pulumi import aws_internetmonitor_monitor.some some-monitor
+        ```sh
+         $ pulumi import aws:cloudwatch/internetMonitor:InternetMonitor some some-monitor
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -391,11 +391,11 @@ class InternetMonitor(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Internet Monitor Monitors using the `monitor_name`. For example:
 
-         to = aws_internetmonitor_monitor.some
-
-         id = "some-monitor" } Using `pulumi import`, import Internet Monitor Monitors using the `monitor_name`. For exampleconsole % pulumi import aws_internetmonitor_monitor.some some-monitor
+        ```sh
+         $ pulumi import aws:cloudwatch/internetMonitor:InternetMonitor some some-monitor
+        ```
 
         :param str resource_name: The name of the resource.
         :param InternetMonitorArgs args: The arguments to use to populate this resource's properties.

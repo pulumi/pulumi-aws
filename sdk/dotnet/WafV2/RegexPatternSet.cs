@@ -49,11 +49,11 @@ namespace Pulumi.Aws.WafV2
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import WAFv2 Regex Pattern Sets using `ID/name/scope`. For example:
     /// 
-    ///  to = aws_wafv2_regex_pattern_set.example
-    /// 
-    ///  id = "a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL" } Using `pulumi import`, import WAFv2 Regex Pattern Sets using `ID/name/scope`. For exampleconsole % pulumi import aws_wafv2_regex_pattern_set.example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
+    /// ```sh
+    ///  $ pulumi import aws:wafv2/regexPatternSet:RegexPatternSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
+    /// ```
     /// </summary>
     [AwsResourceType("aws:wafv2/regexPatternSet:RegexPatternSet")]
     public partial class RegexPatternSet : global::Pulumi.CustomResource

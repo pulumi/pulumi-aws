@@ -26,11 +26,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import Capacity Reservations using the `id`. For example:
  *
- *  to = aws_ec2_capacity_reservation.web
- *
- *  id = "cr-0123456789abcdef0" } Using `pulumi import`, import Capacity Reservations using the `id`. For exampleconsole % pulumi import aws_ec2_capacity_reservation.web cr-0123456789abcdef0
+ * ```sh
+ *  $ pulumi import aws:ec2/capacityReservation:CapacityReservation web cr-0123456789abcdef0
+ * ```
  */
 export class CapacityReservation extends pulumi.CustomResource {
     /**

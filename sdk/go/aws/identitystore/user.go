@@ -23,11 +23,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import an Identity Store User using the combination `identity_store_id/user_id`. For example:
 //
-//	to = aws_identitystore_user.example
+// ```sh
 //
-//	id = "d-9c6705e95c/065212b4-9061-703b-5876-13a517ae2a7c" } Using `pulumi import`, import an Identity Store User using the combination `identity_store_id/user_id`. For exampleconsole % pulumi import aws_identitystore_user.example d-9c6705e95c/065212b4-9061-703b-5876-13a517ae2a7c
+//	$ pulumi import aws:identitystore/user:User example d-9c6705e95c/065212b4-9061-703b-5876-13a517ae2a7c
+//
+// ```
 type User struct {
 	pulumi.CustomResourceState
 

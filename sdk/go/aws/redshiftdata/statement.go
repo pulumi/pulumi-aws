@@ -73,11 +73,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import Redshift Data Statements using the `id`. For example:
 //
-//	to = aws_redshiftdata_statement.example
+// ```sh
 //
-//	id = "example" } Using `pulumi import`, import Redshift Data Statements using the `id`. For exampleconsole % pulumi import aws_redshiftdata_statement.example example
+//	$ pulumi import aws:redshiftdata/statement:Statement example example
+//
+// ```
 type Statement struct {
 	pulumi.CustomResourceState
 

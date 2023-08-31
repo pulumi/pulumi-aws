@@ -50,11 +50,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import QuickSight Group membership using the AWS account ID, namespace, group name and member name separated by `/`. For example:
  * 
- *  to = aws_quicksight_group_membership.example
- * 
- *  id = &#34;123456789123/default/all-access-users/john_smith&#34; } Using `pulumi import`, import QuickSight Group membership using the AWS account ID, namespace, group name and member name separated by `/`. For exampleconsole % pulumi import aws_quicksight_group_membership.example 123456789123/default/all-access-users/john_smith
+ * ```sh
+ *  $ pulumi import aws:quicksight/groupMembership:GroupMembership example 123456789123/default/all-access-users/john_smith
+ * ```
  * 
  */
 @ResourceType(type="aws:quicksight/groupMembership:GroupMembership")

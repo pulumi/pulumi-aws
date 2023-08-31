@@ -751,11 +751,11 @@ class Trail(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Cloudtrails using the `name`. For example:
 
-         to = aws_cloudtrail.sample
-
-         id = "my-sample-trail" } Using `pulumi import`, import Cloudtrails using the `name`. For exampleconsole % pulumi import aws_cloudtrail.sample my-sample-trail
+        ```sh
+         $ pulumi import aws:cloudtrail/trail:Trail sample my-sample-trail
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -917,11 +917,11 @@ class Trail(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Cloudtrails using the `name`. For example:
 
-         to = aws_cloudtrail.sample
-
-         id = "my-sample-trail" } Using `pulumi import`, import Cloudtrails using the `name`. For exampleconsole % pulumi import aws_cloudtrail.sample my-sample-trail
+        ```sh
+         $ pulumi import aws:cloudtrail/trail:Trail sample my-sample-trail
+        ```
 
         :param str resource_name: The name of the resource.
         :param TrailArgs args: The arguments to use to populate this resource's properties.

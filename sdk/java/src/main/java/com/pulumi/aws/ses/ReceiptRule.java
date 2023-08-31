@@ -72,11 +72,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import SES receipt rules using the ruleset name and rule name separated by `:`. For example:
  * 
- *  to = aws_ses_receipt_rule.my_rule
- * 
- *  id = &#34;my_rule_set:my_rule&#34; } Using `pulumi import`, import SES receipt rules using the ruleset name and rule name separated by `:`. For exampleconsole % pulumi import aws_ses_receipt_rule.my_rule my_rule_set:my_rule
+ * ```sh
+ *  $ pulumi import aws:ses/receiptRule:ReceiptRule my_rule my_rule_set:my_rule
+ * ```
  * 
  */
 @ResourceType(type="aws:ses/receiptRule:ReceiptRule")

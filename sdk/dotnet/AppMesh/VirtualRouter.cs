@@ -56,11 +56,11 @@ namespace Pulumi.Aws.AppMesh
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import App Mesh virtual routers using `mesh_name` together with the virtual router's `name`. For example:
     /// 
-    ///  to = aws_appmesh_virtual_router.serviceb
-    /// 
-    ///  id = "simpleapp/serviceB" } Using `pulumi import`, import App Mesh virtual routers using `mesh_name` together with the virtual router's `name`. For exampleconsole % pulumi import aws_appmesh_virtual_router.serviceb simpleapp/serviceB
+    /// ```sh
+    ///  $ pulumi import aws:appmesh/virtualRouter:VirtualRouter serviceb simpleapp/serviceB
+    /// ```
     /// </summary>
     [AwsResourceType("aws:appmesh/virtualRouter:VirtualRouter")]
     public partial class VirtualRouter : global::Pulumi.CustomResource

@@ -121,11 +121,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import `aws_api_gateway_method` using `REST-API-ID/RESOURCE-ID/HTTP-METHOD`. For example:
 //
-//	to = aws_api_gateway_method.example
+// ```sh
 //
-//	id = "12345abcde/67890fghij/GET" } Using `pulumi import`, import `aws_api_gateway_method` using `REST-API-ID/RESOURCE-ID/HTTP-METHOD`. For exampleconsole % pulumi import aws_api_gateway_method.example 12345abcde/67890fghij/GET
+//	$ pulumi import aws:apigateway/method:Method example 12345abcde/67890fghij/GET
+//
+// ```
 type Method struct {
 	pulumi.CustomResourceState
 

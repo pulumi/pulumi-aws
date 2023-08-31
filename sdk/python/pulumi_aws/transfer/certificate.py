@@ -309,11 +309,11 @@ class Certificate(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Transfer AS2 Certificate using the `certificate_id`. For example:
 
-         to = aws_transfer_certificate.example
-
-         id = "c-4221a88afd5f4362a" } Using `pulumi import`, import Transfer AS2 Certificate using the `certificate_id`. For exampleconsole % pulumi import aws_transfer_certificate.example c-4221a88afd5f4362a
+        ```sh
+         $ pulumi import aws:transfer/certificate:Certificate example c-4221a88afd5f4362a
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -350,11 +350,11 @@ class Certificate(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Transfer AS2 Certificate using the `certificate_id`. For example:
 
-         to = aws_transfer_certificate.example
-
-         id = "c-4221a88afd5f4362a" } Using `pulumi import`, import Transfer AS2 Certificate using the `certificate_id`. For exampleconsole % pulumi import aws_transfer_certificate.example c-4221a88afd5f4362a
+        ```sh
+         $ pulumi import aws:transfer/certificate:Certificate example c-4221a88afd5f4362a
+        ```
 
         :param str resource_name: The name of the resource.
         :param CertificateArgs args: The arguments to use to populate this resource's properties.

@@ -348,11 +348,11 @@ class Inventory(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import S3 bucket inventory configurations using `bucket:inventory`. For example:
 
-         to = aws_s3_bucket_inventory.my-bucket-entire-bucket
-
-         id = "my-bucket:EntireBucket" } Using `pulumi import`, import S3 bucket inventory configurations using `bucket:inventory`. For exampleconsole % pulumi import aws_s3_bucket_inventory.my-bucket-entire-bucket my-bucket:EntireBucket
+        ```sh
+         $ pulumi import aws:s3/inventory:Inventory my-bucket-entire-bucket my-bucket:EntireBucket
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -424,11 +424,11 @@ class Inventory(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import S3 bucket inventory configurations using `bucket:inventory`. For example:
 
-         to = aws_s3_bucket_inventory.my-bucket-entire-bucket
-
-         id = "my-bucket:EntireBucket" } Using `pulumi import`, import S3 bucket inventory configurations using `bucket:inventory`. For exampleconsole % pulumi import aws_s3_bucket_inventory.my-bucket-entire-bucket my-bucket:EntireBucket
+        ```sh
+         $ pulumi import aws:s3/inventory:Inventory my-bucket-entire-bucket my-bucket:EntireBucket
+        ```
 
         :param str resource_name: The name of the resource.
         :param InventoryArgs args: The arguments to use to populate this resource's properties.

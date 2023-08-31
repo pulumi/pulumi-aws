@@ -63,11 +63,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Code Signing Configs using their ARN. For example:
  * 
- *  to = aws_lambda_code_signing_config.imported_csc
- * 
- *  id = &#34;arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-0f6c334abcdea4d8b&#34; } Using `pulumi import`, import Code Signing Configs using their ARN. For exampleconsole % pulumi import aws_lambda_code_signing_config.imported_csc arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-0f6c334abcdea4d8b
+ * ```sh
+ *  $ pulumi import aws:lambda/codeSigningConfig:CodeSigningConfig imported_csc arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-0f6c334abcdea4d8b
+ * ```
  * 
  */
 @ResourceType(type="aws:lambda/codeSigningConfig:CodeSigningConfig")

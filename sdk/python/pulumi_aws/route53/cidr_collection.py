@@ -112,11 +112,11 @@ class CidrCollection(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import CIDR collections using their ID. For example:
 
-         to = aws_route53_cidr_collection.example
-
-         id = "9ac32814-3e67-0932-6048-8d779cc6f511" } Using `pulumi import`, import CIDR collections using their ID. For exampleconsole % pulumi import aws_route53_cidr_collection.example 9ac32814-3e67-0932-6048-8d779cc6f511
+        ```sh
+         $ pulumi import aws:route53/cidrCollection:CidrCollection example 9ac32814-3e67-0932-6048-8d779cc6f511
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -142,11 +142,11 @@ class CidrCollection(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import CIDR collections using their ID. For example:
 
-         to = aws_route53_cidr_collection.example
-
-         id = "9ac32814-3e67-0932-6048-8d779cc6f511" } Using `pulumi import`, import CIDR collections using their ID. For exampleconsole % pulumi import aws_route53_cidr_collection.example 9ac32814-3e67-0932-6048-8d779cc6f511
+        ```sh
+         $ pulumi import aws:route53/cidrCollection:CidrCollection example 9ac32814-3e67-0932-6048-8d779cc6f511
+        ```
 
         :param str resource_name: The name of the resource.
         :param CidrCollectionArgs args: The arguments to use to populate this resource's properties.

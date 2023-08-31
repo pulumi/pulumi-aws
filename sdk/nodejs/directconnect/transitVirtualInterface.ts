@@ -26,11 +26,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import Direct Connect transit virtual interfaces using the VIF `id`. For example:
  *
- *  to = aws_dx_transit_virtual_interface.test
- *
- *  id = "dxvif-33cc44dd" } Using `pulumi import`, import Direct Connect transit virtual interfaces using the VIF `id`. For exampleconsole % pulumi import aws_dx_transit_virtual_interface.test dxvif-33cc44dd
+ * ```sh
+ *  $ pulumi import aws:directconnect/transitVirtualInterface:TransitVirtualInterface test dxvif-33cc44dd
+ * ```
  */
 export class TransitVirtualInterface extends pulumi.CustomResource {
     /**

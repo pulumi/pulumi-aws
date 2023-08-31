@@ -50,11 +50,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import `aws_networkmanager_global_network` using the global network ID. For example:
  * 
- *  to = aws_networkmanager_global_network.example
- * 
- *  id = &#34;global-network-0d47f6t230mz46dy4&#34; } Using `pulumi import`, import `aws_networkmanager_global_network` using the global network ID. For exampleconsole % pulumi import aws_networkmanager_global_network.example global-network-0d47f6t230mz46dy4
+ * ```sh
+ *  $ pulumi import aws:networkmanager/globalNetwork:GlobalNetwork example global-network-0d47f6t230mz46dy4
+ * ```
  * 
  */
 @ResourceType(type="aws:networkmanager/globalNetwork:GlobalNetwork")

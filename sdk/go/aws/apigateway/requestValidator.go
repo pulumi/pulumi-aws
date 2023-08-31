@@ -44,11 +44,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import `aws_api_gateway_request_validator` using `REST-API-ID/REQUEST-VALIDATOR-ID`. For example:
 //
-//	to = aws_api_gateway_request_validator.example
+// ```sh
 //
-//	id = "12345abcde/67890fghij" } Using `pulumi import`, import `aws_api_gateway_request_validator` using `REST-API-ID/REQUEST-VALIDATOR-ID`. For exampleconsole % pulumi import aws_api_gateway_request_validator.example 12345abcde/67890fghij
+//	$ pulumi import aws:apigateway/requestValidator:RequestValidator example 12345abcde/67890fghij
+//
+// ```
 type RequestValidator struct {
 	pulumi.CustomResourceState
 

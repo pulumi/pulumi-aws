@@ -35,11 +35,11 @@ namespace Pulumi.Aws.Detective
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import `aws_detective_graph` using the ARN. For example:
     /// 
-    ///  to = aws_detective_graph.example
-    /// 
-    ///  id = "arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d" } Using `pulumi import`, import `aws_detective_graph` using the ARN. For exampleconsole % pulumi import aws_detective_graph.example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d
+    /// ```sh
+    ///  $ pulumi import aws:detective/graph:Graph example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d
+    /// ```
     /// </summary>
     [AwsResourceType("aws:detective/graph:Graph")]
     public partial class Graph : global::Pulumi.CustomResource

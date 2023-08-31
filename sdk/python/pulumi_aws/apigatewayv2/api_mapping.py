@@ -181,11 +181,11 @@ class ApiMapping(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_apigatewayv2_api_mapping` using the API mapping identifier and domain name. For example:
 
-         to = aws_apigatewayv2_api_mapping.example
-
-         id = "1122334/ws-api.example.com" } Using `pulumi import`, import `aws_apigatewayv2_api_mapping` using the API mapping identifier and domain name. For exampleconsole % pulumi import aws_apigatewayv2_api_mapping.example 1122334/ws-api.example.com
+        ```sh
+         $ pulumi import aws:apigatewayv2/apiMapping:ApiMapping example 1122334/ws-api.example.com
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -219,11 +219,11 @@ class ApiMapping(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_apigatewayv2_api_mapping` using the API mapping identifier and domain name. For example:
 
-         to = aws_apigatewayv2_api_mapping.example
-
-         id = "1122334/ws-api.example.com" } Using `pulumi import`, import `aws_apigatewayv2_api_mapping` using the API mapping identifier and domain name. For exampleconsole % pulumi import aws_apigatewayv2_api_mapping.example 1122334/ws-api.example.com
+        ```sh
+         $ pulumi import aws:apigatewayv2/apiMapping:ApiMapping example 1122334/ws-api.example.com
+        ```
 
         :param str resource_name: The name of the resource.
         :param ApiMappingArgs args: The arguments to use to populate this resource's properties.

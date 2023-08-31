@@ -37,11 +37,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import AMP Workspaces using the identifier. For example:
  *
- *  to = aws_prometheus_workspace.demo
- *
- *  id = "ws-C6DCB907-F2D7-4D96-957B-66691F865D8B" } Using `pulumi import`, import AMP Workspaces using the identifier. For exampleconsole % pulumi import aws_prometheus_workspace.demo ws-C6DCB907-F2D7-4D96-957B-66691F865D8B
+ * ```sh
+ *  $ pulumi import aws:amp/workspace:Workspace demo ws-C6DCB907-F2D7-4D96-957B-66691F865D8B
+ * ```
  */
 export class Workspace extends pulumi.CustomResource {
     /**

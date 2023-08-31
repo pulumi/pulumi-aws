@@ -34,11 +34,11 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import CloudFront Public Key using the `id`. For example:
     /// 
-    ///  to = aws_cloudfront_public_key.example
-    /// 
-    ///  id = "K3D5EWEUDCCXON" } Using `pulumi import`, import CloudFront Public Key using the `id`. For exampleconsole % pulumi import aws_cloudfront_public_key.example K3D5EWEUDCCXON
+    /// ```sh
+    ///  $ pulumi import aws:cloudfront/publicKey:PublicKey example K3D5EWEUDCCXON
+    /// ```
     /// </summary>
     [AwsResourceType("aws:cloudfront/publicKey:PublicKey")]
     public partial class PublicKey : global::Pulumi.CustomResource

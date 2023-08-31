@@ -209,11 +209,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Glue Jobs using `name`. For example:
  * 
- *  to = aws_glue_job.MyJob
- * 
- *  id = &#34;MyJob&#34; } Using `pulumi import`, import Glue Jobs using `name`. For exampleconsole % pulumi import aws_glue_job.MyJob MyJob
+ * ```sh
+ *  $ pulumi import aws:glue/job:Job MyJob MyJob
+ * ```
  * 
  */
 @ResourceType(type="aws:glue/job:Job")

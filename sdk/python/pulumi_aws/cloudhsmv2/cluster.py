@@ -285,11 +285,11 @@ class Cluster(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import CloudHSM v2 Clusters using the cluster `id`. For example:
 
-         to = aws_cloudhsm_v2_cluster.test_cluster
-
-         id = "cluster-aeb282a201" } Using `pulumi import`, import CloudHSM v2 Clusters using the cluster `id`. For exampleconsole % pulumi import aws_cloudhsm_v2_cluster.test_cluster cluster-aeb282a201
+        ```sh
+         $ pulumi import aws:cloudhsmv2/cluster:Cluster test_cluster cluster-aeb282a201
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -318,11 +318,11 @@ class Cluster(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import CloudHSM v2 Clusters using the cluster `id`. For example:
 
-         to = aws_cloudhsm_v2_cluster.test_cluster
-
-         id = "cluster-aeb282a201" } Using `pulumi import`, import CloudHSM v2 Clusters using the cluster `id`. For exampleconsole % pulumi import aws_cloudhsm_v2_cluster.test_cluster cluster-aeb282a201
+        ```sh
+         $ pulumi import aws:cloudhsmv2/cluster:Cluster test_cluster cluster-aeb282a201
+        ```
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.

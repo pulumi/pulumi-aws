@@ -59,11 +59,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import a parameter group using the `name`. For example:
  * 
- *  to = aws_memorydb_parameter_group.example
- * 
- *  id = &#34;my-parameter-group&#34; } Using `pulumi import`, import a parameter group using the `name`. For exampleconsole % pulumi import aws_memorydb_parameter_group.example my-parameter-group
+ * ```sh
+ *  $ pulumi import aws:memorydb/parameterGroup:ParameterGroup example my-parameter-group
+ * ```
  * 
  */
 @ResourceType(type="aws:memorydb/parameterGroup:ParameterGroup")

@@ -43,11 +43,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import CloudSearch domain service access policies using the domain name. For example:
  *
- *  to = aws_cloudsearch_domain_service_access_policy.example
- *
- *  id = "example-domain" } Using `pulumi import`, import CloudSearch domain service access policies using the domain name. For exampleconsole % pulumi import aws_cloudsearch_domain_service_access_policy.example example-domain
+ * ```sh
+ *  $ pulumi import aws:cloudsearch/domainServiceAccessPolicy:DomainServiceAccessPolicy example example-domain
+ * ```
  */
 export class DomainServiceAccessPolicy extends pulumi.CustomResource {
     /**

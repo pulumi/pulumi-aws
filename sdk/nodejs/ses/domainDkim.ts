@@ -31,11 +31,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import DKIM tokens using the `domain` attribute. For example:
  *
- *  to = aws_ses_domain_dkim.example
- *
- *  id = "example.com" } Using `pulumi import`, import DKIM tokens using the `domain` attribute. For exampleconsole % pulumi import aws_ses_domain_dkim.example example.com
+ * ```sh
+ *  $ pulumi import aws:ses/domainDkim:DomainDkim example example.com
+ * ```
  */
 export class DomainDkim extends pulumi.CustomResource {
     /**

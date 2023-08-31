@@ -79,11 +79,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import Signer signing jobs using the `job_id`. For example:
  * 
- *  to = aws_signer_signing_job.test_signer_signing_job
- * 
- *  id = &#34;9ed7e5c3-b8d4-4da0-8459-44e0b068f7ee&#34; } Using `pulumi import`, import Signer signing jobs using the `job_id`. For exampleconsole % pulumi import aws_signer_signing_job.test_signer_signing_job 9ed7e5c3-b8d4-4da0-8459-44e0b068f7ee
+ * ```sh
+ *  $ pulumi import aws:signer/signingJob:SigningJob test_signer_signing_job 9ed7e5c3-b8d4-4da0-8459-44e0b068f7ee
+ * ```
  * 
  */
 @ResourceType(type="aws:signer/signingJob:SigningJob")

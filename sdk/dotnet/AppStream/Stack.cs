@@ -89,11 +89,11 @@ namespace Pulumi.Aws.AppStream
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import `aws_appstream_stack` using the id. For example:
     /// 
-    ///  to = aws_appstream_stack.example
-    /// 
-    ///  id = "stackID" } Using `pulumi import`, import `aws_appstream_stack` using the id. For exampleconsole % pulumi import aws_appstream_stack.example stackID
+    /// ```sh
+    ///  $ pulumi import aws:appstream/stack:Stack example stackID
+    /// ```
     /// </summary>
     [AwsResourceType("aws:appstream/stack:Stack")]
     public partial class Stack : global::Pulumi.CustomResource

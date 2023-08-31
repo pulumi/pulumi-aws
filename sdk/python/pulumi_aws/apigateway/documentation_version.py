@@ -155,11 +155,11 @@ class DocumentationVersion(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import API Gateway documentation versions using `REST-API-ID/VERSION`. For example:
 
-         to = aws_api_gateway_documentation_version.example
-
-         id = "5i4e1ko720/example-version" } Using `pulumi import`, import API Gateway documentation versions using `REST-API-ID/VERSION`. For exampleconsole % pulumi import aws_api_gateway_documentation_version.example 5i4e1ko720/example-version
+        ```sh
+         $ pulumi import aws:apigateway/documentationVersion:DocumentationVersion example 5i4e1ko720/example-version
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -198,11 +198,11 @@ class DocumentationVersion(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import API Gateway documentation versions using `REST-API-ID/VERSION`. For example:
 
-         to = aws_api_gateway_documentation_version.example
-
-         id = "5i4e1ko720/example-version" } Using `pulumi import`, import API Gateway documentation versions using `REST-API-ID/VERSION`. For exampleconsole % pulumi import aws_api_gateway_documentation_version.example 5i4e1ko720/example-version
+        ```sh
+         $ pulumi import aws:apigateway/documentationVersion:DocumentationVersion example 5i4e1ko720/example-version
+        ```
 
         :param str resource_name: The name of the resource.
         :param DocumentationVersionArgs args: The arguments to use to populate this resource's properties.

@@ -15,11 +15,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import models using the `name`. For example:
 //
-//	to = aws_sagemaker_notebook_instance_lifecycle_configuration.lc
+// ```sh
 //
-//	id = "foo" } Using `pulumi import`, import models using the `name`. For exampleconsole % pulumi import aws_sagemaker_notebook_instance_lifecycle_configuration.lc foo
+//	$ pulumi import aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration lc foo
+//
+// ```
 type NotebookInstanceLifecycleConfiguration struct {
 	pulumi.CustomResourceState
 

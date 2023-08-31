@@ -260,11 +260,11 @@ class Vault(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Glacier Vaults using the `name`. For example:
 
-         to = aws_glacier_vault.archive
-
-         id = "my_archive" } Using `pulumi import`, import Glacier Vaults using the `name`. For exampleconsole % pulumi import aws_glacier_vault.archive my_archive
+        ```sh
+         $ pulumi import aws:glacier/vault:Vault archive my_archive
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -321,11 +321,11 @@ class Vault(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Glacier Vaults using the `name`. For example:
 
-         to = aws_glacier_vault.archive
-
-         id = "my_archive" } Using `pulumi import`, import Glacier Vaults using the `name`. For exampleconsole % pulumi import aws_glacier_vault.archive my_archive
+        ```sh
+         $ pulumi import aws:glacier/vault:Vault archive my_archive
+        ```
 
         :param str resource_name: The name of the resource.
         :param VaultArgs args: The arguments to use to populate this resource's properties.

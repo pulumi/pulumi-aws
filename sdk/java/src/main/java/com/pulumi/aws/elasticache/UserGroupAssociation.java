@@ -77,11 +77,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import ElastiCache user group associations using the `user_group_id` and `user_id`. For example:
  * 
- *  to = aws_elasticache_user_group_association.example
- * 
- *  id = &#34;userGoupId1,userId&#34; } Using `pulumi import`, import ElastiCache user group associations using the `user_group_id` and `user_id`. For exampleconsole % pulumi import aws_elasticache_user_group_association.example userGoupId1,userId
+ * ```sh
+ *  $ pulumi import aws:elasticache/userGroupAssociation:UserGroupAssociation example userGoupId1,userId
+ * ```
  * 
  */
 @ResourceType(type="aws:elasticache/userGroupAssociation:UserGroupAssociation")

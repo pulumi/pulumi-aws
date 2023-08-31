@@ -21,11 +21,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import Service Catalog Portfolios using the Service Catalog Portfolio `id`. For example:
  *
- *  to = aws_servicecatalog_portfolio.testfolio
- *
- *  id = "port-12344321" } Using `pulumi import`, import Service Catalog Portfolios using the Service Catalog Portfolio `id`. For exampleconsole % pulumi import aws_servicecatalog_portfolio.testfolio port-12344321
+ * ```sh
+ *  $ pulumi import aws:servicecatalog/portfolio:Portfolio testfolio port-12344321
+ * ```
  */
 export class Portfolio extends pulumi.CustomResource {
     /**

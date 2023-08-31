@@ -219,11 +219,11 @@ class PeeringConnectionOptions(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import VPC Peering Connection Options using the VPC peering `id`. For example:
 
-         to = aws_vpc_peering_connection_options.foo
-
-         id = "pcx-111aaa111" } Using `pulumi import`, import VPC Peering Connection Options using the VPC peering `id`. For exampleconsole % pulumi import aws_vpc_peering_connection_options.foo pcx-111aaa111
+        ```sh
+         $ pulumi import aws:ec2/peeringConnectionOptions:PeeringConnectionOptions foo pcx-111aaa111
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -323,11 +323,11 @@ class PeeringConnectionOptions(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import VPC Peering Connection Options using the VPC peering `id`. For example:
 
-         to = aws_vpc_peering_connection_options.foo
-
-         id = "pcx-111aaa111" } Using `pulumi import`, import VPC Peering Connection Options using the VPC peering `id`. For exampleconsole % pulumi import aws_vpc_peering_connection_options.foo pcx-111aaa111
+        ```sh
+         $ pulumi import aws:ec2/peeringConnectionOptions:PeeringConnectionOptions foo pcx-111aaa111
+        ```
 
         :param str resource_name: The name of the resource.
         :param PeeringConnectionOptionsArgs args: The arguments to use to populate this resource's properties.

@@ -102,11 +102,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import `aws_apigatewayv2_domain_name` using the domain name. For example:
 //
-//	to = aws_apigatewayv2_domain_name.example
+// ```sh
 //
-//	id = "ws-api.example.com" } Using `pulumi import`, import `aws_apigatewayv2_domain_name` using the domain name. For exampleconsole % pulumi import aws_apigatewayv2_domain_name.example ws-api.example.com
+//	$ pulumi import aws:apigatewayv2/domainName:DomainName example ws-api.example.com
+//
+// ```
 type DomainName struct {
 	pulumi.CustomResourceState
 

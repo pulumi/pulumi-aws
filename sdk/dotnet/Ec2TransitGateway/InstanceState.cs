@@ -73,11 +73,11 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import `aws_ec2_instance_state` using the `instance_id` attribute. For example:
     /// 
-    ///  to = aws_ec2_instance_state.test
-    /// 
-    ///  id = "i-02cae6557dfcf2f96" } Using `pulumi import`, import `aws_ec2_instance_state` using the `instance_id` attribute. For exampleconsole % pulumi import aws_ec2_instance_state.test i-02cae6557dfcf2f96
+    /// ```sh
+    ///  $ pulumi import aws:ec2transitgateway/instanceState:InstanceState test i-02cae6557dfcf2f96
+    /// ```
     /// </summary>
     [AwsResourceType("aws:ec2transitgateway/instanceState:InstanceState")]
     public partial class InstanceState : global::Pulumi.CustomResource

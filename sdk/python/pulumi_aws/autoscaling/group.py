@@ -1735,11 +1735,11 @@ class Group(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Auto Scaling Groups using the `name`. For example:
 
-         to = aws_autoscaling_group.web
-
-         id = "web-asg" } Using `pulumi import`, import Auto Scaling Groups using the `name`. For exampleconsole % pulumi import aws_autoscaling_group.web web-asg
+        ```sh
+         $ pulumi import aws:autoscaling/group:Group web web-asg
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -2124,11 +2124,11 @@ class Group(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import Auto Scaling Groups using the `name`. For example:
 
-         to = aws_autoscaling_group.web
-
-         id = "web-asg" } Using `pulumi import`, import Auto Scaling Groups using the `name`. For exampleconsole % pulumi import aws_autoscaling_group.web web-asg
+        ```sh
+         $ pulumi import aws:autoscaling/group:Group web web-asg
+        ```
 
         :param str resource_name: The name of the resource.
         :param GroupArgs args: The arguments to use to populate this resource's properties.

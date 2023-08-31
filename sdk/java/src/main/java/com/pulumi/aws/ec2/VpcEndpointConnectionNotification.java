@@ -82,11 +82,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import VPC Endpoint connection notifications using the VPC endpoint connection notification `id`. For example:
  * 
- *  to = aws_vpc_endpoint_connection_notification.foo
- * 
- *  id = &#34;vpce-nfn-09e6ed3b4efba2263&#34; } Using `pulumi import`, import VPC Endpoint connection notifications using the VPC endpoint connection notification `id`. For exampleconsole % pulumi import aws_vpc_endpoint_connection_notification.foo vpce-nfn-09e6ed3b4efba2263
+ * ```sh
+ *  $ pulumi import aws:ec2/vpcEndpointConnectionNotification:VpcEndpointConnectionNotification foo vpce-nfn-09e6ed3b4efba2263
+ * ```
  * 
  */
 @ResourceType(type="aws:ec2/vpcEndpointConnectionNotification:VpcEndpointConnectionNotification")

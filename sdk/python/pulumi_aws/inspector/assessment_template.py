@@ -288,11 +288,11 @@ class AssessmentTemplate(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_inspector_assessment_template` using the template assessment ARN. For example:
 
-         to = aws_inspector_assessment_template.example
-
-         id = "arn:aws:inspector:us-west-2:123456789012:target/0-9IaAzhGR/template/0-WEcjR8CH" } Using `pulumi import`, import `aws_inspector_assessment_template` using the template assessment ARN. For exampleconsole % pulumi import aws_inspector_assessment_template.example arn:aws:inspector:us-west-2:123456789012:target/0-9IaAzhGR/template/0-WEcjR8CH
+        ```sh
+         $ pulumi import aws:inspector/assessmentTemplate:AssessmentTemplate example arn:aws:inspector:us-west-2:123456789012:target/0-9IaAzhGR/template/0-WEcjR8CH
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -335,11 +335,11 @@ class AssessmentTemplate(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_inspector_assessment_template` using the template assessment ARN. For example:
 
-         to = aws_inspector_assessment_template.example
-
-         id = "arn:aws:inspector:us-west-2:123456789012:target/0-9IaAzhGR/template/0-WEcjR8CH" } Using `pulumi import`, import `aws_inspector_assessment_template` using the template assessment ARN. For exampleconsole % pulumi import aws_inspector_assessment_template.example arn:aws:inspector:us-west-2:123456789012:target/0-9IaAzhGR/template/0-WEcjR8CH
+        ```sh
+         $ pulumi import aws:inspector/assessmentTemplate:AssessmentTemplate example arn:aws:inspector:us-west-2:123456789012:target/0-9IaAzhGR/template/0-WEcjR8CH
+        ```
 
         :param str resource_name: The name of the resource.
         :param AssessmentTemplateArgs args: The arguments to use to populate this resource's properties.

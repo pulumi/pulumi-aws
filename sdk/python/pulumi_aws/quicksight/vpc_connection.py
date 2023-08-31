@@ -427,11 +427,11 @@ class VpcConnection(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import QuickSight VPC connection using the AWS account ID and VPC connection ID separated by commas (`,`). For example:
 
-         to = aws_quicksight_vpc_connection.example
-
-         id = "123456789012,example" } Using `pulumi import`, import QuickSight VPC connection using the AWS account ID and VPC connection ID separated by commas (`,`). For exampleconsole % pulumi import aws_quicksight_vpc_connection.example 123456789012,example
+        ```sh
+         $ pulumi import aws:quicksight/vpcConnection:VpcConnection example 123456789012,example
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -503,11 +503,11 @@ class VpcConnection(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import QuickSight VPC connection using the AWS account ID and VPC connection ID separated by commas (`,`). For example:
 
-         to = aws_quicksight_vpc_connection.example
-
-         id = "123456789012,example" } Using `pulumi import`, import QuickSight VPC connection using the AWS account ID and VPC connection ID separated by commas (`,`). For exampleconsole % pulumi import aws_quicksight_vpc_connection.example 123456789012,example
+        ```sh
+         $ pulumi import aws:quicksight/vpcConnection:VpcConnection example 123456789012,example
+        ```
 
         :param str resource_name: The name of the resource.
         :param VpcConnectionArgs args: The arguments to use to populate this resource's properties.

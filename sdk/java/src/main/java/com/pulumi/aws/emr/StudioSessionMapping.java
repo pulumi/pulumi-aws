@@ -51,11 +51,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import EMR studio session mappings using `studio-id:identity-type:identity-id`. For example:
  * 
- *  to = aws_emr_studio_session_mapping.example
- * 
- *  id = &#34;es-xxxxx:USER:xxxxx-xxx-xxx&#34; } Using `pulumi import`, import EMR studio session mappings using `studio-id:identity-type:identity-id`. For exampleconsole % pulumi import aws_emr_studio_session_mapping.example es-xxxxx:USER:xxxxx-xxx-xxx
+ * ```sh
+ *  $ pulumi import aws:emr/studioSessionMapping:StudioSessionMapping example es-xxxxx:USER:xxxxx-xxx-xxx
+ * ```
  * 
  */
 @ResourceType(type="aws:emr/studioSessionMapping:StudioSessionMapping")

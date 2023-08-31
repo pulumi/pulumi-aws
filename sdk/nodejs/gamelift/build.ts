@@ -28,11 +28,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import GameLift Builds using the ID. For example:
  *
- *  to = aws_gamelift_build.example
- *
- *  id = "<build-id>" } Using `pulumi import`, import GameLift Builds using the ID. For exampleconsole % pulumi import aws_gamelift_build.example <build-id>
+ * ```sh
+ *  $ pulumi import aws:gamelift/build:Build example <build-id>
+ * ```
  */
 export class Build extends pulumi.CustomResource {
     /**

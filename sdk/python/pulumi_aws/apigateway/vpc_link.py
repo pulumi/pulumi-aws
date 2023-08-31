@@ -200,11 +200,11 @@ class VpcLink(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import API Gateway VPC Link using the `id`. For example:
 
-         to = aws_api_gateway_vpc_link.example
-
-         id = "12345abcde" } Using `pulumi import`, import API Gateway VPC Link using the `id`. For exampleconsole % pulumi import aws_api_gateway_vpc_link.example 12345abcde
+        ```sh
+         $ pulumi import aws:apigateway/vpcLink:VpcLink example 12345abcde
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -227,11 +227,11 @@ class VpcLink(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import API Gateway VPC Link using the `id`. For example:
 
-         to = aws_api_gateway_vpc_link.example
-
-         id = "12345abcde" } Using `pulumi import`, import API Gateway VPC Link using the `id`. For exampleconsole % pulumi import aws_api_gateway_vpc_link.example 12345abcde
+        ```sh
+         $ pulumi import aws:apigateway/vpcLink:VpcLink example 12345abcde
+        ```
 
         :param str resource_name: The name of the resource.
         :param VpcLinkArgs args: The arguments to use to populate this resource's properties.

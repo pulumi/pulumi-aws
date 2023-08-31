@@ -188,11 +188,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import CodePipelines using the name. For example:
  * 
- *  to = aws_codepipeline.foo
- * 
- *  id = &#34;example&#34; } Using `pulumi import`, import CodePipelines using the name. For exampleconsole % pulumi import aws_codepipeline.foo example
+ * ```sh
+ *  $ pulumi import aws:codepipeline/pipeline:Pipeline foo example
+ * ```
  * 
  */
 @ResourceType(type="aws:codepipeline/pipeline:Pipeline")

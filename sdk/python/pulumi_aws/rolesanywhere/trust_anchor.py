@@ -242,11 +242,11 @@ class TrustAnchor(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_rolesanywhere_trust_anchor` using its `id`. For example:
 
-         to = aws_rolesanywhere_trust_anchor.example
-
-         id = "92b2fbbb-984d-41a3-a765-e3cbdb69ebb1" } Using `pulumi import`, import `aws_rolesanywhere_trust_anchor` using its `id`. For exampleconsole % pulumi import aws_rolesanywhere_trust_anchor.example 92b2fbbb-984d-41a3-a765-e3cbdb69ebb1
+        ```sh
+         $ pulumi import aws:rolesanywhere/trustAnchor:TrustAnchor example 92b2fbbb-984d-41a3-a765-e3cbdb69ebb1
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -305,11 +305,11 @@ class TrustAnchor(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_rolesanywhere_trust_anchor` using its `id`. For example:
 
-         to = aws_rolesanywhere_trust_anchor.example
-
-         id = "92b2fbbb-984d-41a3-a765-e3cbdb69ebb1" } Using `pulumi import`, import `aws_rolesanywhere_trust_anchor` using its `id`. For exampleconsole % pulumi import aws_rolesanywhere_trust_anchor.example 92b2fbbb-984d-41a3-a765-e3cbdb69ebb1
+        ```sh
+         $ pulumi import aws:rolesanywhere/trustAnchor:TrustAnchor example 92b2fbbb-984d-41a3-a765-e3cbdb69ebb1
+        ```
 
         :param str resource_name: The name of the resource.
         :param TrustAnchorArgs args: The arguments to use to populate this resource's properties.

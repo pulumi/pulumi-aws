@@ -66,11 +66,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform import {
+ * Using `pulumi import`, import AppConfig Environments using the environment ID and application ID separated by a colon (`:`). For example:
  * 
- *  to = aws_appconfig_environment.example
- * 
- *  id = &#34;71abcde:11xxxxx&#34; } Using `pulumi import`, import AppConfig Environments using the environment ID and application ID separated by a colon (`:`). For exampleconsole % pulumi import aws_appconfig_environment.example 71abcde:11xxxxx
+ * ```sh
+ *  $ pulumi import aws:appconfig/environment:Environment example 71abcde:11xxxxx
+ * ```
  * 
  */
 @ResourceType(type="aws:appconfig/environment:Environment")

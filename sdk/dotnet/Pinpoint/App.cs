@@ -40,11 +40,11 @@ namespace Pulumi.Aws.Pinpoint
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import Pinpoint App using the `application-id`. For example:
     /// 
-    ///  to = aws_pinpoint_app.name
-    /// 
-    ///  id = "application-id" } Using `pulumi import`, import Pinpoint App using the `application-id`. For exampleconsole % pulumi import aws_pinpoint_app.name application-id
+    /// ```sh
+    ///  $ pulumi import aws:pinpoint/app:App name application-id
+    /// ```
     /// </summary>
     [AwsResourceType("aws:pinpoint/app:App")]
     public partial class App : global::Pulumi.CustomResource

@@ -37,11 +37,12 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import `aws_apigatewayv2_deployment` using the API identifier and deployment identifier. For example:
     /// 
-    ///  to = aws_apigatewayv2_deployment.example
-    /// 
-    ///  id = "aabbccddee/1122334" } Using `pulumi import`, import `aws_apigatewayv2_deployment` using the API identifier and deployment identifier. For exampleconsole % pulumi import aws_apigatewayv2_deployment.example aabbccddee/1122334 The `triggers` argument cannot be imported.
+    /// ```sh
+    ///  $ pulumi import aws:apigatewayv2/deployment:Deployment example aabbccddee/1122334
+    /// ```
+    ///  The `triggers` argument cannot be imported.
     /// </summary>
     [AwsResourceType("aws:apigatewayv2/deployment:Deployment")]
     public partial class Deployment : global::Pulumi.CustomResource

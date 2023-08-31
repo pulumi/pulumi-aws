@@ -70,11 +70,13 @@ import (
 //
 // ## Import
 //
-// terraform import {
+// Using `pulumi import`, import OpenSearchServerless Collection using the `id`. For example:
 //
-//	to = aws_opensearchserverless_collection.example
+// ```sh
 //
-//	id = "example" } Using `pulumi import`, import OpenSearchServerless Collection using the `id`. For exampleconsole % pulumi import aws_opensearchserverless_collection.example example
+//	$ pulumi import aws:opensearch/serverlessCollection:ServerlessCollection example example
+//
+// ```
 type ServerlessCollection struct {
 	pulumi.CustomResourceState
 

@@ -34,11 +34,11 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import `aws_networkmanager_site_to_site_vpn_attachment` using the attachment ID. For example:
     /// 
-    ///  to = aws_networkmanager_site_to_site_vpn_attachment.example
-    /// 
-    ///  id = "attachment-0f8fa60d2238d1bd8" } Using `pulumi import`, import `aws_networkmanager_site_to_site_vpn_attachment` using the attachment ID. For exampleconsole % pulumi import aws_networkmanager_site_to_site_vpn_attachment.example attachment-0f8fa60d2238d1bd8
+    /// ```sh
+    ///  $ pulumi import aws:networkmanager/siteToSiteVpnAttachment:SiteToSiteVpnAttachment example attachment-0f8fa60d2238d1bd8
+    /// ```
     /// </summary>
     [AwsResourceType("aws:networkmanager/siteToSiteVpnAttachment:SiteToSiteVpnAttachment")]
     public partial class SiteToSiteVpnAttachment : global::Pulumi.CustomResource

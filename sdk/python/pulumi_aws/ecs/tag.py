@@ -154,11 +154,11 @@ class Tag(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_ecs_tag` using the ECS resource identifier and key, separated by a comma (`,`). For example:
 
-         to = aws_ecs_tag.example
-
-         id = "arn:aws:ecs:us-east-1:123456789012:cluster/example,Name" } Using `pulumi import`, import `aws_ecs_tag` using the ECS resource identifier and key, separated by a comma (`,`). For exampleconsole % pulumi import aws_ecs_tag.example arn:aws:ecs:us-east-1:123456789012:cluster/example,Name
+        ```sh
+         $ pulumi import aws:ecs/tag:Tag example arn:aws:ecs:us-east-1:123456789012:cluster/example,Name
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -197,11 +197,11 @@ class Tag(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import `aws_ecs_tag` using the ECS resource identifier and key, separated by a comma (`,`). For example:
 
-         to = aws_ecs_tag.example
-
-         id = "arn:aws:ecs:us-east-1:123456789012:cluster/example,Name" } Using `pulumi import`, import `aws_ecs_tag` using the ECS resource identifier and key, separated by a comma (`,`). For exampleconsole % pulumi import aws_ecs_tag.example arn:aws:ecs:us-east-1:123456789012:cluster/example,Name
+        ```sh
+         $ pulumi import aws:ecs/tag:Tag example arn:aws:ecs:us-east-1:123456789012:cluster/example,Name
+        ```
 
         :param str resource_name: The name of the resource.
         :param TagArgs args: The arguments to use to populate this resource's properties.

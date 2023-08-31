@@ -1966,18 +1966,6 @@ func Provider() *tfbridge.ProviderInfo {
 				},
 			},
 			// ECS for Kubernetes
-			"aws_eks_cluster": {
-				Tok: awsResource(eksMod, "Cluster"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					// TODO: This will be set correctly in v5.8.0.
-					// After we upgrade, removing this will be a no-op
-					// and the stickiness will be enforced with
-					// [prov.MustApplyAutoAliasing].
-					"certificate_authority": {
-						MaxItemsOne: ref(true),
-					},
-				},
-			},
 			"aws_eks_node_group": {
 				Tok: awsResource(eksMod, "NodeGroup"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -7159,6 +7147,8 @@ func Provider() *tfbridge.ProviderInfo {
 	shimv2.SetInstanceStateStrategy(prov.P.ResourcesMap().Get("aws_wafv2_web_acl"), shimv2.CtyInstanceState)
 
 	prov.SetAutonaming(255, "-")
+
+	prov.MustApplyAutoAliases()
 
 	return &prov
 }

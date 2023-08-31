@@ -405,15 +405,22 @@ class AccessPoint(pulumi.CustomResource):
 
         ## Import
 
-        Import using the `account_id` and `name` separated by a colon (`:`) for Access Points associated with an AWS Partition S3 Bucketterraform import {
+        Import using the `account_id` and `name` separated by a colon (`:`) for Access Points associated with an AWS Partition S3 Bucket:
 
-         to = aws_s3_access_point.example
+        Import using the ARN for Access Points associated with an S3 on Outposts Bucket:
 
-         id = "123456789012:example" } Import using the ARN for Access Points associated with an S3 on Outposts Bucketterraform import {
+        __Using `pulumi import` to import.__ For example:
 
-         to = aws_s3_access_point.example
+        Import using the `account_id` and `name` separated by a colon (`:`) for Access Points associated with an AWS Partition S3 Bucket:
 
-         id = "arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-1234567890123456/accesspoint/example" } **Using `pulumi import` to import.** For exampleImport using the `account_id` and `name` separated by a colon (`:`) for Access Points associated with an AWS Partition S3 Bucketconsole % pulumi import aws_s3_access_point.example 123456789012:example Import using the ARN for Access Points associated with an S3 on Outposts Bucketconsole % pulumi import aws_s3_access_point.example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-1234567890123456/accesspoint/example
+        ```sh
+         $ pulumi import aws:s3/accessPoint:AccessPoint example 123456789012:example
+        ```
+         Import using the ARN for Access Points associated with an S3 on Outposts Bucket:
+
+        ```sh
+         $ pulumi import aws:s3/accessPoint:AccessPoint example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-1234567890123456/accesspoint/example
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -467,15 +474,22 @@ class AccessPoint(pulumi.CustomResource):
 
         ## Import
 
-        Import using the `account_id` and `name` separated by a colon (`:`) for Access Points associated with an AWS Partition S3 Bucketterraform import {
+        Import using the `account_id` and `name` separated by a colon (`:`) for Access Points associated with an AWS Partition S3 Bucket:
 
-         to = aws_s3_access_point.example
+        Import using the ARN for Access Points associated with an S3 on Outposts Bucket:
 
-         id = "123456789012:example" } Import using the ARN for Access Points associated with an S3 on Outposts Bucketterraform import {
+        __Using `pulumi import` to import.__ For example:
 
-         to = aws_s3_access_point.example
+        Import using the `account_id` and `name` separated by a colon (`:`) for Access Points associated with an AWS Partition S3 Bucket:
 
-         id = "arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-1234567890123456/accesspoint/example" } **Using `pulumi import` to import.** For exampleImport using the `account_id` and `name` separated by a colon (`:`) for Access Points associated with an AWS Partition S3 Bucketconsole % pulumi import aws_s3_access_point.example 123456789012:example Import using the ARN for Access Points associated with an S3 on Outposts Bucketconsole % pulumi import aws_s3_access_point.example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-1234567890123456/accesspoint/example
+        ```sh
+         $ pulumi import aws:s3/accessPoint:AccessPoint example 123456789012:example
+        ```
+         Import using the ARN for Access Points associated with an S3 on Outposts Bucket:
+
+        ```sh
+         $ pulumi import aws:s3/accessPoint:AccessPoint example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-1234567890123456/accesspoint/example
+        ```
 
         :param str resource_name: The name of the resource.
         :param AccessPointArgs args: The arguments to use to populate this resource's properties.

@@ -388,11 +388,11 @@ class FlowDefinition(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import SageMaker Flow Definitions using the `flow_definition_name`. For example:
 
-         to = aws_sagemaker_flow_definition.example
-
-         id = "example" } Using `pulumi import`, import SageMaker Flow Definitions using the `flow_definition_name`. For exampleconsole % pulumi import aws_sagemaker_flow_definition.example example
+        ```sh
+         $ pulumi import aws:sagemaker/flowDefinition:FlowDefinition example example
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -504,11 +504,11 @@ class FlowDefinition(pulumi.CustomResource):
 
         ## Import
 
-        terraform import {
+        Using `pulumi import`, import SageMaker Flow Definitions using the `flow_definition_name`. For example:
 
-         to = aws_sagemaker_flow_definition.example
-
-         id = "example" } Using `pulumi import`, import SageMaker Flow Definitions using the `flow_definition_name`. For exampleconsole % pulumi import aws_sagemaker_flow_definition.example example
+        ```sh
+         $ pulumi import aws:sagemaker/flowDefinition:FlowDefinition example example
+        ```
 
         :param str resource_name: The name of the resource.
         :param FlowDefinitionArgs args: The arguments to use to populate this resource's properties.

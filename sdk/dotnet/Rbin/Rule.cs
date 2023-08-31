@@ -51,11 +51,11 @@ namespace Pulumi.Aws.Rbin
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import RBin Rule using the `id`. For example:
     /// 
-    ///  to = aws_rbin_rule.example
-    /// 
-    ///  id = "examplerule" } Using `pulumi import`, import RBin Rule using the `id`. For exampleconsole % pulumi import aws_rbin_rule.example examplerule
+    /// ```sh
+    ///  $ pulumi import aws:rbin/rule:Rule example examplerule
+    /// ```
     /// </summary>
     [AwsResourceType("aws:rbin/rule:Rule")]
     public partial class Rule : global::Pulumi.CustomResource

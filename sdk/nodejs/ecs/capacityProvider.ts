@@ -38,11 +38,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import ECS Capacity Providers using the `name`. For example:
  *
- *  to = aws_ecs_capacity_provider.example
- *
- *  id = "example" } Using `pulumi import`, import ECS Capacity Providers using the `name`. For exampleconsole % pulumi import aws_ecs_capacity_provider.example example
+ * ```sh
+ *  $ pulumi import aws:ecs/capacityProvider:CapacityProvider example example
+ * ```
  */
 export class CapacityProvider extends pulumi.CustomResource {
     /**

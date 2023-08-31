@@ -91,11 +91,11 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import Cognito User Pools using the `id`. For example:
     /// 
-    ///  to = aws_cognito_user_pool.pool
-    /// 
-    ///  id = "us-west-2_abc123" } Using `pulumi import`, import Cognito User Pools using the `id`. For exampleconsole % pulumi import aws_cognito_user_pool.pool us-west-2_abc123
+    /// ```sh
+    ///  $ pulumi import aws:cognito/userPool:UserPool pool us-west-2_abc123
+    /// ```
     /// </summary>
     [AwsResourceType("aws:cognito/userPool:UserPool")]
     public partial class UserPool : global::Pulumi.CustomResource

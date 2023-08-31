@@ -172,11 +172,11 @@ namespace Pulumi.Aws.GameLift
     /// 
     /// ## Import
     /// 
-    /// terraform import {
+    /// Using `pulumi import`, import GameLift Game Server Group using the `name`. For example:
     /// 
-    ///  to = aws_gamelift_game_server_group.example
-    /// 
-    ///  id = "example" } Using `pulumi import`, import GameLift Game Server Group using the `name`. For exampleconsole % pulumi import aws_gamelift_game_server_group.example example
+    /// ```sh
+    ///  $ pulumi import aws:gamelift/gameServerGroup:GameServerGroup example example
+    /// ```
     /// </summary>
     [AwsResourceType("aws:gamelift/gameServerGroup:GameServerGroup")]
     public partial class GameServerGroup : global::Pulumi.CustomResource
