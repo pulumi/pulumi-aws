@@ -124,7 +124,7 @@ provider: tfgen install_plugins
 	(cd provider && go build $(PULUMI_PROVIDER_BUILD_PARALLELISM) -o $(WORKING_DIR)/bin/$(PROVIDER) -ldflags "-X $(PROJECT)/$(VERSION_PATH)=$(VERSION) -X github.com/hashicorp/terraform-provider-aws/version.ProviderVersion=$(VERSION)" $(PROJECT)/$(PROVIDER_PATH)/cmd/$(PROVIDER))
 
 test:
-	cd provider/shim && go test -v .
+	cd provider/shim && go test -v -coverprofile="coverage.txt" .
 	cd examples && go test -v -tags=all -parallel $(TESTPARALLELISM) -timeout 2h
 
 tfgen: install_plugins upstream
