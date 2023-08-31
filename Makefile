@@ -157,7 +157,7 @@ init_upstream:
 		cd upstream && \
 		git submodule update --init && \
 		(git remote rm source || true) && \
-		git remote add source git@github.com:hashicorp/terraform-provider-aws.git && \
+		git remote add source https://github.com/hashicorp/terraform-provider-aws.git && \
 		git fetch source; \
 	fi; \
 
