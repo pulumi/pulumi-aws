@@ -368,7 +368,6 @@ jobs:
         - go
         - java
   go_test_shim:
-      if: github.event_name == 'repository_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
       name: Run test of provider shim
       runs-on: ubuntu-latest
       steps:
