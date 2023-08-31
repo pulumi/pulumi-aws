@@ -1,4 +1,0 @@
-[submodule "terraform-provider-aws"]
-	path = upstream
-	url = https://github.com/pulumi/terraform-provider-aws.git
-	ignore = dirty
