@@ -1,6 +1,6 @@
 module github.com/pulumi/pulumi-aws/provider/v6
 
-go 1.20
+go 1.21
 
 require (
 	github.com/aws/aws-sdk-go-v2/feature/ec2/imds v1.13.7
