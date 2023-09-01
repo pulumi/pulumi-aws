@@ -46,7 +46,6 @@ func applyTags(
 	ctx context.Context, config resource.PropertyMap, meta resource.PropertyMap,
 ) (resource.PropertyMap, error) {
 	ret := config.Copy()
-
 	configTags := resource.NewObjectProperty(resource.PropertyMap{})
 	if t, ok := config["tags"]; ok {
 		configTags = t
@@ -55,7 +54,9 @@ func applyTags(
 	if err != nil {
 		return nil, err
 	}
-	if !hasTags {
+	// If there are 0 tags, delete the tags entry rather than sending an empty map. The unknown
+	// case is quirky though, prefer to send the unknown marker out rather than deleting it.
+	if !hasTags && !allTags.ContainsUnknowns() {
 		delete(ret, "tags")
 		return ret, nil
 	}
