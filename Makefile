@@ -127,6 +127,15 @@ test:
 	cd provider/shim && go test -v .
 	cd examples && go test -v -tags=all -parallel $(TESTPARALLELISM) -timeout 2h
 
+test.upgrade::
+	cd examples && go test -v -tags=all -run TestProviderUpgrade -timeout 2h
+
+test.upgrade.quick::
+	cd examples && go test -v -tags=all -run TestProviderUpgrade/Quick
+
+test.upgrade.record::
+	cd examples && PULUMI_ACCEPT=true go test -v -tags all -run TestProviderUpgrade -timeout 2h
+
 tfgen: install_plugins upstream
 	(cd provider && go build $(PULUMI_PROVIDER_BUILD_PARALLELISM) -o $(WORKING_DIR)/bin/$(TFGEN) -ldflags "-X $(PROJECT)/$(VERSION_PATH)=$(VERSION)" $(PROJECT)/$(PROVIDER_PATH)/cmd/$(TFGEN))
 	$(WORKING_DIR)/bin/$(TFGEN) schema --out provider/cmd/$(PROVIDER)
