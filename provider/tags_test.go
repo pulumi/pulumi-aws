@@ -196,6 +196,59 @@ func TestApplyTags(t *testing.T) {
 				}),
 			},
 		},
+		{
+			name: "unknowns mark the entire computation unknown",
+			config: resource.PropertyMap{
+				"tags": resource.NewObjectProperty(resource.PropertyMap{
+					"tag1": resource.MakeComputed(resource.PropertyValue{}),
+				}),
+			},
+			expect: resource.PropertyMap{
+				"tags": resource.NewOutputProperty(resource.Output{Known: false}),
+			},
+		},
+		{
+			name: "secrets mark the result secret",
+			config: resource.PropertyMap{
+				"tags": resource.NewObjectProperty(resource.PropertyMap{
+					"tag1": resource.MakeSecret(
+						resource.NewStringProperty("tag1v"),
+					),
+				}),
+			},
+			meta: resource.PropertyMap{},
+			expect: resource.PropertyMap{
+				"tags": resource.NewOutputProperty(resource.Output{
+					Element: resource.NewObjectProperty(resource.PropertyMap{
+						"tag1": resource.NewStringProperty("tag1v"),
+					}),
+					Known:  true,
+					Secret: true,
+				}),
+			},
+		},
+		{
+			name: "inner output dependencies float outward",
+			config: resource.PropertyMap{
+				"tags": resource.NewObjectProperty(resource.PropertyMap{
+					"tag1": resource.NewOutputProperty(resource.Output{
+						Element:      resource.NewStringProperty("tag1v"),
+						Known:        true,
+						Dependencies: []resource.URN{"x"},
+					}),
+				}),
+			},
+			meta: resource.PropertyMap{},
+			expect: resource.PropertyMap{
+				"tags": resource.NewOutputProperty(resource.Output{
+					Element: resource.NewObjectProperty(resource.PropertyMap{
+						"tag1": resource.NewStringProperty("tag1v"),
+					}),
+					Known:        true,
+					Dependencies: []resource.URN{"x"},
+				}),
+			},
+		},
 	}
 
 	for _, tc := range testCases {
