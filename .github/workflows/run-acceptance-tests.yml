@@ -8,7 +8,7 @@ env:
       6.0.x
       3.1.301
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  GOVERSION: 1.20.1
+  GOVERSION: 1.21.x
   JAVAVERSION: "11"
   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
   NODEVERSION: 16.x
@@ -54,7 +54,7 @@ jobs:
       with:
         cache-dependency-path: |
             sdk/go.sum
-        go-version: 1.20.1
+        go-version: 1.21.x
     - name: Install pulumictl
       uses: jaxxstorm/action-install-gh-release@v1.5.0
       with:
@@ -170,7 +170,7 @@ jobs:
       with:
         cache-dependency-path: |
             sdk/go.sum
-        go-version: 1.20.1
+        go-version: 1.21.x
     - name: Install pulumictl
       uses: jaxxstorm/action-install-gh-release@v1.5.0
       with:
@@ -237,16 +237,43 @@ jobs:
         fields: repo,commit,author,action
         status: ${{ job.status }}
   sentinel:
-    if: github.event_name == 'repository_dispatch' ||
-      github.event.pull_request.head.repo.full_name == github.repository
     name: sentinel
+    # We would like to be able to specify `sentinel` as the only required job for this
+    # workflow. To do that, we need `sentinel` to succeed only when it is safe to
+    # merge and fail in all other cases.
+    #
+    # We can't use the default `if: success()`, since GitHub interprets a skipped job as a
+    # success, and by default a dependee job failing will skip a dependent job. That means
+    # if a test step fails, then it will skip `sentinel` so GitHub will register
+    # `sentinel` as succeeded.
+    #
+    # GitHub documents `jobs.result` as:
+    #
+    #	The result of a job in the reusable workflow. Possible values are success,
+    #	failure, cancelled, or skipped.
+    #
+    # GitHub documents `cancelled()` as:
+    #
+    #	Returns true if the workflow was canceled.
+    #
+    # Combining these terms gives us an intuitive definition of success:
+    #
+    #	We have succeeded when no dependent workflow has failed and the job was
+    #	not cancelled.
+    #
+    if: (github.event_name == 'repository_dispatch' ||
+      github.event.pull_request.head.repo.full_name == github.repository) &&
+      ! cancelled()
     needs:
     - test
     - go_test_shim
     runs-on: ubuntu-latest
     steps:
-    - name: Is workflow a success
-      run: echo yes
+    - name: Workflow is not a success
+      if: contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled') || contains(needs.*.result, 'skipped')
+      run: exit 1
+    - name: Workflow is a success
+      run: echo "🎉🎈🎉🎈🎉"
   test:
     if: github.event_name == 'repository_dispatch' ||
       github.event.pull_request.head.repo.full_name == github.repository
@@ -274,7 +301,7 @@ jobs:
       with:
         cache-dependency-path: |
             sdk/go.sum
-        go-version: 1.20.1
+        go-version: 1.21.x
     - name: Install pulumictl
       uses: jaxxstorm/action-install-gh-release@v1.5.0
       with:
