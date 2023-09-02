@@ -32,17 +32,15 @@ func TestApplyTags(t *testing.T) {
 	type pv = resource.PropertyValue
 	type pm = resource.PropertyMap
 
-	maybeNullSecretOutputComputed := func(x gen) gen {
+	maybeNullOrUnknown := func(x gen) gen {
 		return rapid.OneOf(
 			rapid.Just(resource.NewNullProperty()),
 			x,
-			rapid.Map(x, resource.MakeSecret),
 			rapid.Map(x, resource.MakeComputed),
-			rapid.Map(x, resource.MakeOutput),
 		)
 	}
 
-	str := maybeNullSecretOutputComputed(rapid.OneOf(
+	str := maybeNullOrUnknown(rapid.OneOf(
 		rapid.Just(resource.NewStringProperty("")),
 		rapid.Just(resource.NewStringProperty("foo")),
 		rapid.Just(resource.NewStringProperty("bar")),
@@ -60,7 +58,7 @@ func TestApplyTags(t *testing.T) {
 		return resource.NewObjectProperty(resource.PropertyMap(m))
 	}
 
-	keyValueTags := maybeNullSecretOutputComputed(
+	keyValueTags := maybeNullOrUnknown(
 		rapid.Map(rapid.MapOfN[pk, pv](keys, str, 0, 3), makeObj))
 
 	config := rapid.Map(keyValueTags, func(tags pv) pm {
@@ -69,7 +67,7 @@ func TestApplyTags(t *testing.T) {
 		}
 	})
 
-	defaultConfig := maybeNullSecretOutputComputed(rapid.Map(config,
+	defaultConfig := maybeNullOrUnknown(rapid.Map(config,
 		resource.NewObjectProperty))
 
 	ignoreConfig := rapid.Custom[pv](func(t *rapid.T) pv {
@@ -205,48 +203,6 @@ func TestApplyTags(t *testing.T) {
 			},
 			expect: resource.PropertyMap{
 				"tags": resource.NewOutputProperty(resource.Output{Known: false}),
-			},
-		},
-		{
-			name: "secrets mark the result secret",
-			config: resource.PropertyMap{
-				"tags": resource.NewObjectProperty(resource.PropertyMap{
-					"tag1": resource.MakeSecret(
-						resource.NewStringProperty("tag1v"),
-					),
-				}),
-			},
-			meta: resource.PropertyMap{},
-			expect: resource.PropertyMap{
-				"tags": resource.NewOutputProperty(resource.Output{
-					Element: resource.NewObjectProperty(resource.PropertyMap{
-						"tag1": resource.NewStringProperty("tag1v"),
-					}),
-					Known:  true,
-					Secret: true,
-				}),
-			},
-		},
-		{
-			name: "inner output dependencies float outward",
-			config: resource.PropertyMap{
-				"tags": resource.NewObjectProperty(resource.PropertyMap{
-					"tag1": resource.NewOutputProperty(resource.Output{
-						Element:      resource.NewStringProperty("tag1v"),
-						Known:        true,
-						Dependencies: []resource.URN{"x"},
-					}),
-				}),
-			},
-			meta: resource.PropertyMap{},
-			expect: resource.PropertyMap{
-				"tags": resource.NewOutputProperty(resource.Output{
-					Element: resource.NewObjectProperty(resource.PropertyMap{
-						"tag1": resource.NewStringProperty("tag1v"),
-					}),
-					Known:        true,
-					Dependencies: []resource.URN{"x"},
-				}),
 			},
 		},
 	}

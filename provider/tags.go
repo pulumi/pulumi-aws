@@ -19,6 +19,7 @@ import (
 
 	awsShim "github.com/hashicorp/terraform-provider-aws/shim"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
 
 // Apply provider tags to an individual resource.
@@ -50,13 +51,11 @@ func applyTags(
 	if t, ok := config["tags"]; ok {
 		configTags = t
 	}
-	allTags, hasTags, err := mergeTags(ctx, configTags, meta)
+	allTags, err := mergeTags(ctx, configTags, meta)
 	if err != nil {
 		return nil, err
 	}
-	// If there are 0 tags, delete the tags entry rather than sending an empty map. The unknown
-	// case is quirky though, prefer to send the unknown marker out rather than deleting it.
-	if !hasTags && !allTags.ContainsUnknowns() {
+	if allTags.IsNull() {
 		delete(ret, "tags")
 		return ret, nil
 	}
@@ -67,25 +66,16 @@ func applyTags(
 // Wrap mergeTagsSimple with taking care of unknowns, secrets and outputs.
 func mergeTags(
 	ctx context.Context, tags resource.PropertyValue, meta resource.PropertyMap,
-) (resource.PropertyValue, bool, error) {
-	return composePropertyValue(
-		func(c *pvComposer) (resource.PropertyValue, bool, error) {
-			stags, err := c.Simplify(tags)
-			if err != nil {
-				return resource.PropertyValue{}, false, err
-			}
-			smeta, err := c.SimplifyPropertyMap(meta)
-			if err != nil {
-				return resource.PropertyValue{}, false, err
-			}
-			return mergeTagsSimple(ctx, stags, smeta)
-		})
-}
+) (resource.PropertyValue, error) {
+	// Any unknowns make the result unknown.
+	if resource.NewObjectProperty(meta).ContainsUnknowns() || tags.ContainsUnknowns() {
+		return resource.NewOutputProperty(resource.Output{Known: false}), nil
+	}
 
-// At this level we do not need to track secret or unknown anymore.
-func mergeTagsSimple(
-	ctx context.Context, tags resource.PropertyValue, meta resource.PropertyMap,
-) (resource.PropertyValue, bool, error) {
+	// Expect the Pulumi CLI to be shielding Check from secrets.
+	contract.Assertf(!tags.ContainsSecrets(), "PreCheckCallback got secrets in config")
+	contract.Assertf(!meta.ContainsSecrets(), "PreCheckCallback got secrets in meta")
+
 	var defaultTags awsShim.TagConfig
 
 	// awsShim.NewTagConfig accepts (context.Context, i interface{}) where i can be one of
@@ -128,8 +118,8 @@ func mergeTagsSimple(
 			pk := resource.PropertyKey(k)
 			allTagProperties[pk] = resource.NewStringProperty(v.ValueString())
 		}
-		return resource.NewObjectProperty(allTagProperties), true, nil
+		return resource.NewObjectProperty(allTagProperties), nil
 	} else {
-		return resource.PropertyValue{}, false, nil
+		return resource.NewNullProperty(), nil
 	}
 }
