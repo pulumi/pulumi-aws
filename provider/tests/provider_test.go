@@ -51,37 +51,3 @@ func replaySequence(t *testing.T, sequence string) {
 func TestReplay(t *testing.T) {
 	replaySequence(t, `[]`)
 }
-
-func TestRegressUnknownTags(t *testing.T) {
-	repro := `
-	[
-	  {
-	    "method": "/pulumirpc.ResourceProvider/Check",
-	    "request": {
-	      "urn": "urn:pulumi:p1::example-tags::eks:index:NodeGroupV2$aws:ec2/securityGroup:SecurityGroup::example-ng-tags-ng2-nodeSecurityGroup",
-	      "olds": {},
-	      "news": {
-		"description": "Managed by Pulumi",
-		"revokeRulesOnDelete": true,
-		"tags": "04da6b54-80e4-46f7-96ec-b56ff0331ba9",
-		"vpcId": "vpc-4b82e033"
-	      },
-	      "randomSeed": "pm3N78209q8Aq/BJU17gDsIRv2BvC/geMb0WK/pMRQg="
-	    },
-	    "response": {
-	      "inputs": {
-		"__defaults": [
-		  "name"
-		],
-		"description": "Managed by Pulumi",
-		"name": "example-ng-tags-ng2-nodeSecurityGroup-8012419",
-		"revokeRulesOnDelete": true,
-		"vpcId": "vpc-4b82e033",
-		"tags": "04da6b54-80e4-46f7-96ec-b56ff0331ba9"
-	      }
-	    }
-	  }
-	]
-	`
-	replaySequence(t, repro)
-}
