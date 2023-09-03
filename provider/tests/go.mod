@@ -1,6 +1,6 @@
 module github.com/pulumi/pulumi-aws/provider/tests
 
-go 1.20
+go 1.21
 
 replace (
 	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20230710100801-03a71d0fca3d

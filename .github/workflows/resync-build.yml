@@ -9,7 +9,7 @@ env:
       6.0.x
       3.1.301
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  GOVERSION: 1.20.1
+  GOVERSION: 1.21.x
   JAVAVERSION: "11"
   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
   NODEVERSION: 16.x
@@ -54,7 +54,7 @@ jobs:
       with:
         cache-dependency-path: |
             sdk/go.sum
-        go-version: 1.20.1
+        go-version: 1.21.x
     - name: Install pulumictl
       uses: jaxxstorm/action-install-gh-release@v1.5.0
       with:
