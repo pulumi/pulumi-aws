@@ -9,38 +9,37 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
-    [Obsolete(@"aws.ec2/getvpciampoolcidrs.getVpcIamPoolCidrs has been deprecated in favor of aws.ec2/getvpcipampoolcidrs.getVpcIpamPoolCidrs")]
-    public static class GetVpcIamPoolCidrs
+    public static class GetVpcIpamPoolCidrs
     {
         /// <summary>
         /// `aws.ec2.getVpcIpamPoolCidrs` provides details about an IPAM pool.
         /// 
         /// This resource can prove useful when an ipam pool was shared to your account and you want to know all (or a filtered list) of the CIDRs that are provisioned into the pool.
         /// </summary>
-        public static Task<GetVpcIamPoolCidrsResult> InvokeAsync(GetVpcIamPoolCidrsArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpcIamPoolCidrsResult>("aws:ec2/getVpcIamPoolCidrs:getVpcIamPoolCidrs", args ?? new GetVpcIamPoolCidrsArgs(), options.WithDefaults());
+        public static Task<GetVpcIpamPoolCidrsResult> InvokeAsync(GetVpcIpamPoolCidrsArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpcIpamPoolCidrsResult>("aws:ec2/getVpcIpamPoolCidrs:getVpcIpamPoolCidrs", args ?? new GetVpcIpamPoolCidrsArgs(), options.WithDefaults());
 
         /// <summary>
         /// `aws.ec2.getVpcIpamPoolCidrs` provides details about an IPAM pool.
         /// 
         /// This resource can prove useful when an ipam pool was shared to your account and you want to know all (or a filtered list) of the CIDRs that are provisioned into the pool.
         /// </summary>
-        public static Output<GetVpcIamPoolCidrsResult> Invoke(GetVpcIamPoolCidrsInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetVpcIamPoolCidrsResult>("aws:ec2/getVpcIamPoolCidrs:getVpcIamPoolCidrs", args ?? new GetVpcIamPoolCidrsInvokeArgs(), options.WithDefaults());
+        public static Output<GetVpcIpamPoolCidrsResult> Invoke(GetVpcIpamPoolCidrsInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVpcIpamPoolCidrsResult>("aws:ec2/getVpcIpamPoolCidrs:getVpcIpamPoolCidrs", args ?? new GetVpcIpamPoolCidrsInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetVpcIamPoolCidrsArgs : global::Pulumi.InvokeArgs
+    public sealed class GetVpcIpamPoolCidrsArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
-        private List<Inputs.GetVpcIamPoolCidrsFilterArgs>? _filters;
+        private List<Inputs.GetVpcIpamPoolCidrsFilterArgs>? _filters;
 
         /// <summary>
         /// Custom filter block as described below.
         /// </summary>
-        public List<Inputs.GetVpcIamPoolCidrsFilterArgs> Filters
+        public List<Inputs.GetVpcIpamPoolCidrsFilterArgs> Filters
         {
-            get => _filters ?? (_filters = new List<Inputs.GetVpcIamPoolCidrsFilterArgs>());
+            get => _filters ?? (_filters = new List<Inputs.GetVpcIpamPoolCidrsFilterArgs>());
             set => _filters = value;
         }
 
@@ -50,23 +49,23 @@ namespace Pulumi.Aws.Ec2
         [Input("ipamPoolId", required: true)]
         public string IpamPoolId { get; set; } = null!;
 
-        public GetVpcIamPoolCidrsArgs()
+        public GetVpcIpamPoolCidrsArgs()
         {
         }
-        public static new GetVpcIamPoolCidrsArgs Empty => new GetVpcIamPoolCidrsArgs();
+        public static new GetVpcIpamPoolCidrsArgs Empty => new GetVpcIpamPoolCidrsArgs();
     }
 
-    public sealed class GetVpcIamPoolCidrsInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetVpcIpamPoolCidrsInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
-        private InputList<Inputs.GetVpcIamPoolCidrsFilterInputArgs>? _filters;
+        private InputList<Inputs.GetVpcIpamPoolCidrsFilterInputArgs>? _filters;
 
         /// <summary>
         /// Custom filter block as described below.
         /// </summary>
-        public InputList<Inputs.GetVpcIamPoolCidrsFilterInputArgs> Filters
+        public InputList<Inputs.GetVpcIpamPoolCidrsFilterInputArgs> Filters
         {
-            get => _filters ?? (_filters = new InputList<Inputs.GetVpcIamPoolCidrsFilterInputArgs>());
+            get => _filters ?? (_filters = new InputList<Inputs.GetVpcIpamPoolCidrsFilterInputArgs>());
             set => _filters = value;
         }
 
@@ -76,17 +75,17 @@ namespace Pulumi.Aws.Ec2
         [Input("ipamPoolId", required: true)]
         public Input<string> IpamPoolId { get; set; } = null!;
 
-        public GetVpcIamPoolCidrsInvokeArgs()
+        public GetVpcIpamPoolCidrsInvokeArgs()
         {
         }
-        public static new GetVpcIamPoolCidrsInvokeArgs Empty => new GetVpcIamPoolCidrsInvokeArgs();
+        public static new GetVpcIpamPoolCidrsInvokeArgs Empty => new GetVpcIpamPoolCidrsInvokeArgs();
     }
 
 
     [OutputType]
-    public sealed class GetVpcIamPoolCidrsResult
+    public sealed class GetVpcIpamPoolCidrsResult
     {
-        public readonly ImmutableArray<Outputs.GetVpcIamPoolCidrsFilterResult> Filters;
+        public readonly ImmutableArray<Outputs.GetVpcIpamPoolCidrsFilterResult> Filters;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -94,16 +93,16 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// The CIDRs provisioned into the IPAM pool, described below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetVpcIamPoolCidrsIpamPoolCidrResult> IpamPoolCidrs;
+        public readonly ImmutableArray<Outputs.GetVpcIpamPoolCidrsIpamPoolCidrResult> IpamPoolCidrs;
         public readonly string IpamPoolId;
 
         [OutputConstructor]
-        private GetVpcIamPoolCidrsResult(
-            ImmutableArray<Outputs.GetVpcIamPoolCidrsFilterResult> filters,
+        private GetVpcIpamPoolCidrsResult(
+            ImmutableArray<Outputs.GetVpcIpamPoolCidrsFilterResult> filters,
 
             string id,
 
-            ImmutableArray<Outputs.GetVpcIamPoolCidrsIpamPoolCidrResult> ipamPoolCidrs,
+            ImmutableArray<Outputs.GetVpcIpamPoolCidrsIpamPoolCidrResult> ipamPoolCidrs,
 
             string ipamPoolId)
         {

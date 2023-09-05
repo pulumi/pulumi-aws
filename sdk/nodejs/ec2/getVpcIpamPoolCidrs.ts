@@ -12,25 +12,23 @@ import * as utilities from "../utilities";
  *
  * This resource can prove useful when an ipam pool was shared to your account and you want to know all (or a filtered list) of the CIDRs that are provisioned into the pool.
  */
-/** @deprecated aws.ec2/getvpciampoolcidrs.getVpcIamPoolCidrs has been deprecated in favor of aws.ec2/getvpcipampoolcidrs.getVpcIpamPoolCidrs */
-export function getVpcIamPoolCidrs(args: GetVpcIamPoolCidrsArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcIamPoolCidrsResult> {
-    pulumi.log.warn("getVpcIamPoolCidrs is deprecated: aws.ec2/getvpciampoolcidrs.getVpcIamPoolCidrs has been deprecated in favor of aws.ec2/getvpcipampoolcidrs.getVpcIpamPoolCidrs")
+export function getVpcIpamPoolCidrs(args: GetVpcIpamPoolCidrsArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcIpamPoolCidrsResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("aws:ec2/getVpcIamPoolCidrs:getVpcIamPoolCidrs", {
+    return pulumi.runtime.invoke("aws:ec2/getVpcIpamPoolCidrs:getVpcIpamPoolCidrs", {
         "filters": args.filters,
         "ipamPoolId": args.ipamPoolId,
     }, opts);
 }
 
 /**
- * A collection of arguments for invoking getVpcIamPoolCidrs.
+ * A collection of arguments for invoking getVpcIpamPoolCidrs.
  */
-export interface GetVpcIamPoolCidrsArgs {
+export interface GetVpcIpamPoolCidrsArgs {
     /**
      * Custom filter block as described below.
      */
-    filters?: inputs.ec2.GetVpcIamPoolCidrsFilter[];
+    filters?: inputs.ec2.GetVpcIpamPoolCidrsFilter[];
     /**
      * ID of the IPAM pool you would like the list of provisioned CIDRs.
      */
@@ -38,10 +36,10 @@ export interface GetVpcIamPoolCidrsArgs {
 }
 
 /**
- * A collection of values returned by getVpcIamPoolCidrs.
+ * A collection of values returned by getVpcIpamPoolCidrs.
  */
-export interface GetVpcIamPoolCidrsResult {
-    readonly filters?: outputs.ec2.GetVpcIamPoolCidrsFilter[];
+export interface GetVpcIpamPoolCidrsResult {
+    readonly filters?: outputs.ec2.GetVpcIpamPoolCidrsFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -49,7 +47,7 @@ export interface GetVpcIamPoolCidrsResult {
     /**
      * The CIDRs provisioned into the IPAM pool, described below.
      */
-    readonly ipamPoolCidrs: outputs.ec2.GetVpcIamPoolCidrsIpamPoolCidr[];
+    readonly ipamPoolCidrs: outputs.ec2.GetVpcIpamPoolCidrsIpamPoolCidr[];
     readonly ipamPoolId: string;
 }
 /**
@@ -57,19 +55,18 @@ export interface GetVpcIamPoolCidrsResult {
  *
  * This resource can prove useful when an ipam pool was shared to your account and you want to know all (or a filtered list) of the CIDRs that are provisioned into the pool.
  */
-/** @deprecated aws.ec2/getvpciampoolcidrs.getVpcIamPoolCidrs has been deprecated in favor of aws.ec2/getvpcipampoolcidrs.getVpcIpamPoolCidrs */
-export function getVpcIamPoolCidrsOutput(args: GetVpcIamPoolCidrsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcIamPoolCidrsResult> {
-    return pulumi.output(args).apply((a: any) => getVpcIamPoolCidrs(a, opts))
+export function getVpcIpamPoolCidrsOutput(args: GetVpcIpamPoolCidrsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcIpamPoolCidrsResult> {
+    return pulumi.output(args).apply((a: any) => getVpcIpamPoolCidrs(a, opts))
 }
 
 /**
- * A collection of arguments for invoking getVpcIamPoolCidrs.
+ * A collection of arguments for invoking getVpcIpamPoolCidrs.
  */
-export interface GetVpcIamPoolCidrsOutputArgs {
+export interface GetVpcIpamPoolCidrsOutputArgs {
     /**
      * Custom filter block as described below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetVpcIamPoolCidrsFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetVpcIpamPoolCidrsFilterArgs>[]>;
     /**
      * ID of the IPAM pool you would like the list of provisioned CIDRs.
      */

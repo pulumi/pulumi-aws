@@ -12,18 +12,16 @@ from . import outputs
 from ._inputs import *
 
 __all__ = [
-    'GetVpcIamPoolResult',
-    'AwaitableGetVpcIamPoolResult',
-    'get_vpc_iam_pool',
-    'get_vpc_iam_pool_output',
+    'GetVpcIpamPoolResult',
+    'AwaitableGetVpcIpamPoolResult',
+    'get_vpc_ipam_pool',
+    'get_vpc_ipam_pool_output',
 ]
 
-warnings.warn("""aws.ec2/getvpciampool.getVpcIamPool has been deprecated in favor of aws.ec2/getvpcipampool.getVpcIpamPool""", DeprecationWarning)
-
 @pulumi.output_type
-class GetVpcIamPoolResult:
+class GetVpcIpamPoolResult:
     """
-    A collection of values returned by getVpcIamPool.
+    A collection of values returned by getVpcIpamPool.
     """
     def __init__(__self__, address_family=None, allocation_default_netmask_length=None, allocation_max_netmask_length=None, allocation_min_netmask_length=None, allocation_resource_tags=None, arn=None, auto_import=None, aws_service=None, description=None, filters=None, id=None, ipam_pool_id=None, ipam_scope_id=None, ipam_scope_type=None, locale=None, pool_depth=None, publicly_advertisable=None, source_ipam_pool_id=None, state=None, tags=None):
         if address_family and not isinstance(address_family, str):
@@ -161,7 +159,7 @@ class GetVpcIamPoolResult:
 
     @property
     @pulumi.getter
-    def filters(self) -> Optional[Sequence['outputs.GetVpcIamPoolFilterResult']]:
+    def filters(self) -> Optional[Sequence['outputs.GetVpcIpamPoolFilterResult']]:
         return pulumi.get(self, "filters")
 
     @property
@@ -233,12 +231,12 @@ class GetVpcIamPoolResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetVpcIamPoolResult(GetVpcIamPoolResult):
+class AwaitableGetVpcIpamPoolResult(GetVpcIpamPoolResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetVpcIamPoolResult(
+        return GetVpcIpamPoolResult(
             address_family=self.address_family,
             allocation_default_netmask_length=self.allocation_default_netmask_length,
             allocation_max_netmask_length=self.allocation_max_netmask_length,
@@ -261,12 +259,12 @@ class AwaitableGetVpcIamPoolResult(GetVpcIamPoolResult):
             tags=self.tags)
 
 
-def get_vpc_iam_pool(allocation_resource_tags: Optional[Mapping[str, str]] = None,
-                     filters: Optional[Sequence[pulumi.InputType['GetVpcIamPoolFilterArgs']]] = None,
-                     id: Optional[str] = None,
-                     ipam_pool_id: Optional[str] = None,
-                     tags: Optional[Mapping[str, str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcIamPoolResult:
+def get_vpc_ipam_pool(allocation_resource_tags: Optional[Mapping[str, str]] = None,
+                      filters: Optional[Sequence[pulumi.InputType['GetVpcIpamPoolFilterArgs']]] = None,
+                      id: Optional[str] = None,
+                      ipam_pool_id: Optional[str] = None,
+                      tags: Optional[Mapping[str, str]] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcIpamPoolResult:
     """
     `ec2.VpcIpamPool` provides details about an IPAM pool.
 
@@ -301,12 +299,11 @@ def get_vpc_iam_pool(allocation_resource_tags: Optional[Mapping[str, str]] = Non
 
 
     :param Mapping[str, str] allocation_resource_tags: Tags that are required to create resources in using this pool.
-    :param Sequence[pulumi.InputType['GetVpcIamPoolFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[pulumi.InputType['GetVpcIpamPoolFilterArgs']] filters: Custom filter block as described below.
     :param str id: ID of the IPAM pool.
     :param str ipam_pool_id: ID of the IPAM pool you would like information on.
     :param Mapping[str, str] tags: Map of tags to assigned to the resource.
     """
-    pulumi.log.warn("""get_vpc_iam_pool is deprecated: aws.ec2/getvpciampool.getVpcIamPool has been deprecated in favor of aws.ec2/getvpcipampool.getVpcIpamPool""")
     __args__ = dict()
     __args__['allocationResourceTags'] = allocation_resource_tags
     __args__['filters'] = filters
@@ -314,9 +311,9 @@ def get_vpc_iam_pool(allocation_resource_tags: Optional[Mapping[str, str]] = Non
     __args__['ipamPoolId'] = ipam_pool_id
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('aws:ec2/getVpcIamPool:getVpcIamPool', __args__, opts=opts, typ=GetVpcIamPoolResult).value
+    __ret__ = pulumi.runtime.invoke('aws:ec2/getVpcIpamPool:getVpcIpamPool', __args__, opts=opts, typ=GetVpcIpamPoolResult).value
 
-    return AwaitableGetVpcIamPoolResult(
+    return AwaitableGetVpcIpamPoolResult(
         address_family=pulumi.get(__ret__, 'address_family'),
         allocation_default_netmask_length=pulumi.get(__ret__, 'allocation_default_netmask_length'),
         allocation_max_netmask_length=pulumi.get(__ret__, 'allocation_max_netmask_length'),
@@ -339,13 +336,13 @@ def get_vpc_iam_pool(allocation_resource_tags: Optional[Mapping[str, str]] = Non
         tags=pulumi.get(__ret__, 'tags'))
 
 
-@_utilities.lift_output_func(get_vpc_iam_pool)
-def get_vpc_iam_pool_output(allocation_resource_tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                            filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetVpcIamPoolFilterArgs']]]]] = None,
-                            id: Optional[pulumi.Input[Optional[str]]] = None,
-                            ipam_pool_id: Optional[pulumi.Input[Optional[str]]] = None,
-                            tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcIamPoolResult]:
+@_utilities.lift_output_func(get_vpc_ipam_pool)
+def get_vpc_ipam_pool_output(allocation_resource_tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                             filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetVpcIpamPoolFilterArgs']]]]] = None,
+                             id: Optional[pulumi.Input[Optional[str]]] = None,
+                             ipam_pool_id: Optional[pulumi.Input[Optional[str]]] = None,
+                             tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcIpamPoolResult]:
     """
     `ec2.VpcIpamPool` provides details about an IPAM pool.
 
@@ -380,10 +377,9 @@ def get_vpc_iam_pool_output(allocation_resource_tags: Optional[pulumi.Input[Opti
 
 
     :param Mapping[str, str] allocation_resource_tags: Tags that are required to create resources in using this pool.
-    :param Sequence[pulumi.InputType['GetVpcIamPoolFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[pulumi.InputType['GetVpcIpamPoolFilterArgs']] filters: Custom filter block as described below.
     :param str id: ID of the IPAM pool.
     :param str ipam_pool_id: ID of the IPAM pool you would like information on.
     :param Mapping[str, str] tags: Map of tags to assigned to the resource.
     """
-    pulumi.log.warn("""get_vpc_iam_pool is deprecated: aws.ec2/getvpciampool.getVpcIamPool has been deprecated in favor of aws.ec2/getvpcipampool.getVpcIpamPool""")
     ...

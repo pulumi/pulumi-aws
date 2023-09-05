@@ -34,32 +34,30 @@ import * as utilities from "../utilities";
  * });
  * ```
  */
-/** @deprecated aws.ec2/getvpciampools.getVpcIamPools has been deprecated in favor of aws.ec2/getvpcipampools.getVpcIpamPools */
-export function getVpcIamPools(args?: GetVpcIamPoolsArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcIamPoolsResult> {
-    pulumi.log.warn("getVpcIamPools is deprecated: aws.ec2/getvpciampools.getVpcIamPools has been deprecated in favor of aws.ec2/getvpcipampools.getVpcIpamPools")
+export function getVpcIpamPools(args?: GetVpcIpamPoolsArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcIpamPoolsResult> {
     args = args || {};
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("aws:ec2/getVpcIamPools:getVpcIamPools", {
+    return pulumi.runtime.invoke("aws:ec2/getVpcIpamPools:getVpcIpamPools", {
         "filters": args.filters,
     }, opts);
 }
 
 /**
- * A collection of arguments for invoking getVpcIamPools.
+ * A collection of arguments for invoking getVpcIpamPools.
  */
-export interface GetVpcIamPoolsArgs {
+export interface GetVpcIpamPoolsArgs {
     /**
      * Custom filter block as described below.
      */
-    filters?: inputs.ec2.GetVpcIamPoolsFilter[];
+    filters?: inputs.ec2.GetVpcIpamPoolsFilter[];
 }
 
 /**
- * A collection of values returned by getVpcIamPools.
+ * A collection of values returned by getVpcIpamPools.
  */
-export interface GetVpcIamPoolsResult {
-    readonly filters?: outputs.ec2.GetVpcIamPoolsFilter[];
+export interface GetVpcIpamPoolsResult {
+    readonly filters?: outputs.ec2.GetVpcIpamPoolsFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -67,7 +65,7 @@ export interface GetVpcIamPoolsResult {
     /**
      * List of IPAM pools and their attributes. See below for details
      */
-    readonly ipamPools: outputs.ec2.GetVpcIamPoolsIpamPool[];
+    readonly ipamPools: outputs.ec2.GetVpcIpamPoolsIpamPool[];
 }
 /**
  * `aws.ec2.getVpcIpamPools` provides details about IPAM pools.
@@ -96,17 +94,16 @@ export interface GetVpcIamPoolsResult {
  * });
  * ```
  */
-/** @deprecated aws.ec2/getvpciampools.getVpcIamPools has been deprecated in favor of aws.ec2/getvpcipampools.getVpcIpamPools */
-export function getVpcIamPoolsOutput(args?: GetVpcIamPoolsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcIamPoolsResult> {
-    return pulumi.output(args).apply((a: any) => getVpcIamPools(a, opts))
+export function getVpcIpamPoolsOutput(args?: GetVpcIpamPoolsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcIpamPoolsResult> {
+    return pulumi.output(args).apply((a: any) => getVpcIpamPools(a, opts))
 }
 
 /**
- * A collection of arguments for invoking getVpcIamPools.
+ * A collection of arguments for invoking getVpcIpamPools.
  */
-export interface GetVpcIamPoolsOutputArgs {
+export interface GetVpcIpamPoolsOutputArgs {
     /**
      * Custom filter block as described below.
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetVpcIamPoolsFilterArgs>[]>;
+    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetVpcIpamPoolsFilterArgs>[]>;
 }

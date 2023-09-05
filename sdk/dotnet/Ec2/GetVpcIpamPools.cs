@@ -9,8 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
-    [Obsolete(@"aws.ec2/getvpciampools.getVpcIamPools has been deprecated in favor of aws.ec2/getvpcipampools.getVpcIpamPools")]
-    public static class GetVpcIamPools
+    public static class GetVpcIpamPools
     {
         /// <summary>
         /// `aws.ec2.getVpcIpamPools` provides details about IPAM pools.
@@ -59,8 +58,8 @@ namespace Pulumi.Aws.Ec2
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
-        public static Task<GetVpcIamPoolsResult> InvokeAsync(GetVpcIamPoolsArgs? args = null, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpcIamPoolsResult>("aws:ec2/getVpcIamPools:getVpcIamPools", args ?? new GetVpcIamPoolsArgs(), options.WithDefaults());
+        public static Task<GetVpcIpamPoolsResult> InvokeAsync(GetVpcIpamPoolsArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpcIpamPoolsResult>("aws:ec2/getVpcIpamPools:getVpcIpamPools", args ?? new GetVpcIpamPoolsArgs(), options.WithDefaults());
 
         /// <summary>
         /// `aws.ec2.getVpcIpamPools` provides details about IPAM pools.
@@ -109,56 +108,56 @@ namespace Pulumi.Aws.Ec2
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
-        public static Output<GetVpcIamPoolsResult> Invoke(GetVpcIamPoolsInvokeArgs? args = null, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetVpcIamPoolsResult>("aws:ec2/getVpcIamPools:getVpcIamPools", args ?? new GetVpcIamPoolsInvokeArgs(), options.WithDefaults());
+        public static Output<GetVpcIpamPoolsResult> Invoke(GetVpcIpamPoolsInvokeArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVpcIpamPoolsResult>("aws:ec2/getVpcIpamPools:getVpcIpamPools", args ?? new GetVpcIpamPoolsInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetVpcIamPoolsArgs : global::Pulumi.InvokeArgs
+    public sealed class GetVpcIpamPoolsArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
-        private List<Inputs.GetVpcIamPoolsFilterArgs>? _filters;
+        private List<Inputs.GetVpcIpamPoolsFilterArgs>? _filters;
 
         /// <summary>
         /// Custom filter block as described below.
         /// </summary>
-        public List<Inputs.GetVpcIamPoolsFilterArgs> Filters
+        public List<Inputs.GetVpcIpamPoolsFilterArgs> Filters
         {
-            get => _filters ?? (_filters = new List<Inputs.GetVpcIamPoolsFilterArgs>());
+            get => _filters ?? (_filters = new List<Inputs.GetVpcIpamPoolsFilterArgs>());
             set => _filters = value;
         }
 
-        public GetVpcIamPoolsArgs()
+        public GetVpcIpamPoolsArgs()
         {
         }
-        public static new GetVpcIamPoolsArgs Empty => new GetVpcIamPoolsArgs();
+        public static new GetVpcIpamPoolsArgs Empty => new GetVpcIpamPoolsArgs();
     }
 
-    public sealed class GetVpcIamPoolsInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetVpcIpamPoolsInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("filters")]
-        private InputList<Inputs.GetVpcIamPoolsFilterInputArgs>? _filters;
+        private InputList<Inputs.GetVpcIpamPoolsFilterInputArgs>? _filters;
 
         /// <summary>
         /// Custom filter block as described below.
         /// </summary>
-        public InputList<Inputs.GetVpcIamPoolsFilterInputArgs> Filters
+        public InputList<Inputs.GetVpcIpamPoolsFilterInputArgs> Filters
         {
-            get => _filters ?? (_filters = new InputList<Inputs.GetVpcIamPoolsFilterInputArgs>());
+            get => _filters ?? (_filters = new InputList<Inputs.GetVpcIpamPoolsFilterInputArgs>());
             set => _filters = value;
         }
 
-        public GetVpcIamPoolsInvokeArgs()
+        public GetVpcIpamPoolsInvokeArgs()
         {
         }
-        public static new GetVpcIamPoolsInvokeArgs Empty => new GetVpcIamPoolsInvokeArgs();
+        public static new GetVpcIpamPoolsInvokeArgs Empty => new GetVpcIpamPoolsInvokeArgs();
     }
 
 
     [OutputType]
-    public sealed class GetVpcIamPoolsResult
+    public sealed class GetVpcIpamPoolsResult
     {
-        public readonly ImmutableArray<Outputs.GetVpcIamPoolsFilterResult> Filters;
+        public readonly ImmutableArray<Outputs.GetVpcIpamPoolsFilterResult> Filters;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -166,15 +165,15 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// List of IPAM pools and their attributes. See below for details
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetVpcIamPoolsIpamPoolResult> IpamPools;
+        public readonly ImmutableArray<Outputs.GetVpcIpamPoolsIpamPoolResult> IpamPools;
 
         [OutputConstructor]
-        private GetVpcIamPoolsResult(
-            ImmutableArray<Outputs.GetVpcIamPoolsFilterResult> filters,
+        private GetVpcIpamPoolsResult(
+            ImmutableArray<Outputs.GetVpcIpamPoolsFilterResult> filters,
 
             string id,
 
-            ImmutableArray<Outputs.GetVpcIamPoolsIpamPoolResult> ipamPools)
+            ImmutableArray<Outputs.GetVpcIpamPoolsIpamPoolResult> ipamPools)
         {
             Filters = filters;
             Id = id;

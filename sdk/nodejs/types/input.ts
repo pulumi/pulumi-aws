@@ -18302,6 +18302,60 @@ export namespace ec2 {
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    export interface GetVpcIpamPoolCidrsFilter {
+        name: string;
+        values: string[];
+    }
+
+    export interface GetVpcIpamPoolCidrsFilterArgs {
+        name: pulumi.Input<string>;
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface GetVpcIpamPoolFilter {
+        /**
+         * The name of the filter. Filter names are case-sensitive.
+         */
+        name: string;
+        /**
+         * The filter values. Filter values are case-sensitive.
+         */
+        values: string[];
+    }
+
+    export interface GetVpcIpamPoolFilterArgs {
+        /**
+         * The name of the filter. Filter names are case-sensitive.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The filter values. Filter values are case-sensitive.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface GetVpcIpamPoolsFilter {
+        /**
+         * The name of the filter. Filter names are case-sensitive.
+         */
+        name: string;
+        /**
+         * The filter values. Filter values are case-sensitive.
+         */
+        values: string[];
+    }
+
+    export interface GetVpcIpamPoolsFilterArgs {
+        /**
+         * The name of the filter. Filter names are case-sensitive.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The filter values. Filter values are case-sensitive.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface GetVpcPeeringConnectionFilter {
         /**
          * Name of the field to filter by, as defined by

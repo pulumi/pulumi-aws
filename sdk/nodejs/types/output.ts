@@ -22185,6 +22185,111 @@ export namespace ec2 {
         tags: {[key: string]: string};
     }
 
+    export interface GetVpcIpamPoolCidrsFilter {
+        name: string;
+        values: string[];
+    }
+
+    export interface GetVpcIpamPoolCidrsIpamPoolCidr {
+        /**
+         * A network CIDR.
+         */
+        cidr: string;
+        /**
+         * The provisioning state of that CIDR.
+         */
+        state: string;
+    }
+
+    export interface GetVpcIpamPoolFilter {
+        /**
+         * The name of the filter. Filter names are case-sensitive.
+         */
+        name: string;
+        /**
+         * The filter values. Filter values are case-sensitive.
+         */
+        values: string[];
+    }
+
+    export interface GetVpcIpamPoolsFilter {
+        /**
+         * The name of the filter. Filter names are case-sensitive.
+         */
+        name: string;
+        /**
+         * The filter values. Filter values are case-sensitive.
+         */
+        values: string[];
+    }
+
+    export interface GetVpcIpamPoolsIpamPool {
+        /**
+         * IP protocol assigned to this pool.
+         */
+        addressFamily: string;
+        /**
+         * A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is `10.0.0.0/8` and you enter 16 here, new allocations will default to `10.0.0.0/16`.
+         */
+        allocationDefaultNetmaskLength: number;
+        /**
+         * The maximum netmask length that will be required for CIDR allocations in this pool.
+         */
+        allocationMaxNetmaskLength: number;
+        /**
+         * The minimum netmask length that will be required for CIDR allocations in this pool.
+         */
+        allocationMinNetmaskLength: number;
+        /**
+         * Tags that are required to create resources in using this pool.
+         */
+        allocationResourceTags: {[key: string]: string};
+        /**
+         * ARN of the pool
+         */
+        arn: string;
+        /**
+         * If enabled, IPAM will continuously look for resources within the CIDR range of this pool and automatically import them as allocations into your IPAM.
+         */
+        autoImport: boolean;
+        /**
+         * Limits which service in AWS that the pool can be used in. `ec2` for example, allows users to use space for Elastic IP addresses and VPCs.
+         */
+        awsService: string;
+        /**
+         * Description for the IPAM pool.
+         */
+        description: string;
+        /**
+         * ID of the IPAM pool.
+         */
+        id?: string;
+        ipamPoolId: string;
+        /**
+         * ID of the scope the pool belongs to.
+         */
+        ipamScopeId: string;
+        ipamScopeType: string;
+        /**
+         * Locale is the Region where your pool is available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region.
+         */
+        locale: string;
+        poolDepth: number;
+        /**
+         * Defines whether or not IPv6 pool space is publicly advertisable over the internet.
+         */
+        publiclyAdvertisable: boolean;
+        /**
+         * ID of the source IPAM pool.
+         */
+        sourceIpamPoolId: string;
+        state: string;
+        /**
+         * Map of tags to assigned to the resource.
+         */
+        tags: {[key: string]: string};
+    }
+
     export interface GetVpcPeeringConnectionCidrBlockSet {
         /**
          * Primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
