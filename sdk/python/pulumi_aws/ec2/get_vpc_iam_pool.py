@@ -18,6 +18,8 @@ __all__ = [
     'get_vpc_iam_pool_output',
 ]
 
+warnings.warn("""aws.ec2/getvpciampool.getVpcIamPool has been deprecated in favor of aws.ec2/getvpcipampool.getVpcIpamPool""", DeprecationWarning)
+
 @pulumi.output_type
 class GetVpcIamPoolResult:
     """
@@ -282,18 +284,18 @@ def get_vpc_iam_pool(allocation_resource_tags: Optional[Mapping[str, str]] = Non
     import pulumi
     import pulumi_aws as aws
 
-    test_vpc_iam_pool = aws.ec2.get_vpc_iam_pool(filters=[
-        aws.ec2.GetVpcIamPoolFilterArgs(
+    test_vpc_ipam_pool = aws.ec2.get_vpc_ipam_pool(filters=[
+        aws.ec2.GetVpcIpamPoolFilterArgs(
             name="description",
             values=["*test*"],
         ),
-        aws.ec2.GetVpcIamPoolFilterArgs(
+        aws.ec2.GetVpcIpamPoolFilterArgs(
             name="address-family",
             values=["ipv4"],
         ),
     ])
     test_vpc = aws.ec2.Vpc("testVpc",
-        ipv4_ipam_pool_id=test_vpc_iam_pool.id,
+        ipv4_ipam_pool_id=test_vpc_ipam_pool.id,
         ipv4_netmask_length=28)
     ```
 
@@ -304,6 +306,7 @@ def get_vpc_iam_pool(allocation_resource_tags: Optional[Mapping[str, str]] = Non
     :param str ipam_pool_id: ID of the IPAM pool you would like information on.
     :param Mapping[str, str] tags: Map of tags to assigned to the resource.
     """
+    pulumi.log.warn("""get_vpc_iam_pool is deprecated: aws.ec2/getvpciampool.getVpcIamPool has been deprecated in favor of aws.ec2/getvpcipampool.getVpcIpamPool""")
     __args__ = dict()
     __args__['allocationResourceTags'] = allocation_resource_tags
     __args__['filters'] = filters
@@ -360,18 +363,18 @@ def get_vpc_iam_pool_output(allocation_resource_tags: Optional[pulumi.Input[Opti
     import pulumi
     import pulumi_aws as aws
 
-    test_vpc_iam_pool = aws.ec2.get_vpc_iam_pool(filters=[
-        aws.ec2.GetVpcIamPoolFilterArgs(
+    test_vpc_ipam_pool = aws.ec2.get_vpc_ipam_pool(filters=[
+        aws.ec2.GetVpcIpamPoolFilterArgs(
             name="description",
             values=["*test*"],
         ),
-        aws.ec2.GetVpcIamPoolFilterArgs(
+        aws.ec2.GetVpcIpamPoolFilterArgs(
             name="address-family",
             values=["ipv4"],
         ),
     ])
     test_vpc = aws.ec2.Vpc("testVpc",
-        ipv4_ipam_pool_id=test_vpc_iam_pool.id,
+        ipv4_ipam_pool_id=test_vpc_ipam_pool.id,
         ipv4_netmask_length=28)
     ```
 
@@ -382,4 +385,5 @@ def get_vpc_iam_pool_output(allocation_resource_tags: Optional[pulumi.Input[Opti
     :param str ipam_pool_id: ID of the IPAM pool you would like information on.
     :param Mapping[str, str] tags: Map of tags to assigned to the resource.
     """
+    pulumi.log.warn("""get_vpc_iam_pool is deprecated: aws.ec2/getvpciampool.getVpcIamPool has been deprecated in favor of aws.ec2/getvpcipampool.getVpcIpamPool""")
     ...

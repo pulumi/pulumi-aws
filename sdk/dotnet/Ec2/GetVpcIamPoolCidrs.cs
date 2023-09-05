@@ -9,10 +9,11 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
+    [Obsolete(@"aws.ec2/getvpciampoolcidrs.getVpcIamPoolCidrs has been deprecated in favor of aws.ec2/getvpcipampoolcidrs.getVpcIpamPoolCidrs")]
     public static class GetVpcIamPoolCidrs
     {
         /// <summary>
-        /// `aws.ec2.getVpcIamPoolCidrs` provides details about an IPAM pool.
+        /// `aws.ec2.getVpcIpamPoolCidrs` provides details about an IPAM pool.
         /// 
         /// This resource can prove useful when an ipam pool was shared to your account and you want to know all (or a filtered list) of the CIDRs that are provisioned into the pool.
         /// </summary>
@@ -20,7 +21,7 @@ namespace Pulumi.Aws.Ec2
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpcIamPoolCidrsResult>("aws:ec2/getVpcIamPoolCidrs:getVpcIamPoolCidrs", args ?? new GetVpcIamPoolCidrsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// `aws.ec2.getVpcIamPoolCidrs` provides details about an IPAM pool.
+        /// `aws.ec2.getVpcIpamPoolCidrs` provides details about an IPAM pool.
         /// 
         /// This resource can prove useful when an ipam pool was shared to your account and you want to know all (or a filtered list) of the CIDRs that are provisioned into the pool.
         /// </summary>

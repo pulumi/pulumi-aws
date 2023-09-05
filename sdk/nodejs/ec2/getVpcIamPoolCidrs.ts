@@ -8,11 +8,13 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * `aws.ec2.getVpcIamPoolCidrs` provides details about an IPAM pool.
+ * `aws.ec2.getVpcIpamPoolCidrs` provides details about an IPAM pool.
  *
  * This resource can prove useful when an ipam pool was shared to your account and you want to know all (or a filtered list) of the CIDRs that are provisioned into the pool.
  */
+/** @deprecated aws.ec2/getvpciampoolcidrs.getVpcIamPoolCidrs has been deprecated in favor of aws.ec2/getvpcipampoolcidrs.getVpcIpamPoolCidrs */
 export function getVpcIamPoolCidrs(args: GetVpcIamPoolCidrsArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcIamPoolCidrsResult> {
+    pulumi.log.warn("getVpcIamPoolCidrs is deprecated: aws.ec2/getvpciampoolcidrs.getVpcIamPoolCidrs has been deprecated in favor of aws.ec2/getvpcipampoolcidrs.getVpcIpamPoolCidrs")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getVpcIamPoolCidrs:getVpcIamPoolCidrs", {
@@ -51,10 +53,11 @@ export interface GetVpcIamPoolCidrsResult {
     readonly ipamPoolId: string;
 }
 /**
- * `aws.ec2.getVpcIamPoolCidrs` provides details about an IPAM pool.
+ * `aws.ec2.getVpcIpamPoolCidrs` provides details about an IPAM pool.
  *
  * This resource can prove useful when an ipam pool was shared to your account and you want to know all (or a filtered list) of the CIDRs that are provisioned into the pool.
  */
+/** @deprecated aws.ec2/getvpciampoolcidrs.getVpcIamPoolCidrs has been deprecated in favor of aws.ec2/getvpcipampoolcidrs.getVpcIpamPoolCidrs */
 export function getVpcIamPoolCidrsOutput(args: GetVpcIamPoolCidrsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcIamPoolCidrsResult> {
     return pulumi.output(args).apply((a: any) => getVpcIamPoolCidrs(a, opts))
 }

@@ -18,6 +18,8 @@ __all__ = [
     'get_vpc_iam_pools_output',
 ]
 
+warnings.warn("""aws.ec2/getvpciampools.getVpcIamPools has been deprecated in favor of aws.ec2/getvpcipampools.getVpcIpamPools""", DeprecationWarning)
+
 @pulumi.output_type
 class GetVpcIamPoolsResult:
     """
@@ -70,7 +72,7 @@ class AwaitableGetVpcIamPoolsResult(GetVpcIamPoolsResult):
 def get_vpc_iam_pools(filters: Optional[Sequence[pulumi.InputType['GetVpcIamPoolsFilterArgs']]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcIamPoolsResult:
     """
-    `ec2_get_vpc_iam_pools` provides details about IPAM pools.
+    `ec2_get_vpc_ipam_pools` provides details about IPAM pools.
 
     This resource can prove useful when IPAM pools are created in another root
     module and you need the pool ids as input variables. For example, pools
@@ -82,12 +84,12 @@ def get_vpc_iam_pools(filters: Optional[Sequence[pulumi.InputType['GetVpcIamPool
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.ec2.get_vpc_iam_pools(filters=[
-        aws.ec2.GetVpcIamPoolsFilterArgs(
+    test = aws.ec2.get_vpc_ipam_pools(filters=[
+        aws.ec2.GetVpcIpamPoolsFilterArgs(
             name="description",
             values=["*test*"],
         ),
-        aws.ec2.GetVpcIamPoolsFilterArgs(
+        aws.ec2.GetVpcIpamPoolsFilterArgs(
             name="address-family",
             values=["ipv4"],
         ),
@@ -97,6 +99,7 @@ def get_vpc_iam_pools(filters: Optional[Sequence[pulumi.InputType['GetVpcIamPool
 
     :param Sequence[pulumi.InputType['GetVpcIamPoolsFilterArgs']] filters: Custom filter block as described below.
     """
+    pulumi.log.warn("""get_vpc_iam_pools is deprecated: aws.ec2/getvpciampools.getVpcIamPools has been deprecated in favor of aws.ec2/getvpcipampools.getVpcIpamPools""")
     __args__ = dict()
     __args__['filters'] = filters
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -112,7 +115,7 @@ def get_vpc_iam_pools(filters: Optional[Sequence[pulumi.InputType['GetVpcIamPool
 def get_vpc_iam_pools_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetVpcIamPoolsFilterArgs']]]]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcIamPoolsResult]:
     """
-    `ec2_get_vpc_iam_pools` provides details about IPAM pools.
+    `ec2_get_vpc_ipam_pools` provides details about IPAM pools.
 
     This resource can prove useful when IPAM pools are created in another root
     module and you need the pool ids as input variables. For example, pools
@@ -124,12 +127,12 @@ def get_vpc_iam_pools_output(filters: Optional[pulumi.Input[Optional[Sequence[pu
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.ec2.get_vpc_iam_pools(filters=[
-        aws.ec2.GetVpcIamPoolsFilterArgs(
+    test = aws.ec2.get_vpc_ipam_pools(filters=[
+        aws.ec2.GetVpcIpamPoolsFilterArgs(
             name="description",
             values=["*test*"],
         ),
-        aws.ec2.GetVpcIamPoolsFilterArgs(
+        aws.ec2.GetVpcIpamPoolsFilterArgs(
             name="address-family",
             values=["ipv4"],
         ),
@@ -139,4 +142,5 @@ def get_vpc_iam_pools_output(filters: Optional[pulumi.Input[Optional[Sequence[pu
 
     :param Sequence[pulumi.InputType['GetVpcIamPoolsFilterArgs']] filters: Custom filter block as described below.
     """
+    pulumi.log.warn("""get_vpc_iam_pools is deprecated: aws.ec2/getvpciampools.getVpcIamPools has been deprecated in favor of aws.ec2/getvpcipampools.getVpcIpamPools""")
     ...

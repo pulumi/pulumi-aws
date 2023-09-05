@@ -35,8 +35,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testVpcIamPool, err := ec2.GetVpcIamPool(ctx, &ec2.GetVpcIamPoolArgs{
-//				Filters: []ec2.GetVpcIamPoolFilter{
+//			testVpcIpamPool, err := ec2.LookupVpcIpamPool(ctx, &ec2.LookupVpcIpamPoolArgs{
+//				Filters: []ec2.GetVpcIpamPoolFilter{
 //					{
 //						Name: "description",
 //						Values: []string{
@@ -55,7 +55,7 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewVpc(ctx, "testVpc", &ec2.VpcArgs{
-//				Ipv4IpamPoolId:    *pulumi.String(testVpcIamPool.Id),
+//				Ipv4IpamPoolId:    *pulumi.String(testVpcIpamPool.Id),
 //				Ipv4NetmaskLength: pulumi.Int(28),
 //			})
 //			if err != nil {
@@ -66,6 +66,8 @@ import (
 //	}
 //
 // ```
+//
+// Deprecated: aws.ec2/getvpciampool.getVpcIamPool has been deprecated in favor of aws.ec2/getvpcipampool.getVpcIpamPool
 func GetVpcIamPool(ctx *pulumi.Context, args *GetVpcIamPoolArgs, opts ...pulumi.InvokeOption) (*GetVpcIamPoolResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetVpcIamPoolResult

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * `aws.ec2.getVpcIamPools` provides details about IPAM pools.
+ * `aws.ec2.getVpcIpamPools` provides details about IPAM pools.
  *
  * This resource can prove useful when IPAM pools are created in another root
  * module and you need the pool ids as input variables. For example, pools
@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = aws.ec2.getVpcIamPools({
+ * const test = aws.ec2.getVpcIpamPools({
  *     filters: [
  *         {
  *             name: "description",
@@ -34,7 +34,9 @@ import * as utilities from "../utilities";
  * });
  * ```
  */
+/** @deprecated aws.ec2/getvpciampools.getVpcIamPools has been deprecated in favor of aws.ec2/getvpcipampools.getVpcIpamPools */
 export function getVpcIamPools(args?: GetVpcIamPoolsArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcIamPoolsResult> {
+    pulumi.log.warn("getVpcIamPools is deprecated: aws.ec2/getvpciampools.getVpcIamPools has been deprecated in favor of aws.ec2/getvpcipampools.getVpcIpamPools")
     args = args || {};
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -68,7 +70,7 @@ export interface GetVpcIamPoolsResult {
     readonly ipamPools: outputs.ec2.GetVpcIamPoolsIpamPool[];
 }
 /**
- * `aws.ec2.getVpcIamPools` provides details about IPAM pools.
+ * `aws.ec2.getVpcIpamPools` provides details about IPAM pools.
  *
  * This resource can prove useful when IPAM pools are created in another root
  * module and you need the pool ids as input variables. For example, pools
@@ -80,7 +82,7 @@ export interface GetVpcIamPoolsResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = aws.ec2.getVpcIamPools({
+ * const test = aws.ec2.getVpcIpamPools({
  *     filters: [
  *         {
  *             name: "description",
@@ -94,6 +96,7 @@ export interface GetVpcIamPoolsResult {
  * });
  * ```
  */
+/** @deprecated aws.ec2/getvpciampools.getVpcIamPools has been deprecated in favor of aws.ec2/getvpcipampools.getVpcIpamPools */
 export function getVpcIamPoolsOutput(args?: GetVpcIamPoolsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcIamPoolsResult> {
     return pulumi.output(args).apply((a: any) => getVpcIamPools(a, opts))
 }
