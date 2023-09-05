@@ -7151,6 +7151,24 @@ $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aw
 			prov.Resources[key].PreCheckCallback = applyTags
 		}
 
+		if prov.Resources[key].GetFields() == nil {
+			prov.Resources[key].Fields = map[string]*tfbridge.SchemaInfo{}
+		}
+		fields := prov.Resources[key].GetFields()
+		yes := true
+		if _, ok := fields["tags_all"]; !ok {
+			fields["tags_all"] = &tfbridge.SchemaInfo{}
+		}
+		fields["tags_all"].Secret = &yes
+		fields["tags_all"].DeprecationMessage = "Please use `tags` instead."
+
+		contract.Assertf(prov.Resources[key].TransformOutputs == nil,
+			"prov.Resources[key].TransformOutputs==nil")
+
+		// TODO[pulumi/pulumi-terraform-bridge#1380] this should not be necessary once 1380
+		// is fixed since marking tags_all as Secret should achieve the same effect
+		prov.Resources[key].TransformOutputs = ensureTagsAllSecret
+
 		return true
 	})
 

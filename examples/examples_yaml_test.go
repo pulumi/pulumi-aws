@@ -29,6 +29,7 @@ import (
 	"strings"
 	"testing"
 
+	"encoding/json"
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -370,4 +371,16 @@ outputs:
 			}
 		}
 	}
+}
+
+func TestRegressSecretTags(t *testing.T) {
+	integration.ProgramTest(t, &integration.ProgramTestOptions{
+		Dir:   "bucket-secret-tags-yaml",
+		Quick: true,
+		ExtraRuntimeValidation: func(t *testing.T, stack integration.RuntimeValidationStackInfo) {
+			bytes, err := json.Marshal(stack.Deployment)
+			require.NoError(t, err)
+			require.NotContainsf(t, string(bytes), "mysecret", "mysecret leaked to state in plain text")
+		},
+	})
 }
