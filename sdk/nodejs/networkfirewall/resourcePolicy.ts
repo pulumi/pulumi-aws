@@ -62,11 +62,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * terraform import {
+ * Using `pulumi import`, import Network Firewall Resource Policies using the `resource_arn`. For example:
  *
- *  to = aws_networkfirewall_resource_policy.example
- *
- *  id = "aws_networkfirewall_rule_group.example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example" } Using `pulumi import`, import Network Firewall Resource Policies using the `resource_arn`. For exampleconsole % pulumi import aws_networkfirewall_resource_policy.example aws_networkfirewall_rule_group.example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example
+ * ```sh
+ *  $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example
+ * ```
  */
 export class ResourcePolicy extends pulumi.CustomResource {
     /**
