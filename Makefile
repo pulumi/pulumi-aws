@@ -158,48 +158,27 @@ bin/pulumi-java-gen:
 		pulumictl download-binary -n pulumi-language-java -v $(JAVA_GEN_VERSION) -r pulumi/pulumi-java; \
 	fi
 
-init_upstream:
-	@# If the source is set, remove it. We do this since setting the source
-	@# when it is already set is an error.
-	@if [ ! -f "upstream/.git" ]; then \
-		echo "Initializing upstream submodule" && \
-		cd upstream && \
-		git submodule update --init && \
-		(git remote rm source || true) && \
-		git remote add source https://github.com/hashicorp/terraform-provider-aws.git && \
-		git fetch source; \
-	fi; \
-
-export_upstream_patches: init_upstream
-ifeq ($(shell cd upstream && git rev-parse --is-shallow-repository), false)
-	find upstream-patches -type f -delete
-	# Find the most recent tag before the current checkout - don't abbreviate the tag name
-	# Create patch files for each commit since the last tag
-	cd upstream && LAST_TAG=$$(git describe --abbrev=0 --tags) && \
-		git format-patch  -o ../upstream-patches --minimal --no-signature HEAD...$${LAST_TAG}
+upstream:
+# Use upstream.sh script to apply patches
+ifneq ("$(wildcard upstream)","")
+	@$(SHELL) ./scripts/upstream.sh "$@" apply
 endif
 
-upstream: init_upstream export_upstream_patches
 	# Ensure tool is installed
 	cd upstream-tools && yarn install --frozen-lockfile
-	# Reset all changes in the submodule so we're starting from a clean slate
-	cd upstream && git checkout . && git clean -fdx
 	# Apply all automated changes
 	cd upstream-tools && yarn --silent run apply
 	# Check for any pending replacements
 	cd upstream-tools && yarn --silent run check
 
-update_upstream: init_upstream
-	@echo "\033[1;33mupdate_upstream is still under construction and will likely fail.\033[0m"
-	cd upstream && git fetch --all && cd -
-	# Find latest tag, create new branch, rebase on new tag, push
-	export TAG=$$(cd upstream && git for-each-ref refs/tags --sort=-taggerdate --format='%(refname:short) && cd -' --count=1) && \
-		cd upstream && \
-		git checkout -b "patched-$$TAG" && \
-		git rebase "$$TAG" && \
-		git push origin "patched-$$TAG"
 
-.PHONY: development build build_sdks install_go_sdk install_java_sdk install_python_sdk install_sdks only_build build_dotnet build_go build_java build_nodejs build_python clean cleanup help install_dotnet_sdk install_nodejs_sdk install_plugins lint_provider provider test tfgen
+upstream.finalize:
+	@$(SHELL) ./scripts/upstream.sh "$@" end_rebase
+
+upstream.rebase:
+	@$(SHELL) ./scripts/upstream.sh "$@" start_rebase
+
+.PHONY: development build build_sdks install_go_sdk install_java_sdk install_python_sdk install_sdks only_build build_dotnet build_go build_java build_nodejs build_python clean cleanup help install_dotnet_sdk install_nodejs_sdk install_plugins lint_provider provider test tfgen upstream upstream.finalize upstream.rebase
 
 # To better align with other bridged providers, this target has been renamed to upstream
 patch_upstream: upstream
