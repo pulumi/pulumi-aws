@@ -1,6 +1,6 @@
 module github.com/pulumi/pulumi-aws/provider/v6
 
-go 1.20
+go 1.21
 
 require (
 	github.com/aws/aws-sdk-go-v2/feature/ec2/imds v1.13.7
@@ -13,6 +13,7 @@ require (
 	github.com/pulumi/pulumi/pkg/v3 v3.76.1
 	github.com/pulumi/pulumi/sdk/v3 v3.76.1
 	github.com/stretchr/testify v1.8.4
+	pgregory.net/rapid v0.6.1
 )
 
 replace (
