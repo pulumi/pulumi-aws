@@ -405,6 +405,8 @@ jobs:
         with:
           ref: ${{ env.PR_COMMIT_SHA }}
           submodules: true
+      - name: Make upstream
+        run: make upstream
       - uses: actions/setup-go@v4
         with:
           cache-dependency-path: provider/go.sum
