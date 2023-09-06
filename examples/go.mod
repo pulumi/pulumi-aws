@@ -20,7 +20,6 @@ require (
 replace (
 	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20230710100801-03a71d0fca3d
 	github.com/hashicorp/terraform-provider-aws => ../upstream
-	github.com/hashicorp/terraform-provider-aws/shim => ../provider/shim
 	github.com/pulumi/pulumi-aws/provider/v6 => ../provider
 )
 
@@ -204,7 +203,6 @@ require (
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.27.0 // indirect
 	github.com/hashicorp/terraform-plugin-testing v1.4.0 // indirect
 	github.com/hashicorp/terraform-provider-aws v1.60.1-0.20220923175450-ca71523cdc36 // indirect
-	github.com/hashicorp/terraform-provider-aws/shim v0.0.0 // indirect
 	github.com/hashicorp/terraform-registry-address v0.2.1 // indirect
 	github.com/hashicorp/terraform-svchost v0.1.1 // indirect
 	github.com/hashicorp/vault/api v1.8.2 // indirect
