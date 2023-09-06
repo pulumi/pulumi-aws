@@ -6,7 +6,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/feature/ec2/imds v1.13.7
 	github.com/hashicorp/aws-sdk-go-base/v2 v2.0.0-beta.32
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.27.0
-	github.com/hashicorp/terraform-provider-aws/shim v0.0.0
+	github.com/hashicorp/terraform-provider-aws v1.60.1-0.20220923175450-ca71523cdc36
 	github.com/mitchellh/go-homedir v1.1.0
 	github.com/pulumi/pulumi-terraform-bridge/pf v0.16.0
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.58.0
@@ -19,7 +19,6 @@ require (
 replace (
 	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20230710100801-03a71d0fca3d
 	github.com/hashicorp/terraform-provider-aws => ../upstream
-	github.com/hashicorp/terraform-provider-aws/shim => ./shim
 	github.com/hashicorp/vault => github.com/hashicorp/vault v1.2.0
 )
 
@@ -211,7 +210,6 @@ require (
 	github.com/hashicorp/terraform-plugin-log v0.9.0 // indirect
 	github.com/hashicorp/terraform-plugin-mux v0.11.2 // indirect
 	github.com/hashicorp/terraform-plugin-testing v1.4.0 // indirect
-	github.com/hashicorp/terraform-provider-aws v1.60.1-0.20220923175450-ca71523cdc36 // indirect
 	github.com/hashicorp/terraform-registry-address v0.2.1 // indirect
 	github.com/hashicorp/terraform-svchost v0.1.1 // indirect
 	github.com/hashicorp/vault/api v1.8.2 // indirect
