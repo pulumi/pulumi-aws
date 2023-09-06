@@ -1,7 +1,7 @@
-From 5a51eedaf004a896b1e4b4ef7eae3a83bc51bb99 Mon Sep 17 00:00:00 2001
+From b13e10f4083977a1a774af111c606de75c769c64 Mon Sep 17 00:00:00 2001
 From: Kyle Pitzen <kpitzen@pulumi.com>
 Date: Fri, 27 Jan 2023 09:37:43 -0600
-Subject: [PATCH 18/28] Reverts patches to S3BucketLegacy and GameLift
+Subject: [PATCH 18/29] Reverts patches to S3BucketLegacy and GameLift
 
 Previously, we were pulling along patches which removed a few simplifications
 to waiters in AWS GameLift, and a newer patch which plumbed through context.Context
@@ -913,3 +913,6 @@ index 7a548d8d6d..9031539c19 100644
 +func retryWhenBucketNotFound(ctx context.Context, f func() (interface{}, error)) (interface{}, error) {
 +	return tfresource.RetryWhenAWSErrCodeEquals(ctx, propagationTimeout, f, s3.ErrCodeNoSuchBucket)
  }
+-- 
+2.40.0
+

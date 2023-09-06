@@ -1,7 +1,7 @@
-From 342b4d470f0232a515b334152d0ac1316e717b8b Mon Sep 17 00:00:00 2001
+From 42bfd0f7c1a0a704a75905ce7f1b5ff2d45a1264 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Fri, 4 Nov 2022 17:05:11 +0000
-Subject: [PATCH 03/28] Add S3 legacy bucket to resources
+Subject: [PATCH 03/29] Add S3 legacy bucket to resources
 
 This preserves the old S3 Resource in the SDK, by duplicating the code
 as a new service (in internal/service/s3legacy), and making an explicit
@@ -4317,3 +4317,6 @@ index 0000000000..529368067d
 +```
 +
 +The `policy` argument is not imported and will be deprecated in a future version of the provider. Use the `aws_s3_bucket_policy` resource to manage the S3 Bucket Policy instead.
+-- 
+2.40.0
+

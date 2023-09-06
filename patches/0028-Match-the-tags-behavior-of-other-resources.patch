@@ -1,7 +1,7 @@
-From 98f10dcdbffb4f304d722ac9339f02f05b837548 Mon Sep 17 00:00:00 2001
+From 763cf685d51197c8e09253da9f493ace339563ab Mon Sep 17 00:00:00 2001
 From: Ian Wahbe <ian@wahbe.com>
 Date: Wed, 2 Aug 2023 14:12:03 +0200
-Subject: [PATCH 28/28] Match the "tags" behavior of other resources
+Subject: [PATCH 28/29] Match the "tags" behavior of other resources
 
 ---
  internal/service/s3legacy/bucket_legacy.go | 14 +++-----------
@@ -46,3 +46,6 @@ index 0563bd3a25..e6bd8e7013 100644
  	}
  
  	arn := arn.ARN{
+-- 
+2.40.0
+

@@ -1,7 +1,7 @@
-From dd6e070d9c1669bc644f6c58c615606e25fd3250 Mon Sep 17 00:00:00 2001
+From 3d2044b6647b32875d7dfa68f61abc346088566e Mon Sep 17 00:00:00 2001
 From: Lee Briggs <jaxxstorm@users.noreply.github.com>
 Date: Wed, 21 Dec 2022 12:23:59 -0800
-Subject: [PATCH 16/28] add matchmaking configuration (#72)
+Subject: [PATCH 16/29] add matchmaking configuration (#72)
 
 * add matchmaking configuration
 * add matchmaking rule set
@@ -1194,3 +1194,6 @@ index 0000000000..28013532bf
 +```
 +$ terraform import aws_gamelift_matchmaking_rule_set.example <ruleset-id>
 +```
+-- 
+2.40.0
+

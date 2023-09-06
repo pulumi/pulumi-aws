@@ -1,7 +1,7 @@
-From c3d25a34961b8acc526c61ef47956bc8974abdf4 Mon Sep 17 00:00:00 2001
+From 87f5f03befb4bf62cf7333fede5be712a4a620ff Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Thu, 9 Mar 2023 14:50:51 +0000
-Subject: [PATCH 21/28] Fixup gamelift context
+Subject: [PATCH 21/29] Fixup gamelift context
 
 ---
  internal/service/gamelift/matchmaking_configuration.go | 2 +-
@@ -34,3 +34,6 @@ index 8c1189199f..254c96efc6 100644
  
  	input := gamelift.CreateMatchmakingRuleSetInput{
  		Name:        aws.String(d.Get("name").(string)),
+-- 
+2.40.0
+

@@ -1,7 +1,7 @@
-From 138a9d80bf2e7635eb61d1eb24167c9c0fc46ef6 Mon Sep 17 00:00:00 2001
+From 6f909393cbfa60f7dcecdf0e7f225228c5671ef1 Mon Sep 17 00:00:00 2001
 From: Kyle Pitzen <kpitzen@pulumi.com>
 Date: Thu, 9 Mar 2023 09:47:49 -0600
-Subject: [PATCH 04/28] Marks SSE Configuration as Computed for Legacy S3
+Subject: [PATCH 04/29] Marks SSE Configuration as Computed for Legacy S3
  Bucket
 
 In January, AWS enabled SSE by default for all new S3 buckets.
@@ -25,3 +25,6 @@ index 27fe651a83..8879116578 100644
  				Elem: &schema.Resource{
  					Schema: map[string]*schema.Schema{
  						"rule": {
+-- 
+2.40.0
+

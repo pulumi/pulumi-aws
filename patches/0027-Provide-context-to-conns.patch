@@ -1,7 +1,7 @@
-From a04a5ee115dde3b794a239726b840277d8ef2d5d Mon Sep 17 00:00:00 2001
+From f2b28defbc9ec23cf67958487eefea6a8a858dcb Mon Sep 17 00:00:00 2001
 From: Ian Wahbe <ian@wahbe.com>
 Date: Mon, 10 Jul 2023 11:51:24 +0200
-Subject: [PATCH 27/28] Provide context to conns
+Subject: [PATCH 27/29] Provide context to conns
 
 ---
  internal/service/ecr/credentials_data_source.go  |  4 +++-
@@ -311,3 +311,6 @@ index ba95f6c2b6..0563bd3a25 100644
  			&s3.GetBucketLocationInput{
  				Bucket: aws.String(bucket),
  			},
+-- 
+2.40.0
+

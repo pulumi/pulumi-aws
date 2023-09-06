@@ -1,7 +1,7 @@
-From 206558dd3dc40ff6a26df36ac168a9fc5edf5b03 Mon Sep 17 00:00:00 2001
+From 92d43b0cf0f4493d4bcb9a00b7a90bebb01e8d1f Mon Sep 17 00:00:00 2001
 From: Richard Shade <richard@pulumi.com>
 Date: Fri, 6 Jan 2023 15:31:22 -0600
-Subject: [PATCH 17/28] fix: Adding back in removeAddons
+Subject: [PATCH 17/29] fix: Adding back in removeAddons
 
 ---
  internal/service/eks/cluster.go | 4 ++++
@@ -22,3 +22,6 @@ index bdb7dc949a..924964ae65 100644
  	return resourceClusterRead(ctx, d, meta)
  }
  
+-- 
+2.40.0
+

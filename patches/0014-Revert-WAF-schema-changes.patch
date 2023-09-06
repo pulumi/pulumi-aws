@@ -1,7 +1,7 @@
-From 17b4f32928c58f60a55dda0c835c81b13f15f90e Mon Sep 17 00:00:00 2001
+From 23e299f14c4bca061ae1763c7ffe6c3506e485c6 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Tue, 15 Nov 2022 13:59:57 +0000
-Subject: [PATCH 14/28] Revert WAF schema changes
+Subject: [PATCH 14/29] Revert WAF schema changes
 
 - This causes far too many types to be generated downstream.
 ---
@@ -31,3 +31,6 @@ index 7ded2aac1c..ddcd5e6161 100644
  				"regex_match_statement":                 regexMatchStatementSchema(),
  				"regex_pattern_set_reference_statement": regexPatternSetReferenceStatementSchema(),
  				"size_constraint_statement":             sizeConstraintSchema(),
+-- 
+2.40.0
+
