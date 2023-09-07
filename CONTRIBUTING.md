@@ -22,6 +22,7 @@ Please refer to the [main Pulumi repo](https://github.com/pulumi/pulumi/)'s [CON
 
 You must generate and check in the SDKs on each pull request containing a code change, e.g. adding a new resource to `resources.go`.
 
+1. Run `make tfgen` to re-generate the provider binary.
 1. Run `make build_sdks` from the root of this repository
 1. Open a pull request containing all changes
 1. *Note:* If a large number of seemingly-unrelated diffs are produced by `make build_sdks` (for example, lots of changes to comments unrelated to the change you are making), ensure that the latest dependencies for the provider are installed by running `go mod tidy` in the `provider/` directory of this repository.
