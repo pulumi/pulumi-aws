@@ -634,15 +634,16 @@ func Provider() *tfbridge.ProviderInfo {
 	p := pftfbridge.MuxShimWithDisjointgPF(ctx, shimv2.NewProvider(upstreamProvider.SDKV2Provider, shimv2.WithDiffStrategy(shimv2.PlanState)), upstreamProvider.PluginFrameworkProvider)
 
 	prov := tfbridge.ProviderInfo{
-		P:           p,
-		Name:        "aws",
-		Description: "A Pulumi package for creating and managing Amazon Web Services (AWS) cloud resources.",
-		Keywords:    []string{"pulumi", "aws"},
-		License:     "Apache-2.0",
-		Homepage:    "https://pulumi.io",
-		Repository:  "https://github.com/pulumi/pulumi-aws",
-		Version:     version.Version,
-		GitHubOrg:   "hashicorp",
+		P:                p,
+		Name:             "aws",
+		Description:      "A Pulumi package for creating and managing Amazon Web Services (AWS) cloud resources.",
+		Keywords:         []string{"pulumi", "aws"},
+		License:          "Apache-2.0",
+		Homepage:         "https://pulumi.io",
+		Repository:       "https://github.com/pulumi/pulumi-aws",
+		Version:          version.Version,
+		GitHubOrg:        "hashicorp",
+		UpstreamRepoPath: "./upstream",
 
 		MetadataInfo: tfbridge.NewProviderMetadata(metadata),
 

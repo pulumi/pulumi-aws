@@ -381,6 +381,8 @@ jobs:
         role-duration-seconds: 3600
         role-session-name: ${{ env.PROVIDER }}@githubActions
         role-to-assume: ${{ secrets.AWS_CI_ROLE_ARN }}
+    - name: Make upstream
+      run: make upstream
     - name: Run tests
       run: cd examples && go test -v -json -count=1 -cover -timeout 2h -tags=${{
         matrix.language }} -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
@@ -409,6 +411,8 @@ jobs:
             with:
               ref: ${{ env.PR_COMMIT_SHA }}
               submodules: true
+          - name: Make upstream
+            run: make upstream
           - uses: actions/setup-go@v4
             with:
               cache-dependency-path: provider/shim/go.sum
