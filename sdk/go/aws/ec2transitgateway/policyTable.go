@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an EC2 Transit Gateway Policy Table.
@@ -167,6 +168,12 @@ func (i *PolicyTable) ToPolicyTableOutputWithContext(ctx context.Context) Policy
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyTableOutput)
 }
 
+func (i *PolicyTable) ToOutput(ctx context.Context) pulumix.Output[*PolicyTable] {
+	return pulumix.Output[*PolicyTable]{
+		OutputState: i.ToPolicyTableOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PolicyTableArrayInput is an input type that accepts PolicyTableArray and PolicyTableArrayOutput values.
 // You can construct a concrete instance of `PolicyTableArrayInput` via:
 //
@@ -190,6 +197,12 @@ func (i PolicyTableArray) ToPolicyTableArrayOutput() PolicyTableArrayOutput {
 
 func (i PolicyTableArray) ToPolicyTableArrayOutputWithContext(ctx context.Context) PolicyTableArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyTableArrayOutput)
+}
+
+func (i PolicyTableArray) ToOutput(ctx context.Context) pulumix.Output[[]*PolicyTable] {
+	return pulumix.Output[[]*PolicyTable]{
+		OutputState: i.ToPolicyTableArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // PolicyTableMapInput is an input type that accepts PolicyTableMap and PolicyTableMapOutput values.
@@ -217,6 +230,12 @@ func (i PolicyTableMap) ToPolicyTableMapOutputWithContext(ctx context.Context) P
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyTableMapOutput)
 }
 
+func (i PolicyTableMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PolicyTable] {
+	return pulumix.Output[map[string]*PolicyTable]{
+		OutputState: i.ToPolicyTableMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PolicyTableOutput struct{ *pulumi.OutputState }
 
 func (PolicyTableOutput) ElementType() reflect.Type {
@@ -229,6 +248,12 @@ func (o PolicyTableOutput) ToPolicyTableOutput() PolicyTableOutput {
 
 func (o PolicyTableOutput) ToPolicyTableOutputWithContext(ctx context.Context) PolicyTableOutput {
 	return o
+}
+
+func (o PolicyTableOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyTable] {
+	return pulumix.Output[*PolicyTable]{
+		OutputState: o.OutputState,
+	}
 }
 
 // EC2 Transit Gateway Policy Table Amazon Resource Name (ARN).
@@ -270,6 +295,12 @@ func (o PolicyTableArrayOutput) ToPolicyTableArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o PolicyTableArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PolicyTable] {
+	return pulumix.Output[[]*PolicyTable]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PolicyTableArrayOutput) Index(i pulumi.IntInput) PolicyTableOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PolicyTable {
 		return vs[0].([]*PolicyTable)[vs[1].(int)]
@@ -288,6 +319,12 @@ func (o PolicyTableMapOutput) ToPolicyTableMapOutput() PolicyTableMapOutput {
 
 func (o PolicyTableMapOutput) ToPolicyTableMapOutputWithContext(ctx context.Context) PolicyTableMapOutput {
 	return o
+}
+
+func (o PolicyTableMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PolicyTable] {
+	return pulumix.Output[map[string]*PolicyTable]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PolicyTableMapOutput) MapIndex(k pulumi.StringInput) PolicyTableOutput {

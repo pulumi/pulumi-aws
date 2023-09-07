@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a CE Anomaly Monitor.
@@ -238,6 +239,12 @@ func (i *AnomalyMonitor) ToAnomalyMonitorOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalyMonitorOutput)
 }
 
+func (i *AnomalyMonitor) ToOutput(ctx context.Context) pulumix.Output[*AnomalyMonitor] {
+	return pulumix.Output[*AnomalyMonitor]{
+		OutputState: i.ToAnomalyMonitorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AnomalyMonitorArrayInput is an input type that accepts AnomalyMonitorArray and AnomalyMonitorArrayOutput values.
 // You can construct a concrete instance of `AnomalyMonitorArrayInput` via:
 //
@@ -261,6 +268,12 @@ func (i AnomalyMonitorArray) ToAnomalyMonitorArrayOutput() AnomalyMonitorArrayOu
 
 func (i AnomalyMonitorArray) ToAnomalyMonitorArrayOutputWithContext(ctx context.Context) AnomalyMonitorArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalyMonitorArrayOutput)
+}
+
+func (i AnomalyMonitorArray) ToOutput(ctx context.Context) pulumix.Output[[]*AnomalyMonitor] {
+	return pulumix.Output[[]*AnomalyMonitor]{
+		OutputState: i.ToAnomalyMonitorArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // AnomalyMonitorMapInput is an input type that accepts AnomalyMonitorMap and AnomalyMonitorMapOutput values.
@@ -288,6 +301,12 @@ func (i AnomalyMonitorMap) ToAnomalyMonitorMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalyMonitorMapOutput)
 }
 
+func (i AnomalyMonitorMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AnomalyMonitor] {
+	return pulumix.Output[map[string]*AnomalyMonitor]{
+		OutputState: i.ToAnomalyMonitorMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AnomalyMonitorOutput struct{ *pulumi.OutputState }
 
 func (AnomalyMonitorOutput) ElementType() reflect.Type {
@@ -300,6 +319,12 @@ func (o AnomalyMonitorOutput) ToAnomalyMonitorOutput() AnomalyMonitorOutput {
 
 func (o AnomalyMonitorOutput) ToAnomalyMonitorOutputWithContext(ctx context.Context) AnomalyMonitorOutput {
 	return o
+}
+
+func (o AnomalyMonitorOutput) ToOutput(ctx context.Context) pulumix.Output[*AnomalyMonitor] {
+	return pulumix.Output[*AnomalyMonitor]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the anomaly monitor.
@@ -351,6 +376,12 @@ func (o AnomalyMonitorArrayOutput) ToAnomalyMonitorArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o AnomalyMonitorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AnomalyMonitor] {
+	return pulumix.Output[[]*AnomalyMonitor]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AnomalyMonitorArrayOutput) Index(i pulumi.IntInput) AnomalyMonitorOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AnomalyMonitor {
 		return vs[0].([]*AnomalyMonitor)[vs[1].(int)]
@@ -369,6 +400,12 @@ func (o AnomalyMonitorMapOutput) ToAnomalyMonitorMapOutput() AnomalyMonitorMapOu
 
 func (o AnomalyMonitorMapOutput) ToAnomalyMonitorMapOutputWithContext(ctx context.Context) AnomalyMonitorMapOutput {
 	return o
+}
+
+func (o AnomalyMonitorMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AnomalyMonitor] {
+	return pulumix.Output[map[string]*AnomalyMonitor]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnomalyMonitorMapOutput) MapIndex(k pulumi.StringInput) AnomalyMonitorOutput {

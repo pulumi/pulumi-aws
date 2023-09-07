@@ -32,6 +32,7 @@ __all__ = [
     'CrawlerCatalogTarget',
     'CrawlerDeltaTarget',
     'CrawlerDynamodbTarget',
+    'CrawlerHudiTarget',
     'CrawlerIcebergTarget',
     'CrawlerJdbcTarget',
     'CrawlerLakeFormationConfiguration',
@@ -1483,6 +1484,78 @@ class CrawlerDynamodbTarget(dict):
         The percentage of the configured read capacity units to use by the AWS Glue crawler. The valid values are null or a value between 0.1 to 1.5.
         """
         return pulumi.get(self, "scan_rate")
+
+
+@pulumi.output_type
+class CrawlerHudiTarget(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maximumTraversalDepth":
+            suggest = "maximum_traversal_depth"
+        elif key == "connectionName":
+            suggest = "connection_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CrawlerHudiTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CrawlerHudiTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CrawlerHudiTarget.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 maximum_traversal_depth: int,
+                 paths: Sequence[str],
+                 connection_name: Optional[str] = None,
+                 exclusions: Optional[Sequence[str]] = None):
+        """
+        :param int maximum_traversal_depth: The maximum depth of Amazon S3 paths that the crawler can traverse to discover the Hudi metadata folder in your Amazon S3 path. Used to limit the crawler run time. Valid values are between `1` and `20`.
+        :param Sequence[str] paths: One or more Amazon S3 paths that contains Hudi metadata folders as s3://bucket/prefix.
+        :param str connection_name: The name of the connection to use to connect to the Hudi target.
+        :param Sequence[str] exclusions: A list of glob patterns used to exclude from the crawl.
+        """
+        pulumi.set(__self__, "maximum_traversal_depth", maximum_traversal_depth)
+        pulumi.set(__self__, "paths", paths)
+        if connection_name is not None:
+            pulumi.set(__self__, "connection_name", connection_name)
+        if exclusions is not None:
+            pulumi.set(__self__, "exclusions", exclusions)
+
+    @property
+    @pulumi.getter(name="maximumTraversalDepth")
+    def maximum_traversal_depth(self) -> int:
+        """
+        The maximum depth of Amazon S3 paths that the crawler can traverse to discover the Hudi metadata folder in your Amazon S3 path. Used to limit the crawler run time. Valid values are between `1` and `20`.
+        """
+        return pulumi.get(self, "maximum_traversal_depth")
+
+    @property
+    @pulumi.getter
+    def paths(self) -> Sequence[str]:
+        """
+        One or more Amazon S3 paths that contains Hudi metadata folders as s3://bucket/prefix.
+        """
+        return pulumi.get(self, "paths")
+
+    @property
+    @pulumi.getter(name="connectionName")
+    def connection_name(self) -> Optional[str]:
+        """
+        The name of the connection to use to connect to the Hudi target.
+        """
+        return pulumi.get(self, "connection_name")
+
+    @property
+    @pulumi.getter
+    def exclusions(self) -> Optional[Sequence[str]]:
+        """
+        A list of glob patterns used to exclude from the crawl.
+        """
+        return pulumi.get(self, "exclusions")
 
 
 @pulumi.output_type

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS OpenSearch Serverless Security Config.
@@ -158,6 +159,12 @@ func (i *ServerlessSecurityConfig) ToServerlessSecurityConfigOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ServerlessSecurityConfigOutput)
 }
 
+func (i *ServerlessSecurityConfig) ToOutput(ctx context.Context) pulumix.Output[*ServerlessSecurityConfig] {
+	return pulumix.Output[*ServerlessSecurityConfig]{
+		OutputState: i.ToServerlessSecurityConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServerlessSecurityConfigArrayInput is an input type that accepts ServerlessSecurityConfigArray and ServerlessSecurityConfigArrayOutput values.
 // You can construct a concrete instance of `ServerlessSecurityConfigArrayInput` via:
 //
@@ -181,6 +188,12 @@ func (i ServerlessSecurityConfigArray) ToServerlessSecurityConfigArrayOutput() S
 
 func (i ServerlessSecurityConfigArray) ToServerlessSecurityConfigArrayOutputWithContext(ctx context.Context) ServerlessSecurityConfigArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServerlessSecurityConfigArrayOutput)
+}
+
+func (i ServerlessSecurityConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServerlessSecurityConfig] {
+	return pulumix.Output[[]*ServerlessSecurityConfig]{
+		OutputState: i.ToServerlessSecurityConfigArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ServerlessSecurityConfigMapInput is an input type that accepts ServerlessSecurityConfigMap and ServerlessSecurityConfigMapOutput values.
@@ -208,6 +221,12 @@ func (i ServerlessSecurityConfigMap) ToServerlessSecurityConfigMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ServerlessSecurityConfigMapOutput)
 }
 
+func (i ServerlessSecurityConfigMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServerlessSecurityConfig] {
+	return pulumix.Output[map[string]*ServerlessSecurityConfig]{
+		OutputState: i.ToServerlessSecurityConfigMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServerlessSecurityConfigOutput struct{ *pulumi.OutputState }
 
 func (ServerlessSecurityConfigOutput) ElementType() reflect.Type {
@@ -220,6 +239,12 @@ func (o ServerlessSecurityConfigOutput) ToServerlessSecurityConfigOutput() Serve
 
 func (o ServerlessSecurityConfigOutput) ToServerlessSecurityConfigOutputWithContext(ctx context.Context) ServerlessSecurityConfigOutput {
 	return o
+}
+
+func (o ServerlessSecurityConfigOutput) ToOutput(ctx context.Context) pulumix.Output[*ServerlessSecurityConfig] {
+	return pulumix.Output[*ServerlessSecurityConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Version of the configuration.
@@ -263,6 +288,12 @@ func (o ServerlessSecurityConfigArrayOutput) ToServerlessSecurityConfigArrayOutp
 	return o
 }
 
+func (o ServerlessSecurityConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServerlessSecurityConfig] {
+	return pulumix.Output[[]*ServerlessSecurityConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ServerlessSecurityConfigArrayOutput) Index(i pulumi.IntInput) ServerlessSecurityConfigOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServerlessSecurityConfig {
 		return vs[0].([]*ServerlessSecurityConfig)[vs[1].(int)]
@@ -281,6 +312,12 @@ func (o ServerlessSecurityConfigMapOutput) ToServerlessSecurityConfigMapOutput()
 
 func (o ServerlessSecurityConfigMapOutput) ToServerlessSecurityConfigMapOutputWithContext(ctx context.Context) ServerlessSecurityConfigMapOutput {
 	return o
+}
+
+func (o ServerlessSecurityConfigMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServerlessSecurityConfig] {
+	return pulumix.Output[map[string]*ServerlessSecurityConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServerlessSecurityConfigMapOutput) MapIndex(k pulumi.StringInput) ServerlessSecurityConfigOutput {

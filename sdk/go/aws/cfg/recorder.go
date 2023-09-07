@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an AWS Config Configuration Recorder. Please note that this resource **does not start** the created recorder automatically.
@@ -186,6 +187,12 @@ func (i *Recorder) ToRecorderOutputWithContext(ctx context.Context) RecorderOutp
 	return pulumi.ToOutputWithContext(ctx, i).(RecorderOutput)
 }
 
+func (i *Recorder) ToOutput(ctx context.Context) pulumix.Output[*Recorder] {
+	return pulumix.Output[*Recorder]{
+		OutputState: i.ToRecorderOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RecorderArrayInput is an input type that accepts RecorderArray and RecorderArrayOutput values.
 // You can construct a concrete instance of `RecorderArrayInput` via:
 //
@@ -209,6 +216,12 @@ func (i RecorderArray) ToRecorderArrayOutput() RecorderArrayOutput {
 
 func (i RecorderArray) ToRecorderArrayOutputWithContext(ctx context.Context) RecorderArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RecorderArrayOutput)
+}
+
+func (i RecorderArray) ToOutput(ctx context.Context) pulumix.Output[[]*Recorder] {
+	return pulumix.Output[[]*Recorder]{
+		OutputState: i.ToRecorderArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RecorderMapInput is an input type that accepts RecorderMap and RecorderMapOutput values.
@@ -236,6 +249,12 @@ func (i RecorderMap) ToRecorderMapOutputWithContext(ctx context.Context) Recorde
 	return pulumi.ToOutputWithContext(ctx, i).(RecorderMapOutput)
 }
 
+func (i RecorderMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Recorder] {
+	return pulumix.Output[map[string]*Recorder]{
+		OutputState: i.ToRecorderMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RecorderOutput struct{ *pulumi.OutputState }
 
 func (RecorderOutput) ElementType() reflect.Type {
@@ -248,6 +267,12 @@ func (o RecorderOutput) ToRecorderOutput() RecorderOutput {
 
 func (o RecorderOutput) ToRecorderOutputWithContext(ctx context.Context) RecorderOutput {
 	return o
+}
+
+func (o RecorderOutput) ToOutput(ctx context.Context) pulumix.Output[*Recorder] {
+	return pulumix.Output[*Recorder]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the recorder. Defaults to `default`. Changing it recreates the resource.
@@ -279,6 +304,12 @@ func (o RecorderArrayOutput) ToRecorderArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o RecorderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Recorder] {
+	return pulumix.Output[[]*Recorder]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RecorderArrayOutput) Index(i pulumi.IntInput) RecorderOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Recorder {
 		return vs[0].([]*Recorder)[vs[1].(int)]
@@ -297,6 +328,12 @@ func (o RecorderMapOutput) ToRecorderMapOutput() RecorderMapOutput {
 
 func (o RecorderMapOutput) ToRecorderMapOutputWithContext(ctx context.Context) RecorderMapOutput {
 	return o
+}
+
+func (o RecorderMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Recorder] {
+	return pulumix.Output[map[string]*Recorder]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RecorderMapOutput) MapIndex(k pulumi.StringInput) RecorderOutput {

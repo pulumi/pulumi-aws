@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS Audit Manager Assessment.
@@ -255,6 +256,12 @@ func (i *Assessment) ToAssessmentOutputWithContext(ctx context.Context) Assessme
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentOutput)
 }
 
+func (i *Assessment) ToOutput(ctx context.Context) pulumix.Output[*Assessment] {
+	return pulumix.Output[*Assessment]{
+		OutputState: i.ToAssessmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AssessmentArrayInput is an input type that accepts AssessmentArray and AssessmentArrayOutput values.
 // You can construct a concrete instance of `AssessmentArrayInput` via:
 //
@@ -278,6 +285,12 @@ func (i AssessmentArray) ToAssessmentArrayOutput() AssessmentArrayOutput {
 
 func (i AssessmentArray) ToAssessmentArrayOutputWithContext(ctx context.Context) AssessmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentArrayOutput)
+}
+
+func (i AssessmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*Assessment] {
+	return pulumix.Output[[]*Assessment]{
+		OutputState: i.ToAssessmentArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // AssessmentMapInput is an input type that accepts AssessmentMap and AssessmentMapOutput values.
@@ -305,6 +318,12 @@ func (i AssessmentMap) ToAssessmentMapOutputWithContext(ctx context.Context) Ass
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentMapOutput)
 }
 
+func (i AssessmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Assessment] {
+	return pulumix.Output[map[string]*Assessment]{
+		OutputState: i.ToAssessmentMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AssessmentOutput struct{ *pulumi.OutputState }
 
 func (AssessmentOutput) ElementType() reflect.Type {
@@ -317,6 +336,12 @@ func (o AssessmentOutput) ToAssessmentOutput() AssessmentOutput {
 
 func (o AssessmentOutput) ToAssessmentOutputWithContext(ctx context.Context) AssessmentOutput {
 	return o
+}
+
+func (o AssessmentOutput) ToOutput(ctx context.Context) pulumix.Output[*Assessment] {
+	return pulumix.Output[*Assessment]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name (ARN) of the assessment.
@@ -391,6 +416,12 @@ func (o AssessmentArrayOutput) ToAssessmentArrayOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o AssessmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Assessment] {
+	return pulumix.Output[[]*Assessment]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AssessmentArrayOutput) Index(i pulumi.IntInput) AssessmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Assessment {
 		return vs[0].([]*Assessment)[vs[1].(int)]
@@ -409,6 +440,12 @@ func (o AssessmentMapOutput) ToAssessmentMapOutput() AssessmentMapOutput {
 
 func (o AssessmentMapOutput) ToAssessmentMapOutputWithContext(ctx context.Context) AssessmentMapOutput {
 	return o
+}
+
+func (o AssessmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Assessment] {
+	return pulumix.Output[map[string]*Assessment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AssessmentMapOutput) MapIndex(k pulumi.StringInput) AssessmentOutput {

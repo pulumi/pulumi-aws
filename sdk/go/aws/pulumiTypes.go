@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -60,6 +61,12 @@ func (i ProviderAssumeRoleArgs) ToProviderAssumeRoleOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderAssumeRoleOutput)
 }
 
+func (i ProviderAssumeRoleArgs) ToOutput(ctx context.Context) pulumix.Output[ProviderAssumeRole] {
+	return pulumix.Output[ProviderAssumeRole]{
+		OutputState: i.ToProviderAssumeRoleOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ProviderAssumeRoleArgs) ToProviderAssumeRolePtrOutput() ProviderAssumeRolePtrOutput {
 	return i.ToProviderAssumeRolePtrOutputWithContext(context.Background())
 }
@@ -101,6 +108,12 @@ func (i *providerAssumeRolePtrType) ToProviderAssumeRolePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderAssumeRolePtrOutput)
 }
 
+func (i *providerAssumeRolePtrType) ToOutput(ctx context.Context) pulumix.Output[*ProviderAssumeRole] {
+	return pulumix.Output[*ProviderAssumeRole]{
+		OutputState: i.ToProviderAssumeRolePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProviderAssumeRoleOutput struct{ *pulumi.OutputState }
 
 func (ProviderAssumeRoleOutput) ElementType() reflect.Type {
@@ -123,6 +136,12 @@ func (o ProviderAssumeRoleOutput) ToProviderAssumeRolePtrOutputWithContext(ctx c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProviderAssumeRole) *ProviderAssumeRole {
 		return &v
 	}).(ProviderAssumeRolePtrOutput)
+}
+
+func (o ProviderAssumeRoleOutput) ToOutput(ctx context.Context) pulumix.Output[ProviderAssumeRole] {
+	return pulumix.Output[ProviderAssumeRole]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProviderAssumeRoleOutput) Duration() pulumi.StringPtrOutput {
@@ -173,6 +192,12 @@ func (o ProviderAssumeRolePtrOutput) ToProviderAssumeRolePtrOutput() ProviderAss
 
 func (o ProviderAssumeRolePtrOutput) ToProviderAssumeRolePtrOutputWithContext(ctx context.Context) ProviderAssumeRolePtrOutput {
 	return o
+}
+
+func (o ProviderAssumeRolePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProviderAssumeRole] {
+	return pulumix.Output[*ProviderAssumeRole]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProviderAssumeRolePtrOutput) Elem() ProviderAssumeRoleOutput {
@@ -309,6 +334,12 @@ func (i ProviderAssumeRoleWithWebIdentityArgs) ToProviderAssumeRoleWithWebIdenti
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderAssumeRoleWithWebIdentityOutput)
 }
 
+func (i ProviderAssumeRoleWithWebIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[ProviderAssumeRoleWithWebIdentity] {
+	return pulumix.Output[ProviderAssumeRoleWithWebIdentity]{
+		OutputState: i.ToProviderAssumeRoleWithWebIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ProviderAssumeRoleWithWebIdentityArgs) ToProviderAssumeRoleWithWebIdentityPtrOutput() ProviderAssumeRoleWithWebIdentityPtrOutput {
 	return i.ToProviderAssumeRoleWithWebIdentityPtrOutputWithContext(context.Background())
 }
@@ -350,6 +381,12 @@ func (i *providerAssumeRoleWithWebIdentityPtrType) ToProviderAssumeRoleWithWebId
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderAssumeRoleWithWebIdentityPtrOutput)
 }
 
+func (i *providerAssumeRoleWithWebIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*ProviderAssumeRoleWithWebIdentity] {
+	return pulumix.Output[*ProviderAssumeRoleWithWebIdentity]{
+		OutputState: i.ToProviderAssumeRoleWithWebIdentityPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProviderAssumeRoleWithWebIdentityOutput struct{ *pulumi.OutputState }
 
 func (ProviderAssumeRoleWithWebIdentityOutput) ElementType() reflect.Type {
@@ -372,6 +409,12 @@ func (o ProviderAssumeRoleWithWebIdentityOutput) ToProviderAssumeRoleWithWebIden
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProviderAssumeRoleWithWebIdentity) *ProviderAssumeRoleWithWebIdentity {
 		return &v
 	}).(ProviderAssumeRoleWithWebIdentityPtrOutput)
+}
+
+func (o ProviderAssumeRoleWithWebIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[ProviderAssumeRoleWithWebIdentity] {
+	return pulumix.Output[ProviderAssumeRoleWithWebIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProviderAssumeRoleWithWebIdentityOutput) Duration() pulumi.StringPtrOutput {
@@ -414,6 +457,12 @@ func (o ProviderAssumeRoleWithWebIdentityPtrOutput) ToProviderAssumeRoleWithWebI
 
 func (o ProviderAssumeRoleWithWebIdentityPtrOutput) ToProviderAssumeRoleWithWebIdentityPtrOutputWithContext(ctx context.Context) ProviderAssumeRoleWithWebIdentityPtrOutput {
 	return o
+}
+
+func (o ProviderAssumeRoleWithWebIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProviderAssumeRoleWithWebIdentity] {
+	return pulumix.Output[*ProviderAssumeRoleWithWebIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProviderAssumeRoleWithWebIdentityPtrOutput) Elem() ProviderAssumeRoleWithWebIdentityOutput {
@@ -520,6 +569,12 @@ func (i ProviderDefaultTagsArgs) ToProviderDefaultTagsOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderDefaultTagsOutput)
 }
 
+func (i ProviderDefaultTagsArgs) ToOutput(ctx context.Context) pulumix.Output[ProviderDefaultTags] {
+	return pulumix.Output[ProviderDefaultTags]{
+		OutputState: i.ToProviderDefaultTagsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ProviderDefaultTagsArgs) ToProviderDefaultTagsPtrOutput() ProviderDefaultTagsPtrOutput {
 	return i.ToProviderDefaultTagsPtrOutputWithContext(context.Background())
 }
@@ -561,6 +616,12 @@ func (i *providerDefaultTagsPtrType) ToProviderDefaultTagsPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderDefaultTagsPtrOutput)
 }
 
+func (i *providerDefaultTagsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ProviderDefaultTags] {
+	return pulumix.Output[*ProviderDefaultTags]{
+		OutputState: i.ToProviderDefaultTagsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProviderDefaultTagsOutput struct{ *pulumi.OutputState }
 
 func (ProviderDefaultTagsOutput) ElementType() reflect.Type {
@@ -585,6 +646,12 @@ func (o ProviderDefaultTagsOutput) ToProviderDefaultTagsPtrOutputWithContext(ctx
 	}).(ProviderDefaultTagsPtrOutput)
 }
 
+func (o ProviderDefaultTagsOutput) ToOutput(ctx context.Context) pulumix.Output[ProviderDefaultTags] {
+	return pulumix.Output[ProviderDefaultTags]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ProviderDefaultTagsOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ProviderDefaultTags) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -601,6 +668,12 @@ func (o ProviderDefaultTagsPtrOutput) ToProviderDefaultTagsPtrOutput() ProviderD
 
 func (o ProviderDefaultTagsPtrOutput) ToProviderDefaultTagsPtrOutputWithContext(ctx context.Context) ProviderDefaultTagsPtrOutput {
 	return o
+}
+
+func (o ProviderDefaultTagsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProviderDefaultTags] {
+	return pulumix.Output[*ProviderDefaultTags]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProviderDefaultTagsPtrOutput) Elem() ProviderDefaultTagsOutput {
@@ -674,6 +747,7 @@ type ProviderEndpoint struct {
 	Cloudwatchrum                        *string `pulumi:"cloudwatchrum"`
 	Codeartifact                         *string `pulumi:"codeartifact"`
 	Codebuild                            *string `pulumi:"codebuild"`
+	Codecatalyst                         *string `pulumi:"codecatalyst"`
 	Codecommit                           *string `pulumi:"codecommit"`
 	Codedeploy                           *string `pulumi:"codedeploy"`
 	Codegurureviewer                     *string `pulumi:"codegurureviewer"`
@@ -771,6 +845,8 @@ type ProviderEndpoint struct {
 	Lexmodelbuilding                     *string `pulumi:"lexmodelbuilding"`
 	Lexmodelbuildingservice              *string `pulumi:"lexmodelbuildingservice"`
 	Lexmodels                            *string `pulumi:"lexmodels"`
+	Lexmodelsv2                          *string `pulumi:"lexmodelsv2"`
+	Lexv2models                          *string `pulumi:"lexv2models"`
 	Licensemanager                       *string `pulumi:"licensemanager"`
 	Lightsail                            *string `pulumi:"lightsail"`
 	Location                             *string `pulumi:"location"`
@@ -934,6 +1010,7 @@ type ProviderEndpointArgs struct {
 	Cloudwatchrum                        pulumi.StringPtrInput `pulumi:"cloudwatchrum"`
 	Codeartifact                         pulumi.StringPtrInput `pulumi:"codeartifact"`
 	Codebuild                            pulumi.StringPtrInput `pulumi:"codebuild"`
+	Codecatalyst                         pulumi.StringPtrInput `pulumi:"codecatalyst"`
 	Codecommit                           pulumi.StringPtrInput `pulumi:"codecommit"`
 	Codedeploy                           pulumi.StringPtrInput `pulumi:"codedeploy"`
 	Codegurureviewer                     pulumi.StringPtrInput `pulumi:"codegurureviewer"`
@@ -1031,6 +1108,8 @@ type ProviderEndpointArgs struct {
 	Lexmodelbuilding                     pulumi.StringPtrInput `pulumi:"lexmodelbuilding"`
 	Lexmodelbuildingservice              pulumi.StringPtrInput `pulumi:"lexmodelbuildingservice"`
 	Lexmodels                            pulumi.StringPtrInput `pulumi:"lexmodels"`
+	Lexmodelsv2                          pulumi.StringPtrInput `pulumi:"lexmodelsv2"`
+	Lexv2models                          pulumi.StringPtrInput `pulumi:"lexv2models"`
 	Licensemanager                       pulumi.StringPtrInput `pulumi:"licensemanager"`
 	Lightsail                            pulumi.StringPtrInput `pulumi:"lightsail"`
 	Location                             pulumi.StringPtrInput `pulumi:"location"`
@@ -1143,6 +1222,12 @@ func (i ProviderEndpointArgs) ToProviderEndpointOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderEndpointOutput)
 }
 
+func (i ProviderEndpointArgs) ToOutput(ctx context.Context) pulumix.Output[ProviderEndpoint] {
+	return pulumix.Output[ProviderEndpoint]{
+		OutputState: i.ToProviderEndpointOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ProviderEndpointArrayInput is an input type that accepts ProviderEndpointArray and ProviderEndpointArrayOutput values.
 // You can construct a concrete instance of `ProviderEndpointArrayInput` via:
 //
@@ -1168,6 +1253,12 @@ func (i ProviderEndpointArray) ToProviderEndpointArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderEndpointArrayOutput)
 }
 
+func (i ProviderEndpointArray) ToOutput(ctx context.Context) pulumix.Output[[]ProviderEndpoint] {
+	return pulumix.Output[[]ProviderEndpoint]{
+		OutputState: i.ToProviderEndpointArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProviderEndpointOutput struct{ *pulumi.OutputState }
 
 func (ProviderEndpointOutput) ElementType() reflect.Type {
@@ -1180,6 +1271,12 @@ func (o ProviderEndpointOutput) ToProviderEndpointOutput() ProviderEndpointOutpu
 
 func (o ProviderEndpointOutput) ToProviderEndpointOutputWithContext(ctx context.Context) ProviderEndpointOutput {
 	return o
+}
+
+func (o ProviderEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[ProviderEndpoint] {
+	return pulumix.Output[ProviderEndpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProviderEndpointOutput) Accessanalyzer() pulumi.StringPtrOutput {
@@ -1384,6 +1481,10 @@ func (o ProviderEndpointOutput) Codeartifact() pulumi.StringPtrOutput {
 
 func (o ProviderEndpointOutput) Codebuild() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Codebuild }).(pulumi.StringPtrOutput)
+}
+
+func (o ProviderEndpointOutput) Codecatalyst() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Codecatalyst }).(pulumi.StringPtrOutput)
 }
 
 func (o ProviderEndpointOutput) Codecommit() pulumi.StringPtrOutput {
@@ -1772,6 +1873,14 @@ func (o ProviderEndpointOutput) Lexmodelbuildingservice() pulumi.StringPtrOutput
 
 func (o ProviderEndpointOutput) Lexmodels() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Lexmodels }).(pulumi.StringPtrOutput)
+}
+
+func (o ProviderEndpointOutput) Lexmodelsv2() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Lexmodelsv2 }).(pulumi.StringPtrOutput)
+}
+
+func (o ProviderEndpointOutput) Lexv2models() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Lexv2models }).(pulumi.StringPtrOutput)
 }
 
 func (o ProviderEndpointOutput) Licensemanager() pulumi.StringPtrOutput {
@@ -2180,6 +2289,12 @@ func (o ProviderEndpointArrayOutput) ToProviderEndpointArrayOutputWithContext(ct
 	return o
 }
 
+func (o ProviderEndpointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ProviderEndpoint] {
+	return pulumix.Output[[]ProviderEndpoint]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ProviderEndpointArrayOutput) Index(i pulumi.IntInput) ProviderEndpointOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProviderEndpoint {
 		return vs[0].([]ProviderEndpoint)[vs[1].(int)]
@@ -2217,6 +2332,12 @@ func (i ProviderIgnoreTagsArgs) ToProviderIgnoreTagsOutput() ProviderIgnoreTagsO
 
 func (i ProviderIgnoreTagsArgs) ToProviderIgnoreTagsOutputWithContext(ctx context.Context) ProviderIgnoreTagsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderIgnoreTagsOutput)
+}
+
+func (i ProviderIgnoreTagsArgs) ToOutput(ctx context.Context) pulumix.Output[ProviderIgnoreTags] {
+	return pulumix.Output[ProviderIgnoreTags]{
+		OutputState: i.ToProviderIgnoreTagsOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i ProviderIgnoreTagsArgs) ToProviderIgnoreTagsPtrOutput() ProviderIgnoreTagsPtrOutput {
@@ -2260,6 +2381,12 @@ func (i *providerIgnoreTagsPtrType) ToProviderIgnoreTagsPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderIgnoreTagsPtrOutput)
 }
 
+func (i *providerIgnoreTagsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ProviderIgnoreTags] {
+	return pulumix.Output[*ProviderIgnoreTags]{
+		OutputState: i.ToProviderIgnoreTagsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProviderIgnoreTagsOutput struct{ *pulumi.OutputState }
 
 func (ProviderIgnoreTagsOutput) ElementType() reflect.Type {
@@ -2284,6 +2411,12 @@ func (o ProviderIgnoreTagsOutput) ToProviderIgnoreTagsPtrOutputWithContext(ctx c
 	}).(ProviderIgnoreTagsPtrOutput)
 }
 
+func (o ProviderIgnoreTagsOutput) ToOutput(ctx context.Context) pulumix.Output[ProviderIgnoreTags] {
+	return pulumix.Output[ProviderIgnoreTags]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ProviderIgnoreTagsOutput) KeyPrefixes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ProviderIgnoreTags) []string { return v.KeyPrefixes }).(pulumi.StringArrayOutput)
 }
@@ -2304,6 +2437,12 @@ func (o ProviderIgnoreTagsPtrOutput) ToProviderIgnoreTagsPtrOutput() ProviderIgn
 
 func (o ProviderIgnoreTagsPtrOutput) ToProviderIgnoreTagsPtrOutputWithContext(ctx context.Context) ProviderIgnoreTagsPtrOutput {
 	return o
+}
+
+func (o ProviderIgnoreTagsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProviderIgnoreTags] {
+	return pulumix.Output[*ProviderIgnoreTags]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProviderIgnoreTagsPtrOutput) Elem() ProviderIgnoreTagsOutput {
@@ -2371,6 +2510,12 @@ func (i GetAvailabilityZoneFilterArgs) ToGetAvailabilityZoneFilterOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetAvailabilityZoneFilterOutput)
 }
 
+func (i GetAvailabilityZoneFilterArgs) ToOutput(ctx context.Context) pulumix.Output[GetAvailabilityZoneFilter] {
+	return pulumix.Output[GetAvailabilityZoneFilter]{
+		OutputState: i.ToGetAvailabilityZoneFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetAvailabilityZoneFilterArrayInput is an input type that accepts GetAvailabilityZoneFilterArray and GetAvailabilityZoneFilterArrayOutput values.
 // You can construct a concrete instance of `GetAvailabilityZoneFilterArrayInput` via:
 //
@@ -2396,6 +2541,12 @@ func (i GetAvailabilityZoneFilterArray) ToGetAvailabilityZoneFilterArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetAvailabilityZoneFilterArrayOutput)
 }
 
+func (i GetAvailabilityZoneFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAvailabilityZoneFilter] {
+	return pulumix.Output[[]GetAvailabilityZoneFilter]{
+		OutputState: i.ToGetAvailabilityZoneFilterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetAvailabilityZoneFilterOutput struct{ *pulumi.OutputState }
 
 func (GetAvailabilityZoneFilterOutput) ElementType() reflect.Type {
@@ -2408,6 +2559,12 @@ func (o GetAvailabilityZoneFilterOutput) ToGetAvailabilityZoneFilterOutput() Get
 
 func (o GetAvailabilityZoneFilterOutput) ToGetAvailabilityZoneFilterOutputWithContext(ctx context.Context) GetAvailabilityZoneFilterOutput {
 	return o
+}
+
+func (o GetAvailabilityZoneFilterOutput) ToOutput(ctx context.Context) pulumix.Output[GetAvailabilityZoneFilter] {
+	return pulumix.Output[GetAvailabilityZoneFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
@@ -2432,6 +2589,12 @@ func (o GetAvailabilityZoneFilterArrayOutput) ToGetAvailabilityZoneFilterArrayOu
 
 func (o GetAvailabilityZoneFilterArrayOutput) ToGetAvailabilityZoneFilterArrayOutputWithContext(ctx context.Context) GetAvailabilityZoneFilterArrayOutput {
 	return o
+}
+
+func (o GetAvailabilityZoneFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAvailabilityZoneFilter] {
+	return pulumix.Output[[]GetAvailabilityZoneFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetAvailabilityZoneFilterArrayOutput) Index(i pulumi.IntInput) GetAvailabilityZoneFilterOutput {
@@ -2477,6 +2640,12 @@ func (i GetAvailabilityZonesFilterArgs) ToGetAvailabilityZonesFilterOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetAvailabilityZonesFilterOutput)
 }
 
+func (i GetAvailabilityZonesFilterArgs) ToOutput(ctx context.Context) pulumix.Output[GetAvailabilityZonesFilter] {
+	return pulumix.Output[GetAvailabilityZonesFilter]{
+		OutputState: i.ToGetAvailabilityZonesFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetAvailabilityZonesFilterArrayInput is an input type that accepts GetAvailabilityZonesFilterArray and GetAvailabilityZonesFilterArrayOutput values.
 // You can construct a concrete instance of `GetAvailabilityZonesFilterArrayInput` via:
 //
@@ -2502,6 +2671,12 @@ func (i GetAvailabilityZonesFilterArray) ToGetAvailabilityZonesFilterArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetAvailabilityZonesFilterArrayOutput)
 }
 
+func (i GetAvailabilityZonesFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAvailabilityZonesFilter] {
+	return pulumix.Output[[]GetAvailabilityZonesFilter]{
+		OutputState: i.ToGetAvailabilityZonesFilterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetAvailabilityZonesFilterOutput struct{ *pulumi.OutputState }
 
 func (GetAvailabilityZonesFilterOutput) ElementType() reflect.Type {
@@ -2514,6 +2689,12 @@ func (o GetAvailabilityZonesFilterOutput) ToGetAvailabilityZonesFilterOutput() G
 
 func (o GetAvailabilityZonesFilterOutput) ToGetAvailabilityZonesFilterOutputWithContext(ctx context.Context) GetAvailabilityZonesFilterOutput {
 	return o
+}
+
+func (o GetAvailabilityZonesFilterOutput) ToOutput(ctx context.Context) pulumix.Output[GetAvailabilityZonesFilter] {
+	return pulumix.Output[GetAvailabilityZonesFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
@@ -2538,6 +2719,12 @@ func (o GetAvailabilityZonesFilterArrayOutput) ToGetAvailabilityZonesFilterArray
 
 func (o GetAvailabilityZonesFilterArrayOutput) ToGetAvailabilityZonesFilterArrayOutputWithContext(ctx context.Context) GetAvailabilityZonesFilterArrayOutput {
 	return o
+}
+
+func (o GetAvailabilityZonesFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAvailabilityZonesFilter] {
+	return pulumix.Output[[]GetAvailabilityZonesFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetAvailabilityZonesFilterArrayOutput) Index(i pulumi.IntInput) GetAvailabilityZonesFilterOutput {
@@ -2583,6 +2770,12 @@ func (i GetRegionsFilterArgs) ToGetRegionsFilterOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(GetRegionsFilterOutput)
 }
 
+func (i GetRegionsFilterArgs) ToOutput(ctx context.Context) pulumix.Output[GetRegionsFilter] {
+	return pulumix.Output[GetRegionsFilter]{
+		OutputState: i.ToGetRegionsFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetRegionsFilterArrayInput is an input type that accepts GetRegionsFilterArray and GetRegionsFilterArrayOutput values.
 // You can construct a concrete instance of `GetRegionsFilterArrayInput` via:
 //
@@ -2608,6 +2801,12 @@ func (i GetRegionsFilterArray) ToGetRegionsFilterArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetRegionsFilterArrayOutput)
 }
 
+func (i GetRegionsFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetRegionsFilter] {
+	return pulumix.Output[[]GetRegionsFilter]{
+		OutputState: i.ToGetRegionsFilterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetRegionsFilterOutput struct{ *pulumi.OutputState }
 
 func (GetRegionsFilterOutput) ElementType() reflect.Type {
@@ -2620,6 +2819,12 @@ func (o GetRegionsFilterOutput) ToGetRegionsFilterOutput() GetRegionsFilterOutpu
 
 func (o GetRegionsFilterOutput) ToGetRegionsFilterOutputWithContext(ctx context.Context) GetRegionsFilterOutput {
 	return o
+}
+
+func (o GetRegionsFilterOutput) ToOutput(ctx context.Context) pulumix.Output[GetRegionsFilter] {
+	return pulumix.Output[GetRegionsFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the filter field. Valid values can be found in the [describe-regions AWS CLI Reference][1].
@@ -2644,6 +2849,12 @@ func (o GetRegionsFilterArrayOutput) ToGetRegionsFilterArrayOutput() GetRegionsF
 
 func (o GetRegionsFilterArrayOutput) ToGetRegionsFilterArrayOutputWithContext(ctx context.Context) GetRegionsFilterArrayOutput {
 	return o
+}
+
+func (o GetRegionsFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetRegionsFilter] {
+	return pulumix.Output[[]GetRegionsFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetRegionsFilterArrayOutput) Index(i pulumi.IntInput) GetRegionsFilterOutput {

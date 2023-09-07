@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -66,6 +67,12 @@ func (i ApplicationAppSourceArgs) ToApplicationAppSourceOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationAppSourceOutput)
 }
 
+func (i ApplicationAppSourceArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationAppSource] {
+	return pulumix.Output[ApplicationAppSource]{
+		OutputState: i.ToApplicationAppSourceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApplicationAppSourceArrayInput is an input type that accepts ApplicationAppSourceArray and ApplicationAppSourceArrayOutput values.
 // You can construct a concrete instance of `ApplicationAppSourceArrayInput` via:
 //
@@ -91,6 +98,12 @@ func (i ApplicationAppSourceArray) ToApplicationAppSourceArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationAppSourceArrayOutput)
 }
 
+func (i ApplicationAppSourceArray) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationAppSource] {
+	return pulumix.Output[[]ApplicationAppSource]{
+		OutputState: i.ToApplicationAppSourceArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationAppSourceOutput struct{ *pulumi.OutputState }
 
 func (ApplicationAppSourceOutput) ElementType() reflect.Type {
@@ -103,6 +116,12 @@ func (o ApplicationAppSourceOutput) ToApplicationAppSourceOutput() ApplicationAp
 
 func (o ApplicationAppSourceOutput) ToApplicationAppSourceOutputWithContext(ctx context.Context) ApplicationAppSourceOutput {
 	return o
+}
+
+func (o ApplicationAppSourceOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationAppSource] {
+	return pulumix.Output[ApplicationAppSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Password to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
@@ -147,6 +166,12 @@ func (o ApplicationAppSourceArrayOutput) ToApplicationAppSourceArrayOutput() App
 
 func (o ApplicationAppSourceArrayOutput) ToApplicationAppSourceArrayOutputWithContext(ctx context.Context) ApplicationAppSourceArrayOutput {
 	return o
+}
+
+func (o ApplicationAppSourceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationAppSource] {
+	return pulumix.Output[[]ApplicationAppSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationAppSourceArrayOutput) Index(i pulumi.IntInput) ApplicationAppSourceOutput {
@@ -196,6 +221,12 @@ func (i ApplicationEnvironmentArgs) ToApplicationEnvironmentOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationEnvironmentOutput)
 }
 
+func (i ApplicationEnvironmentArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationEnvironment] {
+	return pulumix.Output[ApplicationEnvironment]{
+		OutputState: i.ToApplicationEnvironmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApplicationEnvironmentArrayInput is an input type that accepts ApplicationEnvironmentArray and ApplicationEnvironmentArrayOutput values.
 // You can construct a concrete instance of `ApplicationEnvironmentArrayInput` via:
 //
@@ -221,6 +252,12 @@ func (i ApplicationEnvironmentArray) ToApplicationEnvironmentArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationEnvironmentArrayOutput)
 }
 
+func (i ApplicationEnvironmentArray) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationEnvironment] {
+	return pulumix.Output[[]ApplicationEnvironment]{
+		OutputState: i.ToApplicationEnvironmentArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (ApplicationEnvironmentOutput) ElementType() reflect.Type {
@@ -233,6 +270,12 @@ func (o ApplicationEnvironmentOutput) ToApplicationEnvironmentOutput() Applicati
 
 func (o ApplicationEnvironmentOutput) ToApplicationEnvironmentOutputWithContext(ctx context.Context) ApplicationEnvironmentOutput {
 	return o
+}
+
+func (o ApplicationEnvironmentOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationEnvironment] {
+	return pulumix.Output[ApplicationEnvironment]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Variable name.
@@ -262,6 +305,12 @@ func (o ApplicationEnvironmentArrayOutput) ToApplicationEnvironmentArrayOutput()
 
 func (o ApplicationEnvironmentArrayOutput) ToApplicationEnvironmentArrayOutputWithContext(ctx context.Context) ApplicationEnvironmentArrayOutput {
 	return o
+}
+
+func (o ApplicationEnvironmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationEnvironment] {
+	return pulumix.Output[[]ApplicationEnvironment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationEnvironmentArrayOutput) Index(i pulumi.IntInput) ApplicationEnvironmentOutput {
@@ -311,6 +360,12 @@ func (i ApplicationSslConfigurationArgs) ToApplicationSslConfigurationOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSslConfigurationOutput)
 }
 
+func (i ApplicationSslConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationSslConfiguration] {
+	return pulumix.Output[ApplicationSslConfiguration]{
+		OutputState: i.ToApplicationSslConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApplicationSslConfigurationArrayInput is an input type that accepts ApplicationSslConfigurationArray and ApplicationSslConfigurationArrayOutput values.
 // You can construct a concrete instance of `ApplicationSslConfigurationArrayInput` via:
 //
@@ -336,6 +391,12 @@ func (i ApplicationSslConfigurationArray) ToApplicationSslConfigurationArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSslConfigurationArrayOutput)
 }
 
+func (i ApplicationSslConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationSslConfiguration] {
+	return pulumix.Output[[]ApplicationSslConfiguration]{
+		OutputState: i.ToApplicationSslConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationSslConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ApplicationSslConfigurationOutput) ElementType() reflect.Type {
@@ -348,6 +409,12 @@ func (o ApplicationSslConfigurationOutput) ToApplicationSslConfigurationOutput()
 
 func (o ApplicationSslConfigurationOutput) ToApplicationSslConfigurationOutputWithContext(ctx context.Context) ApplicationSslConfigurationOutput {
 	return o
+}
+
+func (o ApplicationSslConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationSslConfiguration] {
+	return pulumix.Output[ApplicationSslConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The contents of the certificate's domain.crt file.
@@ -377,6 +444,12 @@ func (o ApplicationSslConfigurationArrayOutput) ToApplicationSslConfigurationArr
 
 func (o ApplicationSslConfigurationArrayOutput) ToApplicationSslConfigurationArrayOutputWithContext(ctx context.Context) ApplicationSslConfigurationArrayOutput {
 	return o
+}
+
+func (o ApplicationSslConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationSslConfiguration] {
+	return pulumix.Output[[]ApplicationSslConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationSslConfigurationArrayOutput) Index(i pulumi.IntInput) ApplicationSslConfigurationOutput {
@@ -420,6 +493,12 @@ func (i CustomLayerCloudwatchConfigurationArgs) ToCustomLayerCloudwatchConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(CustomLayerCloudwatchConfigurationOutput)
 }
 
+func (i CustomLayerCloudwatchConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[CustomLayerCloudwatchConfiguration] {
+	return pulumix.Output[CustomLayerCloudwatchConfiguration]{
+		OutputState: i.ToCustomLayerCloudwatchConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i CustomLayerCloudwatchConfigurationArgs) ToCustomLayerCloudwatchConfigurationPtrOutput() CustomLayerCloudwatchConfigurationPtrOutput {
 	return i.ToCustomLayerCloudwatchConfigurationPtrOutputWithContext(context.Background())
 }
@@ -461,6 +540,12 @@ func (i *customLayerCloudwatchConfigurationPtrType) ToCustomLayerCloudwatchConfi
 	return pulumi.ToOutputWithContext(ctx, i).(CustomLayerCloudwatchConfigurationPtrOutput)
 }
 
+func (i *customLayerCloudwatchConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*CustomLayerCloudwatchConfiguration] {
+	return pulumix.Output[*CustomLayerCloudwatchConfiguration]{
+		OutputState: i.ToCustomLayerCloudwatchConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CustomLayerCloudwatchConfigurationOutput struct{ *pulumi.OutputState }
 
 func (CustomLayerCloudwatchConfigurationOutput) ElementType() reflect.Type {
@@ -483,6 +568,12 @@ func (o CustomLayerCloudwatchConfigurationOutput) ToCustomLayerCloudwatchConfigu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomLayerCloudwatchConfiguration) *CustomLayerCloudwatchConfiguration {
 		return &v
 	}).(CustomLayerCloudwatchConfigurationPtrOutput)
+}
+
+func (o CustomLayerCloudwatchConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[CustomLayerCloudwatchConfiguration] {
+	return pulumix.Output[CustomLayerCloudwatchConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CustomLayerCloudwatchConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
@@ -508,6 +599,12 @@ func (o CustomLayerCloudwatchConfigurationPtrOutput) ToCustomLayerCloudwatchConf
 
 func (o CustomLayerCloudwatchConfigurationPtrOutput) ToCustomLayerCloudwatchConfigurationPtrOutputWithContext(ctx context.Context) CustomLayerCloudwatchConfigurationPtrOutput {
 	return o
+}
+
+func (o CustomLayerCloudwatchConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CustomLayerCloudwatchConfiguration] {
+	return pulumix.Output[*CustomLayerCloudwatchConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CustomLayerCloudwatchConfigurationPtrOutput) Elem() CustomLayerCloudwatchConfigurationOutput {
@@ -612,6 +709,12 @@ func (i CustomLayerCloudwatchConfigurationLogStreamArgs) ToCustomLayerCloudwatch
 	return pulumi.ToOutputWithContext(ctx, i).(CustomLayerCloudwatchConfigurationLogStreamOutput)
 }
 
+func (i CustomLayerCloudwatchConfigurationLogStreamArgs) ToOutput(ctx context.Context) pulumix.Output[CustomLayerCloudwatchConfigurationLogStream] {
+	return pulumix.Output[CustomLayerCloudwatchConfigurationLogStream]{
+		OutputState: i.ToCustomLayerCloudwatchConfigurationLogStreamOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CustomLayerCloudwatchConfigurationLogStreamArrayInput is an input type that accepts CustomLayerCloudwatchConfigurationLogStreamArray and CustomLayerCloudwatchConfigurationLogStreamArrayOutput values.
 // You can construct a concrete instance of `CustomLayerCloudwatchConfigurationLogStreamArrayInput` via:
 //
@@ -637,6 +740,12 @@ func (i CustomLayerCloudwatchConfigurationLogStreamArray) ToCustomLayerCloudwatc
 	return pulumi.ToOutputWithContext(ctx, i).(CustomLayerCloudwatchConfigurationLogStreamArrayOutput)
 }
 
+func (i CustomLayerCloudwatchConfigurationLogStreamArray) ToOutput(ctx context.Context) pulumix.Output[[]CustomLayerCloudwatchConfigurationLogStream] {
+	return pulumix.Output[[]CustomLayerCloudwatchConfigurationLogStream]{
+		OutputState: i.ToCustomLayerCloudwatchConfigurationLogStreamArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CustomLayerCloudwatchConfigurationLogStreamOutput struct{ *pulumi.OutputState }
 
 func (CustomLayerCloudwatchConfigurationLogStreamOutput) ElementType() reflect.Type {
@@ -649,6 +758,12 @@ func (o CustomLayerCloudwatchConfigurationLogStreamOutput) ToCustomLayerCloudwat
 
 func (o CustomLayerCloudwatchConfigurationLogStreamOutput) ToCustomLayerCloudwatchConfigurationLogStreamOutputWithContext(ctx context.Context) CustomLayerCloudwatchConfigurationLogStreamOutput {
 	return o
+}
+
+func (o CustomLayerCloudwatchConfigurationLogStreamOutput) ToOutput(ctx context.Context) pulumix.Output[CustomLayerCloudwatchConfigurationLogStream] {
+	return pulumix.Output[CustomLayerCloudwatchConfigurationLogStream]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the max number of log events in a batch, up to `10000`. The default value is `1000`.
@@ -720,6 +835,12 @@ func (o CustomLayerCloudwatchConfigurationLogStreamArrayOutput) ToCustomLayerClo
 	return o
 }
 
+func (o CustomLayerCloudwatchConfigurationLogStreamArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CustomLayerCloudwatchConfigurationLogStream] {
+	return pulumix.Output[[]CustomLayerCloudwatchConfigurationLogStream]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CustomLayerCloudwatchConfigurationLogStreamArrayOutput) Index(i pulumi.IntInput) CustomLayerCloudwatchConfigurationLogStreamOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CustomLayerCloudwatchConfigurationLogStream {
 		return vs[0].([]CustomLayerCloudwatchConfigurationLogStream)[vs[1].(int)]
@@ -783,6 +904,12 @@ func (i CustomLayerEbsVolumeArgs) ToCustomLayerEbsVolumeOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(CustomLayerEbsVolumeOutput)
 }
 
+func (i CustomLayerEbsVolumeArgs) ToOutput(ctx context.Context) pulumix.Output[CustomLayerEbsVolume] {
+	return pulumix.Output[CustomLayerEbsVolume]{
+		OutputState: i.ToCustomLayerEbsVolumeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CustomLayerEbsVolumeArrayInput is an input type that accepts CustomLayerEbsVolumeArray and CustomLayerEbsVolumeArrayOutput values.
 // You can construct a concrete instance of `CustomLayerEbsVolumeArrayInput` via:
 //
@@ -808,6 +935,12 @@ func (i CustomLayerEbsVolumeArray) ToCustomLayerEbsVolumeArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(CustomLayerEbsVolumeArrayOutput)
 }
 
+func (i CustomLayerEbsVolumeArray) ToOutput(ctx context.Context) pulumix.Output[[]CustomLayerEbsVolume] {
+	return pulumix.Output[[]CustomLayerEbsVolume]{
+		OutputState: i.ToCustomLayerEbsVolumeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CustomLayerEbsVolumeOutput struct{ *pulumi.OutputState }
 
 func (CustomLayerEbsVolumeOutput) ElementType() reflect.Type {
@@ -820,6 +953,12 @@ func (o CustomLayerEbsVolumeOutput) ToCustomLayerEbsVolumeOutput() CustomLayerEb
 
 func (o CustomLayerEbsVolumeOutput) ToCustomLayerEbsVolumeOutputWithContext(ctx context.Context) CustomLayerEbsVolumeOutput {
 	return o
+}
+
+func (o CustomLayerEbsVolumeOutput) ToOutput(ctx context.Context) pulumix.Output[CustomLayerEbsVolume] {
+	return pulumix.Output[CustomLayerEbsVolume]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Encrypt the volume.
@@ -871,6 +1010,12 @@ func (o CustomLayerEbsVolumeArrayOutput) ToCustomLayerEbsVolumeArrayOutputWithCo
 	return o
 }
 
+func (o CustomLayerEbsVolumeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CustomLayerEbsVolume] {
+	return pulumix.Output[[]CustomLayerEbsVolume]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CustomLayerEbsVolumeArrayOutput) Index(i pulumi.IntInput) CustomLayerEbsVolumeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CustomLayerEbsVolume {
 		return vs[0].([]CustomLayerEbsVolume)[vs[1].(int)]
@@ -918,6 +1063,12 @@ func (i CustomLayerLoadBasedAutoScalingArgs) ToCustomLayerLoadBasedAutoScalingOu
 	return pulumi.ToOutputWithContext(ctx, i).(CustomLayerLoadBasedAutoScalingOutput)
 }
 
+func (i CustomLayerLoadBasedAutoScalingArgs) ToOutput(ctx context.Context) pulumix.Output[CustomLayerLoadBasedAutoScaling] {
+	return pulumix.Output[CustomLayerLoadBasedAutoScaling]{
+		OutputState: i.ToCustomLayerLoadBasedAutoScalingOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i CustomLayerLoadBasedAutoScalingArgs) ToCustomLayerLoadBasedAutoScalingPtrOutput() CustomLayerLoadBasedAutoScalingPtrOutput {
 	return i.ToCustomLayerLoadBasedAutoScalingPtrOutputWithContext(context.Background())
 }
@@ -959,6 +1110,12 @@ func (i *customLayerLoadBasedAutoScalingPtrType) ToCustomLayerLoadBasedAutoScali
 	return pulumi.ToOutputWithContext(ctx, i).(CustomLayerLoadBasedAutoScalingPtrOutput)
 }
 
+func (i *customLayerLoadBasedAutoScalingPtrType) ToOutput(ctx context.Context) pulumix.Output[*CustomLayerLoadBasedAutoScaling] {
+	return pulumix.Output[*CustomLayerLoadBasedAutoScaling]{
+		OutputState: i.ToCustomLayerLoadBasedAutoScalingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CustomLayerLoadBasedAutoScalingOutput struct{ *pulumi.OutputState }
 
 func (CustomLayerLoadBasedAutoScalingOutput) ElementType() reflect.Type {
@@ -981,6 +1138,12 @@ func (o CustomLayerLoadBasedAutoScalingOutput) ToCustomLayerLoadBasedAutoScaling
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomLayerLoadBasedAutoScaling) *CustomLayerLoadBasedAutoScaling {
 		return &v
 	}).(CustomLayerLoadBasedAutoScalingPtrOutput)
+}
+
+func (o CustomLayerLoadBasedAutoScalingOutput) ToOutput(ctx context.Context) pulumix.Output[CustomLayerLoadBasedAutoScaling] {
+	return pulumix.Output[CustomLayerLoadBasedAutoScaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The downscaling settings, as defined below, used for load-based autoscaling
@@ -1012,6 +1175,12 @@ func (o CustomLayerLoadBasedAutoScalingPtrOutput) ToCustomLayerLoadBasedAutoScal
 
 func (o CustomLayerLoadBasedAutoScalingPtrOutput) ToCustomLayerLoadBasedAutoScalingPtrOutputWithContext(ctx context.Context) CustomLayerLoadBasedAutoScalingPtrOutput {
 	return o
+}
+
+func (o CustomLayerLoadBasedAutoScalingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CustomLayerLoadBasedAutoScaling] {
+	return pulumix.Output[*CustomLayerLoadBasedAutoScaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CustomLayerLoadBasedAutoScalingPtrOutput) Elem() CustomLayerLoadBasedAutoScalingOutput {
@@ -1111,6 +1280,12 @@ func (i CustomLayerLoadBasedAutoScalingDownscalingArgs) ToCustomLayerLoadBasedAu
 	return pulumi.ToOutputWithContext(ctx, i).(CustomLayerLoadBasedAutoScalingDownscalingOutput)
 }
 
+func (i CustomLayerLoadBasedAutoScalingDownscalingArgs) ToOutput(ctx context.Context) pulumix.Output[CustomLayerLoadBasedAutoScalingDownscaling] {
+	return pulumix.Output[CustomLayerLoadBasedAutoScalingDownscaling]{
+		OutputState: i.ToCustomLayerLoadBasedAutoScalingDownscalingOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i CustomLayerLoadBasedAutoScalingDownscalingArgs) ToCustomLayerLoadBasedAutoScalingDownscalingPtrOutput() CustomLayerLoadBasedAutoScalingDownscalingPtrOutput {
 	return i.ToCustomLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(context.Background())
 }
@@ -1152,6 +1327,12 @@ func (i *customLayerLoadBasedAutoScalingDownscalingPtrType) ToCustomLayerLoadBas
 	return pulumi.ToOutputWithContext(ctx, i).(CustomLayerLoadBasedAutoScalingDownscalingPtrOutput)
 }
 
+func (i *customLayerLoadBasedAutoScalingDownscalingPtrType) ToOutput(ctx context.Context) pulumix.Output[*CustomLayerLoadBasedAutoScalingDownscaling] {
+	return pulumix.Output[*CustomLayerLoadBasedAutoScalingDownscaling]{
+		OutputState: i.ToCustomLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CustomLayerLoadBasedAutoScalingDownscalingOutput struct{ *pulumi.OutputState }
 
 func (CustomLayerLoadBasedAutoScalingDownscalingOutput) ElementType() reflect.Type {
@@ -1174,6 +1355,12 @@ func (o CustomLayerLoadBasedAutoScalingDownscalingOutput) ToCustomLayerLoadBased
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomLayerLoadBasedAutoScalingDownscaling) *CustomLayerLoadBasedAutoScalingDownscaling {
 		return &v
 	}).(CustomLayerLoadBasedAutoScalingDownscalingPtrOutput)
+}
+
+func (o CustomLayerLoadBasedAutoScalingDownscalingOutput) ToOutput(ctx context.Context) pulumix.Output[CustomLayerLoadBasedAutoScalingDownscaling] {
+	return pulumix.Output[CustomLayerLoadBasedAutoScalingDownscaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Custom Cloudwatch auto scaling alarms, to be used as thresholds. This parameter takes a list of up to five alarm names, which are case sensitive and must be in the same region as the stack.
@@ -1223,6 +1410,12 @@ func (o CustomLayerLoadBasedAutoScalingDownscalingPtrOutput) ToCustomLayerLoadBa
 
 func (o CustomLayerLoadBasedAutoScalingDownscalingPtrOutput) ToCustomLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx context.Context) CustomLayerLoadBasedAutoScalingDownscalingPtrOutput {
 	return o
+}
+
+func (o CustomLayerLoadBasedAutoScalingDownscalingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CustomLayerLoadBasedAutoScalingDownscaling] {
+	return pulumix.Output[*CustomLayerLoadBasedAutoScalingDownscaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CustomLayerLoadBasedAutoScalingDownscalingPtrOutput) Elem() CustomLayerLoadBasedAutoScalingDownscalingOutput {
@@ -1362,6 +1555,12 @@ func (i CustomLayerLoadBasedAutoScalingUpscalingArgs) ToCustomLayerLoadBasedAuto
 	return pulumi.ToOutputWithContext(ctx, i).(CustomLayerLoadBasedAutoScalingUpscalingOutput)
 }
 
+func (i CustomLayerLoadBasedAutoScalingUpscalingArgs) ToOutput(ctx context.Context) pulumix.Output[CustomLayerLoadBasedAutoScalingUpscaling] {
+	return pulumix.Output[CustomLayerLoadBasedAutoScalingUpscaling]{
+		OutputState: i.ToCustomLayerLoadBasedAutoScalingUpscalingOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i CustomLayerLoadBasedAutoScalingUpscalingArgs) ToCustomLayerLoadBasedAutoScalingUpscalingPtrOutput() CustomLayerLoadBasedAutoScalingUpscalingPtrOutput {
 	return i.ToCustomLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(context.Background())
 }
@@ -1403,6 +1602,12 @@ func (i *customLayerLoadBasedAutoScalingUpscalingPtrType) ToCustomLayerLoadBased
 	return pulumi.ToOutputWithContext(ctx, i).(CustomLayerLoadBasedAutoScalingUpscalingPtrOutput)
 }
 
+func (i *customLayerLoadBasedAutoScalingUpscalingPtrType) ToOutput(ctx context.Context) pulumix.Output[*CustomLayerLoadBasedAutoScalingUpscaling] {
+	return pulumix.Output[*CustomLayerLoadBasedAutoScalingUpscaling]{
+		OutputState: i.ToCustomLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CustomLayerLoadBasedAutoScalingUpscalingOutput struct{ *pulumi.OutputState }
 
 func (CustomLayerLoadBasedAutoScalingUpscalingOutput) ElementType() reflect.Type {
@@ -1425,6 +1630,12 @@ func (o CustomLayerLoadBasedAutoScalingUpscalingOutput) ToCustomLayerLoadBasedAu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomLayerLoadBasedAutoScalingUpscaling) *CustomLayerLoadBasedAutoScalingUpscaling {
 		return &v
 	}).(CustomLayerLoadBasedAutoScalingUpscalingPtrOutput)
+}
+
+func (o CustomLayerLoadBasedAutoScalingUpscalingOutput) ToOutput(ctx context.Context) pulumix.Output[CustomLayerLoadBasedAutoScalingUpscaling] {
+	return pulumix.Output[CustomLayerLoadBasedAutoScalingUpscaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Custom Cloudwatch auto scaling alarms, to be used as thresholds. This parameter takes a list of up to five alarm names, which are case sensitive and must be in the same region as the stack.
@@ -1474,6 +1685,12 @@ func (o CustomLayerLoadBasedAutoScalingUpscalingPtrOutput) ToCustomLayerLoadBase
 
 func (o CustomLayerLoadBasedAutoScalingUpscalingPtrOutput) ToCustomLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx context.Context) CustomLayerLoadBasedAutoScalingUpscalingPtrOutput {
 	return o
+}
+
+func (o CustomLayerLoadBasedAutoScalingUpscalingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CustomLayerLoadBasedAutoScalingUpscaling] {
+	return pulumix.Output[*CustomLayerLoadBasedAutoScalingUpscaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CustomLayerLoadBasedAutoScalingUpscalingPtrOutput) Elem() CustomLayerLoadBasedAutoScalingUpscalingOutput {
@@ -1589,6 +1806,12 @@ func (i EcsClusterLayerCloudwatchConfigurationArgs) ToEcsClusterLayerCloudwatchC
 	return pulumi.ToOutputWithContext(ctx, i).(EcsClusterLayerCloudwatchConfigurationOutput)
 }
 
+func (i EcsClusterLayerCloudwatchConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[EcsClusterLayerCloudwatchConfiguration] {
+	return pulumix.Output[EcsClusterLayerCloudwatchConfiguration]{
+		OutputState: i.ToEcsClusterLayerCloudwatchConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EcsClusterLayerCloudwatchConfigurationArgs) ToEcsClusterLayerCloudwatchConfigurationPtrOutput() EcsClusterLayerCloudwatchConfigurationPtrOutput {
 	return i.ToEcsClusterLayerCloudwatchConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1630,6 +1853,12 @@ func (i *ecsClusterLayerCloudwatchConfigurationPtrType) ToEcsClusterLayerCloudwa
 	return pulumi.ToOutputWithContext(ctx, i).(EcsClusterLayerCloudwatchConfigurationPtrOutput)
 }
 
+func (i *ecsClusterLayerCloudwatchConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*EcsClusterLayerCloudwatchConfiguration] {
+	return pulumix.Output[*EcsClusterLayerCloudwatchConfiguration]{
+		OutputState: i.ToEcsClusterLayerCloudwatchConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EcsClusterLayerCloudwatchConfigurationOutput struct{ *pulumi.OutputState }
 
 func (EcsClusterLayerCloudwatchConfigurationOutput) ElementType() reflect.Type {
@@ -1654,6 +1883,12 @@ func (o EcsClusterLayerCloudwatchConfigurationOutput) ToEcsClusterLayerCloudwatc
 	}).(EcsClusterLayerCloudwatchConfigurationPtrOutput)
 }
 
+func (o EcsClusterLayerCloudwatchConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[EcsClusterLayerCloudwatchConfiguration] {
+	return pulumix.Output[EcsClusterLayerCloudwatchConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EcsClusterLayerCloudwatchConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EcsClusterLayerCloudwatchConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -1676,6 +1911,12 @@ func (o EcsClusterLayerCloudwatchConfigurationPtrOutput) ToEcsClusterLayerCloudw
 
 func (o EcsClusterLayerCloudwatchConfigurationPtrOutput) ToEcsClusterLayerCloudwatchConfigurationPtrOutputWithContext(ctx context.Context) EcsClusterLayerCloudwatchConfigurationPtrOutput {
 	return o
+}
+
+func (o EcsClusterLayerCloudwatchConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EcsClusterLayerCloudwatchConfiguration] {
+	return pulumix.Output[*EcsClusterLayerCloudwatchConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EcsClusterLayerCloudwatchConfigurationPtrOutput) Elem() EcsClusterLayerCloudwatchConfigurationOutput {
@@ -1757,6 +1998,12 @@ func (i EcsClusterLayerCloudwatchConfigurationLogStreamArgs) ToEcsClusterLayerCl
 	return pulumi.ToOutputWithContext(ctx, i).(EcsClusterLayerCloudwatchConfigurationLogStreamOutput)
 }
 
+func (i EcsClusterLayerCloudwatchConfigurationLogStreamArgs) ToOutput(ctx context.Context) pulumix.Output[EcsClusterLayerCloudwatchConfigurationLogStream] {
+	return pulumix.Output[EcsClusterLayerCloudwatchConfigurationLogStream]{
+		OutputState: i.ToEcsClusterLayerCloudwatchConfigurationLogStreamOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EcsClusterLayerCloudwatchConfigurationLogStreamArrayInput is an input type that accepts EcsClusterLayerCloudwatchConfigurationLogStreamArray and EcsClusterLayerCloudwatchConfigurationLogStreamArrayOutput values.
 // You can construct a concrete instance of `EcsClusterLayerCloudwatchConfigurationLogStreamArrayInput` via:
 //
@@ -1782,6 +2029,12 @@ func (i EcsClusterLayerCloudwatchConfigurationLogStreamArray) ToEcsClusterLayerC
 	return pulumi.ToOutputWithContext(ctx, i).(EcsClusterLayerCloudwatchConfigurationLogStreamArrayOutput)
 }
 
+func (i EcsClusterLayerCloudwatchConfigurationLogStreamArray) ToOutput(ctx context.Context) pulumix.Output[[]EcsClusterLayerCloudwatchConfigurationLogStream] {
+	return pulumix.Output[[]EcsClusterLayerCloudwatchConfigurationLogStream]{
+		OutputState: i.ToEcsClusterLayerCloudwatchConfigurationLogStreamArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EcsClusterLayerCloudwatchConfigurationLogStreamOutput struct{ *pulumi.OutputState }
 
 func (EcsClusterLayerCloudwatchConfigurationLogStreamOutput) ElementType() reflect.Type {
@@ -1794,6 +2047,12 @@ func (o EcsClusterLayerCloudwatchConfigurationLogStreamOutput) ToEcsClusterLayer
 
 func (o EcsClusterLayerCloudwatchConfigurationLogStreamOutput) ToEcsClusterLayerCloudwatchConfigurationLogStreamOutputWithContext(ctx context.Context) EcsClusterLayerCloudwatchConfigurationLogStreamOutput {
 	return o
+}
+
+func (o EcsClusterLayerCloudwatchConfigurationLogStreamOutput) ToOutput(ctx context.Context) pulumix.Output[EcsClusterLayerCloudwatchConfigurationLogStream] {
+	return pulumix.Output[EcsClusterLayerCloudwatchConfigurationLogStream]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EcsClusterLayerCloudwatchConfigurationLogStreamOutput) BatchCount() pulumi.IntPtrOutput {
@@ -1852,6 +2111,12 @@ func (o EcsClusterLayerCloudwatchConfigurationLogStreamArrayOutput) ToEcsCluster
 
 func (o EcsClusterLayerCloudwatchConfigurationLogStreamArrayOutput) ToEcsClusterLayerCloudwatchConfigurationLogStreamArrayOutputWithContext(ctx context.Context) EcsClusterLayerCloudwatchConfigurationLogStreamArrayOutput {
 	return o
+}
+
+func (o EcsClusterLayerCloudwatchConfigurationLogStreamArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EcsClusterLayerCloudwatchConfigurationLogStream] {
+	return pulumix.Output[[]EcsClusterLayerCloudwatchConfigurationLogStream]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EcsClusterLayerCloudwatchConfigurationLogStreamArrayOutput) Index(i pulumi.IntInput) EcsClusterLayerCloudwatchConfigurationLogStreamOutput {
@@ -1915,6 +2180,12 @@ func (i EcsClusterLayerEbsVolumeArgs) ToEcsClusterLayerEbsVolumeOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(EcsClusterLayerEbsVolumeOutput)
 }
 
+func (i EcsClusterLayerEbsVolumeArgs) ToOutput(ctx context.Context) pulumix.Output[EcsClusterLayerEbsVolume] {
+	return pulumix.Output[EcsClusterLayerEbsVolume]{
+		OutputState: i.ToEcsClusterLayerEbsVolumeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EcsClusterLayerEbsVolumeArrayInput is an input type that accepts EcsClusterLayerEbsVolumeArray and EcsClusterLayerEbsVolumeArrayOutput values.
 // You can construct a concrete instance of `EcsClusterLayerEbsVolumeArrayInput` via:
 //
@@ -1940,6 +2211,12 @@ func (i EcsClusterLayerEbsVolumeArray) ToEcsClusterLayerEbsVolumeArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(EcsClusterLayerEbsVolumeArrayOutput)
 }
 
+func (i EcsClusterLayerEbsVolumeArray) ToOutput(ctx context.Context) pulumix.Output[[]EcsClusterLayerEbsVolume] {
+	return pulumix.Output[[]EcsClusterLayerEbsVolume]{
+		OutputState: i.ToEcsClusterLayerEbsVolumeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EcsClusterLayerEbsVolumeOutput struct{ *pulumi.OutputState }
 
 func (EcsClusterLayerEbsVolumeOutput) ElementType() reflect.Type {
@@ -1952,6 +2229,12 @@ func (o EcsClusterLayerEbsVolumeOutput) ToEcsClusterLayerEbsVolumeOutput() EcsCl
 
 func (o EcsClusterLayerEbsVolumeOutput) ToEcsClusterLayerEbsVolumeOutputWithContext(ctx context.Context) EcsClusterLayerEbsVolumeOutput {
 	return o
+}
+
+func (o EcsClusterLayerEbsVolumeOutput) ToOutput(ctx context.Context) pulumix.Output[EcsClusterLayerEbsVolume] {
+	return pulumix.Output[EcsClusterLayerEbsVolume]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EcsClusterLayerEbsVolumeOutput) Encrypted() pulumi.BoolPtrOutput {
@@ -2002,6 +2285,12 @@ func (o EcsClusterLayerEbsVolumeArrayOutput) ToEcsClusterLayerEbsVolumeArrayOutp
 	return o
 }
 
+func (o EcsClusterLayerEbsVolumeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EcsClusterLayerEbsVolume] {
+	return pulumix.Output[[]EcsClusterLayerEbsVolume]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EcsClusterLayerEbsVolumeArrayOutput) Index(i pulumi.IntInput) EcsClusterLayerEbsVolumeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EcsClusterLayerEbsVolume {
 		return vs[0].([]EcsClusterLayerEbsVolume)[vs[1].(int)]
@@ -2041,6 +2330,12 @@ func (i EcsClusterLayerLoadBasedAutoScalingArgs) ToEcsClusterLayerLoadBasedAutoS
 
 func (i EcsClusterLayerLoadBasedAutoScalingArgs) ToEcsClusterLayerLoadBasedAutoScalingOutputWithContext(ctx context.Context) EcsClusterLayerLoadBasedAutoScalingOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EcsClusterLayerLoadBasedAutoScalingOutput)
+}
+
+func (i EcsClusterLayerLoadBasedAutoScalingArgs) ToOutput(ctx context.Context) pulumix.Output[EcsClusterLayerLoadBasedAutoScaling] {
+	return pulumix.Output[EcsClusterLayerLoadBasedAutoScaling]{
+		OutputState: i.ToEcsClusterLayerLoadBasedAutoScalingOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i EcsClusterLayerLoadBasedAutoScalingArgs) ToEcsClusterLayerLoadBasedAutoScalingPtrOutput() EcsClusterLayerLoadBasedAutoScalingPtrOutput {
@@ -2084,6 +2379,12 @@ func (i *ecsClusterLayerLoadBasedAutoScalingPtrType) ToEcsClusterLayerLoadBasedA
 	return pulumi.ToOutputWithContext(ctx, i).(EcsClusterLayerLoadBasedAutoScalingPtrOutput)
 }
 
+func (i *ecsClusterLayerLoadBasedAutoScalingPtrType) ToOutput(ctx context.Context) pulumix.Output[*EcsClusterLayerLoadBasedAutoScaling] {
+	return pulumix.Output[*EcsClusterLayerLoadBasedAutoScaling]{
+		OutputState: i.ToEcsClusterLayerLoadBasedAutoScalingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EcsClusterLayerLoadBasedAutoScalingOutput struct{ *pulumi.OutputState }
 
 func (EcsClusterLayerLoadBasedAutoScalingOutput) ElementType() reflect.Type {
@@ -2106,6 +2407,12 @@ func (o EcsClusterLayerLoadBasedAutoScalingOutput) ToEcsClusterLayerLoadBasedAut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EcsClusterLayerLoadBasedAutoScaling) *EcsClusterLayerLoadBasedAutoScaling {
 		return &v
 	}).(EcsClusterLayerLoadBasedAutoScalingPtrOutput)
+}
+
+func (o EcsClusterLayerLoadBasedAutoScalingOutput) ToOutput(ctx context.Context) pulumix.Output[EcsClusterLayerLoadBasedAutoScaling] {
+	return pulumix.Output[EcsClusterLayerLoadBasedAutoScaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EcsClusterLayerLoadBasedAutoScalingOutput) Downscaling() EcsClusterLayerLoadBasedAutoScalingDownscalingPtrOutput {
@@ -2136,6 +2443,12 @@ func (o EcsClusterLayerLoadBasedAutoScalingPtrOutput) ToEcsClusterLayerLoadBased
 
 func (o EcsClusterLayerLoadBasedAutoScalingPtrOutput) ToEcsClusterLayerLoadBasedAutoScalingPtrOutputWithContext(ctx context.Context) EcsClusterLayerLoadBasedAutoScalingPtrOutput {
 	return o
+}
+
+func (o EcsClusterLayerLoadBasedAutoScalingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EcsClusterLayerLoadBasedAutoScaling] {
+	return pulumix.Output[*EcsClusterLayerLoadBasedAutoScaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EcsClusterLayerLoadBasedAutoScalingPtrOutput) Elem() EcsClusterLayerLoadBasedAutoScalingOutput {
@@ -2218,6 +2531,12 @@ func (i EcsClusterLayerLoadBasedAutoScalingDownscalingArgs) ToEcsClusterLayerLoa
 	return pulumi.ToOutputWithContext(ctx, i).(EcsClusterLayerLoadBasedAutoScalingDownscalingOutput)
 }
 
+func (i EcsClusterLayerLoadBasedAutoScalingDownscalingArgs) ToOutput(ctx context.Context) pulumix.Output[EcsClusterLayerLoadBasedAutoScalingDownscaling] {
+	return pulumix.Output[EcsClusterLayerLoadBasedAutoScalingDownscaling]{
+		OutputState: i.ToEcsClusterLayerLoadBasedAutoScalingDownscalingOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EcsClusterLayerLoadBasedAutoScalingDownscalingArgs) ToEcsClusterLayerLoadBasedAutoScalingDownscalingPtrOutput() EcsClusterLayerLoadBasedAutoScalingDownscalingPtrOutput {
 	return i.ToEcsClusterLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(context.Background())
 }
@@ -2259,6 +2578,12 @@ func (i *ecsClusterLayerLoadBasedAutoScalingDownscalingPtrType) ToEcsClusterLaye
 	return pulumi.ToOutputWithContext(ctx, i).(EcsClusterLayerLoadBasedAutoScalingDownscalingPtrOutput)
 }
 
+func (i *ecsClusterLayerLoadBasedAutoScalingDownscalingPtrType) ToOutput(ctx context.Context) pulumix.Output[*EcsClusterLayerLoadBasedAutoScalingDownscaling] {
+	return pulumix.Output[*EcsClusterLayerLoadBasedAutoScalingDownscaling]{
+		OutputState: i.ToEcsClusterLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EcsClusterLayerLoadBasedAutoScalingDownscalingOutput struct{ *pulumi.OutputState }
 
 func (EcsClusterLayerLoadBasedAutoScalingDownscalingOutput) ElementType() reflect.Type {
@@ -2281,6 +2606,12 @@ func (o EcsClusterLayerLoadBasedAutoScalingDownscalingOutput) ToEcsClusterLayerL
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EcsClusterLayerLoadBasedAutoScalingDownscaling) *EcsClusterLayerLoadBasedAutoScalingDownscaling {
 		return &v
 	}).(EcsClusterLayerLoadBasedAutoScalingDownscalingPtrOutput)
+}
+
+func (o EcsClusterLayerLoadBasedAutoScalingDownscalingOutput) ToOutput(ctx context.Context) pulumix.Output[EcsClusterLayerLoadBasedAutoScalingDownscaling] {
+	return pulumix.Output[EcsClusterLayerLoadBasedAutoScalingDownscaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EcsClusterLayerLoadBasedAutoScalingDownscalingOutput) Alarms() pulumi.StringArrayOutput {
@@ -2323,6 +2654,12 @@ func (o EcsClusterLayerLoadBasedAutoScalingDownscalingPtrOutput) ToEcsClusterLay
 
 func (o EcsClusterLayerLoadBasedAutoScalingDownscalingPtrOutput) ToEcsClusterLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx context.Context) EcsClusterLayerLoadBasedAutoScalingDownscalingPtrOutput {
 	return o
+}
+
+func (o EcsClusterLayerLoadBasedAutoScalingDownscalingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EcsClusterLayerLoadBasedAutoScalingDownscaling] {
+	return pulumix.Output[*EcsClusterLayerLoadBasedAutoScalingDownscaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EcsClusterLayerLoadBasedAutoScalingDownscalingPtrOutput) Elem() EcsClusterLayerLoadBasedAutoScalingDownscalingOutput {
@@ -2441,6 +2778,12 @@ func (i EcsClusterLayerLoadBasedAutoScalingUpscalingArgs) ToEcsClusterLayerLoadB
 	return pulumi.ToOutputWithContext(ctx, i).(EcsClusterLayerLoadBasedAutoScalingUpscalingOutput)
 }
 
+func (i EcsClusterLayerLoadBasedAutoScalingUpscalingArgs) ToOutput(ctx context.Context) pulumix.Output[EcsClusterLayerLoadBasedAutoScalingUpscaling] {
+	return pulumix.Output[EcsClusterLayerLoadBasedAutoScalingUpscaling]{
+		OutputState: i.ToEcsClusterLayerLoadBasedAutoScalingUpscalingOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EcsClusterLayerLoadBasedAutoScalingUpscalingArgs) ToEcsClusterLayerLoadBasedAutoScalingUpscalingPtrOutput() EcsClusterLayerLoadBasedAutoScalingUpscalingPtrOutput {
 	return i.ToEcsClusterLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(context.Background())
 }
@@ -2482,6 +2825,12 @@ func (i *ecsClusterLayerLoadBasedAutoScalingUpscalingPtrType) ToEcsClusterLayerL
 	return pulumi.ToOutputWithContext(ctx, i).(EcsClusterLayerLoadBasedAutoScalingUpscalingPtrOutput)
 }
 
+func (i *ecsClusterLayerLoadBasedAutoScalingUpscalingPtrType) ToOutput(ctx context.Context) pulumix.Output[*EcsClusterLayerLoadBasedAutoScalingUpscaling] {
+	return pulumix.Output[*EcsClusterLayerLoadBasedAutoScalingUpscaling]{
+		OutputState: i.ToEcsClusterLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EcsClusterLayerLoadBasedAutoScalingUpscalingOutput struct{ *pulumi.OutputState }
 
 func (EcsClusterLayerLoadBasedAutoScalingUpscalingOutput) ElementType() reflect.Type {
@@ -2504,6 +2853,12 @@ func (o EcsClusterLayerLoadBasedAutoScalingUpscalingOutput) ToEcsClusterLayerLoa
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EcsClusterLayerLoadBasedAutoScalingUpscaling) *EcsClusterLayerLoadBasedAutoScalingUpscaling {
 		return &v
 	}).(EcsClusterLayerLoadBasedAutoScalingUpscalingPtrOutput)
+}
+
+func (o EcsClusterLayerLoadBasedAutoScalingUpscalingOutput) ToOutput(ctx context.Context) pulumix.Output[EcsClusterLayerLoadBasedAutoScalingUpscaling] {
+	return pulumix.Output[EcsClusterLayerLoadBasedAutoScalingUpscaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EcsClusterLayerLoadBasedAutoScalingUpscalingOutput) Alarms() pulumi.StringArrayOutput {
@@ -2546,6 +2901,12 @@ func (o EcsClusterLayerLoadBasedAutoScalingUpscalingPtrOutput) ToEcsClusterLayer
 
 func (o EcsClusterLayerLoadBasedAutoScalingUpscalingPtrOutput) ToEcsClusterLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx context.Context) EcsClusterLayerLoadBasedAutoScalingUpscalingPtrOutput {
 	return o
+}
+
+func (o EcsClusterLayerLoadBasedAutoScalingUpscalingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EcsClusterLayerLoadBasedAutoScalingUpscaling] {
+	return pulumix.Output[*EcsClusterLayerLoadBasedAutoScalingUpscaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EcsClusterLayerLoadBasedAutoScalingUpscalingPtrOutput) Elem() EcsClusterLayerLoadBasedAutoScalingUpscalingOutput {
@@ -2654,6 +3015,12 @@ func (i GangliaLayerCloudwatchConfigurationArgs) ToGangliaLayerCloudwatchConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(GangliaLayerCloudwatchConfigurationOutput)
 }
 
+func (i GangliaLayerCloudwatchConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GangliaLayerCloudwatchConfiguration] {
+	return pulumix.Output[GangliaLayerCloudwatchConfiguration]{
+		OutputState: i.ToGangliaLayerCloudwatchConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GangliaLayerCloudwatchConfigurationArgs) ToGangliaLayerCloudwatchConfigurationPtrOutput() GangliaLayerCloudwatchConfigurationPtrOutput {
 	return i.ToGangliaLayerCloudwatchConfigurationPtrOutputWithContext(context.Background())
 }
@@ -2695,6 +3062,12 @@ func (i *gangliaLayerCloudwatchConfigurationPtrType) ToGangliaLayerCloudwatchCon
 	return pulumi.ToOutputWithContext(ctx, i).(GangliaLayerCloudwatchConfigurationPtrOutput)
 }
 
+func (i *gangliaLayerCloudwatchConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*GangliaLayerCloudwatchConfiguration] {
+	return pulumix.Output[*GangliaLayerCloudwatchConfiguration]{
+		OutputState: i.ToGangliaLayerCloudwatchConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GangliaLayerCloudwatchConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GangliaLayerCloudwatchConfigurationOutput) ElementType() reflect.Type {
@@ -2719,6 +3092,12 @@ func (o GangliaLayerCloudwatchConfigurationOutput) ToGangliaLayerCloudwatchConfi
 	}).(GangliaLayerCloudwatchConfigurationPtrOutput)
 }
 
+func (o GangliaLayerCloudwatchConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GangliaLayerCloudwatchConfiguration] {
+	return pulumix.Output[GangliaLayerCloudwatchConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GangliaLayerCloudwatchConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GangliaLayerCloudwatchConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -2741,6 +3120,12 @@ func (o GangliaLayerCloudwatchConfigurationPtrOutput) ToGangliaLayerCloudwatchCo
 
 func (o GangliaLayerCloudwatchConfigurationPtrOutput) ToGangliaLayerCloudwatchConfigurationPtrOutputWithContext(ctx context.Context) GangliaLayerCloudwatchConfigurationPtrOutput {
 	return o
+}
+
+func (o GangliaLayerCloudwatchConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GangliaLayerCloudwatchConfiguration] {
+	return pulumix.Output[*GangliaLayerCloudwatchConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GangliaLayerCloudwatchConfigurationPtrOutput) Elem() GangliaLayerCloudwatchConfigurationOutput {
@@ -2822,6 +3207,12 @@ func (i GangliaLayerCloudwatchConfigurationLogStreamArgs) ToGangliaLayerCloudwat
 	return pulumi.ToOutputWithContext(ctx, i).(GangliaLayerCloudwatchConfigurationLogStreamOutput)
 }
 
+func (i GangliaLayerCloudwatchConfigurationLogStreamArgs) ToOutput(ctx context.Context) pulumix.Output[GangliaLayerCloudwatchConfigurationLogStream] {
+	return pulumix.Output[GangliaLayerCloudwatchConfigurationLogStream]{
+		OutputState: i.ToGangliaLayerCloudwatchConfigurationLogStreamOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GangliaLayerCloudwatchConfigurationLogStreamArrayInput is an input type that accepts GangliaLayerCloudwatchConfigurationLogStreamArray and GangliaLayerCloudwatchConfigurationLogStreamArrayOutput values.
 // You can construct a concrete instance of `GangliaLayerCloudwatchConfigurationLogStreamArrayInput` via:
 //
@@ -2847,6 +3238,12 @@ func (i GangliaLayerCloudwatchConfigurationLogStreamArray) ToGangliaLayerCloudwa
 	return pulumi.ToOutputWithContext(ctx, i).(GangliaLayerCloudwatchConfigurationLogStreamArrayOutput)
 }
 
+func (i GangliaLayerCloudwatchConfigurationLogStreamArray) ToOutput(ctx context.Context) pulumix.Output[[]GangliaLayerCloudwatchConfigurationLogStream] {
+	return pulumix.Output[[]GangliaLayerCloudwatchConfigurationLogStream]{
+		OutputState: i.ToGangliaLayerCloudwatchConfigurationLogStreamArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GangliaLayerCloudwatchConfigurationLogStreamOutput struct{ *pulumi.OutputState }
 
 func (GangliaLayerCloudwatchConfigurationLogStreamOutput) ElementType() reflect.Type {
@@ -2859,6 +3256,12 @@ func (o GangliaLayerCloudwatchConfigurationLogStreamOutput) ToGangliaLayerCloudw
 
 func (o GangliaLayerCloudwatchConfigurationLogStreamOutput) ToGangliaLayerCloudwatchConfigurationLogStreamOutputWithContext(ctx context.Context) GangliaLayerCloudwatchConfigurationLogStreamOutput {
 	return o
+}
+
+func (o GangliaLayerCloudwatchConfigurationLogStreamOutput) ToOutput(ctx context.Context) pulumix.Output[GangliaLayerCloudwatchConfigurationLogStream] {
+	return pulumix.Output[GangliaLayerCloudwatchConfigurationLogStream]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GangliaLayerCloudwatchConfigurationLogStreamOutput) BatchCount() pulumi.IntPtrOutput {
@@ -2917,6 +3320,12 @@ func (o GangliaLayerCloudwatchConfigurationLogStreamArrayOutput) ToGangliaLayerC
 
 func (o GangliaLayerCloudwatchConfigurationLogStreamArrayOutput) ToGangliaLayerCloudwatchConfigurationLogStreamArrayOutputWithContext(ctx context.Context) GangliaLayerCloudwatchConfigurationLogStreamArrayOutput {
 	return o
+}
+
+func (o GangliaLayerCloudwatchConfigurationLogStreamArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GangliaLayerCloudwatchConfigurationLogStream] {
+	return pulumix.Output[[]GangliaLayerCloudwatchConfigurationLogStream]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GangliaLayerCloudwatchConfigurationLogStreamArrayOutput) Index(i pulumi.IntInput) GangliaLayerCloudwatchConfigurationLogStreamOutput {
@@ -2980,6 +3389,12 @@ func (i GangliaLayerEbsVolumeArgs) ToGangliaLayerEbsVolumeOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GangliaLayerEbsVolumeOutput)
 }
 
+func (i GangliaLayerEbsVolumeArgs) ToOutput(ctx context.Context) pulumix.Output[GangliaLayerEbsVolume] {
+	return pulumix.Output[GangliaLayerEbsVolume]{
+		OutputState: i.ToGangliaLayerEbsVolumeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GangliaLayerEbsVolumeArrayInput is an input type that accepts GangliaLayerEbsVolumeArray and GangliaLayerEbsVolumeArrayOutput values.
 // You can construct a concrete instance of `GangliaLayerEbsVolumeArrayInput` via:
 //
@@ -3005,6 +3420,12 @@ func (i GangliaLayerEbsVolumeArray) ToGangliaLayerEbsVolumeArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(GangliaLayerEbsVolumeArrayOutput)
 }
 
+func (i GangliaLayerEbsVolumeArray) ToOutput(ctx context.Context) pulumix.Output[[]GangliaLayerEbsVolume] {
+	return pulumix.Output[[]GangliaLayerEbsVolume]{
+		OutputState: i.ToGangliaLayerEbsVolumeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GangliaLayerEbsVolumeOutput struct{ *pulumi.OutputState }
 
 func (GangliaLayerEbsVolumeOutput) ElementType() reflect.Type {
@@ -3017,6 +3438,12 @@ func (o GangliaLayerEbsVolumeOutput) ToGangliaLayerEbsVolumeOutput() GangliaLaye
 
 func (o GangliaLayerEbsVolumeOutput) ToGangliaLayerEbsVolumeOutputWithContext(ctx context.Context) GangliaLayerEbsVolumeOutput {
 	return o
+}
+
+func (o GangliaLayerEbsVolumeOutput) ToOutput(ctx context.Context) pulumix.Output[GangliaLayerEbsVolume] {
+	return pulumix.Output[GangliaLayerEbsVolume]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GangliaLayerEbsVolumeOutput) Encrypted() pulumi.BoolPtrOutput {
@@ -3067,6 +3494,12 @@ func (o GangliaLayerEbsVolumeArrayOutput) ToGangliaLayerEbsVolumeArrayOutputWith
 	return o
 }
 
+func (o GangliaLayerEbsVolumeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GangliaLayerEbsVolume] {
+	return pulumix.Output[[]GangliaLayerEbsVolume]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GangliaLayerEbsVolumeArrayOutput) Index(i pulumi.IntInput) GangliaLayerEbsVolumeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GangliaLayerEbsVolume {
 		return vs[0].([]GangliaLayerEbsVolume)[vs[1].(int)]
@@ -3106,6 +3539,12 @@ func (i GangliaLayerLoadBasedAutoScalingArgs) ToGangliaLayerLoadBasedAutoScaling
 
 func (i GangliaLayerLoadBasedAutoScalingArgs) ToGangliaLayerLoadBasedAutoScalingOutputWithContext(ctx context.Context) GangliaLayerLoadBasedAutoScalingOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GangliaLayerLoadBasedAutoScalingOutput)
+}
+
+func (i GangliaLayerLoadBasedAutoScalingArgs) ToOutput(ctx context.Context) pulumix.Output[GangliaLayerLoadBasedAutoScaling] {
+	return pulumix.Output[GangliaLayerLoadBasedAutoScaling]{
+		OutputState: i.ToGangliaLayerLoadBasedAutoScalingOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i GangliaLayerLoadBasedAutoScalingArgs) ToGangliaLayerLoadBasedAutoScalingPtrOutput() GangliaLayerLoadBasedAutoScalingPtrOutput {
@@ -3149,6 +3588,12 @@ func (i *gangliaLayerLoadBasedAutoScalingPtrType) ToGangliaLayerLoadBasedAutoSca
 	return pulumi.ToOutputWithContext(ctx, i).(GangliaLayerLoadBasedAutoScalingPtrOutput)
 }
 
+func (i *gangliaLayerLoadBasedAutoScalingPtrType) ToOutput(ctx context.Context) pulumix.Output[*GangliaLayerLoadBasedAutoScaling] {
+	return pulumix.Output[*GangliaLayerLoadBasedAutoScaling]{
+		OutputState: i.ToGangliaLayerLoadBasedAutoScalingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GangliaLayerLoadBasedAutoScalingOutput struct{ *pulumi.OutputState }
 
 func (GangliaLayerLoadBasedAutoScalingOutput) ElementType() reflect.Type {
@@ -3171,6 +3616,12 @@ func (o GangliaLayerLoadBasedAutoScalingOutput) ToGangliaLayerLoadBasedAutoScali
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GangliaLayerLoadBasedAutoScaling) *GangliaLayerLoadBasedAutoScaling {
 		return &v
 	}).(GangliaLayerLoadBasedAutoScalingPtrOutput)
+}
+
+func (o GangliaLayerLoadBasedAutoScalingOutput) ToOutput(ctx context.Context) pulumix.Output[GangliaLayerLoadBasedAutoScaling] {
+	return pulumix.Output[GangliaLayerLoadBasedAutoScaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GangliaLayerLoadBasedAutoScalingOutput) Downscaling() GangliaLayerLoadBasedAutoScalingDownscalingPtrOutput {
@@ -3201,6 +3652,12 @@ func (o GangliaLayerLoadBasedAutoScalingPtrOutput) ToGangliaLayerLoadBasedAutoSc
 
 func (o GangliaLayerLoadBasedAutoScalingPtrOutput) ToGangliaLayerLoadBasedAutoScalingPtrOutputWithContext(ctx context.Context) GangliaLayerLoadBasedAutoScalingPtrOutput {
 	return o
+}
+
+func (o GangliaLayerLoadBasedAutoScalingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GangliaLayerLoadBasedAutoScaling] {
+	return pulumix.Output[*GangliaLayerLoadBasedAutoScaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GangliaLayerLoadBasedAutoScalingPtrOutput) Elem() GangliaLayerLoadBasedAutoScalingOutput {
@@ -3283,6 +3740,12 @@ func (i GangliaLayerLoadBasedAutoScalingDownscalingArgs) ToGangliaLayerLoadBased
 	return pulumi.ToOutputWithContext(ctx, i).(GangliaLayerLoadBasedAutoScalingDownscalingOutput)
 }
 
+func (i GangliaLayerLoadBasedAutoScalingDownscalingArgs) ToOutput(ctx context.Context) pulumix.Output[GangliaLayerLoadBasedAutoScalingDownscaling] {
+	return pulumix.Output[GangliaLayerLoadBasedAutoScalingDownscaling]{
+		OutputState: i.ToGangliaLayerLoadBasedAutoScalingDownscalingOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GangliaLayerLoadBasedAutoScalingDownscalingArgs) ToGangliaLayerLoadBasedAutoScalingDownscalingPtrOutput() GangliaLayerLoadBasedAutoScalingDownscalingPtrOutput {
 	return i.ToGangliaLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(context.Background())
 }
@@ -3324,6 +3787,12 @@ func (i *gangliaLayerLoadBasedAutoScalingDownscalingPtrType) ToGangliaLayerLoadB
 	return pulumi.ToOutputWithContext(ctx, i).(GangliaLayerLoadBasedAutoScalingDownscalingPtrOutput)
 }
 
+func (i *gangliaLayerLoadBasedAutoScalingDownscalingPtrType) ToOutput(ctx context.Context) pulumix.Output[*GangliaLayerLoadBasedAutoScalingDownscaling] {
+	return pulumix.Output[*GangliaLayerLoadBasedAutoScalingDownscaling]{
+		OutputState: i.ToGangliaLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GangliaLayerLoadBasedAutoScalingDownscalingOutput struct{ *pulumi.OutputState }
 
 func (GangliaLayerLoadBasedAutoScalingDownscalingOutput) ElementType() reflect.Type {
@@ -3346,6 +3815,12 @@ func (o GangliaLayerLoadBasedAutoScalingDownscalingOutput) ToGangliaLayerLoadBas
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GangliaLayerLoadBasedAutoScalingDownscaling) *GangliaLayerLoadBasedAutoScalingDownscaling {
 		return &v
 	}).(GangliaLayerLoadBasedAutoScalingDownscalingPtrOutput)
+}
+
+func (o GangliaLayerLoadBasedAutoScalingDownscalingOutput) ToOutput(ctx context.Context) pulumix.Output[GangliaLayerLoadBasedAutoScalingDownscaling] {
+	return pulumix.Output[GangliaLayerLoadBasedAutoScalingDownscaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GangliaLayerLoadBasedAutoScalingDownscalingOutput) Alarms() pulumi.StringArrayOutput {
@@ -3388,6 +3863,12 @@ func (o GangliaLayerLoadBasedAutoScalingDownscalingPtrOutput) ToGangliaLayerLoad
 
 func (o GangliaLayerLoadBasedAutoScalingDownscalingPtrOutput) ToGangliaLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx context.Context) GangliaLayerLoadBasedAutoScalingDownscalingPtrOutput {
 	return o
+}
+
+func (o GangliaLayerLoadBasedAutoScalingDownscalingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GangliaLayerLoadBasedAutoScalingDownscaling] {
+	return pulumix.Output[*GangliaLayerLoadBasedAutoScalingDownscaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GangliaLayerLoadBasedAutoScalingDownscalingPtrOutput) Elem() GangliaLayerLoadBasedAutoScalingDownscalingOutput {
@@ -3506,6 +3987,12 @@ func (i GangliaLayerLoadBasedAutoScalingUpscalingArgs) ToGangliaLayerLoadBasedAu
 	return pulumi.ToOutputWithContext(ctx, i).(GangliaLayerLoadBasedAutoScalingUpscalingOutput)
 }
 
+func (i GangliaLayerLoadBasedAutoScalingUpscalingArgs) ToOutput(ctx context.Context) pulumix.Output[GangliaLayerLoadBasedAutoScalingUpscaling] {
+	return pulumix.Output[GangliaLayerLoadBasedAutoScalingUpscaling]{
+		OutputState: i.ToGangliaLayerLoadBasedAutoScalingUpscalingOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GangliaLayerLoadBasedAutoScalingUpscalingArgs) ToGangliaLayerLoadBasedAutoScalingUpscalingPtrOutput() GangliaLayerLoadBasedAutoScalingUpscalingPtrOutput {
 	return i.ToGangliaLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(context.Background())
 }
@@ -3547,6 +4034,12 @@ func (i *gangliaLayerLoadBasedAutoScalingUpscalingPtrType) ToGangliaLayerLoadBas
 	return pulumi.ToOutputWithContext(ctx, i).(GangliaLayerLoadBasedAutoScalingUpscalingPtrOutput)
 }
 
+func (i *gangliaLayerLoadBasedAutoScalingUpscalingPtrType) ToOutput(ctx context.Context) pulumix.Output[*GangliaLayerLoadBasedAutoScalingUpscaling] {
+	return pulumix.Output[*GangliaLayerLoadBasedAutoScalingUpscaling]{
+		OutputState: i.ToGangliaLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GangliaLayerLoadBasedAutoScalingUpscalingOutput struct{ *pulumi.OutputState }
 
 func (GangliaLayerLoadBasedAutoScalingUpscalingOutput) ElementType() reflect.Type {
@@ -3569,6 +4062,12 @@ func (o GangliaLayerLoadBasedAutoScalingUpscalingOutput) ToGangliaLayerLoadBased
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GangliaLayerLoadBasedAutoScalingUpscaling) *GangliaLayerLoadBasedAutoScalingUpscaling {
 		return &v
 	}).(GangliaLayerLoadBasedAutoScalingUpscalingPtrOutput)
+}
+
+func (o GangliaLayerLoadBasedAutoScalingUpscalingOutput) ToOutput(ctx context.Context) pulumix.Output[GangliaLayerLoadBasedAutoScalingUpscaling] {
+	return pulumix.Output[GangliaLayerLoadBasedAutoScalingUpscaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GangliaLayerLoadBasedAutoScalingUpscalingOutput) Alarms() pulumi.StringArrayOutput {
@@ -3611,6 +4110,12 @@ func (o GangliaLayerLoadBasedAutoScalingUpscalingPtrOutput) ToGangliaLayerLoadBa
 
 func (o GangliaLayerLoadBasedAutoScalingUpscalingPtrOutput) ToGangliaLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx context.Context) GangliaLayerLoadBasedAutoScalingUpscalingPtrOutput {
 	return o
+}
+
+func (o GangliaLayerLoadBasedAutoScalingUpscalingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GangliaLayerLoadBasedAutoScalingUpscaling] {
+	return pulumix.Output[*GangliaLayerLoadBasedAutoScalingUpscaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GangliaLayerLoadBasedAutoScalingUpscalingPtrOutput) Elem() GangliaLayerLoadBasedAutoScalingUpscalingOutput {
@@ -3719,6 +4224,12 @@ func (i HaproxyLayerCloudwatchConfigurationArgs) ToHaproxyLayerCloudwatchConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(HaproxyLayerCloudwatchConfigurationOutput)
 }
 
+func (i HaproxyLayerCloudwatchConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[HaproxyLayerCloudwatchConfiguration] {
+	return pulumix.Output[HaproxyLayerCloudwatchConfiguration]{
+		OutputState: i.ToHaproxyLayerCloudwatchConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i HaproxyLayerCloudwatchConfigurationArgs) ToHaproxyLayerCloudwatchConfigurationPtrOutput() HaproxyLayerCloudwatchConfigurationPtrOutput {
 	return i.ToHaproxyLayerCloudwatchConfigurationPtrOutputWithContext(context.Background())
 }
@@ -3760,6 +4271,12 @@ func (i *haproxyLayerCloudwatchConfigurationPtrType) ToHaproxyLayerCloudwatchCon
 	return pulumi.ToOutputWithContext(ctx, i).(HaproxyLayerCloudwatchConfigurationPtrOutput)
 }
 
+func (i *haproxyLayerCloudwatchConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*HaproxyLayerCloudwatchConfiguration] {
+	return pulumix.Output[*HaproxyLayerCloudwatchConfiguration]{
+		OutputState: i.ToHaproxyLayerCloudwatchConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type HaproxyLayerCloudwatchConfigurationOutput struct{ *pulumi.OutputState }
 
 func (HaproxyLayerCloudwatchConfigurationOutput) ElementType() reflect.Type {
@@ -3784,6 +4301,12 @@ func (o HaproxyLayerCloudwatchConfigurationOutput) ToHaproxyLayerCloudwatchConfi
 	}).(HaproxyLayerCloudwatchConfigurationPtrOutput)
 }
 
+func (o HaproxyLayerCloudwatchConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[HaproxyLayerCloudwatchConfiguration] {
+	return pulumix.Output[HaproxyLayerCloudwatchConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o HaproxyLayerCloudwatchConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v HaproxyLayerCloudwatchConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -3806,6 +4329,12 @@ func (o HaproxyLayerCloudwatchConfigurationPtrOutput) ToHaproxyLayerCloudwatchCo
 
 func (o HaproxyLayerCloudwatchConfigurationPtrOutput) ToHaproxyLayerCloudwatchConfigurationPtrOutputWithContext(ctx context.Context) HaproxyLayerCloudwatchConfigurationPtrOutput {
 	return o
+}
+
+func (o HaproxyLayerCloudwatchConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*HaproxyLayerCloudwatchConfiguration] {
+	return pulumix.Output[*HaproxyLayerCloudwatchConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o HaproxyLayerCloudwatchConfigurationPtrOutput) Elem() HaproxyLayerCloudwatchConfigurationOutput {
@@ -3887,6 +4416,12 @@ func (i HaproxyLayerCloudwatchConfigurationLogStreamArgs) ToHaproxyLayerCloudwat
 	return pulumi.ToOutputWithContext(ctx, i).(HaproxyLayerCloudwatchConfigurationLogStreamOutput)
 }
 
+func (i HaproxyLayerCloudwatchConfigurationLogStreamArgs) ToOutput(ctx context.Context) pulumix.Output[HaproxyLayerCloudwatchConfigurationLogStream] {
+	return pulumix.Output[HaproxyLayerCloudwatchConfigurationLogStream]{
+		OutputState: i.ToHaproxyLayerCloudwatchConfigurationLogStreamOutputWithContext(ctx).OutputState,
+	}
+}
+
 // HaproxyLayerCloudwatchConfigurationLogStreamArrayInput is an input type that accepts HaproxyLayerCloudwatchConfigurationLogStreamArray and HaproxyLayerCloudwatchConfigurationLogStreamArrayOutput values.
 // You can construct a concrete instance of `HaproxyLayerCloudwatchConfigurationLogStreamArrayInput` via:
 //
@@ -3912,6 +4447,12 @@ func (i HaproxyLayerCloudwatchConfigurationLogStreamArray) ToHaproxyLayerCloudwa
 	return pulumi.ToOutputWithContext(ctx, i).(HaproxyLayerCloudwatchConfigurationLogStreamArrayOutput)
 }
 
+func (i HaproxyLayerCloudwatchConfigurationLogStreamArray) ToOutput(ctx context.Context) pulumix.Output[[]HaproxyLayerCloudwatchConfigurationLogStream] {
+	return pulumix.Output[[]HaproxyLayerCloudwatchConfigurationLogStream]{
+		OutputState: i.ToHaproxyLayerCloudwatchConfigurationLogStreamArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type HaproxyLayerCloudwatchConfigurationLogStreamOutput struct{ *pulumi.OutputState }
 
 func (HaproxyLayerCloudwatchConfigurationLogStreamOutput) ElementType() reflect.Type {
@@ -3924,6 +4465,12 @@ func (o HaproxyLayerCloudwatchConfigurationLogStreamOutput) ToHaproxyLayerCloudw
 
 func (o HaproxyLayerCloudwatchConfigurationLogStreamOutput) ToHaproxyLayerCloudwatchConfigurationLogStreamOutputWithContext(ctx context.Context) HaproxyLayerCloudwatchConfigurationLogStreamOutput {
 	return o
+}
+
+func (o HaproxyLayerCloudwatchConfigurationLogStreamOutput) ToOutput(ctx context.Context) pulumix.Output[HaproxyLayerCloudwatchConfigurationLogStream] {
+	return pulumix.Output[HaproxyLayerCloudwatchConfigurationLogStream]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o HaproxyLayerCloudwatchConfigurationLogStreamOutput) BatchCount() pulumi.IntPtrOutput {
@@ -3982,6 +4529,12 @@ func (o HaproxyLayerCloudwatchConfigurationLogStreamArrayOutput) ToHaproxyLayerC
 
 func (o HaproxyLayerCloudwatchConfigurationLogStreamArrayOutput) ToHaproxyLayerCloudwatchConfigurationLogStreamArrayOutputWithContext(ctx context.Context) HaproxyLayerCloudwatchConfigurationLogStreamArrayOutput {
 	return o
+}
+
+func (o HaproxyLayerCloudwatchConfigurationLogStreamArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]HaproxyLayerCloudwatchConfigurationLogStream] {
+	return pulumix.Output[[]HaproxyLayerCloudwatchConfigurationLogStream]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o HaproxyLayerCloudwatchConfigurationLogStreamArrayOutput) Index(i pulumi.IntInput) HaproxyLayerCloudwatchConfigurationLogStreamOutput {
@@ -4045,6 +4598,12 @@ func (i HaproxyLayerEbsVolumeArgs) ToHaproxyLayerEbsVolumeOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(HaproxyLayerEbsVolumeOutput)
 }
 
+func (i HaproxyLayerEbsVolumeArgs) ToOutput(ctx context.Context) pulumix.Output[HaproxyLayerEbsVolume] {
+	return pulumix.Output[HaproxyLayerEbsVolume]{
+		OutputState: i.ToHaproxyLayerEbsVolumeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // HaproxyLayerEbsVolumeArrayInput is an input type that accepts HaproxyLayerEbsVolumeArray and HaproxyLayerEbsVolumeArrayOutput values.
 // You can construct a concrete instance of `HaproxyLayerEbsVolumeArrayInput` via:
 //
@@ -4070,6 +4629,12 @@ func (i HaproxyLayerEbsVolumeArray) ToHaproxyLayerEbsVolumeArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(HaproxyLayerEbsVolumeArrayOutput)
 }
 
+func (i HaproxyLayerEbsVolumeArray) ToOutput(ctx context.Context) pulumix.Output[[]HaproxyLayerEbsVolume] {
+	return pulumix.Output[[]HaproxyLayerEbsVolume]{
+		OutputState: i.ToHaproxyLayerEbsVolumeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type HaproxyLayerEbsVolumeOutput struct{ *pulumi.OutputState }
 
 func (HaproxyLayerEbsVolumeOutput) ElementType() reflect.Type {
@@ -4082,6 +4647,12 @@ func (o HaproxyLayerEbsVolumeOutput) ToHaproxyLayerEbsVolumeOutput() HaproxyLaye
 
 func (o HaproxyLayerEbsVolumeOutput) ToHaproxyLayerEbsVolumeOutputWithContext(ctx context.Context) HaproxyLayerEbsVolumeOutput {
 	return o
+}
+
+func (o HaproxyLayerEbsVolumeOutput) ToOutput(ctx context.Context) pulumix.Output[HaproxyLayerEbsVolume] {
+	return pulumix.Output[HaproxyLayerEbsVolume]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o HaproxyLayerEbsVolumeOutput) Encrypted() pulumi.BoolPtrOutput {
@@ -4132,6 +4703,12 @@ func (o HaproxyLayerEbsVolumeArrayOutput) ToHaproxyLayerEbsVolumeArrayOutputWith
 	return o
 }
 
+func (o HaproxyLayerEbsVolumeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]HaproxyLayerEbsVolume] {
+	return pulumix.Output[[]HaproxyLayerEbsVolume]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o HaproxyLayerEbsVolumeArrayOutput) Index(i pulumi.IntInput) HaproxyLayerEbsVolumeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HaproxyLayerEbsVolume {
 		return vs[0].([]HaproxyLayerEbsVolume)[vs[1].(int)]
@@ -4171,6 +4748,12 @@ func (i HaproxyLayerLoadBasedAutoScalingArgs) ToHaproxyLayerLoadBasedAutoScaling
 
 func (i HaproxyLayerLoadBasedAutoScalingArgs) ToHaproxyLayerLoadBasedAutoScalingOutputWithContext(ctx context.Context) HaproxyLayerLoadBasedAutoScalingOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HaproxyLayerLoadBasedAutoScalingOutput)
+}
+
+func (i HaproxyLayerLoadBasedAutoScalingArgs) ToOutput(ctx context.Context) pulumix.Output[HaproxyLayerLoadBasedAutoScaling] {
+	return pulumix.Output[HaproxyLayerLoadBasedAutoScaling]{
+		OutputState: i.ToHaproxyLayerLoadBasedAutoScalingOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i HaproxyLayerLoadBasedAutoScalingArgs) ToHaproxyLayerLoadBasedAutoScalingPtrOutput() HaproxyLayerLoadBasedAutoScalingPtrOutput {
@@ -4214,6 +4797,12 @@ func (i *haproxyLayerLoadBasedAutoScalingPtrType) ToHaproxyLayerLoadBasedAutoSca
 	return pulumi.ToOutputWithContext(ctx, i).(HaproxyLayerLoadBasedAutoScalingPtrOutput)
 }
 
+func (i *haproxyLayerLoadBasedAutoScalingPtrType) ToOutput(ctx context.Context) pulumix.Output[*HaproxyLayerLoadBasedAutoScaling] {
+	return pulumix.Output[*HaproxyLayerLoadBasedAutoScaling]{
+		OutputState: i.ToHaproxyLayerLoadBasedAutoScalingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type HaproxyLayerLoadBasedAutoScalingOutput struct{ *pulumi.OutputState }
 
 func (HaproxyLayerLoadBasedAutoScalingOutput) ElementType() reflect.Type {
@@ -4236,6 +4825,12 @@ func (o HaproxyLayerLoadBasedAutoScalingOutput) ToHaproxyLayerLoadBasedAutoScali
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v HaproxyLayerLoadBasedAutoScaling) *HaproxyLayerLoadBasedAutoScaling {
 		return &v
 	}).(HaproxyLayerLoadBasedAutoScalingPtrOutput)
+}
+
+func (o HaproxyLayerLoadBasedAutoScalingOutput) ToOutput(ctx context.Context) pulumix.Output[HaproxyLayerLoadBasedAutoScaling] {
+	return pulumix.Output[HaproxyLayerLoadBasedAutoScaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o HaproxyLayerLoadBasedAutoScalingOutput) Downscaling() HaproxyLayerLoadBasedAutoScalingDownscalingPtrOutput {
@@ -4266,6 +4861,12 @@ func (o HaproxyLayerLoadBasedAutoScalingPtrOutput) ToHaproxyLayerLoadBasedAutoSc
 
 func (o HaproxyLayerLoadBasedAutoScalingPtrOutput) ToHaproxyLayerLoadBasedAutoScalingPtrOutputWithContext(ctx context.Context) HaproxyLayerLoadBasedAutoScalingPtrOutput {
 	return o
+}
+
+func (o HaproxyLayerLoadBasedAutoScalingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*HaproxyLayerLoadBasedAutoScaling] {
+	return pulumix.Output[*HaproxyLayerLoadBasedAutoScaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o HaproxyLayerLoadBasedAutoScalingPtrOutput) Elem() HaproxyLayerLoadBasedAutoScalingOutput {
@@ -4348,6 +4949,12 @@ func (i HaproxyLayerLoadBasedAutoScalingDownscalingArgs) ToHaproxyLayerLoadBased
 	return pulumi.ToOutputWithContext(ctx, i).(HaproxyLayerLoadBasedAutoScalingDownscalingOutput)
 }
 
+func (i HaproxyLayerLoadBasedAutoScalingDownscalingArgs) ToOutput(ctx context.Context) pulumix.Output[HaproxyLayerLoadBasedAutoScalingDownscaling] {
+	return pulumix.Output[HaproxyLayerLoadBasedAutoScalingDownscaling]{
+		OutputState: i.ToHaproxyLayerLoadBasedAutoScalingDownscalingOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i HaproxyLayerLoadBasedAutoScalingDownscalingArgs) ToHaproxyLayerLoadBasedAutoScalingDownscalingPtrOutput() HaproxyLayerLoadBasedAutoScalingDownscalingPtrOutput {
 	return i.ToHaproxyLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(context.Background())
 }
@@ -4389,6 +4996,12 @@ func (i *haproxyLayerLoadBasedAutoScalingDownscalingPtrType) ToHaproxyLayerLoadB
 	return pulumi.ToOutputWithContext(ctx, i).(HaproxyLayerLoadBasedAutoScalingDownscalingPtrOutput)
 }
 
+func (i *haproxyLayerLoadBasedAutoScalingDownscalingPtrType) ToOutput(ctx context.Context) pulumix.Output[*HaproxyLayerLoadBasedAutoScalingDownscaling] {
+	return pulumix.Output[*HaproxyLayerLoadBasedAutoScalingDownscaling]{
+		OutputState: i.ToHaproxyLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type HaproxyLayerLoadBasedAutoScalingDownscalingOutput struct{ *pulumi.OutputState }
 
 func (HaproxyLayerLoadBasedAutoScalingDownscalingOutput) ElementType() reflect.Type {
@@ -4411,6 +5024,12 @@ func (o HaproxyLayerLoadBasedAutoScalingDownscalingOutput) ToHaproxyLayerLoadBas
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v HaproxyLayerLoadBasedAutoScalingDownscaling) *HaproxyLayerLoadBasedAutoScalingDownscaling {
 		return &v
 	}).(HaproxyLayerLoadBasedAutoScalingDownscalingPtrOutput)
+}
+
+func (o HaproxyLayerLoadBasedAutoScalingDownscalingOutput) ToOutput(ctx context.Context) pulumix.Output[HaproxyLayerLoadBasedAutoScalingDownscaling] {
+	return pulumix.Output[HaproxyLayerLoadBasedAutoScalingDownscaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o HaproxyLayerLoadBasedAutoScalingDownscalingOutput) Alarms() pulumi.StringArrayOutput {
@@ -4453,6 +5072,12 @@ func (o HaproxyLayerLoadBasedAutoScalingDownscalingPtrOutput) ToHaproxyLayerLoad
 
 func (o HaproxyLayerLoadBasedAutoScalingDownscalingPtrOutput) ToHaproxyLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx context.Context) HaproxyLayerLoadBasedAutoScalingDownscalingPtrOutput {
 	return o
+}
+
+func (o HaproxyLayerLoadBasedAutoScalingDownscalingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*HaproxyLayerLoadBasedAutoScalingDownscaling] {
+	return pulumix.Output[*HaproxyLayerLoadBasedAutoScalingDownscaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o HaproxyLayerLoadBasedAutoScalingDownscalingPtrOutput) Elem() HaproxyLayerLoadBasedAutoScalingDownscalingOutput {
@@ -4571,6 +5196,12 @@ func (i HaproxyLayerLoadBasedAutoScalingUpscalingArgs) ToHaproxyLayerLoadBasedAu
 	return pulumi.ToOutputWithContext(ctx, i).(HaproxyLayerLoadBasedAutoScalingUpscalingOutput)
 }
 
+func (i HaproxyLayerLoadBasedAutoScalingUpscalingArgs) ToOutput(ctx context.Context) pulumix.Output[HaproxyLayerLoadBasedAutoScalingUpscaling] {
+	return pulumix.Output[HaproxyLayerLoadBasedAutoScalingUpscaling]{
+		OutputState: i.ToHaproxyLayerLoadBasedAutoScalingUpscalingOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i HaproxyLayerLoadBasedAutoScalingUpscalingArgs) ToHaproxyLayerLoadBasedAutoScalingUpscalingPtrOutput() HaproxyLayerLoadBasedAutoScalingUpscalingPtrOutput {
 	return i.ToHaproxyLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(context.Background())
 }
@@ -4612,6 +5243,12 @@ func (i *haproxyLayerLoadBasedAutoScalingUpscalingPtrType) ToHaproxyLayerLoadBas
 	return pulumi.ToOutputWithContext(ctx, i).(HaproxyLayerLoadBasedAutoScalingUpscalingPtrOutput)
 }
 
+func (i *haproxyLayerLoadBasedAutoScalingUpscalingPtrType) ToOutput(ctx context.Context) pulumix.Output[*HaproxyLayerLoadBasedAutoScalingUpscaling] {
+	return pulumix.Output[*HaproxyLayerLoadBasedAutoScalingUpscaling]{
+		OutputState: i.ToHaproxyLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type HaproxyLayerLoadBasedAutoScalingUpscalingOutput struct{ *pulumi.OutputState }
 
 func (HaproxyLayerLoadBasedAutoScalingUpscalingOutput) ElementType() reflect.Type {
@@ -4634,6 +5271,12 @@ func (o HaproxyLayerLoadBasedAutoScalingUpscalingOutput) ToHaproxyLayerLoadBased
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v HaproxyLayerLoadBasedAutoScalingUpscaling) *HaproxyLayerLoadBasedAutoScalingUpscaling {
 		return &v
 	}).(HaproxyLayerLoadBasedAutoScalingUpscalingPtrOutput)
+}
+
+func (o HaproxyLayerLoadBasedAutoScalingUpscalingOutput) ToOutput(ctx context.Context) pulumix.Output[HaproxyLayerLoadBasedAutoScalingUpscaling] {
+	return pulumix.Output[HaproxyLayerLoadBasedAutoScalingUpscaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o HaproxyLayerLoadBasedAutoScalingUpscalingOutput) Alarms() pulumi.StringArrayOutput {
@@ -4676,6 +5319,12 @@ func (o HaproxyLayerLoadBasedAutoScalingUpscalingPtrOutput) ToHaproxyLayerLoadBa
 
 func (o HaproxyLayerLoadBasedAutoScalingUpscalingPtrOutput) ToHaproxyLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx context.Context) HaproxyLayerLoadBasedAutoScalingUpscalingPtrOutput {
 	return o
+}
+
+func (o HaproxyLayerLoadBasedAutoScalingUpscalingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*HaproxyLayerLoadBasedAutoScalingUpscaling] {
+	return pulumix.Output[*HaproxyLayerLoadBasedAutoScalingUpscaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o HaproxyLayerLoadBasedAutoScalingUpscalingPtrOutput) Elem() HaproxyLayerLoadBasedAutoScalingUpscalingOutput {
@@ -4792,6 +5441,12 @@ func (i InstanceEbsBlockDeviceArgs) ToInstanceEbsBlockDeviceOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceEbsBlockDeviceOutput)
 }
 
+func (i InstanceEbsBlockDeviceArgs) ToOutput(ctx context.Context) pulumix.Output[InstanceEbsBlockDevice] {
+	return pulumix.Output[InstanceEbsBlockDevice]{
+		OutputState: i.ToInstanceEbsBlockDeviceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // InstanceEbsBlockDeviceArrayInput is an input type that accepts InstanceEbsBlockDeviceArray and InstanceEbsBlockDeviceArrayOutput values.
 // You can construct a concrete instance of `InstanceEbsBlockDeviceArrayInput` via:
 //
@@ -4817,6 +5472,12 @@ func (i InstanceEbsBlockDeviceArray) ToInstanceEbsBlockDeviceArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceEbsBlockDeviceArrayOutput)
 }
 
+func (i InstanceEbsBlockDeviceArray) ToOutput(ctx context.Context) pulumix.Output[[]InstanceEbsBlockDevice] {
+	return pulumix.Output[[]InstanceEbsBlockDevice]{
+		OutputState: i.ToInstanceEbsBlockDeviceArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type InstanceEbsBlockDeviceOutput struct{ *pulumi.OutputState }
 
 func (InstanceEbsBlockDeviceOutput) ElementType() reflect.Type {
@@ -4829,6 +5490,12 @@ func (o InstanceEbsBlockDeviceOutput) ToInstanceEbsBlockDeviceOutput() InstanceE
 
 func (o InstanceEbsBlockDeviceOutput) ToInstanceEbsBlockDeviceOutputWithContext(ctx context.Context) InstanceEbsBlockDeviceOutput {
 	return o
+}
+
+func (o InstanceEbsBlockDeviceOutput) ToOutput(ctx context.Context) pulumix.Output[InstanceEbsBlockDevice] {
+	return pulumix.Output[InstanceEbsBlockDevice]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InstanceEbsBlockDeviceOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
@@ -4867,6 +5534,12 @@ func (o InstanceEbsBlockDeviceArrayOutput) ToInstanceEbsBlockDeviceArrayOutput()
 
 func (o InstanceEbsBlockDeviceArrayOutput) ToInstanceEbsBlockDeviceArrayOutputWithContext(ctx context.Context) InstanceEbsBlockDeviceArrayOutput {
 	return o
+}
+
+func (o InstanceEbsBlockDeviceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InstanceEbsBlockDevice] {
+	return pulumix.Output[[]InstanceEbsBlockDevice]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InstanceEbsBlockDeviceArrayOutput) Index(i pulumi.IntInput) InstanceEbsBlockDeviceOutput {
@@ -4908,6 +5581,12 @@ func (i InstanceEphemeralBlockDeviceArgs) ToInstanceEphemeralBlockDeviceOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceEphemeralBlockDeviceOutput)
 }
 
+func (i InstanceEphemeralBlockDeviceArgs) ToOutput(ctx context.Context) pulumix.Output[InstanceEphemeralBlockDevice] {
+	return pulumix.Output[InstanceEphemeralBlockDevice]{
+		OutputState: i.ToInstanceEphemeralBlockDeviceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // InstanceEphemeralBlockDeviceArrayInput is an input type that accepts InstanceEphemeralBlockDeviceArray and InstanceEphemeralBlockDeviceArrayOutput values.
 // You can construct a concrete instance of `InstanceEphemeralBlockDeviceArrayInput` via:
 //
@@ -4933,6 +5612,12 @@ func (i InstanceEphemeralBlockDeviceArray) ToInstanceEphemeralBlockDeviceArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceEphemeralBlockDeviceArrayOutput)
 }
 
+func (i InstanceEphemeralBlockDeviceArray) ToOutput(ctx context.Context) pulumix.Output[[]InstanceEphemeralBlockDevice] {
+	return pulumix.Output[[]InstanceEphemeralBlockDevice]{
+		OutputState: i.ToInstanceEphemeralBlockDeviceArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type InstanceEphemeralBlockDeviceOutput struct{ *pulumi.OutputState }
 
 func (InstanceEphemeralBlockDeviceOutput) ElementType() reflect.Type {
@@ -4945,6 +5630,12 @@ func (o InstanceEphemeralBlockDeviceOutput) ToInstanceEphemeralBlockDeviceOutput
 
 func (o InstanceEphemeralBlockDeviceOutput) ToInstanceEphemeralBlockDeviceOutputWithContext(ctx context.Context) InstanceEphemeralBlockDeviceOutput {
 	return o
+}
+
+func (o InstanceEphemeralBlockDeviceOutput) ToOutput(ctx context.Context) pulumix.Output[InstanceEphemeralBlockDevice] {
+	return pulumix.Output[InstanceEphemeralBlockDevice]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InstanceEphemeralBlockDeviceOutput) DeviceName() pulumi.StringOutput {
@@ -4967,6 +5658,12 @@ func (o InstanceEphemeralBlockDeviceArrayOutput) ToInstanceEphemeralBlockDeviceA
 
 func (o InstanceEphemeralBlockDeviceArrayOutput) ToInstanceEphemeralBlockDeviceArrayOutputWithContext(ctx context.Context) InstanceEphemeralBlockDeviceArrayOutput {
 	return o
+}
+
+func (o InstanceEphemeralBlockDeviceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InstanceEphemeralBlockDevice] {
+	return pulumix.Output[[]InstanceEphemeralBlockDevice]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InstanceEphemeralBlockDeviceArrayOutput) Index(i pulumi.IntInput) InstanceEphemeralBlockDeviceOutput {
@@ -5012,6 +5709,12 @@ func (i InstanceRootBlockDeviceArgs) ToInstanceRootBlockDeviceOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceRootBlockDeviceOutput)
 }
 
+func (i InstanceRootBlockDeviceArgs) ToOutput(ctx context.Context) pulumix.Output[InstanceRootBlockDevice] {
+	return pulumix.Output[InstanceRootBlockDevice]{
+		OutputState: i.ToInstanceRootBlockDeviceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // InstanceRootBlockDeviceArrayInput is an input type that accepts InstanceRootBlockDeviceArray and InstanceRootBlockDeviceArrayOutput values.
 // You can construct a concrete instance of `InstanceRootBlockDeviceArrayInput` via:
 //
@@ -5037,6 +5740,12 @@ func (i InstanceRootBlockDeviceArray) ToInstanceRootBlockDeviceArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceRootBlockDeviceArrayOutput)
 }
 
+func (i InstanceRootBlockDeviceArray) ToOutput(ctx context.Context) pulumix.Output[[]InstanceRootBlockDevice] {
+	return pulumix.Output[[]InstanceRootBlockDevice]{
+		OutputState: i.ToInstanceRootBlockDeviceArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type InstanceRootBlockDeviceOutput struct{ *pulumi.OutputState }
 
 func (InstanceRootBlockDeviceOutput) ElementType() reflect.Type {
@@ -5049,6 +5758,12 @@ func (o InstanceRootBlockDeviceOutput) ToInstanceRootBlockDeviceOutput() Instanc
 
 func (o InstanceRootBlockDeviceOutput) ToInstanceRootBlockDeviceOutputWithContext(ctx context.Context) InstanceRootBlockDeviceOutput {
 	return o
+}
+
+func (o InstanceRootBlockDeviceOutput) ToOutput(ctx context.Context) pulumix.Output[InstanceRootBlockDevice] {
+	return pulumix.Output[InstanceRootBlockDevice]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InstanceRootBlockDeviceOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
@@ -5079,6 +5794,12 @@ func (o InstanceRootBlockDeviceArrayOutput) ToInstanceRootBlockDeviceArrayOutput
 
 func (o InstanceRootBlockDeviceArrayOutput) ToInstanceRootBlockDeviceArrayOutputWithContext(ctx context.Context) InstanceRootBlockDeviceArrayOutput {
 	return o
+}
+
+func (o InstanceRootBlockDeviceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InstanceRootBlockDevice] {
+	return pulumix.Output[[]InstanceRootBlockDevice]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InstanceRootBlockDeviceArrayOutput) Index(i pulumi.IntInput) InstanceRootBlockDeviceOutput {
@@ -5118,6 +5839,12 @@ func (i JavaAppLayerCloudwatchConfigurationArgs) ToJavaAppLayerCloudwatchConfigu
 
 func (i JavaAppLayerCloudwatchConfigurationArgs) ToJavaAppLayerCloudwatchConfigurationOutputWithContext(ctx context.Context) JavaAppLayerCloudwatchConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(JavaAppLayerCloudwatchConfigurationOutput)
+}
+
+func (i JavaAppLayerCloudwatchConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[JavaAppLayerCloudwatchConfiguration] {
+	return pulumix.Output[JavaAppLayerCloudwatchConfiguration]{
+		OutputState: i.ToJavaAppLayerCloudwatchConfigurationOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i JavaAppLayerCloudwatchConfigurationArgs) ToJavaAppLayerCloudwatchConfigurationPtrOutput() JavaAppLayerCloudwatchConfigurationPtrOutput {
@@ -5161,6 +5888,12 @@ func (i *javaAppLayerCloudwatchConfigurationPtrType) ToJavaAppLayerCloudwatchCon
 	return pulumi.ToOutputWithContext(ctx, i).(JavaAppLayerCloudwatchConfigurationPtrOutput)
 }
 
+func (i *javaAppLayerCloudwatchConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*JavaAppLayerCloudwatchConfiguration] {
+	return pulumix.Output[*JavaAppLayerCloudwatchConfiguration]{
+		OutputState: i.ToJavaAppLayerCloudwatchConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type JavaAppLayerCloudwatchConfigurationOutput struct{ *pulumi.OutputState }
 
 func (JavaAppLayerCloudwatchConfigurationOutput) ElementType() reflect.Type {
@@ -5185,6 +5918,12 @@ func (o JavaAppLayerCloudwatchConfigurationOutput) ToJavaAppLayerCloudwatchConfi
 	}).(JavaAppLayerCloudwatchConfigurationPtrOutput)
 }
 
+func (o JavaAppLayerCloudwatchConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[JavaAppLayerCloudwatchConfiguration] {
+	return pulumix.Output[JavaAppLayerCloudwatchConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o JavaAppLayerCloudwatchConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v JavaAppLayerCloudwatchConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -5207,6 +5946,12 @@ func (o JavaAppLayerCloudwatchConfigurationPtrOutput) ToJavaAppLayerCloudwatchCo
 
 func (o JavaAppLayerCloudwatchConfigurationPtrOutput) ToJavaAppLayerCloudwatchConfigurationPtrOutputWithContext(ctx context.Context) JavaAppLayerCloudwatchConfigurationPtrOutput {
 	return o
+}
+
+func (o JavaAppLayerCloudwatchConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*JavaAppLayerCloudwatchConfiguration] {
+	return pulumix.Output[*JavaAppLayerCloudwatchConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o JavaAppLayerCloudwatchConfigurationPtrOutput) Elem() JavaAppLayerCloudwatchConfigurationOutput {
@@ -5288,6 +6033,12 @@ func (i JavaAppLayerCloudwatchConfigurationLogStreamArgs) ToJavaAppLayerCloudwat
 	return pulumi.ToOutputWithContext(ctx, i).(JavaAppLayerCloudwatchConfigurationLogStreamOutput)
 }
 
+func (i JavaAppLayerCloudwatchConfigurationLogStreamArgs) ToOutput(ctx context.Context) pulumix.Output[JavaAppLayerCloudwatchConfigurationLogStream] {
+	return pulumix.Output[JavaAppLayerCloudwatchConfigurationLogStream]{
+		OutputState: i.ToJavaAppLayerCloudwatchConfigurationLogStreamOutputWithContext(ctx).OutputState,
+	}
+}
+
 // JavaAppLayerCloudwatchConfigurationLogStreamArrayInput is an input type that accepts JavaAppLayerCloudwatchConfigurationLogStreamArray and JavaAppLayerCloudwatchConfigurationLogStreamArrayOutput values.
 // You can construct a concrete instance of `JavaAppLayerCloudwatchConfigurationLogStreamArrayInput` via:
 //
@@ -5313,6 +6064,12 @@ func (i JavaAppLayerCloudwatchConfigurationLogStreamArray) ToJavaAppLayerCloudwa
 	return pulumi.ToOutputWithContext(ctx, i).(JavaAppLayerCloudwatchConfigurationLogStreamArrayOutput)
 }
 
+func (i JavaAppLayerCloudwatchConfigurationLogStreamArray) ToOutput(ctx context.Context) pulumix.Output[[]JavaAppLayerCloudwatchConfigurationLogStream] {
+	return pulumix.Output[[]JavaAppLayerCloudwatchConfigurationLogStream]{
+		OutputState: i.ToJavaAppLayerCloudwatchConfigurationLogStreamArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type JavaAppLayerCloudwatchConfigurationLogStreamOutput struct{ *pulumi.OutputState }
 
 func (JavaAppLayerCloudwatchConfigurationLogStreamOutput) ElementType() reflect.Type {
@@ -5325,6 +6082,12 @@ func (o JavaAppLayerCloudwatchConfigurationLogStreamOutput) ToJavaAppLayerCloudw
 
 func (o JavaAppLayerCloudwatchConfigurationLogStreamOutput) ToJavaAppLayerCloudwatchConfigurationLogStreamOutputWithContext(ctx context.Context) JavaAppLayerCloudwatchConfigurationLogStreamOutput {
 	return o
+}
+
+func (o JavaAppLayerCloudwatchConfigurationLogStreamOutput) ToOutput(ctx context.Context) pulumix.Output[JavaAppLayerCloudwatchConfigurationLogStream] {
+	return pulumix.Output[JavaAppLayerCloudwatchConfigurationLogStream]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o JavaAppLayerCloudwatchConfigurationLogStreamOutput) BatchCount() pulumi.IntPtrOutput {
@@ -5383,6 +6146,12 @@ func (o JavaAppLayerCloudwatchConfigurationLogStreamArrayOutput) ToJavaAppLayerC
 
 func (o JavaAppLayerCloudwatchConfigurationLogStreamArrayOutput) ToJavaAppLayerCloudwatchConfigurationLogStreamArrayOutputWithContext(ctx context.Context) JavaAppLayerCloudwatchConfigurationLogStreamArrayOutput {
 	return o
+}
+
+func (o JavaAppLayerCloudwatchConfigurationLogStreamArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]JavaAppLayerCloudwatchConfigurationLogStream] {
+	return pulumix.Output[[]JavaAppLayerCloudwatchConfigurationLogStream]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o JavaAppLayerCloudwatchConfigurationLogStreamArrayOutput) Index(i pulumi.IntInput) JavaAppLayerCloudwatchConfigurationLogStreamOutput {
@@ -5446,6 +6215,12 @@ func (i JavaAppLayerEbsVolumeArgs) ToJavaAppLayerEbsVolumeOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(JavaAppLayerEbsVolumeOutput)
 }
 
+func (i JavaAppLayerEbsVolumeArgs) ToOutput(ctx context.Context) pulumix.Output[JavaAppLayerEbsVolume] {
+	return pulumix.Output[JavaAppLayerEbsVolume]{
+		OutputState: i.ToJavaAppLayerEbsVolumeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // JavaAppLayerEbsVolumeArrayInput is an input type that accepts JavaAppLayerEbsVolumeArray and JavaAppLayerEbsVolumeArrayOutput values.
 // You can construct a concrete instance of `JavaAppLayerEbsVolumeArrayInput` via:
 //
@@ -5471,6 +6246,12 @@ func (i JavaAppLayerEbsVolumeArray) ToJavaAppLayerEbsVolumeArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(JavaAppLayerEbsVolumeArrayOutput)
 }
 
+func (i JavaAppLayerEbsVolumeArray) ToOutput(ctx context.Context) pulumix.Output[[]JavaAppLayerEbsVolume] {
+	return pulumix.Output[[]JavaAppLayerEbsVolume]{
+		OutputState: i.ToJavaAppLayerEbsVolumeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type JavaAppLayerEbsVolumeOutput struct{ *pulumi.OutputState }
 
 func (JavaAppLayerEbsVolumeOutput) ElementType() reflect.Type {
@@ -5483,6 +6264,12 @@ func (o JavaAppLayerEbsVolumeOutput) ToJavaAppLayerEbsVolumeOutput() JavaAppLaye
 
 func (o JavaAppLayerEbsVolumeOutput) ToJavaAppLayerEbsVolumeOutputWithContext(ctx context.Context) JavaAppLayerEbsVolumeOutput {
 	return o
+}
+
+func (o JavaAppLayerEbsVolumeOutput) ToOutput(ctx context.Context) pulumix.Output[JavaAppLayerEbsVolume] {
+	return pulumix.Output[JavaAppLayerEbsVolume]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o JavaAppLayerEbsVolumeOutput) Encrypted() pulumi.BoolPtrOutput {
@@ -5533,6 +6320,12 @@ func (o JavaAppLayerEbsVolumeArrayOutput) ToJavaAppLayerEbsVolumeArrayOutputWith
 	return o
 }
 
+func (o JavaAppLayerEbsVolumeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]JavaAppLayerEbsVolume] {
+	return pulumix.Output[[]JavaAppLayerEbsVolume]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o JavaAppLayerEbsVolumeArrayOutput) Index(i pulumi.IntInput) JavaAppLayerEbsVolumeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JavaAppLayerEbsVolume {
 		return vs[0].([]JavaAppLayerEbsVolume)[vs[1].(int)]
@@ -5572,6 +6365,12 @@ func (i JavaAppLayerLoadBasedAutoScalingArgs) ToJavaAppLayerLoadBasedAutoScaling
 
 func (i JavaAppLayerLoadBasedAutoScalingArgs) ToJavaAppLayerLoadBasedAutoScalingOutputWithContext(ctx context.Context) JavaAppLayerLoadBasedAutoScalingOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(JavaAppLayerLoadBasedAutoScalingOutput)
+}
+
+func (i JavaAppLayerLoadBasedAutoScalingArgs) ToOutput(ctx context.Context) pulumix.Output[JavaAppLayerLoadBasedAutoScaling] {
+	return pulumix.Output[JavaAppLayerLoadBasedAutoScaling]{
+		OutputState: i.ToJavaAppLayerLoadBasedAutoScalingOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i JavaAppLayerLoadBasedAutoScalingArgs) ToJavaAppLayerLoadBasedAutoScalingPtrOutput() JavaAppLayerLoadBasedAutoScalingPtrOutput {
@@ -5615,6 +6414,12 @@ func (i *javaAppLayerLoadBasedAutoScalingPtrType) ToJavaAppLayerLoadBasedAutoSca
 	return pulumi.ToOutputWithContext(ctx, i).(JavaAppLayerLoadBasedAutoScalingPtrOutput)
 }
 
+func (i *javaAppLayerLoadBasedAutoScalingPtrType) ToOutput(ctx context.Context) pulumix.Output[*JavaAppLayerLoadBasedAutoScaling] {
+	return pulumix.Output[*JavaAppLayerLoadBasedAutoScaling]{
+		OutputState: i.ToJavaAppLayerLoadBasedAutoScalingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type JavaAppLayerLoadBasedAutoScalingOutput struct{ *pulumi.OutputState }
 
 func (JavaAppLayerLoadBasedAutoScalingOutput) ElementType() reflect.Type {
@@ -5637,6 +6442,12 @@ func (o JavaAppLayerLoadBasedAutoScalingOutput) ToJavaAppLayerLoadBasedAutoScali
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v JavaAppLayerLoadBasedAutoScaling) *JavaAppLayerLoadBasedAutoScaling {
 		return &v
 	}).(JavaAppLayerLoadBasedAutoScalingPtrOutput)
+}
+
+func (o JavaAppLayerLoadBasedAutoScalingOutput) ToOutput(ctx context.Context) pulumix.Output[JavaAppLayerLoadBasedAutoScaling] {
+	return pulumix.Output[JavaAppLayerLoadBasedAutoScaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o JavaAppLayerLoadBasedAutoScalingOutput) Downscaling() JavaAppLayerLoadBasedAutoScalingDownscalingPtrOutput {
@@ -5667,6 +6478,12 @@ func (o JavaAppLayerLoadBasedAutoScalingPtrOutput) ToJavaAppLayerLoadBasedAutoSc
 
 func (o JavaAppLayerLoadBasedAutoScalingPtrOutput) ToJavaAppLayerLoadBasedAutoScalingPtrOutputWithContext(ctx context.Context) JavaAppLayerLoadBasedAutoScalingPtrOutput {
 	return o
+}
+
+func (o JavaAppLayerLoadBasedAutoScalingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*JavaAppLayerLoadBasedAutoScaling] {
+	return pulumix.Output[*JavaAppLayerLoadBasedAutoScaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o JavaAppLayerLoadBasedAutoScalingPtrOutput) Elem() JavaAppLayerLoadBasedAutoScalingOutput {
@@ -5749,6 +6566,12 @@ func (i JavaAppLayerLoadBasedAutoScalingDownscalingArgs) ToJavaAppLayerLoadBased
 	return pulumi.ToOutputWithContext(ctx, i).(JavaAppLayerLoadBasedAutoScalingDownscalingOutput)
 }
 
+func (i JavaAppLayerLoadBasedAutoScalingDownscalingArgs) ToOutput(ctx context.Context) pulumix.Output[JavaAppLayerLoadBasedAutoScalingDownscaling] {
+	return pulumix.Output[JavaAppLayerLoadBasedAutoScalingDownscaling]{
+		OutputState: i.ToJavaAppLayerLoadBasedAutoScalingDownscalingOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i JavaAppLayerLoadBasedAutoScalingDownscalingArgs) ToJavaAppLayerLoadBasedAutoScalingDownscalingPtrOutput() JavaAppLayerLoadBasedAutoScalingDownscalingPtrOutput {
 	return i.ToJavaAppLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(context.Background())
 }
@@ -5790,6 +6613,12 @@ func (i *javaAppLayerLoadBasedAutoScalingDownscalingPtrType) ToJavaAppLayerLoadB
 	return pulumi.ToOutputWithContext(ctx, i).(JavaAppLayerLoadBasedAutoScalingDownscalingPtrOutput)
 }
 
+func (i *javaAppLayerLoadBasedAutoScalingDownscalingPtrType) ToOutput(ctx context.Context) pulumix.Output[*JavaAppLayerLoadBasedAutoScalingDownscaling] {
+	return pulumix.Output[*JavaAppLayerLoadBasedAutoScalingDownscaling]{
+		OutputState: i.ToJavaAppLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type JavaAppLayerLoadBasedAutoScalingDownscalingOutput struct{ *pulumi.OutputState }
 
 func (JavaAppLayerLoadBasedAutoScalingDownscalingOutput) ElementType() reflect.Type {
@@ -5812,6 +6641,12 @@ func (o JavaAppLayerLoadBasedAutoScalingDownscalingOutput) ToJavaAppLayerLoadBas
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v JavaAppLayerLoadBasedAutoScalingDownscaling) *JavaAppLayerLoadBasedAutoScalingDownscaling {
 		return &v
 	}).(JavaAppLayerLoadBasedAutoScalingDownscalingPtrOutput)
+}
+
+func (o JavaAppLayerLoadBasedAutoScalingDownscalingOutput) ToOutput(ctx context.Context) pulumix.Output[JavaAppLayerLoadBasedAutoScalingDownscaling] {
+	return pulumix.Output[JavaAppLayerLoadBasedAutoScalingDownscaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o JavaAppLayerLoadBasedAutoScalingDownscalingOutput) Alarms() pulumi.StringArrayOutput {
@@ -5854,6 +6689,12 @@ func (o JavaAppLayerLoadBasedAutoScalingDownscalingPtrOutput) ToJavaAppLayerLoad
 
 func (o JavaAppLayerLoadBasedAutoScalingDownscalingPtrOutput) ToJavaAppLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx context.Context) JavaAppLayerLoadBasedAutoScalingDownscalingPtrOutput {
 	return o
+}
+
+func (o JavaAppLayerLoadBasedAutoScalingDownscalingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*JavaAppLayerLoadBasedAutoScalingDownscaling] {
+	return pulumix.Output[*JavaAppLayerLoadBasedAutoScalingDownscaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o JavaAppLayerLoadBasedAutoScalingDownscalingPtrOutput) Elem() JavaAppLayerLoadBasedAutoScalingDownscalingOutput {
@@ -5972,6 +6813,12 @@ func (i JavaAppLayerLoadBasedAutoScalingUpscalingArgs) ToJavaAppLayerLoadBasedAu
 	return pulumi.ToOutputWithContext(ctx, i).(JavaAppLayerLoadBasedAutoScalingUpscalingOutput)
 }
 
+func (i JavaAppLayerLoadBasedAutoScalingUpscalingArgs) ToOutput(ctx context.Context) pulumix.Output[JavaAppLayerLoadBasedAutoScalingUpscaling] {
+	return pulumix.Output[JavaAppLayerLoadBasedAutoScalingUpscaling]{
+		OutputState: i.ToJavaAppLayerLoadBasedAutoScalingUpscalingOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i JavaAppLayerLoadBasedAutoScalingUpscalingArgs) ToJavaAppLayerLoadBasedAutoScalingUpscalingPtrOutput() JavaAppLayerLoadBasedAutoScalingUpscalingPtrOutput {
 	return i.ToJavaAppLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(context.Background())
 }
@@ -6013,6 +6860,12 @@ func (i *javaAppLayerLoadBasedAutoScalingUpscalingPtrType) ToJavaAppLayerLoadBas
 	return pulumi.ToOutputWithContext(ctx, i).(JavaAppLayerLoadBasedAutoScalingUpscalingPtrOutput)
 }
 
+func (i *javaAppLayerLoadBasedAutoScalingUpscalingPtrType) ToOutput(ctx context.Context) pulumix.Output[*JavaAppLayerLoadBasedAutoScalingUpscaling] {
+	return pulumix.Output[*JavaAppLayerLoadBasedAutoScalingUpscaling]{
+		OutputState: i.ToJavaAppLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type JavaAppLayerLoadBasedAutoScalingUpscalingOutput struct{ *pulumi.OutputState }
 
 func (JavaAppLayerLoadBasedAutoScalingUpscalingOutput) ElementType() reflect.Type {
@@ -6035,6 +6888,12 @@ func (o JavaAppLayerLoadBasedAutoScalingUpscalingOutput) ToJavaAppLayerLoadBased
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v JavaAppLayerLoadBasedAutoScalingUpscaling) *JavaAppLayerLoadBasedAutoScalingUpscaling {
 		return &v
 	}).(JavaAppLayerLoadBasedAutoScalingUpscalingPtrOutput)
+}
+
+func (o JavaAppLayerLoadBasedAutoScalingUpscalingOutput) ToOutput(ctx context.Context) pulumix.Output[JavaAppLayerLoadBasedAutoScalingUpscaling] {
+	return pulumix.Output[JavaAppLayerLoadBasedAutoScalingUpscaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o JavaAppLayerLoadBasedAutoScalingUpscalingOutput) Alarms() pulumi.StringArrayOutput {
@@ -6077,6 +6936,12 @@ func (o JavaAppLayerLoadBasedAutoScalingUpscalingPtrOutput) ToJavaAppLayerLoadBa
 
 func (o JavaAppLayerLoadBasedAutoScalingUpscalingPtrOutput) ToJavaAppLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx context.Context) JavaAppLayerLoadBasedAutoScalingUpscalingPtrOutput {
 	return o
+}
+
+func (o JavaAppLayerLoadBasedAutoScalingUpscalingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*JavaAppLayerLoadBasedAutoScalingUpscaling] {
+	return pulumix.Output[*JavaAppLayerLoadBasedAutoScalingUpscaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o JavaAppLayerLoadBasedAutoScalingUpscalingPtrOutput) Elem() JavaAppLayerLoadBasedAutoScalingUpscalingOutput {
@@ -6185,6 +7050,12 @@ func (i MemcachedLayerCloudwatchConfigurationArgs) ToMemcachedLayerCloudwatchCon
 	return pulumi.ToOutputWithContext(ctx, i).(MemcachedLayerCloudwatchConfigurationOutput)
 }
 
+func (i MemcachedLayerCloudwatchConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[MemcachedLayerCloudwatchConfiguration] {
+	return pulumix.Output[MemcachedLayerCloudwatchConfiguration]{
+		OutputState: i.ToMemcachedLayerCloudwatchConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i MemcachedLayerCloudwatchConfigurationArgs) ToMemcachedLayerCloudwatchConfigurationPtrOutput() MemcachedLayerCloudwatchConfigurationPtrOutput {
 	return i.ToMemcachedLayerCloudwatchConfigurationPtrOutputWithContext(context.Background())
 }
@@ -6226,6 +7097,12 @@ func (i *memcachedLayerCloudwatchConfigurationPtrType) ToMemcachedLayerCloudwatc
 	return pulumi.ToOutputWithContext(ctx, i).(MemcachedLayerCloudwatchConfigurationPtrOutput)
 }
 
+func (i *memcachedLayerCloudwatchConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*MemcachedLayerCloudwatchConfiguration] {
+	return pulumix.Output[*MemcachedLayerCloudwatchConfiguration]{
+		OutputState: i.ToMemcachedLayerCloudwatchConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MemcachedLayerCloudwatchConfigurationOutput struct{ *pulumi.OutputState }
 
 func (MemcachedLayerCloudwatchConfigurationOutput) ElementType() reflect.Type {
@@ -6250,6 +7127,12 @@ func (o MemcachedLayerCloudwatchConfigurationOutput) ToMemcachedLayerCloudwatchC
 	}).(MemcachedLayerCloudwatchConfigurationPtrOutput)
 }
 
+func (o MemcachedLayerCloudwatchConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[MemcachedLayerCloudwatchConfiguration] {
+	return pulumix.Output[MemcachedLayerCloudwatchConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o MemcachedLayerCloudwatchConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v MemcachedLayerCloudwatchConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -6272,6 +7155,12 @@ func (o MemcachedLayerCloudwatchConfigurationPtrOutput) ToMemcachedLayerCloudwat
 
 func (o MemcachedLayerCloudwatchConfigurationPtrOutput) ToMemcachedLayerCloudwatchConfigurationPtrOutputWithContext(ctx context.Context) MemcachedLayerCloudwatchConfigurationPtrOutput {
 	return o
+}
+
+func (o MemcachedLayerCloudwatchConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MemcachedLayerCloudwatchConfiguration] {
+	return pulumix.Output[*MemcachedLayerCloudwatchConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MemcachedLayerCloudwatchConfigurationPtrOutput) Elem() MemcachedLayerCloudwatchConfigurationOutput {
@@ -6353,6 +7242,12 @@ func (i MemcachedLayerCloudwatchConfigurationLogStreamArgs) ToMemcachedLayerClou
 	return pulumi.ToOutputWithContext(ctx, i).(MemcachedLayerCloudwatchConfigurationLogStreamOutput)
 }
 
+func (i MemcachedLayerCloudwatchConfigurationLogStreamArgs) ToOutput(ctx context.Context) pulumix.Output[MemcachedLayerCloudwatchConfigurationLogStream] {
+	return pulumix.Output[MemcachedLayerCloudwatchConfigurationLogStream]{
+		OutputState: i.ToMemcachedLayerCloudwatchConfigurationLogStreamOutputWithContext(ctx).OutputState,
+	}
+}
+
 // MemcachedLayerCloudwatchConfigurationLogStreamArrayInput is an input type that accepts MemcachedLayerCloudwatchConfigurationLogStreamArray and MemcachedLayerCloudwatchConfigurationLogStreamArrayOutput values.
 // You can construct a concrete instance of `MemcachedLayerCloudwatchConfigurationLogStreamArrayInput` via:
 //
@@ -6378,6 +7273,12 @@ func (i MemcachedLayerCloudwatchConfigurationLogStreamArray) ToMemcachedLayerClo
 	return pulumi.ToOutputWithContext(ctx, i).(MemcachedLayerCloudwatchConfigurationLogStreamArrayOutput)
 }
 
+func (i MemcachedLayerCloudwatchConfigurationLogStreamArray) ToOutput(ctx context.Context) pulumix.Output[[]MemcachedLayerCloudwatchConfigurationLogStream] {
+	return pulumix.Output[[]MemcachedLayerCloudwatchConfigurationLogStream]{
+		OutputState: i.ToMemcachedLayerCloudwatchConfigurationLogStreamArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MemcachedLayerCloudwatchConfigurationLogStreamOutput struct{ *pulumi.OutputState }
 
 func (MemcachedLayerCloudwatchConfigurationLogStreamOutput) ElementType() reflect.Type {
@@ -6390,6 +7291,12 @@ func (o MemcachedLayerCloudwatchConfigurationLogStreamOutput) ToMemcachedLayerCl
 
 func (o MemcachedLayerCloudwatchConfigurationLogStreamOutput) ToMemcachedLayerCloudwatchConfigurationLogStreamOutputWithContext(ctx context.Context) MemcachedLayerCloudwatchConfigurationLogStreamOutput {
 	return o
+}
+
+func (o MemcachedLayerCloudwatchConfigurationLogStreamOutput) ToOutput(ctx context.Context) pulumix.Output[MemcachedLayerCloudwatchConfigurationLogStream] {
+	return pulumix.Output[MemcachedLayerCloudwatchConfigurationLogStream]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MemcachedLayerCloudwatchConfigurationLogStreamOutput) BatchCount() pulumi.IntPtrOutput {
@@ -6448,6 +7355,12 @@ func (o MemcachedLayerCloudwatchConfigurationLogStreamArrayOutput) ToMemcachedLa
 
 func (o MemcachedLayerCloudwatchConfigurationLogStreamArrayOutput) ToMemcachedLayerCloudwatchConfigurationLogStreamArrayOutputWithContext(ctx context.Context) MemcachedLayerCloudwatchConfigurationLogStreamArrayOutput {
 	return o
+}
+
+func (o MemcachedLayerCloudwatchConfigurationLogStreamArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]MemcachedLayerCloudwatchConfigurationLogStream] {
+	return pulumix.Output[[]MemcachedLayerCloudwatchConfigurationLogStream]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MemcachedLayerCloudwatchConfigurationLogStreamArrayOutput) Index(i pulumi.IntInput) MemcachedLayerCloudwatchConfigurationLogStreamOutput {
@@ -6511,6 +7424,12 @@ func (i MemcachedLayerEbsVolumeArgs) ToMemcachedLayerEbsVolumeOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(MemcachedLayerEbsVolumeOutput)
 }
 
+func (i MemcachedLayerEbsVolumeArgs) ToOutput(ctx context.Context) pulumix.Output[MemcachedLayerEbsVolume] {
+	return pulumix.Output[MemcachedLayerEbsVolume]{
+		OutputState: i.ToMemcachedLayerEbsVolumeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // MemcachedLayerEbsVolumeArrayInput is an input type that accepts MemcachedLayerEbsVolumeArray and MemcachedLayerEbsVolumeArrayOutput values.
 // You can construct a concrete instance of `MemcachedLayerEbsVolumeArrayInput` via:
 //
@@ -6536,6 +7455,12 @@ func (i MemcachedLayerEbsVolumeArray) ToMemcachedLayerEbsVolumeArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(MemcachedLayerEbsVolumeArrayOutput)
 }
 
+func (i MemcachedLayerEbsVolumeArray) ToOutput(ctx context.Context) pulumix.Output[[]MemcachedLayerEbsVolume] {
+	return pulumix.Output[[]MemcachedLayerEbsVolume]{
+		OutputState: i.ToMemcachedLayerEbsVolumeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MemcachedLayerEbsVolumeOutput struct{ *pulumi.OutputState }
 
 func (MemcachedLayerEbsVolumeOutput) ElementType() reflect.Type {
@@ -6548,6 +7473,12 @@ func (o MemcachedLayerEbsVolumeOutput) ToMemcachedLayerEbsVolumeOutput() Memcach
 
 func (o MemcachedLayerEbsVolumeOutput) ToMemcachedLayerEbsVolumeOutputWithContext(ctx context.Context) MemcachedLayerEbsVolumeOutput {
 	return o
+}
+
+func (o MemcachedLayerEbsVolumeOutput) ToOutput(ctx context.Context) pulumix.Output[MemcachedLayerEbsVolume] {
+	return pulumix.Output[MemcachedLayerEbsVolume]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MemcachedLayerEbsVolumeOutput) Encrypted() pulumi.BoolPtrOutput {
@@ -6598,6 +7529,12 @@ func (o MemcachedLayerEbsVolumeArrayOutput) ToMemcachedLayerEbsVolumeArrayOutput
 	return o
 }
 
+func (o MemcachedLayerEbsVolumeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]MemcachedLayerEbsVolume] {
+	return pulumix.Output[[]MemcachedLayerEbsVolume]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o MemcachedLayerEbsVolumeArrayOutput) Index(i pulumi.IntInput) MemcachedLayerEbsVolumeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MemcachedLayerEbsVolume {
 		return vs[0].([]MemcachedLayerEbsVolume)[vs[1].(int)]
@@ -6637,6 +7574,12 @@ func (i MemcachedLayerLoadBasedAutoScalingArgs) ToMemcachedLayerLoadBasedAutoSca
 
 func (i MemcachedLayerLoadBasedAutoScalingArgs) ToMemcachedLayerLoadBasedAutoScalingOutputWithContext(ctx context.Context) MemcachedLayerLoadBasedAutoScalingOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MemcachedLayerLoadBasedAutoScalingOutput)
+}
+
+func (i MemcachedLayerLoadBasedAutoScalingArgs) ToOutput(ctx context.Context) pulumix.Output[MemcachedLayerLoadBasedAutoScaling] {
+	return pulumix.Output[MemcachedLayerLoadBasedAutoScaling]{
+		OutputState: i.ToMemcachedLayerLoadBasedAutoScalingOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i MemcachedLayerLoadBasedAutoScalingArgs) ToMemcachedLayerLoadBasedAutoScalingPtrOutput() MemcachedLayerLoadBasedAutoScalingPtrOutput {
@@ -6680,6 +7623,12 @@ func (i *memcachedLayerLoadBasedAutoScalingPtrType) ToMemcachedLayerLoadBasedAut
 	return pulumi.ToOutputWithContext(ctx, i).(MemcachedLayerLoadBasedAutoScalingPtrOutput)
 }
 
+func (i *memcachedLayerLoadBasedAutoScalingPtrType) ToOutput(ctx context.Context) pulumix.Output[*MemcachedLayerLoadBasedAutoScaling] {
+	return pulumix.Output[*MemcachedLayerLoadBasedAutoScaling]{
+		OutputState: i.ToMemcachedLayerLoadBasedAutoScalingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MemcachedLayerLoadBasedAutoScalingOutput struct{ *pulumi.OutputState }
 
 func (MemcachedLayerLoadBasedAutoScalingOutput) ElementType() reflect.Type {
@@ -6702,6 +7651,12 @@ func (o MemcachedLayerLoadBasedAutoScalingOutput) ToMemcachedLayerLoadBasedAutoS
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v MemcachedLayerLoadBasedAutoScaling) *MemcachedLayerLoadBasedAutoScaling {
 		return &v
 	}).(MemcachedLayerLoadBasedAutoScalingPtrOutput)
+}
+
+func (o MemcachedLayerLoadBasedAutoScalingOutput) ToOutput(ctx context.Context) pulumix.Output[MemcachedLayerLoadBasedAutoScaling] {
+	return pulumix.Output[MemcachedLayerLoadBasedAutoScaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MemcachedLayerLoadBasedAutoScalingOutput) Downscaling() MemcachedLayerLoadBasedAutoScalingDownscalingPtrOutput {
@@ -6732,6 +7687,12 @@ func (o MemcachedLayerLoadBasedAutoScalingPtrOutput) ToMemcachedLayerLoadBasedAu
 
 func (o MemcachedLayerLoadBasedAutoScalingPtrOutput) ToMemcachedLayerLoadBasedAutoScalingPtrOutputWithContext(ctx context.Context) MemcachedLayerLoadBasedAutoScalingPtrOutput {
 	return o
+}
+
+func (o MemcachedLayerLoadBasedAutoScalingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MemcachedLayerLoadBasedAutoScaling] {
+	return pulumix.Output[*MemcachedLayerLoadBasedAutoScaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MemcachedLayerLoadBasedAutoScalingPtrOutput) Elem() MemcachedLayerLoadBasedAutoScalingOutput {
@@ -6814,6 +7775,12 @@ func (i MemcachedLayerLoadBasedAutoScalingDownscalingArgs) ToMemcachedLayerLoadB
 	return pulumi.ToOutputWithContext(ctx, i).(MemcachedLayerLoadBasedAutoScalingDownscalingOutput)
 }
 
+func (i MemcachedLayerLoadBasedAutoScalingDownscalingArgs) ToOutput(ctx context.Context) pulumix.Output[MemcachedLayerLoadBasedAutoScalingDownscaling] {
+	return pulumix.Output[MemcachedLayerLoadBasedAutoScalingDownscaling]{
+		OutputState: i.ToMemcachedLayerLoadBasedAutoScalingDownscalingOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i MemcachedLayerLoadBasedAutoScalingDownscalingArgs) ToMemcachedLayerLoadBasedAutoScalingDownscalingPtrOutput() MemcachedLayerLoadBasedAutoScalingDownscalingPtrOutput {
 	return i.ToMemcachedLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(context.Background())
 }
@@ -6855,6 +7822,12 @@ func (i *memcachedLayerLoadBasedAutoScalingDownscalingPtrType) ToMemcachedLayerL
 	return pulumi.ToOutputWithContext(ctx, i).(MemcachedLayerLoadBasedAutoScalingDownscalingPtrOutput)
 }
 
+func (i *memcachedLayerLoadBasedAutoScalingDownscalingPtrType) ToOutput(ctx context.Context) pulumix.Output[*MemcachedLayerLoadBasedAutoScalingDownscaling] {
+	return pulumix.Output[*MemcachedLayerLoadBasedAutoScalingDownscaling]{
+		OutputState: i.ToMemcachedLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MemcachedLayerLoadBasedAutoScalingDownscalingOutput struct{ *pulumi.OutputState }
 
 func (MemcachedLayerLoadBasedAutoScalingDownscalingOutput) ElementType() reflect.Type {
@@ -6877,6 +7850,12 @@ func (o MemcachedLayerLoadBasedAutoScalingDownscalingOutput) ToMemcachedLayerLoa
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v MemcachedLayerLoadBasedAutoScalingDownscaling) *MemcachedLayerLoadBasedAutoScalingDownscaling {
 		return &v
 	}).(MemcachedLayerLoadBasedAutoScalingDownscalingPtrOutput)
+}
+
+func (o MemcachedLayerLoadBasedAutoScalingDownscalingOutput) ToOutput(ctx context.Context) pulumix.Output[MemcachedLayerLoadBasedAutoScalingDownscaling] {
+	return pulumix.Output[MemcachedLayerLoadBasedAutoScalingDownscaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MemcachedLayerLoadBasedAutoScalingDownscalingOutput) Alarms() pulumi.StringArrayOutput {
@@ -6919,6 +7898,12 @@ func (o MemcachedLayerLoadBasedAutoScalingDownscalingPtrOutput) ToMemcachedLayer
 
 func (o MemcachedLayerLoadBasedAutoScalingDownscalingPtrOutput) ToMemcachedLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx context.Context) MemcachedLayerLoadBasedAutoScalingDownscalingPtrOutput {
 	return o
+}
+
+func (o MemcachedLayerLoadBasedAutoScalingDownscalingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MemcachedLayerLoadBasedAutoScalingDownscaling] {
+	return pulumix.Output[*MemcachedLayerLoadBasedAutoScalingDownscaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MemcachedLayerLoadBasedAutoScalingDownscalingPtrOutput) Elem() MemcachedLayerLoadBasedAutoScalingDownscalingOutput {
@@ -7037,6 +8022,12 @@ func (i MemcachedLayerLoadBasedAutoScalingUpscalingArgs) ToMemcachedLayerLoadBas
 	return pulumi.ToOutputWithContext(ctx, i).(MemcachedLayerLoadBasedAutoScalingUpscalingOutput)
 }
 
+func (i MemcachedLayerLoadBasedAutoScalingUpscalingArgs) ToOutput(ctx context.Context) pulumix.Output[MemcachedLayerLoadBasedAutoScalingUpscaling] {
+	return pulumix.Output[MemcachedLayerLoadBasedAutoScalingUpscaling]{
+		OutputState: i.ToMemcachedLayerLoadBasedAutoScalingUpscalingOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i MemcachedLayerLoadBasedAutoScalingUpscalingArgs) ToMemcachedLayerLoadBasedAutoScalingUpscalingPtrOutput() MemcachedLayerLoadBasedAutoScalingUpscalingPtrOutput {
 	return i.ToMemcachedLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(context.Background())
 }
@@ -7078,6 +8069,12 @@ func (i *memcachedLayerLoadBasedAutoScalingUpscalingPtrType) ToMemcachedLayerLoa
 	return pulumi.ToOutputWithContext(ctx, i).(MemcachedLayerLoadBasedAutoScalingUpscalingPtrOutput)
 }
 
+func (i *memcachedLayerLoadBasedAutoScalingUpscalingPtrType) ToOutput(ctx context.Context) pulumix.Output[*MemcachedLayerLoadBasedAutoScalingUpscaling] {
+	return pulumix.Output[*MemcachedLayerLoadBasedAutoScalingUpscaling]{
+		OutputState: i.ToMemcachedLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MemcachedLayerLoadBasedAutoScalingUpscalingOutput struct{ *pulumi.OutputState }
 
 func (MemcachedLayerLoadBasedAutoScalingUpscalingOutput) ElementType() reflect.Type {
@@ -7100,6 +8097,12 @@ func (o MemcachedLayerLoadBasedAutoScalingUpscalingOutput) ToMemcachedLayerLoadB
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v MemcachedLayerLoadBasedAutoScalingUpscaling) *MemcachedLayerLoadBasedAutoScalingUpscaling {
 		return &v
 	}).(MemcachedLayerLoadBasedAutoScalingUpscalingPtrOutput)
+}
+
+func (o MemcachedLayerLoadBasedAutoScalingUpscalingOutput) ToOutput(ctx context.Context) pulumix.Output[MemcachedLayerLoadBasedAutoScalingUpscaling] {
+	return pulumix.Output[MemcachedLayerLoadBasedAutoScalingUpscaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MemcachedLayerLoadBasedAutoScalingUpscalingOutput) Alarms() pulumi.StringArrayOutput {
@@ -7142,6 +8145,12 @@ func (o MemcachedLayerLoadBasedAutoScalingUpscalingPtrOutput) ToMemcachedLayerLo
 
 func (o MemcachedLayerLoadBasedAutoScalingUpscalingPtrOutput) ToMemcachedLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx context.Context) MemcachedLayerLoadBasedAutoScalingUpscalingPtrOutput {
 	return o
+}
+
+func (o MemcachedLayerLoadBasedAutoScalingUpscalingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MemcachedLayerLoadBasedAutoScalingUpscaling] {
+	return pulumix.Output[*MemcachedLayerLoadBasedAutoScalingUpscaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MemcachedLayerLoadBasedAutoScalingUpscalingPtrOutput) Elem() MemcachedLayerLoadBasedAutoScalingUpscalingOutput {
@@ -7250,6 +8259,12 @@ func (i MysqlLayerCloudwatchConfigurationArgs) ToMysqlLayerCloudwatchConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(MysqlLayerCloudwatchConfigurationOutput)
 }
 
+func (i MysqlLayerCloudwatchConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[MysqlLayerCloudwatchConfiguration] {
+	return pulumix.Output[MysqlLayerCloudwatchConfiguration]{
+		OutputState: i.ToMysqlLayerCloudwatchConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i MysqlLayerCloudwatchConfigurationArgs) ToMysqlLayerCloudwatchConfigurationPtrOutput() MysqlLayerCloudwatchConfigurationPtrOutput {
 	return i.ToMysqlLayerCloudwatchConfigurationPtrOutputWithContext(context.Background())
 }
@@ -7291,6 +8306,12 @@ func (i *mysqlLayerCloudwatchConfigurationPtrType) ToMysqlLayerCloudwatchConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(MysqlLayerCloudwatchConfigurationPtrOutput)
 }
 
+func (i *mysqlLayerCloudwatchConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*MysqlLayerCloudwatchConfiguration] {
+	return pulumix.Output[*MysqlLayerCloudwatchConfiguration]{
+		OutputState: i.ToMysqlLayerCloudwatchConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MysqlLayerCloudwatchConfigurationOutput struct{ *pulumi.OutputState }
 
 func (MysqlLayerCloudwatchConfigurationOutput) ElementType() reflect.Type {
@@ -7315,6 +8336,12 @@ func (o MysqlLayerCloudwatchConfigurationOutput) ToMysqlLayerCloudwatchConfigura
 	}).(MysqlLayerCloudwatchConfigurationPtrOutput)
 }
 
+func (o MysqlLayerCloudwatchConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[MysqlLayerCloudwatchConfiguration] {
+	return pulumix.Output[MysqlLayerCloudwatchConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o MysqlLayerCloudwatchConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v MysqlLayerCloudwatchConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -7337,6 +8364,12 @@ func (o MysqlLayerCloudwatchConfigurationPtrOutput) ToMysqlLayerCloudwatchConfig
 
 func (o MysqlLayerCloudwatchConfigurationPtrOutput) ToMysqlLayerCloudwatchConfigurationPtrOutputWithContext(ctx context.Context) MysqlLayerCloudwatchConfigurationPtrOutput {
 	return o
+}
+
+func (o MysqlLayerCloudwatchConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MysqlLayerCloudwatchConfiguration] {
+	return pulumix.Output[*MysqlLayerCloudwatchConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MysqlLayerCloudwatchConfigurationPtrOutput) Elem() MysqlLayerCloudwatchConfigurationOutput {
@@ -7418,6 +8451,12 @@ func (i MysqlLayerCloudwatchConfigurationLogStreamArgs) ToMysqlLayerCloudwatchCo
 	return pulumi.ToOutputWithContext(ctx, i).(MysqlLayerCloudwatchConfigurationLogStreamOutput)
 }
 
+func (i MysqlLayerCloudwatchConfigurationLogStreamArgs) ToOutput(ctx context.Context) pulumix.Output[MysqlLayerCloudwatchConfigurationLogStream] {
+	return pulumix.Output[MysqlLayerCloudwatchConfigurationLogStream]{
+		OutputState: i.ToMysqlLayerCloudwatchConfigurationLogStreamOutputWithContext(ctx).OutputState,
+	}
+}
+
 // MysqlLayerCloudwatchConfigurationLogStreamArrayInput is an input type that accepts MysqlLayerCloudwatchConfigurationLogStreamArray and MysqlLayerCloudwatchConfigurationLogStreamArrayOutput values.
 // You can construct a concrete instance of `MysqlLayerCloudwatchConfigurationLogStreamArrayInput` via:
 //
@@ -7443,6 +8482,12 @@ func (i MysqlLayerCloudwatchConfigurationLogStreamArray) ToMysqlLayerCloudwatchC
 	return pulumi.ToOutputWithContext(ctx, i).(MysqlLayerCloudwatchConfigurationLogStreamArrayOutput)
 }
 
+func (i MysqlLayerCloudwatchConfigurationLogStreamArray) ToOutput(ctx context.Context) pulumix.Output[[]MysqlLayerCloudwatchConfigurationLogStream] {
+	return pulumix.Output[[]MysqlLayerCloudwatchConfigurationLogStream]{
+		OutputState: i.ToMysqlLayerCloudwatchConfigurationLogStreamArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MysqlLayerCloudwatchConfigurationLogStreamOutput struct{ *pulumi.OutputState }
 
 func (MysqlLayerCloudwatchConfigurationLogStreamOutput) ElementType() reflect.Type {
@@ -7455,6 +8500,12 @@ func (o MysqlLayerCloudwatchConfigurationLogStreamOutput) ToMysqlLayerCloudwatch
 
 func (o MysqlLayerCloudwatchConfigurationLogStreamOutput) ToMysqlLayerCloudwatchConfigurationLogStreamOutputWithContext(ctx context.Context) MysqlLayerCloudwatchConfigurationLogStreamOutput {
 	return o
+}
+
+func (o MysqlLayerCloudwatchConfigurationLogStreamOutput) ToOutput(ctx context.Context) pulumix.Output[MysqlLayerCloudwatchConfigurationLogStream] {
+	return pulumix.Output[MysqlLayerCloudwatchConfigurationLogStream]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MysqlLayerCloudwatchConfigurationLogStreamOutput) BatchCount() pulumi.IntPtrOutput {
@@ -7513,6 +8564,12 @@ func (o MysqlLayerCloudwatchConfigurationLogStreamArrayOutput) ToMysqlLayerCloud
 
 func (o MysqlLayerCloudwatchConfigurationLogStreamArrayOutput) ToMysqlLayerCloudwatchConfigurationLogStreamArrayOutputWithContext(ctx context.Context) MysqlLayerCloudwatchConfigurationLogStreamArrayOutput {
 	return o
+}
+
+func (o MysqlLayerCloudwatchConfigurationLogStreamArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]MysqlLayerCloudwatchConfigurationLogStream] {
+	return pulumix.Output[[]MysqlLayerCloudwatchConfigurationLogStream]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MysqlLayerCloudwatchConfigurationLogStreamArrayOutput) Index(i pulumi.IntInput) MysqlLayerCloudwatchConfigurationLogStreamOutput {
@@ -7576,6 +8633,12 @@ func (i MysqlLayerEbsVolumeArgs) ToMysqlLayerEbsVolumeOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(MysqlLayerEbsVolumeOutput)
 }
 
+func (i MysqlLayerEbsVolumeArgs) ToOutput(ctx context.Context) pulumix.Output[MysqlLayerEbsVolume] {
+	return pulumix.Output[MysqlLayerEbsVolume]{
+		OutputState: i.ToMysqlLayerEbsVolumeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // MysqlLayerEbsVolumeArrayInput is an input type that accepts MysqlLayerEbsVolumeArray and MysqlLayerEbsVolumeArrayOutput values.
 // You can construct a concrete instance of `MysqlLayerEbsVolumeArrayInput` via:
 //
@@ -7601,6 +8664,12 @@ func (i MysqlLayerEbsVolumeArray) ToMysqlLayerEbsVolumeArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(MysqlLayerEbsVolumeArrayOutput)
 }
 
+func (i MysqlLayerEbsVolumeArray) ToOutput(ctx context.Context) pulumix.Output[[]MysqlLayerEbsVolume] {
+	return pulumix.Output[[]MysqlLayerEbsVolume]{
+		OutputState: i.ToMysqlLayerEbsVolumeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MysqlLayerEbsVolumeOutput struct{ *pulumi.OutputState }
 
 func (MysqlLayerEbsVolumeOutput) ElementType() reflect.Type {
@@ -7613,6 +8682,12 @@ func (o MysqlLayerEbsVolumeOutput) ToMysqlLayerEbsVolumeOutput() MysqlLayerEbsVo
 
 func (o MysqlLayerEbsVolumeOutput) ToMysqlLayerEbsVolumeOutputWithContext(ctx context.Context) MysqlLayerEbsVolumeOutput {
 	return o
+}
+
+func (o MysqlLayerEbsVolumeOutput) ToOutput(ctx context.Context) pulumix.Output[MysqlLayerEbsVolume] {
+	return pulumix.Output[MysqlLayerEbsVolume]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MysqlLayerEbsVolumeOutput) Encrypted() pulumi.BoolPtrOutput {
@@ -7663,6 +8738,12 @@ func (o MysqlLayerEbsVolumeArrayOutput) ToMysqlLayerEbsVolumeArrayOutputWithCont
 	return o
 }
 
+func (o MysqlLayerEbsVolumeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]MysqlLayerEbsVolume] {
+	return pulumix.Output[[]MysqlLayerEbsVolume]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o MysqlLayerEbsVolumeArrayOutput) Index(i pulumi.IntInput) MysqlLayerEbsVolumeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MysqlLayerEbsVolume {
 		return vs[0].([]MysqlLayerEbsVolume)[vs[1].(int)]
@@ -7702,6 +8783,12 @@ func (i MysqlLayerLoadBasedAutoScalingArgs) ToMysqlLayerLoadBasedAutoScalingOutp
 
 func (i MysqlLayerLoadBasedAutoScalingArgs) ToMysqlLayerLoadBasedAutoScalingOutputWithContext(ctx context.Context) MysqlLayerLoadBasedAutoScalingOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MysqlLayerLoadBasedAutoScalingOutput)
+}
+
+func (i MysqlLayerLoadBasedAutoScalingArgs) ToOutput(ctx context.Context) pulumix.Output[MysqlLayerLoadBasedAutoScaling] {
+	return pulumix.Output[MysqlLayerLoadBasedAutoScaling]{
+		OutputState: i.ToMysqlLayerLoadBasedAutoScalingOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i MysqlLayerLoadBasedAutoScalingArgs) ToMysqlLayerLoadBasedAutoScalingPtrOutput() MysqlLayerLoadBasedAutoScalingPtrOutput {
@@ -7745,6 +8832,12 @@ func (i *mysqlLayerLoadBasedAutoScalingPtrType) ToMysqlLayerLoadBasedAutoScaling
 	return pulumi.ToOutputWithContext(ctx, i).(MysqlLayerLoadBasedAutoScalingPtrOutput)
 }
 
+func (i *mysqlLayerLoadBasedAutoScalingPtrType) ToOutput(ctx context.Context) pulumix.Output[*MysqlLayerLoadBasedAutoScaling] {
+	return pulumix.Output[*MysqlLayerLoadBasedAutoScaling]{
+		OutputState: i.ToMysqlLayerLoadBasedAutoScalingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MysqlLayerLoadBasedAutoScalingOutput struct{ *pulumi.OutputState }
 
 func (MysqlLayerLoadBasedAutoScalingOutput) ElementType() reflect.Type {
@@ -7767,6 +8860,12 @@ func (o MysqlLayerLoadBasedAutoScalingOutput) ToMysqlLayerLoadBasedAutoScalingPt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v MysqlLayerLoadBasedAutoScaling) *MysqlLayerLoadBasedAutoScaling {
 		return &v
 	}).(MysqlLayerLoadBasedAutoScalingPtrOutput)
+}
+
+func (o MysqlLayerLoadBasedAutoScalingOutput) ToOutput(ctx context.Context) pulumix.Output[MysqlLayerLoadBasedAutoScaling] {
+	return pulumix.Output[MysqlLayerLoadBasedAutoScaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MysqlLayerLoadBasedAutoScalingOutput) Downscaling() MysqlLayerLoadBasedAutoScalingDownscalingPtrOutput {
@@ -7795,6 +8894,12 @@ func (o MysqlLayerLoadBasedAutoScalingPtrOutput) ToMysqlLayerLoadBasedAutoScalin
 
 func (o MysqlLayerLoadBasedAutoScalingPtrOutput) ToMysqlLayerLoadBasedAutoScalingPtrOutputWithContext(ctx context.Context) MysqlLayerLoadBasedAutoScalingPtrOutput {
 	return o
+}
+
+func (o MysqlLayerLoadBasedAutoScalingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MysqlLayerLoadBasedAutoScaling] {
+	return pulumix.Output[*MysqlLayerLoadBasedAutoScaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MysqlLayerLoadBasedAutoScalingPtrOutput) Elem() MysqlLayerLoadBasedAutoScalingOutput {
@@ -7877,6 +8982,12 @@ func (i MysqlLayerLoadBasedAutoScalingDownscalingArgs) ToMysqlLayerLoadBasedAuto
 	return pulumi.ToOutputWithContext(ctx, i).(MysqlLayerLoadBasedAutoScalingDownscalingOutput)
 }
 
+func (i MysqlLayerLoadBasedAutoScalingDownscalingArgs) ToOutput(ctx context.Context) pulumix.Output[MysqlLayerLoadBasedAutoScalingDownscaling] {
+	return pulumix.Output[MysqlLayerLoadBasedAutoScalingDownscaling]{
+		OutputState: i.ToMysqlLayerLoadBasedAutoScalingDownscalingOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i MysqlLayerLoadBasedAutoScalingDownscalingArgs) ToMysqlLayerLoadBasedAutoScalingDownscalingPtrOutput() MysqlLayerLoadBasedAutoScalingDownscalingPtrOutput {
 	return i.ToMysqlLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(context.Background())
 }
@@ -7918,6 +9029,12 @@ func (i *mysqlLayerLoadBasedAutoScalingDownscalingPtrType) ToMysqlLayerLoadBased
 	return pulumi.ToOutputWithContext(ctx, i).(MysqlLayerLoadBasedAutoScalingDownscalingPtrOutput)
 }
 
+func (i *mysqlLayerLoadBasedAutoScalingDownscalingPtrType) ToOutput(ctx context.Context) pulumix.Output[*MysqlLayerLoadBasedAutoScalingDownscaling] {
+	return pulumix.Output[*MysqlLayerLoadBasedAutoScalingDownscaling]{
+		OutputState: i.ToMysqlLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MysqlLayerLoadBasedAutoScalingDownscalingOutput struct{ *pulumi.OutputState }
 
 func (MysqlLayerLoadBasedAutoScalingDownscalingOutput) ElementType() reflect.Type {
@@ -7940,6 +9057,12 @@ func (o MysqlLayerLoadBasedAutoScalingDownscalingOutput) ToMysqlLayerLoadBasedAu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v MysqlLayerLoadBasedAutoScalingDownscaling) *MysqlLayerLoadBasedAutoScalingDownscaling {
 		return &v
 	}).(MysqlLayerLoadBasedAutoScalingDownscalingPtrOutput)
+}
+
+func (o MysqlLayerLoadBasedAutoScalingDownscalingOutput) ToOutput(ctx context.Context) pulumix.Output[MysqlLayerLoadBasedAutoScalingDownscaling] {
+	return pulumix.Output[MysqlLayerLoadBasedAutoScalingDownscaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MysqlLayerLoadBasedAutoScalingDownscalingOutput) Alarms() pulumi.StringArrayOutput {
@@ -7982,6 +9105,12 @@ func (o MysqlLayerLoadBasedAutoScalingDownscalingPtrOutput) ToMysqlLayerLoadBase
 
 func (o MysqlLayerLoadBasedAutoScalingDownscalingPtrOutput) ToMysqlLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx context.Context) MysqlLayerLoadBasedAutoScalingDownscalingPtrOutput {
 	return o
+}
+
+func (o MysqlLayerLoadBasedAutoScalingDownscalingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MysqlLayerLoadBasedAutoScalingDownscaling] {
+	return pulumix.Output[*MysqlLayerLoadBasedAutoScalingDownscaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MysqlLayerLoadBasedAutoScalingDownscalingPtrOutput) Elem() MysqlLayerLoadBasedAutoScalingDownscalingOutput {
@@ -8100,6 +9229,12 @@ func (i MysqlLayerLoadBasedAutoScalingUpscalingArgs) ToMysqlLayerLoadBasedAutoSc
 	return pulumi.ToOutputWithContext(ctx, i).(MysqlLayerLoadBasedAutoScalingUpscalingOutput)
 }
 
+func (i MysqlLayerLoadBasedAutoScalingUpscalingArgs) ToOutput(ctx context.Context) pulumix.Output[MysqlLayerLoadBasedAutoScalingUpscaling] {
+	return pulumix.Output[MysqlLayerLoadBasedAutoScalingUpscaling]{
+		OutputState: i.ToMysqlLayerLoadBasedAutoScalingUpscalingOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i MysqlLayerLoadBasedAutoScalingUpscalingArgs) ToMysqlLayerLoadBasedAutoScalingUpscalingPtrOutput() MysqlLayerLoadBasedAutoScalingUpscalingPtrOutput {
 	return i.ToMysqlLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(context.Background())
 }
@@ -8141,6 +9276,12 @@ func (i *mysqlLayerLoadBasedAutoScalingUpscalingPtrType) ToMysqlLayerLoadBasedAu
 	return pulumi.ToOutputWithContext(ctx, i).(MysqlLayerLoadBasedAutoScalingUpscalingPtrOutput)
 }
 
+func (i *mysqlLayerLoadBasedAutoScalingUpscalingPtrType) ToOutput(ctx context.Context) pulumix.Output[*MysqlLayerLoadBasedAutoScalingUpscaling] {
+	return pulumix.Output[*MysqlLayerLoadBasedAutoScalingUpscaling]{
+		OutputState: i.ToMysqlLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MysqlLayerLoadBasedAutoScalingUpscalingOutput struct{ *pulumi.OutputState }
 
 func (MysqlLayerLoadBasedAutoScalingUpscalingOutput) ElementType() reflect.Type {
@@ -8163,6 +9304,12 @@ func (o MysqlLayerLoadBasedAutoScalingUpscalingOutput) ToMysqlLayerLoadBasedAuto
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v MysqlLayerLoadBasedAutoScalingUpscaling) *MysqlLayerLoadBasedAutoScalingUpscaling {
 		return &v
 	}).(MysqlLayerLoadBasedAutoScalingUpscalingPtrOutput)
+}
+
+func (o MysqlLayerLoadBasedAutoScalingUpscalingOutput) ToOutput(ctx context.Context) pulumix.Output[MysqlLayerLoadBasedAutoScalingUpscaling] {
+	return pulumix.Output[MysqlLayerLoadBasedAutoScalingUpscaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MysqlLayerLoadBasedAutoScalingUpscalingOutput) Alarms() pulumi.StringArrayOutput {
@@ -8205,6 +9352,12 @@ func (o MysqlLayerLoadBasedAutoScalingUpscalingPtrOutput) ToMysqlLayerLoadBasedA
 
 func (o MysqlLayerLoadBasedAutoScalingUpscalingPtrOutput) ToMysqlLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx context.Context) MysqlLayerLoadBasedAutoScalingUpscalingPtrOutput {
 	return o
+}
+
+func (o MysqlLayerLoadBasedAutoScalingUpscalingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MysqlLayerLoadBasedAutoScalingUpscaling] {
+	return pulumix.Output[*MysqlLayerLoadBasedAutoScalingUpscaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MysqlLayerLoadBasedAutoScalingUpscalingPtrOutput) Elem() MysqlLayerLoadBasedAutoScalingUpscalingOutput {
@@ -8313,6 +9466,12 @@ func (i NodejsAppLayerCloudwatchConfigurationArgs) ToNodejsAppLayerCloudwatchCon
 	return pulumi.ToOutputWithContext(ctx, i).(NodejsAppLayerCloudwatchConfigurationOutput)
 }
 
+func (i NodejsAppLayerCloudwatchConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[NodejsAppLayerCloudwatchConfiguration] {
+	return pulumix.Output[NodejsAppLayerCloudwatchConfiguration]{
+		OutputState: i.ToNodejsAppLayerCloudwatchConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i NodejsAppLayerCloudwatchConfigurationArgs) ToNodejsAppLayerCloudwatchConfigurationPtrOutput() NodejsAppLayerCloudwatchConfigurationPtrOutput {
 	return i.ToNodejsAppLayerCloudwatchConfigurationPtrOutputWithContext(context.Background())
 }
@@ -8354,6 +9513,12 @@ func (i *nodejsAppLayerCloudwatchConfigurationPtrType) ToNodejsAppLayerCloudwatc
 	return pulumi.ToOutputWithContext(ctx, i).(NodejsAppLayerCloudwatchConfigurationPtrOutput)
 }
 
+func (i *nodejsAppLayerCloudwatchConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*NodejsAppLayerCloudwatchConfiguration] {
+	return pulumix.Output[*NodejsAppLayerCloudwatchConfiguration]{
+		OutputState: i.ToNodejsAppLayerCloudwatchConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NodejsAppLayerCloudwatchConfigurationOutput struct{ *pulumi.OutputState }
 
 func (NodejsAppLayerCloudwatchConfigurationOutput) ElementType() reflect.Type {
@@ -8378,6 +9543,12 @@ func (o NodejsAppLayerCloudwatchConfigurationOutput) ToNodejsAppLayerCloudwatchC
 	}).(NodejsAppLayerCloudwatchConfigurationPtrOutput)
 }
 
+func (o NodejsAppLayerCloudwatchConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[NodejsAppLayerCloudwatchConfiguration] {
+	return pulumix.Output[NodejsAppLayerCloudwatchConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NodejsAppLayerCloudwatchConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v NodejsAppLayerCloudwatchConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -8400,6 +9571,12 @@ func (o NodejsAppLayerCloudwatchConfigurationPtrOutput) ToNodejsAppLayerCloudwat
 
 func (o NodejsAppLayerCloudwatchConfigurationPtrOutput) ToNodejsAppLayerCloudwatchConfigurationPtrOutputWithContext(ctx context.Context) NodejsAppLayerCloudwatchConfigurationPtrOutput {
 	return o
+}
+
+func (o NodejsAppLayerCloudwatchConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NodejsAppLayerCloudwatchConfiguration] {
+	return pulumix.Output[*NodejsAppLayerCloudwatchConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NodejsAppLayerCloudwatchConfigurationPtrOutput) Elem() NodejsAppLayerCloudwatchConfigurationOutput {
@@ -8481,6 +9658,12 @@ func (i NodejsAppLayerCloudwatchConfigurationLogStreamArgs) ToNodejsAppLayerClou
 	return pulumi.ToOutputWithContext(ctx, i).(NodejsAppLayerCloudwatchConfigurationLogStreamOutput)
 }
 
+func (i NodejsAppLayerCloudwatchConfigurationLogStreamArgs) ToOutput(ctx context.Context) pulumix.Output[NodejsAppLayerCloudwatchConfigurationLogStream] {
+	return pulumix.Output[NodejsAppLayerCloudwatchConfigurationLogStream]{
+		OutputState: i.ToNodejsAppLayerCloudwatchConfigurationLogStreamOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NodejsAppLayerCloudwatchConfigurationLogStreamArrayInput is an input type that accepts NodejsAppLayerCloudwatchConfigurationLogStreamArray and NodejsAppLayerCloudwatchConfigurationLogStreamArrayOutput values.
 // You can construct a concrete instance of `NodejsAppLayerCloudwatchConfigurationLogStreamArrayInput` via:
 //
@@ -8506,6 +9689,12 @@ func (i NodejsAppLayerCloudwatchConfigurationLogStreamArray) ToNodejsAppLayerClo
 	return pulumi.ToOutputWithContext(ctx, i).(NodejsAppLayerCloudwatchConfigurationLogStreamArrayOutput)
 }
 
+func (i NodejsAppLayerCloudwatchConfigurationLogStreamArray) ToOutput(ctx context.Context) pulumix.Output[[]NodejsAppLayerCloudwatchConfigurationLogStream] {
+	return pulumix.Output[[]NodejsAppLayerCloudwatchConfigurationLogStream]{
+		OutputState: i.ToNodejsAppLayerCloudwatchConfigurationLogStreamArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NodejsAppLayerCloudwatchConfigurationLogStreamOutput struct{ *pulumi.OutputState }
 
 func (NodejsAppLayerCloudwatchConfigurationLogStreamOutput) ElementType() reflect.Type {
@@ -8518,6 +9707,12 @@ func (o NodejsAppLayerCloudwatchConfigurationLogStreamOutput) ToNodejsAppLayerCl
 
 func (o NodejsAppLayerCloudwatchConfigurationLogStreamOutput) ToNodejsAppLayerCloudwatchConfigurationLogStreamOutputWithContext(ctx context.Context) NodejsAppLayerCloudwatchConfigurationLogStreamOutput {
 	return o
+}
+
+func (o NodejsAppLayerCloudwatchConfigurationLogStreamOutput) ToOutput(ctx context.Context) pulumix.Output[NodejsAppLayerCloudwatchConfigurationLogStream] {
+	return pulumix.Output[NodejsAppLayerCloudwatchConfigurationLogStream]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NodejsAppLayerCloudwatchConfigurationLogStreamOutput) BatchCount() pulumi.IntPtrOutput {
@@ -8576,6 +9771,12 @@ func (o NodejsAppLayerCloudwatchConfigurationLogStreamArrayOutput) ToNodejsAppLa
 
 func (o NodejsAppLayerCloudwatchConfigurationLogStreamArrayOutput) ToNodejsAppLayerCloudwatchConfigurationLogStreamArrayOutputWithContext(ctx context.Context) NodejsAppLayerCloudwatchConfigurationLogStreamArrayOutput {
 	return o
+}
+
+func (o NodejsAppLayerCloudwatchConfigurationLogStreamArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]NodejsAppLayerCloudwatchConfigurationLogStream] {
+	return pulumix.Output[[]NodejsAppLayerCloudwatchConfigurationLogStream]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NodejsAppLayerCloudwatchConfigurationLogStreamArrayOutput) Index(i pulumi.IntInput) NodejsAppLayerCloudwatchConfigurationLogStreamOutput {
@@ -8639,6 +9840,12 @@ func (i NodejsAppLayerEbsVolumeArgs) ToNodejsAppLayerEbsVolumeOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(NodejsAppLayerEbsVolumeOutput)
 }
 
+func (i NodejsAppLayerEbsVolumeArgs) ToOutput(ctx context.Context) pulumix.Output[NodejsAppLayerEbsVolume] {
+	return pulumix.Output[NodejsAppLayerEbsVolume]{
+		OutputState: i.ToNodejsAppLayerEbsVolumeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NodejsAppLayerEbsVolumeArrayInput is an input type that accepts NodejsAppLayerEbsVolumeArray and NodejsAppLayerEbsVolumeArrayOutput values.
 // You can construct a concrete instance of `NodejsAppLayerEbsVolumeArrayInput` via:
 //
@@ -8664,6 +9871,12 @@ func (i NodejsAppLayerEbsVolumeArray) ToNodejsAppLayerEbsVolumeArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(NodejsAppLayerEbsVolumeArrayOutput)
 }
 
+func (i NodejsAppLayerEbsVolumeArray) ToOutput(ctx context.Context) pulumix.Output[[]NodejsAppLayerEbsVolume] {
+	return pulumix.Output[[]NodejsAppLayerEbsVolume]{
+		OutputState: i.ToNodejsAppLayerEbsVolumeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NodejsAppLayerEbsVolumeOutput struct{ *pulumi.OutputState }
 
 func (NodejsAppLayerEbsVolumeOutput) ElementType() reflect.Type {
@@ -8676,6 +9889,12 @@ func (o NodejsAppLayerEbsVolumeOutput) ToNodejsAppLayerEbsVolumeOutput() NodejsA
 
 func (o NodejsAppLayerEbsVolumeOutput) ToNodejsAppLayerEbsVolumeOutputWithContext(ctx context.Context) NodejsAppLayerEbsVolumeOutput {
 	return o
+}
+
+func (o NodejsAppLayerEbsVolumeOutput) ToOutput(ctx context.Context) pulumix.Output[NodejsAppLayerEbsVolume] {
+	return pulumix.Output[NodejsAppLayerEbsVolume]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NodejsAppLayerEbsVolumeOutput) Encrypted() pulumi.BoolPtrOutput {
@@ -8726,6 +9945,12 @@ func (o NodejsAppLayerEbsVolumeArrayOutput) ToNodejsAppLayerEbsVolumeArrayOutput
 	return o
 }
 
+func (o NodejsAppLayerEbsVolumeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]NodejsAppLayerEbsVolume] {
+	return pulumix.Output[[]NodejsAppLayerEbsVolume]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NodejsAppLayerEbsVolumeArrayOutput) Index(i pulumi.IntInput) NodejsAppLayerEbsVolumeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NodejsAppLayerEbsVolume {
 		return vs[0].([]NodejsAppLayerEbsVolume)[vs[1].(int)]
@@ -8765,6 +9990,12 @@ func (i NodejsAppLayerLoadBasedAutoScalingArgs) ToNodejsAppLayerLoadBasedAutoSca
 
 func (i NodejsAppLayerLoadBasedAutoScalingArgs) ToNodejsAppLayerLoadBasedAutoScalingOutputWithContext(ctx context.Context) NodejsAppLayerLoadBasedAutoScalingOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NodejsAppLayerLoadBasedAutoScalingOutput)
+}
+
+func (i NodejsAppLayerLoadBasedAutoScalingArgs) ToOutput(ctx context.Context) pulumix.Output[NodejsAppLayerLoadBasedAutoScaling] {
+	return pulumix.Output[NodejsAppLayerLoadBasedAutoScaling]{
+		OutputState: i.ToNodejsAppLayerLoadBasedAutoScalingOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i NodejsAppLayerLoadBasedAutoScalingArgs) ToNodejsAppLayerLoadBasedAutoScalingPtrOutput() NodejsAppLayerLoadBasedAutoScalingPtrOutput {
@@ -8808,6 +10039,12 @@ func (i *nodejsAppLayerLoadBasedAutoScalingPtrType) ToNodejsAppLayerLoadBasedAut
 	return pulumi.ToOutputWithContext(ctx, i).(NodejsAppLayerLoadBasedAutoScalingPtrOutput)
 }
 
+func (i *nodejsAppLayerLoadBasedAutoScalingPtrType) ToOutput(ctx context.Context) pulumix.Output[*NodejsAppLayerLoadBasedAutoScaling] {
+	return pulumix.Output[*NodejsAppLayerLoadBasedAutoScaling]{
+		OutputState: i.ToNodejsAppLayerLoadBasedAutoScalingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NodejsAppLayerLoadBasedAutoScalingOutput struct{ *pulumi.OutputState }
 
 func (NodejsAppLayerLoadBasedAutoScalingOutput) ElementType() reflect.Type {
@@ -8830,6 +10067,12 @@ func (o NodejsAppLayerLoadBasedAutoScalingOutput) ToNodejsAppLayerLoadBasedAutoS
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v NodejsAppLayerLoadBasedAutoScaling) *NodejsAppLayerLoadBasedAutoScaling {
 		return &v
 	}).(NodejsAppLayerLoadBasedAutoScalingPtrOutput)
+}
+
+func (o NodejsAppLayerLoadBasedAutoScalingOutput) ToOutput(ctx context.Context) pulumix.Output[NodejsAppLayerLoadBasedAutoScaling] {
+	return pulumix.Output[NodejsAppLayerLoadBasedAutoScaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NodejsAppLayerLoadBasedAutoScalingOutput) Downscaling() NodejsAppLayerLoadBasedAutoScalingDownscalingPtrOutput {
@@ -8860,6 +10103,12 @@ func (o NodejsAppLayerLoadBasedAutoScalingPtrOutput) ToNodejsAppLayerLoadBasedAu
 
 func (o NodejsAppLayerLoadBasedAutoScalingPtrOutput) ToNodejsAppLayerLoadBasedAutoScalingPtrOutputWithContext(ctx context.Context) NodejsAppLayerLoadBasedAutoScalingPtrOutput {
 	return o
+}
+
+func (o NodejsAppLayerLoadBasedAutoScalingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NodejsAppLayerLoadBasedAutoScaling] {
+	return pulumix.Output[*NodejsAppLayerLoadBasedAutoScaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NodejsAppLayerLoadBasedAutoScalingPtrOutput) Elem() NodejsAppLayerLoadBasedAutoScalingOutput {
@@ -8942,6 +10191,12 @@ func (i NodejsAppLayerLoadBasedAutoScalingDownscalingArgs) ToNodejsAppLayerLoadB
 	return pulumi.ToOutputWithContext(ctx, i).(NodejsAppLayerLoadBasedAutoScalingDownscalingOutput)
 }
 
+func (i NodejsAppLayerLoadBasedAutoScalingDownscalingArgs) ToOutput(ctx context.Context) pulumix.Output[NodejsAppLayerLoadBasedAutoScalingDownscaling] {
+	return pulumix.Output[NodejsAppLayerLoadBasedAutoScalingDownscaling]{
+		OutputState: i.ToNodejsAppLayerLoadBasedAutoScalingDownscalingOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i NodejsAppLayerLoadBasedAutoScalingDownscalingArgs) ToNodejsAppLayerLoadBasedAutoScalingDownscalingPtrOutput() NodejsAppLayerLoadBasedAutoScalingDownscalingPtrOutput {
 	return i.ToNodejsAppLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(context.Background())
 }
@@ -8983,6 +10238,12 @@ func (i *nodejsAppLayerLoadBasedAutoScalingDownscalingPtrType) ToNodejsAppLayerL
 	return pulumi.ToOutputWithContext(ctx, i).(NodejsAppLayerLoadBasedAutoScalingDownscalingPtrOutput)
 }
 
+func (i *nodejsAppLayerLoadBasedAutoScalingDownscalingPtrType) ToOutput(ctx context.Context) pulumix.Output[*NodejsAppLayerLoadBasedAutoScalingDownscaling] {
+	return pulumix.Output[*NodejsAppLayerLoadBasedAutoScalingDownscaling]{
+		OutputState: i.ToNodejsAppLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NodejsAppLayerLoadBasedAutoScalingDownscalingOutput struct{ *pulumi.OutputState }
 
 func (NodejsAppLayerLoadBasedAutoScalingDownscalingOutput) ElementType() reflect.Type {
@@ -9005,6 +10266,12 @@ func (o NodejsAppLayerLoadBasedAutoScalingDownscalingOutput) ToNodejsAppLayerLoa
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v NodejsAppLayerLoadBasedAutoScalingDownscaling) *NodejsAppLayerLoadBasedAutoScalingDownscaling {
 		return &v
 	}).(NodejsAppLayerLoadBasedAutoScalingDownscalingPtrOutput)
+}
+
+func (o NodejsAppLayerLoadBasedAutoScalingDownscalingOutput) ToOutput(ctx context.Context) pulumix.Output[NodejsAppLayerLoadBasedAutoScalingDownscaling] {
+	return pulumix.Output[NodejsAppLayerLoadBasedAutoScalingDownscaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NodejsAppLayerLoadBasedAutoScalingDownscalingOutput) Alarms() pulumi.StringArrayOutput {
@@ -9047,6 +10314,12 @@ func (o NodejsAppLayerLoadBasedAutoScalingDownscalingPtrOutput) ToNodejsAppLayer
 
 func (o NodejsAppLayerLoadBasedAutoScalingDownscalingPtrOutput) ToNodejsAppLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx context.Context) NodejsAppLayerLoadBasedAutoScalingDownscalingPtrOutput {
 	return o
+}
+
+func (o NodejsAppLayerLoadBasedAutoScalingDownscalingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NodejsAppLayerLoadBasedAutoScalingDownscaling] {
+	return pulumix.Output[*NodejsAppLayerLoadBasedAutoScalingDownscaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NodejsAppLayerLoadBasedAutoScalingDownscalingPtrOutput) Elem() NodejsAppLayerLoadBasedAutoScalingDownscalingOutput {
@@ -9165,6 +10438,12 @@ func (i NodejsAppLayerLoadBasedAutoScalingUpscalingArgs) ToNodejsAppLayerLoadBas
 	return pulumi.ToOutputWithContext(ctx, i).(NodejsAppLayerLoadBasedAutoScalingUpscalingOutput)
 }
 
+func (i NodejsAppLayerLoadBasedAutoScalingUpscalingArgs) ToOutput(ctx context.Context) pulumix.Output[NodejsAppLayerLoadBasedAutoScalingUpscaling] {
+	return pulumix.Output[NodejsAppLayerLoadBasedAutoScalingUpscaling]{
+		OutputState: i.ToNodejsAppLayerLoadBasedAutoScalingUpscalingOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i NodejsAppLayerLoadBasedAutoScalingUpscalingArgs) ToNodejsAppLayerLoadBasedAutoScalingUpscalingPtrOutput() NodejsAppLayerLoadBasedAutoScalingUpscalingPtrOutput {
 	return i.ToNodejsAppLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(context.Background())
 }
@@ -9206,6 +10485,12 @@ func (i *nodejsAppLayerLoadBasedAutoScalingUpscalingPtrType) ToNodejsAppLayerLoa
 	return pulumi.ToOutputWithContext(ctx, i).(NodejsAppLayerLoadBasedAutoScalingUpscalingPtrOutput)
 }
 
+func (i *nodejsAppLayerLoadBasedAutoScalingUpscalingPtrType) ToOutput(ctx context.Context) pulumix.Output[*NodejsAppLayerLoadBasedAutoScalingUpscaling] {
+	return pulumix.Output[*NodejsAppLayerLoadBasedAutoScalingUpscaling]{
+		OutputState: i.ToNodejsAppLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NodejsAppLayerLoadBasedAutoScalingUpscalingOutput struct{ *pulumi.OutputState }
 
 func (NodejsAppLayerLoadBasedAutoScalingUpscalingOutput) ElementType() reflect.Type {
@@ -9228,6 +10513,12 @@ func (o NodejsAppLayerLoadBasedAutoScalingUpscalingOutput) ToNodejsAppLayerLoadB
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v NodejsAppLayerLoadBasedAutoScalingUpscaling) *NodejsAppLayerLoadBasedAutoScalingUpscaling {
 		return &v
 	}).(NodejsAppLayerLoadBasedAutoScalingUpscalingPtrOutput)
+}
+
+func (o NodejsAppLayerLoadBasedAutoScalingUpscalingOutput) ToOutput(ctx context.Context) pulumix.Output[NodejsAppLayerLoadBasedAutoScalingUpscaling] {
+	return pulumix.Output[NodejsAppLayerLoadBasedAutoScalingUpscaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NodejsAppLayerLoadBasedAutoScalingUpscalingOutput) Alarms() pulumi.StringArrayOutput {
@@ -9270,6 +10561,12 @@ func (o NodejsAppLayerLoadBasedAutoScalingUpscalingPtrOutput) ToNodejsAppLayerLo
 
 func (o NodejsAppLayerLoadBasedAutoScalingUpscalingPtrOutput) ToNodejsAppLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx context.Context) NodejsAppLayerLoadBasedAutoScalingUpscalingPtrOutput {
 	return o
+}
+
+func (o NodejsAppLayerLoadBasedAutoScalingUpscalingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NodejsAppLayerLoadBasedAutoScalingUpscaling] {
+	return pulumix.Output[*NodejsAppLayerLoadBasedAutoScalingUpscaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NodejsAppLayerLoadBasedAutoScalingUpscalingPtrOutput) Elem() NodejsAppLayerLoadBasedAutoScalingUpscalingOutput {
@@ -9378,6 +10675,12 @@ func (i PhpAppLayerCloudwatchConfigurationArgs) ToPhpAppLayerCloudwatchConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(PhpAppLayerCloudwatchConfigurationOutput)
 }
 
+func (i PhpAppLayerCloudwatchConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[PhpAppLayerCloudwatchConfiguration] {
+	return pulumix.Output[PhpAppLayerCloudwatchConfiguration]{
+		OutputState: i.ToPhpAppLayerCloudwatchConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PhpAppLayerCloudwatchConfigurationArgs) ToPhpAppLayerCloudwatchConfigurationPtrOutput() PhpAppLayerCloudwatchConfigurationPtrOutput {
 	return i.ToPhpAppLayerCloudwatchConfigurationPtrOutputWithContext(context.Background())
 }
@@ -9419,6 +10722,12 @@ func (i *phpAppLayerCloudwatchConfigurationPtrType) ToPhpAppLayerCloudwatchConfi
 	return pulumi.ToOutputWithContext(ctx, i).(PhpAppLayerCloudwatchConfigurationPtrOutput)
 }
 
+func (i *phpAppLayerCloudwatchConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*PhpAppLayerCloudwatchConfiguration] {
+	return pulumix.Output[*PhpAppLayerCloudwatchConfiguration]{
+		OutputState: i.ToPhpAppLayerCloudwatchConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PhpAppLayerCloudwatchConfigurationOutput struct{ *pulumi.OutputState }
 
 func (PhpAppLayerCloudwatchConfigurationOutput) ElementType() reflect.Type {
@@ -9443,6 +10752,12 @@ func (o PhpAppLayerCloudwatchConfigurationOutput) ToPhpAppLayerCloudwatchConfigu
 	}).(PhpAppLayerCloudwatchConfigurationPtrOutput)
 }
 
+func (o PhpAppLayerCloudwatchConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[PhpAppLayerCloudwatchConfiguration] {
+	return pulumix.Output[PhpAppLayerCloudwatchConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PhpAppLayerCloudwatchConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PhpAppLayerCloudwatchConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -9465,6 +10780,12 @@ func (o PhpAppLayerCloudwatchConfigurationPtrOutput) ToPhpAppLayerCloudwatchConf
 
 func (o PhpAppLayerCloudwatchConfigurationPtrOutput) ToPhpAppLayerCloudwatchConfigurationPtrOutputWithContext(ctx context.Context) PhpAppLayerCloudwatchConfigurationPtrOutput {
 	return o
+}
+
+func (o PhpAppLayerCloudwatchConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PhpAppLayerCloudwatchConfiguration] {
+	return pulumix.Output[*PhpAppLayerCloudwatchConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PhpAppLayerCloudwatchConfigurationPtrOutput) Elem() PhpAppLayerCloudwatchConfigurationOutput {
@@ -9546,6 +10867,12 @@ func (i PhpAppLayerCloudwatchConfigurationLogStreamArgs) ToPhpAppLayerCloudwatch
 	return pulumi.ToOutputWithContext(ctx, i).(PhpAppLayerCloudwatchConfigurationLogStreamOutput)
 }
 
+func (i PhpAppLayerCloudwatchConfigurationLogStreamArgs) ToOutput(ctx context.Context) pulumix.Output[PhpAppLayerCloudwatchConfigurationLogStream] {
+	return pulumix.Output[PhpAppLayerCloudwatchConfigurationLogStream]{
+		OutputState: i.ToPhpAppLayerCloudwatchConfigurationLogStreamOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PhpAppLayerCloudwatchConfigurationLogStreamArrayInput is an input type that accepts PhpAppLayerCloudwatchConfigurationLogStreamArray and PhpAppLayerCloudwatchConfigurationLogStreamArrayOutput values.
 // You can construct a concrete instance of `PhpAppLayerCloudwatchConfigurationLogStreamArrayInput` via:
 //
@@ -9571,6 +10898,12 @@ func (i PhpAppLayerCloudwatchConfigurationLogStreamArray) ToPhpAppLayerCloudwatc
 	return pulumi.ToOutputWithContext(ctx, i).(PhpAppLayerCloudwatchConfigurationLogStreamArrayOutput)
 }
 
+func (i PhpAppLayerCloudwatchConfigurationLogStreamArray) ToOutput(ctx context.Context) pulumix.Output[[]PhpAppLayerCloudwatchConfigurationLogStream] {
+	return pulumix.Output[[]PhpAppLayerCloudwatchConfigurationLogStream]{
+		OutputState: i.ToPhpAppLayerCloudwatchConfigurationLogStreamArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PhpAppLayerCloudwatchConfigurationLogStreamOutput struct{ *pulumi.OutputState }
 
 func (PhpAppLayerCloudwatchConfigurationLogStreamOutput) ElementType() reflect.Type {
@@ -9583,6 +10916,12 @@ func (o PhpAppLayerCloudwatchConfigurationLogStreamOutput) ToPhpAppLayerCloudwat
 
 func (o PhpAppLayerCloudwatchConfigurationLogStreamOutput) ToPhpAppLayerCloudwatchConfigurationLogStreamOutputWithContext(ctx context.Context) PhpAppLayerCloudwatchConfigurationLogStreamOutput {
 	return o
+}
+
+func (o PhpAppLayerCloudwatchConfigurationLogStreamOutput) ToOutput(ctx context.Context) pulumix.Output[PhpAppLayerCloudwatchConfigurationLogStream] {
+	return pulumix.Output[PhpAppLayerCloudwatchConfigurationLogStream]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PhpAppLayerCloudwatchConfigurationLogStreamOutput) BatchCount() pulumi.IntPtrOutput {
@@ -9641,6 +10980,12 @@ func (o PhpAppLayerCloudwatchConfigurationLogStreamArrayOutput) ToPhpAppLayerClo
 
 func (o PhpAppLayerCloudwatchConfigurationLogStreamArrayOutput) ToPhpAppLayerCloudwatchConfigurationLogStreamArrayOutputWithContext(ctx context.Context) PhpAppLayerCloudwatchConfigurationLogStreamArrayOutput {
 	return o
+}
+
+func (o PhpAppLayerCloudwatchConfigurationLogStreamArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PhpAppLayerCloudwatchConfigurationLogStream] {
+	return pulumix.Output[[]PhpAppLayerCloudwatchConfigurationLogStream]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PhpAppLayerCloudwatchConfigurationLogStreamArrayOutput) Index(i pulumi.IntInput) PhpAppLayerCloudwatchConfigurationLogStreamOutput {
@@ -9704,6 +11049,12 @@ func (i PhpAppLayerEbsVolumeArgs) ToPhpAppLayerEbsVolumeOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(PhpAppLayerEbsVolumeOutput)
 }
 
+func (i PhpAppLayerEbsVolumeArgs) ToOutput(ctx context.Context) pulumix.Output[PhpAppLayerEbsVolume] {
+	return pulumix.Output[PhpAppLayerEbsVolume]{
+		OutputState: i.ToPhpAppLayerEbsVolumeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PhpAppLayerEbsVolumeArrayInput is an input type that accepts PhpAppLayerEbsVolumeArray and PhpAppLayerEbsVolumeArrayOutput values.
 // You can construct a concrete instance of `PhpAppLayerEbsVolumeArrayInput` via:
 //
@@ -9729,6 +11080,12 @@ func (i PhpAppLayerEbsVolumeArray) ToPhpAppLayerEbsVolumeArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(PhpAppLayerEbsVolumeArrayOutput)
 }
 
+func (i PhpAppLayerEbsVolumeArray) ToOutput(ctx context.Context) pulumix.Output[[]PhpAppLayerEbsVolume] {
+	return pulumix.Output[[]PhpAppLayerEbsVolume]{
+		OutputState: i.ToPhpAppLayerEbsVolumeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PhpAppLayerEbsVolumeOutput struct{ *pulumi.OutputState }
 
 func (PhpAppLayerEbsVolumeOutput) ElementType() reflect.Type {
@@ -9741,6 +11098,12 @@ func (o PhpAppLayerEbsVolumeOutput) ToPhpAppLayerEbsVolumeOutput() PhpAppLayerEb
 
 func (o PhpAppLayerEbsVolumeOutput) ToPhpAppLayerEbsVolumeOutputWithContext(ctx context.Context) PhpAppLayerEbsVolumeOutput {
 	return o
+}
+
+func (o PhpAppLayerEbsVolumeOutput) ToOutput(ctx context.Context) pulumix.Output[PhpAppLayerEbsVolume] {
+	return pulumix.Output[PhpAppLayerEbsVolume]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PhpAppLayerEbsVolumeOutput) Encrypted() pulumi.BoolPtrOutput {
@@ -9791,6 +11154,12 @@ func (o PhpAppLayerEbsVolumeArrayOutput) ToPhpAppLayerEbsVolumeArrayOutputWithCo
 	return o
 }
 
+func (o PhpAppLayerEbsVolumeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PhpAppLayerEbsVolume] {
+	return pulumix.Output[[]PhpAppLayerEbsVolume]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PhpAppLayerEbsVolumeArrayOutput) Index(i pulumi.IntInput) PhpAppLayerEbsVolumeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PhpAppLayerEbsVolume {
 		return vs[0].([]PhpAppLayerEbsVolume)[vs[1].(int)]
@@ -9830,6 +11199,12 @@ func (i PhpAppLayerLoadBasedAutoScalingArgs) ToPhpAppLayerLoadBasedAutoScalingOu
 
 func (i PhpAppLayerLoadBasedAutoScalingArgs) ToPhpAppLayerLoadBasedAutoScalingOutputWithContext(ctx context.Context) PhpAppLayerLoadBasedAutoScalingOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PhpAppLayerLoadBasedAutoScalingOutput)
+}
+
+func (i PhpAppLayerLoadBasedAutoScalingArgs) ToOutput(ctx context.Context) pulumix.Output[PhpAppLayerLoadBasedAutoScaling] {
+	return pulumix.Output[PhpAppLayerLoadBasedAutoScaling]{
+		OutputState: i.ToPhpAppLayerLoadBasedAutoScalingOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i PhpAppLayerLoadBasedAutoScalingArgs) ToPhpAppLayerLoadBasedAutoScalingPtrOutput() PhpAppLayerLoadBasedAutoScalingPtrOutput {
@@ -9873,6 +11248,12 @@ func (i *phpAppLayerLoadBasedAutoScalingPtrType) ToPhpAppLayerLoadBasedAutoScali
 	return pulumi.ToOutputWithContext(ctx, i).(PhpAppLayerLoadBasedAutoScalingPtrOutput)
 }
 
+func (i *phpAppLayerLoadBasedAutoScalingPtrType) ToOutput(ctx context.Context) pulumix.Output[*PhpAppLayerLoadBasedAutoScaling] {
+	return pulumix.Output[*PhpAppLayerLoadBasedAutoScaling]{
+		OutputState: i.ToPhpAppLayerLoadBasedAutoScalingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PhpAppLayerLoadBasedAutoScalingOutput struct{ *pulumi.OutputState }
 
 func (PhpAppLayerLoadBasedAutoScalingOutput) ElementType() reflect.Type {
@@ -9895,6 +11276,12 @@ func (o PhpAppLayerLoadBasedAutoScalingOutput) ToPhpAppLayerLoadBasedAutoScaling
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PhpAppLayerLoadBasedAutoScaling) *PhpAppLayerLoadBasedAutoScaling {
 		return &v
 	}).(PhpAppLayerLoadBasedAutoScalingPtrOutput)
+}
+
+func (o PhpAppLayerLoadBasedAutoScalingOutput) ToOutput(ctx context.Context) pulumix.Output[PhpAppLayerLoadBasedAutoScaling] {
+	return pulumix.Output[PhpAppLayerLoadBasedAutoScaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PhpAppLayerLoadBasedAutoScalingOutput) Downscaling() PhpAppLayerLoadBasedAutoScalingDownscalingPtrOutput {
@@ -9923,6 +11310,12 @@ func (o PhpAppLayerLoadBasedAutoScalingPtrOutput) ToPhpAppLayerLoadBasedAutoScal
 
 func (o PhpAppLayerLoadBasedAutoScalingPtrOutput) ToPhpAppLayerLoadBasedAutoScalingPtrOutputWithContext(ctx context.Context) PhpAppLayerLoadBasedAutoScalingPtrOutput {
 	return o
+}
+
+func (o PhpAppLayerLoadBasedAutoScalingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PhpAppLayerLoadBasedAutoScaling] {
+	return pulumix.Output[*PhpAppLayerLoadBasedAutoScaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PhpAppLayerLoadBasedAutoScalingPtrOutput) Elem() PhpAppLayerLoadBasedAutoScalingOutput {
@@ -10005,6 +11398,12 @@ func (i PhpAppLayerLoadBasedAutoScalingDownscalingArgs) ToPhpAppLayerLoadBasedAu
 	return pulumi.ToOutputWithContext(ctx, i).(PhpAppLayerLoadBasedAutoScalingDownscalingOutput)
 }
 
+func (i PhpAppLayerLoadBasedAutoScalingDownscalingArgs) ToOutput(ctx context.Context) pulumix.Output[PhpAppLayerLoadBasedAutoScalingDownscaling] {
+	return pulumix.Output[PhpAppLayerLoadBasedAutoScalingDownscaling]{
+		OutputState: i.ToPhpAppLayerLoadBasedAutoScalingDownscalingOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PhpAppLayerLoadBasedAutoScalingDownscalingArgs) ToPhpAppLayerLoadBasedAutoScalingDownscalingPtrOutput() PhpAppLayerLoadBasedAutoScalingDownscalingPtrOutput {
 	return i.ToPhpAppLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(context.Background())
 }
@@ -10046,6 +11445,12 @@ func (i *phpAppLayerLoadBasedAutoScalingDownscalingPtrType) ToPhpAppLayerLoadBas
 	return pulumi.ToOutputWithContext(ctx, i).(PhpAppLayerLoadBasedAutoScalingDownscalingPtrOutput)
 }
 
+func (i *phpAppLayerLoadBasedAutoScalingDownscalingPtrType) ToOutput(ctx context.Context) pulumix.Output[*PhpAppLayerLoadBasedAutoScalingDownscaling] {
+	return pulumix.Output[*PhpAppLayerLoadBasedAutoScalingDownscaling]{
+		OutputState: i.ToPhpAppLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PhpAppLayerLoadBasedAutoScalingDownscalingOutput struct{ *pulumi.OutputState }
 
 func (PhpAppLayerLoadBasedAutoScalingDownscalingOutput) ElementType() reflect.Type {
@@ -10068,6 +11473,12 @@ func (o PhpAppLayerLoadBasedAutoScalingDownscalingOutput) ToPhpAppLayerLoadBased
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PhpAppLayerLoadBasedAutoScalingDownscaling) *PhpAppLayerLoadBasedAutoScalingDownscaling {
 		return &v
 	}).(PhpAppLayerLoadBasedAutoScalingDownscalingPtrOutput)
+}
+
+func (o PhpAppLayerLoadBasedAutoScalingDownscalingOutput) ToOutput(ctx context.Context) pulumix.Output[PhpAppLayerLoadBasedAutoScalingDownscaling] {
+	return pulumix.Output[PhpAppLayerLoadBasedAutoScalingDownscaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PhpAppLayerLoadBasedAutoScalingDownscalingOutput) Alarms() pulumi.StringArrayOutput {
@@ -10110,6 +11521,12 @@ func (o PhpAppLayerLoadBasedAutoScalingDownscalingPtrOutput) ToPhpAppLayerLoadBa
 
 func (o PhpAppLayerLoadBasedAutoScalingDownscalingPtrOutput) ToPhpAppLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx context.Context) PhpAppLayerLoadBasedAutoScalingDownscalingPtrOutput {
 	return o
+}
+
+func (o PhpAppLayerLoadBasedAutoScalingDownscalingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PhpAppLayerLoadBasedAutoScalingDownscaling] {
+	return pulumix.Output[*PhpAppLayerLoadBasedAutoScalingDownscaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PhpAppLayerLoadBasedAutoScalingDownscalingPtrOutput) Elem() PhpAppLayerLoadBasedAutoScalingDownscalingOutput {
@@ -10228,6 +11645,12 @@ func (i PhpAppLayerLoadBasedAutoScalingUpscalingArgs) ToPhpAppLayerLoadBasedAuto
 	return pulumi.ToOutputWithContext(ctx, i).(PhpAppLayerLoadBasedAutoScalingUpscalingOutput)
 }
 
+func (i PhpAppLayerLoadBasedAutoScalingUpscalingArgs) ToOutput(ctx context.Context) pulumix.Output[PhpAppLayerLoadBasedAutoScalingUpscaling] {
+	return pulumix.Output[PhpAppLayerLoadBasedAutoScalingUpscaling]{
+		OutputState: i.ToPhpAppLayerLoadBasedAutoScalingUpscalingOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PhpAppLayerLoadBasedAutoScalingUpscalingArgs) ToPhpAppLayerLoadBasedAutoScalingUpscalingPtrOutput() PhpAppLayerLoadBasedAutoScalingUpscalingPtrOutput {
 	return i.ToPhpAppLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(context.Background())
 }
@@ -10269,6 +11692,12 @@ func (i *phpAppLayerLoadBasedAutoScalingUpscalingPtrType) ToPhpAppLayerLoadBased
 	return pulumi.ToOutputWithContext(ctx, i).(PhpAppLayerLoadBasedAutoScalingUpscalingPtrOutput)
 }
 
+func (i *phpAppLayerLoadBasedAutoScalingUpscalingPtrType) ToOutput(ctx context.Context) pulumix.Output[*PhpAppLayerLoadBasedAutoScalingUpscaling] {
+	return pulumix.Output[*PhpAppLayerLoadBasedAutoScalingUpscaling]{
+		OutputState: i.ToPhpAppLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PhpAppLayerLoadBasedAutoScalingUpscalingOutput struct{ *pulumi.OutputState }
 
 func (PhpAppLayerLoadBasedAutoScalingUpscalingOutput) ElementType() reflect.Type {
@@ -10291,6 +11720,12 @@ func (o PhpAppLayerLoadBasedAutoScalingUpscalingOutput) ToPhpAppLayerLoadBasedAu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PhpAppLayerLoadBasedAutoScalingUpscaling) *PhpAppLayerLoadBasedAutoScalingUpscaling {
 		return &v
 	}).(PhpAppLayerLoadBasedAutoScalingUpscalingPtrOutput)
+}
+
+func (o PhpAppLayerLoadBasedAutoScalingUpscalingOutput) ToOutput(ctx context.Context) pulumix.Output[PhpAppLayerLoadBasedAutoScalingUpscaling] {
+	return pulumix.Output[PhpAppLayerLoadBasedAutoScalingUpscaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PhpAppLayerLoadBasedAutoScalingUpscalingOutput) Alarms() pulumi.StringArrayOutput {
@@ -10333,6 +11768,12 @@ func (o PhpAppLayerLoadBasedAutoScalingUpscalingPtrOutput) ToPhpAppLayerLoadBase
 
 func (o PhpAppLayerLoadBasedAutoScalingUpscalingPtrOutput) ToPhpAppLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx context.Context) PhpAppLayerLoadBasedAutoScalingUpscalingPtrOutput {
 	return o
+}
+
+func (o PhpAppLayerLoadBasedAutoScalingUpscalingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PhpAppLayerLoadBasedAutoScalingUpscaling] {
+	return pulumix.Output[*PhpAppLayerLoadBasedAutoScalingUpscaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PhpAppLayerLoadBasedAutoScalingUpscalingPtrOutput) Elem() PhpAppLayerLoadBasedAutoScalingUpscalingOutput {
@@ -10441,6 +11882,12 @@ func (i RailsAppLayerCloudwatchConfigurationArgs) ToRailsAppLayerCloudwatchConfi
 	return pulumi.ToOutputWithContext(ctx, i).(RailsAppLayerCloudwatchConfigurationOutput)
 }
 
+func (i RailsAppLayerCloudwatchConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[RailsAppLayerCloudwatchConfiguration] {
+	return pulumix.Output[RailsAppLayerCloudwatchConfiguration]{
+		OutputState: i.ToRailsAppLayerCloudwatchConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RailsAppLayerCloudwatchConfigurationArgs) ToRailsAppLayerCloudwatchConfigurationPtrOutput() RailsAppLayerCloudwatchConfigurationPtrOutput {
 	return i.ToRailsAppLayerCloudwatchConfigurationPtrOutputWithContext(context.Background())
 }
@@ -10482,6 +11929,12 @@ func (i *railsAppLayerCloudwatchConfigurationPtrType) ToRailsAppLayerCloudwatchC
 	return pulumi.ToOutputWithContext(ctx, i).(RailsAppLayerCloudwatchConfigurationPtrOutput)
 }
 
+func (i *railsAppLayerCloudwatchConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*RailsAppLayerCloudwatchConfiguration] {
+	return pulumix.Output[*RailsAppLayerCloudwatchConfiguration]{
+		OutputState: i.ToRailsAppLayerCloudwatchConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RailsAppLayerCloudwatchConfigurationOutput struct{ *pulumi.OutputState }
 
 func (RailsAppLayerCloudwatchConfigurationOutput) ElementType() reflect.Type {
@@ -10506,6 +11959,12 @@ func (o RailsAppLayerCloudwatchConfigurationOutput) ToRailsAppLayerCloudwatchCon
 	}).(RailsAppLayerCloudwatchConfigurationPtrOutput)
 }
 
+func (o RailsAppLayerCloudwatchConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[RailsAppLayerCloudwatchConfiguration] {
+	return pulumix.Output[RailsAppLayerCloudwatchConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RailsAppLayerCloudwatchConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RailsAppLayerCloudwatchConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -10528,6 +11987,12 @@ func (o RailsAppLayerCloudwatchConfigurationPtrOutput) ToRailsAppLayerCloudwatch
 
 func (o RailsAppLayerCloudwatchConfigurationPtrOutput) ToRailsAppLayerCloudwatchConfigurationPtrOutputWithContext(ctx context.Context) RailsAppLayerCloudwatchConfigurationPtrOutput {
 	return o
+}
+
+func (o RailsAppLayerCloudwatchConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RailsAppLayerCloudwatchConfiguration] {
+	return pulumix.Output[*RailsAppLayerCloudwatchConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RailsAppLayerCloudwatchConfigurationPtrOutput) Elem() RailsAppLayerCloudwatchConfigurationOutput {
@@ -10609,6 +12074,12 @@ func (i RailsAppLayerCloudwatchConfigurationLogStreamArgs) ToRailsAppLayerCloudw
 	return pulumi.ToOutputWithContext(ctx, i).(RailsAppLayerCloudwatchConfigurationLogStreamOutput)
 }
 
+func (i RailsAppLayerCloudwatchConfigurationLogStreamArgs) ToOutput(ctx context.Context) pulumix.Output[RailsAppLayerCloudwatchConfigurationLogStream] {
+	return pulumix.Output[RailsAppLayerCloudwatchConfigurationLogStream]{
+		OutputState: i.ToRailsAppLayerCloudwatchConfigurationLogStreamOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RailsAppLayerCloudwatchConfigurationLogStreamArrayInput is an input type that accepts RailsAppLayerCloudwatchConfigurationLogStreamArray and RailsAppLayerCloudwatchConfigurationLogStreamArrayOutput values.
 // You can construct a concrete instance of `RailsAppLayerCloudwatchConfigurationLogStreamArrayInput` via:
 //
@@ -10634,6 +12105,12 @@ func (i RailsAppLayerCloudwatchConfigurationLogStreamArray) ToRailsAppLayerCloud
 	return pulumi.ToOutputWithContext(ctx, i).(RailsAppLayerCloudwatchConfigurationLogStreamArrayOutput)
 }
 
+func (i RailsAppLayerCloudwatchConfigurationLogStreamArray) ToOutput(ctx context.Context) pulumix.Output[[]RailsAppLayerCloudwatchConfigurationLogStream] {
+	return pulumix.Output[[]RailsAppLayerCloudwatchConfigurationLogStream]{
+		OutputState: i.ToRailsAppLayerCloudwatchConfigurationLogStreamArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RailsAppLayerCloudwatchConfigurationLogStreamOutput struct{ *pulumi.OutputState }
 
 func (RailsAppLayerCloudwatchConfigurationLogStreamOutput) ElementType() reflect.Type {
@@ -10646,6 +12123,12 @@ func (o RailsAppLayerCloudwatchConfigurationLogStreamOutput) ToRailsAppLayerClou
 
 func (o RailsAppLayerCloudwatchConfigurationLogStreamOutput) ToRailsAppLayerCloudwatchConfigurationLogStreamOutputWithContext(ctx context.Context) RailsAppLayerCloudwatchConfigurationLogStreamOutput {
 	return o
+}
+
+func (o RailsAppLayerCloudwatchConfigurationLogStreamOutput) ToOutput(ctx context.Context) pulumix.Output[RailsAppLayerCloudwatchConfigurationLogStream] {
+	return pulumix.Output[RailsAppLayerCloudwatchConfigurationLogStream]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RailsAppLayerCloudwatchConfigurationLogStreamOutput) BatchCount() pulumi.IntPtrOutput {
@@ -10704,6 +12187,12 @@ func (o RailsAppLayerCloudwatchConfigurationLogStreamArrayOutput) ToRailsAppLaye
 
 func (o RailsAppLayerCloudwatchConfigurationLogStreamArrayOutput) ToRailsAppLayerCloudwatchConfigurationLogStreamArrayOutputWithContext(ctx context.Context) RailsAppLayerCloudwatchConfigurationLogStreamArrayOutput {
 	return o
+}
+
+func (o RailsAppLayerCloudwatchConfigurationLogStreamArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RailsAppLayerCloudwatchConfigurationLogStream] {
+	return pulumix.Output[[]RailsAppLayerCloudwatchConfigurationLogStream]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RailsAppLayerCloudwatchConfigurationLogStreamArrayOutput) Index(i pulumi.IntInput) RailsAppLayerCloudwatchConfigurationLogStreamOutput {
@@ -10767,6 +12256,12 @@ func (i RailsAppLayerEbsVolumeArgs) ToRailsAppLayerEbsVolumeOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(RailsAppLayerEbsVolumeOutput)
 }
 
+func (i RailsAppLayerEbsVolumeArgs) ToOutput(ctx context.Context) pulumix.Output[RailsAppLayerEbsVolume] {
+	return pulumix.Output[RailsAppLayerEbsVolume]{
+		OutputState: i.ToRailsAppLayerEbsVolumeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RailsAppLayerEbsVolumeArrayInput is an input type that accepts RailsAppLayerEbsVolumeArray and RailsAppLayerEbsVolumeArrayOutput values.
 // You can construct a concrete instance of `RailsAppLayerEbsVolumeArrayInput` via:
 //
@@ -10792,6 +12287,12 @@ func (i RailsAppLayerEbsVolumeArray) ToRailsAppLayerEbsVolumeArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(RailsAppLayerEbsVolumeArrayOutput)
 }
 
+func (i RailsAppLayerEbsVolumeArray) ToOutput(ctx context.Context) pulumix.Output[[]RailsAppLayerEbsVolume] {
+	return pulumix.Output[[]RailsAppLayerEbsVolume]{
+		OutputState: i.ToRailsAppLayerEbsVolumeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RailsAppLayerEbsVolumeOutput struct{ *pulumi.OutputState }
 
 func (RailsAppLayerEbsVolumeOutput) ElementType() reflect.Type {
@@ -10804,6 +12305,12 @@ func (o RailsAppLayerEbsVolumeOutput) ToRailsAppLayerEbsVolumeOutput() RailsAppL
 
 func (o RailsAppLayerEbsVolumeOutput) ToRailsAppLayerEbsVolumeOutputWithContext(ctx context.Context) RailsAppLayerEbsVolumeOutput {
 	return o
+}
+
+func (o RailsAppLayerEbsVolumeOutput) ToOutput(ctx context.Context) pulumix.Output[RailsAppLayerEbsVolume] {
+	return pulumix.Output[RailsAppLayerEbsVolume]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RailsAppLayerEbsVolumeOutput) Encrypted() pulumi.BoolPtrOutput {
@@ -10854,6 +12361,12 @@ func (o RailsAppLayerEbsVolumeArrayOutput) ToRailsAppLayerEbsVolumeArrayOutputWi
 	return o
 }
 
+func (o RailsAppLayerEbsVolumeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RailsAppLayerEbsVolume] {
+	return pulumix.Output[[]RailsAppLayerEbsVolume]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RailsAppLayerEbsVolumeArrayOutput) Index(i pulumi.IntInput) RailsAppLayerEbsVolumeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RailsAppLayerEbsVolume {
 		return vs[0].([]RailsAppLayerEbsVolume)[vs[1].(int)]
@@ -10893,6 +12406,12 @@ func (i RailsAppLayerLoadBasedAutoScalingArgs) ToRailsAppLayerLoadBasedAutoScali
 
 func (i RailsAppLayerLoadBasedAutoScalingArgs) ToRailsAppLayerLoadBasedAutoScalingOutputWithContext(ctx context.Context) RailsAppLayerLoadBasedAutoScalingOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RailsAppLayerLoadBasedAutoScalingOutput)
+}
+
+func (i RailsAppLayerLoadBasedAutoScalingArgs) ToOutput(ctx context.Context) pulumix.Output[RailsAppLayerLoadBasedAutoScaling] {
+	return pulumix.Output[RailsAppLayerLoadBasedAutoScaling]{
+		OutputState: i.ToRailsAppLayerLoadBasedAutoScalingOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i RailsAppLayerLoadBasedAutoScalingArgs) ToRailsAppLayerLoadBasedAutoScalingPtrOutput() RailsAppLayerLoadBasedAutoScalingPtrOutput {
@@ -10936,6 +12455,12 @@ func (i *railsAppLayerLoadBasedAutoScalingPtrType) ToRailsAppLayerLoadBasedAutoS
 	return pulumi.ToOutputWithContext(ctx, i).(RailsAppLayerLoadBasedAutoScalingPtrOutput)
 }
 
+func (i *railsAppLayerLoadBasedAutoScalingPtrType) ToOutput(ctx context.Context) pulumix.Output[*RailsAppLayerLoadBasedAutoScaling] {
+	return pulumix.Output[*RailsAppLayerLoadBasedAutoScaling]{
+		OutputState: i.ToRailsAppLayerLoadBasedAutoScalingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RailsAppLayerLoadBasedAutoScalingOutput struct{ *pulumi.OutputState }
 
 func (RailsAppLayerLoadBasedAutoScalingOutput) ElementType() reflect.Type {
@@ -10958,6 +12483,12 @@ func (o RailsAppLayerLoadBasedAutoScalingOutput) ToRailsAppLayerLoadBasedAutoSca
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RailsAppLayerLoadBasedAutoScaling) *RailsAppLayerLoadBasedAutoScaling {
 		return &v
 	}).(RailsAppLayerLoadBasedAutoScalingPtrOutput)
+}
+
+func (o RailsAppLayerLoadBasedAutoScalingOutput) ToOutput(ctx context.Context) pulumix.Output[RailsAppLayerLoadBasedAutoScaling] {
+	return pulumix.Output[RailsAppLayerLoadBasedAutoScaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RailsAppLayerLoadBasedAutoScalingOutput) Downscaling() RailsAppLayerLoadBasedAutoScalingDownscalingPtrOutput {
@@ -10988,6 +12519,12 @@ func (o RailsAppLayerLoadBasedAutoScalingPtrOutput) ToRailsAppLayerLoadBasedAuto
 
 func (o RailsAppLayerLoadBasedAutoScalingPtrOutput) ToRailsAppLayerLoadBasedAutoScalingPtrOutputWithContext(ctx context.Context) RailsAppLayerLoadBasedAutoScalingPtrOutput {
 	return o
+}
+
+func (o RailsAppLayerLoadBasedAutoScalingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RailsAppLayerLoadBasedAutoScaling] {
+	return pulumix.Output[*RailsAppLayerLoadBasedAutoScaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RailsAppLayerLoadBasedAutoScalingPtrOutput) Elem() RailsAppLayerLoadBasedAutoScalingOutput {
@@ -11070,6 +12607,12 @@ func (i RailsAppLayerLoadBasedAutoScalingDownscalingArgs) ToRailsAppLayerLoadBas
 	return pulumi.ToOutputWithContext(ctx, i).(RailsAppLayerLoadBasedAutoScalingDownscalingOutput)
 }
 
+func (i RailsAppLayerLoadBasedAutoScalingDownscalingArgs) ToOutput(ctx context.Context) pulumix.Output[RailsAppLayerLoadBasedAutoScalingDownscaling] {
+	return pulumix.Output[RailsAppLayerLoadBasedAutoScalingDownscaling]{
+		OutputState: i.ToRailsAppLayerLoadBasedAutoScalingDownscalingOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RailsAppLayerLoadBasedAutoScalingDownscalingArgs) ToRailsAppLayerLoadBasedAutoScalingDownscalingPtrOutput() RailsAppLayerLoadBasedAutoScalingDownscalingPtrOutput {
 	return i.ToRailsAppLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(context.Background())
 }
@@ -11111,6 +12654,12 @@ func (i *railsAppLayerLoadBasedAutoScalingDownscalingPtrType) ToRailsAppLayerLoa
 	return pulumi.ToOutputWithContext(ctx, i).(RailsAppLayerLoadBasedAutoScalingDownscalingPtrOutput)
 }
 
+func (i *railsAppLayerLoadBasedAutoScalingDownscalingPtrType) ToOutput(ctx context.Context) pulumix.Output[*RailsAppLayerLoadBasedAutoScalingDownscaling] {
+	return pulumix.Output[*RailsAppLayerLoadBasedAutoScalingDownscaling]{
+		OutputState: i.ToRailsAppLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RailsAppLayerLoadBasedAutoScalingDownscalingOutput struct{ *pulumi.OutputState }
 
 func (RailsAppLayerLoadBasedAutoScalingDownscalingOutput) ElementType() reflect.Type {
@@ -11133,6 +12682,12 @@ func (o RailsAppLayerLoadBasedAutoScalingDownscalingOutput) ToRailsAppLayerLoadB
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RailsAppLayerLoadBasedAutoScalingDownscaling) *RailsAppLayerLoadBasedAutoScalingDownscaling {
 		return &v
 	}).(RailsAppLayerLoadBasedAutoScalingDownscalingPtrOutput)
+}
+
+func (o RailsAppLayerLoadBasedAutoScalingDownscalingOutput) ToOutput(ctx context.Context) pulumix.Output[RailsAppLayerLoadBasedAutoScalingDownscaling] {
+	return pulumix.Output[RailsAppLayerLoadBasedAutoScalingDownscaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RailsAppLayerLoadBasedAutoScalingDownscalingOutput) Alarms() pulumi.StringArrayOutput {
@@ -11175,6 +12730,12 @@ func (o RailsAppLayerLoadBasedAutoScalingDownscalingPtrOutput) ToRailsAppLayerLo
 
 func (o RailsAppLayerLoadBasedAutoScalingDownscalingPtrOutput) ToRailsAppLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx context.Context) RailsAppLayerLoadBasedAutoScalingDownscalingPtrOutput {
 	return o
+}
+
+func (o RailsAppLayerLoadBasedAutoScalingDownscalingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RailsAppLayerLoadBasedAutoScalingDownscaling] {
+	return pulumix.Output[*RailsAppLayerLoadBasedAutoScalingDownscaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RailsAppLayerLoadBasedAutoScalingDownscalingPtrOutput) Elem() RailsAppLayerLoadBasedAutoScalingDownscalingOutput {
@@ -11293,6 +12854,12 @@ func (i RailsAppLayerLoadBasedAutoScalingUpscalingArgs) ToRailsAppLayerLoadBased
 	return pulumi.ToOutputWithContext(ctx, i).(RailsAppLayerLoadBasedAutoScalingUpscalingOutput)
 }
 
+func (i RailsAppLayerLoadBasedAutoScalingUpscalingArgs) ToOutput(ctx context.Context) pulumix.Output[RailsAppLayerLoadBasedAutoScalingUpscaling] {
+	return pulumix.Output[RailsAppLayerLoadBasedAutoScalingUpscaling]{
+		OutputState: i.ToRailsAppLayerLoadBasedAutoScalingUpscalingOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RailsAppLayerLoadBasedAutoScalingUpscalingArgs) ToRailsAppLayerLoadBasedAutoScalingUpscalingPtrOutput() RailsAppLayerLoadBasedAutoScalingUpscalingPtrOutput {
 	return i.ToRailsAppLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(context.Background())
 }
@@ -11334,6 +12901,12 @@ func (i *railsAppLayerLoadBasedAutoScalingUpscalingPtrType) ToRailsAppLayerLoadB
 	return pulumi.ToOutputWithContext(ctx, i).(RailsAppLayerLoadBasedAutoScalingUpscalingPtrOutput)
 }
 
+func (i *railsAppLayerLoadBasedAutoScalingUpscalingPtrType) ToOutput(ctx context.Context) pulumix.Output[*RailsAppLayerLoadBasedAutoScalingUpscaling] {
+	return pulumix.Output[*RailsAppLayerLoadBasedAutoScalingUpscaling]{
+		OutputState: i.ToRailsAppLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RailsAppLayerLoadBasedAutoScalingUpscalingOutput struct{ *pulumi.OutputState }
 
 func (RailsAppLayerLoadBasedAutoScalingUpscalingOutput) ElementType() reflect.Type {
@@ -11356,6 +12929,12 @@ func (o RailsAppLayerLoadBasedAutoScalingUpscalingOutput) ToRailsAppLayerLoadBas
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RailsAppLayerLoadBasedAutoScalingUpscaling) *RailsAppLayerLoadBasedAutoScalingUpscaling {
 		return &v
 	}).(RailsAppLayerLoadBasedAutoScalingUpscalingPtrOutput)
+}
+
+func (o RailsAppLayerLoadBasedAutoScalingUpscalingOutput) ToOutput(ctx context.Context) pulumix.Output[RailsAppLayerLoadBasedAutoScalingUpscaling] {
+	return pulumix.Output[RailsAppLayerLoadBasedAutoScalingUpscaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RailsAppLayerLoadBasedAutoScalingUpscalingOutput) Alarms() pulumi.StringArrayOutput {
@@ -11398,6 +12977,12 @@ func (o RailsAppLayerLoadBasedAutoScalingUpscalingPtrOutput) ToRailsAppLayerLoad
 
 func (o RailsAppLayerLoadBasedAutoScalingUpscalingPtrOutput) ToRailsAppLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx context.Context) RailsAppLayerLoadBasedAutoScalingUpscalingPtrOutput {
 	return o
+}
+
+func (o RailsAppLayerLoadBasedAutoScalingUpscalingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RailsAppLayerLoadBasedAutoScalingUpscaling] {
+	return pulumix.Output[*RailsAppLayerLoadBasedAutoScalingUpscaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RailsAppLayerLoadBasedAutoScalingUpscalingPtrOutput) Elem() RailsAppLayerLoadBasedAutoScalingUpscalingOutput {
@@ -11526,6 +13111,12 @@ func (i StackCustomCookbooksSourceArgs) ToStackCustomCookbooksSourceOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(StackCustomCookbooksSourceOutput)
 }
 
+func (i StackCustomCookbooksSourceArgs) ToOutput(ctx context.Context) pulumix.Output[StackCustomCookbooksSource] {
+	return pulumix.Output[StackCustomCookbooksSource]{
+		OutputState: i.ToStackCustomCookbooksSourceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // StackCustomCookbooksSourceArrayInput is an input type that accepts StackCustomCookbooksSourceArray and StackCustomCookbooksSourceArrayOutput values.
 // You can construct a concrete instance of `StackCustomCookbooksSourceArrayInput` via:
 //
@@ -11551,6 +13142,12 @@ func (i StackCustomCookbooksSourceArray) ToStackCustomCookbooksSourceArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(StackCustomCookbooksSourceArrayOutput)
 }
 
+func (i StackCustomCookbooksSourceArray) ToOutput(ctx context.Context) pulumix.Output[[]StackCustomCookbooksSource] {
+	return pulumix.Output[[]StackCustomCookbooksSource]{
+		OutputState: i.ToStackCustomCookbooksSourceArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StackCustomCookbooksSourceOutput struct{ *pulumi.OutputState }
 
 func (StackCustomCookbooksSourceOutput) ElementType() reflect.Type {
@@ -11563,6 +13160,12 @@ func (o StackCustomCookbooksSourceOutput) ToStackCustomCookbooksSourceOutput() S
 
 func (o StackCustomCookbooksSourceOutput) ToStackCustomCookbooksSourceOutputWithContext(ctx context.Context) StackCustomCookbooksSourceOutput {
 	return o
+}
+
+func (o StackCustomCookbooksSourceOutput) ToOutput(ctx context.Context) pulumix.Output[StackCustomCookbooksSource] {
+	return pulumix.Output[StackCustomCookbooksSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Password to use when authenticating to the source. The provider cannot perform drift detection of this configuration.
@@ -11609,6 +13212,12 @@ func (o StackCustomCookbooksSourceArrayOutput) ToStackCustomCookbooksSourceArray
 	return o
 }
 
+func (o StackCustomCookbooksSourceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]StackCustomCookbooksSource] {
+	return pulumix.Output[[]StackCustomCookbooksSource]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o StackCustomCookbooksSourceArrayOutput) Index(i pulumi.IntInput) StackCustomCookbooksSourceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StackCustomCookbooksSource {
 		return vs[0].([]StackCustomCookbooksSource)[vs[1].(int)]
@@ -11646,6 +13255,12 @@ func (i StaticWebLayerCloudwatchConfigurationArgs) ToStaticWebLayerCloudwatchCon
 
 func (i StaticWebLayerCloudwatchConfigurationArgs) ToStaticWebLayerCloudwatchConfigurationOutputWithContext(ctx context.Context) StaticWebLayerCloudwatchConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StaticWebLayerCloudwatchConfigurationOutput)
+}
+
+func (i StaticWebLayerCloudwatchConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[StaticWebLayerCloudwatchConfiguration] {
+	return pulumix.Output[StaticWebLayerCloudwatchConfiguration]{
+		OutputState: i.ToStaticWebLayerCloudwatchConfigurationOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i StaticWebLayerCloudwatchConfigurationArgs) ToStaticWebLayerCloudwatchConfigurationPtrOutput() StaticWebLayerCloudwatchConfigurationPtrOutput {
@@ -11689,6 +13304,12 @@ func (i *staticWebLayerCloudwatchConfigurationPtrType) ToStaticWebLayerCloudwatc
 	return pulumi.ToOutputWithContext(ctx, i).(StaticWebLayerCloudwatchConfigurationPtrOutput)
 }
 
+func (i *staticWebLayerCloudwatchConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*StaticWebLayerCloudwatchConfiguration] {
+	return pulumix.Output[*StaticWebLayerCloudwatchConfiguration]{
+		OutputState: i.ToStaticWebLayerCloudwatchConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StaticWebLayerCloudwatchConfigurationOutput struct{ *pulumi.OutputState }
 
 func (StaticWebLayerCloudwatchConfigurationOutput) ElementType() reflect.Type {
@@ -11713,6 +13334,12 @@ func (o StaticWebLayerCloudwatchConfigurationOutput) ToStaticWebLayerCloudwatchC
 	}).(StaticWebLayerCloudwatchConfigurationPtrOutput)
 }
 
+func (o StaticWebLayerCloudwatchConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[StaticWebLayerCloudwatchConfiguration] {
+	return pulumix.Output[StaticWebLayerCloudwatchConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o StaticWebLayerCloudwatchConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StaticWebLayerCloudwatchConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -11735,6 +13362,12 @@ func (o StaticWebLayerCloudwatchConfigurationPtrOutput) ToStaticWebLayerCloudwat
 
 func (o StaticWebLayerCloudwatchConfigurationPtrOutput) ToStaticWebLayerCloudwatchConfigurationPtrOutputWithContext(ctx context.Context) StaticWebLayerCloudwatchConfigurationPtrOutput {
 	return o
+}
+
+func (o StaticWebLayerCloudwatchConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StaticWebLayerCloudwatchConfiguration] {
+	return pulumix.Output[*StaticWebLayerCloudwatchConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StaticWebLayerCloudwatchConfigurationPtrOutput) Elem() StaticWebLayerCloudwatchConfigurationOutput {
@@ -11816,6 +13449,12 @@ func (i StaticWebLayerCloudwatchConfigurationLogStreamArgs) ToStaticWebLayerClou
 	return pulumi.ToOutputWithContext(ctx, i).(StaticWebLayerCloudwatchConfigurationLogStreamOutput)
 }
 
+func (i StaticWebLayerCloudwatchConfigurationLogStreamArgs) ToOutput(ctx context.Context) pulumix.Output[StaticWebLayerCloudwatchConfigurationLogStream] {
+	return pulumix.Output[StaticWebLayerCloudwatchConfigurationLogStream]{
+		OutputState: i.ToStaticWebLayerCloudwatchConfigurationLogStreamOutputWithContext(ctx).OutputState,
+	}
+}
+
 // StaticWebLayerCloudwatchConfigurationLogStreamArrayInput is an input type that accepts StaticWebLayerCloudwatchConfigurationLogStreamArray and StaticWebLayerCloudwatchConfigurationLogStreamArrayOutput values.
 // You can construct a concrete instance of `StaticWebLayerCloudwatchConfigurationLogStreamArrayInput` via:
 //
@@ -11841,6 +13480,12 @@ func (i StaticWebLayerCloudwatchConfigurationLogStreamArray) ToStaticWebLayerClo
 	return pulumi.ToOutputWithContext(ctx, i).(StaticWebLayerCloudwatchConfigurationLogStreamArrayOutput)
 }
 
+func (i StaticWebLayerCloudwatchConfigurationLogStreamArray) ToOutput(ctx context.Context) pulumix.Output[[]StaticWebLayerCloudwatchConfigurationLogStream] {
+	return pulumix.Output[[]StaticWebLayerCloudwatchConfigurationLogStream]{
+		OutputState: i.ToStaticWebLayerCloudwatchConfigurationLogStreamArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StaticWebLayerCloudwatchConfigurationLogStreamOutput struct{ *pulumi.OutputState }
 
 func (StaticWebLayerCloudwatchConfigurationLogStreamOutput) ElementType() reflect.Type {
@@ -11853,6 +13498,12 @@ func (o StaticWebLayerCloudwatchConfigurationLogStreamOutput) ToStaticWebLayerCl
 
 func (o StaticWebLayerCloudwatchConfigurationLogStreamOutput) ToStaticWebLayerCloudwatchConfigurationLogStreamOutputWithContext(ctx context.Context) StaticWebLayerCloudwatchConfigurationLogStreamOutput {
 	return o
+}
+
+func (o StaticWebLayerCloudwatchConfigurationLogStreamOutput) ToOutput(ctx context.Context) pulumix.Output[StaticWebLayerCloudwatchConfigurationLogStream] {
+	return pulumix.Output[StaticWebLayerCloudwatchConfigurationLogStream]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StaticWebLayerCloudwatchConfigurationLogStreamOutput) BatchCount() pulumi.IntPtrOutput {
@@ -11911,6 +13562,12 @@ func (o StaticWebLayerCloudwatchConfigurationLogStreamArrayOutput) ToStaticWebLa
 
 func (o StaticWebLayerCloudwatchConfigurationLogStreamArrayOutput) ToStaticWebLayerCloudwatchConfigurationLogStreamArrayOutputWithContext(ctx context.Context) StaticWebLayerCloudwatchConfigurationLogStreamArrayOutput {
 	return o
+}
+
+func (o StaticWebLayerCloudwatchConfigurationLogStreamArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]StaticWebLayerCloudwatchConfigurationLogStream] {
+	return pulumix.Output[[]StaticWebLayerCloudwatchConfigurationLogStream]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StaticWebLayerCloudwatchConfigurationLogStreamArrayOutput) Index(i pulumi.IntInput) StaticWebLayerCloudwatchConfigurationLogStreamOutput {
@@ -11974,6 +13631,12 @@ func (i StaticWebLayerEbsVolumeArgs) ToStaticWebLayerEbsVolumeOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(StaticWebLayerEbsVolumeOutput)
 }
 
+func (i StaticWebLayerEbsVolumeArgs) ToOutput(ctx context.Context) pulumix.Output[StaticWebLayerEbsVolume] {
+	return pulumix.Output[StaticWebLayerEbsVolume]{
+		OutputState: i.ToStaticWebLayerEbsVolumeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // StaticWebLayerEbsVolumeArrayInput is an input type that accepts StaticWebLayerEbsVolumeArray and StaticWebLayerEbsVolumeArrayOutput values.
 // You can construct a concrete instance of `StaticWebLayerEbsVolumeArrayInput` via:
 //
@@ -11999,6 +13662,12 @@ func (i StaticWebLayerEbsVolumeArray) ToStaticWebLayerEbsVolumeArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(StaticWebLayerEbsVolumeArrayOutput)
 }
 
+func (i StaticWebLayerEbsVolumeArray) ToOutput(ctx context.Context) pulumix.Output[[]StaticWebLayerEbsVolume] {
+	return pulumix.Output[[]StaticWebLayerEbsVolume]{
+		OutputState: i.ToStaticWebLayerEbsVolumeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StaticWebLayerEbsVolumeOutput struct{ *pulumi.OutputState }
 
 func (StaticWebLayerEbsVolumeOutput) ElementType() reflect.Type {
@@ -12011,6 +13680,12 @@ func (o StaticWebLayerEbsVolumeOutput) ToStaticWebLayerEbsVolumeOutput() StaticW
 
 func (o StaticWebLayerEbsVolumeOutput) ToStaticWebLayerEbsVolumeOutputWithContext(ctx context.Context) StaticWebLayerEbsVolumeOutput {
 	return o
+}
+
+func (o StaticWebLayerEbsVolumeOutput) ToOutput(ctx context.Context) pulumix.Output[StaticWebLayerEbsVolume] {
+	return pulumix.Output[StaticWebLayerEbsVolume]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StaticWebLayerEbsVolumeOutput) Encrypted() pulumi.BoolPtrOutput {
@@ -12061,6 +13736,12 @@ func (o StaticWebLayerEbsVolumeArrayOutput) ToStaticWebLayerEbsVolumeArrayOutput
 	return o
 }
 
+func (o StaticWebLayerEbsVolumeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]StaticWebLayerEbsVolume] {
+	return pulumix.Output[[]StaticWebLayerEbsVolume]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o StaticWebLayerEbsVolumeArrayOutput) Index(i pulumi.IntInput) StaticWebLayerEbsVolumeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StaticWebLayerEbsVolume {
 		return vs[0].([]StaticWebLayerEbsVolume)[vs[1].(int)]
@@ -12100,6 +13781,12 @@ func (i StaticWebLayerLoadBasedAutoScalingArgs) ToStaticWebLayerLoadBasedAutoSca
 
 func (i StaticWebLayerLoadBasedAutoScalingArgs) ToStaticWebLayerLoadBasedAutoScalingOutputWithContext(ctx context.Context) StaticWebLayerLoadBasedAutoScalingOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StaticWebLayerLoadBasedAutoScalingOutput)
+}
+
+func (i StaticWebLayerLoadBasedAutoScalingArgs) ToOutput(ctx context.Context) pulumix.Output[StaticWebLayerLoadBasedAutoScaling] {
+	return pulumix.Output[StaticWebLayerLoadBasedAutoScaling]{
+		OutputState: i.ToStaticWebLayerLoadBasedAutoScalingOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i StaticWebLayerLoadBasedAutoScalingArgs) ToStaticWebLayerLoadBasedAutoScalingPtrOutput() StaticWebLayerLoadBasedAutoScalingPtrOutput {
@@ -12143,6 +13830,12 @@ func (i *staticWebLayerLoadBasedAutoScalingPtrType) ToStaticWebLayerLoadBasedAut
 	return pulumi.ToOutputWithContext(ctx, i).(StaticWebLayerLoadBasedAutoScalingPtrOutput)
 }
 
+func (i *staticWebLayerLoadBasedAutoScalingPtrType) ToOutput(ctx context.Context) pulumix.Output[*StaticWebLayerLoadBasedAutoScaling] {
+	return pulumix.Output[*StaticWebLayerLoadBasedAutoScaling]{
+		OutputState: i.ToStaticWebLayerLoadBasedAutoScalingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StaticWebLayerLoadBasedAutoScalingOutput struct{ *pulumi.OutputState }
 
 func (StaticWebLayerLoadBasedAutoScalingOutput) ElementType() reflect.Type {
@@ -12165,6 +13858,12 @@ func (o StaticWebLayerLoadBasedAutoScalingOutput) ToStaticWebLayerLoadBasedAutoS
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v StaticWebLayerLoadBasedAutoScaling) *StaticWebLayerLoadBasedAutoScaling {
 		return &v
 	}).(StaticWebLayerLoadBasedAutoScalingPtrOutput)
+}
+
+func (o StaticWebLayerLoadBasedAutoScalingOutput) ToOutput(ctx context.Context) pulumix.Output[StaticWebLayerLoadBasedAutoScaling] {
+	return pulumix.Output[StaticWebLayerLoadBasedAutoScaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StaticWebLayerLoadBasedAutoScalingOutput) Downscaling() StaticWebLayerLoadBasedAutoScalingDownscalingPtrOutput {
@@ -12195,6 +13894,12 @@ func (o StaticWebLayerLoadBasedAutoScalingPtrOutput) ToStaticWebLayerLoadBasedAu
 
 func (o StaticWebLayerLoadBasedAutoScalingPtrOutput) ToStaticWebLayerLoadBasedAutoScalingPtrOutputWithContext(ctx context.Context) StaticWebLayerLoadBasedAutoScalingPtrOutput {
 	return o
+}
+
+func (o StaticWebLayerLoadBasedAutoScalingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StaticWebLayerLoadBasedAutoScaling] {
+	return pulumix.Output[*StaticWebLayerLoadBasedAutoScaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StaticWebLayerLoadBasedAutoScalingPtrOutput) Elem() StaticWebLayerLoadBasedAutoScalingOutput {
@@ -12277,6 +13982,12 @@ func (i StaticWebLayerLoadBasedAutoScalingDownscalingArgs) ToStaticWebLayerLoadB
 	return pulumi.ToOutputWithContext(ctx, i).(StaticWebLayerLoadBasedAutoScalingDownscalingOutput)
 }
 
+func (i StaticWebLayerLoadBasedAutoScalingDownscalingArgs) ToOutput(ctx context.Context) pulumix.Output[StaticWebLayerLoadBasedAutoScalingDownscaling] {
+	return pulumix.Output[StaticWebLayerLoadBasedAutoScalingDownscaling]{
+		OutputState: i.ToStaticWebLayerLoadBasedAutoScalingDownscalingOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i StaticWebLayerLoadBasedAutoScalingDownscalingArgs) ToStaticWebLayerLoadBasedAutoScalingDownscalingPtrOutput() StaticWebLayerLoadBasedAutoScalingDownscalingPtrOutput {
 	return i.ToStaticWebLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(context.Background())
 }
@@ -12318,6 +14029,12 @@ func (i *staticWebLayerLoadBasedAutoScalingDownscalingPtrType) ToStaticWebLayerL
 	return pulumi.ToOutputWithContext(ctx, i).(StaticWebLayerLoadBasedAutoScalingDownscalingPtrOutput)
 }
 
+func (i *staticWebLayerLoadBasedAutoScalingDownscalingPtrType) ToOutput(ctx context.Context) pulumix.Output[*StaticWebLayerLoadBasedAutoScalingDownscaling] {
+	return pulumix.Output[*StaticWebLayerLoadBasedAutoScalingDownscaling]{
+		OutputState: i.ToStaticWebLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StaticWebLayerLoadBasedAutoScalingDownscalingOutput struct{ *pulumi.OutputState }
 
 func (StaticWebLayerLoadBasedAutoScalingDownscalingOutput) ElementType() reflect.Type {
@@ -12340,6 +14057,12 @@ func (o StaticWebLayerLoadBasedAutoScalingDownscalingOutput) ToStaticWebLayerLoa
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v StaticWebLayerLoadBasedAutoScalingDownscaling) *StaticWebLayerLoadBasedAutoScalingDownscaling {
 		return &v
 	}).(StaticWebLayerLoadBasedAutoScalingDownscalingPtrOutput)
+}
+
+func (o StaticWebLayerLoadBasedAutoScalingDownscalingOutput) ToOutput(ctx context.Context) pulumix.Output[StaticWebLayerLoadBasedAutoScalingDownscaling] {
+	return pulumix.Output[StaticWebLayerLoadBasedAutoScalingDownscaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StaticWebLayerLoadBasedAutoScalingDownscalingOutput) Alarms() pulumi.StringArrayOutput {
@@ -12382,6 +14105,12 @@ func (o StaticWebLayerLoadBasedAutoScalingDownscalingPtrOutput) ToStaticWebLayer
 
 func (o StaticWebLayerLoadBasedAutoScalingDownscalingPtrOutput) ToStaticWebLayerLoadBasedAutoScalingDownscalingPtrOutputWithContext(ctx context.Context) StaticWebLayerLoadBasedAutoScalingDownscalingPtrOutput {
 	return o
+}
+
+func (o StaticWebLayerLoadBasedAutoScalingDownscalingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StaticWebLayerLoadBasedAutoScalingDownscaling] {
+	return pulumix.Output[*StaticWebLayerLoadBasedAutoScalingDownscaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StaticWebLayerLoadBasedAutoScalingDownscalingPtrOutput) Elem() StaticWebLayerLoadBasedAutoScalingDownscalingOutput {
@@ -12500,6 +14229,12 @@ func (i StaticWebLayerLoadBasedAutoScalingUpscalingArgs) ToStaticWebLayerLoadBas
 	return pulumi.ToOutputWithContext(ctx, i).(StaticWebLayerLoadBasedAutoScalingUpscalingOutput)
 }
 
+func (i StaticWebLayerLoadBasedAutoScalingUpscalingArgs) ToOutput(ctx context.Context) pulumix.Output[StaticWebLayerLoadBasedAutoScalingUpscaling] {
+	return pulumix.Output[StaticWebLayerLoadBasedAutoScalingUpscaling]{
+		OutputState: i.ToStaticWebLayerLoadBasedAutoScalingUpscalingOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i StaticWebLayerLoadBasedAutoScalingUpscalingArgs) ToStaticWebLayerLoadBasedAutoScalingUpscalingPtrOutput() StaticWebLayerLoadBasedAutoScalingUpscalingPtrOutput {
 	return i.ToStaticWebLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(context.Background())
 }
@@ -12541,6 +14276,12 @@ func (i *staticWebLayerLoadBasedAutoScalingUpscalingPtrType) ToStaticWebLayerLoa
 	return pulumi.ToOutputWithContext(ctx, i).(StaticWebLayerLoadBasedAutoScalingUpscalingPtrOutput)
 }
 
+func (i *staticWebLayerLoadBasedAutoScalingUpscalingPtrType) ToOutput(ctx context.Context) pulumix.Output[*StaticWebLayerLoadBasedAutoScalingUpscaling] {
+	return pulumix.Output[*StaticWebLayerLoadBasedAutoScalingUpscaling]{
+		OutputState: i.ToStaticWebLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StaticWebLayerLoadBasedAutoScalingUpscalingOutput struct{ *pulumi.OutputState }
 
 func (StaticWebLayerLoadBasedAutoScalingUpscalingOutput) ElementType() reflect.Type {
@@ -12563,6 +14304,12 @@ func (o StaticWebLayerLoadBasedAutoScalingUpscalingOutput) ToStaticWebLayerLoadB
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v StaticWebLayerLoadBasedAutoScalingUpscaling) *StaticWebLayerLoadBasedAutoScalingUpscaling {
 		return &v
 	}).(StaticWebLayerLoadBasedAutoScalingUpscalingPtrOutput)
+}
+
+func (o StaticWebLayerLoadBasedAutoScalingUpscalingOutput) ToOutput(ctx context.Context) pulumix.Output[StaticWebLayerLoadBasedAutoScalingUpscaling] {
+	return pulumix.Output[StaticWebLayerLoadBasedAutoScalingUpscaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StaticWebLayerLoadBasedAutoScalingUpscalingOutput) Alarms() pulumi.StringArrayOutput {
@@ -12605,6 +14352,12 @@ func (o StaticWebLayerLoadBasedAutoScalingUpscalingPtrOutput) ToStaticWebLayerLo
 
 func (o StaticWebLayerLoadBasedAutoScalingUpscalingPtrOutput) ToStaticWebLayerLoadBasedAutoScalingUpscalingPtrOutputWithContext(ctx context.Context) StaticWebLayerLoadBasedAutoScalingUpscalingPtrOutput {
 	return o
+}
+
+func (o StaticWebLayerLoadBasedAutoScalingUpscalingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StaticWebLayerLoadBasedAutoScalingUpscaling] {
+	return pulumix.Output[*StaticWebLayerLoadBasedAutoScalingUpscaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StaticWebLayerLoadBasedAutoScalingUpscalingPtrOutput) Elem() StaticWebLayerLoadBasedAutoScalingUpscalingOutput {

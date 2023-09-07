@@ -23,6 +23,7 @@ class ClusterInstanceArgs:
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  ca_cert_identifier: Optional[pulumi.Input[str]] = None,
                  copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
+                 custom_iam_instance_profile: Optional[pulumi.Input[str]] = None,
                  db_parameter_group_name: Optional[pulumi.Input[str]] = None,
                  db_subnet_group_name: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
@@ -48,6 +49,7 @@ class ClusterInstanceArgs:
         :param pulumi.Input[str] availability_zone: EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) about the details.
         :param pulumi.Input[str] ca_cert_identifier: Identifier of the CA certificate for the DB instance.
         :param pulumi.Input[bool] copy_tags_to_snapshot: Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
+        :param pulumi.Input[str] custom_iam_instance_profile: Instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
         :param pulumi.Input[str] db_parameter_group_name: Name of the DB parameter group to associate with this instance.
         :param pulumi.Input[str] db_subnet_group_name: DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` of the attached `rds.Cluster`.
         :param pulumi.Input[str] engine_version: Database engine version.
@@ -77,6 +79,8 @@ class ClusterInstanceArgs:
             pulumi.set(__self__, "ca_cert_identifier", ca_cert_identifier)
         if copy_tags_to_snapshot is not None:
             pulumi.set(__self__, "copy_tags_to_snapshot", copy_tags_to_snapshot)
+        if custom_iam_instance_profile is not None:
+            pulumi.set(__self__, "custom_iam_instance_profile", custom_iam_instance_profile)
         if db_parameter_group_name is not None:
             pulumi.set(__self__, "db_parameter_group_name", db_parameter_group_name)
         if db_subnet_group_name is not None:
@@ -203,6 +207,18 @@ class ClusterInstanceArgs:
     @copy_tags_to_snapshot.setter
     def copy_tags_to_snapshot(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "copy_tags_to_snapshot", value)
+
+    @property
+    @pulumi.getter(name="customIamInstanceProfile")
+    def custom_iam_instance_profile(self) -> Optional[pulumi.Input[str]]:
+        """
+        Instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
+        """
+        return pulumi.get(self, "custom_iam_instance_profile")
+
+    @custom_iam_instance_profile.setter
+    def custom_iam_instance_profile(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_iam_instance_profile", value)
 
     @property
     @pulumi.getter(name="dbParameterGroupName")
@@ -395,6 +411,7 @@ class _ClusterInstanceState:
                  ca_cert_identifier: Optional[pulumi.Input[str]] = None,
                  cluster_identifier: Optional[pulumi.Input[str]] = None,
                  copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
+                 custom_iam_instance_profile: Optional[pulumi.Input[str]] = None,
                  db_parameter_group_name: Optional[pulumi.Input[str]] = None,
                  db_subnet_group_name: Optional[pulumi.Input[str]] = None,
                  dbi_resource_id: Optional[pulumi.Input[str]] = None,
@@ -430,6 +447,7 @@ class _ClusterInstanceState:
         :param pulumi.Input[str] ca_cert_identifier: Identifier of the CA certificate for the DB instance.
         :param pulumi.Input[str] cluster_identifier: Identifier of the `rds.Cluster` in which to launch this instance.
         :param pulumi.Input[bool] copy_tags_to_snapshot: Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
+        :param pulumi.Input[str] custom_iam_instance_profile: Instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
         :param pulumi.Input[str] db_parameter_group_name: Name of the DB parameter group to associate with this instance.
         :param pulumi.Input[str] db_subnet_group_name: DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` of the attached `rds.Cluster`.
         :param pulumi.Input[str] dbi_resource_id: Region-unique, immutable identifier for the DB instance.
@@ -471,6 +489,8 @@ class _ClusterInstanceState:
             pulumi.set(__self__, "cluster_identifier", cluster_identifier)
         if copy_tags_to_snapshot is not None:
             pulumi.set(__self__, "copy_tags_to_snapshot", copy_tags_to_snapshot)
+        if custom_iam_instance_profile is not None:
+            pulumi.set(__self__, "custom_iam_instance_profile", custom_iam_instance_profile)
         if db_parameter_group_name is not None:
             pulumi.set(__self__, "db_parameter_group_name", db_parameter_group_name)
         if db_subnet_group_name is not None:
@@ -607,6 +627,18 @@ class _ClusterInstanceState:
     @copy_tags_to_snapshot.setter
     def copy_tags_to_snapshot(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "copy_tags_to_snapshot", value)
+
+    @property
+    @pulumi.getter(name="customIamInstanceProfile")
+    def custom_iam_instance_profile(self) -> Optional[pulumi.Input[str]]:
+        """
+        Instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
+        """
+        return pulumi.get(self, "custom_iam_instance_profile")
+
+    @custom_iam_instance_profile.setter
+    def custom_iam_instance_profile(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_iam_instance_profile", value)
 
     @property
     @pulumi.getter(name="dbParameterGroupName")
@@ -932,6 +964,7 @@ class ClusterInstance(pulumi.CustomResource):
                  ca_cert_identifier: Optional[pulumi.Input[str]] = None,
                  cluster_identifier: Optional[pulumi.Input[str]] = None,
                  copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
+                 custom_iam_instance_profile: Optional[pulumi.Input[str]] = None,
                  db_parameter_group_name: Optional[pulumi.Input[str]] = None,
                  db_subnet_group_name: Optional[pulumi.Input[str]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
@@ -1010,6 +1043,7 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[str] ca_cert_identifier: Identifier of the CA certificate for the DB instance.
         :param pulumi.Input[str] cluster_identifier: Identifier of the `rds.Cluster` in which to launch this instance.
         :param pulumi.Input[bool] copy_tags_to_snapshot: Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
+        :param pulumi.Input[str] custom_iam_instance_profile: Instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
         :param pulumi.Input[str] db_parameter_group_name: Name of the DB parameter group to associate with this instance.
         :param pulumi.Input[str] db_subnet_group_name: DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` of the attached `rds.Cluster`.
         :param pulumi.Input[str] engine: Name of the database engine to be used for the RDS instance. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.
@@ -1107,6 +1141,7 @@ class ClusterInstance(pulumi.CustomResource):
                  ca_cert_identifier: Optional[pulumi.Input[str]] = None,
                  cluster_identifier: Optional[pulumi.Input[str]] = None,
                  copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
+                 custom_iam_instance_profile: Optional[pulumi.Input[str]] = None,
                  db_parameter_group_name: Optional[pulumi.Input[str]] = None,
                  db_subnet_group_name: Optional[pulumi.Input[str]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
@@ -1141,6 +1176,7 @@ class ClusterInstance(pulumi.CustomResource):
                 raise TypeError("Missing required property 'cluster_identifier'")
             __props__.__dict__["cluster_identifier"] = cluster_identifier
             __props__.__dict__["copy_tags_to_snapshot"] = copy_tags_to_snapshot
+            __props__.__dict__["custom_iam_instance_profile"] = custom_iam_instance_profile
             __props__.__dict__["db_parameter_group_name"] = db_parameter_group_name
             __props__.__dict__["db_subnet_group_name"] = db_subnet_group_name
             if engine is None and not opts.urn:
@@ -1189,6 +1225,7 @@ class ClusterInstance(pulumi.CustomResource):
             ca_cert_identifier: Optional[pulumi.Input[str]] = None,
             cluster_identifier: Optional[pulumi.Input[str]] = None,
             copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
+            custom_iam_instance_profile: Optional[pulumi.Input[str]] = None,
             db_parameter_group_name: Optional[pulumi.Input[str]] = None,
             db_subnet_group_name: Optional[pulumi.Input[str]] = None,
             dbi_resource_id: Optional[pulumi.Input[str]] = None,
@@ -1229,6 +1266,7 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[str] ca_cert_identifier: Identifier of the CA certificate for the DB instance.
         :param pulumi.Input[str] cluster_identifier: Identifier of the `rds.Cluster` in which to launch this instance.
         :param pulumi.Input[bool] copy_tags_to_snapshot: Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
+        :param pulumi.Input[str] custom_iam_instance_profile: Instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
         :param pulumi.Input[str] db_parameter_group_name: Name of the DB parameter group to associate with this instance.
         :param pulumi.Input[str] db_subnet_group_name: DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` of the attached `rds.Cluster`.
         :param pulumi.Input[str] dbi_resource_id: Region-unique, immutable identifier for the DB instance.
@@ -1267,6 +1305,7 @@ class ClusterInstance(pulumi.CustomResource):
         __props__.__dict__["ca_cert_identifier"] = ca_cert_identifier
         __props__.__dict__["cluster_identifier"] = cluster_identifier
         __props__.__dict__["copy_tags_to_snapshot"] = copy_tags_to_snapshot
+        __props__.__dict__["custom_iam_instance_profile"] = custom_iam_instance_profile
         __props__.__dict__["db_parameter_group_name"] = db_parameter_group_name
         __props__.__dict__["db_subnet_group_name"] = db_subnet_group_name
         __props__.__dict__["dbi_resource_id"] = dbi_resource_id
@@ -1350,6 +1389,14 @@ class ClusterInstance(pulumi.CustomResource):
         Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
         """
         return pulumi.get(self, "copy_tags_to_snapshot")
+
+    @property
+    @pulumi.getter(name="customIamInstanceProfile")
+    def custom_iam_instance_profile(self) -> pulumi.Output[Optional[str]]:
+        """
+        Instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
+        """
+        return pulumi.get(self, "custom_iam_instance_profile")
 
     @property
     @pulumi.getter(name="dbParameterGroupName")

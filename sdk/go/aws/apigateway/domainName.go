@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Registers a custom domain name for use with AWS API Gateway. Additional information about this functionality
@@ -424,6 +425,12 @@ func (i *DomainName) ToDomainNameOutputWithContext(ctx context.Context) DomainNa
 	return pulumi.ToOutputWithContext(ctx, i).(DomainNameOutput)
 }
 
+func (i *DomainName) ToOutput(ctx context.Context) pulumix.Output[*DomainName] {
+	return pulumix.Output[*DomainName]{
+		OutputState: i.ToDomainNameOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DomainNameArrayInput is an input type that accepts DomainNameArray and DomainNameArrayOutput values.
 // You can construct a concrete instance of `DomainNameArrayInput` via:
 //
@@ -447,6 +454,12 @@ func (i DomainNameArray) ToDomainNameArrayOutput() DomainNameArrayOutput {
 
 func (i DomainNameArray) ToDomainNameArrayOutputWithContext(ctx context.Context) DomainNameArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DomainNameArrayOutput)
+}
+
+func (i DomainNameArray) ToOutput(ctx context.Context) pulumix.Output[[]*DomainName] {
+	return pulumix.Output[[]*DomainName]{
+		OutputState: i.ToDomainNameArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DomainNameMapInput is an input type that accepts DomainNameMap and DomainNameMapOutput values.
@@ -474,6 +487,12 @@ func (i DomainNameMap) ToDomainNameMapOutputWithContext(ctx context.Context) Dom
 	return pulumi.ToOutputWithContext(ctx, i).(DomainNameMapOutput)
 }
 
+func (i DomainNameMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DomainName] {
+	return pulumix.Output[map[string]*DomainName]{
+		OutputState: i.ToDomainNameMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DomainNameOutput struct{ *pulumi.OutputState }
 
 func (DomainNameOutput) ElementType() reflect.Type {
@@ -486,6 +505,12 @@ func (o DomainNameOutput) ToDomainNameOutput() DomainNameOutput {
 
 func (o DomainNameOutput) ToDomainNameOutputWithContext(ctx context.Context) DomainNameOutput {
 	return o
+}
+
+func (o DomainNameOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainName] {
+	return pulumix.Output[*DomainName]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of domain name.
@@ -606,6 +631,12 @@ func (o DomainNameArrayOutput) ToDomainNameArrayOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o DomainNameArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DomainName] {
+	return pulumix.Output[[]*DomainName]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DomainNameArrayOutput) Index(i pulumi.IntInput) DomainNameOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DomainName {
 		return vs[0].([]*DomainName)[vs[1].(int)]
@@ -624,6 +655,12 @@ func (o DomainNameMapOutput) ToDomainNameMapOutput() DomainNameMapOutput {
 
 func (o DomainNameMapOutput) ToDomainNameMapOutputWithContext(ctx context.Context) DomainNameMapOutput {
 	return o
+}
+
+func (o DomainNameMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DomainName] {
+	return pulumix.Output[map[string]*DomainName]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DomainNameMapOutput) MapIndex(k pulumi.StringInput) DomainNameOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS SSM Contact.
@@ -88,11 +89,11 @@ import (
 type Contact struct {
 	pulumi.CustomResourceState
 
-	// A unique and identifiable alias for the contact or escalation plan.
+	// A unique and identifiable alias for the contact or escalation plan. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), and hyphens (`-`).
 	Alias pulumi.StringOutput `pulumi:"alias"`
 	// The Amazon Resource Name (ARN) of the contact or escalation plan.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Full friendly name of the contact or escalation plan.
+	// Full friendly name of the contact or escalation plan. If set, must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
 	// Map of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -141,11 +142,11 @@ func GetContact(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Contact resources.
 type contactState struct {
-	// A unique and identifiable alias for the contact or escalation plan.
+	// A unique and identifiable alias for the contact or escalation plan. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), and hyphens (`-`).
 	Alias *string `pulumi:"alias"`
 	// The Amazon Resource Name (ARN) of the contact or escalation plan.
 	Arn *string `pulumi:"arn"`
-	// Full friendly name of the contact or escalation plan.
+	// Full friendly name of the contact or escalation plan. If set, must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
 	DisplayName *string `pulumi:"displayName"`
 	// Map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -159,11 +160,11 @@ type contactState struct {
 }
 
 type ContactState struct {
-	// A unique and identifiable alias for the contact or escalation plan.
+	// A unique and identifiable alias for the contact or escalation plan. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), and hyphens (`-`).
 	Alias pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the contact or escalation plan.
 	Arn pulumi.StringPtrInput
-	// Full friendly name of the contact or escalation plan.
+	// Full friendly name of the contact or escalation plan. If set, must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
 	DisplayName pulumi.StringPtrInput
 	// Map of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -181,9 +182,9 @@ func (ContactState) ElementType() reflect.Type {
 }
 
 type contactArgs struct {
-	// A unique and identifiable alias for the contact or escalation plan.
+	// A unique and identifiable alias for the contact or escalation plan. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), and hyphens (`-`).
 	Alias string `pulumi:"alias"`
-	// Full friendly name of the contact or escalation plan.
+	// Full friendly name of the contact or escalation plan. If set, must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
 	DisplayName *string `pulumi:"displayName"`
 	// Map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -196,9 +197,9 @@ type contactArgs struct {
 
 // The set of arguments for constructing a Contact resource.
 type ContactArgs struct {
-	// A unique and identifiable alias for the contact or escalation plan.
+	// A unique and identifiable alias for the contact or escalation plan. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), and hyphens (`-`).
 	Alias pulumi.StringInput
-	// Full friendly name of the contact or escalation plan.
+	// Full friendly name of the contact or escalation plan. If set, must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
 	DisplayName pulumi.StringPtrInput
 	// Map of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -232,6 +233,12 @@ func (i *Contact) ToContactOutputWithContext(ctx context.Context) ContactOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ContactOutput)
 }
 
+func (i *Contact) ToOutput(ctx context.Context) pulumix.Output[*Contact] {
+	return pulumix.Output[*Contact]{
+		OutputState: i.ToContactOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ContactArrayInput is an input type that accepts ContactArray and ContactArrayOutput values.
 // You can construct a concrete instance of `ContactArrayInput` via:
 //
@@ -255,6 +262,12 @@ func (i ContactArray) ToContactArrayOutput() ContactArrayOutput {
 
 func (i ContactArray) ToContactArrayOutputWithContext(ctx context.Context) ContactArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ContactArrayOutput)
+}
+
+func (i ContactArray) ToOutput(ctx context.Context) pulumix.Output[[]*Contact] {
+	return pulumix.Output[[]*Contact]{
+		OutputState: i.ToContactArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ContactMapInput is an input type that accepts ContactMap and ContactMapOutput values.
@@ -282,6 +295,12 @@ func (i ContactMap) ToContactMapOutputWithContext(ctx context.Context) ContactMa
 	return pulumi.ToOutputWithContext(ctx, i).(ContactMapOutput)
 }
 
+func (i ContactMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Contact] {
+	return pulumix.Output[map[string]*Contact]{
+		OutputState: i.ToContactMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ContactOutput struct{ *pulumi.OutputState }
 
 func (ContactOutput) ElementType() reflect.Type {
@@ -296,7 +315,13 @@ func (o ContactOutput) ToContactOutputWithContext(ctx context.Context) ContactOu
 	return o
 }
 
-// A unique and identifiable alias for the contact or escalation plan.
+func (o ContactOutput) ToOutput(ctx context.Context) pulumix.Output[*Contact] {
+	return pulumix.Output[*Contact]{
+		OutputState: o.OutputState,
+	}
+}
+
+// A unique and identifiable alias for the contact or escalation plan. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), and hyphens (`-`).
 func (o ContactOutput) Alias() pulumi.StringOutput {
 	return o.ApplyT(func(v *Contact) pulumi.StringOutput { return v.Alias }).(pulumi.StringOutput)
 }
@@ -306,7 +331,7 @@ func (o ContactOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Contact) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Full friendly name of the contact or escalation plan.
+// Full friendly name of the contact or escalation plan. If set, must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
 func (o ContactOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Contact) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
@@ -343,6 +368,12 @@ func (o ContactArrayOutput) ToContactArrayOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o ContactArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Contact] {
+	return pulumix.Output[[]*Contact]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ContactArrayOutput) Index(i pulumi.IntInput) ContactOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Contact {
 		return vs[0].([]*Contact)[vs[1].(int)]
@@ -361,6 +392,12 @@ func (o ContactMapOutput) ToContactMapOutput() ContactMapOutput {
 
 func (o ContactMapOutput) ToContactMapOutputWithContext(ctx context.Context) ContactMapOutput {
 	return o
+}
+
+func (o ContactMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Contact] {
+	return pulumix.Output[map[string]*Contact]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ContactMapOutput) MapIndex(k pulumi.StringInput) ContactOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates an HSM configuration that contains the information required by an Amazon Redshift cluster to store and use database encryption keys in a Hardware Security Module (HSM).
@@ -235,6 +236,12 @@ func (i *HsmConfiguration) ToHsmConfigurationOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(HsmConfigurationOutput)
 }
 
+func (i *HsmConfiguration) ToOutput(ctx context.Context) pulumix.Output[*HsmConfiguration] {
+	return pulumix.Output[*HsmConfiguration]{
+		OutputState: i.ToHsmConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // HsmConfigurationArrayInput is an input type that accepts HsmConfigurationArray and HsmConfigurationArrayOutput values.
 // You can construct a concrete instance of `HsmConfigurationArrayInput` via:
 //
@@ -258,6 +265,12 @@ func (i HsmConfigurationArray) ToHsmConfigurationArrayOutput() HsmConfigurationA
 
 func (i HsmConfigurationArray) ToHsmConfigurationArrayOutputWithContext(ctx context.Context) HsmConfigurationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HsmConfigurationArrayOutput)
+}
+
+func (i HsmConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]*HsmConfiguration] {
+	return pulumix.Output[[]*HsmConfiguration]{
+		OutputState: i.ToHsmConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // HsmConfigurationMapInput is an input type that accepts HsmConfigurationMap and HsmConfigurationMapOutput values.
@@ -285,6 +298,12 @@ func (i HsmConfigurationMap) ToHsmConfigurationMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(HsmConfigurationMapOutput)
 }
 
+func (i HsmConfigurationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*HsmConfiguration] {
+	return pulumix.Output[map[string]*HsmConfiguration]{
+		OutputState: i.ToHsmConfigurationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type HsmConfigurationOutput struct{ *pulumi.OutputState }
 
 func (HsmConfigurationOutput) ElementType() reflect.Type {
@@ -297,6 +316,12 @@ func (o HsmConfigurationOutput) ToHsmConfigurationOutput() HsmConfigurationOutpu
 
 func (o HsmConfigurationOutput) ToHsmConfigurationOutputWithContext(ctx context.Context) HsmConfigurationOutput {
 	return o
+}
+
+func (o HsmConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*HsmConfiguration] {
+	return pulumix.Output[*HsmConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name (ARN) of the Hsm Client Certificate.
@@ -358,6 +383,12 @@ func (o HsmConfigurationArrayOutput) ToHsmConfigurationArrayOutputWithContext(ct
 	return o
 }
 
+func (o HsmConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*HsmConfiguration] {
+	return pulumix.Output[[]*HsmConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o HsmConfigurationArrayOutput) Index(i pulumi.IntInput) HsmConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *HsmConfiguration {
 		return vs[0].([]*HsmConfiguration)[vs[1].(int)]
@@ -376,6 +407,12 @@ func (o HsmConfigurationMapOutput) ToHsmConfigurationMapOutput() HsmConfiguratio
 
 func (o HsmConfigurationMapOutput) ToHsmConfigurationMapOutputWithContext(ctx context.Context) HsmConfigurationMapOutput {
 	return o
+}
+
+func (o HsmConfigurationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*HsmConfiguration] {
+	return pulumix.Output[map[string]*HsmConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o HsmConfigurationMapOutput) MapIndex(k pulumi.StringInput) HsmConfigurationOutput {

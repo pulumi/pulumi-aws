@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing a QuickSight Analysis.
@@ -271,6 +272,12 @@ func (i *Analysis) ToAnalysisOutputWithContext(ctx context.Context) AnalysisOutp
 	return pulumi.ToOutputWithContext(ctx, i).(AnalysisOutput)
 }
 
+func (i *Analysis) ToOutput(ctx context.Context) pulumix.Output[*Analysis] {
+	return pulumix.Output[*Analysis]{
+		OutputState: i.ToAnalysisOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AnalysisArrayInput is an input type that accepts AnalysisArray and AnalysisArrayOutput values.
 // You can construct a concrete instance of `AnalysisArrayInput` via:
 //
@@ -294,6 +301,12 @@ func (i AnalysisArray) ToAnalysisArrayOutput() AnalysisArrayOutput {
 
 func (i AnalysisArray) ToAnalysisArrayOutputWithContext(ctx context.Context) AnalysisArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AnalysisArrayOutput)
+}
+
+func (i AnalysisArray) ToOutput(ctx context.Context) pulumix.Output[[]*Analysis] {
+	return pulumix.Output[[]*Analysis]{
+		OutputState: i.ToAnalysisArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // AnalysisMapInput is an input type that accepts AnalysisMap and AnalysisMapOutput values.
@@ -321,6 +334,12 @@ func (i AnalysisMap) ToAnalysisMapOutputWithContext(ctx context.Context) Analysi
 	return pulumi.ToOutputWithContext(ctx, i).(AnalysisMapOutput)
 }
 
+func (i AnalysisMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Analysis] {
+	return pulumix.Output[map[string]*Analysis]{
+		OutputState: i.ToAnalysisMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AnalysisOutput struct{ *pulumi.OutputState }
 
 func (AnalysisOutput) ElementType() reflect.Type {
@@ -333,6 +352,12 @@ func (o AnalysisOutput) ToAnalysisOutput() AnalysisOutput {
 
 func (o AnalysisOutput) ToAnalysisOutputWithContext(ctx context.Context) AnalysisOutput {
 	return o
+}
+
+func (o AnalysisOutput) ToOutput(ctx context.Context) pulumix.Output[*Analysis] {
+	return pulumix.Output[*Analysis]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Identifier for the analysis.
@@ -425,6 +450,12 @@ func (o AnalysisArrayOutput) ToAnalysisArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o AnalysisArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Analysis] {
+	return pulumix.Output[[]*Analysis]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AnalysisArrayOutput) Index(i pulumi.IntInput) AnalysisOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Analysis {
 		return vs[0].([]*Analysis)[vs[1].(int)]
@@ -443,6 +474,12 @@ func (o AnalysisMapOutput) ToAnalysisMapOutput() AnalysisMapOutput {
 
 func (o AnalysisMapOutput) ToAnalysisMapOutputWithContext(ctx context.Context) AnalysisMapOutput {
 	return o
+}
+
+func (o AnalysisMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Analysis] {
+	return pulumix.Output[map[string]*Analysis]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnalysisMapOutput) MapIndex(k pulumi.StringInput) AnalysisOutput {

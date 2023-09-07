@@ -27,7 +27,8 @@ utilities.lazyLoad(exports, ["getDelegatedServices","getDelegatedServicesOutput"
 
 export { GetOrganizationResult } from "./getOrganization";
 export const getOrganization: typeof import("./getOrganization").getOrganization = null as any;
-utilities.lazyLoad(exports, ["getOrganization"], () => require("./getOrganization"));
+export const getOrganizationOutput: typeof import("./getOrganization").getOrganizationOutput = null as any;
+utilities.lazyLoad(exports, ["getOrganization","getOrganizationOutput"], () => require("./getOrganization"));
 
 export { GetOrganizationalUnitChildAccountsArgs, GetOrganizationalUnitChildAccountsResult, GetOrganizationalUnitChildAccountsOutputArgs } from "./getOrganizationalUnitChildAccounts";
 export const getOrganizationalUnitChildAccounts: typeof import("./getOrganizationalUnitChildAccounts").getOrganizationalUnitChildAccounts = null as any;

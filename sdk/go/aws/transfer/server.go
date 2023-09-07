@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a AWS Transfer Server resource.
@@ -324,7 +325,7 @@ type Server struct {
 	Protocols pulumi.StringArrayOutput `pulumi:"protocols"`
 	// Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-2022-03` and `TransferSecurityPolicy-2023-05`. Default value is: `TransferSecurityPolicy-2018-11`.
 	SecurityPolicyName pulumi.StringPtrOutput `pulumi:"securityPolicyName"`
-	// This is a set of arns of destinations that will receive structured logs from the transfer server
+	// A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
 	StructuredLogDestinations pulumi.StringArrayOutput `pulumi:"structuredLogDestinations"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -419,7 +420,7 @@ type serverState struct {
 	Protocols []string `pulumi:"protocols"`
 	// Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-2022-03` and `TransferSecurityPolicy-2023-05`. Default value is: `TransferSecurityPolicy-2018-11`.
 	SecurityPolicyName *string `pulumi:"securityPolicyName"`
-	// This is a set of arns of destinations that will receive structured logs from the transfer server
+	// A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
 	StructuredLogDestinations []string `pulumi:"structuredLogDestinations"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -470,7 +471,7 @@ type ServerState struct {
 	Protocols pulumi.StringArrayInput
 	// Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-2022-03` and `TransferSecurityPolicy-2023-05`. Default value is: `TransferSecurityPolicy-2018-11`.
 	SecurityPolicyName pulumi.StringPtrInput
-	// This is a set of arns of destinations that will receive structured logs from the transfer server
+	// A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
 	StructuredLogDestinations pulumi.StringArrayInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -519,7 +520,7 @@ type serverArgs struct {
 	Protocols []string `pulumi:"protocols"`
 	// Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-2022-03` and `TransferSecurityPolicy-2023-05`. Default value is: `TransferSecurityPolicy-2018-11`.
 	SecurityPolicyName *string `pulumi:"securityPolicyName"`
-	// This is a set of arns of destinations that will receive structured logs from the transfer server
+	// A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
 	StructuredLogDestinations []string `pulumi:"structuredLogDestinations"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -563,7 +564,7 @@ type ServerArgs struct {
 	Protocols pulumi.StringArrayInput
 	// Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-2022-03` and `TransferSecurityPolicy-2023-05`. Default value is: `TransferSecurityPolicy-2018-11`.
 	SecurityPolicyName pulumi.StringPtrInput
-	// This is a set of arns of destinations that will receive structured logs from the transfer server
+	// A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
 	StructuredLogDestinations pulumi.StringArrayInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -596,6 +597,12 @@ func (i *Server) ToServerOutputWithContext(ctx context.Context) ServerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServerOutput)
 }
 
+func (i *Server) ToOutput(ctx context.Context) pulumix.Output[*Server] {
+	return pulumix.Output[*Server]{
+		OutputState: i.ToServerOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServerArrayInput is an input type that accepts ServerArray and ServerArrayOutput values.
 // You can construct a concrete instance of `ServerArrayInput` via:
 //
@@ -619,6 +626,12 @@ func (i ServerArray) ToServerArrayOutput() ServerArrayOutput {
 
 func (i ServerArray) ToServerArrayOutputWithContext(ctx context.Context) ServerArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServerArrayOutput)
+}
+
+func (i ServerArray) ToOutput(ctx context.Context) pulumix.Output[[]*Server] {
+	return pulumix.Output[[]*Server]{
+		OutputState: i.ToServerArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ServerMapInput is an input type that accepts ServerMap and ServerMapOutput values.
@@ -646,6 +659,12 @@ func (i ServerMap) ToServerMapOutputWithContext(ctx context.Context) ServerMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(ServerMapOutput)
 }
 
+func (i ServerMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Server] {
+	return pulumix.Output[map[string]*Server]{
+		OutputState: i.ToServerMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServerOutput struct{ *pulumi.OutputState }
 
 func (ServerOutput) ElementType() reflect.Type {
@@ -658,6 +677,12 @@ func (o ServerOutput) ToServerOutput() ServerOutput {
 
 func (o ServerOutput) ToServerOutputWithContext(ctx context.Context) ServerOutput {
 	return o
+}
+
+func (o ServerOutput) ToOutput(ctx context.Context) pulumix.Output[*Server] {
+	return pulumix.Output[*Server]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name (ARN) of Transfer Server
@@ -755,7 +780,7 @@ func (o ServerOutput) SecurityPolicyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.SecurityPolicyName }).(pulumi.StringPtrOutput)
 }
 
-// This is a set of arns of destinations that will receive structured logs from the transfer server
+// A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
 func (o ServerOutput) StructuredLogDestinations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringArrayOutput { return v.StructuredLogDestinations }).(pulumi.StringArrayOutput)
 }
@@ -794,6 +819,12 @@ func (o ServerArrayOutput) ToServerArrayOutputWithContext(ctx context.Context) S
 	return o
 }
 
+func (o ServerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Server] {
+	return pulumix.Output[[]*Server]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ServerArrayOutput) Index(i pulumi.IntInput) ServerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Server {
 		return vs[0].([]*Server)[vs[1].(int)]
@@ -812,6 +843,12 @@ func (o ServerMapOutput) ToServerMapOutput() ServerMapOutput {
 
 func (o ServerMapOutput) ToServerMapOutputWithContext(ctx context.Context) ServerMapOutput {
 	return o
+}
+
+func (o ServerMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Server] {
+	return pulumix.Output[map[string]*Server]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServerMapOutput) MapIndex(k pulumi.StringInput) ServerOutput {

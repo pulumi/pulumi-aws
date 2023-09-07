@@ -80,6 +80,9 @@ export class ServerlessCollection extends pulumi.CustomResource {
      * Collection-specific endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection.
      */
     public /*out*/ readonly collectionEndpoint!: pulumi.Output<string>;
+    /**
+     * Collection-specific endpoint used to access OpenSearch Dashboards.
+     */
     public /*out*/ readonly dashboardEndpoint!: pulumi.Output<string>;
     /**
      * Description of the collection.
@@ -159,6 +162,9 @@ export interface ServerlessCollectionState {
      * Collection-specific endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection.
      */
     collectionEndpoint?: pulumi.Input<string>;
+    /**
+     * Collection-specific endpoint used to access OpenSearch Dashboards.
+     */
     dashboardEndpoint?: pulumi.Input<string>;
     /**
      * Description of the collection.

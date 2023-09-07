@@ -70,7 +70,7 @@ class DomainArgs:
 class _DomainState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
-                 asset_size_bytes: Optional[pulumi.Input[int]] = None,
+                 asset_size_bytes: Optional[pulumi.Input[str]] = None,
                  created_time: Optional[pulumi.Input[str]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
                  encryption_key: Optional[pulumi.Input[str]] = None,
@@ -81,7 +81,7 @@ class _DomainState:
         """
         Input properties used for looking up and filtering Domain resources.
         :param pulumi.Input[str] arn: The ARN of the Domain.
-        :param pulumi.Input[int] asset_size_bytes: The total size of all assets in the domain.
+        :param pulumi.Input[str] asset_size_bytes: The total size of all assets in the domain.
         :param pulumi.Input[str] created_time: A timestamp that represents the date and time the domain was created in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         :param pulumi.Input[str] domain: The name of the domain to create. All domain names in an AWS Region that are in the same AWS account must be unique. The domain name is used as the prefix in DNS hostnames. Do not use sensitive information in a domain name because it is publicly discoverable.
         :param pulumi.Input[str] encryption_key: The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN). The default aws/codeartifact AWS KMS master key is used if this element is absent.
@@ -123,14 +123,14 @@ class _DomainState:
 
     @property
     @pulumi.getter(name="assetSizeBytes")
-    def asset_size_bytes(self) -> Optional[pulumi.Input[int]]:
+    def asset_size_bytes(self) -> Optional[pulumi.Input[str]]:
         """
         The total size of all assets in the domain.
         """
         return pulumi.get(self, "asset_size_bytes")
 
     @asset_size_bytes.setter
-    def asset_size_bytes(self, value: Optional[pulumi.Input[int]]):
+    def asset_size_bytes(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "asset_size_bytes", value)
 
     @property
@@ -328,7 +328,7 @@ class Domain(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            asset_size_bytes: Optional[pulumi.Input[int]] = None,
+            asset_size_bytes: Optional[pulumi.Input[str]] = None,
             created_time: Optional[pulumi.Input[str]] = None,
             domain: Optional[pulumi.Input[str]] = None,
             encryption_key: Optional[pulumi.Input[str]] = None,
@@ -344,7 +344,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the Domain.
-        :param pulumi.Input[int] asset_size_bytes: The total size of all assets in the domain.
+        :param pulumi.Input[str] asset_size_bytes: The total size of all assets in the domain.
         :param pulumi.Input[str] created_time: A timestamp that represents the date and time the domain was created in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         :param pulumi.Input[str] domain: The name of the domain to create. All domain names in an AWS Region that are in the same AWS account must be unique. The domain name is used as the prefix in DNS hostnames. Do not use sensitive information in a domain name because it is publicly discoverable.
         :param pulumi.Input[str] encryption_key: The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN). The default aws/codeartifact AWS KMS master key is used if this element is absent.
@@ -378,7 +378,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="assetSizeBytes")
-    def asset_size_bytes(self) -> pulumi.Output[int]:
+    def asset_size_bytes(self) -> pulumi.Output[str]:
         """
         The total size of all assets in the domain.
         """

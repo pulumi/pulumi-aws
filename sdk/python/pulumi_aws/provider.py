@@ -32,6 +32,7 @@ class ProviderArgs:
                  profile: Optional[pulumi.Input[str]] = None,
                  region: Optional[pulumi.Input[str]] = None,
                  retry_mode: Optional[pulumi.Input[str]] = None,
+                 s3_us_east1_regional_endpoint: Optional[pulumi.Input[str]] = None,
                  s3_use_path_style: Optional[pulumi.Input[bool]] = None,
                  secret_key: Optional[pulumi.Input[str]] = None,
                  shared_config_files: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -63,6 +64,9 @@ class ProviderArgs:
         :param pulumi.Input[str] region: The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
         :param pulumi.Input[str] retry_mode: Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
                `AWS_RETRY_MODE` environment variable.
+        :param pulumi.Input[str] s3_us_east1_regional_endpoint: Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid
+               values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment
+               variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
         :param pulumi.Input[bool] s3_use_path_style: Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
                default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
                Specific to the Amazon S3 service.
@@ -116,6 +120,8 @@ class ProviderArgs:
             pulumi.set(__self__, "region", region)
         if retry_mode is not None:
             pulumi.set(__self__, "retry_mode", retry_mode)
+        if s3_us_east1_regional_endpoint is not None:
+            pulumi.set(__self__, "s3_us_east1_regional_endpoint", s3_us_east1_regional_endpoint)
         if s3_use_path_style is not None:
             pulumi.set(__self__, "s3_use_path_style", s3_use_path_style)
         if secret_key is not None:
@@ -342,6 +348,20 @@ class ProviderArgs:
         pulumi.set(self, "retry_mode", value)
 
     @property
+    @pulumi.getter(name="s3UsEast1RegionalEndpoint")
+    def s3_us_east1_regional_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid
+        values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment
+        variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
+        """
+        return pulumi.get(self, "s3_us_east1_regional_endpoint")
+
+    @s3_us_east1_regional_endpoint.setter
+    def s3_us_east1_regional_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "s3_us_east1_regional_endpoint", value)
+
+    @property
     @pulumi.getter(name="s3UsePathStyle")
     def s3_use_path_style(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -512,6 +532,7 @@ class Provider(pulumi.ProviderResource):
                  profile: Optional[pulumi.Input[str]] = None,
                  region: Optional[pulumi.Input[str]] = None,
                  retry_mode: Optional[pulumi.Input[str]] = None,
+                 s3_us_east1_regional_endpoint: Optional[pulumi.Input[str]] = None,
                  s3_use_path_style: Optional[pulumi.Input[bool]] = None,
                  secret_key: Optional[pulumi.Input[str]] = None,
                  shared_config_files: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -550,6 +571,9 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[str] region: The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
         :param pulumi.Input[str] retry_mode: Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
                `AWS_RETRY_MODE` environment variable.
+        :param pulumi.Input[str] s3_us_east1_regional_endpoint: Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid
+               values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment
+               variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
         :param pulumi.Input[bool] s3_use_path_style: Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
                default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
                Specific to the Amazon S3 service.
@@ -611,6 +635,7 @@ class Provider(pulumi.ProviderResource):
                  profile: Optional[pulumi.Input[str]] = None,
                  region: Optional[pulumi.Input[str]] = None,
                  retry_mode: Optional[pulumi.Input[str]] = None,
+                 s3_us_east1_regional_endpoint: Optional[pulumi.Input[str]] = None,
                  s3_use_path_style: Optional[pulumi.Input[bool]] = None,
                  secret_key: Optional[pulumi.Input[str]] = None,
                  shared_config_files: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -651,6 +676,7 @@ class Provider(pulumi.ProviderResource):
                 region = _utilities.get_env('AWS_REGION', 'AWS_DEFAULT_REGION')
             __props__.__dict__["region"] = region
             __props__.__dict__["retry_mode"] = retry_mode
+            __props__.__dict__["s3_us_east1_regional_endpoint"] = s3_us_east1_regional_endpoint
             __props__.__dict__["s3_use_path_style"] = pulumi.Output.from_input(s3_use_path_style).apply(pulumi.runtime.to_json) if s3_use_path_style is not None else None
             __props__.__dict__["secret_key"] = secret_key
             __props__.__dict__["shared_config_files"] = pulumi.Output.from_input(shared_config_files).apply(pulumi.runtime.to_json) if shared_config_files is not None else None
@@ -743,6 +769,16 @@ class Provider(pulumi.ProviderResource):
         `AWS_RETRY_MODE` environment variable.
         """
         return pulumi.get(self, "retry_mode")
+
+    @property
+    @pulumi.getter(name="s3UsEast1RegionalEndpoint")
+    def s3_us_east1_regional_endpoint(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid
+        values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment
+        variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
+        """
+        return pulumi.get(self, "s3_us_east1_regional_endpoint")
 
     @property
     @pulumi.getter(name="secretKey")

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to manage a GuardDuty IPSet.
@@ -244,6 +245,12 @@ func (i *IPSet) ToIPSetOutputWithContext(ctx context.Context) IPSetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IPSetOutput)
 }
 
+func (i *IPSet) ToOutput(ctx context.Context) pulumix.Output[*IPSet] {
+	return pulumix.Output[*IPSet]{
+		OutputState: i.ToIPSetOutputWithContext(ctx).OutputState,
+	}
+}
+
 // IPSetArrayInput is an input type that accepts IPSetArray and IPSetArrayOutput values.
 // You can construct a concrete instance of `IPSetArrayInput` via:
 //
@@ -267,6 +274,12 @@ func (i IPSetArray) ToIPSetArrayOutput() IPSetArrayOutput {
 
 func (i IPSetArray) ToIPSetArrayOutputWithContext(ctx context.Context) IPSetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IPSetArrayOutput)
+}
+
+func (i IPSetArray) ToOutput(ctx context.Context) pulumix.Output[[]*IPSet] {
+	return pulumix.Output[[]*IPSet]{
+		OutputState: i.ToIPSetArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // IPSetMapInput is an input type that accepts IPSetMap and IPSetMapOutput values.
@@ -294,6 +307,12 @@ func (i IPSetMap) ToIPSetMapOutputWithContext(ctx context.Context) IPSetMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(IPSetMapOutput)
 }
 
+func (i IPSetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*IPSet] {
+	return pulumix.Output[map[string]*IPSet]{
+		OutputState: i.ToIPSetMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IPSetOutput struct{ *pulumi.OutputState }
 
 func (IPSetOutput) ElementType() reflect.Type {
@@ -306,6 +325,12 @@ func (o IPSetOutput) ToIPSetOutput() IPSetOutput {
 
 func (o IPSetOutput) ToIPSetOutputWithContext(ctx context.Context) IPSetOutput {
 	return o
+}
+
+func (o IPSetOutput) ToOutput(ctx context.Context) pulumix.Output[*IPSet] {
+	return pulumix.Output[*IPSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies whether GuardDuty is to start using the uploaded IPSet.
@@ -362,6 +387,12 @@ func (o IPSetArrayOutput) ToIPSetArrayOutputWithContext(ctx context.Context) IPS
 	return o
 }
 
+func (o IPSetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*IPSet] {
+	return pulumix.Output[[]*IPSet]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IPSetArrayOutput) Index(i pulumi.IntInput) IPSetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IPSet {
 		return vs[0].([]*IPSet)[vs[1].(int)]
@@ -380,6 +411,12 @@ func (o IPSetMapOutput) ToIPSetMapOutput() IPSetMapOutput {
 
 func (o IPSetMapOutput) ToIPSetMapOutputWithContext(ctx context.Context) IPSetMapOutput {
 	return o
+}
+
+func (o IPSetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*IPSet] {
+	return pulumix.Output[map[string]*IPSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IPSetMapOutput) MapIndex(k pulumi.StringInput) IPSetOutput {

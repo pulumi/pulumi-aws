@@ -35,11 +35,11 @@ import * as utilities from "../utilities";
  *
  * const secondaryCidr = new aws.ec2.VpcIpv4CidrBlockAssociation("secondaryCidr", {
  *     vpcId: aws_vpc.main.id,
- *     cidrBlock: "172.2.0.0/16",
+ *     cidrBlock: "172.20.0.0/16",
  * });
  * const inSecondaryCidr = new aws.ec2.Subnet("inSecondaryCidr", {
  *     vpcId: secondaryCidr.vpcId,
- *     cidrBlock: "172.2.0.0/24",
+ *     cidrBlock: "172.20.0.0/24",
  * });
  * ```
  *

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Amazon API Gateway Version 2 route response.
@@ -186,6 +187,12 @@ func (i *RouteResponse) ToRouteResponseOutputWithContext(ctx context.Context) Ro
 	return pulumi.ToOutputWithContext(ctx, i).(RouteResponseOutput)
 }
 
+func (i *RouteResponse) ToOutput(ctx context.Context) pulumix.Output[*RouteResponse] {
+	return pulumix.Output[*RouteResponse]{
+		OutputState: i.ToRouteResponseOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RouteResponseArrayInput is an input type that accepts RouteResponseArray and RouteResponseArrayOutput values.
 // You can construct a concrete instance of `RouteResponseArrayInput` via:
 //
@@ -209,6 +216,12 @@ func (i RouteResponseArray) ToRouteResponseArrayOutput() RouteResponseArrayOutpu
 
 func (i RouteResponseArray) ToRouteResponseArrayOutputWithContext(ctx context.Context) RouteResponseArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RouteResponseArrayOutput)
+}
+
+func (i RouteResponseArray) ToOutput(ctx context.Context) pulumix.Output[[]*RouteResponse] {
+	return pulumix.Output[[]*RouteResponse]{
+		OutputState: i.ToRouteResponseArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RouteResponseMapInput is an input type that accepts RouteResponseMap and RouteResponseMapOutput values.
@@ -236,6 +249,12 @@ func (i RouteResponseMap) ToRouteResponseMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(RouteResponseMapOutput)
 }
 
+func (i RouteResponseMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RouteResponse] {
+	return pulumix.Output[map[string]*RouteResponse]{
+		OutputState: i.ToRouteResponseMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RouteResponseOutput struct{ *pulumi.OutputState }
 
 func (RouteResponseOutput) ElementType() reflect.Type {
@@ -248,6 +267,12 @@ func (o RouteResponseOutput) ToRouteResponseOutput() RouteResponseOutput {
 
 func (o RouteResponseOutput) ToRouteResponseOutputWithContext(ctx context.Context) RouteResponseOutput {
 	return o
+}
+
+func (o RouteResponseOutput) ToOutput(ctx context.Context) pulumix.Output[*RouteResponse] {
+	return pulumix.Output[*RouteResponse]{
+		OutputState: o.OutputState,
+	}
 }
 
 // API identifier.
@@ -289,6 +314,12 @@ func (o RouteResponseArrayOutput) ToRouteResponseArrayOutputWithContext(ctx cont
 	return o
 }
 
+func (o RouteResponseArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RouteResponse] {
+	return pulumix.Output[[]*RouteResponse]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RouteResponseArrayOutput) Index(i pulumi.IntInput) RouteResponseOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RouteResponse {
 		return vs[0].([]*RouteResponse)[vs[1].(int)]
@@ -307,6 +338,12 @@ func (o RouteResponseMapOutput) ToRouteResponseMapOutput() RouteResponseMapOutpu
 
 func (o RouteResponseMapOutput) ToRouteResponseMapOutputWithContext(ctx context.Context) RouteResponseMapOutput {
 	return o
+}
+
+func (o RouteResponseMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RouteResponse] {
+	return pulumix.Output[map[string]*RouteResponse]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RouteResponseMapOutput) MapIndex(k pulumi.StringInput) RouteResponseOutput {

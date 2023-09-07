@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Image Builder Distribution Configuration.
@@ -220,6 +221,12 @@ func (i *DistributionConfiguration) ToDistributionConfigurationOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationOutput)
 }
 
+func (i *DistributionConfiguration) ToOutput(ctx context.Context) pulumix.Output[*DistributionConfiguration] {
+	return pulumix.Output[*DistributionConfiguration]{
+		OutputState: i.ToDistributionConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DistributionConfigurationArrayInput is an input type that accepts DistributionConfigurationArray and DistributionConfigurationArrayOutput values.
 // You can construct a concrete instance of `DistributionConfigurationArrayInput` via:
 //
@@ -243,6 +250,12 @@ func (i DistributionConfigurationArray) ToDistributionConfigurationArrayOutput()
 
 func (i DistributionConfigurationArray) ToDistributionConfigurationArrayOutputWithContext(ctx context.Context) DistributionConfigurationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationArrayOutput)
+}
+
+func (i DistributionConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]*DistributionConfiguration] {
+	return pulumix.Output[[]*DistributionConfiguration]{
+		OutputState: i.ToDistributionConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DistributionConfigurationMapInput is an input type that accepts DistributionConfigurationMap and DistributionConfigurationMapOutput values.
@@ -270,6 +283,12 @@ func (i DistributionConfigurationMap) ToDistributionConfigurationMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationMapOutput)
 }
 
+func (i DistributionConfigurationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DistributionConfiguration] {
+	return pulumix.Output[map[string]*DistributionConfiguration]{
+		OutputState: i.ToDistributionConfigurationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DistributionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DistributionConfigurationOutput) ElementType() reflect.Type {
@@ -282,6 +301,12 @@ func (o DistributionConfigurationOutput) ToDistributionConfigurationOutput() Dis
 
 func (o DistributionConfigurationOutput) ToDistributionConfigurationOutputWithContext(ctx context.Context) DistributionConfigurationOutput {
 	return o
+}
+
+func (o DistributionConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*DistributionConfiguration] {
+	return pulumix.Output[*DistributionConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Required) Amazon Resource Name (ARN) of the distribution configuration.
@@ -342,6 +367,12 @@ func (o DistributionConfigurationArrayOutput) ToDistributionConfigurationArrayOu
 	return o
 }
 
+func (o DistributionConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DistributionConfiguration] {
+	return pulumix.Output[[]*DistributionConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DistributionConfigurationArrayOutput) Index(i pulumi.IntInput) DistributionConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DistributionConfiguration {
 		return vs[0].([]*DistributionConfiguration)[vs[1].(int)]
@@ -360,6 +391,12 @@ func (o DistributionConfigurationMapOutput) ToDistributionConfigurationMapOutput
 
 func (o DistributionConfigurationMapOutput) ToDistributionConfigurationMapOutputWithContext(ctx context.Context) DistributionConfigurationMapOutput {
 	return o
+}
+
+func (o DistributionConfigurationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DistributionConfiguration] {
+	return pulumix.Output[map[string]*DistributionConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DistributionConfigurationMapOutput) MapIndex(k pulumi.StringInput) DistributionConfigurationOutput {

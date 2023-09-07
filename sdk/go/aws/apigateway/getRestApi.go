@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get the id and rootResourceId of a REST API in
@@ -124,6 +125,12 @@ func (o LookupRestApiResultOutput) ToLookupRestApiResultOutput() LookupRestApiRe
 
 func (o LookupRestApiResultOutput) ToLookupRestApiResultOutputWithContext(ctx context.Context) LookupRestApiResultOutput {
 	return o
+}
+
+func (o LookupRestApiResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRestApiResult] {
+	return pulumix.Output[LookupRestApiResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Source of the API key for requests.

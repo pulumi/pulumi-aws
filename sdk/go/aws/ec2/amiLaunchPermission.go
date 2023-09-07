@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Adds a launch permission to an Amazon Machine Image (AMI).
@@ -235,6 +236,12 @@ func (i *AmiLaunchPermission) ToAmiLaunchPermissionOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(AmiLaunchPermissionOutput)
 }
 
+func (i *AmiLaunchPermission) ToOutput(ctx context.Context) pulumix.Output[*AmiLaunchPermission] {
+	return pulumix.Output[*AmiLaunchPermission]{
+		OutputState: i.ToAmiLaunchPermissionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AmiLaunchPermissionArrayInput is an input type that accepts AmiLaunchPermissionArray and AmiLaunchPermissionArrayOutput values.
 // You can construct a concrete instance of `AmiLaunchPermissionArrayInput` via:
 //
@@ -258,6 +265,12 @@ func (i AmiLaunchPermissionArray) ToAmiLaunchPermissionArrayOutput() AmiLaunchPe
 
 func (i AmiLaunchPermissionArray) ToAmiLaunchPermissionArrayOutputWithContext(ctx context.Context) AmiLaunchPermissionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AmiLaunchPermissionArrayOutput)
+}
+
+func (i AmiLaunchPermissionArray) ToOutput(ctx context.Context) pulumix.Output[[]*AmiLaunchPermission] {
+	return pulumix.Output[[]*AmiLaunchPermission]{
+		OutputState: i.ToAmiLaunchPermissionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // AmiLaunchPermissionMapInput is an input type that accepts AmiLaunchPermissionMap and AmiLaunchPermissionMapOutput values.
@@ -285,6 +298,12 @@ func (i AmiLaunchPermissionMap) ToAmiLaunchPermissionMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(AmiLaunchPermissionMapOutput)
 }
 
+func (i AmiLaunchPermissionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AmiLaunchPermission] {
+	return pulumix.Output[map[string]*AmiLaunchPermission]{
+		OutputState: i.ToAmiLaunchPermissionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AmiLaunchPermissionOutput struct{ *pulumi.OutputState }
 
 func (AmiLaunchPermissionOutput) ElementType() reflect.Type {
@@ -297,6 +316,12 @@ func (o AmiLaunchPermissionOutput) ToAmiLaunchPermissionOutput() AmiLaunchPermis
 
 func (o AmiLaunchPermissionOutput) ToAmiLaunchPermissionOutputWithContext(ctx context.Context) AmiLaunchPermissionOutput {
 	return o
+}
+
+func (o AmiLaunchPermissionOutput) ToOutput(ctx context.Context) pulumix.Output[*AmiLaunchPermission] {
+	return pulumix.Output[*AmiLaunchPermission]{
+		OutputState: o.OutputState,
+	}
 }
 
 // AWS account ID for the launch permission.
@@ -338,6 +363,12 @@ func (o AmiLaunchPermissionArrayOutput) ToAmiLaunchPermissionArrayOutputWithCont
 	return o
 }
 
+func (o AmiLaunchPermissionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AmiLaunchPermission] {
+	return pulumix.Output[[]*AmiLaunchPermission]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AmiLaunchPermissionArrayOutput) Index(i pulumi.IntInput) AmiLaunchPermissionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AmiLaunchPermission {
 		return vs[0].([]*AmiLaunchPermission)[vs[1].(int)]
@@ -356,6 +387,12 @@ func (o AmiLaunchPermissionMapOutput) ToAmiLaunchPermissionMapOutput() AmiLaunch
 
 func (o AmiLaunchPermissionMapOutput) ToAmiLaunchPermissionMapOutputWithContext(ctx context.Context) AmiLaunchPermissionMapOutput {
 	return o
+}
+
+func (o AmiLaunchPermissionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AmiLaunchPermission] {
+	return pulumix.Output[map[string]*AmiLaunchPermission]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AmiLaunchPermissionMapOutput) MapIndex(k pulumi.StringInput) AmiLaunchPermissionOutput {

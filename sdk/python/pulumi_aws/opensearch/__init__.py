@@ -21,5 +21,6 @@ from .serverless_collection import *
 from .serverless_security_config import *
 from .serverless_security_policy import *
 from .serverless_vpc_endpoint import *
+from .vpc_endpoint import *
 from ._inputs import *
 from . import outputs

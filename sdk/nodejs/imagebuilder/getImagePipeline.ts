@@ -89,6 +89,7 @@ export interface GetImagePipelineResult {
      * ARN of the image recipe.
      */
     readonly imageRecipeArn: string;
+    readonly imageScanningConfigurations: outputs.imagebuilder.GetImagePipelineImageScanningConfiguration[];
     /**
      * List of an object with image tests configuration.
      */

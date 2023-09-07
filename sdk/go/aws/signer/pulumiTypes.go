@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -44,6 +45,12 @@ func (i SigningJobDestinationArgs) ToSigningJobDestinationOutput() SigningJobDes
 
 func (i SigningJobDestinationArgs) ToSigningJobDestinationOutputWithContext(ctx context.Context) SigningJobDestinationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SigningJobDestinationOutput)
+}
+
+func (i SigningJobDestinationArgs) ToOutput(ctx context.Context) pulumix.Output[SigningJobDestination] {
+	return pulumix.Output[SigningJobDestination]{
+		OutputState: i.ToSigningJobDestinationOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i SigningJobDestinationArgs) ToSigningJobDestinationPtrOutput() SigningJobDestinationPtrOutput {
@@ -87,6 +94,12 @@ func (i *signingJobDestinationPtrType) ToSigningJobDestinationPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(SigningJobDestinationPtrOutput)
 }
 
+func (i *signingJobDestinationPtrType) ToOutput(ctx context.Context) pulumix.Output[*SigningJobDestination] {
+	return pulumix.Output[*SigningJobDestination]{
+		OutputState: i.ToSigningJobDestinationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SigningJobDestinationOutput struct{ *pulumi.OutputState }
 
 func (SigningJobDestinationOutput) ElementType() reflect.Type {
@@ -111,6 +124,12 @@ func (o SigningJobDestinationOutput) ToSigningJobDestinationPtrOutputWithContext
 	}).(SigningJobDestinationPtrOutput)
 }
 
+func (o SigningJobDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[SigningJobDestination] {
+	return pulumix.Output[SigningJobDestination]{
+		OutputState: o.OutputState,
+	}
+}
+
 // A configuration block describing the S3 Destination object: See S3 Destination below for details.
 func (o SigningJobDestinationOutput) S3() SigningJobDestinationS3Output {
 	return o.ApplyT(func(v SigningJobDestination) SigningJobDestinationS3 { return v.S3 }).(SigningJobDestinationS3Output)
@@ -128,6 +147,12 @@ func (o SigningJobDestinationPtrOutput) ToSigningJobDestinationPtrOutput() Signi
 
 func (o SigningJobDestinationPtrOutput) ToSigningJobDestinationPtrOutputWithContext(ctx context.Context) SigningJobDestinationPtrOutput {
 	return o
+}
+
+func (o SigningJobDestinationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SigningJobDestination] {
+	return pulumix.Output[*SigningJobDestination]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SigningJobDestinationPtrOutput) Elem() SigningJobDestinationOutput {
@@ -187,6 +212,12 @@ func (i SigningJobDestinationS3Args) ToSigningJobDestinationS3OutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(SigningJobDestinationS3Output)
 }
 
+func (i SigningJobDestinationS3Args) ToOutput(ctx context.Context) pulumix.Output[SigningJobDestinationS3] {
+	return pulumix.Output[SigningJobDestinationS3]{
+		OutputState: i.ToSigningJobDestinationS3OutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SigningJobDestinationS3Args) ToSigningJobDestinationS3PtrOutput() SigningJobDestinationS3PtrOutput {
 	return i.ToSigningJobDestinationS3PtrOutputWithContext(context.Background())
 }
@@ -228,6 +259,12 @@ func (i *signingJobDestinationS3PtrType) ToSigningJobDestinationS3PtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(SigningJobDestinationS3PtrOutput)
 }
 
+func (i *signingJobDestinationS3PtrType) ToOutput(ctx context.Context) pulumix.Output[*SigningJobDestinationS3] {
+	return pulumix.Output[*SigningJobDestinationS3]{
+		OutputState: i.ToSigningJobDestinationS3PtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SigningJobDestinationS3Output struct{ *pulumi.OutputState }
 
 func (SigningJobDestinationS3Output) ElementType() reflect.Type {
@@ -252,6 +289,12 @@ func (o SigningJobDestinationS3Output) ToSigningJobDestinationS3PtrOutputWithCon
 	}).(SigningJobDestinationS3PtrOutput)
 }
 
+func (o SigningJobDestinationS3Output) ToOutput(ctx context.Context) pulumix.Output[SigningJobDestinationS3] {
+	return pulumix.Output[SigningJobDestinationS3]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Name of the S3 bucket.
 func (o SigningJobDestinationS3Output) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v SigningJobDestinationS3) string { return v.Bucket }).(pulumi.StringOutput)
@@ -274,6 +317,12 @@ func (o SigningJobDestinationS3PtrOutput) ToSigningJobDestinationS3PtrOutput() S
 
 func (o SigningJobDestinationS3PtrOutput) ToSigningJobDestinationS3PtrOutputWithContext(ctx context.Context) SigningJobDestinationS3PtrOutput {
 	return o
+}
+
+func (o SigningJobDestinationS3PtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SigningJobDestinationS3] {
+	return pulumix.Output[*SigningJobDestinationS3]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SigningJobDestinationS3PtrOutput) Elem() SigningJobDestinationS3Output {
@@ -341,6 +390,12 @@ func (i SigningJobRevocationRecordArgs) ToSigningJobRevocationRecordOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(SigningJobRevocationRecordOutput)
 }
 
+func (i SigningJobRevocationRecordArgs) ToOutput(ctx context.Context) pulumix.Output[SigningJobRevocationRecord] {
+	return pulumix.Output[SigningJobRevocationRecord]{
+		OutputState: i.ToSigningJobRevocationRecordOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SigningJobRevocationRecordArrayInput is an input type that accepts SigningJobRevocationRecordArray and SigningJobRevocationRecordArrayOutput values.
 // You can construct a concrete instance of `SigningJobRevocationRecordArrayInput` via:
 //
@@ -366,6 +421,12 @@ func (i SigningJobRevocationRecordArray) ToSigningJobRevocationRecordArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SigningJobRevocationRecordArrayOutput)
 }
 
+func (i SigningJobRevocationRecordArray) ToOutput(ctx context.Context) pulumix.Output[[]SigningJobRevocationRecord] {
+	return pulumix.Output[[]SigningJobRevocationRecord]{
+		OutputState: i.ToSigningJobRevocationRecordArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SigningJobRevocationRecordOutput struct{ *pulumi.OutputState }
 
 func (SigningJobRevocationRecordOutput) ElementType() reflect.Type {
@@ -378,6 +439,12 @@ func (o SigningJobRevocationRecordOutput) ToSigningJobRevocationRecordOutput() S
 
 func (o SigningJobRevocationRecordOutput) ToSigningJobRevocationRecordOutputWithContext(ctx context.Context) SigningJobRevocationRecordOutput {
 	return o
+}
+
+func (o SigningJobRevocationRecordOutput) ToOutput(ctx context.Context) pulumix.Output[SigningJobRevocationRecord] {
+	return pulumix.Output[SigningJobRevocationRecord]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SigningJobRevocationRecordOutput) Reason() pulumi.StringPtrOutput {
@@ -404,6 +471,12 @@ func (o SigningJobRevocationRecordArrayOutput) ToSigningJobRevocationRecordArray
 
 func (o SigningJobRevocationRecordArrayOutput) ToSigningJobRevocationRecordArrayOutputWithContext(ctx context.Context) SigningJobRevocationRecordArrayOutput {
 	return o
+}
+
+func (o SigningJobRevocationRecordArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SigningJobRevocationRecord] {
+	return pulumix.Output[[]SigningJobRevocationRecord]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SigningJobRevocationRecordArrayOutput) Index(i pulumi.IntInput) SigningJobRevocationRecordOutput {
@@ -445,6 +518,12 @@ func (i SigningJobSignedObjectArgs) ToSigningJobSignedObjectOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(SigningJobSignedObjectOutput)
 }
 
+func (i SigningJobSignedObjectArgs) ToOutput(ctx context.Context) pulumix.Output[SigningJobSignedObject] {
+	return pulumix.Output[SigningJobSignedObject]{
+		OutputState: i.ToSigningJobSignedObjectOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SigningJobSignedObjectArrayInput is an input type that accepts SigningJobSignedObjectArray and SigningJobSignedObjectArrayOutput values.
 // You can construct a concrete instance of `SigningJobSignedObjectArrayInput` via:
 //
@@ -470,6 +549,12 @@ func (i SigningJobSignedObjectArray) ToSigningJobSignedObjectArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(SigningJobSignedObjectArrayOutput)
 }
 
+func (i SigningJobSignedObjectArray) ToOutput(ctx context.Context) pulumix.Output[[]SigningJobSignedObject] {
+	return pulumix.Output[[]SigningJobSignedObject]{
+		OutputState: i.ToSigningJobSignedObjectArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SigningJobSignedObjectOutput struct{ *pulumi.OutputState }
 
 func (SigningJobSignedObjectOutput) ElementType() reflect.Type {
@@ -482,6 +567,12 @@ func (o SigningJobSignedObjectOutput) ToSigningJobSignedObjectOutput() SigningJo
 
 func (o SigningJobSignedObjectOutput) ToSigningJobSignedObjectOutputWithContext(ctx context.Context) SigningJobSignedObjectOutput {
 	return o
+}
+
+func (o SigningJobSignedObjectOutput) ToOutput(ctx context.Context) pulumix.Output[SigningJobSignedObject] {
+	return pulumix.Output[SigningJobSignedObject]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A configuration block describing the S3 Source object: See S3 Source below for details.
@@ -501,6 +592,12 @@ func (o SigningJobSignedObjectArrayOutput) ToSigningJobSignedObjectArrayOutput()
 
 func (o SigningJobSignedObjectArrayOutput) ToSigningJobSignedObjectArrayOutputWithContext(ctx context.Context) SigningJobSignedObjectArrayOutput {
 	return o
+}
+
+func (o SigningJobSignedObjectArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SigningJobSignedObject] {
+	return pulumix.Output[[]SigningJobSignedObject]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SigningJobSignedObjectArrayOutput) Index(i pulumi.IntInput) SigningJobSignedObjectOutput {
@@ -546,6 +643,12 @@ func (i SigningJobSignedObjectS3Args) ToSigningJobSignedObjectS3OutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(SigningJobSignedObjectS3Output)
 }
 
+func (i SigningJobSignedObjectS3Args) ToOutput(ctx context.Context) pulumix.Output[SigningJobSignedObjectS3] {
+	return pulumix.Output[SigningJobSignedObjectS3]{
+		OutputState: i.ToSigningJobSignedObjectS3OutputWithContext(ctx).OutputState,
+	}
+}
+
 // SigningJobSignedObjectS3ArrayInput is an input type that accepts SigningJobSignedObjectS3Array and SigningJobSignedObjectS3ArrayOutput values.
 // You can construct a concrete instance of `SigningJobSignedObjectS3ArrayInput` via:
 //
@@ -571,6 +674,12 @@ func (i SigningJobSignedObjectS3Array) ToSigningJobSignedObjectS3ArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(SigningJobSignedObjectS3ArrayOutput)
 }
 
+func (i SigningJobSignedObjectS3Array) ToOutput(ctx context.Context) pulumix.Output[[]SigningJobSignedObjectS3] {
+	return pulumix.Output[[]SigningJobSignedObjectS3]{
+		OutputState: i.ToSigningJobSignedObjectS3ArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SigningJobSignedObjectS3Output struct{ *pulumi.OutputState }
 
 func (SigningJobSignedObjectS3Output) ElementType() reflect.Type {
@@ -583,6 +692,12 @@ func (o SigningJobSignedObjectS3Output) ToSigningJobSignedObjectS3Output() Signi
 
 func (o SigningJobSignedObjectS3Output) ToSigningJobSignedObjectS3OutputWithContext(ctx context.Context) SigningJobSignedObjectS3Output {
 	return o
+}
+
+func (o SigningJobSignedObjectS3Output) ToOutput(ctx context.Context) pulumix.Output[SigningJobSignedObjectS3] {
+	return pulumix.Output[SigningJobSignedObjectS3]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the S3 bucket.
@@ -607,6 +722,12 @@ func (o SigningJobSignedObjectS3ArrayOutput) ToSigningJobSignedObjectS3ArrayOutp
 
 func (o SigningJobSignedObjectS3ArrayOutput) ToSigningJobSignedObjectS3ArrayOutputWithContext(ctx context.Context) SigningJobSignedObjectS3ArrayOutput {
 	return o
+}
+
+func (o SigningJobSignedObjectS3ArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SigningJobSignedObjectS3] {
+	return pulumix.Output[[]SigningJobSignedObjectS3]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SigningJobSignedObjectS3ArrayOutput) Index(i pulumi.IntInput) SigningJobSignedObjectS3Output {
@@ -646,6 +767,12 @@ func (i SigningJobSourceArgs) ToSigningJobSourceOutput() SigningJobSourceOutput 
 
 func (i SigningJobSourceArgs) ToSigningJobSourceOutputWithContext(ctx context.Context) SigningJobSourceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SigningJobSourceOutput)
+}
+
+func (i SigningJobSourceArgs) ToOutput(ctx context.Context) pulumix.Output[SigningJobSource] {
+	return pulumix.Output[SigningJobSource]{
+		OutputState: i.ToSigningJobSourceOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i SigningJobSourceArgs) ToSigningJobSourcePtrOutput() SigningJobSourcePtrOutput {
@@ -689,6 +816,12 @@ func (i *signingJobSourcePtrType) ToSigningJobSourcePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(SigningJobSourcePtrOutput)
 }
 
+func (i *signingJobSourcePtrType) ToOutput(ctx context.Context) pulumix.Output[*SigningJobSource] {
+	return pulumix.Output[*SigningJobSource]{
+		OutputState: i.ToSigningJobSourcePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SigningJobSourceOutput struct{ *pulumi.OutputState }
 
 func (SigningJobSourceOutput) ElementType() reflect.Type {
@@ -713,6 +846,12 @@ func (o SigningJobSourceOutput) ToSigningJobSourcePtrOutputWithContext(ctx conte
 	}).(SigningJobSourcePtrOutput)
 }
 
+func (o SigningJobSourceOutput) ToOutput(ctx context.Context) pulumix.Output[SigningJobSource] {
+	return pulumix.Output[SigningJobSource]{
+		OutputState: o.OutputState,
+	}
+}
+
 // A configuration block describing the S3 Source object: See S3 Source below for details.
 func (o SigningJobSourceOutput) S3() SigningJobSourceS3Output {
 	return o.ApplyT(func(v SigningJobSource) SigningJobSourceS3 { return v.S3 }).(SigningJobSourceS3Output)
@@ -730,6 +869,12 @@ func (o SigningJobSourcePtrOutput) ToSigningJobSourcePtrOutput() SigningJobSourc
 
 func (o SigningJobSourcePtrOutput) ToSigningJobSourcePtrOutputWithContext(ctx context.Context) SigningJobSourcePtrOutput {
 	return o
+}
+
+func (o SigningJobSourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SigningJobSource] {
+	return pulumix.Output[*SigningJobSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SigningJobSourcePtrOutput) Elem() SigningJobSourceOutput {
@@ -793,6 +938,12 @@ func (i SigningJobSourceS3Args) ToSigningJobSourceS3OutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(SigningJobSourceS3Output)
 }
 
+func (i SigningJobSourceS3Args) ToOutput(ctx context.Context) pulumix.Output[SigningJobSourceS3] {
+	return pulumix.Output[SigningJobSourceS3]{
+		OutputState: i.ToSigningJobSourceS3OutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SigningJobSourceS3Args) ToSigningJobSourceS3PtrOutput() SigningJobSourceS3PtrOutput {
 	return i.ToSigningJobSourceS3PtrOutputWithContext(context.Background())
 }
@@ -834,6 +985,12 @@ func (i *signingJobSourceS3PtrType) ToSigningJobSourceS3PtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SigningJobSourceS3PtrOutput)
 }
 
+func (i *signingJobSourceS3PtrType) ToOutput(ctx context.Context) pulumix.Output[*SigningJobSourceS3] {
+	return pulumix.Output[*SigningJobSourceS3]{
+		OutputState: i.ToSigningJobSourceS3PtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SigningJobSourceS3Output struct{ *pulumi.OutputState }
 
 func (SigningJobSourceS3Output) ElementType() reflect.Type {
@@ -856,6 +1013,12 @@ func (o SigningJobSourceS3Output) ToSigningJobSourceS3PtrOutputWithContext(ctx c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SigningJobSourceS3) *SigningJobSourceS3 {
 		return &v
 	}).(SigningJobSourceS3PtrOutput)
+}
+
+func (o SigningJobSourceS3Output) ToOutput(ctx context.Context) pulumix.Output[SigningJobSourceS3] {
+	return pulumix.Output[SigningJobSourceS3]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the S3 bucket.
@@ -885,6 +1048,12 @@ func (o SigningJobSourceS3PtrOutput) ToSigningJobSourceS3PtrOutput() SigningJobS
 
 func (o SigningJobSourceS3PtrOutput) ToSigningJobSourceS3PtrOutputWithContext(ctx context.Context) SigningJobSourceS3PtrOutput {
 	return o
+}
+
+func (o SigningJobSourceS3PtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SigningJobSourceS3] {
+	return pulumix.Output[*SigningJobSourceS3]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SigningJobSourceS3PtrOutput) Elem() SigningJobSourceS3Output {
@@ -962,6 +1131,12 @@ func (i SigningProfileRevocationRecordArgs) ToSigningProfileRevocationRecordOutp
 	return pulumi.ToOutputWithContext(ctx, i).(SigningProfileRevocationRecordOutput)
 }
 
+func (i SigningProfileRevocationRecordArgs) ToOutput(ctx context.Context) pulumix.Output[SigningProfileRevocationRecord] {
+	return pulumix.Output[SigningProfileRevocationRecord]{
+		OutputState: i.ToSigningProfileRevocationRecordOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SigningProfileRevocationRecordArrayInput is an input type that accepts SigningProfileRevocationRecordArray and SigningProfileRevocationRecordArrayOutput values.
 // You can construct a concrete instance of `SigningProfileRevocationRecordArrayInput` via:
 //
@@ -987,6 +1162,12 @@ func (i SigningProfileRevocationRecordArray) ToSigningProfileRevocationRecordArr
 	return pulumi.ToOutputWithContext(ctx, i).(SigningProfileRevocationRecordArrayOutput)
 }
 
+func (i SigningProfileRevocationRecordArray) ToOutput(ctx context.Context) pulumix.Output[[]SigningProfileRevocationRecord] {
+	return pulumix.Output[[]SigningProfileRevocationRecord]{
+		OutputState: i.ToSigningProfileRevocationRecordArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SigningProfileRevocationRecordOutput struct{ *pulumi.OutputState }
 
 func (SigningProfileRevocationRecordOutput) ElementType() reflect.Type {
@@ -999,6 +1180,12 @@ func (o SigningProfileRevocationRecordOutput) ToSigningProfileRevocationRecordOu
 
 func (o SigningProfileRevocationRecordOutput) ToSigningProfileRevocationRecordOutputWithContext(ctx context.Context) SigningProfileRevocationRecordOutput {
 	return o
+}
+
+func (o SigningProfileRevocationRecordOutput) ToOutput(ctx context.Context) pulumix.Output[SigningProfileRevocationRecord] {
+	return pulumix.Output[SigningProfileRevocationRecord]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SigningProfileRevocationRecordOutput) RevocationEffectiveFrom() pulumi.StringPtrOutput {
@@ -1025,6 +1212,12 @@ func (o SigningProfileRevocationRecordArrayOutput) ToSigningProfileRevocationRec
 
 func (o SigningProfileRevocationRecordArrayOutput) ToSigningProfileRevocationRecordArrayOutputWithContext(ctx context.Context) SigningProfileRevocationRecordArrayOutput {
 	return o
+}
+
+func (o SigningProfileRevocationRecordArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SigningProfileRevocationRecord] {
+	return pulumix.Output[[]SigningProfileRevocationRecord]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SigningProfileRevocationRecordArrayOutput) Index(i pulumi.IntInput) SigningProfileRevocationRecordOutput {
@@ -1064,6 +1257,12 @@ func (i SigningProfileSignatureValidityPeriodArgs) ToSigningProfileSignatureVali
 
 func (i SigningProfileSignatureValidityPeriodArgs) ToSigningProfileSignatureValidityPeriodOutputWithContext(ctx context.Context) SigningProfileSignatureValidityPeriodOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SigningProfileSignatureValidityPeriodOutput)
+}
+
+func (i SigningProfileSignatureValidityPeriodArgs) ToOutput(ctx context.Context) pulumix.Output[SigningProfileSignatureValidityPeriod] {
+	return pulumix.Output[SigningProfileSignatureValidityPeriod]{
+		OutputState: i.ToSigningProfileSignatureValidityPeriodOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i SigningProfileSignatureValidityPeriodArgs) ToSigningProfileSignatureValidityPeriodPtrOutput() SigningProfileSignatureValidityPeriodPtrOutput {
@@ -1107,6 +1306,12 @@ func (i *signingProfileSignatureValidityPeriodPtrType) ToSigningProfileSignature
 	return pulumi.ToOutputWithContext(ctx, i).(SigningProfileSignatureValidityPeriodPtrOutput)
 }
 
+func (i *signingProfileSignatureValidityPeriodPtrType) ToOutput(ctx context.Context) pulumix.Output[*SigningProfileSignatureValidityPeriod] {
+	return pulumix.Output[*SigningProfileSignatureValidityPeriod]{
+		OutputState: i.ToSigningProfileSignatureValidityPeriodPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SigningProfileSignatureValidityPeriodOutput struct{ *pulumi.OutputState }
 
 func (SigningProfileSignatureValidityPeriodOutput) ElementType() reflect.Type {
@@ -1131,6 +1336,12 @@ func (o SigningProfileSignatureValidityPeriodOutput) ToSigningProfileSignatureVa
 	}).(SigningProfileSignatureValidityPeriodPtrOutput)
 }
 
+func (o SigningProfileSignatureValidityPeriodOutput) ToOutput(ctx context.Context) pulumix.Output[SigningProfileSignatureValidityPeriod] {
+	return pulumix.Output[SigningProfileSignatureValidityPeriod]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SigningProfileSignatureValidityPeriodOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SigningProfileSignatureValidityPeriod) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1151,6 +1362,12 @@ func (o SigningProfileSignatureValidityPeriodPtrOutput) ToSigningProfileSignatur
 
 func (o SigningProfileSignatureValidityPeriodPtrOutput) ToSigningProfileSignatureValidityPeriodPtrOutputWithContext(ctx context.Context) SigningProfileSignatureValidityPeriodPtrOutput {
 	return o
+}
+
+func (o SigningProfileSignatureValidityPeriodPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SigningProfileSignatureValidityPeriod] {
+	return pulumix.Output[*SigningProfileSignatureValidityPeriod]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SigningProfileSignatureValidityPeriodPtrOutput) Elem() SigningProfileSignatureValidityPeriodOutput {
@@ -1212,6 +1429,12 @@ func (i SigningProfileSigningMaterialArgs) ToSigningProfileSigningMaterialOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SigningProfileSigningMaterialOutput)
 }
 
+func (i SigningProfileSigningMaterialArgs) ToOutput(ctx context.Context) pulumix.Output[SigningProfileSigningMaterial] {
+	return pulumix.Output[SigningProfileSigningMaterial]{
+		OutputState: i.ToSigningProfileSigningMaterialOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SigningProfileSigningMaterialArgs) ToSigningProfileSigningMaterialPtrOutput() SigningProfileSigningMaterialPtrOutput {
 	return i.ToSigningProfileSigningMaterialPtrOutputWithContext(context.Background())
 }
@@ -1253,6 +1476,12 @@ func (i *signingProfileSigningMaterialPtrType) ToSigningProfileSigningMaterialPt
 	return pulumi.ToOutputWithContext(ctx, i).(SigningProfileSigningMaterialPtrOutput)
 }
 
+func (i *signingProfileSigningMaterialPtrType) ToOutput(ctx context.Context) pulumix.Output[*SigningProfileSigningMaterial] {
+	return pulumix.Output[*SigningProfileSigningMaterial]{
+		OutputState: i.ToSigningProfileSigningMaterialPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SigningProfileSigningMaterialOutput struct{ *pulumi.OutputState }
 
 func (SigningProfileSigningMaterialOutput) ElementType() reflect.Type {
@@ -1277,6 +1506,12 @@ func (o SigningProfileSigningMaterialOutput) ToSigningProfileSigningMaterialPtrO
 	}).(SigningProfileSigningMaterialPtrOutput)
 }
 
+func (o SigningProfileSigningMaterialOutput) ToOutput(ctx context.Context) pulumix.Output[SigningProfileSigningMaterial] {
+	return pulumix.Output[SigningProfileSigningMaterial]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SigningProfileSigningMaterialOutput) CertificateArn() pulumi.StringOutput {
 	return o.ApplyT(func(v SigningProfileSigningMaterial) string { return v.CertificateArn }).(pulumi.StringOutput)
 }
@@ -1293,6 +1528,12 @@ func (o SigningProfileSigningMaterialPtrOutput) ToSigningProfileSigningMaterialP
 
 func (o SigningProfileSigningMaterialPtrOutput) ToSigningProfileSigningMaterialPtrOutputWithContext(ctx context.Context) SigningProfileSigningMaterialPtrOutput {
 	return o
+}
+
+func (o SigningProfileSigningMaterialPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SigningProfileSigningMaterial] {
+	return pulumix.Output[*SigningProfileSigningMaterial]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SigningProfileSigningMaterialPtrOutput) Elem() SigningProfileSigningMaterialOutput {
@@ -1349,6 +1590,12 @@ func (i GetSigningJobRevocationRecordArgs) ToGetSigningJobRevocationRecordOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetSigningJobRevocationRecordOutput)
 }
 
+func (i GetSigningJobRevocationRecordArgs) ToOutput(ctx context.Context) pulumix.Output[GetSigningJobRevocationRecord] {
+	return pulumix.Output[GetSigningJobRevocationRecord]{
+		OutputState: i.ToGetSigningJobRevocationRecordOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetSigningJobRevocationRecordArrayInput is an input type that accepts GetSigningJobRevocationRecordArray and GetSigningJobRevocationRecordArrayOutput values.
 // You can construct a concrete instance of `GetSigningJobRevocationRecordArrayInput` via:
 //
@@ -1374,6 +1621,12 @@ func (i GetSigningJobRevocationRecordArray) ToGetSigningJobRevocationRecordArray
 	return pulumi.ToOutputWithContext(ctx, i).(GetSigningJobRevocationRecordArrayOutput)
 }
 
+func (i GetSigningJobRevocationRecordArray) ToOutput(ctx context.Context) pulumix.Output[[]GetSigningJobRevocationRecord] {
+	return pulumix.Output[[]GetSigningJobRevocationRecord]{
+		OutputState: i.ToGetSigningJobRevocationRecordArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetSigningJobRevocationRecordOutput struct{ *pulumi.OutputState }
 
 func (GetSigningJobRevocationRecordOutput) ElementType() reflect.Type {
@@ -1386,6 +1639,12 @@ func (o GetSigningJobRevocationRecordOutput) ToGetSigningJobRevocationRecordOutp
 
 func (o GetSigningJobRevocationRecordOutput) ToGetSigningJobRevocationRecordOutputWithContext(ctx context.Context) GetSigningJobRevocationRecordOutput {
 	return o
+}
+
+func (o GetSigningJobRevocationRecordOutput) ToOutput(ctx context.Context) pulumix.Output[GetSigningJobRevocationRecord] {
+	return pulumix.Output[GetSigningJobRevocationRecord]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetSigningJobRevocationRecordOutput) Reason() pulumi.StringOutput {
@@ -1412,6 +1671,12 @@ func (o GetSigningJobRevocationRecordArrayOutput) ToGetSigningJobRevocationRecor
 
 func (o GetSigningJobRevocationRecordArrayOutput) ToGetSigningJobRevocationRecordArrayOutputWithContext(ctx context.Context) GetSigningJobRevocationRecordArrayOutput {
 	return o
+}
+
+func (o GetSigningJobRevocationRecordArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetSigningJobRevocationRecord] {
+	return pulumix.Output[[]GetSigningJobRevocationRecord]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetSigningJobRevocationRecordArrayOutput) Index(i pulumi.IntInput) GetSigningJobRevocationRecordOutput {
@@ -1451,6 +1716,12 @@ func (i GetSigningJobSignedObjectArgs) ToGetSigningJobSignedObjectOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetSigningJobSignedObjectOutput)
 }
 
+func (i GetSigningJobSignedObjectArgs) ToOutput(ctx context.Context) pulumix.Output[GetSigningJobSignedObject] {
+	return pulumix.Output[GetSigningJobSignedObject]{
+		OutputState: i.ToGetSigningJobSignedObjectOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetSigningJobSignedObjectArrayInput is an input type that accepts GetSigningJobSignedObjectArray and GetSigningJobSignedObjectArrayOutput values.
 // You can construct a concrete instance of `GetSigningJobSignedObjectArrayInput` via:
 //
@@ -1476,6 +1747,12 @@ func (i GetSigningJobSignedObjectArray) ToGetSigningJobSignedObjectArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetSigningJobSignedObjectArrayOutput)
 }
 
+func (i GetSigningJobSignedObjectArray) ToOutput(ctx context.Context) pulumix.Output[[]GetSigningJobSignedObject] {
+	return pulumix.Output[[]GetSigningJobSignedObject]{
+		OutputState: i.ToGetSigningJobSignedObjectArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetSigningJobSignedObjectOutput struct{ *pulumi.OutputState }
 
 func (GetSigningJobSignedObjectOutput) ElementType() reflect.Type {
@@ -1488,6 +1765,12 @@ func (o GetSigningJobSignedObjectOutput) ToGetSigningJobSignedObjectOutput() Get
 
 func (o GetSigningJobSignedObjectOutput) ToGetSigningJobSignedObjectOutputWithContext(ctx context.Context) GetSigningJobSignedObjectOutput {
 	return o
+}
+
+func (o GetSigningJobSignedObjectOutput) ToOutput(ctx context.Context) pulumix.Output[GetSigningJobSignedObject] {
+	return pulumix.Output[GetSigningJobSignedObject]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetSigningJobSignedObjectOutput) S3s() GetSigningJobSignedObjectS3ArrayOutput {
@@ -1506,6 +1789,12 @@ func (o GetSigningJobSignedObjectArrayOutput) ToGetSigningJobSignedObjectArrayOu
 
 func (o GetSigningJobSignedObjectArrayOutput) ToGetSigningJobSignedObjectArrayOutputWithContext(ctx context.Context) GetSigningJobSignedObjectArrayOutput {
 	return o
+}
+
+func (o GetSigningJobSignedObjectArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetSigningJobSignedObject] {
+	return pulumix.Output[[]GetSigningJobSignedObject]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetSigningJobSignedObjectArrayOutput) Index(i pulumi.IntInput) GetSigningJobSignedObjectOutput {
@@ -1547,6 +1836,12 @@ func (i GetSigningJobSignedObjectS3Args) ToGetSigningJobSignedObjectS3OutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetSigningJobSignedObjectS3Output)
 }
 
+func (i GetSigningJobSignedObjectS3Args) ToOutput(ctx context.Context) pulumix.Output[GetSigningJobSignedObjectS3] {
+	return pulumix.Output[GetSigningJobSignedObjectS3]{
+		OutputState: i.ToGetSigningJobSignedObjectS3OutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetSigningJobSignedObjectS3ArrayInput is an input type that accepts GetSigningJobSignedObjectS3Array and GetSigningJobSignedObjectS3ArrayOutput values.
 // You can construct a concrete instance of `GetSigningJobSignedObjectS3ArrayInput` via:
 //
@@ -1572,6 +1867,12 @@ func (i GetSigningJobSignedObjectS3Array) ToGetSigningJobSignedObjectS3ArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetSigningJobSignedObjectS3ArrayOutput)
 }
 
+func (i GetSigningJobSignedObjectS3Array) ToOutput(ctx context.Context) pulumix.Output[[]GetSigningJobSignedObjectS3] {
+	return pulumix.Output[[]GetSigningJobSignedObjectS3]{
+		OutputState: i.ToGetSigningJobSignedObjectS3ArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetSigningJobSignedObjectS3Output struct{ *pulumi.OutputState }
 
 func (GetSigningJobSignedObjectS3Output) ElementType() reflect.Type {
@@ -1584,6 +1885,12 @@ func (o GetSigningJobSignedObjectS3Output) ToGetSigningJobSignedObjectS3Output()
 
 func (o GetSigningJobSignedObjectS3Output) ToGetSigningJobSignedObjectS3OutputWithContext(ctx context.Context) GetSigningJobSignedObjectS3Output {
 	return o
+}
+
+func (o GetSigningJobSignedObjectS3Output) ToOutput(ctx context.Context) pulumix.Output[GetSigningJobSignedObjectS3] {
+	return pulumix.Output[GetSigningJobSignedObjectS3]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetSigningJobSignedObjectS3Output) Bucket() pulumi.StringOutput {
@@ -1606,6 +1913,12 @@ func (o GetSigningJobSignedObjectS3ArrayOutput) ToGetSigningJobSignedObjectS3Arr
 
 func (o GetSigningJobSignedObjectS3ArrayOutput) ToGetSigningJobSignedObjectS3ArrayOutputWithContext(ctx context.Context) GetSigningJobSignedObjectS3ArrayOutput {
 	return o
+}
+
+func (o GetSigningJobSignedObjectS3ArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetSigningJobSignedObjectS3] {
+	return pulumix.Output[[]GetSigningJobSignedObjectS3]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetSigningJobSignedObjectS3ArrayOutput) Index(i pulumi.IntInput) GetSigningJobSignedObjectS3Output {
@@ -1645,6 +1958,12 @@ func (i GetSigningJobSourceArgs) ToGetSigningJobSourceOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetSigningJobSourceOutput)
 }
 
+func (i GetSigningJobSourceArgs) ToOutput(ctx context.Context) pulumix.Output[GetSigningJobSource] {
+	return pulumix.Output[GetSigningJobSource]{
+		OutputState: i.ToGetSigningJobSourceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetSigningJobSourceArrayInput is an input type that accepts GetSigningJobSourceArray and GetSigningJobSourceArrayOutput values.
 // You can construct a concrete instance of `GetSigningJobSourceArrayInput` via:
 //
@@ -1670,6 +1989,12 @@ func (i GetSigningJobSourceArray) ToGetSigningJobSourceArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetSigningJobSourceArrayOutput)
 }
 
+func (i GetSigningJobSourceArray) ToOutput(ctx context.Context) pulumix.Output[[]GetSigningJobSource] {
+	return pulumix.Output[[]GetSigningJobSource]{
+		OutputState: i.ToGetSigningJobSourceArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetSigningJobSourceOutput struct{ *pulumi.OutputState }
 
 func (GetSigningJobSourceOutput) ElementType() reflect.Type {
@@ -1682,6 +2007,12 @@ func (o GetSigningJobSourceOutput) ToGetSigningJobSourceOutput() GetSigningJobSo
 
 func (o GetSigningJobSourceOutput) ToGetSigningJobSourceOutputWithContext(ctx context.Context) GetSigningJobSourceOutput {
 	return o
+}
+
+func (o GetSigningJobSourceOutput) ToOutput(ctx context.Context) pulumix.Output[GetSigningJobSource] {
+	return pulumix.Output[GetSigningJobSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetSigningJobSourceOutput) S3s() GetSigningJobSourceS3ArrayOutput {
@@ -1700,6 +2031,12 @@ func (o GetSigningJobSourceArrayOutput) ToGetSigningJobSourceArrayOutput() GetSi
 
 func (o GetSigningJobSourceArrayOutput) ToGetSigningJobSourceArrayOutputWithContext(ctx context.Context) GetSigningJobSourceArrayOutput {
 	return o
+}
+
+func (o GetSigningJobSourceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetSigningJobSource] {
+	return pulumix.Output[[]GetSigningJobSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetSigningJobSourceArrayOutput) Index(i pulumi.IntInput) GetSigningJobSourceOutput {
@@ -1743,6 +2080,12 @@ func (i GetSigningJobSourceS3Args) ToGetSigningJobSourceS3OutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GetSigningJobSourceS3Output)
 }
 
+func (i GetSigningJobSourceS3Args) ToOutput(ctx context.Context) pulumix.Output[GetSigningJobSourceS3] {
+	return pulumix.Output[GetSigningJobSourceS3]{
+		OutputState: i.ToGetSigningJobSourceS3OutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetSigningJobSourceS3ArrayInput is an input type that accepts GetSigningJobSourceS3Array and GetSigningJobSourceS3ArrayOutput values.
 // You can construct a concrete instance of `GetSigningJobSourceS3ArrayInput` via:
 //
@@ -1768,6 +2111,12 @@ func (i GetSigningJobSourceS3Array) ToGetSigningJobSourceS3ArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(GetSigningJobSourceS3ArrayOutput)
 }
 
+func (i GetSigningJobSourceS3Array) ToOutput(ctx context.Context) pulumix.Output[[]GetSigningJobSourceS3] {
+	return pulumix.Output[[]GetSigningJobSourceS3]{
+		OutputState: i.ToGetSigningJobSourceS3ArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetSigningJobSourceS3Output struct{ *pulumi.OutputState }
 
 func (GetSigningJobSourceS3Output) ElementType() reflect.Type {
@@ -1780,6 +2129,12 @@ func (o GetSigningJobSourceS3Output) ToGetSigningJobSourceS3Output() GetSigningJ
 
 func (o GetSigningJobSourceS3Output) ToGetSigningJobSourceS3OutputWithContext(ctx context.Context) GetSigningJobSourceS3Output {
 	return o
+}
+
+func (o GetSigningJobSourceS3Output) ToOutput(ctx context.Context) pulumix.Output[GetSigningJobSourceS3] {
+	return pulumix.Output[GetSigningJobSourceS3]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetSigningJobSourceS3Output) Bucket() pulumi.StringOutput {
@@ -1806,6 +2161,12 @@ func (o GetSigningJobSourceS3ArrayOutput) ToGetSigningJobSourceS3ArrayOutput() G
 
 func (o GetSigningJobSourceS3ArrayOutput) ToGetSigningJobSourceS3ArrayOutputWithContext(ctx context.Context) GetSigningJobSourceS3ArrayOutput {
 	return o
+}
+
+func (o GetSigningJobSourceS3ArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetSigningJobSourceS3] {
+	return pulumix.Output[[]GetSigningJobSourceS3]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetSigningJobSourceS3ArrayOutput) Index(i pulumi.IntInput) GetSigningJobSourceS3Output {
@@ -1849,6 +2210,12 @@ func (i GetSigningProfileRevocationRecordArgs) ToGetSigningProfileRevocationReco
 	return pulumi.ToOutputWithContext(ctx, i).(GetSigningProfileRevocationRecordOutput)
 }
 
+func (i GetSigningProfileRevocationRecordArgs) ToOutput(ctx context.Context) pulumix.Output[GetSigningProfileRevocationRecord] {
+	return pulumix.Output[GetSigningProfileRevocationRecord]{
+		OutputState: i.ToGetSigningProfileRevocationRecordOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetSigningProfileRevocationRecordArrayInput is an input type that accepts GetSigningProfileRevocationRecordArray and GetSigningProfileRevocationRecordArrayOutput values.
 // You can construct a concrete instance of `GetSigningProfileRevocationRecordArrayInput` via:
 //
@@ -1874,6 +2241,12 @@ func (i GetSigningProfileRevocationRecordArray) ToGetSigningProfileRevocationRec
 	return pulumi.ToOutputWithContext(ctx, i).(GetSigningProfileRevocationRecordArrayOutput)
 }
 
+func (i GetSigningProfileRevocationRecordArray) ToOutput(ctx context.Context) pulumix.Output[[]GetSigningProfileRevocationRecord] {
+	return pulumix.Output[[]GetSigningProfileRevocationRecord]{
+		OutputState: i.ToGetSigningProfileRevocationRecordArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetSigningProfileRevocationRecordOutput struct{ *pulumi.OutputState }
 
 func (GetSigningProfileRevocationRecordOutput) ElementType() reflect.Type {
@@ -1886,6 +2259,12 @@ func (o GetSigningProfileRevocationRecordOutput) ToGetSigningProfileRevocationRe
 
 func (o GetSigningProfileRevocationRecordOutput) ToGetSigningProfileRevocationRecordOutputWithContext(ctx context.Context) GetSigningProfileRevocationRecordOutput {
 	return o
+}
+
+func (o GetSigningProfileRevocationRecordOutput) ToOutput(ctx context.Context) pulumix.Output[GetSigningProfileRevocationRecord] {
+	return pulumix.Output[GetSigningProfileRevocationRecord]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetSigningProfileRevocationRecordOutput) RevocationEffectiveFrom() pulumi.StringOutput {
@@ -1912,6 +2291,12 @@ func (o GetSigningProfileRevocationRecordArrayOutput) ToGetSigningProfileRevocat
 
 func (o GetSigningProfileRevocationRecordArrayOutput) ToGetSigningProfileRevocationRecordArrayOutputWithContext(ctx context.Context) GetSigningProfileRevocationRecordArrayOutput {
 	return o
+}
+
+func (o GetSigningProfileRevocationRecordArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetSigningProfileRevocationRecord] {
+	return pulumix.Output[[]GetSigningProfileRevocationRecord]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetSigningProfileRevocationRecordArrayOutput) Index(i pulumi.IntInput) GetSigningProfileRevocationRecordOutput {
@@ -1953,6 +2338,12 @@ func (i GetSigningProfileSignatureValidityPeriodArgs) ToGetSigningProfileSignatu
 	return pulumi.ToOutputWithContext(ctx, i).(GetSigningProfileSignatureValidityPeriodOutput)
 }
 
+func (i GetSigningProfileSignatureValidityPeriodArgs) ToOutput(ctx context.Context) pulumix.Output[GetSigningProfileSignatureValidityPeriod] {
+	return pulumix.Output[GetSigningProfileSignatureValidityPeriod]{
+		OutputState: i.ToGetSigningProfileSignatureValidityPeriodOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetSigningProfileSignatureValidityPeriodArrayInput is an input type that accepts GetSigningProfileSignatureValidityPeriodArray and GetSigningProfileSignatureValidityPeriodArrayOutput values.
 // You can construct a concrete instance of `GetSigningProfileSignatureValidityPeriodArrayInput` via:
 //
@@ -1978,6 +2369,12 @@ func (i GetSigningProfileSignatureValidityPeriodArray) ToGetSigningProfileSignat
 	return pulumi.ToOutputWithContext(ctx, i).(GetSigningProfileSignatureValidityPeriodArrayOutput)
 }
 
+func (i GetSigningProfileSignatureValidityPeriodArray) ToOutput(ctx context.Context) pulumix.Output[[]GetSigningProfileSignatureValidityPeriod] {
+	return pulumix.Output[[]GetSigningProfileSignatureValidityPeriod]{
+		OutputState: i.ToGetSigningProfileSignatureValidityPeriodArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetSigningProfileSignatureValidityPeriodOutput struct{ *pulumi.OutputState }
 
 func (GetSigningProfileSignatureValidityPeriodOutput) ElementType() reflect.Type {
@@ -1990,6 +2387,12 @@ func (o GetSigningProfileSignatureValidityPeriodOutput) ToGetSigningProfileSigna
 
 func (o GetSigningProfileSignatureValidityPeriodOutput) ToGetSigningProfileSignatureValidityPeriodOutputWithContext(ctx context.Context) GetSigningProfileSignatureValidityPeriodOutput {
 	return o
+}
+
+func (o GetSigningProfileSignatureValidityPeriodOutput) ToOutput(ctx context.Context) pulumix.Output[GetSigningProfileSignatureValidityPeriod] {
+	return pulumix.Output[GetSigningProfileSignatureValidityPeriod]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetSigningProfileSignatureValidityPeriodOutput) Type() pulumi.StringOutput {
@@ -2012,6 +2415,12 @@ func (o GetSigningProfileSignatureValidityPeriodArrayOutput) ToGetSigningProfile
 
 func (o GetSigningProfileSignatureValidityPeriodArrayOutput) ToGetSigningProfileSignatureValidityPeriodArrayOutputWithContext(ctx context.Context) GetSigningProfileSignatureValidityPeriodArrayOutput {
 	return o
+}
+
+func (o GetSigningProfileSignatureValidityPeriodArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetSigningProfileSignatureValidityPeriod] {
+	return pulumix.Output[[]GetSigningProfileSignatureValidityPeriod]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetSigningProfileSignatureValidityPeriodArrayOutput) Index(i pulumi.IntInput) GetSigningProfileSignatureValidityPeriodOutput {

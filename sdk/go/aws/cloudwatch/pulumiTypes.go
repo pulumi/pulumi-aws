@@ -9,9 +9,209 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
+
+type CompositeAlarmActionsSuppressor struct {
+	// Can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
+	Alarm string `pulumi:"alarm"`
+	// The maximum time in seconds that the composite alarm waits after suppressor alarm goes out of the `ALARM` state. After this time, the composite alarm performs its actions.
+	ExtensionPeriod int `pulumi:"extensionPeriod"`
+	// The maximum time in seconds that the composite alarm waits for the suppressor alarm to go into the `ALARM` state. After this time, the composite alarm performs its actions.
+	WaitPeriod int `pulumi:"waitPeriod"`
+}
+
+// CompositeAlarmActionsSuppressorInput is an input type that accepts CompositeAlarmActionsSuppressorArgs and CompositeAlarmActionsSuppressorOutput values.
+// You can construct a concrete instance of `CompositeAlarmActionsSuppressorInput` via:
+//
+//	CompositeAlarmActionsSuppressorArgs{...}
+type CompositeAlarmActionsSuppressorInput interface {
+	pulumi.Input
+
+	ToCompositeAlarmActionsSuppressorOutput() CompositeAlarmActionsSuppressorOutput
+	ToCompositeAlarmActionsSuppressorOutputWithContext(context.Context) CompositeAlarmActionsSuppressorOutput
+}
+
+type CompositeAlarmActionsSuppressorArgs struct {
+	// Can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
+	Alarm pulumi.StringInput `pulumi:"alarm"`
+	// The maximum time in seconds that the composite alarm waits after suppressor alarm goes out of the `ALARM` state. After this time, the composite alarm performs its actions.
+	ExtensionPeriod pulumi.IntInput `pulumi:"extensionPeriod"`
+	// The maximum time in seconds that the composite alarm waits for the suppressor alarm to go into the `ALARM` state. After this time, the composite alarm performs its actions.
+	WaitPeriod pulumi.IntInput `pulumi:"waitPeriod"`
+}
+
+func (CompositeAlarmActionsSuppressorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CompositeAlarmActionsSuppressor)(nil)).Elem()
+}
+
+func (i CompositeAlarmActionsSuppressorArgs) ToCompositeAlarmActionsSuppressorOutput() CompositeAlarmActionsSuppressorOutput {
+	return i.ToCompositeAlarmActionsSuppressorOutputWithContext(context.Background())
+}
+
+func (i CompositeAlarmActionsSuppressorArgs) ToCompositeAlarmActionsSuppressorOutputWithContext(ctx context.Context) CompositeAlarmActionsSuppressorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CompositeAlarmActionsSuppressorOutput)
+}
+
+func (i CompositeAlarmActionsSuppressorArgs) ToOutput(ctx context.Context) pulumix.Output[CompositeAlarmActionsSuppressor] {
+	return pulumix.Output[CompositeAlarmActionsSuppressor]{
+		OutputState: i.ToCompositeAlarmActionsSuppressorOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i CompositeAlarmActionsSuppressorArgs) ToCompositeAlarmActionsSuppressorPtrOutput() CompositeAlarmActionsSuppressorPtrOutput {
+	return i.ToCompositeAlarmActionsSuppressorPtrOutputWithContext(context.Background())
+}
+
+func (i CompositeAlarmActionsSuppressorArgs) ToCompositeAlarmActionsSuppressorPtrOutputWithContext(ctx context.Context) CompositeAlarmActionsSuppressorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CompositeAlarmActionsSuppressorOutput).ToCompositeAlarmActionsSuppressorPtrOutputWithContext(ctx)
+}
+
+// CompositeAlarmActionsSuppressorPtrInput is an input type that accepts CompositeAlarmActionsSuppressorArgs, CompositeAlarmActionsSuppressorPtr and CompositeAlarmActionsSuppressorPtrOutput values.
+// You can construct a concrete instance of `CompositeAlarmActionsSuppressorPtrInput` via:
+//
+//	        CompositeAlarmActionsSuppressorArgs{...}
+//
+//	or:
+//
+//	        nil
+type CompositeAlarmActionsSuppressorPtrInput interface {
+	pulumi.Input
+
+	ToCompositeAlarmActionsSuppressorPtrOutput() CompositeAlarmActionsSuppressorPtrOutput
+	ToCompositeAlarmActionsSuppressorPtrOutputWithContext(context.Context) CompositeAlarmActionsSuppressorPtrOutput
+}
+
+type compositeAlarmActionsSuppressorPtrType CompositeAlarmActionsSuppressorArgs
+
+func CompositeAlarmActionsSuppressorPtr(v *CompositeAlarmActionsSuppressorArgs) CompositeAlarmActionsSuppressorPtrInput {
+	return (*compositeAlarmActionsSuppressorPtrType)(v)
+}
+
+func (*compositeAlarmActionsSuppressorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CompositeAlarmActionsSuppressor)(nil)).Elem()
+}
+
+func (i *compositeAlarmActionsSuppressorPtrType) ToCompositeAlarmActionsSuppressorPtrOutput() CompositeAlarmActionsSuppressorPtrOutput {
+	return i.ToCompositeAlarmActionsSuppressorPtrOutputWithContext(context.Background())
+}
+
+func (i *compositeAlarmActionsSuppressorPtrType) ToCompositeAlarmActionsSuppressorPtrOutputWithContext(ctx context.Context) CompositeAlarmActionsSuppressorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CompositeAlarmActionsSuppressorPtrOutput)
+}
+
+func (i *compositeAlarmActionsSuppressorPtrType) ToOutput(ctx context.Context) pulumix.Output[*CompositeAlarmActionsSuppressor] {
+	return pulumix.Output[*CompositeAlarmActionsSuppressor]{
+		OutputState: i.ToCompositeAlarmActionsSuppressorPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type CompositeAlarmActionsSuppressorOutput struct{ *pulumi.OutputState }
+
+func (CompositeAlarmActionsSuppressorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CompositeAlarmActionsSuppressor)(nil)).Elem()
+}
+
+func (o CompositeAlarmActionsSuppressorOutput) ToCompositeAlarmActionsSuppressorOutput() CompositeAlarmActionsSuppressorOutput {
+	return o
+}
+
+func (o CompositeAlarmActionsSuppressorOutput) ToCompositeAlarmActionsSuppressorOutputWithContext(ctx context.Context) CompositeAlarmActionsSuppressorOutput {
+	return o
+}
+
+func (o CompositeAlarmActionsSuppressorOutput) ToCompositeAlarmActionsSuppressorPtrOutput() CompositeAlarmActionsSuppressorPtrOutput {
+	return o.ToCompositeAlarmActionsSuppressorPtrOutputWithContext(context.Background())
+}
+
+func (o CompositeAlarmActionsSuppressorOutput) ToCompositeAlarmActionsSuppressorPtrOutputWithContext(ctx context.Context) CompositeAlarmActionsSuppressorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CompositeAlarmActionsSuppressor) *CompositeAlarmActionsSuppressor {
+		return &v
+	}).(CompositeAlarmActionsSuppressorPtrOutput)
+}
+
+func (o CompositeAlarmActionsSuppressorOutput) ToOutput(ctx context.Context) pulumix.Output[CompositeAlarmActionsSuppressor] {
+	return pulumix.Output[CompositeAlarmActionsSuppressor]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
+func (o CompositeAlarmActionsSuppressorOutput) Alarm() pulumi.StringOutput {
+	return o.ApplyT(func(v CompositeAlarmActionsSuppressor) string { return v.Alarm }).(pulumi.StringOutput)
+}
+
+// The maximum time in seconds that the composite alarm waits after suppressor alarm goes out of the `ALARM` state. After this time, the composite alarm performs its actions.
+func (o CompositeAlarmActionsSuppressorOutput) ExtensionPeriod() pulumi.IntOutput {
+	return o.ApplyT(func(v CompositeAlarmActionsSuppressor) int { return v.ExtensionPeriod }).(pulumi.IntOutput)
+}
+
+// The maximum time in seconds that the composite alarm waits for the suppressor alarm to go into the `ALARM` state. After this time, the composite alarm performs its actions.
+func (o CompositeAlarmActionsSuppressorOutput) WaitPeriod() pulumi.IntOutput {
+	return o.ApplyT(func(v CompositeAlarmActionsSuppressor) int { return v.WaitPeriod }).(pulumi.IntOutput)
+}
+
+type CompositeAlarmActionsSuppressorPtrOutput struct{ *pulumi.OutputState }
+
+func (CompositeAlarmActionsSuppressorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CompositeAlarmActionsSuppressor)(nil)).Elem()
+}
+
+func (o CompositeAlarmActionsSuppressorPtrOutput) ToCompositeAlarmActionsSuppressorPtrOutput() CompositeAlarmActionsSuppressorPtrOutput {
+	return o
+}
+
+func (o CompositeAlarmActionsSuppressorPtrOutput) ToCompositeAlarmActionsSuppressorPtrOutputWithContext(ctx context.Context) CompositeAlarmActionsSuppressorPtrOutput {
+	return o
+}
+
+func (o CompositeAlarmActionsSuppressorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CompositeAlarmActionsSuppressor] {
+	return pulumix.Output[*CompositeAlarmActionsSuppressor]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o CompositeAlarmActionsSuppressorPtrOutput) Elem() CompositeAlarmActionsSuppressorOutput {
+	return o.ApplyT(func(v *CompositeAlarmActionsSuppressor) CompositeAlarmActionsSuppressor {
+		if v != nil {
+			return *v
+		}
+		var ret CompositeAlarmActionsSuppressor
+		return ret
+	}).(CompositeAlarmActionsSuppressorOutput)
+}
+
+// Can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
+func (o CompositeAlarmActionsSuppressorPtrOutput) Alarm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CompositeAlarmActionsSuppressor) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Alarm
+	}).(pulumi.StringPtrOutput)
+}
+
+// The maximum time in seconds that the composite alarm waits after suppressor alarm goes out of the `ALARM` state. After this time, the composite alarm performs its actions.
+func (o CompositeAlarmActionsSuppressorPtrOutput) ExtensionPeriod() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CompositeAlarmActionsSuppressor) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.ExtensionPeriod
+	}).(pulumi.IntPtrOutput)
+}
+
+// The maximum time in seconds that the composite alarm waits for the suppressor alarm to go into the `ALARM` state. After this time, the composite alarm performs its actions.
+func (o CompositeAlarmActionsSuppressorPtrOutput) WaitPeriod() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CompositeAlarmActionsSuppressor) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.WaitPeriod
+	}).(pulumi.IntPtrOutput)
+}
 
 type EventConnectionAuthParameters struct {
 	// Parameters used for API_KEY authorization. An API key to include in the header for each authentication request. A maximum of 1 are allowed. Conflicts with `basic` and `oauth`. Documented below.
@@ -58,6 +258,12 @@ func (i EventConnectionAuthParametersArgs) ToEventConnectionAuthParametersOutput
 	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersOutput)
 }
 
+func (i EventConnectionAuthParametersArgs) ToOutput(ctx context.Context) pulumix.Output[EventConnectionAuthParameters] {
+	return pulumix.Output[EventConnectionAuthParameters]{
+		OutputState: i.ToEventConnectionAuthParametersOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EventConnectionAuthParametersArgs) ToEventConnectionAuthParametersPtrOutput() EventConnectionAuthParametersPtrOutput {
 	return i.ToEventConnectionAuthParametersPtrOutputWithContext(context.Background())
 }
@@ -99,6 +305,12 @@ func (i *eventConnectionAuthParametersPtrType) ToEventConnectionAuthParametersPt
 	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersPtrOutput)
 }
 
+func (i *eventConnectionAuthParametersPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventConnectionAuthParameters] {
+	return pulumix.Output[*EventConnectionAuthParameters]{
+		OutputState: i.ToEventConnectionAuthParametersPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventConnectionAuthParametersOutput struct{ *pulumi.OutputState }
 
 func (EventConnectionAuthParametersOutput) ElementType() reflect.Type {
@@ -121,6 +333,12 @@ func (o EventConnectionAuthParametersOutput) ToEventConnectionAuthParametersPtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventConnectionAuthParameters) *EventConnectionAuthParameters {
 		return &v
 	}).(EventConnectionAuthParametersPtrOutput)
+}
+
+func (o EventConnectionAuthParametersOutput) ToOutput(ctx context.Context) pulumix.Output[EventConnectionAuthParameters] {
+	return pulumix.Output[EventConnectionAuthParameters]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Parameters used for API_KEY authorization. An API key to include in the header for each authentication request. A maximum of 1 are allowed. Conflicts with `basic` and `oauth`. Documented below.
@@ -157,6 +375,12 @@ func (o EventConnectionAuthParametersPtrOutput) ToEventConnectionAuthParametersP
 
 func (o EventConnectionAuthParametersPtrOutput) ToEventConnectionAuthParametersPtrOutputWithContext(ctx context.Context) EventConnectionAuthParametersPtrOutput {
 	return o
+}
+
+func (o EventConnectionAuthParametersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventConnectionAuthParameters] {
+	return pulumix.Output[*EventConnectionAuthParameters]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventConnectionAuthParametersPtrOutput) Elem() EventConnectionAuthParametersOutput {
@@ -246,6 +470,12 @@ func (i EventConnectionAuthParametersApiKeyArgs) ToEventConnectionAuthParameters
 	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersApiKeyOutput)
 }
 
+func (i EventConnectionAuthParametersApiKeyArgs) ToOutput(ctx context.Context) pulumix.Output[EventConnectionAuthParametersApiKey] {
+	return pulumix.Output[EventConnectionAuthParametersApiKey]{
+		OutputState: i.ToEventConnectionAuthParametersApiKeyOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EventConnectionAuthParametersApiKeyArgs) ToEventConnectionAuthParametersApiKeyPtrOutput() EventConnectionAuthParametersApiKeyPtrOutput {
 	return i.ToEventConnectionAuthParametersApiKeyPtrOutputWithContext(context.Background())
 }
@@ -287,6 +517,12 @@ func (i *eventConnectionAuthParametersApiKeyPtrType) ToEventConnectionAuthParame
 	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersApiKeyPtrOutput)
 }
 
+func (i *eventConnectionAuthParametersApiKeyPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventConnectionAuthParametersApiKey] {
+	return pulumix.Output[*EventConnectionAuthParametersApiKey]{
+		OutputState: i.ToEventConnectionAuthParametersApiKeyPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventConnectionAuthParametersApiKeyOutput struct{ *pulumi.OutputState }
 
 func (EventConnectionAuthParametersApiKeyOutput) ElementType() reflect.Type {
@@ -311,6 +547,12 @@ func (o EventConnectionAuthParametersApiKeyOutput) ToEventConnectionAuthParamete
 	}).(EventConnectionAuthParametersApiKeyPtrOutput)
 }
 
+func (o EventConnectionAuthParametersApiKeyOutput) ToOutput(ctx context.Context) pulumix.Output[EventConnectionAuthParametersApiKey] {
+	return pulumix.Output[EventConnectionAuthParametersApiKey]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Header Name.
 func (o EventConnectionAuthParametersApiKeyOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersApiKey) string { return v.Key }).(pulumi.StringOutput)
@@ -333,6 +575,12 @@ func (o EventConnectionAuthParametersApiKeyPtrOutput) ToEventConnectionAuthParam
 
 func (o EventConnectionAuthParametersApiKeyPtrOutput) ToEventConnectionAuthParametersApiKeyPtrOutputWithContext(ctx context.Context) EventConnectionAuthParametersApiKeyPtrOutput {
 	return o
+}
+
+func (o EventConnectionAuthParametersApiKeyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventConnectionAuthParametersApiKey] {
+	return pulumix.Output[*EventConnectionAuthParametersApiKey]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventConnectionAuthParametersApiKeyPtrOutput) Elem() EventConnectionAuthParametersApiKeyOutput {
@@ -402,6 +650,12 @@ func (i EventConnectionAuthParametersBasicArgs) ToEventConnectionAuthParametersB
 	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersBasicOutput)
 }
 
+func (i EventConnectionAuthParametersBasicArgs) ToOutput(ctx context.Context) pulumix.Output[EventConnectionAuthParametersBasic] {
+	return pulumix.Output[EventConnectionAuthParametersBasic]{
+		OutputState: i.ToEventConnectionAuthParametersBasicOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EventConnectionAuthParametersBasicArgs) ToEventConnectionAuthParametersBasicPtrOutput() EventConnectionAuthParametersBasicPtrOutput {
 	return i.ToEventConnectionAuthParametersBasicPtrOutputWithContext(context.Background())
 }
@@ -443,6 +697,12 @@ func (i *eventConnectionAuthParametersBasicPtrType) ToEventConnectionAuthParamet
 	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersBasicPtrOutput)
 }
 
+func (i *eventConnectionAuthParametersBasicPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventConnectionAuthParametersBasic] {
+	return pulumix.Output[*EventConnectionAuthParametersBasic]{
+		OutputState: i.ToEventConnectionAuthParametersBasicPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventConnectionAuthParametersBasicOutput struct{ *pulumi.OutputState }
 
 func (EventConnectionAuthParametersBasicOutput) ElementType() reflect.Type {
@@ -467,6 +727,12 @@ func (o EventConnectionAuthParametersBasicOutput) ToEventConnectionAuthParameter
 	}).(EventConnectionAuthParametersBasicPtrOutput)
 }
 
+func (o EventConnectionAuthParametersBasicOutput) ToOutput(ctx context.Context) pulumix.Output[EventConnectionAuthParametersBasic] {
+	return pulumix.Output[EventConnectionAuthParametersBasic]{
+		OutputState: o.OutputState,
+	}
+}
+
 // A password for the authorization. Created and stored in AWS Secrets Manager.
 func (o EventConnectionAuthParametersBasicOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersBasic) string { return v.Password }).(pulumi.StringOutput)
@@ -489,6 +755,12 @@ func (o EventConnectionAuthParametersBasicPtrOutput) ToEventConnectionAuthParame
 
 func (o EventConnectionAuthParametersBasicPtrOutput) ToEventConnectionAuthParametersBasicPtrOutputWithContext(ctx context.Context) EventConnectionAuthParametersBasicPtrOutput {
 	return o
+}
+
+func (o EventConnectionAuthParametersBasicPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventConnectionAuthParametersBasic] {
+	return pulumix.Output[*EventConnectionAuthParametersBasic]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventConnectionAuthParametersBasicPtrOutput) Elem() EventConnectionAuthParametersBasicOutput {
@@ -562,6 +834,12 @@ func (i EventConnectionAuthParametersInvocationHttpParametersArgs) ToEventConnec
 	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersInvocationHttpParametersOutput)
 }
 
+func (i EventConnectionAuthParametersInvocationHttpParametersArgs) ToOutput(ctx context.Context) pulumix.Output[EventConnectionAuthParametersInvocationHttpParameters] {
+	return pulumix.Output[EventConnectionAuthParametersInvocationHttpParameters]{
+		OutputState: i.ToEventConnectionAuthParametersInvocationHttpParametersOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EventConnectionAuthParametersInvocationHttpParametersArgs) ToEventConnectionAuthParametersInvocationHttpParametersPtrOutput() EventConnectionAuthParametersInvocationHttpParametersPtrOutput {
 	return i.ToEventConnectionAuthParametersInvocationHttpParametersPtrOutputWithContext(context.Background())
 }
@@ -603,6 +881,12 @@ func (i *eventConnectionAuthParametersInvocationHttpParametersPtrType) ToEventCo
 	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersInvocationHttpParametersPtrOutput)
 }
 
+func (i *eventConnectionAuthParametersInvocationHttpParametersPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventConnectionAuthParametersInvocationHttpParameters] {
+	return pulumix.Output[*EventConnectionAuthParametersInvocationHttpParameters]{
+		OutputState: i.ToEventConnectionAuthParametersInvocationHttpParametersPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventConnectionAuthParametersInvocationHttpParametersOutput struct{ *pulumi.OutputState }
 
 func (EventConnectionAuthParametersInvocationHttpParametersOutput) ElementType() reflect.Type {
@@ -625,6 +909,12 @@ func (o EventConnectionAuthParametersInvocationHttpParametersOutput) ToEventConn
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventConnectionAuthParametersInvocationHttpParameters) *EventConnectionAuthParametersInvocationHttpParameters {
 		return &v
 	}).(EventConnectionAuthParametersInvocationHttpParametersPtrOutput)
+}
+
+func (o EventConnectionAuthParametersInvocationHttpParametersOutput) ToOutput(ctx context.Context) pulumix.Output[EventConnectionAuthParametersInvocationHttpParameters] {
+	return pulumix.Output[EventConnectionAuthParametersInvocationHttpParameters]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
@@ -660,6 +950,12 @@ func (o EventConnectionAuthParametersInvocationHttpParametersPtrOutput) ToEventC
 
 func (o EventConnectionAuthParametersInvocationHttpParametersPtrOutput) ToEventConnectionAuthParametersInvocationHttpParametersPtrOutputWithContext(ctx context.Context) EventConnectionAuthParametersInvocationHttpParametersPtrOutput {
 	return o
+}
+
+func (o EventConnectionAuthParametersInvocationHttpParametersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventConnectionAuthParametersInvocationHttpParameters] {
+	return pulumix.Output[*EventConnectionAuthParametersInvocationHttpParameters]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventConnectionAuthParametersInvocationHttpParametersPtrOutput) Elem() EventConnectionAuthParametersInvocationHttpParametersOutput {
@@ -743,6 +1039,12 @@ func (i EventConnectionAuthParametersInvocationHttpParametersBodyArgs) ToEventCo
 	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersInvocationHttpParametersBodyOutput)
 }
 
+func (i EventConnectionAuthParametersInvocationHttpParametersBodyArgs) ToOutput(ctx context.Context) pulumix.Output[EventConnectionAuthParametersInvocationHttpParametersBody] {
+	return pulumix.Output[EventConnectionAuthParametersInvocationHttpParametersBody]{
+		OutputState: i.ToEventConnectionAuthParametersInvocationHttpParametersBodyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventConnectionAuthParametersInvocationHttpParametersBodyArrayInput is an input type that accepts EventConnectionAuthParametersInvocationHttpParametersBodyArray and EventConnectionAuthParametersInvocationHttpParametersBodyArrayOutput values.
 // You can construct a concrete instance of `EventConnectionAuthParametersInvocationHttpParametersBodyArrayInput` via:
 //
@@ -768,6 +1070,12 @@ func (i EventConnectionAuthParametersInvocationHttpParametersBodyArray) ToEventC
 	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersInvocationHttpParametersBodyArrayOutput)
 }
 
+func (i EventConnectionAuthParametersInvocationHttpParametersBodyArray) ToOutput(ctx context.Context) pulumix.Output[[]EventConnectionAuthParametersInvocationHttpParametersBody] {
+	return pulumix.Output[[]EventConnectionAuthParametersInvocationHttpParametersBody]{
+		OutputState: i.ToEventConnectionAuthParametersInvocationHttpParametersBodyArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventConnectionAuthParametersInvocationHttpParametersBodyOutput struct{ *pulumi.OutputState }
 
 func (EventConnectionAuthParametersInvocationHttpParametersBodyOutput) ElementType() reflect.Type {
@@ -780,6 +1088,12 @@ func (o EventConnectionAuthParametersInvocationHttpParametersBodyOutput) ToEvent
 
 func (o EventConnectionAuthParametersInvocationHttpParametersBodyOutput) ToEventConnectionAuthParametersInvocationHttpParametersBodyOutputWithContext(ctx context.Context) EventConnectionAuthParametersInvocationHttpParametersBodyOutput {
 	return o
+}
+
+func (o EventConnectionAuthParametersInvocationHttpParametersBodyOutput) ToOutput(ctx context.Context) pulumix.Output[EventConnectionAuthParametersInvocationHttpParametersBody] {
+	return pulumix.Output[EventConnectionAuthParametersInvocationHttpParametersBody]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specified whether the value is secret.
@@ -809,6 +1123,12 @@ func (o EventConnectionAuthParametersInvocationHttpParametersBodyArrayOutput) To
 
 func (o EventConnectionAuthParametersInvocationHttpParametersBodyArrayOutput) ToEventConnectionAuthParametersInvocationHttpParametersBodyArrayOutputWithContext(ctx context.Context) EventConnectionAuthParametersInvocationHttpParametersBodyArrayOutput {
 	return o
+}
+
+func (o EventConnectionAuthParametersInvocationHttpParametersBodyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventConnectionAuthParametersInvocationHttpParametersBody] {
+	return pulumix.Output[[]EventConnectionAuthParametersInvocationHttpParametersBody]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventConnectionAuthParametersInvocationHttpParametersBodyArrayOutput) Index(i pulumi.IntInput) EventConnectionAuthParametersInvocationHttpParametersBodyOutput {
@@ -858,6 +1178,12 @@ func (i EventConnectionAuthParametersInvocationHttpParametersHeaderArgs) ToEvent
 	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersInvocationHttpParametersHeaderOutput)
 }
 
+func (i EventConnectionAuthParametersInvocationHttpParametersHeaderArgs) ToOutput(ctx context.Context) pulumix.Output[EventConnectionAuthParametersInvocationHttpParametersHeader] {
+	return pulumix.Output[EventConnectionAuthParametersInvocationHttpParametersHeader]{
+		OutputState: i.ToEventConnectionAuthParametersInvocationHttpParametersHeaderOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventConnectionAuthParametersInvocationHttpParametersHeaderArrayInput is an input type that accepts EventConnectionAuthParametersInvocationHttpParametersHeaderArray and EventConnectionAuthParametersInvocationHttpParametersHeaderArrayOutput values.
 // You can construct a concrete instance of `EventConnectionAuthParametersInvocationHttpParametersHeaderArrayInput` via:
 //
@@ -883,6 +1209,12 @@ func (i EventConnectionAuthParametersInvocationHttpParametersHeaderArray) ToEven
 	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersInvocationHttpParametersHeaderArrayOutput)
 }
 
+func (i EventConnectionAuthParametersInvocationHttpParametersHeaderArray) ToOutput(ctx context.Context) pulumix.Output[[]EventConnectionAuthParametersInvocationHttpParametersHeader] {
+	return pulumix.Output[[]EventConnectionAuthParametersInvocationHttpParametersHeader]{
+		OutputState: i.ToEventConnectionAuthParametersInvocationHttpParametersHeaderArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventConnectionAuthParametersInvocationHttpParametersHeaderOutput struct{ *pulumi.OutputState }
 
 func (EventConnectionAuthParametersInvocationHttpParametersHeaderOutput) ElementType() reflect.Type {
@@ -895,6 +1227,12 @@ func (o EventConnectionAuthParametersInvocationHttpParametersHeaderOutput) ToEve
 
 func (o EventConnectionAuthParametersInvocationHttpParametersHeaderOutput) ToEventConnectionAuthParametersInvocationHttpParametersHeaderOutputWithContext(ctx context.Context) EventConnectionAuthParametersInvocationHttpParametersHeaderOutput {
 	return o
+}
+
+func (o EventConnectionAuthParametersInvocationHttpParametersHeaderOutput) ToOutput(ctx context.Context) pulumix.Output[EventConnectionAuthParametersInvocationHttpParametersHeader] {
+	return pulumix.Output[EventConnectionAuthParametersInvocationHttpParametersHeader]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specified whether the value is secret.
@@ -924,6 +1262,12 @@ func (o EventConnectionAuthParametersInvocationHttpParametersHeaderArrayOutput) 
 
 func (o EventConnectionAuthParametersInvocationHttpParametersHeaderArrayOutput) ToEventConnectionAuthParametersInvocationHttpParametersHeaderArrayOutputWithContext(ctx context.Context) EventConnectionAuthParametersInvocationHttpParametersHeaderArrayOutput {
 	return o
+}
+
+func (o EventConnectionAuthParametersInvocationHttpParametersHeaderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventConnectionAuthParametersInvocationHttpParametersHeader] {
+	return pulumix.Output[[]EventConnectionAuthParametersInvocationHttpParametersHeader]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventConnectionAuthParametersInvocationHttpParametersHeaderArrayOutput) Index(i pulumi.IntInput) EventConnectionAuthParametersInvocationHttpParametersHeaderOutput {
@@ -973,6 +1317,12 @@ func (i EventConnectionAuthParametersInvocationHttpParametersQueryStringArgs) To
 	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersInvocationHttpParametersQueryStringOutput)
 }
 
+func (i EventConnectionAuthParametersInvocationHttpParametersQueryStringArgs) ToOutput(ctx context.Context) pulumix.Output[EventConnectionAuthParametersInvocationHttpParametersQueryString] {
+	return pulumix.Output[EventConnectionAuthParametersInvocationHttpParametersQueryString]{
+		OutputState: i.ToEventConnectionAuthParametersInvocationHttpParametersQueryStringOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventConnectionAuthParametersInvocationHttpParametersQueryStringArrayInput is an input type that accepts EventConnectionAuthParametersInvocationHttpParametersQueryStringArray and EventConnectionAuthParametersInvocationHttpParametersQueryStringArrayOutput values.
 // You can construct a concrete instance of `EventConnectionAuthParametersInvocationHttpParametersQueryStringArrayInput` via:
 //
@@ -998,6 +1348,12 @@ func (i EventConnectionAuthParametersInvocationHttpParametersQueryStringArray) T
 	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersInvocationHttpParametersQueryStringArrayOutput)
 }
 
+func (i EventConnectionAuthParametersInvocationHttpParametersQueryStringArray) ToOutput(ctx context.Context) pulumix.Output[[]EventConnectionAuthParametersInvocationHttpParametersQueryString] {
+	return pulumix.Output[[]EventConnectionAuthParametersInvocationHttpParametersQueryString]{
+		OutputState: i.ToEventConnectionAuthParametersInvocationHttpParametersQueryStringArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventConnectionAuthParametersInvocationHttpParametersQueryStringOutput struct{ *pulumi.OutputState }
 
 func (EventConnectionAuthParametersInvocationHttpParametersQueryStringOutput) ElementType() reflect.Type {
@@ -1010,6 +1366,12 @@ func (o EventConnectionAuthParametersInvocationHttpParametersQueryStringOutput) 
 
 func (o EventConnectionAuthParametersInvocationHttpParametersQueryStringOutput) ToEventConnectionAuthParametersInvocationHttpParametersQueryStringOutputWithContext(ctx context.Context) EventConnectionAuthParametersInvocationHttpParametersQueryStringOutput {
 	return o
+}
+
+func (o EventConnectionAuthParametersInvocationHttpParametersQueryStringOutput) ToOutput(ctx context.Context) pulumix.Output[EventConnectionAuthParametersInvocationHttpParametersQueryString] {
+	return pulumix.Output[EventConnectionAuthParametersInvocationHttpParametersQueryString]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specified whether the value is secret.
@@ -1039,6 +1401,12 @@ func (o EventConnectionAuthParametersInvocationHttpParametersQueryStringArrayOut
 
 func (o EventConnectionAuthParametersInvocationHttpParametersQueryStringArrayOutput) ToEventConnectionAuthParametersInvocationHttpParametersQueryStringArrayOutputWithContext(ctx context.Context) EventConnectionAuthParametersInvocationHttpParametersQueryStringArrayOutput {
 	return o
+}
+
+func (o EventConnectionAuthParametersInvocationHttpParametersQueryStringArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventConnectionAuthParametersInvocationHttpParametersQueryString] {
+	return pulumix.Output[[]EventConnectionAuthParametersInvocationHttpParametersQueryString]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventConnectionAuthParametersInvocationHttpParametersQueryStringArrayOutput) Index(i pulumi.IntInput) EventConnectionAuthParametersInvocationHttpParametersQueryStringOutput {
@@ -1092,6 +1460,12 @@ func (i EventConnectionAuthParametersOauthArgs) ToEventConnectionAuthParametersO
 	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersOauthOutput)
 }
 
+func (i EventConnectionAuthParametersOauthArgs) ToOutput(ctx context.Context) pulumix.Output[EventConnectionAuthParametersOauth] {
+	return pulumix.Output[EventConnectionAuthParametersOauth]{
+		OutputState: i.ToEventConnectionAuthParametersOauthOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EventConnectionAuthParametersOauthArgs) ToEventConnectionAuthParametersOauthPtrOutput() EventConnectionAuthParametersOauthPtrOutput {
 	return i.ToEventConnectionAuthParametersOauthPtrOutputWithContext(context.Background())
 }
@@ -1133,6 +1507,12 @@ func (i *eventConnectionAuthParametersOauthPtrType) ToEventConnectionAuthParamet
 	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersOauthPtrOutput)
 }
 
+func (i *eventConnectionAuthParametersOauthPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventConnectionAuthParametersOauth] {
+	return pulumix.Output[*EventConnectionAuthParametersOauth]{
+		OutputState: i.ToEventConnectionAuthParametersOauthPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventConnectionAuthParametersOauthOutput struct{ *pulumi.OutputState }
 
 func (EventConnectionAuthParametersOauthOutput) ElementType() reflect.Type {
@@ -1155,6 +1535,12 @@ func (o EventConnectionAuthParametersOauthOutput) ToEventConnectionAuthParameter
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventConnectionAuthParametersOauth) *EventConnectionAuthParametersOauth {
 		return &v
 	}).(EventConnectionAuthParametersOauthPtrOutput)
+}
+
+func (o EventConnectionAuthParametersOauthOutput) ToOutput(ctx context.Context) pulumix.Output[EventConnectionAuthParametersOauth] {
+	return pulumix.Output[EventConnectionAuthParametersOauth]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The URL to the authorization endpoint.
@@ -1193,6 +1579,12 @@ func (o EventConnectionAuthParametersOauthPtrOutput) ToEventConnectionAuthParame
 
 func (o EventConnectionAuthParametersOauthPtrOutput) ToEventConnectionAuthParametersOauthPtrOutputWithContext(ctx context.Context) EventConnectionAuthParametersOauthPtrOutput {
 	return o
+}
+
+func (o EventConnectionAuthParametersOauthPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventConnectionAuthParametersOauth] {
+	return pulumix.Output[*EventConnectionAuthParametersOauth]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventConnectionAuthParametersOauthPtrOutput) Elem() EventConnectionAuthParametersOauthOutput {
@@ -1282,6 +1674,12 @@ func (i EventConnectionAuthParametersOauthClientParametersArgs) ToEventConnectio
 	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersOauthClientParametersOutput)
 }
 
+func (i EventConnectionAuthParametersOauthClientParametersArgs) ToOutput(ctx context.Context) pulumix.Output[EventConnectionAuthParametersOauthClientParameters] {
+	return pulumix.Output[EventConnectionAuthParametersOauthClientParameters]{
+		OutputState: i.ToEventConnectionAuthParametersOauthClientParametersOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EventConnectionAuthParametersOauthClientParametersArgs) ToEventConnectionAuthParametersOauthClientParametersPtrOutput() EventConnectionAuthParametersOauthClientParametersPtrOutput {
 	return i.ToEventConnectionAuthParametersOauthClientParametersPtrOutputWithContext(context.Background())
 }
@@ -1323,6 +1721,12 @@ func (i *eventConnectionAuthParametersOauthClientParametersPtrType) ToEventConne
 	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersOauthClientParametersPtrOutput)
 }
 
+func (i *eventConnectionAuthParametersOauthClientParametersPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventConnectionAuthParametersOauthClientParameters] {
+	return pulumix.Output[*EventConnectionAuthParametersOauthClientParameters]{
+		OutputState: i.ToEventConnectionAuthParametersOauthClientParametersPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventConnectionAuthParametersOauthClientParametersOutput struct{ *pulumi.OutputState }
 
 func (EventConnectionAuthParametersOauthClientParametersOutput) ElementType() reflect.Type {
@@ -1347,6 +1751,12 @@ func (o EventConnectionAuthParametersOauthClientParametersOutput) ToEventConnect
 	}).(EventConnectionAuthParametersOauthClientParametersPtrOutput)
 }
 
+func (o EventConnectionAuthParametersOauthClientParametersOutput) ToOutput(ctx context.Context) pulumix.Output[EventConnectionAuthParametersOauthClientParameters] {
+	return pulumix.Output[EventConnectionAuthParametersOauthClientParameters]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The client ID for the credentials to use for authorization. Created and stored in AWS Secrets Manager.
 func (o EventConnectionAuthParametersOauthClientParametersOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersOauthClientParameters) string { return v.ClientId }).(pulumi.StringOutput)
@@ -1369,6 +1779,12 @@ func (o EventConnectionAuthParametersOauthClientParametersPtrOutput) ToEventConn
 
 func (o EventConnectionAuthParametersOauthClientParametersPtrOutput) ToEventConnectionAuthParametersOauthClientParametersPtrOutputWithContext(ctx context.Context) EventConnectionAuthParametersOauthClientParametersPtrOutput {
 	return o
+}
+
+func (o EventConnectionAuthParametersOauthClientParametersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventConnectionAuthParametersOauthClientParameters] {
+	return pulumix.Output[*EventConnectionAuthParametersOauthClientParameters]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventConnectionAuthParametersOauthClientParametersPtrOutput) Elem() EventConnectionAuthParametersOauthClientParametersOutput {
@@ -1442,6 +1858,12 @@ func (i EventConnectionAuthParametersOauthOauthHttpParametersArgs) ToEventConnec
 	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersOauthOauthHttpParametersOutput)
 }
 
+func (i EventConnectionAuthParametersOauthOauthHttpParametersArgs) ToOutput(ctx context.Context) pulumix.Output[EventConnectionAuthParametersOauthOauthHttpParameters] {
+	return pulumix.Output[EventConnectionAuthParametersOauthOauthHttpParameters]{
+		OutputState: i.ToEventConnectionAuthParametersOauthOauthHttpParametersOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EventConnectionAuthParametersOauthOauthHttpParametersArgs) ToEventConnectionAuthParametersOauthOauthHttpParametersPtrOutput() EventConnectionAuthParametersOauthOauthHttpParametersPtrOutput {
 	return i.ToEventConnectionAuthParametersOauthOauthHttpParametersPtrOutputWithContext(context.Background())
 }
@@ -1483,6 +1905,12 @@ func (i *eventConnectionAuthParametersOauthOauthHttpParametersPtrType) ToEventCo
 	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersOauthOauthHttpParametersPtrOutput)
 }
 
+func (i *eventConnectionAuthParametersOauthOauthHttpParametersPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventConnectionAuthParametersOauthOauthHttpParameters] {
+	return pulumix.Output[*EventConnectionAuthParametersOauthOauthHttpParameters]{
+		OutputState: i.ToEventConnectionAuthParametersOauthOauthHttpParametersPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventConnectionAuthParametersOauthOauthHttpParametersOutput struct{ *pulumi.OutputState }
 
 func (EventConnectionAuthParametersOauthOauthHttpParametersOutput) ElementType() reflect.Type {
@@ -1505,6 +1933,12 @@ func (o EventConnectionAuthParametersOauthOauthHttpParametersOutput) ToEventConn
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventConnectionAuthParametersOauthOauthHttpParameters) *EventConnectionAuthParametersOauthOauthHttpParameters {
 		return &v
 	}).(EventConnectionAuthParametersOauthOauthHttpParametersPtrOutput)
+}
+
+func (o EventConnectionAuthParametersOauthOauthHttpParametersOutput) ToOutput(ctx context.Context) pulumix.Output[EventConnectionAuthParametersOauthOauthHttpParameters] {
+	return pulumix.Output[EventConnectionAuthParametersOauthOauthHttpParameters]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
@@ -1540,6 +1974,12 @@ func (o EventConnectionAuthParametersOauthOauthHttpParametersPtrOutput) ToEventC
 
 func (o EventConnectionAuthParametersOauthOauthHttpParametersPtrOutput) ToEventConnectionAuthParametersOauthOauthHttpParametersPtrOutputWithContext(ctx context.Context) EventConnectionAuthParametersOauthOauthHttpParametersPtrOutput {
 	return o
+}
+
+func (o EventConnectionAuthParametersOauthOauthHttpParametersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventConnectionAuthParametersOauthOauthHttpParameters] {
+	return pulumix.Output[*EventConnectionAuthParametersOauthOauthHttpParameters]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventConnectionAuthParametersOauthOauthHttpParametersPtrOutput) Elem() EventConnectionAuthParametersOauthOauthHttpParametersOutput {
@@ -1623,6 +2063,12 @@ func (i EventConnectionAuthParametersOauthOauthHttpParametersBodyArgs) ToEventCo
 	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersOauthOauthHttpParametersBodyOutput)
 }
 
+func (i EventConnectionAuthParametersOauthOauthHttpParametersBodyArgs) ToOutput(ctx context.Context) pulumix.Output[EventConnectionAuthParametersOauthOauthHttpParametersBody] {
+	return pulumix.Output[EventConnectionAuthParametersOauthOauthHttpParametersBody]{
+		OutputState: i.ToEventConnectionAuthParametersOauthOauthHttpParametersBodyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventConnectionAuthParametersOauthOauthHttpParametersBodyArrayInput is an input type that accepts EventConnectionAuthParametersOauthOauthHttpParametersBodyArray and EventConnectionAuthParametersOauthOauthHttpParametersBodyArrayOutput values.
 // You can construct a concrete instance of `EventConnectionAuthParametersOauthOauthHttpParametersBodyArrayInput` via:
 //
@@ -1648,6 +2094,12 @@ func (i EventConnectionAuthParametersOauthOauthHttpParametersBodyArray) ToEventC
 	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersOauthOauthHttpParametersBodyArrayOutput)
 }
 
+func (i EventConnectionAuthParametersOauthOauthHttpParametersBodyArray) ToOutput(ctx context.Context) pulumix.Output[[]EventConnectionAuthParametersOauthOauthHttpParametersBody] {
+	return pulumix.Output[[]EventConnectionAuthParametersOauthOauthHttpParametersBody]{
+		OutputState: i.ToEventConnectionAuthParametersOauthOauthHttpParametersBodyArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventConnectionAuthParametersOauthOauthHttpParametersBodyOutput struct{ *pulumi.OutputState }
 
 func (EventConnectionAuthParametersOauthOauthHttpParametersBodyOutput) ElementType() reflect.Type {
@@ -1660,6 +2112,12 @@ func (o EventConnectionAuthParametersOauthOauthHttpParametersBodyOutput) ToEvent
 
 func (o EventConnectionAuthParametersOauthOauthHttpParametersBodyOutput) ToEventConnectionAuthParametersOauthOauthHttpParametersBodyOutputWithContext(ctx context.Context) EventConnectionAuthParametersOauthOauthHttpParametersBodyOutput {
 	return o
+}
+
+func (o EventConnectionAuthParametersOauthOauthHttpParametersBodyOutput) ToOutput(ctx context.Context) pulumix.Output[EventConnectionAuthParametersOauthOauthHttpParametersBody] {
+	return pulumix.Output[EventConnectionAuthParametersOauthOauthHttpParametersBody]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specified whether the value is secret.
@@ -1689,6 +2147,12 @@ func (o EventConnectionAuthParametersOauthOauthHttpParametersBodyArrayOutput) To
 
 func (o EventConnectionAuthParametersOauthOauthHttpParametersBodyArrayOutput) ToEventConnectionAuthParametersOauthOauthHttpParametersBodyArrayOutputWithContext(ctx context.Context) EventConnectionAuthParametersOauthOauthHttpParametersBodyArrayOutput {
 	return o
+}
+
+func (o EventConnectionAuthParametersOauthOauthHttpParametersBodyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventConnectionAuthParametersOauthOauthHttpParametersBody] {
+	return pulumix.Output[[]EventConnectionAuthParametersOauthOauthHttpParametersBody]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventConnectionAuthParametersOauthOauthHttpParametersBodyArrayOutput) Index(i pulumi.IntInput) EventConnectionAuthParametersOauthOauthHttpParametersBodyOutput {
@@ -1738,6 +2202,12 @@ func (i EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgs) ToEvent
 	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersOauthOauthHttpParametersHeaderOutput)
 }
 
+func (i EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgs) ToOutput(ctx context.Context) pulumix.Output[EventConnectionAuthParametersOauthOauthHttpParametersHeader] {
+	return pulumix.Output[EventConnectionAuthParametersOauthOauthHttpParametersHeader]{
+		OutputState: i.ToEventConnectionAuthParametersOauthOauthHttpParametersHeaderOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventConnectionAuthParametersOauthOauthHttpParametersHeaderArrayInput is an input type that accepts EventConnectionAuthParametersOauthOauthHttpParametersHeaderArray and EventConnectionAuthParametersOauthOauthHttpParametersHeaderArrayOutput values.
 // You can construct a concrete instance of `EventConnectionAuthParametersOauthOauthHttpParametersHeaderArrayInput` via:
 //
@@ -1763,6 +2233,12 @@ func (i EventConnectionAuthParametersOauthOauthHttpParametersHeaderArray) ToEven
 	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersOauthOauthHttpParametersHeaderArrayOutput)
 }
 
+func (i EventConnectionAuthParametersOauthOauthHttpParametersHeaderArray) ToOutput(ctx context.Context) pulumix.Output[[]EventConnectionAuthParametersOauthOauthHttpParametersHeader] {
+	return pulumix.Output[[]EventConnectionAuthParametersOauthOauthHttpParametersHeader]{
+		OutputState: i.ToEventConnectionAuthParametersOauthOauthHttpParametersHeaderArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventConnectionAuthParametersOauthOauthHttpParametersHeaderOutput struct{ *pulumi.OutputState }
 
 func (EventConnectionAuthParametersOauthOauthHttpParametersHeaderOutput) ElementType() reflect.Type {
@@ -1775,6 +2251,12 @@ func (o EventConnectionAuthParametersOauthOauthHttpParametersHeaderOutput) ToEve
 
 func (o EventConnectionAuthParametersOauthOauthHttpParametersHeaderOutput) ToEventConnectionAuthParametersOauthOauthHttpParametersHeaderOutputWithContext(ctx context.Context) EventConnectionAuthParametersOauthOauthHttpParametersHeaderOutput {
 	return o
+}
+
+func (o EventConnectionAuthParametersOauthOauthHttpParametersHeaderOutput) ToOutput(ctx context.Context) pulumix.Output[EventConnectionAuthParametersOauthOauthHttpParametersHeader] {
+	return pulumix.Output[EventConnectionAuthParametersOauthOauthHttpParametersHeader]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specified whether the value is secret.
@@ -1804,6 +2286,12 @@ func (o EventConnectionAuthParametersOauthOauthHttpParametersHeaderArrayOutput) 
 
 func (o EventConnectionAuthParametersOauthOauthHttpParametersHeaderArrayOutput) ToEventConnectionAuthParametersOauthOauthHttpParametersHeaderArrayOutputWithContext(ctx context.Context) EventConnectionAuthParametersOauthOauthHttpParametersHeaderArrayOutput {
 	return o
+}
+
+func (o EventConnectionAuthParametersOauthOauthHttpParametersHeaderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventConnectionAuthParametersOauthOauthHttpParametersHeader] {
+	return pulumix.Output[[]EventConnectionAuthParametersOauthOauthHttpParametersHeader]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventConnectionAuthParametersOauthOauthHttpParametersHeaderArrayOutput) Index(i pulumi.IntInput) EventConnectionAuthParametersOauthOauthHttpParametersHeaderOutput {
@@ -1853,6 +2341,12 @@ func (i EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgs) To
 	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersOauthOauthHttpParametersQueryStringOutput)
 }
 
+func (i EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgs) ToOutput(ctx context.Context) pulumix.Output[EventConnectionAuthParametersOauthOauthHttpParametersQueryString] {
+	return pulumix.Output[EventConnectionAuthParametersOauthOauthHttpParametersQueryString]{
+		OutputState: i.ToEventConnectionAuthParametersOauthOauthHttpParametersQueryStringOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArrayInput is an input type that accepts EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArray and EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArrayOutput values.
 // You can construct a concrete instance of `EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArrayInput` via:
 //
@@ -1878,6 +2372,12 @@ func (i EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArray) T
 	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArrayOutput)
 }
 
+func (i EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArray) ToOutput(ctx context.Context) pulumix.Output[[]EventConnectionAuthParametersOauthOauthHttpParametersQueryString] {
+	return pulumix.Output[[]EventConnectionAuthParametersOauthOauthHttpParametersQueryString]{
+		OutputState: i.ToEventConnectionAuthParametersOauthOauthHttpParametersQueryStringArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventConnectionAuthParametersOauthOauthHttpParametersQueryStringOutput struct{ *pulumi.OutputState }
 
 func (EventConnectionAuthParametersOauthOauthHttpParametersQueryStringOutput) ElementType() reflect.Type {
@@ -1890,6 +2390,12 @@ func (o EventConnectionAuthParametersOauthOauthHttpParametersQueryStringOutput) 
 
 func (o EventConnectionAuthParametersOauthOauthHttpParametersQueryStringOutput) ToEventConnectionAuthParametersOauthOauthHttpParametersQueryStringOutputWithContext(ctx context.Context) EventConnectionAuthParametersOauthOauthHttpParametersQueryStringOutput {
 	return o
+}
+
+func (o EventConnectionAuthParametersOauthOauthHttpParametersQueryStringOutput) ToOutput(ctx context.Context) pulumix.Output[EventConnectionAuthParametersOauthOauthHttpParametersQueryString] {
+	return pulumix.Output[EventConnectionAuthParametersOauthOauthHttpParametersQueryString]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specified whether the value is secret.
@@ -1919,6 +2425,12 @@ func (o EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArrayOut
 
 func (o EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArrayOutput) ToEventConnectionAuthParametersOauthOauthHttpParametersQueryStringArrayOutputWithContext(ctx context.Context) EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArrayOutput {
 	return o
+}
+
+func (o EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventConnectionAuthParametersOauthOauthHttpParametersQueryString] {
+	return pulumix.Output[[]EventConnectionAuthParametersOauthOauthHttpParametersQueryString]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArrayOutput) Index(i pulumi.IntInput) EventConnectionAuthParametersOauthOauthHttpParametersQueryStringOutput {
@@ -1960,6 +2472,12 @@ func (i EventEndpointEventBusArgs) ToEventEndpointEventBusOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(EventEndpointEventBusOutput)
 }
 
+func (i EventEndpointEventBusArgs) ToOutput(ctx context.Context) pulumix.Output[EventEndpointEventBus] {
+	return pulumix.Output[EventEndpointEventBus]{
+		OutputState: i.ToEventEndpointEventBusOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventEndpointEventBusArrayInput is an input type that accepts EventEndpointEventBusArray and EventEndpointEventBusArrayOutput values.
 // You can construct a concrete instance of `EventEndpointEventBusArrayInput` via:
 //
@@ -1985,6 +2503,12 @@ func (i EventEndpointEventBusArray) ToEventEndpointEventBusArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(EventEndpointEventBusArrayOutput)
 }
 
+func (i EventEndpointEventBusArray) ToOutput(ctx context.Context) pulumix.Output[[]EventEndpointEventBus] {
+	return pulumix.Output[[]EventEndpointEventBus]{
+		OutputState: i.ToEventEndpointEventBusArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventEndpointEventBusOutput struct{ *pulumi.OutputState }
 
 func (EventEndpointEventBusOutput) ElementType() reflect.Type {
@@ -1997,6 +2521,12 @@ func (o EventEndpointEventBusOutput) ToEventEndpointEventBusOutput() EventEndpoi
 
 func (o EventEndpointEventBusOutput) ToEventEndpointEventBusOutputWithContext(ctx context.Context) EventEndpointEventBusOutput {
 	return o
+}
+
+func (o EventEndpointEventBusOutput) ToOutput(ctx context.Context) pulumix.Output[EventEndpointEventBus] {
+	return pulumix.Output[EventEndpointEventBus]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the event bus the endpoint is associated with.
@@ -2016,6 +2546,12 @@ func (o EventEndpointEventBusArrayOutput) ToEventEndpointEventBusArrayOutput() E
 
 func (o EventEndpointEventBusArrayOutput) ToEventEndpointEventBusArrayOutputWithContext(ctx context.Context) EventEndpointEventBusArrayOutput {
 	return o
+}
+
+func (o EventEndpointEventBusArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventEndpointEventBus] {
+	return pulumix.Output[[]EventEndpointEventBus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventEndpointEventBusArrayOutput) Index(i pulumi.IntInput) EventEndpointEventBusOutput {
@@ -2055,6 +2591,12 @@ func (i EventEndpointReplicationConfigArgs) ToEventEndpointReplicationConfigOutp
 
 func (i EventEndpointReplicationConfigArgs) ToEventEndpointReplicationConfigOutputWithContext(ctx context.Context) EventEndpointReplicationConfigOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventEndpointReplicationConfigOutput)
+}
+
+func (i EventEndpointReplicationConfigArgs) ToOutput(ctx context.Context) pulumix.Output[EventEndpointReplicationConfig] {
+	return pulumix.Output[EventEndpointReplicationConfig]{
+		OutputState: i.ToEventEndpointReplicationConfigOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i EventEndpointReplicationConfigArgs) ToEventEndpointReplicationConfigPtrOutput() EventEndpointReplicationConfigPtrOutput {
@@ -2098,6 +2640,12 @@ func (i *eventEndpointReplicationConfigPtrType) ToEventEndpointReplicationConfig
 	return pulumi.ToOutputWithContext(ctx, i).(EventEndpointReplicationConfigPtrOutput)
 }
 
+func (i *eventEndpointReplicationConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventEndpointReplicationConfig] {
+	return pulumix.Output[*EventEndpointReplicationConfig]{
+		OutputState: i.ToEventEndpointReplicationConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventEndpointReplicationConfigOutput struct{ *pulumi.OutputState }
 
 func (EventEndpointReplicationConfigOutput) ElementType() reflect.Type {
@@ -2122,6 +2670,12 @@ func (o EventEndpointReplicationConfigOutput) ToEventEndpointReplicationConfigPt
 	}).(EventEndpointReplicationConfigPtrOutput)
 }
 
+func (o EventEndpointReplicationConfigOutput) ToOutput(ctx context.Context) pulumix.Output[EventEndpointReplicationConfig] {
+	return pulumix.Output[EventEndpointReplicationConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The state of event replication. Valid values: `ENABLED`, `DISABLED`. The default state is `ENABLED`, which means you must supply a `roleArn`. If you don't have a `roleArn` or you don't want event replication enabled, set `state` to `DISABLED`.
 func (o EventEndpointReplicationConfigOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventEndpointReplicationConfig) *string { return v.State }).(pulumi.StringPtrOutput)
@@ -2139,6 +2693,12 @@ func (o EventEndpointReplicationConfigPtrOutput) ToEventEndpointReplicationConfi
 
 func (o EventEndpointReplicationConfigPtrOutput) ToEventEndpointReplicationConfigPtrOutputWithContext(ctx context.Context) EventEndpointReplicationConfigPtrOutput {
 	return o
+}
+
+func (o EventEndpointReplicationConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventEndpointReplicationConfig] {
+	return pulumix.Output[*EventEndpointReplicationConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventEndpointReplicationConfigPtrOutput) Elem() EventEndpointReplicationConfigOutput {
@@ -2194,6 +2754,12 @@ func (i EventEndpointRoutingConfigArgs) ToEventEndpointRoutingConfigOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(EventEndpointRoutingConfigOutput)
 }
 
+func (i EventEndpointRoutingConfigArgs) ToOutput(ctx context.Context) pulumix.Output[EventEndpointRoutingConfig] {
+	return pulumix.Output[EventEndpointRoutingConfig]{
+		OutputState: i.ToEventEndpointRoutingConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EventEndpointRoutingConfigArgs) ToEventEndpointRoutingConfigPtrOutput() EventEndpointRoutingConfigPtrOutput {
 	return i.ToEventEndpointRoutingConfigPtrOutputWithContext(context.Background())
 }
@@ -2235,6 +2801,12 @@ func (i *eventEndpointRoutingConfigPtrType) ToEventEndpointRoutingConfigPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(EventEndpointRoutingConfigPtrOutput)
 }
 
+func (i *eventEndpointRoutingConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventEndpointRoutingConfig] {
+	return pulumix.Output[*EventEndpointRoutingConfig]{
+		OutputState: i.ToEventEndpointRoutingConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventEndpointRoutingConfigOutput struct{ *pulumi.OutputState }
 
 func (EventEndpointRoutingConfigOutput) ElementType() reflect.Type {
@@ -2259,6 +2831,12 @@ func (o EventEndpointRoutingConfigOutput) ToEventEndpointRoutingConfigPtrOutputW
 	}).(EventEndpointRoutingConfigPtrOutput)
 }
 
+func (o EventEndpointRoutingConfigOutput) ToOutput(ctx context.Context) pulumix.Output[EventEndpointRoutingConfig] {
+	return pulumix.Output[EventEndpointRoutingConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Parameters used for failover. This includes what triggers failover and what happens when it's triggered. Documented below.
 func (o EventEndpointRoutingConfigOutput) FailoverConfig() EventEndpointRoutingConfigFailoverConfigOutput {
 	return o.ApplyT(func(v EventEndpointRoutingConfig) EventEndpointRoutingConfigFailoverConfig { return v.FailoverConfig }).(EventEndpointRoutingConfigFailoverConfigOutput)
@@ -2276,6 +2854,12 @@ func (o EventEndpointRoutingConfigPtrOutput) ToEventEndpointRoutingConfigPtrOutp
 
 func (o EventEndpointRoutingConfigPtrOutput) ToEventEndpointRoutingConfigPtrOutputWithContext(ctx context.Context) EventEndpointRoutingConfigPtrOutput {
 	return o
+}
+
+func (o EventEndpointRoutingConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventEndpointRoutingConfig] {
+	return pulumix.Output[*EventEndpointRoutingConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventEndpointRoutingConfigPtrOutput) Elem() EventEndpointRoutingConfigOutput {
@@ -2335,6 +2919,12 @@ func (i EventEndpointRoutingConfigFailoverConfigArgs) ToEventEndpointRoutingConf
 	return pulumi.ToOutputWithContext(ctx, i).(EventEndpointRoutingConfigFailoverConfigOutput)
 }
 
+func (i EventEndpointRoutingConfigFailoverConfigArgs) ToOutput(ctx context.Context) pulumix.Output[EventEndpointRoutingConfigFailoverConfig] {
+	return pulumix.Output[EventEndpointRoutingConfigFailoverConfig]{
+		OutputState: i.ToEventEndpointRoutingConfigFailoverConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EventEndpointRoutingConfigFailoverConfigArgs) ToEventEndpointRoutingConfigFailoverConfigPtrOutput() EventEndpointRoutingConfigFailoverConfigPtrOutput {
 	return i.ToEventEndpointRoutingConfigFailoverConfigPtrOutputWithContext(context.Background())
 }
@@ -2376,6 +2966,12 @@ func (i *eventEndpointRoutingConfigFailoverConfigPtrType) ToEventEndpointRouting
 	return pulumi.ToOutputWithContext(ctx, i).(EventEndpointRoutingConfigFailoverConfigPtrOutput)
 }
 
+func (i *eventEndpointRoutingConfigFailoverConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventEndpointRoutingConfigFailoverConfig] {
+	return pulumix.Output[*EventEndpointRoutingConfigFailoverConfig]{
+		OutputState: i.ToEventEndpointRoutingConfigFailoverConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventEndpointRoutingConfigFailoverConfigOutput struct{ *pulumi.OutputState }
 
 func (EventEndpointRoutingConfigFailoverConfigOutput) ElementType() reflect.Type {
@@ -2398,6 +2994,12 @@ func (o EventEndpointRoutingConfigFailoverConfigOutput) ToEventEndpointRoutingCo
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventEndpointRoutingConfigFailoverConfig) *EventEndpointRoutingConfigFailoverConfig {
 		return &v
 	}).(EventEndpointRoutingConfigFailoverConfigPtrOutput)
+}
+
+func (o EventEndpointRoutingConfigFailoverConfigOutput) ToOutput(ctx context.Context) pulumix.Output[EventEndpointRoutingConfigFailoverConfig] {
+	return pulumix.Output[EventEndpointRoutingConfigFailoverConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Parameters used for the primary Region. Documented below.
@@ -2426,6 +3028,12 @@ func (o EventEndpointRoutingConfigFailoverConfigPtrOutput) ToEventEndpointRoutin
 
 func (o EventEndpointRoutingConfigFailoverConfigPtrOutput) ToEventEndpointRoutingConfigFailoverConfigPtrOutputWithContext(ctx context.Context) EventEndpointRoutingConfigFailoverConfigPtrOutput {
 	return o
+}
+
+func (o EventEndpointRoutingConfigFailoverConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventEndpointRoutingConfigFailoverConfig] {
+	return pulumix.Output[*EventEndpointRoutingConfigFailoverConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventEndpointRoutingConfigFailoverConfigPtrOutput) Elem() EventEndpointRoutingConfigFailoverConfigOutput {
@@ -2491,6 +3099,12 @@ func (i EventEndpointRoutingConfigFailoverConfigPrimaryArgs) ToEventEndpointRout
 	return pulumi.ToOutputWithContext(ctx, i).(EventEndpointRoutingConfigFailoverConfigPrimaryOutput)
 }
 
+func (i EventEndpointRoutingConfigFailoverConfigPrimaryArgs) ToOutput(ctx context.Context) pulumix.Output[EventEndpointRoutingConfigFailoverConfigPrimary] {
+	return pulumix.Output[EventEndpointRoutingConfigFailoverConfigPrimary]{
+		OutputState: i.ToEventEndpointRoutingConfigFailoverConfigPrimaryOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EventEndpointRoutingConfigFailoverConfigPrimaryArgs) ToEventEndpointRoutingConfigFailoverConfigPrimaryPtrOutput() EventEndpointRoutingConfigFailoverConfigPrimaryPtrOutput {
 	return i.ToEventEndpointRoutingConfigFailoverConfigPrimaryPtrOutputWithContext(context.Background())
 }
@@ -2532,6 +3146,12 @@ func (i *eventEndpointRoutingConfigFailoverConfigPrimaryPtrType) ToEventEndpoint
 	return pulumi.ToOutputWithContext(ctx, i).(EventEndpointRoutingConfigFailoverConfigPrimaryPtrOutput)
 }
 
+func (i *eventEndpointRoutingConfigFailoverConfigPrimaryPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventEndpointRoutingConfigFailoverConfigPrimary] {
+	return pulumix.Output[*EventEndpointRoutingConfigFailoverConfigPrimary]{
+		OutputState: i.ToEventEndpointRoutingConfigFailoverConfigPrimaryPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventEndpointRoutingConfigFailoverConfigPrimaryOutput struct{ *pulumi.OutputState }
 
 func (EventEndpointRoutingConfigFailoverConfigPrimaryOutput) ElementType() reflect.Type {
@@ -2556,6 +3176,12 @@ func (o EventEndpointRoutingConfigFailoverConfigPrimaryOutput) ToEventEndpointRo
 	}).(EventEndpointRoutingConfigFailoverConfigPrimaryPtrOutput)
 }
 
+func (o EventEndpointRoutingConfigFailoverConfigPrimaryOutput) ToOutput(ctx context.Context) pulumix.Output[EventEndpointRoutingConfigFailoverConfigPrimary] {
+	return pulumix.Output[EventEndpointRoutingConfigFailoverConfigPrimary]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ARN of the health check used by the endpoint to determine whether failover is triggered.
 func (o EventEndpointRoutingConfigFailoverConfigPrimaryOutput) HealthCheck() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventEndpointRoutingConfigFailoverConfigPrimary) *string { return v.HealthCheck }).(pulumi.StringPtrOutput)
@@ -2573,6 +3199,12 @@ func (o EventEndpointRoutingConfigFailoverConfigPrimaryPtrOutput) ToEventEndpoin
 
 func (o EventEndpointRoutingConfigFailoverConfigPrimaryPtrOutput) ToEventEndpointRoutingConfigFailoverConfigPrimaryPtrOutputWithContext(ctx context.Context) EventEndpointRoutingConfigFailoverConfigPrimaryPtrOutput {
 	return o
+}
+
+func (o EventEndpointRoutingConfigFailoverConfigPrimaryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventEndpointRoutingConfigFailoverConfigPrimary] {
+	return pulumix.Output[*EventEndpointRoutingConfigFailoverConfigPrimary]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventEndpointRoutingConfigFailoverConfigPrimaryPtrOutput) Elem() EventEndpointRoutingConfigFailoverConfigPrimaryOutput {
@@ -2628,6 +3260,12 @@ func (i EventEndpointRoutingConfigFailoverConfigSecondaryArgs) ToEventEndpointRo
 	return pulumi.ToOutputWithContext(ctx, i).(EventEndpointRoutingConfigFailoverConfigSecondaryOutput)
 }
 
+func (i EventEndpointRoutingConfigFailoverConfigSecondaryArgs) ToOutput(ctx context.Context) pulumix.Output[EventEndpointRoutingConfigFailoverConfigSecondary] {
+	return pulumix.Output[EventEndpointRoutingConfigFailoverConfigSecondary]{
+		OutputState: i.ToEventEndpointRoutingConfigFailoverConfigSecondaryOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EventEndpointRoutingConfigFailoverConfigSecondaryArgs) ToEventEndpointRoutingConfigFailoverConfigSecondaryPtrOutput() EventEndpointRoutingConfigFailoverConfigSecondaryPtrOutput {
 	return i.ToEventEndpointRoutingConfigFailoverConfigSecondaryPtrOutputWithContext(context.Background())
 }
@@ -2669,6 +3307,12 @@ func (i *eventEndpointRoutingConfigFailoverConfigSecondaryPtrType) ToEventEndpoi
 	return pulumi.ToOutputWithContext(ctx, i).(EventEndpointRoutingConfigFailoverConfigSecondaryPtrOutput)
 }
 
+func (i *eventEndpointRoutingConfigFailoverConfigSecondaryPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventEndpointRoutingConfigFailoverConfigSecondary] {
+	return pulumix.Output[*EventEndpointRoutingConfigFailoverConfigSecondary]{
+		OutputState: i.ToEventEndpointRoutingConfigFailoverConfigSecondaryPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventEndpointRoutingConfigFailoverConfigSecondaryOutput struct{ *pulumi.OutputState }
 
 func (EventEndpointRoutingConfigFailoverConfigSecondaryOutput) ElementType() reflect.Type {
@@ -2693,6 +3337,12 @@ func (o EventEndpointRoutingConfigFailoverConfigSecondaryOutput) ToEventEndpoint
 	}).(EventEndpointRoutingConfigFailoverConfigSecondaryPtrOutput)
 }
 
+func (o EventEndpointRoutingConfigFailoverConfigSecondaryOutput) ToOutput(ctx context.Context) pulumix.Output[EventEndpointRoutingConfigFailoverConfigSecondary] {
+	return pulumix.Output[EventEndpointRoutingConfigFailoverConfigSecondary]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The name of the secondary Region.
 func (o EventEndpointRoutingConfigFailoverConfigSecondaryOutput) Route() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventEndpointRoutingConfigFailoverConfigSecondary) *string { return v.Route }).(pulumi.StringPtrOutput)
@@ -2710,6 +3360,12 @@ func (o EventEndpointRoutingConfigFailoverConfigSecondaryPtrOutput) ToEventEndpo
 
 func (o EventEndpointRoutingConfigFailoverConfigSecondaryPtrOutput) ToEventEndpointRoutingConfigFailoverConfigSecondaryPtrOutputWithContext(ctx context.Context) EventEndpointRoutingConfigFailoverConfigSecondaryPtrOutput {
 	return o
+}
+
+func (o EventEndpointRoutingConfigFailoverConfigSecondaryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventEndpointRoutingConfigFailoverConfigSecondary] {
+	return pulumix.Output[*EventEndpointRoutingConfigFailoverConfigSecondary]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventEndpointRoutingConfigFailoverConfigSecondaryPtrOutput) Elem() EventEndpointRoutingConfigFailoverConfigSecondaryOutput {
@@ -2773,6 +3429,12 @@ func (i EventPermissionConditionArgs) ToEventPermissionConditionOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(EventPermissionConditionOutput)
 }
 
+func (i EventPermissionConditionArgs) ToOutput(ctx context.Context) pulumix.Output[EventPermissionCondition] {
+	return pulumix.Output[EventPermissionCondition]{
+		OutputState: i.ToEventPermissionConditionOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EventPermissionConditionArgs) ToEventPermissionConditionPtrOutput() EventPermissionConditionPtrOutput {
 	return i.ToEventPermissionConditionPtrOutputWithContext(context.Background())
 }
@@ -2814,6 +3476,12 @@ func (i *eventPermissionConditionPtrType) ToEventPermissionConditionPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(EventPermissionConditionPtrOutput)
 }
 
+func (i *eventPermissionConditionPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventPermissionCondition] {
+	return pulumix.Output[*EventPermissionCondition]{
+		OutputState: i.ToEventPermissionConditionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventPermissionConditionOutput struct{ *pulumi.OutputState }
 
 func (EventPermissionConditionOutput) ElementType() reflect.Type {
@@ -2836,6 +3504,12 @@ func (o EventPermissionConditionOutput) ToEventPermissionConditionPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventPermissionCondition) *EventPermissionCondition {
 		return &v
 	}).(EventPermissionConditionPtrOutput)
+}
+
+func (o EventPermissionConditionOutput) ToOutput(ctx context.Context) pulumix.Output[EventPermissionCondition] {
+	return pulumix.Output[EventPermissionCondition]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Key for the condition. Valid values: `aws:PrincipalOrgID`.
@@ -2865,6 +3539,12 @@ func (o EventPermissionConditionPtrOutput) ToEventPermissionConditionPtrOutput()
 
 func (o EventPermissionConditionPtrOutput) ToEventPermissionConditionPtrOutputWithContext(ctx context.Context) EventPermissionConditionPtrOutput {
 	return o
+}
+
+func (o EventPermissionConditionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventPermissionCondition] {
+	return pulumix.Output[*EventPermissionCondition]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventPermissionConditionPtrOutput) Elem() EventPermissionConditionOutput {
@@ -2952,6 +3632,12 @@ func (i EventTargetBatchTargetArgs) ToEventTargetBatchTargetOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(EventTargetBatchTargetOutput)
 }
 
+func (i EventTargetBatchTargetArgs) ToOutput(ctx context.Context) pulumix.Output[EventTargetBatchTarget] {
+	return pulumix.Output[EventTargetBatchTarget]{
+		OutputState: i.ToEventTargetBatchTargetOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EventTargetBatchTargetArgs) ToEventTargetBatchTargetPtrOutput() EventTargetBatchTargetPtrOutput {
 	return i.ToEventTargetBatchTargetPtrOutputWithContext(context.Background())
 }
@@ -2993,6 +3679,12 @@ func (i *eventTargetBatchTargetPtrType) ToEventTargetBatchTargetPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(EventTargetBatchTargetPtrOutput)
 }
 
+func (i *eventTargetBatchTargetPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventTargetBatchTarget] {
+	return pulumix.Output[*EventTargetBatchTarget]{
+		OutputState: i.ToEventTargetBatchTargetPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventTargetBatchTargetOutput struct{ *pulumi.OutputState }
 
 func (EventTargetBatchTargetOutput) ElementType() reflect.Type {
@@ -3015,6 +3707,12 @@ func (o EventTargetBatchTargetOutput) ToEventTargetBatchTargetPtrOutputWithConte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventTargetBatchTarget) *EventTargetBatchTarget {
 		return &v
 	}).(EventTargetBatchTargetPtrOutput)
+}
+
+func (o EventTargetBatchTargetOutput) ToOutput(ctx context.Context) pulumix.Output[EventTargetBatchTarget] {
+	return pulumix.Output[EventTargetBatchTarget]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The size of the array, if this is an array batch job. Valid values are integers between 2 and 10,000.
@@ -3049,6 +3747,12 @@ func (o EventTargetBatchTargetPtrOutput) ToEventTargetBatchTargetPtrOutput() Eve
 
 func (o EventTargetBatchTargetPtrOutput) ToEventTargetBatchTargetPtrOutputWithContext(ctx context.Context) EventTargetBatchTargetPtrOutput {
 	return o
+}
+
+func (o EventTargetBatchTargetPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventTargetBatchTarget] {
+	return pulumix.Output[*EventTargetBatchTarget]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventTargetBatchTargetPtrOutput) Elem() EventTargetBatchTargetOutput {
@@ -3134,6 +3838,12 @@ func (i EventTargetDeadLetterConfigArgs) ToEventTargetDeadLetterConfigOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(EventTargetDeadLetterConfigOutput)
 }
 
+func (i EventTargetDeadLetterConfigArgs) ToOutput(ctx context.Context) pulumix.Output[EventTargetDeadLetterConfig] {
+	return pulumix.Output[EventTargetDeadLetterConfig]{
+		OutputState: i.ToEventTargetDeadLetterConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EventTargetDeadLetterConfigArgs) ToEventTargetDeadLetterConfigPtrOutput() EventTargetDeadLetterConfigPtrOutput {
 	return i.ToEventTargetDeadLetterConfigPtrOutputWithContext(context.Background())
 }
@@ -3175,6 +3885,12 @@ func (i *eventTargetDeadLetterConfigPtrType) ToEventTargetDeadLetterConfigPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(EventTargetDeadLetterConfigPtrOutput)
 }
 
+func (i *eventTargetDeadLetterConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventTargetDeadLetterConfig] {
+	return pulumix.Output[*EventTargetDeadLetterConfig]{
+		OutputState: i.ToEventTargetDeadLetterConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventTargetDeadLetterConfigOutput struct{ *pulumi.OutputState }
 
 func (EventTargetDeadLetterConfigOutput) ElementType() reflect.Type {
@@ -3199,6 +3915,12 @@ func (o EventTargetDeadLetterConfigOutput) ToEventTargetDeadLetterConfigPtrOutpu
 	}).(EventTargetDeadLetterConfigPtrOutput)
 }
 
+func (o EventTargetDeadLetterConfigOutput) ToOutput(ctx context.Context) pulumix.Output[EventTargetDeadLetterConfig] {
+	return pulumix.Output[EventTargetDeadLetterConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 // ARN of the SQS queue specified as the target for the dead-letter queue.
 func (o EventTargetDeadLetterConfigOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventTargetDeadLetterConfig) *string { return v.Arn }).(pulumi.StringPtrOutput)
@@ -3216,6 +3938,12 @@ func (o EventTargetDeadLetterConfigPtrOutput) ToEventTargetDeadLetterConfigPtrOu
 
 func (o EventTargetDeadLetterConfigPtrOutput) ToEventTargetDeadLetterConfigPtrOutputWithContext(ctx context.Context) EventTargetDeadLetterConfigPtrOutput {
 	return o
+}
+
+func (o EventTargetDeadLetterConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventTargetDeadLetterConfig] {
+	return pulumix.Output[*EventTargetDeadLetterConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventTargetDeadLetterConfigPtrOutput) Elem() EventTargetDeadLetterConfigOutput {
@@ -3319,6 +4047,12 @@ func (i EventTargetEcsTargetArgs) ToEventTargetEcsTargetOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(EventTargetEcsTargetOutput)
 }
 
+func (i EventTargetEcsTargetArgs) ToOutput(ctx context.Context) pulumix.Output[EventTargetEcsTarget] {
+	return pulumix.Output[EventTargetEcsTarget]{
+		OutputState: i.ToEventTargetEcsTargetOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EventTargetEcsTargetArgs) ToEventTargetEcsTargetPtrOutput() EventTargetEcsTargetPtrOutput {
 	return i.ToEventTargetEcsTargetPtrOutputWithContext(context.Background())
 }
@@ -3360,6 +4094,12 @@ func (i *eventTargetEcsTargetPtrType) ToEventTargetEcsTargetPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(EventTargetEcsTargetPtrOutput)
 }
 
+func (i *eventTargetEcsTargetPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventTargetEcsTarget] {
+	return pulumix.Output[*EventTargetEcsTarget]{
+		OutputState: i.ToEventTargetEcsTargetPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventTargetEcsTargetOutput struct{ *pulumi.OutputState }
 
 func (EventTargetEcsTargetOutput) ElementType() reflect.Type {
@@ -3382,6 +4122,12 @@ func (o EventTargetEcsTargetOutput) ToEventTargetEcsTargetPtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventTargetEcsTarget) *EventTargetEcsTarget {
 		return &v
 	}).(EventTargetEcsTargetPtrOutput)
+}
+
+func (o EventTargetEcsTargetOutput) ToOutput(ctx context.Context) pulumix.Output[EventTargetEcsTarget] {
+	return pulumix.Output[EventTargetEcsTarget]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The capacity provider strategy to use for the task. If a `capacityProviderStrategy` specified, the `launchType` parameter must be omitted. If no `capacityProviderStrategy` or `launchType` is specified, the default capacity provider strategy for the cluster is used. Can be one or more. See below.
@@ -3465,6 +4211,12 @@ func (o EventTargetEcsTargetPtrOutput) ToEventTargetEcsTargetPtrOutput() EventTa
 
 func (o EventTargetEcsTargetPtrOutput) ToEventTargetEcsTargetPtrOutputWithContext(ctx context.Context) EventTargetEcsTargetPtrOutput {
 	return o
+}
+
+func (o EventTargetEcsTargetPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventTargetEcsTarget] {
+	return pulumix.Output[*EventTargetEcsTarget]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventTargetEcsTargetPtrOutput) Elem() EventTargetEcsTargetOutput {
@@ -3648,6 +4400,12 @@ func (i EventTargetEcsTargetCapacityProviderStrategyArgs) ToEventTargetEcsTarget
 	return pulumi.ToOutputWithContext(ctx, i).(EventTargetEcsTargetCapacityProviderStrategyOutput)
 }
 
+func (i EventTargetEcsTargetCapacityProviderStrategyArgs) ToOutput(ctx context.Context) pulumix.Output[EventTargetEcsTargetCapacityProviderStrategy] {
+	return pulumix.Output[EventTargetEcsTargetCapacityProviderStrategy]{
+		OutputState: i.ToEventTargetEcsTargetCapacityProviderStrategyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventTargetEcsTargetCapacityProviderStrategyArrayInput is an input type that accepts EventTargetEcsTargetCapacityProviderStrategyArray and EventTargetEcsTargetCapacityProviderStrategyArrayOutput values.
 // You can construct a concrete instance of `EventTargetEcsTargetCapacityProviderStrategyArrayInput` via:
 //
@@ -3673,6 +4431,12 @@ func (i EventTargetEcsTargetCapacityProviderStrategyArray) ToEventTargetEcsTarge
 	return pulumi.ToOutputWithContext(ctx, i).(EventTargetEcsTargetCapacityProviderStrategyArrayOutput)
 }
 
+func (i EventTargetEcsTargetCapacityProviderStrategyArray) ToOutput(ctx context.Context) pulumix.Output[[]EventTargetEcsTargetCapacityProviderStrategy] {
+	return pulumix.Output[[]EventTargetEcsTargetCapacityProviderStrategy]{
+		OutputState: i.ToEventTargetEcsTargetCapacityProviderStrategyArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventTargetEcsTargetCapacityProviderStrategyOutput struct{ *pulumi.OutputState }
 
 func (EventTargetEcsTargetCapacityProviderStrategyOutput) ElementType() reflect.Type {
@@ -3685,6 +4449,12 @@ func (o EventTargetEcsTargetCapacityProviderStrategyOutput) ToEventTargetEcsTarg
 
 func (o EventTargetEcsTargetCapacityProviderStrategyOutput) ToEventTargetEcsTargetCapacityProviderStrategyOutputWithContext(ctx context.Context) EventTargetEcsTargetCapacityProviderStrategyOutput {
 	return o
+}
+
+func (o EventTargetEcsTargetCapacityProviderStrategyOutput) ToOutput(ctx context.Context) pulumix.Output[EventTargetEcsTargetCapacityProviderStrategy] {
+	return pulumix.Output[EventTargetEcsTargetCapacityProviderStrategy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
@@ -3714,6 +4484,12 @@ func (o EventTargetEcsTargetCapacityProviderStrategyArrayOutput) ToEventTargetEc
 
 func (o EventTargetEcsTargetCapacityProviderStrategyArrayOutput) ToEventTargetEcsTargetCapacityProviderStrategyArrayOutputWithContext(ctx context.Context) EventTargetEcsTargetCapacityProviderStrategyArrayOutput {
 	return o
+}
+
+func (o EventTargetEcsTargetCapacityProviderStrategyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventTargetEcsTargetCapacityProviderStrategy] {
+	return pulumix.Output[[]EventTargetEcsTargetCapacityProviderStrategy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventTargetEcsTargetCapacityProviderStrategyArrayOutput) Index(i pulumi.IntInput) EventTargetEcsTargetCapacityProviderStrategyOutput {
@@ -3767,6 +4543,12 @@ func (i EventTargetEcsTargetNetworkConfigurationArgs) ToEventTargetEcsTargetNetw
 	return pulumi.ToOutputWithContext(ctx, i).(EventTargetEcsTargetNetworkConfigurationOutput)
 }
 
+func (i EventTargetEcsTargetNetworkConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[EventTargetEcsTargetNetworkConfiguration] {
+	return pulumix.Output[EventTargetEcsTargetNetworkConfiguration]{
+		OutputState: i.ToEventTargetEcsTargetNetworkConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EventTargetEcsTargetNetworkConfigurationArgs) ToEventTargetEcsTargetNetworkConfigurationPtrOutput() EventTargetEcsTargetNetworkConfigurationPtrOutput {
 	return i.ToEventTargetEcsTargetNetworkConfigurationPtrOutputWithContext(context.Background())
 }
@@ -3808,6 +4590,12 @@ func (i *eventTargetEcsTargetNetworkConfigurationPtrType) ToEventTargetEcsTarget
 	return pulumi.ToOutputWithContext(ctx, i).(EventTargetEcsTargetNetworkConfigurationPtrOutput)
 }
 
+func (i *eventTargetEcsTargetNetworkConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventTargetEcsTargetNetworkConfiguration] {
+	return pulumix.Output[*EventTargetEcsTargetNetworkConfiguration]{
+		OutputState: i.ToEventTargetEcsTargetNetworkConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventTargetEcsTargetNetworkConfigurationOutput struct{ *pulumi.OutputState }
 
 func (EventTargetEcsTargetNetworkConfigurationOutput) ElementType() reflect.Type {
@@ -3830,6 +4618,12 @@ func (o EventTargetEcsTargetNetworkConfigurationOutput) ToEventTargetEcsTargetNe
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventTargetEcsTargetNetworkConfiguration) *EventTargetEcsTargetNetworkConfiguration {
 		return &v
 	}).(EventTargetEcsTargetNetworkConfigurationPtrOutput)
+}
+
+func (o EventTargetEcsTargetNetworkConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[EventTargetEcsTargetNetworkConfiguration] {
+	return pulumix.Output[EventTargetEcsTargetNetworkConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Defaults to `false`.
@@ -3861,6 +4655,12 @@ func (o EventTargetEcsTargetNetworkConfigurationPtrOutput) ToEventTargetEcsTarge
 
 func (o EventTargetEcsTargetNetworkConfigurationPtrOutput) ToEventTargetEcsTargetNetworkConfigurationPtrOutputWithContext(ctx context.Context) EventTargetEcsTargetNetworkConfigurationPtrOutput {
 	return o
+}
+
+func (o EventTargetEcsTargetNetworkConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventTargetEcsTargetNetworkConfiguration] {
+	return pulumix.Output[*EventTargetEcsTargetNetworkConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventTargetEcsTargetNetworkConfigurationPtrOutput) Elem() EventTargetEcsTargetNetworkConfigurationOutput {
@@ -3942,6 +4742,12 @@ func (i EventTargetEcsTargetOrderedPlacementStrategyArgs) ToEventTargetEcsTarget
 	return pulumi.ToOutputWithContext(ctx, i).(EventTargetEcsTargetOrderedPlacementStrategyOutput)
 }
 
+func (i EventTargetEcsTargetOrderedPlacementStrategyArgs) ToOutput(ctx context.Context) pulumix.Output[EventTargetEcsTargetOrderedPlacementStrategy] {
+	return pulumix.Output[EventTargetEcsTargetOrderedPlacementStrategy]{
+		OutputState: i.ToEventTargetEcsTargetOrderedPlacementStrategyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventTargetEcsTargetOrderedPlacementStrategyArrayInput is an input type that accepts EventTargetEcsTargetOrderedPlacementStrategyArray and EventTargetEcsTargetOrderedPlacementStrategyArrayOutput values.
 // You can construct a concrete instance of `EventTargetEcsTargetOrderedPlacementStrategyArrayInput` via:
 //
@@ -3967,6 +4773,12 @@ func (i EventTargetEcsTargetOrderedPlacementStrategyArray) ToEventTargetEcsTarge
 	return pulumi.ToOutputWithContext(ctx, i).(EventTargetEcsTargetOrderedPlacementStrategyArrayOutput)
 }
 
+func (i EventTargetEcsTargetOrderedPlacementStrategyArray) ToOutput(ctx context.Context) pulumix.Output[[]EventTargetEcsTargetOrderedPlacementStrategy] {
+	return pulumix.Output[[]EventTargetEcsTargetOrderedPlacementStrategy]{
+		OutputState: i.ToEventTargetEcsTargetOrderedPlacementStrategyArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventTargetEcsTargetOrderedPlacementStrategyOutput struct{ *pulumi.OutputState }
 
 func (EventTargetEcsTargetOrderedPlacementStrategyOutput) ElementType() reflect.Type {
@@ -3979,6 +4791,12 @@ func (o EventTargetEcsTargetOrderedPlacementStrategyOutput) ToEventTargetEcsTarg
 
 func (o EventTargetEcsTargetOrderedPlacementStrategyOutput) ToEventTargetEcsTargetOrderedPlacementStrategyOutputWithContext(ctx context.Context) EventTargetEcsTargetOrderedPlacementStrategyOutput {
 	return o
+}
+
+func (o EventTargetEcsTargetOrderedPlacementStrategyOutput) ToOutput(ctx context.Context) pulumix.Output[EventTargetEcsTargetOrderedPlacementStrategy] {
+	return pulumix.Output[EventTargetEcsTargetOrderedPlacementStrategy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The field to apply the placement strategy against. For the `spread` placement strategy, valid values are `instanceId` (or `host`, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as `attribute:ecs.availability-zone`. For the `binpack` placement strategy, valid values are `cpu` and `memory`. For the `random` placement strategy, this field is not used. For more information, see [Amazon ECS task placement strategies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html).
@@ -4003,6 +4821,12 @@ func (o EventTargetEcsTargetOrderedPlacementStrategyArrayOutput) ToEventTargetEc
 
 func (o EventTargetEcsTargetOrderedPlacementStrategyArrayOutput) ToEventTargetEcsTargetOrderedPlacementStrategyArrayOutputWithContext(ctx context.Context) EventTargetEcsTargetOrderedPlacementStrategyArrayOutput {
 	return o
+}
+
+func (o EventTargetEcsTargetOrderedPlacementStrategyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventTargetEcsTargetOrderedPlacementStrategy] {
+	return pulumix.Output[[]EventTargetEcsTargetOrderedPlacementStrategy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventTargetEcsTargetOrderedPlacementStrategyArrayOutput) Index(i pulumi.IntInput) EventTargetEcsTargetOrderedPlacementStrategyOutput {
@@ -4048,6 +4872,12 @@ func (i EventTargetEcsTargetPlacementConstraintArgs) ToEventTargetEcsTargetPlace
 	return pulumi.ToOutputWithContext(ctx, i).(EventTargetEcsTargetPlacementConstraintOutput)
 }
 
+func (i EventTargetEcsTargetPlacementConstraintArgs) ToOutput(ctx context.Context) pulumix.Output[EventTargetEcsTargetPlacementConstraint] {
+	return pulumix.Output[EventTargetEcsTargetPlacementConstraint]{
+		OutputState: i.ToEventTargetEcsTargetPlacementConstraintOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventTargetEcsTargetPlacementConstraintArrayInput is an input type that accepts EventTargetEcsTargetPlacementConstraintArray and EventTargetEcsTargetPlacementConstraintArrayOutput values.
 // You can construct a concrete instance of `EventTargetEcsTargetPlacementConstraintArrayInput` via:
 //
@@ -4073,6 +4903,12 @@ func (i EventTargetEcsTargetPlacementConstraintArray) ToEventTargetEcsTargetPlac
 	return pulumi.ToOutputWithContext(ctx, i).(EventTargetEcsTargetPlacementConstraintArrayOutput)
 }
 
+func (i EventTargetEcsTargetPlacementConstraintArray) ToOutput(ctx context.Context) pulumix.Output[[]EventTargetEcsTargetPlacementConstraint] {
+	return pulumix.Output[[]EventTargetEcsTargetPlacementConstraint]{
+		OutputState: i.ToEventTargetEcsTargetPlacementConstraintArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventTargetEcsTargetPlacementConstraintOutput struct{ *pulumi.OutputState }
 
 func (EventTargetEcsTargetPlacementConstraintOutput) ElementType() reflect.Type {
@@ -4085,6 +4921,12 @@ func (o EventTargetEcsTargetPlacementConstraintOutput) ToEventTargetEcsTargetPla
 
 func (o EventTargetEcsTargetPlacementConstraintOutput) ToEventTargetEcsTargetPlacementConstraintOutputWithContext(ctx context.Context) EventTargetEcsTargetPlacementConstraintOutput {
 	return o
+}
+
+func (o EventTargetEcsTargetPlacementConstraintOutput) ToOutput(ctx context.Context) pulumix.Output[EventTargetEcsTargetPlacementConstraint] {
+	return pulumix.Output[EventTargetEcsTargetPlacementConstraint]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Cluster Query Language expression to apply to the constraint. Does not need to be specified for the `distinctInstance` type. For more information, see [Cluster Query Language in the Amazon EC2 Container Service Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
@@ -4109,6 +4951,12 @@ func (o EventTargetEcsTargetPlacementConstraintArrayOutput) ToEventTargetEcsTarg
 
 func (o EventTargetEcsTargetPlacementConstraintArrayOutput) ToEventTargetEcsTargetPlacementConstraintArrayOutputWithContext(ctx context.Context) EventTargetEcsTargetPlacementConstraintArrayOutput {
 	return o
+}
+
+func (o EventTargetEcsTargetPlacementConstraintArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventTargetEcsTargetPlacementConstraint] {
+	return pulumix.Output[[]EventTargetEcsTargetPlacementConstraint]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventTargetEcsTargetPlacementConstraintArrayOutput) Index(i pulumi.IntInput) EventTargetEcsTargetPlacementConstraintOutput {
@@ -4158,6 +5006,12 @@ func (i EventTargetHttpTargetArgs) ToEventTargetHttpTargetOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(EventTargetHttpTargetOutput)
 }
 
+func (i EventTargetHttpTargetArgs) ToOutput(ctx context.Context) pulumix.Output[EventTargetHttpTarget] {
+	return pulumix.Output[EventTargetHttpTarget]{
+		OutputState: i.ToEventTargetHttpTargetOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EventTargetHttpTargetArgs) ToEventTargetHttpTargetPtrOutput() EventTargetHttpTargetPtrOutput {
 	return i.ToEventTargetHttpTargetPtrOutputWithContext(context.Background())
 }
@@ -4199,6 +5053,12 @@ func (i *eventTargetHttpTargetPtrType) ToEventTargetHttpTargetPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(EventTargetHttpTargetPtrOutput)
 }
 
+func (i *eventTargetHttpTargetPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventTargetHttpTarget] {
+	return pulumix.Output[*EventTargetHttpTarget]{
+		OutputState: i.ToEventTargetHttpTargetPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventTargetHttpTargetOutput struct{ *pulumi.OutputState }
 
 func (EventTargetHttpTargetOutput) ElementType() reflect.Type {
@@ -4221,6 +5081,12 @@ func (o EventTargetHttpTargetOutput) ToEventTargetHttpTargetPtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventTargetHttpTarget) *EventTargetHttpTarget {
 		return &v
 	}).(EventTargetHttpTargetPtrOutput)
+}
+
+func (o EventTargetHttpTargetOutput) ToOutput(ctx context.Context) pulumix.Output[EventTargetHttpTarget] {
+	return pulumix.Output[EventTargetHttpTarget]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Enables you to specify HTTP headers to add to the request.
@@ -4250,6 +5116,12 @@ func (o EventTargetHttpTargetPtrOutput) ToEventTargetHttpTargetPtrOutput() Event
 
 func (o EventTargetHttpTargetPtrOutput) ToEventTargetHttpTargetPtrOutputWithContext(ctx context.Context) EventTargetHttpTargetPtrOutput {
 	return o
+}
+
+func (o EventTargetHttpTargetPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventTargetHttpTarget] {
+	return pulumix.Output[*EventTargetHttpTarget]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventTargetHttpTargetPtrOutput) Elem() EventTargetHttpTargetOutput {
@@ -4335,6 +5207,12 @@ func (i EventTargetInputTransformerArgs) ToEventTargetInputTransformerOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(EventTargetInputTransformerOutput)
 }
 
+func (i EventTargetInputTransformerArgs) ToOutput(ctx context.Context) pulumix.Output[EventTargetInputTransformer] {
+	return pulumix.Output[EventTargetInputTransformer]{
+		OutputState: i.ToEventTargetInputTransformerOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EventTargetInputTransformerArgs) ToEventTargetInputTransformerPtrOutput() EventTargetInputTransformerPtrOutput {
 	return i.ToEventTargetInputTransformerPtrOutputWithContext(context.Background())
 }
@@ -4376,6 +5254,12 @@ func (i *eventTargetInputTransformerPtrType) ToEventTargetInputTransformerPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(EventTargetInputTransformerPtrOutput)
 }
 
+func (i *eventTargetInputTransformerPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventTargetInputTransformer] {
+	return pulumix.Output[*EventTargetInputTransformer]{
+		OutputState: i.ToEventTargetInputTransformerPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventTargetInputTransformerOutput struct{ *pulumi.OutputState }
 
 func (EventTargetInputTransformerOutput) ElementType() reflect.Type {
@@ -4398,6 +5282,12 @@ func (o EventTargetInputTransformerOutput) ToEventTargetInputTransformerPtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventTargetInputTransformer) *EventTargetInputTransformer {
 		return &v
 	}).(EventTargetInputTransformerPtrOutput)
+}
+
+func (o EventTargetInputTransformerOutput) ToOutput(ctx context.Context) pulumix.Output[EventTargetInputTransformer] {
+	return pulumix.Output[EventTargetInputTransformer]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Key value pairs specified in the form of JSONPath (for example, time = $.time)
@@ -4425,6 +5315,12 @@ func (o EventTargetInputTransformerPtrOutput) ToEventTargetInputTransformerPtrOu
 
 func (o EventTargetInputTransformerPtrOutput) ToEventTargetInputTransformerPtrOutputWithContext(ctx context.Context) EventTargetInputTransformerPtrOutput {
 	return o
+}
+
+func (o EventTargetInputTransformerPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventTargetInputTransformer] {
+	return pulumix.Output[*EventTargetInputTransformer]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventTargetInputTransformerPtrOutput) Elem() EventTargetInputTransformerOutput {
@@ -4493,6 +5389,12 @@ func (i EventTargetKinesisTargetArgs) ToEventTargetKinesisTargetOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(EventTargetKinesisTargetOutput)
 }
 
+func (i EventTargetKinesisTargetArgs) ToOutput(ctx context.Context) pulumix.Output[EventTargetKinesisTarget] {
+	return pulumix.Output[EventTargetKinesisTarget]{
+		OutputState: i.ToEventTargetKinesisTargetOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EventTargetKinesisTargetArgs) ToEventTargetKinesisTargetPtrOutput() EventTargetKinesisTargetPtrOutput {
 	return i.ToEventTargetKinesisTargetPtrOutputWithContext(context.Background())
 }
@@ -4534,6 +5436,12 @@ func (i *eventTargetKinesisTargetPtrType) ToEventTargetKinesisTargetPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(EventTargetKinesisTargetPtrOutput)
 }
 
+func (i *eventTargetKinesisTargetPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventTargetKinesisTarget] {
+	return pulumix.Output[*EventTargetKinesisTarget]{
+		OutputState: i.ToEventTargetKinesisTargetPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventTargetKinesisTargetOutput struct{ *pulumi.OutputState }
 
 func (EventTargetKinesisTargetOutput) ElementType() reflect.Type {
@@ -4558,6 +5466,12 @@ func (o EventTargetKinesisTargetOutput) ToEventTargetKinesisTargetPtrOutputWithC
 	}).(EventTargetKinesisTargetPtrOutput)
 }
 
+func (o EventTargetKinesisTargetOutput) ToOutput(ctx context.Context) pulumix.Output[EventTargetKinesisTarget] {
+	return pulumix.Output[EventTargetKinesisTarget]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The JSON path to be extracted from the event and used as the partition key.
 func (o EventTargetKinesisTargetOutput) PartitionKeyPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventTargetKinesisTarget) *string { return v.PartitionKeyPath }).(pulumi.StringPtrOutput)
@@ -4575,6 +5489,12 @@ func (o EventTargetKinesisTargetPtrOutput) ToEventTargetKinesisTargetPtrOutput()
 
 func (o EventTargetKinesisTargetPtrOutput) ToEventTargetKinesisTargetPtrOutputWithContext(ctx context.Context) EventTargetKinesisTargetPtrOutput {
 	return o
+}
+
+func (o EventTargetKinesisTargetPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventTargetKinesisTarget] {
+	return pulumix.Output[*EventTargetKinesisTarget]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventTargetKinesisTargetPtrOutput) Elem() EventTargetKinesisTargetOutput {
@@ -4650,6 +5570,12 @@ func (i EventTargetRedshiftTargetArgs) ToEventTargetRedshiftTargetOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(EventTargetRedshiftTargetOutput)
 }
 
+func (i EventTargetRedshiftTargetArgs) ToOutput(ctx context.Context) pulumix.Output[EventTargetRedshiftTarget] {
+	return pulumix.Output[EventTargetRedshiftTarget]{
+		OutputState: i.ToEventTargetRedshiftTargetOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EventTargetRedshiftTargetArgs) ToEventTargetRedshiftTargetPtrOutput() EventTargetRedshiftTargetPtrOutput {
 	return i.ToEventTargetRedshiftTargetPtrOutputWithContext(context.Background())
 }
@@ -4691,6 +5617,12 @@ func (i *eventTargetRedshiftTargetPtrType) ToEventTargetRedshiftTargetPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(EventTargetRedshiftTargetPtrOutput)
 }
 
+func (i *eventTargetRedshiftTargetPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventTargetRedshiftTarget] {
+	return pulumix.Output[*EventTargetRedshiftTarget]{
+		OutputState: i.ToEventTargetRedshiftTargetPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventTargetRedshiftTargetOutput struct{ *pulumi.OutputState }
 
 func (EventTargetRedshiftTargetOutput) ElementType() reflect.Type {
@@ -4713,6 +5645,12 @@ func (o EventTargetRedshiftTargetOutput) ToEventTargetRedshiftTargetPtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventTargetRedshiftTarget) *EventTargetRedshiftTarget {
 		return &v
 	}).(EventTargetRedshiftTargetPtrOutput)
+}
+
+func (o EventTargetRedshiftTargetOutput) ToOutput(ctx context.Context) pulumix.Output[EventTargetRedshiftTarget] {
+	return pulumix.Output[EventTargetRedshiftTarget]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the database.
@@ -4757,6 +5695,12 @@ func (o EventTargetRedshiftTargetPtrOutput) ToEventTargetRedshiftTargetPtrOutput
 
 func (o EventTargetRedshiftTargetPtrOutput) ToEventTargetRedshiftTargetPtrOutputWithContext(ctx context.Context) EventTargetRedshiftTargetPtrOutput {
 	return o
+}
+
+func (o EventTargetRedshiftTargetPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventTargetRedshiftTarget] {
+	return pulumix.Output[*EventTargetRedshiftTarget]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventTargetRedshiftTargetPtrOutput) Elem() EventTargetRedshiftTargetOutput {
@@ -4866,6 +5810,12 @@ func (i EventTargetRetryPolicyArgs) ToEventTargetRetryPolicyOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(EventTargetRetryPolicyOutput)
 }
 
+func (i EventTargetRetryPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[EventTargetRetryPolicy] {
+	return pulumix.Output[EventTargetRetryPolicy]{
+		OutputState: i.ToEventTargetRetryPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EventTargetRetryPolicyArgs) ToEventTargetRetryPolicyPtrOutput() EventTargetRetryPolicyPtrOutput {
 	return i.ToEventTargetRetryPolicyPtrOutputWithContext(context.Background())
 }
@@ -4907,6 +5857,12 @@ func (i *eventTargetRetryPolicyPtrType) ToEventTargetRetryPolicyPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(EventTargetRetryPolicyPtrOutput)
 }
 
+func (i *eventTargetRetryPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventTargetRetryPolicy] {
+	return pulumix.Output[*EventTargetRetryPolicy]{
+		OutputState: i.ToEventTargetRetryPolicyPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventTargetRetryPolicyOutput struct{ *pulumi.OutputState }
 
 func (EventTargetRetryPolicyOutput) ElementType() reflect.Type {
@@ -4931,6 +5887,12 @@ func (o EventTargetRetryPolicyOutput) ToEventTargetRetryPolicyPtrOutputWithConte
 	}).(EventTargetRetryPolicyPtrOutput)
 }
 
+func (o EventTargetRetryPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[EventTargetRetryPolicy] {
+	return pulumix.Output[EventTargetRetryPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The age in seconds to continue to make retry attempts.
 func (o EventTargetRetryPolicyOutput) MaximumEventAgeInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EventTargetRetryPolicy) *int { return v.MaximumEventAgeInSeconds }).(pulumi.IntPtrOutput)
@@ -4953,6 +5915,12 @@ func (o EventTargetRetryPolicyPtrOutput) ToEventTargetRetryPolicyPtrOutput() Eve
 
 func (o EventTargetRetryPolicyPtrOutput) ToEventTargetRetryPolicyPtrOutputWithContext(ctx context.Context) EventTargetRetryPolicyPtrOutput {
 	return o
+}
+
+func (o EventTargetRetryPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventTargetRetryPolicy] {
+	return pulumix.Output[*EventTargetRetryPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventTargetRetryPolicyPtrOutput) Elem() EventTargetRetryPolicyOutput {
@@ -5022,6 +5990,12 @@ func (i EventTargetRunCommandTargetArgs) ToEventTargetRunCommandTargetOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(EventTargetRunCommandTargetOutput)
 }
 
+func (i EventTargetRunCommandTargetArgs) ToOutput(ctx context.Context) pulumix.Output[EventTargetRunCommandTarget] {
+	return pulumix.Output[EventTargetRunCommandTarget]{
+		OutputState: i.ToEventTargetRunCommandTargetOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventTargetRunCommandTargetArrayInput is an input type that accepts EventTargetRunCommandTargetArray and EventTargetRunCommandTargetArrayOutput values.
 // You can construct a concrete instance of `EventTargetRunCommandTargetArrayInput` via:
 //
@@ -5047,6 +6021,12 @@ func (i EventTargetRunCommandTargetArray) ToEventTargetRunCommandTargetArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(EventTargetRunCommandTargetArrayOutput)
 }
 
+func (i EventTargetRunCommandTargetArray) ToOutput(ctx context.Context) pulumix.Output[[]EventTargetRunCommandTarget] {
+	return pulumix.Output[[]EventTargetRunCommandTarget]{
+		OutputState: i.ToEventTargetRunCommandTargetArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventTargetRunCommandTargetOutput struct{ *pulumi.OutputState }
 
 func (EventTargetRunCommandTargetOutput) ElementType() reflect.Type {
@@ -5059,6 +6039,12 @@ func (o EventTargetRunCommandTargetOutput) ToEventTargetRunCommandTargetOutput()
 
 func (o EventTargetRunCommandTargetOutput) ToEventTargetRunCommandTargetOutputWithContext(ctx context.Context) EventTargetRunCommandTargetOutput {
 	return o
+}
+
+func (o EventTargetRunCommandTargetOutput) ToOutput(ctx context.Context) pulumix.Output[EventTargetRunCommandTarget] {
+	return pulumix.Output[EventTargetRunCommandTarget]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Can be either `tag:tag-key` or `InstanceIds`.
@@ -5085,10 +6071,309 @@ func (o EventTargetRunCommandTargetArrayOutput) ToEventTargetRunCommandTargetArr
 	return o
 }
 
+func (o EventTargetRunCommandTargetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventTargetRunCommandTarget] {
+	return pulumix.Output[[]EventTargetRunCommandTarget]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EventTargetRunCommandTargetArrayOutput) Index(i pulumi.IntInput) EventTargetRunCommandTargetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventTargetRunCommandTarget {
 		return vs[0].([]EventTargetRunCommandTarget)[vs[1].(int)]
 	}).(EventTargetRunCommandTargetOutput)
+}
+
+type EventTargetSagemakerPipelineTarget struct {
+	// List of Parameter names and values for SageMaker Model Building Pipeline execution.
+	PipelineParameterLists []EventTargetSagemakerPipelineTargetPipelineParameterList `pulumi:"pipelineParameterLists"`
+}
+
+// EventTargetSagemakerPipelineTargetInput is an input type that accepts EventTargetSagemakerPipelineTargetArgs and EventTargetSagemakerPipelineTargetOutput values.
+// You can construct a concrete instance of `EventTargetSagemakerPipelineTargetInput` via:
+//
+//	EventTargetSagemakerPipelineTargetArgs{...}
+type EventTargetSagemakerPipelineTargetInput interface {
+	pulumi.Input
+
+	ToEventTargetSagemakerPipelineTargetOutput() EventTargetSagemakerPipelineTargetOutput
+	ToEventTargetSagemakerPipelineTargetOutputWithContext(context.Context) EventTargetSagemakerPipelineTargetOutput
+}
+
+type EventTargetSagemakerPipelineTargetArgs struct {
+	// List of Parameter names and values for SageMaker Model Building Pipeline execution.
+	PipelineParameterLists EventTargetSagemakerPipelineTargetPipelineParameterListArrayInput `pulumi:"pipelineParameterLists"`
+}
+
+func (EventTargetSagemakerPipelineTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventTargetSagemakerPipelineTarget)(nil)).Elem()
+}
+
+func (i EventTargetSagemakerPipelineTargetArgs) ToEventTargetSagemakerPipelineTargetOutput() EventTargetSagemakerPipelineTargetOutput {
+	return i.ToEventTargetSagemakerPipelineTargetOutputWithContext(context.Background())
+}
+
+func (i EventTargetSagemakerPipelineTargetArgs) ToEventTargetSagemakerPipelineTargetOutputWithContext(ctx context.Context) EventTargetSagemakerPipelineTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventTargetSagemakerPipelineTargetOutput)
+}
+
+func (i EventTargetSagemakerPipelineTargetArgs) ToOutput(ctx context.Context) pulumix.Output[EventTargetSagemakerPipelineTarget] {
+	return pulumix.Output[EventTargetSagemakerPipelineTarget]{
+		OutputState: i.ToEventTargetSagemakerPipelineTargetOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i EventTargetSagemakerPipelineTargetArgs) ToEventTargetSagemakerPipelineTargetPtrOutput() EventTargetSagemakerPipelineTargetPtrOutput {
+	return i.ToEventTargetSagemakerPipelineTargetPtrOutputWithContext(context.Background())
+}
+
+func (i EventTargetSagemakerPipelineTargetArgs) ToEventTargetSagemakerPipelineTargetPtrOutputWithContext(ctx context.Context) EventTargetSagemakerPipelineTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventTargetSagemakerPipelineTargetOutput).ToEventTargetSagemakerPipelineTargetPtrOutputWithContext(ctx)
+}
+
+// EventTargetSagemakerPipelineTargetPtrInput is an input type that accepts EventTargetSagemakerPipelineTargetArgs, EventTargetSagemakerPipelineTargetPtr and EventTargetSagemakerPipelineTargetPtrOutput values.
+// You can construct a concrete instance of `EventTargetSagemakerPipelineTargetPtrInput` via:
+//
+//	        EventTargetSagemakerPipelineTargetArgs{...}
+//
+//	or:
+//
+//	        nil
+type EventTargetSagemakerPipelineTargetPtrInput interface {
+	pulumi.Input
+
+	ToEventTargetSagemakerPipelineTargetPtrOutput() EventTargetSagemakerPipelineTargetPtrOutput
+	ToEventTargetSagemakerPipelineTargetPtrOutputWithContext(context.Context) EventTargetSagemakerPipelineTargetPtrOutput
+}
+
+type eventTargetSagemakerPipelineTargetPtrType EventTargetSagemakerPipelineTargetArgs
+
+func EventTargetSagemakerPipelineTargetPtr(v *EventTargetSagemakerPipelineTargetArgs) EventTargetSagemakerPipelineTargetPtrInput {
+	return (*eventTargetSagemakerPipelineTargetPtrType)(v)
+}
+
+func (*eventTargetSagemakerPipelineTargetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventTargetSagemakerPipelineTarget)(nil)).Elem()
+}
+
+func (i *eventTargetSagemakerPipelineTargetPtrType) ToEventTargetSagemakerPipelineTargetPtrOutput() EventTargetSagemakerPipelineTargetPtrOutput {
+	return i.ToEventTargetSagemakerPipelineTargetPtrOutputWithContext(context.Background())
+}
+
+func (i *eventTargetSagemakerPipelineTargetPtrType) ToEventTargetSagemakerPipelineTargetPtrOutputWithContext(ctx context.Context) EventTargetSagemakerPipelineTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventTargetSagemakerPipelineTargetPtrOutput)
+}
+
+func (i *eventTargetSagemakerPipelineTargetPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventTargetSagemakerPipelineTarget] {
+	return pulumix.Output[*EventTargetSagemakerPipelineTarget]{
+		OutputState: i.ToEventTargetSagemakerPipelineTargetPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type EventTargetSagemakerPipelineTargetOutput struct{ *pulumi.OutputState }
+
+func (EventTargetSagemakerPipelineTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventTargetSagemakerPipelineTarget)(nil)).Elem()
+}
+
+func (o EventTargetSagemakerPipelineTargetOutput) ToEventTargetSagemakerPipelineTargetOutput() EventTargetSagemakerPipelineTargetOutput {
+	return o
+}
+
+func (o EventTargetSagemakerPipelineTargetOutput) ToEventTargetSagemakerPipelineTargetOutputWithContext(ctx context.Context) EventTargetSagemakerPipelineTargetOutput {
+	return o
+}
+
+func (o EventTargetSagemakerPipelineTargetOutput) ToEventTargetSagemakerPipelineTargetPtrOutput() EventTargetSagemakerPipelineTargetPtrOutput {
+	return o.ToEventTargetSagemakerPipelineTargetPtrOutputWithContext(context.Background())
+}
+
+func (o EventTargetSagemakerPipelineTargetOutput) ToEventTargetSagemakerPipelineTargetPtrOutputWithContext(ctx context.Context) EventTargetSagemakerPipelineTargetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventTargetSagemakerPipelineTarget) *EventTargetSagemakerPipelineTarget {
+		return &v
+	}).(EventTargetSagemakerPipelineTargetPtrOutput)
+}
+
+func (o EventTargetSagemakerPipelineTargetOutput) ToOutput(ctx context.Context) pulumix.Output[EventTargetSagemakerPipelineTarget] {
+	return pulumix.Output[EventTargetSagemakerPipelineTarget]{
+		OutputState: o.OutputState,
+	}
+}
+
+// List of Parameter names and values for SageMaker Model Building Pipeline execution.
+func (o EventTargetSagemakerPipelineTargetOutput) PipelineParameterLists() EventTargetSagemakerPipelineTargetPipelineParameterListArrayOutput {
+	return o.ApplyT(func(v EventTargetSagemakerPipelineTarget) []EventTargetSagemakerPipelineTargetPipelineParameterList {
+		return v.PipelineParameterLists
+	}).(EventTargetSagemakerPipelineTargetPipelineParameterListArrayOutput)
+}
+
+type EventTargetSagemakerPipelineTargetPtrOutput struct{ *pulumi.OutputState }
+
+func (EventTargetSagemakerPipelineTargetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventTargetSagemakerPipelineTarget)(nil)).Elem()
+}
+
+func (o EventTargetSagemakerPipelineTargetPtrOutput) ToEventTargetSagemakerPipelineTargetPtrOutput() EventTargetSagemakerPipelineTargetPtrOutput {
+	return o
+}
+
+func (o EventTargetSagemakerPipelineTargetPtrOutput) ToEventTargetSagemakerPipelineTargetPtrOutputWithContext(ctx context.Context) EventTargetSagemakerPipelineTargetPtrOutput {
+	return o
+}
+
+func (o EventTargetSagemakerPipelineTargetPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventTargetSagemakerPipelineTarget] {
+	return pulumix.Output[*EventTargetSagemakerPipelineTarget]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o EventTargetSagemakerPipelineTargetPtrOutput) Elem() EventTargetSagemakerPipelineTargetOutput {
+	return o.ApplyT(func(v *EventTargetSagemakerPipelineTarget) EventTargetSagemakerPipelineTarget {
+		if v != nil {
+			return *v
+		}
+		var ret EventTargetSagemakerPipelineTarget
+		return ret
+	}).(EventTargetSagemakerPipelineTargetOutput)
+}
+
+// List of Parameter names and values for SageMaker Model Building Pipeline execution.
+func (o EventTargetSagemakerPipelineTargetPtrOutput) PipelineParameterLists() EventTargetSagemakerPipelineTargetPipelineParameterListArrayOutput {
+	return o.ApplyT(func(v *EventTargetSagemakerPipelineTarget) []EventTargetSagemakerPipelineTargetPipelineParameterList {
+		if v == nil {
+			return nil
+		}
+		return v.PipelineParameterLists
+	}).(EventTargetSagemakerPipelineTargetPipelineParameterListArrayOutput)
+}
+
+type EventTargetSagemakerPipelineTargetPipelineParameterList struct {
+	// Name of parameter to start execution of a SageMaker Model Building Pipeline.
+	Name string `pulumi:"name"`
+	// Value of parameter to start execution of a SageMaker Model Building Pipeline.
+	Value string `pulumi:"value"`
+}
+
+// EventTargetSagemakerPipelineTargetPipelineParameterListInput is an input type that accepts EventTargetSagemakerPipelineTargetPipelineParameterListArgs and EventTargetSagemakerPipelineTargetPipelineParameterListOutput values.
+// You can construct a concrete instance of `EventTargetSagemakerPipelineTargetPipelineParameterListInput` via:
+//
+//	EventTargetSagemakerPipelineTargetPipelineParameterListArgs{...}
+type EventTargetSagemakerPipelineTargetPipelineParameterListInput interface {
+	pulumi.Input
+
+	ToEventTargetSagemakerPipelineTargetPipelineParameterListOutput() EventTargetSagemakerPipelineTargetPipelineParameterListOutput
+	ToEventTargetSagemakerPipelineTargetPipelineParameterListOutputWithContext(context.Context) EventTargetSagemakerPipelineTargetPipelineParameterListOutput
+}
+
+type EventTargetSagemakerPipelineTargetPipelineParameterListArgs struct {
+	// Name of parameter to start execution of a SageMaker Model Building Pipeline.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Value of parameter to start execution of a SageMaker Model Building Pipeline.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (EventTargetSagemakerPipelineTargetPipelineParameterListArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventTargetSagemakerPipelineTargetPipelineParameterList)(nil)).Elem()
+}
+
+func (i EventTargetSagemakerPipelineTargetPipelineParameterListArgs) ToEventTargetSagemakerPipelineTargetPipelineParameterListOutput() EventTargetSagemakerPipelineTargetPipelineParameterListOutput {
+	return i.ToEventTargetSagemakerPipelineTargetPipelineParameterListOutputWithContext(context.Background())
+}
+
+func (i EventTargetSagemakerPipelineTargetPipelineParameterListArgs) ToEventTargetSagemakerPipelineTargetPipelineParameterListOutputWithContext(ctx context.Context) EventTargetSagemakerPipelineTargetPipelineParameterListOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventTargetSagemakerPipelineTargetPipelineParameterListOutput)
+}
+
+func (i EventTargetSagemakerPipelineTargetPipelineParameterListArgs) ToOutput(ctx context.Context) pulumix.Output[EventTargetSagemakerPipelineTargetPipelineParameterList] {
+	return pulumix.Output[EventTargetSagemakerPipelineTargetPipelineParameterList]{
+		OutputState: i.ToEventTargetSagemakerPipelineTargetPipelineParameterListOutputWithContext(ctx).OutputState,
+	}
+}
+
+// EventTargetSagemakerPipelineTargetPipelineParameterListArrayInput is an input type that accepts EventTargetSagemakerPipelineTargetPipelineParameterListArray and EventTargetSagemakerPipelineTargetPipelineParameterListArrayOutput values.
+// You can construct a concrete instance of `EventTargetSagemakerPipelineTargetPipelineParameterListArrayInput` via:
+//
+//	EventTargetSagemakerPipelineTargetPipelineParameterListArray{ EventTargetSagemakerPipelineTargetPipelineParameterListArgs{...} }
+type EventTargetSagemakerPipelineTargetPipelineParameterListArrayInput interface {
+	pulumi.Input
+
+	ToEventTargetSagemakerPipelineTargetPipelineParameterListArrayOutput() EventTargetSagemakerPipelineTargetPipelineParameterListArrayOutput
+	ToEventTargetSagemakerPipelineTargetPipelineParameterListArrayOutputWithContext(context.Context) EventTargetSagemakerPipelineTargetPipelineParameterListArrayOutput
+}
+
+type EventTargetSagemakerPipelineTargetPipelineParameterListArray []EventTargetSagemakerPipelineTargetPipelineParameterListInput
+
+func (EventTargetSagemakerPipelineTargetPipelineParameterListArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventTargetSagemakerPipelineTargetPipelineParameterList)(nil)).Elem()
+}
+
+func (i EventTargetSagemakerPipelineTargetPipelineParameterListArray) ToEventTargetSagemakerPipelineTargetPipelineParameterListArrayOutput() EventTargetSagemakerPipelineTargetPipelineParameterListArrayOutput {
+	return i.ToEventTargetSagemakerPipelineTargetPipelineParameterListArrayOutputWithContext(context.Background())
+}
+
+func (i EventTargetSagemakerPipelineTargetPipelineParameterListArray) ToEventTargetSagemakerPipelineTargetPipelineParameterListArrayOutputWithContext(ctx context.Context) EventTargetSagemakerPipelineTargetPipelineParameterListArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventTargetSagemakerPipelineTargetPipelineParameterListArrayOutput)
+}
+
+func (i EventTargetSagemakerPipelineTargetPipelineParameterListArray) ToOutput(ctx context.Context) pulumix.Output[[]EventTargetSagemakerPipelineTargetPipelineParameterList] {
+	return pulumix.Output[[]EventTargetSagemakerPipelineTargetPipelineParameterList]{
+		OutputState: i.ToEventTargetSagemakerPipelineTargetPipelineParameterListArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type EventTargetSagemakerPipelineTargetPipelineParameterListOutput struct{ *pulumi.OutputState }
+
+func (EventTargetSagemakerPipelineTargetPipelineParameterListOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventTargetSagemakerPipelineTargetPipelineParameterList)(nil)).Elem()
+}
+
+func (o EventTargetSagemakerPipelineTargetPipelineParameterListOutput) ToEventTargetSagemakerPipelineTargetPipelineParameterListOutput() EventTargetSagemakerPipelineTargetPipelineParameterListOutput {
+	return o
+}
+
+func (o EventTargetSagemakerPipelineTargetPipelineParameterListOutput) ToEventTargetSagemakerPipelineTargetPipelineParameterListOutputWithContext(ctx context.Context) EventTargetSagemakerPipelineTargetPipelineParameterListOutput {
+	return o
+}
+
+func (o EventTargetSagemakerPipelineTargetPipelineParameterListOutput) ToOutput(ctx context.Context) pulumix.Output[EventTargetSagemakerPipelineTargetPipelineParameterList] {
+	return pulumix.Output[EventTargetSagemakerPipelineTargetPipelineParameterList]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Name of parameter to start execution of a SageMaker Model Building Pipeline.
+func (o EventTargetSagemakerPipelineTargetPipelineParameterListOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v EventTargetSagemakerPipelineTargetPipelineParameterList) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Value of parameter to start execution of a SageMaker Model Building Pipeline.
+func (o EventTargetSagemakerPipelineTargetPipelineParameterListOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v EventTargetSagemakerPipelineTargetPipelineParameterList) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type EventTargetSagemakerPipelineTargetPipelineParameterListArrayOutput struct{ *pulumi.OutputState }
+
+func (EventTargetSagemakerPipelineTargetPipelineParameterListArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventTargetSagemakerPipelineTargetPipelineParameterList)(nil)).Elem()
+}
+
+func (o EventTargetSagemakerPipelineTargetPipelineParameterListArrayOutput) ToEventTargetSagemakerPipelineTargetPipelineParameterListArrayOutput() EventTargetSagemakerPipelineTargetPipelineParameterListArrayOutput {
+	return o
+}
+
+func (o EventTargetSagemakerPipelineTargetPipelineParameterListArrayOutput) ToEventTargetSagemakerPipelineTargetPipelineParameterListArrayOutputWithContext(ctx context.Context) EventTargetSagemakerPipelineTargetPipelineParameterListArrayOutput {
+	return o
+}
+
+func (o EventTargetSagemakerPipelineTargetPipelineParameterListArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventTargetSagemakerPipelineTargetPipelineParameterList] {
+	return pulumix.Output[[]EventTargetSagemakerPipelineTargetPipelineParameterList]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o EventTargetSagemakerPipelineTargetPipelineParameterListArrayOutput) Index(i pulumi.IntInput) EventTargetSagemakerPipelineTargetPipelineParameterListOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventTargetSagemakerPipelineTargetPipelineParameterList {
+		return vs[0].([]EventTargetSagemakerPipelineTargetPipelineParameterList)[vs[1].(int)]
+	}).(EventTargetSagemakerPipelineTargetPipelineParameterListOutput)
 }
 
 type EventTargetSqsTarget struct {
@@ -5122,6 +6407,12 @@ func (i EventTargetSqsTargetArgs) ToEventTargetSqsTargetOutput() EventTargetSqsT
 
 func (i EventTargetSqsTargetArgs) ToEventTargetSqsTargetOutputWithContext(ctx context.Context) EventTargetSqsTargetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventTargetSqsTargetOutput)
+}
+
+func (i EventTargetSqsTargetArgs) ToOutput(ctx context.Context) pulumix.Output[EventTargetSqsTarget] {
+	return pulumix.Output[EventTargetSqsTarget]{
+		OutputState: i.ToEventTargetSqsTargetOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i EventTargetSqsTargetArgs) ToEventTargetSqsTargetPtrOutput() EventTargetSqsTargetPtrOutput {
@@ -5165,6 +6456,12 @@ func (i *eventTargetSqsTargetPtrType) ToEventTargetSqsTargetPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(EventTargetSqsTargetPtrOutput)
 }
 
+func (i *eventTargetSqsTargetPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventTargetSqsTarget] {
+	return pulumix.Output[*EventTargetSqsTarget]{
+		OutputState: i.ToEventTargetSqsTargetPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventTargetSqsTargetOutput struct{ *pulumi.OutputState }
 
 func (EventTargetSqsTargetOutput) ElementType() reflect.Type {
@@ -5189,6 +6486,12 @@ func (o EventTargetSqsTargetOutput) ToEventTargetSqsTargetPtrOutputWithContext(c
 	}).(EventTargetSqsTargetPtrOutput)
 }
 
+func (o EventTargetSqsTargetOutput) ToOutput(ctx context.Context) pulumix.Output[EventTargetSqsTarget] {
+	return pulumix.Output[EventTargetSqsTarget]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The FIFO message group ID to use as the target.
 func (o EventTargetSqsTargetOutput) MessageGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventTargetSqsTarget) *string { return v.MessageGroupId }).(pulumi.StringPtrOutput)
@@ -5206,6 +6509,12 @@ func (o EventTargetSqsTargetPtrOutput) ToEventTargetSqsTargetPtrOutput() EventTa
 
 func (o EventTargetSqsTargetPtrOutput) ToEventTargetSqsTargetPtrOutputWithContext(ctx context.Context) EventTargetSqsTargetPtrOutput {
 	return o
+}
+
+func (o EventTargetSqsTargetPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventTargetSqsTarget] {
+	return pulumix.Output[*EventTargetSqsTarget]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventTargetSqsTargetPtrOutput) Elem() EventTargetSqsTargetOutput {
@@ -5265,6 +6574,12 @@ func (i InternetMonitorHealthEventsConfigArgs) ToInternetMonitorHealthEventsConf
 	return pulumi.ToOutputWithContext(ctx, i).(InternetMonitorHealthEventsConfigOutput)
 }
 
+func (i InternetMonitorHealthEventsConfigArgs) ToOutput(ctx context.Context) pulumix.Output[InternetMonitorHealthEventsConfig] {
+	return pulumix.Output[InternetMonitorHealthEventsConfig]{
+		OutputState: i.ToInternetMonitorHealthEventsConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i InternetMonitorHealthEventsConfigArgs) ToInternetMonitorHealthEventsConfigPtrOutput() InternetMonitorHealthEventsConfigPtrOutput {
 	return i.ToInternetMonitorHealthEventsConfigPtrOutputWithContext(context.Background())
 }
@@ -5306,6 +6621,12 @@ func (i *internetMonitorHealthEventsConfigPtrType) ToInternetMonitorHealthEvents
 	return pulumi.ToOutputWithContext(ctx, i).(InternetMonitorHealthEventsConfigPtrOutput)
 }
 
+func (i *internetMonitorHealthEventsConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*InternetMonitorHealthEventsConfig] {
+	return pulumix.Output[*InternetMonitorHealthEventsConfig]{
+		OutputState: i.ToInternetMonitorHealthEventsConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type InternetMonitorHealthEventsConfigOutput struct{ *pulumi.OutputState }
 
 func (InternetMonitorHealthEventsConfigOutput) ElementType() reflect.Type {
@@ -5330,6 +6651,12 @@ func (o InternetMonitorHealthEventsConfigOutput) ToInternetMonitorHealthEventsCo
 	}).(InternetMonitorHealthEventsConfigPtrOutput)
 }
 
+func (o InternetMonitorHealthEventsConfigOutput) ToOutput(ctx context.Context) pulumix.Output[InternetMonitorHealthEventsConfig] {
+	return pulumix.Output[InternetMonitorHealthEventsConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The health event threshold percentage set for availability scores.
 func (o InternetMonitorHealthEventsConfigOutput) AvailabilityScoreThreshold() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v InternetMonitorHealthEventsConfig) *float64 { return v.AvailabilityScoreThreshold }).(pulumi.Float64PtrOutput)
@@ -5352,6 +6679,12 @@ func (o InternetMonitorHealthEventsConfigPtrOutput) ToInternetMonitorHealthEvent
 
 func (o InternetMonitorHealthEventsConfigPtrOutput) ToInternetMonitorHealthEventsConfigPtrOutputWithContext(ctx context.Context) InternetMonitorHealthEventsConfigPtrOutput {
 	return o
+}
+
+func (o InternetMonitorHealthEventsConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InternetMonitorHealthEventsConfig] {
+	return pulumix.Output[*InternetMonitorHealthEventsConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InternetMonitorHealthEventsConfigPtrOutput) Elem() InternetMonitorHealthEventsConfigOutput {
@@ -5415,6 +6748,12 @@ func (i InternetMonitorInternetMeasurementsLogDeliveryArgs) ToInternetMonitorInt
 	return pulumi.ToOutputWithContext(ctx, i).(InternetMonitorInternetMeasurementsLogDeliveryOutput)
 }
 
+func (i InternetMonitorInternetMeasurementsLogDeliveryArgs) ToOutput(ctx context.Context) pulumix.Output[InternetMonitorInternetMeasurementsLogDelivery] {
+	return pulumix.Output[InternetMonitorInternetMeasurementsLogDelivery]{
+		OutputState: i.ToInternetMonitorInternetMeasurementsLogDeliveryOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i InternetMonitorInternetMeasurementsLogDeliveryArgs) ToInternetMonitorInternetMeasurementsLogDeliveryPtrOutput() InternetMonitorInternetMeasurementsLogDeliveryPtrOutput {
 	return i.ToInternetMonitorInternetMeasurementsLogDeliveryPtrOutputWithContext(context.Background())
 }
@@ -5456,6 +6795,12 @@ func (i *internetMonitorInternetMeasurementsLogDeliveryPtrType) ToInternetMonito
 	return pulumi.ToOutputWithContext(ctx, i).(InternetMonitorInternetMeasurementsLogDeliveryPtrOutput)
 }
 
+func (i *internetMonitorInternetMeasurementsLogDeliveryPtrType) ToOutput(ctx context.Context) pulumix.Output[*InternetMonitorInternetMeasurementsLogDelivery] {
+	return pulumix.Output[*InternetMonitorInternetMeasurementsLogDelivery]{
+		OutputState: i.ToInternetMonitorInternetMeasurementsLogDeliveryPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type InternetMonitorInternetMeasurementsLogDeliveryOutput struct{ *pulumi.OutputState }
 
 func (InternetMonitorInternetMeasurementsLogDeliveryOutput) ElementType() reflect.Type {
@@ -5480,6 +6825,12 @@ func (o InternetMonitorInternetMeasurementsLogDeliveryOutput) ToInternetMonitorI
 	}).(InternetMonitorInternetMeasurementsLogDeliveryPtrOutput)
 }
 
+func (o InternetMonitorInternetMeasurementsLogDeliveryOutput) ToOutput(ctx context.Context) pulumix.Output[InternetMonitorInternetMeasurementsLogDelivery] {
+	return pulumix.Output[InternetMonitorInternetMeasurementsLogDelivery]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o InternetMonitorInternetMeasurementsLogDeliveryOutput) S3Config() InternetMonitorInternetMeasurementsLogDeliveryS3ConfigPtrOutput {
 	return o.ApplyT(func(v InternetMonitorInternetMeasurementsLogDelivery) *InternetMonitorInternetMeasurementsLogDeliveryS3Config {
 		return v.S3Config
@@ -5498,6 +6849,12 @@ func (o InternetMonitorInternetMeasurementsLogDeliveryPtrOutput) ToInternetMonit
 
 func (o InternetMonitorInternetMeasurementsLogDeliveryPtrOutput) ToInternetMonitorInternetMeasurementsLogDeliveryPtrOutputWithContext(ctx context.Context) InternetMonitorInternetMeasurementsLogDeliveryPtrOutput {
 	return o
+}
+
+func (o InternetMonitorInternetMeasurementsLogDeliveryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InternetMonitorInternetMeasurementsLogDelivery] {
+	return pulumix.Output[*InternetMonitorInternetMeasurementsLogDelivery]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InternetMonitorInternetMeasurementsLogDeliveryPtrOutput) Elem() InternetMonitorInternetMeasurementsLogDeliveryOutput {
@@ -5554,6 +6911,12 @@ func (i InternetMonitorInternetMeasurementsLogDeliveryS3ConfigArgs) ToInternetMo
 	return pulumi.ToOutputWithContext(ctx, i).(InternetMonitorInternetMeasurementsLogDeliveryS3ConfigOutput)
 }
 
+func (i InternetMonitorInternetMeasurementsLogDeliveryS3ConfigArgs) ToOutput(ctx context.Context) pulumix.Output[InternetMonitorInternetMeasurementsLogDeliveryS3Config] {
+	return pulumix.Output[InternetMonitorInternetMeasurementsLogDeliveryS3Config]{
+		OutputState: i.ToInternetMonitorInternetMeasurementsLogDeliveryS3ConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i InternetMonitorInternetMeasurementsLogDeliveryS3ConfigArgs) ToInternetMonitorInternetMeasurementsLogDeliveryS3ConfigPtrOutput() InternetMonitorInternetMeasurementsLogDeliveryS3ConfigPtrOutput {
 	return i.ToInternetMonitorInternetMeasurementsLogDeliveryS3ConfigPtrOutputWithContext(context.Background())
 }
@@ -5595,6 +6958,12 @@ func (i *internetMonitorInternetMeasurementsLogDeliveryS3ConfigPtrType) ToIntern
 	return pulumi.ToOutputWithContext(ctx, i).(InternetMonitorInternetMeasurementsLogDeliveryS3ConfigPtrOutput)
 }
 
+func (i *internetMonitorInternetMeasurementsLogDeliveryS3ConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*InternetMonitorInternetMeasurementsLogDeliveryS3Config] {
+	return pulumix.Output[*InternetMonitorInternetMeasurementsLogDeliveryS3Config]{
+		OutputState: i.ToInternetMonitorInternetMeasurementsLogDeliveryS3ConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type InternetMonitorInternetMeasurementsLogDeliveryS3ConfigOutput struct{ *pulumi.OutputState }
 
 func (InternetMonitorInternetMeasurementsLogDeliveryS3ConfigOutput) ElementType() reflect.Type {
@@ -5617,6 +6986,12 @@ func (o InternetMonitorInternetMeasurementsLogDeliveryS3ConfigOutput) ToInternet
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v InternetMonitorInternetMeasurementsLogDeliveryS3Config) *InternetMonitorInternetMeasurementsLogDeliveryS3Config {
 		return &v
 	}).(InternetMonitorInternetMeasurementsLogDeliveryS3ConfigPtrOutput)
+}
+
+func (o InternetMonitorInternetMeasurementsLogDeliveryS3ConfigOutput) ToOutput(ctx context.Context) pulumix.Output[InternetMonitorInternetMeasurementsLogDeliveryS3Config] {
+	return pulumix.Output[InternetMonitorInternetMeasurementsLogDeliveryS3Config]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InternetMonitorInternetMeasurementsLogDeliveryS3ConfigOutput) BucketName() pulumi.StringOutput {
@@ -5643,6 +7018,12 @@ func (o InternetMonitorInternetMeasurementsLogDeliveryS3ConfigPtrOutput) ToInter
 
 func (o InternetMonitorInternetMeasurementsLogDeliveryS3ConfigPtrOutput) ToInternetMonitorInternetMeasurementsLogDeliveryS3ConfigPtrOutputWithContext(ctx context.Context) InternetMonitorInternetMeasurementsLogDeliveryS3ConfigPtrOutput {
 	return o
+}
+
+func (o InternetMonitorInternetMeasurementsLogDeliveryS3ConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InternetMonitorInternetMeasurementsLogDeliveryS3Config] {
+	return pulumix.Output[*InternetMonitorInternetMeasurementsLogDeliveryS3Config]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InternetMonitorInternetMeasurementsLogDeliveryS3ConfigPtrOutput) Elem() InternetMonitorInternetMeasurementsLogDeliveryS3ConfigOutput {
@@ -5735,6 +7116,12 @@ func (i LogMetricFilterMetricTransformationArgs) ToLogMetricFilterMetricTransfor
 	return pulumi.ToOutputWithContext(ctx, i).(LogMetricFilterMetricTransformationOutput)
 }
 
+func (i LogMetricFilterMetricTransformationArgs) ToOutput(ctx context.Context) pulumix.Output[LogMetricFilterMetricTransformation] {
+	return pulumix.Output[LogMetricFilterMetricTransformation]{
+		OutputState: i.ToLogMetricFilterMetricTransformationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i LogMetricFilterMetricTransformationArgs) ToLogMetricFilterMetricTransformationPtrOutput() LogMetricFilterMetricTransformationPtrOutput {
 	return i.ToLogMetricFilterMetricTransformationPtrOutputWithContext(context.Background())
 }
@@ -5776,6 +7163,12 @@ func (i *logMetricFilterMetricTransformationPtrType) ToLogMetricFilterMetricTran
 	return pulumi.ToOutputWithContext(ctx, i).(LogMetricFilterMetricTransformationPtrOutput)
 }
 
+func (i *logMetricFilterMetricTransformationPtrType) ToOutput(ctx context.Context) pulumix.Output[*LogMetricFilterMetricTransformation] {
+	return pulumix.Output[*LogMetricFilterMetricTransformation]{
+		OutputState: i.ToLogMetricFilterMetricTransformationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LogMetricFilterMetricTransformationOutput struct{ *pulumi.OutputState }
 
 func (LogMetricFilterMetricTransformationOutput) ElementType() reflect.Type {
@@ -5798,6 +7191,12 @@ func (o LogMetricFilterMetricTransformationOutput) ToLogMetricFilterMetricTransf
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogMetricFilterMetricTransformation) *LogMetricFilterMetricTransformation {
 		return &v
 	}).(LogMetricFilterMetricTransformationPtrOutput)
+}
+
+func (o LogMetricFilterMetricTransformationOutput) ToOutput(ctx context.Context) pulumix.Output[LogMetricFilterMetricTransformation] {
+	return pulumix.Output[LogMetricFilterMetricTransformation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The value to emit when a filter pattern does not match a log event. Conflicts with `dimensions`.
@@ -5842,6 +7241,12 @@ func (o LogMetricFilterMetricTransformationPtrOutput) ToLogMetricFilterMetricTra
 
 func (o LogMetricFilterMetricTransformationPtrOutput) ToLogMetricFilterMetricTransformationPtrOutputWithContext(ctx context.Context) LogMetricFilterMetricTransformationPtrOutput {
 	return o
+}
+
+func (o LogMetricFilterMetricTransformationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LogMetricFilterMetricTransformation] {
+	return pulumix.Output[*LogMetricFilterMetricTransformation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LogMetricFilterMetricTransformationPtrOutput) Elem() LogMetricFilterMetricTransformationOutput {
@@ -5979,6 +7384,12 @@ func (i MetricAlarmMetricQueryArgs) ToMetricAlarmMetricQueryOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(MetricAlarmMetricQueryOutput)
 }
 
+func (i MetricAlarmMetricQueryArgs) ToOutput(ctx context.Context) pulumix.Output[MetricAlarmMetricQuery] {
+	return pulumix.Output[MetricAlarmMetricQuery]{
+		OutputState: i.ToMetricAlarmMetricQueryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // MetricAlarmMetricQueryArrayInput is an input type that accepts MetricAlarmMetricQueryArray and MetricAlarmMetricQueryArrayOutput values.
 // You can construct a concrete instance of `MetricAlarmMetricQueryArrayInput` via:
 //
@@ -6004,6 +7415,12 @@ func (i MetricAlarmMetricQueryArray) ToMetricAlarmMetricQueryArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(MetricAlarmMetricQueryArrayOutput)
 }
 
+func (i MetricAlarmMetricQueryArray) ToOutput(ctx context.Context) pulumix.Output[[]MetricAlarmMetricQuery] {
+	return pulumix.Output[[]MetricAlarmMetricQuery]{
+		OutputState: i.ToMetricAlarmMetricQueryArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MetricAlarmMetricQueryOutput struct{ *pulumi.OutputState }
 
 func (MetricAlarmMetricQueryOutput) ElementType() reflect.Type {
@@ -6016,6 +7433,12 @@ func (o MetricAlarmMetricQueryOutput) ToMetricAlarmMetricQueryOutput() MetricAla
 
 func (o MetricAlarmMetricQueryOutput) ToMetricAlarmMetricQueryOutputWithContext(ctx context.Context) MetricAlarmMetricQueryOutput {
 	return o
+}
+
+func (o MetricAlarmMetricQueryOutput) ToOutput(ctx context.Context) pulumix.Output[MetricAlarmMetricQuery] {
+	return pulumix.Output[MetricAlarmMetricQuery]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the account where the metrics are located, if this is a cross-account alarm.
@@ -6069,6 +7492,12 @@ func (o MetricAlarmMetricQueryArrayOutput) ToMetricAlarmMetricQueryArrayOutput()
 
 func (o MetricAlarmMetricQueryArrayOutput) ToMetricAlarmMetricQueryArrayOutputWithContext(ctx context.Context) MetricAlarmMetricQueryArrayOutput {
 	return o
+}
+
+func (o MetricAlarmMetricQueryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]MetricAlarmMetricQuery] {
+	return pulumix.Output[[]MetricAlarmMetricQuery]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MetricAlarmMetricQueryArrayOutput) Index(i pulumi.IntInput) MetricAlarmMetricQueryOutput {
@@ -6140,6 +7569,12 @@ func (i MetricAlarmMetricQueryMetricArgs) ToMetricAlarmMetricQueryMetricOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(MetricAlarmMetricQueryMetricOutput)
 }
 
+func (i MetricAlarmMetricQueryMetricArgs) ToOutput(ctx context.Context) pulumix.Output[MetricAlarmMetricQueryMetric] {
+	return pulumix.Output[MetricAlarmMetricQueryMetric]{
+		OutputState: i.ToMetricAlarmMetricQueryMetricOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i MetricAlarmMetricQueryMetricArgs) ToMetricAlarmMetricQueryMetricPtrOutput() MetricAlarmMetricQueryMetricPtrOutput {
 	return i.ToMetricAlarmMetricQueryMetricPtrOutputWithContext(context.Background())
 }
@@ -6181,6 +7616,12 @@ func (i *metricAlarmMetricQueryMetricPtrType) ToMetricAlarmMetricQueryMetricPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(MetricAlarmMetricQueryMetricPtrOutput)
 }
 
+func (i *metricAlarmMetricQueryMetricPtrType) ToOutput(ctx context.Context) pulumix.Output[*MetricAlarmMetricQueryMetric] {
+	return pulumix.Output[*MetricAlarmMetricQueryMetric]{
+		OutputState: i.ToMetricAlarmMetricQueryMetricPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MetricAlarmMetricQueryMetricOutput struct{ *pulumi.OutputState }
 
 func (MetricAlarmMetricQueryMetricOutput) ElementType() reflect.Type {
@@ -6203,6 +7644,12 @@ func (o MetricAlarmMetricQueryMetricOutput) ToMetricAlarmMetricQueryMetricPtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v MetricAlarmMetricQueryMetric) *MetricAlarmMetricQueryMetric {
 		return &v
 	}).(MetricAlarmMetricQueryMetricPtrOutput)
+}
+
+func (o MetricAlarmMetricQueryMetricOutput) ToOutput(ctx context.Context) pulumix.Output[MetricAlarmMetricQueryMetric] {
+	return pulumix.Output[MetricAlarmMetricQueryMetric]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
@@ -6252,6 +7699,12 @@ func (o MetricAlarmMetricQueryMetricPtrOutput) ToMetricAlarmMetricQueryMetricPtr
 
 func (o MetricAlarmMetricQueryMetricPtrOutput) ToMetricAlarmMetricQueryMetricPtrOutputWithContext(ctx context.Context) MetricAlarmMetricQueryMetricPtrOutput {
 	return o
+}
+
+func (o MetricAlarmMetricQueryMetricPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MetricAlarmMetricQueryMetric] {
+	return pulumix.Output[*MetricAlarmMetricQueryMetric]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MetricAlarmMetricQueryMetricPtrOutput) Elem() MetricAlarmMetricQueryMetricOutput {
@@ -6366,6 +7819,12 @@ func (i MetricStreamExcludeFilterArgs) ToMetricStreamExcludeFilterOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(MetricStreamExcludeFilterOutput)
 }
 
+func (i MetricStreamExcludeFilterArgs) ToOutput(ctx context.Context) pulumix.Output[MetricStreamExcludeFilter] {
+	return pulumix.Output[MetricStreamExcludeFilter]{
+		OutputState: i.ToMetricStreamExcludeFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // MetricStreamExcludeFilterArrayInput is an input type that accepts MetricStreamExcludeFilterArray and MetricStreamExcludeFilterArrayOutput values.
 // You can construct a concrete instance of `MetricStreamExcludeFilterArrayInput` via:
 //
@@ -6391,6 +7850,12 @@ func (i MetricStreamExcludeFilterArray) ToMetricStreamExcludeFilterArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(MetricStreamExcludeFilterArrayOutput)
 }
 
+func (i MetricStreamExcludeFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]MetricStreamExcludeFilter] {
+	return pulumix.Output[[]MetricStreamExcludeFilter]{
+		OutputState: i.ToMetricStreamExcludeFilterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MetricStreamExcludeFilterOutput struct{ *pulumi.OutputState }
 
 func (MetricStreamExcludeFilterOutput) ElementType() reflect.Type {
@@ -6403,6 +7868,12 @@ func (o MetricStreamExcludeFilterOutput) ToMetricStreamExcludeFilterOutput() Met
 
 func (o MetricStreamExcludeFilterOutput) ToMetricStreamExcludeFilterOutputWithContext(ctx context.Context) MetricStreamExcludeFilterOutput {
 	return o
+}
+
+func (o MetricStreamExcludeFilterOutput) ToOutput(ctx context.Context) pulumix.Output[MetricStreamExcludeFilter] {
+	return pulumix.Output[MetricStreamExcludeFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // An array that defines the metrics you want to exclude for this metric namespace
@@ -6427,6 +7898,12 @@ func (o MetricStreamExcludeFilterArrayOutput) ToMetricStreamExcludeFilterArrayOu
 
 func (o MetricStreamExcludeFilterArrayOutput) ToMetricStreamExcludeFilterArrayOutputWithContext(ctx context.Context) MetricStreamExcludeFilterArrayOutput {
 	return o
+}
+
+func (o MetricStreamExcludeFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]MetricStreamExcludeFilter] {
+	return pulumix.Output[[]MetricStreamExcludeFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MetricStreamExcludeFilterArrayOutput) Index(i pulumi.IntInput) MetricStreamExcludeFilterOutput {
@@ -6472,6 +7949,12 @@ func (i MetricStreamIncludeFilterArgs) ToMetricStreamIncludeFilterOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(MetricStreamIncludeFilterOutput)
 }
 
+func (i MetricStreamIncludeFilterArgs) ToOutput(ctx context.Context) pulumix.Output[MetricStreamIncludeFilter] {
+	return pulumix.Output[MetricStreamIncludeFilter]{
+		OutputState: i.ToMetricStreamIncludeFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // MetricStreamIncludeFilterArrayInput is an input type that accepts MetricStreamIncludeFilterArray and MetricStreamIncludeFilterArrayOutput values.
 // You can construct a concrete instance of `MetricStreamIncludeFilterArrayInput` via:
 //
@@ -6497,6 +7980,12 @@ func (i MetricStreamIncludeFilterArray) ToMetricStreamIncludeFilterArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(MetricStreamIncludeFilterArrayOutput)
 }
 
+func (i MetricStreamIncludeFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]MetricStreamIncludeFilter] {
+	return pulumix.Output[[]MetricStreamIncludeFilter]{
+		OutputState: i.ToMetricStreamIncludeFilterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MetricStreamIncludeFilterOutput struct{ *pulumi.OutputState }
 
 func (MetricStreamIncludeFilterOutput) ElementType() reflect.Type {
@@ -6509,6 +7998,12 @@ func (o MetricStreamIncludeFilterOutput) ToMetricStreamIncludeFilterOutput() Met
 
 func (o MetricStreamIncludeFilterOutput) ToMetricStreamIncludeFilterOutputWithContext(ctx context.Context) MetricStreamIncludeFilterOutput {
 	return o
+}
+
+func (o MetricStreamIncludeFilterOutput) ToOutput(ctx context.Context) pulumix.Output[MetricStreamIncludeFilter] {
+	return pulumix.Output[MetricStreamIncludeFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // An array that defines the metrics you want to include for this metric namespace
@@ -6533,6 +8028,12 @@ func (o MetricStreamIncludeFilterArrayOutput) ToMetricStreamIncludeFilterArrayOu
 
 func (o MetricStreamIncludeFilterArrayOutput) ToMetricStreamIncludeFilterArrayOutputWithContext(ctx context.Context) MetricStreamIncludeFilterArrayOutput {
 	return o
+}
+
+func (o MetricStreamIncludeFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]MetricStreamIncludeFilter] {
+	return pulumix.Output[[]MetricStreamIncludeFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MetricStreamIncludeFilterArrayOutput) Index(i pulumi.IntInput) MetricStreamIncludeFilterOutput {
@@ -6578,6 +8079,12 @@ func (i MetricStreamStatisticsConfigurationArgs) ToMetricStreamStatisticsConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(MetricStreamStatisticsConfigurationOutput)
 }
 
+func (i MetricStreamStatisticsConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[MetricStreamStatisticsConfiguration] {
+	return pulumix.Output[MetricStreamStatisticsConfiguration]{
+		OutputState: i.ToMetricStreamStatisticsConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // MetricStreamStatisticsConfigurationArrayInput is an input type that accepts MetricStreamStatisticsConfigurationArray and MetricStreamStatisticsConfigurationArrayOutput values.
 // You can construct a concrete instance of `MetricStreamStatisticsConfigurationArrayInput` via:
 //
@@ -6603,6 +8110,12 @@ func (i MetricStreamStatisticsConfigurationArray) ToMetricStreamStatisticsConfig
 	return pulumi.ToOutputWithContext(ctx, i).(MetricStreamStatisticsConfigurationArrayOutput)
 }
 
+func (i MetricStreamStatisticsConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]MetricStreamStatisticsConfiguration] {
+	return pulumix.Output[[]MetricStreamStatisticsConfiguration]{
+		OutputState: i.ToMetricStreamStatisticsConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MetricStreamStatisticsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (MetricStreamStatisticsConfigurationOutput) ElementType() reflect.Type {
@@ -6615,6 +8128,12 @@ func (o MetricStreamStatisticsConfigurationOutput) ToMetricStreamStatisticsConfi
 
 func (o MetricStreamStatisticsConfigurationOutput) ToMetricStreamStatisticsConfigurationOutputWithContext(ctx context.Context) MetricStreamStatisticsConfigurationOutput {
 	return o
+}
+
+func (o MetricStreamStatisticsConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[MetricStreamStatisticsConfiguration] {
+	return pulumix.Output[MetricStreamStatisticsConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The additional statistics to stream for the metrics listed in `includeMetrics`.
@@ -6641,6 +8160,12 @@ func (o MetricStreamStatisticsConfigurationArrayOutput) ToMetricStreamStatistics
 
 func (o MetricStreamStatisticsConfigurationArrayOutput) ToMetricStreamStatisticsConfigurationArrayOutputWithContext(ctx context.Context) MetricStreamStatisticsConfigurationArrayOutput {
 	return o
+}
+
+func (o MetricStreamStatisticsConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]MetricStreamStatisticsConfiguration] {
+	return pulumix.Output[[]MetricStreamStatisticsConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MetricStreamStatisticsConfigurationArrayOutput) Index(i pulumi.IntInput) MetricStreamStatisticsConfigurationOutput {
@@ -6686,6 +8211,12 @@ func (i MetricStreamStatisticsConfigurationIncludeMetricArgs) ToMetricStreamStat
 	return pulumi.ToOutputWithContext(ctx, i).(MetricStreamStatisticsConfigurationIncludeMetricOutput)
 }
 
+func (i MetricStreamStatisticsConfigurationIncludeMetricArgs) ToOutput(ctx context.Context) pulumix.Output[MetricStreamStatisticsConfigurationIncludeMetric] {
+	return pulumix.Output[MetricStreamStatisticsConfigurationIncludeMetric]{
+		OutputState: i.ToMetricStreamStatisticsConfigurationIncludeMetricOutputWithContext(ctx).OutputState,
+	}
+}
+
 // MetricStreamStatisticsConfigurationIncludeMetricArrayInput is an input type that accepts MetricStreamStatisticsConfigurationIncludeMetricArray and MetricStreamStatisticsConfigurationIncludeMetricArrayOutput values.
 // You can construct a concrete instance of `MetricStreamStatisticsConfigurationIncludeMetricArrayInput` via:
 //
@@ -6711,6 +8242,12 @@ func (i MetricStreamStatisticsConfigurationIncludeMetricArray) ToMetricStreamSta
 	return pulumi.ToOutputWithContext(ctx, i).(MetricStreamStatisticsConfigurationIncludeMetricArrayOutput)
 }
 
+func (i MetricStreamStatisticsConfigurationIncludeMetricArray) ToOutput(ctx context.Context) pulumix.Output[[]MetricStreamStatisticsConfigurationIncludeMetric] {
+	return pulumix.Output[[]MetricStreamStatisticsConfigurationIncludeMetric]{
+		OutputState: i.ToMetricStreamStatisticsConfigurationIncludeMetricArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MetricStreamStatisticsConfigurationIncludeMetricOutput struct{ *pulumi.OutputState }
 
 func (MetricStreamStatisticsConfigurationIncludeMetricOutput) ElementType() reflect.Type {
@@ -6723,6 +8260,12 @@ func (o MetricStreamStatisticsConfigurationIncludeMetricOutput) ToMetricStreamSt
 
 func (o MetricStreamStatisticsConfigurationIncludeMetricOutput) ToMetricStreamStatisticsConfigurationIncludeMetricOutputWithContext(ctx context.Context) MetricStreamStatisticsConfigurationIncludeMetricOutput {
 	return o
+}
+
+func (o MetricStreamStatisticsConfigurationIncludeMetricOutput) ToOutput(ctx context.Context) pulumix.Output[MetricStreamStatisticsConfigurationIncludeMetric] {
+	return pulumix.Output[MetricStreamStatisticsConfigurationIncludeMetric]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the metric.
@@ -6747,6 +8290,12 @@ func (o MetricStreamStatisticsConfigurationIncludeMetricArrayOutput) ToMetricStr
 
 func (o MetricStreamStatisticsConfigurationIncludeMetricArrayOutput) ToMetricStreamStatisticsConfigurationIncludeMetricArrayOutputWithContext(ctx context.Context) MetricStreamStatisticsConfigurationIncludeMetricArrayOutput {
 	return o
+}
+
+func (o MetricStreamStatisticsConfigurationIncludeMetricArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]MetricStreamStatisticsConfigurationIncludeMetric] {
+	return pulumix.Output[[]MetricStreamStatisticsConfigurationIncludeMetric]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MetricStreamStatisticsConfigurationIncludeMetricArrayOutput) Index(i pulumi.IntInput) MetricStreamStatisticsConfigurationIncludeMetricOutput {
@@ -6796,6 +8345,12 @@ func (i GetLogDataProtectionPolicyDocumentStatementArgs) ToGetLogDataProtectionP
 	return pulumi.ToOutputWithContext(ctx, i).(GetLogDataProtectionPolicyDocumentStatementOutput)
 }
 
+func (i GetLogDataProtectionPolicyDocumentStatementArgs) ToOutput(ctx context.Context) pulumix.Output[GetLogDataProtectionPolicyDocumentStatement] {
+	return pulumix.Output[GetLogDataProtectionPolicyDocumentStatement]{
+		OutputState: i.ToGetLogDataProtectionPolicyDocumentStatementOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetLogDataProtectionPolicyDocumentStatementArrayInput is an input type that accepts GetLogDataProtectionPolicyDocumentStatementArray and GetLogDataProtectionPolicyDocumentStatementArrayOutput values.
 // You can construct a concrete instance of `GetLogDataProtectionPolicyDocumentStatementArrayInput` via:
 //
@@ -6821,6 +8376,12 @@ func (i GetLogDataProtectionPolicyDocumentStatementArray) ToGetLogDataProtection
 	return pulumi.ToOutputWithContext(ctx, i).(GetLogDataProtectionPolicyDocumentStatementArrayOutput)
 }
 
+func (i GetLogDataProtectionPolicyDocumentStatementArray) ToOutput(ctx context.Context) pulumix.Output[[]GetLogDataProtectionPolicyDocumentStatement] {
+	return pulumix.Output[[]GetLogDataProtectionPolicyDocumentStatement]{
+		OutputState: i.ToGetLogDataProtectionPolicyDocumentStatementArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetLogDataProtectionPolicyDocumentStatementOutput struct{ *pulumi.OutputState }
 
 func (GetLogDataProtectionPolicyDocumentStatementOutput) ElementType() reflect.Type {
@@ -6833,6 +8394,12 @@ func (o GetLogDataProtectionPolicyDocumentStatementOutput) ToGetLogDataProtectio
 
 func (o GetLogDataProtectionPolicyDocumentStatementOutput) ToGetLogDataProtectionPolicyDocumentStatementOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentStatementOutput {
 	return o
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementOutput) ToOutput(ctx context.Context) pulumix.Output[GetLogDataProtectionPolicyDocumentStatement] {
+	return pulumix.Output[GetLogDataProtectionPolicyDocumentStatement]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Set of at least 1 sensitive data identifiers that you want to mask. Read more in [Types of data that you can protect](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/protect-sensitive-log-data-types.html).
@@ -6864,6 +8431,12 @@ func (o GetLogDataProtectionPolicyDocumentStatementArrayOutput) ToGetLogDataProt
 
 func (o GetLogDataProtectionPolicyDocumentStatementArrayOutput) ToGetLogDataProtectionPolicyDocumentStatementArrayOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentStatementArrayOutput {
 	return o
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetLogDataProtectionPolicyDocumentStatement] {
+	return pulumix.Output[[]GetLogDataProtectionPolicyDocumentStatement]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetLogDataProtectionPolicyDocumentStatementArrayOutput) Index(i pulumi.IntInput) GetLogDataProtectionPolicyDocumentStatementOutput {
@@ -6913,6 +8486,12 @@ func (i GetLogDataProtectionPolicyDocumentStatementOperationArgs) ToGetLogDataPr
 	return pulumi.ToOutputWithContext(ctx, i).(GetLogDataProtectionPolicyDocumentStatementOperationOutput)
 }
 
+func (i GetLogDataProtectionPolicyDocumentStatementOperationArgs) ToOutput(ctx context.Context) pulumix.Output[GetLogDataProtectionPolicyDocumentStatementOperation] {
+	return pulumix.Output[GetLogDataProtectionPolicyDocumentStatementOperation]{
+		OutputState: i.ToGetLogDataProtectionPolicyDocumentStatementOperationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetLogDataProtectionPolicyDocumentStatementOperationOutput struct{ *pulumi.OutputState }
 
 func (GetLogDataProtectionPolicyDocumentStatementOperationOutput) ElementType() reflect.Type {
@@ -6925,6 +8504,12 @@ func (o GetLogDataProtectionPolicyDocumentStatementOperationOutput) ToGetLogData
 
 func (o GetLogDataProtectionPolicyDocumentStatementOperationOutput) ToGetLogDataProtectionPolicyDocumentStatementOperationOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentStatementOperationOutput {
 	return o
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementOperationOutput) ToOutput(ctx context.Context) pulumix.Output[GetLogDataProtectionPolicyDocumentStatementOperation] {
+	return pulumix.Output[GetLogDataProtectionPolicyDocumentStatementOperation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Configures the detection of sensitive data.
@@ -6976,6 +8561,12 @@ func (i GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs) ToGetLogD
 	return pulumi.ToOutputWithContext(ctx, i).(GetLogDataProtectionPolicyDocumentStatementOperationAuditOutput)
 }
 
+func (i GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs) ToOutput(ctx context.Context) pulumix.Output[GetLogDataProtectionPolicyDocumentStatementOperationAudit] {
+	return pulumix.Output[GetLogDataProtectionPolicyDocumentStatementOperationAudit]{
+		OutputState: i.ToGetLogDataProtectionPolicyDocumentStatementOperationAuditOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditPtrOutput() GetLogDataProtectionPolicyDocumentStatementOperationAuditPtrOutput {
 	return i.ToGetLogDataProtectionPolicyDocumentStatementOperationAuditPtrOutputWithContext(context.Background())
 }
@@ -7017,6 +8608,12 @@ func (i *getLogDataProtectionPolicyDocumentStatementOperationAuditPtrType) ToGet
 	return pulumi.ToOutputWithContext(ctx, i).(GetLogDataProtectionPolicyDocumentStatementOperationAuditPtrOutput)
 }
 
+func (i *getLogDataProtectionPolicyDocumentStatementOperationAuditPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetLogDataProtectionPolicyDocumentStatementOperationAudit] {
+	return pulumix.Output[*GetLogDataProtectionPolicyDocumentStatementOperationAudit]{
+		OutputState: i.ToGetLogDataProtectionPolicyDocumentStatementOperationAuditPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetLogDataProtectionPolicyDocumentStatementOperationAuditOutput struct{ *pulumi.OutputState }
 
 func (GetLogDataProtectionPolicyDocumentStatementOperationAuditOutput) ElementType() reflect.Type {
@@ -7041,6 +8638,12 @@ func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditOutput) ToGetLo
 	}).(GetLogDataProtectionPolicyDocumentStatementOperationAuditPtrOutput)
 }
 
+func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditOutput) ToOutput(ctx context.Context) pulumix.Output[GetLogDataProtectionPolicyDocumentStatementOperationAudit] {
+	return pulumix.Output[GetLogDataProtectionPolicyDocumentStatementOperationAudit]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Configures destinations to send audit findings to.
 func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditOutput) FindingsDestination() GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationOutput {
 	return o.ApplyT(func(v GetLogDataProtectionPolicyDocumentStatementOperationAudit) GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestination {
@@ -7060,6 +8663,12 @@ func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditPtrOutput) ToGe
 
 func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditPtrOutput) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditPtrOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentStatementOperationAuditPtrOutput {
 	return o
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetLogDataProtectionPolicyDocumentStatementOperationAudit] {
+	return pulumix.Output[*GetLogDataProtectionPolicyDocumentStatementOperationAudit]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditPtrOutput) Elem() GetLogDataProtectionPolicyDocumentStatementOperationAuditOutput {
@@ -7123,6 +8732,12 @@ func (i GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestina
 	return pulumi.ToOutputWithContext(ctx, i).(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationOutput)
 }
 
+func (i GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs) ToOutput(ctx context.Context) pulumix.Output[GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestination] {
+	return pulumix.Output[GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestination]{
+		OutputState: i.ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtrOutput() GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtrOutput {
 	return i.ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtrOutputWithContext(context.Background())
 }
@@ -7164,6 +8779,12 @@ func (i *getLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestin
 	return pulumi.ToOutputWithContext(ctx, i).(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtrOutput)
 }
 
+func (i *getLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestination] {
+	return pulumix.Output[*GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestination]{
+		OutputState: i.ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationOutput struct{ *pulumi.OutputState }
 
 func (GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationOutput) ElementType() reflect.Type {
@@ -7186,6 +8807,12 @@ func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestina
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestination) *GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestination {
 		return &v
 	}).(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtrOutput)
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestination] {
+	return pulumix.Output[GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestination]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Configures CloudWatch Logs as a findings destination.
@@ -7221,6 +8848,12 @@ func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestina
 
 func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtrOutput) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtrOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtrOutput {
 	return o
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestination] {
+	return pulumix.Output[*GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestination]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationPtrOutput) Elem() GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationOutput {
@@ -7296,6 +8929,12 @@ func (i GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestina
 	return pulumi.ToOutputWithContext(ctx, i).(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsOutput)
 }
 
+func (i GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgs) ToOutput(ctx context.Context) pulumix.Output[GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogs] {
+	return pulumix.Output[GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogs]{
+		OutputState: i.ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgs) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrOutput() GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrOutput {
 	return i.ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrOutputWithContext(context.Background())
 }
@@ -7337,6 +8976,12 @@ func (i *getLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestin
 	return pulumi.ToOutputWithContext(ctx, i).(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrOutput)
 }
 
+func (i *getLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogs] {
+	return pulumix.Output[*GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogs]{
+		OutputState: i.ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsOutput struct{ *pulumi.OutputState }
 
 func (GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsOutput) ElementType() reflect.Type {
@@ -7361,6 +9006,12 @@ func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestina
 	}).(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrOutput)
 }
 
+func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsOutput) ToOutput(ctx context.Context) pulumix.Output[GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogs] {
+	return pulumix.Output[GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogs]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Name of the CloudWatch Log Group to send findings to.
 func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsOutput) LogGroup() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogs) string {
@@ -7380,6 +9031,12 @@ func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestina
 
 func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrOutput) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrOutput {
 	return o
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogs] {
+	return pulumix.Output[*GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogs]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsPtrOutput) Elem() GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsOutput {
@@ -7435,6 +9092,12 @@ func (i GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestina
 	return pulumi.ToOutputWithContext(ctx, i).(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseOutput)
 }
 
+func (i GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgs) ToOutput(ctx context.Context) pulumix.Output[GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehose] {
+	return pulumix.Output[GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehose]{
+		OutputState: i.ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgs) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrOutput() GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrOutput {
 	return i.ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrOutputWithContext(context.Background())
 }
@@ -7476,6 +9139,12 @@ func (i *getLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestin
 	return pulumi.ToOutputWithContext(ctx, i).(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrOutput)
 }
 
+func (i *getLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrType) ToOutput(ctx context.Context) pulumix.Output[*GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehose] {
+	return pulumix.Output[*GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehose]{
+		OutputState: i.ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseOutput struct{ *pulumi.OutputState }
 
 func (GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseOutput) ElementType() reflect.Type {
@@ -7500,6 +9169,12 @@ func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestina
 	}).(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrOutput)
 }
 
+func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseOutput) ToOutput(ctx context.Context) pulumix.Output[GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehose] {
+	return pulumix.Output[GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehose]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Name of the Kinesis Firehose Delivery Stream to send findings to.
 func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseOutput) DeliveryStream() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehose) string {
@@ -7519,6 +9194,12 @@ func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestina
 
 func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrOutput) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrOutput {
 	return o
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehose] {
+	return pulumix.Output[*GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehose]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehosePtrOutput) Elem() GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseOutput {
@@ -7574,6 +9255,12 @@ func (i GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestina
 	return pulumi.ToOutputWithContext(ctx, i).(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Output)
 }
 
+func (i GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Args) ToOutput(ctx context.Context) pulumix.Output[GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3] {
+	return pulumix.Output[GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3]{
+		OutputState: i.ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3OutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Args) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrOutput() GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrOutput {
 	return i.ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrOutputWithContext(context.Background())
 }
@@ -7615,6 +9302,12 @@ func (i *getLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestin
 	return pulumi.ToOutputWithContext(ctx, i).(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrOutput)
 }
 
+func (i *getLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrType) ToOutput(ctx context.Context) pulumix.Output[*GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3] {
+	return pulumix.Output[*GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3]{
+		OutputState: i.ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Output struct{ *pulumi.OutputState }
 
 func (GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Output) ElementType() reflect.Type {
@@ -7639,6 +9332,12 @@ func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestina
 	}).(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrOutput)
 }
 
+func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Output) ToOutput(ctx context.Context) pulumix.Output[GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3] {
+	return pulumix.Output[GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Name of the S3 Bucket to send findings to.
 func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Output) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3) string {
@@ -7658,6 +9357,12 @@ func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestina
 
 func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrOutput) ToGetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrOutput {
 	return o
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3] {
+	return pulumix.Output[*GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3PtrOutput) Elem() GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Output {
@@ -7713,6 +9418,12 @@ func (i GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs) ToGe
 	return pulumi.ToOutputWithContext(ctx, i).(GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyOutput)
 }
 
+func (i GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs) ToOutput(ctx context.Context) pulumix.Output[GetLogDataProtectionPolicyDocumentStatementOperationDeidentify] {
+	return pulumix.Output[GetLogDataProtectionPolicyDocumentStatementOperationDeidentify]{
+		OutputState: i.ToGetLogDataProtectionPolicyDocumentStatementOperationDeidentifyOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs) ToGetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrOutput() GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrOutput {
 	return i.ToGetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrOutputWithContext(context.Background())
 }
@@ -7754,6 +9465,12 @@ func (i *getLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrType) 
 	return pulumi.ToOutputWithContext(ctx, i).(GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrOutput)
 }
 
+func (i *getLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetLogDataProtectionPolicyDocumentStatementOperationDeidentify] {
+	return pulumix.Output[*GetLogDataProtectionPolicyDocumentStatementOperationDeidentify]{
+		OutputState: i.ToGetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyOutput struct{ *pulumi.OutputState }
 
 func (GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyOutput) ElementType() reflect.Type {
@@ -7778,6 +9495,12 @@ func (o GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyOutput) To
 	}).(GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrOutput)
 }
 
+func (o GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyOutput) ToOutput(ctx context.Context) pulumix.Output[GetLogDataProtectionPolicyDocumentStatementOperationDeidentify] {
+	return pulumix.Output[GetLogDataProtectionPolicyDocumentStatementOperationDeidentify]{
+		OutputState: o.OutputState,
+	}
+}
+
 // An empty object that configures masking.
 func (o GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyOutput) MaskConfig() GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigOutput {
 	return o.ApplyT(func(v GetLogDataProtectionPolicyDocumentStatementOperationDeidentify) GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfig {
@@ -7797,6 +9520,12 @@ func (o GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrOutput)
 
 func (o GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrOutput) ToGetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrOutput {
 	return o
+}
+
+func (o GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetLogDataProtectionPolicyDocumentStatementOperationDeidentify] {
+	return pulumix.Output[*GetLogDataProtectionPolicyDocumentStatementOperationDeidentify]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrOutput) Elem() GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyOutput {
@@ -7848,6 +9577,12 @@ func (i GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfig
 	return pulumi.ToOutputWithContext(ctx, i).(GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigOutput)
 }
 
+func (i GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgs) ToOutput(ctx context.Context) pulumix.Output[GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfig] {
+	return pulumix.Output[GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfig]{
+		OutputState: i.ToGetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgs) ToGetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigPtrOutput() GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigPtrOutput {
 	return i.ToGetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigPtrOutputWithContext(context.Background())
 }
@@ -7889,6 +9624,12 @@ func (i *getLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfi
 	return pulumi.ToOutputWithContext(ctx, i).(GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigPtrOutput)
 }
 
+func (i *getLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfig] {
+	return pulumix.Output[*GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfig]{
+		OutputState: i.ToGetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigOutput struct{ *pulumi.OutputState }
 
 func (GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigOutput) ElementType() reflect.Type {
@@ -7913,6 +9654,12 @@ func (o GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfig
 	}).(GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigPtrOutput)
 }
 
+func (o GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigOutput) ToOutput(ctx context.Context) pulumix.Output[GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfig] {
+	return pulumix.Output[GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 type GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigPtrOutput) ElementType() reflect.Type {
@@ -7927,6 +9674,12 @@ func (o GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfig
 	return o
 }
 
+func (o GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfig] {
+	return pulumix.Output[*GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigPtrOutput) Elem() GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigOutput {
 	return o.ApplyT(func(v *GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfig) GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfig {
 		if v != nil {
@@ -7938,6 +9691,8 @@ func (o GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfig
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CompositeAlarmActionsSuppressorInput)(nil)).Elem(), CompositeAlarmActionsSuppressorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CompositeAlarmActionsSuppressorPtrInput)(nil)).Elem(), CompositeAlarmActionsSuppressorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventConnectionAuthParametersInput)(nil)).Elem(), EventConnectionAuthParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventConnectionAuthParametersPtrInput)(nil)).Elem(), EventConnectionAuthParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventConnectionAuthParametersApiKeyInput)(nil)).Elem(), EventConnectionAuthParametersApiKeyArgs{})
@@ -8004,6 +9759,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventTargetRetryPolicyPtrInput)(nil)).Elem(), EventTargetRetryPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventTargetRunCommandTargetInput)(nil)).Elem(), EventTargetRunCommandTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventTargetRunCommandTargetArrayInput)(nil)).Elem(), EventTargetRunCommandTargetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventTargetSagemakerPipelineTargetInput)(nil)).Elem(), EventTargetSagemakerPipelineTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventTargetSagemakerPipelineTargetPtrInput)(nil)).Elem(), EventTargetSagemakerPipelineTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventTargetSagemakerPipelineTargetPipelineParameterListInput)(nil)).Elem(), EventTargetSagemakerPipelineTargetPipelineParameterListArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventTargetSagemakerPipelineTargetPipelineParameterListArrayInput)(nil)).Elem(), EventTargetSagemakerPipelineTargetPipelineParameterListArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventTargetSqsTargetInput)(nil)).Elem(), EventTargetSqsTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventTargetSqsTargetPtrInput)(nil)).Elem(), EventTargetSqsTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InternetMonitorHealthEventsConfigInput)(nil)).Elem(), InternetMonitorHealthEventsConfigArgs{})
@@ -8043,6 +9802,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyPtrInput)(nil)).Elem(), GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigInput)(nil)).Elem(), GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigPtrInput)(nil)).Elem(), GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgs{})
+	pulumi.RegisterOutputType(CompositeAlarmActionsSuppressorOutput{})
+	pulumi.RegisterOutputType(CompositeAlarmActionsSuppressorPtrOutput{})
 	pulumi.RegisterOutputType(EventConnectionAuthParametersOutput{})
 	pulumi.RegisterOutputType(EventConnectionAuthParametersPtrOutput{})
 	pulumi.RegisterOutputType(EventConnectionAuthParametersApiKeyOutput{})
@@ -8109,6 +9870,10 @@ func init() {
 	pulumi.RegisterOutputType(EventTargetRetryPolicyPtrOutput{})
 	pulumi.RegisterOutputType(EventTargetRunCommandTargetOutput{})
 	pulumi.RegisterOutputType(EventTargetRunCommandTargetArrayOutput{})
+	pulumi.RegisterOutputType(EventTargetSagemakerPipelineTargetOutput{})
+	pulumi.RegisterOutputType(EventTargetSagemakerPipelineTargetPtrOutput{})
+	pulumi.RegisterOutputType(EventTargetSagemakerPipelineTargetPipelineParameterListOutput{})
+	pulumi.RegisterOutputType(EventTargetSagemakerPipelineTargetPipelineParameterListArrayOutput{})
 	pulumi.RegisterOutputType(EventTargetSqsTargetOutput{})
 	pulumi.RegisterOutputType(EventTargetSqsTargetPtrOutput{})
 	pulumi.RegisterOutputType(InternetMonitorHealthEventsConfigOutput{})

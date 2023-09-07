@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Synthetics Canary resource.
@@ -373,6 +374,12 @@ func (i *Canary) ToCanaryOutputWithContext(ctx context.Context) CanaryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CanaryOutput)
 }
 
+func (i *Canary) ToOutput(ctx context.Context) pulumix.Output[*Canary] {
+	return pulumix.Output[*Canary]{
+		OutputState: i.ToCanaryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CanaryArrayInput is an input type that accepts CanaryArray and CanaryArrayOutput values.
 // You can construct a concrete instance of `CanaryArrayInput` via:
 //
@@ -396,6 +403,12 @@ func (i CanaryArray) ToCanaryArrayOutput() CanaryArrayOutput {
 
 func (i CanaryArray) ToCanaryArrayOutputWithContext(ctx context.Context) CanaryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CanaryArrayOutput)
+}
+
+func (i CanaryArray) ToOutput(ctx context.Context) pulumix.Output[[]*Canary] {
+	return pulumix.Output[[]*Canary]{
+		OutputState: i.ToCanaryArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // CanaryMapInput is an input type that accepts CanaryMap and CanaryMapOutput values.
@@ -423,6 +436,12 @@ func (i CanaryMap) ToCanaryMapOutputWithContext(ctx context.Context) CanaryMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(CanaryMapOutput)
 }
 
+func (i CanaryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Canary] {
+	return pulumix.Output[map[string]*Canary]{
+		OutputState: i.ToCanaryMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CanaryOutput struct{ *pulumi.OutputState }
 
 func (CanaryOutput) ElementType() reflect.Type {
@@ -435,6 +454,12 @@ func (o CanaryOutput) ToCanaryOutput() CanaryOutput {
 
 func (o CanaryOutput) ToCanaryOutputWithContext(ctx context.Context) CanaryOutput {
 	return o
+}
+
+func (o CanaryOutput) ToOutput(ctx context.Context) pulumix.Output[*Canary] {
+	return pulumix.Output[*Canary]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name (ARN) of the Canary.
@@ -573,6 +598,12 @@ func (o CanaryArrayOutput) ToCanaryArrayOutputWithContext(ctx context.Context) C
 	return o
 }
 
+func (o CanaryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Canary] {
+	return pulumix.Output[[]*Canary]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CanaryArrayOutput) Index(i pulumi.IntInput) CanaryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Canary {
 		return vs[0].([]*Canary)[vs[1].(int)]
@@ -591,6 +622,12 @@ func (o CanaryMapOutput) ToCanaryMapOutput() CanaryMapOutput {
 
 func (o CanaryMapOutput) ToCanaryMapOutputWithContext(ctx context.Context) CanaryMapOutput {
 	return o
+}
+
+func (o CanaryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Canary] {
+	return pulumix.Output[map[string]*Canary]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CanaryMapOutput) MapIndex(k pulumi.StringInput) CanaryOutput {

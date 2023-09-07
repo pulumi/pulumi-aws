@@ -2589,6 +2589,10 @@
     {
       "old": "Using `terraform import`, import CloudFormation StackSets using the `name`. For example:",
       "new": "Using `pulumi import`, import CloudFormation StackSets using the `name`. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import CloudFormation StackSets when acting a delegated administrator in a member account using the `name` and `call_as` values separated by a comma (`,`). For example:",
+      "new": "Using `TODO import`, import CloudFormation StackSets when acting a delegated administrator in a member account using the `name` and `call_as` values separated by a comma (`,`). For example:"
     }
   ],
   "website/docs/r/cloudformation_stack_set_instance.html.markdown": [
@@ -2605,8 +2609,24 @@
       "new": "**Using `pulumi import` to import** CloudFormation StackSet Instances that target an AWS Account ID using the StackSet name, target AWS account ID, and target AWS region separated by commas (`,`). For example:"
     },
     {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import CloudFormation StackSet Instances that target an AWS Account ID using the StackSet name, target AWS account ID, and target AWS Region separated by commas (`,`). For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import CloudFormation StackSet Instances that target an AWS Account ID using the StackSet name, target AWS account ID, and target AWS Region separated by commas (`,`). For example:"
+    },
+    {
       "old": "In Terraform v1.5.0 and later, use an `import` block to import CloudFormation StackSet Instances that target an AWS Account ID using the StackSet name, target AWS account ID, and target AWS region separated by commas (`,`). For example:",
       "new": ""
+    },
+    {
+      "old": "Using `terraform import`, import CloudFormation StackSet Instances that target AWS Organizational Units using the StackSet name, a slash (`/`) separated list of organizational unit IDs, and target AWS Region separated by commas (`,`). For example:",
+      "new": "Using `TODO import`, import CloudFormation StackSet Instances that target AWS Organizational Units using the StackSet name, a slash (`/`) separated list of organizational unit IDs, and target AWS Region separated by commas (`,`). For example:"
+    },
+    {
+      "old": "Using `terraform import`, import CloudFormation StackSet Instances that target an AWS Account ID using the StackSet name, target AWS account ID, and target AWS Region separated by commas (`,`). For example:",
+      "new": "Using `TODO import`, import CloudFormation StackSet Instances that target an AWS Account ID using the StackSet name, target AWS account ID, and target AWS Region separated by commas (`,`). For example:"
+    },
+    {
+      "old": "Using `terraform import`, import CloudFormation StackSet Instances when acting a delegated administrator in a member account using the StackSet name, target AWS account ID or slash (`/`) separated list of organizational unit IDs, target AWS Region and `call_as` value separated by commas (`,`). For example:",
+      "new": "Using `TODO import`, import CloudFormation StackSet Instances when acting a delegated administrator in a member account using the StackSet name, target AWS account ID or slash (`/`) separated list of organizational unit IDs, target AWS Region and `call_as` value separated by commas (`,`). For example:"
     }
   ],
   "website/docs/r/cloudformation_type.html.markdown": [
@@ -2638,6 +2658,20 @@
     {
       "old": "Using `terraform import`, import CloudFront cache policies using the `id` of the cache policy. For example:",
       "new": "Using `pulumi import`, import CloudFront cache policies using the `id` of the cache policy. For example:"
+    }
+  ],
+  "website/docs/r/cloudfront_continuous_deployment_policy.html.markdown": [
+    {
+      "old": "% terraform import aws_cloudfront_continuous_deployment_policy.example abcd-1234 ",
+      "new": "% TODO import aws_cloudfront_continuous_deployment_policy.example abcd-1234 "
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import CloudFront Continuous Deployment Policy using the `id`. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import CloudFront Continuous Deployment Policy using the `id`. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import CloudFront Continuous Deployment Policy using the `id`. For example:",
+      "new": "Using `TODO import`, import CloudFront Continuous Deployment Policy using the `id`. For example:"
     }
   ],
   "website/docs/r/cloudfront_distribution.html.markdown": [
@@ -3392,6 +3426,44 @@
     {
       "old": "Using `terraform import`, import CodeBuild Webhooks using the CodeBuild Project name. For example:",
       "new": "Using `pulumi import`, import CodeBuild Webhooks using the CodeBuild Project name. For example:"
+    }
+  ],
+  "website/docs/r/codecatalyst_dev_environment.html.markdown": [
+    {
+      "old": "    repository_name = \"terraform-provider-aws\"",
+      "new": "    repository_name = \"TODO-provider-aws\""
+    }
+  ],
+  "website/docs/r/codecatalyst_project.html.markdown": [
+    {
+      "old": "  description  = \"My CodeCatalyst Project created using Terraform\"",
+      "new": "  description  = \"My CodeCatalyst Project created using TODO\""
+    },
+    {
+      "old": "% terraform import aws_codecatalyst_project.example project-id-12345678",
+      "new": "% TODO import aws_codecatalyst_project.example project-id-12345678"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import CodeCatalyst Project using the `example_id_arg`. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import CodeCatalyst Project using the `example_id_arg`. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import CodeCatalyst Project using the `example_id_arg`. For example:",
+      "new": "Using `TODO import`, import CodeCatalyst Project using the `example_id_arg`. For example:"
+    }
+  ],
+  "website/docs/r/codecatalyst_source_repository.html.markdown": [
+    {
+      "old": "% terraform import aws_codecatalyst_source_repository.example source_repository-id-12345678",
+      "new": "% TODO import aws_codecatalyst_source_repository.example source_repository-id-12345678"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import CodeCatalyst Source Repository using the `example_id_arg`. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import CodeCatalyst Source Repository using the `example_id_arg`. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import CodeCatalyst Source Repository using the `example_id_arg`. For example:",
+      "new": "Using `TODO import`, import CodeCatalyst Source Repository using the `example_id_arg`. For example:"
     }
   ],
   "website/docs/r/codecommit_approval_rule_template.html.markdown": [
@@ -4333,6 +4405,20 @@
       "new": "Using `pulumi import`, import `aws_datasync_agent` using the DataSync Agent Amazon Resource Name (ARN). For example:"
     }
   ],
+  "website/docs/r/datasync_location_azure_blob.html.markdown": [
+    {
+      "old": "% terraform import aws_datasync_location_azure_blob.example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567",
+      "new": "% TODO import aws_datasync_location_azure_blob.example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import `aws_datasync_location_azure_blob` using the Amazon Resource Name (ARN). For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import `aws_datasync_location_azure_blob` using the Amazon Resource Name (ARN). For example:"
+    },
+    {
+      "old": "Using `terraform import`, import `aws_datasync_location_azure_blob` using the Amazon Resource Name (ARN). For example:",
+      "new": "Using `TODO import`, import `aws_datasync_location_azure_blob` using the Amazon Resource Name (ARN). For example:"
+    }
+  ],
   "website/docs/r/datasync_location_efs.html.markdown": [
     {
       "old": "% terraform import aws_datasync_location_efs.example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567",
@@ -4359,6 +4445,20 @@
     {
       "old": "Using `terraform import`, import `aws_datasync_location_fsx_lustre_file_system` using the `DataSync-ARN#FSx-Lustre-ARN`. For example:",
       "new": "Using `pulumi import`, import `aws_datasync_location_fsx_lustre_file_system` using the `DataSync-ARN#FSx-Lustre-ARN`. For example:"
+    }
+  ],
+  "website/docs/r/datasync_location_fsx_ontap_file_system.html.markdown": [
+    {
+      "old": "% terraform import aws_datasync_location_fsx_ontap_file_system.example arn:aws:datasync:us-west-2:123456789012:location/loc-12345678901234567#arn:aws:fsx:us-west-2:123456789012:storage-virtual-machine/svm-12345678abcdef123",
+      "new": "% TODO import aws_datasync_location_fsx_ontap_file_system.example arn:aws:datasync:us-west-2:123456789012:location/loc-12345678901234567#arn:aws:fsx:us-west-2:123456789012:storage-virtual-machine/svm-12345678abcdef123"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import `aws_datasync_location_fsx_ontap_file_system` using the `DataSync-ARN#FSx-ontap-svm-ARN`. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import `aws_datasync_location_fsx_ontap_file_system` using the `DataSync-ARN#FSx-ontap-svm-ARN`. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import `aws_datasync_location_fsx_ontap_file_system` using the `DataSync-ARN#FSx-ontap-svm-ARN`. For example:",
+      "new": "Using `TODO import`, import `aws_datasync_location_fsx_ontap_file_system` using the `DataSync-ARN#FSx-ontap-svm-ARN`. For example:"
     }
   ],
   "website/docs/r/datasync_location_fsx_openzfs_file_system.html.markdown": [
@@ -10851,6 +10951,20 @@
       "new": "Using `pulumi import`, import MSK clusters using the cluster `arn`. For example:"
     }
   ],
+  "website/docs/r/msk_cluster_policy.html.markdown": [
+    {
+      "old": "% terraform import aws_msk_cluster_policy.example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3",
+      "new": "% TODO import aws_msk_cluster_policy.example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import Managed Streaming for Kafka Cluster Policy using the `cluster_arn. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import Managed Streaming for Kafka Cluster Policy using the `cluster_arn. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import Managed Streaming for Kafka Cluster Policy using the `cluster_arn`. For example:",
+      "new": "Using `TODO import`, import Managed Streaming for Kafka Cluster Policy using the `cluster_arn`. For example:"
+    }
+  ],
   "website/docs/r/msk_configuration.html.markdown": [
     {
       "old": "% terraform import aws_msk_configuration.example arn:aws:kafka:us-west-2:123456789012:configuration/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3",
@@ -10895,6 +11009,20 @@
     {
       "old": "Using `terraform import`, import MSK serverless clusters using the cluster `arn`. For example:",
       "new": "Using `pulumi import`, import MSK serverless clusters using the cluster `arn`. For example:"
+    }
+  ],
+  "website/docs/r/msk_vpc_connection.html.markdown": [
+    {
+      "old": "% terraform import aws_msk_vpc_connection.example arn:aws:kafka:eu-west-2:123456789012:vpc-connection/123456789012/example/38173259-79cd-4ee8-87f3-682ea6023f48-2",
+      "new": "% TODO import aws_msk_vpc_connection.example arn:aws:kafka:eu-west-2:123456789012:vpc-connection/123456789012/example/38173259-79cd-4ee8-87f3-682ea6023f48-2"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import MSK configurations using the configuration ARN. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import MSK configurations using the configuration ARN. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import MSK configurations using the configuration ARN. For example:",
+      "new": "Using `TODO import`, import MSK configurations using the configuration ARN. For example:"
     }
   ],
   "website/docs/r/mskconnect_connector.html.markdown": [
@@ -11667,6 +11795,20 @@
     {
       "old": "Using `terraform import`, import AWS Opensearch Outbound Connections using the Outbound Connection ID. For example:",
       "new": "Using `pulumi import`, import AWS Opensearch Outbound Connections using the Outbound Connection ID. For example:"
+    }
+  ],
+  "website/docs/r/opensearch_vpc_endpoint.html.markdown": [
+    {
+      "old": "% terraform import aws_opensearch_vpc_endpoint_connection.example endpoint-id",
+      "new": "% TODO import aws_opensearch_vpc_endpoint_connection.example endpoint-id"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import OpenSearch VPC endpoint connections using the `id`. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import OpenSearch VPC endpoint connections using the `id`. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import OpenSearch VPC endpoint connections using the `id`. For example:",
+      "new": "Using `TODO import`, import OpenSearch VPC endpoint connections using the `id`. For example:"
     }
   ],
   "website/docs/r/opensearchserverless_access_policy.html.markdown": [
@@ -12472,6 +12614,20 @@
     {
       "old": "Using `terraform import`, import resource share accepters using the resource share ARN. For example:",
       "new": "Using `pulumi import`, import resource share accepters using the resource share ARN. For example:"
+    }
+  ],
+  "website/docs/r/ram_sharing_with_organization.markdown": [
+    {
+      "old": "% terraform import aws_ram_sharing_with_organization.example 123456789012",
+      "new": "% TODO import aws_ram_sharing_with_organization.example 123456789012"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import the resource using the current AWS account ID. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import the resource using the current AWS account ID. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import the resource using the current AWS account ID. For example:",
+      "new": "Using `TODO import`, import the resource using the current AWS account ID. For example:"
     }
   ],
   "website/docs/r/rbin_rule.html.markdown": [
@@ -13966,6 +14122,10 @@
     {
       "old": "In Terraform v1.5.0 and later, use an `import` block to import S3 bucket lifecycle configuration using the `bucket` or using the `bucket` and `expected_bucket_owner` separated by a comma (`,`). For example:",
       "new": ""
+    },
+    {
+      "old": "Running Terraform operations shortly after creating a lifecycle configuration may result in changes that affect configuration idempotence.",
+      "new": "Running TODO operations shortly after creating a lifecycle configuration may result in changes that affect configuration idempotence."
     },
     {
       "old": "Since `prefix` is deprecated by Amazon S3 and will be removed in the next major version of the Terraform AWS Provider, we recommend users either specify `filter` or leave both `filter` and `prefix` unspecified.",
@@ -17214,6 +17374,10 @@
     {
       "old": "% terraform import aws_vpc_ipam_pool_cidr.example 172.2.0.0/24_ipam-pool-0e634f5a1517cccdc",
       "new": "% pulumi import aws_vpc_ipam_pool_cidr.example 172.2.0.0/24_ipam-pool-0e634f5a1517cccdc"
+    },
+    {
+      "old": "% terraform import aws_vpc_ipam_pool_cidr.example 172.20.0.0/24_ipam-pool-0e634f5a1517cccdc",
+      "new": "% TODO import aws_vpc_ipam_pool_cidr.example 172.20.0.0/24_ipam-pool-0e634f5a1517cccdc"
     },
     {
       "old": "* `ipam_pool_cidr_id` - The unique ID generated by AWS for the pool cidr. Typically this is the resource `id` but this attribute was added to the API calls after the fact and is therefore not used as the terraform resource id.",

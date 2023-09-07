@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a list of Elastic IPs in a region.
@@ -112,6 +113,12 @@ func (o GetEipsResultOutput) ToGetEipsResultOutput() GetEipsResultOutput {
 
 func (o GetEipsResultOutput) ToGetEipsResultOutputWithContext(ctx context.Context) GetEipsResultOutput {
 	return o
+}
+
+func (o GetEipsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetEipsResult] {
+	return pulumix.Output[GetEipsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // List of all the allocation IDs for address for use with EC2-VPC.

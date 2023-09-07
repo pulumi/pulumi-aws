@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides the aliases, ARNs, and workspace IDs of Amazon Prometheus workspaces.
@@ -130,6 +131,12 @@ func (o GetWorkspacesResultOutput) ToGetWorkspacesResultOutput() GetWorkspacesRe
 
 func (o GetWorkspacesResultOutput) ToGetWorkspacesResultOutputWithContext(ctx context.Context) GetWorkspacesResultOutput {
 	return o
+}
+
+func (o GetWorkspacesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetWorkspacesResult] {
+	return pulumix.Output[GetWorkspacesResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWorkspacesResultOutput) AliasPrefix() pulumi.StringPtrOutput {

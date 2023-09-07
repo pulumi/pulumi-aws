@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS QuickSight IAM Policy Assignment.
@@ -213,6 +214,12 @@ func (i *IamPolicyAssignment) ToIamPolicyAssignmentOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(IamPolicyAssignmentOutput)
 }
 
+func (i *IamPolicyAssignment) ToOutput(ctx context.Context) pulumix.Output[*IamPolicyAssignment] {
+	return pulumix.Output[*IamPolicyAssignment]{
+		OutputState: i.ToIamPolicyAssignmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 // IamPolicyAssignmentArrayInput is an input type that accepts IamPolicyAssignmentArray and IamPolicyAssignmentArrayOutput values.
 // You can construct a concrete instance of `IamPolicyAssignmentArrayInput` via:
 //
@@ -236,6 +243,12 @@ func (i IamPolicyAssignmentArray) ToIamPolicyAssignmentArrayOutput() IamPolicyAs
 
 func (i IamPolicyAssignmentArray) ToIamPolicyAssignmentArrayOutputWithContext(ctx context.Context) IamPolicyAssignmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IamPolicyAssignmentArrayOutput)
+}
+
+func (i IamPolicyAssignmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*IamPolicyAssignment] {
+	return pulumix.Output[[]*IamPolicyAssignment]{
+		OutputState: i.ToIamPolicyAssignmentArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // IamPolicyAssignmentMapInput is an input type that accepts IamPolicyAssignmentMap and IamPolicyAssignmentMapOutput values.
@@ -263,6 +276,12 @@ func (i IamPolicyAssignmentMap) ToIamPolicyAssignmentMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(IamPolicyAssignmentMapOutput)
 }
 
+func (i IamPolicyAssignmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*IamPolicyAssignment] {
+	return pulumix.Output[map[string]*IamPolicyAssignment]{
+		OutputState: i.ToIamPolicyAssignmentMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IamPolicyAssignmentOutput struct{ *pulumi.OutputState }
 
 func (IamPolicyAssignmentOutput) ElementType() reflect.Type {
@@ -275,6 +294,12 @@ func (o IamPolicyAssignmentOutput) ToIamPolicyAssignmentOutput() IamPolicyAssign
 
 func (o IamPolicyAssignmentOutput) ToIamPolicyAssignmentOutputWithContext(ctx context.Context) IamPolicyAssignmentOutput {
 	return o
+}
+
+func (o IamPolicyAssignmentOutput) ToOutput(ctx context.Context) pulumix.Output[*IamPolicyAssignment] {
+	return pulumix.Output[*IamPolicyAssignment]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Assignment ID.
@@ -328,6 +353,12 @@ func (o IamPolicyAssignmentArrayOutput) ToIamPolicyAssignmentArrayOutputWithCont
 	return o
 }
 
+func (o IamPolicyAssignmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*IamPolicyAssignment] {
+	return pulumix.Output[[]*IamPolicyAssignment]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IamPolicyAssignmentArrayOutput) Index(i pulumi.IntInput) IamPolicyAssignmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IamPolicyAssignment {
 		return vs[0].([]*IamPolicyAssignment)[vs[1].(int)]
@@ -346,6 +377,12 @@ func (o IamPolicyAssignmentMapOutput) ToIamPolicyAssignmentMapOutput() IamPolicy
 
 func (o IamPolicyAssignmentMapOutput) ToIamPolicyAssignmentMapOutputWithContext(ctx context.Context) IamPolicyAssignmentMapOutput {
 	return o
+}
+
+func (o IamPolicyAssignmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*IamPolicyAssignment] {
+	return pulumix.Output[map[string]*IamPolicyAssignment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IamPolicyAssignmentMapOutput) MapIndex(k pulumi.StringInput) IamPolicyAssignmentOutput {

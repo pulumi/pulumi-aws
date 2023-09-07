@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an AWS DataSync FSx Lustre Location.
@@ -196,6 +197,12 @@ func (i *LocationFsxLustre) ToLocationFsxLustreOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(LocationFsxLustreOutput)
 }
 
+func (i *LocationFsxLustre) ToOutput(ctx context.Context) pulumix.Output[*LocationFsxLustre] {
+	return pulumix.Output[*LocationFsxLustre]{
+		OutputState: i.ToLocationFsxLustreOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LocationFsxLustreArrayInput is an input type that accepts LocationFsxLustreArray and LocationFsxLustreArrayOutput values.
 // You can construct a concrete instance of `LocationFsxLustreArrayInput` via:
 //
@@ -219,6 +226,12 @@ func (i LocationFsxLustreArray) ToLocationFsxLustreArrayOutput() LocationFsxLust
 
 func (i LocationFsxLustreArray) ToLocationFsxLustreArrayOutputWithContext(ctx context.Context) LocationFsxLustreArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocationFsxLustreArrayOutput)
+}
+
+func (i LocationFsxLustreArray) ToOutput(ctx context.Context) pulumix.Output[[]*LocationFsxLustre] {
+	return pulumix.Output[[]*LocationFsxLustre]{
+		OutputState: i.ToLocationFsxLustreArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LocationFsxLustreMapInput is an input type that accepts LocationFsxLustreMap and LocationFsxLustreMapOutput values.
@@ -246,6 +259,12 @@ func (i LocationFsxLustreMap) ToLocationFsxLustreMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(LocationFsxLustreMapOutput)
 }
 
+func (i LocationFsxLustreMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocationFsxLustre] {
+	return pulumix.Output[map[string]*LocationFsxLustre]{
+		OutputState: i.ToLocationFsxLustreMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LocationFsxLustreOutput struct{ *pulumi.OutputState }
 
 func (LocationFsxLustreOutput) ElementType() reflect.Type {
@@ -258,6 +277,12 @@ func (o LocationFsxLustreOutput) ToLocationFsxLustreOutput() LocationFsxLustreOu
 
 func (o LocationFsxLustreOutput) ToLocationFsxLustreOutputWithContext(ctx context.Context) LocationFsxLustreOutput {
 	return o
+}
+
+func (o LocationFsxLustreOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationFsxLustre] {
+	return pulumix.Output[*LocationFsxLustre]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name (ARN) of the DataSync Location.
@@ -314,6 +339,12 @@ func (o LocationFsxLustreArrayOutput) ToLocationFsxLustreArrayOutputWithContext(
 	return o
 }
 
+func (o LocationFsxLustreArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LocationFsxLustre] {
+	return pulumix.Output[[]*LocationFsxLustre]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LocationFsxLustreArrayOutput) Index(i pulumi.IntInput) LocationFsxLustreOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocationFsxLustre {
 		return vs[0].([]*LocationFsxLustre)[vs[1].(int)]
@@ -332,6 +363,12 @@ func (o LocationFsxLustreMapOutput) ToLocationFsxLustreMapOutput() LocationFsxLu
 
 func (o LocationFsxLustreMapOutput) ToLocationFsxLustreMapOutputWithContext(ctx context.Context) LocationFsxLustreMapOutput {
 	return o
+}
+
+func (o LocationFsxLustreMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocationFsxLustre] {
+	return pulumix.Output[map[string]*LocationFsxLustre]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LocationFsxLustreMapOutput) MapIndex(k pulumi.StringInput) LocationFsxLustreOutput {

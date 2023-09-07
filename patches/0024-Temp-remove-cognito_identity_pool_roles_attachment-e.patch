@@ -1,4 +1,4 @@
-From 33c3928f6bc4ef1b4245e4060e9582430d91dfbd Mon Sep 17 00:00:00 2001
+From 4504890f7476b2b09460abe2ced078f08c10e9e9 Mon Sep 17 00:00:00 2001
 From: Anton Tayanovskyy <anton@pulumi.com>
 Date: Mon, 24 Apr 2023 10:36:36 -0400
 Subject: [PATCH 24/29] Temp remove cognito_identity_pool_roles_attachment
@@ -101,5 +101,5 @@ index 23c0000bb6..d56a26e5f0 100644
  ## Argument Reference
  
 -- 
-2.40.0
+2.41.0
 

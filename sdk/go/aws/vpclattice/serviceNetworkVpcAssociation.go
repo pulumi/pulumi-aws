@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS VPC Lattice Service Network VPC Association.
@@ -203,6 +204,12 @@ func (i *ServiceNetworkVpcAssociation) ToServiceNetworkVpcAssociationOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceNetworkVpcAssociationOutput)
 }
 
+func (i *ServiceNetworkVpcAssociation) ToOutput(ctx context.Context) pulumix.Output[*ServiceNetworkVpcAssociation] {
+	return pulumix.Output[*ServiceNetworkVpcAssociation]{
+		OutputState: i.ToServiceNetworkVpcAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServiceNetworkVpcAssociationArrayInput is an input type that accepts ServiceNetworkVpcAssociationArray and ServiceNetworkVpcAssociationArrayOutput values.
 // You can construct a concrete instance of `ServiceNetworkVpcAssociationArrayInput` via:
 //
@@ -226,6 +233,12 @@ func (i ServiceNetworkVpcAssociationArray) ToServiceNetworkVpcAssociationArrayOu
 
 func (i ServiceNetworkVpcAssociationArray) ToServiceNetworkVpcAssociationArrayOutputWithContext(ctx context.Context) ServiceNetworkVpcAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceNetworkVpcAssociationArrayOutput)
+}
+
+func (i ServiceNetworkVpcAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceNetworkVpcAssociation] {
+	return pulumix.Output[[]*ServiceNetworkVpcAssociation]{
+		OutputState: i.ToServiceNetworkVpcAssociationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ServiceNetworkVpcAssociationMapInput is an input type that accepts ServiceNetworkVpcAssociationMap and ServiceNetworkVpcAssociationMapOutput values.
@@ -253,6 +266,12 @@ func (i ServiceNetworkVpcAssociationMap) ToServiceNetworkVpcAssociationMapOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceNetworkVpcAssociationMapOutput)
 }
 
+func (i ServiceNetworkVpcAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceNetworkVpcAssociation] {
+	return pulumix.Output[map[string]*ServiceNetworkVpcAssociation]{
+		OutputState: i.ToServiceNetworkVpcAssociationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceNetworkVpcAssociationOutput struct{ *pulumi.OutputState }
 
 func (ServiceNetworkVpcAssociationOutput) ElementType() reflect.Type {
@@ -265,6 +284,12 @@ func (o ServiceNetworkVpcAssociationOutput) ToServiceNetworkVpcAssociationOutput
 
 func (o ServiceNetworkVpcAssociationOutput) ToServiceNetworkVpcAssociationOutputWithContext(ctx context.Context) ServiceNetworkVpcAssociationOutput {
 	return o
+}
+
+func (o ServiceNetworkVpcAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceNetworkVpcAssociation] {
+	return pulumix.Output[*ServiceNetworkVpcAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the Association.
@@ -322,6 +347,12 @@ func (o ServiceNetworkVpcAssociationArrayOutput) ToServiceNetworkVpcAssociationA
 	return o
 }
 
+func (o ServiceNetworkVpcAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceNetworkVpcAssociation] {
+	return pulumix.Output[[]*ServiceNetworkVpcAssociation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ServiceNetworkVpcAssociationArrayOutput) Index(i pulumi.IntInput) ServiceNetworkVpcAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServiceNetworkVpcAssociation {
 		return vs[0].([]*ServiceNetworkVpcAssociation)[vs[1].(int)]
@@ -340,6 +371,12 @@ func (o ServiceNetworkVpcAssociationMapOutput) ToServiceNetworkVpcAssociationMap
 
 func (o ServiceNetworkVpcAssociationMapOutput) ToServiceNetworkVpcAssociationMapOutputWithContext(ctx context.Context) ServiceNetworkVpcAssociationMapOutput {
 	return o
+}
+
+func (o ServiceNetworkVpcAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceNetworkVpcAssociation] {
+	return pulumix.Output[map[string]*ServiceNetworkVpcAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceNetworkVpcAssociationMapOutput) MapIndex(k pulumi.StringInput) ServiceNetworkVpcAssociationOutput {

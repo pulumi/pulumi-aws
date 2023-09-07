@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Kinesis Firehose Delivery Stream resource. Amazon Kinesis Firehose is a fully managed, elastic service to easily deliver real-time data streams to destinations such as Amazon S3 and Amazon Redshift.
@@ -1023,6 +1024,12 @@ func (i *FirehoseDeliveryStream) ToFirehoseDeliveryStreamOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamOutput)
 }
 
+func (i *FirehoseDeliveryStream) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStream] {
+	return pulumix.Output[*FirehoseDeliveryStream]{
+		OutputState: i.ToFirehoseDeliveryStreamOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FirehoseDeliveryStreamArrayInput is an input type that accepts FirehoseDeliveryStreamArray and FirehoseDeliveryStreamArrayOutput values.
 // You can construct a concrete instance of `FirehoseDeliveryStreamArrayInput` via:
 //
@@ -1046,6 +1053,12 @@ func (i FirehoseDeliveryStreamArray) ToFirehoseDeliveryStreamArrayOutput() Fireh
 
 func (i FirehoseDeliveryStreamArray) ToFirehoseDeliveryStreamArrayOutputWithContext(ctx context.Context) FirehoseDeliveryStreamArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamArrayOutput)
+}
+
+func (i FirehoseDeliveryStreamArray) ToOutput(ctx context.Context) pulumix.Output[[]*FirehoseDeliveryStream] {
+	return pulumix.Output[[]*FirehoseDeliveryStream]{
+		OutputState: i.ToFirehoseDeliveryStreamArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // FirehoseDeliveryStreamMapInput is an input type that accepts FirehoseDeliveryStreamMap and FirehoseDeliveryStreamMapOutput values.
@@ -1073,6 +1086,12 @@ func (i FirehoseDeliveryStreamMap) ToFirehoseDeliveryStreamMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamMapOutput)
 }
 
+func (i FirehoseDeliveryStreamMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FirehoseDeliveryStream] {
+	return pulumix.Output[map[string]*FirehoseDeliveryStream]{
+		OutputState: i.ToFirehoseDeliveryStreamMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirehoseDeliveryStreamOutput struct{ *pulumi.OutputState }
 
 func (FirehoseDeliveryStreamOutput) ElementType() reflect.Type {
@@ -1085,6 +1104,12 @@ func (o FirehoseDeliveryStreamOutput) ToFirehoseDeliveryStreamOutput() FirehoseD
 
 func (o FirehoseDeliveryStreamOutput) ToFirehoseDeliveryStreamOutputWithContext(ctx context.Context) FirehoseDeliveryStreamOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamOutput) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStream] {
+	return pulumix.Output[*FirehoseDeliveryStream]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) specifying the Stream
@@ -1195,6 +1220,12 @@ func (o FirehoseDeliveryStreamArrayOutput) ToFirehoseDeliveryStreamArrayOutputWi
 	return o
 }
 
+func (o FirehoseDeliveryStreamArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FirehoseDeliveryStream] {
+	return pulumix.Output[[]*FirehoseDeliveryStream]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FirehoseDeliveryStreamArrayOutput) Index(i pulumi.IntInput) FirehoseDeliveryStreamOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FirehoseDeliveryStream {
 		return vs[0].([]*FirehoseDeliveryStream)[vs[1].(int)]
@@ -1213,6 +1244,12 @@ func (o FirehoseDeliveryStreamMapOutput) ToFirehoseDeliveryStreamMapOutput() Fir
 
 func (o FirehoseDeliveryStreamMapOutput) ToFirehoseDeliveryStreamMapOutputWithContext(ctx context.Context) FirehoseDeliveryStreamMapOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FirehoseDeliveryStream] {
+	return pulumix.Output[map[string]*FirehoseDeliveryStream]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirehoseDeliveryStreamMapOutput) MapIndex(k pulumi.StringInput) FirehoseDeliveryStreamOutput {

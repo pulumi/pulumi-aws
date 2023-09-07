@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Object Storage Location within AWS DataSync.
@@ -263,6 +264,12 @@ func (i *LocationObjectStorage) ToLocationObjectStorageOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(LocationObjectStorageOutput)
 }
 
+func (i *LocationObjectStorage) ToOutput(ctx context.Context) pulumix.Output[*LocationObjectStorage] {
+	return pulumix.Output[*LocationObjectStorage]{
+		OutputState: i.ToLocationObjectStorageOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LocationObjectStorageArrayInput is an input type that accepts LocationObjectStorageArray and LocationObjectStorageArrayOutput values.
 // You can construct a concrete instance of `LocationObjectStorageArrayInput` via:
 //
@@ -286,6 +293,12 @@ func (i LocationObjectStorageArray) ToLocationObjectStorageArrayOutput() Locatio
 
 func (i LocationObjectStorageArray) ToLocationObjectStorageArrayOutputWithContext(ctx context.Context) LocationObjectStorageArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocationObjectStorageArrayOutput)
+}
+
+func (i LocationObjectStorageArray) ToOutput(ctx context.Context) pulumix.Output[[]*LocationObjectStorage] {
+	return pulumix.Output[[]*LocationObjectStorage]{
+		OutputState: i.ToLocationObjectStorageArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LocationObjectStorageMapInput is an input type that accepts LocationObjectStorageMap and LocationObjectStorageMapOutput values.
@@ -313,6 +326,12 @@ func (i LocationObjectStorageMap) ToLocationObjectStorageMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(LocationObjectStorageMapOutput)
 }
 
+func (i LocationObjectStorageMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocationObjectStorage] {
+	return pulumix.Output[map[string]*LocationObjectStorage]{
+		OutputState: i.ToLocationObjectStorageMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LocationObjectStorageOutput struct{ *pulumi.OutputState }
 
 func (LocationObjectStorageOutput) ElementType() reflect.Type {
@@ -325,6 +344,12 @@ func (o LocationObjectStorageOutput) ToLocationObjectStorageOutput() LocationObj
 
 func (o LocationObjectStorageOutput) ToLocationObjectStorageOutputWithContext(ctx context.Context) LocationObjectStorageOutput {
 	return o
+}
+
+func (o LocationObjectStorageOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationObjectStorage] {
+	return pulumix.Output[*LocationObjectStorage]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The access key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `accessKey` and `secretKey` to provide the user name and password, respectively.
@@ -406,6 +431,12 @@ func (o LocationObjectStorageArrayOutput) ToLocationObjectStorageArrayOutputWith
 	return o
 }
 
+func (o LocationObjectStorageArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LocationObjectStorage] {
+	return pulumix.Output[[]*LocationObjectStorage]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LocationObjectStorageArrayOutput) Index(i pulumi.IntInput) LocationObjectStorageOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocationObjectStorage {
 		return vs[0].([]*LocationObjectStorage)[vs[1].(int)]
@@ -424,6 +455,12 @@ func (o LocationObjectStorageMapOutput) ToLocationObjectStorageMapOutput() Locat
 
 func (o LocationObjectStorageMapOutput) ToLocationObjectStorageMapOutputWithContext(ctx context.Context) LocationObjectStorageMapOutput {
 	return o
+}
+
+func (o LocationObjectStorageMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocationObjectStorage] {
+	return pulumix.Output[map[string]*LocationObjectStorage]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LocationObjectStorageMapOutput) MapIndex(k pulumi.StringInput) LocationObjectStorageOutput {

@@ -41,6 +41,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ServerlessSecurityPolicy{}
 	case "aws:opensearch/serverlessVpcEndpoint:ServerlessVpcEndpoint":
 		r = &ServerlessVpcEndpoint{}
+	case "aws:opensearch/vpcEndpoint:VpcEndpoint":
+		r = &VpcEndpoint{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -102,6 +104,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"opensearch/serverlessVpcEndpoint",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"opensearch/vpcEndpoint",
 		&module{version},
 	)
 }

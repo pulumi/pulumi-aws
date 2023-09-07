@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Amazon API Gateway Version 2 stage.
@@ -293,6 +294,12 @@ func (i *Stage) ToStageOutputWithContext(ctx context.Context) StageOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StageOutput)
 }
 
+func (i *Stage) ToOutput(ctx context.Context) pulumix.Output[*Stage] {
+	return pulumix.Output[*Stage]{
+		OutputState: i.ToStageOutputWithContext(ctx).OutputState,
+	}
+}
+
 // StageArrayInput is an input type that accepts StageArray and StageArrayOutput values.
 // You can construct a concrete instance of `StageArrayInput` via:
 //
@@ -316,6 +323,12 @@ func (i StageArray) ToStageArrayOutput() StageArrayOutput {
 
 func (i StageArray) ToStageArrayOutputWithContext(ctx context.Context) StageArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StageArrayOutput)
+}
+
+func (i StageArray) ToOutput(ctx context.Context) pulumix.Output[[]*Stage] {
+	return pulumix.Output[[]*Stage]{
+		OutputState: i.ToStageArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // StageMapInput is an input type that accepts StageMap and StageMapOutput values.
@@ -343,6 +356,12 @@ func (i StageMap) ToStageMapOutputWithContext(ctx context.Context) StageMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(StageMapOutput)
 }
 
+func (i StageMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Stage] {
+	return pulumix.Output[map[string]*Stage]{
+		OutputState: i.ToStageMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StageOutput struct{ *pulumi.OutputState }
 
 func (StageOutput) ElementType() reflect.Type {
@@ -355,6 +374,12 @@ func (o StageOutput) ToStageOutput() StageOutput {
 
 func (o StageOutput) ToStageOutputWithContext(ctx context.Context) StageOutput {
 	return o
+}
+
+func (o StageOutput) ToOutput(ctx context.Context) pulumix.Output[*Stage] {
+	return pulumix.Output[*Stage]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Settings for logging access in this stage.
@@ -453,6 +478,12 @@ func (o StageArrayOutput) ToStageArrayOutputWithContext(ctx context.Context) Sta
 	return o
 }
 
+func (o StageArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Stage] {
+	return pulumix.Output[[]*Stage]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o StageArrayOutput) Index(i pulumi.IntInput) StageOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Stage {
 		return vs[0].([]*Stage)[vs[1].(int)]
@@ -471,6 +502,12 @@ func (o StageMapOutput) ToStageMapOutput() StageMapOutput {
 
 func (o StageMapOutput) ToStageMapOutputWithContext(ctx context.Context) StageMapOutput {
 	return o
+}
+
+func (o StageMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Stage] {
+	return pulumix.Output[map[string]*Stage]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StageMapOutput) MapIndex(k pulumi.StringInput) StageOutput {

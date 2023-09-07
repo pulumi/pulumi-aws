@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // > **Note:** There is only a single subscription allowed per account.
@@ -155,6 +156,12 @@ func (i *SpotDatafeedSubscription) ToSpotDatafeedSubscriptionOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(SpotDatafeedSubscriptionOutput)
 }
 
+func (i *SpotDatafeedSubscription) ToOutput(ctx context.Context) pulumix.Output[*SpotDatafeedSubscription] {
+	return pulumix.Output[*SpotDatafeedSubscription]{
+		OutputState: i.ToSpotDatafeedSubscriptionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SpotDatafeedSubscriptionArrayInput is an input type that accepts SpotDatafeedSubscriptionArray and SpotDatafeedSubscriptionArrayOutput values.
 // You can construct a concrete instance of `SpotDatafeedSubscriptionArrayInput` via:
 //
@@ -178,6 +185,12 @@ func (i SpotDatafeedSubscriptionArray) ToSpotDatafeedSubscriptionArrayOutput() S
 
 func (i SpotDatafeedSubscriptionArray) ToSpotDatafeedSubscriptionArrayOutputWithContext(ctx context.Context) SpotDatafeedSubscriptionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SpotDatafeedSubscriptionArrayOutput)
+}
+
+func (i SpotDatafeedSubscriptionArray) ToOutput(ctx context.Context) pulumix.Output[[]*SpotDatafeedSubscription] {
+	return pulumix.Output[[]*SpotDatafeedSubscription]{
+		OutputState: i.ToSpotDatafeedSubscriptionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SpotDatafeedSubscriptionMapInput is an input type that accepts SpotDatafeedSubscriptionMap and SpotDatafeedSubscriptionMapOutput values.
@@ -205,6 +218,12 @@ func (i SpotDatafeedSubscriptionMap) ToSpotDatafeedSubscriptionMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(SpotDatafeedSubscriptionMapOutput)
 }
 
+func (i SpotDatafeedSubscriptionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpotDatafeedSubscription] {
+	return pulumix.Output[map[string]*SpotDatafeedSubscription]{
+		OutputState: i.ToSpotDatafeedSubscriptionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpotDatafeedSubscriptionOutput struct{ *pulumi.OutputState }
 
 func (SpotDatafeedSubscriptionOutput) ElementType() reflect.Type {
@@ -217,6 +236,12 @@ func (o SpotDatafeedSubscriptionOutput) ToSpotDatafeedSubscriptionOutput() SpotD
 
 func (o SpotDatafeedSubscriptionOutput) ToSpotDatafeedSubscriptionOutputWithContext(ctx context.Context) SpotDatafeedSubscriptionOutput {
 	return o
+}
+
+func (o SpotDatafeedSubscriptionOutput) ToOutput(ctx context.Context) pulumix.Output[*SpotDatafeedSubscription] {
+	return pulumix.Output[*SpotDatafeedSubscription]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon S3 bucket in which to store the Spot instance data feed.
@@ -243,6 +268,12 @@ func (o SpotDatafeedSubscriptionArrayOutput) ToSpotDatafeedSubscriptionArrayOutp
 	return o
 }
 
+func (o SpotDatafeedSubscriptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SpotDatafeedSubscription] {
+	return pulumix.Output[[]*SpotDatafeedSubscription]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpotDatafeedSubscriptionArrayOutput) Index(i pulumi.IntInput) SpotDatafeedSubscriptionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SpotDatafeedSubscription {
 		return vs[0].([]*SpotDatafeedSubscription)[vs[1].(int)]
@@ -261,6 +292,12 @@ func (o SpotDatafeedSubscriptionMapOutput) ToSpotDatafeedSubscriptionMapOutput()
 
 func (o SpotDatafeedSubscriptionMapOutput) ToSpotDatafeedSubscriptionMapOutputWithContext(ctx context.Context) SpotDatafeedSubscriptionMapOutput {
 	return o
+}
+
+func (o SpotDatafeedSubscriptionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpotDatafeedSubscription] {
+	return pulumix.Output[map[string]*SpotDatafeedSubscription]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpotDatafeedSubscriptionMapOutput) MapIndex(k pulumi.StringInput) SpotDatafeedSubscriptionOutput {

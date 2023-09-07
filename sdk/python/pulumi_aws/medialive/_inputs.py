@@ -151,11 +151,13 @@ __all__ = [
     'ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelectionArgs',
     'ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelectionArgs',
     'ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionArgs',
+    'ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeArgs',
     'ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrackArgs',
     'ChannelInputAttachmentInputSettingsCaptionSelectorArgs',
     'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs',
     'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsArgs',
-    'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsArgs',
+    'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsArgs',
+    'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsArgs',
     'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsArgs',
     'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsArgs',
     'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsArgs',
@@ -573,7 +575,7 @@ class ChannelEncoderSettingsAudioDescriptionArgs:
         :param pulumi.Input[str] audio_type_control: Determined how audio type is determined.
         :param pulumi.Input['ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsArgs'] audio_watermark_settings: Settings to configure one or more solutions that insert audio watermarks in the audio encode. See Audio Watermark Settings for more details.
         :param pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs'] codec_settings: Audio codec settings. See Audio Codec Settings for more details.
-        :param pulumi.Input[str] language_code: When specified this field indicates the three letter language code of the caption track to extract from the source.
+        :param pulumi.Input[str] language_code: Selects a specific three-letter language code from within an audio source.
         :param pulumi.Input[str] stream_name: Stream name RTMP destinations (URLs of type rtmp://)
         """
         pulumi.set(__self__, "audio_selector_name", audio_selector_name)
@@ -685,7 +687,7 @@ class ChannelEncoderSettingsAudioDescriptionArgs:
     @pulumi.getter(name="languageCode")
     def language_code(self) -> Optional[pulumi.Input[str]]:
         """
-        When specified this field indicates the three letter language code of the caption track to extract from the source.
+        Selects a specific three-letter language code from within an audio source.
         """
         return pulumi.get(self, "language_code")
 
@@ -2130,16 +2132,17 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs:
         """
         :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsArgs'] arib_destination_settings: Arib Destination Settings.
         :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsArgs'] burn_in_destination_settings: Burn In Destination Settings. See Burn In Destination Settings for more details.
-        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsArgs'] dvb_sub_destination_settings: Dvb Sub Destination Settings. See Dvb Sub Destination Settings for more details.
-        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsArgs'] ebu_tt_d_destination_settings: Ebu Tt D Destination Settings. See Ebu Tt D Destination Settings for more details.
+        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsArgs'] dvb_sub_destination_settings: DVB Sub Destination Settings. See DVB Sub Destination Settings for more details.
+        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsArgs'] ebu_tt_d_destination_settings: EBU TT D Destination Settings. See EBU TT D Destination Settings for more details.
         :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsArgs'] embedded_destination_settings: Embedded Destination Settings.
-        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsArgs'] embedded_plus_scte20_destination_settings: Embedded Plus Scte20 Destination Settings.
-        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsArgs'] rtmp_caption_info_destination_settings: Rtmp Caption Info Destination Settings.
-        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsArgs'] scte20_plus_embedded_destination_settings: Scte20 Plus Embedded Destination Settings.
-        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsArgs'] scte27_destination_settings: Scte27 Destination Settings.
+        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsArgs'] embedded_plus_scte20_destination_settings: Embedded Plus SCTE20 Destination Settings.
+        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsArgs'] rtmp_caption_info_destination_settings: RTMP Caption Info Destination Settings.
+        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsArgs'] scte20_plus_embedded_destination_settings: SCTE20 Plus Embedded Destination Settings.
+        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsArgs'] scte27_destination_settings: SCTE27 Destination Settings.
+        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsArgs'] smpte_tt_destination_settings: SMPTE TT Destination Settings.
         :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsArgs'] teletext_destination_settings: Teletext Destination Settings.
-        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsArgs'] ttml_destination_settings: Ttml Destination Settings. See Ttml Destination Settings for more details.
-        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsArgs'] webvtt_destination_settings: Webvtt Destination Settings. See Webvtt Destination Settings for more details.
+        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsArgs'] ttml_destination_settings: TTML Destination Settings. See TTML Destination Settings for more details.
+        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsArgs'] webvtt_destination_settings: WebVTT Destination Settings. See WebVTT Destination Settings for more details.
         """
         if arib_destination_settings is not None:
             pulumi.set(__self__, "arib_destination_settings", arib_destination_settings)
@@ -2196,7 +2199,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs:
     @pulumi.getter(name="dvbSubDestinationSettings")
     def dvb_sub_destination_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsArgs']]:
         """
-        Dvb Sub Destination Settings. See Dvb Sub Destination Settings for more details.
+        DVB Sub Destination Settings. See DVB Sub Destination Settings for more details.
         """
         return pulumi.get(self, "dvb_sub_destination_settings")
 
@@ -2208,7 +2211,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs:
     @pulumi.getter(name="ebuTtDDestinationSettings")
     def ebu_tt_d_destination_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsArgs']]:
         """
-        Ebu Tt D Destination Settings. See Ebu Tt D Destination Settings for more details.
+        EBU TT D Destination Settings. See EBU TT D Destination Settings for more details.
         """
         return pulumi.get(self, "ebu_tt_d_destination_settings")
 
@@ -2232,7 +2235,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs:
     @pulumi.getter(name="embeddedPlusScte20DestinationSettings")
     def embedded_plus_scte20_destination_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsArgs']]:
         """
-        Embedded Plus Scte20 Destination Settings.
+        Embedded Plus SCTE20 Destination Settings.
         """
         return pulumi.get(self, "embedded_plus_scte20_destination_settings")
 
@@ -2244,7 +2247,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs:
     @pulumi.getter(name="rtmpCaptionInfoDestinationSettings")
     def rtmp_caption_info_destination_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsArgs']]:
         """
-        Rtmp Caption Info Destination Settings.
+        RTMP Caption Info Destination Settings.
         """
         return pulumi.get(self, "rtmp_caption_info_destination_settings")
 
@@ -2256,7 +2259,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs:
     @pulumi.getter(name="scte20PlusEmbeddedDestinationSettings")
     def scte20_plus_embedded_destination_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsArgs']]:
         """
-        Scte20 Plus Embedded Destination Settings.
+        SCTE20 Plus Embedded Destination Settings.
         """
         return pulumi.get(self, "scte20_plus_embedded_destination_settings")
 
@@ -2268,7 +2271,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs:
     @pulumi.getter(name="scte27DestinationSettings")
     def scte27_destination_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsArgs']]:
         """
-        Scte27 Destination Settings.
+        SCTE27 Destination Settings.
         """
         return pulumi.get(self, "scte27_destination_settings")
 
@@ -2279,6 +2282,9 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs:
     @property
     @pulumi.getter(name="smpteTtDestinationSettings")
     def smpte_tt_destination_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsArgs']]:
+        """
+        SMPTE TT Destination Settings.
+        """
         return pulumi.get(self, "smpte_tt_destination_settings")
 
     @smpte_tt_destination_settings.setter
@@ -2301,7 +2307,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs:
     @pulumi.getter(name="ttmlDestinationSettings")
     def ttml_destination_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsArgs']]:
         """
-        Ttml Destination Settings. See Ttml Destination Settings for more details.
+        TTML Destination Settings. See TTML Destination Settings for more details.
         """
         return pulumi.get(self, "ttml_destination_settings")
 
@@ -2313,7 +2319,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs:
     @pulumi.getter(name="webvttDestinationSettings")
     def webvtt_destination_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsArgs']]:
         """
-        Webvtt Destination Settings. See Webvtt Destination Settings for more details.
+        WebVTT Destination Settings. See WebVTT Destination Settings for more details.
         """
         return pulumi.get(self, "webvtt_destination_settings")
 
@@ -4482,7 +4488,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptio
                  language_code: pulumi.Input[str],
                  language_description: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] language_code: When specified this field indicates the three letter language code of the caption track to extract from the source.
+        :param pulumi.Input[str] language_code: Selects a specific three-letter language code from within an audio source.
         :param pulumi.Input[str] language_description: Human readable information to indicate captions available for players (eg. English, or Spanish).
         """
         pulumi.set(__self__, "caption_channel", caption_channel)
@@ -4502,7 +4508,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptio
     @pulumi.getter(name="languageCode")
     def language_code(self) -> pulumi.Input[str]:
         """
-        When specified this field indicates the three letter language code of the caption track to extract from the source.
+        Selects a specific three-letter language code from within an audio source.
         """
         return pulumi.get(self, "language_code")
 
@@ -10153,6 +10159,7 @@ class ChannelInputAttachmentInputSettingsAudioSelectorArgs:
         :param pulumi.Input[str] name: Name of the Channel.
                
                The following arguments are optional:
+        :param pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgs'] selector_settings: The audio selector settings. See Audio Selector Settings for more details.
         """
         pulumi.set(__self__, "name", name)
         if selector_settings is not None:
@@ -10175,6 +10182,9 @@ class ChannelInputAttachmentInputSettingsAudioSelectorArgs:
     @property
     @pulumi.getter(name="selectorSettings")
     def selector_settings(self) -> Optional[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgs']]:
+        """
+        The audio selector settings. See Audio Selector Settings for more details.
+        """
         return pulumi.get(self, "selector_settings")
 
     @selector_settings.setter
@@ -10189,6 +10199,12 @@ class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgs:
                  audio_language_selection: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelectionArgs']] = None,
                  audio_pid_selection: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelectionArgs']] = None,
                  audio_track_selection: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionArgs']] = None):
+        """
+        :param pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelectionArgs'] audio_hls_rendition_selection: Audio HLS Rendition Selection. See Audio HLS Rendition Selection for more details.
+        :param pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelectionArgs'] audio_language_selection: Audio Language Selection. See Audio Language Selection for more details.
+        :param pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelectionArgs'] audio_pid_selection: Audio Pid Selection. See Audio PID Selection for more details.
+        :param pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionArgs'] audio_track_selection: Audio Track Selection. See Audio Track Selection for more details.
+        """
         if audio_hls_rendition_selection is not None:
             pulumi.set(__self__, "audio_hls_rendition_selection", audio_hls_rendition_selection)
         if audio_language_selection is not None:
@@ -10201,6 +10217,9 @@ class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgs:
     @property
     @pulumi.getter(name="audioHlsRenditionSelection")
     def audio_hls_rendition_selection(self) -> Optional[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelectionArgs']]:
+        """
+        Audio HLS Rendition Selection. See Audio HLS Rendition Selection for more details.
+        """
         return pulumi.get(self, "audio_hls_rendition_selection")
 
     @audio_hls_rendition_selection.setter
@@ -10210,6 +10229,9 @@ class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgs:
     @property
     @pulumi.getter(name="audioLanguageSelection")
     def audio_language_selection(self) -> Optional[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelectionArgs']]:
+        """
+        Audio Language Selection. See Audio Language Selection for more details.
+        """
         return pulumi.get(self, "audio_language_selection")
 
     @audio_language_selection.setter
@@ -10219,6 +10241,9 @@ class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgs:
     @property
     @pulumi.getter(name="audioPidSelection")
     def audio_pid_selection(self) -> Optional[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelectionArgs']]:
+        """
+        Audio Pid Selection. See Audio PID Selection for more details.
+        """
         return pulumi.get(self, "audio_pid_selection")
 
     @audio_pid_selection.setter
@@ -10228,6 +10253,9 @@ class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgs:
     @property
     @pulumi.getter(name="audioTrackSelection")
     def audio_track_selection(self) -> Optional[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionArgs']]:
+        """
+        Audio Track Selection. See Audio Track Selection for more details.
+        """
         return pulumi.get(self, "audio_track_selection")
 
     @audio_track_selection.setter
@@ -10241,9 +10269,8 @@ class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRe
                  group_id: pulumi.Input[str],
                  name: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] name: Name of the Channel.
-               
-               The following arguments are optional:
+        :param pulumi.Input[str] group_id: Specifies the GROUP-ID in the #EXT-X-MEDIA tag of the target HLS audio rendition.
+        :param pulumi.Input[str] name: Specifies the NAME in the #EXT-X-MEDIA tag of the target HLS audio rendition.
         """
         pulumi.set(__self__, "group_id", group_id)
         pulumi.set(__self__, "name", name)
@@ -10251,6 +10278,9 @@ class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRe
     @property
     @pulumi.getter(name="groupId")
     def group_id(self) -> pulumi.Input[str]:
+        """
+        Specifies the GROUP-ID in the #EXT-X-MEDIA tag of the target HLS audio rendition.
+        """
         return pulumi.get(self, "group_id")
 
     @group_id.setter
@@ -10261,9 +10291,7 @@ class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRe
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Name of the Channel.
-
-        The following arguments are optional:
+        Specifies the NAME in the #EXT-X-MEDIA tag of the target HLS audio rendition.
         """
         return pulumi.get(self, "name")
 
@@ -10278,7 +10306,8 @@ class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLangu
                  language_code: pulumi.Input[str],
                  language_selection_policy: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] language_code: When specified this field indicates the three letter language code of the caption track to extract from the source.
+        :param pulumi.Input[str] language_code: Selects a specific three-letter language code from within an audio source.
+        :param pulumi.Input[str] language_selection_policy: When set to “strict”, the transport stream demux strictly identifies audio streams by their language descriptor. If a PMT update occurs such that an audio stream matching the initially selected language is no longer present then mute will be encoded until the language returns. If “loose”, then on a PMT update the demux will choose another audio stream in the program with the same stream type if it can’t find one with the same language.
         """
         pulumi.set(__self__, "language_code", language_code)
         if language_selection_policy is not None:
@@ -10288,7 +10317,7 @@ class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLangu
     @pulumi.getter(name="languageCode")
     def language_code(self) -> pulumi.Input[str]:
         """
-        When specified this field indicates the three letter language code of the caption track to extract from the source.
+        Selects a specific three-letter language code from within an audio source.
         """
         return pulumi.get(self, "language_code")
 
@@ -10299,6 +10328,9 @@ class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLangu
     @property
     @pulumi.getter(name="languageSelectionPolicy")
     def language_selection_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        When set to “strict”, the transport stream demux strictly identifies audio streams by their language descriptor. If a PMT update occurs such that an audio stream matching the initially selected language is no longer present then mute will be encoded until the language returns. If “loose”, then on a PMT update the demux will choose another audio stream in the program with the same stream type if it can’t find one with the same language.
+        """
         return pulumi.get(self, "language_selection_policy")
 
     @language_selection_policy.setter
@@ -10310,11 +10342,17 @@ class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLangu
 class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelectionArgs:
     def __init__(__self__, *,
                  pid: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] pid: Selects a specific PID from within a source.
+        """
         pulumi.set(__self__, "pid", pid)
 
     @property
     @pulumi.getter
     def pid(self) -> pulumi.Input[int]:
+        """
+        Selects a specific PID from within a source.
+        """
         return pulumi.get(self, "pid")
 
     @pid.setter
@@ -10325,28 +10363,78 @@ class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSe
 @pulumi.input_type
 class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionArgs:
     def __init__(__self__, *,
-                 tracks: pulumi.Input[Sequence[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrackArgs']]]):
+                 tracks: pulumi.Input[Sequence[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrackArgs']]],
+                 dolby_e_decode: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeArgs']] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrackArgs']]] tracks: Selects one or more unique audio tracks from within a source. See Audio Tracks for more details.
+        :param pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeArgs'] dolby_e_decode: Configure decoding options for Dolby E streams - these should be Dolby E frames carried in PCM streams tagged with SMPTE-337. See Dolby E Decode for more details.
+        """
         pulumi.set(__self__, "tracks", tracks)
+        if dolby_e_decode is not None:
+            pulumi.set(__self__, "dolby_e_decode", dolby_e_decode)
 
     @property
     @pulumi.getter
     def tracks(self) -> pulumi.Input[Sequence[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrackArgs']]]:
+        """
+        Selects one or more unique audio tracks from within a source. See Audio Tracks for more details.
+        """
         return pulumi.get(self, "tracks")
 
     @tracks.setter
     def tracks(self, value: pulumi.Input[Sequence[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrackArgs']]]):
         pulumi.set(self, "tracks", value)
 
+    @property
+    @pulumi.getter(name="dolbyEDecode")
+    def dolby_e_decode(self) -> Optional[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeArgs']]:
+        """
+        Configure decoding options for Dolby E streams - these should be Dolby E frames carried in PCM streams tagged with SMPTE-337. See Dolby E Decode for more details.
+        """
+        return pulumi.get(self, "dolby_e_decode")
+
+    @dolby_e_decode.setter
+    def dolby_e_decode(self, value: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeArgs']]):
+        pulumi.set(self, "dolby_e_decode", value)
+
+
+@pulumi.input_type
+class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeArgs:
+    def __init__(__self__, *,
+                 program_selection: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] program_selection: Applies only to Dolby E. Enter the program ID (according to the metadata in the audio) of the Dolby E program to extract from the specified track. One program extracted per audio selector. To select multiple programs, create multiple selectors with the same Track and different Program numbers. “All channels” means to ignore the program IDs and include all the channels in this selector; useful if metadata is known to be incorrect.
+        """
+        pulumi.set(__self__, "program_selection", program_selection)
+
+    @property
+    @pulumi.getter(name="programSelection")
+    def program_selection(self) -> pulumi.Input[str]:
+        """
+        Applies only to Dolby E. Enter the program ID (according to the metadata in the audio) of the Dolby E program to extract from the specified track. One program extracted per audio selector. To select multiple programs, create multiple selectors with the same Track and different Program numbers. “All channels” means to ignore the program IDs and include all the channels in this selector; useful if metadata is known to be incorrect.
+        """
+        return pulumi.get(self, "program_selection")
+
+    @program_selection.setter
+    def program_selection(self, value: pulumi.Input[str]):
+        pulumi.set(self, "program_selection", value)
+
 
 @pulumi.input_type
 class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrackArgs:
     def __init__(__self__, *,
                  track: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] track: 1-based integer value that maps to a specific audio track.
+        """
         pulumi.set(__self__, "track", track)
 
     @property
     @pulumi.getter
     def track(self) -> pulumi.Input[int]:
+        """
+        1-based integer value that maps to a specific audio track.
+        """
         return pulumi.get(self, "track")
 
     @track.setter
@@ -10364,7 +10452,8 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorArgs:
         :param pulumi.Input[str] name: Name of the Channel.
                
                The following arguments are optional:
-        :param pulumi.Input[str] language_code: When specified this field indicates the three letter language code of the caption track to extract from the source.
+        :param pulumi.Input[str] language_code: Selects a specific three-letter language code from within an audio source.
+        :param pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs'] selector_settings: The audio selector settings. See Audio Selector Settings for more details.
         """
         pulumi.set(__self__, "name", name)
         if language_code is not None:
@@ -10390,7 +10479,7 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorArgs:
     @pulumi.getter(name="languageCode")
     def language_code(self) -> Optional[pulumi.Input[str]]:
         """
-        When specified this field indicates the three letter language code of the caption track to extract from the source.
+        Selects a specific three-letter language code from within an audio source.
         """
         return pulumi.get(self, "language_code")
 
@@ -10401,6 +10490,9 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorArgs:
     @property
     @pulumi.getter(name="selectorSettings")
     def selector_settings(self) -> Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs']]:
+        """
+        The audio selector settings. See Audio Selector Settings for more details.
+        """
         return pulumi.get(self, "selector_settings")
 
     @selector_settings.setter
@@ -10412,15 +10504,27 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorArgs:
 class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs:
     def __init__(__self__, *,
                  ancillary_source_settings: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsArgs']] = None,
-                 dvb_tdt_settings: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsArgs']] = None,
+                 arib_source_settings: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsArgs']] = None,
+                 dvb_sub_source_settings: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsArgs']] = None,
                  embedded_source_settings: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsArgs']] = None,
                  scte20_source_settings: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsArgs']] = None,
                  scte27_source_settings: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsArgs']] = None,
                  teletext_source_settings: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsArgs']] = None):
+        """
+        :param pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsArgs'] ancillary_source_settings: Ancillary Source Settings. See Ancillary Source Settings for more details.
+        :param pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsArgs'] arib_source_settings: Arib Source Settings.
+        :param pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsArgs'] dvb_sub_source_settings: DVB Sub Source Settings. See DVB Sub Source Settings for more details.
+        :param pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsArgs'] embedded_source_settings: Embedded Source Settings. See Embedded Source Settings for more details.
+        :param pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsArgs'] scte20_source_settings: SCTE20 Source Settings. See SCTE 20 Source Settings for more details.
+        :param pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsArgs'] scte27_source_settings: SCTE27 Source Settings. See SCTE 27 Source Settings for more details.
+        :param pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsArgs'] teletext_source_settings: Teletext Source Settings. See Teletext Source Settings for more details.
+        """
         if ancillary_source_settings is not None:
             pulumi.set(__self__, "ancillary_source_settings", ancillary_source_settings)
-        if dvb_tdt_settings is not None:
-            pulumi.set(__self__, "dvb_tdt_settings", dvb_tdt_settings)
+        if arib_source_settings is not None:
+            pulumi.set(__self__, "arib_source_settings", arib_source_settings)
+        if dvb_sub_source_settings is not None:
+            pulumi.set(__self__, "dvb_sub_source_settings", dvb_sub_source_settings)
         if embedded_source_settings is not None:
             pulumi.set(__self__, "embedded_source_settings", embedded_source_settings)
         if scte20_source_settings is not None:
@@ -10433,6 +10537,9 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs:
     @property
     @pulumi.getter(name="ancillarySourceSettings")
     def ancillary_source_settings(self) -> Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsArgs']]:
+        """
+        Ancillary Source Settings. See Ancillary Source Settings for more details.
+        """
         return pulumi.get(self, "ancillary_source_settings")
 
     @ancillary_source_settings.setter
@@ -10440,17 +10547,35 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs:
         pulumi.set(self, "ancillary_source_settings", value)
 
     @property
-    @pulumi.getter(name="dvbTdtSettings")
-    def dvb_tdt_settings(self) -> Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsArgs']]:
-        return pulumi.get(self, "dvb_tdt_settings")
+    @pulumi.getter(name="aribSourceSettings")
+    def arib_source_settings(self) -> Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsArgs']]:
+        """
+        Arib Source Settings.
+        """
+        return pulumi.get(self, "arib_source_settings")
 
-    @dvb_tdt_settings.setter
-    def dvb_tdt_settings(self, value: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsArgs']]):
-        pulumi.set(self, "dvb_tdt_settings", value)
+    @arib_source_settings.setter
+    def arib_source_settings(self, value: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsArgs']]):
+        pulumi.set(self, "arib_source_settings", value)
+
+    @property
+    @pulumi.getter(name="dvbSubSourceSettings")
+    def dvb_sub_source_settings(self) -> Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsArgs']]:
+        """
+        DVB Sub Source Settings. See DVB Sub Source Settings for more details.
+        """
+        return pulumi.get(self, "dvb_sub_source_settings")
+
+    @dvb_sub_source_settings.setter
+    def dvb_sub_source_settings(self, value: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsArgs']]):
+        pulumi.set(self, "dvb_sub_source_settings", value)
 
     @property
     @pulumi.getter(name="embeddedSourceSettings")
     def embedded_source_settings(self) -> Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsArgs']]:
+        """
+        Embedded Source Settings. See Embedded Source Settings for more details.
+        """
         return pulumi.get(self, "embedded_source_settings")
 
     @embedded_source_settings.setter
@@ -10460,6 +10585,9 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs:
     @property
     @pulumi.getter(name="scte20SourceSettings")
     def scte20_source_settings(self) -> Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsArgs']]:
+        """
+        SCTE20 Source Settings. See SCTE 20 Source Settings for more details.
+        """
         return pulumi.get(self, "scte20_source_settings")
 
     @scte20_source_settings.setter
@@ -10469,6 +10597,9 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs:
     @property
     @pulumi.getter(name="scte27SourceSettings")
     def scte27_source_settings(self) -> Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsArgs']]:
+        """
+        SCTE27 Source Settings. See SCTE 27 Source Settings for more details.
+        """
         return pulumi.get(self, "scte27_source_settings")
 
     @scte27_source_settings.setter
@@ -10478,6 +10609,9 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs:
     @property
     @pulumi.getter(name="teletextSourceSettings")
     def teletext_source_settings(self) -> Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsArgs']]:
+        """
+        Teletext Source Settings. See Teletext Source Settings for more details.
+        """
         return pulumi.get(self, "teletext_source_settings")
 
     @teletext_source_settings.setter
@@ -10489,12 +10623,18 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs:
 class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsArgs:
     def __init__(__self__, *,
                  source_ancillary_channel_number: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] source_ancillary_channel_number: Specifies the number (1 to 4) of the captions channel you want to extract from the ancillary captions. If you plan to convert the ancillary captions to another format, complete this field. If you plan to choose Embedded as the captions destination in the output (to pass through all the channels in the ancillary captions), leave this field blank because MediaLive ignores the field.
+        """
         if source_ancillary_channel_number is not None:
             pulumi.set(__self__, "source_ancillary_channel_number", source_ancillary_channel_number)
 
     @property
     @pulumi.getter(name="sourceAncillaryChannelNumber")
     def source_ancillary_channel_number(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the number (1 to 4) of the captions channel you want to extract from the ancillary captions. If you plan to convert the ancillary captions to another format, complete this field. If you plan to choose Embedded as the captions destination in the output (to pass through all the channels in the ancillary captions), leave this field blank because MediaLive ignores the field.
+        """
         return pulumi.get(self, "source_ancillary_channel_number")
 
     @source_ancillary_channel_number.setter
@@ -10503,10 +10643,20 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillar
 
 
 @pulumi.input_type
-class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettingsArgs:
+class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsArgs:
+    def __init__(__self__):
+        pass
+
+
+@pulumi.input_type
+class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsArgs:
     def __init__(__self__, *,
                  ocr_language: Optional[pulumi.Input[str]] = None,
                  pid: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] ocr_language: If you will configure a WebVTT caption description that references this caption selector, use this field to provide the language to consider when translating the image-based source to text.
+        :param pulumi.Input[int] pid: When using DVB-Sub with Burn-In or SMPTE-TT, use this PID for the source content. Unused for DVB-Sub passthrough. All DVB-Sub content is passed through, regardless of selectors.
+        """
         if ocr_language is not None:
             pulumi.set(__self__, "ocr_language", ocr_language)
         if pid is not None:
@@ -10515,6 +10665,9 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSe
     @property
     @pulumi.getter(name="ocrLanguage")
     def ocr_language(self) -> Optional[pulumi.Input[str]]:
+        """
+        If you will configure a WebVTT caption description that references this caption selector, use this field to provide the language to consider when translating the image-based source to text.
+        """
         return pulumi.get(self, "ocr_language")
 
     @ocr_language.setter
@@ -10524,6 +10677,9 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSe
     @property
     @pulumi.getter
     def pid(self) -> Optional[pulumi.Input[int]]:
+        """
+        When using DVB-Sub with Burn-In or SMPTE-TT, use this PID for the source content. Unused for DVB-Sub passthrough. All DVB-Sub content is passed through, regardless of selectors.
+        """
         return pulumi.get(self, "pid")
 
     @pid.setter
@@ -10536,20 +10692,25 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbedded
     def __init__(__self__, *,
                  convert608_to708: Optional[pulumi.Input[str]] = None,
                  scte20_detection: Optional[pulumi.Input[str]] = None,
-                 source608_channel_number: Optional[pulumi.Input[int]] = None,
-                 source608_track_number: Optional[pulumi.Input[int]] = None):
+                 source608_channel_number: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] convert608_to708: If upconvert, 608 data is both passed through via the “608 compatibility bytes” fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
+        :param pulumi.Input[str] scte20_detection: Set to “auto” to handle streams with intermittent and/or non-aligned SCTE-20 and Embedded captions.
+        :param pulumi.Input[int] source608_channel_number: Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
+        """
         if convert608_to708 is not None:
             pulumi.set(__self__, "convert608_to708", convert608_to708)
         if scte20_detection is not None:
             pulumi.set(__self__, "scte20_detection", scte20_detection)
         if source608_channel_number is not None:
             pulumi.set(__self__, "source608_channel_number", source608_channel_number)
-        if source608_track_number is not None:
-            pulumi.set(__self__, "source608_track_number", source608_track_number)
 
     @property
     @pulumi.getter(name="convert608To708")
     def convert608_to708(self) -> Optional[pulumi.Input[str]]:
+        """
+        If upconvert, 608 data is both passed through via the “608 compatibility bytes” fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
+        """
         return pulumi.get(self, "convert608_to708")
 
     @convert608_to708.setter
@@ -10559,6 +10720,9 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbedded
     @property
     @pulumi.getter(name="scte20Detection")
     def scte20_detection(self) -> Optional[pulumi.Input[str]]:
+        """
+        Set to “auto” to handle streams with intermittent and/or non-aligned SCTE-20 and Embedded captions.
+        """
         return pulumi.get(self, "scte20_detection")
 
     @scte20_detection.setter
@@ -10568,20 +10732,14 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbedded
     @property
     @pulumi.getter(name="source608ChannelNumber")
     def source608_channel_number(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
+        """
         return pulumi.get(self, "source608_channel_number")
 
     @source608_channel_number.setter
     def source608_channel_number(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "source608_channel_number", value)
-
-    @property
-    @pulumi.getter(name="source608TrackNumber")
-    def source608_track_number(self) -> Optional[pulumi.Input[int]]:
-        return pulumi.get(self, "source608_track_number")
-
-    @source608_track_number.setter
-    def source608_track_number(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "source608_track_number", value)
 
 
 @pulumi.input_type
@@ -10589,6 +10747,10 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20So
     def __init__(__self__, *,
                  convert608_to708: Optional[pulumi.Input[str]] = None,
                  source608_channel_number: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] convert608_to708: If upconvert, 608 data is both passed through via the “608 compatibility bytes” fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
+        :param pulumi.Input[int] source608_channel_number: Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
+        """
         if convert608_to708 is not None:
             pulumi.set(__self__, "convert608_to708", convert608_to708)
         if source608_channel_number is not None:
@@ -10597,6 +10759,9 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20So
     @property
     @pulumi.getter(name="convert608To708")
     def convert608_to708(self) -> Optional[pulumi.Input[str]]:
+        """
+        If upconvert, 608 data is both passed through via the “608 compatibility bytes” fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
+        """
         return pulumi.get(self, "convert608_to708")
 
     @convert608_to708.setter
@@ -10606,6 +10771,9 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20So
     @property
     @pulumi.getter(name="source608ChannelNumber")
     def source608_channel_number(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
+        """
         return pulumi.get(self, "source608_channel_number")
 
     @source608_channel_number.setter
@@ -10618,6 +10786,10 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27So
     def __init__(__self__, *,
                  ocr_language: Optional[pulumi.Input[str]] = None,
                  pid: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] ocr_language: If you will configure a WebVTT caption description that references this caption selector, use this field to provide the language to consider when translating the image-based source to text.
+        :param pulumi.Input[int] pid: Selects a specific PID from within a source.
+        """
         if ocr_language is not None:
             pulumi.set(__self__, "ocr_language", ocr_language)
         if pid is not None:
@@ -10626,6 +10798,9 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27So
     @property
     @pulumi.getter(name="ocrLanguage")
     def ocr_language(self) -> Optional[pulumi.Input[str]]:
+        """
+        If you will configure a WebVTT caption description that references this caption selector, use this field to provide the language to consider when translating the image-based source to text.
+        """
         return pulumi.get(self, "ocr_language")
 
     @ocr_language.setter
@@ -10635,6 +10810,9 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27So
     @property
     @pulumi.getter
     def pid(self) -> Optional[pulumi.Input[int]]:
+        """
+        Selects a specific PID from within a source.
+        """
         return pulumi.get(self, "pid")
 
     @pid.setter
@@ -10647,6 +10825,10 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletext
     def __init__(__self__, *,
                  output_rectangle: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleArgs']] = None,
                  page_number: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleArgs'] output_rectangle: Optionally defines a region where TTML style captions will be displayed. See Caption Rectangle for more details.
+        :param pulumi.Input[str] page_number: Specifies the teletext page number within the data stream from which to extract captions. Range of 0x100 (256) to 0x8FF (2303). Unused for passthrough. Should be specified as a hexadecimal string with no “0x” prefix.
+        """
         if output_rectangle is not None:
             pulumi.set(__self__, "output_rectangle", output_rectangle)
         if page_number is not None:
@@ -10655,6 +10837,9 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletext
     @property
     @pulumi.getter(name="outputRectangle")
     def output_rectangle(self) -> Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleArgs']]:
+        """
+        Optionally defines a region where TTML style captions will be displayed. See Caption Rectangle for more details.
+        """
         return pulumi.get(self, "output_rectangle")
 
     @output_rectangle.setter
@@ -10664,6 +10849,9 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletext
     @property
     @pulumi.getter(name="pageNumber")
     def page_number(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the teletext page number within the data stream from which to extract captions. Range of 0x100 (256) to 0x8FF (2303). Unused for passthrough. Should be specified as a hexadecimal string with no “0x” prefix.
+        """
         return pulumi.get(self, "page_number")
 
     @page_number.setter
@@ -10679,8 +10867,10 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletext
                  top_offset: pulumi.Input[float],
                  width: pulumi.Input[float]):
         """
-        :param pulumi.Input[float] height: Output video height in pixels.
-        :param pulumi.Input[float] width: Output video width in pixels.
+        :param pulumi.Input[float] height: See the description in left\\_offset. For height, specify the entire height of the rectangle as a percentage of the underlying frame height. For example, "80" means the rectangle height is 80% of the underlying frame height. The top\\_offset and rectangle\\_height must add up to 100% or less. This field corresponds to tts:extent - Y in the TTML standard.
+        :param pulumi.Input[float] left_offset: Applies only if you plan to convert these source captions to EBU-TT-D or TTML in an output. (Make sure to leave the default if you don’t have either of these formats in the output.) You can define a display rectangle for the captions that is smaller than the underlying video frame. You define the rectangle by specifying the position of the left edge, top edge, bottom edge, and right edge of the rectangle, all within the underlying video frame. The units for the measurements are percentages. If you specify a value for one of these fields, you must specify a value for all of them. For leftOffset, specify the position of the left edge of the rectangle, as a percentage of the underlying frame width, and relative to the left edge of the frame. For example, "10" means the measurement is 10% of the underlying frame width. The rectangle left edge starts at that position from the left edge of the frame. This field corresponds to tts:origin - X in the TTML standard.
+        :param pulumi.Input[float] top_offset: See the description in left\\_offset. For top\\_offset, specify the position of the top edge of the rectangle, as a percentage of the underlying frame height, and relative to the top edge of the frame. For example, "10" means the measurement is 10% of the underlying frame height. The rectangle top edge starts at that position from the top edge of the frame. This field corresponds to tts:origin - Y in the TTML standard.
+        :param pulumi.Input[float] width: See the description in left\\_offset. For width, specify the entire width of the rectangle as a percentage of the underlying frame width. For example, "80" means the rectangle width is 80% of the underlying frame width. The left\\_offset and rectangle\\_width must add up to 100% or less. This field corresponds to tts:extent - X in the TTML standard.
         """
         pulumi.set(__self__, "height", height)
         pulumi.set(__self__, "left_offset", left_offset)
@@ -10691,7 +10881,7 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletext
     @pulumi.getter
     def height(self) -> pulumi.Input[float]:
         """
-        Output video height in pixels.
+        See the description in left\\_offset. For height, specify the entire height of the rectangle as a percentage of the underlying frame height. For example, "80" means the rectangle height is 80% of the underlying frame height. The top\\_offset and rectangle\\_height must add up to 100% or less. This field corresponds to tts:extent - Y in the TTML standard.
         """
         return pulumi.get(self, "height")
 
@@ -10702,6 +10892,9 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletext
     @property
     @pulumi.getter(name="leftOffset")
     def left_offset(self) -> pulumi.Input[float]:
+        """
+        Applies only if you plan to convert these source captions to EBU-TT-D or TTML in an output. (Make sure to leave the default if you don’t have either of these formats in the output.) You can define a display rectangle for the captions that is smaller than the underlying video frame. You define the rectangle by specifying the position of the left edge, top edge, bottom edge, and right edge of the rectangle, all within the underlying video frame. The units for the measurements are percentages. If you specify a value for one of these fields, you must specify a value for all of them. For leftOffset, specify the position of the left edge of the rectangle, as a percentage of the underlying frame width, and relative to the left edge of the frame. For example, "10" means the measurement is 10% of the underlying frame width. The rectangle left edge starts at that position from the left edge of the frame. This field corresponds to tts:origin - X in the TTML standard.
+        """
         return pulumi.get(self, "left_offset")
 
     @left_offset.setter
@@ -10711,6 +10904,9 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletext
     @property
     @pulumi.getter(name="topOffset")
     def top_offset(self) -> pulumi.Input[float]:
+        """
+        See the description in left\\_offset. For top\\_offset, specify the position of the top edge of the rectangle, as a percentage of the underlying frame height, and relative to the top edge of the frame. For example, "10" means the measurement is 10% of the underlying frame height. The rectangle top edge starts at that position from the top edge of the frame. This field corresponds to tts:origin - Y in the TTML standard.
+        """
         return pulumi.get(self, "top_offset")
 
     @top_offset.setter
@@ -10721,7 +10917,7 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletext
     @pulumi.getter
     def width(self) -> pulumi.Input[float]:
         """
-        Output video width in pixels.
+        See the description in left\\_offset. For width, specify the entire width of the rectangle as a percentage of the underlying frame width. For example, "80" means the rectangle width is 80% of the underlying frame width. The left\\_offset and rectangle\\_width must add up to 100% or less. This field corresponds to tts:extent - X in the TTML standard.
         """
         return pulumi.get(self, "width")
 

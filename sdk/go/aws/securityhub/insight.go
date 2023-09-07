@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Security Hub custom insight resource. See the [Managing custom insights section](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-custom-insights.html) of the AWS User Guide for more information.
@@ -341,6 +342,12 @@ func (i *Insight) ToInsightOutputWithContext(ctx context.Context) InsightOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(InsightOutput)
 }
 
+func (i *Insight) ToOutput(ctx context.Context) pulumix.Output[*Insight] {
+	return pulumix.Output[*Insight]{
+		OutputState: i.ToInsightOutputWithContext(ctx).OutputState,
+	}
+}
+
 // InsightArrayInput is an input type that accepts InsightArray and InsightArrayOutput values.
 // You can construct a concrete instance of `InsightArrayInput` via:
 //
@@ -364,6 +371,12 @@ func (i InsightArray) ToInsightArrayOutput() InsightArrayOutput {
 
 func (i InsightArray) ToInsightArrayOutputWithContext(ctx context.Context) InsightArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InsightArrayOutput)
+}
+
+func (i InsightArray) ToOutput(ctx context.Context) pulumix.Output[[]*Insight] {
+	return pulumix.Output[[]*Insight]{
+		OutputState: i.ToInsightArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // InsightMapInput is an input type that accepts InsightMap and InsightMapOutput values.
@@ -391,6 +404,12 @@ func (i InsightMap) ToInsightMapOutputWithContext(ctx context.Context) InsightMa
 	return pulumi.ToOutputWithContext(ctx, i).(InsightMapOutput)
 }
 
+func (i InsightMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Insight] {
+	return pulumix.Output[map[string]*Insight]{
+		OutputState: i.ToInsightMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type InsightOutput struct{ *pulumi.OutputState }
 
 func (InsightOutput) ElementType() reflect.Type {
@@ -403,6 +422,12 @@ func (o InsightOutput) ToInsightOutput() InsightOutput {
 
 func (o InsightOutput) ToInsightOutputWithContext(ctx context.Context) InsightOutput {
 	return o
+}
+
+func (o InsightOutput) ToOutput(ctx context.Context) pulumix.Output[*Insight] {
+	return pulumix.Output[*Insight]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the insight.
@@ -439,6 +464,12 @@ func (o InsightArrayOutput) ToInsightArrayOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o InsightArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Insight] {
+	return pulumix.Output[[]*Insight]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o InsightArrayOutput) Index(i pulumi.IntInput) InsightOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Insight {
 		return vs[0].([]*Insight)[vs[1].(int)]
@@ -457,6 +488,12 @@ func (o InsightMapOutput) ToInsightMapOutput() InsightMapOutput {
 
 func (o InsightMapOutput) ToInsightMapOutputWithContext(ctx context.Context) InsightMapOutput {
 	return o
+}
+
+func (o InsightMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Insight] {
+	return pulumix.Output[map[string]*Insight]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InsightMapOutput) MapIndex(k pulumi.StringInput) InsightOutput {

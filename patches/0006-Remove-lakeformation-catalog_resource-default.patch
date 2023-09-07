@@ -1,4 +1,4 @@
-From 0319b08ceb2e854557a1ed3a1bc8f788f380a5af Mon Sep 17 00:00:00 2001
+From 0483d7d383a7cb44f11a7a5b4220384b58e39af4 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Fri, 4 Nov 2022 17:08:23 +0000
 Subject: [PATCH 06/29] Remove lakeformation catalog_resource default
@@ -23,5 +23,5 @@ index 594d25ee73..258163d0a5 100644
  				Optional: true,
  				ExactlyOneOf: []string{
 -- 
-2.40.0
+2.41.0
 

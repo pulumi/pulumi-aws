@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Data source for managing an AWS Organizations Policies For Target.
@@ -80,6 +81,12 @@ func (o GetPoliciesForTargetResultOutput) ToGetPoliciesForTargetResultOutput() G
 
 func (o GetPoliciesForTargetResultOutput) ToGetPoliciesForTargetResultOutputWithContext(ctx context.Context) GetPoliciesForTargetResultOutput {
 	return o
+}
+
+func (o GetPoliciesForTargetResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetPoliciesForTargetResult] {
+	return pulumix.Output[GetPoliciesForTargetResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetPoliciesForTargetResultOutput) Filter() pulumi.StringOutput {

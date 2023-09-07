@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -48,6 +49,12 @@ func (i StreamKinesisConfigurationArgs) ToStreamKinesisConfigurationOutput() Str
 
 func (i StreamKinesisConfigurationArgs) ToStreamKinesisConfigurationOutputWithContext(ctx context.Context) StreamKinesisConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StreamKinesisConfigurationOutput)
+}
+
+func (i StreamKinesisConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[StreamKinesisConfiguration] {
+	return pulumix.Output[StreamKinesisConfiguration]{
+		OutputState: i.ToStreamKinesisConfigurationOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i StreamKinesisConfigurationArgs) ToStreamKinesisConfigurationPtrOutput() StreamKinesisConfigurationPtrOutput {
@@ -91,6 +98,12 @@ func (i *streamKinesisConfigurationPtrType) ToStreamKinesisConfigurationPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(StreamKinesisConfigurationPtrOutput)
 }
 
+func (i *streamKinesisConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*StreamKinesisConfiguration] {
+	return pulumix.Output[*StreamKinesisConfiguration]{
+		OutputState: i.ToStreamKinesisConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StreamKinesisConfigurationOutput struct{ *pulumi.OutputState }
 
 func (StreamKinesisConfigurationOutput) ElementType() reflect.Type {
@@ -115,6 +128,12 @@ func (o StreamKinesisConfigurationOutput) ToStreamKinesisConfigurationPtrOutputW
 	}).(StreamKinesisConfigurationPtrOutput)
 }
 
+func (o StreamKinesisConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[StreamKinesisConfiguration] {
+	return pulumix.Output[StreamKinesisConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Enables QLDB to publish multiple data records in a single Kinesis Data Streams record, increasing the number of records sent per API call. Default: `true`.
 func (o StreamKinesisConfigurationOutput) AggregationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StreamKinesisConfiguration) *bool { return v.AggregationEnabled }).(pulumi.BoolPtrOutput)
@@ -137,6 +156,12 @@ func (o StreamKinesisConfigurationPtrOutput) ToStreamKinesisConfigurationPtrOutp
 
 func (o StreamKinesisConfigurationPtrOutput) ToStreamKinesisConfigurationPtrOutputWithContext(ctx context.Context) StreamKinesisConfigurationPtrOutput {
 	return o
+}
+
+func (o StreamKinesisConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StreamKinesisConfiguration] {
+	return pulumix.Output[*StreamKinesisConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StreamKinesisConfigurationPtrOutput) Elem() StreamKinesisConfigurationOutput {

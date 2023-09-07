@@ -83,6 +83,9 @@ class GetServerlessCollectionResult:
     @property
     @pulumi.getter(name="dashboardEndpoint")
     def dashboard_endpoint(self) -> str:
+        """
+        Collection-specific endpoint used to access OpenSearch Dashboards.
+        """
         return pulumi.get(self, "dashboard_endpoint")
 
     @property

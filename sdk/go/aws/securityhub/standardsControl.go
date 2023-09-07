@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Disable/enable Security Hub standards control in the current region.
@@ -211,6 +212,12 @@ func (i *StandardsControl) ToStandardsControlOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(StandardsControlOutput)
 }
 
+func (i *StandardsControl) ToOutput(ctx context.Context) pulumix.Output[*StandardsControl] {
+	return pulumix.Output[*StandardsControl]{
+		OutputState: i.ToStandardsControlOutputWithContext(ctx).OutputState,
+	}
+}
+
 // StandardsControlArrayInput is an input type that accepts StandardsControlArray and StandardsControlArrayOutput values.
 // You can construct a concrete instance of `StandardsControlArrayInput` via:
 //
@@ -234,6 +241,12 @@ func (i StandardsControlArray) ToStandardsControlArrayOutput() StandardsControlA
 
 func (i StandardsControlArray) ToStandardsControlArrayOutputWithContext(ctx context.Context) StandardsControlArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StandardsControlArrayOutput)
+}
+
+func (i StandardsControlArray) ToOutput(ctx context.Context) pulumix.Output[[]*StandardsControl] {
+	return pulumix.Output[[]*StandardsControl]{
+		OutputState: i.ToStandardsControlArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // StandardsControlMapInput is an input type that accepts StandardsControlMap and StandardsControlMapOutput values.
@@ -261,6 +274,12 @@ func (i StandardsControlMap) ToStandardsControlMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(StandardsControlMapOutput)
 }
 
+func (i StandardsControlMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*StandardsControl] {
+	return pulumix.Output[map[string]*StandardsControl]{
+		OutputState: i.ToStandardsControlMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StandardsControlOutput struct{ *pulumi.OutputState }
 
 func (StandardsControlOutput) ElementType() reflect.Type {
@@ -273,6 +292,12 @@ func (o StandardsControlOutput) ToStandardsControlOutput() StandardsControlOutpu
 
 func (o StandardsControlOutput) ToStandardsControlOutputWithContext(ctx context.Context) StandardsControlOutput {
 	return o
+}
+
+func (o StandardsControlOutput) ToOutput(ctx context.Context) pulumix.Output[*StandardsControl] {
+	return pulumix.Output[*StandardsControl]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The identifier of the security standard control.
@@ -339,6 +364,12 @@ func (o StandardsControlArrayOutput) ToStandardsControlArrayOutputWithContext(ct
 	return o
 }
 
+func (o StandardsControlArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*StandardsControl] {
+	return pulumix.Output[[]*StandardsControl]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o StandardsControlArrayOutput) Index(i pulumi.IntInput) StandardsControlOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *StandardsControl {
 		return vs[0].([]*StandardsControl)[vs[1].(int)]
@@ -357,6 +388,12 @@ func (o StandardsControlMapOutput) ToStandardsControlMapOutput() StandardsContro
 
 func (o StandardsControlMapOutput) ToStandardsControlMapOutputWithContext(ctx context.Context) StandardsControlMapOutput {
 	return o
+}
+
+func (o StandardsControlMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*StandardsControl] {
+	return pulumix.Output[map[string]*StandardsControl]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StandardsControlMapOutput) MapIndex(k pulumi.StringInput) StandardsControlOutput {

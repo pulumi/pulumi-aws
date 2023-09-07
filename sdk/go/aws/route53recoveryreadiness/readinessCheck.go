@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an AWS Route 53 Recovery Readiness Readiness Check.
@@ -182,6 +183,12 @@ func (i *ReadinessCheck) ToReadinessCheckOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ReadinessCheckOutput)
 }
 
+func (i *ReadinessCheck) ToOutput(ctx context.Context) pulumix.Output[*ReadinessCheck] {
+	return pulumix.Output[*ReadinessCheck]{
+		OutputState: i.ToReadinessCheckOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ReadinessCheckArrayInput is an input type that accepts ReadinessCheckArray and ReadinessCheckArrayOutput values.
 // You can construct a concrete instance of `ReadinessCheckArrayInput` via:
 //
@@ -205,6 +212,12 @@ func (i ReadinessCheckArray) ToReadinessCheckArrayOutput() ReadinessCheckArrayOu
 
 func (i ReadinessCheckArray) ToReadinessCheckArrayOutputWithContext(ctx context.Context) ReadinessCheckArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ReadinessCheckArrayOutput)
+}
+
+func (i ReadinessCheckArray) ToOutput(ctx context.Context) pulumix.Output[[]*ReadinessCheck] {
+	return pulumix.Output[[]*ReadinessCheck]{
+		OutputState: i.ToReadinessCheckArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ReadinessCheckMapInput is an input type that accepts ReadinessCheckMap and ReadinessCheckMapOutput values.
@@ -232,6 +245,12 @@ func (i ReadinessCheckMap) ToReadinessCheckMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ReadinessCheckMapOutput)
 }
 
+func (i ReadinessCheckMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ReadinessCheck] {
+	return pulumix.Output[map[string]*ReadinessCheck]{
+		OutputState: i.ToReadinessCheckMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ReadinessCheckOutput struct{ *pulumi.OutputState }
 
 func (ReadinessCheckOutput) ElementType() reflect.Type {
@@ -244,6 +263,12 @@ func (o ReadinessCheckOutput) ToReadinessCheckOutput() ReadinessCheckOutput {
 
 func (o ReadinessCheckOutput) ToReadinessCheckOutputWithContext(ctx context.Context) ReadinessCheckOutput {
 	return o
+}
+
+func (o ReadinessCheckOutput) ToOutput(ctx context.Context) pulumix.Output[*ReadinessCheck] {
+	return pulumix.Output[*ReadinessCheck]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the readiness_check
@@ -287,6 +312,12 @@ func (o ReadinessCheckArrayOutput) ToReadinessCheckArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o ReadinessCheckArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ReadinessCheck] {
+	return pulumix.Output[[]*ReadinessCheck]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ReadinessCheckArrayOutput) Index(i pulumi.IntInput) ReadinessCheckOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ReadinessCheck {
 		return vs[0].([]*ReadinessCheck)[vs[1].(int)]
@@ -305,6 +336,12 @@ func (o ReadinessCheckMapOutput) ToReadinessCheckMapOutput() ReadinessCheckMapOu
 
 func (o ReadinessCheckMapOutput) ToReadinessCheckMapOutputWithContext(ctx context.Context) ReadinessCheckMapOutput {
 	return o
+}
+
+func (o ReadinessCheckMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ReadinessCheck] {
+	return pulumix.Output[map[string]*ReadinessCheck]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ReadinessCheckMapOutput) MapIndex(k pulumi.StringInput) ReadinessCheckOutput {

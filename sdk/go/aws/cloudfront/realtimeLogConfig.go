@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a CloudFront real-time log configuration resource.
@@ -243,6 +244,12 @@ func (i *RealtimeLogConfig) ToRealtimeLogConfigOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(RealtimeLogConfigOutput)
 }
 
+func (i *RealtimeLogConfig) ToOutput(ctx context.Context) pulumix.Output[*RealtimeLogConfig] {
+	return pulumix.Output[*RealtimeLogConfig]{
+		OutputState: i.ToRealtimeLogConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RealtimeLogConfigArrayInput is an input type that accepts RealtimeLogConfigArray and RealtimeLogConfigArrayOutput values.
 // You can construct a concrete instance of `RealtimeLogConfigArrayInput` via:
 //
@@ -266,6 +273,12 @@ func (i RealtimeLogConfigArray) ToRealtimeLogConfigArrayOutput() RealtimeLogConf
 
 func (i RealtimeLogConfigArray) ToRealtimeLogConfigArrayOutputWithContext(ctx context.Context) RealtimeLogConfigArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RealtimeLogConfigArrayOutput)
+}
+
+func (i RealtimeLogConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]*RealtimeLogConfig] {
+	return pulumix.Output[[]*RealtimeLogConfig]{
+		OutputState: i.ToRealtimeLogConfigArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RealtimeLogConfigMapInput is an input type that accepts RealtimeLogConfigMap and RealtimeLogConfigMapOutput values.
@@ -293,6 +306,12 @@ func (i RealtimeLogConfigMap) ToRealtimeLogConfigMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(RealtimeLogConfigMapOutput)
 }
 
+func (i RealtimeLogConfigMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RealtimeLogConfig] {
+	return pulumix.Output[map[string]*RealtimeLogConfig]{
+		OutputState: i.ToRealtimeLogConfigMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RealtimeLogConfigOutput struct{ *pulumi.OutputState }
 
 func (RealtimeLogConfigOutput) ElementType() reflect.Type {
@@ -305,6 +324,12 @@ func (o RealtimeLogConfigOutput) ToRealtimeLogConfigOutput() RealtimeLogConfigOu
 
 func (o RealtimeLogConfigOutput) ToRealtimeLogConfigOutputWithContext(ctx context.Context) RealtimeLogConfigOutput {
 	return o
+}
+
+func (o RealtimeLogConfigOutput) ToOutput(ctx context.Context) pulumix.Output[*RealtimeLogConfig] {
+	return pulumix.Output[*RealtimeLogConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
@@ -346,6 +371,12 @@ func (o RealtimeLogConfigArrayOutput) ToRealtimeLogConfigArrayOutputWithContext(
 	return o
 }
 
+func (o RealtimeLogConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RealtimeLogConfig] {
+	return pulumix.Output[[]*RealtimeLogConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RealtimeLogConfigArrayOutput) Index(i pulumi.IntInput) RealtimeLogConfigOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RealtimeLogConfig {
 		return vs[0].([]*RealtimeLogConfig)[vs[1].(int)]
@@ -364,6 +395,12 @@ func (o RealtimeLogConfigMapOutput) ToRealtimeLogConfigMapOutput() RealtimeLogCo
 
 func (o RealtimeLogConfigMapOutput) ToRealtimeLogConfigMapOutputWithContext(ctx context.Context) RealtimeLogConfigMapOutput {
 	return o
+}
+
+func (o RealtimeLogConfigMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RealtimeLogConfig] {
+	return pulumix.Output[map[string]*RealtimeLogConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RealtimeLogConfigMapOutput) MapIndex(k pulumi.StringInput) RealtimeLogConfigOutput {

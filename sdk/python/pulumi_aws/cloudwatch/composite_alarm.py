@@ -8,6 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['CompositeAlarmArgs', 'CompositeAlarm']
 
@@ -17,6 +19,7 @@ class CompositeAlarmArgs:
                  alarm_name: pulumi.Input[str],
                  alarm_rule: pulumi.Input[str],
                  actions_enabled: Optional[pulumi.Input[bool]] = None,
+                 actions_suppressor: Optional[pulumi.Input['CompositeAlarmActionsSuppressorArgs']] = None,
                  alarm_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  alarm_description: Optional[pulumi.Input[str]] = None,
                  insufficient_data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -27,6 +30,7 @@ class CompositeAlarmArgs:
         :param pulumi.Input[str] alarm_name: The name for the composite alarm. This name must be unique within the region.
         :param pulumi.Input[str] alarm_rule: An expression that specifies which other alarms are to be evaluated to determine this composite alarm's state. For syntax, see [Creating a Composite Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html). The maximum length is 10240 characters.
         :param pulumi.Input[bool] actions_enabled: Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. Defaults to `true`.
+        :param pulumi.Input['CompositeAlarmActionsSuppressorArgs'] actions_suppressor: Actions will be suppressed if the suppressor alarm is in the ALARM state.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] alarm_actions: The set of actions to execute when this alarm transitions to the `ALARM` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
         :param pulumi.Input[str] alarm_description: The description for the composite alarm.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] insufficient_data_actions: The set of actions to execute when this alarm transitions to the `INSUFFICIENT_DATA` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
@@ -37,6 +41,8 @@ class CompositeAlarmArgs:
         pulumi.set(__self__, "alarm_rule", alarm_rule)
         if actions_enabled is not None:
             pulumi.set(__self__, "actions_enabled", actions_enabled)
+        if actions_suppressor is not None:
+            pulumi.set(__self__, "actions_suppressor", actions_suppressor)
         if alarm_actions is not None:
             pulumi.set(__self__, "alarm_actions", alarm_actions)
         if alarm_description is not None:
@@ -83,6 +89,18 @@ class CompositeAlarmArgs:
     @actions_enabled.setter
     def actions_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "actions_enabled", value)
+
+    @property
+    @pulumi.getter(name="actionsSuppressor")
+    def actions_suppressor(self) -> Optional[pulumi.Input['CompositeAlarmActionsSuppressorArgs']]:
+        """
+        Actions will be suppressed if the suppressor alarm is in the ALARM state.
+        """
+        return pulumi.get(self, "actions_suppressor")
+
+    @actions_suppressor.setter
+    def actions_suppressor(self, value: Optional[pulumi.Input['CompositeAlarmActionsSuppressorArgs']]):
+        pulumi.set(self, "actions_suppressor", value)
 
     @property
     @pulumi.getter(name="alarmActions")
@@ -149,6 +167,7 @@ class CompositeAlarmArgs:
 class _CompositeAlarmState:
     def __init__(__self__, *,
                  actions_enabled: Optional[pulumi.Input[bool]] = None,
+                 actions_suppressor: Optional[pulumi.Input['CompositeAlarmActionsSuppressorArgs']] = None,
                  alarm_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  alarm_description: Optional[pulumi.Input[str]] = None,
                  alarm_name: Optional[pulumi.Input[str]] = None,
@@ -161,6 +180,7 @@ class _CompositeAlarmState:
         """
         Input properties used for looking up and filtering CompositeAlarm resources.
         :param pulumi.Input[bool] actions_enabled: Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. Defaults to `true`.
+        :param pulumi.Input['CompositeAlarmActionsSuppressorArgs'] actions_suppressor: Actions will be suppressed if the suppressor alarm is in the ALARM state.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] alarm_actions: The set of actions to execute when this alarm transitions to the `ALARM` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
         :param pulumi.Input[str] alarm_description: The description for the composite alarm.
         :param pulumi.Input[str] alarm_name: The name for the composite alarm. This name must be unique within the region.
@@ -173,6 +193,8 @@ class _CompositeAlarmState:
         """
         if actions_enabled is not None:
             pulumi.set(__self__, "actions_enabled", actions_enabled)
+        if actions_suppressor is not None:
+            pulumi.set(__self__, "actions_suppressor", actions_suppressor)
         if alarm_actions is not None:
             pulumi.set(__self__, "alarm_actions", alarm_actions)
         if alarm_description is not None:
@@ -203,6 +225,18 @@ class _CompositeAlarmState:
     @actions_enabled.setter
     def actions_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "actions_enabled", value)
+
+    @property
+    @pulumi.getter(name="actionsSuppressor")
+    def actions_suppressor(self) -> Optional[pulumi.Input['CompositeAlarmActionsSuppressorArgs']]:
+        """
+        Actions will be suppressed if the suppressor alarm is in the ALARM state.
+        """
+        return pulumi.get(self, "actions_suppressor")
+
+    @actions_suppressor.setter
+    def actions_suppressor(self, value: Optional[pulumi.Input['CompositeAlarmActionsSuppressorArgs']]):
+        pulumi.set(self, "actions_suppressor", value)
 
     @property
     @pulumi.getter(name="alarmActions")
@@ -319,6 +353,7 @@ class CompositeAlarm(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  actions_enabled: Optional[pulumi.Input[bool]] = None,
+                 actions_suppressor: Optional[pulumi.Input[pulumi.InputType['CompositeAlarmActionsSuppressorArgs']]] = None,
                  alarm_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  alarm_description: Optional[pulumi.Input[str]] = None,
                  alarm_name: Optional[pulumi.Input[str]] = None,
@@ -345,7 +380,12 @@ class CompositeAlarm(pulumi.CustomResource):
             ok_actions=aws_sns_topic["example"]["arn"],
             alarm_rule=f\"\"\"ALARM({aws_cloudwatch_metric_alarm["alpha"]["alarm_name"]}) OR
         ALARM({aws_cloudwatch_metric_alarm["bravo"]["alarm_name"]})
-        \"\"\")
+        \"\"\",
+            actions_suppressor=aws.cloudwatch.CompositeAlarmActionsSuppressorArgs(
+                alarm="suppressor-alarm",
+                extension_period=10,
+                wait_period=20,
+            ))
         ```
 
         ## Import
@@ -359,6 +399,7 @@ class CompositeAlarm(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] actions_enabled: Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. Defaults to `true`.
+        :param pulumi.Input[pulumi.InputType['CompositeAlarmActionsSuppressorArgs']] actions_suppressor: Actions will be suppressed if the suppressor alarm is in the ALARM state.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] alarm_actions: The set of actions to execute when this alarm transitions to the `ALARM` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
         :param pulumi.Input[str] alarm_description: The description for the composite alarm.
         :param pulumi.Input[str] alarm_name: The name for the composite alarm. This name must be unique within the region.
@@ -391,7 +432,12 @@ class CompositeAlarm(pulumi.CustomResource):
             ok_actions=aws_sns_topic["example"]["arn"],
             alarm_rule=f\"\"\"ALARM({aws_cloudwatch_metric_alarm["alpha"]["alarm_name"]}) OR
         ALARM({aws_cloudwatch_metric_alarm["bravo"]["alarm_name"]})
-        \"\"\")
+        \"\"\",
+            actions_suppressor=aws.cloudwatch.CompositeAlarmActionsSuppressorArgs(
+                alarm="suppressor-alarm",
+                extension_period=10,
+                wait_period=20,
+            ))
         ```
 
         ## Import
@@ -418,6 +464,7 @@ class CompositeAlarm(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  actions_enabled: Optional[pulumi.Input[bool]] = None,
+                 actions_suppressor: Optional[pulumi.Input[pulumi.InputType['CompositeAlarmActionsSuppressorArgs']]] = None,
                  alarm_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  alarm_description: Optional[pulumi.Input[str]] = None,
                  alarm_name: Optional[pulumi.Input[str]] = None,
@@ -435,6 +482,7 @@ class CompositeAlarm(pulumi.CustomResource):
             __props__ = CompositeAlarmArgs.__new__(CompositeAlarmArgs)
 
             __props__.__dict__["actions_enabled"] = actions_enabled
+            __props__.__dict__["actions_suppressor"] = actions_suppressor
             __props__.__dict__["alarm_actions"] = alarm_actions
             __props__.__dict__["alarm_description"] = alarm_description
             if alarm_name is None and not opts.urn:
@@ -459,6 +507,7 @@ class CompositeAlarm(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             actions_enabled: Optional[pulumi.Input[bool]] = None,
+            actions_suppressor: Optional[pulumi.Input[pulumi.InputType['CompositeAlarmActionsSuppressorArgs']]] = None,
             alarm_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             alarm_description: Optional[pulumi.Input[str]] = None,
             alarm_name: Optional[pulumi.Input[str]] = None,
@@ -476,6 +525,7 @@ class CompositeAlarm(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] actions_enabled: Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. Defaults to `true`.
+        :param pulumi.Input[pulumi.InputType['CompositeAlarmActionsSuppressorArgs']] actions_suppressor: Actions will be suppressed if the suppressor alarm is in the ALARM state.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] alarm_actions: The set of actions to execute when this alarm transitions to the `ALARM` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
         :param pulumi.Input[str] alarm_description: The description for the composite alarm.
         :param pulumi.Input[str] alarm_name: The name for the composite alarm. This name must be unique within the region.
@@ -491,6 +541,7 @@ class CompositeAlarm(pulumi.CustomResource):
         __props__ = _CompositeAlarmState.__new__(_CompositeAlarmState)
 
         __props__.__dict__["actions_enabled"] = actions_enabled
+        __props__.__dict__["actions_suppressor"] = actions_suppressor
         __props__.__dict__["alarm_actions"] = alarm_actions
         __props__.__dict__["alarm_description"] = alarm_description
         __props__.__dict__["alarm_name"] = alarm_name
@@ -509,6 +560,14 @@ class CompositeAlarm(pulumi.CustomResource):
         Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. Defaults to `true`.
         """
         return pulumi.get(self, "actions_enabled")
+
+    @property
+    @pulumi.getter(name="actionsSuppressor")
+    def actions_suppressor(self) -> pulumi.Output[Optional['outputs.CompositeAlarmActionsSuppressor']]:
+        """
+        Actions will be suppressed if the suppressor alarm is in the ALARM state.
+        """
+        return pulumi.get(self, "actions_suppressor")
 
     @property
     @pulumi.getter(name="alarmActions")

@@ -104,6 +104,10 @@ export class FileSystem extends pulumi.CustomResource {
      */
     public readonly lifecyclePolicies!: pulumi.Output<outputs.efs.FileSystemLifecyclePolicy[] | undefined>;
     /**
+     * The value of the file system's `Name` tag.
+     */
+    public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
      * The current number of mount targets that the file system has.
      */
     public /*out*/ readonly numberOfMountTargets!: pulumi.Output<number>;
@@ -157,6 +161,7 @@ export class FileSystem extends pulumi.CustomResource {
             resourceInputs["encrypted"] = state ? state.encrypted : undefined;
             resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
             resourceInputs["lifecyclePolicies"] = state ? state.lifecyclePolicies : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["numberOfMountTargets"] = state ? state.numberOfMountTargets : undefined;
             resourceInputs["ownerId"] = state ? state.ownerId : undefined;
             resourceInputs["performanceMode"] = state ? state.performanceMode : undefined;
@@ -179,6 +184,7 @@ export class FileSystem extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["availabilityZoneId"] = undefined /*out*/;
             resourceInputs["dnsName"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
             resourceInputs["numberOfMountTargets"] = undefined /*out*/;
             resourceInputs["ownerId"] = undefined /*out*/;
             resourceInputs["sizeInBytes"] = undefined /*out*/;
@@ -228,6 +234,10 @@ export interface FileSystemState {
      * A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object (documented below).
      */
     lifecyclePolicies?: pulumi.Input<pulumi.Input<inputs.efs.FileSystemLifecyclePolicy>[]>;
+    /**
+     * The value of the file system's `Name` tag.
+     */
+    name?: pulumi.Input<string>;
     /**
      * The current number of mount targets that the file system has.
      */

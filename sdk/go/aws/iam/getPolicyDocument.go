@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Generates an IAM policy document in JSON format for use with resources that expect policy documents such as `iam.Policy`.
@@ -758,6 +759,12 @@ func (o GetPolicyDocumentResultOutput) ToGetPolicyDocumentResultOutput() GetPoli
 
 func (o GetPolicyDocumentResultOutput) ToGetPolicyDocumentResultOutputWithContext(ctx context.Context) GetPolicyDocumentResultOutput {
 	return o
+}
+
+func (o GetPolicyDocumentResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetPolicyDocumentResult] {
+	return pulumix.Output[GetPolicyDocumentResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The provider-assigned unique ID for this managed resource.

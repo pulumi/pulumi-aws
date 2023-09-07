@@ -168,7 +168,7 @@ class VpcIpamPreviewNextCidr(pulumi.CustomResource):
             locale=current.name)
         example_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("exampleVpcIpamPoolCidr",
             ipam_pool_id=example_vpc_ipam_pool.id,
-            cidr="172.2.0.0/16")
+            cidr="172.20.0.0/16")
         example_vpc_ipam_preview_next_cidr = aws.ec2.VpcIpamPreviewNextCidr("exampleVpcIpamPreviewNextCidr",
             ipam_pool_id=example_vpc_ipam_pool.id,
             netmask_length=28,
@@ -209,7 +209,7 @@ class VpcIpamPreviewNextCidr(pulumi.CustomResource):
             locale=current.name)
         example_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("exampleVpcIpamPoolCidr",
             ipam_pool_id=example_vpc_ipam_pool.id,
-            cidr="172.2.0.0/16")
+            cidr="172.20.0.0/16")
         example_vpc_ipam_preview_next_cidr = aws.ec2.VpcIpamPreviewNextCidr("exampleVpcIpamPreviewNextCidr",
             ipam_pool_id=example_vpc_ipam_pool.id,
             netmask_length=28,

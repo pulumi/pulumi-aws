@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Pinpoint Event Stream resource.
@@ -227,6 +228,12 @@ func (i *EventStream) ToEventStreamOutputWithContext(ctx context.Context) EventS
 	return pulumi.ToOutputWithContext(ctx, i).(EventStreamOutput)
 }
 
+func (i *EventStream) ToOutput(ctx context.Context) pulumix.Output[*EventStream] {
+	return pulumix.Output[*EventStream]{
+		OutputState: i.ToEventStreamOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventStreamArrayInput is an input type that accepts EventStreamArray and EventStreamArrayOutput values.
 // You can construct a concrete instance of `EventStreamArrayInput` via:
 //
@@ -250,6 +257,12 @@ func (i EventStreamArray) ToEventStreamArrayOutput() EventStreamArrayOutput {
 
 func (i EventStreamArray) ToEventStreamArrayOutputWithContext(ctx context.Context) EventStreamArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventStreamArrayOutput)
+}
+
+func (i EventStreamArray) ToOutput(ctx context.Context) pulumix.Output[[]*EventStream] {
+	return pulumix.Output[[]*EventStream]{
+		OutputState: i.ToEventStreamArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // EventStreamMapInput is an input type that accepts EventStreamMap and EventStreamMapOutput values.
@@ -277,6 +290,12 @@ func (i EventStreamMap) ToEventStreamMapOutputWithContext(ctx context.Context) E
 	return pulumi.ToOutputWithContext(ctx, i).(EventStreamMapOutput)
 }
 
+func (i EventStreamMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventStream] {
+	return pulumix.Output[map[string]*EventStream]{
+		OutputState: i.ToEventStreamMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventStreamOutput struct{ *pulumi.OutputState }
 
 func (EventStreamOutput) ElementType() reflect.Type {
@@ -289,6 +308,12 @@ func (o EventStreamOutput) ToEventStreamOutput() EventStreamOutput {
 
 func (o EventStreamOutput) ToEventStreamOutputWithContext(ctx context.Context) EventStreamOutput {
 	return o
+}
+
+func (o EventStreamOutput) ToOutput(ctx context.Context) pulumix.Output[*EventStream] {
+	return pulumix.Output[*EventStream]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The application ID.
@@ -320,6 +345,12 @@ func (o EventStreamArrayOutput) ToEventStreamArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o EventStreamArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EventStream] {
+	return pulumix.Output[[]*EventStream]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EventStreamArrayOutput) Index(i pulumi.IntInput) EventStreamOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EventStream {
 		return vs[0].([]*EventStream)[vs[1].(int)]
@@ -338,6 +369,12 @@ func (o EventStreamMapOutput) ToEventStreamMapOutput() EventStreamMapOutput {
 
 func (o EventStreamMapOutput) ToEventStreamMapOutputWithContext(ctx context.Context) EventStreamMapOutput {
 	return o
+}
+
+func (o EventStreamMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventStream] {
+	return pulumix.Output[map[string]*EventStream]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventStreamMapOutput) MapIndex(k pulumi.StringInput) EventStreamOutput {

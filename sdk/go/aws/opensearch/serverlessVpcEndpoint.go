@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS OpenSearchServerless VPC Endpoint.
@@ -188,6 +189,12 @@ func (i *ServerlessVpcEndpoint) ToServerlessVpcEndpointOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ServerlessVpcEndpointOutput)
 }
 
+func (i *ServerlessVpcEndpoint) ToOutput(ctx context.Context) pulumix.Output[*ServerlessVpcEndpoint] {
+	return pulumix.Output[*ServerlessVpcEndpoint]{
+		OutputState: i.ToServerlessVpcEndpointOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServerlessVpcEndpointArrayInput is an input type that accepts ServerlessVpcEndpointArray and ServerlessVpcEndpointArrayOutput values.
 // You can construct a concrete instance of `ServerlessVpcEndpointArrayInput` via:
 //
@@ -211,6 +218,12 @@ func (i ServerlessVpcEndpointArray) ToServerlessVpcEndpointArrayOutput() Serverl
 
 func (i ServerlessVpcEndpointArray) ToServerlessVpcEndpointArrayOutputWithContext(ctx context.Context) ServerlessVpcEndpointArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServerlessVpcEndpointArrayOutput)
+}
+
+func (i ServerlessVpcEndpointArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServerlessVpcEndpoint] {
+	return pulumix.Output[[]*ServerlessVpcEndpoint]{
+		OutputState: i.ToServerlessVpcEndpointArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ServerlessVpcEndpointMapInput is an input type that accepts ServerlessVpcEndpointMap and ServerlessVpcEndpointMapOutput values.
@@ -238,6 +251,12 @@ func (i ServerlessVpcEndpointMap) ToServerlessVpcEndpointMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ServerlessVpcEndpointMapOutput)
 }
 
+func (i ServerlessVpcEndpointMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServerlessVpcEndpoint] {
+	return pulumix.Output[map[string]*ServerlessVpcEndpoint]{
+		OutputState: i.ToServerlessVpcEndpointMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServerlessVpcEndpointOutput struct{ *pulumi.OutputState }
 
 func (ServerlessVpcEndpointOutput) ElementType() reflect.Type {
@@ -250,6 +269,12 @@ func (o ServerlessVpcEndpointOutput) ToServerlessVpcEndpointOutput() ServerlessV
 
 func (o ServerlessVpcEndpointOutput) ToServerlessVpcEndpointOutputWithContext(ctx context.Context) ServerlessVpcEndpointOutput {
 	return o
+}
+
+func (o ServerlessVpcEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[*ServerlessVpcEndpoint] {
+	return pulumix.Output[*ServerlessVpcEndpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the interface endpoint.
@@ -292,6 +317,12 @@ func (o ServerlessVpcEndpointArrayOutput) ToServerlessVpcEndpointArrayOutputWith
 	return o
 }
 
+func (o ServerlessVpcEndpointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServerlessVpcEndpoint] {
+	return pulumix.Output[[]*ServerlessVpcEndpoint]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ServerlessVpcEndpointArrayOutput) Index(i pulumi.IntInput) ServerlessVpcEndpointOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServerlessVpcEndpoint {
 		return vs[0].([]*ServerlessVpcEndpoint)[vs[1].(int)]
@@ -310,6 +341,12 @@ func (o ServerlessVpcEndpointMapOutput) ToServerlessVpcEndpointMapOutput() Serve
 
 func (o ServerlessVpcEndpointMapOutput) ToServerlessVpcEndpointMapOutputWithContext(ctx context.Context) ServerlessVpcEndpointMapOutput {
 	return o
+}
+
+func (o ServerlessVpcEndpointMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServerlessVpcEndpoint] {
+	return pulumix.Output[map[string]*ServerlessVpcEndpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServerlessVpcEndpointMapOutput) MapIndex(k pulumi.StringInput) ServerlessVpcEndpointOutput {

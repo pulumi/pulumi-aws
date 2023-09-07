@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Provides a S3 bucket server-side encryption configuration resource.
  *
+ * > **NOTE:** Destroying an `aws.s3.BucketServerSideEncryptionConfigurationV2` resource resets the bucket to [Amazon S3 bucket default encryption](https://docs.aws.amazon.com/AmazonS3/latest/userguide/default-encryption-faq.html).
+ *
  * ## Example Usage
  *
  * ```typescript

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieve information about a Service Quota.
@@ -131,6 +132,12 @@ func (o LookupServiceQuotaResultOutput) ToLookupServiceQuotaResultOutput() Looku
 
 func (o LookupServiceQuotaResultOutput) ToLookupServiceQuotaResultOutputWithContext(ctx context.Context) LookupServiceQuotaResultOutput {
 	return o
+}
+
+func (o LookupServiceQuotaResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupServiceQuotaResult] {
+	return pulumix.Output[LookupServiceQuotaResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether the service quota is adjustable.

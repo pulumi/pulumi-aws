@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about a specific EC2 Customer-Owned IP Pool.
@@ -100,6 +101,12 @@ func (o GetCoipPoolResultOutput) ToGetCoipPoolResultOutput() GetCoipPoolResultOu
 
 func (o GetCoipPoolResultOutput) ToGetCoipPoolResultOutputWithContext(ctx context.Context) GetCoipPoolResultOutput {
 	return o
+}
+
+func (o GetCoipPoolResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetCoipPoolResult] {
+	return pulumix.Output[GetCoipPoolResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the COIP pool

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about resource tagging.
@@ -178,6 +179,12 @@ func (o GetResourcesResultOutput) ToGetResourcesResultOutput() GetResourcesResul
 
 func (o GetResourcesResultOutput) ToGetResourcesResultOutputWithContext(ctx context.Context) GetResourcesResultOutput {
 	return o
+}
+
+func (o GetResourcesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetResourcesResult] {
+	return pulumix.Output[GetResourcesResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetResourcesResultOutput) ExcludeCompliantResources() pulumi.BoolPtrOutput {

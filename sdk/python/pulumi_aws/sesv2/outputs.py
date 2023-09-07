@@ -260,7 +260,7 @@ class ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimen
                  dimension_value_source: str):
         """
         :param str default_dimension_value: The default value of the dimension that is published to Amazon CloudWatch if you don't provide the value of the dimension when you send an email.
-               ( `dimension_name` - (Required) The name of an Amazon CloudWatch dimension associated with an email sending metric.
+        :param str dimension_name: The name of an Amazon CloudWatch dimension associated with an email sending metric.
         :param str dimension_value_source: The location where the Amazon SES API v2 finds the value of a dimension to publish to Amazon CloudWatch. Valid values: `MESSAGE_TAG`, `EMAIL_HEADER`, `LINK_TAG`.
         """
         pulumi.set(__self__, "default_dimension_value", default_dimension_value)
@@ -272,13 +272,15 @@ class ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimen
     def default_dimension_value(self) -> str:
         """
         The default value of the dimension that is published to Amazon CloudWatch if you don't provide the value of the dimension when you send an email.
-        ( `dimension_name` - (Required) The name of an Amazon CloudWatch dimension associated with an email sending metric.
         """
         return pulumi.get(self, "default_dimension_value")
 
     @property
     @pulumi.getter(name="dimensionName")
     def dimension_name(self) -> str:
+        """
+        The name of an Amazon CloudWatch dimension associated with an email sending metric.
+        """
         return pulumi.get(self, "dimension_name")
 
     @property

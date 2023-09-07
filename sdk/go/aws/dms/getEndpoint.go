@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Data source for managing an AWS DMS (Database Migration) Endpoint.
@@ -51,13 +52,9 @@ func LookupEndpoint(ctx *pulumi.Context, args *LookupEndpointArgs, opts ...pulum
 
 // A collection of arguments for invoking getEndpoint.
 type LookupEndpointArgs struct {
-	ElasticsearchSettings []GetEndpointElasticsearchSetting `pulumi:"elasticsearchSettings"`
 	// Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
-	EndpointId                string                      `pulumi:"endpointId"`
-	ExtraConnectionAttributes *string                     `pulumi:"extraConnectionAttributes"`
-	KafkaSettings             []GetEndpointKafkaSetting   `pulumi:"kafkaSettings"`
-	MongodbSettings           []GetEndpointMongodbSetting `pulumi:"mongodbSettings"`
-	Tags                      map[string]string           `pulumi:"tags"`
+	EndpointId string            `pulumi:"endpointId"`
+	Tags       map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getEndpoint.
@@ -69,7 +66,7 @@ type LookupEndpointResult struct {
 	EndpointId                string                            `pulumi:"endpointId"`
 	EndpointType              string                            `pulumi:"endpointType"`
 	EngineName                string                            `pulumi:"engineName"`
-	ExtraConnectionAttributes *string                           `pulumi:"extraConnectionAttributes"`
+	ExtraConnectionAttributes string                            `pulumi:"extraConnectionAttributes"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                          string                       `pulumi:"id"`
 	KafkaSettings               []GetEndpointKafkaSetting    `pulumi:"kafkaSettings"`
@@ -105,13 +102,9 @@ func LookupEndpointOutput(ctx *pulumi.Context, args LookupEndpointOutputArgs, op
 
 // A collection of arguments for invoking getEndpoint.
 type LookupEndpointOutputArgs struct {
-	ElasticsearchSettings GetEndpointElasticsearchSettingArrayInput `pulumi:"elasticsearchSettings"`
 	// Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
-	EndpointId                pulumi.StringInput                  `pulumi:"endpointId"`
-	ExtraConnectionAttributes pulumi.StringPtrInput               `pulumi:"extraConnectionAttributes"`
-	KafkaSettings             GetEndpointKafkaSettingArrayInput   `pulumi:"kafkaSettings"`
-	MongodbSettings           GetEndpointMongodbSettingArrayInput `pulumi:"mongodbSettings"`
-	Tags                      pulumi.StringMapInput               `pulumi:"tags"`
+	EndpointId pulumi.StringInput    `pulumi:"endpointId"`
+	Tags       pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupEndpointOutputArgs) ElementType() reflect.Type {
@@ -131,6 +124,12 @@ func (o LookupEndpointResultOutput) ToLookupEndpointResultOutput() LookupEndpoin
 
 func (o LookupEndpointResultOutput) ToLookupEndpointResultOutputWithContext(ctx context.Context) LookupEndpointResultOutput {
 	return o
+}
+
+func (o LookupEndpointResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupEndpointResult] {
+	return pulumix.Output[LookupEndpointResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupEndpointResultOutput) CertificateArn() pulumi.StringOutput {
@@ -161,8 +160,8 @@ func (o LookupEndpointResultOutput) EngineName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEndpointResult) string { return v.EngineName }).(pulumi.StringOutput)
 }
 
-func (o LookupEndpointResultOutput) ExtraConnectionAttributes() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupEndpointResult) *string { return v.ExtraConnectionAttributes }).(pulumi.StringPtrOutput)
+func (o LookupEndpointResultOutput) ExtraConnectionAttributes() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEndpointResult) string { return v.ExtraConnectionAttributes }).(pulumi.StringOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

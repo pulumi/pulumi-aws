@@ -40,3 +40,18 @@ export interface GetFunctionsResult {
      */
     readonly id: string;
 }
+/**
+ * Data resource to get a list of Lambda Functions.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const all = aws.lambda.getFunctions({});
+ * ```
+ */
+export function getFunctionsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetFunctionsResult> {
+    return pulumi.output(getFunctions(opts))
+}

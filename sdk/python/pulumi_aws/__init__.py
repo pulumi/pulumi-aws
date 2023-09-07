@@ -101,6 +101,8 @@ if typing.TYPE_CHECKING:
     codeartifact = __codeartifact
     import pulumi_aws.codebuild as __codebuild
     codebuild = __codebuild
+    import pulumi_aws.codecatalyst as __codecatalyst
+    codecatalyst = __codecatalyst
     import pulumi_aws.codecommit as __codecommit
     codecommit = __codecommit
     import pulumi_aws.codedeploy as __codedeploy
@@ -441,6 +443,7 @@ else:
     cloudwatch = _utilities.lazy_import('pulumi_aws.cloudwatch')
     codeartifact = _utilities.lazy_import('pulumi_aws.codeartifact')
     codebuild = _utilities.lazy_import('pulumi_aws.codebuild')
+    codecatalyst = _utilities.lazy_import('pulumi_aws.codecatalyst')
     codecommit = _utilities.lazy_import('pulumi_aws.codecommit')
     codedeploy = _utilities.lazy_import('pulumi_aws.codedeploy')
     codegurureviewer = _utilities.lazy_import('pulumi_aws.codegurureviewer')
@@ -2013,6 +2016,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "cloudfront/continuousDeploymentPolicy",
+  "fqn": "pulumi_aws.cloudfront",
+  "classes": {
+   "aws:cloudfront/continuousDeploymentPolicy:ContinuousDeploymentPolicy": "ContinuousDeploymentPolicy"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "cloudfront/distribution",
   "fqn": "pulumi_aws.cloudfront",
   "classes": {
@@ -2409,6 +2420,30 @@ _utilities.register(
   "fqn": "pulumi_aws.codebuild",
   "classes": {
    "aws:codebuild/webhook:Webhook": "Webhook"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "codecatalyst/devEnvironment",
+  "fqn": "pulumi_aws.codecatalyst",
+  "classes": {
+   "aws:codecatalyst/devEnvironment:DevEnvironment": "DevEnvironment"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "codecatalyst/project",
+  "fqn": "pulumi_aws.codecatalyst",
+  "classes": {
+   "aws:codecatalyst/project:Project": "Project"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "codecatalyst/sourceRepository",
+  "fqn": "pulumi_aws.codecatalyst",
+  "classes": {
+   "aws:codecatalyst/sourceRepository:SourceRepository": "SourceRepository"
   }
  },
  {
@@ -2885,10 +2920,26 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "datasync/locationAzureBlob",
+  "fqn": "pulumi_aws.datasync",
+  "classes": {
+   "aws:datasync/locationAzureBlob:LocationAzureBlob": "LocationAzureBlob"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "datasync/locationFsxLustre",
   "fqn": "pulumi_aws.datasync",
   "classes": {
    "aws:datasync/locationFsxLustre:LocationFsxLustre": "LocationFsxLustre"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "datasync/locationFsxOntapFileSystem",
+  "fqn": "pulumi_aws.datasync",
+  "classes": {
+   "aws:datasync/locationFsxOntapFileSystem:LocationFsxOntapFileSystem": "LocationFsxOntapFileSystem"
   }
  },
  {
@@ -6877,6 +6928,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "msk/clusterPolicy",
+  "fqn": "pulumi_aws.msk",
+  "classes": {
+   "aws:msk/clusterPolicy:ClusterPolicy": "ClusterPolicy"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "msk/configuration",
   "fqn": "pulumi_aws.msk",
   "classes": {
@@ -6897,6 +6956,14 @@ _utilities.register(
   "fqn": "pulumi_aws.msk",
   "classes": {
    "aws:msk/serverlessCluster:ServerlessCluster": "ServerlessCluster"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "msk/vpcConnection",
+  "fqn": "pulumi_aws.msk",
+  "classes": {
+   "aws:msk/vpcConnection:VpcConnection": "VpcConnection"
   }
  },
  {
@@ -7289,6 +7356,14 @@ _utilities.register(
   "fqn": "pulumi_aws.opensearch",
   "classes": {
    "aws:opensearch/serverlessVpcEndpoint:ServerlessVpcEndpoint": "ServerlessVpcEndpoint"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "opensearch/vpcEndpoint",
+  "fqn": "pulumi_aws.opensearch",
+  "classes": {
+   "aws:opensearch/vpcEndpoint:VpcEndpoint": "VpcEndpoint"
   }
  },
  {
@@ -7769,6 +7844,14 @@ _utilities.register(
   "fqn": "pulumi_aws.ram",
   "classes": {
    "aws:ram/resourceShareAccepter:ResourceShareAccepter": "ResourceShareAccepter"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ram/sharingWithOrganization",
+  "fqn": "pulumi_aws.ram",
+  "classes": {
+   "aws:ram/sharingWithOrganization:SharingWithOrganization": "SharingWithOrganization"
   }
  },
  {

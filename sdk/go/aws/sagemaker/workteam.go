@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a SageMaker Workteam resource.
@@ -261,6 +262,12 @@ func (i *Workteam) ToWorkteamOutputWithContext(ctx context.Context) WorkteamOutp
 	return pulumi.ToOutputWithContext(ctx, i).(WorkteamOutput)
 }
 
+func (i *Workteam) ToOutput(ctx context.Context) pulumix.Output[*Workteam] {
+	return pulumix.Output[*Workteam]{
+		OutputState: i.ToWorkteamOutputWithContext(ctx).OutputState,
+	}
+}
+
 // WorkteamArrayInput is an input type that accepts WorkteamArray and WorkteamArrayOutput values.
 // You can construct a concrete instance of `WorkteamArrayInput` via:
 //
@@ -284,6 +291,12 @@ func (i WorkteamArray) ToWorkteamArrayOutput() WorkteamArrayOutput {
 
 func (i WorkteamArray) ToWorkteamArrayOutputWithContext(ctx context.Context) WorkteamArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WorkteamArrayOutput)
+}
+
+func (i WorkteamArray) ToOutput(ctx context.Context) pulumix.Output[[]*Workteam] {
+	return pulumix.Output[[]*Workteam]{
+		OutputState: i.ToWorkteamArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // WorkteamMapInput is an input type that accepts WorkteamMap and WorkteamMapOutput values.
@@ -311,6 +324,12 @@ func (i WorkteamMap) ToWorkteamMapOutputWithContext(ctx context.Context) Worktea
 	return pulumi.ToOutputWithContext(ctx, i).(WorkteamMapOutput)
 }
 
+func (i WorkteamMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Workteam] {
+	return pulumix.Output[map[string]*Workteam]{
+		OutputState: i.ToWorkteamMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkteamOutput struct{ *pulumi.OutputState }
 
 func (WorkteamOutput) ElementType() reflect.Type {
@@ -323,6 +342,12 @@ func (o WorkteamOutput) ToWorkteamOutput() WorkteamOutput {
 
 func (o WorkteamOutput) ToWorkteamOutputWithContext(ctx context.Context) WorkteamOutput {
 	return o
+}
+
+func (o WorkteamOutput) ToOutput(ctx context.Context) pulumix.Output[*Workteam] {
+	return pulumix.Output[*Workteam]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) assigned by AWS to this Workteam.
@@ -384,6 +409,12 @@ func (o WorkteamArrayOutput) ToWorkteamArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o WorkteamArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Workteam] {
+	return pulumix.Output[[]*Workteam]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WorkteamArrayOutput) Index(i pulumi.IntInput) WorkteamOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Workteam {
 		return vs[0].([]*Workteam)[vs[1].(int)]
@@ -402,6 +433,12 @@ func (o WorkteamMapOutput) ToWorkteamMapOutput() WorkteamMapOutput {
 
 func (o WorkteamMapOutput) ToWorkteamMapOutputWithContext(ctx context.Context) WorkteamMapOutput {
 	return o
+}
+
+func (o WorkteamMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Workteam] {
+	return pulumix.Output[map[string]*Workteam]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkteamMapOutput) MapIndex(k pulumi.StringInput) WorkteamOutput {

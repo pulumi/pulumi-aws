@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS QuickSight Template Alias.
@@ -191,6 +192,12 @@ func (i *TemplateAlias) ToTemplateAliasOutputWithContext(ctx context.Context) Te
 	return pulumi.ToOutputWithContext(ctx, i).(TemplateAliasOutput)
 }
 
+func (i *TemplateAlias) ToOutput(ctx context.Context) pulumix.Output[*TemplateAlias] {
+	return pulumix.Output[*TemplateAlias]{
+		OutputState: i.ToTemplateAliasOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TemplateAliasArrayInput is an input type that accepts TemplateAliasArray and TemplateAliasArrayOutput values.
 // You can construct a concrete instance of `TemplateAliasArrayInput` via:
 //
@@ -214,6 +221,12 @@ func (i TemplateAliasArray) ToTemplateAliasArrayOutput() TemplateAliasArrayOutpu
 
 func (i TemplateAliasArray) ToTemplateAliasArrayOutputWithContext(ctx context.Context) TemplateAliasArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TemplateAliasArrayOutput)
+}
+
+func (i TemplateAliasArray) ToOutput(ctx context.Context) pulumix.Output[[]*TemplateAlias] {
+	return pulumix.Output[[]*TemplateAlias]{
+		OutputState: i.ToTemplateAliasArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // TemplateAliasMapInput is an input type that accepts TemplateAliasMap and TemplateAliasMapOutput values.
@@ -241,6 +254,12 @@ func (i TemplateAliasMap) ToTemplateAliasMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(TemplateAliasMapOutput)
 }
 
+func (i TemplateAliasMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TemplateAlias] {
+	return pulumix.Output[map[string]*TemplateAlias]{
+		OutputState: i.ToTemplateAliasMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TemplateAliasOutput struct{ *pulumi.OutputState }
 
 func (TemplateAliasOutput) ElementType() reflect.Type {
@@ -253,6 +272,12 @@ func (o TemplateAliasOutput) ToTemplateAliasOutput() TemplateAliasOutput {
 
 func (o TemplateAliasOutput) ToTemplateAliasOutputWithContext(ctx context.Context) TemplateAliasOutput {
 	return o
+}
+
+func (o TemplateAliasOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateAlias] {
+	return pulumix.Output[*TemplateAlias]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Display name of the template alias.
@@ -296,6 +321,12 @@ func (o TemplateAliasArrayOutput) ToTemplateAliasArrayOutputWithContext(ctx cont
 	return o
 }
 
+func (o TemplateAliasArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TemplateAlias] {
+	return pulumix.Output[[]*TemplateAlias]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TemplateAliasArrayOutput) Index(i pulumi.IntInput) TemplateAliasOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TemplateAlias {
 		return vs[0].([]*TemplateAlias)[vs[1].(int)]
@@ -314,6 +345,12 @@ func (o TemplateAliasMapOutput) ToTemplateAliasMapOutput() TemplateAliasMapOutpu
 
 func (o TemplateAliasMapOutput) ToTemplateAliasMapOutputWithContext(ctx context.Context) TemplateAliasMapOutput {
 	return o
+}
+
+func (o TemplateAliasMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TemplateAlias] {
+	return pulumix.Output[map[string]*TemplateAlias]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TemplateAliasMapOutput) MapIndex(k pulumi.StringInput) TemplateAliasOutput {

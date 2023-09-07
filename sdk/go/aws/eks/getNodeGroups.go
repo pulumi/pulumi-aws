@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieve the EKS Node Groups associated with a named EKS cluster. This will allow you to pass a list of Node Group names to other resources.
@@ -100,6 +101,12 @@ func (o GetNodeGroupsResultOutput) ToGetNodeGroupsResultOutput() GetNodeGroupsRe
 
 func (o GetNodeGroupsResultOutput) ToGetNodeGroupsResultOutputWithContext(ctx context.Context) GetNodeGroupsResultOutput {
 	return o
+}
+
+func (o GetNodeGroupsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetNodeGroupsResult] {
+	return pulumix.Output[GetNodeGroupsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetNodeGroupsResultOutput) ClusterName() pulumi.StringOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an AppSync Function.
@@ -353,6 +354,12 @@ func (i *Function) ToFunctionOutputWithContext(ctx context.Context) FunctionOutp
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionOutput)
 }
 
+func (i *Function) ToOutput(ctx context.Context) pulumix.Output[*Function] {
+	return pulumix.Output[*Function]{
+		OutputState: i.ToFunctionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FunctionArrayInput is an input type that accepts FunctionArray and FunctionArrayOutput values.
 // You can construct a concrete instance of `FunctionArrayInput` via:
 //
@@ -376,6 +383,12 @@ func (i FunctionArray) ToFunctionArrayOutput() FunctionArrayOutput {
 
 func (i FunctionArray) ToFunctionArrayOutputWithContext(ctx context.Context) FunctionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionArrayOutput)
+}
+
+func (i FunctionArray) ToOutput(ctx context.Context) pulumix.Output[[]*Function] {
+	return pulumix.Output[[]*Function]{
+		OutputState: i.ToFunctionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // FunctionMapInput is an input type that accepts FunctionMap and FunctionMapOutput values.
@@ -403,6 +416,12 @@ func (i FunctionMap) ToFunctionMapOutputWithContext(ctx context.Context) Functio
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionMapOutput)
 }
 
+func (i FunctionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Function] {
+	return pulumix.Output[map[string]*Function]{
+		OutputState: i.ToFunctionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FunctionOutput struct{ *pulumi.OutputState }
 
 func (FunctionOutput) ElementType() reflect.Type {
@@ -415,6 +434,12 @@ func (o FunctionOutput) ToFunctionOutput() FunctionOutput {
 
 func (o FunctionOutput) ToFunctionOutputWithContext(ctx context.Context) FunctionOutput {
 	return o
+}
+
+func (o FunctionOutput) ToOutput(ctx context.Context) pulumix.Output[*Function] {
+	return pulumix.Output[*Function]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ID of the associated AppSync API.
@@ -496,6 +521,12 @@ func (o FunctionArrayOutput) ToFunctionArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o FunctionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Function] {
+	return pulumix.Output[[]*Function]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FunctionArrayOutput) Index(i pulumi.IntInput) FunctionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Function {
 		return vs[0].([]*Function)[vs[1].(int)]
@@ -514,6 +545,12 @@ func (o FunctionMapOutput) ToFunctionMapOutput() FunctionMapOutput {
 
 func (o FunctionMapOutput) ToFunctionMapOutputWithContext(ctx context.Context) FunctionMapOutput {
 	return o
+}
+
+func (o FunctionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Function] {
+	return pulumix.Output[map[string]*Function]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FunctionMapOutput) MapIndex(k pulumi.StringInput) FunctionOutput {

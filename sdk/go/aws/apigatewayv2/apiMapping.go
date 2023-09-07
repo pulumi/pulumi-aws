@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Amazon API Gateway Version 2 API mapping.
@@ -176,6 +177,12 @@ func (i *ApiMapping) ToApiMappingOutputWithContext(ctx context.Context) ApiMappi
 	return pulumi.ToOutputWithContext(ctx, i).(ApiMappingOutput)
 }
 
+func (i *ApiMapping) ToOutput(ctx context.Context) pulumix.Output[*ApiMapping] {
+	return pulumix.Output[*ApiMapping]{
+		OutputState: i.ToApiMappingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApiMappingArrayInput is an input type that accepts ApiMappingArray and ApiMappingArrayOutput values.
 // You can construct a concrete instance of `ApiMappingArrayInput` via:
 //
@@ -199,6 +206,12 @@ func (i ApiMappingArray) ToApiMappingArrayOutput() ApiMappingArrayOutput {
 
 func (i ApiMappingArray) ToApiMappingArrayOutputWithContext(ctx context.Context) ApiMappingArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApiMappingArrayOutput)
+}
+
+func (i ApiMappingArray) ToOutput(ctx context.Context) pulumix.Output[[]*ApiMapping] {
+	return pulumix.Output[[]*ApiMapping]{
+		OutputState: i.ToApiMappingArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ApiMappingMapInput is an input type that accepts ApiMappingMap and ApiMappingMapOutput values.
@@ -226,6 +239,12 @@ func (i ApiMappingMap) ToApiMappingMapOutputWithContext(ctx context.Context) Api
 	return pulumi.ToOutputWithContext(ctx, i).(ApiMappingMapOutput)
 }
 
+func (i ApiMappingMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ApiMapping] {
+	return pulumix.Output[map[string]*ApiMapping]{
+		OutputState: i.ToApiMappingMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApiMappingOutput struct{ *pulumi.OutputState }
 
 func (ApiMappingOutput) ElementType() reflect.Type {
@@ -238,6 +257,12 @@ func (o ApiMappingOutput) ToApiMappingOutput() ApiMappingOutput {
 
 func (o ApiMappingOutput) ToApiMappingOutputWithContext(ctx context.Context) ApiMappingOutput {
 	return o
+}
+
+func (o ApiMappingOutput) ToOutput(ctx context.Context) pulumix.Output[*ApiMapping] {
+	return pulumix.Output[*ApiMapping]{
+		OutputState: o.OutputState,
+	}
 }
 
 // API identifier.
@@ -274,6 +299,12 @@ func (o ApiMappingArrayOutput) ToApiMappingArrayOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o ApiMappingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ApiMapping] {
+	return pulumix.Output[[]*ApiMapping]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApiMappingArrayOutput) Index(i pulumi.IntInput) ApiMappingOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ApiMapping {
 		return vs[0].([]*ApiMapping)[vs[1].(int)]
@@ -292,6 +323,12 @@ func (o ApiMappingMapOutput) ToApiMappingMapOutput() ApiMappingMapOutput {
 
 func (o ApiMappingMapOutput) ToApiMappingMapOutputWithContext(ctx context.Context) ApiMappingMapOutput {
 	return o
+}
+
+func (o ApiMappingMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ApiMapping] {
+	return pulumix.Output[map[string]*ApiMapping]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApiMappingMapOutput) MapIndex(k pulumi.StringInput) ApiMappingOutput {

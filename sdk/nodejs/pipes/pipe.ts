@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const main = aws.getCallerIdentity({});
- * const test = new aws.iam.Role("test", {assumeRolePolicy: main.then(main => JSON.stringify({
+ * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: main.then(main => JSON.stringify({
  *     Version: "2012-10-17",
  *     Statement: {
  *         Effect: "Allow",
@@ -41,7 +41,7 @@ import * as utilities from "../utilities";
  * }))});
  * const sourceQueue = new aws.sqs.Queue("sourceQueue", {});
  * const sourceRolePolicy = new aws.iam.RolePolicy("sourceRolePolicy", {
- *     role: test.id,
+ *     role: exampleRole.id,
  *     policy: sourceQueue.arn.apply(arn => JSON.stringify({
  *         Version: "2012-10-17",
  *         Statement: [{
@@ -57,7 +57,7 @@ import * as utilities from "../utilities";
  * });
  * const targetQueue = new aws.sqs.Queue("targetQueue", {});
  * const targetRolePolicy = new aws.iam.RolePolicy("targetRolePolicy", {
- *     role: test.id,
+ *     role: exampleRole.id,
  *     policy: targetQueue.arn.apply(arn => JSON.stringify({
  *         Version: "2012-10-17",
  *         Statement: [{
@@ -67,8 +67,8 @@ import * as utilities from "../utilities";
  *         }],
  *     })),
  * });
- * const example = new aws.pipes.Pipe("example", {
- *     roleArn: aws_iam_role.example.arn,
+ * const examplePipe = new aws.pipes.Pipe("examplePipe", {
+ *     roleArn: exampleRole.arn,
  *     source: sourceQueue.arn,
  *     target: targetQueue.arn,
  * }, {

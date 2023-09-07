@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a WAF Rule Group Resource
@@ -73,7 +74,7 @@ type RuleGroup struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A friendly name for the metrics from the rule group
 	MetricName pulumi.StringOutput `pulumi:"metricName"`
-	// A friendly name of the rule group
+	// Name of the rule group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -120,7 +121,7 @@ type ruleGroupState struct {
 	Arn *string `pulumi:"arn"`
 	// A friendly name for the metrics from the rule group
 	MetricName *string `pulumi:"metricName"`
-	// A friendly name of the rule group
+	// Name of the rule group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -135,7 +136,7 @@ type RuleGroupState struct {
 	Arn pulumi.StringPtrInput
 	// A friendly name for the metrics from the rule group
 	MetricName pulumi.StringPtrInput
-	// A friendly name of the rule group
+	// Name of the rule group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringPtrInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -152,7 +153,7 @@ type ruleGroupArgs struct {
 	ActivatedRules []RuleGroupActivatedRule `pulumi:"activatedRules"`
 	// A friendly name for the metrics from the rule group
 	MetricName string `pulumi:"metricName"`
-	// A friendly name of the rule group
+	// Name of the rule group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -164,7 +165,7 @@ type RuleGroupArgs struct {
 	ActivatedRules RuleGroupActivatedRuleArrayInput
 	// A friendly name for the metrics from the rule group
 	MetricName pulumi.StringInput
-	// A friendly name of the rule group
+	// Name of the rule group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringPtrInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -193,6 +194,12 @@ func (i *RuleGroup) ToRuleGroupOutputWithContext(ctx context.Context) RuleGroupO
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupOutput)
 }
 
+func (i *RuleGroup) ToOutput(ctx context.Context) pulumix.Output[*RuleGroup] {
+	return pulumix.Output[*RuleGroup]{
+		OutputState: i.ToRuleGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RuleGroupArrayInput is an input type that accepts RuleGroupArray and RuleGroupArrayOutput values.
 // You can construct a concrete instance of `RuleGroupArrayInput` via:
 //
@@ -216,6 +223,12 @@ func (i RuleGroupArray) ToRuleGroupArrayOutput() RuleGroupArrayOutput {
 
 func (i RuleGroupArray) ToRuleGroupArrayOutputWithContext(ctx context.Context) RuleGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupArrayOutput)
+}
+
+func (i RuleGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*RuleGroup] {
+	return pulumix.Output[[]*RuleGroup]{
+		OutputState: i.ToRuleGroupArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RuleGroupMapInput is an input type that accepts RuleGroupMap and RuleGroupMapOutput values.
@@ -243,6 +256,12 @@ func (i RuleGroupMap) ToRuleGroupMapOutputWithContext(ctx context.Context) RuleG
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupMapOutput)
 }
 
+func (i RuleGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RuleGroup] {
+	return pulumix.Output[map[string]*RuleGroup]{
+		OutputState: i.ToRuleGroupMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleGroupOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupOutput) ElementType() reflect.Type {
@@ -255,6 +274,12 @@ func (o RuleGroupOutput) ToRuleGroupOutput() RuleGroupOutput {
 
 func (o RuleGroupOutput) ToRuleGroupOutputWithContext(ctx context.Context) RuleGroupOutput {
 	return o
+}
+
+func (o RuleGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleGroup] {
+	return pulumix.Output[*RuleGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of activated rules, see below
@@ -272,7 +297,7 @@ func (o RuleGroupOutput) MetricName() pulumi.StringOutput {
 	return o.ApplyT(func(v *RuleGroup) pulumi.StringOutput { return v.MetricName }).(pulumi.StringOutput)
 }
 
-// A friendly name of the rule group
+// Name of the rule group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 func (o RuleGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *RuleGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -301,6 +326,12 @@ func (o RuleGroupArrayOutput) ToRuleGroupArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o RuleGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RuleGroup] {
+	return pulumix.Output[[]*RuleGroup]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RuleGroupArrayOutput) Index(i pulumi.IntInput) RuleGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RuleGroup {
 		return vs[0].([]*RuleGroup)[vs[1].(int)]
@@ -319,6 +350,12 @@ func (o RuleGroupMapOutput) ToRuleGroupMapOutput() RuleGroupMapOutput {
 
 func (o RuleGroupMapOutput) ToRuleGroupMapOutputWithContext(ctx context.Context) RuleGroupMapOutput {
 	return o
+}
+
+func (o RuleGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RuleGroup] {
+	return pulumix.Output[map[string]*RuleGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupMapOutput) MapIndex(k pulumi.StringInput) RuleGroupOutput {

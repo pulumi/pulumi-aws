@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an EventBridge Target resource.
@@ -663,6 +664,8 @@ type EventTarget struct {
 	Rule pulumi.StringOutput `pulumi:"rule"`
 	// Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
 	RunCommandTargets EventTargetRunCommandTargetArrayOutput `pulumi:"runCommandTargets"`
+	// Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.
+	SagemakerPipelineTarget EventTargetSagemakerPipelineTargetPtrOutput `pulumi:"sagemakerPipelineTarget"`
 	// Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
 	SqsTarget EventTargetSqsTargetPtrOutput `pulumi:"sqsTarget"`
 	// The unique target assignment ID. If missing, will generate a random, unique id.
@@ -738,6 +741,8 @@ type eventTargetState struct {
 	Rule *string `pulumi:"rule"`
 	// Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
 	RunCommandTargets []EventTargetRunCommandTarget `pulumi:"runCommandTargets"`
+	// Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.
+	SagemakerPipelineTarget *EventTargetSagemakerPipelineTarget `pulumi:"sagemakerPipelineTarget"`
 	// Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
 	SqsTarget *EventTargetSqsTarget `pulumi:"sqsTarget"`
 	// The unique target assignment ID. If missing, will generate a random, unique id.
@@ -778,6 +783,8 @@ type EventTargetState struct {
 	Rule pulumi.StringPtrInput
 	// Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
 	RunCommandTargets EventTargetRunCommandTargetArrayInput
+	// Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.
+	SagemakerPipelineTarget EventTargetSagemakerPipelineTargetPtrInput
 	// Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
 	SqsTarget EventTargetSqsTargetPtrInput
 	// The unique target assignment ID. If missing, will generate a random, unique id.
@@ -822,6 +829,8 @@ type eventTargetArgs struct {
 	Rule string `pulumi:"rule"`
 	// Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
 	RunCommandTargets []EventTargetRunCommandTarget `pulumi:"runCommandTargets"`
+	// Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.
+	SagemakerPipelineTarget *EventTargetSagemakerPipelineTarget `pulumi:"sagemakerPipelineTarget"`
 	// Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
 	SqsTarget *EventTargetSqsTarget `pulumi:"sqsTarget"`
 	// The unique target assignment ID. If missing, will generate a random, unique id.
@@ -863,6 +872,8 @@ type EventTargetArgs struct {
 	Rule pulumi.StringInput
 	// Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
 	RunCommandTargets EventTargetRunCommandTargetArrayInput
+	// Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.
+	SagemakerPipelineTarget EventTargetSagemakerPipelineTargetPtrInput
 	// Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
 	SqsTarget EventTargetSqsTargetPtrInput
 	// The unique target assignment ID. If missing, will generate a random, unique id.
@@ -892,6 +903,12 @@ func (i *EventTarget) ToEventTargetOutputWithContext(ctx context.Context) EventT
 	return pulumi.ToOutputWithContext(ctx, i).(EventTargetOutput)
 }
 
+func (i *EventTarget) ToOutput(ctx context.Context) pulumix.Output[*EventTarget] {
+	return pulumix.Output[*EventTarget]{
+		OutputState: i.ToEventTargetOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventTargetArrayInput is an input type that accepts EventTargetArray and EventTargetArrayOutput values.
 // You can construct a concrete instance of `EventTargetArrayInput` via:
 //
@@ -915,6 +932,12 @@ func (i EventTargetArray) ToEventTargetArrayOutput() EventTargetArrayOutput {
 
 func (i EventTargetArray) ToEventTargetArrayOutputWithContext(ctx context.Context) EventTargetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventTargetArrayOutput)
+}
+
+func (i EventTargetArray) ToOutput(ctx context.Context) pulumix.Output[[]*EventTarget] {
+	return pulumix.Output[[]*EventTarget]{
+		OutputState: i.ToEventTargetArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // EventTargetMapInput is an input type that accepts EventTargetMap and EventTargetMapOutput values.
@@ -942,6 +965,12 @@ func (i EventTargetMap) ToEventTargetMapOutputWithContext(ctx context.Context) E
 	return pulumi.ToOutputWithContext(ctx, i).(EventTargetMapOutput)
 }
 
+func (i EventTargetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventTarget] {
+	return pulumix.Output[map[string]*EventTarget]{
+		OutputState: i.ToEventTargetMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventTargetOutput struct{ *pulumi.OutputState }
 
 func (EventTargetOutput) ElementType() reflect.Type {
@@ -954,6 +983,12 @@ func (o EventTargetOutput) ToEventTargetOutput() EventTargetOutput {
 
 func (o EventTargetOutput) ToEventTargetOutputWithContext(ctx context.Context) EventTargetOutput {
 	return o
+}
+
+func (o EventTargetOutput) ToOutput(ctx context.Context) pulumix.Output[*EventTarget] {
+	return pulumix.Output[*EventTarget]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the target.
@@ -1034,6 +1069,11 @@ func (o EventTargetOutput) RunCommandTargets() EventTargetRunCommandTargetArrayO
 	return o.ApplyT(func(v *EventTarget) EventTargetRunCommandTargetArrayOutput { return v.RunCommandTargets }).(EventTargetRunCommandTargetArrayOutput)
 }
 
+// Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.
+func (o EventTargetOutput) SagemakerPipelineTarget() EventTargetSagemakerPipelineTargetPtrOutput {
+	return o.ApplyT(func(v *EventTarget) EventTargetSagemakerPipelineTargetPtrOutput { return v.SagemakerPipelineTarget }).(EventTargetSagemakerPipelineTargetPtrOutput)
+}
+
 // Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
 func (o EventTargetOutput) SqsTarget() EventTargetSqsTargetPtrOutput {
 	return o.ApplyT(func(v *EventTarget) EventTargetSqsTargetPtrOutput { return v.SqsTarget }).(EventTargetSqsTargetPtrOutput)
@@ -1058,6 +1098,12 @@ func (o EventTargetArrayOutput) ToEventTargetArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o EventTargetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EventTarget] {
+	return pulumix.Output[[]*EventTarget]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EventTargetArrayOutput) Index(i pulumi.IntInput) EventTargetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EventTarget {
 		return vs[0].([]*EventTarget)[vs[1].(int)]
@@ -1076,6 +1122,12 @@ func (o EventTargetMapOutput) ToEventTargetMapOutput() EventTargetMapOutput {
 
 func (o EventTargetMapOutput) ToEventTargetMapOutputWithContext(ctx context.Context) EventTargetMapOutput {
 	return o
+}
+
+func (o EventTargetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventTarget] {
+	return pulumix.Output[map[string]*EventTarget]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventTargetMapOutput) MapIndex(k pulumi.StringInput) EventTargetOutput {

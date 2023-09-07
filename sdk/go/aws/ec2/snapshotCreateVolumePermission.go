@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Adds permission to create volumes off of a given EBS Snapshot.
@@ -154,6 +155,12 @@ func (i *SnapshotCreateVolumePermission) ToSnapshotCreateVolumePermissionOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotCreateVolumePermissionOutput)
 }
 
+func (i *SnapshotCreateVolumePermission) ToOutput(ctx context.Context) pulumix.Output[*SnapshotCreateVolumePermission] {
+	return pulumix.Output[*SnapshotCreateVolumePermission]{
+		OutputState: i.ToSnapshotCreateVolumePermissionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SnapshotCreateVolumePermissionArrayInput is an input type that accepts SnapshotCreateVolumePermissionArray and SnapshotCreateVolumePermissionArrayOutput values.
 // You can construct a concrete instance of `SnapshotCreateVolumePermissionArrayInput` via:
 //
@@ -177,6 +184,12 @@ func (i SnapshotCreateVolumePermissionArray) ToSnapshotCreateVolumePermissionArr
 
 func (i SnapshotCreateVolumePermissionArray) ToSnapshotCreateVolumePermissionArrayOutputWithContext(ctx context.Context) SnapshotCreateVolumePermissionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotCreateVolumePermissionArrayOutput)
+}
+
+func (i SnapshotCreateVolumePermissionArray) ToOutput(ctx context.Context) pulumix.Output[[]*SnapshotCreateVolumePermission] {
+	return pulumix.Output[[]*SnapshotCreateVolumePermission]{
+		OutputState: i.ToSnapshotCreateVolumePermissionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SnapshotCreateVolumePermissionMapInput is an input type that accepts SnapshotCreateVolumePermissionMap and SnapshotCreateVolumePermissionMapOutput values.
@@ -204,6 +217,12 @@ func (i SnapshotCreateVolumePermissionMap) ToSnapshotCreateVolumePermissionMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotCreateVolumePermissionMapOutput)
 }
 
+func (i SnapshotCreateVolumePermissionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SnapshotCreateVolumePermission] {
+	return pulumix.Output[map[string]*SnapshotCreateVolumePermission]{
+		OutputState: i.ToSnapshotCreateVolumePermissionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SnapshotCreateVolumePermissionOutput struct{ *pulumi.OutputState }
 
 func (SnapshotCreateVolumePermissionOutput) ElementType() reflect.Type {
@@ -216,6 +235,12 @@ func (o SnapshotCreateVolumePermissionOutput) ToSnapshotCreateVolumePermissionOu
 
 func (o SnapshotCreateVolumePermissionOutput) ToSnapshotCreateVolumePermissionOutputWithContext(ctx context.Context) SnapshotCreateVolumePermissionOutput {
 	return o
+}
+
+func (o SnapshotCreateVolumePermissionOutput) ToOutput(ctx context.Context) pulumix.Output[*SnapshotCreateVolumePermission] {
+	return pulumix.Output[*SnapshotCreateVolumePermission]{
+		OutputState: o.OutputState,
+	}
 }
 
 // An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner
@@ -242,6 +267,12 @@ func (o SnapshotCreateVolumePermissionArrayOutput) ToSnapshotCreateVolumePermiss
 	return o
 }
 
+func (o SnapshotCreateVolumePermissionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SnapshotCreateVolumePermission] {
+	return pulumix.Output[[]*SnapshotCreateVolumePermission]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SnapshotCreateVolumePermissionArrayOutput) Index(i pulumi.IntInput) SnapshotCreateVolumePermissionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SnapshotCreateVolumePermission {
 		return vs[0].([]*SnapshotCreateVolumePermission)[vs[1].(int)]
@@ -260,6 +291,12 @@ func (o SnapshotCreateVolumePermissionMapOutput) ToSnapshotCreateVolumePermissio
 
 func (o SnapshotCreateVolumePermissionMapOutput) ToSnapshotCreateVolumePermissionMapOutputWithContext(ctx context.Context) SnapshotCreateVolumePermissionMapOutput {
 	return o
+}
+
+func (o SnapshotCreateVolumePermissionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SnapshotCreateVolumePermission] {
+	return pulumix.Output[map[string]*SnapshotCreateVolumePermission]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SnapshotCreateVolumePermissionMapOutput) MapIndex(k pulumi.StringInput) SnapshotCreateVolumePermissionOutput {

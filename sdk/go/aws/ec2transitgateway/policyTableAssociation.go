@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an EC2 Transit Gateway Policy Table association.
@@ -162,6 +163,12 @@ func (i *PolicyTableAssociation) ToPolicyTableAssociationOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyTableAssociationOutput)
 }
 
+func (i *PolicyTableAssociation) ToOutput(ctx context.Context) pulumix.Output[*PolicyTableAssociation] {
+	return pulumix.Output[*PolicyTableAssociation]{
+		OutputState: i.ToPolicyTableAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PolicyTableAssociationArrayInput is an input type that accepts PolicyTableAssociationArray and PolicyTableAssociationArrayOutput values.
 // You can construct a concrete instance of `PolicyTableAssociationArrayInput` via:
 //
@@ -185,6 +192,12 @@ func (i PolicyTableAssociationArray) ToPolicyTableAssociationArrayOutput() Polic
 
 func (i PolicyTableAssociationArray) ToPolicyTableAssociationArrayOutputWithContext(ctx context.Context) PolicyTableAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyTableAssociationArrayOutput)
+}
+
+func (i PolicyTableAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*PolicyTableAssociation] {
+	return pulumix.Output[[]*PolicyTableAssociation]{
+		OutputState: i.ToPolicyTableAssociationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // PolicyTableAssociationMapInput is an input type that accepts PolicyTableAssociationMap and PolicyTableAssociationMapOutput values.
@@ -212,6 +225,12 @@ func (i PolicyTableAssociationMap) ToPolicyTableAssociationMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyTableAssociationMapOutput)
 }
 
+func (i PolicyTableAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PolicyTableAssociation] {
+	return pulumix.Output[map[string]*PolicyTableAssociation]{
+		OutputState: i.ToPolicyTableAssociationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PolicyTableAssociationOutput struct{ *pulumi.OutputState }
 
 func (PolicyTableAssociationOutput) ElementType() reflect.Type {
@@ -224,6 +243,12 @@ func (o PolicyTableAssociationOutput) ToPolicyTableAssociationOutput() PolicyTab
 
 func (o PolicyTableAssociationOutput) ToPolicyTableAssociationOutputWithContext(ctx context.Context) PolicyTableAssociationOutput {
 	return o
+}
+
+func (o PolicyTableAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyTableAssociation] {
+	return pulumix.Output[*PolicyTableAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Identifier of the resource
@@ -260,6 +285,12 @@ func (o PolicyTableAssociationArrayOutput) ToPolicyTableAssociationArrayOutputWi
 	return o
 }
 
+func (o PolicyTableAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PolicyTableAssociation] {
+	return pulumix.Output[[]*PolicyTableAssociation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PolicyTableAssociationArrayOutput) Index(i pulumi.IntInput) PolicyTableAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PolicyTableAssociation {
 		return vs[0].([]*PolicyTableAssociation)[vs[1].(int)]
@@ -278,6 +309,12 @@ func (o PolicyTableAssociationMapOutput) ToPolicyTableAssociationMapOutput() Pol
 
 func (o PolicyTableAssociationMapOutput) ToPolicyTableAssociationMapOutputWithContext(ctx context.Context) PolicyTableAssociationMapOutput {
 	return o
+}
+
+func (o PolicyTableAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PolicyTableAssociation] {
+	return pulumix.Output[map[string]*PolicyTableAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PolicyTableAssociationMapOutput) MapIndex(k pulumi.StringInput) PolicyTableAssociationOutput {

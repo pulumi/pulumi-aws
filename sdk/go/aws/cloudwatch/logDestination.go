@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a CloudWatch Logs destination resource.
@@ -182,6 +183,12 @@ func (i *LogDestination) ToLogDestinationOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(LogDestinationOutput)
 }
 
+func (i *LogDestination) ToOutput(ctx context.Context) pulumix.Output[*LogDestination] {
+	return pulumix.Output[*LogDestination]{
+		OutputState: i.ToLogDestinationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LogDestinationArrayInput is an input type that accepts LogDestinationArray and LogDestinationArrayOutput values.
 // You can construct a concrete instance of `LogDestinationArrayInput` via:
 //
@@ -205,6 +212,12 @@ func (i LogDestinationArray) ToLogDestinationArrayOutput() LogDestinationArrayOu
 
 func (i LogDestinationArray) ToLogDestinationArrayOutputWithContext(ctx context.Context) LogDestinationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LogDestinationArrayOutput)
+}
+
+func (i LogDestinationArray) ToOutput(ctx context.Context) pulumix.Output[[]*LogDestination] {
+	return pulumix.Output[[]*LogDestination]{
+		OutputState: i.ToLogDestinationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LogDestinationMapInput is an input type that accepts LogDestinationMap and LogDestinationMapOutput values.
@@ -232,6 +245,12 @@ func (i LogDestinationMap) ToLogDestinationMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(LogDestinationMapOutput)
 }
 
+func (i LogDestinationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LogDestination] {
+	return pulumix.Output[map[string]*LogDestination]{
+		OutputState: i.ToLogDestinationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LogDestinationOutput struct{ *pulumi.OutputState }
 
 func (LogDestinationOutput) ElementType() reflect.Type {
@@ -244,6 +263,12 @@ func (o LogDestinationOutput) ToLogDestinationOutput() LogDestinationOutput {
 
 func (o LogDestinationOutput) ToLogDestinationOutputWithContext(ctx context.Context) LogDestinationOutput {
 	return o
+}
+
+func (o LogDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[*LogDestination] {
+	return pulumix.Output[*LogDestination]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) specifying the log destination.
@@ -290,6 +315,12 @@ func (o LogDestinationArrayOutput) ToLogDestinationArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o LogDestinationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LogDestination] {
+	return pulumix.Output[[]*LogDestination]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LogDestinationArrayOutput) Index(i pulumi.IntInput) LogDestinationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LogDestination {
 		return vs[0].([]*LogDestination)[vs[1].(int)]
@@ -308,6 +339,12 @@ func (o LogDestinationMapOutput) ToLogDestinationMapOutput() LogDestinationMapOu
 
 func (o LogDestinationMapOutput) ToLogDestinationMapOutputWithContext(ctx context.Context) LogDestinationMapOutput {
 	return o
+}
+
+func (o LogDestinationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LogDestination] {
+	return pulumix.Output[map[string]*LogDestination]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LogDestinationMapOutput) MapIndex(k pulumi.StringInput) LogDestinationOutput {

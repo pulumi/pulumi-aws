@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an EMR Serverless Application.
@@ -321,6 +322,12 @@ func (i *Application) ToApplicationOutputWithContext(ctx context.Context) Applic
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationOutput)
 }
 
+func (i *Application) ToOutput(ctx context.Context) pulumix.Output[*Application] {
+	return pulumix.Output[*Application]{
+		OutputState: i.ToApplicationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApplicationArrayInput is an input type that accepts ApplicationArray and ApplicationArrayOutput values.
 // You can construct a concrete instance of `ApplicationArrayInput` via:
 //
@@ -344,6 +351,12 @@ func (i ApplicationArray) ToApplicationArrayOutput() ApplicationArrayOutput {
 
 func (i ApplicationArray) ToApplicationArrayOutputWithContext(ctx context.Context) ApplicationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationArrayOutput)
+}
+
+func (i ApplicationArray) ToOutput(ctx context.Context) pulumix.Output[[]*Application] {
+	return pulumix.Output[[]*Application]{
+		OutputState: i.ToApplicationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ApplicationMapInput is an input type that accepts ApplicationMap and ApplicationMapOutput values.
@@ -371,6 +384,12 @@ func (i ApplicationMap) ToApplicationMapOutputWithContext(ctx context.Context) A
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMapOutput)
 }
 
+func (i ApplicationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Application] {
+	return pulumix.Output[map[string]*Application]{
+		OutputState: i.ToApplicationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationOutput struct{ *pulumi.OutputState }
 
 func (ApplicationOutput) ElementType() reflect.Type {
@@ -383,6 +402,12 @@ func (o ApplicationOutput) ToApplicationOutput() ApplicationOutput {
 
 func (o ApplicationOutput) ToApplicationOutputWithContext(ctx context.Context) ApplicationOutput {
 	return o
+}
+
+func (o ApplicationOutput) ToOutput(ctx context.Context) pulumix.Output[*Application] {
+	return pulumix.Output[*Application]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
@@ -464,6 +489,12 @@ func (o ApplicationArrayOutput) ToApplicationArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o ApplicationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Application] {
+	return pulumix.Output[[]*Application]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApplicationArrayOutput) Index(i pulumi.IntInput) ApplicationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Application {
 		return vs[0].([]*Application)[vs[1].(int)]
@@ -482,6 +513,12 @@ func (o ApplicationMapOutput) ToApplicationMapOutput() ApplicationMapOutput {
 
 func (o ApplicationMapOutput) ToApplicationMapOutputWithContext(ctx context.Context) ApplicationMapOutput {
 	return o
+}
+
+func (o ApplicationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Application] {
+	return pulumix.Output[map[string]*Application]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationMapOutput) MapIndex(k pulumi.StringInput) ApplicationOutput {

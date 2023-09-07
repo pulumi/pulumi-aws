@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Route53 Resolver rule association.
@@ -160,6 +161,12 @@ func (i *ResolverRuleAssociation) ToResolverRuleAssociationOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverRuleAssociationOutput)
 }
 
+func (i *ResolverRuleAssociation) ToOutput(ctx context.Context) pulumix.Output[*ResolverRuleAssociation] {
+	return pulumix.Output[*ResolverRuleAssociation]{
+		OutputState: i.ToResolverRuleAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ResolverRuleAssociationArrayInput is an input type that accepts ResolverRuleAssociationArray and ResolverRuleAssociationArrayOutput values.
 // You can construct a concrete instance of `ResolverRuleAssociationArrayInput` via:
 //
@@ -183,6 +190,12 @@ func (i ResolverRuleAssociationArray) ToResolverRuleAssociationArrayOutput() Res
 
 func (i ResolverRuleAssociationArray) ToResolverRuleAssociationArrayOutputWithContext(ctx context.Context) ResolverRuleAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverRuleAssociationArrayOutput)
+}
+
+func (i ResolverRuleAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*ResolverRuleAssociation] {
+	return pulumix.Output[[]*ResolverRuleAssociation]{
+		OutputState: i.ToResolverRuleAssociationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ResolverRuleAssociationMapInput is an input type that accepts ResolverRuleAssociationMap and ResolverRuleAssociationMapOutput values.
@@ -210,6 +223,12 @@ func (i ResolverRuleAssociationMap) ToResolverRuleAssociationMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverRuleAssociationMapOutput)
 }
 
+func (i ResolverRuleAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResolverRuleAssociation] {
+	return pulumix.Output[map[string]*ResolverRuleAssociation]{
+		OutputState: i.ToResolverRuleAssociationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResolverRuleAssociationOutput struct{ *pulumi.OutputState }
 
 func (ResolverRuleAssociationOutput) ElementType() reflect.Type {
@@ -222,6 +241,12 @@ func (o ResolverRuleAssociationOutput) ToResolverRuleAssociationOutput() Resolve
 
 func (o ResolverRuleAssociationOutput) ToResolverRuleAssociationOutputWithContext(ctx context.Context) ResolverRuleAssociationOutput {
 	return o
+}
+
+func (o ResolverRuleAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*ResolverRuleAssociation] {
+	return pulumix.Output[*ResolverRuleAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A name for the association that you're creating between a resolver rule and a VPC.
@@ -253,6 +278,12 @@ func (o ResolverRuleAssociationArrayOutput) ToResolverRuleAssociationArrayOutput
 	return o
 }
 
+func (o ResolverRuleAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ResolverRuleAssociation] {
+	return pulumix.Output[[]*ResolverRuleAssociation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ResolverRuleAssociationArrayOutput) Index(i pulumi.IntInput) ResolverRuleAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ResolverRuleAssociation {
 		return vs[0].([]*ResolverRuleAssociation)[vs[1].(int)]
@@ -271,6 +302,12 @@ func (o ResolverRuleAssociationMapOutput) ToResolverRuleAssociationMapOutput() R
 
 func (o ResolverRuleAssociationMapOutput) ToResolverRuleAssociationMapOutputWithContext(ctx context.Context) ResolverRuleAssociationMapOutput {
 	return o
+}
+
+func (o ResolverRuleAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResolverRuleAssociation] {
+	return pulumix.Output[map[string]*ResolverRuleAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResolverRuleAssociationMapOutput) MapIndex(k pulumi.StringInput) ResolverRuleAssociationOutput {

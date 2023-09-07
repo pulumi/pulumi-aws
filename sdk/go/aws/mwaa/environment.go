@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a MWAA Environment resource.
@@ -538,6 +539,12 @@ func (i *Environment) ToEnvironmentOutputWithContext(ctx context.Context) Enviro
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentOutput)
 }
 
+func (i *Environment) ToOutput(ctx context.Context) pulumix.Output[*Environment] {
+	return pulumix.Output[*Environment]{
+		OutputState: i.ToEnvironmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EnvironmentArrayInput is an input type that accepts EnvironmentArray and EnvironmentArrayOutput values.
 // You can construct a concrete instance of `EnvironmentArrayInput` via:
 //
@@ -561,6 +568,12 @@ func (i EnvironmentArray) ToEnvironmentArrayOutput() EnvironmentArrayOutput {
 
 func (i EnvironmentArray) ToEnvironmentArrayOutputWithContext(ctx context.Context) EnvironmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentArrayOutput)
+}
+
+func (i EnvironmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*Environment] {
+	return pulumix.Output[[]*Environment]{
+		OutputState: i.ToEnvironmentArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // EnvironmentMapInput is an input type that accepts EnvironmentMap and EnvironmentMapOutput values.
@@ -588,6 +601,12 @@ func (i EnvironmentMap) ToEnvironmentMapOutputWithContext(ctx context.Context) E
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentMapOutput)
 }
 
+func (i EnvironmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Environment] {
+	return pulumix.Output[map[string]*Environment]{
+		OutputState: i.ToEnvironmentMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EnvironmentOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentOutput) ElementType() reflect.Type {
@@ -600,6 +619,12 @@ func (o EnvironmentOutput) ToEnvironmentOutput() EnvironmentOutput {
 
 func (o EnvironmentOutput) ToEnvironmentOutputWithContext(ctx context.Context) EnvironmentOutput {
 	return o
+}
+
+func (o EnvironmentOutput) ToOutput(ctx context.Context) pulumix.Output[*Environment] {
+	return pulumix.Output[*Environment]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The `airflowConfigurationOptions` parameter specifies airflow override options. Check the [Official documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html#configuring-env-variables-reference) for all possible configuration options.
@@ -761,6 +786,12 @@ func (o EnvironmentArrayOutput) ToEnvironmentArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o EnvironmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Environment] {
+	return pulumix.Output[[]*Environment]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EnvironmentArrayOutput) Index(i pulumi.IntInput) EnvironmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Environment {
 		return vs[0].([]*Environment)[vs[1].(int)]
@@ -779,6 +810,12 @@ func (o EnvironmentMapOutput) ToEnvironmentMapOutput() EnvironmentMapOutput {
 
 func (o EnvironmentMapOutput) ToEnvironmentMapOutputWithContext(ctx context.Context) EnvironmentMapOutput {
 	return o
+}
+
+func (o EnvironmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Environment] {
+	return pulumix.Output[map[string]*Environment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EnvironmentMapOutput) MapIndex(k pulumi.StringInput) EnvironmentOutput {

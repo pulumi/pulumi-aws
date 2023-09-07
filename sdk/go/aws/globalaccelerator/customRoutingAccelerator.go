@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a Global Accelerator custom routing accelerator.
@@ -221,6 +222,12 @@ func (i *CustomRoutingAccelerator) ToCustomRoutingAcceleratorOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(CustomRoutingAcceleratorOutput)
 }
 
+func (i *CustomRoutingAccelerator) ToOutput(ctx context.Context) pulumix.Output[*CustomRoutingAccelerator] {
+	return pulumix.Output[*CustomRoutingAccelerator]{
+		OutputState: i.ToCustomRoutingAcceleratorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CustomRoutingAcceleratorArrayInput is an input type that accepts CustomRoutingAcceleratorArray and CustomRoutingAcceleratorArrayOutput values.
 // You can construct a concrete instance of `CustomRoutingAcceleratorArrayInput` via:
 //
@@ -244,6 +251,12 @@ func (i CustomRoutingAcceleratorArray) ToCustomRoutingAcceleratorArrayOutput() C
 
 func (i CustomRoutingAcceleratorArray) ToCustomRoutingAcceleratorArrayOutputWithContext(ctx context.Context) CustomRoutingAcceleratorArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CustomRoutingAcceleratorArrayOutput)
+}
+
+func (i CustomRoutingAcceleratorArray) ToOutput(ctx context.Context) pulumix.Output[[]*CustomRoutingAccelerator] {
+	return pulumix.Output[[]*CustomRoutingAccelerator]{
+		OutputState: i.ToCustomRoutingAcceleratorArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // CustomRoutingAcceleratorMapInput is an input type that accepts CustomRoutingAcceleratorMap and CustomRoutingAcceleratorMapOutput values.
@@ -271,6 +284,12 @@ func (i CustomRoutingAcceleratorMap) ToCustomRoutingAcceleratorMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(CustomRoutingAcceleratorMapOutput)
 }
 
+func (i CustomRoutingAcceleratorMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CustomRoutingAccelerator] {
+	return pulumix.Output[map[string]*CustomRoutingAccelerator]{
+		OutputState: i.ToCustomRoutingAcceleratorMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CustomRoutingAcceleratorOutput struct{ *pulumi.OutputState }
 
 func (CustomRoutingAcceleratorOutput) ElementType() reflect.Type {
@@ -283,6 +302,12 @@ func (o CustomRoutingAcceleratorOutput) ToCustomRoutingAcceleratorOutput() Custo
 
 func (o CustomRoutingAcceleratorOutput) ToCustomRoutingAcceleratorOutputWithContext(ctx context.Context) CustomRoutingAcceleratorOutput {
 	return o
+}
+
+func (o CustomRoutingAcceleratorOutput) ToOutput(ctx context.Context) pulumix.Output[*CustomRoutingAccelerator] {
+	return pulumix.Output[*CustomRoutingAccelerator]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The attributes of the accelerator. Fields documented below.
@@ -351,6 +376,12 @@ func (o CustomRoutingAcceleratorArrayOutput) ToCustomRoutingAcceleratorArrayOutp
 	return o
 }
 
+func (o CustomRoutingAcceleratorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CustomRoutingAccelerator] {
+	return pulumix.Output[[]*CustomRoutingAccelerator]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CustomRoutingAcceleratorArrayOutput) Index(i pulumi.IntInput) CustomRoutingAcceleratorOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CustomRoutingAccelerator {
 		return vs[0].([]*CustomRoutingAccelerator)[vs[1].(int)]
@@ -369,6 +400,12 @@ func (o CustomRoutingAcceleratorMapOutput) ToCustomRoutingAcceleratorMapOutput()
 
 func (o CustomRoutingAcceleratorMapOutput) ToCustomRoutingAcceleratorMapOutputWithContext(ctx context.Context) CustomRoutingAcceleratorMapOutput {
 	return o
+}
+
+func (o CustomRoutingAcceleratorMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CustomRoutingAccelerator] {
+	return pulumix.Output[map[string]*CustomRoutingAccelerator]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CustomRoutingAcceleratorMapOutput) MapIndex(k pulumi.StringInput) CustomRoutingAcceleratorOutput {

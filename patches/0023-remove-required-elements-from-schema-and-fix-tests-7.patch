@@ -1,4 +1,4 @@
-From 84ba31c9061ba6c7c03d0ddd1e59530d8938f174 Mon Sep 17 00:00:00 2001
+From 6760db13ebcdb0f8516e1a20f08027feb09a47fc Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel.dbphoto@gmail.com>
 Date: Tue, 28 Mar 2023 19:54:00 +0100
 Subject: [PATCH 23/29] remove required elements from schema and fix tests
@@ -286,5 +286,5 @@ index 8788ef5b45..0d6b961c5b 100644
  		name := rs.Primary.Attributes["name"]
  		out, err := conn.DescribeMatchmakingRuleSets(&gamelift.DescribeMatchmakingRuleSetsInput{
 -- 
-2.40.0
+2.41.0
 

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `wafregional.RateBasedRule` Retrieves a WAF Regional Rate Based Rule Resource Id.
@@ -97,6 +98,12 @@ func (o GetRateBasedModResultOutput) ToGetRateBasedModResultOutput() GetRateBase
 
 func (o GetRateBasedModResultOutput) ToGetRateBasedModResultOutputWithContext(ctx context.Context) GetRateBasedModResultOutput {
 	return o
+}
+
+func (o GetRateBasedModResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetRateBasedModResult] {
+	return pulumix.Output[GetRateBasedModResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The provider-assigned unique ID for this managed resource.

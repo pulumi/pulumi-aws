@@ -84,6 +84,7 @@ const (
 	cloudwatchMod               = "CloudWatch"               // Cloud Watch
 	codeartifactMod             = "CodeArtifact"             // CodeArtifact
 	codebuildMod                = "CodeBuild"                // Code Build
+	codecatalystMod             = "CodeCatalyst"             // Code Catalyst
 	codecommitMod               = "CodeCommit"               // Code Commit
 	codedeployMod               = "CodeDeploy"               // Code Deploy
 	codeguruReviewerMod         = "CodeGuruReviewer"         // CodeGuru Reviewer
@@ -285,6 +286,7 @@ var moduleMap = map[string]string{
 	"cloudwatch":                      cloudwatchMod,
 	"codeartifact":                    codeartifactMod,
 	"codebuild":                       codebuildMod,
+	"codecatalyst":                    codecatalystMod,
 	"codecommit":                      codecommitMod,
 	"codedeploy":                      codedeployMod,
 	"codegurureviewer":                codeguruReviewerMod,

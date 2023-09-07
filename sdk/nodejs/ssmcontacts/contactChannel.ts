@@ -97,7 +97,7 @@ export class ContactChannel extends pulumi.CustomResource {
      */
     public readonly deliveryAddress!: pulumi.Output<outputs.ssmcontacts.ContactChannelDeliveryAddress>;
     /**
-     * Name of the contact channel.
+     * Name of the contact channel. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -168,7 +168,7 @@ export interface ContactChannelState {
      */
     deliveryAddress?: pulumi.Input<inputs.ssmcontacts.ContactChannelDeliveryAddress>;
     /**
-     * Name of the contact channel.
+     * Name of the contact channel. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
      */
     name?: pulumi.Input<string>;
     /**
@@ -190,7 +190,7 @@ export interface ContactChannelArgs {
      */
     deliveryAddress: pulumi.Input<inputs.ssmcontacts.ContactChannelDeliveryAddress>;
     /**
-     * Name of the contact channel.
+     * Name of the contact channel. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
      */
     name?: pulumi.Input<string>;
     /**

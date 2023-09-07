@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The S3 object data source allows access to the metadata and
@@ -216,6 +217,12 @@ func (o GetObjectResultOutput) ToGetObjectResultOutput() GetObjectResultOutput {
 
 func (o GetObjectResultOutput) ToGetObjectResultOutputWithContext(ctx context.Context) GetObjectResultOutput {
 	return o
+}
+
+func (o GetObjectResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetObjectResult] {
+	return pulumix.Output[GetObjectResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Object data (see **limitations above** to understand cases in which this field is actually available)

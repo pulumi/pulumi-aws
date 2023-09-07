@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an AWS Storage Gateway Tape Pool.
@@ -192,6 +193,12 @@ func (i *TapePool) ToTapePoolOutputWithContext(ctx context.Context) TapePoolOutp
 	return pulumi.ToOutputWithContext(ctx, i).(TapePoolOutput)
 }
 
+func (i *TapePool) ToOutput(ctx context.Context) pulumix.Output[*TapePool] {
+	return pulumix.Output[*TapePool]{
+		OutputState: i.ToTapePoolOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TapePoolArrayInput is an input type that accepts TapePoolArray and TapePoolArrayOutput values.
 // You can construct a concrete instance of `TapePoolArrayInput` via:
 //
@@ -215,6 +222,12 @@ func (i TapePoolArray) ToTapePoolArrayOutput() TapePoolArrayOutput {
 
 func (i TapePoolArray) ToTapePoolArrayOutputWithContext(ctx context.Context) TapePoolArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TapePoolArrayOutput)
+}
+
+func (i TapePoolArray) ToOutput(ctx context.Context) pulumix.Output[[]*TapePool] {
+	return pulumix.Output[[]*TapePool]{
+		OutputState: i.ToTapePoolArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // TapePoolMapInput is an input type that accepts TapePoolMap and TapePoolMapOutput values.
@@ -242,6 +255,12 @@ func (i TapePoolMap) ToTapePoolMapOutputWithContext(ctx context.Context) TapePoo
 	return pulumi.ToOutputWithContext(ctx, i).(TapePoolMapOutput)
 }
 
+func (i TapePoolMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TapePool] {
+	return pulumix.Output[map[string]*TapePool]{
+		OutputState: i.ToTapePoolMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TapePoolOutput struct{ *pulumi.OutputState }
 
 func (TapePoolOutput) ElementType() reflect.Type {
@@ -254,6 +273,12 @@ func (o TapePoolOutput) ToTapePoolOutput() TapePoolOutput {
 
 func (o TapePoolOutput) ToTapePoolOutputWithContext(ctx context.Context) TapePoolOutput {
 	return o
+}
+
+func (o TapePoolOutput) ToOutput(ctx context.Context) pulumix.Output[*TapePool] {
+	return pulumix.Output[*TapePool]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Volume Amazon Resource Name (ARN), e.g., `aws_storagegateway_tape_pool.example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678`.
@@ -305,6 +330,12 @@ func (o TapePoolArrayOutput) ToTapePoolArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o TapePoolArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TapePool] {
+	return pulumix.Output[[]*TapePool]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TapePoolArrayOutput) Index(i pulumi.IntInput) TapePoolOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TapePool {
 		return vs[0].([]*TapePool)[vs[1].(int)]
@@ -323,6 +354,12 @@ func (o TapePoolMapOutput) ToTapePoolMapOutput() TapePoolMapOutput {
 
 func (o TapePoolMapOutput) ToTapePoolMapOutputWithContext(ctx context.Context) TapePoolMapOutput {
 	return o
+}
+
+func (o TapePoolMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TapePool] {
+	return pulumix.Output[map[string]*TapePool]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TapePoolMapOutput) MapIndex(k pulumi.StringInput) TapePoolOutput {

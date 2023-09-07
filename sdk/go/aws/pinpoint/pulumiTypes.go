@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -54,6 +55,12 @@ func (i AppCampaignHookArgs) ToAppCampaignHookOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(AppCampaignHookOutput)
 }
 
+func (i AppCampaignHookArgs) ToOutput(ctx context.Context) pulumix.Output[AppCampaignHook] {
+	return pulumix.Output[AppCampaignHook]{
+		OutputState: i.ToAppCampaignHookOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AppCampaignHookArgs) ToAppCampaignHookPtrOutput() AppCampaignHookPtrOutput {
 	return i.ToAppCampaignHookPtrOutputWithContext(context.Background())
 }
@@ -95,6 +102,12 @@ func (i *appCampaignHookPtrType) ToAppCampaignHookPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(AppCampaignHookPtrOutput)
 }
 
+func (i *appCampaignHookPtrType) ToOutput(ctx context.Context) pulumix.Output[*AppCampaignHook] {
+	return pulumix.Output[*AppCampaignHook]{
+		OutputState: i.ToAppCampaignHookPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AppCampaignHookOutput struct{ *pulumi.OutputState }
 
 func (AppCampaignHookOutput) ElementType() reflect.Type {
@@ -117,6 +130,12 @@ func (o AppCampaignHookOutput) ToAppCampaignHookPtrOutputWithContext(ctx context
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppCampaignHook) *AppCampaignHook {
 		return &v
 	}).(AppCampaignHookPtrOutput)
+}
+
+func (o AppCampaignHookOutput) ToOutput(ctx context.Context) pulumix.Output[AppCampaignHook] {
+	return pulumix.Output[AppCampaignHook]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Lambda function name or ARN to be called for delivery. Conflicts with `webUrl`
@@ -146,6 +165,12 @@ func (o AppCampaignHookPtrOutput) ToAppCampaignHookPtrOutput() AppCampaignHookPt
 
 func (o AppCampaignHookPtrOutput) ToAppCampaignHookPtrOutputWithContext(ctx context.Context) AppCampaignHookPtrOutput {
 	return o
+}
+
+func (o AppCampaignHookPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AppCampaignHook] {
+	return pulumix.Output[*AppCampaignHook]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AppCampaignHookPtrOutput) Elem() AppCampaignHookOutput {
@@ -233,6 +258,12 @@ func (i AppLimitsArgs) ToAppLimitsOutputWithContext(ctx context.Context) AppLimi
 	return pulumi.ToOutputWithContext(ctx, i).(AppLimitsOutput)
 }
 
+func (i AppLimitsArgs) ToOutput(ctx context.Context) pulumix.Output[AppLimits] {
+	return pulumix.Output[AppLimits]{
+		OutputState: i.ToAppLimitsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AppLimitsArgs) ToAppLimitsPtrOutput() AppLimitsPtrOutput {
 	return i.ToAppLimitsPtrOutputWithContext(context.Background())
 }
@@ -274,6 +305,12 @@ func (i *appLimitsPtrType) ToAppLimitsPtrOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(AppLimitsPtrOutput)
 }
 
+func (i *appLimitsPtrType) ToOutput(ctx context.Context) pulumix.Output[*AppLimits] {
+	return pulumix.Output[*AppLimits]{
+		OutputState: i.ToAppLimitsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AppLimitsOutput struct{ *pulumi.OutputState }
 
 func (AppLimitsOutput) ElementType() reflect.Type {
@@ -296,6 +333,12 @@ func (o AppLimitsOutput) ToAppLimitsPtrOutputWithContext(ctx context.Context) Ap
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppLimits) *AppLimits {
 		return &v
 	}).(AppLimitsPtrOutput)
+}
+
+func (o AppLimitsOutput) ToOutput(ctx context.Context) pulumix.Output[AppLimits] {
+	return pulumix.Output[AppLimits]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The maximum number of messages that the campaign can send daily.
@@ -330,6 +373,12 @@ func (o AppLimitsPtrOutput) ToAppLimitsPtrOutput() AppLimitsPtrOutput {
 
 func (o AppLimitsPtrOutput) ToAppLimitsPtrOutputWithContext(ctx context.Context) AppLimitsPtrOutput {
 	return o
+}
+
+func (o AppLimitsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AppLimits] {
+	return pulumix.Output[*AppLimits]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AppLimitsPtrOutput) Elem() AppLimitsOutput {
@@ -419,6 +468,12 @@ func (i AppQuietTimeArgs) ToAppQuietTimeOutputWithContext(ctx context.Context) A
 	return pulumi.ToOutputWithContext(ctx, i).(AppQuietTimeOutput)
 }
 
+func (i AppQuietTimeArgs) ToOutput(ctx context.Context) pulumix.Output[AppQuietTime] {
+	return pulumix.Output[AppQuietTime]{
+		OutputState: i.ToAppQuietTimeOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AppQuietTimeArgs) ToAppQuietTimePtrOutput() AppQuietTimePtrOutput {
 	return i.ToAppQuietTimePtrOutputWithContext(context.Background())
 }
@@ -460,6 +515,12 @@ func (i *appQuietTimePtrType) ToAppQuietTimePtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(AppQuietTimePtrOutput)
 }
 
+func (i *appQuietTimePtrType) ToOutput(ctx context.Context) pulumix.Output[*AppQuietTime] {
+	return pulumix.Output[*AppQuietTime]{
+		OutputState: i.ToAppQuietTimePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AppQuietTimeOutput struct{ *pulumi.OutputState }
 
 func (AppQuietTimeOutput) ElementType() reflect.Type {
@@ -484,6 +545,12 @@ func (o AppQuietTimeOutput) ToAppQuietTimePtrOutputWithContext(ctx context.Conte
 	}).(AppQuietTimePtrOutput)
 }
 
+func (o AppQuietTimeOutput) ToOutput(ctx context.Context) pulumix.Output[AppQuietTime] {
+	return pulumix.Output[AppQuietTime]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The default end time for quiet time in ISO 8601 format. Required if `start` is set
 func (o AppQuietTimeOutput) End() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppQuietTime) *string { return v.End }).(pulumi.StringPtrOutput)
@@ -506,6 +573,12 @@ func (o AppQuietTimePtrOutput) ToAppQuietTimePtrOutput() AppQuietTimePtrOutput {
 
 func (o AppQuietTimePtrOutput) ToAppQuietTimePtrOutputWithContext(ctx context.Context) AppQuietTimePtrOutput {
 	return o
+}
+
+func (o AppQuietTimePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AppQuietTime] {
+	return pulumix.Output[*AppQuietTime]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AppQuietTimePtrOutput) Elem() AppQuietTimeOutput {

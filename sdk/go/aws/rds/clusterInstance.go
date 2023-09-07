@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an RDS Cluster Instance Resource. A Cluster Instance Resource defines
@@ -107,6 +108,8 @@ type ClusterInstance struct {
 	ClusterIdentifier pulumi.StringOutput `pulumi:"clusterIdentifier"`
 	// Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
 	CopyTagsToSnapshot pulumi.BoolPtrOutput `pulumi:"copyTagsToSnapshot"`
+	// Instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
+	CustomIamInstanceProfile pulumi.StringPtrOutput `pulumi:"customIamInstanceProfile"`
 	// Name of the DB parameter group to associate with this instance.
 	DbParameterGroupName pulumi.StringOutput `pulumi:"dbParameterGroupName"`
 	// DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` of the attached `rds.Cluster`.
@@ -214,6 +217,8 @@ type clusterInstanceState struct {
 	ClusterIdentifier *string `pulumi:"clusterIdentifier"`
 	// Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
 	CopyTagsToSnapshot *bool `pulumi:"copyTagsToSnapshot"`
+	// Instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
+	CustomIamInstanceProfile *string `pulumi:"customIamInstanceProfile"`
 	// Name of the DB parameter group to associate with this instance.
 	DbParameterGroupName *string `pulumi:"dbParameterGroupName"`
 	// DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` of the attached `rds.Cluster`.
@@ -283,6 +288,8 @@ type ClusterInstanceState struct {
 	ClusterIdentifier pulumi.StringPtrInput
 	// Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
 	CopyTagsToSnapshot pulumi.BoolPtrInput
+	// Instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
+	CustomIamInstanceProfile pulumi.StringPtrInput
 	// Name of the DB parameter group to associate with this instance.
 	DbParameterGroupName pulumi.StringPtrInput
 	// DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` of the attached `rds.Cluster`.
@@ -354,6 +361,8 @@ type clusterInstanceArgs struct {
 	ClusterIdentifier string `pulumi:"clusterIdentifier"`
 	// Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
 	CopyTagsToSnapshot *bool `pulumi:"copyTagsToSnapshot"`
+	// Instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
+	CustomIamInstanceProfile *string `pulumi:"customIamInstanceProfile"`
 	// Name of the DB parameter group to associate with this instance.
 	DbParameterGroupName *string `pulumi:"dbParameterGroupName"`
 	// DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` of the attached `rds.Cluster`.
@@ -404,6 +413,8 @@ type ClusterInstanceArgs struct {
 	ClusterIdentifier pulumi.StringInput
 	// Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
 	CopyTagsToSnapshot pulumi.BoolPtrInput
+	// Instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
+	CustomIamInstanceProfile pulumi.StringPtrInput
 	// Name of the DB parameter group to associate with this instance.
 	DbParameterGroupName pulumi.StringPtrInput
 	// DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` of the attached `rds.Cluster`.
@@ -463,6 +474,12 @@ func (i *ClusterInstance) ToClusterInstanceOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterInstanceOutput)
 }
 
+func (i *ClusterInstance) ToOutput(ctx context.Context) pulumix.Output[*ClusterInstance] {
+	return pulumix.Output[*ClusterInstance]{
+		OutputState: i.ToClusterInstanceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ClusterInstanceArrayInput is an input type that accepts ClusterInstanceArray and ClusterInstanceArrayOutput values.
 // You can construct a concrete instance of `ClusterInstanceArrayInput` via:
 //
@@ -486,6 +503,12 @@ func (i ClusterInstanceArray) ToClusterInstanceArrayOutput() ClusterInstanceArra
 
 func (i ClusterInstanceArray) ToClusterInstanceArrayOutputWithContext(ctx context.Context) ClusterInstanceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterInstanceArrayOutput)
+}
+
+func (i ClusterInstanceArray) ToOutput(ctx context.Context) pulumix.Output[[]*ClusterInstance] {
+	return pulumix.Output[[]*ClusterInstance]{
+		OutputState: i.ToClusterInstanceArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ClusterInstanceMapInput is an input type that accepts ClusterInstanceMap and ClusterInstanceMapOutput values.
@@ -513,6 +536,12 @@ func (i ClusterInstanceMap) ToClusterInstanceMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterInstanceMapOutput)
 }
 
+func (i ClusterInstanceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ClusterInstance] {
+	return pulumix.Output[map[string]*ClusterInstance]{
+		OutputState: i.ToClusterInstanceMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterInstanceOutput struct{ *pulumi.OutputState }
 
 func (ClusterInstanceOutput) ElementType() reflect.Type {
@@ -525,6 +554,12 @@ func (o ClusterInstanceOutput) ToClusterInstanceOutput() ClusterInstanceOutput {
 
 func (o ClusterInstanceOutput) ToClusterInstanceOutputWithContext(ctx context.Context) ClusterInstanceOutput {
 	return o
+}
+
+func (o ClusterInstanceOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterInstance] {
+	return pulumix.Output[*ClusterInstance]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies whether any database modifications are applied immediately, or during the next maintenance window. Default is`false`.
@@ -560,6 +595,11 @@ func (o ClusterInstanceOutput) ClusterIdentifier() pulumi.StringOutput {
 // Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
 func (o ClusterInstanceOutput) CopyTagsToSnapshot() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterInstance) pulumi.BoolPtrOutput { return v.CopyTagsToSnapshot }).(pulumi.BoolPtrOutput)
+}
+
+// Instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
+func (o ClusterInstanceOutput) CustomIamInstanceProfile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterInstance) pulumi.StringPtrOutput { return v.CustomIamInstanceProfile }).(pulumi.StringPtrOutput)
 }
 
 // Name of the DB parameter group to associate with this instance.
@@ -706,6 +746,12 @@ func (o ClusterInstanceArrayOutput) ToClusterInstanceArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o ClusterInstanceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ClusterInstance] {
+	return pulumix.Output[[]*ClusterInstance]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ClusterInstanceArrayOutput) Index(i pulumi.IntInput) ClusterInstanceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ClusterInstance {
 		return vs[0].([]*ClusterInstance)[vs[1].(int)]
@@ -724,6 +770,12 @@ func (o ClusterInstanceMapOutput) ToClusterInstanceMapOutput() ClusterInstanceMa
 
 func (o ClusterInstanceMapOutput) ToClusterInstanceMapOutputWithContext(ctx context.Context) ClusterInstanceMapOutput {
 	return o
+}
+
+func (o ClusterInstanceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ClusterInstance] {
+	return pulumix.Output[map[string]*ClusterInstance]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterInstanceMapOutput) MapIndex(k pulumi.StringInput) ClusterInstanceOutput {

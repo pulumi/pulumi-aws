@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an AWS Backup vault notifications resource.
@@ -211,6 +212,12 @@ func (i *VaultNotifications) ToVaultNotificationsOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(VaultNotificationsOutput)
 }
 
+func (i *VaultNotifications) ToOutput(ctx context.Context) pulumix.Output[*VaultNotifications] {
+	return pulumix.Output[*VaultNotifications]{
+		OutputState: i.ToVaultNotificationsOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VaultNotificationsArrayInput is an input type that accepts VaultNotificationsArray and VaultNotificationsArrayOutput values.
 // You can construct a concrete instance of `VaultNotificationsArrayInput` via:
 //
@@ -234,6 +241,12 @@ func (i VaultNotificationsArray) ToVaultNotificationsArrayOutput() VaultNotifica
 
 func (i VaultNotificationsArray) ToVaultNotificationsArrayOutputWithContext(ctx context.Context) VaultNotificationsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VaultNotificationsArrayOutput)
+}
+
+func (i VaultNotificationsArray) ToOutput(ctx context.Context) pulumix.Output[[]*VaultNotifications] {
+	return pulumix.Output[[]*VaultNotifications]{
+		OutputState: i.ToVaultNotificationsArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VaultNotificationsMapInput is an input type that accepts VaultNotificationsMap and VaultNotificationsMapOutput values.
@@ -261,6 +274,12 @@ func (i VaultNotificationsMap) ToVaultNotificationsMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(VaultNotificationsMapOutput)
 }
 
+func (i VaultNotificationsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VaultNotifications] {
+	return pulumix.Output[map[string]*VaultNotifications]{
+		OutputState: i.ToVaultNotificationsMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VaultNotificationsOutput struct{ *pulumi.OutputState }
 
 func (VaultNotificationsOutput) ElementType() reflect.Type {
@@ -273,6 +292,12 @@ func (o VaultNotificationsOutput) ToVaultNotificationsOutput() VaultNotification
 
 func (o VaultNotificationsOutput) ToVaultNotificationsOutputWithContext(ctx context.Context) VaultNotificationsOutput {
 	return o
+}
+
+func (o VaultNotificationsOutput) ToOutput(ctx context.Context) pulumix.Output[*VaultNotifications] {
+	return pulumix.Output[*VaultNotifications]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the vault.
@@ -309,6 +334,12 @@ func (o VaultNotificationsArrayOutput) ToVaultNotificationsArrayOutputWithContex
 	return o
 }
 
+func (o VaultNotificationsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VaultNotifications] {
+	return pulumix.Output[[]*VaultNotifications]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VaultNotificationsArrayOutput) Index(i pulumi.IntInput) VaultNotificationsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VaultNotifications {
 		return vs[0].([]*VaultNotifications)[vs[1].(int)]
@@ -327,6 +358,12 @@ func (o VaultNotificationsMapOutput) ToVaultNotificationsMapOutput() VaultNotifi
 
 func (o VaultNotificationsMapOutput) ToVaultNotificationsMapOutputWithContext(ctx context.Context) VaultNotificationsMapOutput {
 	return o
+}
+
+func (o VaultNotificationsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VaultNotifications] {
+	return pulumix.Output[map[string]*VaultNotifications]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VaultNotificationsMapOutput) MapIndex(k pulumi.StringInput) VaultNotificationsOutput {

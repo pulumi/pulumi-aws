@@ -140,6 +140,10 @@ export class DataLakeSettings extends pulumi.CustomResource {
      */
     public readonly externalDataFilteringAllowLists!: pulumi.Output<string[]>;
     /**
+     * Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
+     */
+    public readonly readOnlyAdmins!: pulumi.Output<string[]>;
+    /**
      * List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
      */
     public readonly trustedResourceOwners!: pulumi.Output<string[]>;
@@ -164,6 +168,7 @@ export class DataLakeSettings extends pulumi.CustomResource {
             resourceInputs["createDatabaseDefaultPermissions"] = state ? state.createDatabaseDefaultPermissions : undefined;
             resourceInputs["createTableDefaultPermissions"] = state ? state.createTableDefaultPermissions : undefined;
             resourceInputs["externalDataFilteringAllowLists"] = state ? state.externalDataFilteringAllowLists : undefined;
+            resourceInputs["readOnlyAdmins"] = state ? state.readOnlyAdmins : undefined;
             resourceInputs["trustedResourceOwners"] = state ? state.trustedResourceOwners : undefined;
         } else {
             const args = argsOrState as DataLakeSettingsArgs | undefined;
@@ -174,6 +179,7 @@ export class DataLakeSettings extends pulumi.CustomResource {
             resourceInputs["createDatabaseDefaultPermissions"] = args ? args.createDatabaseDefaultPermissions : undefined;
             resourceInputs["createTableDefaultPermissions"] = args ? args.createTableDefaultPermissions : undefined;
             resourceInputs["externalDataFilteringAllowLists"] = args ? args.externalDataFilteringAllowLists : undefined;
+            resourceInputs["readOnlyAdmins"] = args ? args.readOnlyAdmins : undefined;
             resourceInputs["trustedResourceOwners"] = args ? args.trustedResourceOwners : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -216,6 +222,10 @@ export interface DataLakeSettingsState {
      */
     externalDataFilteringAllowLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
+     */
+    readOnlyAdmins?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
      */
     trustedResourceOwners?: pulumi.Input<pulumi.Input<string>[]>;
@@ -255,6 +265,10 @@ export interface DataLakeSettingsArgs {
      * A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
      */
     externalDataFilteringAllowLists?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
+     */
+    readOnlyAdmins?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
      */

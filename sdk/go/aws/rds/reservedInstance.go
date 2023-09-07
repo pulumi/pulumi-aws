@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an RDS DB Reserved Instance.
@@ -276,6 +277,12 @@ func (i *ReservedInstance) ToReservedInstanceOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ReservedInstanceOutput)
 }
 
+func (i *ReservedInstance) ToOutput(ctx context.Context) pulumix.Output[*ReservedInstance] {
+	return pulumix.Output[*ReservedInstance]{
+		OutputState: i.ToReservedInstanceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ReservedInstanceArrayInput is an input type that accepts ReservedInstanceArray and ReservedInstanceArrayOutput values.
 // You can construct a concrete instance of `ReservedInstanceArrayInput` via:
 //
@@ -299,6 +306,12 @@ func (i ReservedInstanceArray) ToReservedInstanceArrayOutput() ReservedInstanceA
 
 func (i ReservedInstanceArray) ToReservedInstanceArrayOutputWithContext(ctx context.Context) ReservedInstanceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ReservedInstanceArrayOutput)
+}
+
+func (i ReservedInstanceArray) ToOutput(ctx context.Context) pulumix.Output[[]*ReservedInstance] {
+	return pulumix.Output[[]*ReservedInstance]{
+		OutputState: i.ToReservedInstanceArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ReservedInstanceMapInput is an input type that accepts ReservedInstanceMap and ReservedInstanceMapOutput values.
@@ -326,6 +339,12 @@ func (i ReservedInstanceMap) ToReservedInstanceMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ReservedInstanceMapOutput)
 }
 
+func (i ReservedInstanceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ReservedInstance] {
+	return pulumix.Output[map[string]*ReservedInstance]{
+		OutputState: i.ToReservedInstanceMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ReservedInstanceOutput struct{ *pulumi.OutputState }
 
 func (ReservedInstanceOutput) ElementType() reflect.Type {
@@ -338,6 +357,12 @@ func (o ReservedInstanceOutput) ToReservedInstanceOutput() ReservedInstanceOutpu
 
 func (o ReservedInstanceOutput) ToReservedInstanceOutputWithContext(ctx context.Context) ReservedInstanceOutput {
 	return o
+}
+
+func (o ReservedInstanceOutput) ToOutput(ctx context.Context) pulumix.Output[*ReservedInstance] {
+	return pulumix.Output[*ReservedInstance]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN for the reserved DB instance.
@@ -446,6 +471,12 @@ func (o ReservedInstanceArrayOutput) ToReservedInstanceArrayOutputWithContext(ct
 	return o
 }
 
+func (o ReservedInstanceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ReservedInstance] {
+	return pulumix.Output[[]*ReservedInstance]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ReservedInstanceArrayOutput) Index(i pulumi.IntInput) ReservedInstanceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ReservedInstance {
 		return vs[0].([]*ReservedInstance)[vs[1].(int)]
@@ -464,6 +495,12 @@ func (o ReservedInstanceMapOutput) ToReservedInstanceMapOutput() ReservedInstanc
 
 func (o ReservedInstanceMapOutput) ToReservedInstanceMapOutputWithContext(ctx context.Context) ReservedInstanceMapOutput {
 	return o
+}
+
+func (o ReservedInstanceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ReservedInstance] {
+	return pulumix.Output[map[string]*ReservedInstance]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ReservedInstanceMapOutput) MapIndex(k pulumi.StringInput) ReservedInstanceOutput {

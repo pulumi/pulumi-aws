@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS FinSpace Kx Environment.
@@ -48,7 +49,7 @@ import (
 //	}
 //
 // ```
-// ### With Network Setup
+// ### With Transit Gateway Configuration
 //
 // ```go
 // package main
@@ -83,6 +84,73 @@ import (
 //				TransitGatewayConfiguration: &finspace.KxEnvironmentTransitGatewayConfigurationArgs{
 //					TransitGatewayId:  exampleTransitGateway.ID(),
 //					RoutableCidrSpace: pulumi.String("100.64.0.0/26"),
+//				},
+//				CustomDnsConfigurations: finspace.KxEnvironmentCustomDnsConfigurationArray{
+//					&finspace.KxEnvironmentCustomDnsConfigurationArgs{
+//						CustomDnsServerName: pulumi.String("example.finspace.amazonaws.com"),
+//						CustomDnsServerIp:   pulumi.String("10.0.0.76"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### With Transit Gateway Attachment Network ACL Configuration
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/finspace"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleKey, err := kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
+//				Description:          pulumi.String("Sample KMS Key"),
+//				DeletionWindowInDays: pulumi.Int(7),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleTransitGateway, err := ec2transitgateway.NewTransitGateway(ctx, "exampleTransitGateway", &ec2transitgateway.TransitGatewayArgs{
+//				Description: pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = finspace.NewKxEnvironment(ctx, "exampleEnv", &finspace.KxEnvironmentArgs{
+//				Description: pulumi.String("Environment description"),
+//				KmsKeyId:    exampleKey.Arn,
+//				TransitGatewayConfiguration: &finspace.KxEnvironmentTransitGatewayConfigurationArgs{
+//					TransitGatewayId:  exampleTransitGateway.ID(),
+//					RoutableCidrSpace: pulumi.String("100.64.0.0/26"),
+//					AttachmentNetworkAclConfigurations: finspace.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArray{
+//						&finspace.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs{
+//							RuleNumber: pulumi.Int(1),
+//							Protocol:   pulumi.String("6"),
+//							RuleAction: pulumi.String("allow"),
+//							CidrBlock:  pulumi.String("0.0.0.0/0"),
+//							PortRange: &finspace.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeArgs{
+//								From: pulumi.Int(53),
+//								To:   pulumi.Int(53),
+//							},
+//							IcmpTypeCode: &finspace.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArgs{
+//								Type: -1,
+//								Code: -1,
+//							},
+//						},
+//					},
 //				},
 //				CustomDnsConfigurations: finspace.KxEnvironmentCustomDnsConfigurationArray{
 //					&finspace.KxEnvironmentCustomDnsConfigurationArgs{
@@ -298,6 +366,12 @@ func (i *KxEnvironment) ToKxEnvironmentOutputWithContext(ctx context.Context) Kx
 	return pulumi.ToOutputWithContext(ctx, i).(KxEnvironmentOutput)
 }
 
+func (i *KxEnvironment) ToOutput(ctx context.Context) pulumix.Output[*KxEnvironment] {
+	return pulumix.Output[*KxEnvironment]{
+		OutputState: i.ToKxEnvironmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 // KxEnvironmentArrayInput is an input type that accepts KxEnvironmentArray and KxEnvironmentArrayOutput values.
 // You can construct a concrete instance of `KxEnvironmentArrayInput` via:
 //
@@ -321,6 +395,12 @@ func (i KxEnvironmentArray) ToKxEnvironmentArrayOutput() KxEnvironmentArrayOutpu
 
 func (i KxEnvironmentArray) ToKxEnvironmentArrayOutputWithContext(ctx context.Context) KxEnvironmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(KxEnvironmentArrayOutput)
+}
+
+func (i KxEnvironmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*KxEnvironment] {
+	return pulumix.Output[[]*KxEnvironment]{
+		OutputState: i.ToKxEnvironmentArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // KxEnvironmentMapInput is an input type that accepts KxEnvironmentMap and KxEnvironmentMapOutput values.
@@ -348,6 +428,12 @@ func (i KxEnvironmentMap) ToKxEnvironmentMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(KxEnvironmentMapOutput)
 }
 
+func (i KxEnvironmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*KxEnvironment] {
+	return pulumix.Output[map[string]*KxEnvironment]{
+		OutputState: i.ToKxEnvironmentMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KxEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (KxEnvironmentOutput) ElementType() reflect.Type {
@@ -360,6 +446,12 @@ func (o KxEnvironmentOutput) ToKxEnvironmentOutput() KxEnvironmentOutput {
 
 func (o KxEnvironmentOutput) ToKxEnvironmentOutputWithContext(ctx context.Context) KxEnvironmentOutput {
 	return o
+}
+
+func (o KxEnvironmentOutput) ToOutput(ctx context.Context) pulumix.Output[*KxEnvironment] {
+	return pulumix.Output[*KxEnvironment]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name (ARN) identifier of the KX environment.
@@ -447,6 +539,12 @@ func (o KxEnvironmentArrayOutput) ToKxEnvironmentArrayOutputWithContext(ctx cont
 	return o
 }
 
+func (o KxEnvironmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*KxEnvironment] {
+	return pulumix.Output[[]*KxEnvironment]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o KxEnvironmentArrayOutput) Index(i pulumi.IntInput) KxEnvironmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *KxEnvironment {
 		return vs[0].([]*KxEnvironment)[vs[1].(int)]
@@ -465,6 +563,12 @@ func (o KxEnvironmentMapOutput) ToKxEnvironmentMapOutput() KxEnvironmentMapOutpu
 
 func (o KxEnvironmentMapOutput) ToKxEnvironmentMapOutputWithContext(ctx context.Context) KxEnvironmentMapOutput {
 	return o
+}
+
+func (o KxEnvironmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*KxEnvironment] {
+	return pulumix.Output[map[string]*KxEnvironment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KxEnvironmentMapOutput) MapIndex(k pulumi.StringInput) KxEnvironmentOutput {

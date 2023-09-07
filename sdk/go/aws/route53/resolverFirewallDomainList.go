@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Route 53 Resolver DNS Firewall domain list resource.
@@ -164,6 +165,12 @@ func (i *ResolverFirewallDomainList) ToResolverFirewallDomainListOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverFirewallDomainListOutput)
 }
 
+func (i *ResolverFirewallDomainList) ToOutput(ctx context.Context) pulumix.Output[*ResolverFirewallDomainList] {
+	return pulumix.Output[*ResolverFirewallDomainList]{
+		OutputState: i.ToResolverFirewallDomainListOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ResolverFirewallDomainListArrayInput is an input type that accepts ResolverFirewallDomainListArray and ResolverFirewallDomainListArrayOutput values.
 // You can construct a concrete instance of `ResolverFirewallDomainListArrayInput` via:
 //
@@ -187,6 +194,12 @@ func (i ResolverFirewallDomainListArray) ToResolverFirewallDomainListArrayOutput
 
 func (i ResolverFirewallDomainListArray) ToResolverFirewallDomainListArrayOutputWithContext(ctx context.Context) ResolverFirewallDomainListArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverFirewallDomainListArrayOutput)
+}
+
+func (i ResolverFirewallDomainListArray) ToOutput(ctx context.Context) pulumix.Output[[]*ResolverFirewallDomainList] {
+	return pulumix.Output[[]*ResolverFirewallDomainList]{
+		OutputState: i.ToResolverFirewallDomainListArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ResolverFirewallDomainListMapInput is an input type that accepts ResolverFirewallDomainListMap and ResolverFirewallDomainListMapOutput values.
@@ -214,6 +227,12 @@ func (i ResolverFirewallDomainListMap) ToResolverFirewallDomainListMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverFirewallDomainListMapOutput)
 }
 
+func (i ResolverFirewallDomainListMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResolverFirewallDomainList] {
+	return pulumix.Output[map[string]*ResolverFirewallDomainList]{
+		OutputState: i.ToResolverFirewallDomainListMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResolverFirewallDomainListOutput struct{ *pulumi.OutputState }
 
 func (ResolverFirewallDomainListOutput) ElementType() reflect.Type {
@@ -226,6 +245,12 @@ func (o ResolverFirewallDomainListOutput) ToResolverFirewallDomainListOutput() R
 
 func (o ResolverFirewallDomainListOutput) ToResolverFirewallDomainListOutputWithContext(ctx context.Context) ResolverFirewallDomainListOutput {
 	return o
+}
+
+func (o ResolverFirewallDomainListOutput) ToOutput(ctx context.Context) pulumix.Output[*ResolverFirewallDomainList] {
+	return pulumix.Output[*ResolverFirewallDomainList]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN (Amazon Resource Name) of the domain list.
@@ -267,6 +292,12 @@ func (o ResolverFirewallDomainListArrayOutput) ToResolverFirewallDomainListArray
 	return o
 }
 
+func (o ResolverFirewallDomainListArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ResolverFirewallDomainList] {
+	return pulumix.Output[[]*ResolverFirewallDomainList]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ResolverFirewallDomainListArrayOutput) Index(i pulumi.IntInput) ResolverFirewallDomainListOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ResolverFirewallDomainList {
 		return vs[0].([]*ResolverFirewallDomainList)[vs[1].(int)]
@@ -285,6 +316,12 @@ func (o ResolverFirewallDomainListMapOutput) ToResolverFirewallDomainListMapOutp
 
 func (o ResolverFirewallDomainListMapOutput) ToResolverFirewallDomainListMapOutputWithContext(ctx context.Context) ResolverFirewallDomainListMapOutput {
 	return o
+}
+
+func (o ResolverFirewallDomainListMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResolverFirewallDomainList] {
+	return pulumix.Output[map[string]*ResolverFirewallDomainList]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResolverFirewallDomainListMapOutput) MapIndex(k pulumi.StringInput) ResolverFirewallDomainListOutput {

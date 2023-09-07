@@ -1,4 +1,4 @@
-From 8fac63ee5661274b77c16e0ae411b7ff8e4d4718 Mon Sep 17 00:00:00 2001
+From 23b81def627f2444109b834f5323d7229a9d0b97 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Tue, 28 Feb 2023 15:19:24 +0000
 Subject: [PATCH 22/29] Change default descriptions to "Managed by Pulumi"
@@ -102,7 +102,7 @@ index bf1d7bba97..35959c7f19 100644
  
  			"subnet_ids": {
 diff --git a/internal/service/ec2/vpc_security_group.go b/internal/service/ec2/vpc_security_group.go
-index 0adcac865d..d0916b93db 100644
+index 48be193e59..e3a4359db9 100644
 --- a/internal/service/ec2/vpc_security_group.go
 +++ b/internal/service/ec2/vpc_security_group.go
 @@ -63,7 +63,7 @@ func ResourceSecurityGroup() *schema.Resource {
@@ -274,7 +274,7 @@ index 47ffb9fa19..448999b3b4 100644
  			"name": {
  				Type:     schema.TypeString,
 diff --git a/internal/service/mediapackage/channel.go b/internal/service/mediapackage/channel.go
-index 3962709290..c26b4ca2a7 100644
+index 3ca2263a6a..7f96152e95 100644
 --- a/internal/service/mediapackage/channel.go
 +++ b/internal/service/mediapackage/channel.go
 @@ -51,7 +51,7 @@ func ResourceChannel() *schema.Resource {
@@ -739,7 +739,7 @@ index cd51dc7f12..226201363e 100644
  			"name": {
  				Type:          schema.TypeString,
 diff --git a/internal/service/redshift/parameter_group.go b/internal/service/redshift/parameter_group.go
-index f5bfd38188..1af755385d 100644
+index 2342217bae..f523a5878e 100644
 --- a/internal/service/redshift/parameter_group.go
 +++ b/internal/service/redshift/parameter_group.go
 @@ -50,7 +50,7 @@ func ResourceParameterGroup() *schema.Resource {
@@ -1049,7 +1049,7 @@ index 0000000000..47b5d7cda2
 +	return ingress
 +}
 diff --git a/internal/service/redshift/subnet_group.go b/internal/service/redshift/subnet_group.go
-index 746b17278e..4be5d9ecf3 100644
+index 0299067dea..b47d987426 100644
 --- a/internal/service/redshift/subnet_group.go
 +++ b/internal/service/redshift/subnet_group.go
 @@ -45,7 +45,7 @@ func ResourceSubnetGroup() *schema.Resource {
@@ -1093,7 +1093,7 @@ index 4f2eb6d5ef..0b7eee84ce 100644
  			{
  				Action:            aws.String(route53.ChangeActionDelete),
 diff --git a/internal/service/route53/zone.go b/internal/service/route53/zone.go
-index dc080c4916..24e76cf109 100644
+index 0e0df11801..0b68b3bf21 100644
 --- a/internal/service/route53/zone.go
 +++ b/internal/service/route53/zone.go
 @@ -59,7 +59,7 @@ func ResourceZone() *schema.Resource {
@@ -1128,5 +1128,5 @@ index e17fa7c445..fb9e5b7304 100644
  
  	_, err = conn.DisassociateVPCFromHostedZoneWithContext(ctx, input)
 -- 
-2.40.0
+2.41.0
 

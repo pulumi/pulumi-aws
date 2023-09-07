@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Elastic network interface (ENI) resource.
@@ -392,6 +393,12 @@ func (i *NetworkInterface) ToNetworkInterfaceOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceOutput)
 }
 
+func (i *NetworkInterface) ToOutput(ctx context.Context) pulumix.Output[*NetworkInterface] {
+	return pulumix.Output[*NetworkInterface]{
+		OutputState: i.ToNetworkInterfaceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NetworkInterfaceArrayInput is an input type that accepts NetworkInterfaceArray and NetworkInterfaceArrayOutput values.
 // You can construct a concrete instance of `NetworkInterfaceArrayInput` via:
 //
@@ -415,6 +422,12 @@ func (i NetworkInterfaceArray) ToNetworkInterfaceArrayOutput() NetworkInterfaceA
 
 func (i NetworkInterfaceArray) ToNetworkInterfaceArrayOutputWithContext(ctx context.Context) NetworkInterfaceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceArrayOutput)
+}
+
+func (i NetworkInterfaceArray) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkInterface] {
+	return pulumix.Output[[]*NetworkInterface]{
+		OutputState: i.ToNetworkInterfaceArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // NetworkInterfaceMapInput is an input type that accepts NetworkInterfaceMap and NetworkInterfaceMapOutput values.
@@ -442,6 +455,12 @@ func (i NetworkInterfaceMap) ToNetworkInterfaceMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceMapOutput)
 }
 
+func (i NetworkInterfaceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkInterface] {
+	return pulumix.Output[map[string]*NetworkInterface]{
+		OutputState: i.ToNetworkInterfaceMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NetworkInterfaceOutput struct{ *pulumi.OutputState }
 
 func (NetworkInterfaceOutput) ElementType() reflect.Type {
@@ -454,6 +473,12 @@ func (o NetworkInterfaceOutput) ToNetworkInterfaceOutput() NetworkInterfaceOutpu
 
 func (o NetworkInterfaceOutput) ToNetworkInterfaceOutputWithContext(ctx context.Context) NetworkInterfaceOutput {
 	return o
+}
+
+func (o NetworkInterfaceOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkInterface] {
+	return pulumix.Output[*NetworkInterface]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the network interface.
@@ -600,6 +625,12 @@ func (o NetworkInterfaceArrayOutput) ToNetworkInterfaceArrayOutputWithContext(ct
 	return o
 }
 
+func (o NetworkInterfaceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkInterface] {
+	return pulumix.Output[[]*NetworkInterface]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NetworkInterfaceArrayOutput) Index(i pulumi.IntInput) NetworkInterfaceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NetworkInterface {
 		return vs[0].([]*NetworkInterface)[vs[1].(int)]
@@ -618,6 +649,12 @@ func (o NetworkInterfaceMapOutput) ToNetworkInterfaceMapOutput() NetworkInterfac
 
 func (o NetworkInterfaceMapOutput) ToNetworkInterfaceMapOutputWithContext(ctx context.Context) NetworkInterfaceMapOutput {
 	return o
+}
+
+func (o NetworkInterfaceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkInterface] {
+	return pulumix.Output[map[string]*NetworkInterface]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NetworkInterfaceMapOutput) MapIndex(k pulumi.StringInput) NetworkInterfaceOutput {

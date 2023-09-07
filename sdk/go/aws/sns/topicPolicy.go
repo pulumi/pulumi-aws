@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an SNS topic policy resource
@@ -205,6 +206,12 @@ func (i *TopicPolicy) ToTopicPolicyOutputWithContext(ctx context.Context) TopicP
 	return pulumi.ToOutputWithContext(ctx, i).(TopicPolicyOutput)
 }
 
+func (i *TopicPolicy) ToOutput(ctx context.Context) pulumix.Output[*TopicPolicy] {
+	return pulumix.Output[*TopicPolicy]{
+		OutputState: i.ToTopicPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TopicPolicyArrayInput is an input type that accepts TopicPolicyArray and TopicPolicyArrayOutput values.
 // You can construct a concrete instance of `TopicPolicyArrayInput` via:
 //
@@ -228,6 +235,12 @@ func (i TopicPolicyArray) ToTopicPolicyArrayOutput() TopicPolicyArrayOutput {
 
 func (i TopicPolicyArray) ToTopicPolicyArrayOutputWithContext(ctx context.Context) TopicPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TopicPolicyArrayOutput)
+}
+
+func (i TopicPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*TopicPolicy] {
+	return pulumix.Output[[]*TopicPolicy]{
+		OutputState: i.ToTopicPolicyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // TopicPolicyMapInput is an input type that accepts TopicPolicyMap and TopicPolicyMapOutput values.
@@ -255,6 +268,12 @@ func (i TopicPolicyMap) ToTopicPolicyMapOutputWithContext(ctx context.Context) T
 	return pulumi.ToOutputWithContext(ctx, i).(TopicPolicyMapOutput)
 }
 
+func (i TopicPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TopicPolicy] {
+	return pulumix.Output[map[string]*TopicPolicy]{
+		OutputState: i.ToTopicPolicyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TopicPolicyOutput struct{ *pulumi.OutputState }
 
 func (TopicPolicyOutput) ElementType() reflect.Type {
@@ -267,6 +286,12 @@ func (o TopicPolicyOutput) ToTopicPolicyOutput() TopicPolicyOutput {
 
 func (o TopicPolicyOutput) ToTopicPolicyOutputWithContext(ctx context.Context) TopicPolicyOutput {
 	return o
+}
+
+func (o TopicPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicPolicy] {
+	return pulumix.Output[*TopicPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the SNS topic
@@ -298,6 +323,12 @@ func (o TopicPolicyArrayOutput) ToTopicPolicyArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o TopicPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TopicPolicy] {
+	return pulumix.Output[[]*TopicPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TopicPolicyArrayOutput) Index(i pulumi.IntInput) TopicPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TopicPolicy {
 		return vs[0].([]*TopicPolicy)[vs[1].(int)]
@@ -316,6 +347,12 @@ func (o TopicPolicyMapOutput) ToTopicPolicyMapOutput() TopicPolicyMapOutput {
 
 func (o TopicPolicyMapOutput) ToTopicPolicyMapOutputWithContext(ctx context.Context) TopicPolicyMapOutput {
 	return o
+}
+
+func (o TopicPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TopicPolicy] {
+	return pulumix.Output[map[string]*TopicPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TopicPolicyMapOutput) MapIndex(k pulumi.StringInput) TopicPolicyOutput {

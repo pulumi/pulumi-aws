@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an AWS Config Configuration Aggregator
@@ -257,6 +258,12 @@ func (i *ConfigurationAggregator) ToConfigurationAggregatorOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationAggregatorOutput)
 }
 
+func (i *ConfigurationAggregator) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationAggregator] {
+	return pulumix.Output[*ConfigurationAggregator]{
+		OutputState: i.ToConfigurationAggregatorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ConfigurationAggregatorArrayInput is an input type that accepts ConfigurationAggregatorArray and ConfigurationAggregatorArrayOutput values.
 // You can construct a concrete instance of `ConfigurationAggregatorArrayInput` via:
 //
@@ -280,6 +287,12 @@ func (i ConfigurationAggregatorArray) ToConfigurationAggregatorArrayOutput() Con
 
 func (i ConfigurationAggregatorArray) ToConfigurationAggregatorArrayOutputWithContext(ctx context.Context) ConfigurationAggregatorArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationAggregatorArrayOutput)
+}
+
+func (i ConfigurationAggregatorArray) ToOutput(ctx context.Context) pulumix.Output[[]*ConfigurationAggregator] {
+	return pulumix.Output[[]*ConfigurationAggregator]{
+		OutputState: i.ToConfigurationAggregatorArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ConfigurationAggregatorMapInput is an input type that accepts ConfigurationAggregatorMap and ConfigurationAggregatorMapOutput values.
@@ -307,6 +320,12 @@ func (i ConfigurationAggregatorMap) ToConfigurationAggregatorMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationAggregatorMapOutput)
 }
 
+func (i ConfigurationAggregatorMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ConfigurationAggregator] {
+	return pulumix.Output[map[string]*ConfigurationAggregator]{
+		OutputState: i.ToConfigurationAggregatorMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConfigurationAggregatorOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationAggregatorOutput) ElementType() reflect.Type {
@@ -319,6 +338,12 @@ func (o ConfigurationAggregatorOutput) ToConfigurationAggregatorOutput() Configu
 
 func (o ConfigurationAggregatorOutput) ToConfigurationAggregatorOutputWithContext(ctx context.Context) ConfigurationAggregatorOutput {
 	return o
+}
+
+func (o ConfigurationAggregatorOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationAggregator] {
+	return pulumix.Output[*ConfigurationAggregator]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The account(s) to aggregate config data from as documented below.
@@ -371,6 +396,12 @@ func (o ConfigurationAggregatorArrayOutput) ToConfigurationAggregatorArrayOutput
 	return o
 }
 
+func (o ConfigurationAggregatorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ConfigurationAggregator] {
+	return pulumix.Output[[]*ConfigurationAggregator]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ConfigurationAggregatorArrayOutput) Index(i pulumi.IntInput) ConfigurationAggregatorOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ConfigurationAggregator {
 		return vs[0].([]*ConfigurationAggregator)[vs[1].(int)]
@@ -389,6 +420,12 @@ func (o ConfigurationAggregatorMapOutput) ToConfigurationAggregatorMapOutput() C
 
 func (o ConfigurationAggregatorMapOutput) ToConfigurationAggregatorMapOutputWithContext(ctx context.Context) ConfigurationAggregatorMapOutput {
 	return o
+}
+
+func (o ConfigurationAggregatorMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ConfigurationAggregator] {
+	return pulumix.Output[map[string]*ConfigurationAggregator]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConfigurationAggregatorMapOutput) MapIndex(k pulumi.StringInput) ConfigurationAggregatorOutput {

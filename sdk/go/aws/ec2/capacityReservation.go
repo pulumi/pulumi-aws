@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an EC2 Capacity Reservation. This allows you to reserve capacity for your Amazon EC2 instances in a specific Availability Zone for any duration.
@@ -286,6 +287,12 @@ func (i *CapacityReservation) ToCapacityReservationOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationOutput)
 }
 
+func (i *CapacityReservation) ToOutput(ctx context.Context) pulumix.Output[*CapacityReservation] {
+	return pulumix.Output[*CapacityReservation]{
+		OutputState: i.ToCapacityReservationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CapacityReservationArrayInput is an input type that accepts CapacityReservationArray and CapacityReservationArrayOutput values.
 // You can construct a concrete instance of `CapacityReservationArrayInput` via:
 //
@@ -309,6 +316,12 @@ func (i CapacityReservationArray) ToCapacityReservationArrayOutput() CapacityRes
 
 func (i CapacityReservationArray) ToCapacityReservationArrayOutputWithContext(ctx context.Context) CapacityReservationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationArrayOutput)
+}
+
+func (i CapacityReservationArray) ToOutput(ctx context.Context) pulumix.Output[[]*CapacityReservation] {
+	return pulumix.Output[[]*CapacityReservation]{
+		OutputState: i.ToCapacityReservationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // CapacityReservationMapInput is an input type that accepts CapacityReservationMap and CapacityReservationMapOutput values.
@@ -336,6 +349,12 @@ func (i CapacityReservationMap) ToCapacityReservationMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationMapOutput)
 }
 
+func (i CapacityReservationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CapacityReservation] {
+	return pulumix.Output[map[string]*CapacityReservation]{
+		OutputState: i.ToCapacityReservationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CapacityReservationOutput struct{ *pulumi.OutputState }
 
 func (CapacityReservationOutput) ElementType() reflect.Type {
@@ -348,6 +367,12 @@ func (o CapacityReservationOutput) ToCapacityReservationOutput() CapacityReserva
 
 func (o CapacityReservationOutput) ToCapacityReservationOutputWithContext(ctx context.Context) CapacityReservationOutput {
 	return o
+}
+
+func (o CapacityReservationOutput) ToOutput(ctx context.Context) pulumix.Output[*CapacityReservation] {
+	return pulumix.Output[*CapacityReservation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the Capacity Reservation.
@@ -444,6 +469,12 @@ func (o CapacityReservationArrayOutput) ToCapacityReservationArrayOutputWithCont
 	return o
 }
 
+func (o CapacityReservationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CapacityReservation] {
+	return pulumix.Output[[]*CapacityReservation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CapacityReservationArrayOutput) Index(i pulumi.IntInput) CapacityReservationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CapacityReservation {
 		return vs[0].([]*CapacityReservation)[vs[1].(int)]
@@ -462,6 +493,12 @@ func (o CapacityReservationMapOutput) ToCapacityReservationMapOutput() CapacityR
 
 func (o CapacityReservationMapOutput) ToCapacityReservationMapOutputWithContext(ctx context.Context) CapacityReservationMapOutput {
 	return o
+}
+
+func (o CapacityReservationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CapacityReservation] {
+	return pulumix.Output[map[string]*CapacityReservation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CapacityReservationMapOutput) MapIndex(k pulumi.StringInput) CapacityReservationOutput {

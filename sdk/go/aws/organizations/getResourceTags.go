@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get tags attached to the specified AWS Organizations resource.
@@ -103,6 +104,12 @@ func (o GetResourceTagsResultOutput) ToGetResourceTagsResultOutput() GetResource
 
 func (o GetResourceTagsResultOutput) ToGetResourceTagsResultOutputWithContext(ctx context.Context) GetResourceTagsResultOutput {
 	return o
+}
+
+func (o GetResourceTagsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetResourceTagsResult] {
+	return pulumix.Output[GetResourceTagsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The provider-assigned unique ID for this managed resource.

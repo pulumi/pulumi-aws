@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS EventBridge Schemas Registry Policy.
@@ -178,6 +179,12 @@ func (i *RegistryPolicy) ToRegistryPolicyOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryPolicyOutput)
 }
 
+func (i *RegistryPolicy) ToOutput(ctx context.Context) pulumix.Output[*RegistryPolicy] {
+	return pulumix.Output[*RegistryPolicy]{
+		OutputState: i.ToRegistryPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RegistryPolicyArrayInput is an input type that accepts RegistryPolicyArray and RegistryPolicyArrayOutput values.
 // You can construct a concrete instance of `RegistryPolicyArrayInput` via:
 //
@@ -201,6 +208,12 @@ func (i RegistryPolicyArray) ToRegistryPolicyArrayOutput() RegistryPolicyArrayOu
 
 func (i RegistryPolicyArray) ToRegistryPolicyArrayOutputWithContext(ctx context.Context) RegistryPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryPolicyArrayOutput)
+}
+
+func (i RegistryPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*RegistryPolicy] {
+	return pulumix.Output[[]*RegistryPolicy]{
+		OutputState: i.ToRegistryPolicyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RegistryPolicyMapInput is an input type that accepts RegistryPolicyMap and RegistryPolicyMapOutput values.
@@ -228,6 +241,12 @@ func (i RegistryPolicyMap) ToRegistryPolicyMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryPolicyMapOutput)
 }
 
+func (i RegistryPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RegistryPolicy] {
+	return pulumix.Output[map[string]*RegistryPolicy]{
+		OutputState: i.ToRegistryPolicyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RegistryPolicyOutput struct{ *pulumi.OutputState }
 
 func (RegistryPolicyOutput) ElementType() reflect.Type {
@@ -240,6 +259,12 @@ func (o RegistryPolicyOutput) ToRegistryPolicyOutput() RegistryPolicyOutput {
 
 func (o RegistryPolicyOutput) ToRegistryPolicyOutputWithContext(ctx context.Context) RegistryPolicyOutput {
 	return o
+}
+
+func (o RegistryPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*RegistryPolicy] {
+	return pulumix.Output[*RegistryPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Resource Policy for EventBridge Schema Registry
@@ -266,6 +291,12 @@ func (o RegistryPolicyArrayOutput) ToRegistryPolicyArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o RegistryPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RegistryPolicy] {
+	return pulumix.Output[[]*RegistryPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RegistryPolicyArrayOutput) Index(i pulumi.IntInput) RegistryPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RegistryPolicy {
 		return vs[0].([]*RegistryPolicy)[vs[1].(int)]
@@ -284,6 +315,12 @@ func (o RegistryPolicyMapOutput) ToRegistryPolicyMapOutput() RegistryPolicyMapOu
 
 func (o RegistryPolicyMapOutput) ToRegistryPolicyMapOutputWithContext(ctx context.Context) RegistryPolicyMapOutput {
 	return o
+}
+
+func (o RegistryPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RegistryPolicy] {
+	return pulumix.Output[map[string]*RegistryPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RegistryPolicyMapOutput) MapIndex(k pulumi.StringInput) RegistryPolicyOutput {

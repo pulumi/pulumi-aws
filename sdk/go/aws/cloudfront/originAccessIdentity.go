@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates an Amazon CloudFront origin access identity.
@@ -287,6 +288,12 @@ func (i *OriginAccessIdentity) ToOriginAccessIdentityOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(OriginAccessIdentityOutput)
 }
 
+func (i *OriginAccessIdentity) ToOutput(ctx context.Context) pulumix.Output[*OriginAccessIdentity] {
+	return pulumix.Output[*OriginAccessIdentity]{
+		OutputState: i.ToOriginAccessIdentityOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OriginAccessIdentityArrayInput is an input type that accepts OriginAccessIdentityArray and OriginAccessIdentityArrayOutput values.
 // You can construct a concrete instance of `OriginAccessIdentityArrayInput` via:
 //
@@ -310,6 +317,12 @@ func (i OriginAccessIdentityArray) ToOriginAccessIdentityArrayOutput() OriginAcc
 
 func (i OriginAccessIdentityArray) ToOriginAccessIdentityArrayOutputWithContext(ctx context.Context) OriginAccessIdentityArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OriginAccessIdentityArrayOutput)
+}
+
+func (i OriginAccessIdentityArray) ToOutput(ctx context.Context) pulumix.Output[[]*OriginAccessIdentity] {
+	return pulumix.Output[[]*OriginAccessIdentity]{
+		OutputState: i.ToOriginAccessIdentityArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // OriginAccessIdentityMapInput is an input type that accepts OriginAccessIdentityMap and OriginAccessIdentityMapOutput values.
@@ -337,6 +350,12 @@ func (i OriginAccessIdentityMap) ToOriginAccessIdentityMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(OriginAccessIdentityMapOutput)
 }
 
+func (i OriginAccessIdentityMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*OriginAccessIdentity] {
+	return pulumix.Output[map[string]*OriginAccessIdentity]{
+		OutputState: i.ToOriginAccessIdentityMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OriginAccessIdentityOutput struct{ *pulumi.OutputState }
 
 func (OriginAccessIdentityOutput) ElementType() reflect.Type {
@@ -349,6 +368,12 @@ func (o OriginAccessIdentityOutput) ToOriginAccessIdentityOutput() OriginAccessI
 
 func (o OriginAccessIdentityOutput) ToOriginAccessIdentityOutputWithContext(ctx context.Context) OriginAccessIdentityOutput {
 	return o
+}
+
+func (o OriginAccessIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginAccessIdentity] {
+	return pulumix.Output[*OriginAccessIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Internal value used by CloudFront to allow future
@@ -402,6 +427,12 @@ func (o OriginAccessIdentityArrayOutput) ToOriginAccessIdentityArrayOutputWithCo
 	return o
 }
 
+func (o OriginAccessIdentityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*OriginAccessIdentity] {
+	return pulumix.Output[[]*OriginAccessIdentity]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OriginAccessIdentityArrayOutput) Index(i pulumi.IntInput) OriginAccessIdentityOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OriginAccessIdentity {
 		return vs[0].([]*OriginAccessIdentity)[vs[1].(int)]
@@ -420,6 +451,12 @@ func (o OriginAccessIdentityMapOutput) ToOriginAccessIdentityMapOutput() OriginA
 
 func (o OriginAccessIdentityMapOutput) ToOriginAccessIdentityMapOutputWithContext(ctx context.Context) OriginAccessIdentityMapOutput {
 	return o
+}
+
+func (o OriginAccessIdentityMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*OriginAccessIdentity] {
+	return pulumix.Output[map[string]*OriginAccessIdentity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OriginAccessIdentityMapOutput) MapIndex(k pulumi.StringInput) OriginAccessIdentityOutput {

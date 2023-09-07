@@ -117,6 +117,7 @@ class CertificateArgs:
 class _CertificateState:
     def __init__(__self__, *,
                  active_date: Optional[pulumi.Input[str]] = None,
+                 arn: Optional[pulumi.Input[str]] = None,
                  certificate: Optional[pulumi.Input[str]] = None,
                  certificate_chain: Optional[pulumi.Input[str]] = None,
                  certificate_id: Optional[pulumi.Input[str]] = None,
@@ -129,6 +130,7 @@ class _CertificateState:
         """
         Input properties used for looking up and filtering Certificate resources.
         :param pulumi.Input[str] active_date: An date when the certificate becomes active
+        :param pulumi.Input[str] arn: The ARN of the certificate
         :param pulumi.Input[str] certificate: The valid certificate file required for the transfer.
         :param pulumi.Input[str] certificate_chain: The optional list of certificate that make up the chain for the certificate that is being imported.
         :param pulumi.Input[str] certificate_id: The unique identifier for the AS2 certificate
@@ -140,6 +142,8 @@ class _CertificateState:
         """
         if active_date is not None:
             pulumi.set(__self__, "active_date", active_date)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
         if certificate is not None:
             pulumi.set(__self__, "certificate", certificate)
         if certificate_chain is not None:
@@ -170,6 +174,18 @@ class _CertificateState:
     @active_date.setter
     def active_date(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "active_date", value)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the certificate
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
 
     @property
     @pulumi.getter
@@ -397,6 +413,7 @@ class Certificate(pulumi.CustomResource):
                 raise TypeError("Missing required property 'usage'")
             __props__.__dict__["usage"] = usage
             __props__.__dict__["active_date"] = None
+            __props__.__dict__["arn"] = None
             __props__.__dict__["certificate_id"] = None
             __props__.__dict__["inactive_date"] = None
             __props__.__dict__["tags_all"] = None
@@ -413,6 +430,7 @@ class Certificate(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             active_date: Optional[pulumi.Input[str]] = None,
+            arn: Optional[pulumi.Input[str]] = None,
             certificate: Optional[pulumi.Input[str]] = None,
             certificate_chain: Optional[pulumi.Input[str]] = None,
             certificate_id: Optional[pulumi.Input[str]] = None,
@@ -430,6 +448,7 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] active_date: An date when the certificate becomes active
+        :param pulumi.Input[str] arn: The ARN of the certificate
         :param pulumi.Input[str] certificate: The valid certificate file required for the transfer.
         :param pulumi.Input[str] certificate_chain: The optional list of certificate that make up the chain for the certificate that is being imported.
         :param pulumi.Input[str] certificate_id: The unique identifier for the AS2 certificate
@@ -444,6 +463,7 @@ class Certificate(pulumi.CustomResource):
         __props__ = _CertificateState.__new__(_CertificateState)
 
         __props__.__dict__["active_date"] = active_date
+        __props__.__dict__["arn"] = arn
         __props__.__dict__["certificate"] = certificate
         __props__.__dict__["certificate_chain"] = certificate_chain
         __props__.__dict__["certificate_id"] = certificate_id
@@ -462,6 +482,14 @@ class Certificate(pulumi.CustomResource):
         An date when the certificate becomes active
         """
         return pulumi.get(self, "active_date")
+
+    @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the certificate
+        """
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter

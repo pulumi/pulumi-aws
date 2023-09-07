@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an EC2 Transit Gateway Multicast Domain.
@@ -364,6 +365,12 @@ func (i *MulticastDomain) ToMulticastDomainOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(MulticastDomainOutput)
 }
 
+func (i *MulticastDomain) ToOutput(ctx context.Context) pulumix.Output[*MulticastDomain] {
+	return pulumix.Output[*MulticastDomain]{
+		OutputState: i.ToMulticastDomainOutputWithContext(ctx).OutputState,
+	}
+}
+
 // MulticastDomainArrayInput is an input type that accepts MulticastDomainArray and MulticastDomainArrayOutput values.
 // You can construct a concrete instance of `MulticastDomainArrayInput` via:
 //
@@ -387,6 +394,12 @@ func (i MulticastDomainArray) ToMulticastDomainArrayOutput() MulticastDomainArra
 
 func (i MulticastDomainArray) ToMulticastDomainArrayOutputWithContext(ctx context.Context) MulticastDomainArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MulticastDomainArrayOutput)
+}
+
+func (i MulticastDomainArray) ToOutput(ctx context.Context) pulumix.Output[[]*MulticastDomain] {
+	return pulumix.Output[[]*MulticastDomain]{
+		OutputState: i.ToMulticastDomainArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // MulticastDomainMapInput is an input type that accepts MulticastDomainMap and MulticastDomainMapOutput values.
@@ -414,6 +427,12 @@ func (i MulticastDomainMap) ToMulticastDomainMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(MulticastDomainMapOutput)
 }
 
+func (i MulticastDomainMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*MulticastDomain] {
+	return pulumix.Output[map[string]*MulticastDomain]{
+		OutputState: i.ToMulticastDomainMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MulticastDomainOutput struct{ *pulumi.OutputState }
 
 func (MulticastDomainOutput) ElementType() reflect.Type {
@@ -426,6 +445,12 @@ func (o MulticastDomainOutput) ToMulticastDomainOutput() MulticastDomainOutput {
 
 func (o MulticastDomainOutput) ToMulticastDomainOutputWithContext(ctx context.Context) MulticastDomainOutput {
 	return o
+}
+
+func (o MulticastDomainOutput) ToOutput(ctx context.Context) pulumix.Output[*MulticastDomain] {
+	return pulumix.Output[*MulticastDomain]{
+		OutputState: o.OutputState,
+	}
 }
 
 // EC2 Transit Gateway Multicast Domain Amazon Resource Name (ARN).
@@ -482,6 +507,12 @@ func (o MulticastDomainArrayOutput) ToMulticastDomainArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o MulticastDomainArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*MulticastDomain] {
+	return pulumix.Output[[]*MulticastDomain]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o MulticastDomainArrayOutput) Index(i pulumi.IntInput) MulticastDomainOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MulticastDomain {
 		return vs[0].([]*MulticastDomain)[vs[1].(int)]
@@ -500,6 +531,12 @@ func (o MulticastDomainMapOutput) ToMulticastDomainMapOutput() MulticastDomainMa
 
 func (o MulticastDomainMapOutput) ToMulticastDomainMapOutputWithContext(ctx context.Context) MulticastDomainMapOutput {
 	return o
+}
+
+func (o MulticastDomainMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*MulticastDomain] {
+	return pulumix.Output[map[string]*MulticastDomain]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MulticastDomainMapOutput) MapIndex(k pulumi.StringInput) MulticastDomainOutput {

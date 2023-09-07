@@ -121,6 +121,10 @@ export class ClusterInstance extends pulumi.CustomResource {
      */
     public readonly copyTagsToSnapshot!: pulumi.Output<boolean | undefined>;
     /**
+     * Instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
+     */
+    public readonly customIamInstanceProfile!: pulumi.Output<string | undefined>;
+    /**
      * Name of the DB parameter group to associate with this instance.
      */
     public readonly dbParameterGroupName!: pulumi.Output<string>;
@@ -245,6 +249,7 @@ export class ClusterInstance extends pulumi.CustomResource {
             resourceInputs["caCertIdentifier"] = state ? state.caCertIdentifier : undefined;
             resourceInputs["clusterIdentifier"] = state ? state.clusterIdentifier : undefined;
             resourceInputs["copyTagsToSnapshot"] = state ? state.copyTagsToSnapshot : undefined;
+            resourceInputs["customIamInstanceProfile"] = state ? state.customIamInstanceProfile : undefined;
             resourceInputs["dbParameterGroupName"] = state ? state.dbParameterGroupName : undefined;
             resourceInputs["dbSubnetGroupName"] = state ? state.dbSubnetGroupName : undefined;
             resourceInputs["dbiResourceId"] = state ? state.dbiResourceId : undefined;
@@ -288,6 +293,7 @@ export class ClusterInstance extends pulumi.CustomResource {
             resourceInputs["caCertIdentifier"] = args ? args.caCertIdentifier : undefined;
             resourceInputs["clusterIdentifier"] = args ? args.clusterIdentifier : undefined;
             resourceInputs["copyTagsToSnapshot"] = args ? args.copyTagsToSnapshot : undefined;
+            resourceInputs["customIamInstanceProfile"] = args ? args.customIamInstanceProfile : undefined;
             resourceInputs["dbParameterGroupName"] = args ? args.dbParameterGroupName : undefined;
             resourceInputs["dbSubnetGroupName"] = args ? args.dbSubnetGroupName : undefined;
             resourceInputs["engine"] = args ? args.engine : undefined;
@@ -353,6 +359,10 @@ export interface ClusterInstanceState {
      * Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
      */
     copyTagsToSnapshot?: pulumi.Input<boolean>;
+    /**
+     * Instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
+     */
+    customIamInstanceProfile?: pulumi.Input<string>;
     /**
      * Name of the DB parameter group to associate with this instance.
      */
@@ -487,6 +497,10 @@ export interface ClusterInstanceArgs {
      * Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
      */
     copyTagsToSnapshot?: pulumi.Input<boolean>;
+    /**
+     * Instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
+     */
+    customIamInstanceProfile?: pulumi.Input<string>;
     /**
      * Name of the DB parameter group to associate with this instance.
      */

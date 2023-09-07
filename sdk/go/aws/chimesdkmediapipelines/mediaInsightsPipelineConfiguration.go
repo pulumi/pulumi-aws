@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS Chime SDK Media Pipelines Media Insights Pipeline Configuration.
@@ -540,6 +541,12 @@ func (i *MediaInsightsPipelineConfiguration) ToMediaInsightsPipelineConfiguratio
 	return pulumi.ToOutputWithContext(ctx, i).(MediaInsightsPipelineConfigurationOutput)
 }
 
+func (i *MediaInsightsPipelineConfiguration) ToOutput(ctx context.Context) pulumix.Output[*MediaInsightsPipelineConfiguration] {
+	return pulumix.Output[*MediaInsightsPipelineConfiguration]{
+		OutputState: i.ToMediaInsightsPipelineConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // MediaInsightsPipelineConfigurationArrayInput is an input type that accepts MediaInsightsPipelineConfigurationArray and MediaInsightsPipelineConfigurationArrayOutput values.
 // You can construct a concrete instance of `MediaInsightsPipelineConfigurationArrayInput` via:
 //
@@ -563,6 +570,12 @@ func (i MediaInsightsPipelineConfigurationArray) ToMediaInsightsPipelineConfigur
 
 func (i MediaInsightsPipelineConfigurationArray) ToMediaInsightsPipelineConfigurationArrayOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MediaInsightsPipelineConfigurationArrayOutput)
+}
+
+func (i MediaInsightsPipelineConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]*MediaInsightsPipelineConfiguration] {
+	return pulumix.Output[[]*MediaInsightsPipelineConfiguration]{
+		OutputState: i.ToMediaInsightsPipelineConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // MediaInsightsPipelineConfigurationMapInput is an input type that accepts MediaInsightsPipelineConfigurationMap and MediaInsightsPipelineConfigurationMapOutput values.
@@ -590,6 +603,12 @@ func (i MediaInsightsPipelineConfigurationMap) ToMediaInsightsPipelineConfigurat
 	return pulumi.ToOutputWithContext(ctx, i).(MediaInsightsPipelineConfigurationMapOutput)
 }
 
+func (i MediaInsightsPipelineConfigurationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*MediaInsightsPipelineConfiguration] {
+	return pulumix.Output[map[string]*MediaInsightsPipelineConfiguration]{
+		OutputState: i.ToMediaInsightsPipelineConfigurationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MediaInsightsPipelineConfigurationOutput struct{ *pulumi.OutputState }
 
 func (MediaInsightsPipelineConfigurationOutput) ElementType() reflect.Type {
@@ -602,6 +621,12 @@ func (o MediaInsightsPipelineConfigurationOutput) ToMediaInsightsPipelineConfigu
 
 func (o MediaInsightsPipelineConfigurationOutput) ToMediaInsightsPipelineConfigurationOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationOutput {
 	return o
+}
+
+func (o MediaInsightsPipelineConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*MediaInsightsPipelineConfiguration] {
+	return pulumix.Output[*MediaInsightsPipelineConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the Media Insights Pipeline Configuration.
@@ -656,6 +681,12 @@ func (o MediaInsightsPipelineConfigurationArrayOutput) ToMediaInsightsPipelineCo
 	return o
 }
 
+func (o MediaInsightsPipelineConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*MediaInsightsPipelineConfiguration] {
+	return pulumix.Output[[]*MediaInsightsPipelineConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o MediaInsightsPipelineConfigurationArrayOutput) Index(i pulumi.IntInput) MediaInsightsPipelineConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MediaInsightsPipelineConfiguration {
 		return vs[0].([]*MediaInsightsPipelineConfiguration)[vs[1].(int)]
@@ -674,6 +705,12 @@ func (o MediaInsightsPipelineConfigurationMapOutput) ToMediaInsightsPipelineConf
 
 func (o MediaInsightsPipelineConfigurationMapOutput) ToMediaInsightsPipelineConfigurationMapOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationMapOutput {
 	return o
+}
+
+func (o MediaInsightsPipelineConfigurationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*MediaInsightsPipelineConfiguration] {
+	return pulumix.Output[map[string]*MediaInsightsPipelineConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MediaInsightsPipelineConfigurationMapOutput) MapIndex(k pulumi.StringInput) MediaInsightsPipelineConfigurationOutput {

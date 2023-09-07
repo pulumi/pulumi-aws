@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Site-to-Site VPN connection. A Site-to-Site VPN connection is an Internet Protocol security (IPsec) VPN connection between a VPC and an on-premises network.
@@ -934,6 +935,12 @@ func (i *VpnConnection) ToVpnConnectionOutputWithContext(ctx context.Context) Vp
 	return pulumi.ToOutputWithContext(ctx, i).(VpnConnectionOutput)
 }
 
+func (i *VpnConnection) ToOutput(ctx context.Context) pulumix.Output[*VpnConnection] {
+	return pulumix.Output[*VpnConnection]{
+		OutputState: i.ToVpnConnectionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VpnConnectionArrayInput is an input type that accepts VpnConnectionArray and VpnConnectionArrayOutput values.
 // You can construct a concrete instance of `VpnConnectionArrayInput` via:
 //
@@ -957,6 +964,12 @@ func (i VpnConnectionArray) ToVpnConnectionArrayOutput() VpnConnectionArrayOutpu
 
 func (i VpnConnectionArray) ToVpnConnectionArrayOutputWithContext(ctx context.Context) VpnConnectionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpnConnectionArrayOutput)
+}
+
+func (i VpnConnectionArray) ToOutput(ctx context.Context) pulumix.Output[[]*VpnConnection] {
+	return pulumix.Output[[]*VpnConnection]{
+		OutputState: i.ToVpnConnectionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VpnConnectionMapInput is an input type that accepts VpnConnectionMap and VpnConnectionMapOutput values.
@@ -984,6 +997,12 @@ func (i VpnConnectionMap) ToVpnConnectionMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(VpnConnectionMapOutput)
 }
 
+func (i VpnConnectionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpnConnection] {
+	return pulumix.Output[map[string]*VpnConnection]{
+		OutputState: i.ToVpnConnectionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VpnConnectionOutput struct{ *pulumi.OutputState }
 
 func (VpnConnectionOutput) ElementType() reflect.Type {
@@ -996,6 +1015,12 @@ func (o VpnConnectionOutput) ToVpnConnectionOutput() VpnConnectionOutput {
 
 func (o VpnConnectionOutput) ToVpnConnectionOutputWithContext(ctx context.Context) VpnConnectionOutput {
 	return o
+}
+
+func (o VpnConnectionOutput) ToOutput(ctx context.Context) pulumix.Output[*VpnConnection] {
+	return pulumix.Output[*VpnConnection]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name (ARN) of the VPN Connection.
@@ -1372,6 +1397,12 @@ func (o VpnConnectionArrayOutput) ToVpnConnectionArrayOutputWithContext(ctx cont
 	return o
 }
 
+func (o VpnConnectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VpnConnection] {
+	return pulumix.Output[[]*VpnConnection]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VpnConnectionArrayOutput) Index(i pulumi.IntInput) VpnConnectionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VpnConnection {
 		return vs[0].([]*VpnConnection)[vs[1].(int)]
@@ -1390,6 +1421,12 @@ func (o VpnConnectionMapOutput) ToVpnConnectionMapOutput() VpnConnectionMapOutpu
 
 func (o VpnConnectionMapOutput) ToVpnConnectionMapOutputWithContext(ctx context.Context) VpnConnectionMapOutput {
 	return o
+}
+
+func (o VpnConnectionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpnConnection] {
+	return pulumix.Output[map[string]*VpnConnection]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VpnConnectionMapOutput) MapIndex(k pulumi.StringInput) VpnConnectionOutput {

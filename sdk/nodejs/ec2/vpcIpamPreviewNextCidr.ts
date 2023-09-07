@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleVpcIpamPoolCidr = new aws.ec2.VpcIpamPoolCidr("exampleVpcIpamPoolCidr", {
  *     ipamPoolId: exampleVpcIpamPool.id,
- *     cidr: "172.2.0.0/16",
+ *     cidr: "172.20.0.0/16",
  * });
  * const exampleVpcIpamPreviewNextCidr = new aws.ec2.VpcIpamPreviewNextCidr("exampleVpcIpamPreviewNextCidr", {
  *     ipamPoolId: exampleVpcIpamPool.id,

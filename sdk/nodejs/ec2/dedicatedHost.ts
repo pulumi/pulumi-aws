@@ -66,7 +66,7 @@ export class DedicatedHost extends pulumi.CustomResource {
     /**
      * The ID of the Outpost hardware asset on which to allocate the Dedicated Hosts. This parameter is supported only if you specify OutpostArn. If you are allocating the Dedicated Hosts in a Region, omit this parameter.
      */
-    public readonly assetId!: pulumi.Output<string | undefined>;
+    public readonly assetId!: pulumi.Output<string>;
     /**
      * Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID. Valid values: `on`, `off`. Default: `on`.
      */

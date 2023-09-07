@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Registers a transit gateway to a global network. The transit gateway can be in any AWS Region,
@@ -163,6 +164,12 @@ func (i *TransitGatewayRegistration) ToTransitGatewayRegistrationOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayRegistrationOutput)
 }
 
+func (i *TransitGatewayRegistration) ToOutput(ctx context.Context) pulumix.Output[*TransitGatewayRegistration] {
+	return pulumix.Output[*TransitGatewayRegistration]{
+		OutputState: i.ToTransitGatewayRegistrationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TransitGatewayRegistrationArrayInput is an input type that accepts TransitGatewayRegistrationArray and TransitGatewayRegistrationArrayOutput values.
 // You can construct a concrete instance of `TransitGatewayRegistrationArrayInput` via:
 //
@@ -186,6 +193,12 @@ func (i TransitGatewayRegistrationArray) ToTransitGatewayRegistrationArrayOutput
 
 func (i TransitGatewayRegistrationArray) ToTransitGatewayRegistrationArrayOutputWithContext(ctx context.Context) TransitGatewayRegistrationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayRegistrationArrayOutput)
+}
+
+func (i TransitGatewayRegistrationArray) ToOutput(ctx context.Context) pulumix.Output[[]*TransitGatewayRegistration] {
+	return pulumix.Output[[]*TransitGatewayRegistration]{
+		OutputState: i.ToTransitGatewayRegistrationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // TransitGatewayRegistrationMapInput is an input type that accepts TransitGatewayRegistrationMap and TransitGatewayRegistrationMapOutput values.
@@ -213,6 +226,12 @@ func (i TransitGatewayRegistrationMap) ToTransitGatewayRegistrationMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayRegistrationMapOutput)
 }
 
+func (i TransitGatewayRegistrationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TransitGatewayRegistration] {
+	return pulumix.Output[map[string]*TransitGatewayRegistration]{
+		OutputState: i.ToTransitGatewayRegistrationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TransitGatewayRegistrationOutput struct{ *pulumi.OutputState }
 
 func (TransitGatewayRegistrationOutput) ElementType() reflect.Type {
@@ -225,6 +244,12 @@ func (o TransitGatewayRegistrationOutput) ToTransitGatewayRegistrationOutput() T
 
 func (o TransitGatewayRegistrationOutput) ToTransitGatewayRegistrationOutputWithContext(ctx context.Context) TransitGatewayRegistrationOutput {
 	return o
+}
+
+func (o TransitGatewayRegistrationOutput) ToOutput(ctx context.Context) pulumix.Output[*TransitGatewayRegistration] {
+	return pulumix.Output[*TransitGatewayRegistration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Global Network to register to.
@@ -251,6 +276,12 @@ func (o TransitGatewayRegistrationArrayOutput) ToTransitGatewayRegistrationArray
 	return o
 }
 
+func (o TransitGatewayRegistrationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TransitGatewayRegistration] {
+	return pulumix.Output[[]*TransitGatewayRegistration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TransitGatewayRegistrationArrayOutput) Index(i pulumi.IntInput) TransitGatewayRegistrationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TransitGatewayRegistration {
 		return vs[0].([]*TransitGatewayRegistration)[vs[1].(int)]
@@ -269,6 +300,12 @@ func (o TransitGatewayRegistrationMapOutput) ToTransitGatewayRegistrationMapOutp
 
 func (o TransitGatewayRegistrationMapOutput) ToTransitGatewayRegistrationMapOutputWithContext(ctx context.Context) TransitGatewayRegistrationMapOutput {
 	return o
+}
+
+func (o TransitGatewayRegistrationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TransitGatewayRegistration] {
+	return pulumix.Output[map[string]*TransitGatewayRegistration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TransitGatewayRegistrationMapOutput) MapIndex(k pulumi.StringInput) TransitGatewayRegistrationOutput {

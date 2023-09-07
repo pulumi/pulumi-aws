@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get the ID of a registered AMI for use in other
@@ -261,6 +262,12 @@ func (o LookupAmiResultOutput) ToLookupAmiResultOutput() LookupAmiResultOutput {
 
 func (o LookupAmiResultOutput) ToLookupAmiResultOutputWithContext(ctx context.Context) LookupAmiResultOutput {
 	return o
+}
+
+func (o LookupAmiResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAmiResult] {
+	return pulumix.Output[LookupAmiResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // OS architecture of the AMI (ie: `i386` or `x8664`).

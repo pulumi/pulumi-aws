@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to manage a default route table of a VPC. This resource can manage the default route table of the default or a non-default VPC.
@@ -249,6 +250,12 @@ func (i *DefaultRouteTable) ToDefaultRouteTableOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(DefaultRouteTableOutput)
 }
 
+func (i *DefaultRouteTable) ToOutput(ctx context.Context) pulumix.Output[*DefaultRouteTable] {
+	return pulumix.Output[*DefaultRouteTable]{
+		OutputState: i.ToDefaultRouteTableOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DefaultRouteTableArrayInput is an input type that accepts DefaultRouteTableArray and DefaultRouteTableArrayOutput values.
 // You can construct a concrete instance of `DefaultRouteTableArrayInput` via:
 //
@@ -272,6 +279,12 @@ func (i DefaultRouteTableArray) ToDefaultRouteTableArrayOutput() DefaultRouteTab
 
 func (i DefaultRouteTableArray) ToDefaultRouteTableArrayOutputWithContext(ctx context.Context) DefaultRouteTableArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DefaultRouteTableArrayOutput)
+}
+
+func (i DefaultRouteTableArray) ToOutput(ctx context.Context) pulumix.Output[[]*DefaultRouteTable] {
+	return pulumix.Output[[]*DefaultRouteTable]{
+		OutputState: i.ToDefaultRouteTableArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DefaultRouteTableMapInput is an input type that accepts DefaultRouteTableMap and DefaultRouteTableMapOutput values.
@@ -299,6 +312,12 @@ func (i DefaultRouteTableMap) ToDefaultRouteTableMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(DefaultRouteTableMapOutput)
 }
 
+func (i DefaultRouteTableMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DefaultRouteTable] {
+	return pulumix.Output[map[string]*DefaultRouteTable]{
+		OutputState: i.ToDefaultRouteTableMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DefaultRouteTableOutput struct{ *pulumi.OutputState }
 
 func (DefaultRouteTableOutput) ElementType() reflect.Type {
@@ -311,6 +330,12 @@ func (o DefaultRouteTableOutput) ToDefaultRouteTableOutput() DefaultRouteTableOu
 
 func (o DefaultRouteTableOutput) ToDefaultRouteTableOutputWithContext(ctx context.Context) DefaultRouteTableOutput {
 	return o
+}
+
+func (o DefaultRouteTableOutput) ToOutput(ctx context.Context) pulumix.Output[*DefaultRouteTable] {
+	return pulumix.Output[*DefaultRouteTable]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the route table.
@@ -369,6 +394,12 @@ func (o DefaultRouteTableArrayOutput) ToDefaultRouteTableArrayOutputWithContext(
 	return o
 }
 
+func (o DefaultRouteTableArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DefaultRouteTable] {
+	return pulumix.Output[[]*DefaultRouteTable]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DefaultRouteTableArrayOutput) Index(i pulumi.IntInput) DefaultRouteTableOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DefaultRouteTable {
 		return vs[0].([]*DefaultRouteTable)[vs[1].(int)]
@@ -387,6 +418,12 @@ func (o DefaultRouteTableMapOutput) ToDefaultRouteTableMapOutput() DefaultRouteT
 
 func (o DefaultRouteTableMapOutput) ToDefaultRouteTableMapOutputWithContext(ctx context.Context) DefaultRouteTableMapOutput {
 	return o
+}
+
+func (o DefaultRouteTableMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DefaultRouteTable] {
+	return pulumix.Output[map[string]*DefaultRouteTable]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DefaultRouteTableMapOutput) MapIndex(k pulumi.StringInput) DefaultRouteTableOutput {

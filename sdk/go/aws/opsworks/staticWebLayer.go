@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an OpsWorks static web server layer resource.
@@ -348,6 +349,12 @@ func (i *StaticWebLayer) ToStaticWebLayerOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(StaticWebLayerOutput)
 }
 
+func (i *StaticWebLayer) ToOutput(ctx context.Context) pulumix.Output[*StaticWebLayer] {
+	return pulumix.Output[*StaticWebLayer]{
+		OutputState: i.ToStaticWebLayerOutputWithContext(ctx).OutputState,
+	}
+}
+
 // StaticWebLayerArrayInput is an input type that accepts StaticWebLayerArray and StaticWebLayerArrayOutput values.
 // You can construct a concrete instance of `StaticWebLayerArrayInput` via:
 //
@@ -371,6 +378,12 @@ func (i StaticWebLayerArray) ToStaticWebLayerArrayOutput() StaticWebLayerArrayOu
 
 func (i StaticWebLayerArray) ToStaticWebLayerArrayOutputWithContext(ctx context.Context) StaticWebLayerArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StaticWebLayerArrayOutput)
+}
+
+func (i StaticWebLayerArray) ToOutput(ctx context.Context) pulumix.Output[[]*StaticWebLayer] {
+	return pulumix.Output[[]*StaticWebLayer]{
+		OutputState: i.ToStaticWebLayerArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // StaticWebLayerMapInput is an input type that accepts StaticWebLayerMap and StaticWebLayerMapOutput values.
@@ -398,6 +411,12 @@ func (i StaticWebLayerMap) ToStaticWebLayerMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(StaticWebLayerMapOutput)
 }
 
+func (i StaticWebLayerMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*StaticWebLayer] {
+	return pulumix.Output[map[string]*StaticWebLayer]{
+		OutputState: i.ToStaticWebLayerMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StaticWebLayerOutput struct{ *pulumi.OutputState }
 
 func (StaticWebLayerOutput) ElementType() reflect.Type {
@@ -410,6 +429,12 @@ func (o StaticWebLayerOutput) ToStaticWebLayerOutput() StaticWebLayerOutput {
 
 func (o StaticWebLayerOutput) ToStaticWebLayerOutputWithContext(ctx context.Context) StaticWebLayerOutput {
 	return o
+}
+
+func (o StaticWebLayerOutput) ToOutput(ctx context.Context) pulumix.Output[*StaticWebLayer] {
+	return pulumix.Output[*StaticWebLayer]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name(ARN) of the layer.
@@ -549,6 +574,12 @@ func (o StaticWebLayerArrayOutput) ToStaticWebLayerArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o StaticWebLayerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*StaticWebLayer] {
+	return pulumix.Output[[]*StaticWebLayer]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o StaticWebLayerArrayOutput) Index(i pulumi.IntInput) StaticWebLayerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *StaticWebLayer {
 		return vs[0].([]*StaticWebLayer)[vs[1].(int)]
@@ -567,6 +598,12 @@ func (o StaticWebLayerMapOutput) ToStaticWebLayerMapOutput() StaticWebLayerMapOu
 
 func (o StaticWebLayerMapOutput) ToStaticWebLayerMapOutputWithContext(ctx context.Context) StaticWebLayerMapOutput {
 	return o
+}
+
+func (o StaticWebLayerMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*StaticWebLayer] {
+	return pulumix.Output[map[string]*StaticWebLayer]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StaticWebLayerMapOutput) MapIndex(k pulumi.StringInput) StaticWebLayerOutput {

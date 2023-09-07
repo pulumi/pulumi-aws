@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -58,6 +59,12 @@ func (i EndpointElasticsearchSettingsArgs) ToEndpointElasticsearchSettingsOutput
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointElasticsearchSettingsOutput)
 }
 
+func (i EndpointElasticsearchSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointElasticsearchSettings] {
+	return pulumix.Output[EndpointElasticsearchSettings]{
+		OutputState: i.ToEndpointElasticsearchSettingsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EndpointElasticsearchSettingsArgs) ToEndpointElasticsearchSettingsPtrOutput() EndpointElasticsearchSettingsPtrOutput {
 	return i.ToEndpointElasticsearchSettingsPtrOutputWithContext(context.Background())
 }
@@ -99,6 +106,12 @@ func (i *endpointElasticsearchSettingsPtrType) ToEndpointElasticsearchSettingsPt
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointElasticsearchSettingsPtrOutput)
 }
 
+func (i *endpointElasticsearchSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*EndpointElasticsearchSettings] {
+	return pulumix.Output[*EndpointElasticsearchSettings]{
+		OutputState: i.ToEndpointElasticsearchSettingsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EndpointElasticsearchSettingsOutput struct{ *pulumi.OutputState }
 
 func (EndpointElasticsearchSettingsOutput) ElementType() reflect.Type {
@@ -121,6 +134,12 @@ func (o EndpointElasticsearchSettingsOutput) ToEndpointElasticsearchSettingsPtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointElasticsearchSettings) *EndpointElasticsearchSettings {
 		return &v
 	}).(EndpointElasticsearchSettingsPtrOutput)
+}
+
+func (o EndpointElasticsearchSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointElasticsearchSettings] {
+	return pulumix.Output[EndpointElasticsearchSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Endpoint for the OpenSearch cluster.
@@ -155,6 +174,12 @@ func (o EndpointElasticsearchSettingsPtrOutput) ToEndpointElasticsearchSettingsP
 
 func (o EndpointElasticsearchSettingsPtrOutput) ToEndpointElasticsearchSettingsPtrOutputWithContext(ctx context.Context) EndpointElasticsearchSettingsPtrOutput {
 	return o
+}
+
+func (o EndpointElasticsearchSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointElasticsearchSettings] {
+	return pulumix.Output[*EndpointElasticsearchSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EndpointElasticsearchSettingsPtrOutput) Elem() EndpointElasticsearchSettingsOutput {
@@ -308,6 +333,12 @@ func (i EndpointKafkaSettingsArgs) ToEndpointKafkaSettingsOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointKafkaSettingsOutput)
 }
 
+func (i EndpointKafkaSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointKafkaSettings] {
+	return pulumix.Output[EndpointKafkaSettings]{
+		OutputState: i.ToEndpointKafkaSettingsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EndpointKafkaSettingsArgs) ToEndpointKafkaSettingsPtrOutput() EndpointKafkaSettingsPtrOutput {
 	return i.ToEndpointKafkaSettingsPtrOutputWithContext(context.Background())
 }
@@ -349,6 +380,12 @@ func (i *endpointKafkaSettingsPtrType) ToEndpointKafkaSettingsPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointKafkaSettingsPtrOutput)
 }
 
+func (i *endpointKafkaSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*EndpointKafkaSettings] {
+	return pulumix.Output[*EndpointKafkaSettings]{
+		OutputState: i.ToEndpointKafkaSettingsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EndpointKafkaSettingsOutput struct{ *pulumi.OutputState }
 
 func (EndpointKafkaSettingsOutput) ElementType() reflect.Type {
@@ -371,6 +408,12 @@ func (o EndpointKafkaSettingsOutput) ToEndpointKafkaSettingsPtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointKafkaSettings) *EndpointKafkaSettings {
 		return &v
 	}).(EndpointKafkaSettingsPtrOutput)
+}
+
+func (o EndpointKafkaSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointKafkaSettings] {
+	return pulumix.Output[EndpointKafkaSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Kafka broker location. Specify in the form broker-hostname-or-ip:port.
@@ -475,6 +518,12 @@ func (o EndpointKafkaSettingsPtrOutput) ToEndpointKafkaSettingsPtrOutput() Endpo
 
 func (o EndpointKafkaSettingsPtrOutput) ToEndpointKafkaSettingsPtrOutputWithContext(ctx context.Context) EndpointKafkaSettingsPtrOutput {
 	return o
+}
+
+func (o EndpointKafkaSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointKafkaSettings] {
+	return pulumix.Output[*EndpointKafkaSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EndpointKafkaSettingsPtrOutput) Elem() EndpointKafkaSettingsOutput {
@@ -732,6 +781,12 @@ func (i EndpointKinesisSettingsArgs) ToEndpointKinesisSettingsOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointKinesisSettingsOutput)
 }
 
+func (i EndpointKinesisSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointKinesisSettings] {
+	return pulumix.Output[EndpointKinesisSettings]{
+		OutputState: i.ToEndpointKinesisSettingsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EndpointKinesisSettingsArgs) ToEndpointKinesisSettingsPtrOutput() EndpointKinesisSettingsPtrOutput {
 	return i.ToEndpointKinesisSettingsPtrOutputWithContext(context.Background())
 }
@@ -773,6 +828,12 @@ func (i *endpointKinesisSettingsPtrType) ToEndpointKinesisSettingsPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointKinesisSettingsPtrOutput)
 }
 
+func (i *endpointKinesisSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*EndpointKinesisSettings] {
+	return pulumix.Output[*EndpointKinesisSettings]{
+		OutputState: i.ToEndpointKinesisSettingsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EndpointKinesisSettingsOutput struct{ *pulumi.OutputState }
 
 func (EndpointKinesisSettingsOutput) ElementType() reflect.Type {
@@ -795,6 +856,12 @@ func (o EndpointKinesisSettingsOutput) ToEndpointKinesisSettingsPtrOutputWithCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointKinesisSettings) *EndpointKinesisSettings {
 		return &v
 	}).(EndpointKinesisSettingsPtrOutput)
+}
+
+func (o EndpointKinesisSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointKinesisSettings] {
+	return pulumix.Output[EndpointKinesisSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output. Default is `false`.
@@ -854,6 +921,12 @@ func (o EndpointKinesisSettingsPtrOutput) ToEndpointKinesisSettingsPtrOutput() E
 
 func (o EndpointKinesisSettingsPtrOutput) ToEndpointKinesisSettingsPtrOutputWithContext(ctx context.Context) EndpointKinesisSettingsPtrOutput {
 	return o
+}
+
+func (o EndpointKinesisSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointKinesisSettings] {
+	return pulumix.Output[*EndpointKinesisSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EndpointKinesisSettingsPtrOutput) Elem() EndpointKinesisSettingsOutput {
@@ -1009,6 +1082,12 @@ func (i EndpointMongodbSettingsArgs) ToEndpointMongodbSettingsOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointMongodbSettingsOutput)
 }
 
+func (i EndpointMongodbSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointMongodbSettings] {
+	return pulumix.Output[EndpointMongodbSettings]{
+		OutputState: i.ToEndpointMongodbSettingsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EndpointMongodbSettingsArgs) ToEndpointMongodbSettingsPtrOutput() EndpointMongodbSettingsPtrOutput {
 	return i.ToEndpointMongodbSettingsPtrOutputWithContext(context.Background())
 }
@@ -1050,6 +1129,12 @@ func (i *endpointMongodbSettingsPtrType) ToEndpointMongodbSettingsPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointMongodbSettingsPtrOutput)
 }
 
+func (i *endpointMongodbSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*EndpointMongodbSettings] {
+	return pulumix.Output[*EndpointMongodbSettings]{
+		OutputState: i.ToEndpointMongodbSettingsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EndpointMongodbSettingsOutput struct{ *pulumi.OutputState }
 
 func (EndpointMongodbSettingsOutput) ElementType() reflect.Type {
@@ -1072,6 +1157,12 @@ func (o EndpointMongodbSettingsOutput) ToEndpointMongodbSettingsPtrOutputWithCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointMongodbSettings) *EndpointMongodbSettings {
 		return &v
 	}).(EndpointMongodbSettingsPtrOutput)
+}
+
+func (o EndpointMongodbSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointMongodbSettings] {
+	return pulumix.Output[EndpointMongodbSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Authentication mechanism to access the MongoDB source endpoint. Default is `default`.
@@ -1116,6 +1207,12 @@ func (o EndpointMongodbSettingsPtrOutput) ToEndpointMongodbSettingsPtrOutput() E
 
 func (o EndpointMongodbSettingsPtrOutput) ToEndpointMongodbSettingsPtrOutputWithContext(ctx context.Context) EndpointMongodbSettingsPtrOutput {
 	return o
+}
+
+func (o EndpointMongodbSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointMongodbSettings] {
+	return pulumix.Output[*EndpointMongodbSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EndpointMongodbSettingsPtrOutput) Elem() EndpointMongodbSettingsOutput {
@@ -1245,6 +1342,12 @@ func (i EndpointRedisSettingsArgs) ToEndpointRedisSettingsOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointRedisSettingsOutput)
 }
 
+func (i EndpointRedisSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointRedisSettings] {
+	return pulumix.Output[EndpointRedisSettings]{
+		OutputState: i.ToEndpointRedisSettingsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EndpointRedisSettingsArgs) ToEndpointRedisSettingsPtrOutput() EndpointRedisSettingsPtrOutput {
 	return i.ToEndpointRedisSettingsPtrOutputWithContext(context.Background())
 }
@@ -1286,6 +1389,12 @@ func (i *endpointRedisSettingsPtrType) ToEndpointRedisSettingsPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointRedisSettingsPtrOutput)
 }
 
+func (i *endpointRedisSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*EndpointRedisSettings] {
+	return pulumix.Output[*EndpointRedisSettings]{
+		OutputState: i.ToEndpointRedisSettingsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EndpointRedisSettingsOutput struct{ *pulumi.OutputState }
 
 func (EndpointRedisSettingsOutput) ElementType() reflect.Type {
@@ -1308,6 +1417,12 @@ func (o EndpointRedisSettingsOutput) ToEndpointRedisSettingsPtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointRedisSettings) *EndpointRedisSettings {
 		return &v
 	}).(EndpointRedisSettingsPtrOutput)
+}
+
+func (o EndpointRedisSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointRedisSettings] {
+	return pulumix.Output[EndpointRedisSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The password provided with the auth-role and auth-token options of the AuthType setting for a Redis target endpoint.
@@ -1357,6 +1472,12 @@ func (o EndpointRedisSettingsPtrOutput) ToEndpointRedisSettingsPtrOutput() Endpo
 
 func (o EndpointRedisSettingsPtrOutput) ToEndpointRedisSettingsPtrOutputWithContext(ctx context.Context) EndpointRedisSettingsPtrOutput {
 	return o
+}
+
+func (o EndpointRedisSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointRedisSettings] {
+	return pulumix.Output[*EndpointRedisSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EndpointRedisSettingsPtrOutput) Elem() EndpointRedisSettingsOutput {
@@ -1488,6 +1609,12 @@ func (i EndpointRedshiftSettingsArgs) ToEndpointRedshiftSettingsOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointRedshiftSettingsOutput)
 }
 
+func (i EndpointRedshiftSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointRedshiftSettings] {
+	return pulumix.Output[EndpointRedshiftSettings]{
+		OutputState: i.ToEndpointRedshiftSettingsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EndpointRedshiftSettingsArgs) ToEndpointRedshiftSettingsPtrOutput() EndpointRedshiftSettingsPtrOutput {
 	return i.ToEndpointRedshiftSettingsPtrOutputWithContext(context.Background())
 }
@@ -1529,6 +1656,12 @@ func (i *endpointRedshiftSettingsPtrType) ToEndpointRedshiftSettingsPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointRedshiftSettingsPtrOutput)
 }
 
+func (i *endpointRedshiftSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*EndpointRedshiftSettings] {
+	return pulumix.Output[*EndpointRedshiftSettings]{
+		OutputState: i.ToEndpointRedshiftSettingsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EndpointRedshiftSettingsOutput struct{ *pulumi.OutputState }
 
 func (EndpointRedshiftSettingsOutput) ElementType() reflect.Type {
@@ -1551,6 +1684,12 @@ func (o EndpointRedshiftSettingsOutput) ToEndpointRedshiftSettingsPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointRedshiftSettings) *EndpointRedshiftSettings {
 		return &v
 	}).(EndpointRedshiftSettingsPtrOutput)
+}
+
+func (o EndpointRedshiftSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointRedshiftSettings] {
+	return pulumix.Output[EndpointRedshiftSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Custom S3 Bucket Object prefix for intermediate storage.
@@ -1590,6 +1729,12 @@ func (o EndpointRedshiftSettingsPtrOutput) ToEndpointRedshiftSettingsPtrOutput()
 
 func (o EndpointRedshiftSettingsPtrOutput) ToEndpointRedshiftSettingsPtrOutputWithContext(ctx context.Context) EndpointRedshiftSettingsPtrOutput {
 	return o
+}
+
+func (o EndpointRedshiftSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointRedshiftSettings] {
+	return pulumix.Output[*EndpointRedshiftSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EndpointRedshiftSettingsPtrOutput) Elem() EndpointRedshiftSettingsOutput {
@@ -1829,6 +1974,12 @@ func (i EndpointS3SettingsArgs) ToEndpointS3SettingsOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointS3SettingsOutput)
 }
 
+func (i EndpointS3SettingsArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointS3Settings] {
+	return pulumix.Output[EndpointS3Settings]{
+		OutputState: i.ToEndpointS3SettingsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EndpointS3SettingsArgs) ToEndpointS3SettingsPtrOutput() EndpointS3SettingsPtrOutput {
 	return i.ToEndpointS3SettingsPtrOutputWithContext(context.Background())
 }
@@ -1870,6 +2021,12 @@ func (i *endpointS3SettingsPtrType) ToEndpointS3SettingsPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointS3SettingsPtrOutput)
 }
 
+func (i *endpointS3SettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*EndpointS3Settings] {
+	return pulumix.Output[*EndpointS3Settings]{
+		OutputState: i.ToEndpointS3SettingsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EndpointS3SettingsOutput struct{ *pulumi.OutputState }
 
 func (EndpointS3SettingsOutput) ElementType() reflect.Type {
@@ -1892,6 +2049,12 @@ func (o EndpointS3SettingsOutput) ToEndpointS3SettingsPtrOutputWithContext(ctx c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointS3Settings) *EndpointS3Settings {
 		return &v
 	}).(EndpointS3SettingsPtrOutput)
+}
+
+func (o EndpointS3SettingsOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointS3Settings] {
+	return pulumix.Output[EndpointS3Settings]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether to add column name information to the .csv output file. Default is `false`.
@@ -2091,6 +2254,12 @@ func (o EndpointS3SettingsPtrOutput) ToEndpointS3SettingsPtrOutput() EndpointS3S
 
 func (o EndpointS3SettingsPtrOutput) ToEndpointS3SettingsPtrOutputWithContext(ctx context.Context) EndpointS3SettingsPtrOutput {
 	return o
+}
+
+func (o EndpointS3SettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointS3Settings] {
+	return pulumix.Output[*EndpointS3Settings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EndpointS3SettingsPtrOutput) Elem() EndpointS3SettingsOutput {
@@ -2510,6 +2679,12 @@ func (i GetEndpointElasticsearchSettingArgs) ToGetEndpointElasticsearchSettingOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointElasticsearchSettingOutput)
 }
 
+func (i GetEndpointElasticsearchSettingArgs) ToOutput(ctx context.Context) pulumix.Output[GetEndpointElasticsearchSetting] {
+	return pulumix.Output[GetEndpointElasticsearchSetting]{
+		OutputState: i.ToGetEndpointElasticsearchSettingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetEndpointElasticsearchSettingArrayInput is an input type that accepts GetEndpointElasticsearchSettingArray and GetEndpointElasticsearchSettingArrayOutput values.
 // You can construct a concrete instance of `GetEndpointElasticsearchSettingArrayInput` via:
 //
@@ -2535,6 +2710,12 @@ func (i GetEndpointElasticsearchSettingArray) ToGetEndpointElasticsearchSettingA
 	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointElasticsearchSettingArrayOutput)
 }
 
+func (i GetEndpointElasticsearchSettingArray) ToOutput(ctx context.Context) pulumix.Output[[]GetEndpointElasticsearchSetting] {
+	return pulumix.Output[[]GetEndpointElasticsearchSetting]{
+		OutputState: i.ToGetEndpointElasticsearchSettingArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetEndpointElasticsearchSettingOutput struct{ *pulumi.OutputState }
 
 func (GetEndpointElasticsearchSettingOutput) ElementType() reflect.Type {
@@ -2547,6 +2728,12 @@ func (o GetEndpointElasticsearchSettingOutput) ToGetEndpointElasticsearchSetting
 
 func (o GetEndpointElasticsearchSettingOutput) ToGetEndpointElasticsearchSettingOutputWithContext(ctx context.Context) GetEndpointElasticsearchSettingOutput {
 	return o
+}
+
+func (o GetEndpointElasticsearchSettingOutput) ToOutput(ctx context.Context) pulumix.Output[GetEndpointElasticsearchSetting] {
+	return pulumix.Output[GetEndpointElasticsearchSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetEndpointElasticsearchSettingOutput) EndpointUri() pulumi.StringOutput {
@@ -2577,6 +2764,12 @@ func (o GetEndpointElasticsearchSettingArrayOutput) ToGetEndpointElasticsearchSe
 
 func (o GetEndpointElasticsearchSettingArrayOutput) ToGetEndpointElasticsearchSettingArrayOutputWithContext(ctx context.Context) GetEndpointElasticsearchSettingArrayOutput {
 	return o
+}
+
+func (o GetEndpointElasticsearchSettingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetEndpointElasticsearchSetting] {
+	return pulumix.Output[[]GetEndpointElasticsearchSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetEndpointElasticsearchSettingArrayOutput) Index(i pulumi.IntInput) GetEndpointElasticsearchSettingOutput {
@@ -2650,6 +2843,12 @@ func (i GetEndpointKafkaSettingArgs) ToGetEndpointKafkaSettingOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointKafkaSettingOutput)
 }
 
+func (i GetEndpointKafkaSettingArgs) ToOutput(ctx context.Context) pulumix.Output[GetEndpointKafkaSetting] {
+	return pulumix.Output[GetEndpointKafkaSetting]{
+		OutputState: i.ToGetEndpointKafkaSettingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetEndpointKafkaSettingArrayInput is an input type that accepts GetEndpointKafkaSettingArray and GetEndpointKafkaSettingArrayOutput values.
 // You can construct a concrete instance of `GetEndpointKafkaSettingArrayInput` via:
 //
@@ -2675,6 +2874,12 @@ func (i GetEndpointKafkaSettingArray) ToGetEndpointKafkaSettingArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointKafkaSettingArrayOutput)
 }
 
+func (i GetEndpointKafkaSettingArray) ToOutput(ctx context.Context) pulumix.Output[[]GetEndpointKafkaSetting] {
+	return pulumix.Output[[]GetEndpointKafkaSetting]{
+		OutputState: i.ToGetEndpointKafkaSettingArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetEndpointKafkaSettingOutput struct{ *pulumi.OutputState }
 
 func (GetEndpointKafkaSettingOutput) ElementType() reflect.Type {
@@ -2687,6 +2892,12 @@ func (o GetEndpointKafkaSettingOutput) ToGetEndpointKafkaSettingOutput() GetEndp
 
 func (o GetEndpointKafkaSettingOutput) ToGetEndpointKafkaSettingOutputWithContext(ctx context.Context) GetEndpointKafkaSettingOutput {
 	return o
+}
+
+func (o GetEndpointKafkaSettingOutput) ToOutput(ctx context.Context) pulumix.Output[GetEndpointKafkaSetting] {
+	return pulumix.Output[GetEndpointKafkaSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetEndpointKafkaSettingOutput) Broker() pulumi.StringOutput {
@@ -2775,6 +2986,12 @@ func (o GetEndpointKafkaSettingArrayOutput) ToGetEndpointKafkaSettingArrayOutput
 	return o
 }
 
+func (o GetEndpointKafkaSettingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetEndpointKafkaSetting] {
+	return pulumix.Output[[]GetEndpointKafkaSetting]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetEndpointKafkaSettingArrayOutput) Index(i pulumi.IntInput) GetEndpointKafkaSettingOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEndpointKafkaSetting {
 		return vs[0].([]GetEndpointKafkaSetting)[vs[1].(int)]
@@ -2828,6 +3045,12 @@ func (i GetEndpointKinesisSettingArgs) ToGetEndpointKinesisSettingOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointKinesisSettingOutput)
 }
 
+func (i GetEndpointKinesisSettingArgs) ToOutput(ctx context.Context) pulumix.Output[GetEndpointKinesisSetting] {
+	return pulumix.Output[GetEndpointKinesisSetting]{
+		OutputState: i.ToGetEndpointKinesisSettingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetEndpointKinesisSettingArrayInput is an input type that accepts GetEndpointKinesisSettingArray and GetEndpointKinesisSettingArrayOutput values.
 // You can construct a concrete instance of `GetEndpointKinesisSettingArrayInput` via:
 //
@@ -2853,6 +3076,12 @@ func (i GetEndpointKinesisSettingArray) ToGetEndpointKinesisSettingArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointKinesisSettingArrayOutput)
 }
 
+func (i GetEndpointKinesisSettingArray) ToOutput(ctx context.Context) pulumix.Output[[]GetEndpointKinesisSetting] {
+	return pulumix.Output[[]GetEndpointKinesisSetting]{
+		OutputState: i.ToGetEndpointKinesisSettingArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetEndpointKinesisSettingOutput struct{ *pulumi.OutputState }
 
 func (GetEndpointKinesisSettingOutput) ElementType() reflect.Type {
@@ -2865,6 +3094,12 @@ func (o GetEndpointKinesisSettingOutput) ToGetEndpointKinesisSettingOutput() Get
 
 func (o GetEndpointKinesisSettingOutput) ToGetEndpointKinesisSettingOutputWithContext(ctx context.Context) GetEndpointKinesisSettingOutput {
 	return o
+}
+
+func (o GetEndpointKinesisSettingOutput) ToOutput(ctx context.Context) pulumix.Output[GetEndpointKinesisSetting] {
+	return pulumix.Output[GetEndpointKinesisSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetEndpointKinesisSettingOutput) IncludeControlDetails() pulumi.BoolOutput {
@@ -2917,6 +3152,12 @@ func (o GetEndpointKinesisSettingArrayOutput) ToGetEndpointKinesisSettingArrayOu
 	return o
 }
 
+func (o GetEndpointKinesisSettingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetEndpointKinesisSetting] {
+	return pulumix.Output[[]GetEndpointKinesisSetting]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetEndpointKinesisSettingArrayOutput) Index(i pulumi.IntInput) GetEndpointKinesisSettingOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEndpointKinesisSetting {
 		return vs[0].([]GetEndpointKinesisSetting)[vs[1].(int)]
@@ -2964,6 +3205,12 @@ func (i GetEndpointMongodbSettingArgs) ToGetEndpointMongodbSettingOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointMongodbSettingOutput)
 }
 
+func (i GetEndpointMongodbSettingArgs) ToOutput(ctx context.Context) pulumix.Output[GetEndpointMongodbSetting] {
+	return pulumix.Output[GetEndpointMongodbSetting]{
+		OutputState: i.ToGetEndpointMongodbSettingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetEndpointMongodbSettingArrayInput is an input type that accepts GetEndpointMongodbSettingArray and GetEndpointMongodbSettingArrayOutput values.
 // You can construct a concrete instance of `GetEndpointMongodbSettingArrayInput` via:
 //
@@ -2989,6 +3236,12 @@ func (i GetEndpointMongodbSettingArray) ToGetEndpointMongodbSettingArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointMongodbSettingArrayOutput)
 }
 
+func (i GetEndpointMongodbSettingArray) ToOutput(ctx context.Context) pulumix.Output[[]GetEndpointMongodbSetting] {
+	return pulumix.Output[[]GetEndpointMongodbSetting]{
+		OutputState: i.ToGetEndpointMongodbSettingArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetEndpointMongodbSettingOutput struct{ *pulumi.OutputState }
 
 func (GetEndpointMongodbSettingOutput) ElementType() reflect.Type {
@@ -3001,6 +3254,12 @@ func (o GetEndpointMongodbSettingOutput) ToGetEndpointMongodbSettingOutput() Get
 
 func (o GetEndpointMongodbSettingOutput) ToGetEndpointMongodbSettingOutputWithContext(ctx context.Context) GetEndpointMongodbSettingOutput {
 	return o
+}
+
+func (o GetEndpointMongodbSettingOutput) ToOutput(ctx context.Context) pulumix.Output[GetEndpointMongodbSetting] {
+	return pulumix.Output[GetEndpointMongodbSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetEndpointMongodbSettingOutput) AuthMechanism() pulumi.StringOutput {
@@ -3039,6 +3298,12 @@ func (o GetEndpointMongodbSettingArrayOutput) ToGetEndpointMongodbSettingArrayOu
 
 func (o GetEndpointMongodbSettingArrayOutput) ToGetEndpointMongodbSettingArrayOutputWithContext(ctx context.Context) GetEndpointMongodbSettingArrayOutput {
 	return o
+}
+
+func (o GetEndpointMongodbSettingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetEndpointMongodbSetting] {
+	return pulumix.Output[[]GetEndpointMongodbSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetEndpointMongodbSettingArrayOutput) Index(i pulumi.IntInput) GetEndpointMongodbSettingOutput {
@@ -3090,6 +3355,12 @@ func (i GetEndpointRedisSettingArgs) ToGetEndpointRedisSettingOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointRedisSettingOutput)
 }
 
+func (i GetEndpointRedisSettingArgs) ToOutput(ctx context.Context) pulumix.Output[GetEndpointRedisSetting] {
+	return pulumix.Output[GetEndpointRedisSetting]{
+		OutputState: i.ToGetEndpointRedisSettingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetEndpointRedisSettingArrayInput is an input type that accepts GetEndpointRedisSettingArray and GetEndpointRedisSettingArrayOutput values.
 // You can construct a concrete instance of `GetEndpointRedisSettingArrayInput` via:
 //
@@ -3115,6 +3386,12 @@ func (i GetEndpointRedisSettingArray) ToGetEndpointRedisSettingArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointRedisSettingArrayOutput)
 }
 
+func (i GetEndpointRedisSettingArray) ToOutput(ctx context.Context) pulumix.Output[[]GetEndpointRedisSetting] {
+	return pulumix.Output[[]GetEndpointRedisSetting]{
+		OutputState: i.ToGetEndpointRedisSettingArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetEndpointRedisSettingOutput struct{ *pulumi.OutputState }
 
 func (GetEndpointRedisSettingOutput) ElementType() reflect.Type {
@@ -3127,6 +3404,12 @@ func (o GetEndpointRedisSettingOutput) ToGetEndpointRedisSettingOutput() GetEndp
 
 func (o GetEndpointRedisSettingOutput) ToGetEndpointRedisSettingOutputWithContext(ctx context.Context) GetEndpointRedisSettingOutput {
 	return o
+}
+
+func (o GetEndpointRedisSettingOutput) ToOutput(ctx context.Context) pulumix.Output[GetEndpointRedisSetting] {
+	return pulumix.Output[GetEndpointRedisSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetEndpointRedisSettingOutput) AuthPassword() pulumi.StringOutput {
@@ -3169,6 +3452,12 @@ func (o GetEndpointRedisSettingArrayOutput) ToGetEndpointRedisSettingArrayOutput
 
 func (o GetEndpointRedisSettingArrayOutput) ToGetEndpointRedisSettingArrayOutputWithContext(ctx context.Context) GetEndpointRedisSettingArrayOutput {
 	return o
+}
+
+func (o GetEndpointRedisSettingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetEndpointRedisSetting] {
+	return pulumix.Output[[]GetEndpointRedisSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetEndpointRedisSettingArrayOutput) Index(i pulumi.IntInput) GetEndpointRedisSettingOutput {
@@ -3216,6 +3505,12 @@ func (i GetEndpointRedshiftSettingArgs) ToGetEndpointRedshiftSettingOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointRedshiftSettingOutput)
 }
 
+func (i GetEndpointRedshiftSettingArgs) ToOutput(ctx context.Context) pulumix.Output[GetEndpointRedshiftSetting] {
+	return pulumix.Output[GetEndpointRedshiftSetting]{
+		OutputState: i.ToGetEndpointRedshiftSettingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetEndpointRedshiftSettingArrayInput is an input type that accepts GetEndpointRedshiftSettingArray and GetEndpointRedshiftSettingArrayOutput values.
 // You can construct a concrete instance of `GetEndpointRedshiftSettingArrayInput` via:
 //
@@ -3241,6 +3536,12 @@ func (i GetEndpointRedshiftSettingArray) ToGetEndpointRedshiftSettingArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointRedshiftSettingArrayOutput)
 }
 
+func (i GetEndpointRedshiftSettingArray) ToOutput(ctx context.Context) pulumix.Output[[]GetEndpointRedshiftSetting] {
+	return pulumix.Output[[]GetEndpointRedshiftSetting]{
+		OutputState: i.ToGetEndpointRedshiftSettingArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetEndpointRedshiftSettingOutput struct{ *pulumi.OutputState }
 
 func (GetEndpointRedshiftSettingOutput) ElementType() reflect.Type {
@@ -3253,6 +3554,12 @@ func (o GetEndpointRedshiftSettingOutput) ToGetEndpointRedshiftSettingOutput() G
 
 func (o GetEndpointRedshiftSettingOutput) ToGetEndpointRedshiftSettingOutputWithContext(ctx context.Context) GetEndpointRedshiftSettingOutput {
 	return o
+}
+
+func (o GetEndpointRedshiftSettingOutput) ToOutput(ctx context.Context) pulumix.Output[GetEndpointRedshiftSetting] {
+	return pulumix.Output[GetEndpointRedshiftSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetEndpointRedshiftSettingOutput) BucketFolder() pulumi.StringOutput {
@@ -3287,6 +3594,12 @@ func (o GetEndpointRedshiftSettingArrayOutput) ToGetEndpointRedshiftSettingArray
 
 func (o GetEndpointRedshiftSettingArrayOutput) ToGetEndpointRedshiftSettingArrayOutputWithContext(ctx context.Context) GetEndpointRedshiftSettingArrayOutput {
 	return o
+}
+
+func (o GetEndpointRedshiftSettingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetEndpointRedshiftSetting] {
+	return pulumix.Output[[]GetEndpointRedshiftSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetEndpointRedshiftSettingArrayOutput) Index(i pulumi.IntInput) GetEndpointRedshiftSettingOutput {
@@ -3400,6 +3713,12 @@ func (i GetEndpointS3SettingArgs) ToGetEndpointS3SettingOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointS3SettingOutput)
 }
 
+func (i GetEndpointS3SettingArgs) ToOutput(ctx context.Context) pulumix.Output[GetEndpointS3Setting] {
+	return pulumix.Output[GetEndpointS3Setting]{
+		OutputState: i.ToGetEndpointS3SettingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetEndpointS3SettingArrayInput is an input type that accepts GetEndpointS3SettingArray and GetEndpointS3SettingArrayOutput values.
 // You can construct a concrete instance of `GetEndpointS3SettingArrayInput` via:
 //
@@ -3425,6 +3744,12 @@ func (i GetEndpointS3SettingArray) ToGetEndpointS3SettingArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointS3SettingArrayOutput)
 }
 
+func (i GetEndpointS3SettingArray) ToOutput(ctx context.Context) pulumix.Output[[]GetEndpointS3Setting] {
+	return pulumix.Output[[]GetEndpointS3Setting]{
+		OutputState: i.ToGetEndpointS3SettingArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetEndpointS3SettingOutput struct{ *pulumi.OutputState }
 
 func (GetEndpointS3SettingOutput) ElementType() reflect.Type {
@@ -3437,6 +3762,12 @@ func (o GetEndpointS3SettingOutput) ToGetEndpointS3SettingOutput() GetEndpointS3
 
 func (o GetEndpointS3SettingOutput) ToGetEndpointS3SettingOutputWithContext(ctx context.Context) GetEndpointS3SettingOutput {
 	return o
+}
+
+func (o GetEndpointS3SettingOutput) ToOutput(ctx context.Context) pulumix.Output[GetEndpointS3Setting] {
+	return pulumix.Output[GetEndpointS3Setting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetEndpointS3SettingOutput) AddColumnName() pulumi.BoolOutput {
@@ -3603,6 +3934,12 @@ func (o GetEndpointS3SettingArrayOutput) ToGetEndpointS3SettingArrayOutput() Get
 
 func (o GetEndpointS3SettingArrayOutput) ToGetEndpointS3SettingArrayOutputWithContext(ctx context.Context) GetEndpointS3SettingArrayOutput {
 	return o
+}
+
+func (o GetEndpointS3SettingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetEndpointS3Setting] {
+	return pulumix.Output[[]GetEndpointS3Setting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetEndpointS3SettingArrayOutput) Index(i pulumi.IntInput) GetEndpointS3SettingOutput {

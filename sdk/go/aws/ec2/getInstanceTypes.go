@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Information about EC2 Instance Types.
@@ -125,6 +126,12 @@ func (o GetInstanceTypesResultOutput) ToGetInstanceTypesResultOutput() GetInstan
 
 func (o GetInstanceTypesResultOutput) ToGetInstanceTypesResultOutputWithContext(ctx context.Context) GetInstanceTypesResultOutput {
 	return o
+}
+
+func (o GetInstanceTypesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetInstanceTypesResult] {
+	return pulumix.Output[GetInstanceTypesResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetInstanceTypesResultOutput) Filters() GetInstanceTypesFilterArrayOutput {

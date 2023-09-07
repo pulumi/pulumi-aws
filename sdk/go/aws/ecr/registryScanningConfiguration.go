@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Elastic Container Registry Scanning Configuration. Can't be completely deleted, instead reverts to the default `BASIC` scanning configuration without rules.
@@ -209,6 +210,12 @@ func (i *RegistryScanningConfiguration) ToRegistryScanningConfigurationOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryScanningConfigurationOutput)
 }
 
+func (i *RegistryScanningConfiguration) ToOutput(ctx context.Context) pulumix.Output[*RegistryScanningConfiguration] {
+	return pulumix.Output[*RegistryScanningConfiguration]{
+		OutputState: i.ToRegistryScanningConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RegistryScanningConfigurationArrayInput is an input type that accepts RegistryScanningConfigurationArray and RegistryScanningConfigurationArrayOutput values.
 // You can construct a concrete instance of `RegistryScanningConfigurationArrayInput` via:
 //
@@ -232,6 +239,12 @@ func (i RegistryScanningConfigurationArray) ToRegistryScanningConfigurationArray
 
 func (i RegistryScanningConfigurationArray) ToRegistryScanningConfigurationArrayOutputWithContext(ctx context.Context) RegistryScanningConfigurationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryScanningConfigurationArrayOutput)
+}
+
+func (i RegistryScanningConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]*RegistryScanningConfiguration] {
+	return pulumix.Output[[]*RegistryScanningConfiguration]{
+		OutputState: i.ToRegistryScanningConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RegistryScanningConfigurationMapInput is an input type that accepts RegistryScanningConfigurationMap and RegistryScanningConfigurationMapOutput values.
@@ -259,6 +272,12 @@ func (i RegistryScanningConfigurationMap) ToRegistryScanningConfigurationMapOutp
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryScanningConfigurationMapOutput)
 }
 
+func (i RegistryScanningConfigurationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RegistryScanningConfiguration] {
+	return pulumix.Output[map[string]*RegistryScanningConfiguration]{
+		OutputState: i.ToRegistryScanningConfigurationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RegistryScanningConfigurationOutput struct{ *pulumi.OutputState }
 
 func (RegistryScanningConfigurationOutput) ElementType() reflect.Type {
@@ -271,6 +290,12 @@ func (o RegistryScanningConfigurationOutput) ToRegistryScanningConfigurationOutp
 
 func (o RegistryScanningConfigurationOutput) ToRegistryScanningConfigurationOutputWithContext(ctx context.Context) RegistryScanningConfigurationOutput {
 	return o
+}
+
+func (o RegistryScanningConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*RegistryScanningConfiguration] {
+	return pulumix.Output[*RegistryScanningConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The registry ID the scanning configuration applies to.
@@ -302,6 +327,12 @@ func (o RegistryScanningConfigurationArrayOutput) ToRegistryScanningConfiguratio
 	return o
 }
 
+func (o RegistryScanningConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RegistryScanningConfiguration] {
+	return pulumix.Output[[]*RegistryScanningConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RegistryScanningConfigurationArrayOutput) Index(i pulumi.IntInput) RegistryScanningConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RegistryScanningConfiguration {
 		return vs[0].([]*RegistryScanningConfiguration)[vs[1].(int)]
@@ -320,6 +351,12 @@ func (o RegistryScanningConfigurationMapOutput) ToRegistryScanningConfigurationM
 
 func (o RegistryScanningConfigurationMapOutput) ToRegistryScanningConfigurationMapOutputWithContext(ctx context.Context) RegistryScanningConfigurationMapOutput {
 	return o
+}
+
+func (o RegistryScanningConfigurationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RegistryScanningConfiguration] {
+	return pulumix.Output[map[string]*RegistryScanningConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RegistryScanningConfigurationMapOutput) MapIndex(k pulumi.StringInput) RegistryScanningConfigurationOutput {

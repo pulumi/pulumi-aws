@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to manage S3 Bucket Ownership Controls. For more information, see the [S3 Developer Guide](https://docs.aws.amazon.com/AmazonS3/latest/dev/about-object-ownership.html).
@@ -156,6 +157,12 @@ func (i *BucketOwnershipControls) ToBucketOwnershipControlsOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(BucketOwnershipControlsOutput)
 }
 
+func (i *BucketOwnershipControls) ToOutput(ctx context.Context) pulumix.Output[*BucketOwnershipControls] {
+	return pulumix.Output[*BucketOwnershipControls]{
+		OutputState: i.ToBucketOwnershipControlsOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BucketOwnershipControlsArrayInput is an input type that accepts BucketOwnershipControlsArray and BucketOwnershipControlsArrayOutput values.
 // You can construct a concrete instance of `BucketOwnershipControlsArrayInput` via:
 //
@@ -179,6 +186,12 @@ func (i BucketOwnershipControlsArray) ToBucketOwnershipControlsArrayOutput() Buc
 
 func (i BucketOwnershipControlsArray) ToBucketOwnershipControlsArrayOutputWithContext(ctx context.Context) BucketOwnershipControlsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BucketOwnershipControlsArrayOutput)
+}
+
+func (i BucketOwnershipControlsArray) ToOutput(ctx context.Context) pulumix.Output[[]*BucketOwnershipControls] {
+	return pulumix.Output[[]*BucketOwnershipControls]{
+		OutputState: i.ToBucketOwnershipControlsArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // BucketOwnershipControlsMapInput is an input type that accepts BucketOwnershipControlsMap and BucketOwnershipControlsMapOutput values.
@@ -206,6 +219,12 @@ func (i BucketOwnershipControlsMap) ToBucketOwnershipControlsMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(BucketOwnershipControlsMapOutput)
 }
 
+func (i BucketOwnershipControlsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*BucketOwnershipControls] {
+	return pulumix.Output[map[string]*BucketOwnershipControls]{
+		OutputState: i.ToBucketOwnershipControlsMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketOwnershipControlsOutput struct{ *pulumi.OutputState }
 
 func (BucketOwnershipControlsOutput) ElementType() reflect.Type {
@@ -218,6 +237,12 @@ func (o BucketOwnershipControlsOutput) ToBucketOwnershipControlsOutput() BucketO
 
 func (o BucketOwnershipControlsOutput) ToBucketOwnershipControlsOutputWithContext(ctx context.Context) BucketOwnershipControlsOutput {
 	return o
+}
+
+func (o BucketOwnershipControlsOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketOwnershipControls] {
+	return pulumix.Output[*BucketOwnershipControls]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the bucket that you want to associate this access point with.
@@ -244,6 +269,12 @@ func (o BucketOwnershipControlsArrayOutput) ToBucketOwnershipControlsArrayOutput
 	return o
 }
 
+func (o BucketOwnershipControlsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BucketOwnershipControls] {
+	return pulumix.Output[[]*BucketOwnershipControls]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BucketOwnershipControlsArrayOutput) Index(i pulumi.IntInput) BucketOwnershipControlsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BucketOwnershipControls {
 		return vs[0].([]*BucketOwnershipControls)[vs[1].(int)]
@@ -262,6 +293,12 @@ func (o BucketOwnershipControlsMapOutput) ToBucketOwnershipControlsMapOutput() B
 
 func (o BucketOwnershipControlsMapOutput) ToBucketOwnershipControlsMapOutputWithContext(ctx context.Context) BucketOwnershipControlsMapOutput {
 	return o
+}
+
+func (o BucketOwnershipControlsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BucketOwnershipControls] {
+	return pulumix.Output[map[string]*BucketOwnershipControls]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketOwnershipControlsMapOutput) MapIndex(k pulumi.StringInput) BucketOwnershipControlsOutput {

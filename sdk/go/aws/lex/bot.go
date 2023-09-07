@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Amazon Lex Bot resource. For more information see
@@ -354,6 +355,12 @@ func (i *Bot) ToBotOutputWithContext(ctx context.Context) BotOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BotOutput)
 }
 
+func (i *Bot) ToOutput(ctx context.Context) pulumix.Output[*Bot] {
+	return pulumix.Output[*Bot]{
+		OutputState: i.ToBotOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BotArrayInput is an input type that accepts BotArray and BotArrayOutput values.
 // You can construct a concrete instance of `BotArrayInput` via:
 //
@@ -377,6 +384,12 @@ func (i BotArray) ToBotArrayOutput() BotArrayOutput {
 
 func (i BotArray) ToBotArrayOutputWithContext(ctx context.Context) BotArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BotArrayOutput)
+}
+
+func (i BotArray) ToOutput(ctx context.Context) pulumix.Output[[]*Bot] {
+	return pulumix.Output[[]*Bot]{
+		OutputState: i.ToBotArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // BotMapInput is an input type that accepts BotMap and BotMapOutput values.
@@ -404,6 +417,12 @@ func (i BotMap) ToBotMapOutputWithContext(ctx context.Context) BotMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BotMapOutput)
 }
 
+func (i BotMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Bot] {
+	return pulumix.Output[map[string]*Bot]{
+		OutputState: i.ToBotMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BotOutput struct{ *pulumi.OutputState }
 
 func (BotOutput) ElementType() reflect.Type {
@@ -416,6 +435,12 @@ func (o BotOutput) ToBotOutput() BotOutput {
 
 func (o BotOutput) ToBotOutputWithContext(ctx context.Context) BotOutput {
 	return o
+}
+
+func (o BotOutput) ToOutput(ctx context.Context) pulumix.Output[*Bot] {
+	return pulumix.Output[*Bot]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The message that Amazon Lex uses to abort a conversation. Attributes are documented under statement.
@@ -540,6 +565,12 @@ func (o BotArrayOutput) ToBotArrayOutputWithContext(ctx context.Context) BotArra
 	return o
 }
 
+func (o BotArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Bot] {
+	return pulumix.Output[[]*Bot]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BotArrayOutput) Index(i pulumi.IntInput) BotOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Bot {
 		return vs[0].([]*Bot)[vs[1].(int)]
@@ -558,6 +589,12 @@ func (o BotMapOutput) ToBotMapOutput() BotMapOutput {
 
 func (o BotMapOutput) ToBotMapOutputWithContext(ctx context.Context) BotMapOutput {
 	return o
+}
+
+func (o BotMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Bot] {
+	return pulumix.Output[map[string]*Bot]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotMapOutput) MapIndex(k pulumi.StringInput) BotOutput {

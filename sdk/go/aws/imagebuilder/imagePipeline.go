@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Image Builder Image Pipeline.
@@ -76,6 +77,8 @@ type ImagePipeline struct {
 	EnhancedImageMetadataEnabled pulumi.BoolPtrOutput `pulumi:"enhancedImageMetadataEnabled"`
 	// Amazon Resource Name (ARN) of the image recipe.
 	ImageRecipeArn pulumi.StringPtrOutput `pulumi:"imageRecipeArn"`
+	// Configuration block with image scanning configuration. Detailed below.
+	ImageScanningConfiguration ImagePipelineImageScanningConfigurationOutput `pulumi:"imageScanningConfiguration"`
 	// Configuration block with image tests configuration. Detailed below.
 	ImageTestsConfiguration ImagePipelineImageTestsConfigurationOutput `pulumi:"imageTestsConfiguration"`
 	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
@@ -149,6 +152,8 @@ type imagePipelineState struct {
 	EnhancedImageMetadataEnabled *bool `pulumi:"enhancedImageMetadataEnabled"`
 	// Amazon Resource Name (ARN) of the image recipe.
 	ImageRecipeArn *string `pulumi:"imageRecipeArn"`
+	// Configuration block with image scanning configuration. Detailed below.
+	ImageScanningConfiguration *ImagePipelineImageScanningConfiguration `pulumi:"imageScanningConfiguration"`
 	// Configuration block with image tests configuration. Detailed below.
 	ImageTestsConfiguration *ImagePipelineImageTestsConfiguration `pulumi:"imageTestsConfiguration"`
 	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
@@ -190,6 +195,8 @@ type ImagePipelineState struct {
 	EnhancedImageMetadataEnabled pulumi.BoolPtrInput
 	// Amazon Resource Name (ARN) of the image recipe.
 	ImageRecipeArn pulumi.StringPtrInput
+	// Configuration block with image scanning configuration. Detailed below.
+	ImageScanningConfiguration ImagePipelineImageScanningConfigurationPtrInput
 	// Configuration block with image tests configuration. Detailed below.
 	ImageTestsConfiguration ImagePipelineImageTestsConfigurationPtrInput
 	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
@@ -225,6 +232,8 @@ type imagePipelineArgs struct {
 	EnhancedImageMetadataEnabled *bool `pulumi:"enhancedImageMetadataEnabled"`
 	// Amazon Resource Name (ARN) of the image recipe.
 	ImageRecipeArn *string `pulumi:"imageRecipeArn"`
+	// Configuration block with image scanning configuration. Detailed below.
+	ImageScanningConfiguration *ImagePipelineImageScanningConfiguration `pulumi:"imageScanningConfiguration"`
 	// Configuration block with image tests configuration. Detailed below.
 	ImageTestsConfiguration *ImagePipelineImageTestsConfiguration `pulumi:"imageTestsConfiguration"`
 	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
@@ -253,6 +262,8 @@ type ImagePipelineArgs struct {
 	EnhancedImageMetadataEnabled pulumi.BoolPtrInput
 	// Amazon Resource Name (ARN) of the image recipe.
 	ImageRecipeArn pulumi.StringPtrInput
+	// Configuration block with image scanning configuration. Detailed below.
+	ImageScanningConfiguration ImagePipelineImageScanningConfigurationPtrInput
 	// Configuration block with image tests configuration. Detailed below.
 	ImageTestsConfiguration ImagePipelineImageTestsConfigurationPtrInput
 	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
@@ -292,6 +303,12 @@ func (i *ImagePipeline) ToImagePipelineOutputWithContext(ctx context.Context) Im
 	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineOutput)
 }
 
+func (i *ImagePipeline) ToOutput(ctx context.Context) pulumix.Output[*ImagePipeline] {
+	return pulumix.Output[*ImagePipeline]{
+		OutputState: i.ToImagePipelineOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ImagePipelineArrayInput is an input type that accepts ImagePipelineArray and ImagePipelineArrayOutput values.
 // You can construct a concrete instance of `ImagePipelineArrayInput` via:
 //
@@ -315,6 +332,12 @@ func (i ImagePipelineArray) ToImagePipelineArrayOutput() ImagePipelineArrayOutpu
 
 func (i ImagePipelineArray) ToImagePipelineArrayOutputWithContext(ctx context.Context) ImagePipelineArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineArrayOutput)
+}
+
+func (i ImagePipelineArray) ToOutput(ctx context.Context) pulumix.Output[[]*ImagePipeline] {
+	return pulumix.Output[[]*ImagePipeline]{
+		OutputState: i.ToImagePipelineArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ImagePipelineMapInput is an input type that accepts ImagePipelineMap and ImagePipelineMapOutput values.
@@ -342,6 +365,12 @@ func (i ImagePipelineMap) ToImagePipelineMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineMapOutput)
 }
 
+func (i ImagePipelineMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ImagePipeline] {
+	return pulumix.Output[map[string]*ImagePipeline]{
+		OutputState: i.ToImagePipelineMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ImagePipelineOutput struct{ *pulumi.OutputState }
 
 func (ImagePipelineOutput) ElementType() reflect.Type {
@@ -354,6 +383,12 @@ func (o ImagePipelineOutput) ToImagePipelineOutput() ImagePipelineOutput {
 
 func (o ImagePipelineOutput) ToImagePipelineOutputWithContext(ctx context.Context) ImagePipelineOutput {
 	return o
+}
+
+func (o ImagePipelineOutput) ToOutput(ctx context.Context) pulumix.Output[*ImagePipeline] {
+	return pulumix.Output[*ImagePipeline]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name (ARN) of the image pipeline.
@@ -404,6 +439,13 @@ func (o ImagePipelineOutput) EnhancedImageMetadataEnabled() pulumi.BoolPtrOutput
 // Amazon Resource Name (ARN) of the image recipe.
 func (o ImagePipelineOutput) ImageRecipeArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImagePipeline) pulumi.StringPtrOutput { return v.ImageRecipeArn }).(pulumi.StringPtrOutput)
+}
+
+// Configuration block with image scanning configuration. Detailed below.
+func (o ImagePipelineOutput) ImageScanningConfiguration() ImagePipelineImageScanningConfigurationOutput {
+	return o.ApplyT(func(v *ImagePipeline) ImagePipelineImageScanningConfigurationOutput {
+		return v.ImageScanningConfiguration
+	}).(ImagePipelineImageScanningConfigurationOutput)
 }
 
 // Configuration block with image tests configuration. Detailed below.
@@ -462,6 +504,12 @@ func (o ImagePipelineArrayOutput) ToImagePipelineArrayOutputWithContext(ctx cont
 	return o
 }
 
+func (o ImagePipelineArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ImagePipeline] {
+	return pulumix.Output[[]*ImagePipeline]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ImagePipelineArrayOutput) Index(i pulumi.IntInput) ImagePipelineOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ImagePipeline {
 		return vs[0].([]*ImagePipeline)[vs[1].(int)]
@@ -480,6 +528,12 @@ func (o ImagePipelineMapOutput) ToImagePipelineMapOutput() ImagePipelineMapOutpu
 
 func (o ImagePipelineMapOutput) ToImagePipelineMapOutputWithContext(ctx context.Context) ImagePipelineMapOutput {
 	return o
+}
+
+func (o ImagePipelineMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ImagePipeline] {
+	return pulumix.Output[map[string]*ImagePipeline]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ImagePipelineMapOutput) MapIndex(k pulumi.StringInput) ImagePipelineOutput {

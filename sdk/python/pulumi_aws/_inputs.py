@@ -294,6 +294,7 @@ class ProviderEndpointArgs:
                  cloudwatchrum: Optional[pulumi.Input[str]] = None,
                  codeartifact: Optional[pulumi.Input[str]] = None,
                  codebuild: Optional[pulumi.Input[str]] = None,
+                 codecatalyst: Optional[pulumi.Input[str]] = None,
                  codecommit: Optional[pulumi.Input[str]] = None,
                  codedeploy: Optional[pulumi.Input[str]] = None,
                  codegurureviewer: Optional[pulumi.Input[str]] = None,
@@ -391,6 +392,8 @@ class ProviderEndpointArgs:
                  lexmodelbuilding: Optional[pulumi.Input[str]] = None,
                  lexmodelbuildingservice: Optional[pulumi.Input[str]] = None,
                  lexmodels: Optional[pulumi.Input[str]] = None,
+                 lexmodelsv2: Optional[pulumi.Input[str]] = None,
+                 lexv2models: Optional[pulumi.Input[str]] = None,
                  licensemanager: Optional[pulumi.Input[str]] = None,
                  lightsail: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -591,6 +594,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "codeartifact", codeartifact)
         if codebuild is not None:
             pulumi.set(__self__, "codebuild", codebuild)
+        if codecatalyst is not None:
+            pulumi.set(__self__, "codecatalyst", codecatalyst)
         if codecommit is not None:
             pulumi.set(__self__, "codecommit", codecommit)
         if codedeploy is not None:
@@ -785,6 +790,10 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "lexmodelbuildingservice", lexmodelbuildingservice)
         if lexmodels is not None:
             pulumi.set(__self__, "lexmodels", lexmodels)
+        if lexmodelsv2 is not None:
+            pulumi.set(__self__, "lexmodelsv2", lexmodelsv2)
+        if lexv2models is not None:
+            pulumi.set(__self__, "lexv2models", lexv2models)
         if licensemanager is not None:
             pulumi.set(__self__, "licensemanager", licensemanager)
         if lightsail is not None:
@@ -1440,6 +1449,15 @@ class ProviderEndpointArgs:
     @codebuild.setter
     def codebuild(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "codebuild", value)
+
+    @property
+    @pulumi.getter
+    def codecatalyst(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "codecatalyst")
+
+    @codecatalyst.setter
+    def codecatalyst(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "codecatalyst", value)
 
     @property
     @pulumi.getter
@@ -2313,6 +2331,24 @@ class ProviderEndpointArgs:
     @lexmodels.setter
     def lexmodels(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "lexmodels", value)
+
+    @property
+    @pulumi.getter
+    def lexmodelsv2(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "lexmodelsv2")
+
+    @lexmodelsv2.setter
+    def lexmodelsv2(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "lexmodelsv2", value)
+
+    @property
+    @pulumi.getter
+    def lexv2models(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "lexv2models")
+
+    @lexv2models.setter
+    def lexv2models(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "lexv2models", value)
 
     @property
     @pulumi.getter

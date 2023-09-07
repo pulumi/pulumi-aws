@@ -36,3 +36,18 @@ export interface GetEncryptionByDefaultResult {
      */
     readonly id: string;
 }
+/**
+ * Provides a way to check whether default EBS encryption is enabled for your AWS account in the current AWS region.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const current = aws.ebs.getEncryptionByDefault({});
+ * ```
+ */
+export function getEncryptionByDefaultOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetEncryptionByDefaultResult> {
+    return pulumi.output(getEncryptionByDefault(opts))
+}

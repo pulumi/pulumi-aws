@@ -1,4 +1,4 @@
-From 3d2044b6647b32875d7dfa68f61abc346088566e Mon Sep 17 00:00:00 2001
+From 4debbe519cf7db8bf8cbb0fe32077f0a65cde6b6 Mon Sep 17 00:00:00 2001
 From: Lee Briggs <jaxxstorm@users.noreply.github.com>
 Date: Wed, 21 Dec 2022 12:23:59 -0800
 Subject: [PATCH 16/29] add matchmaking configuration (#72)
@@ -25,7 +25,7 @@ Subject: [PATCH 16/29] add matchmaking configuration (#72)
  create mode 100644 website/docs/r/gamelift_matchmaking_rule_set.html.markdown
 
 diff --git a/internal/provider/provider.go b/internal/provider/provider.go
-index eecd661d79..fa7d69d73d 100644
+index e3e8c2b44c..1b46539c19 100644
 --- a/internal/provider/provider.go
 +++ b/internal/provider/provider.go
 @@ -14,6 +14,7 @@ import (
@@ -36,7 +36,7 @@ index eecd661d79..fa7d69d73d 100644
  	"github.com/hashicorp/terraform-provider-aws/internal/service/s3legacy"
  
  	"github.com/aws/aws-sdk-go-v2/feature/ec2/imds"
-@@ -237,6 +238,9 @@ func New(ctx context.Context) (*schema.Provider, error) {
+@@ -246,6 +247,9 @@ func New(ctx context.Context) (*schema.Provider, error) {
  
  		ResourcesMap: map[string]*schema.Resource{
  			"aws_s3_bucket_legacy": s3legacy.ResourceBucketLegacy(),
@@ -1195,5 +1195,5 @@ index 0000000000..28013532bf
 +$ terraform import aws_gamelift_matchmaking_rule_set.example <ruleset-id>
 +```
 -- 
-2.40.0
+2.41.0
 

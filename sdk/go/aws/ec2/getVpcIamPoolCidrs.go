@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `ec2.getVpcIpamPoolCidrs` provides details about an IPAM pool.
@@ -82,6 +83,12 @@ func (o GetVpcIamPoolCidrsResultOutput) ToGetVpcIamPoolCidrsResultOutput() GetVp
 
 func (o GetVpcIamPoolCidrsResultOutput) ToGetVpcIamPoolCidrsResultOutputWithContext(ctx context.Context) GetVpcIamPoolCidrsResultOutput {
 	return o
+}
+
+func (o GetVpcIamPoolCidrsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetVpcIamPoolCidrsResult] {
+	return pulumix.Output[GetVpcIamPoolCidrsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetVpcIamPoolCidrsResultOutput) Filters() GetVpcIamPoolCidrsFilterArrayOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Connects a custom domain name registered via `apigateway.DomainName`
@@ -216,6 +217,12 @@ func (i *BasePathMapping) ToBasePathMappingOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(BasePathMappingOutput)
 }
 
+func (i *BasePathMapping) ToOutput(ctx context.Context) pulumix.Output[*BasePathMapping] {
+	return pulumix.Output[*BasePathMapping]{
+		OutputState: i.ToBasePathMappingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BasePathMappingArrayInput is an input type that accepts BasePathMappingArray and BasePathMappingArrayOutput values.
 // You can construct a concrete instance of `BasePathMappingArrayInput` via:
 //
@@ -239,6 +246,12 @@ func (i BasePathMappingArray) ToBasePathMappingArrayOutput() BasePathMappingArra
 
 func (i BasePathMappingArray) ToBasePathMappingArrayOutputWithContext(ctx context.Context) BasePathMappingArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BasePathMappingArrayOutput)
+}
+
+func (i BasePathMappingArray) ToOutput(ctx context.Context) pulumix.Output[[]*BasePathMapping] {
+	return pulumix.Output[[]*BasePathMapping]{
+		OutputState: i.ToBasePathMappingArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // BasePathMappingMapInput is an input type that accepts BasePathMappingMap and BasePathMappingMapOutput values.
@@ -266,6 +279,12 @@ func (i BasePathMappingMap) ToBasePathMappingMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(BasePathMappingMapOutput)
 }
 
+func (i BasePathMappingMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*BasePathMapping] {
+	return pulumix.Output[map[string]*BasePathMapping]{
+		OutputState: i.ToBasePathMappingMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BasePathMappingOutput struct{ *pulumi.OutputState }
 
 func (BasePathMappingOutput) ElementType() reflect.Type {
@@ -278,6 +297,12 @@ func (o BasePathMappingOutput) ToBasePathMappingOutput() BasePathMappingOutput {
 
 func (o BasePathMappingOutput) ToBasePathMappingOutputWithContext(ctx context.Context) BasePathMappingOutput {
 	return o
+}
+
+func (o BasePathMappingOutput) ToOutput(ctx context.Context) pulumix.Output[*BasePathMapping] {
+	return pulumix.Output[*BasePathMapping]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
@@ -314,6 +339,12 @@ func (o BasePathMappingArrayOutput) ToBasePathMappingArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o BasePathMappingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BasePathMapping] {
+	return pulumix.Output[[]*BasePathMapping]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BasePathMappingArrayOutput) Index(i pulumi.IntInput) BasePathMappingOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BasePathMapping {
 		return vs[0].([]*BasePathMapping)[vs[1].(int)]
@@ -332,6 +363,12 @@ func (o BasePathMappingMapOutput) ToBasePathMappingMapOutput() BasePathMappingMa
 
 func (o BasePathMappingMapOutput) ToBasePathMappingMapOutputWithContext(ctx context.Context) BasePathMappingMapOutput {
 	return o
+}
+
+func (o BasePathMappingMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BasePathMapping] {
+	return pulumix.Output[map[string]*BasePathMapping]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BasePathMappingMapOutput) MapIndex(k pulumi.StringInput) BasePathMappingOutput {

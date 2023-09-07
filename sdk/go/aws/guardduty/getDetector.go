@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieve information about a GuardDuty detector.
@@ -99,6 +100,12 @@ func (o LookupDetectorResultOutput) ToLookupDetectorResultOutput() LookupDetecto
 
 func (o LookupDetectorResultOutput) ToLookupDetectorResultOutputWithContext(ctx context.Context) LookupDetectorResultOutput {
 	return o
+}
+
+func (o LookupDetectorResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDetectorResult] {
+	return pulumix.Output[LookupDetectorResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The frequency of notifications sent about subsequent finding occurrences.

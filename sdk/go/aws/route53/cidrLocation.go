@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Route53 CIDR location resource.
@@ -167,6 +168,12 @@ func (i *CidrLocation) ToCidrLocationOutputWithContext(ctx context.Context) Cidr
 	return pulumi.ToOutputWithContext(ctx, i).(CidrLocationOutput)
 }
 
+func (i *CidrLocation) ToOutput(ctx context.Context) pulumix.Output[*CidrLocation] {
+	return pulumix.Output[*CidrLocation]{
+		OutputState: i.ToCidrLocationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CidrLocationArrayInput is an input type that accepts CidrLocationArray and CidrLocationArrayOutput values.
 // You can construct a concrete instance of `CidrLocationArrayInput` via:
 //
@@ -190,6 +197,12 @@ func (i CidrLocationArray) ToCidrLocationArrayOutput() CidrLocationArrayOutput {
 
 func (i CidrLocationArray) ToCidrLocationArrayOutputWithContext(ctx context.Context) CidrLocationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CidrLocationArrayOutput)
+}
+
+func (i CidrLocationArray) ToOutput(ctx context.Context) pulumix.Output[[]*CidrLocation] {
+	return pulumix.Output[[]*CidrLocation]{
+		OutputState: i.ToCidrLocationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // CidrLocationMapInput is an input type that accepts CidrLocationMap and CidrLocationMapOutput values.
@@ -217,6 +230,12 @@ func (i CidrLocationMap) ToCidrLocationMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(CidrLocationMapOutput)
 }
 
+func (i CidrLocationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CidrLocation] {
+	return pulumix.Output[map[string]*CidrLocation]{
+		OutputState: i.ToCidrLocationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CidrLocationOutput struct{ *pulumi.OutputState }
 
 func (CidrLocationOutput) ElementType() reflect.Type {
@@ -229,6 +248,12 @@ func (o CidrLocationOutput) ToCidrLocationOutput() CidrLocationOutput {
 
 func (o CidrLocationOutput) ToCidrLocationOutputWithContext(ctx context.Context) CidrLocationOutput {
 	return o
+}
+
+func (o CidrLocationOutput) ToOutput(ctx context.Context) pulumix.Output[*CidrLocation] {
+	return pulumix.Output[*CidrLocation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // CIDR blocks for the location.
@@ -260,6 +285,12 @@ func (o CidrLocationArrayOutput) ToCidrLocationArrayOutputWithContext(ctx contex
 	return o
 }
 
+func (o CidrLocationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CidrLocation] {
+	return pulumix.Output[[]*CidrLocation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CidrLocationArrayOutput) Index(i pulumi.IntInput) CidrLocationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CidrLocation {
 		return vs[0].([]*CidrLocation)[vs[1].(int)]
@@ -278,6 +309,12 @@ func (o CidrLocationMapOutput) ToCidrLocationMapOutput() CidrLocationMapOutput {
 
 func (o CidrLocationMapOutput) ToCidrLocationMapOutputWithContext(ctx context.Context) CidrLocationMapOutput {
 	return o
+}
+
+func (o CidrLocationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CidrLocation] {
+	return pulumix.Output[map[string]*CidrLocation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CidrLocationMapOutput) MapIndex(k pulumi.StringInput) CidrLocationOutput {

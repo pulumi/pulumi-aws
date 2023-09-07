@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Import
@@ -124,6 +125,12 @@ func (i *TopicRuleDestination) ToTopicRuleDestinationOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleDestinationOutput)
 }
 
+func (i *TopicRuleDestination) ToOutput(ctx context.Context) pulumix.Output[*TopicRuleDestination] {
+	return pulumix.Output[*TopicRuleDestination]{
+		OutputState: i.ToTopicRuleDestinationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TopicRuleDestinationArrayInput is an input type that accepts TopicRuleDestinationArray and TopicRuleDestinationArrayOutput values.
 // You can construct a concrete instance of `TopicRuleDestinationArrayInput` via:
 //
@@ -147,6 +154,12 @@ func (i TopicRuleDestinationArray) ToTopicRuleDestinationArrayOutput() TopicRule
 
 func (i TopicRuleDestinationArray) ToTopicRuleDestinationArrayOutputWithContext(ctx context.Context) TopicRuleDestinationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleDestinationArrayOutput)
+}
+
+func (i TopicRuleDestinationArray) ToOutput(ctx context.Context) pulumix.Output[[]*TopicRuleDestination] {
+	return pulumix.Output[[]*TopicRuleDestination]{
+		OutputState: i.ToTopicRuleDestinationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // TopicRuleDestinationMapInput is an input type that accepts TopicRuleDestinationMap and TopicRuleDestinationMapOutput values.
@@ -174,6 +187,12 @@ func (i TopicRuleDestinationMap) ToTopicRuleDestinationMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleDestinationMapOutput)
 }
 
+func (i TopicRuleDestinationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TopicRuleDestination] {
+	return pulumix.Output[map[string]*TopicRuleDestination]{
+		OutputState: i.ToTopicRuleDestinationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TopicRuleDestinationOutput struct{ *pulumi.OutputState }
 
 func (TopicRuleDestinationOutput) ElementType() reflect.Type {
@@ -186,6 +205,12 @@ func (o TopicRuleDestinationOutput) ToTopicRuleDestinationOutput() TopicRuleDest
 
 func (o TopicRuleDestinationOutput) ToTopicRuleDestinationOutputWithContext(ctx context.Context) TopicRuleDestinationOutput {
 	return o
+}
+
+func (o TopicRuleDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicRuleDestination] {
+	return pulumix.Output[*TopicRuleDestination]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the topic rule destination
@@ -217,6 +242,12 @@ func (o TopicRuleDestinationArrayOutput) ToTopicRuleDestinationArrayOutputWithCo
 	return o
 }
 
+func (o TopicRuleDestinationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TopicRuleDestination] {
+	return pulumix.Output[[]*TopicRuleDestination]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TopicRuleDestinationArrayOutput) Index(i pulumi.IntInput) TopicRuleDestinationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TopicRuleDestination {
 		return vs[0].([]*TopicRuleDestination)[vs[1].(int)]
@@ -235,6 +266,12 @@ func (o TopicRuleDestinationMapOutput) ToTopicRuleDestinationMapOutput() TopicRu
 
 func (o TopicRuleDestinationMapOutput) ToTopicRuleDestinationMapOutputWithContext(ctx context.Context) TopicRuleDestinationMapOutput {
 	return o
+}
+
+func (o TopicRuleDestinationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TopicRuleDestination] {
+	return pulumix.Output[map[string]*TopicRuleDestination]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TopicRuleDestinationMapOutput) MapIndex(k pulumi.StringInput) TopicRuleDestinationOutput {

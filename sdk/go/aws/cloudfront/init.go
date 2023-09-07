@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:cloudfront/cachePolicy:CachePolicy":
 		r = &CachePolicy{}
+	case "aws:cloudfront/continuousDeploymentPolicy:ContinuousDeploymentPolicy":
+		r = &ContinuousDeploymentPolicy{}
 	case "aws:cloudfront/distribution:Distribution":
 		r = &Distribution{}
 	case "aws:cloudfront/fieldLevelEncryptionConfig:FieldLevelEncryptionConfig":
@@ -63,6 +65,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"cloudfront/cachePolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"cloudfront/continuousDeploymentPolicy",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

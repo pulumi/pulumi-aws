@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages the accepter's side of an EC2 Transit Gateway VPC Attachment.
@@ -223,6 +224,12 @@ func (i *VpcAttachmentAccepter) ToVpcAttachmentAccepterOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(VpcAttachmentAccepterOutput)
 }
 
+func (i *VpcAttachmentAccepter) ToOutput(ctx context.Context) pulumix.Output[*VpcAttachmentAccepter] {
+	return pulumix.Output[*VpcAttachmentAccepter]{
+		OutputState: i.ToVpcAttachmentAccepterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VpcAttachmentAccepterArrayInput is an input type that accepts VpcAttachmentAccepterArray and VpcAttachmentAccepterArrayOutput values.
 // You can construct a concrete instance of `VpcAttachmentAccepterArrayInput` via:
 //
@@ -246,6 +253,12 @@ func (i VpcAttachmentAccepterArray) ToVpcAttachmentAccepterArrayOutput() VpcAtta
 
 func (i VpcAttachmentAccepterArray) ToVpcAttachmentAccepterArrayOutputWithContext(ctx context.Context) VpcAttachmentAccepterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpcAttachmentAccepterArrayOutput)
+}
+
+func (i VpcAttachmentAccepterArray) ToOutput(ctx context.Context) pulumix.Output[[]*VpcAttachmentAccepter] {
+	return pulumix.Output[[]*VpcAttachmentAccepter]{
+		OutputState: i.ToVpcAttachmentAccepterArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VpcAttachmentAccepterMapInput is an input type that accepts VpcAttachmentAccepterMap and VpcAttachmentAccepterMapOutput values.
@@ -273,6 +286,12 @@ func (i VpcAttachmentAccepterMap) ToVpcAttachmentAccepterMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(VpcAttachmentAccepterMapOutput)
 }
 
+func (i VpcAttachmentAccepterMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpcAttachmentAccepter] {
+	return pulumix.Output[map[string]*VpcAttachmentAccepter]{
+		OutputState: i.ToVpcAttachmentAccepterMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VpcAttachmentAccepterOutput struct{ *pulumi.OutputState }
 
 func (VpcAttachmentAccepterOutput) ElementType() reflect.Type {
@@ -285,6 +304,12 @@ func (o VpcAttachmentAccepterOutput) ToVpcAttachmentAccepterOutput() VpcAttachme
 
 func (o VpcAttachmentAccepterOutput) ToVpcAttachmentAccepterOutputWithContext(ctx context.Context) VpcAttachmentAccepterOutput {
 	return o
+}
+
+func (o VpcAttachmentAccepterOutput) ToOutput(ctx context.Context) pulumix.Output[*VpcAttachmentAccepter] {
+	return pulumix.Output[*VpcAttachmentAccepter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether Appliance Mode support is enabled. Valid values: `disable`, `enable`.
@@ -365,6 +390,12 @@ func (o VpcAttachmentAccepterArrayOutput) ToVpcAttachmentAccepterArrayOutputWith
 	return o
 }
 
+func (o VpcAttachmentAccepterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VpcAttachmentAccepter] {
+	return pulumix.Output[[]*VpcAttachmentAccepter]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VpcAttachmentAccepterArrayOutput) Index(i pulumi.IntInput) VpcAttachmentAccepterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VpcAttachmentAccepter {
 		return vs[0].([]*VpcAttachmentAccepter)[vs[1].(int)]
@@ -383,6 +414,12 @@ func (o VpcAttachmentAccepterMapOutput) ToVpcAttachmentAccepterMapOutput() VpcAt
 
 func (o VpcAttachmentAccepterMapOutput) ToVpcAttachmentAccepterMapOutputWithContext(ctx context.Context) VpcAttachmentAccepterMapOutput {
 	return o
+}
+
+func (o VpcAttachmentAccepterMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpcAttachmentAccepter] {
+	return pulumix.Output[map[string]*VpcAttachmentAccepter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VpcAttachmentAccepterMapOutput) MapIndex(k pulumi.StringInput) VpcAttachmentAccepterOutput {

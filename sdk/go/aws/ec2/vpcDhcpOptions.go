@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a VPC DHCP Options resource.
@@ -252,6 +253,12 @@ func (i *VpcDhcpOptions) ToVpcDhcpOptionsOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(VpcDhcpOptionsOutput)
 }
 
+func (i *VpcDhcpOptions) ToOutput(ctx context.Context) pulumix.Output[*VpcDhcpOptions] {
+	return pulumix.Output[*VpcDhcpOptions]{
+		OutputState: i.ToVpcDhcpOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VpcDhcpOptionsArrayInput is an input type that accepts VpcDhcpOptionsArray and VpcDhcpOptionsArrayOutput values.
 // You can construct a concrete instance of `VpcDhcpOptionsArrayInput` via:
 //
@@ -275,6 +282,12 @@ func (i VpcDhcpOptionsArray) ToVpcDhcpOptionsArrayOutput() VpcDhcpOptionsArrayOu
 
 func (i VpcDhcpOptionsArray) ToVpcDhcpOptionsArrayOutputWithContext(ctx context.Context) VpcDhcpOptionsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpcDhcpOptionsArrayOutput)
+}
+
+func (i VpcDhcpOptionsArray) ToOutput(ctx context.Context) pulumix.Output[[]*VpcDhcpOptions] {
+	return pulumix.Output[[]*VpcDhcpOptions]{
+		OutputState: i.ToVpcDhcpOptionsArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VpcDhcpOptionsMapInput is an input type that accepts VpcDhcpOptionsMap and VpcDhcpOptionsMapOutput values.
@@ -302,6 +315,12 @@ func (i VpcDhcpOptionsMap) ToVpcDhcpOptionsMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(VpcDhcpOptionsMapOutput)
 }
 
+func (i VpcDhcpOptionsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpcDhcpOptions] {
+	return pulumix.Output[map[string]*VpcDhcpOptions]{
+		OutputState: i.ToVpcDhcpOptionsMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VpcDhcpOptionsOutput struct{ *pulumi.OutputState }
 
 func (VpcDhcpOptionsOutput) ElementType() reflect.Type {
@@ -314,6 +333,12 @@ func (o VpcDhcpOptionsOutput) ToVpcDhcpOptionsOutput() VpcDhcpOptionsOutput {
 
 func (o VpcDhcpOptionsOutput) ToVpcDhcpOptionsOutputWithContext(ctx context.Context) VpcDhcpOptionsOutput {
 	return o
+}
+
+func (o VpcDhcpOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[*VpcDhcpOptions] {
+	return pulumix.Output[*VpcDhcpOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the DHCP Options Set.
@@ -375,6 +400,12 @@ func (o VpcDhcpOptionsArrayOutput) ToVpcDhcpOptionsArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o VpcDhcpOptionsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VpcDhcpOptions] {
+	return pulumix.Output[[]*VpcDhcpOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VpcDhcpOptionsArrayOutput) Index(i pulumi.IntInput) VpcDhcpOptionsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VpcDhcpOptions {
 		return vs[0].([]*VpcDhcpOptions)[vs[1].(int)]
@@ -393,6 +424,12 @@ func (o VpcDhcpOptionsMapOutput) ToVpcDhcpOptionsMapOutput() VpcDhcpOptionsMapOu
 
 func (o VpcDhcpOptionsMapOutput) ToVpcDhcpOptionsMapOutputWithContext(ctx context.Context) VpcDhcpOptionsMapOutput {
 	return o
+}
+
+func (o VpcDhcpOptionsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpcDhcpOptions] {
+	return pulumix.Output[map[string]*VpcDhcpOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VpcDhcpOptionsMapOutput) MapIndex(k pulumi.StringInput) VpcDhcpOptionsOutput {

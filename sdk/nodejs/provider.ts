@@ -68,6 +68,12 @@ export class Provider extends pulumi.ProviderResource {
      */
     public readonly retryMode!: pulumi.Output<string | undefined>;
     /**
+     * Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid
+     * values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment
+     * variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
+     */
+    public readonly s3UsEast1RegionalEndpoint!: pulumi.Output<string | undefined>;
+    /**
      * The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
      */
     public readonly secretKey!: pulumi.Output<string | undefined>;
@@ -108,6 +114,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["profile"] = args ? args.profile : undefined;
             resourceInputs["region"] = (args ? args.region : undefined) ?? <any>utilities.getEnv("AWS_REGION", "AWS_DEFAULT_REGION");
             resourceInputs["retryMode"] = args ? args.retryMode : undefined;
+            resourceInputs["s3UsEast1RegionalEndpoint"] = args ? args.s3UsEast1RegionalEndpoint : undefined;
             resourceInputs["s3UsePathStyle"] = pulumi.output(args ? args.s3UsePathStyle : undefined).apply(JSON.stringify);
             resourceInputs["secretKey"] = args ? args.secretKey : undefined;
             resourceInputs["sharedConfigFiles"] = pulumi.output(args ? args.sharedConfigFiles : undefined).apply(JSON.stringify);
@@ -188,6 +195,12 @@ export interface ProviderArgs {
      * `AWS_RETRY_MODE` environment variable.
      */
     retryMode?: pulumi.Input<string>;
+    /**
+     * Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid
+     * values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment
+     * variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
+     */
+    s3UsEast1RegionalEndpoint?: pulumi.Input<string>;
     /**
      * Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
      * default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).

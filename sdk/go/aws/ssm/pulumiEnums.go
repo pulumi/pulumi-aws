@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type ParameterType string
@@ -78,6 +79,12 @@ func (o ParameterTypeOutput) ToParameterTypePtrOutputWithContext(ctx context.Con
 	}).(ParameterTypePtrOutput)
 }
 
+func (o ParameterTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ParameterType] {
+	return pulumix.Output[ParameterType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ParameterTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -111,6 +118,12 @@ func (o ParameterTypePtrOutput) ToParameterTypePtrOutput() ParameterTypePtrOutpu
 
 func (o ParameterTypePtrOutput) ToParameterTypePtrOutputWithContext(ctx context.Context) ParameterTypePtrOutput {
 	return o
+}
+
+func (o ParameterTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ParameterType] {
+	return pulumix.Output[*ParameterType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ParameterTypePtrOutput) Elem() ParameterTypeOutput {
@@ -173,6 +186,12 @@ func (in *parameterTypePtr) ToParameterTypePtrOutput() ParameterTypePtrOutput {
 
 func (in *parameterTypePtr) ToParameterTypePtrOutputWithContext(ctx context.Context) ParameterTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ParameterTypePtrOutput)
+}
+
+func (in *parameterTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ParameterType] {
+	return pulumix.Output[*ParameterType]{
+		OutputState: in.ToParameterTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

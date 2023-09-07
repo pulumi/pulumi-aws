@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Enables the IPAM Service and promotes a delegated administrator.
@@ -166,6 +167,12 @@ func (i *VpcIpamOrganizationAdminAccount) ToVpcIpamOrganizationAdminAccountOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(VpcIpamOrganizationAdminAccountOutput)
 }
 
+func (i *VpcIpamOrganizationAdminAccount) ToOutput(ctx context.Context) pulumix.Output[*VpcIpamOrganizationAdminAccount] {
+	return pulumix.Output[*VpcIpamOrganizationAdminAccount]{
+		OutputState: i.ToVpcIpamOrganizationAdminAccountOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VpcIpamOrganizationAdminAccountArrayInput is an input type that accepts VpcIpamOrganizationAdminAccountArray and VpcIpamOrganizationAdminAccountArrayOutput values.
 // You can construct a concrete instance of `VpcIpamOrganizationAdminAccountArrayInput` via:
 //
@@ -189,6 +196,12 @@ func (i VpcIpamOrganizationAdminAccountArray) ToVpcIpamOrganizationAdminAccountA
 
 func (i VpcIpamOrganizationAdminAccountArray) ToVpcIpamOrganizationAdminAccountArrayOutputWithContext(ctx context.Context) VpcIpamOrganizationAdminAccountArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpcIpamOrganizationAdminAccountArrayOutput)
+}
+
+func (i VpcIpamOrganizationAdminAccountArray) ToOutput(ctx context.Context) pulumix.Output[[]*VpcIpamOrganizationAdminAccount] {
+	return pulumix.Output[[]*VpcIpamOrganizationAdminAccount]{
+		OutputState: i.ToVpcIpamOrganizationAdminAccountArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VpcIpamOrganizationAdminAccountMapInput is an input type that accepts VpcIpamOrganizationAdminAccountMap and VpcIpamOrganizationAdminAccountMapOutput values.
@@ -216,6 +229,12 @@ func (i VpcIpamOrganizationAdminAccountMap) ToVpcIpamOrganizationAdminAccountMap
 	return pulumi.ToOutputWithContext(ctx, i).(VpcIpamOrganizationAdminAccountMapOutput)
 }
 
+func (i VpcIpamOrganizationAdminAccountMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpcIpamOrganizationAdminAccount] {
+	return pulumix.Output[map[string]*VpcIpamOrganizationAdminAccount]{
+		OutputState: i.ToVpcIpamOrganizationAdminAccountMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VpcIpamOrganizationAdminAccountOutput struct{ *pulumi.OutputState }
 
 func (VpcIpamOrganizationAdminAccountOutput) ElementType() reflect.Type {
@@ -228,6 +247,12 @@ func (o VpcIpamOrganizationAdminAccountOutput) ToVpcIpamOrganizationAdminAccount
 
 func (o VpcIpamOrganizationAdminAccountOutput) ToVpcIpamOrganizationAdminAccountOutputWithContext(ctx context.Context) VpcIpamOrganizationAdminAccountOutput {
 	return o
+}
+
+func (o VpcIpamOrganizationAdminAccountOutput) ToOutput(ctx context.Context) pulumix.Output[*VpcIpamOrganizationAdminAccount] {
+	return pulumix.Output[*VpcIpamOrganizationAdminAccount]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Organizations ARN for the delegate account.
@@ -268,6 +293,12 @@ func (o VpcIpamOrganizationAdminAccountArrayOutput) ToVpcIpamOrganizationAdminAc
 	return o
 }
 
+func (o VpcIpamOrganizationAdminAccountArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VpcIpamOrganizationAdminAccount] {
+	return pulumix.Output[[]*VpcIpamOrganizationAdminAccount]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VpcIpamOrganizationAdminAccountArrayOutput) Index(i pulumi.IntInput) VpcIpamOrganizationAdminAccountOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VpcIpamOrganizationAdminAccount {
 		return vs[0].([]*VpcIpamOrganizationAdminAccount)[vs[1].(int)]
@@ -286,6 +317,12 @@ func (o VpcIpamOrganizationAdminAccountMapOutput) ToVpcIpamOrganizationAdminAcco
 
 func (o VpcIpamOrganizationAdminAccountMapOutput) ToVpcIpamOrganizationAdminAccountMapOutputWithContext(ctx context.Context) VpcIpamOrganizationAdminAccountMapOutput {
 	return o
+}
+
+func (o VpcIpamOrganizationAdminAccountMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpcIpamOrganizationAdminAccount] {
+	return pulumix.Output[map[string]*VpcIpamOrganizationAdminAccount]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VpcIpamOrganizationAdminAccountMapOutput) MapIndex(k pulumi.StringInput) VpcIpamOrganizationAdminAccountOutput {

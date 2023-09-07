@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Route53 CIDR collection resource.
@@ -142,6 +143,12 @@ func (i *CidrCollection) ToCidrCollectionOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(CidrCollectionOutput)
 }
 
+func (i *CidrCollection) ToOutput(ctx context.Context) pulumix.Output[*CidrCollection] {
+	return pulumix.Output[*CidrCollection]{
+		OutputState: i.ToCidrCollectionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CidrCollectionArrayInput is an input type that accepts CidrCollectionArray and CidrCollectionArrayOutput values.
 // You can construct a concrete instance of `CidrCollectionArrayInput` via:
 //
@@ -165,6 +172,12 @@ func (i CidrCollectionArray) ToCidrCollectionArrayOutput() CidrCollectionArrayOu
 
 func (i CidrCollectionArray) ToCidrCollectionArrayOutputWithContext(ctx context.Context) CidrCollectionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CidrCollectionArrayOutput)
+}
+
+func (i CidrCollectionArray) ToOutput(ctx context.Context) pulumix.Output[[]*CidrCollection] {
+	return pulumix.Output[[]*CidrCollection]{
+		OutputState: i.ToCidrCollectionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // CidrCollectionMapInput is an input type that accepts CidrCollectionMap and CidrCollectionMapOutput values.
@@ -192,6 +205,12 @@ func (i CidrCollectionMap) ToCidrCollectionMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(CidrCollectionMapOutput)
 }
 
+func (i CidrCollectionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CidrCollection] {
+	return pulumix.Output[map[string]*CidrCollection]{
+		OutputState: i.ToCidrCollectionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CidrCollectionOutput struct{ *pulumi.OutputState }
 
 func (CidrCollectionOutput) ElementType() reflect.Type {
@@ -204,6 +223,12 @@ func (o CidrCollectionOutput) ToCidrCollectionOutput() CidrCollectionOutput {
 
 func (o CidrCollectionOutput) ToCidrCollectionOutputWithContext(ctx context.Context) CidrCollectionOutput {
 	return o
+}
+
+func (o CidrCollectionOutput) ToOutput(ctx context.Context) pulumix.Output[*CidrCollection] {
+	return pulumix.Output[*CidrCollection]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the CIDR collection.
@@ -235,6 +260,12 @@ func (o CidrCollectionArrayOutput) ToCidrCollectionArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o CidrCollectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CidrCollection] {
+	return pulumix.Output[[]*CidrCollection]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CidrCollectionArrayOutput) Index(i pulumi.IntInput) CidrCollectionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CidrCollection {
 		return vs[0].([]*CidrCollection)[vs[1].(int)]
@@ -253,6 +284,12 @@ func (o CidrCollectionMapOutput) ToCidrCollectionMapOutput() CidrCollectionMapOu
 
 func (o CidrCollectionMapOutput) ToCidrCollectionMapOutputWithContext(ctx context.Context) CidrCollectionMapOutput {
 	return o
+}
+
+func (o CidrCollectionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CidrCollection] {
+	return pulumix.Output[map[string]*CidrCollection]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CidrCollectionMapOutput) MapIndex(k pulumi.StringInput) CidrCollectionOutput {

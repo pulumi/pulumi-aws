@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a CloudWatch Evidently Feature resource.
@@ -383,6 +384,12 @@ func (i *Feature) ToFeatureOutputWithContext(ctx context.Context) FeatureOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(FeatureOutput)
 }
 
+func (i *Feature) ToOutput(ctx context.Context) pulumix.Output[*Feature] {
+	return pulumix.Output[*Feature]{
+		OutputState: i.ToFeatureOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FeatureArrayInput is an input type that accepts FeatureArray and FeatureArrayOutput values.
 // You can construct a concrete instance of `FeatureArrayInput` via:
 //
@@ -406,6 +413,12 @@ func (i FeatureArray) ToFeatureArrayOutput() FeatureArrayOutput {
 
 func (i FeatureArray) ToFeatureArrayOutputWithContext(ctx context.Context) FeatureArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FeatureArrayOutput)
+}
+
+func (i FeatureArray) ToOutput(ctx context.Context) pulumix.Output[[]*Feature] {
+	return pulumix.Output[[]*Feature]{
+		OutputState: i.ToFeatureArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // FeatureMapInput is an input type that accepts FeatureMap and FeatureMapOutput values.
@@ -433,6 +446,12 @@ func (i FeatureMap) ToFeatureMapOutputWithContext(ctx context.Context) FeatureMa
 	return pulumi.ToOutputWithContext(ctx, i).(FeatureMapOutput)
 }
 
+func (i FeatureMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Feature] {
+	return pulumix.Output[map[string]*Feature]{
+		OutputState: i.ToFeatureMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FeatureOutput struct{ *pulumi.OutputState }
 
 func (FeatureOutput) ElementType() reflect.Type {
@@ -445,6 +464,12 @@ func (o FeatureOutput) ToFeatureOutput() FeatureOutput {
 
 func (o FeatureOutput) ToFeatureOutputWithContext(ctx context.Context) FeatureOutput {
 	return o
+}
+
+func (o FeatureOutput) ToOutput(ctx context.Context) pulumix.Output[*Feature] {
+	return pulumix.Output[*Feature]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the feature.
@@ -536,6 +561,12 @@ func (o FeatureArrayOutput) ToFeatureArrayOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o FeatureArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Feature] {
+	return pulumix.Output[[]*Feature]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FeatureArrayOutput) Index(i pulumi.IntInput) FeatureOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Feature {
 		return vs[0].([]*Feature)[vs[1].(int)]
@@ -554,6 +585,12 @@ func (o FeatureMapOutput) ToFeatureMapOutput() FeatureMapOutput {
 
 func (o FeatureMapOutput) ToFeatureMapOutputWithContext(ctx context.Context) FeatureMapOutput {
 	return o
+}
+
+func (o FeatureMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Feature] {
+	return pulumix.Output[map[string]*Feature]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FeatureMapOutput) MapIndex(k pulumi.StringInput) FeatureOutput {

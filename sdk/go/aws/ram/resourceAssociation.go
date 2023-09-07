@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Resource Access Manager (RAM) Resource Association.
@@ -152,6 +153,12 @@ func (i *ResourceAssociation) ToResourceAssociationOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceAssociationOutput)
 }
 
+func (i *ResourceAssociation) ToOutput(ctx context.Context) pulumix.Output[*ResourceAssociation] {
+	return pulumix.Output[*ResourceAssociation]{
+		OutputState: i.ToResourceAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ResourceAssociationArrayInput is an input type that accepts ResourceAssociationArray and ResourceAssociationArrayOutput values.
 // You can construct a concrete instance of `ResourceAssociationArrayInput` via:
 //
@@ -175,6 +182,12 @@ func (i ResourceAssociationArray) ToResourceAssociationArrayOutput() ResourceAss
 
 func (i ResourceAssociationArray) ToResourceAssociationArrayOutputWithContext(ctx context.Context) ResourceAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceAssociationArrayOutput)
+}
+
+func (i ResourceAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*ResourceAssociation] {
+	return pulumix.Output[[]*ResourceAssociation]{
+		OutputState: i.ToResourceAssociationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ResourceAssociationMapInput is an input type that accepts ResourceAssociationMap and ResourceAssociationMapOutput values.
@@ -202,6 +215,12 @@ func (i ResourceAssociationMap) ToResourceAssociationMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceAssociationMapOutput)
 }
 
+func (i ResourceAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResourceAssociation] {
+	return pulumix.Output[map[string]*ResourceAssociation]{
+		OutputState: i.ToResourceAssociationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResourceAssociationOutput struct{ *pulumi.OutputState }
 
 func (ResourceAssociationOutput) ElementType() reflect.Type {
@@ -214,6 +233,12 @@ func (o ResourceAssociationOutput) ToResourceAssociationOutput() ResourceAssocia
 
 func (o ResourceAssociationOutput) ToResourceAssociationOutputWithContext(ctx context.Context) ResourceAssociationOutput {
 	return o
+}
+
+func (o ResourceAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceAssociation] {
+	return pulumix.Output[*ResourceAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
@@ -240,6 +265,12 @@ func (o ResourceAssociationArrayOutput) ToResourceAssociationArrayOutputWithCont
 	return o
 }
 
+func (o ResourceAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ResourceAssociation] {
+	return pulumix.Output[[]*ResourceAssociation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ResourceAssociationArrayOutput) Index(i pulumi.IntInput) ResourceAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ResourceAssociation {
 		return vs[0].([]*ResourceAssociation)[vs[1].(int)]
@@ -258,6 +289,12 @@ func (o ResourceAssociationMapOutput) ToResourceAssociationMapOutput() ResourceA
 
 func (o ResourceAssociationMapOutput) ToResourceAssociationMapOutputWithContext(ctx context.Context) ResourceAssociationMapOutput {
 	return o
+}
+
+func (o ResourceAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResourceAssociation] {
+	return pulumix.Output[map[string]*ResourceAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResourceAssociationMapOutput) MapIndex(k pulumi.StringInput) ResourceAssociationOutput {

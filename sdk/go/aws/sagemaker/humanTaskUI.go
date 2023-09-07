@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a SageMaker Human Task UI resource.
@@ -184,6 +185,12 @@ func (i *HumanTaskUI) ToHumanTaskUIOutputWithContext(ctx context.Context) HumanT
 	return pulumi.ToOutputWithContext(ctx, i).(HumanTaskUIOutput)
 }
 
+func (i *HumanTaskUI) ToOutput(ctx context.Context) pulumix.Output[*HumanTaskUI] {
+	return pulumix.Output[*HumanTaskUI]{
+		OutputState: i.ToHumanTaskUIOutputWithContext(ctx).OutputState,
+	}
+}
+
 // HumanTaskUIArrayInput is an input type that accepts HumanTaskUIArray and HumanTaskUIArrayOutput values.
 // You can construct a concrete instance of `HumanTaskUIArrayInput` via:
 //
@@ -207,6 +214,12 @@ func (i HumanTaskUIArray) ToHumanTaskUIArrayOutput() HumanTaskUIArrayOutput {
 
 func (i HumanTaskUIArray) ToHumanTaskUIArrayOutputWithContext(ctx context.Context) HumanTaskUIArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HumanTaskUIArrayOutput)
+}
+
+func (i HumanTaskUIArray) ToOutput(ctx context.Context) pulumix.Output[[]*HumanTaskUI] {
+	return pulumix.Output[[]*HumanTaskUI]{
+		OutputState: i.ToHumanTaskUIArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // HumanTaskUIMapInput is an input type that accepts HumanTaskUIMap and HumanTaskUIMapOutput values.
@@ -234,6 +247,12 @@ func (i HumanTaskUIMap) ToHumanTaskUIMapOutputWithContext(ctx context.Context) H
 	return pulumi.ToOutputWithContext(ctx, i).(HumanTaskUIMapOutput)
 }
 
+func (i HumanTaskUIMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*HumanTaskUI] {
+	return pulumix.Output[map[string]*HumanTaskUI]{
+		OutputState: i.ToHumanTaskUIMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type HumanTaskUIOutput struct{ *pulumi.OutputState }
 
 func (HumanTaskUIOutput) ElementType() reflect.Type {
@@ -246,6 +265,12 @@ func (o HumanTaskUIOutput) ToHumanTaskUIOutput() HumanTaskUIOutput {
 
 func (o HumanTaskUIOutput) ToHumanTaskUIOutputWithContext(ctx context.Context) HumanTaskUIOutput {
 	return o
+}
+
+func (o HumanTaskUIOutput) ToOutput(ctx context.Context) pulumix.Output[*HumanTaskUI] {
+	return pulumix.Output[*HumanTaskUI]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) assigned by AWS to this Human Task UI.
@@ -287,6 +312,12 @@ func (o HumanTaskUIArrayOutput) ToHumanTaskUIArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o HumanTaskUIArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*HumanTaskUI] {
+	return pulumix.Output[[]*HumanTaskUI]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o HumanTaskUIArrayOutput) Index(i pulumi.IntInput) HumanTaskUIOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *HumanTaskUI {
 		return vs[0].([]*HumanTaskUI)[vs[1].(int)]
@@ -305,6 +336,12 @@ func (o HumanTaskUIMapOutput) ToHumanTaskUIMapOutput() HumanTaskUIMapOutput {
 
 func (o HumanTaskUIMapOutput) ToHumanTaskUIMapOutputWithContext(ctx context.Context) HumanTaskUIMapOutput {
 	return o
+}
+
+func (o HumanTaskUIMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*HumanTaskUI] {
+	return pulumix.Output[map[string]*HumanTaskUI]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o HumanTaskUIMapOutput) MapIndex(k pulumi.StringInput) HumanTaskUIOutput {

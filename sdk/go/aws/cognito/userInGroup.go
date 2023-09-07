@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Adds the specified user to the specified group.
@@ -179,6 +180,12 @@ func (i *UserInGroup) ToUserInGroupOutputWithContext(ctx context.Context) UserIn
 	return pulumi.ToOutputWithContext(ctx, i).(UserInGroupOutput)
 }
 
+func (i *UserInGroup) ToOutput(ctx context.Context) pulumix.Output[*UserInGroup] {
+	return pulumix.Output[*UserInGroup]{
+		OutputState: i.ToUserInGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 // UserInGroupArrayInput is an input type that accepts UserInGroupArray and UserInGroupArrayOutput values.
 // You can construct a concrete instance of `UserInGroupArrayInput` via:
 //
@@ -202,6 +209,12 @@ func (i UserInGroupArray) ToUserInGroupArrayOutput() UserInGroupArrayOutput {
 
 func (i UserInGroupArray) ToUserInGroupArrayOutputWithContext(ctx context.Context) UserInGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserInGroupArrayOutput)
+}
+
+func (i UserInGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*UserInGroup] {
+	return pulumix.Output[[]*UserInGroup]{
+		OutputState: i.ToUserInGroupArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // UserInGroupMapInput is an input type that accepts UserInGroupMap and UserInGroupMapOutput values.
@@ -229,6 +242,12 @@ func (i UserInGroupMap) ToUserInGroupMapOutputWithContext(ctx context.Context) U
 	return pulumi.ToOutputWithContext(ctx, i).(UserInGroupMapOutput)
 }
 
+func (i UserInGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*UserInGroup] {
+	return pulumix.Output[map[string]*UserInGroup]{
+		OutputState: i.ToUserInGroupMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type UserInGroupOutput struct{ *pulumi.OutputState }
 
 func (UserInGroupOutput) ElementType() reflect.Type {
@@ -241,6 +260,12 @@ func (o UserInGroupOutput) ToUserInGroupOutput() UserInGroupOutput {
 
 func (o UserInGroupOutput) ToUserInGroupOutputWithContext(ctx context.Context) UserInGroupOutput {
 	return o
+}
+
+func (o UserInGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*UserInGroup] {
+	return pulumix.Output[*UserInGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the group to which the user is to be added.
@@ -272,6 +297,12 @@ func (o UserInGroupArrayOutput) ToUserInGroupArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o UserInGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*UserInGroup] {
+	return pulumix.Output[[]*UserInGroup]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o UserInGroupArrayOutput) Index(i pulumi.IntInput) UserInGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *UserInGroup {
 		return vs[0].([]*UserInGroup)[vs[1].(int)]
@@ -290,6 +321,12 @@ func (o UserInGroupMapOutput) ToUserInGroupMapOutput() UserInGroupMapOutput {
 
 func (o UserInGroupMapOutput) ToUserInGroupMapOutputWithContext(ctx context.Context) UserInGroupMapOutput {
 	return o
+}
+
+func (o UserInGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*UserInGroup] {
+	return pulumix.Output[map[string]*UserInGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o UserInGroupMapOutput) MapIndex(k pulumi.StringInput) UserInGroupOutput {

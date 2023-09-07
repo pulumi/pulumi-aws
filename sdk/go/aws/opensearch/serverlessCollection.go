@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS OpenSearch Serverless Collection.
@@ -84,7 +85,8 @@ type ServerlessCollection struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Collection-specific endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection.
 	CollectionEndpoint pulumi.StringOutput `pulumi:"collectionEndpoint"`
-	DashboardEndpoint  pulumi.StringOutput `pulumi:"dashboardEndpoint"`
+	// Collection-specific endpoint used to access OpenSearch Dashboards.
+	DashboardEndpoint pulumi.StringOutput `pulumi:"dashboardEndpoint"`
 	// Description of the collection.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The ARN of the Amazon Web Services KMS key used to encrypt the collection.
@@ -135,7 +137,8 @@ type serverlessCollectionState struct {
 	Arn *string `pulumi:"arn"`
 	// Collection-specific endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection.
 	CollectionEndpoint *string `pulumi:"collectionEndpoint"`
-	DashboardEndpoint  *string `pulumi:"dashboardEndpoint"`
+	// Collection-specific endpoint used to access OpenSearch Dashboards.
+	DashboardEndpoint *string `pulumi:"dashboardEndpoint"`
 	// Description of the collection.
 	Description *string `pulumi:"description"`
 	// The ARN of the Amazon Web Services KMS key used to encrypt the collection.
@@ -157,7 +160,8 @@ type ServerlessCollectionState struct {
 	Arn pulumi.StringPtrInput
 	// Collection-specific endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection.
 	CollectionEndpoint pulumi.StringPtrInput
-	DashboardEndpoint  pulumi.StringPtrInput
+	// Collection-specific endpoint used to access OpenSearch Dashboards.
+	DashboardEndpoint pulumi.StringPtrInput
 	// Description of the collection.
 	Description pulumi.StringPtrInput
 	// The ARN of the Amazon Web Services KMS key used to encrypt the collection.
@@ -230,6 +234,12 @@ func (i *ServerlessCollection) ToServerlessCollectionOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ServerlessCollectionOutput)
 }
 
+func (i *ServerlessCollection) ToOutput(ctx context.Context) pulumix.Output[*ServerlessCollection] {
+	return pulumix.Output[*ServerlessCollection]{
+		OutputState: i.ToServerlessCollectionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServerlessCollectionArrayInput is an input type that accepts ServerlessCollectionArray and ServerlessCollectionArrayOutput values.
 // You can construct a concrete instance of `ServerlessCollectionArrayInput` via:
 //
@@ -253,6 +263,12 @@ func (i ServerlessCollectionArray) ToServerlessCollectionArrayOutput() Serverles
 
 func (i ServerlessCollectionArray) ToServerlessCollectionArrayOutputWithContext(ctx context.Context) ServerlessCollectionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServerlessCollectionArrayOutput)
+}
+
+func (i ServerlessCollectionArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServerlessCollection] {
+	return pulumix.Output[[]*ServerlessCollection]{
+		OutputState: i.ToServerlessCollectionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ServerlessCollectionMapInput is an input type that accepts ServerlessCollectionMap and ServerlessCollectionMapOutput values.
@@ -280,6 +296,12 @@ func (i ServerlessCollectionMap) ToServerlessCollectionMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ServerlessCollectionMapOutput)
 }
 
+func (i ServerlessCollectionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServerlessCollection] {
+	return pulumix.Output[map[string]*ServerlessCollection]{
+		OutputState: i.ToServerlessCollectionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServerlessCollectionOutput struct{ *pulumi.OutputState }
 
 func (ServerlessCollectionOutput) ElementType() reflect.Type {
@@ -294,6 +316,12 @@ func (o ServerlessCollectionOutput) ToServerlessCollectionOutputWithContext(ctx 
 	return o
 }
 
+func (o ServerlessCollectionOutput) ToOutput(ctx context.Context) pulumix.Output[*ServerlessCollection] {
+	return pulumix.Output[*ServerlessCollection]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Amazon Resource Name (ARN) of the collection.
 func (o ServerlessCollectionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessCollection) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
@@ -304,6 +332,7 @@ func (o ServerlessCollectionOutput) CollectionEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessCollection) pulumi.StringOutput { return v.CollectionEndpoint }).(pulumi.StringOutput)
 }
 
+// Collection-specific endpoint used to access OpenSearch Dashboards.
 func (o ServerlessCollectionOutput) DashboardEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessCollection) pulumi.StringOutput { return v.DashboardEndpoint }).(pulumi.StringOutput)
 }
@@ -357,6 +386,12 @@ func (o ServerlessCollectionArrayOutput) ToServerlessCollectionArrayOutputWithCo
 	return o
 }
 
+func (o ServerlessCollectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServerlessCollection] {
+	return pulumix.Output[[]*ServerlessCollection]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ServerlessCollectionArrayOutput) Index(i pulumi.IntInput) ServerlessCollectionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServerlessCollection {
 		return vs[0].([]*ServerlessCollection)[vs[1].(int)]
@@ -375,6 +410,12 @@ func (o ServerlessCollectionMapOutput) ToServerlessCollectionMapOutput() Serverl
 
 func (o ServerlessCollectionMapOutput) ToServerlessCollectionMapOutputWithContext(ctx context.Context) ServerlessCollectionMapOutput {
 	return o
+}
+
+func (o ServerlessCollectionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServerlessCollection] {
+	return pulumix.Output[map[string]*ServerlessCollection]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServerlessCollectionMapOutput) MapIndex(k pulumi.StringInput) ServerlessCollectionOutput {

@@ -40,3 +40,18 @@ export interface GetActiveReceiptRuleSetResult {
      */
     readonly ruleSetName: string;
 }
+/**
+ * Retrieve the active SES receipt rule set
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const main = aws.ses.getActiveReceiptRuleSet({});
+ * ```
+ */
+export function getActiveReceiptRuleSetOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetActiveReceiptRuleSetResult> {
+    return pulumi.output(getActiveReceiptRuleSet(opts))
+}

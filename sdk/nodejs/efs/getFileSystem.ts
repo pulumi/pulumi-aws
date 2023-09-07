@@ -96,6 +96,10 @@ export interface GetFileSystemResult {
      */
     readonly lifecyclePolicy: outputs.efs.GetFileSystemLifecyclePolicy;
     /**
+     * The value of the file system's `Name` tag.
+     */
+    readonly name: string;
+    /**
      * File system performance mode.
      */
     readonly performanceMode: string;

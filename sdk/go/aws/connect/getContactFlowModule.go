@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about a specific Amazon Connect Contact Flow Module.
@@ -153,6 +154,12 @@ func (o LookupContactFlowModuleResultOutput) ToLookupContactFlowModuleResultOutp
 
 func (o LookupContactFlowModuleResultOutput) ToLookupContactFlowModuleResultOutputWithContext(ctx context.Context) LookupContactFlowModuleResultOutput {
 	return o
+}
+
+func (o LookupContactFlowModuleResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupContactFlowModuleResult] {
+	return pulumix.Output[LookupContactFlowModuleResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the Contact Flow Module.

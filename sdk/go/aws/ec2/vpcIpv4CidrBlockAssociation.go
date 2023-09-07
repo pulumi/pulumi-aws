@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to associate additional IPv4 CIDR blocks with a VPC.
@@ -39,7 +40,7 @@ import (
 //			}
 //			_, err = ec2.NewVpcIpv4CidrBlockAssociation(ctx, "secondaryCidr", &ec2.VpcIpv4CidrBlockAssociationArgs{
 //				VpcId:     main.ID(),
-//				CidrBlock: pulumi.String("172.2.0.0/16"),
+//				CidrBlock: pulumi.String("172.20.0.0/16"),
 //			})
 //			if err != nil {
 //				return err
@@ -176,6 +177,12 @@ func (i *VpcIpv4CidrBlockAssociation) ToVpcIpv4CidrBlockAssociationOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(VpcIpv4CidrBlockAssociationOutput)
 }
 
+func (i *VpcIpv4CidrBlockAssociation) ToOutput(ctx context.Context) pulumix.Output[*VpcIpv4CidrBlockAssociation] {
+	return pulumix.Output[*VpcIpv4CidrBlockAssociation]{
+		OutputState: i.ToVpcIpv4CidrBlockAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VpcIpv4CidrBlockAssociationArrayInput is an input type that accepts VpcIpv4CidrBlockAssociationArray and VpcIpv4CidrBlockAssociationArrayOutput values.
 // You can construct a concrete instance of `VpcIpv4CidrBlockAssociationArrayInput` via:
 //
@@ -199,6 +206,12 @@ func (i VpcIpv4CidrBlockAssociationArray) ToVpcIpv4CidrBlockAssociationArrayOutp
 
 func (i VpcIpv4CidrBlockAssociationArray) ToVpcIpv4CidrBlockAssociationArrayOutputWithContext(ctx context.Context) VpcIpv4CidrBlockAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpcIpv4CidrBlockAssociationArrayOutput)
+}
+
+func (i VpcIpv4CidrBlockAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*VpcIpv4CidrBlockAssociation] {
+	return pulumix.Output[[]*VpcIpv4CidrBlockAssociation]{
+		OutputState: i.ToVpcIpv4CidrBlockAssociationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VpcIpv4CidrBlockAssociationMapInput is an input type that accepts VpcIpv4CidrBlockAssociationMap and VpcIpv4CidrBlockAssociationMapOutput values.
@@ -226,6 +239,12 @@ func (i VpcIpv4CidrBlockAssociationMap) ToVpcIpv4CidrBlockAssociationMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(VpcIpv4CidrBlockAssociationMapOutput)
 }
 
+func (i VpcIpv4CidrBlockAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpcIpv4CidrBlockAssociation] {
+	return pulumix.Output[map[string]*VpcIpv4CidrBlockAssociation]{
+		OutputState: i.ToVpcIpv4CidrBlockAssociationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VpcIpv4CidrBlockAssociationOutput struct{ *pulumi.OutputState }
 
 func (VpcIpv4CidrBlockAssociationOutput) ElementType() reflect.Type {
@@ -238,6 +257,12 @@ func (o VpcIpv4CidrBlockAssociationOutput) ToVpcIpv4CidrBlockAssociationOutput()
 
 func (o VpcIpv4CidrBlockAssociationOutput) ToVpcIpv4CidrBlockAssociationOutputWithContext(ctx context.Context) VpcIpv4CidrBlockAssociationOutput {
 	return o
+}
+
+func (o VpcIpv4CidrBlockAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*VpcIpv4CidrBlockAssociation] {
+	return pulumix.Output[*VpcIpv4CidrBlockAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4NetmaskLength`.
@@ -274,6 +299,12 @@ func (o VpcIpv4CidrBlockAssociationArrayOutput) ToVpcIpv4CidrBlockAssociationArr
 	return o
 }
 
+func (o VpcIpv4CidrBlockAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VpcIpv4CidrBlockAssociation] {
+	return pulumix.Output[[]*VpcIpv4CidrBlockAssociation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VpcIpv4CidrBlockAssociationArrayOutput) Index(i pulumi.IntInput) VpcIpv4CidrBlockAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VpcIpv4CidrBlockAssociation {
 		return vs[0].([]*VpcIpv4CidrBlockAssociation)[vs[1].(int)]
@@ -292,6 +323,12 @@ func (o VpcIpv4CidrBlockAssociationMapOutput) ToVpcIpv4CidrBlockAssociationMapOu
 
 func (o VpcIpv4CidrBlockAssociationMapOutput) ToVpcIpv4CidrBlockAssociationMapOutputWithContext(ctx context.Context) VpcIpv4CidrBlockAssociationMapOutput {
 	return o
+}
+
+func (o VpcIpv4CidrBlockAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpcIpv4CidrBlockAssociation] {
+	return pulumix.Output[map[string]*VpcIpv4CidrBlockAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VpcIpv4CidrBlockAssociationMapOutput) MapIndex(k pulumi.StringInput) VpcIpv4CidrBlockAssociationOutput {

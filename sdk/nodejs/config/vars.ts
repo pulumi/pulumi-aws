@@ -190,6 +190,19 @@ Object.defineProperty(exports, "retryMode", {
 });
 
 /**
+ * Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid
+ * values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment
+ * variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
+ */
+export declare const s3UsEast1RegionalEndpoint: string | undefined;
+Object.defineProperty(exports, "s3UsEast1RegionalEndpoint", {
+    get() {
+        return __config.get("s3UsEast1RegionalEndpoint");
+    },
+    enumerable: true,
+});
+
+/**
  * Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
  * default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
  * Specific to the Amazon S3 service.

@@ -37,3 +37,19 @@ export interface GetSinksResult {
      */
     readonly id: string;
 }
+/**
+ * Data source for managing an AWS CloudWatch Observability Access Manager Sinks.
+ *
+ * ## Example Usage
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.oam.getSinks({});
+ * ```
+ */
+export function getSinksOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetSinksResult> {
+    return pulumi.output(getSinks(opts))
+}

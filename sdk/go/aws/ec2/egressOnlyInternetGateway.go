@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // [IPv6 only] Creates an egress-only Internet gateway for your VPC.
@@ -165,6 +166,12 @@ func (i *EgressOnlyInternetGateway) ToEgressOnlyInternetGatewayOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(EgressOnlyInternetGatewayOutput)
 }
 
+func (i *EgressOnlyInternetGateway) ToOutput(ctx context.Context) pulumix.Output[*EgressOnlyInternetGateway] {
+	return pulumix.Output[*EgressOnlyInternetGateway]{
+		OutputState: i.ToEgressOnlyInternetGatewayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EgressOnlyInternetGatewayArrayInput is an input type that accepts EgressOnlyInternetGatewayArray and EgressOnlyInternetGatewayArrayOutput values.
 // You can construct a concrete instance of `EgressOnlyInternetGatewayArrayInput` via:
 //
@@ -188,6 +195,12 @@ func (i EgressOnlyInternetGatewayArray) ToEgressOnlyInternetGatewayArrayOutput()
 
 func (i EgressOnlyInternetGatewayArray) ToEgressOnlyInternetGatewayArrayOutputWithContext(ctx context.Context) EgressOnlyInternetGatewayArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EgressOnlyInternetGatewayArrayOutput)
+}
+
+func (i EgressOnlyInternetGatewayArray) ToOutput(ctx context.Context) pulumix.Output[[]*EgressOnlyInternetGateway] {
+	return pulumix.Output[[]*EgressOnlyInternetGateway]{
+		OutputState: i.ToEgressOnlyInternetGatewayArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // EgressOnlyInternetGatewayMapInput is an input type that accepts EgressOnlyInternetGatewayMap and EgressOnlyInternetGatewayMapOutput values.
@@ -215,6 +228,12 @@ func (i EgressOnlyInternetGatewayMap) ToEgressOnlyInternetGatewayMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(EgressOnlyInternetGatewayMapOutput)
 }
 
+func (i EgressOnlyInternetGatewayMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EgressOnlyInternetGateway] {
+	return pulumix.Output[map[string]*EgressOnlyInternetGateway]{
+		OutputState: i.ToEgressOnlyInternetGatewayMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EgressOnlyInternetGatewayOutput struct{ *pulumi.OutputState }
 
 func (EgressOnlyInternetGatewayOutput) ElementType() reflect.Type {
@@ -227,6 +246,12 @@ func (o EgressOnlyInternetGatewayOutput) ToEgressOnlyInternetGatewayOutput() Egr
 
 func (o EgressOnlyInternetGatewayOutput) ToEgressOnlyInternetGatewayOutputWithContext(ctx context.Context) EgressOnlyInternetGatewayOutput {
 	return o
+}
+
+func (o EgressOnlyInternetGatewayOutput) ToOutput(ctx context.Context) pulumix.Output[*EgressOnlyInternetGateway] {
+	return pulumix.Output[*EgressOnlyInternetGateway]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -258,6 +283,12 @@ func (o EgressOnlyInternetGatewayArrayOutput) ToEgressOnlyInternetGatewayArrayOu
 	return o
 }
 
+func (o EgressOnlyInternetGatewayArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EgressOnlyInternetGateway] {
+	return pulumix.Output[[]*EgressOnlyInternetGateway]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EgressOnlyInternetGatewayArrayOutput) Index(i pulumi.IntInput) EgressOnlyInternetGatewayOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EgressOnlyInternetGateway {
 		return vs[0].([]*EgressOnlyInternetGateway)[vs[1].(int)]
@@ -276,6 +307,12 @@ func (o EgressOnlyInternetGatewayMapOutput) ToEgressOnlyInternetGatewayMapOutput
 
 func (o EgressOnlyInternetGatewayMapOutput) ToEgressOnlyInternetGatewayMapOutputWithContext(ctx context.Context) EgressOnlyInternetGatewayMapOutput {
 	return o
+}
+
+func (o EgressOnlyInternetGatewayMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EgressOnlyInternetGateway] {
+	return pulumix.Output[map[string]*EgressOnlyInternetGateway]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EgressOnlyInternetGatewayMapOutput) MapIndex(k pulumi.StringInput) EgressOnlyInternetGatewayOutput {

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about a specific Amazon Kendra Experience.
@@ -123,6 +124,12 @@ func (o LookupExperienceResultOutput) ToLookupExperienceResultOutput() LookupExp
 
 func (o LookupExperienceResultOutput) ToLookupExperienceResultOutputWithContext(ctx context.Context) LookupExperienceResultOutput {
 	return o
+}
+
+func (o LookupExperienceResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupExperienceResult] {
+	return pulumix.Output[LookupExperienceResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the Experience.

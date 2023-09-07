@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `ec2.NetworkInsightsAnalysis` provides details about a specific Network Insights Analysis.
@@ -129,6 +130,12 @@ func (o LookupNetworkInsightsAnalysisResultOutput) ToLookupNetworkInsightsAnalys
 
 func (o LookupNetworkInsightsAnalysisResultOutput) ToLookupNetworkInsightsAnalysisResultOutputWithContext(ctx context.Context) LookupNetworkInsightsAnalysisResultOutput {
 	return o
+}
+
+func (o LookupNetworkInsightsAnalysisResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupNetworkInsightsAnalysisResult] {
+	return pulumix.Output[LookupNetworkInsightsAnalysisResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Potential intermediate components of a feasible path.

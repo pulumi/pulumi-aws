@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a FSx Lustre File System. See the [FSx Lustre Guide](https://docs.aws.amazon.com/fsx/latest/LustreGuide/what-is.html) for more information.
@@ -398,6 +399,12 @@ func (i *LustreFileSystem) ToLustreFileSystemOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(LustreFileSystemOutput)
 }
 
+func (i *LustreFileSystem) ToOutput(ctx context.Context) pulumix.Output[*LustreFileSystem] {
+	return pulumix.Output[*LustreFileSystem]{
+		OutputState: i.ToLustreFileSystemOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LustreFileSystemArrayInput is an input type that accepts LustreFileSystemArray and LustreFileSystemArrayOutput values.
 // You can construct a concrete instance of `LustreFileSystemArrayInput` via:
 //
@@ -421,6 +428,12 @@ func (i LustreFileSystemArray) ToLustreFileSystemArrayOutput() LustreFileSystemA
 
 func (i LustreFileSystemArray) ToLustreFileSystemArrayOutputWithContext(ctx context.Context) LustreFileSystemArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LustreFileSystemArrayOutput)
+}
+
+func (i LustreFileSystemArray) ToOutput(ctx context.Context) pulumix.Output[[]*LustreFileSystem] {
+	return pulumix.Output[[]*LustreFileSystem]{
+		OutputState: i.ToLustreFileSystemArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LustreFileSystemMapInput is an input type that accepts LustreFileSystemMap and LustreFileSystemMapOutput values.
@@ -448,6 +461,12 @@ func (i LustreFileSystemMap) ToLustreFileSystemMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(LustreFileSystemMapOutput)
 }
 
+func (i LustreFileSystemMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LustreFileSystem] {
+	return pulumix.Output[map[string]*LustreFileSystem]{
+		OutputState: i.ToLustreFileSystemMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LustreFileSystemOutput struct{ *pulumi.OutputState }
 
 func (LustreFileSystemOutput) ElementType() reflect.Type {
@@ -460,6 +479,12 @@ func (o LustreFileSystemOutput) ToLustreFileSystemOutput() LustreFileSystemOutpu
 
 func (o LustreFileSystemOutput) ToLustreFileSystemOutputWithContext(ctx context.Context) LustreFileSystemOutput {
 	return o
+}
+
+func (o LustreFileSystemOutput) ToOutput(ctx context.Context) pulumix.Output[*LustreFileSystem] {
+	return pulumix.Output[*LustreFileSystem]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name of the file system.
@@ -623,6 +648,12 @@ func (o LustreFileSystemArrayOutput) ToLustreFileSystemArrayOutputWithContext(ct
 	return o
 }
 
+func (o LustreFileSystemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LustreFileSystem] {
+	return pulumix.Output[[]*LustreFileSystem]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LustreFileSystemArrayOutput) Index(i pulumi.IntInput) LustreFileSystemOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LustreFileSystem {
 		return vs[0].([]*LustreFileSystem)[vs[1].(int)]
@@ -641,6 +672,12 @@ func (o LustreFileSystemMapOutput) ToLustreFileSystemMapOutput() LustreFileSyste
 
 func (o LustreFileSystemMapOutput) ToLustreFileSystemMapOutputWithContext(ctx context.Context) LustreFileSystemMapOutput {
 	return o
+}
+
+func (o LustreFileSystemMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LustreFileSystem] {
+	return pulumix.Output[map[string]*LustreFileSystem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LustreFileSystemMapOutput) MapIndex(k pulumi.StringInput) LustreFileSystemOutput {

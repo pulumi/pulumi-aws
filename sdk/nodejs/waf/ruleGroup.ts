@@ -78,7 +78,7 @@ export class RuleGroup extends pulumi.CustomResource {
      */
     public readonly metricName!: pulumi.Output<string>;
     /**
-     * A friendly name of the rule group
+     * Name of the rule group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -143,7 +143,7 @@ export interface RuleGroupState {
      */
     metricName?: pulumi.Input<string>;
     /**
-     * A friendly name of the rule group
+     * Name of the rule group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
     name?: pulumi.Input<string>;
     /**
@@ -169,7 +169,7 @@ export interface RuleGroupArgs {
      */
     metricName: pulumi.Input<string>;
     /**
-     * A friendly name of the rule group
+     * Name of the rule group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
     name?: pulumi.Input<string>;
     /**

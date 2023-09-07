@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `getAvailabilityZone` provides details about a specific availability zone (AZ)
@@ -119,6 +120,12 @@ func (o GetAvailabilityZoneResultOutput) ToGetAvailabilityZoneResultOutput() Get
 
 func (o GetAvailabilityZoneResultOutput) ToGetAvailabilityZoneResultOutputWithContext(ctx context.Context) GetAvailabilityZoneResultOutput {
 	return o
+}
+
+func (o GetAvailabilityZoneResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetAvailabilityZoneResult] {
+	return pulumix.Output[GetAvailabilityZoneResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetAvailabilityZoneResultOutput) AllAvailabilityZones() pulumi.BoolPtrOutput {

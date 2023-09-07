@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a customer managed policy attachment for a Single Sign-On (SSO) Permission Set resource
@@ -138,6 +139,12 @@ func (i *CustomerManagedPolicyAttachment) ToCustomerManagedPolicyAttachmentOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(CustomerManagedPolicyAttachmentOutput)
 }
 
+func (i *CustomerManagedPolicyAttachment) ToOutput(ctx context.Context) pulumix.Output[*CustomerManagedPolicyAttachment] {
+	return pulumix.Output[*CustomerManagedPolicyAttachment]{
+		OutputState: i.ToCustomerManagedPolicyAttachmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CustomerManagedPolicyAttachmentArrayInput is an input type that accepts CustomerManagedPolicyAttachmentArray and CustomerManagedPolicyAttachmentArrayOutput values.
 // You can construct a concrete instance of `CustomerManagedPolicyAttachmentArrayInput` via:
 //
@@ -161,6 +168,12 @@ func (i CustomerManagedPolicyAttachmentArray) ToCustomerManagedPolicyAttachmentA
 
 func (i CustomerManagedPolicyAttachmentArray) ToCustomerManagedPolicyAttachmentArrayOutputWithContext(ctx context.Context) CustomerManagedPolicyAttachmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CustomerManagedPolicyAttachmentArrayOutput)
+}
+
+func (i CustomerManagedPolicyAttachmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*CustomerManagedPolicyAttachment] {
+	return pulumix.Output[[]*CustomerManagedPolicyAttachment]{
+		OutputState: i.ToCustomerManagedPolicyAttachmentArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // CustomerManagedPolicyAttachmentMapInput is an input type that accepts CustomerManagedPolicyAttachmentMap and CustomerManagedPolicyAttachmentMapOutput values.
@@ -188,6 +201,12 @@ func (i CustomerManagedPolicyAttachmentMap) ToCustomerManagedPolicyAttachmentMap
 	return pulumi.ToOutputWithContext(ctx, i).(CustomerManagedPolicyAttachmentMapOutput)
 }
 
+func (i CustomerManagedPolicyAttachmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CustomerManagedPolicyAttachment] {
+	return pulumix.Output[map[string]*CustomerManagedPolicyAttachment]{
+		OutputState: i.ToCustomerManagedPolicyAttachmentMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CustomerManagedPolicyAttachmentOutput struct{ *pulumi.OutputState }
 
 func (CustomerManagedPolicyAttachmentOutput) ElementType() reflect.Type {
@@ -200,6 +219,12 @@ func (o CustomerManagedPolicyAttachmentOutput) ToCustomerManagedPolicyAttachment
 
 func (o CustomerManagedPolicyAttachmentOutput) ToCustomerManagedPolicyAttachmentOutputWithContext(ctx context.Context) CustomerManagedPolicyAttachmentOutput {
 	return o
+}
+
+func (o CustomerManagedPolicyAttachmentOutput) ToOutput(ctx context.Context) pulumix.Output[*CustomerManagedPolicyAttachment] {
+	return pulumix.Output[*CustomerManagedPolicyAttachment]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the name and path of a customer managed policy. See below.
@@ -233,6 +258,12 @@ func (o CustomerManagedPolicyAttachmentArrayOutput) ToCustomerManagedPolicyAttac
 	return o
 }
 
+func (o CustomerManagedPolicyAttachmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CustomerManagedPolicyAttachment] {
+	return pulumix.Output[[]*CustomerManagedPolicyAttachment]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CustomerManagedPolicyAttachmentArrayOutput) Index(i pulumi.IntInput) CustomerManagedPolicyAttachmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CustomerManagedPolicyAttachment {
 		return vs[0].([]*CustomerManagedPolicyAttachment)[vs[1].(int)]
@@ -251,6 +282,12 @@ func (o CustomerManagedPolicyAttachmentMapOutput) ToCustomerManagedPolicyAttachm
 
 func (o CustomerManagedPolicyAttachmentMapOutput) ToCustomerManagedPolicyAttachmentMapOutputWithContext(ctx context.Context) CustomerManagedPolicyAttachmentMapOutput {
 	return o
+}
+
+func (o CustomerManagedPolicyAttachmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CustomerManagedPolicyAttachment] {
+	return pulumix.Output[map[string]*CustomerManagedPolicyAttachment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CustomerManagedPolicyAttachmentMapOutput) MapIndex(k pulumi.StringInput) CustomerManagedPolicyAttachmentOutput {

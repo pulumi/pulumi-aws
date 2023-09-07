@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `vpc.getSecurityGroupRule` provides details about a specific security group rule.
@@ -125,6 +126,12 @@ func (o GetSecurityGroupRuleResultOutput) ToGetSecurityGroupRuleResultOutput() G
 
 func (o GetSecurityGroupRuleResultOutput) ToGetSecurityGroupRuleResultOutputWithContext(ctx context.Context) GetSecurityGroupRuleResultOutput {
 	return o
+}
+
+func (o GetSecurityGroupRuleResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetSecurityGroupRuleResult] {
+	return pulumix.Output[GetSecurityGroupRuleResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the security group rule.

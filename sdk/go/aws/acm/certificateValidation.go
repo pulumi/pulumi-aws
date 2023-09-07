@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource represents a successful validation of an ACM certificate in concert
@@ -221,6 +222,12 @@ func (i *CertificateValidation) ToCertificateValidationOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateValidationOutput)
 }
 
+func (i *CertificateValidation) ToOutput(ctx context.Context) pulumix.Output[*CertificateValidation] {
+	return pulumix.Output[*CertificateValidation]{
+		OutputState: i.ToCertificateValidationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CertificateValidationArrayInput is an input type that accepts CertificateValidationArray and CertificateValidationArrayOutput values.
 // You can construct a concrete instance of `CertificateValidationArrayInput` via:
 //
@@ -244,6 +251,12 @@ func (i CertificateValidationArray) ToCertificateValidationArrayOutput() Certifi
 
 func (i CertificateValidationArray) ToCertificateValidationArrayOutputWithContext(ctx context.Context) CertificateValidationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateValidationArrayOutput)
+}
+
+func (i CertificateValidationArray) ToOutput(ctx context.Context) pulumix.Output[[]*CertificateValidation] {
+	return pulumix.Output[[]*CertificateValidation]{
+		OutputState: i.ToCertificateValidationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // CertificateValidationMapInput is an input type that accepts CertificateValidationMap and CertificateValidationMapOutput values.
@@ -271,6 +284,12 @@ func (i CertificateValidationMap) ToCertificateValidationMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateValidationMapOutput)
 }
 
+func (i CertificateValidationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CertificateValidation] {
+	return pulumix.Output[map[string]*CertificateValidation]{
+		OutputState: i.ToCertificateValidationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CertificateValidationOutput struct{ *pulumi.OutputState }
 
 func (CertificateValidationOutput) ElementType() reflect.Type {
@@ -283,6 +302,12 @@ func (o CertificateValidationOutput) ToCertificateValidationOutput() Certificate
 
 func (o CertificateValidationOutput) ToCertificateValidationOutputWithContext(ctx context.Context) CertificateValidationOutput {
 	return o
+}
+
+func (o CertificateValidationOutput) ToOutput(ctx context.Context) pulumix.Output[*CertificateValidation] {
+	return pulumix.Output[*CertificateValidation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the certificate that is being validated.
@@ -309,6 +334,12 @@ func (o CertificateValidationArrayOutput) ToCertificateValidationArrayOutputWith
 	return o
 }
 
+func (o CertificateValidationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CertificateValidation] {
+	return pulumix.Output[[]*CertificateValidation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CertificateValidationArrayOutput) Index(i pulumi.IntInput) CertificateValidationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CertificateValidation {
 		return vs[0].([]*CertificateValidation)[vs[1].(int)]
@@ -327,6 +358,12 @@ func (o CertificateValidationMapOutput) ToCertificateValidationMapOutput() Certi
 
 func (o CertificateValidationMapOutput) ToCertificateValidationMapOutputWithContext(ctx context.Context) CertificateValidationMapOutput {
 	return o
+}
+
+func (o CertificateValidationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CertificateValidation] {
+	return pulumix.Output[map[string]*CertificateValidation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CertificateValidationMapOutput) MapIndex(k pulumi.StringInput) CertificateValidationOutput {

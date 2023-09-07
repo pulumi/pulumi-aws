@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to manage AWS EMR Security Configurations
@@ -184,6 +185,12 @@ func (i *SecurityConfiguration) ToSecurityConfigurationOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationOutput)
 }
 
+func (i *SecurityConfiguration) ToOutput(ctx context.Context) pulumix.Output[*SecurityConfiguration] {
+	return pulumix.Output[*SecurityConfiguration]{
+		OutputState: i.ToSecurityConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SecurityConfigurationArrayInput is an input type that accepts SecurityConfigurationArray and SecurityConfigurationArrayOutput values.
 // You can construct a concrete instance of `SecurityConfigurationArrayInput` via:
 //
@@ -207,6 +214,12 @@ func (i SecurityConfigurationArray) ToSecurityConfigurationArrayOutput() Securit
 
 func (i SecurityConfigurationArray) ToSecurityConfigurationArrayOutputWithContext(ctx context.Context) SecurityConfigurationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationArrayOutput)
+}
+
+func (i SecurityConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]*SecurityConfiguration] {
+	return pulumix.Output[[]*SecurityConfiguration]{
+		OutputState: i.ToSecurityConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SecurityConfigurationMapInput is an input type that accepts SecurityConfigurationMap and SecurityConfigurationMapOutput values.
@@ -234,6 +247,12 @@ func (i SecurityConfigurationMap) ToSecurityConfigurationMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationMapOutput)
 }
 
+func (i SecurityConfigurationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SecurityConfiguration] {
+	return pulumix.Output[map[string]*SecurityConfiguration]{
+		OutputState: i.ToSecurityConfigurationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SecurityConfigurationOutput struct{ *pulumi.OutputState }
 
 func (SecurityConfigurationOutput) ElementType() reflect.Type {
@@ -246,6 +265,12 @@ func (o SecurityConfigurationOutput) ToSecurityConfigurationOutput() SecurityCon
 
 func (o SecurityConfigurationOutput) ToSecurityConfigurationOutputWithContext(ctx context.Context) SecurityConfigurationOutput {
 	return o
+}
+
+func (o SecurityConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*SecurityConfiguration] {
+	return pulumix.Output[*SecurityConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A JSON formatted Security Configuration
@@ -283,6 +308,12 @@ func (o SecurityConfigurationArrayOutput) ToSecurityConfigurationArrayOutputWith
 	return o
 }
 
+func (o SecurityConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SecurityConfiguration] {
+	return pulumix.Output[[]*SecurityConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SecurityConfigurationArrayOutput) Index(i pulumi.IntInput) SecurityConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SecurityConfiguration {
 		return vs[0].([]*SecurityConfiguration)[vs[1].(int)]
@@ -301,6 +332,12 @@ func (o SecurityConfigurationMapOutput) ToSecurityConfigurationMapOutput() Secur
 
 func (o SecurityConfigurationMapOutput) ToSecurityConfigurationMapOutputWithContext(ctx context.Context) SecurityConfigurationMapOutput {
 	return o
+}
+
+func (o SecurityConfigurationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SecurityConfiguration] {
+	return pulumix.Output[map[string]*SecurityConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SecurityConfigurationMapOutput) MapIndex(k pulumi.StringInput) SecurityConfigurationOutput {

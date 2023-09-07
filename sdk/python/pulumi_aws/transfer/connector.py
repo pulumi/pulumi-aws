@@ -102,6 +102,7 @@ class ConnectorArgs:
 class _ConnectorState:
     def __init__(__self__, *,
                  access_role: Optional[pulumi.Input[str]] = None,
+                 arn: Optional[pulumi.Input[str]] = None,
                  as2_config: Optional[pulumi.Input['ConnectorAs2ConfigArgs']] = None,
                  connector_id: Optional[pulumi.Input[str]] = None,
                  logging_role: Optional[pulumi.Input[str]] = None,
@@ -111,14 +112,17 @@ class _ConnectorState:
         """
         Input properties used for looking up and filtering Connector resources.
         :param pulumi.Input[str] access_role: The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
+        :param pulumi.Input[str] arn: The ARN of the connector.
         :param pulumi.Input['ConnectorAs2ConfigArgs'] as2_config: The parameters to configure for the connector object. Fields documented below.
-        :param pulumi.Input[str] connector_id: The unique identifier for the AS2 profile
+        :param pulumi.Input[str] connector_id: The unique identifier for the AS2 profile.
         :param pulumi.Input[str] logging_role: The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] url: The URL of the partners AS2 endpoint.
         """
         if access_role is not None:
             pulumi.set(__self__, "access_role", access_role)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
         if as2_config is not None:
             pulumi.set(__self__, "as2_config", as2_config)
         if connector_id is not None:
@@ -145,6 +149,18 @@ class _ConnectorState:
         pulumi.set(self, "access_role", value)
 
     @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the connector.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
     @pulumi.getter(name="as2Config")
     def as2_config(self) -> Optional[pulumi.Input['ConnectorAs2ConfigArgs']]:
         """
@@ -160,7 +176,7 @@ class _ConnectorState:
     @pulumi.getter(name="connectorId")
     def connector_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The unique identifier for the AS2 profile
+        The unique identifier for the AS2 profile.
         """
         return pulumi.get(self, "connector_id")
 
@@ -345,6 +361,7 @@ class Connector(pulumi.CustomResource):
             if url is None and not opts.urn:
                 raise TypeError("Missing required property 'url'")
             __props__.__dict__["url"] = url
+            __props__.__dict__["arn"] = None
             __props__.__dict__["connector_id"] = None
             __props__.__dict__["tags_all"] = None
         super(Connector, __self__).__init__(
@@ -358,6 +375,7 @@ class Connector(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             access_role: Optional[pulumi.Input[str]] = None,
+            arn: Optional[pulumi.Input[str]] = None,
             as2_config: Optional[pulumi.Input[pulumi.InputType['ConnectorAs2ConfigArgs']]] = None,
             connector_id: Optional[pulumi.Input[str]] = None,
             logging_role: Optional[pulumi.Input[str]] = None,
@@ -372,8 +390,9 @@ class Connector(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_role: The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
+        :param pulumi.Input[str] arn: The ARN of the connector.
         :param pulumi.Input[pulumi.InputType['ConnectorAs2ConfigArgs']] as2_config: The parameters to configure for the connector object. Fields documented below.
-        :param pulumi.Input[str] connector_id: The unique identifier for the AS2 profile
+        :param pulumi.Input[str] connector_id: The unique identifier for the AS2 profile.
         :param pulumi.Input[str] logging_role: The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] url: The URL of the partners AS2 endpoint.
@@ -383,6 +402,7 @@ class Connector(pulumi.CustomResource):
         __props__ = _ConnectorState.__new__(_ConnectorState)
 
         __props__.__dict__["access_role"] = access_role
+        __props__.__dict__["arn"] = arn
         __props__.__dict__["as2_config"] = as2_config
         __props__.__dict__["connector_id"] = connector_id
         __props__.__dict__["logging_role"] = logging_role
@@ -400,6 +420,14 @@ class Connector(pulumi.CustomResource):
         return pulumi.get(self, "access_role")
 
     @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the connector.
+        """
+        return pulumi.get(self, "arn")
+
+    @property
     @pulumi.getter(name="as2Config")
     def as2_config(self) -> pulumi.Output['outputs.ConnectorAs2Config']:
         """
@@ -411,7 +439,7 @@ class Connector(pulumi.CustomResource):
     @pulumi.getter(name="connectorId")
     def connector_id(self) -> pulumi.Output[str]:
         """
-        The unique identifier for the AS2 profile
+        The unique identifier for the AS2 profile.
         """
         return pulumi.get(self, "connector_id")
 

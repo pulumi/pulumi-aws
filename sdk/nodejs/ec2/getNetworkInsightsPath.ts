@@ -63,6 +63,10 @@ export interface GetNetworkInsightsPathResult {
      */
     readonly destination: string;
     /**
+     * ARN of the destination.
+     */
+    readonly destinationArn: string;
+    /**
      * IP address of the AWS resource that is the destination of the path.
      */
     readonly destinationIp: string;
@@ -84,6 +88,10 @@ export interface GetNetworkInsightsPathResult {
      * AWS resource that is the source of the path.
      */
     readonly source: string;
+    /**
+     * ARN of the source.
+     */
+    readonly sourceArn: string;
     /**
      * IP address of the AWS resource that is the source of the path.
      */

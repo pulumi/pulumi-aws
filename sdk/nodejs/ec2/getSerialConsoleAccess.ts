@@ -36,3 +36,18 @@ export interface GetSerialConsoleAccessResult {
      */
     readonly id: string;
 }
+/**
+ * Provides a way to check whether serial console access is enabled for your AWS account in the current AWS region.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const current = aws.ec2.getSerialConsoleAccess({});
+ * ```
+ */
+export function getSerialConsoleAccessOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetSerialConsoleAccessResult> {
+    return pulumi.output(getSerialConsoleAccess(opts))
+}

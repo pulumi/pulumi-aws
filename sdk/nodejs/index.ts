@@ -114,6 +114,7 @@ import * as cloudtrail from "./cloudtrail";
 import * as cloudwatch from "./cloudwatch";
 import * as codeartifact from "./codeartifact";
 import * as codebuild from "./codebuild";
+import * as codecatalyst from "./codecatalyst";
 import * as codecommit from "./codecommit";
 import * as codedeploy from "./codedeploy";
 import * as codegurureviewer from "./codegurureviewer";
@@ -307,6 +308,7 @@ export {
     cloudwatch,
     codeartifact,
     codebuild,
+    codecatalyst,
     codecommit,
     codedeploy,
     codegurureviewer,

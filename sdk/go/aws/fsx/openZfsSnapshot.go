@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Amazon FSx for OpenZFS volume.
@@ -226,6 +227,12 @@ func (i *OpenZfsSnapshot) ToOpenZfsSnapshotOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(OpenZfsSnapshotOutput)
 }
 
+func (i *OpenZfsSnapshot) ToOutput(ctx context.Context) pulumix.Output[*OpenZfsSnapshot] {
+	return pulumix.Output[*OpenZfsSnapshot]{
+		OutputState: i.ToOpenZfsSnapshotOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OpenZfsSnapshotArrayInput is an input type that accepts OpenZfsSnapshotArray and OpenZfsSnapshotArrayOutput values.
 // You can construct a concrete instance of `OpenZfsSnapshotArrayInput` via:
 //
@@ -249,6 +256,12 @@ func (i OpenZfsSnapshotArray) ToOpenZfsSnapshotArrayOutput() OpenZfsSnapshotArra
 
 func (i OpenZfsSnapshotArray) ToOpenZfsSnapshotArrayOutputWithContext(ctx context.Context) OpenZfsSnapshotArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OpenZfsSnapshotArrayOutput)
+}
+
+func (i OpenZfsSnapshotArray) ToOutput(ctx context.Context) pulumix.Output[[]*OpenZfsSnapshot] {
+	return pulumix.Output[[]*OpenZfsSnapshot]{
+		OutputState: i.ToOpenZfsSnapshotArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // OpenZfsSnapshotMapInput is an input type that accepts OpenZfsSnapshotMap and OpenZfsSnapshotMapOutput values.
@@ -276,6 +289,12 @@ func (i OpenZfsSnapshotMap) ToOpenZfsSnapshotMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(OpenZfsSnapshotMapOutput)
 }
 
+func (i OpenZfsSnapshotMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*OpenZfsSnapshot] {
+	return pulumix.Output[map[string]*OpenZfsSnapshot]{
+		OutputState: i.ToOpenZfsSnapshotMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OpenZfsSnapshotOutput struct{ *pulumi.OutputState }
 
 func (OpenZfsSnapshotOutput) ElementType() reflect.Type {
@@ -288,6 +307,12 @@ func (o OpenZfsSnapshotOutput) ToOpenZfsSnapshotOutput() OpenZfsSnapshotOutput {
 
 func (o OpenZfsSnapshotOutput) ToOpenZfsSnapshotOutputWithContext(ctx context.Context) OpenZfsSnapshotOutput {
 	return o
+}
+
+func (o OpenZfsSnapshotOutput) ToOutput(ctx context.Context) pulumix.Output[*OpenZfsSnapshot] {
+	return pulumix.Output[*OpenZfsSnapshot]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name of the snapshot.
@@ -333,6 +358,12 @@ func (o OpenZfsSnapshotArrayOutput) ToOpenZfsSnapshotArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o OpenZfsSnapshotArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*OpenZfsSnapshot] {
+	return pulumix.Output[[]*OpenZfsSnapshot]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OpenZfsSnapshotArrayOutput) Index(i pulumi.IntInput) OpenZfsSnapshotOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OpenZfsSnapshot {
 		return vs[0].([]*OpenZfsSnapshot)[vs[1].(int)]
@@ -351,6 +382,12 @@ func (o OpenZfsSnapshotMapOutput) ToOpenZfsSnapshotMapOutput() OpenZfsSnapshotMa
 
 func (o OpenZfsSnapshotMapOutput) ToOpenZfsSnapshotMapOutputWithContext(ctx context.Context) OpenZfsSnapshotMapOutput {
 	return o
+}
+
+func (o OpenZfsSnapshotMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*OpenZfsSnapshot] {
+	return pulumix.Output[map[string]*OpenZfsSnapshot]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OpenZfsSnapshotMapOutput) MapIndex(k pulumi.StringInput) OpenZfsSnapshotOutput {

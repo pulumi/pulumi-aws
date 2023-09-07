@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a FSx ONTAP Volume.
@@ -303,6 +304,12 @@ func (i *OntapVolume) ToOntapVolumeOutputWithContext(ctx context.Context) OntapV
 	return pulumi.ToOutputWithContext(ctx, i).(OntapVolumeOutput)
 }
 
+func (i *OntapVolume) ToOutput(ctx context.Context) pulumix.Output[*OntapVolume] {
+	return pulumix.Output[*OntapVolume]{
+		OutputState: i.ToOntapVolumeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OntapVolumeArrayInput is an input type that accepts OntapVolumeArray and OntapVolumeArrayOutput values.
 // You can construct a concrete instance of `OntapVolumeArrayInput` via:
 //
@@ -326,6 +333,12 @@ func (i OntapVolumeArray) ToOntapVolumeArrayOutput() OntapVolumeArrayOutput {
 
 func (i OntapVolumeArray) ToOntapVolumeArrayOutputWithContext(ctx context.Context) OntapVolumeArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OntapVolumeArrayOutput)
+}
+
+func (i OntapVolumeArray) ToOutput(ctx context.Context) pulumix.Output[[]*OntapVolume] {
+	return pulumix.Output[[]*OntapVolume]{
+		OutputState: i.ToOntapVolumeArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // OntapVolumeMapInput is an input type that accepts OntapVolumeMap and OntapVolumeMapOutput values.
@@ -353,6 +366,12 @@ func (i OntapVolumeMap) ToOntapVolumeMapOutputWithContext(ctx context.Context) O
 	return pulumi.ToOutputWithContext(ctx, i).(OntapVolumeMapOutput)
 }
 
+func (i OntapVolumeMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*OntapVolume] {
+	return pulumix.Output[map[string]*OntapVolume]{
+		OutputState: i.ToOntapVolumeMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OntapVolumeOutput struct{ *pulumi.OutputState }
 
 func (OntapVolumeOutput) ElementType() reflect.Type {
@@ -365,6 +384,12 @@ func (o OntapVolumeOutput) ToOntapVolumeOutput() OntapVolumeOutput {
 
 func (o OntapVolumeOutput) ToOntapVolumeOutputWithContext(ctx context.Context) OntapVolumeOutput {
 	return o
+}
+
+func (o OntapVolumeOutput) ToOutput(ctx context.Context) pulumix.Output[*OntapVolume] {
+	return pulumix.Output[*OntapVolume]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name of the volune.
@@ -460,6 +485,12 @@ func (o OntapVolumeArrayOutput) ToOntapVolumeArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o OntapVolumeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*OntapVolume] {
+	return pulumix.Output[[]*OntapVolume]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OntapVolumeArrayOutput) Index(i pulumi.IntInput) OntapVolumeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OntapVolume {
 		return vs[0].([]*OntapVolume)[vs[1].(int)]
@@ -478,6 +509,12 @@ func (o OntapVolumeMapOutput) ToOntapVolumeMapOutput() OntapVolumeMapOutput {
 
 func (o OntapVolumeMapOutput) ToOntapVolumeMapOutputWithContext(ctx context.Context) OntapVolumeMapOutput {
 	return o
+}
+
+func (o OntapVolumeMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*OntapVolume] {
+	return pulumix.Output[map[string]*OntapVolume]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OntapVolumeMapOutput) MapIndex(k pulumi.StringInput) OntapVolumeOutput {

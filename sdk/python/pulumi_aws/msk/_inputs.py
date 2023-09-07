@@ -13,6 +13,9 @@ __all__ = [
     'ClusterBrokerNodeGroupInfoArgs',
     'ClusterBrokerNodeGroupInfoConnectivityInfoArgs',
     'ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs',
+    'ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs',
+    'ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs',
+    'ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs',
     'ClusterBrokerNodeGroupInfoStorageInfoArgs',
     'ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs',
     'ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs',
@@ -140,12 +143,16 @@ class ClusterBrokerNodeGroupInfoArgs:
 @pulumi.input_type
 class ClusterBrokerNodeGroupInfoConnectivityInfoArgs:
     def __init__(__self__, *,
-                 public_access: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs']] = None):
+                 public_access: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs']] = None,
+                 vpc_connectivity: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs']] = None):
         """
         :param pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs'] public_access: Access control settings for brokers. See below.
+        :param pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs'] vpc_connectivity: VPC connectivity access control for brokers. See below.
         """
         if public_access is not None:
             pulumi.set(__self__, "public_access", public_access)
+        if vpc_connectivity is not None:
+            pulumi.set(__self__, "vpc_connectivity", vpc_connectivity)
 
     @property
     @pulumi.getter(name="publicAccess")
@@ -159,13 +166,25 @@ class ClusterBrokerNodeGroupInfoConnectivityInfoArgs:
     def public_access(self, value: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs']]):
         pulumi.set(self, "public_access", value)
 
+    @property
+    @pulumi.getter(name="vpcConnectivity")
+    def vpc_connectivity(self) -> Optional[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs']]:
+        """
+        VPC connectivity access control for brokers. See below.
+        """
+        return pulumi.get(self, "vpc_connectivity")
+
+    @vpc_connectivity.setter
+    def vpc_connectivity(self, value: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs']]):
+        pulumi.set(self, "vpc_connectivity", value)
+
 
 @pulumi.input_type
 class ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: Public access type. Valida values: `DISABLED`, `SERVICE_PROVIDED_EIPS`.
+        :param pulumi.Input[str] type: Public access type. Valid values: `DISABLED`, `SERVICE_PROVIDED_EIPS`.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -174,13 +193,114 @@ class ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        Public access type. Valida values: `DISABLED`, `SERVICE_PROVIDED_EIPS`.
+        Public access type. Valid values: `DISABLED`, `SERVICE_PROVIDED_EIPS`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs:
+    def __init__(__self__, *,
+                 client_authentication: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs']] = None):
+        """
+        :param pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs'] client_authentication: Configuration block for specifying a client authentication. See below.
+        """
+        if client_authentication is not None:
+            pulumi.set(__self__, "client_authentication", client_authentication)
+
+    @property
+    @pulumi.getter(name="clientAuthentication")
+    def client_authentication(self) -> Optional[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs']]:
+        """
+        Configuration block for specifying a client authentication. See below.
+        """
+        return pulumi.get(self, "client_authentication")
+
+    @client_authentication.setter
+    def client_authentication(self, value: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs']]):
+        pulumi.set(self, "client_authentication", value)
+
+
+@pulumi.input_type
+class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs:
+    def __init__(__self__, *,
+                 sasl: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs']] = None,
+                 tls: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs'] sasl: Configuration block for specifying SASL client authentication. See below.
+        :param pulumi.Input[bool] tls: Configuration block for specifying TLS client authentication. See below.
+        """
+        if sasl is not None:
+            pulumi.set(__self__, "sasl", sasl)
+        if tls is not None:
+            pulumi.set(__self__, "tls", tls)
+
+    @property
+    @pulumi.getter
+    def sasl(self) -> Optional[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs']]:
+        """
+        Configuration block for specifying SASL client authentication. See below.
+        """
+        return pulumi.get(self, "sasl")
+
+    @sasl.setter
+    def sasl(self, value: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs']]):
+        pulumi.set(self, "sasl", value)
+
+    @property
+    @pulumi.getter
+    def tls(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Configuration block for specifying TLS client authentication. See below.
+        """
+        return pulumi.get(self, "tls")
+
+    @tls.setter
+    def tls(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "tls", value)
+
+
+@pulumi.input_type
+class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs:
+    def __init__(__self__, *,
+                 iam: Optional[pulumi.Input[bool]] = None,
+                 scram: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] iam: Enables SASL/IAM authentication for VPC connectivity.
+        :param pulumi.Input[bool] scram: Enables SASL/SCRAM authentication for VPC connectivity.
+        """
+        if iam is not None:
+            pulumi.set(__self__, "iam", iam)
+        if scram is not None:
+            pulumi.set(__self__, "scram", scram)
+
+    @property
+    @pulumi.getter
+    def iam(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables SASL/IAM authentication for VPC connectivity.
+        """
+        return pulumi.get(self, "iam")
+
+    @iam.setter
+    def iam(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "iam", value)
+
+    @property
+    @pulumi.getter
+    def scram(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables SASL/SCRAM authentication for VPC connectivity.
+        """
+        return pulumi.get(self, "scram")
+
+    @scram.setter
+    def scram(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "scram", value)
 
 
 @pulumi.input_type
@@ -345,8 +465,8 @@ class ClusterClientAuthenticationSaslArgs:
                  iam: Optional[pulumi.Input[bool]] = None,
                  scram: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[bool] iam: Enables IAM client authentication. Defaults to `false`.
-        :param pulumi.Input[bool] scram: Enables SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
+        :param pulumi.Input[bool] iam: Enables SASL/IAM authentication for VPC connectivity.
+        :param pulumi.Input[bool] scram: Enables SASL/SCRAM authentication for VPC connectivity.
         """
         if iam is not None:
             pulumi.set(__self__, "iam", iam)
@@ -357,7 +477,7 @@ class ClusterClientAuthenticationSaslArgs:
     @pulumi.getter
     def iam(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enables IAM client authentication. Defaults to `false`.
+        Enables SASL/IAM authentication for VPC connectivity.
         """
         return pulumi.get(self, "iam")
 
@@ -369,7 +489,7 @@ class ClusterClientAuthenticationSaslArgs:
     @pulumi.getter
     def scram(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enables SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
+        Enables SASL/SCRAM authentication for VPC connectivity.
         """
         return pulumi.get(self, "scram")
 

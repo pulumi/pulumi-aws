@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Glue Registry resource.
@@ -168,6 +169,12 @@ func (i *Registry) ToRegistryOutputWithContext(ctx context.Context) RegistryOutp
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryOutput)
 }
 
+func (i *Registry) ToOutput(ctx context.Context) pulumix.Output[*Registry] {
+	return pulumix.Output[*Registry]{
+		OutputState: i.ToRegistryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RegistryArrayInput is an input type that accepts RegistryArray and RegistryArrayOutput values.
 // You can construct a concrete instance of `RegistryArrayInput` via:
 //
@@ -191,6 +198,12 @@ func (i RegistryArray) ToRegistryArrayOutput() RegistryArrayOutput {
 
 func (i RegistryArray) ToRegistryArrayOutputWithContext(ctx context.Context) RegistryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryArrayOutput)
+}
+
+func (i RegistryArray) ToOutput(ctx context.Context) pulumix.Output[[]*Registry] {
+	return pulumix.Output[[]*Registry]{
+		OutputState: i.ToRegistryArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RegistryMapInput is an input type that accepts RegistryMap and RegistryMapOutput values.
@@ -218,6 +231,12 @@ func (i RegistryMap) ToRegistryMapOutputWithContext(ctx context.Context) Registr
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryMapOutput)
 }
 
+func (i RegistryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Registry] {
+	return pulumix.Output[map[string]*Registry]{
+		OutputState: i.ToRegistryMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RegistryOutput struct{ *pulumi.OutputState }
 
 func (RegistryOutput) ElementType() reflect.Type {
@@ -230,6 +249,12 @@ func (o RegistryOutput) ToRegistryOutput() RegistryOutput {
 
 func (o RegistryOutput) ToRegistryOutputWithContext(ctx context.Context) RegistryOutput {
 	return o
+}
+
+func (o RegistryOutput) ToOutput(ctx context.Context) pulumix.Output[*Registry] {
+	return pulumix.Output[*Registry]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name (ARN) of Glue Registry.
@@ -271,6 +296,12 @@ func (o RegistryArrayOutput) ToRegistryArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o RegistryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Registry] {
+	return pulumix.Output[[]*Registry]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RegistryArrayOutput) Index(i pulumi.IntInput) RegistryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Registry {
 		return vs[0].([]*Registry)[vs[1].(int)]
@@ -289,6 +320,12 @@ func (o RegistryMapOutput) ToRegistryMapOutput() RegistryMapOutput {
 
 func (o RegistryMapOutput) ToRegistryMapOutputWithContext(ctx context.Context) RegistryMapOutput {
 	return o
+}
+
+func (o RegistryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Registry] {
+	return pulumix.Output[map[string]*Registry]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RegistryMapOutput) MapIndex(k pulumi.StringInput) RegistryOutput {

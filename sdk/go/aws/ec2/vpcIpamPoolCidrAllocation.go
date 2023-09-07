@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Allocates (reserves) a CIDR from an IPAM address pool, preventing usage by IPAM. Only works for private IPv4.
@@ -55,14 +56,14 @@ import (
 //			}
 //			exampleVpcIpamPoolCidr, err := ec2.NewVpcIpamPoolCidr(ctx, "exampleVpcIpamPoolCidr", &ec2.VpcIpamPoolCidrArgs{
 //				IpamPoolId: exampleVpcIpamPool.ID(),
-//				Cidr:       pulumi.String("172.2.0.0/16"),
+//				Cidr:       pulumi.String("172.20.0.0/16"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = ec2.NewVpcIpamPoolCidrAllocation(ctx, "exampleVpcIpamPoolCidrAllocation", &ec2.VpcIpamPoolCidrAllocationArgs{
 //				IpamPoolId: exampleVpcIpamPool.ID(),
-//				Cidr:       pulumi.String("172.2.0.0/24"),
+//				Cidr:       pulumi.String("172.20.0.0/24"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleVpcIpamPoolCidr,
 //			}))
@@ -114,7 +115,7 @@ import (
 //			}
 //			exampleVpcIpamPoolCidr, err := ec2.NewVpcIpamPoolCidr(ctx, "exampleVpcIpamPoolCidr", &ec2.VpcIpamPoolCidrArgs{
 //				IpamPoolId: exampleVpcIpamPool.ID(),
-//				Cidr:       pulumi.String("172.2.0.0/16"),
+//				Cidr:       pulumi.String("172.20.0.0/16"),
 //			})
 //			if err != nil {
 //				return err
@@ -123,7 +124,7 @@ import (
 //				IpamPoolId:    exampleVpcIpamPool.ID(),
 //				NetmaskLength: pulumi.Int(28),
 //				DisallowedCidrs: pulumi.StringArray{
-//					pulumi.String("172.2.0.0/28"),
+//					pulumi.String("172.20.0.0/28"),
 //				},
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleVpcIpamPoolCidr,
@@ -294,6 +295,12 @@ func (i *VpcIpamPoolCidrAllocation) ToVpcIpamPoolCidrAllocationOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(VpcIpamPoolCidrAllocationOutput)
 }
 
+func (i *VpcIpamPoolCidrAllocation) ToOutput(ctx context.Context) pulumix.Output[*VpcIpamPoolCidrAllocation] {
+	return pulumix.Output[*VpcIpamPoolCidrAllocation]{
+		OutputState: i.ToVpcIpamPoolCidrAllocationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VpcIpamPoolCidrAllocationArrayInput is an input type that accepts VpcIpamPoolCidrAllocationArray and VpcIpamPoolCidrAllocationArrayOutput values.
 // You can construct a concrete instance of `VpcIpamPoolCidrAllocationArrayInput` via:
 //
@@ -317,6 +324,12 @@ func (i VpcIpamPoolCidrAllocationArray) ToVpcIpamPoolCidrAllocationArrayOutput()
 
 func (i VpcIpamPoolCidrAllocationArray) ToVpcIpamPoolCidrAllocationArrayOutputWithContext(ctx context.Context) VpcIpamPoolCidrAllocationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpcIpamPoolCidrAllocationArrayOutput)
+}
+
+func (i VpcIpamPoolCidrAllocationArray) ToOutput(ctx context.Context) pulumix.Output[[]*VpcIpamPoolCidrAllocation] {
+	return pulumix.Output[[]*VpcIpamPoolCidrAllocation]{
+		OutputState: i.ToVpcIpamPoolCidrAllocationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VpcIpamPoolCidrAllocationMapInput is an input type that accepts VpcIpamPoolCidrAllocationMap and VpcIpamPoolCidrAllocationMapOutput values.
@@ -344,6 +357,12 @@ func (i VpcIpamPoolCidrAllocationMap) ToVpcIpamPoolCidrAllocationMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(VpcIpamPoolCidrAllocationMapOutput)
 }
 
+func (i VpcIpamPoolCidrAllocationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpcIpamPoolCidrAllocation] {
+	return pulumix.Output[map[string]*VpcIpamPoolCidrAllocation]{
+		OutputState: i.ToVpcIpamPoolCidrAllocationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VpcIpamPoolCidrAllocationOutput struct{ *pulumi.OutputState }
 
 func (VpcIpamPoolCidrAllocationOutput) ElementType() reflect.Type {
@@ -356,6 +375,12 @@ func (o VpcIpamPoolCidrAllocationOutput) ToVpcIpamPoolCidrAllocationOutput() Vpc
 
 func (o VpcIpamPoolCidrAllocationOutput) ToVpcIpamPoolCidrAllocationOutputWithContext(ctx context.Context) VpcIpamPoolCidrAllocationOutput {
 	return o
+}
+
+func (o VpcIpamPoolCidrAllocationOutput) ToOutput(ctx context.Context) pulumix.Output[*VpcIpamPoolCidrAllocation] {
+	return pulumix.Output[*VpcIpamPoolCidrAllocation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The CIDR you want to assign to the pool.
@@ -416,6 +441,12 @@ func (o VpcIpamPoolCidrAllocationArrayOutput) ToVpcIpamPoolCidrAllocationArrayOu
 	return o
 }
 
+func (o VpcIpamPoolCidrAllocationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VpcIpamPoolCidrAllocation] {
+	return pulumix.Output[[]*VpcIpamPoolCidrAllocation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VpcIpamPoolCidrAllocationArrayOutput) Index(i pulumi.IntInput) VpcIpamPoolCidrAllocationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VpcIpamPoolCidrAllocation {
 		return vs[0].([]*VpcIpamPoolCidrAllocation)[vs[1].(int)]
@@ -434,6 +465,12 @@ func (o VpcIpamPoolCidrAllocationMapOutput) ToVpcIpamPoolCidrAllocationMapOutput
 
 func (o VpcIpamPoolCidrAllocationMapOutput) ToVpcIpamPoolCidrAllocationMapOutputWithContext(ctx context.Context) VpcIpamPoolCidrAllocationMapOutput {
 	return o
+}
+
+func (o VpcIpamPoolCidrAllocationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpcIpamPoolCidrAllocation] {
+	return pulumix.Output[map[string]*VpcIpamPoolCidrAllocation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VpcIpamPoolCidrAllocationMapOutput) MapIndex(k pulumi.StringInput) VpcIpamPoolCidrAllocationOutput {

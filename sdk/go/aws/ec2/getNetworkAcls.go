@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -181,6 +182,12 @@ func (o GetNetworkAclsResultOutput) ToGetNetworkAclsResultOutput() GetNetworkAcl
 
 func (o GetNetworkAclsResultOutput) ToGetNetworkAclsResultOutputWithContext(ctx context.Context) GetNetworkAclsResultOutput {
 	return o
+}
+
+func (o GetNetworkAclsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetNetworkAclsResult] {
+	return pulumix.Output[GetNetworkAclsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetNetworkAclsResultOutput) Filters() GetNetworkAclsFilterArrayOutput {

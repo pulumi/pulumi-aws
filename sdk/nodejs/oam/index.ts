@@ -12,7 +12,8 @@ utilities.lazyLoad(exports, ["getLink","getLinkOutput"], () => require("./getLin
 
 export { GetLinksResult } from "./getLinks";
 export const getLinks: typeof import("./getLinks").getLinks = null as any;
-utilities.lazyLoad(exports, ["getLinks"], () => require("./getLinks"));
+export const getLinksOutput: typeof import("./getLinks").getLinksOutput = null as any;
+utilities.lazyLoad(exports, ["getLinks","getLinksOutput"], () => require("./getLinks"));
 
 export { GetSinkArgs, GetSinkResult, GetSinkOutputArgs } from "./getSink";
 export const getSink: typeof import("./getSink").getSink = null as any;
@@ -21,7 +22,8 @@ utilities.lazyLoad(exports, ["getSink","getSinkOutput"], () => require("./getSin
 
 export { GetSinksResult } from "./getSinks";
 export const getSinks: typeof import("./getSinks").getSinks = null as any;
-utilities.lazyLoad(exports, ["getSinks"], () => require("./getSinks"));
+export const getSinksOutput: typeof import("./getSinks").getSinksOutput = null as any;
+utilities.lazyLoad(exports, ["getSinks","getSinksOutput"], () => require("./getSinks"));
 
 export { LinkArgs, LinkState } from "./link";
 export type Link = import("./link").Link;

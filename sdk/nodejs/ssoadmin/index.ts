@@ -17,7 +17,8 @@ utilities.lazyLoad(exports, ["CustomerManagedPolicyAttachment"], () => require("
 
 export { GetInstancesResult } from "./getInstances";
 export const getInstances: typeof import("./getInstances").getInstances = null as any;
-utilities.lazyLoad(exports, ["getInstances"], () => require("./getInstances"));
+export const getInstancesOutput: typeof import("./getInstances").getInstancesOutput = null as any;
+utilities.lazyLoad(exports, ["getInstances","getInstancesOutput"], () => require("./getInstances"));
 
 export { GetPermissionSetArgs, GetPermissionSetResult, GetPermissionSetOutputArgs } from "./getPermissionSet";
 export const getPermissionSet: typeof import("./getPermissionSet").getPermissionSet = null as any;

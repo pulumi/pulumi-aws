@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a hosted connection on the specified interconnect or a link aggregation group (LAG) of interconnects. Intended for use by AWS Direct Connect Partners only.
@@ -238,6 +239,12 @@ func (i *HostedConnection) ToHostedConnectionOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(HostedConnectionOutput)
 }
 
+func (i *HostedConnection) ToOutput(ctx context.Context) pulumix.Output[*HostedConnection] {
+	return pulumix.Output[*HostedConnection]{
+		OutputState: i.ToHostedConnectionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // HostedConnectionArrayInput is an input type that accepts HostedConnectionArray and HostedConnectionArrayOutput values.
 // You can construct a concrete instance of `HostedConnectionArrayInput` via:
 //
@@ -261,6 +268,12 @@ func (i HostedConnectionArray) ToHostedConnectionArrayOutput() HostedConnectionA
 
 func (i HostedConnectionArray) ToHostedConnectionArrayOutputWithContext(ctx context.Context) HostedConnectionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HostedConnectionArrayOutput)
+}
+
+func (i HostedConnectionArray) ToOutput(ctx context.Context) pulumix.Output[[]*HostedConnection] {
+	return pulumix.Output[[]*HostedConnection]{
+		OutputState: i.ToHostedConnectionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // HostedConnectionMapInput is an input type that accepts HostedConnectionMap and HostedConnectionMapOutput values.
@@ -288,6 +301,12 @@ func (i HostedConnectionMap) ToHostedConnectionMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(HostedConnectionMapOutput)
 }
 
+func (i HostedConnectionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*HostedConnection] {
+	return pulumix.Output[map[string]*HostedConnection]{
+		OutputState: i.ToHostedConnectionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type HostedConnectionOutput struct{ *pulumi.OutputState }
 
 func (HostedConnectionOutput) ElementType() reflect.Type {
@@ -300,6 +319,12 @@ func (o HostedConnectionOutput) ToHostedConnectionOutput() HostedConnectionOutpu
 
 func (o HostedConnectionOutput) ToHostedConnectionOutputWithContext(ctx context.Context) HostedConnectionOutput {
 	return o
+}
+
+func (o HostedConnectionOutput) ToOutput(ctx context.Context) pulumix.Output[*HostedConnection] {
+	return pulumix.Output[*HostedConnection]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Direct Connect endpoint on which the physical connection terminates.
@@ -391,6 +416,12 @@ func (o HostedConnectionArrayOutput) ToHostedConnectionArrayOutputWithContext(ct
 	return o
 }
 
+func (o HostedConnectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*HostedConnection] {
+	return pulumix.Output[[]*HostedConnection]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o HostedConnectionArrayOutput) Index(i pulumi.IntInput) HostedConnectionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *HostedConnection {
 		return vs[0].([]*HostedConnection)[vs[1].(int)]
@@ -409,6 +440,12 @@ func (o HostedConnectionMapOutput) ToHostedConnectionMapOutput() HostedConnectio
 
 func (o HostedConnectionMapOutput) ToHostedConnectionMapOutputWithContext(ctx context.Context) HostedConnectionMapOutput {
 	return o
+}
+
+func (o HostedConnectionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*HostedConnection] {
+	return pulumix.Output[map[string]*HostedConnection]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o HostedConnectionMapOutput) MapIndex(k pulumi.StringInput) HostedConnectionOutput {

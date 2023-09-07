@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Information about a Neptune engine version.
@@ -130,6 +131,12 @@ func (o GetEngineVersionResultOutput) ToGetEngineVersionResultOutput() GetEngine
 
 func (o GetEngineVersionResultOutput) ToGetEngineVersionResultOutputWithContext(ctx context.Context) GetEngineVersionResultOutput {
 	return o
+}
+
+func (o GetEngineVersionResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetEngineVersionResult] {
+	return pulumix.Output[GetEngineVersionResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetEngineVersionResultOutput) Engine() pulumi.StringPtrOutput {

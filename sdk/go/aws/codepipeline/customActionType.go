@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a CodeDeploy CustomActionType
@@ -246,6 +247,12 @@ func (i *CustomActionType) ToCustomActionTypeOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(CustomActionTypeOutput)
 }
 
+func (i *CustomActionType) ToOutput(ctx context.Context) pulumix.Output[*CustomActionType] {
+	return pulumix.Output[*CustomActionType]{
+		OutputState: i.ToCustomActionTypeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CustomActionTypeArrayInput is an input type that accepts CustomActionTypeArray and CustomActionTypeArrayOutput values.
 // You can construct a concrete instance of `CustomActionTypeArrayInput` via:
 //
@@ -269,6 +276,12 @@ func (i CustomActionTypeArray) ToCustomActionTypeArrayOutput() CustomActionTypeA
 
 func (i CustomActionTypeArray) ToCustomActionTypeArrayOutputWithContext(ctx context.Context) CustomActionTypeArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CustomActionTypeArrayOutput)
+}
+
+func (i CustomActionTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]*CustomActionType] {
+	return pulumix.Output[[]*CustomActionType]{
+		OutputState: i.ToCustomActionTypeArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // CustomActionTypeMapInput is an input type that accepts CustomActionTypeMap and CustomActionTypeMapOutput values.
@@ -296,6 +309,12 @@ func (i CustomActionTypeMap) ToCustomActionTypeMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(CustomActionTypeMapOutput)
 }
 
+func (i CustomActionTypeMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CustomActionType] {
+	return pulumix.Output[map[string]*CustomActionType]{
+		OutputState: i.ToCustomActionTypeMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CustomActionTypeOutput struct{ *pulumi.OutputState }
 
 func (CustomActionTypeOutput) ElementType() reflect.Type {
@@ -308,6 +327,12 @@ func (o CustomActionTypeOutput) ToCustomActionTypeOutput() CustomActionTypeOutpu
 
 func (o CustomActionTypeOutput) ToCustomActionTypeOutputWithContext(ctx context.Context) CustomActionTypeOutput {
 	return o
+}
+
+func (o CustomActionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[*CustomActionType] {
+	return pulumix.Output[*CustomActionType]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The action ARN.
@@ -381,6 +406,12 @@ func (o CustomActionTypeArrayOutput) ToCustomActionTypeArrayOutputWithContext(ct
 	return o
 }
 
+func (o CustomActionTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CustomActionType] {
+	return pulumix.Output[[]*CustomActionType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CustomActionTypeArrayOutput) Index(i pulumi.IntInput) CustomActionTypeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CustomActionType {
 		return vs[0].([]*CustomActionType)[vs[1].(int)]
@@ -399,6 +430,12 @@ func (o CustomActionTypeMapOutput) ToCustomActionTypeMapOutput() CustomActionTyp
 
 func (o CustomActionTypeMapOutput) ToCustomActionTypeMapOutputWithContext(ctx context.Context) CustomActionTypeMapOutput {
 	return o
+}
+
+func (o CustomActionTypeMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CustomActionType] {
+	return pulumix.Output[map[string]*CustomActionType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CustomActionTypeMapOutput) MapIndex(k pulumi.StringInput) CustomActionTypeOutput {

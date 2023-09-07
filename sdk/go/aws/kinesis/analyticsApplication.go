@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Kinesis Analytics Application resource. Kinesis Analytics is a managed service that
@@ -397,6 +398,12 @@ func (i *AnalyticsApplication) ToAnalyticsApplicationOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationOutput)
 }
 
+func (i *AnalyticsApplication) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsApplication] {
+	return pulumix.Output[*AnalyticsApplication]{
+		OutputState: i.ToAnalyticsApplicationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AnalyticsApplicationArrayInput is an input type that accepts AnalyticsApplicationArray and AnalyticsApplicationArrayOutput values.
 // You can construct a concrete instance of `AnalyticsApplicationArrayInput` via:
 //
@@ -420,6 +427,12 @@ func (i AnalyticsApplicationArray) ToAnalyticsApplicationArrayOutput() Analytics
 
 func (i AnalyticsApplicationArray) ToAnalyticsApplicationArrayOutputWithContext(ctx context.Context) AnalyticsApplicationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationArrayOutput)
+}
+
+func (i AnalyticsApplicationArray) ToOutput(ctx context.Context) pulumix.Output[[]*AnalyticsApplication] {
+	return pulumix.Output[[]*AnalyticsApplication]{
+		OutputState: i.ToAnalyticsApplicationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // AnalyticsApplicationMapInput is an input type that accepts AnalyticsApplicationMap and AnalyticsApplicationMapOutput values.
@@ -447,6 +460,12 @@ func (i AnalyticsApplicationMap) ToAnalyticsApplicationMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationMapOutput)
 }
 
+func (i AnalyticsApplicationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AnalyticsApplication] {
+	return pulumix.Output[map[string]*AnalyticsApplication]{
+		OutputState: i.ToAnalyticsApplicationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AnalyticsApplicationOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsApplicationOutput) ElementType() reflect.Type {
@@ -459,6 +478,12 @@ func (o AnalyticsApplicationOutput) ToAnalyticsApplicationOutput() AnalyticsAppl
 
 func (o AnalyticsApplicationOutput) ToAnalyticsApplicationOutputWithContext(ctx context.Context) AnalyticsApplicationOutput {
 	return o
+}
+
+func (o AnalyticsApplicationOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsApplication] {
+	return pulumix.Output[*AnalyticsApplication]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the Kinesis Analytics Appliation.
@@ -557,6 +582,12 @@ func (o AnalyticsApplicationArrayOutput) ToAnalyticsApplicationArrayOutputWithCo
 	return o
 }
 
+func (o AnalyticsApplicationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AnalyticsApplication] {
+	return pulumix.Output[[]*AnalyticsApplication]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AnalyticsApplicationArrayOutput) Index(i pulumi.IntInput) AnalyticsApplicationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AnalyticsApplication {
 		return vs[0].([]*AnalyticsApplication)[vs[1].(int)]
@@ -575,6 +606,12 @@ func (o AnalyticsApplicationMapOutput) ToAnalyticsApplicationMapOutput() Analyti
 
 func (o AnalyticsApplicationMapOutput) ToAnalyticsApplicationMapOutputWithContext(ctx context.Context) AnalyticsApplicationMapOutput {
 	return o
+}
+
+func (o AnalyticsApplicationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AnalyticsApplication] {
+	return pulumix.Output[map[string]*AnalyticsApplication]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnalyticsApplicationMapOutput) MapIndex(k pulumi.StringInput) AnalyticsApplicationOutput {

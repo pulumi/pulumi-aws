@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an SES domain MAIL FROM resource.
@@ -240,6 +241,12 @@ func (i *MailFrom) ToMailFromOutputWithContext(ctx context.Context) MailFromOutp
 	return pulumi.ToOutputWithContext(ctx, i).(MailFromOutput)
 }
 
+func (i *MailFrom) ToOutput(ctx context.Context) pulumix.Output[*MailFrom] {
+	return pulumix.Output[*MailFrom]{
+		OutputState: i.ToMailFromOutputWithContext(ctx).OutputState,
+	}
+}
+
 // MailFromArrayInput is an input type that accepts MailFromArray and MailFromArrayOutput values.
 // You can construct a concrete instance of `MailFromArrayInput` via:
 //
@@ -263,6 +270,12 @@ func (i MailFromArray) ToMailFromArrayOutput() MailFromArrayOutput {
 
 func (i MailFromArray) ToMailFromArrayOutputWithContext(ctx context.Context) MailFromArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MailFromArrayOutput)
+}
+
+func (i MailFromArray) ToOutput(ctx context.Context) pulumix.Output[[]*MailFrom] {
+	return pulumix.Output[[]*MailFrom]{
+		OutputState: i.ToMailFromArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // MailFromMapInput is an input type that accepts MailFromMap and MailFromMapOutput values.
@@ -290,6 +303,12 @@ func (i MailFromMap) ToMailFromMapOutputWithContext(ctx context.Context) MailFro
 	return pulumi.ToOutputWithContext(ctx, i).(MailFromMapOutput)
 }
 
+func (i MailFromMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*MailFrom] {
+	return pulumix.Output[map[string]*MailFrom]{
+		OutputState: i.ToMailFromMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MailFromOutput struct{ *pulumi.OutputState }
 
 func (MailFromOutput) ElementType() reflect.Type {
@@ -302,6 +321,12 @@ func (o MailFromOutput) ToMailFromOutput() MailFromOutput {
 
 func (o MailFromOutput) ToMailFromOutputWithContext(ctx context.Context) MailFromOutput {
 	return o
+}
+
+func (o MailFromOutput) ToOutput(ctx context.Context) pulumix.Output[*MailFrom] {
+	return pulumix.Output[*MailFrom]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
@@ -335,6 +360,12 @@ func (o MailFromArrayOutput) ToMailFromArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o MailFromArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*MailFrom] {
+	return pulumix.Output[[]*MailFrom]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o MailFromArrayOutput) Index(i pulumi.IntInput) MailFromOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MailFrom {
 		return vs[0].([]*MailFrom)[vs[1].(int)]
@@ -353,6 +384,12 @@ func (o MailFromMapOutput) ToMailFromMapOutput() MailFromMapOutput {
 
 func (o MailFromMapOutput) ToMailFromMapOutputWithContext(ctx context.Context) MailFromMapOutput {
 	return o
+}
+
+func (o MailFromMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*MailFrom] {
+	return pulumix.Output[map[string]*MailFrom]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MailFromMapOutput) MapIndex(k pulumi.StringInput) MailFromOutput {

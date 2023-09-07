@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to manage AWS Device Farm Test Grid Projects.
@@ -150,6 +151,12 @@ func (i *TestGridProject) ToTestGridProjectOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(TestGridProjectOutput)
 }
 
+func (i *TestGridProject) ToOutput(ctx context.Context) pulumix.Output[*TestGridProject] {
+	return pulumix.Output[*TestGridProject]{
+		OutputState: i.ToTestGridProjectOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TestGridProjectArrayInput is an input type that accepts TestGridProjectArray and TestGridProjectArrayOutput values.
 // You can construct a concrete instance of `TestGridProjectArrayInput` via:
 //
@@ -173,6 +180,12 @@ func (i TestGridProjectArray) ToTestGridProjectArrayOutput() TestGridProjectArra
 
 func (i TestGridProjectArray) ToTestGridProjectArrayOutputWithContext(ctx context.Context) TestGridProjectArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TestGridProjectArrayOutput)
+}
+
+func (i TestGridProjectArray) ToOutput(ctx context.Context) pulumix.Output[[]*TestGridProject] {
+	return pulumix.Output[[]*TestGridProject]{
+		OutputState: i.ToTestGridProjectArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // TestGridProjectMapInput is an input type that accepts TestGridProjectMap and TestGridProjectMapOutput values.
@@ -200,6 +213,12 @@ func (i TestGridProjectMap) ToTestGridProjectMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(TestGridProjectMapOutput)
 }
 
+func (i TestGridProjectMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TestGridProject] {
+	return pulumix.Output[map[string]*TestGridProject]{
+		OutputState: i.ToTestGridProjectMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TestGridProjectOutput struct{ *pulumi.OutputState }
 
 func (TestGridProjectOutput) ElementType() reflect.Type {
@@ -212,6 +231,12 @@ func (o TestGridProjectOutput) ToTestGridProjectOutput() TestGridProjectOutput {
 
 func (o TestGridProjectOutput) ToTestGridProjectOutputWithContext(ctx context.Context) TestGridProjectOutput {
 	return o
+}
+
+func (o TestGridProjectOutput) ToOutput(ctx context.Context) pulumix.Output[*TestGridProject] {
+	return pulumix.Output[*TestGridProject]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name of this Test Grid Project.
@@ -258,6 +283,12 @@ func (o TestGridProjectArrayOutput) ToTestGridProjectArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o TestGridProjectArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TestGridProject] {
+	return pulumix.Output[[]*TestGridProject]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TestGridProjectArrayOutput) Index(i pulumi.IntInput) TestGridProjectOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TestGridProject {
 		return vs[0].([]*TestGridProject)[vs[1].(int)]
@@ -276,6 +307,12 @@ func (o TestGridProjectMapOutput) ToTestGridProjectMapOutput() TestGridProjectMa
 
 func (o TestGridProjectMapOutput) ToTestGridProjectMapOutputWithContext(ctx context.Context) TestGridProjectMapOutput {
 	return o
+}
+
+func (o TestGridProjectMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TestGridProject] {
+	return pulumix.Output[map[string]*TestGridProject]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TestGridProjectMapOutput) MapIndex(k pulumi.StringInput) TestGridProjectOutput {

@@ -10,12 +10,15 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a CE Anomaly Subscription.
 //
 // ## Example Usage
-// ### Threshold Expression
+//
+// ### Threshold Expression Example
+// ### For a Specific Dimension
 //
 // ```go
 // package main
@@ -48,6 +51,66 @@ import (
 //						},
 //						MatchOptions: pulumi.StringArray{
 //							pulumi.String("GREATER_THAN_OR_EQUAL"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Using an `and` Expression
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/costexplorer"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := costexplorer.NewAnomalySubscription(ctx, "test", &costexplorer.AnomalySubscriptionArgs{
+//				Frequency: pulumi.String("DAILY"),
+//				MonitorArnLists: pulumi.StringArray{
+//					aws_ce_anomaly_monitor.Test.Arn,
+//				},
+//				Subscribers: costexplorer.AnomalySubscriptionSubscriberArray{
+//					&costexplorer.AnomalySubscriptionSubscriberArgs{
+//						Type:    pulumi.String("EMAIL"),
+//						Address: pulumi.String("abc@example.com"),
+//					},
+//				},
+//				ThresholdExpression: &costexplorer.AnomalySubscriptionThresholdExpressionArgs{
+//					Ands: costexplorer.AnomalySubscriptionThresholdExpressionAndArray{
+//						&costexplorer.AnomalySubscriptionThresholdExpressionAndArgs{
+//							Dimension: &costexplorer.AnomalySubscriptionThresholdExpressionAndDimensionArgs{
+//								Key: pulumi.String("ANOMALY_TOTAL_IMPACT_ABSOLUTE"),
+//								MatchOptions: pulumi.StringArray{
+//									pulumi.String("GREATER_THAN_OR_EQUAL"),
+//								},
+//								Values: pulumi.StringArray{
+//									pulumi.String("100"),
+//								},
+//							},
+//						},
+//						&costexplorer.AnomalySubscriptionThresholdExpressionAndArgs{
+//							Dimension: &costexplorer.AnomalySubscriptionThresholdExpressionAndDimensionArgs{
+//								Key: pulumi.String("ANOMALY_TOTAL_IMPACT_PERCENTAGE"),
+//								MatchOptions: pulumi.StringArray{
+//									pulumi.String("GREATER_THAN_OR_EQUAL"),
+//								},
+//								Values: pulumi.StringArray{
+//									pulumi.String("50"),
+//								},
+//							},
 //						},
 //					},
 //				},
@@ -235,6 +298,12 @@ func (i *AnomalySubscription) ToAnomalySubscriptionOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionOutput)
 }
 
+func (i *AnomalySubscription) ToOutput(ctx context.Context) pulumix.Output[*AnomalySubscription] {
+	return pulumix.Output[*AnomalySubscription]{
+		OutputState: i.ToAnomalySubscriptionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AnomalySubscriptionArrayInput is an input type that accepts AnomalySubscriptionArray and AnomalySubscriptionArrayOutput values.
 // You can construct a concrete instance of `AnomalySubscriptionArrayInput` via:
 //
@@ -258,6 +327,12 @@ func (i AnomalySubscriptionArray) ToAnomalySubscriptionArrayOutput() AnomalySubs
 
 func (i AnomalySubscriptionArray) ToAnomalySubscriptionArrayOutputWithContext(ctx context.Context) AnomalySubscriptionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionArrayOutput)
+}
+
+func (i AnomalySubscriptionArray) ToOutput(ctx context.Context) pulumix.Output[[]*AnomalySubscription] {
+	return pulumix.Output[[]*AnomalySubscription]{
+		OutputState: i.ToAnomalySubscriptionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // AnomalySubscriptionMapInput is an input type that accepts AnomalySubscriptionMap and AnomalySubscriptionMapOutput values.
@@ -285,6 +360,12 @@ func (i AnomalySubscriptionMap) ToAnomalySubscriptionMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionMapOutput)
 }
 
+func (i AnomalySubscriptionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AnomalySubscription] {
+	return pulumix.Output[map[string]*AnomalySubscription]{
+		OutputState: i.ToAnomalySubscriptionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AnomalySubscriptionOutput struct{ *pulumi.OutputState }
 
 func (AnomalySubscriptionOutput) ElementType() reflect.Type {
@@ -297,6 +378,12 @@ func (o AnomalySubscriptionOutput) ToAnomalySubscriptionOutput() AnomalySubscrip
 
 func (o AnomalySubscriptionOutput) ToAnomalySubscriptionOutputWithContext(ctx context.Context) AnomalySubscriptionOutput {
 	return o
+}
+
+func (o AnomalySubscriptionOutput) ToOutput(ctx context.Context) pulumix.Output[*AnomalySubscription] {
+	return pulumix.Output[*AnomalySubscription]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The unique identifier for the AWS account in which the anomaly subscription ought to be created.
@@ -360,6 +447,12 @@ func (o AnomalySubscriptionArrayOutput) ToAnomalySubscriptionArrayOutputWithCont
 	return o
 }
 
+func (o AnomalySubscriptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AnomalySubscription] {
+	return pulumix.Output[[]*AnomalySubscription]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AnomalySubscriptionArrayOutput) Index(i pulumi.IntInput) AnomalySubscriptionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AnomalySubscription {
 		return vs[0].([]*AnomalySubscription)[vs[1].(int)]
@@ -378,6 +471,12 @@ func (o AnomalySubscriptionMapOutput) ToAnomalySubscriptionMapOutput() AnomalySu
 
 func (o AnomalySubscriptionMapOutput) ToAnomalySubscriptionMapOutputWithContext(ctx context.Context) AnomalySubscriptionMapOutput {
 	return o
+}
+
+func (o AnomalySubscriptionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AnomalySubscription] {
+	return pulumix.Output[map[string]*AnomalySubscription]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnomalySubscriptionMapOutput) MapIndex(k pulumi.StringInput) AnomalySubscriptionOutput {

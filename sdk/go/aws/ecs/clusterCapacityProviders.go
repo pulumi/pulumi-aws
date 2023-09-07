@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages the capacity providers of an ECS Cluster.
@@ -172,6 +173,12 @@ func (i *ClusterCapacityProviders) ToClusterCapacityProvidersOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCapacityProvidersOutput)
 }
 
+func (i *ClusterCapacityProviders) ToOutput(ctx context.Context) pulumix.Output[*ClusterCapacityProviders] {
+	return pulumix.Output[*ClusterCapacityProviders]{
+		OutputState: i.ToClusterCapacityProvidersOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ClusterCapacityProvidersArrayInput is an input type that accepts ClusterCapacityProvidersArray and ClusterCapacityProvidersArrayOutput values.
 // You can construct a concrete instance of `ClusterCapacityProvidersArrayInput` via:
 //
@@ -195,6 +202,12 @@ func (i ClusterCapacityProvidersArray) ToClusterCapacityProvidersArrayOutput() C
 
 func (i ClusterCapacityProvidersArray) ToClusterCapacityProvidersArrayOutputWithContext(ctx context.Context) ClusterCapacityProvidersArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCapacityProvidersArrayOutput)
+}
+
+func (i ClusterCapacityProvidersArray) ToOutput(ctx context.Context) pulumix.Output[[]*ClusterCapacityProviders] {
+	return pulumix.Output[[]*ClusterCapacityProviders]{
+		OutputState: i.ToClusterCapacityProvidersArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ClusterCapacityProvidersMapInput is an input type that accepts ClusterCapacityProvidersMap and ClusterCapacityProvidersMapOutput values.
@@ -222,6 +235,12 @@ func (i ClusterCapacityProvidersMap) ToClusterCapacityProvidersMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCapacityProvidersMapOutput)
 }
 
+func (i ClusterCapacityProvidersMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ClusterCapacityProviders] {
+	return pulumix.Output[map[string]*ClusterCapacityProviders]{
+		OutputState: i.ToClusterCapacityProvidersMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterCapacityProvidersOutput struct{ *pulumi.OutputState }
 
 func (ClusterCapacityProvidersOutput) ElementType() reflect.Type {
@@ -234,6 +253,12 @@ func (o ClusterCapacityProvidersOutput) ToClusterCapacityProvidersOutput() Clust
 
 func (o ClusterCapacityProvidersOutput) ToClusterCapacityProvidersOutputWithContext(ctx context.Context) ClusterCapacityProvidersOutput {
 	return o
+}
+
+func (o ClusterCapacityProvidersOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterCapacityProviders] {
+	return pulumix.Output[*ClusterCapacityProviders]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Set of names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
@@ -267,6 +292,12 @@ func (o ClusterCapacityProvidersArrayOutput) ToClusterCapacityProvidersArrayOutp
 	return o
 }
 
+func (o ClusterCapacityProvidersArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ClusterCapacityProviders] {
+	return pulumix.Output[[]*ClusterCapacityProviders]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ClusterCapacityProvidersArrayOutput) Index(i pulumi.IntInput) ClusterCapacityProvidersOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ClusterCapacityProviders {
 		return vs[0].([]*ClusterCapacityProviders)[vs[1].(int)]
@@ -285,6 +316,12 @@ func (o ClusterCapacityProvidersMapOutput) ToClusterCapacityProvidersMapOutput()
 
 func (o ClusterCapacityProvidersMapOutput) ToClusterCapacityProvidersMapOutputWithContext(ctx context.Context) ClusterCapacityProvidersMapOutput {
 	return o
+}
+
+func (o ClusterCapacityProvidersMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ClusterCapacityProviders] {
+	return pulumix.Output[map[string]*ClusterCapacityProviders]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterCapacityProvidersMapOutput) MapIndex(k pulumi.StringInput) ClusterCapacityProvidersOutput {

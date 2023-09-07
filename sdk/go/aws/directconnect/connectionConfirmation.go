@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a confirmation of the creation of the specified hosted connection on an interconnect.
@@ -126,6 +127,12 @@ func (i *ConnectionConfirmation) ToConnectionConfirmationOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionConfirmationOutput)
 }
 
+func (i *ConnectionConfirmation) ToOutput(ctx context.Context) pulumix.Output[*ConnectionConfirmation] {
+	return pulumix.Output[*ConnectionConfirmation]{
+		OutputState: i.ToConnectionConfirmationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ConnectionConfirmationArrayInput is an input type that accepts ConnectionConfirmationArray and ConnectionConfirmationArrayOutput values.
 // You can construct a concrete instance of `ConnectionConfirmationArrayInput` via:
 //
@@ -149,6 +156,12 @@ func (i ConnectionConfirmationArray) ToConnectionConfirmationArrayOutput() Conne
 
 func (i ConnectionConfirmationArray) ToConnectionConfirmationArrayOutputWithContext(ctx context.Context) ConnectionConfirmationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionConfirmationArrayOutput)
+}
+
+func (i ConnectionConfirmationArray) ToOutput(ctx context.Context) pulumix.Output[[]*ConnectionConfirmation] {
+	return pulumix.Output[[]*ConnectionConfirmation]{
+		OutputState: i.ToConnectionConfirmationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ConnectionConfirmationMapInput is an input type that accepts ConnectionConfirmationMap and ConnectionConfirmationMapOutput values.
@@ -176,6 +189,12 @@ func (i ConnectionConfirmationMap) ToConnectionConfirmationMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionConfirmationMapOutput)
 }
 
+func (i ConnectionConfirmationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ConnectionConfirmation] {
+	return pulumix.Output[map[string]*ConnectionConfirmation]{
+		OutputState: i.ToConnectionConfirmationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConnectionConfirmationOutput struct{ *pulumi.OutputState }
 
 func (ConnectionConfirmationOutput) ElementType() reflect.Type {
@@ -188,6 +207,12 @@ func (o ConnectionConfirmationOutput) ToConnectionConfirmationOutput() Connectio
 
 func (o ConnectionConfirmationOutput) ToConnectionConfirmationOutputWithContext(ctx context.Context) ConnectionConfirmationOutput {
 	return o
+}
+
+func (o ConnectionConfirmationOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectionConfirmation] {
+	return pulumix.Output[*ConnectionConfirmation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the hosted connection.
@@ -209,6 +234,12 @@ func (o ConnectionConfirmationArrayOutput) ToConnectionConfirmationArrayOutputWi
 	return o
 }
 
+func (o ConnectionConfirmationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ConnectionConfirmation] {
+	return pulumix.Output[[]*ConnectionConfirmation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ConnectionConfirmationArrayOutput) Index(i pulumi.IntInput) ConnectionConfirmationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ConnectionConfirmation {
 		return vs[0].([]*ConnectionConfirmation)[vs[1].(int)]
@@ -227,6 +258,12 @@ func (o ConnectionConfirmationMapOutput) ToConnectionConfirmationMapOutput() Con
 
 func (o ConnectionConfirmationMapOutput) ToConnectionConfirmationMapOutputWithContext(ctx context.Context) ConnectionConfirmationMapOutput {
 	return o
+}
+
+func (o ConnectionConfirmationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ConnectionConfirmation] {
+	return pulumix.Output[map[string]*ConnectionConfirmation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConnectionConfirmationMapOutput) MapIndex(k pulumi.StringInput) ConnectionConfirmationOutput {

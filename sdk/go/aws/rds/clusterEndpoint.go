@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an RDS Aurora Cluster Endpoint.
@@ -278,6 +279,12 @@ func (i *ClusterEndpoint) ToClusterEndpointOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterEndpointOutput)
 }
 
+func (i *ClusterEndpoint) ToOutput(ctx context.Context) pulumix.Output[*ClusterEndpoint] {
+	return pulumix.Output[*ClusterEndpoint]{
+		OutputState: i.ToClusterEndpointOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ClusterEndpointArrayInput is an input type that accepts ClusterEndpointArray and ClusterEndpointArrayOutput values.
 // You can construct a concrete instance of `ClusterEndpointArrayInput` via:
 //
@@ -301,6 +308,12 @@ func (i ClusterEndpointArray) ToClusterEndpointArrayOutput() ClusterEndpointArra
 
 func (i ClusterEndpointArray) ToClusterEndpointArrayOutputWithContext(ctx context.Context) ClusterEndpointArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterEndpointArrayOutput)
+}
+
+func (i ClusterEndpointArray) ToOutput(ctx context.Context) pulumix.Output[[]*ClusterEndpoint] {
+	return pulumix.Output[[]*ClusterEndpoint]{
+		OutputState: i.ToClusterEndpointArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ClusterEndpointMapInput is an input type that accepts ClusterEndpointMap and ClusterEndpointMapOutput values.
@@ -328,6 +341,12 @@ func (i ClusterEndpointMap) ToClusterEndpointMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterEndpointMapOutput)
 }
 
+func (i ClusterEndpointMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ClusterEndpoint] {
+	return pulumix.Output[map[string]*ClusterEndpoint]{
+		OutputState: i.ToClusterEndpointMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterEndpointOutput struct{ *pulumi.OutputState }
 
 func (ClusterEndpointOutput) ElementType() reflect.Type {
@@ -340,6 +359,12 @@ func (o ClusterEndpointOutput) ToClusterEndpointOutput() ClusterEndpointOutput {
 
 func (o ClusterEndpointOutput) ToClusterEndpointOutputWithContext(ctx context.Context) ClusterEndpointOutput {
 	return o
+}
+
+func (o ClusterEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterEndpoint] {
+	return pulumix.Output[*ClusterEndpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name (ARN) of cluster
@@ -401,6 +426,12 @@ func (o ClusterEndpointArrayOutput) ToClusterEndpointArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o ClusterEndpointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ClusterEndpoint] {
+	return pulumix.Output[[]*ClusterEndpoint]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ClusterEndpointArrayOutput) Index(i pulumi.IntInput) ClusterEndpointOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ClusterEndpoint {
 		return vs[0].([]*ClusterEndpoint)[vs[1].(int)]
@@ -419,6 +450,12 @@ func (o ClusterEndpointMapOutput) ToClusterEndpointMapOutput() ClusterEndpointMa
 
 func (o ClusterEndpointMapOutput) ToClusterEndpointMapOutputWithContext(ctx context.Context) ClusterEndpointMapOutput {
 	return o
+}
+
+func (o ClusterEndpointMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ClusterEndpoint] {
+	return pulumix.Output[map[string]*ClusterEndpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterEndpointMapOutput) MapIndex(k pulumi.StringInput) ClusterEndpointOutput {

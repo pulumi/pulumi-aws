@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an EC2 Transit Gateway Connect Peer.
@@ -227,6 +228,12 @@ func (i *ConnectPeer) ToConnectPeerOutputWithContext(ctx context.Context) Connec
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectPeerOutput)
 }
 
+func (i *ConnectPeer) ToOutput(ctx context.Context) pulumix.Output[*ConnectPeer] {
+	return pulumix.Output[*ConnectPeer]{
+		OutputState: i.ToConnectPeerOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ConnectPeerArrayInput is an input type that accepts ConnectPeerArray and ConnectPeerArrayOutput values.
 // You can construct a concrete instance of `ConnectPeerArrayInput` via:
 //
@@ -250,6 +257,12 @@ func (i ConnectPeerArray) ToConnectPeerArrayOutput() ConnectPeerArrayOutput {
 
 func (i ConnectPeerArray) ToConnectPeerArrayOutputWithContext(ctx context.Context) ConnectPeerArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectPeerArrayOutput)
+}
+
+func (i ConnectPeerArray) ToOutput(ctx context.Context) pulumix.Output[[]*ConnectPeer] {
+	return pulumix.Output[[]*ConnectPeer]{
+		OutputState: i.ToConnectPeerArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ConnectPeerMapInput is an input type that accepts ConnectPeerMap and ConnectPeerMapOutput values.
@@ -277,6 +290,12 @@ func (i ConnectPeerMap) ToConnectPeerMapOutputWithContext(ctx context.Context) C
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectPeerMapOutput)
 }
 
+func (i ConnectPeerMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ConnectPeer] {
+	return pulumix.Output[map[string]*ConnectPeer]{
+		OutputState: i.ToConnectPeerMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConnectPeerOutput struct{ *pulumi.OutputState }
 
 func (ConnectPeerOutput) ElementType() reflect.Type {
@@ -289,6 +308,12 @@ func (o ConnectPeerOutput) ToConnectPeerOutput() ConnectPeerOutput {
 
 func (o ConnectPeerOutput) ToConnectPeerOutputWithContext(ctx context.Context) ConnectPeerOutput {
 	return o
+}
+
+func (o ConnectPeerOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectPeer] {
+	return pulumix.Output[*ConnectPeer]{
+		OutputState: o.OutputState,
+	}
 }
 
 // EC2 Transit Gateway Connect Peer ARN
@@ -355,6 +380,12 @@ func (o ConnectPeerArrayOutput) ToConnectPeerArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o ConnectPeerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ConnectPeer] {
+	return pulumix.Output[[]*ConnectPeer]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ConnectPeerArrayOutput) Index(i pulumi.IntInput) ConnectPeerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ConnectPeer {
 		return vs[0].([]*ConnectPeer)[vs[1].(int)]
@@ -373,6 +404,12 @@ func (o ConnectPeerMapOutput) ToConnectPeerMapOutput() ConnectPeerMapOutput {
 
 func (o ConnectPeerMapOutput) ToConnectPeerMapOutputWithContext(ctx context.Context) ConnectPeerMapOutput {
 	return o
+}
+
+func (o ConnectPeerMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ConnectPeer] {
+	return pulumix.Output[map[string]*ConnectPeer]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConnectPeerMapOutput) MapIndex(k pulumi.StringInput) ConnectPeerOutput {

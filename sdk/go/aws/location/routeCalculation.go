@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Location Service Route Calculator.
@@ -204,6 +205,12 @@ func (i *RouteCalculation) ToRouteCalculationOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(RouteCalculationOutput)
 }
 
+func (i *RouteCalculation) ToOutput(ctx context.Context) pulumix.Output[*RouteCalculation] {
+	return pulumix.Output[*RouteCalculation]{
+		OutputState: i.ToRouteCalculationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RouteCalculationArrayInput is an input type that accepts RouteCalculationArray and RouteCalculationArrayOutput values.
 // You can construct a concrete instance of `RouteCalculationArrayInput` via:
 //
@@ -227,6 +234,12 @@ func (i RouteCalculationArray) ToRouteCalculationArrayOutput() RouteCalculationA
 
 func (i RouteCalculationArray) ToRouteCalculationArrayOutputWithContext(ctx context.Context) RouteCalculationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RouteCalculationArrayOutput)
+}
+
+func (i RouteCalculationArray) ToOutput(ctx context.Context) pulumix.Output[[]*RouteCalculation] {
+	return pulumix.Output[[]*RouteCalculation]{
+		OutputState: i.ToRouteCalculationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RouteCalculationMapInput is an input type that accepts RouteCalculationMap and RouteCalculationMapOutput values.
@@ -254,6 +267,12 @@ func (i RouteCalculationMap) ToRouteCalculationMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(RouteCalculationMapOutput)
 }
 
+func (i RouteCalculationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RouteCalculation] {
+	return pulumix.Output[map[string]*RouteCalculation]{
+		OutputState: i.ToRouteCalculationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RouteCalculationOutput struct{ *pulumi.OutputState }
 
 func (RouteCalculationOutput) ElementType() reflect.Type {
@@ -266,6 +285,12 @@ func (o RouteCalculationOutput) ToRouteCalculationOutput() RouteCalculationOutpu
 
 func (o RouteCalculationOutput) ToRouteCalculationOutputWithContext(ctx context.Context) RouteCalculationOutput {
 	return o
+}
+
+func (o RouteCalculationOutput) ToOutput(ctx context.Context) pulumix.Output[*RouteCalculation] {
+	return pulumix.Output[*RouteCalculation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) for the Route calculator resource. Use the ARN when you specify a resource across AWS.
@@ -324,6 +349,12 @@ func (o RouteCalculationArrayOutput) ToRouteCalculationArrayOutputWithContext(ct
 	return o
 }
 
+func (o RouteCalculationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RouteCalculation] {
+	return pulumix.Output[[]*RouteCalculation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RouteCalculationArrayOutput) Index(i pulumi.IntInput) RouteCalculationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RouteCalculation {
 		return vs[0].([]*RouteCalculation)[vs[1].(int)]
@@ -342,6 +373,12 @@ func (o RouteCalculationMapOutput) ToRouteCalculationMapOutput() RouteCalculatio
 
 func (o RouteCalculationMapOutput) ToRouteCalculationMapOutputWithContext(ctx context.Context) RouteCalculationMapOutput {
 	return o
+}
+
+func (o RouteCalculationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RouteCalculation] {
+	return pulumix.Output[map[string]*RouteCalculation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RouteCalculationMapOutput) MapIndex(k pulumi.StringInput) RouteCalculationOutput {

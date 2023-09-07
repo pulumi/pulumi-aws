@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an IAM Server Certificate resource to upload Server Certificates.
@@ -393,6 +394,12 @@ func (i *ServerCertificate) ToServerCertificateOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(ServerCertificateOutput)
 }
 
+func (i *ServerCertificate) ToOutput(ctx context.Context) pulumix.Output[*ServerCertificate] {
+	return pulumix.Output[*ServerCertificate]{
+		OutputState: i.ToServerCertificateOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServerCertificateArrayInput is an input type that accepts ServerCertificateArray and ServerCertificateArrayOutput values.
 // You can construct a concrete instance of `ServerCertificateArrayInput` via:
 //
@@ -416,6 +423,12 @@ func (i ServerCertificateArray) ToServerCertificateArrayOutput() ServerCertifica
 
 func (i ServerCertificateArray) ToServerCertificateArrayOutputWithContext(ctx context.Context) ServerCertificateArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServerCertificateArrayOutput)
+}
+
+func (i ServerCertificateArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServerCertificate] {
+	return pulumix.Output[[]*ServerCertificate]{
+		OutputState: i.ToServerCertificateArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ServerCertificateMapInput is an input type that accepts ServerCertificateMap and ServerCertificateMapOutput values.
@@ -443,6 +456,12 @@ func (i ServerCertificateMap) ToServerCertificateMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ServerCertificateMapOutput)
 }
 
+func (i ServerCertificateMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServerCertificate] {
+	return pulumix.Output[map[string]*ServerCertificate]{
+		OutputState: i.ToServerCertificateMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServerCertificateOutput struct{ *pulumi.OutputState }
 
 func (ServerCertificateOutput) ElementType() reflect.Type {
@@ -455,6 +474,12 @@ func (o ServerCertificateOutput) ToServerCertificateOutput() ServerCertificateOu
 
 func (o ServerCertificateOutput) ToServerCertificateOutputWithContext(ctx context.Context) ServerCertificateOutput {
 	return o
+}
+
+func (o ServerCertificateOutput) ToOutput(ctx context.Context) pulumix.Output[*ServerCertificate] {
+	return pulumix.Output[*ServerCertificate]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) specifying the server certificate.
@@ -536,6 +561,12 @@ func (o ServerCertificateArrayOutput) ToServerCertificateArrayOutputWithContext(
 	return o
 }
 
+func (o ServerCertificateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServerCertificate] {
+	return pulumix.Output[[]*ServerCertificate]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ServerCertificateArrayOutput) Index(i pulumi.IntInput) ServerCertificateOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServerCertificate {
 		return vs[0].([]*ServerCertificate)[vs[1].(int)]
@@ -554,6 +585,12 @@ func (o ServerCertificateMapOutput) ToServerCertificateMapOutput() ServerCertifi
 
 func (o ServerCertificateMapOutput) ToServerCertificateMapOutputWithContext(ctx context.Context) ServerCertificateMapOutput {
 	return o
+}
+
+func (o ServerCertificateMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServerCertificate] {
+	return pulumix.Output[map[string]*ServerCertificate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServerCertificateMapOutput) MapIndex(k pulumi.StringInput) ServerCertificateOutput {

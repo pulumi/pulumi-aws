@@ -11,6 +11,7 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'CompositeAlarmActionsSuppressor',
     'EventConnectionAuthParameters',
     'EventConnectionAuthParametersApiKey',
     'EventConnectionAuthParametersBasic',
@@ -44,6 +45,8 @@ __all__ = [
     'EventTargetRedshiftTarget',
     'EventTargetRetryPolicy',
     'EventTargetRunCommandTarget',
+    'EventTargetSagemakerPipelineTarget',
+    'EventTargetSagemakerPipelineTargetPipelineParameterList',
     'EventTargetSqsTarget',
     'InternetMonitorHealthEventsConfig',
     'InternetMonitorInternetMeasurementsLogDelivery',
@@ -65,6 +68,65 @@ __all__ = [
     'GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyResult',
     'GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigResult',
 ]
+
+@pulumi.output_type
+class CompositeAlarmActionsSuppressor(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "extensionPeriod":
+            suggest = "extension_period"
+        elif key == "waitPeriod":
+            suggest = "wait_period"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CompositeAlarmActionsSuppressor. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CompositeAlarmActionsSuppressor.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CompositeAlarmActionsSuppressor.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 alarm: str,
+                 extension_period: int,
+                 wait_period: int):
+        """
+        :param str alarm: Can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
+        :param int extension_period: The maximum time in seconds that the composite alarm waits after suppressor alarm goes out of the `ALARM` state. After this time, the composite alarm performs its actions.
+        :param int wait_period: The maximum time in seconds that the composite alarm waits for the suppressor alarm to go into the `ALARM` state. After this time, the composite alarm performs its actions.
+        """
+        pulumi.set(__self__, "alarm", alarm)
+        pulumi.set(__self__, "extension_period", extension_period)
+        pulumi.set(__self__, "wait_period", wait_period)
+
+    @property
+    @pulumi.getter
+    def alarm(self) -> str:
+        """
+        Can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
+        """
+        return pulumi.get(self, "alarm")
+
+    @property
+    @pulumi.getter(name="extensionPeriod")
+    def extension_period(self) -> int:
+        """
+        The maximum time in seconds that the composite alarm waits after suppressor alarm goes out of the `ALARM` state. After this time, the composite alarm performs its actions.
+        """
+        return pulumi.get(self, "extension_period")
+
+    @property
+    @pulumi.getter(name="waitPeriod")
+    def wait_period(self) -> int:
+        """
+        The maximum time in seconds that the composite alarm waits for the suppressor alarm to go into the `ALARM` state. After this time, the composite alarm performs its actions.
+        """
+        return pulumi.get(self, "wait_period")
+
 
 @pulumi.output_type
 class EventConnectionAuthParameters(dict):
@@ -1825,6 +1887,71 @@ class EventTargetRunCommandTarget(dict):
         If Key is `tag:tag-key`, Values is a list of tag values. If Key is `InstanceIds`, Values is a list of Amazon EC2 instance IDs.
         """
         return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class EventTargetSagemakerPipelineTarget(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "pipelineParameterLists":
+            suggest = "pipeline_parameter_lists"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventTargetSagemakerPipelineTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventTargetSagemakerPipelineTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventTargetSagemakerPipelineTarget.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 pipeline_parameter_lists: Optional[Sequence['outputs.EventTargetSagemakerPipelineTargetPipelineParameterList']] = None):
+        """
+        :param Sequence['EventTargetSagemakerPipelineTargetPipelineParameterListArgs'] pipeline_parameter_lists: List of Parameter names and values for SageMaker Model Building Pipeline execution.
+        """
+        if pipeline_parameter_lists is not None:
+            pulumi.set(__self__, "pipeline_parameter_lists", pipeline_parameter_lists)
+
+    @property
+    @pulumi.getter(name="pipelineParameterLists")
+    def pipeline_parameter_lists(self) -> Optional[Sequence['outputs.EventTargetSagemakerPipelineTargetPipelineParameterList']]:
+        """
+        List of Parameter names and values for SageMaker Model Building Pipeline execution.
+        """
+        return pulumi.get(self, "pipeline_parameter_lists")
+
+
+@pulumi.output_type
+class EventTargetSagemakerPipelineTargetPipelineParameterList(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 value: str):
+        """
+        :param str name: Name of parameter to start execution of a SageMaker Model Building Pipeline.
+        :param str value: Value of parameter to start execution of a SageMaker Model Building Pipeline.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of parameter to start execution of a SageMaker Model Building Pipeline.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Value of parameter to start execution of a SageMaker Model Building Pipeline.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

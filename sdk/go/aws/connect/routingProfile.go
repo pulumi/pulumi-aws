@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Amazon Connect Routing Profile resource. For more information see
@@ -248,6 +249,12 @@ func (i *RoutingProfile) ToRoutingProfileOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(RoutingProfileOutput)
 }
 
+func (i *RoutingProfile) ToOutput(ctx context.Context) pulumix.Output[*RoutingProfile] {
+	return pulumix.Output[*RoutingProfile]{
+		OutputState: i.ToRoutingProfileOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RoutingProfileArrayInput is an input type that accepts RoutingProfileArray and RoutingProfileArrayOutput values.
 // You can construct a concrete instance of `RoutingProfileArrayInput` via:
 //
@@ -271,6 +278,12 @@ func (i RoutingProfileArray) ToRoutingProfileArrayOutput() RoutingProfileArrayOu
 
 func (i RoutingProfileArray) ToRoutingProfileArrayOutputWithContext(ctx context.Context) RoutingProfileArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RoutingProfileArrayOutput)
+}
+
+func (i RoutingProfileArray) ToOutput(ctx context.Context) pulumix.Output[[]*RoutingProfile] {
+	return pulumix.Output[[]*RoutingProfile]{
+		OutputState: i.ToRoutingProfileArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RoutingProfileMapInput is an input type that accepts RoutingProfileMap and RoutingProfileMapOutput values.
@@ -298,6 +311,12 @@ func (i RoutingProfileMap) ToRoutingProfileMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(RoutingProfileMapOutput)
 }
 
+func (i RoutingProfileMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RoutingProfile] {
+	return pulumix.Output[map[string]*RoutingProfile]{
+		OutputState: i.ToRoutingProfileMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RoutingProfileOutput struct{ *pulumi.OutputState }
 
 func (RoutingProfileOutput) ElementType() reflect.Type {
@@ -310,6 +329,12 @@ func (o RoutingProfileOutput) ToRoutingProfileOutput() RoutingProfileOutput {
 
 func (o RoutingProfileOutput) ToRoutingProfileOutputWithContext(ctx context.Context) RoutingProfileOutput {
 	return o
+}
+
+func (o RoutingProfileOutput) ToOutput(ctx context.Context) pulumix.Output[*RoutingProfile] {
+	return pulumix.Output[*RoutingProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the Routing Profile.
@@ -377,6 +402,12 @@ func (o RoutingProfileArrayOutput) ToRoutingProfileArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o RoutingProfileArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RoutingProfile] {
+	return pulumix.Output[[]*RoutingProfile]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RoutingProfileArrayOutput) Index(i pulumi.IntInput) RoutingProfileOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RoutingProfile {
 		return vs[0].([]*RoutingProfile)[vs[1].(int)]
@@ -395,6 +426,12 @@ func (o RoutingProfileMapOutput) ToRoutingProfileMapOutput() RoutingProfileMapOu
 
 func (o RoutingProfileMapOutput) ToRoutingProfileMapOutputWithContext(ctx context.Context) RoutingProfileMapOutput {
 	return o
+}
+
+func (o RoutingProfileMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RoutingProfile] {
+	return pulumix.Output[map[string]*RoutingProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RoutingProfileMapOutput) MapIndex(k pulumi.StringInput) RoutingProfileOutput {

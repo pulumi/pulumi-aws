@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The ECR Image data source allows the details of an image with a particular tag or digest to be retrieved.
@@ -124,6 +125,12 @@ func (o GetImageResultOutput) ToGetImageResultOutput() GetImageResultOutput {
 
 func (o GetImageResultOutput) ToGetImageResultOutputWithContext(ctx context.Context) GetImageResultOutput {
 	return o
+}
+
+func (o GetImageResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetImageResult] {
+	return pulumix.Output[GetImageResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The provider-assigned unique ID for this managed resource.

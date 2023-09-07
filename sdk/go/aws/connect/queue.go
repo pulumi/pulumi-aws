@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Amazon Connect Queue resource. For more information see
@@ -312,6 +313,12 @@ func (i *Queue) ToQueueOutputWithContext(ctx context.Context) QueueOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(QueueOutput)
 }
 
+func (i *Queue) ToOutput(ctx context.Context) pulumix.Output[*Queue] {
+	return pulumix.Output[*Queue]{
+		OutputState: i.ToQueueOutputWithContext(ctx).OutputState,
+	}
+}
+
 // QueueArrayInput is an input type that accepts QueueArray and QueueArrayOutput values.
 // You can construct a concrete instance of `QueueArrayInput` via:
 //
@@ -335,6 +342,12 @@ func (i QueueArray) ToQueueArrayOutput() QueueArrayOutput {
 
 func (i QueueArray) ToQueueArrayOutputWithContext(ctx context.Context) QueueArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(QueueArrayOutput)
+}
+
+func (i QueueArray) ToOutput(ctx context.Context) pulumix.Output[[]*Queue] {
+	return pulumix.Output[[]*Queue]{
+		OutputState: i.ToQueueArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // QueueMapInput is an input type that accepts QueueMap and QueueMapOutput values.
@@ -362,6 +375,12 @@ func (i QueueMap) ToQueueMapOutputWithContext(ctx context.Context) QueueMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(QueueMapOutput)
 }
 
+func (i QueueMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Queue] {
+	return pulumix.Output[map[string]*Queue]{
+		OutputState: i.ToQueueMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type QueueOutput struct{ *pulumi.OutputState }
 
 func (QueueOutput) ElementType() reflect.Type {
@@ -374,6 +393,12 @@ func (o QueueOutput) ToQueueOutput() QueueOutput {
 
 func (o QueueOutput) ToQueueOutputWithContext(ctx context.Context) QueueOutput {
 	return o
+}
+
+func (o QueueOutput) ToOutput(ctx context.Context) pulumix.Output[*Queue] {
+	return pulumix.Output[*Queue]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the Queue.
@@ -450,6 +475,12 @@ func (o QueueArrayOutput) ToQueueArrayOutputWithContext(ctx context.Context) Que
 	return o
 }
 
+func (o QueueArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Queue] {
+	return pulumix.Output[[]*Queue]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o QueueArrayOutput) Index(i pulumi.IntInput) QueueOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Queue {
 		return vs[0].([]*Queue)[vs[1].(int)]
@@ -468,6 +499,12 @@ func (o QueueMapOutput) ToQueueMapOutput() QueueMapOutput {
 
 func (o QueueMapOutput) ToQueueMapOutputWithContext(ctx context.Context) QueueMapOutput {
 	return o
+}
+
+func (o QueueMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Queue] {
+	return pulumix.Output[map[string]*Queue]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o QueueMapOutput) MapIndex(k pulumi.StringInput) QueueOutput {

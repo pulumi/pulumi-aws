@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -54,6 +55,12 @@ func (i ClusterParameterGroupParameterArgs) ToClusterParameterGroupParameterOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterParameterGroupParameterOutput)
 }
 
+func (i ClusterParameterGroupParameterArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterParameterGroupParameter] {
+	return pulumix.Output[ClusterParameterGroupParameter]{
+		OutputState: i.ToClusterParameterGroupParameterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ClusterParameterGroupParameterArrayInput is an input type that accepts ClusterParameterGroupParameterArray and ClusterParameterGroupParameterArrayOutput values.
 // You can construct a concrete instance of `ClusterParameterGroupParameterArrayInput` via:
 //
@@ -79,6 +86,12 @@ func (i ClusterParameterGroupParameterArray) ToClusterParameterGroupParameterArr
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterParameterGroupParameterArrayOutput)
 }
 
+func (i ClusterParameterGroupParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]ClusterParameterGroupParameter] {
+	return pulumix.Output[[]ClusterParameterGroupParameter]{
+		OutputState: i.ToClusterParameterGroupParameterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterParameterGroupParameterOutput struct{ *pulumi.OutputState }
 
 func (ClusterParameterGroupParameterOutput) ElementType() reflect.Type {
@@ -91,6 +104,12 @@ func (o ClusterParameterGroupParameterOutput) ToClusterParameterGroupParameterOu
 
 func (o ClusterParameterGroupParameterOutput) ToClusterParameterGroupParameterOutputWithContext(ctx context.Context) ClusterParameterGroupParameterOutput {
 	return o
+}
+
+func (o ClusterParameterGroupParameterOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterParameterGroupParameter] {
+	return pulumix.Output[ClusterParameterGroupParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
@@ -120,6 +139,12 @@ func (o ClusterParameterGroupParameterArrayOutput) ToClusterParameterGroupParame
 
 func (o ClusterParameterGroupParameterArrayOutput) ToClusterParameterGroupParameterArrayOutputWithContext(ctx context.Context) ClusterParameterGroupParameterArrayOutput {
 	return o
+}
+
+func (o ClusterParameterGroupParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClusterParameterGroupParameter] {
+	return pulumix.Output[[]ClusterParameterGroupParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterParameterGroupParameterArrayOutput) Index(i pulumi.IntInput) ClusterParameterGroupParameterOutput {
@@ -165,6 +190,12 @@ func (i GlobalClusterGlobalClusterMemberArgs) ToGlobalClusterGlobalClusterMember
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalClusterGlobalClusterMemberOutput)
 }
 
+func (i GlobalClusterGlobalClusterMemberArgs) ToOutput(ctx context.Context) pulumix.Output[GlobalClusterGlobalClusterMember] {
+	return pulumix.Output[GlobalClusterGlobalClusterMember]{
+		OutputState: i.ToGlobalClusterGlobalClusterMemberOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GlobalClusterGlobalClusterMemberArrayInput is an input type that accepts GlobalClusterGlobalClusterMemberArray and GlobalClusterGlobalClusterMemberArrayOutput values.
 // You can construct a concrete instance of `GlobalClusterGlobalClusterMemberArrayInput` via:
 //
@@ -190,6 +221,12 @@ func (i GlobalClusterGlobalClusterMemberArray) ToGlobalClusterGlobalClusterMembe
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalClusterGlobalClusterMemberArrayOutput)
 }
 
+func (i GlobalClusterGlobalClusterMemberArray) ToOutput(ctx context.Context) pulumix.Output[[]GlobalClusterGlobalClusterMember] {
+	return pulumix.Output[[]GlobalClusterGlobalClusterMember]{
+		OutputState: i.ToGlobalClusterGlobalClusterMemberArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GlobalClusterGlobalClusterMemberOutput struct{ *pulumi.OutputState }
 
 func (GlobalClusterGlobalClusterMemberOutput) ElementType() reflect.Type {
@@ -202,6 +239,12 @@ func (o GlobalClusterGlobalClusterMemberOutput) ToGlobalClusterGlobalClusterMemb
 
 func (o GlobalClusterGlobalClusterMemberOutput) ToGlobalClusterGlobalClusterMemberOutputWithContext(ctx context.Context) GlobalClusterGlobalClusterMemberOutput {
 	return o
+}
+
+func (o GlobalClusterGlobalClusterMemberOutput) ToOutput(ctx context.Context) pulumix.Output[GlobalClusterGlobalClusterMember] {
+	return pulumix.Output[GlobalClusterGlobalClusterMember]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name (ARN) of member DB Cluster.
@@ -226,6 +269,12 @@ func (o GlobalClusterGlobalClusterMemberArrayOutput) ToGlobalClusterGlobalCluste
 
 func (o GlobalClusterGlobalClusterMemberArrayOutput) ToGlobalClusterGlobalClusterMemberArrayOutputWithContext(ctx context.Context) GlobalClusterGlobalClusterMemberArrayOutput {
 	return o
+}
+
+func (o GlobalClusterGlobalClusterMemberArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GlobalClusterGlobalClusterMember] {
+	return pulumix.Output[[]GlobalClusterGlobalClusterMember]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GlobalClusterGlobalClusterMemberArrayOutput) Index(i pulumi.IntInput) GlobalClusterGlobalClusterMemberOutput {
