@@ -464,12 +464,16 @@ jobs:
             run: make upstream
           - uses: actions/setup-go@v4
             with:
-              cache-dependency-path: provider/shim/go.sum
-              go-version-file: provider/shim/go.mod
+              cache-dependency-path: provider/go.sum
+              go-version-file: provider/go.mod
           - name: go test
             run: |
-              cd provider/shim
-              go test -v .
+              cd upstream/shim
+              go test -v -coverprofile="coverage.txt" .
+          - env:
+              CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+            name: Upload coverage reports to Codecov
+            uses: codecov/codecov-action@v3
       timeout-minutes: 60
 
 name: main
