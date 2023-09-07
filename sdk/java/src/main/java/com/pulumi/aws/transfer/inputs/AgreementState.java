@@ -32,18 +32,33 @@ public final class AgreementState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The unique identifier for the AS2 agreement
+     * The unique identifier for the AS2 agreement.
      * 
      */
     @Import(name="agreementId")
     private @Nullable Output<String> agreementId;
 
     /**
-     * @return The unique identifier for the AS2 agreement
+     * @return The unique identifier for the AS2 agreement.
      * 
      */
     public Optional<Output<String>> agreementId() {
         return Optional.ofNullable(this.agreementId);
+    }
+
+    /**
+     * The ARN of the agreement.
+     * 
+     */
+    @Import(name="arn")
+    private @Nullable Output<String> arn;
+
+    /**
+     * @return The ARN of the agreement.
+     * 
+     */
+    public Optional<Output<String>> arn() {
+        return Optional.ofNullable(this.arn);
     }
 
     /**
@@ -155,6 +170,7 @@ public final class AgreementState extends com.pulumi.resources.ResourceArgs {
     private AgreementState(AgreementState $) {
         this.accessRole = $.accessRole;
         this.agreementId = $.agreementId;
+        this.arn = $.arn;
         this.baseDirectory = $.baseDirectory;
         this.description = $.description;
         this.localProfileId = $.localProfileId;
@@ -205,7 +221,7 @@ public final class AgreementState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param agreementId The unique identifier for the AS2 agreement
+         * @param agreementId The unique identifier for the AS2 agreement.
          * 
          * @return builder
          * 
@@ -216,13 +232,34 @@ public final class AgreementState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param agreementId The unique identifier for the AS2 agreement
+         * @param agreementId The unique identifier for the AS2 agreement.
          * 
          * @return builder
          * 
          */
         public Builder agreementId(String agreementId) {
             return agreementId(Output.of(agreementId));
+        }
+
+        /**
+         * @param arn The ARN of the agreement.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(@Nullable Output<String> arn) {
+            $.arn = arn;
+            return this;
+        }
+
+        /**
+         * @param arn The ARN of the agreement.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(String arn) {
+            return arn(Output.of(arn));
         }
 
         /**

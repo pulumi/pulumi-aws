@@ -33,12 +33,12 @@ namespace Pulumi.Aws.Eks
         /// 
         ///     var exampleNodeGroup = .Select(__value =&gt; 
         ///     {
-        ///         return  Aws.Eks.GetNodeGroup.Invoke(new()
+        ///         return Aws.Eks.GetNodeGroup.Invoke(new()
         ///         {
         ///             ClusterName = "example",
         ///             NodeGroupName = __value,
         ///         });
-        ///     });
+        ///     }).ToList();
         /// 
         /// });
         /// ```
@@ -70,12 +70,12 @@ namespace Pulumi.Aws.Eks
         /// 
         ///     var exampleNodeGroup = .Select(__value =&gt; 
         ///     {
-        ///         return  Aws.Eks.GetNodeGroup.Invoke(new()
+        ///         return Aws.Eks.GetNodeGroup.Invoke(new()
         ///         {
         ///             ClusterName = "example",
         ///             NodeGroupName = __value,
         ///         });
-        ///     });
+        ///     }).ToList();
         /// 
         /// });
         /// ```

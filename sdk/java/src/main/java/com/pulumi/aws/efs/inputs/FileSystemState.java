@@ -149,6 +149,21 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The value of the file system&#39;s `Name` tag.
+     * 
+     */
+    @Import(name="name")
+    private @Nullable Output<String> name;
+
+    /**
+     * @return The value of the file system&#39;s `Name` tag.
+     * 
+     */
+    public Optional<Output<String>> name() {
+        return Optional.ofNullable(this.name);
+    }
+
+    /**
      * The current number of mount targets that the file system has.
      * 
      */
@@ -279,6 +294,7 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
         this.encrypted = $.encrypted;
         this.kmsKeyId = $.kmsKeyId;
         this.lifecyclePolicies = $.lifecyclePolicies;
+        this.name = $.name;
         this.numberOfMountTargets = $.numberOfMountTargets;
         this.ownerId = $.ownerId;
         this.performanceMode = $.performanceMode;
@@ -489,6 +505,27 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder lifecyclePolicies(FileSystemLifecyclePolicyArgs... lifecyclePolicies) {
             return lifecyclePolicies(List.of(lifecyclePolicies));
+        }
+
+        /**
+         * @param name The value of the file system&#39;s `Name` tag.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder name(@Nullable Output<String> name) {
+            $.name = name;
+            return this;
+        }
+
+        /**
+         * @param name The value of the file system&#39;s `Name` tag.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder name(String name) {
+            return name(Output.of(name));
         }
 
         /**

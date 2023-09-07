@@ -49,6 +49,11 @@ public final class GetReplicationInstanceResult {
      */
     private Boolean multiAz;
     /**
+     * @return The type of IP address protocol used by the replication instance.
+     * 
+     */
+    private String networkType;
+    /**
      * @return The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
      * 
      */
@@ -142,6 +147,13 @@ public final class GetReplicationInstanceResult {
         return this.multiAz;
     }
     /**
+     * @return The type of IP address protocol used by the replication instance.
+     * 
+     */
+    public String networkType() {
+        return this.networkType;
+    }
+    /**
      * @return The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
      * 
      */
@@ -220,6 +232,7 @@ public final class GetReplicationInstanceResult {
         private String id;
         private String kmsKeyArn;
         private Boolean multiAz;
+        private String networkType;
         private String preferredMaintenanceWindow;
         private Boolean publiclyAccessible;
         private String replicationInstanceArn;
@@ -240,6 +253,7 @@ public final class GetReplicationInstanceResult {
     	      this.id = defaults.id;
     	      this.kmsKeyArn = defaults.kmsKeyArn;
     	      this.multiAz = defaults.multiAz;
+    	      this.networkType = defaults.networkType;
     	      this.preferredMaintenanceWindow = defaults.preferredMaintenanceWindow;
     	      this.publiclyAccessible = defaults.publiclyAccessible;
     	      this.replicationInstanceArn = defaults.replicationInstanceArn;
@@ -285,6 +299,11 @@ public final class GetReplicationInstanceResult {
         @CustomType.Setter
         public Builder multiAz(Boolean multiAz) {
             this.multiAz = Objects.requireNonNull(multiAz);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder networkType(String networkType) {
+            this.networkType = Objects.requireNonNull(networkType);
             return this;
         }
         @CustomType.Setter
@@ -355,6 +374,7 @@ public final class GetReplicationInstanceResult {
             o.id = id;
             o.kmsKeyArn = kmsKeyArn;
             o.multiAz = multiAz;
+            o.networkType = networkType;
             o.preferredMaintenanceWindow = preferredMaintenanceWindow;
             o.publiclyAccessible = publiclyAccessible;
             o.replicationInstanceArn = replicationInstanceArn;

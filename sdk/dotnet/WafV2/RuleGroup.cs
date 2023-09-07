@@ -45,6 +45,9 @@ namespace Pulumi.Aws.WafV2
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        [Output("namePrefix")]
+        public Output<string> NamePrefix { get; private set; } = null!;
+
         /// <summary>
         /// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
         /// </summary>
@@ -151,6 +154,9 @@ namespace Pulumi.Aws.WafV2
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("namePrefix")]
+        public Input<string>? NamePrefix { get; set; }
+
         [Input("rules")]
         private InputList<Inputs.RuleGroupRuleArgs>? _rules;
 
@@ -233,6 +239,9 @@ namespace Pulumi.Aws.WafV2
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("namePrefix")]
+        public Input<string>? NamePrefix { get; set; }
 
         [Input("rules")]
         private InputList<Inputs.RuleGroupRuleGetArgs>? _rules;

@@ -15,6 +15,7 @@ import com.pulumi.aws.cloudwatch.outputs.EventTargetKinesisTarget;
 import com.pulumi.aws.cloudwatch.outputs.EventTargetRedshiftTarget;
 import com.pulumi.aws.cloudwatch.outputs.EventTargetRetryPolicy;
 import com.pulumi.aws.cloudwatch.outputs.EventTargetRunCommandTarget;
+import com.pulumi.aws.cloudwatch.outputs.EventTargetSagemakerPipelineTarget;
 import com.pulumi.aws.cloudwatch.outputs.EventTargetSqsTarget;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -785,6 +786,20 @@ public class EventTarget extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<List<EventTargetRunCommandTarget>>> runCommandTargets() {
         return Codegen.optional(this.runCommandTargets);
+    }
+    /**
+     * Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.
+     * 
+     */
+    @Export(name="sagemakerPipelineTarget", refs={EventTargetSagemakerPipelineTarget.class}, tree="[0]")
+    private Output</* @Nullable */ EventTargetSagemakerPipelineTarget> sagemakerPipelineTarget;
+
+    /**
+     * @return Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.
+     * 
+     */
+    public Output<Optional<EventTargetSagemakerPipelineTarget>> sagemakerPipelineTarget() {
+        return Codegen.optional(this.sagemakerPipelineTarget);
     }
     /**
      * Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.

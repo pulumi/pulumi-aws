@@ -16,14 +16,14 @@ public final class ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs ex
     public static final ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs Empty = new ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs();
 
     /**
-     * Public access type. Valida values: `DISABLED`, `SERVICE_PROVIDED_EIPS`.
+     * Public access type. Valid values: `DISABLED`, `SERVICE_PROVIDED_EIPS`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return Public access type. Valida values: `DISABLED`, `SERVICE_PROVIDED_EIPS`.
+     * @return Public access type. Valid values: `DISABLED`, `SERVICE_PROVIDED_EIPS`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -55,7 +55,7 @@ public final class ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs ex
         }
 
         /**
-         * @param type Public access type. Valida values: `DISABLED`, `SERVICE_PROVIDED_EIPS`.
+         * @param type Public access type. Valid values: `DISABLED`, `SERVICE_PROVIDED_EIPS`.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs ex
         }
 
         /**
-         * @param type Public access type. Valida values: `DISABLED`, `SERVICE_PROVIDED_EIPS`.
+         * @param type Public access type. Valid values: `DISABLED`, `SERVICE_PROVIDED_EIPS`.
          * 
          * @return builder
          * 

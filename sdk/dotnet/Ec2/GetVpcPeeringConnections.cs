@@ -45,13 +45,7 @@ namespace Pulumi.Aws.Ec2
         ///         },
         ///     });
         /// 
-        ///     var pc = .Select(__index =&gt; 
-        ///     {
-        ///         return  Aws.Ec2.GetVpcPeeringConnection.Invoke(new()
-        ///         {
-        ///             Id = _arg0_.Ids[__index],
-        ///         });
-        ///     });
+        ///     var pc = ;
         /// 
         /// });
         /// ```
@@ -95,13 +89,7 @@ namespace Pulumi.Aws.Ec2
         ///         },
         ///     });
         /// 
-        ///     var pc = .Select(__index =&gt; 
-        ///     {
-        ///         return  Aws.Ec2.GetVpcPeeringConnection.Invoke(new()
-        ///         {
-        ///             Id = _arg0_.Ids[__index],
-        ///         });
-        ///     });
+        ///     var pc = ;
         /// 
         /// });
         /// ```

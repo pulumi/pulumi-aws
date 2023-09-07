@@ -13,6 +13,9 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelection
     {
+        /// <summary>
+        /// Selects a specific PID from within a source.
+        /// </summary>
         public readonly int Pid;
 
         [OutputConstructor]

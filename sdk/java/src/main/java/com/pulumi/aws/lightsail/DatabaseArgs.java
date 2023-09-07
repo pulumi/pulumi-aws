@@ -197,9 +197,17 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.publiclyAccessible);
     }
 
+    /**
+     * The name to use for your new Lightsail database resource. Names be unique within each AWS Region in your Lightsail account.
+     * 
+     */
     @Import(name="relationalDatabaseName", required=true)
     private Output<String> relationalDatabaseName;
 
+    /**
+     * @return The name to use for your new Lightsail database resource. Names be unique within each AWS Region in your Lightsail account.
+     * 
+     */
     public Output<String> relationalDatabaseName() {
         return this.relationalDatabaseName;
     }
@@ -524,11 +532,23 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
             return publiclyAccessible(Output.of(publiclyAccessible));
         }
 
+        /**
+         * @param relationalDatabaseName The name to use for your new Lightsail database resource. Names be unique within each AWS Region in your Lightsail account.
+         * 
+         * @return builder
+         * 
+         */
         public Builder relationalDatabaseName(Output<String> relationalDatabaseName) {
             $.relationalDatabaseName = relationalDatabaseName;
             return this;
         }
 
+        /**
+         * @param relationalDatabaseName The name to use for your new Lightsail database resource. Names be unique within each AWS Region in your Lightsail account.
+         * 
+         * @return builder
+         * 
+         */
         public Builder relationalDatabaseName(String relationalDatabaseName) {
             return relationalDatabaseName(Output.of(relationalDatabaseName));
         }

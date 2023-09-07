@@ -80,18 +80,32 @@ public class Agreement extends com.pulumi.resources.CustomResource {
         return this.accessRole;
     }
     /**
-     * The unique identifier for the AS2 agreement
+     * The unique identifier for the AS2 agreement.
      * 
      */
     @Export(name="agreementId", refs={String.class}, tree="[0]")
     private Output<String> agreementId;
 
     /**
-     * @return The unique identifier for the AS2 agreement
+     * @return The unique identifier for the AS2 agreement.
      * 
      */
     public Output<String> agreementId() {
         return this.agreementId;
+    }
+    /**
+     * The ARN of the agreement.
+     * 
+     */
+    @Export(name="arn", refs={String.class}, tree="[0]")
+    private Output<String> arn;
+
+    /**
+     * @return The ARN of the agreement.
+     * 
+     */
+    public Output<String> arn() {
+        return this.arn;
     }
     /**
      * The landing directory for the files transferred by using the AS2 protocol.

@@ -165,6 +165,9 @@ namespace Pulumi.Aws.Inputs
         [Input("codebuild")]
         public Input<string>? Codebuild { get; set; }
 
+        [Input("codecatalyst")]
+        public Input<string>? Codecatalyst { get; set; }
+
         [Input("codecommit")]
         public Input<string>? Codecommit { get; set; }
 
@@ -455,6 +458,12 @@ namespace Pulumi.Aws.Inputs
 
         [Input("lexmodels")]
         public Input<string>? Lexmodels { get; set; }
+
+        [Input("lexmodelsv2")]
+        public Input<string>? Lexmodelsv2 { get; set; }
+
+        [Input("lexv2models")]
+        public Input<string>? Lexv2models { get; set; }
 
         [Input("licensemanager")]
         public Input<string>? Licensemanager { get; set; }

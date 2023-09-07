@@ -6,6 +6,7 @@ package com.pulumi.aws.wafv2.outputs;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllow;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlock;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptcha;
+import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallenge;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCount;
 import com.pulumi.core.annotations.CustomType;
 import java.util.Objects;
@@ -29,6 +30,11 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverr
      * 
      */
     private @Nullable WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptcha captcha;
+    /**
+     * @return Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
+     * 
+     */
+    private @Nullable WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallenge challenge;
     /**
      * @return Instructs AWS WAF to count the web request and allow it. See `count` below for details.
      * 
@@ -58,6 +64,13 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverr
         return Optional.ofNullable(this.captcha);
     }
     /**
+     * @return Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
+     * 
+     */
+    public Optional<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallenge> challenge() {
+        return Optional.ofNullable(this.challenge);
+    }
+    /**
      * @return Instructs AWS WAF to count the web request and allow it. See `count` below for details.
      * 
      */
@@ -77,6 +90,7 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverr
         private @Nullable WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllow allow;
         private @Nullable WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlock block;
         private @Nullable WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptcha captcha;
+        private @Nullable WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallenge challenge;
         private @Nullable WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCount count;
         public Builder() {}
         public Builder(WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUse defaults) {
@@ -84,6 +98,7 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverr
     	      this.allow = defaults.allow;
     	      this.block = defaults.block;
     	      this.captcha = defaults.captcha;
+    	      this.challenge = defaults.challenge;
     	      this.count = defaults.count;
         }
 
@@ -103,6 +118,11 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverr
             return this;
         }
         @CustomType.Setter
+        public Builder challenge(@Nullable WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallenge challenge) {
+            this.challenge = challenge;
+            return this;
+        }
+        @CustomType.Setter
         public Builder count(@Nullable WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCount count) {
             this.count = count;
             return this;
@@ -112,6 +132,7 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverr
             o.allow = allow;
             o.block = block;
             o.captcha = captcha;
+            o.challenge = challenge;
             o.count = count;
             return o;
         }

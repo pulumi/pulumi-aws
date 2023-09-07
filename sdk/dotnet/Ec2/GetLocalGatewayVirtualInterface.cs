@@ -28,11 +28,11 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     var example = .Select(__value =&gt; 
         ///     {
-        ///         return  Aws.Ec2.GetLocalGatewayVirtualInterface.Invoke(new()
+        ///         return Aws.Ec2.GetLocalGatewayVirtualInterface.Invoke(new()
         ///         {
         ///             Id = __value,
         ///         });
-        ///     });
+        ///     }).ToList();
         /// 
         /// });
         /// ```
@@ -59,11 +59,11 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     var example = .Select(__value =&gt; 
         ///     {
-        ///         return  Aws.Ec2.GetLocalGatewayVirtualInterface.Invoke(new()
+        ///         return Aws.Ec2.GetLocalGatewayVirtualInterface.Invoke(new()
         ///         {
         ///             Id = __value,
         ///         });
-        ///     });
+        ///     }).ToList();
         /// 
         /// });
         /// ```

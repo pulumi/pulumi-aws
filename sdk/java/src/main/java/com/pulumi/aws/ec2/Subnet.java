@@ -83,12 +83,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var secondaryCidr = new VpcIpv4CidrBlockAssociation(&#34;secondaryCidr&#34;, VpcIpv4CidrBlockAssociationArgs.builder()        
  *             .vpcId(aws_vpc.main().id())
- *             .cidrBlock(&#34;172.2.0.0/16&#34;)
+ *             .cidrBlock(&#34;172.20.0.0/16&#34;)
  *             .build());
  * 
  *         var inSecondaryCidr = new Subnet(&#34;inSecondaryCidr&#34;, SubnetArgs.builder()        
  *             .vpcId(secondaryCidr.vpcId())
- *             .cidrBlock(&#34;172.2.0.0/24&#34;)
+ *             .cidrBlock(&#34;172.20.0.0/24&#34;)
  *             .build());
  * 
  *     }

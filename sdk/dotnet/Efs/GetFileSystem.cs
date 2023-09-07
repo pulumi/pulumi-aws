@@ -192,6 +192,10 @@ namespace Pulumi.Aws.Efs
         /// </summary>
         public readonly Outputs.GetFileSystemLifecyclePolicyResult LifecyclePolicy;
         /// <summary>
+        /// The value of the file system's `Name` tag.
+        /// </summary>
+        public readonly string Name;
+        /// <summary>
         /// File system performance mode.
         /// </summary>
         public readonly string PerformanceMode;
@@ -234,6 +238,8 @@ namespace Pulumi.Aws.Efs
 
             Outputs.GetFileSystemLifecyclePolicyResult lifecyclePolicy,
 
+            string name,
+
             string performanceMode,
 
             double provisionedThroughputInMibps,
@@ -254,6 +260,7 @@ namespace Pulumi.Aws.Efs
             Id = id;
             KmsKeyId = kmsKeyId;
             LifecyclePolicy = lifecyclePolicy;
+            Name = name;
             PerformanceMode = performanceMode;
             ProvisionedThroughputInMibps = provisionedThroughputInMibps;
             SizeInBytes = sizeInBytes;

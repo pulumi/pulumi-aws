@@ -152,9 +152,12 @@ namespace Pulumi.Aws.Acm
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var example = new List&lt;Aws.Route53.Record&gt;();
-    ///     foreach (var range in .Select(dvo =&gt; 
-    ///     {
-    ///         return new Dictionary&lt;string, object?&gt;  
+    ///     foreach (var range in .ToDictionary(item =&gt; {
+    ///         var dvo = item.Value;
+    ///         return dvo.DomainName;
+    ///     }, item =&gt; {
+    ///         var dvo = item.Value;
+    ///         return 
     ///         {
     ///             { "name", dvo.ResourceRecordName },
     ///             { "record", dvo.ResourceRecordValue },

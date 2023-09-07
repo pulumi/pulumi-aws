@@ -57,6 +57,11 @@ public final class GetFileSystemResult {
      */
     private GetFileSystemLifecyclePolicy lifecyclePolicy;
     /**
+     * @return The value of the file system&#39;s `Name` tag.
+     * 
+     */
+    private String name;
+    /**
      * @return File system performance mode.
      * 
      */
@@ -146,6 +151,13 @@ public final class GetFileSystemResult {
         return this.lifecyclePolicy;
     }
     /**
+     * @return The value of the file system&#39;s `Name` tag.
+     * 
+     */
+    public String name() {
+        return this.name;
+    }
+    /**
      * @return File system performance mode.
      * 
      */
@@ -200,6 +212,7 @@ public final class GetFileSystemResult {
         private String id;
         private String kmsKeyId;
         private GetFileSystemLifecyclePolicy lifecyclePolicy;
+        private String name;
         private String performanceMode;
         private Double provisionedThroughputInMibps;
         private Integer sizeInBytes;
@@ -218,6 +231,7 @@ public final class GetFileSystemResult {
     	      this.id = defaults.id;
     	      this.kmsKeyId = defaults.kmsKeyId;
     	      this.lifecyclePolicy = defaults.lifecyclePolicy;
+    	      this.name = defaults.name;
     	      this.performanceMode = defaults.performanceMode;
     	      this.provisionedThroughputInMibps = defaults.provisionedThroughputInMibps;
     	      this.sizeInBytes = defaults.sizeInBytes;
@@ -276,6 +290,11 @@ public final class GetFileSystemResult {
             return this;
         }
         @CustomType.Setter
+        public Builder name(String name) {
+            this.name = Objects.requireNonNull(name);
+            return this;
+        }
+        @CustomType.Setter
         public Builder performanceMode(String performanceMode) {
             this.performanceMode = Objects.requireNonNull(performanceMode);
             return this;
@@ -312,6 +331,7 @@ public final class GetFileSystemResult {
             o.id = id;
             o.kmsKeyId = kmsKeyId;
             o.lifecyclePolicy = lifecyclePolicy;
+            o.name = name;
             o.performanceMode = performanceMode;
             o.provisionedThroughputInMibps = provisionedThroughputInMibps;
             o.sizeInBytes = sizeInBytes;

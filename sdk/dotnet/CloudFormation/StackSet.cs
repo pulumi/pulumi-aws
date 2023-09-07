@@ -131,10 +131,17 @@ namespace Pulumi.Aws.CloudFormation
     /// 
     /// ## Import
     /// 
+    /// Import CloudFormation StackSets when acting a delegated administrator in a member account using the `name` and `call_as` values separated by a comma (`,`). For example:
+    /// 
     /// Using `pulumi import`, import CloudFormation StackSets using the `name`. For example:
     /// 
     /// ```sh
     ///  $ pulumi import aws:cloudformation/stackSet:StackSet example example
+    /// ```
+    ///  Using `TODO import`, import CloudFormation StackSets when acting a delegated administrator in a member account using the `name` and `call_as` values separated by a comma (`,`). For example:
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:cloudformation/stackSet:StackSet example example/DELEGATED_ADMIN
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudformation/stackSet:StackSet")]

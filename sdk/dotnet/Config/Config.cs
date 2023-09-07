@@ -192,6 +192,18 @@ namespace Pulumi.Aws
             set => _retryMode.Set(value);
         }
 
+        private static readonly __Value<string?> _s3UsEast1RegionalEndpoint = new __Value<string?>(() => __config.Get("s3UsEast1RegionalEndpoint"));
+        /// <summary>
+        /// Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid
+        /// values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment
+        /// variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
+        /// </summary>
+        public static string? S3UsEast1RegionalEndpoint
+        {
+            get => _s3UsEast1RegionalEndpoint.Get();
+            set => _s3UsEast1RegionalEndpoint.Set(value);
+        }
+
         private static readonly __Value<bool?> _s3UsePathStyle = new __Value<bool?>(() => __config.GetBoolean("s3UsePathStyle"));
         /// <summary>
         /// Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
@@ -401,6 +413,7 @@ namespace Pulumi.Aws
                 public string? Cloudwatchrum { get; set; } = null!;
                 public string? Codeartifact { get; set; } = null!;
                 public string? Codebuild { get; set; } = null!;
+                public string? Codecatalyst { get; set; } = null!;
                 public string? Codecommit { get; set; } = null!;
                 public string? Codedeploy { get; set; } = null!;
                 public string? Codegurureviewer { get; set; } = null!;
@@ -498,6 +511,8 @@ namespace Pulumi.Aws
                 public string? Lexmodelbuilding { get; set; } = null!;
                 public string? Lexmodelbuildingservice { get; set; } = null!;
                 public string? Lexmodels { get; set; } = null!;
+                public string? Lexmodelsv2 { get; set; } = null!;
+                public string? Lexv2models { get; set; } = null!;
                 public string? Licensemanager { get; set; } = null!;
                 public string? Lightsail { get; set; } = null!;
                 public string? Location { get; set; } = null!;

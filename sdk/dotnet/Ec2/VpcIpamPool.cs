@@ -79,7 +79,7 @@ namespace Pulumi.Aws.Ec2
     ///     var parentTest = new Aws.Ec2.VpcIpamPoolCidr("parentTest", new()
     ///     {
     ///         IpamPoolId = parent.Id,
-    ///         Cidr = "172.2.0.0/16",
+    ///         Cidr = "172.20.0.0/16",
     ///     });
     /// 
     ///     var child = new Aws.Ec2.VpcIpamPool("child", new()
@@ -93,7 +93,7 @@ namespace Pulumi.Aws.Ec2
     ///     var childTest = new Aws.Ec2.VpcIpamPoolCidr("childTest", new()
     ///     {
     ///         IpamPoolId = child.Id,
-    ///         Cidr = "172.2.0.0/24",
+    ///         Cidr = "172.20.0.0/24",
     ///     });
     /// 
     /// });

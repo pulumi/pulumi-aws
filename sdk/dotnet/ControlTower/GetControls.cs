@@ -35,10 +35,7 @@ namespace Pulumi.Aws.ControlTower
         /// 
         ///     var thisControls = Aws.ControlTower.GetControls.Invoke(new()
         ///     {
-        ///         TargetIdentifier = .Where(x =&gt; x.Name == "Security").Select(x =&gt; 
-        ///         {
-        ///             return  x.Arn;
-        ///         })[0],
+        ///         TargetIdentifier = [0],
         ///     });
         /// 
         /// });
@@ -73,10 +70,7 @@ namespace Pulumi.Aws.ControlTower
         /// 
         ///     var thisControls = Aws.ControlTower.GetControls.Invoke(new()
         ///     {
-        ///         TargetIdentifier = .Where(x =&gt; x.Name == "Security").Select(x =&gt; 
-        ///         {
-        ///             return  x.Arn;
-        ///         })[0],
+        ///         TargetIdentifier = [0],
         ///     });
         /// 
         /// });

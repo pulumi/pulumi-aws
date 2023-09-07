@@ -81,6 +81,13 @@ public final class RuleGroupArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.name);
     }
 
+    @Import(name="namePrefix")
+    private @Nullable Output<String> namePrefix;
+
+    public Optional<Output<String>> namePrefix() {
+        return Optional.ofNullable(this.namePrefix);
+    }
+
     /**
      * The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
      * 
@@ -148,6 +155,7 @@ public final class RuleGroupArgs extends com.pulumi.resources.ResourceArgs {
         this.customResponseBodies = $.customResponseBodies;
         this.description = $.description;
         this.name = $.name;
+        this.namePrefix = $.namePrefix;
         this.rules = $.rules;
         this.scope = $.scope;
         this.tags = $.tags;
@@ -264,6 +272,15 @@ public final class RuleGroupArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        public Builder namePrefix(@Nullable Output<String> namePrefix) {
+            $.namePrefix = namePrefix;
+            return this;
+        }
+
+        public Builder namePrefix(String namePrefix) {
+            return namePrefix(Output.of(namePrefix));
         }
 
         /**

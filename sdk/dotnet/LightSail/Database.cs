@@ -17,6 +17,133 @@ namespace Pulumi.Aws.LightSail
     /// &gt; **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones"](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/) for more details
     /// 
     /// ## Example Usage
+    /// ### Basic mysql blueprint
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.LightSail.Database("test", new()
+    ///     {
+    ///         AvailabilityZone = "us-east-1a",
+    ///         BlueprintId = "mysql_8_0",
+    ///         BundleId = "micro_1_0",
+    ///         MasterDatabaseName = "testdatabasename",
+    ///         MasterPassword = "testdatabasepassword",
+    ///         MasterUsername = "test",
+    ///         RelationalDatabaseName = "test",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Basic postrgres blueprint
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.LightSail.Database("test", new()
+    ///     {
+    ///         AvailabilityZone = "us-east-1a",
+    ///         BlueprintId = "postgres_12",
+    ///         BundleId = "micro_1_0",
+    ///         MasterDatabaseName = "testdatabasename",
+    ///         MasterPassword = "testdatabasepassword",
+    ///         MasterUsername = "test",
+    ///         RelationalDatabaseName = "test",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Custom backup and maintenance windows
+    /// 
+    /// Below is an example that sets a custom backup and maintenance window. Times are specified in UTC. This example will allow daily backups to take place between 16:00 and 16:30 each day. This example also requires any maintiance tasks (anything that would cause an outage, including changing some attributes) to take place on Tuesdays between 17:00 and 17:30. An action taken against this database that would cause an outage will wait until this time window to make the requested changes.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.LightSail.Database("test", new()
+    ///     {
+    ///         AvailabilityZone = "us-east-1a",
+    ///         BlueprintId = "postgres_12",
+    ///         BundleId = "micro_1_0",
+    ///         MasterDatabaseName = "testdatabasename",
+    ///         MasterPassword = "testdatabasepassword",
+    ///         MasterUsername = "test",
+    ///         PreferredBackupWindow = "16:00-16:30",
+    ///         PreferredMaintenanceWindow = "Tue:17:00-Tue:17:30",
+    ///         RelationalDatabaseName = "test",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Final Snapshots
+    /// 
+    /// To enable creating a final snapshot of your database on deletion, use the `final_snapshot_name` argument to provide a name to be used for the snapshot.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.LightSail.Database("test", new()
+    ///     {
+    ///         AvailabilityZone = "us-east-1a",
+    ///         BlueprintId = "postgres_12",
+    ///         BundleId = "micro_1_0",
+    ///         FinalSnapshotName = "MyFinalSnapshot",
+    ///         MasterDatabaseName = "testdatabasename",
+    ///         MasterPassword = "testdatabasepassword",
+    ///         MasterUsername = "test",
+    ///         PreferredBackupWindow = "16:00-16:30",
+    ///         PreferredMaintenanceWindow = "Tue:17:00-Tue:17:30",
+    ///         RelationalDatabaseName = "test",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Apply Immediately
+    /// 
+    /// To enable applying changes immediately instead of waiting for a maintiance window, use the `apply_immediately` argument.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.LightSail.Database("test", new()
+    ///     {
+    ///         ApplyImmediately = true,
+    ///         AvailabilityZone = "us-east-1a",
+    ///         BlueprintId = "postgres_12",
+    ///         BundleId = "micro_1_0",
+    ///         MasterDatabaseName = "testdatabasename",
+    ///         MasterPassword = "testdatabasepassword",
+    ///         MasterUsername = "test",
+    ///         RelationalDatabaseName = "test",
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ## Blueprint Ids
     /// 
     /// A list of all available Lightsail Blueprints for Relational Databases the [aws lightsail get-relational-database-blueprints](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-relational-database-blueprints.html) aws cli command.
@@ -207,6 +334,9 @@ namespace Pulumi.Aws.LightSail
         [Output("ramSize")]
         public Output<double> RamSize { get; private set; } = null!;
 
+        /// <summary>
+        /// The name to use for your new Lightsail database resource. Names be unique within each AWS Region in your Lightsail account.
+        /// </summary>
         [Output("relationalDatabaseName")]
         public Output<string> RelationalDatabaseName { get; private set; } = null!;
 
@@ -372,6 +502,9 @@ namespace Pulumi.Aws.LightSail
         [Input("publiclyAccessible")]
         public Input<bool>? PubliclyAccessible { get; set; }
 
+        /// <summary>
+        /// The name to use for your new Lightsail database resource. Names be unique within each AWS Region in your Lightsail account.
+        /// </summary>
         [Input("relationalDatabaseName", required: true)]
         public Input<string> RelationalDatabaseName { get; set; } = null!;
 
@@ -543,6 +676,9 @@ namespace Pulumi.Aws.LightSail
         [Input("ramSize")]
         public Input<double>? RamSize { get; set; }
 
+        /// <summary>
+        /// The name to use for your new Lightsail database resource. Names be unique within each AWS Region in your Lightsail account.
+        /// </summary>
         [Input("relationalDatabaseName")]
         public Input<string>? RelationalDatabaseName { get; set; }
 

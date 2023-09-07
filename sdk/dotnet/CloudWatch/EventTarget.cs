@@ -679,6 +679,12 @@ namespace Pulumi.Aws.CloudWatch
         public Output<ImmutableArray<Outputs.EventTargetRunCommandTarget>> RunCommandTargets { get; private set; } = null!;
 
         /// <summary>
+        /// Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.
+        /// </summary>
+        [Output("sagemakerPipelineTarget")]
+        public Output<Outputs.EventTargetSagemakerPipelineTarget?> SagemakerPipelineTarget { get; private set; } = null!;
+
+        /// <summary>
         /// Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
         /// </summary>
         [Output("sqsTarget")]
@@ -836,6 +842,12 @@ namespace Pulumi.Aws.CloudWatch
         }
 
         /// <summary>
+        /// Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.
+        /// </summary>
+        [Input("sagemakerPipelineTarget")]
+        public Input<Inputs.EventTargetSagemakerPipelineTargetArgs>? SagemakerPipelineTarget { get; set; }
+
+        /// <summary>
         /// Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
         /// </summary>
         [Input("sqsTarget")]
@@ -953,6 +965,12 @@ namespace Pulumi.Aws.CloudWatch
             get => _runCommandTargets ?? (_runCommandTargets = new InputList<Inputs.EventTargetRunCommandTargetGetArgs>());
             set => _runCommandTargets = value;
         }
+
+        /// <summary>
+        /// Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.
+        /// </summary>
+        [Input("sagemakerPipelineTarget")]
+        public Input<Inputs.EventTargetSagemakerPipelineTargetGetArgs>? SagemakerPipelineTarget { get; set; }
 
         /// <summary>
         /// Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.

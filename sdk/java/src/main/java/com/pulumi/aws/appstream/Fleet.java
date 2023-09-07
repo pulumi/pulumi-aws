@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *             .enableDefaultInternetAccess(false)
  *             .fleetType(&#34;ON_DEMAND&#34;)
  *             .idleDisconnectTimeoutInSeconds(60)
- *             .imageName(&#34;Amazon-AppStream2-Sample-Image-02-04-2019&#34;)
+ *             .imageName(&#34;Amazon-AppStream2-Sample-Image-03-11-2023&#34;)
  *             .instanceType(&#34;stream.standard.large&#34;)
  *             .maxUserDurationInSeconds(600)
  *             .tags(Map.of(&#34;TagName&#34;, &#34;tag-value&#34;))

@@ -25,13 +25,13 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<Inputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsGetArgs>? BurnInDestinationSettings { get; set; }
 
         /// <summary>
-        /// Dvb Sub Destination Settings. See Dvb Sub Destination Settings for more details.
+        /// DVB Sub Destination Settings. See DVB Sub Destination Settings for more details.
         /// </summary>
         [Input("dvbSubDestinationSettings")]
         public Input<Inputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsGetArgs>? DvbSubDestinationSettings { get; set; }
 
         /// <summary>
-        /// Ebu Tt D Destination Settings. See Ebu Tt D Destination Settings for more details.
+        /// EBU TT D Destination Settings. See EBU TT D Destination Settings for more details.
         /// </summary>
         [Input("ebuTtDDestinationSettings")]
         public Input<Inputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsGetArgs>? EbuTtDDestinationSettings { get; set; }
@@ -43,29 +43,32 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<Inputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsGetArgs>? EmbeddedDestinationSettings { get; set; }
 
         /// <summary>
-        /// Embedded Plus Scte20 Destination Settings.
+        /// Embedded Plus SCTE20 Destination Settings.
         /// </summary>
         [Input("embeddedPlusScte20DestinationSettings")]
         public Input<Inputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsGetArgs>? EmbeddedPlusScte20DestinationSettings { get; set; }
 
         /// <summary>
-        /// Rtmp Caption Info Destination Settings.
+        /// RTMP Caption Info Destination Settings.
         /// </summary>
         [Input("rtmpCaptionInfoDestinationSettings")]
         public Input<Inputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsGetArgs>? RtmpCaptionInfoDestinationSettings { get; set; }
 
         /// <summary>
-        /// Scte20 Plus Embedded Destination Settings.
+        /// SCTE20 Plus Embedded Destination Settings.
         /// </summary>
         [Input("scte20PlusEmbeddedDestinationSettings")]
         public Input<Inputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsGetArgs>? Scte20PlusEmbeddedDestinationSettings { get; set; }
 
         /// <summary>
-        /// Scte27 Destination Settings.
+        /// SCTE27 Destination Settings.
         /// </summary>
         [Input("scte27DestinationSettings")]
         public Input<Inputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsGetArgs>? Scte27DestinationSettings { get; set; }
 
+        /// <summary>
+        /// SMPTE TT Destination Settings.
+        /// </summary>
         [Input("smpteTtDestinationSettings")]
         public Input<Inputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsGetArgs>? SmpteTtDestinationSettings { get; set; }
 
@@ -76,13 +79,13 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<Inputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsGetArgs>? TeletextDestinationSettings { get; set; }
 
         /// <summary>
-        /// Ttml Destination Settings. See Ttml Destination Settings for more details.
+        /// TTML Destination Settings. See TTML Destination Settings for more details.
         /// </summary>
         [Input("ttmlDestinationSettings")]
         public Input<Inputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsGetArgs>? TtmlDestinationSettings { get; set; }
 
         /// <summary>
-        /// Webvtt Destination Settings. See Webvtt Destination Settings for more details.
+        /// WebVTT Destination Settings. See WebVTT Destination Settings for more details.
         /// </summary>
         [Input("webvttDestinationSettings")]
         public Input<Inputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsGetArgs>? WebvttDestinationSettings { get; set; }

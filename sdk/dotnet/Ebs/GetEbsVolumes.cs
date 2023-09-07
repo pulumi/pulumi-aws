@@ -40,7 +40,7 @@ namespace Pulumi.Aws.Ebs
         /// 
         ///     var exampleVolume = .Select(__value =&gt; 
         ///     {
-        ///         return  Aws.Ebs.GetVolume.Invoke(new()
+        ///         return Aws.Ebs.GetVolume.Invoke(new()
         ///         {
         ///             Filters = new[]
         ///             {
@@ -54,14 +54,11 @@ namespace Pulumi.Aws.Ebs
         ///                 },
         ///             },
         ///         });
-        ///     });
+        ///     }).ToList();
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["availabilityZoneToVolumeId"] = exampleVolume.Select(s =&gt; 
-        ///         {
-        ///             return  s.AvailabilityZone;
-        ///         }),
+        ///         ["availabilityZoneToVolumeId"] = exampleVolume,
         ///     };
         /// });
         /// ```
@@ -100,7 +97,7 @@ namespace Pulumi.Aws.Ebs
         /// 
         ///     var exampleVolume = .Select(__value =&gt; 
         ///     {
-        ///         return  Aws.Ebs.GetVolume.Invoke(new()
+        ///         return Aws.Ebs.GetVolume.Invoke(new()
         ///         {
         ///             Filters = new[]
         ///             {
@@ -114,14 +111,11 @@ namespace Pulumi.Aws.Ebs
         ///                 },
         ///             },
         ///         });
-        ///     });
+        ///     }).ToList();
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["availabilityZoneToVolumeId"] = exampleVolume.Select(s =&gt; 
-        ///         {
-        ///             return  s.AvailabilityZone;
-        ///         }),
+        ///         ["availabilityZoneToVolumeId"] = exampleVolume,
         ///     };
         /// });
         /// ```

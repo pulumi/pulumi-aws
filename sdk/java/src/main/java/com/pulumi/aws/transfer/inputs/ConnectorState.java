@@ -33,6 +33,21 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The ARN of the connector.
+     * 
+     */
+    @Import(name="arn")
+    private @Nullable Output<String> arn;
+
+    /**
+     * @return The ARN of the connector.
+     * 
+     */
+    public Optional<Output<String>> arn() {
+        return Optional.ofNullable(this.arn);
+    }
+
+    /**
      * The parameters to configure for the connector object. Fields documented below.
      * 
      */
@@ -48,14 +63,14 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The unique identifier for the AS2 profile
+     * The unique identifier for the AS2 profile.
      * 
      */
     @Import(name="connectorId")
     private @Nullable Output<String> connectorId;
 
     /**
-     * @return The unique identifier for the AS2 profile
+     * @return The unique identifier for the AS2 profile.
      * 
      */
     public Optional<Output<String>> connectorId() {
@@ -118,6 +133,7 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
 
     private ConnectorState(ConnectorState $) {
         this.accessRole = $.accessRole;
+        this.arn = $.arn;
         this.as2Config = $.as2Config;
         this.connectorId = $.connectorId;
         this.loggingRole = $.loggingRole;
@@ -166,6 +182,27 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param arn The ARN of the connector.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(@Nullable Output<String> arn) {
+            $.arn = arn;
+            return this;
+        }
+
+        /**
+         * @param arn The ARN of the connector.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(String arn) {
+            return arn(Output.of(arn));
+        }
+
+        /**
          * @param as2Config The parameters to configure for the connector object. Fields documented below.
          * 
          * @return builder
@@ -187,7 +224,7 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectorId The unique identifier for the AS2 profile
+         * @param connectorId The unique identifier for the AS2 profile.
          * 
          * @return builder
          * 
@@ -198,7 +235,7 @@ public final class ConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectorId The unique identifier for the AS2 profile
+         * @param connectorId The unique identifier for the AS2 profile.
          * 
          * @return builder
          * 

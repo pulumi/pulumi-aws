@@ -77,6 +77,10 @@ namespace Pulumi.Aws.DocDB
     ///     }, new CustomResourceOptions
     ///     {
     ///         Provider = aws.Secondary,
+    ///         DependsOn = new[]
+    ///         {
+    ///             primaryCluster,
+    ///         },
     ///     });
     /// 
     ///     var secondaryClusterInstance = new Aws.DocDB.ClusterInstance("secondaryClusterInstance", new()

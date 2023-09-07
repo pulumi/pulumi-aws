@@ -17,8 +17,9 @@ namespace Pulumi.Aws.CloudFront
     /// &gt; **NOTE:** CloudFront distributions take about 15 minutes to reach a deployed state after creation or modification. During this time, deletes to resources will be blocked. If you need to delete a distribution that is enabled and you do not want to wait, you need to use the `retain_on_delete` flag.
     /// 
     /// ## Example Usage
+    /// ### S3 Origin
     /// 
-    /// The following example below creates a CloudFront distribution with an S3 origin.
+    /// The example below creates a CloudFront distribution with an S3 origin.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -194,8 +195,9 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// });
     /// ```
+    /// ### With Failover Routing
     /// 
-    /// The example below creates a CloudFront distribution with an origin group for failover routing:
+    /// The example below creates a CloudFront distribution with an origin group for failover routing.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -265,8 +267,9 @@ namespace Pulumi.Aws.CloudFront
     ///     // ... other configuration ...
     /// });
     /// ```
+    /// ### With Managed Caching Policy
     /// 
-    /// CloudFront distribution using [managed policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) (ex: CachingDisabled):
+    /// The example below creates a CloudFront distribution with an [AWS managed caching policy](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html).
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -365,6 +368,12 @@ namespace Pulumi.Aws.CloudFront
         /// </summary>
         [Output("comment")]
         public Output<string?> Comment { get; private set; } = null!;
+
+        /// <summary>
+        /// Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `aws.cloudfront.ContinuousDeploymentPolicy` resource for additional details.
+        /// </summary>
+        [Output("continuousDeploymentPolicyId")]
+        public Output<string?> ContinuousDeploymentPolicyId { get; private set; } = null!;
 
         /// <summary>
         /// One or more custom error response elements (multiples allowed).
@@ -473,6 +482,12 @@ namespace Pulumi.Aws.CloudFront
         /// </summary>
         [Output("retainOnDelete")]
         public Output<bool?> RetainOnDelete { get; private set; } = null!;
+
+        /// <summary>
+        /// A Boolean that indicates whether this is a staging distribution. Defaults to `false`.
+        /// </summary>
+        [Output("staging")]
+        public Output<bool?> Staging { get; private set; } = null!;
 
         /// <summary>
         /// Current status of the distribution. `Deployed` if the distribution's information is fully propagated throughout the Amazon CloudFront system.
@@ -586,6 +601,12 @@ namespace Pulumi.Aws.CloudFront
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
+        /// <summary>
+        /// Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `aws.cloudfront.ContinuousDeploymentPolicy` resource for additional details.
+        /// </summary>
+        [Input("continuousDeploymentPolicyId")]
+        public Input<string>? ContinuousDeploymentPolicyId { get; set; }
+
         [Input("customErrorResponses")]
         private InputList<Inputs.DistributionCustomErrorResponseArgs>? _customErrorResponses;
 
@@ -688,6 +709,12 @@ namespace Pulumi.Aws.CloudFront
         [Input("retainOnDelete")]
         public Input<bool>? RetainOnDelete { get; set; }
 
+        /// <summary>
+        /// A Boolean that indicates whether this is a staging distribution. Defaults to `false`.
+        /// </summary>
+        [Input("staging")]
+        public Input<bool>? Staging { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -755,6 +782,12 @@ namespace Pulumi.Aws.CloudFront
         /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
+
+        /// <summary>
+        /// Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `aws.cloudfront.ContinuousDeploymentPolicy` resource for additional details.
+        /// </summary>
+        [Input("continuousDeploymentPolicyId")]
+        public Input<string>? ContinuousDeploymentPolicyId { get; set; }
 
         [Input("customErrorResponses")]
         private InputList<Inputs.DistributionCustomErrorResponseGetArgs>? _customErrorResponses;
@@ -887,6 +920,12 @@ namespace Pulumi.Aws.CloudFront
         /// </summary>
         [Input("retainOnDelete")]
         public Input<bool>? RetainOnDelete { get; set; }
+
+        /// <summary>
+        /// A Boolean that indicates whether this is a staging distribution. Defaults to `false`.
+        /// </summary>
+        [Input("staging")]
+        public Input<bool>? Staging { get; set; }
 
         /// <summary>
         /// Current status of the distribution. `Deployed` if the distribution's information is fully propagated throughout the Amazon CloudFront system.

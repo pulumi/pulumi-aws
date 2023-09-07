@@ -37,6 +37,7 @@ namespace Pulumi.Aws.OpenSearch.Outputs
         /// Instance type of data nodes in the cluster.
         /// </summary>
         public readonly string? InstanceType;
+        public readonly bool? MultiAzWithStandbyEnabled;
         /// <summary>
         /// Number of warm nodes in the cluster. Valid values are between `2` and `150`. `warm_count` can be only and must be set when `warm_enabled` is set to `true`.
         /// </summary>
@@ -72,6 +73,8 @@ namespace Pulumi.Aws.OpenSearch.Outputs
 
             string? instanceType,
 
+            bool? multiAzWithStandbyEnabled,
+
             int? warmCount,
 
             bool? warmEnabled,
@@ -88,6 +91,7 @@ namespace Pulumi.Aws.OpenSearch.Outputs
             DedicatedMasterType = dedicatedMasterType;
             InstanceCount = instanceCount;
             InstanceType = instanceType;
+            MultiAzWithStandbyEnabled = multiAzWithStandbyEnabled;
             WarmCount = warmCount;
             WarmEnabled = warmEnabled;
             WarmType = warmType;

@@ -46,6 +46,7 @@ public final class GetDomainClusterConfig {
      * 
      */
     private String instanceType;
+    private Boolean multiAzWithStandbyEnabled;
     /**
      * @return Number of warm nodes in the cluster.
      * 
@@ -115,6 +116,9 @@ public final class GetDomainClusterConfig {
     public String instanceType() {
         return this.instanceType;
     }
+    public Boolean multiAzWithStandbyEnabled() {
+        return this.multiAzWithStandbyEnabled;
+    }
     /**
      * @return Number of warm nodes in the cluster.
      * 
@@ -166,6 +170,7 @@ public final class GetDomainClusterConfig {
         private String dedicatedMasterType;
         private Integer instanceCount;
         private String instanceType;
+        private Boolean multiAzWithStandbyEnabled;
         private Integer warmCount;
         private @Nullable Boolean warmEnabled;
         private String warmType;
@@ -180,6 +185,7 @@ public final class GetDomainClusterConfig {
     	      this.dedicatedMasterType = defaults.dedicatedMasterType;
     	      this.instanceCount = defaults.instanceCount;
     	      this.instanceType = defaults.instanceType;
+    	      this.multiAzWithStandbyEnabled = defaults.multiAzWithStandbyEnabled;
     	      this.warmCount = defaults.warmCount;
     	      this.warmEnabled = defaults.warmEnabled;
     	      this.warmType = defaults.warmType;
@@ -221,6 +227,11 @@ public final class GetDomainClusterConfig {
             return this;
         }
         @CustomType.Setter
+        public Builder multiAzWithStandbyEnabled(Boolean multiAzWithStandbyEnabled) {
+            this.multiAzWithStandbyEnabled = Objects.requireNonNull(multiAzWithStandbyEnabled);
+            return this;
+        }
+        @CustomType.Setter
         public Builder warmCount(Integer warmCount) {
             this.warmCount = Objects.requireNonNull(warmCount);
             return this;
@@ -256,6 +267,7 @@ public final class GetDomainClusterConfig {
             o.dedicatedMasterType = dedicatedMasterType;
             o.instanceCount = instanceCount;
             o.instanceType = instanceType;
+            o.multiAzWithStandbyEnabled = multiAzWithStandbyEnabled;
             o.warmCount = warmCount;
             o.warmEnabled = warmEnabled;
             o.warmType = warmType;

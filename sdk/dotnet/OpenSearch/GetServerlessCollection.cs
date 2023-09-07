@@ -127,6 +127,9 @@ namespace Pulumi.Aws.OpenSearch
         /// Date the Collection was created.
         /// </summary>
         public readonly string CreatedDate;
+        /// <summary>
+        /// Collection-specific endpoint used to access OpenSearch Dashboards.
+        /// </summary>
         public readonly string DashboardEndpoint;
         /// <summary>
         /// Description of the collection.

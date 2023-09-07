@@ -17,14 +17,14 @@ public final class BucketLifecycleConfigurationV2RuleTransitionArgs extends com.
     public static final BucketLifecycleConfigurationV2RuleTransitionArgs Empty = new BucketLifecycleConfigurationV2RuleTransitionArgs();
 
     /**
-     * Date objects are transitioned to the specified storage class. The date value must be in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) and set to midnight UTC e.g. `2023-01-13T00:00:00Z`.
+     * Date objects are transitioned to the specified storage class. The date value must be in [RFC3339 full-date format](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) e.g. `2023-08-22`.
      * 
      */
     @Import(name="date")
     private @Nullable Output<String> date;
 
     /**
-     * @return Date objects are transitioned to the specified storage class. The date value must be in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) and set to midnight UTC e.g. `2023-01-13T00:00:00Z`.
+     * @return Date objects are transitioned to the specified storage class. The date value must be in [RFC3339 full-date format](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) e.g. `2023-08-22`.
      * 
      */
     public Optional<Output<String>> date() {
@@ -88,7 +88,7 @@ public final class BucketLifecycleConfigurationV2RuleTransitionArgs extends com.
         }
 
         /**
-         * @param date Date objects are transitioned to the specified storage class. The date value must be in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) and set to midnight UTC e.g. `2023-01-13T00:00:00Z`.
+         * @param date Date objects are transitioned to the specified storage class. The date value must be in [RFC3339 full-date format](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) e.g. `2023-08-22`.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class BucketLifecycleConfigurationV2RuleTransitionArgs extends com.
         }
 
         /**
-         * @param date Date objects are transitioned to the specified storage class. The date value must be in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) and set to midnight UTC e.g. `2023-01-13T00:00:00Z`.
+         * @param date Date objects are transitioned to the specified storage class. The date value must be in [RFC3339 full-date format](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) e.g. `2023-08-22`.
          * 
          * @return builder
          * 

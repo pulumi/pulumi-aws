@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Msk.Outputs
     public sealed class ClusterClientAuthenticationSasl
     {
         /// <summary>
-        /// Enables IAM client authentication. Defaults to `false`.
+        /// Enables SASL/IAM authentication for VPC connectivity.
         /// </summary>
         public readonly bool? Iam;
         /// <summary>
-        /// Enables SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
+        /// Enables SASL/SCRAM authentication for VPC connectivity.
         /// </summary>
         public readonly bool? Scram;
 

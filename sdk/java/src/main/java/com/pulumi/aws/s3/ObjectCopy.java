@@ -67,14 +67,14 @@ public class ObjectCopy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="acl", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> acl;
+    private Output<String> acl;
 
     /**
      * @return [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Conflicts with `grant`.
      * 
      */
-    public Output<Optional<String>> acl() {
-        return Codegen.optional(this.acl);
+    public Output<String> acl() {
+        return this.acl;
     }
     /**
      * Name of the bucket to put the file in.

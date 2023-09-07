@@ -47,14 +47,14 @@ public final class ContactChannelArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Name of the contact channel.
+     * Name of the contact channel. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the contact channel.
+     * @return Name of the contact channel. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
      * 
      */
     public Optional<Output<String>> name() {
@@ -146,7 +146,7 @@ public final class ContactChannelArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param name Name of the contact channel.
+         * @param name Name of the contact channel. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class ContactChannelArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param name Name of the contact channel.
+         * @param name Name of the contact channel. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
          * 
          * @return builder
          * 

@@ -24,6 +24,7 @@ public final class GetClusterResult {
     private String databaseName;
     private String dbClusterParameterGroupName;
     private String dbSubnetGroupName;
+    private String dbSystemId;
     private List<String> enabledCloudwatchLogsExports;
     private String endpoint;
     private String engine;
@@ -85,6 +86,9 @@ public final class GetClusterResult {
     }
     public String dbSubnetGroupName() {
         return this.dbSubnetGroupName;
+    }
+    public String dbSystemId() {
+        return this.dbSystemId;
     }
     public List<String> enabledCloudwatchLogsExports() {
         return this.enabledCloudwatchLogsExports;
@@ -180,6 +184,7 @@ public final class GetClusterResult {
         private String databaseName;
         private String dbClusterParameterGroupName;
         private String dbSubnetGroupName;
+        private String dbSystemId;
         private List<String> enabledCloudwatchLogsExports;
         private String endpoint;
         private String engine;
@@ -215,6 +220,7 @@ public final class GetClusterResult {
     	      this.databaseName = defaults.databaseName;
     	      this.dbClusterParameterGroupName = defaults.dbClusterParameterGroupName;
     	      this.dbSubnetGroupName = defaults.dbSubnetGroupName;
+    	      this.dbSystemId = defaults.dbSystemId;
     	      this.enabledCloudwatchLogsExports = defaults.enabledCloudwatchLogsExports;
     	      this.endpoint = defaults.endpoint;
     	      this.engine = defaults.engine;
@@ -293,6 +299,11 @@ public final class GetClusterResult {
         @CustomType.Setter
         public Builder dbSubnetGroupName(String dbSubnetGroupName) {
             this.dbSubnetGroupName = Objects.requireNonNull(dbSubnetGroupName);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder dbSystemId(String dbSystemId) {
+            this.dbSystemId = Objects.requireNonNull(dbSystemId);
             return this;
         }
         @CustomType.Setter
@@ -429,6 +440,7 @@ public final class GetClusterResult {
             o.databaseName = databaseName;
             o.dbClusterParameterGroupName = dbClusterParameterGroupName;
             o.dbSubnetGroupName = dbSubnetGroupName;
+            o.dbSystemId = dbSystemId;
             o.enabledCloudwatchLogsExports = enabledCloudwatchLogsExports;
             o.endpoint = endpoint;
             o.engine = engine;

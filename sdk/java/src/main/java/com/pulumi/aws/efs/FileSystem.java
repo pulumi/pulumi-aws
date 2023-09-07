@@ -217,6 +217,20 @@ public class FileSystem extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.lifecyclePolicies);
     }
     /**
+     * The value of the file system&#39;s `Name` tag.
+     * 
+     */
+    @Export(name="name", refs={String.class}, tree="[0]")
+    private Output<String> name;
+
+    /**
+     * @return The value of the file system&#39;s `Name` tag.
+     * 
+     */
+    public Output<String> name() {
+        return this.name;
+    }
+    /**
      * The current number of mount targets that the file system has.
      * 
      */

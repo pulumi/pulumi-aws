@@ -62,6 +62,7 @@ public final class Endpoints {
     private @Nullable String cloudwatchrum;
     private @Nullable String codeartifact;
     private @Nullable String codebuild;
+    private @Nullable String codecatalyst;
     private @Nullable String codecommit;
     private @Nullable String codedeploy;
     private @Nullable String codegurureviewer;
@@ -159,6 +160,8 @@ public final class Endpoints {
     private @Nullable String lexmodelbuilding;
     private @Nullable String lexmodelbuildingservice;
     private @Nullable String lexmodels;
+    private @Nullable String lexmodelsv2;
+    private @Nullable String lexv2models;
     private @Nullable String licensemanager;
     private @Nullable String lightsail;
     private @Nullable String location;
@@ -411,6 +414,9 @@ public final class Endpoints {
     }
     public Optional<String> codebuild() {
         return Optional.ofNullable(this.codebuild);
+    }
+    public Optional<String> codecatalyst() {
+        return Optional.ofNullable(this.codecatalyst);
     }
     public Optional<String> codecommit() {
         return Optional.ofNullable(this.codecommit);
@@ -702,6 +708,12 @@ public final class Endpoints {
     }
     public Optional<String> lexmodels() {
         return Optional.ofNullable(this.lexmodels);
+    }
+    public Optional<String> lexmodelsv2() {
+        return Optional.ofNullable(this.lexmodelsv2);
+    }
+    public Optional<String> lexv2models() {
+        return Optional.ofNullable(this.lexv2models);
     }
     public Optional<String> licensemanager() {
         return Optional.ofNullable(this.licensemanager);
@@ -1058,6 +1070,7 @@ public final class Endpoints {
         private @Nullable String cloudwatchrum;
         private @Nullable String codeartifact;
         private @Nullable String codebuild;
+        private @Nullable String codecatalyst;
         private @Nullable String codecommit;
         private @Nullable String codedeploy;
         private @Nullable String codegurureviewer;
@@ -1155,6 +1168,8 @@ public final class Endpoints {
         private @Nullable String lexmodelbuilding;
         private @Nullable String lexmodelbuildingservice;
         private @Nullable String lexmodels;
+        private @Nullable String lexmodelsv2;
+        private @Nullable String lexv2models;
         private @Nullable String licensemanager;
         private @Nullable String lightsail;
         private @Nullable String location;
@@ -1307,6 +1322,7 @@ public final class Endpoints {
     	      this.cloudwatchrum = defaults.cloudwatchrum;
     	      this.codeartifact = defaults.codeartifact;
     	      this.codebuild = defaults.codebuild;
+    	      this.codecatalyst = defaults.codecatalyst;
     	      this.codecommit = defaults.codecommit;
     	      this.codedeploy = defaults.codedeploy;
     	      this.codegurureviewer = defaults.codegurureviewer;
@@ -1404,6 +1420,8 @@ public final class Endpoints {
     	      this.lexmodelbuilding = defaults.lexmodelbuilding;
     	      this.lexmodelbuildingservice = defaults.lexmodelbuildingservice;
     	      this.lexmodels = defaults.lexmodels;
+    	      this.lexmodelsv2 = defaults.lexmodelsv2;
+    	      this.lexv2models = defaults.lexv2models;
     	      this.licensemanager = defaults.licensemanager;
     	      this.lightsail = defaults.lightsail;
     	      this.location = defaults.location;
@@ -1757,6 +1775,11 @@ public final class Endpoints {
         @CustomType.Setter
         public Builder codebuild(@Nullable String codebuild) {
             this.codebuild = codebuild;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder codecatalyst(@Nullable String codecatalyst) {
+            this.codecatalyst = codecatalyst;
             return this;
         }
         @CustomType.Setter
@@ -2242,6 +2265,16 @@ public final class Endpoints {
         @CustomType.Setter
         public Builder lexmodels(@Nullable String lexmodels) {
             this.lexmodels = lexmodels;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder lexmodelsv2(@Nullable String lexmodelsv2) {
+            this.lexmodelsv2 = lexmodelsv2;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder lexv2models(@Nullable String lexv2models) {
+            this.lexv2models = lexv2models;
             return this;
         }
         @CustomType.Setter
@@ -2787,6 +2820,7 @@ public final class Endpoints {
             o.cloudwatchrum = cloudwatchrum;
             o.codeartifact = codeartifact;
             o.codebuild = codebuild;
+            o.codecatalyst = codecatalyst;
             o.codecommit = codecommit;
             o.codedeploy = codedeploy;
             o.codegurureviewer = codegurureviewer;
@@ -2884,6 +2918,8 @@ public final class Endpoints {
             o.lexmodelbuilding = lexmodelbuilding;
             o.lexmodelbuildingservice = lexmodelbuildingservice;
             o.lexmodels = lexmodels;
+            o.lexmodelsv2 = lexmodelsv2;
+            o.lexv2models = lexv2models;
             o.licensemanager = licensemanager;
             o.lightsail = lightsail;
             o.location = location;

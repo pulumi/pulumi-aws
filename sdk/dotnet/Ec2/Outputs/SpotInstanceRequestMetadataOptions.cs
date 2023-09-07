@@ -18,6 +18,10 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly string? HttpEndpoint;
         /// <summary>
+        /// Whether the IPv6 endpoint for the instance metadata service is enabled. Defaults to `disabled`.
+        /// </summary>
+        public readonly string? HttpProtocolIpv6;
+        /// <summary>
         /// Desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Valid values are integer from `1` to `64`. Defaults to `1`.
         /// </summary>
         public readonly int? HttpPutResponseHopLimit;
@@ -36,6 +40,8 @@ namespace Pulumi.Aws.Ec2.Outputs
         private SpotInstanceRequestMetadataOptions(
             string? httpEndpoint,
 
+            string? httpProtocolIpv6,
+
             int? httpPutResponseHopLimit,
 
             string? httpTokens,
@@ -43,6 +49,7 @@ namespace Pulumi.Aws.Ec2.Outputs
             string? instanceMetadataTags)
         {
             HttpEndpoint = httpEndpoint;
+            HttpProtocolIpv6 = httpProtocolIpv6;
             HttpPutResponseHopLimit = httpPutResponseHopLimit;
             HttpTokens = httpTokens;
             InstanceMetadataTags = instanceMetadataTags;

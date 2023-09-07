@@ -26,6 +26,12 @@ namespace Pulumi.Aws.Transfer
     public partial class Profile : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The ARN of the profile.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
         /// </summary>
         [Output("as2Id")]
@@ -38,7 +44,7 @@ namespace Pulumi.Aws.Transfer
         public Output<ImmutableArray<string>> CertificateIds { get; private set; } = null!;
 
         /// <summary>
-        /// The unique identifier for the AS2 profile
+        /// The unique identifier for the AS2 profile.
         /// </summary>
         [Output("profileId")]
         public Output<string> ProfileId { get; private set; } = null!;
@@ -149,6 +155,12 @@ namespace Pulumi.Aws.Transfer
     public sealed class ProfileState : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The ARN of the profile.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
+        /// <summary>
         /// The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
         /// </summary>
         [Input("as2Id")]
@@ -167,7 +179,7 @@ namespace Pulumi.Aws.Transfer
         }
 
         /// <summary>
-        /// The unique identifier for the AS2 profile
+        /// The unique identifier for the AS2 profile.
         /// </summary>
         [Input("profileId")]
         public Input<string>? ProfileId { get; set; }

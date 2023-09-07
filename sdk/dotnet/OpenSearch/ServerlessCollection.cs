@@ -84,6 +84,9 @@ namespace Pulumi.Aws.OpenSearch
         [Output("collectionEndpoint")]
         public Output<string> CollectionEndpoint { get; private set; } = null!;
 
+        /// <summary>
+        /// Collection-specific endpoint used to access OpenSearch Dashboards.
+        /// </summary>
         [Output("dashboardEndpoint")]
         public Output<string> DashboardEndpoint { get; private set; } = null!;
 
@@ -226,6 +229,9 @@ namespace Pulumi.Aws.OpenSearch
         [Input("collectionEndpoint")]
         public Input<string>? CollectionEndpoint { get; set; }
 
+        /// <summary>
+        /// Collection-specific endpoint used to access OpenSearch Dashboards.
+        /// </summary>
         [Input("dashboardEndpoint")]
         public Input<string>? DashboardEndpoint { get; set; }
 

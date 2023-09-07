@@ -22,14 +22,14 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
     }
 
     /**
-     * When specified this field indicates the three letter language code of the caption track to extract from the source.
+     * Selects a specific three-letter language code from within an audio source.
      * 
      */
     @Import(name="languageCode", required=true)
     private Output<String> languageCode;
 
     /**
-     * @return When specified this field indicates the three letter language code of the caption track to extract from the source.
+     * @return Selects a specific three-letter language code from within an audio source.
      * 
      */
     public Output<String> languageCode() {
@@ -87,7 +87,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
         }
 
         /**
-         * @param languageCode When specified this field indicates the three letter language code of the caption track to extract from the source.
+         * @param languageCode Selects a specific three-letter language code from within an audio source.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
         }
 
         /**
-         * @param languageCode When specified this field indicates the three letter language code of the caption track to extract from the source.
+         * @param languageCode Selects a specific three-letter language code from within an audio source.
          * 
          * @return builder
          * 

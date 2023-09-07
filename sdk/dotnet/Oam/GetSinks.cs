@@ -36,6 +36,32 @@ namespace Pulumi.Aws.Oam
         /// </summary>
         public static Task<GetSinksResult> InvokeAsync(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSinksResult>("aws:oam/getSinks:getSinks", InvokeArgs.Empty, options.WithDefaults());
+
+        /// <summary>
+        /// Data source for managing an AWS CloudWatch Observability Access Manager Sinks.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Oam.GetSinks.Invoke();
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetSinksResult> Invoke(InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSinksResult>("aws:oam/getSinks:getSinks", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

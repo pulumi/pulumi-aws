@@ -52,6 +52,11 @@ public final class GetDataLakeSettingsResult {
      */
     private String id;
     /**
+     * @return List of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
+     * 
+     */
+    private List<String> readOnlyAdmins;
+    /**
      * @return List of the resource-owning account IDs that the caller&#39;s account can use to share their user access details (user ARNs).
      * 
      */
@@ -111,6 +116,13 @@ public final class GetDataLakeSettingsResult {
         return this.id;
     }
     /**
+     * @return List of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
+     * 
+     */
+    public List<String> readOnlyAdmins() {
+        return this.readOnlyAdmins;
+    }
+    /**
      * @return List of the resource-owning account IDs that the caller&#39;s account can use to share their user access details (user ARNs).
      * 
      */
@@ -135,6 +147,7 @@ public final class GetDataLakeSettingsResult {
         private List<GetDataLakeSettingsCreateTableDefaultPermission> createTableDefaultPermissions;
         private List<String> externalDataFilteringAllowLists;
         private String id;
+        private List<String> readOnlyAdmins;
         private List<String> trustedResourceOwners;
         public Builder() {}
         public Builder(GetDataLakeSettingsResult defaults) {
@@ -147,6 +160,7 @@ public final class GetDataLakeSettingsResult {
     	      this.createTableDefaultPermissions = defaults.createTableDefaultPermissions;
     	      this.externalDataFilteringAllowLists = defaults.externalDataFilteringAllowLists;
     	      this.id = defaults.id;
+    	      this.readOnlyAdmins = defaults.readOnlyAdmins;
     	      this.trustedResourceOwners = defaults.trustedResourceOwners;
         }
 
@@ -206,6 +220,14 @@ public final class GetDataLakeSettingsResult {
             return this;
         }
         @CustomType.Setter
+        public Builder readOnlyAdmins(List<String> readOnlyAdmins) {
+            this.readOnlyAdmins = Objects.requireNonNull(readOnlyAdmins);
+            return this;
+        }
+        public Builder readOnlyAdmins(String... readOnlyAdmins) {
+            return readOnlyAdmins(List.of(readOnlyAdmins));
+        }
+        @CustomType.Setter
         public Builder trustedResourceOwners(List<String> trustedResourceOwners) {
             this.trustedResourceOwners = Objects.requireNonNull(trustedResourceOwners);
             return this;
@@ -223,6 +245,7 @@ public final class GetDataLakeSettingsResult {
             o.createTableDefaultPermissions = createTableDefaultPermissions;
             o.externalDataFilteringAllowLists = externalDataFilteringAllowLists;
             o.id = id;
+            o.readOnlyAdmins = readOnlyAdmins;
             o.trustedResourceOwners = trustedResourceOwners;
             return o;
         }

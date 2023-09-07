@@ -396,6 +396,9 @@ namespace Pulumi.Aws.Rds
         [Output("dbClusterInstanceClass")]
         public Output<string?> DbClusterInstanceClass { get; private set; } = null!;
 
+        /// <summary>
+        /// A cluster parameter group to associate with the cluster.
+        /// </summary>
         [Output("dbClusterParameterGroupName")]
         public Output<string> DbClusterParameterGroupName { get; private set; } = null!;
 
@@ -410,6 +413,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Output("dbSubnetGroupName")]
         public Output<string> DbSubnetGroupName { get; private set; } = null!;
+
+        /// <summary>
+        /// For use with RDS Custom.
+        /// </summary>
+        [Output("dbSystemId")]
+        public Output<string> DbSystemId { get; private set; } = null!;
 
         /// <summary>
         /// If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
@@ -777,6 +786,9 @@ namespace Pulumi.Aws.Rds
         [Input("dbClusterInstanceClass")]
         public Input<string>? DbClusterInstanceClass { get; set; }
 
+        /// <summary>
+        /// A cluster parameter group to associate with the cluster.
+        /// </summary>
         [Input("dbClusterParameterGroupName")]
         public Input<string>? DbClusterParameterGroupName { get; set; }
 
@@ -791,6 +803,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("dbSubnetGroupName")]
         public Input<string>? DbSubnetGroupName { get; set; }
+
+        /// <summary>
+        /// For use with RDS Custom.
+        /// </summary>
+        [Input("dbSystemId")]
+        public Input<string>? DbSystemId { get; set; }
 
         /// <summary>
         /// If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
@@ -1125,6 +1143,9 @@ namespace Pulumi.Aws.Rds
         [Input("dbClusterInstanceClass")]
         public Input<string>? DbClusterInstanceClass { get; set; }
 
+        /// <summary>
+        /// A cluster parameter group to associate with the cluster.
+        /// </summary>
         [Input("dbClusterParameterGroupName")]
         public Input<string>? DbClusterParameterGroupName { get; set; }
 
@@ -1139,6 +1160,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("dbSubnetGroupName")]
         public Input<string>? DbSubnetGroupName { get; set; }
+
+        /// <summary>
+        /// For use with RDS Custom.
+        /// </summary>
+        [Input("dbSystemId")]
+        public Input<string>? DbSystemId { get; set; }
 
         /// <summary>
         /// If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.

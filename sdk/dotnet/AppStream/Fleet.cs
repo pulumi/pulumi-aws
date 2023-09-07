@@ -33,7 +33,7 @@ namespace Pulumi.Aws.AppStream
     ///         EnableDefaultInternetAccess = false,
     ///         FleetType = "ON_DEMAND",
     ///         IdleDisconnectTimeoutInSeconds = 60,
-    ///         ImageName = "Amazon-AppStream2-Sample-Image-02-04-2019",
+    ///         ImageName = "Amazon-AppStream2-Sample-Image-03-11-2023",
     ///         InstanceType = "stream.standard.large",
     ///         MaxUserDurationInSeconds = 600,
     ///         Tags = 

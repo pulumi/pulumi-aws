@@ -11,10 +11,13 @@ import java.util.Objects;
 public final class ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration {
     /**
      * @return The default value of the dimension that is published to Amazon CloudWatch if you don&#39;t provide the value of the dimension when you send an email.
-     * ( `dimension_name` - (Required) The name of an Amazon CloudWatch dimension associated with an email sending metric.
      * 
      */
     private String defaultDimensionValue;
+    /**
+     * @return The name of an Amazon CloudWatch dimension associated with an email sending metric.
+     * 
+     */
     private String dimensionName;
     /**
      * @return The location where the Amazon SES API v2 finds the value of a dimension to publish to Amazon CloudWatch. Valid values: `MESSAGE_TAG`, `EMAIL_HEADER`, `LINK_TAG`.
@@ -25,12 +28,15 @@ public final class ConfigurationSetEventDestinationEventDestinationCloudWatchDes
     private ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration() {}
     /**
      * @return The default value of the dimension that is published to Amazon CloudWatch if you don&#39;t provide the value of the dimension when you send an email.
-     * ( `dimension_name` - (Required) The name of an Amazon CloudWatch dimension associated with an email sending metric.
      * 
      */
     public String defaultDimensionValue() {
         return this.defaultDimensionValue;
     }
+    /**
+     * @return The name of an Amazon CloudWatch dimension associated with an email sending metric.
+     * 
+     */
     public String dimensionName() {
         return this.dimensionName;
     }

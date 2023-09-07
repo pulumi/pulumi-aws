@@ -95,6 +95,7 @@ import javax.annotation.Nullable;
  *             .dbSubnetGroupName(&#34;default&#34;)
  *             .build(), CustomResourceOptions.builder()
  *                 .provider(aws.secondary())
+ *                 .dependsOn(primaryCluster)
  *                 .build());
  * 
  *         var secondaryClusterInstance = new ClusterInstance(&#34;secondaryClusterInstance&#34;, ClusterInstanceArgs.builder()        

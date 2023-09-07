@@ -6,6 +6,7 @@ package com.pulumi.aws.wafv2.inputs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllowArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlockArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaArgs;
+import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -64,6 +65,21 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverr
     }
 
     /**
+     * Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
+     * 
+     */
+    @Import(name="challenge")
+    private @Nullable Output<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeArgs> challenge;
+
+    /**
+     * @return Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
+     * 
+     */
+    public Optional<Output<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeArgs>> challenge() {
+        return Optional.ofNullable(this.challenge);
+    }
+
+    /**
      * Instructs AWS WAF to count the web request and allow it. See `count` below for details.
      * 
      */
@@ -84,6 +100,7 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverr
         this.allow = $.allow;
         this.block = $.block;
         this.captcha = $.captcha;
+        this.challenge = $.challenge;
         this.count = $.count;
     }
 
@@ -166,6 +183,27 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverr
          */
         public Builder captcha(WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaArgs captcha) {
             return captcha(Output.of(captcha));
+        }
+
+        /**
+         * @param challenge Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder challenge(@Nullable Output<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeArgs> challenge) {
+            $.challenge = challenge;
+            return this;
+        }
+
+        /**
+         * @param challenge Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder challenge(WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeArgs challenge) {
+            return challenge(Output.of(challenge));
         }
 
         /**

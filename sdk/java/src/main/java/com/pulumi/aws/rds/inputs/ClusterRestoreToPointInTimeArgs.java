@@ -49,14 +49,14 @@ public final class ClusterRestoreToPointInTimeArgs extends com.pulumi.resources.
     }
 
     /**
-     * Identifier of the source database cluster from which to restore.
+     * Identifier of the source database cluster from which to restore. When restoring from a cluster in another AWS account, the identifier is the ARN of that cluster.
      * 
      */
     @Import(name="sourceClusterIdentifier", required=true)
     private Output<String> sourceClusterIdentifier;
 
     /**
-     * @return Identifier of the source database cluster from which to restore.
+     * @return Identifier of the source database cluster from which to restore. When restoring from a cluster in another AWS account, the identifier is the ARN of that cluster.
      * 
      */
     public Output<String> sourceClusterIdentifier() {
@@ -150,7 +150,7 @@ public final class ClusterRestoreToPointInTimeArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param sourceClusterIdentifier Identifier of the source database cluster from which to restore.
+         * @param sourceClusterIdentifier Identifier of the source database cluster from which to restore. When restoring from a cluster in another AWS account, the identifier is the ARN of that cluster.
          * 
          * @return builder
          * 
@@ -161,7 +161,7 @@ public final class ClusterRestoreToPointInTimeArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param sourceClusterIdentifier Identifier of the source database cluster from which to restore.
+         * @param sourceClusterIdentifier Identifier of the source database cluster from which to restore. When restoring from a cluster in another AWS account, the identifier is the ARN of that cluster.
          * 
          * @return builder
          * 

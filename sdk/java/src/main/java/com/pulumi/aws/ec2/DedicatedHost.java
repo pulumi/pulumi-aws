@@ -81,14 +81,14 @@ public class DedicatedHost extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="assetId", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> assetId;
+    private Output<String> assetId;
 
     /**
      * @return The ID of the Outpost hardware asset on which to allocate the Dedicated Hosts. This parameter is supported only if you specify OutpostArn. If you are allocating the Dedicated Hosts in a Region, omit this parameter.
      * 
      */
-    public Output<Optional<String>> assetId() {
-        return Codegen.optional(this.assetId);
+    public Output<String> assetId() {
+        return this.assetId;
     }
     /**
      * Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID. Valid values: `on`, `off`. Default: `on`.

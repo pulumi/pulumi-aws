@@ -22,11 +22,11 @@ namespace Pulumi.Aws.MediaLive.Outputs
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings? BurnInDestinationSettings;
         /// <summary>
-        /// Dvb Sub Destination Settings. See Dvb Sub Destination Settings for more details.
+        /// DVB Sub Destination Settings. See DVB Sub Destination Settings for more details.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings? DvbSubDestinationSettings;
         /// <summary>
-        /// Ebu Tt D Destination Settings. See Ebu Tt D Destination Settings for more details.
+        /// EBU TT D Destination Settings. See EBU TT D Destination Settings for more details.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettings? EbuTtDDestinationSettings;
         /// <summary>
@@ -34,32 +34,35 @@ namespace Pulumi.Aws.MediaLive.Outputs
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettings? EmbeddedDestinationSettings;
         /// <summary>
-        /// Embedded Plus Scte20 Destination Settings.
+        /// Embedded Plus SCTE20 Destination Settings.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettings? EmbeddedPlusScte20DestinationSettings;
         /// <summary>
-        /// Rtmp Caption Info Destination Settings.
+        /// RTMP Caption Info Destination Settings.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettings? RtmpCaptionInfoDestinationSettings;
         /// <summary>
-        /// Scte20 Plus Embedded Destination Settings.
+        /// SCTE20 Plus Embedded Destination Settings.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettings? Scte20PlusEmbeddedDestinationSettings;
         /// <summary>
-        /// Scte27 Destination Settings.
+        /// SCTE27 Destination Settings.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettings? Scte27DestinationSettings;
+        /// <summary>
+        /// SMPTE TT Destination Settings.
+        /// </summary>
         public readonly Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettings? SmpteTtDestinationSettings;
         /// <summary>
         /// Teletext Destination Settings.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettings? TeletextDestinationSettings;
         /// <summary>
-        /// Ttml Destination Settings. See Ttml Destination Settings for more details.
+        /// TTML Destination Settings. See TTML Destination Settings for more details.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettings? TtmlDestinationSettings;
         /// <summary>
-        /// Webvtt Destination Settings. See Webvtt Destination Settings for more details.
+        /// WebVTT Destination Settings. See WebVTT Destination Settings for more details.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettings? WebvttDestinationSettings;
 

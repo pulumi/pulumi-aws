@@ -135,6 +135,7 @@ namespace Pulumi.Aws.Rds
         public readonly string DatabaseName;
         public readonly string DbClusterParameterGroupName;
         public readonly string DbSubnetGroupName;
+        public readonly string DbSystemId;
         public readonly ImmutableArray<string> EnabledCloudwatchLogsExports;
         public readonly string Endpoint;
         public readonly string Engine;
@@ -185,6 +186,8 @@ namespace Pulumi.Aws.Rds
             string dbClusterParameterGroupName,
 
             string dbSubnetGroupName,
+
+            string dbSystemId,
 
             ImmutableArray<string> enabledCloudwatchLogsExports,
 
@@ -240,6 +243,7 @@ namespace Pulumi.Aws.Rds
             DatabaseName = databaseName;
             DbClusterParameterGroupName = dbClusterParameterGroupName;
             DbSubnetGroupName = dbSubnetGroupName;
+            DbSystemId = dbSystemId;
             EnabledCloudwatchLogsExports = enabledCloudwatchLogsExports;
             Endpoint = endpoint;
             Engine = engine;

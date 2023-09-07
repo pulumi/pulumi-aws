@@ -212,6 +212,21 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Whether to ignore failed [Auto Scaling scaling activities](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html) while waiting for capacity. The default is `false` -- failed scaling activities cause errors to be returned.
+     * 
+     */
+    @Import(name="ignoreFailedScalingActivities")
+    private @Nullable Output<Boolean> ignoreFailedScalingActivities;
+
+    /**
+     * @return Whether to ignore failed [Auto Scaling scaling activities](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html) while waiting for capacity. The default is `false` -- failed scaling activities cause errors to be returned.
+     * 
+     */
+    public Optional<Output<Boolean>> ignoreFailedScalingActivities() {
+        return Optional.ofNullable(this.ignoreFailedScalingActivities);
+    }
+
+    /**
      * One or more
      * [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
      * to attach to the Auto Scaling Group **before** instances are launched. The
@@ -657,6 +672,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         this.forceDeleteWarmPool = $.forceDeleteWarmPool;
         this.healthCheckGracePeriod = $.healthCheckGracePeriod;
         this.healthCheckType = $.healthCheckType;
+        this.ignoreFailedScalingActivities = $.ignoreFailedScalingActivities;
         this.initialLifecycleHooks = $.initialLifecycleHooks;
         this.instanceRefresh = $.instanceRefresh;
         this.launchConfiguration = $.launchConfiguration;
@@ -972,6 +988,27 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder healthCheckType(String healthCheckType) {
             return healthCheckType(Output.of(healthCheckType));
+        }
+
+        /**
+         * @param ignoreFailedScalingActivities Whether to ignore failed [Auto Scaling scaling activities](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html) while waiting for capacity. The default is `false` -- failed scaling activities cause errors to be returned.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ignoreFailedScalingActivities(@Nullable Output<Boolean> ignoreFailedScalingActivities) {
+            $.ignoreFailedScalingActivities = ignoreFailedScalingActivities;
+            return this;
+        }
+
+        /**
+         * @param ignoreFailedScalingActivities Whether to ignore failed [Auto Scaling scaling activities](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html) while waiting for capacity. The default is `false` -- failed scaling activities cause errors to be returned.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ignoreFailedScalingActivities(Boolean ignoreFailedScalingActivities) {
+            return ignoreFailedScalingActivities(Output.of(ignoreFailedScalingActivities));
         }
 
         /**

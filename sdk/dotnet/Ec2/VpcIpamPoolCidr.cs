@@ -19,15 +19,11 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// __NOTE:__ Do not use the IPAM Pool Cidr ID as this was introduced after the resource already existed.
+    /// terraform import {
     /// 
-    /// Using `pulumi import`, import IPAMs using the `&lt;cidr&gt;_&lt;ipam-pool-id&gt;`. For example:
+    ///  to = aws_vpc_ipam_pool_cidr.example
     /// 
-    /// __NOTE:__ Do not use the IPAM Pool Cidr ID as this was introduced after the resource already existed.
-    /// 
-    /// ```sh
-    ///  $ pulumi import aws:ec2/vpcIpamPoolCidr:VpcIpamPoolCidr example 172.2.0.0/24_ipam-pool-0e634f5a1517cccdc
-    /// ```
+    ///  id = "172.20.0.0/24_ipam-pool-0e634f5a1517cccdc" } Using `pulumi import`, import IPAMs using the `&lt;cidr&gt;_&lt;ipam-pool-id&gt;`. For exampleconsole % TODO import aws_vpc_ipam_pool_cidr.example 172.20.0.0/24_ipam-pool-0e634f5a1517cccdc
     /// </summary>
     [AwsResourceType("aws:ec2/vpcIpamPoolCidr:VpcIpamPoolCidr")]
     public partial class VpcIpamPoolCidr : global::Pulumi.CustomResource

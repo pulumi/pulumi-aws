@@ -16,6 +16,11 @@ public final class GetInstanceMetadataOption {
      */
     private String httpEndpoint;
     /**
+     * @return Whether the IPv6 endpoint for the instance metadata service is `enabled` or `disabled`
+     * 
+     */
+    private String httpProtocolIpv6;
+    /**
      * @return Desired HTTP PUT response hop limit for instance metadata requests.
      * 
      */
@@ -38,6 +43,13 @@ public final class GetInstanceMetadataOption {
      */
     public String httpEndpoint() {
         return this.httpEndpoint;
+    }
+    /**
+     * @return Whether the IPv6 endpoint for the instance metadata service is `enabled` or `disabled`
+     * 
+     */
+    public String httpProtocolIpv6() {
+        return this.httpProtocolIpv6;
     }
     /**
      * @return Desired HTTP PUT response hop limit for instance metadata requests.
@@ -71,6 +83,7 @@ public final class GetInstanceMetadataOption {
     @CustomType.Builder
     public static final class Builder {
         private String httpEndpoint;
+        private String httpProtocolIpv6;
         private Integer httpPutResponseHopLimit;
         private String httpTokens;
         private String instanceMetadataTags;
@@ -78,6 +91,7 @@ public final class GetInstanceMetadataOption {
         public Builder(GetInstanceMetadataOption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.httpEndpoint = defaults.httpEndpoint;
+    	      this.httpProtocolIpv6 = defaults.httpProtocolIpv6;
     	      this.httpPutResponseHopLimit = defaults.httpPutResponseHopLimit;
     	      this.httpTokens = defaults.httpTokens;
     	      this.instanceMetadataTags = defaults.instanceMetadataTags;
@@ -86,6 +100,11 @@ public final class GetInstanceMetadataOption {
         @CustomType.Setter
         public Builder httpEndpoint(String httpEndpoint) {
             this.httpEndpoint = Objects.requireNonNull(httpEndpoint);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder httpProtocolIpv6(String httpProtocolIpv6) {
+            this.httpProtocolIpv6 = Objects.requireNonNull(httpProtocolIpv6);
             return this;
         }
         @CustomType.Setter
@@ -106,6 +125,7 @@ public final class GetInstanceMetadataOption {
         public GetInstanceMetadataOption build() {
             final var o = new GetInstanceMetadataOption();
             o.httpEndpoint = httpEndpoint;
+            o.httpProtocolIpv6 = httpProtocolIpv6;
             o.httpPutResponseHopLimit = httpPutResponseHopLimit;
             o.httpTokens = httpTokens;
             o.instanceMetadataTags = instanceMetadataTags;

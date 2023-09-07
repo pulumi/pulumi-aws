@@ -144,6 +144,51 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * A string containing one or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+     * 
+     */
+    @Import(name="bootstrapBrokersVpcConnectivitySaslIam")
+    private @Nullable Output<String> bootstrapBrokersVpcConnectivitySaslIam;
+
+    /**
+     * @return A string containing one or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+     * 
+     */
+    public Optional<Output<String>> bootstrapBrokersVpcConnectivitySaslIam() {
+        return Optional.ofNullable(this.bootstrapBrokersVpcConnectivitySaslIam);
+    }
+
+    /**
+     * A string containing one or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+     * 
+     */
+    @Import(name="bootstrapBrokersVpcConnectivitySaslScram")
+    private @Nullable Output<String> bootstrapBrokersVpcConnectivitySaslScram;
+
+    /**
+     * @return A string containing one or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+     * 
+     */
+    public Optional<Output<String>> bootstrapBrokersVpcConnectivitySaslScram() {
+        return Optional.ofNullable(this.bootstrapBrokersVpcConnectivitySaslScram);
+    }
+
+    /**
+     * A string containing one or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+     * 
+     */
+    @Import(name="bootstrapBrokersVpcConnectivityTls")
+    private @Nullable Output<String> bootstrapBrokersVpcConnectivityTls;
+
+    /**
+     * @return A string containing one or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+     * 
+     */
+    public Optional<Output<String>> bootstrapBrokersVpcConnectivityTls() {
+        return Optional.ofNullable(this.bootstrapBrokersVpcConnectivityTls);
+    }
+
+    /**
      * Configuration block for the broker nodes of the Kafka cluster.
      * 
      */
@@ -396,6 +441,9 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         this.bootstrapBrokersSaslIam = $.bootstrapBrokersSaslIam;
         this.bootstrapBrokersSaslScram = $.bootstrapBrokersSaslScram;
         this.bootstrapBrokersTls = $.bootstrapBrokersTls;
+        this.bootstrapBrokersVpcConnectivitySaslIam = $.bootstrapBrokersVpcConnectivitySaslIam;
+        this.bootstrapBrokersVpcConnectivitySaslScram = $.bootstrapBrokersVpcConnectivitySaslScram;
+        this.bootstrapBrokersVpcConnectivityTls = $.bootstrapBrokersVpcConnectivityTls;
         this.brokerNodeGroupInfo = $.brokerNodeGroupInfo;
         this.clientAuthentication = $.clientAuthentication;
         this.clusterName = $.clusterName;
@@ -598,6 +646,69 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder bootstrapBrokersTls(String bootstrapBrokersTls) {
             return bootstrapBrokersTls(Output.of(bootstrapBrokersTls));
+        }
+
+        /**
+         * @param bootstrapBrokersVpcConnectivitySaslIam A string containing one or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bootstrapBrokersVpcConnectivitySaslIam(@Nullable Output<String> bootstrapBrokersVpcConnectivitySaslIam) {
+            $.bootstrapBrokersVpcConnectivitySaslIam = bootstrapBrokersVpcConnectivitySaslIam;
+            return this;
+        }
+
+        /**
+         * @param bootstrapBrokersVpcConnectivitySaslIam A string containing one or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bootstrapBrokersVpcConnectivitySaslIam(String bootstrapBrokersVpcConnectivitySaslIam) {
+            return bootstrapBrokersVpcConnectivitySaslIam(Output.of(bootstrapBrokersVpcConnectivitySaslIam));
+        }
+
+        /**
+         * @param bootstrapBrokersVpcConnectivitySaslScram A string containing one or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bootstrapBrokersVpcConnectivitySaslScram(@Nullable Output<String> bootstrapBrokersVpcConnectivitySaslScram) {
+            $.bootstrapBrokersVpcConnectivitySaslScram = bootstrapBrokersVpcConnectivitySaslScram;
+            return this;
+        }
+
+        /**
+         * @param bootstrapBrokersVpcConnectivitySaslScram A string containing one or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bootstrapBrokersVpcConnectivitySaslScram(String bootstrapBrokersVpcConnectivitySaslScram) {
+            return bootstrapBrokersVpcConnectivitySaslScram(Output.of(bootstrapBrokersVpcConnectivitySaslScram));
+        }
+
+        /**
+         * @param bootstrapBrokersVpcConnectivityTls A string containing one or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bootstrapBrokersVpcConnectivityTls(@Nullable Output<String> bootstrapBrokersVpcConnectivityTls) {
+            $.bootstrapBrokersVpcConnectivityTls = bootstrapBrokersVpcConnectivityTls;
+            return this;
+        }
+
+        /**
+         * @param bootstrapBrokersVpcConnectivityTls A string containing one or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bootstrapBrokersVpcConnectivityTls(String bootstrapBrokersVpcConnectivityTls) {
+            return bootstrapBrokersVpcConnectivityTls(Output.of(bootstrapBrokersVpcConnectivityTls));
         }
 
         /**

@@ -3,15 +3,34 @@
 
 package com.pulumi.aws.finspace.inputs;
 
+import com.pulumi.aws.finspace.inputs.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class KxEnvironmentTransitGatewayConfigurationArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final KxEnvironmentTransitGatewayConfigurationArgs Empty = new KxEnvironmentTransitGatewayConfigurationArgs();
+
+    /**
+     * Rules that define how you manage outbound traffic from kdb network to your internal network. Defined below.
+     * 
+     */
+    @Import(name="attachmentNetworkAclConfigurations")
+    private @Nullable Output<List<KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs>> attachmentNetworkAclConfigurations;
+
+    /**
+     * @return Rules that define how you manage outbound traffic from kdb network to your internal network. Defined below.
+     * 
+     */
+    public Optional<Output<List<KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs>>> attachmentNetworkAclConfigurations() {
+        return Optional.ofNullable(this.attachmentNetworkAclConfigurations);
+    }
 
     /**
      * Routing CIDR on behalf of KX environment. It could be any “/26 range in the 100.64.0.0 CIDR space. After providing, it will be added to the customer’s transit gateway routing table so that the traffics could be routed to KX network.
@@ -46,6 +65,7 @@ public final class KxEnvironmentTransitGatewayConfigurationArgs extends com.pulu
     private KxEnvironmentTransitGatewayConfigurationArgs() {}
 
     private KxEnvironmentTransitGatewayConfigurationArgs(KxEnvironmentTransitGatewayConfigurationArgs $) {
+        this.attachmentNetworkAclConfigurations = $.attachmentNetworkAclConfigurations;
         this.routableCidrSpace = $.routableCidrSpace;
         this.transitGatewayId = $.transitGatewayId;
     }
@@ -66,6 +86,37 @@ public final class KxEnvironmentTransitGatewayConfigurationArgs extends com.pulu
 
         public Builder(KxEnvironmentTransitGatewayConfigurationArgs defaults) {
             $ = new KxEnvironmentTransitGatewayConfigurationArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param attachmentNetworkAclConfigurations Rules that define how you manage outbound traffic from kdb network to your internal network. Defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder attachmentNetworkAclConfigurations(@Nullable Output<List<KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs>> attachmentNetworkAclConfigurations) {
+            $.attachmentNetworkAclConfigurations = attachmentNetworkAclConfigurations;
+            return this;
+        }
+
+        /**
+         * @param attachmentNetworkAclConfigurations Rules that define how you manage outbound traffic from kdb network to your internal network. Defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder attachmentNetworkAclConfigurations(List<KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs> attachmentNetworkAclConfigurations) {
+            return attachmentNetworkAclConfigurations(Output.of(attachmentNetworkAclConfigurations));
+        }
+
+        /**
+         * @param attachmentNetworkAclConfigurations Rules that define how you manage outbound traffic from kdb network to your internal network. Defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder attachmentNetworkAclConfigurations(KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs... attachmentNetworkAclConfigurations) {
+            return attachmentNetworkAclConfigurations(List.of(attachmentNetworkAclConfigurations));
         }
 
         /**

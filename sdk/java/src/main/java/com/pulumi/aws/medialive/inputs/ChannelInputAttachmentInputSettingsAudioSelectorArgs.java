@@ -35,9 +35,17 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorArgs extends 
         return this.name;
     }
 
+    /**
+     * The audio selector settings. See Audio Selector Settings for more details.
+     * 
+     */
     @Import(name="selectorSettings")
     private @Nullable Output<ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgs> selectorSettings;
 
+    /**
+     * @return The audio selector settings. See Audio Selector Settings for more details.
+     * 
+     */
     public Optional<Output<ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgs>> selectorSettings() {
         return Optional.ofNullable(this.selectorSettings);
     }
@@ -92,11 +100,23 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorArgs extends 
             return name(Output.of(name));
         }
 
+        /**
+         * @param selectorSettings The audio selector settings. See Audio Selector Settings for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder selectorSettings(@Nullable Output<ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgs> selectorSettings) {
             $.selectorSettings = selectorSettings;
             return this;
         }
 
+        /**
+         * @param selectorSettings The audio selector settings. See Audio Selector Settings for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder selectorSettings(ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgs selectorSettings) {
             return selectorSettings(Output.of(selectorSettings));
         }

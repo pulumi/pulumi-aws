@@ -80,6 +80,20 @@ public class Certificate extends com.pulumi.resources.CustomResource {
         return this.activeDate;
     }
     /**
+     * The ARN of the certificate
+     * 
+     */
+    @Export(name="arn", refs={String.class}, tree="[0]")
+    private Output<String> arn;
+
+    /**
+     * @return The ARN of the certificate
+     * 
+     */
+    public Output<String> arn() {
+        return this.arn;
+    }
+    /**
      * The valid certificate file required for the transfer.
      * 
      */

@@ -24,6 +24,8 @@ import com.pulumi.aws.ec2transitgateway.inputs.GetRouteTableAssociationsPlainArg
 import com.pulumi.aws.ec2transitgateway.inputs.GetRouteTablePlainArgs;
 import com.pulumi.aws.ec2transitgateway.inputs.GetRouteTablePropagationsArgs;
 import com.pulumi.aws.ec2transitgateway.inputs.GetRouteTablePropagationsPlainArgs;
+import com.pulumi.aws.ec2transitgateway.inputs.GetRouteTableRoutesArgs;
+import com.pulumi.aws.ec2transitgateway.inputs.GetRouteTableRoutesPlainArgs;
 import com.pulumi.aws.ec2transitgateway.inputs.GetTransitGatewayArgs;
 import com.pulumi.aws.ec2transitgateway.inputs.GetTransitGatewayPlainArgs;
 import com.pulumi.aws.ec2transitgateway.inputs.GetVpcAttachmentArgs;
@@ -42,6 +44,7 @@ import com.pulumi.aws.ec2transitgateway.outputs.GetPeeringAttachmentResult;
 import com.pulumi.aws.ec2transitgateway.outputs.GetRouteTableAssociationsResult;
 import com.pulumi.aws.ec2transitgateway.outputs.GetRouteTablePropagationsResult;
 import com.pulumi.aws.ec2transitgateway.outputs.GetRouteTableResult;
+import com.pulumi.aws.ec2transitgateway.outputs.GetRouteTableRoutesResult;
 import com.pulumi.aws.ec2transitgateway.outputs.GetTransitGatewayResult;
 import com.pulumi.aws.ec2transitgateway.outputs.GetVpcAttachmentResult;
 import com.pulumi.aws.ec2transitgateway.outputs.GetVpcAttachmentsResult;
@@ -3044,6 +3047,170 @@ public final class Ec2transitgatewayFunctions {
      */
     public static CompletableFuture<GetRouteTablePropagationsResult> getRouteTablePropagationsPlain(GetRouteTablePropagationsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ec2transitgateway/getRouteTablePropagations:getRouteTablePropagations", TypeShape.of(GetRouteTablePropagationsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides informations for routes of a specific transit gateway, such as state, type, cidr
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetRouteTableRoutesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = Ec2transitgatewayFunctions.getRouteTableRoutes(GetRouteTableRoutesArgs.builder()
+     *             .filters(GetRouteTableRoutesFilterArgs.builder()
+     *                 .name(&#34;type&#34;)
+     *                 .values(&#34;propagated&#34;)
+     *                 .build())
+     *             .transitGatewayRouteTableId(aws_ec2_transit_gateway_route_table.example().id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetRouteTableRoutesResult> getRouteTableRoutes(GetRouteTableRoutesArgs args) {
+        return getRouteTableRoutes(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides informations for routes of a specific transit gateway, such as state, type, cidr
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetRouteTableRoutesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = Ec2transitgatewayFunctions.getRouteTableRoutes(GetRouteTableRoutesArgs.builder()
+     *             .filters(GetRouteTableRoutesFilterArgs.builder()
+     *                 .name(&#34;type&#34;)
+     *                 .values(&#34;propagated&#34;)
+     *                 .build())
+     *             .transitGatewayRouteTableId(aws_ec2_transit_gateway_route_table.example().id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetRouteTableRoutesResult> getRouteTableRoutesPlain(GetRouteTableRoutesPlainArgs args) {
+        return getRouteTableRoutesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides informations for routes of a specific transit gateway, such as state, type, cidr
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetRouteTableRoutesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = Ec2transitgatewayFunctions.getRouteTableRoutes(GetRouteTableRoutesArgs.builder()
+     *             .filters(GetRouteTableRoutesFilterArgs.builder()
+     *                 .name(&#34;type&#34;)
+     *                 .values(&#34;propagated&#34;)
+     *                 .build())
+     *             .transitGatewayRouteTableId(aws_ec2_transit_gateway_route_table.example().id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetRouteTableRoutesResult> getRouteTableRoutes(GetRouteTableRoutesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:ec2transitgateway/getRouteTableRoutes:getRouteTableRoutes", TypeShape.of(GetRouteTableRoutesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides informations for routes of a specific transit gateway, such as state, type, cidr
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetRouteTableRoutesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = Ec2transitgatewayFunctions.getRouteTableRoutes(GetRouteTableRoutesArgs.builder()
+     *             .filters(GetRouteTableRoutesFilterArgs.builder()
+     *                 .name(&#34;type&#34;)
+     *                 .values(&#34;propagated&#34;)
+     *                 .build())
+     *             .transitGatewayRouteTableId(aws_ec2_transit_gateway_route_table.example().id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetRouteTableRoutesResult> getRouteTableRoutesPlain(GetRouteTableRoutesPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:ec2transitgateway/getRouteTableRoutes:getRouteTableRoutes", TypeShape.of(GetRouteTableRoutesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Get information on an EC2 Transit Gateway.

@@ -25,6 +25,10 @@ public final class GetServerlessCollectionResult {
      * 
      */
     private String createdDate;
+    /**
+     * @return Collection-specific endpoint used to access OpenSearch Dashboards.
+     * 
+     */
     private String dashboardEndpoint;
     /**
      * @return Description of the collection.
@@ -76,6 +80,10 @@ public final class GetServerlessCollectionResult {
     public String createdDate() {
         return this.createdDate;
     }
+    /**
+     * @return Collection-specific endpoint used to access OpenSearch Dashboards.
+     * 
+     */
     public String dashboardEndpoint() {
         return this.dashboardEndpoint;
     }

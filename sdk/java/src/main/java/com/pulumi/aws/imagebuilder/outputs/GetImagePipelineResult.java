@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.imagebuilder.outputs;
 
+import com.pulumi.aws.imagebuilder.outputs.GetImagePipelineImageScanningConfiguration;
 import com.pulumi.aws.imagebuilder.outputs.GetImagePipelineImageTestsConfiguration;
 import com.pulumi.aws.imagebuilder.outputs.GetImagePipelineSchedule;
 import com.pulumi.core.annotations.CustomType;
@@ -65,6 +66,7 @@ public final class GetImagePipelineResult {
      * 
      */
     private String imageRecipeArn;
+    private List<GetImagePipelineImageScanningConfiguration> imageScanningConfigurations;
     /**
      * @return List of an object with image tests configuration.
      * 
@@ -175,6 +177,9 @@ public final class GetImagePipelineResult {
     public String imageRecipeArn() {
         return this.imageRecipeArn;
     }
+    public List<GetImagePipelineImageScanningConfiguration> imageScanningConfigurations() {
+        return this.imageScanningConfigurations;
+    }
     /**
      * @return List of an object with image tests configuration.
      * 
@@ -245,6 +250,7 @@ public final class GetImagePipelineResult {
         private Boolean enhancedImageMetadataEnabled;
         private String id;
         private String imageRecipeArn;
+        private List<GetImagePipelineImageScanningConfiguration> imageScanningConfigurations;
         private List<GetImagePipelineImageTestsConfiguration> imageTestsConfigurations;
         private String infrastructureConfigurationArn;
         private String name;
@@ -266,6 +272,7 @@ public final class GetImagePipelineResult {
     	      this.enhancedImageMetadataEnabled = defaults.enhancedImageMetadataEnabled;
     	      this.id = defaults.id;
     	      this.imageRecipeArn = defaults.imageRecipeArn;
+    	      this.imageScanningConfigurations = defaults.imageScanningConfigurations;
     	      this.imageTestsConfigurations = defaults.imageTestsConfigurations;
     	      this.infrastructureConfigurationArn = defaults.infrastructureConfigurationArn;
     	      this.name = defaults.name;
@@ -331,6 +338,14 @@ public final class GetImagePipelineResult {
             return this;
         }
         @CustomType.Setter
+        public Builder imageScanningConfigurations(List<GetImagePipelineImageScanningConfiguration> imageScanningConfigurations) {
+            this.imageScanningConfigurations = Objects.requireNonNull(imageScanningConfigurations);
+            return this;
+        }
+        public Builder imageScanningConfigurations(GetImagePipelineImageScanningConfiguration... imageScanningConfigurations) {
+            return imageScanningConfigurations(List.of(imageScanningConfigurations));
+        }
+        @CustomType.Setter
         public Builder imageTestsConfigurations(List<GetImagePipelineImageTestsConfiguration> imageTestsConfigurations) {
             this.imageTestsConfigurations = Objects.requireNonNull(imageTestsConfigurations);
             return this;
@@ -384,6 +399,7 @@ public final class GetImagePipelineResult {
             o.enhancedImageMetadataEnabled = enhancedImageMetadataEnabled;
             o.id = id;
             o.imageRecipeArn = imageRecipeArn;
+            o.imageScanningConfigurations = imageScanningConfigurations;
             o.imageTestsConfigurations = imageTestsConfigurations;
             o.infrastructureConfigurationArn = infrastructureConfigurationArn;
             o.name = name;

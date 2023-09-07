@@ -13,7 +13,9 @@ namespace Pulumi.Aws.CostExplorer
     /// Provides a CE Anomaly Subscription.
     /// 
     /// ## Example Usage
-    /// ### Threshold Expression
+    /// 
+    /// ### Threshold Expression Example
+    /// ### For a Specific Dimension
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -50,6 +52,71 @@ namespace Pulumi.Aws.CostExplorer
     ///                 MatchOptions = new[]
     ///                 {
     ///                     "GREATER_THAN_OR_EQUAL",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Using an `and` Expression
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.CostExplorer.AnomalySubscription("test", new()
+    ///     {
+    ///         Frequency = "DAILY",
+    ///         MonitorArnLists = new[]
+    ///         {
+    ///             aws_ce_anomaly_monitor.Test.Arn,
+    ///         },
+    ///         Subscribers = new[]
+    ///         {
+    ///             new Aws.CostExplorer.Inputs.AnomalySubscriptionSubscriberArgs
+    ///             {
+    ///                 Type = "EMAIL",
+    ///                 Address = "abc@example.com",
+    ///             },
+    ///         },
+    ///         ThresholdExpression = new Aws.CostExplorer.Inputs.AnomalySubscriptionThresholdExpressionArgs
+    ///         {
+    ///             Ands = new[]
+    ///             {
+    ///                 new Aws.CostExplorer.Inputs.AnomalySubscriptionThresholdExpressionAndArgs
+    ///                 {
+    ///                     Dimension = new Aws.CostExplorer.Inputs.AnomalySubscriptionThresholdExpressionAndDimensionArgs
+    ///                     {
+    ///                         Key = "ANOMALY_TOTAL_IMPACT_ABSOLUTE",
+    ///                         MatchOptions = new[]
+    ///                         {
+    ///                             "GREATER_THAN_OR_EQUAL",
+    ///                         },
+    ///                         Values = new[]
+    ///                         {
+    ///                             "100",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 new Aws.CostExplorer.Inputs.AnomalySubscriptionThresholdExpressionAndArgs
+    ///                 {
+    ///                     Dimension = new Aws.CostExplorer.Inputs.AnomalySubscriptionThresholdExpressionAndDimensionArgs
+    ///                     {
+    ///                         Key = "ANOMALY_TOTAL_IMPACT_PERCENTAGE",
+    ///                         MatchOptions = new[]
+    ///                         {
+    ///                             "GREATER_THAN_OR_EQUAL",
+    ///                         },
+    ///                         Values = new[]
+    ///                         {
+    ///                             "50",
+    ///                         },
+    ///                     },
     ///                 },
     ///             },
     ///         },

@@ -37,8 +37,8 @@ namespace Pulumi.Aws.ControlTower
     ///         ControlIdentifier = $"arn:aws:controltower:{current.Apply(getRegionResult =&gt; getRegionResult.Name)}::control/AWS-GR_EC2_VOLUME_INUSE_CHECK",
     ///         TargetIdentifier = .Where(x =&gt; x.Name == "Infrastructure").Select(x =&gt; 
     ///         {
-    ///             return  x.Arn;
-    ///         })[0],
+    ///             return x.Arn;
+    ///         }).ToList()[0],
     ///     });
     /// 
     /// });

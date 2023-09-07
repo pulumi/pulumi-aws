@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Rds.Inputs
         public Input<string>? RestoreType { get; set; }
 
         /// <summary>
-        /// Identifier of the source database cluster from which to restore.
+        /// Identifier of the source database cluster from which to restore. When restoring from a cluster in another AWS account, the identifier is the ARN of that cluster.
         /// </summary>
         [Input("sourceClusterIdentifier", required: true)]
         public Input<string> SourceClusterIdentifier { get; set; } = null!;

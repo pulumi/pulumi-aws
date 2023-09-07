@@ -281,14 +281,14 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
+     * A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
      * 
      */
     @Import(name="securityGroups")
     private @Nullable Output<List<String>> securityGroups;
 
     /**
-     * @return A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
+     * @return A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
      * 
      */
     public Optional<Output<List<String>>> securityGroups() {
@@ -766,7 +766,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityGroups A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
+         * @param securityGroups A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
          * 
          * @return builder
          * 
@@ -777,7 +777,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityGroups A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
+         * @param securityGroups A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
          * 
          * @return builder
          * 
@@ -787,7 +787,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityGroups A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
+         * @param securityGroups A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
          * 
          * @return builder
          * 
